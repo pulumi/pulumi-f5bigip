@@ -1,4 +1,5 @@
 /vendor/
+**/node_modules/
 .pulumi
 **/bin/
 Pulumi.*.yaml
@@ -7,3 +8,5 @@ Pulumi.*.yaml
 
 .idea/
 *.iml
+
+yarn.lock

@@ -1,0 +1,26 @@
+{
+    "name": "@pulumi/f5bigip",
+    "version": "${VERSION}",
+    "description": "A Pulumi package for creating and managing F5 BigIP resources.",
+    "keywords": [
+        "pulumi",
+        "f5",
+        "bigip"
+    ],
+    "homepage": "https://pulumi.io",
+    "repository": "https://github.com/pulumi/pulumi-f5bigip",
+    "license": "Apache-2.0",
+    "scripts": {
+        "build": "tsc"
+    },
+    "dependencies": {
+        "@pulumi/pulumi": "latest"
+    },
+    "devDependencies": {
+        "@types/node": "^8.0.25",
+        "typescript": "^2.6.2"
+    },
+    "pulumi": {
+        "resource": true
+    }
+}
