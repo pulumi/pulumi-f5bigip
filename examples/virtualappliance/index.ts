@@ -17,17 +17,19 @@ const baseTags = {
 const virtualapplicanceAddress = virutalapplicance.f5Address.apply(async (address) => {
     let ready = false;
     while (!ready) {
-        console.log("waiting for bigip virtual appliance address to be healthy")
         try {
             const res = await fetch(address, { agent });
             if (res.status == 200) {
                 ready = true;
             }
+            else {
+                console.log("waiting for bigip virtual appliance address to be healthy");
+            }
         } catch {
             // Keep trying on failure
             console.log("bigip virtual appliance not yet ready")
 
-            continue
+            continue;
         }
     }
     return address;
@@ -57,7 +59,7 @@ const pool = new f5bigip.ltm.Pool("backend", {
 const poolAttachments = backendinstances.instancePublicIps.map((backendAddress, i) => {
     const applicationPoolAttachment = new f5bigip.ltm.PoolAttachment(`backend-${i}`, {
         pool: pool.name,
-        node: `/Common/${backendAddress}`,
+        node: pulumi.interpolate`/Common/${backendAddress}:80`,
     }, { provider: f5bigipProvider });
     return applicationPoolAttachment;
 });
