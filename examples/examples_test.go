@@ -39,6 +39,11 @@ func TestWebserver(t *testing.T) {
 		Dependencies: []string{
 			"@pulumi/f5bigip",
 		},
+		Config: map[string]string{
+			"f5bigip:address":  "",
+			"f5bigip:password": "",
+			"f5bigip:username": "",
+		},
 		Dir: path.Join(cwd, "virtualappliance"),
 	})
 	integration.ProgramTest(t, &opts)
