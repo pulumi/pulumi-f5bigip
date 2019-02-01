@@ -33,7 +33,7 @@ const nginxSecGroup = new aws.ec2.SecurityGroup("nginx", {
 });
 
 let nginxInstances = [];
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i < 2; i++) {
     const nginxInstance = new aws.ec2.Instance(`nginx-${i}`, {
         ami: ubuntuAmiId,
         instanceType: "t2.medium",

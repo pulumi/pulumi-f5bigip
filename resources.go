@@ -59,6 +59,35 @@ func Provider() tfbridge.ProviderInfo {
 		License:     "Apache-2.0",
 		Homepage:    "https://pulumi.io",
 		Repository:  "https://github.com/pulumi/pulumi-f5bigip",
+		Config: map[string]*tfbridge.SchemaInfo{
+			"address": {
+				Default: &tfbridge.DefaultInfo{
+					EnvVars: []string{"BIGIP_HOST"},
+				},
+			},
+			"username": {
+				Default: &tfbridge.DefaultInfo{
+					EnvVars: []string{"BIGIP_USER"},
+				},
+			},
+			"password": {
+				Default: &tfbridge.DefaultInfo{
+					EnvVars: []string{"BIGIP_PASSWORD"},
+				},
+			},
+			"token_auth": {
+				Default: &tfbridge.DefaultInfo{
+					Value:   false,
+					EnvVars: []string{"BIGIP_TOKEN_AUTH"},
+				},
+			},
+			"login_ref": {
+				Default: &tfbridge.DefaultInfo{
+					Value:   "tmos",
+					EnvVars: []string{"BIGIP_LOGIN_REF"},
+				},
+			},
+		},
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"bigip_cm_device":                       {Tok: f5BigIPResource(f5BigIPCMMod, "Device")},
 			"bigip_cm_devicegroup":                  {Tok: f5BigIPResource(f5BigIPCMMod, "DeviceGroup")},
