@@ -4,6 +4,25 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * `bigip_ltm_node` Manages a node configuration
+ * 
+ * For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+ * 
+ * 
+ * ## Example Usage
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ * 
+ * const bigip_ltm_node_node = new f5bigip.ltm.Node("node", {
+ *     address: "10.10.10.10",
+ *     name: "/Common/terraform_node1",
+ * });
+ * ```
+ */
 export class Node extends pulumi.CustomResource {
     /**
      * Get an existing Node resource's state with the given name, ID, and optional extra
@@ -18,7 +37,7 @@ export class Node extends pulumi.CustomResource {
     }
 
     /**
-     * Address of the node
+     * IP or hostname of the node
      */
     public readonly address: pulumi.Output<string>;
     /**
@@ -29,7 +48,7 @@ export class Node extends pulumi.CustomResource {
      * Sets the dynamic ratio number for the node. Used for dynamic ratio load balancing.
      */
     public readonly dynamicRatio: pulumi.Output<number | undefined>;
-    public readonly fqdn: pulumi.Output<{ addressFamily?: string, autopopulate?: string, downinterval?: number, interval?: string, name?: string } | undefined>;
+    public readonly fqdns: pulumi.Output<{ addressFamily?: string, name?: string }[] | undefined>;
     /**
      * Specifies the name of the monitor or monitor rule that you want to associate with the node.
      */
@@ -44,7 +63,7 @@ export class Node extends pulumi.CustomResource {
      */
     public readonly rateLimit: pulumi.Output<string | undefined>;
     /**
-     * Marks the node up or down. The default value is user-up.
+     * Default is "user-up" you can set to "user-down" if you want to disable
      */
     public readonly state: pulumi.Output<string | undefined>;
 
@@ -63,7 +82,7 @@ export class Node extends pulumi.CustomResource {
             inputs["address"] = state ? state.address : undefined;
             inputs["connectionLimit"] = state ? state.connectionLimit : undefined;
             inputs["dynamicRatio"] = state ? state.dynamicRatio : undefined;
-            inputs["fqdn"] = state ? state.fqdn : undefined;
+            inputs["fqdns"] = state ? state.fqdns : undefined;
             inputs["monitor"] = state ? state.monitor : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["rateLimit"] = state ? state.rateLimit : undefined;
@@ -79,7 +98,7 @@ export class Node extends pulumi.CustomResource {
             inputs["address"] = args ? args.address : undefined;
             inputs["connectionLimit"] = args ? args.connectionLimit : undefined;
             inputs["dynamicRatio"] = args ? args.dynamicRatio : undefined;
-            inputs["fqdn"] = args ? args.fqdn : undefined;
+            inputs["fqdns"] = args ? args.fqdns : undefined;
             inputs["monitor"] = args ? args.monitor : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["rateLimit"] = args ? args.rateLimit : undefined;
@@ -94,7 +113,7 @@ export class Node extends pulumi.CustomResource {
  */
 export interface NodeState {
     /**
-     * Address of the node
+     * IP or hostname of the node
      */
     readonly address?: pulumi.Input<string>;
     /**
@@ -105,7 +124,7 @@ export interface NodeState {
      * Sets the dynamic ratio number for the node. Used for dynamic ratio load balancing.
      */
     readonly dynamicRatio?: pulumi.Input<number>;
-    readonly fqdn?: pulumi.Input<{ addressFamily?: pulumi.Input<string>, autopopulate?: pulumi.Input<string>, downinterval?: pulumi.Input<number>, interval?: pulumi.Input<string>, name?: pulumi.Input<string> }>;
+    readonly fqdns?: pulumi.Input<pulumi.Input<{ addressFamily?: pulumi.Input<string>, name?: pulumi.Input<string> }>[]>;
     /**
      * Specifies the name of the monitor or monitor rule that you want to associate with the node.
      */
@@ -120,7 +139,7 @@ export interface NodeState {
      */
     readonly rateLimit?: pulumi.Input<string>;
     /**
-     * Marks the node up or down. The default value is user-up.
+     * Default is "user-up" you can set to "user-down" if you want to disable
      */
     readonly state?: pulumi.Input<string>;
 }
@@ -130,7 +149,7 @@ export interface NodeState {
  */
 export interface NodeArgs {
     /**
-     * Address of the node
+     * IP or hostname of the node
      */
     readonly address: pulumi.Input<string>;
     /**
@@ -141,7 +160,7 @@ export interface NodeArgs {
      * Sets the dynamic ratio number for the node. Used for dynamic ratio load balancing.
      */
     readonly dynamicRatio?: pulumi.Input<number>;
-    readonly fqdn?: pulumi.Input<{ addressFamily?: pulumi.Input<string>, autopopulate?: pulumi.Input<string>, downinterval?: pulumi.Input<number>, interval?: pulumi.Input<string>, name?: pulumi.Input<string> }>;
+    readonly fqdns?: pulumi.Input<pulumi.Input<{ addressFamily?: pulumi.Input<string>, name?: pulumi.Input<string> }>[]>;
     /**
      * Specifies the name of the monitor or monitor rule that you want to associate with the node.
      */
@@ -156,7 +175,7 @@ export interface NodeArgs {
      */
     readonly rateLimit?: pulumi.Input<string>;
     /**
-     * Marks the node up or down. The default value is user-up.
+     * Default is "user-up" you can set to "user-down" if you want to disable
      */
     readonly state?: pulumi.Input<string>;
 }

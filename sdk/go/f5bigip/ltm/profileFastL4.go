@@ -8,6 +8,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// `bigip_ltm_profile_fastl4` Configures a custom profile_fastl4 for use by health checks.
+// 
+// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 type ProfileFastL4 struct {
 	s *pulumi.ResourceState
 }
@@ -83,100 +86,100 @@ func (r *ProfileFastL4) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// Use the parent Fastl4 profile
+// Specifies late binding client timeout in seconds. This setting specifies the number of seconds allowed for a client to transmit enough data to select a server when late binding is enabled. If it expires timeout-recovery mode will dictate what action to take.
 func (r *ProfileFastL4) ClientTimeout() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["clientTimeout"])
 }
 
-// Use the parent Fastl4 profile
+// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
 func (r *ProfileFastL4) DefaultsFrom() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["defaultsFrom"])
 }
 
-// Use the parent Fastl4 profile
+// Enables or disables late binding explicit flow migration that allows iRules to control when flows move from software to hardware. Explicit flow migration is disabled by default hence BIG-IP automatically migrates flows from software to hardware.
 func (r *ProfileFastL4) ExplicitflowMigration() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["explicitflowMigration"])
 }
 
-// Use the parent Fastl4 profile
+// Enables or disables hardware SYN cookie support when PVA10 is present on the system. Note that when you set the hardware syncookie option to enabled, you may also want to set the following bigdb database variables using the "/sys modify db" command, based on your requirements: pva.SynCookies.Full.ConnectionThreshold (default: 500000), pva.SynCookies.Assist.ConnectionThreshold (default: 500000) pva.SynCookies.ClientWindow (default: 0). The default value is disabled.
 func (r *ProfileFastL4) HardwareSyncookie() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["hardwareSyncookie"])
 }
 
-// Use the parent Fastl4 profile
+// Specifies an idle timeout in seconds. This setting specifies the number of seconds that a connection is idle before the connection is eligible for deletion.When you specify an idle timeout for the Fast L4 profile, the value must be greater than the bigdb database variable Pva.Scrub time in msec for it to work properly.The default value is 300 seconds.
 func (r *ProfileFastL4) IdleTimeout() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["idleTimeout"])
 }
 
-// Use the parent Fastl4 profile
+// Specifies an IP ToS number for the client side. This option specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to clients. The default value is 65535 (pass-through), which indicates, do not modify.
 func (r *ProfileFastL4) IptosToclient() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["iptosToclient"])
 }
 
-// Use the parent Fastl4 profile
+// Specifies an IP ToS number for the server side. This setting specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to servers. The default value is 65535 (pass-through), which indicates, do not modify.
 func (r *ProfileFastL4) IptosToserver() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["iptosToserver"])
 }
 
-// Use the parent Fastl4 profile
+// Specifies the keep alive probe interval, in seconds. The default value is disabled (0 seconds).
 func (r *ProfileFastL4) KeepaliveInterval() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["keepaliveInterval"])
 }
 
-// Name of the Fastl4 Profile
+// Name of the profile_fastl4
 func (r *ProfileFastL4) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// name of partition
+// Displays the administrative partition within which this profile resides
 func (r *ProfileFastL4) Partition() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["partition"])
 }
 
 // Input properties used for looking up and filtering ProfileFastL4 resources.
 type ProfileFastL4State struct {
-	// Use the parent Fastl4 profile
+	// Specifies late binding client timeout in seconds. This setting specifies the number of seconds allowed for a client to transmit enough data to select a server when late binding is enabled. If it expires timeout-recovery mode will dictate what action to take.
 	ClientTimeout interface{}
-	// Use the parent Fastl4 profile
+	// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
 	DefaultsFrom interface{}
-	// Use the parent Fastl4 profile
+	// Enables or disables late binding explicit flow migration that allows iRules to control when flows move from software to hardware. Explicit flow migration is disabled by default hence BIG-IP automatically migrates flows from software to hardware.
 	ExplicitflowMigration interface{}
-	// Use the parent Fastl4 profile
+	// Enables or disables hardware SYN cookie support when PVA10 is present on the system. Note that when you set the hardware syncookie option to enabled, you may also want to set the following bigdb database variables using the "/sys modify db" command, based on your requirements: pva.SynCookies.Full.ConnectionThreshold (default: 500000), pva.SynCookies.Assist.ConnectionThreshold (default: 500000) pva.SynCookies.ClientWindow (default: 0). The default value is disabled.
 	HardwareSyncookie interface{}
-	// Use the parent Fastl4 profile
+	// Specifies an idle timeout in seconds. This setting specifies the number of seconds that a connection is idle before the connection is eligible for deletion.When you specify an idle timeout for the Fast L4 profile, the value must be greater than the bigdb database variable Pva.Scrub time in msec for it to work properly.The default value is 300 seconds.
 	IdleTimeout interface{}
-	// Use the parent Fastl4 profile
+	// Specifies an IP ToS number for the client side. This option specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to clients. The default value is 65535 (pass-through), which indicates, do not modify.
 	IptosToclient interface{}
-	// Use the parent Fastl4 profile
+	// Specifies an IP ToS number for the server side. This setting specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to servers. The default value is 65535 (pass-through), which indicates, do not modify.
 	IptosToserver interface{}
-	// Use the parent Fastl4 profile
+	// Specifies the keep alive probe interval, in seconds. The default value is disabled (0 seconds).
 	KeepaliveInterval interface{}
-	// Name of the Fastl4 Profile
+	// Name of the profile_fastl4
 	Name interface{}
-	// name of partition
+	// Displays the administrative partition within which this profile resides
 	Partition interface{}
 }
 
 // The set of arguments for constructing a ProfileFastL4 resource.
 type ProfileFastL4Args struct {
-	// Use the parent Fastl4 profile
+	// Specifies late binding client timeout in seconds. This setting specifies the number of seconds allowed for a client to transmit enough data to select a server when late binding is enabled. If it expires timeout-recovery mode will dictate what action to take.
 	ClientTimeout interface{}
-	// Use the parent Fastl4 profile
+	// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
 	DefaultsFrom interface{}
-	// Use the parent Fastl4 profile
+	// Enables or disables late binding explicit flow migration that allows iRules to control when flows move from software to hardware. Explicit flow migration is disabled by default hence BIG-IP automatically migrates flows from software to hardware.
 	ExplicitflowMigration interface{}
-	// Use the parent Fastl4 profile
+	// Enables or disables hardware SYN cookie support when PVA10 is present on the system. Note that when you set the hardware syncookie option to enabled, you may also want to set the following bigdb database variables using the "/sys modify db" command, based on your requirements: pva.SynCookies.Full.ConnectionThreshold (default: 500000), pva.SynCookies.Assist.ConnectionThreshold (default: 500000) pva.SynCookies.ClientWindow (default: 0). The default value is disabled.
 	HardwareSyncookie interface{}
-	// Use the parent Fastl4 profile
+	// Specifies an idle timeout in seconds. This setting specifies the number of seconds that a connection is idle before the connection is eligible for deletion.When you specify an idle timeout for the Fast L4 profile, the value must be greater than the bigdb database variable Pva.Scrub time in msec for it to work properly.The default value is 300 seconds.
 	IdleTimeout interface{}
-	// Use the parent Fastl4 profile
+	// Specifies an IP ToS number for the client side. This option specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to clients. The default value is 65535 (pass-through), which indicates, do not modify.
 	IptosToclient interface{}
-	// Use the parent Fastl4 profile
+	// Specifies an IP ToS number for the server side. This setting specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to servers. The default value is 65535 (pass-through), which indicates, do not modify.
 	IptosToserver interface{}
-	// Use the parent Fastl4 profile
+	// Specifies the keep alive probe interval, in seconds. The default value is disabled (0 seconds).
 	KeepaliveInterval interface{}
-	// Name of the Fastl4 Profile
+	// Name of the profile_fastl4
 	Name interface{}
-	// name of partition
+	// Displays the administrative partition within which this profile resides
 	Partition interface{}
 }

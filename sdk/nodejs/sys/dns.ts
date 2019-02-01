@@ -4,6 +4,27 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * `bigip_ltm_dns` Configures DNS server on F5 BIG-IP
+ * 
+ * 
+ * 
+ * 
+ * ## Example Usage
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ * 
+ * const bigip_ltm_dns_dns1 = new f5bigip.LtmDns("dns1", {
+ *     description: "/Common/DNS1",
+ *     nameServers: ["1.1.1.1"],
+ *     numberofDots: 2,
+ *     search: ["f5.com"],
+ * });
+ * ```
+ */
 export class Dns extends pulumi.CustomResource {
     /**
      * Get an existing Dns resource's state with the given name, ID, and optional extra
@@ -22,15 +43,15 @@ export class Dns extends pulumi.CustomResource {
      */
     public readonly description: pulumi.Output<string>;
     /**
-     * Servers Address
+     * Name or IP address of the DNS server
      */
     public readonly nameServers: pulumi.Output<string[] | undefined>;
     /**
-     * how many DNS Servers
+     * Configures the number of dots needed in a name before an initial absolute query will be made.
      */
     public readonly numberOfDots: pulumi.Output<number | undefined>;
     /**
-     * Servers search domain
+     * Specify what domains you want to search
      */
     public readonly searches: pulumi.Output<string[] | undefined>;
 
@@ -73,15 +94,15 @@ export interface DnsState {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * Servers Address
+     * Name or IP address of the DNS server
      */
     readonly nameServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * how many DNS Servers
+     * Configures the number of dots needed in a name before an initial absolute query will be made.
      */
     readonly numberOfDots?: pulumi.Input<number>;
     /**
-     * Servers search domain
+     * Specify what domains you want to search
      */
     readonly searches?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -95,15 +116,15 @@ export interface DnsArgs {
      */
     readonly description: pulumi.Input<string>;
     /**
-     * Servers Address
+     * Name or IP address of the DNS server
      */
     readonly nameServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * how many DNS Servers
+     * Configures the number of dots needed in a name before an initial absolute query will be made.
      */
     readonly numberOfDots?: pulumi.Input<number>;
     /**
-     * Servers search domain
+     * Specify what domains you want to search
      */
     readonly searches?: pulumi.Input<pulumi.Input<string>[]>;
 }

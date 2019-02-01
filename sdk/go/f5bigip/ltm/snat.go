@@ -8,6 +8,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// `bigip_ltm_snat` Manages a snat configuration
+// 
+// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 type Snat struct {
 	s *pulumi.ResourceState
 }
@@ -101,31 +104,32 @@ func (r *Snat) Mirror() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["mirror"])
 }
 
-// Snat list Name
+// Name of the snat
 func (r *Snat) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
+// IP or hostname of the snat
 func (r *Snat) Origins() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["origins"])
 }
 
-// Which partition on BIG-IP
+// Displays the administrative partition within which this profile resides
 func (r *Snat) Partition() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["partition"])
 }
 
-// Specifies the name of a SNAT pool. You can only use this option when automap and translation are not used
+// Specifies the name of a SNAT pool. You can only use this option when automap and translation are not used.
 func (r *Snat) Snatpool() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["snatpool"])
 }
 
-// Specifies whether the system preserves the source port of the connection.
+// Specifies whether the system preserves the source port of the connection. The default is preserve. Use of the preserve-strict setting should be restricted to UDP only under very special circumstances such as nPath or transparent (that is, no translation of any other L3/L4 field), where there is a 1:1 relationship between virtual IP addresses and node addresses, or when clustered multi-processing (CMP) is disabled. The change setting is useful for obfuscating internal network addresses.
 func (r *Snat) Sourceport() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sourceport"])
 }
 
-// Specifies the name of a translated IP address.
+// Specifies the name of a translated IP address. Note that translated addresses are outside the traffic management system. You can only use this option when automap and snatpool are not used.
 func (r *Snat) Translation() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["translation"])
 }
@@ -143,16 +147,17 @@ type SnatState struct {
 	FullPath interface{}
 	// Enables or disables mirroring of SNAT connections.
 	Mirror interface{}
-	// Snat list Name
+	// Name of the snat
 	Name interface{}
+	// IP or hostname of the snat
 	Origins interface{}
-	// Which partition on BIG-IP
+	// Displays the administrative partition within which this profile resides
 	Partition interface{}
-	// Specifies the name of a SNAT pool. You can only use this option when automap and translation are not used
+	// Specifies the name of a SNAT pool. You can only use this option when automap and translation are not used.
 	Snatpool interface{}
-	// Specifies whether the system preserves the source port of the connection.
+	// Specifies whether the system preserves the source port of the connection. The default is preserve. Use of the preserve-strict setting should be restricted to UDP only under very special circumstances such as nPath or transparent (that is, no translation of any other L3/L4 field), where there is a 1:1 relationship between virtual IP addresses and node addresses, or when clustered multi-processing (CMP) is disabled. The change setting is useful for obfuscating internal network addresses.
 	Sourceport interface{}
-	// Specifies the name of a translated IP address.
+	// Specifies the name of a translated IP address. Note that translated addresses are outside the traffic management system. You can only use this option when automap and snatpool are not used.
 	Translation interface{}
 	// Disables the SNAT on all VLANs.
 	Vlansdisabled interface{}
@@ -166,16 +171,17 @@ type SnatArgs struct {
 	FullPath interface{}
 	// Enables or disables mirroring of SNAT connections.
 	Mirror interface{}
-	// Snat list Name
+	// Name of the snat
 	Name interface{}
+	// IP or hostname of the snat
 	Origins interface{}
-	// Which partition on BIG-IP
+	// Displays the administrative partition within which this profile resides
 	Partition interface{}
-	// Specifies the name of a SNAT pool. You can only use this option when automap and translation are not used
+	// Specifies the name of a SNAT pool. You can only use this option when automap and translation are not used.
 	Snatpool interface{}
-	// Specifies whether the system preserves the source port of the connection.
+	// Specifies whether the system preserves the source port of the connection. The default is preserve. Use of the preserve-strict setting should be restricted to UDP only under very special circumstances such as nPath or transparent (that is, no translation of any other L3/L4 field), where there is a 1:1 relationship between virtual IP addresses and node addresses, or when clustered multi-processing (CMP) is disabled. The change setting is useful for obfuscating internal network addresses.
 	Sourceport interface{}
-	// Specifies the name of a translated IP address.
+	// Specifies the name of a translated IP address. Note that translated addresses are outside the traffic management system. You can only use this option when automap and snatpool are not used.
 	Translation interface{}
 	// Disables the SNAT on all VLANs.
 	Vlansdisabled interface{}

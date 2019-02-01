@@ -4,6 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * `bigip_sys_ntp` provides details about a specific bigip
+ * 
+ * This resource is helpful when configuring NTP server on the BIG-IP.
+ * ## Example Usage
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ * 
+ * const bigip_sys_ntp_ntp1 = new f5bigip.sys.Ntp("ntp1", {
+ *     description: "/Common/NTP1",
+ *     servers: ["time.facebook.com"],
+ *     timezone: "America/Los_Angeles",
+ * });
+ * ```
+ */
 export class Ntp extends pulumi.CustomResource {
     /**
      * Get an existing Ntp resource's state with the given name, ID, and optional extra
@@ -22,11 +40,11 @@ export class Ntp extends pulumi.CustomResource {
      */
     public readonly description: pulumi.Output<string>;
     /**
-     * Servers Address
+     * Adds NTP servers to or deletes NTP servers from the BIG-IP system.
      */
     public readonly servers: pulumi.Output<string[] | undefined>;
     /**
-     * Servers timezone
+     * Specifies the time zone that you want to use for the system time.
      */
     public readonly timezone: pulumi.Output<string | undefined>;
 
@@ -67,11 +85,11 @@ export interface NtpState {
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * Servers Address
+     * Adds NTP servers to or deletes NTP servers from the BIG-IP system.
      */
     readonly servers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Servers timezone
+     * Specifies the time zone that you want to use for the system time.
      */
     readonly timezone?: pulumi.Input<string>;
 }
@@ -85,11 +103,11 @@ export interface NtpArgs {
      */
     readonly description: pulumi.Input<string>;
     /**
-     * Servers Address
+     * Adds NTP servers to or deletes NTP servers from the BIG-IP system.
      */
     readonly servers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Servers timezone
+     * Specifies the time zone that you want to use for the system time.
      */
     readonly timezone?: pulumi.Input<string>;
 }

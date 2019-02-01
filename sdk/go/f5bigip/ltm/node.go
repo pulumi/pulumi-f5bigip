@@ -8,6 +8,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// `bigip_ltm_node` Manages a node configuration
+// 
+// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 type Node struct {
 	s *pulumi.ResourceState
 }
@@ -26,7 +29,7 @@ func NewNode(ctx *pulumi.Context,
 		inputs["address"] = nil
 		inputs["connectionLimit"] = nil
 		inputs["dynamicRatio"] = nil
-		inputs["fqdn"] = nil
+		inputs["fqdns"] = nil
 		inputs["monitor"] = nil
 		inputs["name"] = nil
 		inputs["rateLimit"] = nil
@@ -35,7 +38,7 @@ func NewNode(ctx *pulumi.Context,
 		inputs["address"] = args.Address
 		inputs["connectionLimit"] = args.ConnectionLimit
 		inputs["dynamicRatio"] = args.DynamicRatio
-		inputs["fqdn"] = args.Fqdn
+		inputs["fqdns"] = args.Fqdns
 		inputs["monitor"] = args.Monitor
 		inputs["name"] = args.Name
 		inputs["rateLimit"] = args.RateLimit
@@ -57,7 +60,7 @@ func GetNode(ctx *pulumi.Context,
 		inputs["address"] = state.Address
 		inputs["connectionLimit"] = state.ConnectionLimit
 		inputs["dynamicRatio"] = state.DynamicRatio
-		inputs["fqdn"] = state.Fqdn
+		inputs["fqdns"] = state.Fqdns
 		inputs["monitor"] = state.Monitor
 		inputs["name"] = state.Name
 		inputs["rateLimit"] = state.RateLimit
@@ -80,7 +83,7 @@ func (r *Node) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// Address of the node
+// IP or hostname of the node
 func (r *Node) Address() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["address"])
 }
@@ -95,8 +98,8 @@ func (r *Node) DynamicRatio() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["dynamicRatio"])
 }
 
-func (r *Node) Fqdn() *pulumi.Output {
-	return r.s.State["fqdn"]
+func (r *Node) Fqdns() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["fqdns"])
 }
 
 // Specifies the name of the monitor or monitor rule that you want to associate with the node.
@@ -115,20 +118,20 @@ func (r *Node) RateLimit() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["rateLimit"])
 }
 
-// Marks the node up or down. The default value is user-up.
+// Default is "user-up" you can set to "user-down" if you want to disable
 func (r *Node) State() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["state"])
 }
 
 // Input properties used for looking up and filtering Node resources.
 type NodeState struct {
-	// Address of the node
+	// IP or hostname of the node
 	Address interface{}
 	// Specifies the maximum number of connections allowed for the node or node address.
 	ConnectionLimit interface{}
 	// Sets the dynamic ratio number for the node. Used for dynamic ratio load balancing.
 	DynamicRatio interface{}
-	Fqdn interface{}
+	Fqdns interface{}
 	// Specifies the name of the monitor or monitor rule that you want to associate with the node.
 	Monitor interface{}
 	// Name of the node
@@ -136,19 +139,19 @@ type NodeState struct {
 	// Specifies the maximum number of connections per second allowed for a node or node address. The default value is
 	// 'disabled'.
 	RateLimit interface{}
-	// Marks the node up or down. The default value is user-up.
+	// Default is "user-up" you can set to "user-down" if you want to disable
 	State interface{}
 }
 
 // The set of arguments for constructing a Node resource.
 type NodeArgs struct {
-	// Address of the node
+	// IP or hostname of the node
 	Address interface{}
 	// Specifies the maximum number of connections allowed for the node or node address.
 	ConnectionLimit interface{}
 	// Sets the dynamic ratio number for the node. Used for dynamic ratio load balancing.
 	DynamicRatio interface{}
-	Fqdn interface{}
+	Fqdns interface{}
 	// Specifies the name of the monitor or monitor rule that you want to associate with the node.
 	Monitor interface{}
 	// Name of the node
@@ -156,6 +159,6 @@ type NodeArgs struct {
 	// Specifies the maximum number of connections per second allowed for a node or node address. The default value is
 	// 'disabled'.
 	RateLimit interface{}
-	// Marks the node up or down. The default value is user-up.
+	// Default is "user-up" you can set to "user-down" if you want to disable
 	State interface{}
 }

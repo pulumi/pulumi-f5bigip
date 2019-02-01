@@ -8,6 +8,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// `bigip_ltm_pool` Manages a pool configuration.
+// 
+// Resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 type Pool struct {
 	s *pulumi.ResourceState
 }
@@ -92,7 +95,7 @@ func (r *Pool) LoadBalancingMode() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["loadBalancingMode"])
 }
 
-// Assign monitors to a pool.
+// List of monitor names to associate with the pool
 func (r *Pool) Monitors() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["monitors"])
 }
@@ -125,7 +128,7 @@ type PoolState struct {
 	AllowSnat interface{}
 	// Possible values: round-robin, ...
 	LoadBalancingMode interface{}
-	// Assign monitors to a pool.
+	// List of monitor names to associate with the pool
 	Monitors interface{}
 	// Name of the pool
 	Name interface{}
@@ -145,7 +148,7 @@ type PoolArgs struct {
 	AllowSnat interface{}
 	// Possible values: round-robin, ...
 	LoadBalancingMode interface{}
-	// Assign monitors to a pool.
+	// List of monitor names to associate with the pool
 	Monitors interface{}
 	// Name of the pool
 	Name interface{}

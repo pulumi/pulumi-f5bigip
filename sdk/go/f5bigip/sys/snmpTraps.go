@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// `bigip_sys_snmp_traps` provides details bout how to enable snmp_traps resource on BIG-IP
 type SnmpTraps struct {
 	s *pulumi.ResourceState
 }
@@ -106,7 +107,7 @@ func (r *SnmpTraps) Community() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["community"])
 }
 
-// User defined description.
+// The port that the trap will be sent to.
 func (r *SnmpTraps) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
@@ -121,12 +122,12 @@ func (r *SnmpTraps) Host() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["host"])
 }
 
-// Name
+// Name of the snmp trap.
 func (r *SnmpTraps) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// The port that the trap will be sent to.
+// User defined description.
 func (r *SnmpTraps) Port() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["port"])
 }
@@ -169,15 +170,15 @@ type SnmpTrapsState struct {
 	AuthProtocol interface{}
 	// Specifies the community string used for this trap.
 	Community interface{}
-	// User defined description.
+	// The port that the trap will be sent to.
 	Description interface{}
 	// Specifies the authoritative security engine for SNMPv3.
 	EngineId interface{}
 	// The host the trap will be sent to.
 	Host interface{}
-	// Name
+	// Name of the snmp trap.
 	Name interface{}
-	// The port that the trap will be sent to.
+	// User defined description.
 	Port interface{}
 	// Specifies the clear text password used to encrypt traffic. This field will not be displayed.
 	PrivacyPassword interface{}
@@ -201,15 +202,15 @@ type SnmpTrapsArgs struct {
 	AuthProtocol interface{}
 	// Specifies the community string used for this trap.
 	Community interface{}
-	// User defined description.
+	// The port that the trap will be sent to.
 	Description interface{}
 	// Specifies the authoritative security engine for SNMPv3.
 	EngineId interface{}
 	// The host the trap will be sent to.
 	Host interface{}
-	// Name
+	// Name of the snmp trap.
 	Name interface{}
-	// The port that the trap will be sent to.
+	// User defined description.
 	Port interface{}
 	// Specifies the clear text password used to encrypt traffic. This field will not be displayed.
 	PrivacyPassword interface{}

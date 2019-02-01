@@ -8,6 +8,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// `bigip_ltm_profile_tcp` Configures a custom profile_tcp for use by health checks.
+// 
+// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 type ProfileTcp struct {
 	s *pulumi.ResourceState
 }
@@ -83,100 +86,100 @@ func (r *ProfileTcp) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// close wait timer integer
+// Specifies the number of seconds that a connection remains in a LAST-ACK state before quitting. A value of 0 represents a term of forever (or until the maxrtx of the FIN state). The default value is 5 seconds.
 func (r *ProfileTcp) CloseWaitTimeout() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["closeWaitTimeout"])
 }
 
-// Use the parent tcp profile
+// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
 func (r *ProfileTcp) DefaultsFrom() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["defaultsFrom"])
 }
 
-// Defferred accept
+// Specifies, when enabled, that the system defers allocation of the connection chain context until the client response is received. This option is useful for dealing with 3-way handshake DOS attacks. The default value is disabled.
 func (r *ProfileTcp) DeferredAccept() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["deferredAccept"])
 }
 
-// fast_open value
+// When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet.
 func (r *ProfileTcp) FastOpen() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["fastOpen"])
 }
 
-// timer integer
+// Specifies the number of seconds that a connection is in the FIN-WAIT-2 state before quitting. The default value is 300 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state).
 func (r *ProfileTcp) Finwait2timeout() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["finwait2timeout"])
 }
 
-// fin wait timer integer
+// Specifies the number of seconds that a connection is in the FIN-WAIT-1 or closing state before quitting. The default value is 5 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state). You can also specify immediate or indefinite.
 func (r *ProfileTcp) FinwaitTimeout() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["finwaitTimeout"])
 }
 
-// idle_timeout can be given value
+// Specifies the number of seconds that a connection is idle before the connection is eligible for deletion. The default value is 300 seconds.
 func (r *ProfileTcp) IdleTimeout() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["idleTimeout"])
 }
 
-// keepalive_interval timer integer
+// Specifies the keep alive probe interval, in seconds. The default value is 1800 seconds.
 func (r *ProfileTcp) KeepaliveInterval() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["keepaliveInterval"])
 }
 
-// Name of the TCP Profile
+// Name of the profile_tcp
 func (r *ProfileTcp) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// name of partition
+// Displays the administrative partition within which this profile resides
 func (r *ProfileTcp) Partition() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["partition"])
 }
 
 // Input properties used for looking up and filtering ProfileTcp resources.
 type ProfileTcpState struct {
-	// close wait timer integer
+	// Specifies the number of seconds that a connection remains in a LAST-ACK state before quitting. A value of 0 represents a term of forever (or until the maxrtx of the FIN state). The default value is 5 seconds.
 	CloseWaitTimeout interface{}
-	// Use the parent tcp profile
+	// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
 	DefaultsFrom interface{}
-	// Defferred accept
+	// Specifies, when enabled, that the system defers allocation of the connection chain context until the client response is received. This option is useful for dealing with 3-way handshake DOS attacks. The default value is disabled.
 	DeferredAccept interface{}
-	// fast_open value
+	// When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet.
 	FastOpen interface{}
-	// timer integer
+	// Specifies the number of seconds that a connection is in the FIN-WAIT-2 state before quitting. The default value is 300 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state).
 	Finwait2timeout interface{}
-	// fin wait timer integer
+	// Specifies the number of seconds that a connection is in the FIN-WAIT-1 or closing state before quitting. The default value is 5 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state). You can also specify immediate or indefinite.
 	FinwaitTimeout interface{}
-	// idle_timeout can be given value
+	// Specifies the number of seconds that a connection is idle before the connection is eligible for deletion. The default value is 300 seconds.
 	IdleTimeout interface{}
-	// keepalive_interval timer integer
+	// Specifies the keep alive probe interval, in seconds. The default value is 1800 seconds.
 	KeepaliveInterval interface{}
-	// Name of the TCP Profile
+	// Name of the profile_tcp
 	Name interface{}
-	// name of partition
+	// Displays the administrative partition within which this profile resides
 	Partition interface{}
 }
 
 // The set of arguments for constructing a ProfileTcp resource.
 type ProfileTcpArgs struct {
-	// close wait timer integer
+	// Specifies the number of seconds that a connection remains in a LAST-ACK state before quitting. A value of 0 represents a term of forever (or until the maxrtx of the FIN state). The default value is 5 seconds.
 	CloseWaitTimeout interface{}
-	// Use the parent tcp profile
+	// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
 	DefaultsFrom interface{}
-	// Defferred accept
+	// Specifies, when enabled, that the system defers allocation of the connection chain context until the client response is received. This option is useful for dealing with 3-way handshake DOS attacks. The default value is disabled.
 	DeferredAccept interface{}
-	// fast_open value
+	// When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet.
 	FastOpen interface{}
-	// timer integer
+	// Specifies the number of seconds that a connection is in the FIN-WAIT-2 state before quitting. The default value is 300 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state).
 	Finwait2timeout interface{}
-	// fin wait timer integer
+	// Specifies the number of seconds that a connection is in the FIN-WAIT-1 or closing state before quitting. The default value is 5 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state). You can also specify immediate or indefinite.
 	FinwaitTimeout interface{}
-	// idle_timeout can be given value
+	// Specifies the number of seconds that a connection is idle before the connection is eligible for deletion. The default value is 300 seconds.
 	IdleTimeout interface{}
-	// keepalive_interval timer integer
+	// Specifies the keep alive probe interval, in seconds. The default value is 1800 seconds.
 	KeepaliveInterval interface{}
-	// Name of the TCP Profile
+	// Name of the profile_tcp
 	Name interface{}
-	// name of partition
+	// Displays the administrative partition within which this profile resides
 	Partition interface{}
 }

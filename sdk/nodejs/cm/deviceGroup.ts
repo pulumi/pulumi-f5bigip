@@ -4,6 +4,33 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * `bigip_cm_devicegroup` A device group is a collection of BIG-IP devices that are configured to securely synchronize their BIG-IP configuration data, and fail over when needed.
+ * 
+ * 
+ * ## Example Usage
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ * 
+ * const bigip_cm_devicegroup_my_new_devicegroup = new f5bigip.cm.DeviceGroup("my_new_devicegroup", {
+ *     autoSync: "enabled",
+ *     devices: [
+ *         {
+ *             name: "bigip1.cisco.com",
+ *         },
+ *         {
+ *             name: "bigip200.f5.com",
+ *         },
+ *     ],
+ *     fullLoadOnSync: "true",
+ *     name: "sanjose_devicegroup",
+ *     type: "sync-only",
+ * });
+ * ```
+ */
 export class DeviceGroup extends pulumi.CustomResource {
     /**
      * Get an existing DeviceGroup resource's state with the given name, ID, and optional extra
@@ -25,6 +52,9 @@ export class DeviceGroup extends pulumi.CustomResource {
      * Description of Device group
      */
     public readonly description: pulumi.Output<string | undefined>;
+    /**
+     * Name of the device to be included in device group, this need to be configured before using devicegroup resource
+     */
     public readonly devices: pulumi.Output<{ name?: string, setSyncLeader?: boolean }[] | undefined>;
     /**
      * Specifies if the device-group will perform a full-load upon sync
@@ -35,7 +65,7 @@ export class DeviceGroup extends pulumi.CustomResource {
      */
     public readonly incrementalConfig: pulumi.Output<number | undefined>;
     /**
-     * Name of the Device group
+     * Is the name of the device Group
      */
     public readonly name: pulumi.Output<string | undefined>;
     /**
@@ -106,6 +136,9 @@ export interface DeviceGroupState {
      * Description of Device group
      */
     readonly description?: pulumi.Input<string>;
+    /**
+     * Name of the device to be included in device group, this need to be configured before using devicegroup resource
+     */
     readonly devices?: pulumi.Input<pulumi.Input<{ name?: pulumi.Input<string>, setSyncLeader?: pulumi.Input<boolean> }>[]>;
     /**
      * Specifies if the device-group will perform a full-load upon sync
@@ -116,7 +149,7 @@ export interface DeviceGroupState {
      */
     readonly incrementalConfig?: pulumi.Input<number>;
     /**
-     * Name of the Device group
+     * Is the name of the device Group
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -149,6 +182,9 @@ export interface DeviceGroupArgs {
      * Description of Device group
      */
     readonly description?: pulumi.Input<string>;
+    /**
+     * Name of the device to be included in device group, this need to be configured before using devicegroup resource
+     */
     readonly devices?: pulumi.Input<pulumi.Input<{ name?: pulumi.Input<string>, setSyncLeader?: pulumi.Input<boolean> }>[]>;
     /**
      * Specifies if the device-group will perform a full-load upon sync
@@ -159,7 +195,7 @@ export interface DeviceGroupArgs {
      */
     readonly incrementalConfig?: pulumi.Input<number>;
     /**
-     * Name of the Device group
+     * Is the name of the device Group
      */
     readonly name?: pulumi.Input<string>;
     /**

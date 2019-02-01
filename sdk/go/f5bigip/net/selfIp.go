@@ -8,6 +8,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// `bigip_net_selfip` Manages a selfip configuration
+// 
+// Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-selfip.
 type SelfIp struct {
 	s *pulumi.ResourceState
 }
@@ -71,46 +74,46 @@ func (r *SelfIp) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// SelfIP IP address
+// The Self IP's address and netmask.
 func (r *SelfIp) Ip() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["ip"])
 }
 
-// Name of the SelfIP
+// Name of the selfip
 func (r *SelfIp) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// Name of the traffic group, defaults to traffic-group-local-only if not specified
+// Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
 func (r *SelfIp) TrafficGroup() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["trafficGroup"])
 }
 
-// Name of the vlan
+// Specifies the VLAN for which you are setting a self IP address. This setting must be provided when a self IP is created.
 func (r *SelfIp) Vlan() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["vlan"])
 }
 
 // Input properties used for looking up and filtering SelfIp resources.
 type SelfIpState struct {
-	// SelfIP IP address
+	// The Self IP's address and netmask.
 	Ip interface{}
-	// Name of the SelfIP
+	// Name of the selfip
 	Name interface{}
-	// Name of the traffic group, defaults to traffic-group-local-only if not specified
+	// Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
 	TrafficGroup interface{}
-	// Name of the vlan
+	// Specifies the VLAN for which you are setting a self IP address. This setting must be provided when a self IP is created.
 	Vlan interface{}
 }
 
 // The set of arguments for constructing a SelfIp resource.
 type SelfIpArgs struct {
-	// SelfIP IP address
+	// The Self IP's address and netmask.
 	Ip interface{}
-	// Name of the SelfIP
+	// Name of the selfip
 	Name interface{}
-	// Name of the traffic group, defaults to traffic-group-local-only if not specified
+	// Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
 	TrafficGroup interface{}
-	// Name of the vlan
+	// Specifies the VLAN for which you are setting a self IP address. This setting must be provided when a self IP is created.
 	Vlan interface{}
 }

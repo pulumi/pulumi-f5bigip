@@ -8,6 +8,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// `bigip_ltm_pool_attachment` Manages nodes membership in pools
+// 
+// Resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 type PoolAttachment struct {
 	s *pulumi.ResourceState
 }
@@ -62,28 +65,28 @@ func (r *PoolAttachment) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// Node to add/remove to/from the pool. Format /partition/node_name:port. e.g. /Common/node01:443
+// Node to add to the pool in /Partition/NodeName:Port format (e.g. /Common/Node01:80)
 func (r *PoolAttachment) Node() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["node"])
 }
 
-// Name of the pool
+// Name of the pool in /Partition/Name format
 func (r *PoolAttachment) Pool() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["pool"])
 }
 
 // Input properties used for looking up and filtering PoolAttachment resources.
 type PoolAttachmentState struct {
-	// Node to add/remove to/from the pool. Format /partition/node_name:port. e.g. /Common/node01:443
+	// Node to add to the pool in /Partition/NodeName:Port format (e.g. /Common/Node01:80)
 	Node interface{}
-	// Name of the pool
+	// Name of the pool in /Partition/Name format
 	Pool interface{}
 }
 
 // The set of arguments for constructing a PoolAttachment resource.
 type PoolAttachmentArgs struct {
-	// Node to add/remove to/from the pool. Format /partition/node_name:port. e.g. /Common/node01:443
+	// Node to add to the pool in /Partition/NodeName:Port format (e.g. /Common/Node01:80)
 	Node interface{}
-	// Name of the pool
+	// Name of the pool in /Partition/Name format
 	Pool interface{}
 }

@@ -4,6 +4,30 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * `bigip_ltm_profile_httpcompress`  Virtual server HTTP compression profile configuration
+ * 
+ * 
+ * For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+ * 
+ * ## Example Usage
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ * 
+ * const bigip_ltm_profile_httpcompress_sjhttpcompression = new f5bigip.ltm.ProfileHttpCompress("sjhttpcompression", {
+ *     defaultsFrom: "/Common/httpcompression",
+ *     name: "/Common/sjhttpcompression2",
+ *     uriExcludes: [
+ *         "www.abc.f5.com",
+ *         "www.abc2.f5.com",
+ *     ],
+ *     uriIncludes: ["www.xyzbc.cisco.com"],
+ * });
+ * ```
+ */
 export class ProfileHttpCompress extends pulumi.CustomResource {
     /**
      * Get an existing ProfileHttpCompress resource's state with the given name, ID, and optional extra
@@ -18,19 +42,19 @@ export class ProfileHttpCompress extends pulumi.CustomResource {
     }
 
     /**
-     * Use the parent Httpcompress profile
+     * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      */
     public readonly defaultsFrom: pulumi.Output<string | undefined>;
     /**
-     * Name of the Httpcompress Profile
+     * Name of the profile_httpcompress
      */
     public readonly name: pulumi.Output<string>;
     /**
-     * Servers Address
+     * Disables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you do not want to compress.
      */
     public readonly uriExcludes: pulumi.Output<string[] | undefined>;
     /**
-     * Servers Address
+     * Enables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you want to compress.
      */
     public readonly uriIncludes: pulumi.Output<string[] | undefined>;
 
@@ -69,19 +93,19 @@ export class ProfileHttpCompress extends pulumi.CustomResource {
  */
 export interface ProfileHttpCompressState {
     /**
-     * Use the parent Httpcompress profile
+     * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      */
     readonly defaultsFrom?: pulumi.Input<string>;
     /**
-     * Name of the Httpcompress Profile
+     * Name of the profile_httpcompress
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Servers Address
+     * Disables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you do not want to compress.
      */
     readonly uriExcludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Servers Address
+     * Enables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you want to compress.
      */
     readonly uriIncludes?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -91,19 +115,19 @@ export interface ProfileHttpCompressState {
  */
 export interface ProfileHttpCompressArgs {
     /**
-     * Use the parent Httpcompress profile
+     * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      */
     readonly defaultsFrom?: pulumi.Input<string>;
     /**
-     * Name of the Httpcompress Profile
+     * Name of the profile_httpcompress
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Servers Address
+     * Disables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you do not want to compress.
      */
     readonly uriExcludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Servers Address
+     * Enables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you want to compress.
      */
     readonly uriIncludes?: pulumi.Input<pulumi.Input<string>[]>;
 }

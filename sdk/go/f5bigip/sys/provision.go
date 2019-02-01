@@ -8,6 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// `bigip_sys_provision` provides details bout how to enable "ilx", "asm" "apm" resource on BIG-IP
 type Provision struct {
 	s *pulumi.ResourceState
 }
