@@ -30,6 +30,10 @@ var base = integration.ProgramTestOptions{
 }
 
 func TestWebserver(t *testing.T) {
+	region := os.Getenv("AWS_REGION")
+	if region == "" {
+		t.Skipf("Skipping test due to missing AWS_REGION environment variable")
+	}
 	cwd, err := os.Getwd()
 	if !assert.NoError(t, err) {
 		t.FailNow()
@@ -40,6 +44,7 @@ func TestWebserver(t *testing.T) {
 			"@pulumi/f5bigip",
 		},
 		Config: map[string]string{
+			"aws:region":       region,
 			"f5bigip:address":  "",
 			"f5bigip:password": "",
 			"f5bigip:username": "",
