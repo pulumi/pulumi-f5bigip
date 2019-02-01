@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// `bigip_sys_iapp` resource helps you to deploy Application Services template that can be used to automate and orchestrate Layer 4-7 applications service deployments using F5 Network.  
 type IApp struct {
 	s *pulumi.ResourceState
 }
@@ -125,7 +126,7 @@ func (r *IApp) InheritedTrafficGroup() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["inheritedTrafficGroup"])
 }
 
-// Address of the Iapp which needs to be Iappensed
+// Refer to the Json file which will be deployed on F5 BIG-IP.
 func (r *IApp) Jsonfile() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["jsonfile"])
 }
@@ -138,7 +139,7 @@ func (r *IApp) Metadatas() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["metadatas"])
 }
 
-// Address of the Iapp which needs to be Iappensed
+// Name of the iApp.
 func (r *IApp) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -193,11 +194,11 @@ type IAppState struct {
 	InheritedDevicegroup interface{}
 	// BIG-IP password
 	InheritedTrafficGroup interface{}
-	// Address of the Iapp which needs to be Iappensed
+	// Refer to the Json file which will be deployed on F5 BIG-IP.
 	Jsonfile interface{}
 	Lists interface{}
 	Metadatas interface{}
-	// Address of the Iapp which needs to be Iappensed
+	// Name of the iApp.
 	Name interface{}
 	// Address of the Iapp which needs to be Iappensed
 	Partition interface{}
@@ -227,11 +228,11 @@ type IAppArgs struct {
 	InheritedDevicegroup interface{}
 	// BIG-IP password
 	InheritedTrafficGroup interface{}
-	// Address of the Iapp which needs to be Iappensed
+	// Refer to the Json file which will be deployed on F5 BIG-IP.
 	Jsonfile interface{}
 	Lists interface{}
 	Metadatas interface{}
-	// Address of the Iapp which needs to be Iappensed
+	// Name of the iApp.
 	Name interface{}
 	// Address of the Iapp which needs to be Iappensed
 	Partition interface{}

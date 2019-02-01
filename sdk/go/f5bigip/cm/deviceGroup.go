@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// `bigip_cm_devicegroup` A device group is a collection of BIG-IP devices that are configured to securely synchronize their BIG-IP configuration data, and fail over when needed.
 type DeviceGroup struct {
 	s *pulumi.ResourceState
 }
@@ -89,6 +90,7 @@ func (r *DeviceGroup) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
 
+// Name of the device to be included in device group, this need to be configured before using devicegroup resource
 func (r *DeviceGroup) Devices() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["devices"])
 }
@@ -103,7 +105,7 @@ func (r *DeviceGroup) IncrementalConfig() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["incrementalConfig"])
 }
 
-// Name of the Device group
+// Is the name of the device Group
 func (r *DeviceGroup) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
@@ -134,12 +136,13 @@ type DeviceGroupState struct {
 	AutoSync interface{}
 	// Description of Device group
 	Description interface{}
+	// Name of the device to be included in device group, this need to be configured before using devicegroup resource
 	Devices interface{}
 	// Specifies if the device-group will perform a full-load upon sync
 	FullLoadOnSync interface{}
 	// Specifies the maximum size (in KB) to devote to incremental config sync cached transactions. The default is 1024 KB.
 	IncrementalConfig interface{}
-	// Name of the Device group
+	// Is the name of the device Group
 	Name interface{}
 	// Specifies if the device-group will use a network connection for failover
 	NetworkFailover interface{}
@@ -157,12 +160,13 @@ type DeviceGroupArgs struct {
 	AutoSync interface{}
 	// Description of Device group
 	Description interface{}
+	// Name of the device to be included in device group, this need to be configured before using devicegroup resource
 	Devices interface{}
 	// Specifies if the device-group will perform a full-load upon sync
 	FullLoadOnSync interface{}
 	// Specifies the maximum size (in KB) to devote to incremental config sync cached transactions. The default is 1024 KB.
 	IncrementalConfig interface{}
-	// Name of the Device group
+	// Is the name of the device Group
 	Name interface{}
 	// Specifies if the device-group will use a network connection for failover
 	NetworkFailover interface{}

@@ -8,6 +8,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// `bigip_ltm_irule` Creates iRule on BIG-IP F5 device
+// 
+// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 type IRule struct {
 	s *pulumi.ResourceState
 }
@@ -62,7 +65,7 @@ func (r *IRule) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// The iRule body
+// Body of the iRule
 func (r *IRule) Irule() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["irule"])
 }
@@ -74,7 +77,7 @@ func (r *IRule) Name() *pulumi.StringOutput {
 
 // Input properties used for looking up and filtering IRule resources.
 type IRuleState struct {
-	// The iRule body
+	// Body of the iRule
 	Irule interface{}
 	// Name of the iRule
 	Name interface{}
@@ -82,7 +85,7 @@ type IRuleState struct {
 
 // The set of arguments for constructing a IRule resource.
 type IRuleArgs struct {
-	// The iRule body
+	// Body of the iRule
 	Irule interface{}
 	// Name of the iRule
 	Name interface{}

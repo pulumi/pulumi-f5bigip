@@ -8,6 +8,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// `bigip_ltm_profile_httpcompress`  Virtual server HTTP compression profile configuration
+// 
+// 
+// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 type ProfileHttpCompress struct {
 	s *pulumi.ResourceState
 }
@@ -65,46 +69,46 @@ func (r *ProfileHttpCompress) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// Use the parent Httpcompress profile
+// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
 func (r *ProfileHttpCompress) DefaultsFrom() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["defaultsFrom"])
 }
 
-// Name of the Httpcompress Profile
+// Name of the profile_httpcompress
 func (r *ProfileHttpCompress) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// Servers Address
+// Disables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you do not want to compress.
 func (r *ProfileHttpCompress) UriExcludes() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["uriExcludes"])
 }
 
-// Servers Address
+// Enables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you want to compress.
 func (r *ProfileHttpCompress) UriIncludes() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["uriIncludes"])
 }
 
 // Input properties used for looking up and filtering ProfileHttpCompress resources.
 type ProfileHttpCompressState struct {
-	// Use the parent Httpcompress profile
+	// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
 	DefaultsFrom interface{}
-	// Name of the Httpcompress Profile
+	// Name of the profile_httpcompress
 	Name interface{}
-	// Servers Address
+	// Disables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you do not want to compress.
 	UriExcludes interface{}
-	// Servers Address
+	// Enables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you want to compress.
 	UriIncludes interface{}
 }
 
 // The set of arguments for constructing a ProfileHttpCompress resource.
 type ProfileHttpCompressArgs struct {
-	// Use the parent Httpcompress profile
+	// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
 	DefaultsFrom interface{}
-	// Name of the Httpcompress Profile
+	// Name of the profile_httpcompress
 	Name interface{}
-	// Servers Address
+	// Disables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you do not want to compress.
 	UriExcludes interface{}
-	// Servers Address
+	// Enables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you want to compress.
 	UriIncludes interface{}
 }

@@ -4,6 +4,28 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * `bigip_ltm_monitor` Configures a custom monitor for use by health checks.
+ * 
+ * For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+ * 
+ * ## Example Usage
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ * 
+ * const bigip_ltm_monitor_monitor = new f5bigip.ltm.Monitor("monitor", {
+ *     destination: "1.2.3.4:1234",
+ *     interval: Number.parseFloat("999"),
+ *     name: "/Common/terraform_monitor",
+ *     parent: "/Common/http",
+ *     send: "GET /some/path\n",
+ *     timeout: Number.parseFloat("999"),
+ * });
+ * ```
+ */
 export class Monitor extends pulumi.CustomResource {
     /**
      * Get an existing Monitor resource's state with the given name, ID, and optional extra
@@ -22,7 +44,7 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly defaultsFrom: pulumi.Output<string | undefined>;
     /**
-     * Alias for the destination
+     * Specify an alias address for monitoring
      */
     public readonly destination: pulumi.Output<string | undefined>;
     /**
@@ -36,11 +58,11 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly name: pulumi.Output<string>;
     /**
-     * Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
+     * Existing LTM monitor to inherit from
      */
     public readonly parent: pulumi.Output<string>;
     /**
-     * Expected response string.
+     * Expected response string
      */
     public readonly receive: pulumi.Output<string | undefined>;
     /**
@@ -49,7 +71,7 @@ export class Monitor extends pulumi.CustomResource {
     public readonly receiveDisable: pulumi.Output<string | undefined>;
     public readonly reverse: pulumi.Output<string | undefined>;
     /**
-     * Request string to send.
+     * Request string to send
      */
     public readonly send: pulumi.Output<string | undefined>;
     /**
@@ -124,7 +146,7 @@ export interface MonitorState {
      */
     readonly defaultsFrom?: pulumi.Input<string>;
     /**
-     * Alias for the destination
+     * Specify an alias address for monitoring
      */
     readonly destination?: pulumi.Input<string>;
     /**
@@ -138,11 +160,11 @@ export interface MonitorState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
+     * Existing LTM monitor to inherit from
      */
     readonly parent?: pulumi.Input<string>;
     /**
-     * Expected response string.
+     * Expected response string
      */
     readonly receive?: pulumi.Input<string>;
     /**
@@ -151,7 +173,7 @@ export interface MonitorState {
     readonly receiveDisable?: pulumi.Input<string>;
     readonly reverse?: pulumi.Input<string>;
     /**
-     * Request string to send.
+     * Request string to send
      */
     readonly send?: pulumi.Input<string>;
     /**
@@ -174,7 +196,7 @@ export interface MonitorArgs {
      */
     readonly defaultsFrom?: pulumi.Input<string>;
     /**
-     * Alias for the destination
+     * Specify an alias address for monitoring
      */
     readonly destination?: pulumi.Input<string>;
     /**
@@ -188,11 +210,11 @@ export interface MonitorArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
+     * Existing LTM monitor to inherit from
      */
     readonly parent: pulumi.Input<string>;
     /**
-     * Expected response string.
+     * Expected response string
      */
     readonly receive?: pulumi.Input<string>;
     /**
@@ -201,7 +223,7 @@ export interface MonitorArgs {
     readonly receiveDisable?: pulumi.Input<string>;
     readonly reverse?: pulumi.Input<string>;
     /**
-     * Request string to send.
+     * Request string to send
      */
     readonly send?: pulumi.Input<string>;
     /**

@@ -4,6 +4,26 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * `bigip_net_route` Manages a route configuration
+ * 
+ * For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+ * 
+ * 
+ * ## Example Usage
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ * 
+ * const bigip_net_route_route2 = new f5bigip.net.Route("route2", {
+ *     gw: "1.1.1.2",
+ *     name: "external-route",
+ *     network: "10.10.10.0/24",
+ * });
+ * ```
+ */
 export class Route extends pulumi.CustomResource {
     /**
      * Get an existing Route resource's state with the given name, ID, and optional extra
@@ -26,7 +46,7 @@ export class Route extends pulumi.CustomResource {
      */
     public readonly name: pulumi.Output<string>;
     /**
-     * Destination network
+     * Specifies a gateway address for the route.
      */
     public readonly network: pulumi.Output<string>;
 
@@ -74,7 +94,7 @@ export interface RouteState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Destination network
+     * Specifies a gateway address for the route.
      */
     readonly network?: pulumi.Input<string>;
 }
@@ -92,7 +112,7 @@ export interface RouteArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Destination network
+     * Specifies a gateway address for the route.
      */
     readonly network: pulumi.Input<string>;
 }

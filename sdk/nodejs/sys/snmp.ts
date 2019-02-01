@@ -4,6 +4,22 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * `bigip_sys_snmp` provides details bout how to enable "ilx", "asm" "apm" resource on BIG-IP
+ * ## Example Usage
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ * 
+ * const bigip_sys_snmp_snmp = new f5bigip.sys.Snmp("snmp", {
+ *     allowedaddresses: ["202.10.10.2"],
+ *     sysContact: " NetOPsAdmin s.shitole@f5.com",
+ *     sysLocation: "SeattleHQ",
+ * });
+ * ```
+ */
 export class Snmp extends pulumi.CustomResource {
     /**
      * Get an existing Snmp resource's state with the given name, ID, and optional extra
@@ -18,15 +34,15 @@ export class Snmp extends pulumi.CustomResource {
     }
 
     /**
-     * List of SNMP addresses
+     * Configures hosts or networks from which snmpd can accept traffic. Entries go directly into hosts.allow.
      */
     public readonly allowedaddresses: pulumi.Output<string[] | undefined>;
     /**
-     * Contact Person email
+     * Specifies the contact information for the system administrator.
      */
     public readonly sysContact: pulumi.Output<string | undefined>;
     /**
-     * Location of the F5
+     * Describes the system's physical location.
      */
     public readonly sysLocation: pulumi.Output<string | undefined>;
 
@@ -60,15 +76,15 @@ export class Snmp extends pulumi.CustomResource {
  */
 export interface SnmpState {
     /**
-     * List of SNMP addresses
+     * Configures hosts or networks from which snmpd can accept traffic. Entries go directly into hosts.allow.
      */
     readonly allowedaddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Contact Person email
+     * Specifies the contact information for the system administrator.
      */
     readonly sysContact?: pulumi.Input<string>;
     /**
-     * Location of the F5
+     * Describes the system's physical location.
      */
     readonly sysLocation?: pulumi.Input<string>;
 }
@@ -78,15 +94,15 @@ export interface SnmpState {
  */
 export interface SnmpArgs {
     /**
-     * List of SNMP addresses
+     * Configures hosts or networks from which snmpd can accept traffic. Entries go directly into hosts.allow.
      */
     readonly allowedaddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Contact Person email
+     * Specifies the contact information for the system administrator.
      */
     readonly sysContact?: pulumi.Input<string>;
     /**
-     * Location of the F5
+     * Describes the system's physical location.
      */
     readonly sysLocation?: pulumi.Input<string>;
 }

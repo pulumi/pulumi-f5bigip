@@ -8,6 +8,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// `bigip_ltm_profile_http2` Configures a custom profile_http2 for use by health checks.
+// 
+// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 type ProfileHttp2 struct {
 	s *pulumi.ResourceState
 }
@@ -71,22 +74,22 @@ func (r *ProfileHttp2) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// Servers Address
+// Specifies what will cause an incoming connection to be handled as a HTTP/2 connection. The default values npn and alpn specify that the TLS next-protocol-negotiation and application-layer-protocol-negotiation extensions will be used.
 func (r *ProfileHttp2) ActivationModes() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["activationModes"])
 }
 
-// Use the parent Http2 profile
+// Specifies how many concurrent requests are allowed to be outstanding on a single HTTP/2 connection.
 func (r *ProfileHttp2) ConcurrentStreamsPerConnection() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["concurrentStreamsPerConnection"])
 }
 
-// Use the parent Http2 profile
+// Specifies the number of seconds that a connection is idle before the connection is eligible for deletion..
 func (r *ProfileHttp2) ConnectionIdleTimeout() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["connectionIdleTimeout"])
 }
 
-// Use the parent Http2 profile
+// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
 func (r *ProfileHttp2) DefaultsFrom() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["defaultsFrom"])
 }
@@ -96,39 +99,39 @@ func (r *ProfileHttp2) HeaderTableSize() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["headerTableSize"])
 }
 
-// Name of the Http2 Profile
+// Name of the profile_http2
 func (r *ProfileHttp2) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Input properties used for looking up and filtering ProfileHttp2 resources.
 type ProfileHttp2State struct {
-	// Servers Address
+	// Specifies what will cause an incoming connection to be handled as a HTTP/2 connection. The default values npn and alpn specify that the TLS next-protocol-negotiation and application-layer-protocol-negotiation extensions will be used.
 	ActivationModes interface{}
-	// Use the parent Http2 profile
+	// Specifies how many concurrent requests are allowed to be outstanding on a single HTTP/2 connection.
 	ConcurrentStreamsPerConnection interface{}
-	// Use the parent Http2 profile
+	// Specifies the number of seconds that a connection is idle before the connection is eligible for deletion..
 	ConnectionIdleTimeout interface{}
-	// Use the parent Http2 profile
+	// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
 	DefaultsFrom interface{}
 	// Use the parent Http2 profile
 	HeaderTableSize interface{}
-	// Name of the Http2 Profile
+	// Name of the profile_http2
 	Name interface{}
 }
 
 // The set of arguments for constructing a ProfileHttp2 resource.
 type ProfileHttp2Args struct {
-	// Servers Address
+	// Specifies what will cause an incoming connection to be handled as a HTTP/2 connection. The default values npn and alpn specify that the TLS next-protocol-negotiation and application-layer-protocol-negotiation extensions will be used.
 	ActivationModes interface{}
-	// Use the parent Http2 profile
+	// Specifies how many concurrent requests are allowed to be outstanding on a single HTTP/2 connection.
 	ConcurrentStreamsPerConnection interface{}
-	// Use the parent Http2 profile
+	// Specifies the number of seconds that a connection is idle before the connection is eligible for deletion..
 	ConnectionIdleTimeout interface{}
-	// Use the parent Http2 profile
+	// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
 	DefaultsFrom interface{}
 	// Use the parent Http2 profile
 	HeaderTableSize interface{}
-	// Name of the Http2 Profile
+	// Name of the profile_http2
 	Name interface{}
 }

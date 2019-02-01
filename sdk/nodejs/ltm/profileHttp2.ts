@@ -4,6 +4,30 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * `bigip_ltm_profile_http2` Configures a custom profile_http2 for use by health checks.
+ * 
+ * For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+ * 
+ * ## Example Usage
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ * 
+ * const bigip_ltm_profile_http2_nyhttp2 = new f5bigip.ltm.ProfileHttp2("nyhttp2", {
+ *     activationModes: [
+ *         "alpn",
+ *         "npn",
+ *     ],
+ *     concurrentStreamsPerConnection: 10,
+ *     connectionIdleTimeout: 30,
+ *     defaultsFrom: "/Common/http2",
+ *     name: "/Common/NewYork_http2",
+ * });
+ * ```
+ */
 export class ProfileHttp2 extends pulumi.CustomResource {
     /**
      * Get an existing ProfileHttp2 resource's state with the given name, ID, and optional extra
@@ -18,19 +42,19 @@ export class ProfileHttp2 extends pulumi.CustomResource {
     }
 
     /**
-     * Servers Address
+     * Specifies what will cause an incoming connection to be handled as a HTTP/2 connection. The default values npn and alpn specify that the TLS next-protocol-negotiation and application-layer-protocol-negotiation extensions will be used.
      */
     public readonly activationModes: pulumi.Output<string[] | undefined>;
     /**
-     * Use the parent Http2 profile
+     * Specifies how many concurrent requests are allowed to be outstanding on a single HTTP/2 connection.
      */
     public readonly concurrentStreamsPerConnection: pulumi.Output<number | undefined>;
     /**
-     * Use the parent Http2 profile
+     * Specifies the number of seconds that a connection is idle before the connection is eligible for deletion..
      */
     public readonly connectionIdleTimeout: pulumi.Output<number | undefined>;
     /**
-     * Use the parent Http2 profile
+     * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      */
     public readonly defaultsFrom: pulumi.Output<string | undefined>;
     /**
@@ -38,7 +62,7 @@ export class ProfileHttp2 extends pulumi.CustomResource {
      */
     public readonly headerTableSize: pulumi.Output<number | undefined>;
     /**
-     * Name of the Http2 Profile
+     * Name of the profile_http2
      */
     public readonly name: pulumi.Output<string>;
 
@@ -81,19 +105,19 @@ export class ProfileHttp2 extends pulumi.CustomResource {
  */
 export interface ProfileHttp2State {
     /**
-     * Servers Address
+     * Specifies what will cause an incoming connection to be handled as a HTTP/2 connection. The default values npn and alpn specify that the TLS next-protocol-negotiation and application-layer-protocol-negotiation extensions will be used.
      */
     readonly activationModes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Use the parent Http2 profile
+     * Specifies how many concurrent requests are allowed to be outstanding on a single HTTP/2 connection.
      */
     readonly concurrentStreamsPerConnection?: pulumi.Input<number>;
     /**
-     * Use the parent Http2 profile
+     * Specifies the number of seconds that a connection is idle before the connection is eligible for deletion..
      */
     readonly connectionIdleTimeout?: pulumi.Input<number>;
     /**
-     * Use the parent Http2 profile
+     * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      */
     readonly defaultsFrom?: pulumi.Input<string>;
     /**
@@ -101,7 +125,7 @@ export interface ProfileHttp2State {
      */
     readonly headerTableSize?: pulumi.Input<number>;
     /**
-     * Name of the Http2 Profile
+     * Name of the profile_http2
      */
     readonly name?: pulumi.Input<string>;
 }
@@ -111,19 +135,19 @@ export interface ProfileHttp2State {
  */
 export interface ProfileHttp2Args {
     /**
-     * Servers Address
+     * Specifies what will cause an incoming connection to be handled as a HTTP/2 connection. The default values npn and alpn specify that the TLS next-protocol-negotiation and application-layer-protocol-negotiation extensions will be used.
      */
     readonly activationModes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Use the parent Http2 profile
+     * Specifies how many concurrent requests are allowed to be outstanding on a single HTTP/2 connection.
      */
     readonly concurrentStreamsPerConnection?: pulumi.Input<number>;
     /**
-     * Use the parent Http2 profile
+     * Specifies the number of seconds that a connection is idle before the connection is eligible for deletion..
      */
     readonly connectionIdleTimeout?: pulumi.Input<number>;
     /**
-     * Use the parent Http2 profile
+     * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      */
     readonly defaultsFrom?: pulumi.Input<string>;
     /**
@@ -131,7 +155,7 @@ export interface ProfileHttp2Args {
      */
     readonly headerTableSize?: pulumi.Input<number>;
     /**
-     * Name of the Http2 Profile
+     * Name of the profile_http2
      */
     readonly name: pulumi.Input<string>;
 }

@@ -4,6 +4,35 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * `bigip_ltm_virtual_server` Configures Virtual Server
+ * 
+ * For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+ * 
+ * 
+ * ## Example Usage
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ * 
+ * const bigip_ltm_virtual_server_http = new f5bigip.ltm.VirtualServer("http", {
+ *     destination: "10.12.12.12",
+ *     name: "/Common/terraform_vs_http",
+ *     pool: "/Common/the-default-pool",
+ *     port: 80,
+ * });
+ * const bigip_ltm_virtual_server_https = new f5bigip.ltm.VirtualServer("https", {
+ *     clientProfiles: ["/Common/clientssl"],
+ *     destination: "10.255.255.254",
+ *     name: "/Common/terraform_vs_https",
+ *     port: 443,
+ *     serverProfiles: ["/Common/serverssl"],
+ *     sourceAddressTranslation: "automap",
+ * });
+ * ```
+ */
 export class VirtualServer extends pulumi.CustomResource {
     /**
      * Get an existing VirtualServer resource's state with the given name, ID, and optional extra
@@ -17,10 +46,16 @@ export class VirtualServer extends pulumi.CustomResource {
         return new VirtualServer(name, <any>state, { ...opts, id: id });
     }
 
+    /**
+     * List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
+     */
     public readonly clientProfiles: pulumi.Output<string[]>;
+    /**
+     * Destination IP
+     */
     public readonly destination: pulumi.Output<string>;
     /**
-     * Fallback persistence profile
+     * Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
      */
     public readonly fallbackPersistenceProfile: pulumi.Output<string>;
     /**
@@ -29,46 +64,57 @@ export class VirtualServer extends pulumi.CustomResource {
     public readonly ipProtocol: pulumi.Output<string>;
     public readonly irules: pulumi.Output<string[] | undefined>;
     /**
-     * Mask can either be in CIDR notation or decimal, i.e.: "24" or "255.255.255.0". A CIDR mask of "0" is the same as
-     * "0.0.0.0"
+     * Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
      */
     public readonly mask: pulumi.Output<string | undefined>;
     /**
      * Name of the virtual server
      */
     public readonly name: pulumi.Output<string>;
+    /**
+     * List of persistence profiles associated with the Virtual Server.
+     */
     public readonly persistenceProfiles: pulumi.Output<string[]>;
     public readonly policies: pulumi.Output<string[] | undefined>;
     /**
-     * Default pool for this virtual server
+     * Default pool name
      */
     public readonly pool: pulumi.Output<string | undefined>;
     /**
      * Listen port for the virtual server
      */
     public readonly port: pulumi.Output<number>;
+    /**
+     * List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
+     */
     public readonly profiles: pulumi.Output<string[]>;
+    /**
+     * List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
+     */
     public readonly serverProfiles: pulumi.Output<string[]>;
     /**
-     * Name of the snatpool to use. Requires source_address_translation to be set to 'snat'.
+     * Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
      */
     public readonly snatpool: pulumi.Output<string>;
     /**
-     * Source IP and mask for the virtual server
+     * Specifies an IP address or network from which the virtual server will accept traffic.
      */
     public readonly source: pulumi.Output<string | undefined>;
     /**
-     * none, automap, snat
+     * Can be either omitted for none or the values automap or snat
      */
     public readonly sourceAddressTranslation: pulumi.Output<string>;
     /**
-     * To enable _ disable Address translation
+     * Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
      */
     public readonly translateAddress: pulumi.Output<string>;
     /**
-     * To enable _ disable port translation
+     * Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
      */
     public readonly translatePort: pulumi.Output<string>;
+    /**
+     * The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.
+     */
     public readonly vlans: pulumi.Output<string[] | undefined>;
     /**
      * Enables the virtual server on the VLANs specified by the VLANs option.
@@ -147,10 +193,16 @@ export class VirtualServer extends pulumi.CustomResource {
  * Input properties used for looking up and filtering VirtualServer resources.
  */
 export interface VirtualServerState {
+    /**
+     * List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
+     */
     readonly clientProfiles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Destination IP
+     */
     readonly destination?: pulumi.Input<string>;
     /**
-     * Fallback persistence profile
+     * Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
      */
     readonly fallbackPersistenceProfile?: pulumi.Input<string>;
     /**
@@ -159,46 +211,57 @@ export interface VirtualServerState {
     readonly ipProtocol?: pulumi.Input<string>;
     readonly irules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Mask can either be in CIDR notation or decimal, i.e.: "24" or "255.255.255.0". A CIDR mask of "0" is the same as
-     * "0.0.0.0"
+     * Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
      */
     readonly mask?: pulumi.Input<string>;
     /**
      * Name of the virtual server
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * List of persistence profiles associated with the Virtual Server.
+     */
     readonly persistenceProfiles?: pulumi.Input<pulumi.Input<string>[]>;
     readonly policies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Default pool for this virtual server
+     * Default pool name
      */
     readonly pool?: pulumi.Input<string>;
     /**
      * Listen port for the virtual server
      */
     readonly port?: pulumi.Input<number>;
+    /**
+     * List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
+     */
     readonly profiles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
+     */
     readonly serverProfiles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Name of the snatpool to use. Requires source_address_translation to be set to 'snat'.
+     * Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
      */
     readonly snatpool?: pulumi.Input<string>;
     /**
-     * Source IP and mask for the virtual server
+     * Specifies an IP address or network from which the virtual server will accept traffic.
      */
     readonly source?: pulumi.Input<string>;
     /**
-     * none, automap, snat
+     * Can be either omitted for none or the values automap or snat
      */
     readonly sourceAddressTranslation?: pulumi.Input<string>;
     /**
-     * To enable _ disable Address translation
+     * Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
      */
     readonly translateAddress?: pulumi.Input<string>;
     /**
-     * To enable _ disable port translation
+     * Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
      */
     readonly translatePort?: pulumi.Input<string>;
+    /**
+     * The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.
+     */
     readonly vlans?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Enables the virtual server on the VLANs specified by the VLANs option.
@@ -210,10 +273,16 @@ export interface VirtualServerState {
  * The set of arguments for constructing a VirtualServer resource.
  */
 export interface VirtualServerArgs {
+    /**
+     * List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
+     */
     readonly clientProfiles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Destination IP
+     */
     readonly destination: pulumi.Input<string>;
     /**
-     * Fallback persistence profile
+     * Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
      */
     readonly fallbackPersistenceProfile?: pulumi.Input<string>;
     /**
@@ -222,46 +291,57 @@ export interface VirtualServerArgs {
     readonly ipProtocol?: pulumi.Input<string>;
     readonly irules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Mask can either be in CIDR notation or decimal, i.e.: "24" or "255.255.255.0". A CIDR mask of "0" is the same as
-     * "0.0.0.0"
+     * Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
      */
     readonly mask?: pulumi.Input<string>;
     /**
      * Name of the virtual server
      */
     readonly name: pulumi.Input<string>;
+    /**
+     * List of persistence profiles associated with the Virtual Server.
+     */
     readonly persistenceProfiles?: pulumi.Input<pulumi.Input<string>[]>;
     readonly policies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Default pool for this virtual server
+     * Default pool name
      */
     readonly pool?: pulumi.Input<string>;
     /**
      * Listen port for the virtual server
      */
     readonly port: pulumi.Input<number>;
+    /**
+     * List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
+     */
     readonly profiles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
+     */
     readonly serverProfiles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Name of the snatpool to use. Requires source_address_translation to be set to 'snat'.
+     * Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
      */
     readonly snatpool?: pulumi.Input<string>;
     /**
-     * Source IP and mask for the virtual server
+     * Specifies an IP address or network from which the virtual server will accept traffic.
      */
     readonly source?: pulumi.Input<string>;
     /**
-     * none, automap, snat
+     * Can be either omitted for none or the values automap or snat
      */
     readonly sourceAddressTranslation?: pulumi.Input<string>;
     /**
-     * To enable _ disable Address translation
+     * Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
      */
     readonly translateAddress?: pulumi.Input<string>;
     /**
-     * To enable _ disable port translation
+     * Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
      */
     readonly translatePort?: pulumi.Input<string>;
+    /**
+     * The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.
+     */
     readonly vlans?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Enables the virtual server on the VLANs specified by the VLANs option.

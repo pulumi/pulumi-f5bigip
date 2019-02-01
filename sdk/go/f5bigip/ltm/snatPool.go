@@ -8,6 +8,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// `bigip_ltm_snatpool` Collections of SNAT translation addresses
+// 
+// Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-snatpool. 
 type SnatPool struct {
 	s *pulumi.ResourceState
 }
@@ -62,28 +65,28 @@ func (r *SnatPool) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// Specifies a translation address to add to or delete from a SNAT pool, at least one address is required.
+// Specifies a translation address to add to or delete from a SNAT pool (at least one address is required)
 func (r *SnatPool) Members() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["members"])
 }
 
-// SNAT Pool list Name, format /partition/name. e.g. /Common/snat_pool
+// Name of the snatpool
 func (r *SnatPool) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Input properties used for looking up and filtering SnatPool resources.
 type SnatPoolState struct {
-	// Specifies a translation address to add to or delete from a SNAT pool, at least one address is required.
+	// Specifies a translation address to add to or delete from a SNAT pool (at least one address is required)
 	Members interface{}
-	// SNAT Pool list Name, format /partition/name. e.g. /Common/snat_pool
+	// Name of the snatpool
 	Name interface{}
 }
 
 // The set of arguments for constructing a SnatPool resource.
 type SnatPoolArgs struct {
-	// Specifies a translation address to add to or delete from a SNAT pool, at least one address is required.
+	// Specifies a translation address to add to or delete from a SNAT pool (at least one address is required)
 	Members interface{}
-	// SNAT Pool list Name, format /partition/name. e.g. /Common/snat_pool
+	// Name of the snatpool
 	Name interface{}
 }

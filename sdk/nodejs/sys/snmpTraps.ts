@@ -4,6 +4,24 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * `bigip_sys_snmp_traps` provides details bout how to enable snmp_traps resource on BIG-IP
+ * ## Example Usage
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ * 
+ * const bigip_sys_snmp_traps_snmp_traps = new f5bigip.sys.SnmpTraps("snmp_traps", {
+ *     community: "f5community",
+ *     description: "Setup snmp traps",
+ *     host: "195.10.10.1",
+ *     name: "snmptraps",
+ *     port: 111,
+ * });
+ * ```
+ */
 export class SnmpTraps extends pulumi.CustomResource {
     /**
      * Get an existing SnmpTraps resource's state with the given name, ID, and optional extra
@@ -30,7 +48,7 @@ export class SnmpTraps extends pulumi.CustomResource {
      */
     public readonly community: pulumi.Output<string | undefined>;
     /**
-     * User defined description.
+     * The port that the trap will be sent to.
      */
     public readonly description: pulumi.Output<string | undefined>;
     /**
@@ -42,11 +60,11 @@ export class SnmpTraps extends pulumi.CustomResource {
      */
     public readonly host: pulumi.Output<string | undefined>;
     /**
-     * Name
+     * Name of the snmp trap.
      */
     public readonly name: pulumi.Output<string | undefined>;
     /**
-     * The port that the trap will be sent to.
+     * User defined description.
      */
     public readonly port: pulumi.Output<number | undefined>;
     /**
@@ -138,7 +156,7 @@ export interface SnmpTrapsState {
      */
     readonly community?: pulumi.Input<string>;
     /**
-     * User defined description.
+     * The port that the trap will be sent to.
      */
     readonly description?: pulumi.Input<string>;
     /**
@@ -150,11 +168,11 @@ export interface SnmpTrapsState {
      */
     readonly host?: pulumi.Input<string>;
     /**
-     * Name
+     * Name of the snmp trap.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The port that the trap will be sent to.
+     * User defined description.
      */
     readonly port?: pulumi.Input<number>;
     /**
@@ -200,7 +218,7 @@ export interface SnmpTrapsArgs {
      */
     readonly community?: pulumi.Input<string>;
     /**
-     * User defined description.
+     * The port that the trap will be sent to.
      */
     readonly description?: pulumi.Input<string>;
     /**
@@ -212,11 +230,11 @@ export interface SnmpTrapsArgs {
      */
     readonly host?: pulumi.Input<string>;
     /**
-     * Name
+     * Name of the snmp trap.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * The port that the trap will be sent to.
+     * User defined description.
      */
     readonly port?: pulumi.Input<number>;
     /**

@@ -7,6 +7,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// `bigip_sys_snmp` provides details bout how to enable "ilx", "asm" "apm" resource on BIG-IP
 type Snmp struct {
 	s *pulumi.ResourceState
 }
@@ -58,37 +59,37 @@ func (r *Snmp) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// List of SNMP addresses
+// Configures hosts or networks from which snmpd can accept traffic. Entries go directly into hosts.allow.
 func (r *Snmp) Allowedaddresses() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["allowedaddresses"])
 }
 
-// Contact Person email
+// Specifies the contact information for the system administrator.
 func (r *Snmp) SysContact() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sysContact"])
 }
 
-// Location of the F5
+// Describes the system's physical location.
 func (r *Snmp) SysLocation() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sysLocation"])
 }
 
 // Input properties used for looking up and filtering Snmp resources.
 type SnmpState struct {
-	// List of SNMP addresses
+	// Configures hosts or networks from which snmpd can accept traffic. Entries go directly into hosts.allow.
 	Allowedaddresses interface{}
-	// Contact Person email
+	// Specifies the contact information for the system administrator.
 	SysContact interface{}
-	// Location of the F5
+	// Describes the system's physical location.
 	SysLocation interface{}
 }
 
 // The set of arguments for constructing a Snmp resource.
 type SnmpArgs struct {
-	// List of SNMP addresses
+	// Configures hosts or networks from which snmpd can accept traffic. Entries go directly into hosts.allow.
 	Allowedaddresses interface{}
-	// Contact Person email
+	// Specifies the contact information for the system administrator.
 	SysContact interface{}
-	// Location of the F5
+	// Describes the system's physical location.
 	SysLocation interface{}
 }

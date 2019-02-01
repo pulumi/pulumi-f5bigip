@@ -4,6 +4,32 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * `bigip_ltm_profile_fastl4` Configures a custom profile_fastl4 for use by health checks.
+ * 
+ * For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+ * 
+ * ## Example Usage
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ * 
+ * const bigip_ltm_profile_fastl4_profile_fastl4 = new f5bigip.ltm.ProfileFastL4("profile_fastl4", {
+ *     clientTimeout: 40,
+ *     defaultsFrom: "/Common/fastL4",
+ *     explicitflowMigration: "enabled",
+ *     hardwareSyncookie: "enabled",
+ *     idleTimeout: "200",
+ *     iptosToclient: "pass-through",
+ *     iptosToserver: "pass-through",
+ *     keepaliveInterval: "disabled",
+ *     name: "/Common/sjfastl4profile",
+ *     partition: "Common",
+ * });
+ * ```
+ */
 export class ProfileFastL4 extends pulumi.CustomResource {
     /**
      * Get an existing ProfileFastL4 resource's state with the given name, ID, and optional extra
@@ -18,43 +44,43 @@ export class ProfileFastL4 extends pulumi.CustomResource {
     }
 
     /**
-     * Use the parent Fastl4 profile
+     * Specifies late binding client timeout in seconds. This setting specifies the number of seconds allowed for a client to transmit enough data to select a server when late binding is enabled. If it expires timeout-recovery mode will dictate what action to take.
      */
     public readonly clientTimeout: pulumi.Output<number | undefined>;
     /**
-     * Use the parent Fastl4 profile
+     * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      */
     public readonly defaultsFrom: pulumi.Output<string | undefined>;
     /**
-     * Use the parent Fastl4 profile
+     * Enables or disables late binding explicit flow migration that allows iRules to control when flows move from software to hardware. Explicit flow migration is disabled by default hence BIG-IP automatically migrates flows from software to hardware.
      */
     public readonly explicitflowMigration: pulumi.Output<string | undefined>;
     /**
-     * Use the parent Fastl4 profile
+     * Enables or disables hardware SYN cookie support when PVA10 is present on the system. Note that when you set the hardware syncookie option to enabled, you may also want to set the following bigdb database variables using the "/sys modify db" command, based on your requirements: pva.SynCookies.Full.ConnectionThreshold (default: 500000), pva.SynCookies.Assist.ConnectionThreshold (default: 500000) pva.SynCookies.ClientWindow (default: 0). The default value is disabled.
      */
     public readonly hardwareSyncookie: pulumi.Output<string | undefined>;
     /**
-     * Use the parent Fastl4 profile
+     * Specifies an idle timeout in seconds. This setting specifies the number of seconds that a connection is idle before the connection is eligible for deletion.When you specify an idle timeout for the Fast L4 profile, the value must be greater than the bigdb database variable Pva.Scrub time in msec for it to work properly.The default value is 300 seconds.
      */
     public readonly idleTimeout: pulumi.Output<string | undefined>;
     /**
-     * Use the parent Fastl4 profile
+     * Specifies an IP ToS number for the client side. This option specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to clients. The default value is 65535 (pass-through), which indicates, do not modify.
      */
     public readonly iptosToclient: pulumi.Output<string | undefined>;
     /**
-     * Use the parent Fastl4 profile
+     * Specifies an IP ToS number for the server side. This setting specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to servers. The default value is 65535 (pass-through), which indicates, do not modify.
      */
     public readonly iptosToserver: pulumi.Output<string | undefined>;
     /**
-     * Use the parent Fastl4 profile
+     * Specifies the keep alive probe interval, in seconds. The default value is disabled (0 seconds).
      */
     public readonly keepaliveInterval: pulumi.Output<string | undefined>;
     /**
-     * Name of the Fastl4 Profile
+     * Name of the profile_fastl4
      */
     public readonly name: pulumi.Output<string>;
     /**
-     * name of partition
+     * Displays the administrative partition within which this profile resides
      */
     public readonly partition: pulumi.Output<string | undefined>;
 
@@ -105,43 +131,43 @@ export class ProfileFastL4 extends pulumi.CustomResource {
  */
 export interface ProfileFastL4State {
     /**
-     * Use the parent Fastl4 profile
+     * Specifies late binding client timeout in seconds. This setting specifies the number of seconds allowed for a client to transmit enough data to select a server when late binding is enabled. If it expires timeout-recovery mode will dictate what action to take.
      */
     readonly clientTimeout?: pulumi.Input<number>;
     /**
-     * Use the parent Fastl4 profile
+     * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      */
     readonly defaultsFrom?: pulumi.Input<string>;
     /**
-     * Use the parent Fastl4 profile
+     * Enables or disables late binding explicit flow migration that allows iRules to control when flows move from software to hardware. Explicit flow migration is disabled by default hence BIG-IP automatically migrates flows from software to hardware.
      */
     readonly explicitflowMigration?: pulumi.Input<string>;
     /**
-     * Use the parent Fastl4 profile
+     * Enables or disables hardware SYN cookie support when PVA10 is present on the system. Note that when you set the hardware syncookie option to enabled, you may also want to set the following bigdb database variables using the "/sys modify db" command, based on your requirements: pva.SynCookies.Full.ConnectionThreshold (default: 500000), pva.SynCookies.Assist.ConnectionThreshold (default: 500000) pva.SynCookies.ClientWindow (default: 0). The default value is disabled.
      */
     readonly hardwareSyncookie?: pulumi.Input<string>;
     /**
-     * Use the parent Fastl4 profile
+     * Specifies an idle timeout in seconds. This setting specifies the number of seconds that a connection is idle before the connection is eligible for deletion.When you specify an idle timeout for the Fast L4 profile, the value must be greater than the bigdb database variable Pva.Scrub time in msec for it to work properly.The default value is 300 seconds.
      */
     readonly idleTimeout?: pulumi.Input<string>;
     /**
-     * Use the parent Fastl4 profile
+     * Specifies an IP ToS number for the client side. This option specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to clients. The default value is 65535 (pass-through), which indicates, do not modify.
      */
     readonly iptosToclient?: pulumi.Input<string>;
     /**
-     * Use the parent Fastl4 profile
+     * Specifies an IP ToS number for the server side. This setting specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to servers. The default value is 65535 (pass-through), which indicates, do not modify.
      */
     readonly iptosToserver?: pulumi.Input<string>;
     /**
-     * Use the parent Fastl4 profile
+     * Specifies the keep alive probe interval, in seconds. The default value is disabled (0 seconds).
      */
     readonly keepaliveInterval?: pulumi.Input<string>;
     /**
-     * Name of the Fastl4 Profile
+     * Name of the profile_fastl4
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * name of partition
+     * Displays the administrative partition within which this profile resides
      */
     readonly partition?: pulumi.Input<string>;
 }
@@ -151,43 +177,43 @@ export interface ProfileFastL4State {
  */
 export interface ProfileFastL4Args {
     /**
-     * Use the parent Fastl4 profile
+     * Specifies late binding client timeout in seconds. This setting specifies the number of seconds allowed for a client to transmit enough data to select a server when late binding is enabled. If it expires timeout-recovery mode will dictate what action to take.
      */
     readonly clientTimeout?: pulumi.Input<number>;
     /**
-     * Use the parent Fastl4 profile
+     * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      */
     readonly defaultsFrom?: pulumi.Input<string>;
     /**
-     * Use the parent Fastl4 profile
+     * Enables or disables late binding explicit flow migration that allows iRules to control when flows move from software to hardware. Explicit flow migration is disabled by default hence BIG-IP automatically migrates flows from software to hardware.
      */
     readonly explicitflowMigration?: pulumi.Input<string>;
     /**
-     * Use the parent Fastl4 profile
+     * Enables or disables hardware SYN cookie support when PVA10 is present on the system. Note that when you set the hardware syncookie option to enabled, you may also want to set the following bigdb database variables using the "/sys modify db" command, based on your requirements: pva.SynCookies.Full.ConnectionThreshold (default: 500000), pva.SynCookies.Assist.ConnectionThreshold (default: 500000) pva.SynCookies.ClientWindow (default: 0). The default value is disabled.
      */
     readonly hardwareSyncookie?: pulumi.Input<string>;
     /**
-     * Use the parent Fastl4 profile
+     * Specifies an idle timeout in seconds. This setting specifies the number of seconds that a connection is idle before the connection is eligible for deletion.When you specify an idle timeout for the Fast L4 profile, the value must be greater than the bigdb database variable Pva.Scrub time in msec for it to work properly.The default value is 300 seconds.
      */
     readonly idleTimeout?: pulumi.Input<string>;
     /**
-     * Use the parent Fastl4 profile
+     * Specifies an IP ToS number for the client side. This option specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to clients. The default value is 65535 (pass-through), which indicates, do not modify.
      */
     readonly iptosToclient?: pulumi.Input<string>;
     /**
-     * Use the parent Fastl4 profile
+     * Specifies an IP ToS number for the server side. This setting specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to servers. The default value is 65535 (pass-through), which indicates, do not modify.
      */
     readonly iptosToserver?: pulumi.Input<string>;
     /**
-     * Use the parent Fastl4 profile
+     * Specifies the keep alive probe interval, in seconds. The default value is disabled (0 seconds).
      */
     readonly keepaliveInterval?: pulumi.Input<string>;
     /**
-     * Name of the Fastl4 Profile
+     * Name of the profile_fastl4
      */
     readonly name: pulumi.Input<string>;
     /**
-     * name of partition
+     * Displays the administrative partition within which this profile resides
      */
     readonly partition?: pulumi.Input<string>;
 }

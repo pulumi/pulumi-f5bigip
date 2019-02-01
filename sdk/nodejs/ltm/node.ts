@@ -4,6 +4,32 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * `bigip_ltm_node` Manages a node configuration
+ * 
+ * For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+ * 
+ * 
+ * ## Example Usage
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ * 
+ * const bigip_ltm_node_node = new f5bigip.ltm.Node("node", {
+ *     address: "10.10.10.10",
+ *     connectionLimit: Number.parseFloat("0"),
+ *     dynamicRatio: Number.parseFloat("1"),
+ *     fqdn: {
+ *         interval: "3000",
+ *     },
+ *     monitor: "default",
+ *     name: "/Common/terraform_node1",
+ *     rateLimit: "disabled",
+ * });
+ * ```
+ */
 export class Node extends pulumi.CustomResource {
     /**
      * Get an existing Node resource's state with the given name, ID, and optional extra
@@ -18,7 +44,7 @@ export class Node extends pulumi.CustomResource {
     }
 
     /**
-     * Address of the node
+     * IP or hostname of the node
      */
     public readonly address: pulumi.Output<string>;
     /**
@@ -26,7 +52,7 @@ export class Node extends pulumi.CustomResource {
      */
     public readonly connectionLimit: pulumi.Output<number | undefined>;
     /**
-     * Sets the dynamic ratio number for the node. Used for dynamic ratio load balancing.
+     * Specifies the ratio weight to assign to the node. Valid values range from 1 through 65535. The default is 1, which means that each node has an equal ratio proportion.
      */
     public readonly dynamicRatio: pulumi.Output<number | undefined>;
     public readonly fqdn: pulumi.Output<{ addressFamily?: string, autopopulate?: string, downinterval?: number, interval?: string, name?: string } | undefined>;
@@ -39,12 +65,11 @@ export class Node extends pulumi.CustomResource {
      */
     public readonly name: pulumi.Output<string>;
     /**
-     * Specifies the maximum number of connections per second allowed for a node or node address. The default value is
-     * 'disabled'.
+     * Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
      */
     public readonly rateLimit: pulumi.Output<string | undefined>;
     /**
-     * Marks the node up or down. The default value is user-up.
+     * Default is "user-up" you can set to "user-down" if you want to disable
      */
     public readonly state: pulumi.Output<string | undefined>;
 
@@ -94,7 +119,7 @@ export class Node extends pulumi.CustomResource {
  */
 export interface NodeState {
     /**
-     * Address of the node
+     * IP or hostname of the node
      */
     readonly address?: pulumi.Input<string>;
     /**
@@ -102,7 +127,7 @@ export interface NodeState {
      */
     readonly connectionLimit?: pulumi.Input<number>;
     /**
-     * Sets the dynamic ratio number for the node. Used for dynamic ratio load balancing.
+     * Specifies the ratio weight to assign to the node. Valid values range from 1 through 65535. The default is 1, which means that each node has an equal ratio proportion.
      */
     readonly dynamicRatio?: pulumi.Input<number>;
     readonly fqdn?: pulumi.Input<{ addressFamily?: pulumi.Input<string>, autopopulate?: pulumi.Input<string>, downinterval?: pulumi.Input<number>, interval?: pulumi.Input<string>, name?: pulumi.Input<string> }>;
@@ -115,12 +140,11 @@ export interface NodeState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Specifies the maximum number of connections per second allowed for a node or node address. The default value is
-     * 'disabled'.
+     * Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
      */
     readonly rateLimit?: pulumi.Input<string>;
     /**
-     * Marks the node up or down. The default value is user-up.
+     * Default is "user-up" you can set to "user-down" if you want to disable
      */
     readonly state?: pulumi.Input<string>;
 }
@@ -130,7 +154,7 @@ export interface NodeState {
  */
 export interface NodeArgs {
     /**
-     * Address of the node
+     * IP or hostname of the node
      */
     readonly address: pulumi.Input<string>;
     /**
@@ -138,7 +162,7 @@ export interface NodeArgs {
      */
     readonly connectionLimit?: pulumi.Input<number>;
     /**
-     * Sets the dynamic ratio number for the node. Used for dynamic ratio load balancing.
+     * Specifies the ratio weight to assign to the node. Valid values range from 1 through 65535. The default is 1, which means that each node has an equal ratio proportion.
      */
     readonly dynamicRatio?: pulumi.Input<number>;
     readonly fqdn?: pulumi.Input<{ addressFamily?: pulumi.Input<string>, autopopulate?: pulumi.Input<string>, downinterval?: pulumi.Input<number>, interval?: pulumi.Input<string>, name?: pulumi.Input<string> }>;
@@ -151,12 +175,11 @@ export interface NodeArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Specifies the maximum number of connections per second allowed for a node or node address. The default value is
-     * 'disabled'.
+     * Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
      */
     readonly rateLimit?: pulumi.Input<string>;
     /**
-     * Marks the node up or down. The default value is user-up.
+     * Default is "user-up" you can set to "user-down" if you want to disable
      */
     readonly state?: pulumi.Input<string>;
 }

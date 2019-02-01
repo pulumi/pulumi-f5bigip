@@ -4,6 +4,35 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * `bigip_ltm_datagroup` Manages internal (in-line) datagroup configuration
+ * 
+ * Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-datagroup.
+ * 
+ * 
+ * ## Example Usage
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ * 
+ * const bigip_ltm_datagroup_datagroup = new f5bigip.ltm.DataGroup("datagroup", {
+ *     name: "/Common/dgx2",
+ *     records: [
+ *         {
+ *             data: "pool1",
+ *             name: "abc.com",
+ *         },
+ *         {
+ *             name: "test",
+ *             value: "123",
+ *         },
+ *     ],
+ *     type: "string",
+ * });
+ * ```
+ */
 export class DataGroup extends pulumi.CustomResource {
     /**
      * Get an existing DataGroup resource's state with the given name, ID, and optional extra
@@ -18,12 +47,15 @@ export class DataGroup extends pulumi.CustomResource {
     }
 
     /**
-     * Name of the Data Group List
+     * , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
      */
     public readonly name: pulumi.Output<string>;
+    /**
+     * a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
+     */
     public readonly records: pulumi.Output<{ data?: string, name: string }[] | undefined>;
     /**
-     * The Data Group type (string, ip, integer)
+     * datagroup type (applies to the `name` field of the record), supports: `string`, `ip` or `integer`
      */
     public readonly type: pulumi.Output<string>;
 
@@ -63,12 +95,15 @@ export class DataGroup extends pulumi.CustomResource {
  */
 export interface DataGroupState {
     /**
-     * Name of the Data Group List
+     * , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
+     */
     readonly records?: pulumi.Input<pulumi.Input<{ data?: pulumi.Input<string>, name: pulumi.Input<string> }>[]>;
     /**
-     * The Data Group type (string, ip, integer)
+     * datagroup type (applies to the `name` field of the record), supports: `string`, `ip` or `integer`
      */
     readonly type?: pulumi.Input<string>;
 }
@@ -78,12 +113,15 @@ export interface DataGroupState {
  */
 export interface DataGroupArgs {
     /**
-     * Name of the Data Group List
+     * , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
      */
     readonly name: pulumi.Input<string>;
+    /**
+     * a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
+     */
     readonly records?: pulumi.Input<pulumi.Input<{ data?: pulumi.Input<string>, name: pulumi.Input<string> }>[]>;
     /**
-     * The Data Group type (string, ip, integer)
+     * datagroup type (applies to the `name` field of the record), supports: `string`, `ip` or `integer`
      */
     readonly type: pulumi.Input<string>;
 }

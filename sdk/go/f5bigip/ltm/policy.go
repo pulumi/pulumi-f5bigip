@@ -8,6 +8,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// `bigip_ltm_policy` Configures Virtual Server
+// 
+// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 type Policy struct {
 	s *pulumi.ResourceState
 }
@@ -80,6 +83,7 @@ func (r *Policy) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// Specifies the controls
 func (r *Policy) Controls() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["controls"])
 }
@@ -89,46 +93,54 @@ func (r *Policy) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// Publish the Policy
+// If you want to publish the policy else it will be deployed in Drafts mode.
 func (r *Policy) PublishedCopy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["publishedCopy"])
 }
 
+// Specifies the protocol
 func (r *Policy) Requires() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["requires"])
 }
 
+// Rules can be applied using the policy
 func (r *Policy) Rules() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["rules"])
 }
 
-// Policy Strategy (i.e. /Common/first-match)
+// Specifies the match strategy
 func (r *Policy) Strategy() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["strategy"])
 }
 
 // Input properties used for looking up and filtering Policy resources.
 type PolicyState struct {
+	// Specifies the controls
 	Controls interface{}
 	// Name of the Policy
 	Name interface{}
-	// Publish the Policy
+	// If you want to publish the policy else it will be deployed in Drafts mode.
 	PublishedCopy interface{}
+	// Specifies the protocol
 	Requires interface{}
+	// Rules can be applied using the policy
 	Rules interface{}
-	// Policy Strategy (i.e. /Common/first-match)
+	// Specifies the match strategy
 	Strategy interface{}
 }
 
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
+	// Specifies the controls
 	Controls interface{}
 	// Name of the Policy
 	Name interface{}
-	// Publish the Policy
+	// If you want to publish the policy else it will be deployed in Drafts mode.
 	PublishedCopy interface{}
+	// Specifies the protocol
 	Requires interface{}
+	// Rules can be applied using the policy
 	Rules interface{}
-	// Policy Strategy (i.e. /Common/first-match)
+	// Specifies the match strategy
 	Strategy interface{}
 }

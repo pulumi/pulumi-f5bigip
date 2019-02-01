@@ -8,6 +8,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// `bigip_net_route` Manages a route configuration
+// 
+// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 type Route struct {
 	s *pulumi.ResourceState
 }
@@ -75,7 +78,7 @@ func (r *Route) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// Destination network
+// Specifies a gateway address for the route.
 func (r *Route) Network() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["network"])
 }
@@ -86,7 +89,7 @@ type RouteState struct {
 	Gw interface{}
 	// Name of the route
 	Name interface{}
-	// Destination network
+	// Specifies a gateway address for the route.
 	Network interface{}
 }
 
@@ -96,6 +99,6 @@ type RouteArgs struct {
 	Gw interface{}
 	// Name of the route
 	Name interface{}
-	// Destination network
+	// Specifies a gateway address for the route.
 	Network interface{}
 }

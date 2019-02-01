@@ -8,6 +8,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// `bigip_sys_ntp` provides details about a specific bigip
+// 
+// This resource is helpful when configuring NTP server on the BIG-IP.
 type Ntp struct {
 	s *pulumi.ResourceState
 }
@@ -67,12 +70,12 @@ func (r *Ntp) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
 
-// Servers Address
+// Adds NTP servers to or deletes NTP servers from the BIG-IP system.
 func (r *Ntp) Servers() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["servers"])
 }
 
-// Servers timezone
+// Specifies the time zone that you want to use for the system time.
 func (r *Ntp) Timezone() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["timezone"])
 }
@@ -81,9 +84,9 @@ func (r *Ntp) Timezone() *pulumi.StringOutput {
 type NtpState struct {
 	// Name of the ntp Servers
 	Description interface{}
-	// Servers Address
+	// Adds NTP servers to or deletes NTP servers from the BIG-IP system.
 	Servers interface{}
-	// Servers timezone
+	// Specifies the time zone that you want to use for the system time.
 	Timezone interface{}
 }
 
@@ -91,8 +94,8 @@ type NtpState struct {
 type NtpArgs struct {
 	// Name of the ntp Servers
 	Description interface{}
-	// Servers Address
+	// Adds NTP servers to or deletes NTP servers from the BIG-IP system.
 	Servers interface{}
-	// Servers timezone
+	// Specifies the time zone that you want to use for the system time.
 	Timezone interface{}
 }

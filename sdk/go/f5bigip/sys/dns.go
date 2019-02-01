@@ -8,6 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// `bigip_ltm_dns` Configures DNS server on F5 BIG-IP
 type Dns struct {
 	s *pulumi.ResourceState
 }
@@ -70,17 +71,17 @@ func (r *Dns) Description() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["description"])
 }
 
-// Servers Address
+// Name or IP address of the DNS server
 func (r *Dns) NameServers() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["nameServers"])
 }
 
-// how many DNS Servers
+// Configures the number of dots needed in a name before an initial absolute query will be made.
 func (r *Dns) NumberOfDots() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["numberOfDots"])
 }
 
-// Servers search domain
+// Specify what domains you want to search
 func (r *Dns) Searches() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["searches"])
 }
@@ -89,11 +90,11 @@ func (r *Dns) Searches() *pulumi.ArrayOutput {
 type DnsState struct {
 	// Name of the Dns Servers
 	Description interface{}
-	// Servers Address
+	// Name or IP address of the DNS server
 	NameServers interface{}
-	// how many DNS Servers
+	// Configures the number of dots needed in a name before an initial absolute query will be made.
 	NumberOfDots interface{}
-	// Servers search domain
+	// Specify what domains you want to search
 	Searches interface{}
 }
 
@@ -101,10 +102,10 @@ type DnsState struct {
 type DnsArgs struct {
 	// Name of the Dns Servers
 	Description interface{}
-	// Servers Address
+	// Name or IP address of the DNS server
 	NameServers interface{}
-	// how many DNS Servers
+	// Configures the number of dots needed in a name before an initial absolute query will be made.
 	NumberOfDots interface{}
-	// Servers search domain
+	// Specify what domains you want to search
 	Searches interface{}
 }

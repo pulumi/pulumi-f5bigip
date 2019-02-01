@@ -4,3 +4,6 @@
 
 # Make subpackages available:
 __all__ = ['cm', 'config', 'ltm', 'net', 'sys']
+
+# Export this package's modules as members:
+from .provider import *

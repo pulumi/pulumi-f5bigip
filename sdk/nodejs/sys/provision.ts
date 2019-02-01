@@ -4,6 +4,25 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * `bigip_sys_provision` provides details bout how to enable "ilx", "asm" "apm" resource on BIG-IP
+ * ## Example Usage
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ * 
+ * const bigip_sys_provision_provision_ilx = new f5bigip.sys.Provision("provision-ilx", {
+ *     cpuRatio: 0,
+ *     diskRatio: 0,
+ *     fullPath: "ilx",
+ *     level: "nominal",
+ *     memoryRatio: 0,
+ *     name: "/Common/ilx",
+ * });
+ * ```
+ */
 export class Provision extends pulumi.CustomResource {
     /**
      * Get an existing Provision resource's state with the given name, ID, and optional extra

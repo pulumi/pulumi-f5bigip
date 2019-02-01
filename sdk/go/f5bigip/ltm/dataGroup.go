@@ -8,6 +8,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// `bigip_ltm_datagroup` Manages internal (in-line) datagroup configuration
+// 
+// Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-datagroup.
 type DataGroup struct {
 	s *pulumi.ResourceState
 }
@@ -65,34 +68,37 @@ func (r *DataGroup) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// Name of the Data Group List
+// , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
 func (r *DataGroup) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
+// a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
 func (r *DataGroup) Records() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["records"])
 }
 
-// The Data Group type (string, ip, integer)
+// datagroup type (applies to the `name` field of the record), supports: `string`, `ip` or `integer`
 func (r *DataGroup) Type() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["type"])
 }
 
 // Input properties used for looking up and filtering DataGroup resources.
 type DataGroupState struct {
-	// Name of the Data Group List
+	// , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
 	Name interface{}
+	// a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
 	Records interface{}
-	// The Data Group type (string, ip, integer)
+	// datagroup type (applies to the `name` field of the record), supports: `string`, `ip` or `integer`
 	Type interface{}
 }
 
 // The set of arguments for constructing a DataGroup resource.
 type DataGroupArgs struct {
-	// Name of the Data Group List
+	// , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
 	Name interface{}
+	// a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
 	Records interface{}
-	// The Data Group type (string, ip, integer)
+	// datagroup type (applies to the `name` field of the record), supports: `string`, `ip` or `integer`
 	Type interface{}
 }

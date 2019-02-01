@@ -4,6 +4,28 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * `bigip_ltm_snatpool` Collections of SNAT translation addresses
+ * 
+ * Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-snatpool. 
+ * 
+ * 
+ * ## Example Usage
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ * 
+ * const bigip_ltm_snatpoolpool_snatpool_sanjose = new f5bigip.LtmSnatpoolpool("snatpool_sanjose", {
+ *     members: [
+ *         "191.1.1.1",
+ *         "194.2.2.2",
+ *     ],
+ *     name: "/Common/snatpool_sanjose",
+ * });
+ * ```
+ */
 export class SnatPool extends pulumi.CustomResource {
     /**
      * Get an existing SnatPool resource's state with the given name, ID, and optional extra
@@ -18,11 +40,11 @@ export class SnatPool extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies a translation address to add to or delete from a SNAT pool, at least one address is required.
+     * Specifies a translation address to add to or delete from a SNAT pool (at least one address is required)
      */
     public readonly members: pulumi.Output<string[]>;
     /**
-     * SNAT Pool list Name, format /partition/name. e.g. /Common/snat_pool
+     * Name of the snatpool
      */
     public readonly name: pulumi.Output<string>;
 
@@ -60,11 +82,11 @@ export class SnatPool extends pulumi.CustomResource {
  */
 export interface SnatPoolState {
     /**
-     * Specifies a translation address to add to or delete from a SNAT pool, at least one address is required.
+     * Specifies a translation address to add to or delete from a SNAT pool (at least one address is required)
      */
     readonly members?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * SNAT Pool list Name, format /partition/name. e.g. /Common/snat_pool
+     * Name of the snatpool
      */
     readonly name?: pulumi.Input<string>;
 }
@@ -74,11 +96,11 @@ export interface SnatPoolState {
  */
 export interface SnatPoolArgs {
     /**
-     * Specifies a translation address to add to or delete from a SNAT pool, at least one address is required.
+     * Specifies a translation address to add to or delete from a SNAT pool (at least one address is required)
      */
     readonly members: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * SNAT Pool list Name, format /partition/name. e.g. /Common/snat_pool
+     * Name of the snatpool
      */
     readonly name: pulumi.Input<string>;
 }

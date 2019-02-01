@@ -4,6 +4,45 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * `bigip_sys_iapp` resource helps you to deploy Application Services template that can be used to automate and orchestrate Layer 4-7 applications service deployments using F5 Network.  
+ * 
+ * ## Example Usage
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ * import * as fs from "fs";
+ * 
+ * const bigip_sys_iapp_simplehttp = new f5bigip.sys.IApp("simplehttp", {
+ *     jsonfile: fs.readFileSync("simplehttp.json", "utf-8"),
+ *     name: "simplehttp",
+ * });
+ * ```
+ * 
+ * ## Example Usage of Json file
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * ```
+ * 
+ *  * `description` - User defined description.
+ *  * `deviceGroup` - The name of the device group that the application service is assigned to.
+ *  * `executeAction` - Run the specified template action associated with the application.
+ *  * `inheritedDevicegroup`- Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use 'device-group default' or 'device-group non-default' to set this.
+ *  * `inheritedTrafficGroup` - Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use 'traffic-group default' or 'traffic-group non-default' to set this.
+ *  * `partition` - Displays the administrative partition within which the application resides.
+ *  * `strictUpdates` - Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system's application management interfaces.
+ *  * `template` - The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.
+ *  * `templateModified` - Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.
+ *  * `templatePrerequisiteErrors` - Indicates any missing prerequisites associated with the template that defines this application.
+ *  * `trafficGroup` - The name of the traffic group that the application service is assigned to.
+ *  * `lists` - string values
+ *  * `metadata` - User defined generic data for the application service. It is a name and value pair.
+ *  * `tables` - Values provided like pool name, nodes etc.
+ *  * `variables` - Name, values, encrypted or not
+ */
 export class IApp extends pulumi.CustomResource {
     /**
      * Get an existing IApp resource's state with the given name, ID, and optional extra
@@ -38,13 +77,13 @@ export class IApp extends pulumi.CustomResource {
      */
     public readonly inheritedTrafficGroup: pulumi.Output<string | undefined>;
     /**
-     * Address of the Iapp which needs to be Iappensed
+     * Refer to the Json file which will be deployed on F5 BIG-IP.
      */
     public readonly jsonfile: pulumi.Output<string | undefined>;
     public readonly lists: pulumi.Output<{ encrypted?: string, value?: string }[] | undefined>;
     public readonly metadatas: pulumi.Output<{ persists?: string, value?: string }[] | undefined>;
     /**
-     * Address of the Iapp which needs to be Iappensed
+     * Name of the iApp.
      */
     public readonly name: pulumi.Output<string | undefined>;
     /**
@@ -152,13 +191,13 @@ export interface IAppState {
      */
     readonly inheritedTrafficGroup?: pulumi.Input<string>;
     /**
-     * Address of the Iapp which needs to be Iappensed
+     * Refer to the Json file which will be deployed on F5 BIG-IP.
      */
     readonly jsonfile?: pulumi.Input<string>;
     readonly lists?: pulumi.Input<pulumi.Input<{ encrypted?: pulumi.Input<string>, value?: pulumi.Input<string> }>[]>;
     readonly metadatas?: pulumi.Input<pulumi.Input<{ persists?: pulumi.Input<string>, value?: pulumi.Input<string> }>[]>;
     /**
-     * Address of the Iapp which needs to be Iappensed
+     * Name of the iApp.
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -214,13 +253,13 @@ export interface IAppArgs {
      */
     readonly inheritedTrafficGroup?: pulumi.Input<string>;
     /**
-     * Address of the Iapp which needs to be Iappensed
+     * Refer to the Json file which will be deployed on F5 BIG-IP.
      */
     readonly jsonfile?: pulumi.Input<string>;
     readonly lists?: pulumi.Input<pulumi.Input<{ encrypted?: pulumi.Input<string>, value?: pulumi.Input<string> }>[]>;
     readonly metadatas?: pulumi.Input<pulumi.Input<{ persists?: pulumi.Input<string>, value?: pulumi.Input<string> }>[]>;
     /**
-     * Address of the Iapp which needs to be Iappensed
+     * Name of the iApp.
      */
     readonly name?: pulumi.Input<string>;
     /**

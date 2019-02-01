@@ -8,6 +8,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// `bigip_cm_device` provides details about a specific bigip
+// 
+// This resource is helpful when configuring the BIG-IP device in cluster or in HA mode.
 type Device struct {
 	s *pulumi.ResourceState
 }

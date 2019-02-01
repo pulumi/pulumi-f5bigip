@@ -8,6 +8,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// `bigip_ltm_virtual_server` Configures Virtual Server
+// 
+// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 type VirtualServer struct {
 	s *pulumi.ResourceState
 }
@@ -119,15 +122,17 @@ func (r *VirtualServer) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
 func (r *VirtualServer) ClientProfiles() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["clientProfiles"])
 }
 
+// Destination IP
 func (r *VirtualServer) Destination() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["destination"])
 }
 
-// Fallback persistence profile
+// Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
 func (r *VirtualServer) FallbackPersistenceProfile() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["fallbackPersistenceProfile"])
 }
@@ -141,8 +146,7 @@ func (r *VirtualServer) Irules() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["irules"])
 }
 
-// Mask can either be in CIDR notation or decimal, i.e.: "24" or "255.255.255.0". A CIDR mask of "0" is the same as
-// "0.0.0.0"
+// Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
 func (r *VirtualServer) Mask() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["mask"])
 }
@@ -152,6 +156,7 @@ func (r *VirtualServer) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
+// List of persistence profiles associated with the Virtual Server.
 func (r *VirtualServer) PersistenceProfiles() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["persistenceProfiles"])
 }
@@ -160,7 +165,7 @@ func (r *VirtualServer) Policies() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["policies"])
 }
 
-// Default pool for this virtual server
+// Default pool name
 func (r *VirtualServer) Pool() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["pool"])
 }
@@ -170,39 +175,42 @@ func (r *VirtualServer) Port() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["port"])
 }
 
+// List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
 func (r *VirtualServer) Profiles() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["profiles"])
 }
 
+// List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
 func (r *VirtualServer) ServerProfiles() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["serverProfiles"])
 }
 
-// Name of the snatpool to use. Requires source_address_translation to be set to 'snat'.
+// Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
 func (r *VirtualServer) Snatpool() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["snatpool"])
 }
 
-// Source IP and mask for the virtual server
+// Specifies an IP address or network from which the virtual server will accept traffic.
 func (r *VirtualServer) Source() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["source"])
 }
 
-// none, automap, snat
+// Can be either omitted for none or the values automap or snat
 func (r *VirtualServer) SourceAddressTranslation() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sourceAddressTranslation"])
 }
 
-// To enable _ disable Address translation
+// Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
 func (r *VirtualServer) TranslateAddress() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["translateAddress"])
 }
 
-// To enable _ disable port translation
+// Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
 func (r *VirtualServer) TranslatePort() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["translatePort"])
 }
 
+// The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.
 func (r *VirtualServer) Vlans() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["vlans"])
 }
@@ -214,36 +222,41 @@ func (r *VirtualServer) VlansEnabled() *pulumi.BoolOutput {
 
 // Input properties used for looking up and filtering VirtualServer resources.
 type VirtualServerState struct {
+	// List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
 	ClientProfiles interface{}
+	// Destination IP
 	Destination interface{}
-	// Fallback persistence profile
+	// Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
 	FallbackPersistenceProfile interface{}
 	// all, tcp, udp
 	IpProtocol interface{}
 	Irules interface{}
-	// Mask can either be in CIDR notation or decimal, i.e.: "24" or "255.255.255.0". A CIDR mask of "0" is the same as
-	// "0.0.0.0"
+	// Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
 	Mask interface{}
 	// Name of the virtual server
 	Name interface{}
+	// List of persistence profiles associated with the Virtual Server.
 	PersistenceProfiles interface{}
 	Policies interface{}
-	// Default pool for this virtual server
+	// Default pool name
 	Pool interface{}
 	// Listen port for the virtual server
 	Port interface{}
+	// List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
 	Profiles interface{}
+	// List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
 	ServerProfiles interface{}
-	// Name of the snatpool to use. Requires source_address_translation to be set to 'snat'.
+	// Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
 	Snatpool interface{}
-	// Source IP and mask for the virtual server
+	// Specifies an IP address or network from which the virtual server will accept traffic.
 	Source interface{}
-	// none, automap, snat
+	// Can be either omitted for none or the values automap or snat
 	SourceAddressTranslation interface{}
-	// To enable _ disable Address translation
+	// Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
 	TranslateAddress interface{}
-	// To enable _ disable port translation
+	// Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
 	TranslatePort interface{}
+	// The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.
 	Vlans interface{}
 	// Enables the virtual server on the VLANs specified by the VLANs option.
 	VlansEnabled interface{}
@@ -251,36 +264,41 @@ type VirtualServerState struct {
 
 // The set of arguments for constructing a VirtualServer resource.
 type VirtualServerArgs struct {
+	// List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
 	ClientProfiles interface{}
+	// Destination IP
 	Destination interface{}
-	// Fallback persistence profile
+	// Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
 	FallbackPersistenceProfile interface{}
 	// all, tcp, udp
 	IpProtocol interface{}
 	Irules interface{}
-	// Mask can either be in CIDR notation or decimal, i.e.: "24" or "255.255.255.0". A CIDR mask of "0" is the same as
-	// "0.0.0.0"
+	// Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
 	Mask interface{}
 	// Name of the virtual server
 	Name interface{}
+	// List of persistence profiles associated with the Virtual Server.
 	PersistenceProfiles interface{}
 	Policies interface{}
-	// Default pool for this virtual server
+	// Default pool name
 	Pool interface{}
 	// Listen port for the virtual server
 	Port interface{}
+	// List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
 	Profiles interface{}
+	// List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
 	ServerProfiles interface{}
-	// Name of the snatpool to use. Requires source_address_translation to be set to 'snat'.
+	// Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
 	Snatpool interface{}
-	// Source IP and mask for the virtual server
+	// Specifies an IP address or network from which the virtual server will accept traffic.
 	Source interface{}
-	// none, automap, snat
+	// Can be either omitted for none or the values automap or snat
 	SourceAddressTranslation interface{}
-	// To enable _ disable Address translation
+	// Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
 	TranslateAddress interface{}
-	// To enable _ disable port translation
+	// Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
 	TranslatePort interface{}
+	// The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.
 	Vlans interface{}
 	// Enables the virtual server on the VLANs specified by the VLANs option.
 	VlansEnabled interface{}

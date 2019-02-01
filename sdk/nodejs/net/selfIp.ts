@@ -4,6 +4,11 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * `bigip_net_selfip` Manages a selfip configuration
+ * 
+ * Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-selfip.
+ */
 export class SelfIp extends pulumi.CustomResource {
     /**
      * Get an existing SelfIp resource's state with the given name, ID, and optional extra
@@ -18,19 +23,19 @@ export class SelfIp extends pulumi.CustomResource {
     }
 
     /**
-     * SelfIP IP address
+     * The Self IP's address and netmask.
      */
     public readonly ip: pulumi.Output<string>;
     /**
-     * Name of the SelfIP
+     * Name of the selfip
      */
     public readonly name: pulumi.Output<string>;
     /**
-     * Name of the traffic group, defaults to traffic-group-local-only if not specified
+     * Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
      */
     public readonly trafficGroup: pulumi.Output<string | undefined>;
     /**
-     * Name of the vlan
+     * Specifies the VLAN for which you are setting a self IP address. This setting must be provided when a self IP is created.
      */
     public readonly vlan: pulumi.Output<string>;
 
@@ -75,19 +80,19 @@ export class SelfIp extends pulumi.CustomResource {
  */
 export interface SelfIpState {
     /**
-     * SelfIP IP address
+     * The Self IP's address and netmask.
      */
     readonly ip?: pulumi.Input<string>;
     /**
-     * Name of the SelfIP
+     * Name of the selfip
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Name of the traffic group, defaults to traffic-group-local-only if not specified
+     * Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
      */
     readonly trafficGroup?: pulumi.Input<string>;
     /**
-     * Name of the vlan
+     * Specifies the VLAN for which you are setting a self IP address. This setting must be provided when a self IP is created.
      */
     readonly vlan?: pulumi.Input<string>;
 }
@@ -97,19 +102,19 @@ export interface SelfIpState {
  */
 export interface SelfIpArgs {
     /**
-     * SelfIP IP address
+     * The Self IP's address and netmask.
      */
     readonly ip: pulumi.Input<string>;
     /**
-     * Name of the SelfIP
+     * Name of the selfip
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Name of the traffic group, defaults to traffic-group-local-only if not specified
+     * Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
      */
     readonly trafficGroup?: pulumi.Input<string>;
     /**
-     * Name of the vlan
+     * Specifies the VLAN for which you are setting a self IP address. This setting must be provided when a self IP is created.
      */
     readonly vlan: pulumi.Input<string>;
 }

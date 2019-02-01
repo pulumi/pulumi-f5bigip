@@ -4,6 +4,29 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * `bigip_net_vlan` Manages a vlan configuration
+ * 
+ * For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+ * 
+ * 
+ * ## Example Usage
+ * 
+ * 
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ * 
+ * const bigip_net_vlan_vlan1 = new f5bigip.net.Vlan("vlan1", {
+ *     interfaces: [{
+ *         tagged: false,
+ *         vlanport: "1.200000",
+ *     }],
+ *     name: "/Common/Internal",
+ *     tag: 101,
+ * });
+ * ```
+ */
 export class Vlan extends pulumi.CustomResource {
     /**
      * Get an existing Vlan resource's state with the given name, ID, and optional extra
@@ -18,15 +41,15 @@ export class Vlan extends pulumi.CustomResource {
     }
 
     /**
-     * Interface(s) attached to the VLAN
+     * Specifies which interfaces you want this VLAN to use for traffic management.
      */
     public readonly interfaces: pulumi.Output<{ tagged?: boolean, vlanport?: string }[] | undefined>;
     /**
-     * Name of the VLAN
+     * Name of the vlan
      */
     public readonly name: pulumi.Output<string>;
     /**
-     * VLAN ID (tag)
+     * Specifies a number that the system adds into the header of any frame passing through the VLAN.
      */
     public readonly tag: pulumi.Output<number | undefined>;
 
@@ -63,15 +86,15 @@ export class Vlan extends pulumi.CustomResource {
  */
 export interface VlanState {
     /**
-     * Interface(s) attached to the VLAN
+     * Specifies which interfaces you want this VLAN to use for traffic management.
      */
     readonly interfaces?: pulumi.Input<pulumi.Input<{ tagged?: pulumi.Input<boolean>, vlanport?: pulumi.Input<string> }>[]>;
     /**
-     * Name of the VLAN
+     * Name of the vlan
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * VLAN ID (tag)
+     * Specifies a number that the system adds into the header of any frame passing through the VLAN.
      */
     readonly tag?: pulumi.Input<number>;
 }
@@ -81,15 +104,15 @@ export interface VlanState {
  */
 export interface VlanArgs {
     /**
-     * Interface(s) attached to the VLAN
+     * Specifies which interfaces you want this VLAN to use for traffic management.
      */
     readonly interfaces?: pulumi.Input<pulumi.Input<{ tagged?: pulumi.Input<boolean>, vlanport?: pulumi.Input<string> }>[]>;
     /**
-     * Name of the VLAN
+     * Name of the vlan
      */
     readonly name: pulumi.Input<string>;
     /**
-     * VLAN ID (tag)
+     * Specifies a number that the system adds into the header of any frame passing through the VLAN.
      */
     readonly tag?: pulumi.Input<number>;
 }

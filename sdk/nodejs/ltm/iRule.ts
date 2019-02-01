@@ -4,6 +4,11 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * `bigip_ltm_irule` Creates iRule on BIG-IP F5 device
+ * 
+ * For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+ */
 export class IRule extends pulumi.CustomResource {
     /**
      * Get an existing IRule resource's state with the given name, ID, and optional extra
@@ -18,7 +23,7 @@ export class IRule extends pulumi.CustomResource {
     }
 
     /**
-     * The iRule body
+     * Body of the iRule
      */
     public readonly irule: pulumi.Output<string>;
     /**
@@ -60,7 +65,7 @@ export class IRule extends pulumi.CustomResource {
  */
 export interface IRuleState {
     /**
-     * The iRule body
+     * Body of the iRule
      */
     readonly irule?: pulumi.Input<string>;
     /**
@@ -74,7 +79,7 @@ export interface IRuleState {
  */
 export interface IRuleArgs {
     /**
-     * The iRule body
+     * Body of the iRule
      */
     readonly irule: pulumi.Input<string>;
     /**

@@ -8,6 +8,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// `bigip_ltm_monitor` Configures a custom monitor for use by health checks.
+// 
+// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 type Monitor struct {
 	s *pulumi.ResourceState
 }
@@ -103,7 +106,7 @@ func (r *Monitor) DefaultsFrom() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["defaultsFrom"])
 }
 
-// Alias for the destination
+// Specify an alias address for monitoring
 func (r *Monitor) Destination() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["destination"])
 }
@@ -126,12 +129,12 @@ func (r *Monitor) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
+// Existing LTM monitor to inherit from
 func (r *Monitor) Parent() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["parent"])
 }
 
-// Expected response string.
+// Expected response string
 func (r *Monitor) Receive() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["receive"])
 }
@@ -145,7 +148,7 @@ func (r *Monitor) Reverse() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["reverse"])
 }
 
-// Request string to send.
+// Request string to send
 func (r *Monitor) Send() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["send"])
 }
@@ -168,7 +171,7 @@ func (r *Monitor) Transparent() *pulumi.StringOutput {
 type MonitorState struct {
 	// Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
 	DefaultsFrom interface{}
-	// Alias for the destination
+	// Specify an alias address for monitoring
 	Destination interface{}
 	// Check interval in seconds
 	Interval interface{}
@@ -176,14 +179,14 @@ type MonitorState struct {
 	ManualResume interface{}
 	// Name of the monitor
 	Name interface{}
-	// Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
+	// Existing LTM monitor to inherit from
 	Parent interface{}
-	// Expected response string.
+	// Expected response string
 	Receive interface{}
 	// Expected response string.
 	ReceiveDisable interface{}
 	Reverse interface{}
-	// Request string to send.
+	// Request string to send
 	Send interface{}
 	// Time in seconds
 	TimeUntilUp interface{}
@@ -196,7 +199,7 @@ type MonitorState struct {
 type MonitorArgs struct {
 	// Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
 	DefaultsFrom interface{}
-	// Alias for the destination
+	// Specify an alias address for monitoring
 	Destination interface{}
 	// Check interval in seconds
 	Interval interface{}
@@ -204,14 +207,14 @@ type MonitorArgs struct {
 	ManualResume interface{}
 	// Name of the monitor
 	Name interface{}
-	// Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
+	// Existing LTM monitor to inherit from
 	Parent interface{}
-	// Expected response string.
+	// Expected response string
 	Receive interface{}
 	// Expected response string.
 	ReceiveDisable interface{}
 	Reverse interface{}
-	// Request string to send.
+	// Request string to send
 	Send interface{}
 	// Time in seconds
 	TimeUntilUp interface{}

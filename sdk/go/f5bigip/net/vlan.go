@@ -8,6 +8,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// `bigip_net_vlan` Manages a vlan configuration
+// 
+// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 type Vlan struct {
 	s *pulumi.ResourceState
 }
@@ -62,37 +65,37 @@ func (r *Vlan) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// Interface(s) attached to the VLAN
+// Specifies which interfaces you want this VLAN to use for traffic management.
 func (r *Vlan) Interfaces() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["interfaces"])
 }
 
-// Name of the VLAN
+// Name of the vlan
 func (r *Vlan) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// VLAN ID (tag)
+// Specifies a number that the system adds into the header of any frame passing through the VLAN.
 func (r *Vlan) Tag() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["tag"])
 }
 
 // Input properties used for looking up and filtering Vlan resources.
 type VlanState struct {
-	// Interface(s) attached to the VLAN
+	// Specifies which interfaces you want this VLAN to use for traffic management.
 	Interfaces interface{}
-	// Name of the VLAN
+	// Name of the vlan
 	Name interface{}
-	// VLAN ID (tag)
+	// Specifies a number that the system adds into the header of any frame passing through the VLAN.
 	Tag interface{}
 }
 
 // The set of arguments for constructing a Vlan resource.
 type VlanArgs struct {
-	// Interface(s) attached to the VLAN
+	// Specifies which interfaces you want this VLAN to use for traffic management.
 	Interfaces interface{}
-	// Name of the VLAN
+	// Name of the vlan
 	Name interface{}
-	// VLAN ID (tag)
+	// Specifies a number that the system adds into the header of any frame passing through the VLAN.
 	Tag interface{}
 }

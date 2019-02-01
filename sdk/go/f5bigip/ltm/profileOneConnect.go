@@ -8,6 +8,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
+// `bigip_ltm_profile_oneconnect` Configures a custom profile_oneconnect for use by health checks.
+// 
+// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 type ProfileOneConnect struct {
 	s *pulumi.ResourceState
 }
@@ -80,91 +83,91 @@ func (r *ProfileOneConnect) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
-// Use the parent oneconnect profile
+// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
 func (r *ProfileOneConnect) DefaultsFrom() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["defaultsFrom"])
 }
 
-// idleTimeoutOverride can be enabled or disabled
+// Specifies the number of seconds that a connection is idle before the connection flow is eligible for deletion. Possible values are disabled, indefinite, or a numeric value that you specify. The default value is disabled.
 func (r *ProfileOneConnect) IdleTimeoutOverride() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["idleTimeoutOverride"])
 }
 
-// max_age has integer value typical 3600 sec
+// Specifies the maximum age in number of seconds allowed for a connection in the connection reuse pool. For any connection with an age higher than this value, the system removes that connection from the reuse pool. The default value is 86400.
 func (r *ProfileOneConnect) MaxAge() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["maxAge"])
 }
 
-// max_reuse has integer value typical 1000 sec
+// Specifies the maximum number of times that a server-side connection can be reused. The default value is 1000.
 func (r *ProfileOneConnect) MaxReuse() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["maxReuse"])
 }
 
-// max_size has integer value typical 1000 sec
+// Specifies the maximum number of connections that the system holds in the connection reuse pool. If the pool is already full, then the server-side connection closes after the response is completed. The default value is 10000.
 func (r *ProfileOneConnect) MaxSize() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["maxSize"])
 }
 
-// Name of the Oneconnect Profile
+// Name of the profile_oneconnect
 func (r *ProfileOneConnect) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// name of partition
+// Displays the administrative partition within which this profile resides
 func (r *ProfileOneConnect) Partition() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["partition"])
 }
 
-// sharePools can be enabled or disabled
+// Specify if you want to share the pool, default value is "disabled"
 func (r *ProfileOneConnect) SharePools() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sharePools"])
 }
 
-// source_mask can be 255.255.255.255
+// Specifies a source IP mask. The default value is 0.0.0.0. The system applies the value of this option to the source address to determine its eligibility for reuse. A mask of 0.0.0.0 causes the system to share reused connections across all clients. A host mask (all 1's in binary), causes the system to share only those reused connections originating from the same client IP address.
 func (r *ProfileOneConnect) SourceMask() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["sourceMask"])
 }
 
 // Input properties used for looking up and filtering ProfileOneConnect resources.
 type ProfileOneConnectState struct {
-	// Use the parent oneconnect profile
+	// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
 	DefaultsFrom interface{}
-	// idleTimeoutOverride can be enabled or disabled
+	// Specifies the number of seconds that a connection is idle before the connection flow is eligible for deletion. Possible values are disabled, indefinite, or a numeric value that you specify. The default value is disabled.
 	IdleTimeoutOverride interface{}
-	// max_age has integer value typical 3600 sec
+	// Specifies the maximum age in number of seconds allowed for a connection in the connection reuse pool. For any connection with an age higher than this value, the system removes that connection from the reuse pool. The default value is 86400.
 	MaxAge interface{}
-	// max_reuse has integer value typical 1000 sec
+	// Specifies the maximum number of times that a server-side connection can be reused. The default value is 1000.
 	MaxReuse interface{}
-	// max_size has integer value typical 1000 sec
+	// Specifies the maximum number of connections that the system holds in the connection reuse pool. If the pool is already full, then the server-side connection closes after the response is completed. The default value is 10000.
 	MaxSize interface{}
-	// Name of the Oneconnect Profile
+	// Name of the profile_oneconnect
 	Name interface{}
-	// name of partition
+	// Displays the administrative partition within which this profile resides
 	Partition interface{}
-	// sharePools can be enabled or disabled
+	// Specify if you want to share the pool, default value is "disabled"
 	SharePools interface{}
-	// source_mask can be 255.255.255.255
+	// Specifies a source IP mask. The default value is 0.0.0.0. The system applies the value of this option to the source address to determine its eligibility for reuse. A mask of 0.0.0.0 causes the system to share reused connections across all clients. A host mask (all 1's in binary), causes the system to share only those reused connections originating from the same client IP address.
 	SourceMask interface{}
 }
 
 // The set of arguments for constructing a ProfileOneConnect resource.
 type ProfileOneConnectArgs struct {
-	// Use the parent oneconnect profile
+	// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
 	DefaultsFrom interface{}
-	// idleTimeoutOverride can be enabled or disabled
+	// Specifies the number of seconds that a connection is idle before the connection flow is eligible for deletion. Possible values are disabled, indefinite, or a numeric value that you specify. The default value is disabled.
 	IdleTimeoutOverride interface{}
-	// max_age has integer value typical 3600 sec
+	// Specifies the maximum age in number of seconds allowed for a connection in the connection reuse pool. For any connection with an age higher than this value, the system removes that connection from the reuse pool. The default value is 86400.
 	MaxAge interface{}
-	// max_reuse has integer value typical 1000 sec
+	// Specifies the maximum number of times that a server-side connection can be reused. The default value is 1000.
 	MaxReuse interface{}
-	// max_size has integer value typical 1000 sec
+	// Specifies the maximum number of connections that the system holds in the connection reuse pool. If the pool is already full, then the server-side connection closes after the response is completed. The default value is 10000.
 	MaxSize interface{}
-	// Name of the Oneconnect Profile
+	// Name of the profile_oneconnect
 	Name interface{}
-	// name of partition
+	// Displays the administrative partition within which this profile resides
 	Partition interface{}
-	// sharePools can be enabled or disabled
+	// Specify if you want to share the pool, default value is "disabled"
 	SharePools interface{}
-	// source_mask can be 255.255.255.255
+	// Specifies a source IP mask. The default value is 0.0.0.0. The system applies the value of this option to the source address to determine its eligibility for reuse. A mask of 0.0.0.0 causes the system to share reused connections across all clients. A host mask (all 1's in binary), causes the system to share only those reused connections originating from the same client IP address.
 	SourceMask interface{}
 }
