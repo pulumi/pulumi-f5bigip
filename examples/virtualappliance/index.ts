@@ -1,41 +1,45 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as f5bigip from "@pulumi/f5bigip";
-import * as virutalapplicance from "./virtualappliance";
+import * as virtualappliance from "./virtualappliance";
 import * as backendinstances from "./loadbalancedinstances";
+import * as https from "https";
 import fetch from "node-fetch";
-const https = require("https");
-const agent = new https.Agent({
-    rejectUnauthorized: false
-})
 
-const config = new pulumi.Config();
+function sleep(ms: number) : Promise<void> {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
-const baseTags = {
-    project: `${pulumi.getProject()}-${pulumi.getStack()}`,
-};
-
-const virtualapplicanceAddress = virutalapplicance.f5Address.apply(async (address) => {
+// Wait for the virtual appliance to be avaiabe to log in to.
+const virtualapplicanceAddress = pulumi.all([virtualappliance.f5Address, virtualappliance.f5Password])
+        .apply(async ([address,password]) => {
     let ready = false;
+    const agent = new https.Agent({
+        rejectUnauthorized: false
+    });
+    const token = new Buffer(`admin:${password}`).toString("base64");
     while (!ready) {
-        console.log("waiting for bigip virtual appliance address to be healthy")
         try {
-            const res = await fetch(address, { agent });
+            const res = await fetch(`${address}/mgmt/tm/ltm`, { 
+                agent, 
+                headers: { 
+                    Authorization: `Basic ${token}`,
+                },
+            });
             if (res.status == 200) {
+                console.log("bigip virtual appliance is ready")
                 ready = true;
             }
-        } catch {
-            // Keep trying on failure
-            console.log("bigip virtual appliance not yet ready")
-
-            continue
-        }
+        } catch { }
+        // Keep trying
+        console.log("waiting for bigip virtual appliance address to be ready")
+        sleep(10000);
     }
     return address;
 });
 
 const f5bigipProvider = new f5bigip.Provider("bigipProvider", {
     address: virtualapplicanceAddress,
-    password: virutalapplicance.f5Password,
+    password: virtualappliance.f5Password,
     username: "admin",
 });
 
@@ -57,7 +61,7 @@ const pool = new f5bigip.ltm.Pool("backend", {
 const poolAttachments = backendinstances.instancePublicIps.map((backendAddress, i) => {
     const applicationPoolAttachment = new f5bigip.ltm.PoolAttachment(`backend-${i}`, {
         pool: pool.name,
-        node: `/Common/${backendAddress}`,
+        node: pulumi.interpolate`/Common/${backendAddress}:80`,
     }, { provider: f5bigipProvider });
     return applicationPoolAttachment;
 });
@@ -65,9 +69,10 @@ const poolAttachments = backendinstances.instancePublicIps.map((backendAddress, 
 const virtualServer = new f5bigip.ltm.VirtualServer("backend", {
     pool: pool.name,
     name: "/Common/backend",
-    destination: virutalapplicance.f5PrivateIp,
+    destination: virtualappliance.f5PrivateIp,
     port: 80,
     sourceAddressTranslation: "automap",
 }, { provider: f5bigipProvider, dependsOn: [pool] });
 
-export let password = virutalapplicance.f5Password;
+export let instanceIp = virtualappliance.f5Address;
+export let password = virtualappliance.f5Password;
