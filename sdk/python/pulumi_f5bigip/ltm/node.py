@@ -14,27 +14,18 @@ class Node(pulumi.CustomResource):
     """
     connection_limit: pulumi.Output[int]
     dynamic_ratio: pulumi.Output[int]
-    """
-    Specifies the ratio weight to assign to the node. Valid values range from 1 through 65535. The default is 1, which means that each node has an equal ratio proportion.
-    """
-    fqdn: pulumi.Output[dict]
+    fqdns: pulumi.Output[list]
     monitor: pulumi.Output[str]
-    """
-    Specifies the name of the monitor or monitor rule that you want to associate with the node.
-    """
     name: pulumi.Output[str]
     """
     Name of the node
     """
     rate_limit: pulumi.Output[str]
-    """
-    Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
-    """
     state: pulumi.Output[str]
     """
     Default is "user-up" you can set to "user-down" if you want to disable
     """
-    def __init__(__self__, __name__, __opts__=None, address=None, connection_limit=None, dynamic_ratio=None, fqdn=None, monitor=None, name=None, rate_limit=None, state=None):
+    def __init__(__self__, __name__, __opts__=None, address=None, connection_limit=None, dynamic_ratio=None, fqdns=None, monitor=None, name=None, rate_limit=None, state=None):
         """
         `bigip_ltm_node` Manages a node configuration
         
@@ -44,11 +35,11 @@ class Node(pulumi.CustomResource):
         :param pulumi.ResourceOptions __opts__: Options for the resource.
         :param pulumi.Input[str] address: IP or hostname of the node
         :param pulumi.Input[int] connection_limit
-        :param pulumi.Input[int] dynamic_ratio: Specifies the ratio weight to assign to the node. Valid values range from 1 through 65535. The default is 1, which means that each node has an equal ratio proportion.
-        :param pulumi.Input[dict] fqdn
-        :param pulumi.Input[str] monitor: Specifies the name of the monitor or monitor rule that you want to associate with the node.
+        :param pulumi.Input[int] dynamic_ratio
+        :param pulumi.Input[list] fqdns
+        :param pulumi.Input[str] monitor
         :param pulumi.Input[str] name: Name of the node
-        :param pulumi.Input[str] rate_limit: Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
+        :param pulumi.Input[str] rate_limit
         :param pulumi.Input[str] state: Default is "user-up" you can set to "user-down" if you want to disable
         """
         if not __name__:
@@ -68,7 +59,7 @@ class Node(pulumi.CustomResource):
 
         __props__['dynamic_ratio'] = dynamic_ratio
 
-        __props__['fqdn'] = fqdn
+        __props__['fqdns'] = fqdns
 
         __props__['monitor'] = monitor
 

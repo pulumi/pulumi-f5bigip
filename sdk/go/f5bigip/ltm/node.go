@@ -29,7 +29,7 @@ func NewNode(ctx *pulumi.Context,
 		inputs["address"] = nil
 		inputs["connectionLimit"] = nil
 		inputs["dynamicRatio"] = nil
-		inputs["fqdn"] = nil
+		inputs["fqdns"] = nil
 		inputs["monitor"] = nil
 		inputs["name"] = nil
 		inputs["rateLimit"] = nil
@@ -38,7 +38,7 @@ func NewNode(ctx *pulumi.Context,
 		inputs["address"] = args.Address
 		inputs["connectionLimit"] = args.ConnectionLimit
 		inputs["dynamicRatio"] = args.DynamicRatio
-		inputs["fqdn"] = args.Fqdn
+		inputs["fqdns"] = args.Fqdns
 		inputs["monitor"] = args.Monitor
 		inputs["name"] = args.Name
 		inputs["rateLimit"] = args.RateLimit
@@ -60,7 +60,7 @@ func GetNode(ctx *pulumi.Context,
 		inputs["address"] = state.Address
 		inputs["connectionLimit"] = state.ConnectionLimit
 		inputs["dynamicRatio"] = state.DynamicRatio
-		inputs["fqdn"] = state.Fqdn
+		inputs["fqdns"] = state.Fqdns
 		inputs["monitor"] = state.Monitor
 		inputs["name"] = state.Name
 		inputs["rateLimit"] = state.RateLimit
@@ -93,13 +93,13 @@ func (r *Node) ConnectionLimit() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["connectionLimit"])
 }
 
-// Specifies the ratio weight to assign to the node. Valid values range from 1 through 65535. The default is 1, which means that each node has an equal ratio proportion.
+// Sets the dynamic ratio number for the node. Used for dynamic ratio load balancing.
 func (r *Node) DynamicRatio() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["dynamicRatio"])
 }
 
-func (r *Node) Fqdn() *pulumi.Output {
-	return r.s.State["fqdn"]
+func (r *Node) Fqdns() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["fqdns"])
 }
 
 // Specifies the name of the monitor or monitor rule that you want to associate with the node.
@@ -112,7 +112,8 @@ func (r *Node) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
 }
 
-// Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
+// Specifies the maximum number of connections per second allowed for a node or node address. The default value is
+// 'disabled'.
 func (r *Node) RateLimit() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["rateLimit"])
 }
@@ -128,14 +129,15 @@ type NodeState struct {
 	Address interface{}
 	// Specifies the maximum number of connections allowed for the node or node address.
 	ConnectionLimit interface{}
-	// Specifies the ratio weight to assign to the node. Valid values range from 1 through 65535. The default is 1, which means that each node has an equal ratio proportion.
+	// Sets the dynamic ratio number for the node. Used for dynamic ratio load balancing.
 	DynamicRatio interface{}
-	Fqdn interface{}
+	Fqdns interface{}
 	// Specifies the name of the monitor or monitor rule that you want to associate with the node.
 	Monitor interface{}
 	// Name of the node
 	Name interface{}
-	// Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
+	// Specifies the maximum number of connections per second allowed for a node or node address. The default value is
+	// 'disabled'.
 	RateLimit interface{}
 	// Default is "user-up" you can set to "user-down" if you want to disable
 	State interface{}
@@ -147,14 +149,15 @@ type NodeArgs struct {
 	Address interface{}
 	// Specifies the maximum number of connections allowed for the node or node address.
 	ConnectionLimit interface{}
-	// Specifies the ratio weight to assign to the node. Valid values range from 1 through 65535. The default is 1, which means that each node has an equal ratio proportion.
+	// Sets the dynamic ratio number for the node. Used for dynamic ratio load balancing.
 	DynamicRatio interface{}
-	Fqdn interface{}
+	Fqdns interface{}
 	// Specifies the name of the monitor or monitor rule that you want to associate with the node.
 	Monitor interface{}
 	// Name of the node
 	Name interface{}
-	// Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
+	// Specifies the maximum number of connections per second allowed for a node or node address. The default value is
+	// 'disabled'.
 	RateLimit interface{}
 	// Default is "user-up" you can set to "user-down" if you want to disable
 	State interface{}
