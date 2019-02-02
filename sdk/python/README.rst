@@ -22,13 +22,13 @@ To use from JavaScript or TypeScript in Node.js, install using either
 
 ::
 
-    $ npm install @pulumi/f5bigip
+   $ npm install @pulumi/f5bigip
 
 or ``yarn``:
 
 ::
 
-    $ yarn add @pulumi/f5bigip
+   $ yarn add @pulumi/f5bigip
 
 Python
 ~~~~~~
@@ -37,7 +37,7 @@ To use from Python, install using ``pip``:
 
 ::
 
-    $ pip install pulumi_f5bigip
+   $ pip install pulumi_f5bigip
 
 Go
 ~~
@@ -46,7 +46,7 @@ To use from Go, use ``go get`` to grab the latest version of the library
 
 ::
 
-    $ go get github.com/pulumi/pulumi-f5-bigip/sdk/go/...
+   $ go get github.com/pulumi/pulumi-f5bigip/sdk/go/...
 
 Reference
 ---------
@@ -54,5 +54,5 @@ Reference
 For detailed reference documentation, please visit `the API
 docs <https://pulumi.io/reference/pkg/nodejs/@pulumi/f5bigip/index.html>`__.
 
-.. |Build Status| image:: https://travis-ci.com/pulumi/pulumi-f5-bigip.svg?token=eHg7Zp5zdDDJfTjY8ejq&branch=master
-   :target: https://travis-ci.com/pulumi/pulumi-f5-bigip
+.. |Build Status| image:: https://travis-ci.com/pulumi/pulumi-f5bigip.svg?token=eHg7Zp5zdDDJfTjY8ejq&branch=master
+   :target: https://travis-ci.com/pulumi/pulumi-f5bigip
