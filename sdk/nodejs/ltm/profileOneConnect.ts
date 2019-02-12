@@ -16,13 +16,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  * 
- * const bigip_ltm_profile_oneconnect_oneconnect_sanjose = new f5bigip.ltm.ProfileOneConnect("oneconnect-sanjose", {
+ * const oneconnect_sanjose = new f5bigip.ltm.ProfileOneConnect("oneconnect-sanjose", {
  *     defaultsFrom: "/Common/oneconnect",
  *     idleTimeoutOverride: "disabled",
  *     maxAge: 3600,
  *     maxReuse: 1000,
  *     maxSize: 1000,
- *     name: "sanjose",
  *     partition: "Common",
  *     sharePools: "disabled",
  *     sourceMask: "255.255.255.255",

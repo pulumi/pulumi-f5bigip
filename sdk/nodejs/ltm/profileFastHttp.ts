@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  * 
- * const bigip_ltm_profile_fasthttp_sjfasthttpprofile = new f5bigip.ltm.ProfileFastHttp("sjfasthttpprofile", {
+ * const sjfasthttpprofile = new f5bigip.ltm.ProfileFastHttp("sjfasthttpprofile", {
  *     connpoolMaxreuse: 2,
  *     connpoolMaxsize: 2048,
  *     connpoolMinsize: 0,
@@ -27,7 +27,6 @@ import * as utilities from "../utilities";
  *     forcehttp10response: "disabled",
  *     idleTimeout: 300,
  *     maxheaderSize: 32768,
- *     name: "sjfasthttpprofile",
  * });
  * ```
  */

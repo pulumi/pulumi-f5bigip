@@ -15,9 +15,8 @@ import * as utilities from "../utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  * import * as fs from "fs";
  * 
- * const bigip_sys_iapp_waf_asm = new f5bigip.sys.IApp("waf_asm", {
+ * const wafAsm = new f5bigip.sys.IApp("waf_asm", {
  *     jsonfile: fs.readFileSync("policywaf.json", "utf-8"),
- *     name: "policywaf",
  * });
  * ```
  * 

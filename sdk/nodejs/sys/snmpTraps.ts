@@ -13,11 +13,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  * 
- * const bigip_sys_snmp_traps_snmp_traps = new f5bigip.sys.SnmpTraps("snmp_traps", {
+ * const snmpTraps = new f5bigip.sys.SnmpTraps("snmp_traps", {
  *     community: "f5community",
  *     description: "Setup snmp traps",
  *     host: "195.10.10.1",
- *     name: "snmptraps",
  *     port: 111,
  * });
  * ```

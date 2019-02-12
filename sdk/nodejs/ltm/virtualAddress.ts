@@ -17,9 +17,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  * 
- * const bigip_ltm_virtual_address_vs_va = new f5bigip.ltm.VirtualAddress("vs_va", {
+ * const vsVa = new f5bigip.ltm.VirtualAddress("vs_va", {
  *     advertizeRoute: true,
- *     name: "/Common/vs_va",
  * });
  * ```
  */

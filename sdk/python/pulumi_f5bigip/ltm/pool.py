@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -22,14 +23,14 @@ class Pool(pulumi.CustomResource):
     reselect_tries: pulumi.Output[int]
     service_down_action: pulumi.Output[str]
     slow_ramp_time: pulumi.Output[int]
-    def __init__(__self__, __name__, __opts__=None, allow_nat=None, allow_snat=None, load_balancing_mode=None, monitors=None, name=None, reselect_tries=None, service_down_action=None, slow_ramp_time=None):
+    def __init__(__self__, resource_name, opts=None, allow_nat=None, allow_snat=None, load_balancing_mode=None, monitors=None, name=None, reselect_tries=None, service_down_action=None, slow_ramp_time=None, __name__=None, __opts__=None):
         """
         `bigip_ltm_pool` Manages a pool configuration.
         
         Resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
         
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] allow_nat
         :param pulumi.Input[str] allow_snat
         :param pulumi.Input[str] load_balancing_mode
@@ -39,11 +40,17 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[str] service_down_action
         :param pulumi.Input[int] slow_ramp_time
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -56,7 +63,7 @@ class Pool(pulumi.CustomResource):
 
         __props__['monitors'] = monitors
 
-        if not name:
+        if name is None:
             raise TypeError('Missing required property name')
         __props__['name'] = name
 
@@ -68,9 +75,9 @@ class Pool(pulumi.CustomResource):
 
         super(Pool, __self__).__init__(
             'f5bigip:ltm/pool:Pool',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  * 
- * const bigip_ltm_persistence_profile_srcaddr_srcaddr = new f5bigip.ltm.PersistenceProfileSrcAddr("srcaddr", {
+ * const srcaddr = new f5bigip.ltm.PersistenceProfileSrcAddr("srcaddr", {
  *     defaultsFrom: "/Common/source_addr",
  *     hashAlgorithm: "carp",
  *     mapProxies: "enabled",
@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  *     matchAcrossServices: "enabled",
  *     matchAcrossVirtuals: "enabled",
  *     mirror: "enabled",
- *     name: "/Common/terraform_srcaddr",
  *     overrideConnLimit: "enabled",
  *     timeout: 3600,
  * });

@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -43,14 +44,14 @@ class Monitor(pulumi.CustomResource):
     Timeout in seconds
     """
     transparent: pulumi.Output[str]
-    def __init__(__self__, __name__, __opts__=None, defaults_from=None, destination=None, interval=None, ip_dscp=None, manual_resume=None, name=None, parent=None, receive=None, receive_disable=None, reverse=None, send=None, time_until_up=None, timeout=None, transparent=None):
+    def __init__(__self__, resource_name, opts=None, defaults_from=None, destination=None, interval=None, ip_dscp=None, manual_resume=None, name=None, parent=None, receive=None, receive_disable=None, reverse=None, send=None, time_until_up=None, timeout=None, transparent=None, __name__=None, __opts__=None):
         """
         `bigip_ltm_monitor` Configures a custom monitor for use by health checks.
         
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
         
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] defaults_from
         :param pulumi.Input[str] destination: Specify an alias address for monitoring
         :param pulumi.Input[int] interval: Check interval in seconds
@@ -66,11 +67,17 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[int] timeout: Timeout in seconds
         :param pulumi.Input[str] transparent
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -85,11 +92,11 @@ class Monitor(pulumi.CustomResource):
 
         __props__['manual_resume'] = manual_resume
 
-        if not name:
+        if name is None:
             raise TypeError('Missing required property name')
         __props__['name'] = name
 
-        if not parent:
+        if parent is None:
             raise TypeError('Missing required property parent')
         __props__['parent'] = parent
 
@@ -109,9 +116,9 @@ class Monitor(pulumi.CustomResource):
 
         super(Monitor, __self__).__init__(
             'f5bigip:ltm/monitor:Monitor',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

@@ -17,12 +17,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  * 
- * const bigip_ltm_snatpoolpool_snatpool_sanjose = new f5bigip.LtmSnatpoolpool("snatpool_sanjose", {
+ * const snatpoolSanjose = new f5bigip.LtmSnatpoolpool("snatpool_sanjose", {
  *     members: [
  *         "191.1.1.1",
  *         "194.2.2.2",
  *     ],
- *     name: "/Common/snatpool_sanjose",
  * });
  * ```
  */

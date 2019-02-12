@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  * 
- * const bigip_ltm_persistence_profile_dstaddr_dstaddr = new f5bigip.ltm.PersistenceProfileDstAddr("dstaddr", {
+ * const dstaddr = new f5bigip.ltm.PersistenceProfileDstAddr("dstaddr", {
  *     defaultsFrom: "/Common/dest_addr",
  *     hashAlgorithm: "carp",
  *     mask: "255.255.255.255",
@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  *     matchAcrossServices: "enabled",
  *     matchAcrossVirtuals: "enabled",
  *     mirror: "enabled",
- *     name: "/Common/terraform_ppdstaddr",
  *     overrideConnLimit: "enabled",
  *     timeout: 3600,
  * });

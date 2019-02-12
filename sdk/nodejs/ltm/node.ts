@@ -17,9 +17,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  * 
- * const bigip_ltm_node_node = new f5bigip.ltm.Node("node", {
+ * const node = new f5bigip.ltm.Node("node", {
  *     address: "10.10.10.10",
- *     name: "/Common/terraform_node1",
  * });
  * ```
  */

@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  * 
- * const bigip_ltm_profile_fastl4_profile_fastl4 = new f5bigip.ltm.ProfileFastL4("profile_fastl4", {
+ * const profileFastl4 = new f5bigip.ltm.ProfileFastL4("profile_fastl4", {
  *     clientTimeout: 40,
  *     defaultsFrom: "/Common/fastL4",
  *     explicitflowMigration: "enabled",
@@ -24,8 +24,7 @@ import * as utilities from "../utilities";
  *     idleTimeout: "200",
  *     iptosToclient: "pass-through",
  *     iptosToserver: "pass-through",
- *     keepaliveInterval: "disabled",
- *     name: "/Common/sjfastl4profile",
+ *     keepaliveInterval: "disabled", //This cannot take enabled
  *     partition: "Common",
  * });
  * ```

@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -25,7 +26,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
     name: pulumi.Output[str]
     override_conn_limit: pulumi.Output[str]
     timeout: pulumi.Output[int]
-    def __init__(__self__, __name__, __opts__=None, always_send=None, app_service=None, cookie_encryption=None, cookie_encryption_passphrase=None, cookie_name=None, defaults_from=None, expiration=None, hash_length=None, hash_offset=None, httponly=None, match_across_pools=None, match_across_services=None, match_across_virtuals=None, mirror=None, name=None, override_conn_limit=None, timeout=None):
+    def __init__(__self__, resource_name, opts=None, always_send=None, app_service=None, cookie_encryption=None, cookie_encryption_passphrase=None, cookie_name=None, defaults_from=None, expiration=None, hash_length=None, hash_offset=None, httponly=None, match_across_pools=None, match_across_services=None, match_across_virtuals=None, mirror=None, name=None, override_conn_limit=None, timeout=None, __name__=None, __opts__=None):
         """
         Configures a cookie persistence profile
         
@@ -64,8 +65,8 @@ class PersistenceProfileCookie(pulumi.CustomResource):
         
         `httponly` (Optional) (enabled or disabled) Sending only over http
         
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] always_send
         :param pulumi.Input[str] app_service
         :param pulumi.Input[str] cookie_encryption
@@ -84,11 +85,17 @@ class PersistenceProfileCookie(pulumi.CustomResource):
         :param pulumi.Input[str] override_conn_limit
         :param pulumi.Input[int] timeout
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -103,7 +110,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
 
         __props__['cookie_name'] = cookie_name
 
-        if not defaults_from:
+        if defaults_from is None:
             raise TypeError('Missing required property defaults_from')
         __props__['defaults_from'] = defaults_from
 
@@ -123,7 +130,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
 
         __props__['mirror'] = mirror
 
-        if not name:
+        if name is None:
             raise TypeError('Missing required property name')
         __props__['name'] = name
 
@@ -133,9 +140,9 @@ class PersistenceProfileCookie(pulumi.CustomResource):
 
         super(PersistenceProfileCookie, __self__).__init__(
             'f5bigip:ltm/persistenceProfileCookie:PersistenceProfileCookie',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

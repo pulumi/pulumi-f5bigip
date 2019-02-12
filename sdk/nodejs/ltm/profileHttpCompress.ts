@@ -17,9 +17,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  * 
- * const bigip_ltm_profile_httpcompress_sjhttpcompression = new f5bigip.ltm.ProfileHttpCompress("sjhttpcompression", {
+ * const sjhttpcompression = new f5bigip.ltm.ProfileHttpCompress("sjhttpcompression", {
  *     defaultsFrom: "/Common/httpcompression",
- *     name: "/Common/sjhttpcompression2",
  *     uriExcludes: [
  *         "www.abc.f5.com",
  *         "www.abc2.f5.com",

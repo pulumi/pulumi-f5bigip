@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -44,14 +45,14 @@ class ProfileOneConnect(pulumi.CustomResource):
     """
     Specifies a source IP mask. The default value is 0.0.0.0. The system applies the value of this option to the source address to determine its eligibility for reuse. A mask of 0.0.0.0 causes the system to share reused connections across all clients. A host mask (all 1's in binary), causes the system to share only those reused connections originating from the same client IP address.
     """
-    def __init__(__self__, __name__, __opts__=None, defaults_from=None, idle_timeout_override=None, max_age=None, max_reuse=None, max_size=None, name=None, partition=None, share_pools=None, source_mask=None):
+    def __init__(__self__, resource_name, opts=None, defaults_from=None, idle_timeout_override=None, max_age=None, max_reuse=None, max_size=None, name=None, partition=None, share_pools=None, source_mask=None, __name__=None, __opts__=None):
         """
         `bigip_ltm_profile_oneconnect` Configures a custom profile_oneconnect for use by health checks.
         
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
         
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] defaults_from: Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         :param pulumi.Input[str] idle_timeout_override: Specifies the number of seconds that a connection is idle before the connection flow is eligible for deletion. Possible values are disabled, indefinite, or a numeric value that you specify. The default value is disabled.
         :param pulumi.Input[int] max_age: Specifies the maximum age in number of seconds allowed for a connection in the connection reuse pool. For any connection with an age higher than this value, the system removes that connection from the reuse pool. The default value is 86400.
@@ -62,11 +63,17 @@ class ProfileOneConnect(pulumi.CustomResource):
         :param pulumi.Input[str] share_pools: Specify if you want to share the pool, default value is "disabled"
         :param pulumi.Input[str] source_mask: Specifies a source IP mask. The default value is 0.0.0.0. The system applies the value of this option to the source address to determine its eligibility for reuse. A mask of 0.0.0.0 causes the system to share reused connections across all clients. A host mask (all 1's in binary), causes the system to share only those reused connections originating from the same client IP address.
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -81,7 +88,7 @@ class ProfileOneConnect(pulumi.CustomResource):
 
         __props__['max_size'] = max_size
 
-        if not name:
+        if name is None:
             raise TypeError('Missing required property name')
         __props__['name'] = name
 
@@ -93,9 +100,9 @@ class ProfileOneConnect(pulumi.CustomResource):
 
         super(ProfileOneConnect, __self__).__init__(
             'f5bigip:ltm/profileOneConnect:ProfileOneConnect',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

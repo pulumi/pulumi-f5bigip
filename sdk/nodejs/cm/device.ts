@@ -15,11 +15,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  * 
- * const bigip_cm_device_my_new_device = new f5bigip.cm.Device("my_new_device", {
+ * const myNewDevice = new f5bigip.cm.Device("my_new_device", {
  *     configsyncIp: "2.2.2.2",
  *     mirrorIp: "10.10.10.10",
  *     mirrorSecondaryIp: "11.11.11.11",
- *     name: "bigip300.f5.com",
  * });
  * ```
  */
