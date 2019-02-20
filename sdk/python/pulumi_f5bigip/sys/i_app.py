@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -31,7 +32,7 @@ class IApp(pulumi.CustomResource):
     template_prerequisite_errors: pulumi.Output[str]
     traffic_group: pulumi.Output[str]
     variables: pulumi.Output[list]
-    def __init__(__self__, __name__, __opts__=None, description=None, devicegroup=None, execute_action=None, inherited_devicegroup=None, inherited_traffic_group=None, jsonfile=None, lists=None, metadatas=None, name=None, partition=None, strict_updates=None, tables=None, template=None, template_modified=None, template_prerequisite_errors=None, traffic_group=None, variables=None):
+    def __init__(__self__, resource_name, opts=None, description=None, devicegroup=None, execute_action=None, inherited_devicegroup=None, inherited_traffic_group=None, jsonfile=None, lists=None, metadatas=None, name=None, partition=None, strict_updates=None, tables=None, template=None, template_modified=None, template_prerequisite_errors=None, traffic_group=None, variables=None, __name__=None, __opts__=None):
         """
         `bigip_sys_iapp` resource helps you to deploy Application Services template that can be used to automate and orchestrate Layer 4-7 applications service deployments using F5 Network. More information on iApp 2.0 is at https://devcentral.f5.com/wiki/iApp.AppSvcsiApp_userguide_userguide.ashx This resource requires a iApp template already imported on BIG-IP, the template can be found at https://github.com/F5Networks/f5-application-services-integration-iApp/releases/download/v2.0.003/appsvcs_integration_v2.0.003.tmpl
         
@@ -497,8 +498,8 @@ class IApp(pulumi.CustomResource):
          * `tables` - Values provided like pool name, nodes etc.
          * `variables` - Name, values, encrypted or not
         
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description
         :param pulumi.Input[str] devicegroup
         :param pulumi.Input[str] execute_action
@@ -517,11 +518,17 @@ class IApp(pulumi.CustomResource):
         :param pulumi.Input[str] traffic_group
         :param pulumi.Input[list] variables
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -562,9 +569,9 @@ class IApp(pulumi.CustomResource):
 
         super(IApp, __self__).__init__(
             'f5bigip:sys/iApp:IApp',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

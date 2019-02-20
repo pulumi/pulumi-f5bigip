@@ -17,9 +17,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  * 
- * const bigip_net_route_route2 = new f5bigip.net.Route("route2", {
+ * const route2 = new f5bigip.net.Route("route2", {
  *     gw: "1.1.1.2",
- *     name: "external-route",
  *     network: "10.10.10.0/24",
  * });
  * ```

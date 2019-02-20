@@ -16,13 +16,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  * 
- * const bigip_ltm_monitor_monitor = new f5bigip.ltm.Monitor("monitor", {
+ * const monitor = new f5bigip.ltm.Monitor("monitor", {
  *     destination: "1.2.3.4:1234",
- *     interval: Number.parseFloat("999"),
- *     name: "/Common/terraform_monitor",
+ *     interval: 999,
  *     parent: "/Common/http",
  *     send: "GET /some/path\n",
- *     timeout: Number.parseFloat("999"),
+ *     timeout: 999,
  * });
  * ```
  */

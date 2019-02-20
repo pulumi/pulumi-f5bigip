@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  * 
- * const bigip_sys_snmp_snmp = new f5bigip.sys.Snmp("snmp", {
+ * const snmp = new f5bigip.sys.Snmp("snmp", {
  *     allowedaddresses: ["202.10.10.2"],
  *     sysContact: " NetOPsAdmin s.shitole@f5.com",
  *     sysLocation: "SeattleHQ",

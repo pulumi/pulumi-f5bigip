@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  * 
- * const bigip_sys_ntp_ntp1 = new f5bigip.sys.Ntp("ntp1", {
+ * const ntp1 = new f5bigip.sys.Ntp("ntp1", {
  *     description: "/Common/NTP1",
  *     servers: ["time.facebook.com"],
  *     timezone: "America/Los_Angeles",

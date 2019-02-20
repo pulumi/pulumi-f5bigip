@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -21,27 +22,33 @@ class Dns(pulumi.CustomResource):
     """
     Specify what domains you want to search
     """
-    def __init__(__self__, __name__, __opts__=None, description=None, name_servers=None, number_of_dots=None, searches=None):
+    def __init__(__self__, resource_name, opts=None, description=None, name_servers=None, number_of_dots=None, searches=None, __name__=None, __opts__=None):
         """
         `bigip_ltm_dns` Configures DNS server on F5 BIG-IP
         
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description
         :param pulumi.Input[list] name_servers: Name or IP address of the DNS server
         :param pulumi.Input[int] number_of_dots: Configures the number of dots needed in a name before an initial absolute query will be made.
         :param pulumi.Input[list] searches: Specify what domains you want to search
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not description:
+        if description is None:
             raise TypeError('Missing required property description')
         __props__['description'] = description
 
@@ -53,9 +60,9 @@ class Dns(pulumi.CustomResource):
 
         super(Dns, __self__).__init__(
             'f5bigip:sys/dns:Dns',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

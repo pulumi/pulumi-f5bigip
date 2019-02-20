@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  * 
- * const bigip_ltm_dns_dns1 = new f5bigip.LtmDns("dns1", {
+ * const dns1 = new f5bigip.LtmDns("dns1", {
  *     description: "/Common/DNS1",
  *     nameServers: ["1.1.1.1"],
  *     numberofDots: 2,

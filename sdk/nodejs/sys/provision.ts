@@ -13,13 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  * 
- * const bigip_sys_provision_provision_ilx = new f5bigip.sys.Provision("provision-ilx", {
+ * const provision_ilx = new f5bigip.sys.Provision("provision-ilx", {
  *     cpuRatio: 0,
  *     diskRatio: 0,
  *     fullPath: "ilx",
  *     level: "nominal",
  *     memoryRatio: 0,
- *     name: "/Common/ilx",
  * });
  * ```
  */

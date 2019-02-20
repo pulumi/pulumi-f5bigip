@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  * 
- * const bigip_cm_devicegroup_my_new_devicegroup = new f5bigip.cm.DeviceGroup("my_new_devicegroup", {
+ * const myNewDevicegroup = new f5bigip.cm.DeviceGroup("my_new_devicegroup", {
  *     autoSync: "enabled",
  *     devices: [
  *         {
@@ -26,7 +26,6 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  *     fullLoadOnSync: "true",
- *     name: "sanjose_devicegroup",
  *     type: "sync-only",
  * });
  * ```

@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  * 
- * const bigip_ltm_profile_http2_nyhttp2 = new f5bigip.ltm.ProfileHttp2("nyhttp2", {
+ * const nyhttp2 = new f5bigip.ltm.ProfileHttp2("nyhttp2", {
  *     activationModes: [
  *         "alpn",
  *         "npn",
@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  *     concurrentStreamsPerConnection: 10,
  *     connectionIdleTimeout: 30,
  *     defaultsFrom: "/Common/http2",
- *     name: "/Common/NewYork_http2",
  * });
  * ```
  */

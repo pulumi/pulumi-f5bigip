@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -52,14 +53,14 @@ class ProfileFastHttp(pulumi.CustomResource):
     """
     Name of the profile_fasthttp
     """
-    def __init__(__self__, __name__, __opts__=None, connpool_maxreuse=None, connpool_maxsize=None, connpool_minsize=None, connpool_replenish=None, connpool_step=None, connpoolidle_timeoutoverride=None, defaults_from=None, forcehttp10response=None, idle_timeout=None, maxheader_size=None, name=None):
+    def __init__(__self__, resource_name, opts=None, connpool_maxreuse=None, connpool_maxsize=None, connpool_minsize=None, connpool_replenish=None, connpool_step=None, connpoolidle_timeoutoverride=None, defaults_from=None, forcehttp10response=None, idle_timeout=None, maxheader_size=None, name=None, __name__=None, __opts__=None):
         """
         `bigip_ltm_profile_fasthttp` Configures a custom profile_fasthttp for use by health checks.
         
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
         
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] connpool_maxreuse: Specifies the maximum number of times that the system can re-use a current connection. The default value is 0 (zero).
         :param pulumi.Input[int] connpool_maxsize: Specifies the maximum number of connections to a load balancing pool. A setting of 0 specifies that a pool can accept an unlimited number of connections. The default value is 2048.
         :param pulumi.Input[int] connpool_minsize: Specifies the minimum number of connections to a load balancing pool. A setting of 0 specifies that there is no minimum. The default value is 10.
@@ -72,11 +73,17 @@ class ProfileFastHttp(pulumi.CustomResource):
         :param pulumi.Input[int] maxheader_size: Specifies the maximum amount of HTTP header data that the system buffers before making a load balancing decision. The default setting is 32768.
         :param pulumi.Input[str] name: Name of the profile_fasthttp
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
@@ -101,15 +108,15 @@ class ProfileFastHttp(pulumi.CustomResource):
 
         __props__['maxheader_size'] = maxheader_size
 
-        if not name:
+        if name is None:
             raise TypeError('Missing required property name')
         __props__['name'] = name
 
         super(ProfileFastHttp, __self__).__init__(
             'f5bigip:ltm/profileFastHttp:ProfileFastHttp',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

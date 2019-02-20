@@ -3,6 +3,7 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import json
+import warnings
 import pulumi
 import pulumi.runtime
 from .. import utilities, tables
@@ -16,39 +17,45 @@ class PoolAttachment(pulumi.CustomResource):
     """
     Name of the pool in /Partition/Name format
     """
-    def __init__(__self__, __name__, __opts__=None, node=None, pool=None):
+    def __init__(__self__, resource_name, opts=None, node=None, pool=None, __name__=None, __opts__=None):
         """
         `bigip_ltm_pool_attachment` Manages nodes membership in pools
         
         Resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
         
-        :param str __name__: The name of the resource.
-        :param pulumi.ResourceOptions __opts__: Options for the resource.
+        :param str resource_name: The name of the resource.
+        :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] node: Node to add to the pool in /Partition/NodeName:Port format (e.g. /Common/Node01:80)
         :param pulumi.Input[str] pool: Name of the pool in /Partition/Name format
         """
-        if not __name__:
+        if __name__ is not None:
+            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
+            resource_name = __name__
+        if __opts__ is not None:
+            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
+            opts = __opts__
+        if not resource_name:
             raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(__name__, str):
+        if not isinstance(resource_name, str):
             raise TypeError('Expected resource name to be a string')
-        if __opts__ and not isinstance(__opts__, pulumi.ResourceOptions):
+        if opts and not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
 
         __props__ = dict()
 
-        if not node:
+        if node is None:
             raise TypeError('Missing required property node')
         __props__['node'] = node
 
-        if not pool:
+        if pool is None:
             raise TypeError('Missing required property pool')
         __props__['pool'] = pool
 
         super(PoolAttachment, __self__).__init__(
             'f5bigip:ltm/poolAttachment:PoolAttachment',
-            __name__,
+            resource_name,
             __props__,
-            __opts__)
+            opts)
 
 
     def translate_output_property(self, prop):

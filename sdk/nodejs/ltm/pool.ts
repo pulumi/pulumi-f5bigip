@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  * 
- * const bigip_ltm_pool_pool = new f5bigip.ltm.Pool("pool", {
+ * const pool = new f5bigip.ltm.Pool("pool", {
  *     allowNat: "yes",
  *     allowSnat: "yes",
  *     loadBalancingMode: "round-robin",
@@ -25,7 +25,6 @@ import * as utilities from "../utilities";
  *         bigip_ltm_monitor_monitor.name,
  *         bigip_ltm_monitor_monitor2.name,
  *     ],
- *     name: "/Common/terraform-pool",
  * });
  * ```
  */

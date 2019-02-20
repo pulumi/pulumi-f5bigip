@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  * 
- * const bigip_ltm_profile_tcp_sanjose_tcp_lan_profile = new f5bigip.ltm.ProfileTcp("sanjose-tcp-lan-profile", {
+ * const sanjose_tcp_lan_profile = new f5bigip.ltm.ProfileTcp("sanjose-tcp-lan-profile", {
  *     closeWaitTimeout: 5,
  *     deferredAccept: "enabled",
  *     fastOpen: "enabled",
@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  *     finwaitTimeout: 300,
  *     idleTimeout: 200,
  *     keepaliveInterval: 1700,
- *     name: "sanjose-tcp-lan-profile",
  * });
  * ```
  */

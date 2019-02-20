@@ -17,12 +17,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  * 
- * const bigip_net_vlan_vlan1 = new f5bigip.net.Vlan("vlan1", {
+ * const vlan1 = new f5bigip.net.Vlan("vlan1", {
  *     interfaces: [{
  *         tagged: false,
- *         vlanport: "1.200000",
+ *         vlanport: "1.2",
  *     }],
- *     name: "/Common/Internal",
  *     tag: 101,
  * });
  * ```
