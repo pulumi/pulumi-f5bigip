@@ -9,4 +9,4 @@ Pulumi.*.yaml
 .idea/
 *.iml
 
-yarn.lock
+**/yarn.lock
