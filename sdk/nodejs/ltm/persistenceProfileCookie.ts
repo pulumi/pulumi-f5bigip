@@ -24,6 +24,7 @@ import * as utilities from "../utilities";
  *     matchAcrossPools: "enabled",
  *     matchAcrossServices: "enabled",
  *     matchAcrossVirtuals: "enabled",
+ *     name: "/Common/terraform_cookie",
  *     overrideConnLimit: "enabled",
  *     timeout: 3600,
  * });

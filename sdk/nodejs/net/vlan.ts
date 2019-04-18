@@ -22,6 +22,7 @@ import * as utilities from "../utilities";
  *         tagged: false,
  *         vlanport: "1.2",
  *     }],
+ *     name: "/Common/Internal",
  *     tag: 101,
  * });
  * ```

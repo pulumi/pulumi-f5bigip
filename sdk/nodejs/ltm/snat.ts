@@ -19,8 +19,11 @@ import * as utilities from "../utilities";
  * 
  * const snat3 = new f5bigip.ltm.Snat("snat3", {
  *     mirror: "false",
+ *     // this is using snatpool translation is not required
+ *     name: "snat3",
  *     origins: ["6.1.6.6"],
  *     snatpool: "/Common/sanjaysnatpool",
+ *     vlans: ["test-vlan"],
  * });
  * ```
  */
@@ -74,6 +77,10 @@ export class Snat extends pulumi.CustomResource {
      */
     public readonly translation: pulumi.Output<string | undefined>;
     /**
+     * Specifies the name of the VLAN to which you want to assign the SNAT. The default is vlans-enabled.
+     */
+    public readonly vlans: pulumi.Output<string[] | undefined>;
+    /**
      * Disables the SNAT on all VLANs.
      */
     public readonly vlansdisabled: pulumi.Output<boolean | undefined>;
@@ -99,6 +106,7 @@ export class Snat extends pulumi.CustomResource {
             inputs["snatpool"] = state ? state.snatpool : undefined;
             inputs["sourceport"] = state ? state.sourceport : undefined;
             inputs["translation"] = state ? state.translation : undefined;
+            inputs["vlans"] = state ? state.vlans : undefined;
             inputs["vlansdisabled"] = state ? state.vlansdisabled : undefined;
         } else {
             const args = argsOrState as SnatArgs | undefined;
@@ -117,6 +125,7 @@ export class Snat extends pulumi.CustomResource {
             inputs["snatpool"] = args ? args.snatpool : undefined;
             inputs["sourceport"] = args ? args.sourceport : undefined;
             inputs["translation"] = args ? args.translation : undefined;
+            inputs["vlans"] = args ? args.vlans : undefined;
             inputs["vlansdisabled"] = args ? args.vlansdisabled : undefined;
         }
         super("f5bigip:ltm/snat:Snat", name, inputs, opts);
@@ -164,6 +173,10 @@ export interface SnatState {
      */
     readonly translation?: pulumi.Input<string>;
     /**
+     * Specifies the name of the VLAN to which you want to assign the SNAT. The default is vlans-enabled.
+     */
+    readonly vlans?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Disables the SNAT on all VLANs.
      */
     readonly vlansdisabled?: pulumi.Input<boolean>;
@@ -209,6 +222,10 @@ export interface SnatArgs {
      * Specifies the name of a translated IP address. Note that translated addresses are outside the traffic management system. You can only use this option when automap and snatpool are not used.
      */
     readonly translation?: pulumi.Input<string>;
+    /**
+     * Specifies the name of the VLAN to which you want to assign the SNAT. The default is vlans-enabled.
+     */
+    readonly vlans?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Disables the SNAT on all VLANs.
      */

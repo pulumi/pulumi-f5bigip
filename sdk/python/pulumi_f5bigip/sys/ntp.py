@@ -26,7 +26,6 @@ class Ntp(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description
         :param pulumi.Input[list] servers: Adds NTP servers to or deletes NTP servers from the BIG-IP system.
         :param pulumi.Input[str] timezone: Specifies the time zone that you want to use for the system time.
         """
@@ -46,7 +45,7 @@ class Ntp(pulumi.CustomResource):
         __props__ = dict()
 
         if description is None:
-            raise TypeError('Missing required property description')
+            raise TypeError("Missing required property 'description'")
         __props__['description'] = description
 
         __props__['servers'] = servers

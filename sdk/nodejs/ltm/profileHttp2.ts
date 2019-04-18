@@ -24,6 +24,7 @@ import * as utilities from "../utilities";
  *     concurrentStreamsPerConnection: 10,
  *     connectionIdleTimeout: 30,
  *     defaultsFrom: "/Common/http2",
+ *     name: "/Common/NewYork_http2",
  * });
  * ```
  */

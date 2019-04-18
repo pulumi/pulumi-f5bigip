@@ -18,11 +18,6 @@ class Provider(pulumi.ProviderResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] address
-        :param pulumi.Input[str] login_ref
-        :param pulumi.Input[str] password
-        :param pulumi.Input[bool] token_auth
-        :param pulumi.Input[str] username
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -40,19 +35,19 @@ class Provider(pulumi.ProviderResource):
         __props__ = dict()
 
         if address is None:
-            raise TypeError('Missing required property address')
+            raise TypeError("Missing required property 'address'")
         __props__['address'] = address
 
         __props__['login_ref'] = login_ref
 
         if password is None:
-            raise TypeError('Missing required property password')
+            raise TypeError("Missing required property 'password'")
         __props__['password'] = password
 
         __props__['token_auth'] = pulumi.Output.from_input(token_auth).apply(json.dumps) if token_auth is not None else None
 
         if username is None:
-            raise TypeError('Missing required property username')
+            raise TypeError("Missing required property 'username'")
         __props__['username'] = username
 
         super(Provider, __self__).__init__(

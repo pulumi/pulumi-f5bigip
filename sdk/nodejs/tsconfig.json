@@ -28,6 +28,7 @@
         "ltm/poolAttachment.ts",
         "ltm/profileFastHttp.ts",
         "ltm/profileFastL4.ts",
+        "ltm/profileHttp.ts",
         "ltm/profileHttp2.ts",
         "ltm/profileHttpCompress.ts",
         "ltm/profileOneConnect.ts",

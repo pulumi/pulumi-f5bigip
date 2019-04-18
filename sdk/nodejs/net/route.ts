@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  * 
  * const route2 = new f5bigip.net.Route("route2", {
  *     gw: "1.1.1.2",
+ *     name: "external-route",
  *     network: "10.10.10.0/24",
  * });
  * ```

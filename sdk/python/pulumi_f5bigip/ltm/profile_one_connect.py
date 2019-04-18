@@ -17,15 +17,15 @@ class ProfileOneConnect(pulumi.CustomResource):
     """
     Specifies the number of seconds that a connection is idle before the connection flow is eligible for deletion. Possible values are disabled, indefinite, or a numeric value that you specify. The default value is disabled.
     """
-    max_age: pulumi.Output[int]
+    max_age: pulumi.Output[float]
     """
     Specifies the maximum age in number of seconds allowed for a connection in the connection reuse pool. For any connection with an age higher than this value, the system removes that connection from the reuse pool. The default value is 86400.
     """
-    max_reuse: pulumi.Output[int]
+    max_reuse: pulumi.Output[float]
     """
     Specifies the maximum number of times that a server-side connection can be reused. The default value is 1000.
     """
-    max_size: pulumi.Output[int]
+    max_size: pulumi.Output[float]
     """
     Specifies the maximum number of connections that the system holds in the connection reuse pool. If the pool is already full, then the server-side connection closes after the response is completed. The default value is 10000.
     """
@@ -55,9 +55,9 @@ class ProfileOneConnect(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] defaults_from: Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         :param pulumi.Input[str] idle_timeout_override: Specifies the number of seconds that a connection is idle before the connection flow is eligible for deletion. Possible values are disabled, indefinite, or a numeric value that you specify. The default value is disabled.
-        :param pulumi.Input[int] max_age: Specifies the maximum age in number of seconds allowed for a connection in the connection reuse pool. For any connection with an age higher than this value, the system removes that connection from the reuse pool. The default value is 86400.
-        :param pulumi.Input[int] max_reuse: Specifies the maximum number of times that a server-side connection can be reused. The default value is 1000.
-        :param pulumi.Input[int] max_size: Specifies the maximum number of connections that the system holds in the connection reuse pool. If the pool is already full, then the server-side connection closes after the response is completed. The default value is 10000.
+        :param pulumi.Input[float] max_age: Specifies the maximum age in number of seconds allowed for a connection in the connection reuse pool. For any connection with an age higher than this value, the system removes that connection from the reuse pool. The default value is 86400.
+        :param pulumi.Input[float] max_reuse: Specifies the maximum number of times that a server-side connection can be reused. The default value is 1000.
+        :param pulumi.Input[float] max_size: Specifies the maximum number of connections that the system holds in the connection reuse pool. If the pool is already full, then the server-side connection closes after the response is completed. The default value is 10000.
         :param pulumi.Input[str] name: Name of the profile_oneconnect
         :param pulumi.Input[str] partition: Displays the administrative partition within which this profile resides
         :param pulumi.Input[str] share_pools: Specify if you want to share the pool, default value is "disabled"
@@ -89,7 +89,7 @@ class ProfileOneConnect(pulumi.CustomResource):
         __props__['max_size'] = max_size
 
         if name is None:
-            raise TypeError('Missing required property name')
+            raise TypeError("Missing required property 'name'")
         __props__['name'] = name
 
         __props__['partition'] = partition

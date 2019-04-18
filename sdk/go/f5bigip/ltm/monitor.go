@@ -26,13 +26,19 @@ func NewMonitor(ctx *pulumi.Context,
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["adaptive"] = nil
+		inputs["adaptiveLimit"] = nil
+		inputs["compatibility"] = nil
 		inputs["defaultsFrom"] = nil
 		inputs["destination"] = nil
+		inputs["filename"] = nil
 		inputs["interval"] = nil
 		inputs["ipDscp"] = nil
 		inputs["manualResume"] = nil
+		inputs["mode"] = nil
 		inputs["name"] = nil
 		inputs["parent"] = nil
+		inputs["password"] = nil
 		inputs["receive"] = nil
 		inputs["receiveDisable"] = nil
 		inputs["reverse"] = nil
@@ -40,14 +46,21 @@ func NewMonitor(ctx *pulumi.Context,
 		inputs["timeUntilUp"] = nil
 		inputs["timeout"] = nil
 		inputs["transparent"] = nil
+		inputs["username"] = nil
 	} else {
+		inputs["adaptive"] = args.Adaptive
+		inputs["adaptiveLimit"] = args.AdaptiveLimit
+		inputs["compatibility"] = args.Compatibility
 		inputs["defaultsFrom"] = args.DefaultsFrom
 		inputs["destination"] = args.Destination
+		inputs["filename"] = args.Filename
 		inputs["interval"] = args.Interval
 		inputs["ipDscp"] = args.IpDscp
 		inputs["manualResume"] = args.ManualResume
+		inputs["mode"] = args.Mode
 		inputs["name"] = args.Name
 		inputs["parent"] = args.Parent
+		inputs["password"] = args.Password
 		inputs["receive"] = args.Receive
 		inputs["receiveDisable"] = args.ReceiveDisable
 		inputs["reverse"] = args.Reverse
@@ -55,6 +68,7 @@ func NewMonitor(ctx *pulumi.Context,
 		inputs["timeUntilUp"] = args.TimeUntilUp
 		inputs["timeout"] = args.Timeout
 		inputs["transparent"] = args.Transparent
+		inputs["username"] = args.Username
 	}
 	s, err := ctx.RegisterResource("f5bigip:ltm/monitor:Monitor", name, true, inputs, opts...)
 	if err != nil {
@@ -69,13 +83,19 @@ func GetMonitor(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *MonitorState, opts ...pulumi.ResourceOpt) (*Monitor, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["adaptive"] = state.Adaptive
+		inputs["adaptiveLimit"] = state.AdaptiveLimit
+		inputs["compatibility"] = state.Compatibility
 		inputs["defaultsFrom"] = state.DefaultsFrom
 		inputs["destination"] = state.Destination
+		inputs["filename"] = state.Filename
 		inputs["interval"] = state.Interval
 		inputs["ipDscp"] = state.IpDscp
 		inputs["manualResume"] = state.ManualResume
+		inputs["mode"] = state.Mode
 		inputs["name"] = state.Name
 		inputs["parent"] = state.Parent
+		inputs["password"] = state.Password
 		inputs["receive"] = state.Receive
 		inputs["receiveDisable"] = state.ReceiveDisable
 		inputs["reverse"] = state.Reverse
@@ -83,6 +103,7 @@ func GetMonitor(ctx *pulumi.Context,
 		inputs["timeUntilUp"] = state.TimeUntilUp
 		inputs["timeout"] = state.Timeout
 		inputs["transparent"] = state.Transparent
+		inputs["username"] = state.Username
 	}
 	s, err := ctx.ReadResource("f5bigip:ltm/monitor:Monitor", name, id, inputs, opts...)
 	if err != nil {
@@ -101,6 +122,21 @@ func (r *Monitor) ID() *pulumi.IDOutput {
 	return r.s.ID()
 }
 
+// ftp adaptive
+func (r *Monitor) Adaptive() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["adaptive"])
+}
+
+// Integer value
+func (r *Monitor) AdaptiveLimit() *pulumi.IntOutput {
+	return (*pulumi.IntOutput)(r.s.State["adaptiveLimit"])
+}
+
+// Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
+func (r *Monitor) Compatibility() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["compatibility"])
+}
+
 // Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
 func (r *Monitor) DefaultsFrom() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["defaultsFrom"])
@@ -109,6 +145,11 @@ func (r *Monitor) DefaultsFrom() *pulumi.StringOutput {
 // Specify an alias address for monitoring
 func (r *Monitor) Destination() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["destination"])
+}
+
+// Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
+func (r *Monitor) Filename() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["filename"])
 }
 
 // Check interval in seconds
@@ -124,6 +165,11 @@ func (r *Monitor) ManualResume() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["manualResume"])
 }
 
+// Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
+func (r *Monitor) Mode() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["mode"])
+}
+
 // Name of the monitor
 func (r *Monitor) Name() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["name"])
@@ -132,6 +178,11 @@ func (r *Monitor) Name() *pulumi.StringOutput {
 // Existing LTM monitor to inherit from
 func (r *Monitor) Parent() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["parent"])
+}
+
+// Specifies the password if the monitored target requires authentication
+func (r *Monitor) Password() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["password"])
 }
 
 // Expected response string
@@ -167,20 +218,37 @@ func (r *Monitor) Transparent() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["transparent"])
 }
 
+// Specifies the user name if the monitored target requires authentication
+func (r *Monitor) Username() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["username"])
+}
+
 // Input properties used for looking up and filtering Monitor resources.
 type MonitorState struct {
+	// ftp adaptive
+	Adaptive interface{}
+	// Integer value
+	AdaptiveLimit interface{}
+	// Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
+	Compatibility interface{}
 	// Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
 	DefaultsFrom interface{}
 	// Specify an alias address for monitoring
 	Destination interface{}
+	// Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
+	Filename interface{}
 	// Check interval in seconds
 	Interval interface{}
 	IpDscp interface{}
 	ManualResume interface{}
+	// Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
+	Mode interface{}
 	// Name of the monitor
 	Name interface{}
 	// Existing LTM monitor to inherit from
 	Parent interface{}
+	// Specifies the password if the monitored target requires authentication
+	Password interface{}
 	// Expected response string
 	Receive interface{}
 	// Expected response string.
@@ -193,22 +261,36 @@ type MonitorState struct {
 	// Timeout in seconds
 	Timeout interface{}
 	Transparent interface{}
+	// Specifies the user name if the monitored target requires authentication
+	Username interface{}
 }
 
 // The set of arguments for constructing a Monitor resource.
 type MonitorArgs struct {
+	// ftp adaptive
+	Adaptive interface{}
+	// Integer value
+	AdaptiveLimit interface{}
+	// Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
+	Compatibility interface{}
 	// Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
 	DefaultsFrom interface{}
 	// Specify an alias address for monitoring
 	Destination interface{}
+	// Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
+	Filename interface{}
 	// Check interval in seconds
 	Interval interface{}
 	IpDscp interface{}
 	ManualResume interface{}
+	// Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
+	Mode interface{}
 	// Name of the monitor
 	Name interface{}
 	// Existing LTM monitor to inherit from
 	Parent interface{}
+	// Specifies the password if the monitored target requires authentication
+	Password interface{}
 	// Expected response string
 	Receive interface{}
 	// Expected response string.
@@ -221,4 +303,6 @@ type MonitorArgs struct {
 	// Timeout in seconds
 	Timeout interface{}
 	Transparent interface{}
+	// Specifies the user name if the monitored target requires authentication
+	Username interface{}
 }

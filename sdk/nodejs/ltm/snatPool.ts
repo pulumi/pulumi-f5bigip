@@ -22,6 +22,7 @@ import * as utilities from "../utilities";
  *         "191.1.1.1",
  *         "194.2.2.2",
  *     ],
+ *     name: "/Common/snatpool_sanjose",
  * });
  * ```
  */

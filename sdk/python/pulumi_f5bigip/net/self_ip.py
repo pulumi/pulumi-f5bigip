@@ -54,17 +54,17 @@ class SelfIp(pulumi.CustomResource):
         __props__ = dict()
 
         if ip is None:
-            raise TypeError('Missing required property ip')
+            raise TypeError("Missing required property 'ip'")
         __props__['ip'] = ip
 
         if name is None:
-            raise TypeError('Missing required property name')
+            raise TypeError("Missing required property 'name'")
         __props__['name'] = name
 
         __props__['traffic_group'] = traffic_group
 
         if vlan is None:
-            raise TypeError('Missing required property vlan')
+            raise TypeError("Missing required property 'vlan'")
         __props__['vlan'] = vlan
 
         super(SelfIp, __self__).__init__(

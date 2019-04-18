@@ -37,7 +37,7 @@ class VirtualServer(pulumi.CustomResource):
     """
     Default pool name
     """
-    port: pulumi.Output[int]
+    port: pulumi.Output[float]
     """
     Listen port for the virtual server
     """
@@ -88,14 +88,10 @@ class VirtualServer(pulumi.CustomResource):
         :param pulumi.Input[list] client_profiles: List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
         :param pulumi.Input[str] destination: Destination IP
         :param pulumi.Input[str] fallback_persistence_profile: Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
-        :param pulumi.Input[str] ip_protocol
-        :param pulumi.Input[list] irules
         :param pulumi.Input[str] mask: Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
-        :param pulumi.Input[str] name
         :param pulumi.Input[list] persistence_profiles: List of persistence profiles associated with the Virtual Server.
-        :param pulumi.Input[list] policies
         :param pulumi.Input[str] pool: Default pool name
-        :param pulumi.Input[int] port: Listen port for the virtual server
+        :param pulumi.Input[float] port: Listen port for the virtual server
         :param pulumi.Input[list] profiles: List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
         :param pulumi.Input[list] server_profiles: List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
         :param pulumi.Input[str] snatpool: Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
@@ -124,7 +120,7 @@ class VirtualServer(pulumi.CustomResource):
         __props__['client_profiles'] = client_profiles
 
         if destination is None:
-            raise TypeError('Missing required property destination')
+            raise TypeError("Missing required property 'destination'")
         __props__['destination'] = destination
 
         __props__['fallback_persistence_profile'] = fallback_persistence_profile
@@ -136,7 +132,7 @@ class VirtualServer(pulumi.CustomResource):
         __props__['mask'] = mask
 
         if name is None:
-            raise TypeError('Missing required property name')
+            raise TypeError("Missing required property 'name'")
         __props__['name'] = name
 
         __props__['persistence_profiles'] = persistence_profiles
@@ -146,7 +142,7 @@ class VirtualServer(pulumi.CustomResource):
         __props__['pool'] = pool
 
         if port is None:
-            raise TypeError('Missing required property port')
+            raise TypeError("Missing required property 'port'")
         __props__['port'] = port
 
         __props__['profiles'] = profiles

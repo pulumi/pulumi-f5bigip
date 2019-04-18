@@ -44,11 +44,11 @@ class PoolAttachment(pulumi.CustomResource):
         __props__ = dict()
 
         if node is None:
-            raise TypeError('Missing required property node')
+            raise TypeError("Missing required property 'node'")
         __props__['node'] = node
 
         if pool is None:
-            raise TypeError('Missing required property pool')
+            raise TypeError("Missing required property 'pool'")
         __props__['pool'] = pool
 
         super(PoolAttachment, __self__).__init__(

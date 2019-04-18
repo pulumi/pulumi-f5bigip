@@ -9,11 +9,11 @@ import pulumi.runtime
 from .. import utilities, tables
 
 class Provision(pulumi.CustomResource):
-    cpu_ratio: pulumi.Output[int]
-    disk_ratio: pulumi.Output[int]
+    cpu_ratio: pulumi.Output[float]
+    disk_ratio: pulumi.Output[float]
     full_path: pulumi.Output[str]
     level: pulumi.Output[str]
-    memory_ratio: pulumi.Output[int]
+    memory_ratio: pulumi.Output[float]
     name: pulumi.Output[str]
     def __init__(__self__, resource_name, opts=None, cpu_ratio=None, disk_ratio=None, full_path=None, level=None, memory_ratio=None, name=None, __name__=None, __opts__=None):
         """
@@ -21,12 +21,6 @@ class Provision(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] cpu_ratio
-        :param pulumi.Input[int] disk_ratio
-        :param pulumi.Input[str] full_path
-        :param pulumi.Input[str] level
-        :param pulumi.Input[int] memory_ratio
-        :param pulumi.Input[str] name
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -54,7 +48,7 @@ class Provision(pulumi.CustomResource):
         __props__['memory_ratio'] = memory_ratio
 
         if name is None:
-            raise TypeError('Missing required property name')
+            raise TypeError("Missing required property 'name'")
         __props__['name'] = name
 
         super(Provision, __self__).__init__(

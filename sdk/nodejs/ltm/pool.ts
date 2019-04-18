@@ -25,6 +25,7 @@ import * as utilities from "../utilities";
  *         bigip_ltm_monitor_monitor.name,
  *         bigip_ltm_monitor_monitor2.name,
  *     ],
+ *     name: "/Common/terraform-pool",
  * });
  * ```
  */

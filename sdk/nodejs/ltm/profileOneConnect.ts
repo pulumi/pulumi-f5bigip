@@ -22,6 +22,7 @@ import * as utilities from "../utilities";
  *     maxAge: 3600,
  *     maxReuse: 1000,
  *     maxSize: 1000,
+ *     name: "sanjose",
  *     partition: "Common",
  *     sharePools: "disabled",
  *     sourceMask: "255.255.255.255",

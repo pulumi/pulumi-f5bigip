@@ -35,6 +35,7 @@ func NewSnat(ctx *pulumi.Context,
 		inputs["snatpool"] = nil
 		inputs["sourceport"] = nil
 		inputs["translation"] = nil
+		inputs["vlans"] = nil
 		inputs["vlansdisabled"] = nil
 	} else {
 		inputs["autolasthop"] = args.Autolasthop
@@ -46,6 +47,7 @@ func NewSnat(ctx *pulumi.Context,
 		inputs["snatpool"] = args.Snatpool
 		inputs["sourceport"] = args.Sourceport
 		inputs["translation"] = args.Translation
+		inputs["vlans"] = args.Vlans
 		inputs["vlansdisabled"] = args.Vlansdisabled
 	}
 	s, err := ctx.RegisterResource("f5bigip:ltm/snat:Snat", name, true, inputs, opts...)
@@ -70,6 +72,7 @@ func GetSnat(ctx *pulumi.Context,
 		inputs["snatpool"] = state.Snatpool
 		inputs["sourceport"] = state.Sourceport
 		inputs["translation"] = state.Translation
+		inputs["vlans"] = state.Vlans
 		inputs["vlansdisabled"] = state.Vlansdisabled
 	}
 	s, err := ctx.ReadResource("f5bigip:ltm/snat:Snat", name, id, inputs, opts...)
@@ -134,6 +137,11 @@ func (r *Snat) Translation() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["translation"])
 }
 
+// Specifies the name of the VLAN to which you want to assign the SNAT. The default is vlans-enabled.
+func (r *Snat) Vlans() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["vlans"])
+}
+
 // Disables the SNAT on all VLANs.
 func (r *Snat) Vlansdisabled() *pulumi.BoolOutput {
 	return (*pulumi.BoolOutput)(r.s.State["vlansdisabled"])
@@ -159,6 +167,8 @@ type SnatState struct {
 	Sourceport interface{}
 	// Specifies the name of a translated IP address. Note that translated addresses are outside the traffic management system. You can only use this option when automap and snatpool are not used.
 	Translation interface{}
+	// Specifies the name of the VLAN to which you want to assign the SNAT. The default is vlans-enabled.
+	Vlans interface{}
 	// Disables the SNAT on all VLANs.
 	Vlansdisabled interface{}
 }
@@ -183,6 +193,8 @@ type SnatArgs struct {
 	Sourceport interface{}
 	// Specifies the name of a translated IP address. Note that translated addresses are outside the traffic management system. You can only use this option when automap and snatpool are not used.
 	Translation interface{}
+	// Specifies the name of the VLAN to which you want to assign the SNAT. The default is vlans-enabled.
+	Vlans interface{}
 	// Disables the SNAT on all VLANs.
 	Vlansdisabled interface{}
 }

@@ -15,6 +15,7 @@ export * from "./pool";
 export * from "./poolAttachment";
 export * from "./profileFastHttp";
 export * from "./profileFastL4";
+export * from "./profileHttp";
 export * from "./profileHttp2";
 export * from "./profileHttpCompress";
 export * from "./profileOneConnect";

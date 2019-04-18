@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  *     configsyncIp: "2.2.2.2",
  *     mirrorIp: "10.10.10.10",
  *     mirrorSecondaryIp: "11.11.11.11",
+ *     name: "bigip300.f5.com",
  * });
  * ```
  */

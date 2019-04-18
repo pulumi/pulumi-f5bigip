@@ -29,7 +29,7 @@ func NewNode(ctx *pulumi.Context,
 		inputs["address"] = nil
 		inputs["connectionLimit"] = nil
 		inputs["dynamicRatio"] = nil
-		inputs["fqdns"] = nil
+		inputs["fqdn"] = nil
 		inputs["monitor"] = nil
 		inputs["name"] = nil
 		inputs["rateLimit"] = nil
@@ -38,7 +38,7 @@ func NewNode(ctx *pulumi.Context,
 		inputs["address"] = args.Address
 		inputs["connectionLimit"] = args.ConnectionLimit
 		inputs["dynamicRatio"] = args.DynamicRatio
-		inputs["fqdns"] = args.Fqdns
+		inputs["fqdn"] = args.Fqdn
 		inputs["monitor"] = args.Monitor
 		inputs["name"] = args.Name
 		inputs["rateLimit"] = args.RateLimit
@@ -60,7 +60,7 @@ func GetNode(ctx *pulumi.Context,
 		inputs["address"] = state.Address
 		inputs["connectionLimit"] = state.ConnectionLimit
 		inputs["dynamicRatio"] = state.DynamicRatio
-		inputs["fqdns"] = state.Fqdns
+		inputs["fqdn"] = state.Fqdn
 		inputs["monitor"] = state.Monitor
 		inputs["name"] = state.Name
 		inputs["rateLimit"] = state.RateLimit
@@ -93,16 +93,16 @@ func (r *Node) ConnectionLimit() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["connectionLimit"])
 }
 
-// Sets the dynamic ratio number for the node. Used for dynamic ratio load balancing.
+// Specifies the fixed ratio value used for a node during ratio load balancing.
 func (r *Node) DynamicRatio() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["dynamicRatio"])
 }
 
-func (r *Node) Fqdns() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["fqdns"])
+func (r *Node) Fqdn() *pulumi.Output {
+	return r.s.State["fqdn"]
 }
 
-// Specifies the name of the monitor or monitor rule that you want to associate with the node.
+// specifies the name of the monitor or monitor rule that you want to associate with the node.
 func (r *Node) Monitor() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["monitor"])
 }
@@ -129,10 +129,10 @@ type NodeState struct {
 	Address interface{}
 	// Specifies the maximum number of connections allowed for the node or node address.
 	ConnectionLimit interface{}
-	// Sets the dynamic ratio number for the node. Used for dynamic ratio load balancing.
+	// Specifies the fixed ratio value used for a node during ratio load balancing.
 	DynamicRatio interface{}
-	Fqdns interface{}
-	// Specifies the name of the monitor or monitor rule that you want to associate with the node.
+	Fqdn interface{}
+	// specifies the name of the monitor or monitor rule that you want to associate with the node.
 	Monitor interface{}
 	// Name of the node
 	Name interface{}
@@ -149,10 +149,10 @@ type NodeArgs struct {
 	Address interface{}
 	// Specifies the maximum number of connections allowed for the node or node address.
 	ConnectionLimit interface{}
-	// Sets the dynamic ratio number for the node. Used for dynamic ratio load balancing.
+	// Specifies the fixed ratio value used for a node during ratio load balancing.
 	DynamicRatio interface{}
-	Fqdns interface{}
-	// Specifies the name of the monitor or monitor rule that you want to associate with the node.
+	Fqdn interface{}
+	// specifies the name of the monitor or monitor rule that you want to associate with the node.
 	Monitor interface{}
 	// Name of the node
 	Name interface{}

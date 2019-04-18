@@ -26,6 +26,7 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  *     fullLoadOnSync: "true",
+ *     name: "sanjose_devicegroup",
  *     type: "sync-only",
  * });
  * ```
