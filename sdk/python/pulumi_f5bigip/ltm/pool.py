@@ -20,9 +20,9 @@ class Pool(pulumi.CustomResource):
     """
     Name of the pool
     """
-    reselect_tries: pulumi.Output[int]
+    reselect_tries: pulumi.Output[float]
     service_down_action: pulumi.Output[str]
-    slow_ramp_time: pulumi.Output[int]
+    slow_ramp_time: pulumi.Output[float]
     def __init__(__self__, resource_name, opts=None, allow_nat=None, allow_snat=None, load_balancing_mode=None, monitors=None, name=None, reselect_tries=None, service_down_action=None, slow_ramp_time=None, __name__=None, __opts__=None):
         """
         `bigip_ltm_pool` Manages a pool configuration.
@@ -31,14 +31,8 @@ class Pool(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] allow_nat
-        :param pulumi.Input[str] allow_snat
-        :param pulumi.Input[str] load_balancing_mode
         :param pulumi.Input[list] monitors: List of monitor names to associate with the pool
         :param pulumi.Input[str] name: Name of the pool
-        :param pulumi.Input[int] reselect_tries
-        :param pulumi.Input[str] service_down_action
-        :param pulumi.Input[int] slow_ramp_time
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -64,7 +58,7 @@ class Pool(pulumi.CustomResource):
         __props__['monitors'] = monitors
 
         if name is None:
-            raise TypeError('Missing required property name')
+            raise TypeError("Missing required property 'name'")
         __props__['name'] = name
 
         __props__['reselect_tries'] = reselect_tries

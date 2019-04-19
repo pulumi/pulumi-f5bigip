@@ -28,7 +28,7 @@ class SnmpTraps(pulumi.CustomResource):
     """
     Name of the snmp trap.
     """
-    port: pulumi.Output[int]
+    port: pulumi.Output[float]
     """
     User defined description.
     """
@@ -44,20 +44,11 @@ class SnmpTraps(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] auth_passwordencrypted
-        :param pulumi.Input[str] auth_protocol
         :param pulumi.Input[str] community: Specifies the community string used for this trap.
         :param pulumi.Input[str] description: The port that the trap will be sent to.
-        :param pulumi.Input[str] engine_id
         :param pulumi.Input[str] host: The host the trap will be sent to.
         :param pulumi.Input[str] name: Name of the snmp trap.
-        :param pulumi.Input[int] port: User defined description.
-        :param pulumi.Input[str] privacy_password
-        :param pulumi.Input[str] privacy_password_encrypted
-        :param pulumi.Input[str] privacy_protocol
-        :param pulumi.Input[str] security_level
-        :param pulumi.Input[str] security_name
-        :param pulumi.Input[str] version
+        :param pulumi.Input[float] port: User defined description.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

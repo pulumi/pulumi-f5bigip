@@ -24,11 +24,15 @@ func NewProfileHttpCompress(ctx *pulumi.Context,
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {
+		inputs["contentTypeExcludes"] = nil
+		inputs["contentTypeIncludes"] = nil
 		inputs["defaultsFrom"] = nil
 		inputs["name"] = nil
 		inputs["uriExcludes"] = nil
 		inputs["uriIncludes"] = nil
 	} else {
+		inputs["contentTypeExcludes"] = args.ContentTypeExcludes
+		inputs["contentTypeIncludes"] = args.ContentTypeIncludes
 		inputs["defaultsFrom"] = args.DefaultsFrom
 		inputs["name"] = args.Name
 		inputs["uriExcludes"] = args.UriExcludes
@@ -47,6 +51,8 @@ func GetProfileHttpCompress(ctx *pulumi.Context,
 	name string, id pulumi.ID, state *ProfileHttpCompressState, opts ...pulumi.ResourceOpt) (*ProfileHttpCompress, error) {
 	inputs := make(map[string]interface{})
 	if state != nil {
+		inputs["contentTypeExcludes"] = state.ContentTypeExcludes
+		inputs["contentTypeIncludes"] = state.ContentTypeIncludes
 		inputs["defaultsFrom"] = state.DefaultsFrom
 		inputs["name"] = state.Name
 		inputs["uriExcludes"] = state.UriExcludes
@@ -67,6 +73,16 @@ func (r *ProfileHttpCompress) URN() *pulumi.URNOutput {
 // ID is this resource's unique identifier assigned by its provider.
 func (r *ProfileHttpCompress) ID() *pulumi.IDOutput {
 	return r.s.ID()
+}
+
+// Excludes a specified list of content types from compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
+func (r *ProfileHttpCompress) ContentTypeExcludes() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["contentTypeExcludes"])
+}
+
+// Specifies a list of content types for compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
+func (r *ProfileHttpCompress) ContentTypeIncludes() *pulumi.ArrayOutput {
+	return (*pulumi.ArrayOutput)(r.s.State["contentTypeIncludes"])
 }
 
 // Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
@@ -91,6 +107,10 @@ func (r *ProfileHttpCompress) UriIncludes() *pulumi.ArrayOutput {
 
 // Input properties used for looking up and filtering ProfileHttpCompress resources.
 type ProfileHttpCompressState struct {
+	// Excludes a specified list of content types from compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
+	ContentTypeExcludes interface{}
+	// Specifies a list of content types for compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
+	ContentTypeIncludes interface{}
 	// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
 	DefaultsFrom interface{}
 	// Name of the profile_httpcompress
@@ -103,6 +123,10 @@ type ProfileHttpCompressState struct {
 
 // The set of arguments for constructing a ProfileHttpCompress resource.
 type ProfileHttpCompressArgs struct {
+	// Excludes a specified list of content types from compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
+	ContentTypeExcludes interface{}
+	// Specifies a list of content types for compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
+	ContentTypeIncludes interface{}
 	// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
 	DefaultsFrom interface{}
 	// Name of the profile_httpcompress

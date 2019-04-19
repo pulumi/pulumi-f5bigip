@@ -49,13 +49,13 @@ class DataGroup(pulumi.CustomResource):
         __props__ = dict()
 
         if name is None:
-            raise TypeError('Missing required property name')
+            raise TypeError("Missing required property 'name'")
         __props__['name'] = name
 
         __props__['records'] = records
 
         if type is None:
-            raise TypeError('Missing required property type')
+            raise TypeError("Missing required property 'type'")
         __props__['type'] = type
 
         super(DataGroup, __self__).__init__(

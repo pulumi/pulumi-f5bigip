@@ -9,7 +9,7 @@ import pulumi.runtime
 from .. import utilities, tables
 
 class ProfileTcp(pulumi.CustomResource):
-    close_wait_timeout: pulumi.Output[int]
+    close_wait_timeout: pulumi.Output[float]
     """
     Specifies the number of seconds that a connection remains in a LAST-ACK state before quitting. A value of 0 represents a term of forever (or until the maxrtx of the FIN state). The default value is 5 seconds.
     """
@@ -25,19 +25,19 @@ class ProfileTcp(pulumi.CustomResource):
     """
     When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet.
     """
-    finwait2timeout: pulumi.Output[int]
+    finwait2timeout: pulumi.Output[float]
     """
     Specifies the number of seconds that a connection is in the FIN-WAIT-2 state before quitting. The default value is 300 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state).
     """
-    finwait_timeout: pulumi.Output[int]
+    finwait_timeout: pulumi.Output[float]
     """
     Specifies the number of seconds that a connection is in the FIN-WAIT-1 or closing state before quitting. The default value is 5 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state). You can also specify immediate or indefinite.
     """
-    idle_timeout: pulumi.Output[int]
+    idle_timeout: pulumi.Output[float]
     """
     Specifies the number of seconds that a connection is idle before the connection is eligible for deletion. The default value is 300 seconds.
     """
-    keepalive_interval: pulumi.Output[int]
+    keepalive_interval: pulumi.Output[float]
     """
     Specifies the keep alive probe interval, in seconds. The default value is 1800 seconds.
     """
@@ -57,14 +57,14 @@ class ProfileTcp(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] close_wait_timeout: Specifies the number of seconds that a connection remains in a LAST-ACK state before quitting. A value of 0 represents a term of forever (or until the maxrtx of the FIN state). The default value is 5 seconds.
+        :param pulumi.Input[float] close_wait_timeout: Specifies the number of seconds that a connection remains in a LAST-ACK state before quitting. A value of 0 represents a term of forever (or until the maxrtx of the FIN state). The default value is 5 seconds.
         :param pulumi.Input[str] defaults_from: Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         :param pulumi.Input[str] deferred_accept: Specifies, when enabled, that the system defers allocation of the connection chain context until the client response is received. This option is useful for dealing with 3-way handshake DOS attacks. The default value is disabled.
         :param pulumi.Input[str] fast_open: When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet.
-        :param pulumi.Input[int] finwait2timeout: Specifies the number of seconds that a connection is in the FIN-WAIT-2 state before quitting. The default value is 300 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state).
-        :param pulumi.Input[int] finwait_timeout: Specifies the number of seconds that a connection is in the FIN-WAIT-1 or closing state before quitting. The default value is 5 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state). You can also specify immediate or indefinite.
-        :param pulumi.Input[int] idle_timeout: Specifies the number of seconds that a connection is idle before the connection is eligible for deletion. The default value is 300 seconds.
-        :param pulumi.Input[int] keepalive_interval: Specifies the keep alive probe interval, in seconds. The default value is 1800 seconds.
+        :param pulumi.Input[float] finwait2timeout: Specifies the number of seconds that a connection is in the FIN-WAIT-2 state before quitting. The default value is 300 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state).
+        :param pulumi.Input[float] finwait_timeout: Specifies the number of seconds that a connection is in the FIN-WAIT-1 or closing state before quitting. The default value is 5 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state). You can also specify immediate or indefinite.
+        :param pulumi.Input[float] idle_timeout: Specifies the number of seconds that a connection is idle before the connection is eligible for deletion. The default value is 300 seconds.
+        :param pulumi.Input[float] keepalive_interval: Specifies the keep alive probe interval, in seconds. The default value is 1800 seconds.
         :param pulumi.Input[str] name: Name of the profile_tcp
         :param pulumi.Input[str] partition: Displays the administrative partition within which this profile resides
         """
@@ -100,7 +100,7 @@ class ProfileTcp(pulumi.CustomResource):
         __props__['keepalive_interval'] = keepalive_interval
 
         if name is None:
-            raise TypeError('Missing required property name')
+            raise TypeError("Missing required property 'name'")
         __props__['name'] = name
 
         __props__['partition'] = partition

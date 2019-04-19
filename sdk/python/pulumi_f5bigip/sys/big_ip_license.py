@@ -17,8 +17,6 @@ class BigIpLicense(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] command
-        :param pulumi.Input[str] registration_key
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -36,11 +34,11 @@ class BigIpLicense(pulumi.CustomResource):
         __props__ = dict()
 
         if command is None:
-            raise TypeError('Missing required property command')
+            raise TypeError("Missing required property 'command'")
         __props__['command'] = command
 
         if registration_key is None:
-            raise TypeError('Missing required property registration_key')
+            raise TypeError("Missing required property 'registration_key'")
         __props__['registration_key'] = registration_key
 
         super(BigIpLicense, __self__).__init__(

@@ -13,11 +13,11 @@ class ProfileHttp2(pulumi.CustomResource):
     """
     Specifies what will cause an incoming connection to be handled as a HTTP/2 connection. The default values npn and alpn specify that the TLS next-protocol-negotiation and application-layer-protocol-negotiation extensions will be used.
     """
-    concurrent_streams_per_connection: pulumi.Output[int]
+    concurrent_streams_per_connection: pulumi.Output[float]
     """
     Specifies how many concurrent requests are allowed to be outstanding on a single HTTP/2 connection.
     """
-    connection_idle_timeout: pulumi.Output[int]
+    connection_idle_timeout: pulumi.Output[float]
     """
     Specifies the number of seconds that a connection is idle before the connection is eligible for deletion..
     """
@@ -25,7 +25,7 @@ class ProfileHttp2(pulumi.CustomResource):
     """
     Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
     """
-    header_table_size: pulumi.Output[int]
+    header_table_size: pulumi.Output[float]
     name: pulumi.Output[str]
     """
     Name of the profile_http2
@@ -39,10 +39,9 @@ class ProfileHttp2(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] activation_modes: Specifies what will cause an incoming connection to be handled as a HTTP/2 connection. The default values npn and alpn specify that the TLS next-protocol-negotiation and application-layer-protocol-negotiation extensions will be used.
-        :param pulumi.Input[int] concurrent_streams_per_connection: Specifies how many concurrent requests are allowed to be outstanding on a single HTTP/2 connection.
-        :param pulumi.Input[int] connection_idle_timeout: Specifies the number of seconds that a connection is idle before the connection is eligible for deletion..
+        :param pulumi.Input[float] concurrent_streams_per_connection: Specifies how many concurrent requests are allowed to be outstanding on a single HTTP/2 connection.
+        :param pulumi.Input[float] connection_idle_timeout: Specifies the number of seconds that a connection is idle before the connection is eligible for deletion..
         :param pulumi.Input[str] defaults_from: Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
-        :param pulumi.Input[int] header_table_size
         :param pulumi.Input[str] name: Name of the profile_http2
         """
         if __name__ is not None:
@@ -71,7 +70,7 @@ class ProfileHttp2(pulumi.CustomResource):
         __props__['header_table_size'] = header_table_size
 
         if name is None:
-            raise TypeError('Missing required property name')
+            raise TypeError("Missing required property 'name'")
         __props__['name'] = name
 
         super(ProfileHttp2, __self__).__init__(

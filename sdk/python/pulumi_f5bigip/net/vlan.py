@@ -17,7 +17,7 @@ class Vlan(pulumi.CustomResource):
     """
     Name of the vlan
     """
-    tag: pulumi.Output[int]
+    tag: pulumi.Output[float]
     """
     Specifies a number that the system adds into the header of any frame passing through the VLAN.
     """
@@ -31,7 +31,7 @@ class Vlan(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] interfaces: Specifies which interfaces you want this VLAN to use for traffic management.
         :param pulumi.Input[str] name: Name of the vlan
-        :param pulumi.Input[int] tag: Specifies a number that the system adds into the header of any frame passing through the VLAN.
+        :param pulumi.Input[float] tag: Specifies a number that the system adds into the header of any frame passing through the VLAN.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -51,7 +51,7 @@ class Vlan(pulumi.CustomResource):
         __props__['interfaces'] = interfaces
 
         if name is None:
-            raise TypeError('Missing required property name')
+            raise TypeError("Missing required property 'name'")
         __props__['name'] = name
 
         __props__['tag'] = tag

@@ -14,7 +14,7 @@ class Dns(pulumi.CustomResource):
     """
     Name or IP address of the DNS server
     """
-    number_of_dots: pulumi.Output[int]
+    number_of_dots: pulumi.Output[float]
     """
     Configures the number of dots needed in a name before an initial absolute query will be made.
     """
@@ -28,9 +28,8 @@ class Dns(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description
         :param pulumi.Input[list] name_servers: Name or IP address of the DNS server
-        :param pulumi.Input[int] number_of_dots: Configures the number of dots needed in a name before an initial absolute query will be made.
+        :param pulumi.Input[float] number_of_dots: Configures the number of dots needed in a name before an initial absolute query will be made.
         :param pulumi.Input[list] searches: Specify what domains you want to search
         """
         if __name__ is not None:
@@ -49,7 +48,7 @@ class Dns(pulumi.CustomResource):
         __props__ = dict()
 
         if description is None:
-            raise TypeError('Missing required property description')
+            raise TypeError("Missing required property 'description'")
         __props__['description'] = description
 
         __props__['name_servers'] = name_servers

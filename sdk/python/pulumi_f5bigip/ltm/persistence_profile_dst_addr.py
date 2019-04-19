@@ -19,7 +19,7 @@ class PersistenceProfileDstAddr(pulumi.CustomResource):
     mirror: pulumi.Output[str]
     name: pulumi.Output[str]
     override_conn_limit: pulumi.Output[str]
-    timeout: pulumi.Output[int]
+    timeout: pulumi.Output[float]
     def __init__(__self__, resource_name, opts=None, app_service=None, defaults_from=None, hash_algorithm=None, mask=None, match_across_pools=None, match_across_services=None, match_across_virtuals=None, mirror=None, name=None, override_conn_limit=None, timeout=None, __name__=None, __opts__=None):
         """
         Configures a cookie persistence profile
@@ -44,17 +44,6 @@ class PersistenceProfileDstAddr(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] app_service
-        :param pulumi.Input[str] defaults_from
-        :param pulumi.Input[str] hash_algorithm
-        :param pulumi.Input[str] mask
-        :param pulumi.Input[str] match_across_pools
-        :param pulumi.Input[str] match_across_services
-        :param pulumi.Input[str] match_across_virtuals
-        :param pulumi.Input[str] mirror
-        :param pulumi.Input[str] name
-        :param pulumi.Input[str] override_conn_limit
-        :param pulumi.Input[int] timeout
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -74,7 +63,7 @@ class PersistenceProfileDstAddr(pulumi.CustomResource):
         __props__['app_service'] = app_service
 
         if defaults_from is None:
-            raise TypeError('Missing required property defaults_from')
+            raise TypeError("Missing required property 'defaults_from'")
         __props__['defaults_from'] = defaults_from
 
         __props__['hash_algorithm'] = hash_algorithm
@@ -90,7 +79,7 @@ class PersistenceProfileDstAddr(pulumi.CustomResource):
         __props__['mirror'] = mirror
 
         if name is None:
-            raise TypeError('Missing required property name')
+            raise TypeError("Missing required property 'name'")
         __props__['name'] = name
 
         __props__['override_conn_limit'] = override_conn_limit

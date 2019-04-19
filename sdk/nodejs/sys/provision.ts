@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  *     fullPath: "ilx",
  *     level: "nominal",
  *     memoryRatio: 0,
+ *     name: "/Common/ilx",
  * });
  * ```
  */

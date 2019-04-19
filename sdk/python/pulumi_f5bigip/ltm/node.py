@@ -13,10 +13,19 @@ class Node(pulumi.CustomResource):
     """
     IP or hostname of the node
     """
-    connection_limit: pulumi.Output[int]
-    dynamic_ratio: pulumi.Output[int]
-    fqdns: pulumi.Output[list]
+    connection_limit: pulumi.Output[float]
+    """
+    Specifies the maximum number of connections allowed for the node or node address.
+    """
+    dynamic_ratio: pulumi.Output[float]
+    """
+    Specifies the fixed ratio value used for a node during ratio load balancing.
+    """
+    fqdn: pulumi.Output[dict]
     monitor: pulumi.Output[str]
+    """
+    specifies the name of the monitor or monitor rule that you want to associate with the node.
+    """
     name: pulumi.Output[str]
     """
     Name of the node
@@ -26,7 +35,7 @@ class Node(pulumi.CustomResource):
     """
     Default is "user-up" you can set to "user-down" if you want to disable
     """
-    def __init__(__self__, resource_name, opts=None, address=None, connection_limit=None, dynamic_ratio=None, fqdns=None, monitor=None, name=None, rate_limit=None, state=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, address=None, connection_limit=None, dynamic_ratio=None, fqdn=None, monitor=None, name=None, rate_limit=None, state=None, __name__=None, __opts__=None):
         """
         `bigip_ltm_node` Manages a node configuration
         
@@ -35,12 +44,10 @@ class Node(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address: IP or hostname of the node
-        :param pulumi.Input[int] connection_limit
-        :param pulumi.Input[int] dynamic_ratio
-        :param pulumi.Input[list] fqdns
-        :param pulumi.Input[str] monitor
+        :param pulumi.Input[float] connection_limit: Specifies the maximum number of connections allowed for the node or node address.
+        :param pulumi.Input[float] dynamic_ratio: Specifies the fixed ratio value used for a node during ratio load balancing.
+        :param pulumi.Input[str] monitor: specifies the name of the monitor or monitor rule that you want to associate with the node.
         :param pulumi.Input[str] name: Name of the node
-        :param pulumi.Input[str] rate_limit
         :param pulumi.Input[str] state: Default is "user-up" you can set to "user-down" if you want to disable
         """
         if __name__ is not None:
@@ -59,19 +66,19 @@ class Node(pulumi.CustomResource):
         __props__ = dict()
 
         if address is None:
-            raise TypeError('Missing required property address')
+            raise TypeError("Missing required property 'address'")
         __props__['address'] = address
 
         __props__['connection_limit'] = connection_limit
 
         __props__['dynamic_ratio'] = dynamic_ratio
 
-        __props__['fqdns'] = fqdns
+        __props__['fqdn'] = fqdn
 
         __props__['monitor'] = monitor
 
         if name is None:
-            raise TypeError('Missing required property name')
+            raise TypeError("Missing required property 'name'")
         __props__['name'] = name
 
         __props__['rate_limit'] = rate_limit

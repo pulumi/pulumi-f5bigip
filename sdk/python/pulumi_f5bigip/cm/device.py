@@ -21,10 +21,6 @@ class Device(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] configsync_ip
-        :param pulumi.Input[str] mirror_ip
-        :param pulumi.Input[str] mirror_secondary_ip
-        :param pulumi.Input[str] name
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -42,7 +38,7 @@ class Device(pulumi.CustomResource):
         __props__ = dict()
 
         if configsync_ip is None:
-            raise TypeError('Missing required property configsync_ip')
+            raise TypeError("Missing required property 'configsync_ip'")
         __props__['configsync_ip'] = configsync_ip
 
         __props__['mirror_ip'] = mirror_ip
@@ -50,7 +46,7 @@ class Device(pulumi.CustomResource):
         __props__['mirror_secondary_ip'] = mirror_secondary_ip
 
         if name is None:
-            raise TypeError('Missing required property name')
+            raise TypeError("Missing required property 'name'")
         __props__['name'] = name
 
         super(Device, __self__).__init__(

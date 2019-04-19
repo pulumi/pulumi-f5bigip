@@ -18,6 +18,7 @@ import * as utilities from "../utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  * 
  * const datagroup = new f5bigip.ltm.DataGroup("datagroup", {
+ *     name: "/Common/dgx2",
  *     records: [
  *         {
  *             data: "pool1",

@@ -39,11 +39,15 @@ class Snat(pulumi.CustomResource):
     """
     Specifies the name of a translated IP address. Note that translated addresses are outside the traffic management system. You can only use this option when automap and snatpool are not used.
     """
+    vlans: pulumi.Output[list]
+    """
+    Specifies the name of the VLAN to which you want to assign the SNAT. The default is vlans-enabled.
+    """
     vlansdisabled: pulumi.Output[bool]
     """
     Disables the SNAT on all VLANs.
     """
-    def __init__(__self__, resource_name, opts=None, autolasthop=None, full_path=None, mirror=None, name=None, origins=None, partition=None, snatpool=None, sourceport=None, translation=None, vlansdisabled=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, autolasthop=None, full_path=None, mirror=None, name=None, origins=None, partition=None, snatpool=None, sourceport=None, translation=None, vlans=None, vlansdisabled=None, __name__=None, __opts__=None):
         """
         `bigip_ltm_snat` Manages a snat configuration
         
@@ -51,8 +55,6 @@ class Snat(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] autolasthop
-        :param pulumi.Input[str] full_path
         :param pulumi.Input[str] mirror: Enables or disables mirroring of SNAT connections.
         :param pulumi.Input[str] name: Name of the snat
         :param pulumi.Input[list] origins: IP or hostname of the snat
@@ -60,6 +62,7 @@ class Snat(pulumi.CustomResource):
         :param pulumi.Input[str] snatpool: Specifies the name of a SNAT pool. You can only use this option when automap and translation are not used.
         :param pulumi.Input[str] sourceport: Specifies whether the system preserves the source port of the connection. The default is preserve. Use of the preserve-strict setting should be restricted to UDP only under very special circumstances such as nPath or transparent (that is, no translation of any other L3/L4 field), where there is a 1:1 relationship between virtual IP addresses and node addresses, or when clustered multi-processing (CMP) is disabled. The change setting is useful for obfuscating internal network addresses.
         :param pulumi.Input[str] translation: Specifies the name of a translated IP address. Note that translated addresses are outside the traffic management system. You can only use this option when automap and snatpool are not used.
+        :param pulumi.Input[list] vlans: Specifies the name of the VLAN to which you want to assign the SNAT. The default is vlans-enabled.
         :param pulumi.Input[bool] vlansdisabled: Disables the SNAT on all VLANs.
         """
         if __name__ is not None:
@@ -84,11 +87,11 @@ class Snat(pulumi.CustomResource):
         __props__['mirror'] = mirror
 
         if name is None:
-            raise TypeError('Missing required property name')
+            raise TypeError("Missing required property 'name'")
         __props__['name'] = name
 
         if origins is None:
-            raise TypeError('Missing required property origins')
+            raise TypeError("Missing required property 'origins'")
         __props__['origins'] = origins
 
         __props__['partition'] = partition
@@ -98,6 +101,8 @@ class Snat(pulumi.CustomResource):
         __props__['sourceport'] = sourceport
 
         __props__['translation'] = translation
+
+        __props__['vlans'] = vlans
 
         __props__['vlansdisabled'] = vlansdisabled
 

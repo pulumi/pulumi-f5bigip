@@ -19,6 +19,15 @@ import * as utilities from "../utilities";
  * 
  * const node = new f5bigip.ltm.Node("node", {
  *     address: "10.10.10.10",
+ *     connectionLimit: 0,
+ *     dynamicRatio: 1,
+ *     fqdn: {
+ *         addressFamily: "ipv4",
+ *         interval: "3000",
+ *     },
+ *     monitor: "default",
+ *     name: "/Common/terraform_node1",
+ *     rateLimit: "disabled",
  * });
  * ```
  */
@@ -44,12 +53,12 @@ export class Node extends pulumi.CustomResource {
      */
     public readonly connectionLimit: pulumi.Output<number | undefined>;
     /**
-     * Sets the dynamic ratio number for the node. Used for dynamic ratio load balancing.
+     * Specifies the fixed ratio value used for a node during ratio load balancing.
      */
     public readonly dynamicRatio: pulumi.Output<number | undefined>;
-    public readonly fqdns: pulumi.Output<{ addressFamily?: string, name?: string }[] | undefined>;
+    public readonly fqdn: pulumi.Output<{ addressFamily?: string, autopopulate?: string, downinterval?: number, interval?: string, name?: string } | undefined>;
     /**
-     * Specifies the name of the monitor or monitor rule that you want to associate with the node.
+     * specifies the name of the monitor or monitor rule that you want to associate with the node.
      */
     public readonly monitor: pulumi.Output<string | undefined>;
     /**
@@ -81,7 +90,7 @@ export class Node extends pulumi.CustomResource {
             inputs["address"] = state ? state.address : undefined;
             inputs["connectionLimit"] = state ? state.connectionLimit : undefined;
             inputs["dynamicRatio"] = state ? state.dynamicRatio : undefined;
-            inputs["fqdns"] = state ? state.fqdns : undefined;
+            inputs["fqdn"] = state ? state.fqdn : undefined;
             inputs["monitor"] = state ? state.monitor : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["rateLimit"] = state ? state.rateLimit : undefined;
@@ -97,7 +106,7 @@ export class Node extends pulumi.CustomResource {
             inputs["address"] = args ? args.address : undefined;
             inputs["connectionLimit"] = args ? args.connectionLimit : undefined;
             inputs["dynamicRatio"] = args ? args.dynamicRatio : undefined;
-            inputs["fqdns"] = args ? args.fqdns : undefined;
+            inputs["fqdn"] = args ? args.fqdn : undefined;
             inputs["monitor"] = args ? args.monitor : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["rateLimit"] = args ? args.rateLimit : undefined;
@@ -120,12 +129,12 @@ export interface NodeState {
      */
     readonly connectionLimit?: pulumi.Input<number>;
     /**
-     * Sets the dynamic ratio number for the node. Used for dynamic ratio load balancing.
+     * Specifies the fixed ratio value used for a node during ratio load balancing.
      */
     readonly dynamicRatio?: pulumi.Input<number>;
-    readonly fqdns?: pulumi.Input<pulumi.Input<{ addressFamily?: pulumi.Input<string>, name?: pulumi.Input<string> }>[]>;
+    readonly fqdn?: pulumi.Input<{ addressFamily?: pulumi.Input<string>, autopopulate?: pulumi.Input<string>, downinterval?: pulumi.Input<number>, interval?: pulumi.Input<string>, name?: pulumi.Input<string> }>;
     /**
-     * Specifies the name of the monitor or monitor rule that you want to associate with the node.
+     * specifies the name of the monitor or monitor rule that you want to associate with the node.
      */
     readonly monitor?: pulumi.Input<string>;
     /**
@@ -156,12 +165,12 @@ export interface NodeArgs {
      */
     readonly connectionLimit?: pulumi.Input<number>;
     /**
-     * Sets the dynamic ratio number for the node. Used for dynamic ratio load balancing.
+     * Specifies the fixed ratio value used for a node during ratio load balancing.
      */
     readonly dynamicRatio?: pulumi.Input<number>;
-    readonly fqdns?: pulumi.Input<pulumi.Input<{ addressFamily?: pulumi.Input<string>, name?: pulumi.Input<string> }>[]>;
+    readonly fqdn?: pulumi.Input<{ addressFamily?: pulumi.Input<string>, autopopulate?: pulumi.Input<string>, downinterval?: pulumi.Input<number>, interval?: pulumi.Input<string>, name?: pulumi.Input<string> }>;
     /**
-     * Specifies the name of the monitor or monitor rule that you want to associate with the node.
+     * specifies the name of the monitor or monitor rule that you want to associate with the node.
      */
     readonly monitor?: pulumi.Input<string>;
     /**

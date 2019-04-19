@@ -21,7 +21,7 @@ class VirtualAddress(pulumi.CustomResource):
     """
     Automatically delete the virtual address with the virtual server
     """
-    conn_limit: pulumi.Output[int]
+    conn_limit: pulumi.Output[float]
     """
     Max number of connections for virtual address
     """
@@ -52,7 +52,7 @@ class VirtualAddress(pulumi.CustomResource):
         :param pulumi.Input[bool] advertize_route: Enabled dynamic routing of the address
         :param pulumi.Input[bool] arp: Enable or disable ARP for the virtual address
         :param pulumi.Input[bool] auto_delete: Automatically delete the virtual address with the virtual server
-        :param pulumi.Input[int] conn_limit: Max number of connections for virtual address
+        :param pulumi.Input[float] conn_limit: Max number of connections for virtual address
         :param pulumi.Input[bool] enabled: Enable or disable the virtual address
         :param pulumi.Input[bool] icmp_echo: Enable/Disable ICMP response to the virtual address
         :param pulumi.Input[str] name: Name of the virtual address
@@ -86,7 +86,7 @@ class VirtualAddress(pulumi.CustomResource):
         __props__['icmp_echo'] = icmp_echo
 
         if name is None:
-            raise TypeError('Missing required property name')
+            raise TypeError("Missing required property 'name'")
         __props__['name'] = name
 
         __props__['traffic_group'] = traffic_group

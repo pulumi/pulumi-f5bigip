@@ -25,6 +25,7 @@ import * as utilities from "../utilities";
  *     iptosToclient: "pass-through",
  *     iptosToserver: "pass-through",
  *     keepaliveInterval: "disabled", //This cannot take enabled
+ *     name: "/Common/sjfastl4profile",
  *     partition: "Common",
  * });
  * ```

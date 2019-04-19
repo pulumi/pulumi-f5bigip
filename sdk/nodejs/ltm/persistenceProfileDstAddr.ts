@@ -21,6 +21,7 @@ import * as utilities from "../utilities";
  *     matchAcrossServices: "enabled",
  *     matchAcrossVirtuals: "enabled",
  *     mirror: "enabled",
+ *     name: "/Common/terraform_ppdstaddr",
  *     overrideConnLimit: "enabled",
  *     timeout: 3600,
  * });

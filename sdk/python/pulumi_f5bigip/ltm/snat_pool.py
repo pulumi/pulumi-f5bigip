@@ -44,11 +44,11 @@ class SnatPool(pulumi.CustomResource):
         __props__ = dict()
 
         if members is None:
-            raise TypeError('Missing required property members')
+            raise TypeError("Missing required property 'members'")
         __props__['members'] = members
 
         if name is None:
-            raise TypeError('Missing required property name')
+            raise TypeError("Missing required property 'name'")
         __props__['name'] = name
 
         super(SnatPool, __self__).__init__(

@@ -75,6 +75,7 @@ func Provider() tfbridge.ProviderInfo {
 			"bigip_ltm_policy":                      {Tok: f5BigIPResource(f5BigIPLTMMod, "Policy")},
 			"bigip_ltm_profile_fasthttp":            {Tok: f5BigIPResource(f5BigIPLTMMod, "ProfileFastHttp")},
 			"bigip_ltm_profile_fastl4":              {Tok: f5BigIPResource(f5BigIPLTMMod, "ProfileFastL4")},
+			"bigip_ltm_profile_http":                {Tok: f5BigIPResource(f5BigIPLTMMod, "ProfileHttp")},
 			"bigip_ltm_profile_http2":               {Tok: f5BigIPResource(f5BigIPLTMMod, "ProfileHttp2")},
 			"bigip_ltm_profile_httpcompress":        {Tok: f5BigIPResource(f5BigIPLTMMod, "ProfileHttpCompress")},
 			"bigip_ltm_profile_oneconnect":          {Tok: f5BigIPResource(f5BigIPLTMMod, "ProfileOneConnect")},

@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  * 
  * const http = new f5bigip.ltm.VirtualServer("http", {
  *     destination: "10.12.12.12",
+ *     name: "/Common/terraform_vs_http",
  *     pool: "/Common/the-default-pool",
  *     port: 80,
  * });
@@ -26,6 +27,7 @@ import * as utilities from "../utilities";
  * const https = new f5bigip.ltm.VirtualServer("https", {
  *     clientProfiles: ["/Common/clientssl"],
  *     destination: "10.255.255.254",
+ *     name: "/Common/terraform_vs_https",
  *     port: 443,
  *     serverProfiles: ["/Common/serverssl"],
  *     sourceAddressTranslation: "automap",

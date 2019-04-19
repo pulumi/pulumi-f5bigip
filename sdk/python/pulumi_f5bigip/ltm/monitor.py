@@ -9,17 +9,31 @@ import pulumi.runtime
 from .. import utilities, tables
 
 class Monitor(pulumi.CustomResource):
+    adaptive: pulumi.Output[str]
+    adaptive_limit: pulumi.Output[float]
+    compatibility: pulumi.Output[str]
+    """
+    Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
+    """
     defaults_from: pulumi.Output[str]
     destination: pulumi.Output[str]
     """
     Specify an alias address for monitoring
     """
-    interval: pulumi.Output[int]
+    filename: pulumi.Output[str]
+    """
+    Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
+    """
+    interval: pulumi.Output[float]
     """
     Check interval in seconds
     """
-    ip_dscp: pulumi.Output[int]
+    ip_dscp: pulumi.Output[float]
     manual_resume: pulumi.Output[str]
+    mode: pulumi.Output[str]
+    """
+    Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
+    """
     name: pulumi.Output[str]
     """
     Name of the monitor
@@ -28,6 +42,7 @@ class Monitor(pulumi.CustomResource):
     """
     Existing LTM monitor to inherit from
     """
+    password: pulumi.Output[str]
     receive: pulumi.Output[str]
     """
     Expected response string
@@ -38,13 +53,14 @@ class Monitor(pulumi.CustomResource):
     """
     Request string to send
     """
-    time_until_up: pulumi.Output[int]
-    timeout: pulumi.Output[int]
+    time_until_up: pulumi.Output[float]
+    timeout: pulumi.Output[float]
     """
     Timeout in seconds
     """
     transparent: pulumi.Output[str]
-    def __init__(__self__, resource_name, opts=None, defaults_from=None, destination=None, interval=None, ip_dscp=None, manual_resume=None, name=None, parent=None, receive=None, receive_disable=None, reverse=None, send=None, time_until_up=None, timeout=None, transparent=None, __name__=None, __opts__=None):
+    username: pulumi.Output[str]
+    def __init__(__self__, resource_name, opts=None, adaptive=None, adaptive_limit=None, compatibility=None, defaults_from=None, destination=None, filename=None, interval=None, ip_dscp=None, manual_resume=None, mode=None, name=None, parent=None, password=None, receive=None, receive_disable=None, reverse=None, send=None, time_until_up=None, timeout=None, transparent=None, username=None, __name__=None, __opts__=None):
         """
         `bigip_ltm_monitor` Configures a custom monitor for use by health checks.
         
@@ -52,20 +68,16 @@ class Monitor(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] defaults_from
+        :param pulumi.Input[str] compatibility: Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
         :param pulumi.Input[str] destination: Specify an alias address for monitoring
-        :param pulumi.Input[int] interval: Check interval in seconds
-        :param pulumi.Input[int] ip_dscp
-        :param pulumi.Input[str] manual_resume
+        :param pulumi.Input[str] filename: Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
+        :param pulumi.Input[float] interval: Check interval in seconds
+        :param pulumi.Input[str] mode: Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
         :param pulumi.Input[str] name: Name of the monitor
         :param pulumi.Input[str] parent: Existing LTM monitor to inherit from
         :param pulumi.Input[str] receive: Expected response string
-        :param pulumi.Input[str] receive_disable
-        :param pulumi.Input[str] reverse
         :param pulumi.Input[str] send: Request string to send
-        :param pulumi.Input[int] time_until_up
-        :param pulumi.Input[int] timeout: Timeout in seconds
-        :param pulumi.Input[str] transparent
+        :param pulumi.Input[float] timeout: Timeout in seconds
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -82,9 +94,17 @@ class Monitor(pulumi.CustomResource):
 
         __props__ = dict()
 
+        __props__['adaptive'] = adaptive
+
+        __props__['adaptive_limit'] = adaptive_limit
+
+        __props__['compatibility'] = compatibility
+
         __props__['defaults_from'] = defaults_from
 
         __props__['destination'] = destination
+
+        __props__['filename'] = filename
 
         __props__['interval'] = interval
 
@@ -92,13 +112,17 @@ class Monitor(pulumi.CustomResource):
 
         __props__['manual_resume'] = manual_resume
 
+        __props__['mode'] = mode
+
         if name is None:
-            raise TypeError('Missing required property name')
+            raise TypeError("Missing required property 'name'")
         __props__['name'] = name
 
         if parent is None:
-            raise TypeError('Missing required property parent')
+            raise TypeError("Missing required property 'parent'")
         __props__['parent'] = parent
+
+        __props__['password'] = password
 
         __props__['receive'] = receive
 
@@ -113,6 +137,8 @@ class Monitor(pulumi.CustomResource):
         __props__['timeout'] = timeout
 
         __props__['transparent'] = transparent
+
+        __props__['username'] = username
 
         super(Monitor, __self__).__init__(
             'f5bigip:ltm/monitor:Monitor',

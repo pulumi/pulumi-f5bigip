@@ -39,7 +39,6 @@ class Policy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] controls: Specifies the controls
-        :param pulumi.Input[str] name
         :param pulumi.Input[str] published_copy: If you want to publish the policy else it will be deployed in Drafts mode.
         :param pulumi.Input[list] requires: Specifies the protocol
         :param pulumi.Input[list] rules: Rules can be applied using the policy
@@ -61,21 +60,21 @@ class Policy(pulumi.CustomResource):
         __props__ = dict()
 
         if controls is None:
-            raise TypeError('Missing required property controls')
+            raise TypeError("Missing required property 'controls'")
         __props__['controls'] = controls
 
         if name is None:
-            raise TypeError('Missing required property name')
+            raise TypeError("Missing required property 'name'")
         __props__['name'] = name
 
         __props__['published_copy'] = published_copy
 
         if requires is None:
-            raise TypeError('Missing required property requires')
+            raise TypeError("Missing required property 'requires'")
         __props__['requires'] = requires
 
         if rules is None:
-            raise TypeError('Missing required property rules')
+            raise TypeError("Missing required property 'rules'")
         __props__['rules'] = rules
 
         __props__['strategy'] = strategy

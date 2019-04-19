@@ -44,11 +44,11 @@ class IRule(pulumi.CustomResource):
         __props__ = dict()
 
         if irule is None:
-            raise TypeError('Missing required property irule')
+            raise TypeError("Missing required property 'irule'")
         __props__['irule'] = irule
 
         if name is None:
-            raise TypeError('Missing required property name')
+            raise TypeError("Missing required property 'name'")
         __props__['name'] = name
 
         super(IRule, __self__).__init__(

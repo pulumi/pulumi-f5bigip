@@ -19,7 +19,7 @@ class DeviceGroup(pulumi.CustomResource):
     Name of the device to be included in device group, this need to be configured before using devicegroup resource
     """
     full_load_on_sync: pulumi.Output[str]
-    incremental_config: pulumi.Output[int]
+    incremental_config: pulumi.Output[float]
     name: pulumi.Output[str]
     """
     Is the name of the device Group
@@ -38,14 +38,8 @@ class DeviceGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_sync: Specifies if the device-group will automatically sync configuration data to its members
-        :param pulumi.Input[str] description
         :param pulumi.Input[list] devices: Name of the device to be included in device group, this need to be configured before using devicegroup resource
-        :param pulumi.Input[str] full_load_on_sync
-        :param pulumi.Input[int] incremental_config
         :param pulumi.Input[str] name: Is the name of the device Group
-        :param pulumi.Input[str] network_failover
-        :param pulumi.Input[str] partition
-        :param pulumi.Input[str] save_on_auto_sync
         :param pulumi.Input[str] type: Specifies if the device-group will be used for failover or resource syncing
         """
         if __name__ is not None:

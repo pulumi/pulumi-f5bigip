@@ -17,6 +17,7 @@ import * as utilities from "../utilities";
  *     community: "f5community",
  *     description: "Setup snmp traps",
  *     host: "195.10.10.1",
+ *     name: "snmptraps",
  *     port: 111,
  * });
  * ```

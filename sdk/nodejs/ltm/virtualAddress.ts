@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  * 
  * const vsVa = new f5bigip.ltm.VirtualAddress("vs_va", {
  *     advertizeRoute: true,
+ *     name: "/Common/vs_va",
  * });
  * ```
  */
