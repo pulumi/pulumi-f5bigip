@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  * 
  * const node_terraform_pool = new f5bigip.ltm.PoolAttachment("node-terraform_pool", {
- *     node: bigip_ltm_node_node.name.apply(name => `${name}:80`),
+ *     node: pulumi.interpolate`${bigip_ltm_node_node.name}:80`,
  *     pool: "/Common/terraform-pool",
  * });
  * ```
