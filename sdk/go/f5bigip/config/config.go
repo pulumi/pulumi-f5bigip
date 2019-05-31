@@ -10,7 +10,7 @@ import (
 
 // Domain name/IP of the BigIP
 func GetAddress(ctx *pulumi.Context) string {
-	return config.Require(ctx, "f5bigip:address")
+	return config.Get(ctx, "f5bigip:address")
 }
 
 // Login reference for token authentication (see BIG-IP REST docs for details)
@@ -20,7 +20,7 @@ func GetLoginRef(ctx *pulumi.Context) string {
 
 // The user's password
 func GetPassword(ctx *pulumi.Context) string {
-	return config.Require(ctx, "f5bigip:password")
+	return config.Get(ctx, "f5bigip:password")
 }
 
 // Enable to use an external authentication source (LDAP, TACACS, etc)
@@ -30,5 +30,5 @@ func GetTokenAuth(ctx *pulumi.Context) bool {
 
 // Username with API access to the BigIP
 func GetUsername(ctx *pulumi.Context) string {
-	return config.Require(ctx, "f5bigip:username")
+	return config.Get(ctx, "f5bigip:username")
 }

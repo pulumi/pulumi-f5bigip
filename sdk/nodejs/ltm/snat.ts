@@ -43,47 +43,47 @@ export class Snat extends pulumi.CustomResource {
     /**
      * Specifies whether to automatically map last hop for pools or not. The default is to use next level's defaul
      */
-    public readonly autolasthop: pulumi.Output<string | undefined>;
+    public readonly autolasthop!: pulumi.Output<string | undefined>;
     /**
      * Fullpath
      */
-    public readonly fullPath: pulumi.Output<string | undefined>;
+    public readonly fullPath!: pulumi.Output<string | undefined>;
     /**
      * Enables or disables mirroring of SNAT connections.
      */
-    public readonly mirror: pulumi.Output<string | undefined>;
+    public readonly mirror!: pulumi.Output<string | undefined>;
     /**
      * Name of the snat
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * IP or hostname of the snat
      */
-    public readonly origins: pulumi.Output<{ appService?: string, name?: string }[]>;
+    public readonly origins!: pulumi.Output<{ appService?: string, name?: string }[]>;
     /**
      * Displays the administrative partition within which this profile resides
      */
-    public readonly partition: pulumi.Output<string | undefined>;
+    public readonly partition!: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of a SNAT pool. You can only use this option when automap and translation are not used.
      */
-    public readonly snatpool: pulumi.Output<string | undefined>;
+    public readonly snatpool!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether the system preserves the source port of the connection. The default is preserve. Use of the preserve-strict setting should be restricted to UDP only under very special circumstances such as nPath or transparent (that is, no translation of any other L3/L4 field), where there is a 1:1 relationship between virtual IP addresses and node addresses, or when clustered multi-processing (CMP) is disabled. The change setting is useful for obfuscating internal network addresses.
      */
-    public readonly sourceport: pulumi.Output<string | undefined>;
+    public readonly sourceport!: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of a translated IP address. Note that translated addresses are outside the traffic management system. You can only use this option when automap and snatpool are not used.
      */
-    public readonly translation: pulumi.Output<string | undefined>;
+    public readonly translation!: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the VLAN to which you want to assign the SNAT. The default is vlans-enabled.
      */
-    public readonly vlans: pulumi.Output<string[] | undefined>;
+    public readonly vlans!: pulumi.Output<string[] | undefined>;
     /**
      * Disables the SNAT on all VLANs.
      */
-    public readonly vlansdisabled: pulumi.Output<boolean | undefined>;
+    public readonly vlansdisabled!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Snat resource with the given unique name, arguments, and options.
@@ -96,7 +96,7 @@ export class Snat extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SnatArgs | SnatState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SnatState = argsOrState as SnatState | undefined;
+            const state = argsOrState as SnatState | undefined;
             inputs["autolasthop"] = state ? state.autolasthop : undefined;
             inputs["fullPath"] = state ? state.fullPath : undefined;
             inputs["mirror"] = state ? state.mirror : undefined;

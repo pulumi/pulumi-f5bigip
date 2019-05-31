@@ -59,59 +59,59 @@ export class IApp extends pulumi.CustomResource {
     /**
      * Address of the Iapp which needs to be Iappensed
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * BIG-IP password
      */
-    public readonly devicegroup: pulumi.Output<string | undefined>;
+    public readonly devicegroup!: pulumi.Output<string | undefined>;
     /**
      * BIG-IP password
      */
-    public readonly executeAction: pulumi.Output<string | undefined>;
+    public readonly executeAction!: pulumi.Output<string | undefined>;
     /**
      * BIG-IP password
      */
-    public readonly inheritedDevicegroup: pulumi.Output<string | undefined>;
+    public readonly inheritedDevicegroup!: pulumi.Output<string | undefined>;
     /**
      * BIG-IP password
      */
-    public readonly inheritedTrafficGroup: pulumi.Output<string | undefined>;
+    public readonly inheritedTrafficGroup!: pulumi.Output<string | undefined>;
     /**
      * Refer to the Json file which will be deployed on F5 BIG-IP.
      */
-    public readonly jsonfile: pulumi.Output<string | undefined>;
-    public readonly lists: pulumi.Output<{ encrypted?: string, value?: string }[] | undefined>;
-    public readonly metadatas: pulumi.Output<{ persists?: string, value?: string }[] | undefined>;
+    public readonly jsonfile!: pulumi.Output<string | undefined>;
+    public readonly lists!: pulumi.Output<{ encrypted?: string, value?: string }[] | undefined>;
+    public readonly metadatas!: pulumi.Output<{ persists?: string, value?: string }[] | undefined>;
     /**
      * Name of the iApp.
      */
-    public readonly name: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * Address of the Iapp which needs to be Iappensed
      */
-    public readonly partition: pulumi.Output<string | undefined>;
+    public readonly partition!: pulumi.Output<string | undefined>;
     /**
      * BIG-IP password
      */
-    public readonly strictUpdates: pulumi.Output<string | undefined>;
-    public readonly tables: pulumi.Output<{ columnNames?: string[], encryptedColumns?: string, name?: string, rows?: { rows?: string[] }[] }[] | undefined>;
+    public readonly strictUpdates!: pulumi.Output<string | undefined>;
+    public readonly tables!: pulumi.Output<{ columnNames?: string[], encryptedColumns?: string, name?: string, rows?: { rows?: string[] }[] }[] | undefined>;
     /**
      * BIG-IP password
      */
-    public readonly template: pulumi.Output<string | undefined>;
+    public readonly template!: pulumi.Output<string | undefined>;
     /**
      * BIG-IP password
      */
-    public readonly templateModified: pulumi.Output<string | undefined>;
+    public readonly templateModified!: pulumi.Output<string | undefined>;
     /**
      * BIG-IP password
      */
-    public readonly templatePrerequisiteErrors: pulumi.Output<string | undefined>;
+    public readonly templatePrerequisiteErrors!: pulumi.Output<string | undefined>;
     /**
      * BIG-IP password
      */
-    public readonly trafficGroup: pulumi.Output<string | undefined>;
-    public readonly variables: pulumi.Output<{ encrypted?: string, name?: string, value?: string }[] | undefined>;
+    public readonly trafficGroup!: pulumi.Output<string | undefined>;
+    public readonly variables!: pulumi.Output<{ encrypted?: string, name?: string, value?: string }[] | undefined>;
 
     /**
      * Create a IApp resource with the given unique name, arguments, and options.
@@ -124,7 +124,7 @@ export class IApp extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: IAppArgs | IAppState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: IAppState = argsOrState as IAppState | undefined;
+            const state = argsOrState as IAppState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["devicegroup"] = state ? state.devicegroup : undefined;
             inputs["executeAction"] = state ? state.executeAction : undefined;

@@ -25,19 +25,19 @@ export class SelfIp extends pulumi.CustomResource {
     /**
      * The Self IP's address and netmask.
      */
-    public readonly ip: pulumi.Output<string>;
+    public readonly ip!: pulumi.Output<string>;
     /**
      * Name of the selfip
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
      */
-    public readonly trafficGroup: pulumi.Output<string | undefined>;
+    public readonly trafficGroup!: pulumi.Output<string | undefined>;
     /**
      * Specifies the VLAN for which you are setting a self IP address. This setting must be provided when a self IP is created.
      */
-    public readonly vlan: pulumi.Output<string>;
+    public readonly vlan!: pulumi.Output<string>;
 
     /**
      * Create a SelfIp resource with the given unique name, arguments, and options.
@@ -50,7 +50,7 @@ export class SelfIp extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SelfIpArgs | SelfIpState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SelfIpState = argsOrState as SelfIpState | undefined;
+            const state = argsOrState as SelfIpState | undefined;
             inputs["ip"] = state ? state.ip : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["trafficGroup"] = state ? state.trafficGroup : undefined;

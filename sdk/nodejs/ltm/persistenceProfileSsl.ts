@@ -56,40 +56,40 @@ export class PersistenceProfileSsl extends pulumi.CustomResource {
         return new PersistenceProfileSsl(name, <any>state, { ...opts, id: id });
     }
 
-    public readonly appService: pulumi.Output<string | undefined>;
+    public readonly appService!: pulumi.Output<string | undefined>;
     /**
      * Inherit defaults from parent profile
      */
-    public readonly defaultsFrom: pulumi.Output<string>;
+    public readonly defaultsFrom!: pulumi.Output<string>;
     /**
      * To enable _ disable match across pools with given persistence record
      */
-    public readonly matchAcrossPools: pulumi.Output<string | undefined>;
+    public readonly matchAcrossPools!: pulumi.Output<string | undefined>;
     /**
      * To enable _ disable match across services with given persistence record
      */
-    public readonly matchAcrossServices: pulumi.Output<string | undefined>;
+    public readonly matchAcrossServices!: pulumi.Output<string | undefined>;
     /**
      * To enable _ disable match across services with given persistence record
      */
-    public readonly matchAcrossVirtuals: pulumi.Output<string | undefined>;
+    public readonly matchAcrossVirtuals!: pulumi.Output<string | undefined>;
     /**
      * To enable _ disable
      */
-    public readonly mirror: pulumi.Output<string | undefined>;
+    public readonly mirror!: pulumi.Output<string | undefined>;
     /**
      * Name of the persistence profile
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
      * limits remain hard limits and are not overridden.
      */
-    public readonly overrideConnLimit: pulumi.Output<string | undefined>;
+    public readonly overrideConnLimit!: pulumi.Output<string | undefined>;
     /**
      * Timeout for persistence of the session
      */
-    public readonly timeout: pulumi.Output<number | undefined>;
+    public readonly timeout!: pulumi.Output<number | undefined>;
 
     /**
      * Create a PersistenceProfileSsl resource with the given unique name, arguments, and options.
@@ -102,7 +102,7 @@ export class PersistenceProfileSsl extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PersistenceProfileSslArgs | PersistenceProfileSslState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PersistenceProfileSslState = argsOrState as PersistenceProfileSslState | undefined;
+            const state = argsOrState as PersistenceProfileSslState | undefined;
             inputs["appService"] = state ? state.appService : undefined;
             inputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
             inputs["matchAcrossPools"] = state ? state.matchAcrossPools : undefined;

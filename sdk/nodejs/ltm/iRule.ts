@@ -25,11 +25,11 @@ export class IRule extends pulumi.CustomResource {
     /**
      * Body of the iRule
      */
-    public readonly irule: pulumi.Output<string>;
+    public readonly irule!: pulumi.Output<string>;
     /**
      * Name of the iRule
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
 
     /**
      * Create a IRule resource with the given unique name, arguments, and options.
@@ -42,7 +42,7 @@ export class IRule extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: IRuleArgs | IRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: IRuleState = argsOrState as IRuleState | undefined;
+            const state = argsOrState as IRuleState | undefined;
             inputs["irule"] = state ? state.irule : undefined;
             inputs["name"] = state ? state.name : undefined;
         } else {

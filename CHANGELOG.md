@@ -1,5 +1,7 @@
 ## 0.2.2 (Unreleased)
 
+- Update to Terraform F5 BigIP provider v0.12.2
+
 ## 0.2.1 (Released April 22nd, 2019)
 
 - Updated to the latest (unreleased) branch of the Terraform F5 BigIP provider.

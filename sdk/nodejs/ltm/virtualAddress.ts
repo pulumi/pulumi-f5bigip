@@ -39,35 +39,35 @@ export class VirtualAddress extends pulumi.CustomResource {
     /**
      * Enabled dynamic routing of the address
      */
-    public readonly advertizeRoute: pulumi.Output<boolean | undefined>;
+    public readonly advertizeRoute!: pulumi.Output<boolean | undefined>;
     /**
      * Enable or disable ARP for the virtual address
      */
-    public readonly arp: pulumi.Output<boolean | undefined>;
+    public readonly arp!: pulumi.Output<boolean | undefined>;
     /**
      * Automatically delete the virtual address with the virtual server
      */
-    public readonly autoDelete: pulumi.Output<boolean | undefined>;
+    public readonly autoDelete!: pulumi.Output<boolean | undefined>;
     /**
      * Max number of connections for virtual address
      */
-    public readonly connLimit: pulumi.Output<number | undefined>;
+    public readonly connLimit!: pulumi.Output<number | undefined>;
     /**
      * Enable or disable the virtual address
      */
-    public readonly enabled: pulumi.Output<boolean | undefined>;
+    public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * Enable/Disable ICMP response to the virtual address
      */
-    public readonly icmpEcho: pulumi.Output<boolean | undefined>;
+    public readonly icmpEcho!: pulumi.Output<boolean | undefined>;
     /**
      * Name of the virtual address
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specify the partition and traffic group
      */
-    public readonly trafficGroup: pulumi.Output<string | undefined>;
+    public readonly trafficGroup!: pulumi.Output<string | undefined>;
 
     /**
      * Create a VirtualAddress resource with the given unique name, arguments, and options.
@@ -80,7 +80,7 @@ export class VirtualAddress extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VirtualAddressArgs | VirtualAddressState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VirtualAddressState = argsOrState as VirtualAddressState | undefined;
+            const state = argsOrState as VirtualAddressState | undefined;
             inputs["advertizeRoute"] = state ? state.advertizeRoute : undefined;
             inputs["arp"] = state ? state.arp : undefined;
             inputs["autoDelete"] = state ? state.autoDelete : undefined;

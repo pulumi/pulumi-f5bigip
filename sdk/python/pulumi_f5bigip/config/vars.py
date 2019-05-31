@@ -10,7 +10,7 @@ from .. import utilities, tables
 
 __config__ = pulumi.Config('f5bigip')
 
-address = __config__.require('address')
+address = __config__.get('address')
 """
 Domain name/IP of the BigIP
 """
@@ -20,7 +20,7 @@ login_ref = __config__.get('loginRef')
 Login reference for token authentication (see BIG-IP REST docs for details)
 """
 
-password = __config__.require('password')
+password = __config__.get('password')
 """
 The user's password
 """
@@ -30,7 +30,7 @@ token_auth = __config__.get('tokenAuth')
 Enable to use an external authentication source (LDAP, TACACS, etc)
 """
 
-username = __config__.require('username')
+username = __config__.get('username')
 """
 Username with API access to the BigIP
 """

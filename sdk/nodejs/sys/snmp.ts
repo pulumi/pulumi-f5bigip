@@ -36,15 +36,15 @@ export class Snmp extends pulumi.CustomResource {
     /**
      * Configures hosts or networks from which snmpd can accept traffic. Entries go directly into hosts.allow.
      */
-    public readonly allowedaddresses: pulumi.Output<string[] | undefined>;
+    public readonly allowedaddresses!: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the contact information for the system administrator.
      */
-    public readonly sysContact: pulumi.Output<string | undefined>;
+    public readonly sysContact!: pulumi.Output<string | undefined>;
     /**
      * Describes the system's physical location.
      */
-    public readonly sysLocation: pulumi.Output<string | undefined>;
+    public readonly sysLocation!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Snmp resource with the given unique name, arguments, and options.
@@ -57,7 +57,7 @@ export class Snmp extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SnmpArgs | SnmpState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SnmpState = argsOrState as SnmpState | undefined;
+            const state = argsOrState as SnmpState | undefined;
             inputs["allowedaddresses"] = state ? state.allowedaddresses : undefined;
             inputs["sysContact"] = state ? state.sysContact : undefined;
             inputs["sysLocation"] = state ? state.sysLocation : undefined;

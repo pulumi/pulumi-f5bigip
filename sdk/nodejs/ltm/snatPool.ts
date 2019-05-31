@@ -42,11 +42,11 @@ export class SnatPool extends pulumi.CustomResource {
     /**
      * Specifies a translation address to add to or delete from a SNAT pool (at least one address is required)
      */
-    public readonly members: pulumi.Output<string[]>;
+    public readonly members!: pulumi.Output<string[]>;
     /**
      * Name of the snatpool
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
 
     /**
      * Create a SnatPool resource with the given unique name, arguments, and options.
@@ -59,7 +59,7 @@ export class SnatPool extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SnatPoolArgs | SnatPoolState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SnatPoolState = argsOrState as SnatPoolState | undefined;
+            const state = argsOrState as SnatPoolState | undefined;
             inputs["members"] = state ? state.members : undefined;
             inputs["name"] = state ? state.name : undefined;
         } else {
