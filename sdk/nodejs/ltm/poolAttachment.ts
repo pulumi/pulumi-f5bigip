@@ -39,11 +39,11 @@ export class PoolAttachment extends pulumi.CustomResource {
     /**
      * Node to add to the pool in /Partition/NodeName:Port format (e.g. /Common/Node01:80)
      */
-    public readonly node: pulumi.Output<string>;
+    public readonly node!: pulumi.Output<string>;
     /**
      * Name of the pool in /Partition/Name format
      */
-    public readonly pool: pulumi.Output<string>;
+    public readonly pool!: pulumi.Output<string>;
 
     /**
      * Create a PoolAttachment resource with the given unique name, arguments, and options.
@@ -56,7 +56,7 @@ export class PoolAttachment extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PoolAttachmentArgs | PoolAttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PoolAttachmentState = argsOrState as PoolAttachmentState | undefined;
+            const state = argsOrState as PoolAttachmentState | undefined;
             inputs["node"] = state ? state.node : undefined;
             inputs["pool"] = state ? state.pool : undefined;
         } else {

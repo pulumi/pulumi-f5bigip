@@ -41,19 +41,19 @@ export class Dns extends pulumi.CustomResource {
     /**
      * Name of the Dns Servers
      */
-    public readonly description: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * Name or IP address of the DNS server
      */
-    public readonly nameServers: pulumi.Output<string[] | undefined>;
+    public readonly nameServers!: pulumi.Output<string[] | undefined>;
     /**
      * Configures the number of dots needed in a name before an initial absolute query will be made.
      */
-    public readonly numberOfDots: pulumi.Output<number | undefined>;
+    public readonly numberOfDots!: pulumi.Output<number | undefined>;
     /**
      * Specify what domains you want to search
      */
-    public readonly searches: pulumi.Output<string[] | undefined>;
+    public readonly searches!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Dns resource with the given unique name, arguments, and options.
@@ -66,7 +66,7 @@ export class Dns extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DnsArgs | DnsState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DnsState = argsOrState as DnsState | undefined;
+            const state = argsOrState as DnsState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["nameServers"] = state ? state.nameServers : undefined;
             inputs["numberOfDots"] = state ? state.numberOfDots : undefined;

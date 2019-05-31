@@ -49,15 +49,15 @@ export class DataGroup extends pulumi.CustomResource {
     /**
      * , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
      */
-    public readonly records: pulumi.Output<{ data?: string, name: string }[] | undefined>;
+    public readonly records!: pulumi.Output<{ data?: string, name: string }[] | undefined>;
     /**
      * datagroup type (applies to the `name` field of the record), supports: `string`, `ip` or `integer`
      */
-    public readonly type: pulumi.Output<string>;
+    public readonly type!: pulumi.Output<string>;
 
     /**
      * Create a DataGroup resource with the given unique name, arguments, and options.
@@ -70,7 +70,7 @@ export class DataGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DataGroupArgs | DataGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DataGroupState = argsOrState as DataGroupState | undefined;
+            const state = argsOrState as DataGroupState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["records"] = state ? state.records : undefined;
             inputs["type"] = state ? state.type : undefined;

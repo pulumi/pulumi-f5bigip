@@ -51,75 +51,75 @@ export class Monitor extends pulumi.CustomResource {
     /**
      * ftp adaptive
      */
-    public readonly adaptive: pulumi.Output<string | undefined>;
+    public readonly adaptive!: pulumi.Output<string>;
     /**
      * Integer value
      */
-    public readonly adaptiveLimit: pulumi.Output<number | undefined>;
+    public readonly adaptiveLimit!: pulumi.Output<number>;
     /**
      * Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
      */
-    public readonly compatibility: pulumi.Output<string | undefined>;
+    public readonly compatibility!: pulumi.Output<string>;
     /**
      * Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
      */
-    public readonly defaultsFrom: pulumi.Output<string | undefined>;
+    public readonly defaultsFrom!: pulumi.Output<string | undefined>;
     /**
      * Specify an alias address for monitoring
      */
-    public readonly destination: pulumi.Output<string | undefined>;
+    public readonly destination!: pulumi.Output<string>;
     /**
      * Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
      */
-    public readonly filename: pulumi.Output<string | undefined>;
+    public readonly filename!: pulumi.Output<string | undefined>;
     /**
      * Check interval in seconds
      */
-    public readonly interval: pulumi.Output<number | undefined>;
-    public readonly ipDscp: pulumi.Output<number | undefined>;
-    public readonly manualResume: pulumi.Output<string | undefined>;
+    public readonly interval!: pulumi.Output<number>;
+    public readonly ipDscp!: pulumi.Output<number>;
+    public readonly manualResume!: pulumi.Output<string>;
     /**
      * Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
      */
-    public readonly mode: pulumi.Output<string | undefined>;
+    public readonly mode!: pulumi.Output<string>;
     /**
      * Name of the monitor
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Existing LTM monitor to inherit from
      */
-    public readonly parent: pulumi.Output<string>;
+    public readonly parent!: pulumi.Output<string>;
     /**
      * Specifies the password if the monitored target requires authentication
      */
-    public readonly password: pulumi.Output<string | undefined>;
+    public readonly password!: pulumi.Output<string | undefined>;
     /**
      * Expected response string
      */
-    public readonly receive: pulumi.Output<string | undefined>;
+    public readonly receive!: pulumi.Output<string | undefined>;
     /**
      * Expected response string.
      */
-    public readonly receiveDisable: pulumi.Output<string | undefined>;
-    public readonly reverse: pulumi.Output<string | undefined>;
+    public readonly receiveDisable!: pulumi.Output<string | undefined>;
+    public readonly reverse!: pulumi.Output<string>;
     /**
      * Request string to send
      */
-    public readonly send: pulumi.Output<string | undefined>;
+    public readonly send!: pulumi.Output<string | undefined>;
     /**
      * Time in seconds
      */
-    public readonly timeUntilUp: pulumi.Output<number | undefined>;
+    public readonly timeUntilUp!: pulumi.Output<number>;
     /**
      * Timeout in seconds
      */
-    public readonly timeout: pulumi.Output<number | undefined>;
-    public readonly transparent: pulumi.Output<string | undefined>;
+    public readonly timeout!: pulumi.Output<number>;
+    public readonly transparent!: pulumi.Output<string>;
     /**
      * Specifies the user name if the monitored target requires authentication
      */
-    public readonly username: pulumi.Output<string | undefined>;
+    public readonly username!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Monitor resource with the given unique name, arguments, and options.
@@ -132,7 +132,7 @@ export class Monitor extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: MonitorArgs | MonitorState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: MonitorState = argsOrState as MonitorState | undefined;
+            const state = argsOrState as MonitorState | undefined;
             inputs["adaptive"] = state ? state.adaptive : undefined;
             inputs["adaptiveLimit"] = state ? state.adaptiveLimit : undefined;
             inputs["compatibility"] = state ? state.compatibility : undefined;

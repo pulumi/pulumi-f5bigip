@@ -20,11 +20,11 @@ export class BigIpLicense extends pulumi.CustomResource {
     /**
      * Tmsh command to execute tmsh commands like install
      */
-    public readonly command: pulumi.Output<string>;
+    public readonly command!: pulumi.Output<string>;
     /**
      * A unique Key F5 provides for Licensing BIG-IP
      */
-    public readonly registrationKey: pulumi.Output<string>;
+    public readonly registrationKey!: pulumi.Output<string>;
 
     /**
      * Create a BigIpLicense resource with the given unique name, arguments, and options.
@@ -37,7 +37,7 @@ export class BigIpLicense extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: BigIpLicenseArgs | BigIpLicenseState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: BigIpLicenseState = argsOrState as BigIpLicenseState | undefined;
+            const state = argsOrState as BigIpLicenseState | undefined;
             inputs["command"] = state ? state.command : undefined;
             inputs["registrationKey"] = state ? state.registrationKey : undefined;
         } else {

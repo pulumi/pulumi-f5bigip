@@ -38,15 +38,15 @@ export class Ntp extends pulumi.CustomResource {
     /**
      * Name of the ntp Servers
      */
-    public readonly description: pulumi.Output<string>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * Adds NTP servers to or deletes NTP servers from the BIG-IP system.
      */
-    public readonly servers: pulumi.Output<string[] | undefined>;
+    public readonly servers!: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the time zone that you want to use for the system time.
      */
-    public readonly timezone: pulumi.Output<string | undefined>;
+    public readonly timezone!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Ntp resource with the given unique name, arguments, and options.
@@ -59,7 +59,7 @@ export class Ntp extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NtpArgs | NtpState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NtpState = argsOrState as NtpState | undefined;
+            const state = argsOrState as NtpState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["servers"] = state ? state.servers : undefined;
             inputs["timezone"] = state ? state.timezone : undefined;

@@ -43,15 +43,15 @@ export class Vlan extends pulumi.CustomResource {
     /**
      * Specifies which interfaces you want this VLAN to use for traffic management.
      */
-    public readonly interfaces: pulumi.Output<{ tagged?: boolean, vlanport?: string }[] | undefined>;
+    public readonly interfaces!: pulumi.Output<{ tagged?: boolean, vlanport?: string }[] | undefined>;
     /**
      * Name of the vlan
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies a number that the system adds into the header of any frame passing through the VLAN.
      */
-    public readonly tag: pulumi.Output<number | undefined>;
+    public readonly tag!: pulumi.Output<number | undefined>;
 
     /**
      * Create a Vlan resource with the given unique name, arguments, and options.
@@ -64,7 +64,7 @@ export class Vlan extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: VlanArgs | VlanState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: VlanState = argsOrState as VlanState | undefined;
+            const state = argsOrState as VlanState | undefined;
             inputs["interfaces"] = state ? state.interfaces : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["tag"] = state ? state.tag : undefined;

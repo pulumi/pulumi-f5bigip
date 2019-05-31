@@ -39,27 +39,27 @@ export class Provision extends pulumi.CustomResource {
     /**
      * cpu Ratio
      */
-    public readonly cpuRatio: pulumi.Output<number | undefined>;
+    public readonly cpuRatio!: pulumi.Output<number | undefined>;
     /**
      * disk Ratio
      */
-    public readonly diskRatio: pulumi.Output<number | undefined>;
+    public readonly diskRatio!: pulumi.Output<number | undefined>;
     /**
      * path
      */
-    public readonly fullPath: pulumi.Output<string | undefined>;
+    public readonly fullPath!: pulumi.Output<string | undefined>;
     /**
      * what level nominal or dedicated
      */
-    public readonly level: pulumi.Output<string | undefined>;
+    public readonly level!: pulumi.Output<string | undefined>;
     /**
      * memory Ratio
      */
-    public readonly memoryRatio: pulumi.Output<number | undefined>;
+    public readonly memoryRatio!: pulumi.Output<number | undefined>;
     /**
      * Name of the module to be provisioned
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
 
     /**
      * Create a Provision resource with the given unique name, arguments, and options.
@@ -72,7 +72,7 @@ export class Provision extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ProvisionArgs | ProvisionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ProvisionState = argsOrState as ProvisionState | undefined;
+            const state = argsOrState as ProvisionState | undefined;
             inputs["cpuRatio"] = state ? state.cpuRatio : undefined;
             inputs["diskRatio"] = state ? state.diskRatio : undefined;
             inputs["fullPath"] = state ? state.fullPath : undefined;

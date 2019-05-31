@@ -38,59 +38,59 @@ export class SnmpTraps extends pulumi.CustomResource {
     /**
      * Encrypted password
      */
-    public readonly authPasswordencrypted: pulumi.Output<string | undefined>;
+    public readonly authPasswordencrypted!: pulumi.Output<string | undefined>;
     /**
      * Specifies the protocol used to authenticate the user.
      */
-    public readonly authProtocol: pulumi.Output<string | undefined>;
+    public readonly authProtocol!: pulumi.Output<string | undefined>;
     /**
      * Specifies the community string used for this trap.
      */
-    public readonly community: pulumi.Output<string | undefined>;
+    public readonly community!: pulumi.Output<string | undefined>;
     /**
      * The port that the trap will be sent to.
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Specifies the authoritative security engine for SNMPv3.
      */
-    public readonly engineId: pulumi.Output<string | undefined>;
+    public readonly engineId!: pulumi.Output<string | undefined>;
     /**
      * The host the trap will be sent to.
      */
-    public readonly host: pulumi.Output<string | undefined>;
+    public readonly host!: pulumi.Output<string | undefined>;
     /**
      * Name of the snmp trap.
      */
-    public readonly name: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * User defined description.
      */
-    public readonly port: pulumi.Output<number | undefined>;
+    public readonly port!: pulumi.Output<number | undefined>;
     /**
      * Specifies the clear text password used to encrypt traffic. This field will not be displayed.
      */
-    public readonly privacyPassword: pulumi.Output<string | undefined>;
+    public readonly privacyPassword!: pulumi.Output<string | undefined>;
     /**
      * Specifies the encrypted password used to encrypt traffic.
      */
-    public readonly privacyPasswordEncrypted: pulumi.Output<string | undefined>;
+    public readonly privacyPasswordEncrypted!: pulumi.Output<string | undefined>;
     /**
      * Specifies the protocol used to encrypt traffic.
      */
-    public readonly privacyProtocol: pulumi.Output<string | undefined>;
+    public readonly privacyProtocol!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether or not traffic is encrypted and whether or not authentication is required.
      */
-    public readonly securityLevel: pulumi.Output<string | undefined>;
+    public readonly securityLevel!: pulumi.Output<string | undefined>;
     /**
      * Security name used in conjunction with SNMPv3.
      */
-    public readonly securityName: pulumi.Output<string | undefined>;
+    public readonly securityName!: pulumi.Output<string | undefined>;
     /**
      * SNMP version used for sending the trap.
      */
-    public readonly version: pulumi.Output<string | undefined>;
+    public readonly version!: pulumi.Output<string | undefined>;
 
     /**
      * Create a SnmpTraps resource with the given unique name, arguments, and options.
@@ -103,7 +103,7 @@ export class SnmpTraps extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: SnmpTrapsArgs | SnmpTrapsState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: SnmpTrapsState = argsOrState as SnmpTrapsState | undefined;
+            const state = argsOrState as SnmpTrapsState | undefined;
             inputs["authPasswordencrypted"] = state ? state.authPasswordencrypted : undefined;
             inputs["authProtocol"] = state ? state.authProtocol : undefined;
             inputs["community"] = state ? state.community : undefined;

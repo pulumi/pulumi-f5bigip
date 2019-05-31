@@ -44,27 +44,27 @@ export class ProfileHttp2 extends pulumi.CustomResource {
     /**
      * Specifies what will cause an incoming connection to be handled as a HTTP/2 connection. The default values npn and alpn specify that the TLS next-protocol-negotiation and application-layer-protocol-negotiation extensions will be used.
      */
-    public readonly activationModes: pulumi.Output<string[] | undefined>;
+    public readonly activationModes!: pulumi.Output<string[] | undefined>;
     /**
      * Specifies how many concurrent requests are allowed to be outstanding on a single HTTP/2 connection.
      */
-    public readonly concurrentStreamsPerConnection: pulumi.Output<number | undefined>;
+    public readonly concurrentStreamsPerConnection!: pulumi.Output<number | undefined>;
     /**
      * Specifies the number of seconds that a connection is idle before the connection is eligible for deletion..
      */
-    public readonly connectionIdleTimeout: pulumi.Output<number | undefined>;
+    public readonly connectionIdleTimeout!: pulumi.Output<number | undefined>;
     /**
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      */
-    public readonly defaultsFrom: pulumi.Output<string | undefined>;
+    public readonly defaultsFrom!: pulumi.Output<string | undefined>;
     /**
      * Use the parent Http2 profile
      */
-    public readonly headerTableSize: pulumi.Output<number | undefined>;
+    public readonly headerTableSize!: pulumi.Output<number | undefined>;
     /**
      * Name of the profile_http2
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
 
     /**
      * Create a ProfileHttp2 resource with the given unique name, arguments, and options.
@@ -77,7 +77,7 @@ export class ProfileHttp2 extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ProfileHttp2Args | ProfileHttp2State, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ProfileHttp2State = argsOrState as ProfileHttp2State | undefined;
+            const state = argsOrState as ProfileHttp2State | undefined;
             inputs["activationModes"] = state ? state.activationModes : undefined;
             inputs["concurrentStreamsPerConnection"] = state ? state.concurrentStreamsPerConnection : undefined;
             inputs["connectionIdleTimeout"] = state ? state.connectionIdleTimeout : undefined;

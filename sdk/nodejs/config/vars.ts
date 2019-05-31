@@ -9,7 +9,7 @@ let __config = new pulumi.Config("f5bigip");
 /**
  * Domain name/IP of the BigIP
  */
-export let address: string = __config.require("address");
+export let address: string | undefined = __config.get("address");
 /**
  * Login reference for token authentication (see BIG-IP REST docs for details)
  */
@@ -17,7 +17,7 @@ export let loginRef: string | undefined = __config.get("loginRef");
 /**
  * The user's password
  */
-export let password: string = __config.require("password");
+export let password: string | undefined = __config.get("password");
 /**
  * Enable to use an external authentication source (LDAP, TACACS, etc)
  */
@@ -25,4 +25,4 @@ export let tokenAuth: boolean | undefined = __config.getObject<boolean>("tokenAu
 /**
  * Username with API access to the BigIP
  */
-export let username: string = __config.require("username");
+export let username: string | undefined = __config.get("username");

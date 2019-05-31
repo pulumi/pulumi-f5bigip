@@ -46,108 +46,108 @@ export class ProfileHttp extends pulumi.CustomResource {
      * Enables or disables trusting the client IP address, and statistics from the client IP address, based on the
      * request's XFF (X-forwarded-for) headers, if they exist.
      */
-    public readonly acceptXff: pulumi.Output<string | undefined>;
+    public readonly acceptXff!: pulumi.Output<string | undefined>;
     /**
      * The application service to which the object belongs.
      */
-    public readonly appService: pulumi.Output<string | undefined>;
+    public readonly appService!: pulumi.Output<string | undefined>;
     /**
      * Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is none
      */
-    public readonly basicAuthRealm: pulumi.Output<string | undefined>;
+    public readonly basicAuthRealm!: pulumi.Output<string | undefined>;
     /**
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      */
-    public readonly defaultsFrom: pulumi.Output<string>;
+    public readonly defaultsFrom!: pulumi.Output<string>;
     /**
      * User defibned description
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Specifies a passphrase for the cookie encryption
      */
-    public readonly encryptCookieSecret: pulumi.Output<string | undefined>;
+    public readonly encryptCookieSecret!: pulumi.Output<string | undefined>;
     /**
      * Encrypts specified cookies that the BIG-IP system sends to a client system
      */
-    public readonly encryptCookies: pulumi.Output<string[] | undefined>;
+    public readonly encryptCookies!: pulumi.Output<string[] | undefined>;
     /**
      * Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
      */
-    public readonly fallbackHost: pulumi.Output<string | undefined>;
+    public readonly fallbackHost!: pulumi.Output<string | undefined>;
     /**
      * Specifies one or more three-digit status codes that can be returned by an HTTP server.
      */
-    public readonly fallbackStatusCodes: pulumi.Output<string[] | undefined>;
+    public readonly fallbackStatusCodes!: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the header string that you want to erase from an HTTP request. You can also specify none
      */
-    public readonly headErase: pulumi.Output<string | undefined>;
+    public readonly headErase!: pulumi.Output<string | undefined>;
     /**
      * Specifies a quoted header string that you want to insert into an HTTP request
      */
-    public readonly headInsert: pulumi.Output<string | undefined>;
+    public readonly headInsert!: pulumi.Output<string | undefined>;
     /**
      * When using connection pooling, which allows clients to make use of other client requests' server-side connections, you can insert the X-Forwarded-For header and specify a client IP address
      */
-    public readonly insertXforwardedFor: pulumi.Output<string | undefined>;
+    public readonly insertXforwardedFor!: pulumi.Output<string | undefined>;
     /**
      * Specifies a quoted header string that you want to insert into an HTTP request. You can also specify none.
      */
-    public readonly lwsSeparator: pulumi.Output<string | undefined>;
+    public readonly lwsSeparator!: pulumi.Output<string | undefined>;
     /**
      * Name of the profile_http
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Enables the system to perform HTTP header transformations for the purpose of  keeping server-side connections open. This feature requires configuration of a OneConnect profile
      */
-    public readonly oneconnectTransformations: pulumi.Output<string | undefined>;
+    public readonly oneconnectTransformations!: pulumi.Output<string | undefined>;
     /**
      * Specifies the type of HTTP proxy.
      */
-    public readonly proxyType: pulumi.Output<string | undefined>;
+    public readonly proxyType!: pulumi.Output<string | undefined>;
     /**
      * Specifies which of the application HTTP redirects the system rewrites to HTTPS.
      */
-    public readonly redirectRewrite: pulumi.Output<string | undefined>;
+    public readonly redirectRewrite!: pulumi.Output<string | undefined>;
     /**
      * Specifies how to handle chunked and unchunked requests.
      */
-    public readonly requestChunking: pulumi.Output<string | undefined>;
+    public readonly requestChunking!: pulumi.Output<string | undefined>;
     /**
      * Specifies how to handle chunked and unchunked responses.
      */
-    public readonly responseChunking: pulumi.Output<string | undefined>;
+    public readonly responseChunking!: pulumi.Output<string | undefined>;
     /**
      * Specifies headers that the BIG-IP system allows in an HTTP response.
      */
-    public readonly responseHeadersPermitteds: pulumi.Output<string[] | undefined>;
+    public readonly responseHeadersPermitteds!: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no
      * string is specified, then no Server header will be added to such responses
      */
-    public readonly serverAgentName: pulumi.Output<string | undefined>;
+    public readonly serverAgentName!: pulumi.Output<string | undefined>;
     /**
      * Displays the administrative partition within which this profile resides.
      */
-    public readonly tmPartition: pulumi.Output<string | undefined>;
+    public readonly tmPartition!: pulumi.Output<string | undefined>;
     /**
      * Specifies the hostname to include into Via header
      */
-    public readonly viaHostName: pulumi.Output<string | undefined>;
+    public readonly viaHostName!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether to append, remove, or preserve a Via header in an HTTP request
      */
-    public readonly viaRequest: pulumi.Output<string | undefined>;
+    public readonly viaRequest!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether to append, remove, or preserve a Via header in an HTTP request
      */
-    public readonly viaResponse: pulumi.Output<string | undefined>;
+    public readonly viaResponse!: pulumi.Output<string | undefined>;
     /**
      * Specifies alternative XFF headers instead of the default X-forwarded-for header
      */
-    public readonly xffAlternativeNames: pulumi.Output<string[] | undefined>;
+    public readonly xffAlternativeNames!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a ProfileHttp resource with the given unique name, arguments, and options.
@@ -160,7 +160,7 @@ export class ProfileHttp extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ProfileHttpArgs | ProfileHttpState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: ProfileHttpState = argsOrState as ProfileHttpState | undefined;
+            const state = argsOrState as ProfileHttpState | undefined;
             inputs["acceptXff"] = state ? state.acceptXff : undefined;
             inputs["appService"] = state ? state.appService : undefined;
             inputs["basicAuthRealm"] = state ? state.basicAuthRealm : undefined;

@@ -47,33 +47,33 @@ export class Node extends pulumi.CustomResource {
     /**
      * IP or hostname of the node
      */
-    public readonly address: pulumi.Output<string>;
+    public readonly address!: pulumi.Output<string>;
     /**
      * Specifies the maximum number of connections allowed for the node or node address.
      */
-    public readonly connectionLimit: pulumi.Output<number | undefined>;
+    public readonly connectionLimit!: pulumi.Output<number>;
     /**
      * Specifies the fixed ratio value used for a node during ratio load balancing.
      */
-    public readonly dynamicRatio: pulumi.Output<number | undefined>;
-    public readonly fqdn: pulumi.Output<{ addressFamily?: string, autopopulate?: string, downinterval?: number, interval?: string, name?: string } | undefined>;
+    public readonly dynamicRatio!: pulumi.Output<number>;
+    public readonly fqdn!: pulumi.Output<{ addressFamily?: string, autopopulate: string, downinterval: number, interval: string, name?: string } | undefined>;
     /**
      * specifies the name of the monitor or monitor rule that you want to associate with the node.
      */
-    public readonly monitor: pulumi.Output<string | undefined>;
+    public readonly monitor!: pulumi.Output<string>;
     /**
      * Name of the node
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies the maximum number of connections per second allowed for a node or node address. The default value is
      * 'disabled'.
      */
-    public readonly rateLimit: pulumi.Output<string | undefined>;
+    public readonly rateLimit!: pulumi.Output<string>;
     /**
      * Default is "user-up" you can set to "user-down" if you want to disable
      */
-    public readonly state: pulumi.Output<string | undefined>;
+    public readonly state!: pulumi.Output<string>;
 
     /**
      * Create a Node resource with the given unique name, arguments, and options.
@@ -86,7 +86,7 @@ export class Node extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: NodeArgs | NodeState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: NodeState = argsOrState as NodeState | undefined;
+            const state = argsOrState as NodeState | undefined;
             inputs["address"] = state ? state.address : undefined;
             inputs["connectionLimit"] = state ? state.connectionLimit : undefined;
             inputs["dynamicRatio"] = state ? state.dynamicRatio : undefined;

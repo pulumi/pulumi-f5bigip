@@ -39,19 +39,19 @@ export class Device extends pulumi.CustomResource {
     /**
      * IP address used for config sync
      */
-    public readonly configsyncIp: pulumi.Output<string>;
+    public readonly configsyncIp!: pulumi.Output<string>;
     /**
      * IP address used for state mirroring
      */
-    public readonly mirrorIp: pulumi.Output<string | undefined>;
+    public readonly mirrorIp!: pulumi.Output<string | undefined>;
     /**
      * Secondary IP address used for state mirroring
      */
-    public readonly mirrorSecondaryIp: pulumi.Output<string | undefined>;
+    public readonly mirrorSecondaryIp!: pulumi.Output<string | undefined>;
     /**
      * Address of the Device which needs to be Deviceensed
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
 
     /**
      * Create a Device resource with the given unique name, arguments, and options.
@@ -64,7 +64,7 @@ export class Device extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DeviceArgs | DeviceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DeviceState = argsOrState as DeviceState | undefined;
+            const state = argsOrState as DeviceState | undefined;
             inputs["configsyncIp"] = state ? state.configsyncIp : undefined;
             inputs["mirrorIp"] = state ? state.mirrorIp : undefined;
             inputs["mirrorSecondaryIp"] = state ? state.mirrorSecondaryIp : undefined;

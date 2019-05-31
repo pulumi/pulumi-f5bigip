@@ -40,15 +40,15 @@ export class Route extends pulumi.CustomResource {
     /**
      * Gateway address
      */
-    public readonly gw: pulumi.Output<string | undefined>;
+    public readonly gw!: pulumi.Output<string | undefined>;
     /**
      * Name of the route
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Specifies a gateway address for the route.
      */
-    public readonly network: pulumi.Output<string>;
+    public readonly network!: pulumi.Output<string>;
 
     /**
      * Create a Route resource with the given unique name, arguments, and options.
@@ -61,7 +61,7 @@ export class Route extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: RouteArgs | RouteState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: RouteState = argsOrState as RouteState | undefined;
+            const state = argsOrState as RouteState | undefined;
             inputs["gw"] = state ? state.gw : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["network"] = state ? state.network : undefined;

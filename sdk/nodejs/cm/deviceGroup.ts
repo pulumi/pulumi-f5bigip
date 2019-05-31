@@ -47,43 +47,43 @@ export class DeviceGroup extends pulumi.CustomResource {
     /**
      * Specifies if the device-group will automatically sync configuration data to its members
      */
-    public readonly autoSync: pulumi.Output<string | undefined>;
+    public readonly autoSync!: pulumi.Output<string | undefined>;
     /**
      * Description of Device group
      */
-    public readonly description: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Name of the device to be included in device group, this need to be configured before using devicegroup resource
      */
-    public readonly devices: pulumi.Output<{ name?: string, setSyncLeader?: boolean }[] | undefined>;
+    public readonly devices!: pulumi.Output<{ name?: string, setSyncLeader?: boolean }[] | undefined>;
     /**
      * Specifies if the device-group will perform a full-load upon sync
      */
-    public readonly fullLoadOnSync: pulumi.Output<string | undefined>;
+    public readonly fullLoadOnSync!: pulumi.Output<string | undefined>;
     /**
      * Specifies the maximum size (in KB) to devote to incremental config sync cached transactions. The default is 1024 KB.
      */
-    public readonly incrementalConfig: pulumi.Output<number | undefined>;
+    public readonly incrementalConfig!: pulumi.Output<number | undefined>;
     /**
      * Is the name of the device Group
      */
-    public readonly name: pulumi.Output<string | undefined>;
+    public readonly name!: pulumi.Output<string | undefined>;
     /**
      * Specifies if the device-group will use a network connection for failover
      */
-    public readonly networkFailover: pulumi.Output<string | undefined>;
+    public readonly networkFailover!: pulumi.Output<string | undefined>;
     /**
      * Device administrative partition
      */
-    public readonly partition: pulumi.Output<string | undefined>;
+    public readonly partition!: pulumi.Output<string | undefined>;
     /**
      * Specifies whether the configuration should be saved upon auto-sync.
      */
-    public readonly saveOnAutoSync: pulumi.Output<string | undefined>;
+    public readonly saveOnAutoSync!: pulumi.Output<string | undefined>;
     /**
      * Specifies if the device-group will be used for failover or resource syncing
      */
-    public readonly type: pulumi.Output<string | undefined>;
+    public readonly type!: pulumi.Output<string | undefined>;
 
     /**
      * Create a DeviceGroup resource with the given unique name, arguments, and options.
@@ -96,7 +96,7 @@ export class DeviceGroup extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: DeviceGroupArgs | DeviceGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: DeviceGroupState = argsOrState as DeviceGroupState | undefined;
+            const state = argsOrState as DeviceGroupState | undefined;
             inputs["autoSync"] = state ? state.autoSync : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["devices"] = state ? state.devices : undefined;

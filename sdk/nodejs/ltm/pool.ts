@@ -45,35 +45,35 @@ export class Pool extends pulumi.CustomResource {
     /**
      * Allow NAT
      */
-    public readonly allowNat: pulumi.Output<string | undefined>;
+    public readonly allowNat!: pulumi.Output<string>;
     /**
      * Allow SNAT
      */
-    public readonly allowSnat: pulumi.Output<string | undefined>;
+    public readonly allowSnat!: pulumi.Output<string>;
     /**
      * Possible values: round-robin, ...
      */
-    public readonly loadBalancingMode: pulumi.Output<string | undefined>;
+    public readonly loadBalancingMode!: pulumi.Output<string>;
     /**
      * List of monitor names to associate with the pool
      */
-    public readonly monitors: pulumi.Output<string[] | undefined>;
+    public readonly monitors!: pulumi.Output<string[]>;
     /**
      * Name of the pool
      */
-    public readonly name: pulumi.Output<string>;
+    public readonly name!: pulumi.Output<string>;
     /**
      * Number of times the system tries to select a new pool member after a failure.
      */
-    public readonly reselectTries: pulumi.Output<number | undefined>;
+    public readonly reselectTries!: pulumi.Output<number>;
     /**
      * Possible values: none, reset, reselect, drop
      */
-    public readonly serviceDownAction: pulumi.Output<string | undefined>;
+    public readonly serviceDownAction!: pulumi.Output<string>;
     /**
      * Slow ramp time for pool members
      */
-    public readonly slowRampTime: pulumi.Output<number | undefined>;
+    public readonly slowRampTime!: pulumi.Output<number>;
 
     /**
      * Create a Pool resource with the given unique name, arguments, and options.
@@ -86,7 +86,7 @@ export class Pool extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: PoolArgs | PoolState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
-            const state: PoolState = argsOrState as PoolState | undefined;
+            const state = argsOrState as PoolState | undefined;
             inputs["allowNat"] = state ? state.allowNat : undefined;
             inputs["allowSnat"] = state ? state.allowSnat : undefined;
             inputs["loadBalancingMode"] = state ? state.loadBalancingMode : undefined;
