@@ -44,6 +44,20 @@ export class ProfileFastHttp extends pulumi.CustomResource {
         return new ProfileFastHttp(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'f5bigip:ltm/profileFastHttp:ProfileFastHttp';
+
+    /**
+     * Returns true if the given object is an instance of ProfileFastHttp.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ProfileFastHttp {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ProfileFastHttp.__pulumiType;
+    }
+
     /**
      * Specifies the maximum number of times that the system can re-use a current connection. The default value is 0 (zero).
      */
@@ -129,7 +143,7 @@ export class ProfileFastHttp extends pulumi.CustomResource {
             inputs["maxheaderSize"] = args ? args.maxheaderSize : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        super("f5bigip:ltm/profileFastHttp:ProfileFastHttp", name, inputs, opts);
+        super(ProfileFastHttp.__pulumiType, name, inputs, opts);
     }
 }
 

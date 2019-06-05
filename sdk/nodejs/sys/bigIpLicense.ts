@@ -17,6 +17,20 @@ export class BigIpLicense extends pulumi.CustomResource {
         return new BigIpLicense(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'f5bigip:sys/bigIpLicense:BigIpLicense';
+
+    /**
+     * Returns true if the given object is an instance of BigIpLicense.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is BigIpLicense {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === BigIpLicense.__pulumiType;
+    }
+
     /**
      * Tmsh command to execute tmsh commands like install
      */
@@ -51,7 +65,7 @@ export class BigIpLicense extends pulumi.CustomResource {
             inputs["command"] = args ? args.command : undefined;
             inputs["registrationKey"] = args ? args.registrationKey : undefined;
         }
-        super("f5bigip:sys/bigIpLicense:BigIpLicense", name, inputs, opts);
+        super(BigIpLicense.__pulumiType, name, inputs, opts);
     }
 }
 

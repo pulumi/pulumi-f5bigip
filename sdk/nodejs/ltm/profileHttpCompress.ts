@@ -43,6 +43,20 @@ export class ProfileHttpCompress extends pulumi.CustomResource {
         return new ProfileHttpCompress(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'f5bigip:ltm/profileHttpCompress:ProfileHttpCompress';
+
+    /**
+     * Returns true if the given object is an instance of ProfileHttpCompress.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ProfileHttpCompress {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ProfileHttpCompress.__pulumiType;
+    }
+
     /**
      * Excludes a specified list of content types from compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
      */
@@ -98,7 +112,7 @@ export class ProfileHttpCompress extends pulumi.CustomResource {
             inputs["uriExcludes"] = args ? args.uriExcludes : undefined;
             inputs["uriIncludes"] = args ? args.uriIncludes : undefined;
         }
-        super("f5bigip:ltm/profileHttpCompress:ProfileHttpCompress", name, inputs, opts);
+        super(ProfileHttpCompress.__pulumiType, name, inputs, opts);
     }
 }
 

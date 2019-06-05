@@ -41,6 +41,20 @@ export class ProfileHttp2 extends pulumi.CustomResource {
         return new ProfileHttp2(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'f5bigip:ltm/profileHttp2:ProfileHttp2';
+
+    /**
+     * Returns true if the given object is an instance of ProfileHttp2.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ProfileHttp2 {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ProfileHttp2.__pulumiType;
+    }
+
     /**
      * Specifies what will cause an incoming connection to be handled as a HTTP/2 connection. The default values npn and alpn specify that the TLS next-protocol-negotiation and application-layer-protocol-negotiation extensions will be used.
      */
@@ -96,7 +110,7 @@ export class ProfileHttp2 extends pulumi.CustomResource {
             inputs["headerTableSize"] = args ? args.headerTableSize : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        super("f5bigip:ltm/profileHttp2:ProfileHttp2", name, inputs, opts);
+        super(ProfileHttp2.__pulumiType, name, inputs, opts);
     }
 }
 

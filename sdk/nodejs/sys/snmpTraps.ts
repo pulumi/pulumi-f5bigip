@@ -35,6 +35,20 @@ export class SnmpTraps extends pulumi.CustomResource {
         return new SnmpTraps(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'f5bigip:sys/snmpTraps:SnmpTraps';
+
+    /**
+     * Returns true if the given object is an instance of SnmpTraps.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is SnmpTraps {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === SnmpTraps.__pulumiType;
+    }
+
     /**
      * Encrypted password
      */
@@ -135,7 +149,7 @@ export class SnmpTraps extends pulumi.CustomResource {
             inputs["securityName"] = args ? args.securityName : undefined;
             inputs["version"] = args ? args.version : undefined;
         }
-        super("f5bigip:sys/snmpTraps:SnmpTraps", name, inputs, opts);
+        super(SnmpTraps.__pulumiType, name, inputs, opts);
     }
 }
 

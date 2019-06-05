@@ -48,6 +48,20 @@ export class Monitor extends pulumi.CustomResource {
         return new Monitor(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'f5bigip:ltm/monitor:Monitor';
+
+    /**
+     * Returns true if the given object is an instance of Monitor.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Monitor {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Monitor.__pulumiType;
+    }
+
     /**
      * ftp adaptive
      */
@@ -184,7 +198,7 @@ export class Monitor extends pulumi.CustomResource {
             inputs["transparent"] = args ? args.transparent : undefined;
             inputs["username"] = args ? args.username : undefined;
         }
-        super("f5bigip:ltm/monitor:Monitor", name, inputs, opts);
+        super(Monitor.__pulumiType, name, inputs, opts);
     }
 }
 

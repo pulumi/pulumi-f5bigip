@@ -36,6 +36,20 @@ export class PoolAttachment extends pulumi.CustomResource {
         return new PoolAttachment(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'f5bigip:ltm/poolAttachment:PoolAttachment';
+
+    /**
+     * Returns true if the given object is an instance of PoolAttachment.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is PoolAttachment {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === PoolAttachment.__pulumiType;
+    }
+
     /**
      * Node to add to the pool in /Partition/NodeName:Port format (e.g. /Common/Node01:80)
      */
@@ -70,7 +84,7 @@ export class PoolAttachment extends pulumi.CustomResource {
             inputs["node"] = args ? args.node : undefined;
             inputs["pool"] = args ? args.pool : undefined;
         }
-        super("f5bigip:ltm/poolAttachment:PoolAttachment", name, inputs, opts);
+        super(PoolAttachment.__pulumiType, name, inputs, opts);
     }
 }
 

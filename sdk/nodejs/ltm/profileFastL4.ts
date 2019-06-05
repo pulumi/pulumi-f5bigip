@@ -43,6 +43,20 @@ export class ProfileFastL4 extends pulumi.CustomResource {
         return new ProfileFastL4(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'f5bigip:ltm/profileFastL4:ProfileFastL4';
+
+    /**
+     * Returns true if the given object is an instance of ProfileFastL4.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ProfileFastL4 {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ProfileFastL4.__pulumiType;
+    }
+
     /**
      * Specifies late binding client timeout in seconds. This setting specifies the number of seconds allowed for a client to transmit enough data to select a server when late binding is enabled. If it expires timeout-recovery mode will dictate what action to take.
      */
@@ -122,7 +136,7 @@ export class ProfileFastL4 extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["partition"] = args ? args.partition : undefined;
         }
-        super("f5bigip:ltm/profileFastL4:ProfileFastL4", name, inputs, opts);
+        super(ProfileFastL4.__pulumiType, name, inputs, opts);
     }
 }
 

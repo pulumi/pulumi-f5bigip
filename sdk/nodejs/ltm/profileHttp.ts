@@ -42,6 +42,20 @@ export class ProfileHttp extends pulumi.CustomResource {
         return new ProfileHttp(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'f5bigip:ltm/profileHttp:ProfileHttp';
+
+    /**
+     * Returns true if the given object is an instance of ProfileHttp.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ProfileHttp {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ProfileHttp.__pulumiType;
+    }
+
     /**
      * Enables or disables trusting the client IP address, and statistics from the client IP address, based on the
      * request's XFF (X-forwarded-for) headers, if they exist.
@@ -222,7 +236,7 @@ export class ProfileHttp extends pulumi.CustomResource {
             inputs["viaResponse"] = args ? args.viaResponse : undefined;
             inputs["xffAlternativeNames"] = args ? args.xffAlternativeNames : undefined;
         }
-        super("f5bigip:ltm/profileHttp:ProfileHttp", name, inputs, opts);
+        super(ProfileHttp.__pulumiType, name, inputs, opts);
     }
 }
 

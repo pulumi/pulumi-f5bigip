@@ -42,6 +42,20 @@ export class ProfileOneConnect extends pulumi.CustomResource {
         return new ProfileOneConnect(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'f5bigip:ltm/profileOneConnect:ProfileOneConnect';
+
+    /**
+     * Returns true if the given object is an instance of ProfileOneConnect.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ProfileOneConnect {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ProfileOneConnect.__pulumiType;
+    }
+
     /**
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      */
@@ -115,7 +129,7 @@ export class ProfileOneConnect extends pulumi.CustomResource {
             inputs["sharePools"] = args ? args.sharePools : undefined;
             inputs["sourceMask"] = args ? args.sourceMask : undefined;
         }
-        super("f5bigip:ltm/profileOneConnect:ProfileOneConnect", name, inputs, opts);
+        super(ProfileOneConnect.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -36,6 +36,20 @@ export class Device extends pulumi.CustomResource {
         return new Device(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'f5bigip:cm/device:Device';
+
+    /**
+     * Returns true if the given object is an instance of Device.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Device {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Device.__pulumiType;
+    }
+
     /**
      * IP address used for config sync
      */
@@ -82,7 +96,7 @@ export class Device extends pulumi.CustomResource {
             inputs["mirrorSecondaryIp"] = args ? args.mirrorSecondaryIp : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        super("f5bigip:cm/device:Device", name, inputs, opts);
+        super(Device.__pulumiType, name, inputs, opts);
     }
 }
 

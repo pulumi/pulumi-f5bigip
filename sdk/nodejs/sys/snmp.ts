@@ -33,6 +33,20 @@ export class Snmp extends pulumi.CustomResource {
         return new Snmp(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'f5bigip:sys/snmp:Snmp';
+
+    /**
+     * Returns true if the given object is an instance of Snmp.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Snmp {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Snmp.__pulumiType;
+    }
+
     /**
      * Configures hosts or networks from which snmpd can accept traffic. Entries go directly into hosts.allow.
      */
@@ -67,7 +81,7 @@ export class Snmp extends pulumi.CustomResource {
             inputs["sysContact"] = args ? args.sysContact : undefined;
             inputs["sysLocation"] = args ? args.sysLocation : undefined;
         }
-        super("f5bigip:sys/snmp:Snmp", name, inputs, opts);
+        super(Snmp.__pulumiType, name, inputs, opts);
     }
 }
 

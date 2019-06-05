@@ -36,6 +36,20 @@ export class VirtualAddress extends pulumi.CustomResource {
         return new VirtualAddress(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'f5bigip:ltm/virtualAddress:VirtualAddress';
+
+    /**
+     * Returns true if the given object is an instance of VirtualAddress.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is VirtualAddress {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === VirtualAddress.__pulumiType;
+    }
+
     /**
      * Enabled dynamic routing of the address
      */
@@ -103,7 +117,7 @@ export class VirtualAddress extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["trafficGroup"] = args ? args.trafficGroup : undefined;
         }
-        super("f5bigip:ltm/virtualAddress:VirtualAddress", name, inputs, opts);
+        super(VirtualAddress.__pulumiType, name, inputs, opts);
     }
 }
 

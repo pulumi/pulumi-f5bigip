@@ -56,6 +56,20 @@ export class PersistenceProfileSsl extends pulumi.CustomResource {
         return new PersistenceProfileSsl(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'f5bigip:ltm/persistenceProfileSsl:PersistenceProfileSsl';
+
+    /**
+     * Returns true if the given object is an instance of PersistenceProfileSsl.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is PersistenceProfileSsl {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === PersistenceProfileSsl.__pulumiType;
+    }
+
     public readonly appService!: pulumi.Output<string | undefined>;
     /**
      * Inherit defaults from parent profile
@@ -130,7 +144,7 @@ export class PersistenceProfileSsl extends pulumi.CustomResource {
             inputs["overrideConnLimit"] = args ? args.overrideConnLimit : undefined;
             inputs["timeout"] = args ? args.timeout : undefined;
         }
-        super("f5bigip:ltm/persistenceProfileSsl:PersistenceProfileSsl", name, inputs, opts);
+        super(PersistenceProfileSsl.__pulumiType, name, inputs, opts);
     }
 }
 

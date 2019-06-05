@@ -56,6 +56,20 @@ export class IApp extends pulumi.CustomResource {
         return new IApp(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'f5bigip:sys/iApp:IApp';
+
+    /**
+     * Returns true if the given object is an instance of IApp.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is IApp {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === IApp.__pulumiType;
+    }
+
     /**
      * Address of the Iapp which needs to be Iappensed
      */
@@ -162,7 +176,7 @@ export class IApp extends pulumi.CustomResource {
             inputs["trafficGroup"] = args ? args.trafficGroup : undefined;
             inputs["variables"] = args ? args.variables : undefined;
         }
-        super("f5bigip:sys/iApp:IApp", name, inputs, opts);
+        super(IApp.__pulumiType, name, inputs, opts);
     }
 }
 

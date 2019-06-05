@@ -39,6 +39,20 @@ export class SnatPool extends pulumi.CustomResource {
         return new SnatPool(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'f5bigip:ltm/snatPool:SnatPool';
+
+    /**
+     * Returns true if the given object is an instance of SnatPool.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is SnatPool {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === SnatPool.__pulumiType;
+    }
+
     /**
      * Specifies a translation address to add to or delete from a SNAT pool (at least one address is required)
      */
@@ -73,7 +87,7 @@ export class SnatPool extends pulumi.CustomResource {
             inputs["members"] = args ? args.members : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        super("f5bigip:ltm/snatPool:SnatPool", name, inputs, opts);
+        super(SnatPool.__pulumiType, name, inputs, opts);
     }
 }
 

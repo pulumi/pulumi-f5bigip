@@ -22,6 +22,20 @@ export class SelfIp extends pulumi.CustomResource {
         return new SelfIp(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'f5bigip:net/selfIp:SelfIp';
+
+    /**
+     * Returns true if the given object is an instance of SelfIp.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is SelfIp {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === SelfIp.__pulumiType;
+    }
+
     /**
      * The Self IP's address and netmask.
      */
@@ -71,7 +85,7 @@ export class SelfIp extends pulumi.CustomResource {
             inputs["trafficGroup"] = args ? args.trafficGroup : undefined;
             inputs["vlan"] = args ? args.vlan : undefined;
         }
-        super("f5bigip:net/selfIp:SelfIp", name, inputs, opts);
+        super(SelfIp.__pulumiType, name, inputs, opts);
     }
 }
 
