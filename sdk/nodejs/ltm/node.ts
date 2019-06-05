@@ -44,6 +44,20 @@ export class Node extends pulumi.CustomResource {
         return new Node(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'f5bigip:ltm/node:Node';
+
+    /**
+     * Returns true if the given object is an instance of Node.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Node {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Node.__pulumiType;
+    }
+
     /**
      * IP or hostname of the node
      */
@@ -112,7 +126,7 @@ export class Node extends pulumi.CustomResource {
             inputs["rateLimit"] = args ? args.rateLimit : undefined;
             inputs["state"] = args ? args.state : undefined;
         }
-        super("f5bigip:ltm/node:Node", name, inputs, opts);
+        super(Node.__pulumiType, name, inputs, opts);
     }
 }
 

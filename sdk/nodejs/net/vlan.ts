@@ -40,6 +40,20 @@ export class Vlan extends pulumi.CustomResource {
         return new Vlan(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'f5bigip:net/vlan:Vlan';
+
+    /**
+     * Returns true if the given object is an instance of Vlan.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Vlan {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Vlan.__pulumiType;
+    }
+
     /**
      * Specifies which interfaces you want this VLAN to use for traffic management.
      */
@@ -77,7 +91,7 @@ export class Vlan extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["tag"] = args ? args.tag : undefined;
         }
-        super("f5bigip:net/vlan:Vlan", name, inputs, opts);
+        super(Vlan.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -36,6 +36,20 @@ export class Provision extends pulumi.CustomResource {
         return new Provision(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'f5bigip:sys/provision:Provision';
+
+    /**
+     * Returns true if the given object is an instance of Provision.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Provision {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Provision.__pulumiType;
+    }
+
     /**
      * cpu Ratio
      */
@@ -91,7 +105,7 @@ export class Provision extends pulumi.CustomResource {
             inputs["memoryRatio"] = args ? args.memoryRatio : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        super("f5bigip:sys/provision:Provision", name, inputs, opts);
+        super(Provision.__pulumiType, name, inputs, opts);
     }
 }
 

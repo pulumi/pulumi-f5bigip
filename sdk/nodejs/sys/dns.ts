@@ -38,6 +38,20 @@ export class Dns extends pulumi.CustomResource {
         return new Dns(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'f5bigip:sys/dns:Dns';
+
+    /**
+     * Returns true if the given object is an instance of Dns.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Dns {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Dns.__pulumiType;
+    }
+
     /**
      * Name of the Dns Servers
      */
@@ -81,7 +95,7 @@ export class Dns extends pulumi.CustomResource {
             inputs["numberOfDots"] = args ? args.numberOfDots : undefined;
             inputs["searches"] = args ? args.searches : undefined;
         }
-        super("f5bigip:sys/dns:Dns", name, inputs, opts);
+        super(Dns.__pulumiType, name, inputs, opts);
     }
 }
 

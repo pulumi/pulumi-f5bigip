@@ -35,6 +35,20 @@ export class Ntp extends pulumi.CustomResource {
         return new Ntp(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'f5bigip:sys/ntp:Ntp';
+
+    /**
+     * Returns true if the given object is an instance of Ntp.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Ntp {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Ntp.__pulumiType;
+    }
+
     /**
      * Name of the ntp Servers
      */
@@ -72,7 +86,7 @@ export class Ntp extends pulumi.CustomResource {
             inputs["servers"] = args ? args.servers : undefined;
             inputs["timezone"] = args ? args.timezone : undefined;
         }
-        super("f5bigip:sys/ntp:Ntp", name, inputs, opts);
+        super(Ntp.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -47,6 +47,20 @@ export class VirtualServer extends pulumi.CustomResource {
         return new VirtualServer(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'f5bigip:ltm/virtualServer:VirtualServer';
+
+    /**
+     * Returns true if the given object is an instance of VirtualServer.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is VirtualServer {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === VirtualServer.__pulumiType;
+    }
+
     /**
      * List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
      */
@@ -186,7 +200,7 @@ export class VirtualServer extends pulumi.CustomResource {
             inputs["vlans"] = args ? args.vlans : undefined;
             inputs["vlansEnabled"] = args ? args.vlansEnabled : undefined;
         }
-        super("f5bigip:ltm/virtualServer:VirtualServer", name, inputs, opts);
+        super(VirtualServer.__pulumiType, name, inputs, opts);
     }
 }
 

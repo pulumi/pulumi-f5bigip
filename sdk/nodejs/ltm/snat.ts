@@ -40,6 +40,20 @@ export class Snat extends pulumi.CustomResource {
         return new Snat(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'f5bigip:ltm/snat:Snat';
+
+    /**
+     * Returns true if the given object is an instance of Snat.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Snat {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Snat.__pulumiType;
+    }
+
     /**
      * Specifies whether to automatically map last hop for pools or not. The default is to use next level's defaul
      */
@@ -128,7 +142,7 @@ export class Snat extends pulumi.CustomResource {
             inputs["vlans"] = args ? args.vlans : undefined;
             inputs["vlansdisabled"] = args ? args.vlansdisabled : undefined;
         }
-        super("f5bigip:ltm/snat:Snat", name, inputs, opts);
+        super(Snat.__pulumiType, name, inputs, opts);
     }
 }
 

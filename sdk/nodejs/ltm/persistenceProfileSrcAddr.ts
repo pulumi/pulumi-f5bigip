@@ -65,6 +65,20 @@ export class PersistenceProfileSrcAddr extends pulumi.CustomResource {
         return new PersistenceProfileSrcAddr(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'f5bigip:ltm/persistenceProfileSrcAddr:PersistenceProfileSrcAddr';
+
+    /**
+     * Returns true if the given object is an instance of PersistenceProfileSrcAddr.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is PersistenceProfileSrcAddr {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === PersistenceProfileSrcAddr.__pulumiType;
+    }
+
     public readonly appService!: pulumi.Output<string | undefined>;
     /**
      * Inherit defaults from parent profile
@@ -158,7 +172,7 @@ export class PersistenceProfileSrcAddr extends pulumi.CustomResource {
             inputs["overrideConnLimit"] = args ? args.overrideConnLimit : undefined;
             inputs["timeout"] = args ? args.timeout : undefined;
         }
-        super("f5bigip:ltm/persistenceProfileSrcAddr:PersistenceProfileSrcAddr", name, inputs, opts);
+        super(PersistenceProfileSrcAddr.__pulumiType, name, inputs, opts);
     }
 }
 

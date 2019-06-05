@@ -41,6 +41,20 @@ export class ProfileTcp extends pulumi.CustomResource {
         return new ProfileTcp(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'f5bigip:ltm/profileTcp:ProfileTcp';
+
+    /**
+     * Returns true if the given object is an instance of ProfileTcp.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is ProfileTcp {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === ProfileTcp.__pulumiType;
+    }
+
     /**
      * Specifies the number of seconds that a connection remains in a LAST-ACK state before quitting. A value of 0 represents a term of forever (or until the maxrtx of the FIN state). The default value is 5 seconds.
      */
@@ -120,7 +134,7 @@ export class ProfileTcp extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["partition"] = args ? args.partition : undefined;
         }
-        super("f5bigip:ltm/profileTcp:ProfileTcp", name, inputs, opts);
+        super(ProfileTcp.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -37,6 +37,20 @@ export class Route extends pulumi.CustomResource {
         return new Route(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'f5bigip:net/route:Route';
+
+    /**
+     * Returns true if the given object is an instance of Route.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is Route {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === Route.__pulumiType;
+    }
+
     /**
      * Gateway address
      */
@@ -77,7 +91,7 @@ export class Route extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["network"] = args ? args.network : undefined;
         }
-        super("f5bigip:net/route:Route", name, inputs, opts);
+        super(Route.__pulumiType, name, inputs, opts);
     }
 }
 

@@ -46,6 +46,20 @@ export class DataGroup extends pulumi.CustomResource {
         return new DataGroup(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'f5bigip:ltm/dataGroup:DataGroup';
+
+    /**
+     * Returns true if the given object is an instance of DataGroup.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is DataGroup {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === DataGroup.__pulumiType;
+    }
+
     /**
      * , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
      */
@@ -86,7 +100,7 @@ export class DataGroup extends pulumi.CustomResource {
             inputs["records"] = args ? args.records : undefined;
             inputs["type"] = args ? args.type : undefined;
         }
-        super("f5bigip:ltm/dataGroup:DataGroup", name, inputs, opts);
+        super(DataGroup.__pulumiType, name, inputs, opts);
     }
 }
 

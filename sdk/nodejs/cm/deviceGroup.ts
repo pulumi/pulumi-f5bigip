@@ -44,6 +44,20 @@ export class DeviceGroup extends pulumi.CustomResource {
         return new DeviceGroup(name, <any>state, { ...opts, id: id });
     }
 
+    /** @internal */
+    public static readonly __pulumiType = 'f5bigip:cm/deviceGroup:DeviceGroup';
+
+    /**
+     * Returns true if the given object is an instance of DeviceGroup.  This is designed to work even
+     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     */
+    public static isInstance(obj: any): obj is DeviceGroup {
+        if (obj === undefined || obj === null) {
+            return false;
+        }
+        return obj['__pulumiType'] === DeviceGroup.__pulumiType;
+    }
+
     /**
      * Specifies if the device-group will automatically sync configuration data to its members
      */
@@ -120,7 +134,7 @@ export class DeviceGroup extends pulumi.CustomResource {
             inputs["saveOnAutoSync"] = args ? args.saveOnAutoSync : undefined;
             inputs["type"] = args ? args.type : undefined;
         }
-        super("f5bigip:cm/deviceGroup:DeviceGroup", name, inputs, opts);
+        super(DeviceGroup.__pulumiType, name, inputs, opts);
     }
 }
 
