@@ -6,6 +6,9 @@ _(none)_
 
 ---
 
+## 0.2.5 (2019-07-08)
+* Communicate detailed information about the difference between a resource's desired and actual state during a Pulumi update
+
 ## 0.2.4 (2019-06-21)
 * Update to pulumi-terraform@3635bed3a5 which stops maps containing `.` being treated as nested maps.
 
