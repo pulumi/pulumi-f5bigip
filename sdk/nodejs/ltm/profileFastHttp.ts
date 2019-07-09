@@ -30,6 +30,8 @@ import * as utilities from "../utilities";
  *     name: "sjfasthttpprofile",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_profile_fasthttp.html.markdown.
  */
 export class ProfileFastHttp extends pulumi.CustomResource {
     /**

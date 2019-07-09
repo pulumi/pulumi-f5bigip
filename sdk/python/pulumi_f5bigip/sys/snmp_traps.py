@@ -49,6 +49,8 @@ class SnmpTraps(pulumi.CustomResource):
         :param pulumi.Input[str] host: The host the trap will be sent to.
         :param pulumi.Input[str] name: Name of the snmp trap.
         :param pulumi.Input[float] port: User defined description.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/sys_snmp_traps.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

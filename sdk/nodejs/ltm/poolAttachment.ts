@@ -4,25 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * `bigip_ltm_pool_attachment` Manages nodes membership in pools
- * 
- * Resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
- * 
- * 
- * ## Example Usage
- * 
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- * 
- * const node_terraform_pool = new f5bigip.ltm.PoolAttachment("node-terraform_pool", {
- *     node: pulumi.interpolate`${bigip_ltm_node_node.name}:80`,
- *     pool: "/Common/terraform-pool",
- * });
- * ```
- */
 export class PoolAttachment extends pulumi.CustomResource {
     /**
      * Get an existing PoolAttachment resource's state with the given name, ID, and optional extra

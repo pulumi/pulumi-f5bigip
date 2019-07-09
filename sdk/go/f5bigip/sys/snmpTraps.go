@@ -8,6 +8,8 @@ import (
 )
 
 // `bigip_sys_snmp_traps` provides details bout how to enable snmp_traps resource on BIG-IP
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/sys_snmp_traps.html.markdown.
 type SnmpTraps struct {
 	s *pulumi.ResourceState
 }

@@ -48,6 +48,8 @@ class ProfileHttpCompress(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the profile_httpcompress
         :param pulumi.Input[list] uri_excludes: Disables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you do not want to compress.
         :param pulumi.Input[list] uri_includes: Enables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you want to compress.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_profile_httpcompress.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

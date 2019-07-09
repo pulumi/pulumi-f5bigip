@@ -30,6 +30,8 @@ import * as utilities from "../utilities";
  *     type: "sync-only",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/cm_devicegroup.html.markdown.
  */
 export class DeviceGroup extends pulumi.CustomResource {
     /**

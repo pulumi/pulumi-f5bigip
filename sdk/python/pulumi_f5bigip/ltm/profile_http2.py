@@ -43,6 +43,8 @@ class ProfileHttp2(pulumi.CustomResource):
         :param pulumi.Input[float] connection_idle_timeout: Specifies the number of seconds that a connection is idle before the connection is eligible for deletion..
         :param pulumi.Input[str] defaults_from: Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         :param pulumi.Input[str] name: Name of the profile_http2
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_profile_http2.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

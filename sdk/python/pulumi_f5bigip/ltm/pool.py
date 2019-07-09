@@ -33,6 +33,8 @@ class Pool(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] monitors: List of monitor names to associate with the pool
         :param pulumi.Input[str] name: Name of the pool
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_pool.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

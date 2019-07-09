@@ -72,6 +72,8 @@ class ProfileFastHttp(pulumi.CustomResource):
         :param pulumi.Input[float] idle_timeout: Specifies an idle timeout in seconds. This setting specifies the number of seconds that a connection is idle before the connection is eligible for deletion.When you specify an idle timeout for the Fast L4 profile, the value must be greater than the bigdb database variable Pva.Scrub time in msec for it to work properly.The default value is 300 seconds.
         :param pulumi.Input[float] maxheader_size: Specifies the maximum amount of HTTP header data that the system buffers before making a load balancing decision. The default setting is 32768.
         :param pulumi.Input[str] name: Name of the profile_fasthttp
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_profile_fasthttp.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

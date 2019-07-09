@@ -27,6 +27,8 @@ import * as utilities from "../utilities";
  *     name: "sanjose-tcp-lan-profile",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_profile_tcp.html.markdown.
  */
 export class ProfileTcp extends pulumi.CustomResource {
     /**

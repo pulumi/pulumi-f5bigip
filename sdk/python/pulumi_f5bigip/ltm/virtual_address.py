@@ -57,6 +57,8 @@ class VirtualAddress(pulumi.CustomResource):
         :param pulumi.Input[bool] icmp_echo: Enable/Disable ICMP response to the virtual address
         :param pulumi.Input[str] name: Name of the virtual address
         :param pulumi.Input[str] traffic_group: Specify the partition and traffic group
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_virtual_address.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

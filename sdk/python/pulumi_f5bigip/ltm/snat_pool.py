@@ -27,6 +27,8 @@ class SnatPool(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] members: Specifies a translation address to add to or delete from a SNAT pool (at least one address is required)
         :param pulumi.Input[str] name: Name of the snatpool
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_snatpool.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

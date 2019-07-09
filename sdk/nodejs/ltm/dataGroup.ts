@@ -32,6 +32,8 @@ import * as utilities from "../utilities";
  *     type: "string",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_datagroup.html.markdown.
  */
 export class DataGroup extends pulumi.CustomResource {
     /**

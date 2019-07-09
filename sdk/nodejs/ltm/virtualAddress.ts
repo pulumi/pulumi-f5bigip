@@ -22,6 +22,8 @@ import * as utilities from "../utilities";
  *     name: "/Common/vs_va",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_virtual_address.html.markdown.
  */
 export class VirtualAddress extends pulumi.CustomResource {
     /**

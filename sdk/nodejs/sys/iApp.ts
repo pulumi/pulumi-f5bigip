@@ -42,6 +42,8 @@ import * as utilities from "../utilities";
  *  * `metadata` - User defined generic data for the application service. It is a name and value pair.
  *  * `tables` - Values provided like pool name, nodes etc.
  *  * `variables` - Name, values, encrypted or not
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/sys_iapp.html.markdown.
  */
 export class IApp extends pulumi.CustomResource {
     /**

@@ -30,6 +30,8 @@ class Snmp(pulumi.CustomResource):
         :param pulumi.Input[list] allowedaddresses: Configures hosts or networks from which snmpd can accept traffic. Entries go directly into hosts.allow.
         :param pulumi.Input[str] sys_contact: Specifies the contact information for the system administrator.
         :param pulumi.Input[str] sys_location: Describes the system's physical location.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/sys_snmp.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

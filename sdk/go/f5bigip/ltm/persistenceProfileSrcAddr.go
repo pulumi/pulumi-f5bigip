@@ -33,6 +33,8 @@ import (
 // `mask` (Optional) Identify a range of source IP addresses to manage together as a single source address affinity persistent connection when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
 // 
 // `map_proxies` (Optional) (enabled or disabled) Directs all to the same single pool member
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_persistence_profile_srcaddr.html.markdown.
 type PersistenceProfileSrcAddr struct {
 	s *pulumi.ResourceState
 }

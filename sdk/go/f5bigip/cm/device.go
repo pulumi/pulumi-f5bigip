@@ -11,6 +11,8 @@ import (
 // `bigip_cm_device` provides details about a specific bigip
 // 
 // This resource is helpful when configuring the BIG-IP device in cluster or in HA mode.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/cm_device.html.markdown.
 type Device struct {
 	s *pulumi.ResourceState
 }

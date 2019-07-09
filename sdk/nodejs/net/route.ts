@@ -23,6 +23,8 @@ import * as utilities from "../utilities";
  *     network: "10.10.10.0/24",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/net_route.html.markdown.
  */
 export class Route extends pulumi.CustomResource {
     /**

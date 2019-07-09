@@ -4,33 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * `bigip_ltm_node` Manages a node configuration
- * 
- * For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
- * 
- * 
- * ## Example Usage
- * 
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- * 
- * const node = new f5bigip.ltm.Node("node", {
- *     address: "10.10.10.10",
- *     connectionLimit: 0,
- *     dynamicRatio: 1,
- *     fqdn: {
- *         addressFamily: "ipv4",
- *         interval: "3000",
- *     },
- *     monitor: "default",
- *     name: "/Common/terraform_node1",
- *     rateLimit: "disabled",
- * });
- * ```
- */
 export class Node extends pulumi.CustomResource {
     /**
      * Get an existing Node resource's state with the given name, ID, and optional extra

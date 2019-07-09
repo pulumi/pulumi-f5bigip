@@ -11,6 +11,8 @@ import (
 // `bigip_ltm_snatpool` Collections of SNAT translation addresses
 // 
 // Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-snatpool. 
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_snatpool.html.markdown.
 type SnatPool struct {
 	s *pulumi.ResourceState
 }

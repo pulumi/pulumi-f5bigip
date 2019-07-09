@@ -67,6 +67,8 @@ class ProfileFastL4(pulumi.CustomResource):
         :param pulumi.Input[str] keepalive_interval: Specifies the keep alive probe interval, in seconds. The default value is disabled (0 seconds).
         :param pulumi.Input[str] name: Name of the profile_fastl4
         :param pulumi.Input[str] partition: Displays the administrative partition within which this profile resides
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_profile_fastl4.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

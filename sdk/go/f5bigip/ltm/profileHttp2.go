@@ -11,6 +11,8 @@ import (
 // `bigip_ltm_profile_http2` Configures a custom profile_http2 for use by health checks.
 // 
 // For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_profile_http2.html.markdown.
 type ProfileHttp2 struct {
 	s *pulumi.ResourceState
 }

@@ -43,6 +43,8 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[list] requires: Specifies the protocol
         :param pulumi.Input[list] rules: Rules can be applied using the policy
         :param pulumi.Input[str] strategy: Specifies the match strategy
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_policy.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

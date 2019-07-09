@@ -78,6 +78,8 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] receive: Expected response string
         :param pulumi.Input[str] send: Request string to send
         :param pulumi.Input[float] timeout: Timeout in seconds
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_monitor.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

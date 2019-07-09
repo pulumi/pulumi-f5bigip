@@ -41,6 +41,8 @@ class DeviceGroup(pulumi.CustomResource):
         :param pulumi.Input[list] devices: Name of the device to be included in device group, this need to be configured before using devicegroup resource
         :param pulumi.Input[str] name: Is the name of the device Group
         :param pulumi.Input[str] type: Specifies if the device-group will be used for failover or resource syncing
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/cm_devicegroup.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

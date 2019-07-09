@@ -27,6 +27,8 @@ class PoolAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] node: Node to add to the pool in /Partition/NodeName:Port format (e.g. /Common/Node01:80)
         :param pulumi.Input[str] pool: Name of the pool in /Partition/Name format
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_pool_attachment.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

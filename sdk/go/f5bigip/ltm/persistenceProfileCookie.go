@@ -44,6 +44,8 @@ import (
 // `hash_offset` (Optional) (Integer) Number of characters to skip in the cookie for the hash
 // 
 // `httponly` (Optional) (enabled or disabled) Sending only over http
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_persistence_profile_cookie.html.markdown.
 type PersistenceProfileCookie struct {
 	s *pulumi.ResourceState
 }
