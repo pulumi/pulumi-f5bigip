@@ -101,6 +101,8 @@ class VirtualServer(pulumi.CustomResource):
         :param pulumi.Input[str] translate_port: Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
         :param pulumi.Input[list] vlans: The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.
         :param pulumi.Input[bool] vlans_enabled: Enables the virtual server on the VLANs specified by the VLANs option.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_virtual_server.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

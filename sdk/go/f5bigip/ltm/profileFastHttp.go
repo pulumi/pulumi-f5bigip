@@ -11,6 +11,8 @@ import (
 // `bigip_ltm_profile_fasthttp` Configures a custom profile_fasthttp for use by health checks.
 // 
 // For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_profile_fasthttp.html.markdown.
 type ProfileFastHttp struct {
 	s *pulumi.ResourceState
 }

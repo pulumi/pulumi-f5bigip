@@ -24,6 +24,8 @@ import * as utilities from "../utilities";
  *     search: ["f5.com"],
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/sys_dns.html.markdown.
  */
 export class Dns extends pulumi.CustomResource {
     /**

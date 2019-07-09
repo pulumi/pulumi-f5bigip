@@ -28,6 +28,8 @@ class Ntp(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] servers: Adds NTP servers to or deletes NTP servers from the BIG-IP system.
         :param pulumi.Input[str] timezone: Specifies the time zone that you want to use for the system time.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/sys_ntp.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

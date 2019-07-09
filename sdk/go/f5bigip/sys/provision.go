@@ -9,6 +9,8 @@ import (
 )
 
 // `bigip_sys_provision` provides details bout how to enable "ilx", "asm" "apm" resource on BIG-IP
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/sys_provision.html.markdown.
 type Provision struct {
 	s *pulumi.ResourceState
 }

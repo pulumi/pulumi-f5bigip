@@ -67,6 +67,8 @@ class ProfileTcp(pulumi.CustomResource):
         :param pulumi.Input[float] keepalive_interval: Specifies the keep alive probe interval, in seconds. The default value is 1800 seconds.
         :param pulumi.Input[str] name: Name of the profile_tcp
         :param pulumi.Input[str] partition: Displays the administrative partition within which this profile resides
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_profile_tcp.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

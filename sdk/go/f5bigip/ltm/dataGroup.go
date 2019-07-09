@@ -11,6 +11,8 @@ import (
 // `bigip_ltm_datagroup` Manages internal (in-line) datagroup configuration
 // 
 // Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-datagroup.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_datagroup.html.markdown.
 type DataGroup struct {
 	s *pulumi.ResourceState
 }

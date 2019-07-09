@@ -26,6 +26,8 @@ import * as utilities from "../utilities";
  *     vlans: ["test-vlan"],
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_snat.html.markdown.
  */
 export class Snat extends pulumi.CustomResource {
     /**

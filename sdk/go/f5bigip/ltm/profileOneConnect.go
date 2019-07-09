@@ -11,6 +11,8 @@ import (
 // `bigip_ltm_profile_oneconnect` Configures a custom profile_oneconnect for use by health checks.
 // 
 // For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_profile_oneconnect.html.markdown.
 type ProfileOneConnect struct {
 	s *pulumi.ResourceState
 }

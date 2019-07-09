@@ -75,6 +75,8 @@ class ProfileHttp(pulumi.CustomResource):
         :param pulumi.Input[str] insert_xforwarded_for: When using connection pooling, which allows clients to make use of other client requests' server-side connections, you can insert the X-Forwarded-For header and specify a client IP address
         :param pulumi.Input[str] name: Name of the profile_http
         :param pulumi.Input[str] oneconnect_transformations: Enables the system to perform HTTP header transformations for the purpose of  keeping server-side connections open. This feature requires configuration of a OneConnect profile
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_profile_http.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

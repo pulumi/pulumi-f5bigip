@@ -49,6 +49,8 @@ class Node(pulumi.CustomResource):
         :param pulumi.Input[str] monitor: specifies the name of the monitor or monitor rule that you want to associate with the node.
         :param pulumi.Input[str] name: Name of the node
         :param pulumi.Input[str] state: Default is "user-up" you can set to "user-down" if you want to disable
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_node.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

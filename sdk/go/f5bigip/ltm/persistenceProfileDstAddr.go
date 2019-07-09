@@ -27,6 +27,8 @@ import (
 // `timeout` (Optional) (enabled or disabled) Timeout for persistence of the session in seconds
 // 
 // `override_conn_limit` (Optional) (enabled or disabled) Enable or dissable pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_persistence_profile_dstaddr.html.markdown.
 type PersistenceProfileDstAddr struct {
 	s *pulumi.ResourceState
 }

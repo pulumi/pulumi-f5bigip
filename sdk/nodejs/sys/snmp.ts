@@ -19,6 +19,8 @@ import * as utilities from "../utilities";
  *     sysLocation: "SeattleHQ",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/sys_snmp.html.markdown.
  */
 export class Snmp extends pulumi.CustomResource {
     /**

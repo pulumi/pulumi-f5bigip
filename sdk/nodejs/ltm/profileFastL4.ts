@@ -29,6 +29,8 @@ import * as utilities from "../utilities";
  *     partition: "Common",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_profile_fastl4.html.markdown.
  */
 export class ProfileFastL4 extends pulumi.CustomResource {
     /**

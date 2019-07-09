@@ -21,6 +21,8 @@ import * as utilities from "../utilities";
  *     timezone: "America/Los_Angeles",
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/sys_ntp.html.markdown.
  */
 export class Ntp extends pulumi.CustomResource {
     /**

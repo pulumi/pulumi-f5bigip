@@ -29,6 +29,8 @@ import * as utilities from "../utilities";
  *     uriIncludes: ["www.xyzbc.cisco.com"],
  * });
  * ```
+ *
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_profile_httpcompress.html.markdown.
  */
 export class ProfileHttpCompress extends pulumi.CustomResource {
     /**

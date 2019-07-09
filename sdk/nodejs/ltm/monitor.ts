@@ -4,37 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * `bigip_ltm_monitor` Configures a custom monitor for use by health checks.
- * 
- * For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
- * 
- * ## Example Usage
- * 
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- * 
- * const monitor = new f5bigip.ltm.Monitor("monitor", {
- *     destination: "1.2.3.4:1234",
- *     interval: 999,
- *     name: "/Common/terraform_monitor",
- *     parent: "/Common/http",
- *     send: "GET /some/path\n",
- *     timeout: 999,
- * });
- * const test_ftp_monitor = new f5bigip.ltm.Monitor("test-ftp-monitor", {
- *     destination: "*:8008",
- *     filename: "somefile",
- *     interval: 5,
- *     name: "/Common/ftp-test",
- *     parent: "/Common/ftp",
- *     timeUntilUp: 0,
- *     timeout: 16,
- * });
- * ```
- */
 export class Monitor extends pulumi.CustomResource {
     /**
      * Get an existing Monitor resource's state with the given name, ID, and optional extra

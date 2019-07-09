@@ -31,6 +31,8 @@ class Dns(pulumi.CustomResource):
         :param pulumi.Input[list] name_servers: Name or IP address of the DNS server
         :param pulumi.Input[float] number_of_dots: Configures the number of dots needed in a name before an initial absolute query will be made.
         :param pulumi.Input[list] searches: Specify what domains you want to search
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/sys_dns.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

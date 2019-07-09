@@ -4,36 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * `bigip_ltm_virtual_server` Configures Virtual Server
- * 
- * For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
- * 
- * 
- * ## Example Usage
- * 
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- * 
- * const http = new f5bigip.ltm.VirtualServer("http", {
- *     destination: "10.12.12.12",
- *     name: "/Common/terraform_vs_http",
- *     pool: "/Common/the-default-pool",
- *     port: 80,
- * });
- * // A Virtual server with separate client and server profiles
- * const https = new f5bigip.ltm.VirtualServer("https", {
- *     clientProfiles: ["/Common/clientssl"],
- *     destination: "10.255.255.254",
- *     name: "/Common/terraform_vs_https",
- *     port: 443,
- *     serverProfiles: ["/Common/serverssl"],
- *     sourceAddressTranslation: "automap",
- * });
- * ```
- */
 export class VirtualServer extends pulumi.CustomResource {
     /**
      * Get an existing VirtualServer resource's state with the given name, ID, and optional extra

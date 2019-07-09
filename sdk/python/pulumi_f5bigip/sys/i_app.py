@@ -40,6 +40,8 @@ class IApp(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] jsonfile: Refer to the Json file which will be deployed on F5 BIG-IP.
         :param pulumi.Input[str] name: Name of the iApp.
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/sys_iapp.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

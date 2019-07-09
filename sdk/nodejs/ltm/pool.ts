@@ -4,31 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-/**
- * `bigip_ltm_pool` Manages a pool configuration.
- * 
- * Resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
- * 
- * 
- * ## Example Usage
- * 
- * 
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- * 
- * const pool = new f5bigip.ltm.Pool("pool", {
- *     allowNat: "yes",
- *     allowSnat: "yes",
- *     loadBalancingMode: "round-robin",
- *     monitors: [
- *         bigip_ltm_monitor_monitor.name,
- *         bigip_ltm_monitor_monitor2.name,
- *     ],
- *     name: "/Common/terraform-pool",
- * });
- * ```
- */
 export class Pool extends pulumi.CustomResource {
     /**
      * Get an existing Pool resource's state with the given name, ID, and optional extra
