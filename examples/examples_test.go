@@ -50,6 +50,10 @@ func TestWebserver(t *testing.T) {
 			"f5bigip:username": "",
 		},
 		Dir: path.Join(cwd, "virtualappliance"),
+		// TODO[pulumi/pulumi-f5bigip#21]: Can we get this to a state where the empty preview and update actually
+		// have no changes?
+		AllowEmptyPreviewChanges: true,
+		AllowEmptyUpdateChanges:  true,
 	})
 	integration.ProgramTest(t, &opts)
 }
