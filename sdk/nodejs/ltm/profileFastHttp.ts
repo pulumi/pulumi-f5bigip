@@ -145,6 +145,13 @@ export class ProfileFastHttp extends pulumi.CustomResource {
             inputs["maxheaderSize"] = args ? args.maxheaderSize : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ProfileFastHttp.__pulumiType, name, inputs, opts);
     }
 }

@@ -131,6 +131,13 @@ export class ProfileOneConnect extends pulumi.CustomResource {
             inputs["sharePools"] = args ? args.sharePools : undefined;
             inputs["sourceMask"] = args ? args.sourceMask : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ProfileOneConnect.__pulumiType, name, inputs, opts);
     }
 }

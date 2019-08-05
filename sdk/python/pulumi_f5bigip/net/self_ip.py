@@ -69,6 +69,10 @@ class SelfIp(pulumi.CustomResource):
             raise TypeError("Missing required property 'vlan'")
         __props__['vlan'] = vlan
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(SelfIp, __self__).__init__(
             'f5bigip:net/selfIp:SelfIp',
             resource_name,

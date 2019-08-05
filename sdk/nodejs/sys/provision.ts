@@ -107,6 +107,13 @@ export class Provision extends pulumi.CustomResource {
             inputs["memoryRatio"] = args ? args.memoryRatio : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Provision.__pulumiType, name, inputs, opts);
     }
 }

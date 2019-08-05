@@ -149,6 +149,10 @@ class ProfileHttp(pulumi.CustomResource):
 
         __props__['xff_alternative_names'] = xff_alternative_names
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(ProfileHttp, __self__).__init__(
             'f5bigip:ltm/profileHttp:ProfileHttp',
             resource_name,

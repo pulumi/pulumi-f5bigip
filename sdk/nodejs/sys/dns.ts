@@ -97,6 +97,13 @@ export class Dns extends pulumi.CustomResource {
             inputs["numberOfDots"] = args ? args.numberOfDots : undefined;
             inputs["searches"] = args ? args.searches : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Dns.__pulumiType, name, inputs, opts);
     }
 }

@@ -88,6 +88,13 @@ export class Ntp extends pulumi.CustomResource {
             inputs["servers"] = args ? args.servers : undefined;
             inputs["timezone"] = args ? args.timezone : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Ntp.__pulumiType, name, inputs, opts);
     }
 }

@@ -151,6 +151,13 @@ export class SnmpTraps extends pulumi.CustomResource {
             inputs["securityName"] = args ? args.securityName : undefined;
             inputs["version"] = args ? args.version : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(SnmpTraps.__pulumiType, name, inputs, opts);
     }
 }

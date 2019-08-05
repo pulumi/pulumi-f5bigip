@@ -114,6 +114,10 @@ class ProfileFastHttp(pulumi.CustomResource):
             raise TypeError("Missing required property 'name'")
         __props__['name'] = name
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(ProfileFastHttp, __self__).__init__(
             'f5bigip:ltm/profileFastHttp:ProfileFastHttp',
             resource_name,

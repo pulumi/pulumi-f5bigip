@@ -65,6 +65,13 @@ export class BigIpLicense extends pulumi.CustomResource {
             inputs["command"] = args ? args.command : undefined;
             inputs["registrationKey"] = args ? args.registrationKey : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(BigIpLicense.__pulumiType, name, inputs, opts);
     }
 }

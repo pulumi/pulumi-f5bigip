@@ -173,6 +173,13 @@ export class VirtualServer extends pulumi.CustomResource {
             inputs["vlans"] = args ? args.vlans : undefined;
             inputs["vlansEnabled"] = args ? args.vlansEnabled : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(VirtualServer.__pulumiType, name, inputs, opts);
     }
 }

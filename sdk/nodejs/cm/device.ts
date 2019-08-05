@@ -98,6 +98,13 @@ export class Device extends pulumi.CustomResource {
             inputs["mirrorSecondaryIp"] = args ? args.mirrorSecondaryIp : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Device.__pulumiType, name, inputs, opts);
     }
 }

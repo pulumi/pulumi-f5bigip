@@ -97,6 +97,10 @@ class PersistenceProfileSrcAddr(pulumi.CustomResource):
 
         __props__['timeout'] = timeout
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(PersistenceProfileSrcAddr, __self__).__init__(
             'f5bigip:ltm/persistenceProfileSrcAddr:PersistenceProfileSrcAddr',
             resource_name,

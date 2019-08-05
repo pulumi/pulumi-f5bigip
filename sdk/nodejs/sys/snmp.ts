@@ -83,6 +83,13 @@ export class Snmp extends pulumi.CustomResource {
             inputs["sysContact"] = args ? args.sysContact : undefined;
             inputs["sysLocation"] = args ? args.sysLocation : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Snmp.__pulumiType, name, inputs, opts);
     }
 }

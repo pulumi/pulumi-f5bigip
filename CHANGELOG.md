@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Update to pulumi-terraform@013b95b1c8
 
 ---
 

@@ -114,6 +114,13 @@ export class ProfileHttpCompress extends pulumi.CustomResource {
             inputs["uriExcludes"] = args ? args.uriExcludes : undefined;
             inputs["uriIncludes"] = args ? args.uriIncludes : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ProfileHttpCompress.__pulumiType, name, inputs, opts);
     }
 }

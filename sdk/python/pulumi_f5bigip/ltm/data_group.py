@@ -60,6 +60,10 @@ class DataGroup(pulumi.CustomResource):
             raise TypeError("Missing required property 'type'")
         __props__['type'] = type
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(DataGroup, __self__).__init__(
             'f5bigip:ltm/dataGroup:DataGroup',
             resource_name,

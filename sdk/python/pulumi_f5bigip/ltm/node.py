@@ -87,6 +87,10 @@ class Node(pulumi.CustomResource):
 
         __props__['state'] = state
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Node, __self__).__init__(
             'f5bigip:ltm/node:Node',
             resource_name,

@@ -144,6 +144,13 @@ export class Snat extends pulumi.CustomResource {
             inputs["vlans"] = args ? args.vlans : undefined;
             inputs["vlansdisabled"] = args ? args.vlansdisabled : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Snat.__pulumiType, name, inputs, opts);
     }
 }

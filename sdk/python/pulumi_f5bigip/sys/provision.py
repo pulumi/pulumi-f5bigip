@@ -53,6 +53,10 @@ class Provision(pulumi.CustomResource):
             raise TypeError("Missing required property 'name'")
         __props__['name'] = name
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Provision, __self__).__init__(
             'f5bigip:sys/provision:Provision',
             resource_name,

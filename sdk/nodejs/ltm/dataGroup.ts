@@ -102,6 +102,13 @@ export class DataGroup extends pulumi.CustomResource {
             inputs["records"] = args ? args.records : undefined;
             inputs["type"] = args ? args.type : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(DataGroup.__pulumiType, name, inputs, opts);
     }
 }

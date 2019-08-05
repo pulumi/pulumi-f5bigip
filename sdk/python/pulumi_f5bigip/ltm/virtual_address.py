@@ -93,6 +93,10 @@ class VirtualAddress(pulumi.CustomResource):
 
         __props__['traffic_group'] = traffic_group
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(VirtualAddress, __self__).__init__(
             'f5bigip:ltm/virtualAddress:VirtualAddress',
             resource_name,

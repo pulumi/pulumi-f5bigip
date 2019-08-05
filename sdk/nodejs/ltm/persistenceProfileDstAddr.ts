@@ -121,6 +121,13 @@ export class PersistenceProfileDstAddr extends pulumi.CustomResource {
             inputs["overrideConnLimit"] = args ? args.overrideConnLimit : undefined;
             inputs["timeout"] = args ? args.timeout : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(PersistenceProfileDstAddr.__pulumiType, name, inputs, opts);
     }
 }

@@ -119,6 +119,13 @@ export class VirtualAddress extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["trafficGroup"] = args ? args.trafficGroup : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(VirtualAddress.__pulumiType, name, inputs, opts);
     }
 }

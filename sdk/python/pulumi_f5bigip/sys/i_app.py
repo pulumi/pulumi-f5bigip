@@ -92,6 +92,10 @@ class IApp(pulumi.CustomResource):
 
         __props__['variables'] = variables
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(IApp, __self__).__init__(
             'f5bigip:sys/iApp:IApp',
             resource_name,

@@ -95,6 +95,10 @@ class SnmpTraps(pulumi.CustomResource):
 
         __props__['version'] = version
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(SnmpTraps, __self__).__init__(
             'f5bigip:sys/snmpTraps:SnmpTraps',
             resource_name,

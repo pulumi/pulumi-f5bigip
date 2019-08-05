@@ -101,6 +101,13 @@ export class Pool extends pulumi.CustomResource {
             inputs["serviceDownAction"] = args ? args.serviceDownAction : undefined;
             inputs["slowRampTime"] = args ? args.slowRampTime : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Pool.__pulumiType, name, inputs, opts);
     }
 }

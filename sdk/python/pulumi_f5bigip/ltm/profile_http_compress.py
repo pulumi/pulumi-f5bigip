@@ -80,6 +80,10 @@ class ProfileHttpCompress(pulumi.CustomResource):
 
         __props__['uri_includes'] = uri_includes
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(ProfileHttpCompress, __self__).__init__(
             'f5bigip:ltm/profileHttpCompress:ProfileHttpCompress',
             resource_name,

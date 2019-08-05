@@ -102,6 +102,13 @@ export class Node extends pulumi.CustomResource {
             inputs["rateLimit"] = args ? args.rateLimit : undefined;
             inputs["state"] = args ? args.state : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Node.__pulumiType, name, inputs, opts);
     }
 }

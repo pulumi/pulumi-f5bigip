@@ -108,6 +108,10 @@ class Snat(pulumi.CustomResource):
 
         __props__['vlansdisabled'] = vlansdisabled
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Snat, __self__).__init__(
             'f5bigip:ltm/snat:Snat',
             resource_name,

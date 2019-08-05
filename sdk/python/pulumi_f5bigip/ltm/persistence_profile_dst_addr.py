@@ -88,6 +88,10 @@ class PersistenceProfileDstAddr(pulumi.CustomResource):
 
         __props__['timeout'] = timeout
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(PersistenceProfileDstAddr, __self__).__init__(
             'f5bigip:ltm/persistenceProfileDstAddr:PersistenceProfileDstAddr',
             resource_name,

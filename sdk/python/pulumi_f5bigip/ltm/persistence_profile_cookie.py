@@ -123,6 +123,10 @@ class PersistenceProfileCookie(pulumi.CustomResource):
 
         __props__['timeout'] = timeout
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(PersistenceProfileCookie, __self__).__init__(
             'f5bigip:ltm/persistenceProfileCookie:PersistenceProfileCookie',
             resource_name,
