@@ -138,6 +138,13 @@ export class ProfileFastL4 extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["partition"] = args ? args.partition : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ProfileFastL4.__pulumiType, name, inputs, opts);
     }
 }

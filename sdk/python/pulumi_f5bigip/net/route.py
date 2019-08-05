@@ -56,6 +56,10 @@ class Route(pulumi.CustomResource):
             raise TypeError("Missing required property 'network'")
         __props__['network'] = network
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Route, __self__).__init__(
             'f5bigip:net/route:Route',
             resource_name,

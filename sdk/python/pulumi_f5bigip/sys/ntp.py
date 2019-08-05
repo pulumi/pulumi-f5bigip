@@ -54,6 +54,10 @@ class Ntp(pulumi.CustomResource):
 
         __props__['timezone'] = timezone
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Ntp, __self__).__init__(
             'f5bigip:sys/ntp:Ntp',
             resource_name,

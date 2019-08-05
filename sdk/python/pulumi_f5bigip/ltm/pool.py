@@ -69,6 +69,10 @@ class Pool(pulumi.CustomResource):
 
         __props__['slow_ramp_time'] = slow_ramp_time
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Pool, __self__).__init__(
             'f5bigip:ltm/pool:Pool',
             resource_name,

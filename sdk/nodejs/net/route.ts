@@ -93,6 +93,13 @@ export class Route extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["network"] = args ? args.network : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Route.__pulumiType, name, inputs, opts);
     }
 }

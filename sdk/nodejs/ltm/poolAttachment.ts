@@ -68,6 +68,13 @@ export class PoolAttachment extends pulumi.CustomResource {
             inputs["node"] = args ? args.node : undefined;
             inputs["pool"] = args ? args.pool : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(PoolAttachment.__pulumiType, name, inputs, opts);
     }
 }

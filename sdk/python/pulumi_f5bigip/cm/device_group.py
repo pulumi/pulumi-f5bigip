@@ -79,6 +79,10 @@ class DeviceGroup(pulumi.CustomResource):
 
         __props__['type'] = type
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(DeviceGroup, __self__).__init__(
             'f5bigip:cm/deviceGroup:DeviceGroup',
             resource_name,

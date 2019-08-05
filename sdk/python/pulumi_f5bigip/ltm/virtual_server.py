@@ -165,6 +165,10 @@ class VirtualServer(pulumi.CustomResource):
 
         __props__['vlans_enabled'] = vlans_enabled
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(VirtualServer, __self__).__init__(
             'f5bigip:ltm/virtualServer:VirtualServer',
             resource_name,

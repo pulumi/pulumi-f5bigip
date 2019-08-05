@@ -53,6 +53,10 @@ class PoolAttachment(pulumi.CustomResource):
             raise TypeError("Missing required property 'pool'")
         __props__['pool'] = pool
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(PoolAttachment, __self__).__init__(
             'f5bigip:ltm/poolAttachment:PoolAttachment',
             resource_name,

@@ -238,6 +238,13 @@ export class ProfileHttp extends pulumi.CustomResource {
             inputs["viaResponse"] = args ? args.viaResponse : undefined;
             inputs["xffAlternativeNames"] = args ? args.xffAlternativeNames : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ProfileHttp.__pulumiType, name, inputs, opts);
     }
 }

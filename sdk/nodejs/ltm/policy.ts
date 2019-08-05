@@ -102,6 +102,13 @@ export class Policy extends pulumi.CustomResource {
             inputs["rules"] = args ? args.rules : undefined;
             inputs["strategy"] = args ? args.strategy : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(Policy.__pulumiType, name, inputs, opts);
     }
 }

@@ -107,6 +107,10 @@ class ProfileFastL4(pulumi.CustomResource):
 
         __props__['partition'] = partition
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(ProfileFastL4, __self__).__init__(
             'f5bigip:ltm/profileFastL4:ProfileFastL4',
             resource_name,

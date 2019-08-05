@@ -87,6 +87,13 @@ export class SelfIp extends pulumi.CustomResource {
             inputs["trafficGroup"] = args ? args.trafficGroup : undefined;
             inputs["vlan"] = args ? args.vlan : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(SelfIp.__pulumiType, name, inputs, opts);
     }
 }

@@ -100,6 +100,10 @@ class ProfileOneConnect(pulumi.CustomResource):
 
         __props__['source_mask'] = source_mask
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(ProfileOneConnect, __self__).__init__(
             'f5bigip:ltm/profileOneConnect:ProfileOneConnect',
             resource_name,

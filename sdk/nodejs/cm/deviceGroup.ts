@@ -136,6 +136,13 @@ export class DeviceGroup extends pulumi.CustomResource {
             inputs["saveOnAutoSync"] = args ? args.saveOnAutoSync : undefined;
             inputs["type"] = args ? args.type : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(DeviceGroup.__pulumiType, name, inputs, opts);
     }
 }

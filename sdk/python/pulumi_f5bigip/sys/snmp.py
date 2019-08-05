@@ -54,6 +54,10 @@ class Snmp(pulumi.CustomResource):
 
         __props__['sys_location'] = sys_location
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Snmp, __self__).__init__(
             'f5bigip:sys/snmp:Snmp',
             resource_name,

@@ -41,6 +41,10 @@ class BigIpLicense(pulumi.CustomResource):
             raise TypeError("Missing required property 'registration_key'")
         __props__['registration_key'] = registration_key
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(BigIpLicense, __self__).__init__(
             'f5bigip:sys/bigIpLicense:BigIpLicense',
             resource_name,

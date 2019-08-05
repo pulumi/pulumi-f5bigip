@@ -72,6 +72,13 @@ export class IRule extends pulumi.CustomResource {
             inputs["irule"] = args ? args.irule : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(IRule.__pulumiType, name, inputs, opts);
     }
 }

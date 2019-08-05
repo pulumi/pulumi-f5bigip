@@ -112,6 +112,13 @@ export class ProfileHttp2 extends pulumi.CustomResource {
             inputs["headerTableSize"] = args ? args.headerTableSize : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
+        if (!opts) {
+            opts = {}
+        }
+
+        if (!opts.version) {
+            opts.version = utilities.getVersion();
+        }
         super(ProfileHttp2.__pulumiType, name, inputs, opts);
     }
 }

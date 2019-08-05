@@ -58,6 +58,10 @@ class Vlan(pulumi.CustomResource):
 
         __props__['tag'] = tag
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Vlan, __self__).__init__(
             'f5bigip:net/vlan:Vlan',
             resource_name,

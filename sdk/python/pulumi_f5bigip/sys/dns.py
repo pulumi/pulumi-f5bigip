@@ -59,6 +59,10 @@ class Dns(pulumi.CustomResource):
 
         __props__['searches'] = searches
 
+        if opts is None:
+            opts = pulumi.ResourceOptions()
+        if opts.version is None:
+            opts.version = utilities.get_version()
         super(Dns, __self__).__init__(
             'f5bigip:sys/dns:Dns',
             resource_name,
