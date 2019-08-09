@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * `bigip_sys_ntp` provides details about a specific bigip
+ * `f5bigip.sys.Ntp` provides details about a specific bigip
  * 
  * This resource is helpful when configuring NTP server on the BIG-IP.
  * ## Example Usage

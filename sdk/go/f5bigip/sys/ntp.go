@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// `bigip_sys_ntp` provides details about a specific bigip
+// `sys.Ntp` provides details about a specific bigip
 // 
 // This resource is helpful when configuring NTP server on the BIG-IP.
 //

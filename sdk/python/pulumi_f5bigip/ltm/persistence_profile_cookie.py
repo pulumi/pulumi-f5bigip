@@ -26,7 +26,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
     name: pulumi.Output[str]
     override_conn_limit: pulumi.Output[str]
     timeout: pulumi.Output[float]
-    def __init__(__self__, resource_name, opts=None, always_send=None, app_service=None, cookie_encryption=None, cookie_encryption_passphrase=None, cookie_name=None, defaults_from=None, expiration=None, hash_length=None, hash_offset=None, httponly=None, match_across_pools=None, match_across_services=None, match_across_virtuals=None, mirror=None, name=None, override_conn_limit=None, timeout=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, always_send=None, app_service=None, cookie_encryption=None, cookie_encryption_passphrase=None, cookie_name=None, defaults_from=None, expiration=None, hash_length=None, hash_offset=None, httponly=None, match_across_pools=None, match_across_services=None, match_across_virtuals=None, mirror=None, name=None, override_conn_limit=None, timeout=None, __props__=None, __name__=None, __opts__=None):
         """
         Configures a cookie persistence profile
         
@@ -76,64 +76,76 @@ class PersistenceProfileCookie(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['always_send'] = always_send
-
-        __props__['app_service'] = app_service
-
-        __props__['cookie_encryption'] = cookie_encryption
-
-        __props__['cookie_encryption_passphrase'] = cookie_encryption_passphrase
-
-        __props__['cookie_name'] = cookie_name
-
-        if defaults_from is None:
-            raise TypeError("Missing required property 'defaults_from'")
-        __props__['defaults_from'] = defaults_from
-
-        __props__['expiration'] = expiration
-
-        __props__['hash_length'] = hash_length
-
-        __props__['hash_offset'] = hash_offset
-
-        __props__['httponly'] = httponly
-
-        __props__['match_across_pools'] = match_across_pools
-
-        __props__['match_across_services'] = match_across_services
-
-        __props__['match_across_virtuals'] = match_across_virtuals
-
-        __props__['mirror'] = mirror
-
-        if name is None:
-            raise TypeError("Missing required property 'name'")
-        __props__['name'] = name
-
-        __props__['override_conn_limit'] = override_conn_limit
-
-        __props__['timeout'] = timeout
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['always_send'] = always_send
+            __props__['app_service'] = app_service
+            __props__['cookie_encryption'] = cookie_encryption
+            __props__['cookie_encryption_passphrase'] = cookie_encryption_passphrase
+            __props__['cookie_name'] = cookie_name
+            if defaults_from is None:
+                raise TypeError("Missing required property 'defaults_from'")
+            __props__['defaults_from'] = defaults_from
+            __props__['expiration'] = expiration
+            __props__['hash_length'] = hash_length
+            __props__['hash_offset'] = hash_offset
+            __props__['httponly'] = httponly
+            __props__['match_across_pools'] = match_across_pools
+            __props__['match_across_services'] = match_across_services
+            __props__['match_across_virtuals'] = match_across_virtuals
+            __props__['mirror'] = mirror
+            if name is None:
+                raise TypeError("Missing required property 'name'")
+            __props__['name'] = name
+            __props__['override_conn_limit'] = override_conn_limit
+            __props__['timeout'] = timeout
         super(PersistenceProfileCookie, __self__).__init__(
             'f5bigip:ltm/persistenceProfileCookie:PersistenceProfileCookie',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, always_send=None, app_service=None, cookie_encryption=None, cookie_encryption_passphrase=None, cookie_name=None, defaults_from=None, expiration=None, hash_length=None, hash_offset=None, httponly=None, match_across_pools=None, match_across_services=None, match_across_virtuals=None, mirror=None, name=None, override_conn_limit=None, timeout=None):
+        """
+        Get an existing PersistenceProfileCookie resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_persistence_profile_cookie.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["always_send"] = always_send
+        __props__["app_service"] = app_service
+        __props__["cookie_encryption"] = cookie_encryption
+        __props__["cookie_encryption_passphrase"] = cookie_encryption_passphrase
+        __props__["cookie_name"] = cookie_name
+        __props__["defaults_from"] = defaults_from
+        __props__["expiration"] = expiration
+        __props__["hash_length"] = hash_length
+        __props__["hash_offset"] = hash_offset
+        __props__["httponly"] = httponly
+        __props__["match_across_pools"] = match_across_pools
+        __props__["match_across_services"] = match_across_services
+        __props__["match_across_virtuals"] = match_across_virtuals
+        __props__["mirror"] = mirror
+        __props__["name"] = name
+        __props__["override_conn_limit"] = override_conn_limit
+        __props__["timeout"] = timeout
+        return PersistenceProfileCookie(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

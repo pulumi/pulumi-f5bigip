@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// `bigip_ltm_dns` Configures DNS server on F5 BIG-IP
+// `bigipLtmDns` Configures DNS server on F5 BIG-IP
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/sys_dns.html.markdown.
 type Dns struct {

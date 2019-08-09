@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * `bigip_ltm_profile_oneconnect` Configures a custom profile_oneconnect for use by health checks.
+ * `f5bigip.ltm.ProfileOneConnect` Configures a custom profileOneconnect for use by health checks.
  * 
  * For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
  * 
@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  * 
- * const oneconnect_sanjose = new f5bigip.ltm.ProfileOneConnect("oneconnect-sanjose", {
+ * const oneconnectSanjose = new f5bigip.ltm.ProfileOneConnect("oneconnect-sanjose", {
  *     defaultsFrom: "/Common/oneconnect",
  *     idleTimeoutOverride: "disabled",
  *     maxAge: 3600,

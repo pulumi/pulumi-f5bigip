@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * `bigip_ltm_snatpool` Collections of SNAT translation addresses
+ * `f5bigip.ltm.SnatPool` Collections of SNAT translation addresses
  * 
  * Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-snatpool. 
  * 
@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  * 
- * const snatpoolSanjose = new f5bigip.LtmSnatpoolpool("snatpool_sanjose", {
+ * const snatpoolSanjose = new f5bigip.LtmSnatpoolpool("snatpoolSanjose", {
  *     members: [
  *         "191.1.1.1",
  *         "194.2.2.2",

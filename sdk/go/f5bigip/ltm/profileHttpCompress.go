@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// `bigip_ltm_profile_httpcompress`  Virtual server HTTP compression profile configuration
+// `ltm.ProfileHttpCompress`  Virtual server HTTP compression profile configuration
 // 
 // 
 // For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.

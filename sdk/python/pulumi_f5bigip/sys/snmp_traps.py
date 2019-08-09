@@ -38,9 +38,9 @@ class SnmpTraps(pulumi.CustomResource):
     security_level: pulumi.Output[str]
     security_name: pulumi.Output[str]
     version: pulumi.Output[str]
-    def __init__(__self__, resource_name, opts=None, auth_passwordencrypted=None, auth_protocol=None, community=None, description=None, engine_id=None, host=None, name=None, port=None, privacy_password=None, privacy_password_encrypted=None, privacy_protocol=None, security_level=None, security_name=None, version=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, auth_passwordencrypted=None, auth_protocol=None, community=None, description=None, engine_id=None, host=None, name=None, port=None, privacy_password=None, privacy_password_encrypted=None, privacy_protocol=None, security_level=None, security_name=None, version=None, __props__=None, __name__=None, __opts__=None):
         """
-        `bigip_sys_snmp_traps` provides details bout how to enable snmp_traps resource on BIG-IP
+        `sys.SnmpTraps` provides details bout how to enable snmp_traps resource on BIG-IP
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -58,54 +58,71 @@ class SnmpTraps(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['auth_passwordencrypted'] = auth_passwordencrypted
-
-        __props__['auth_protocol'] = auth_protocol
-
-        __props__['community'] = community
-
-        __props__['description'] = description
-
-        __props__['engine_id'] = engine_id
-
-        __props__['host'] = host
-
-        __props__['name'] = name
-
-        __props__['port'] = port
-
-        __props__['privacy_password'] = privacy_password
-
-        __props__['privacy_password_encrypted'] = privacy_password_encrypted
-
-        __props__['privacy_protocol'] = privacy_protocol
-
-        __props__['security_level'] = security_level
-
-        __props__['security_name'] = security_name
-
-        __props__['version'] = version
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['auth_passwordencrypted'] = auth_passwordencrypted
+            __props__['auth_protocol'] = auth_protocol
+            __props__['community'] = community
+            __props__['description'] = description
+            __props__['engine_id'] = engine_id
+            __props__['host'] = host
+            __props__['name'] = name
+            __props__['port'] = port
+            __props__['privacy_password'] = privacy_password
+            __props__['privacy_password_encrypted'] = privacy_password_encrypted
+            __props__['privacy_protocol'] = privacy_protocol
+            __props__['security_level'] = security_level
+            __props__['security_name'] = security_name
+            __props__['version'] = version
         super(SnmpTraps, __self__).__init__(
             'f5bigip:sys/snmpTraps:SnmpTraps',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, auth_passwordencrypted=None, auth_protocol=None, community=None, description=None, engine_id=None, host=None, name=None, port=None, privacy_password=None, privacy_password_encrypted=None, privacy_protocol=None, security_level=None, security_name=None, version=None):
+        """
+        Get an existing SnmpTraps resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] community: Specifies the community string used for this trap.
+        :param pulumi.Input[str] description: The port that the trap will be sent to.
+        :param pulumi.Input[str] host: The host the trap will be sent to.
+        :param pulumi.Input[str] name: Name of the snmp trap.
+        :param pulumi.Input[float] port: User defined description.
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/sys_snmp_traps.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["auth_passwordencrypted"] = auth_passwordencrypted
+        __props__["auth_protocol"] = auth_protocol
+        __props__["community"] = community
+        __props__["description"] = description
+        __props__["engine_id"] = engine_id
+        __props__["host"] = host
+        __props__["name"] = name
+        __props__["port"] = port
+        __props__["privacy_password"] = privacy_password
+        __props__["privacy_password_encrypted"] = privacy_password_encrypted
+        __props__["privacy_protocol"] = privacy_protocol
+        __props__["security_level"] = security_level
+        __props__["security_name"] = security_name
+        __props__["version"] = version
+        return SnmpTraps(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

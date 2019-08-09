@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// `bigip_ltm_datagroup` Manages internal (in-line) datagroup configuration
+// `ltm.DataGroup` Manages internal (in-line) datagroup configuration
 // 
 // Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-datagroup.
 //

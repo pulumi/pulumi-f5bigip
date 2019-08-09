@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// `bigip_ltm_profile_fastl4` Configures a custom profile_fastl4 for use by health checks.
+// `ltm.ProfileFastL4` Configures a custom profileFastl4 for use by health checks.
 // 
 // For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 //
