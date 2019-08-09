@@ -31,9 +31,9 @@ class DeviceGroup(pulumi.CustomResource):
     """
     Specifies if the device-group will be used for failover or resource syncing
     """
-    def __init__(__self__, resource_name, opts=None, auto_sync=None, description=None, devices=None, full_load_on_sync=None, incremental_config=None, name=None, network_failover=None, partition=None, save_on_auto_sync=None, type=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, auto_sync=None, description=None, devices=None, full_load_on_sync=None, incremental_config=None, name=None, network_failover=None, partition=None, save_on_auto_sync=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
-        `bigip_cm_devicegroup` A device group is a collection of BIG-IP devices that are configured to securely synchronize their BIG-IP configuration data, and fail over when needed.
+        `cm.DeviceGroup` A device group is a collection of BIG-IP devices that are configured to securely synchronize their BIG-IP configuration data, and fail over when needed.
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -50,46 +50,62 @@ class DeviceGroup(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['auto_sync'] = auto_sync
-
-        __props__['description'] = description
-
-        __props__['devices'] = devices
-
-        __props__['full_load_on_sync'] = full_load_on_sync
-
-        __props__['incremental_config'] = incremental_config
-
-        __props__['name'] = name
-
-        __props__['network_failover'] = network_failover
-
-        __props__['partition'] = partition
-
-        __props__['save_on_auto_sync'] = save_on_auto_sync
-
-        __props__['type'] = type
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['auto_sync'] = auto_sync
+            __props__['description'] = description
+            __props__['devices'] = devices
+            __props__['full_load_on_sync'] = full_load_on_sync
+            __props__['incremental_config'] = incremental_config
+            __props__['name'] = name
+            __props__['network_failover'] = network_failover
+            __props__['partition'] = partition
+            __props__['save_on_auto_sync'] = save_on_auto_sync
+            __props__['type'] = type
         super(DeviceGroup, __self__).__init__(
             'f5bigip:cm/deviceGroup:DeviceGroup',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, auto_sync=None, description=None, devices=None, full_load_on_sync=None, incremental_config=None, name=None, network_failover=None, partition=None, save_on_auto_sync=None, type=None):
+        """
+        Get an existing DeviceGroup resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] auto_sync: Specifies if the device-group will automatically sync configuration data to its members
+        :param pulumi.Input[list] devices: Name of the device to be included in device group, this need to be configured before using devicegroup resource
+        :param pulumi.Input[str] name: Is the name of the device Group
+        :param pulumi.Input[str] type: Specifies if the device-group will be used for failover or resource syncing
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/cm_devicegroup.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["auto_sync"] = auto_sync
+        __props__["description"] = description
+        __props__["devices"] = devices
+        __props__["full_load_on_sync"] = full_load_on_sync
+        __props__["incremental_config"] = incremental_config
+        __props__["name"] = name
+        __props__["network_failover"] = network_failover
+        __props__["partition"] = partition
+        __props__["save_on_auto_sync"] = save_on_auto_sync
+        __props__["type"] = type
+        return DeviceGroup(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * `bigip_ltm_dns` Configures DNS server on F5 BIG-IP
+ * `bigipLtmDns` Configures DNS server on F5 BIG-IP
  * 
  * 
  * 

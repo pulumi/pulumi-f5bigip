@@ -35,9 +35,9 @@ class Node(pulumi.CustomResource):
     """
     Default is "user-up" you can set to "user-down" if you want to disable
     """
-    def __init__(__self__, resource_name, opts=None, address=None, connection_limit=None, dynamic_ratio=None, fqdn=None, monitor=None, name=None, rate_limit=None, state=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, address=None, connection_limit=None, dynamic_ratio=None, fqdn=None, monitor=None, name=None, rate_limit=None, state=None, __props__=None, __name__=None, __opts__=None):
         """
-        `bigip_ltm_node` Manages a node configuration
+        `ltm.Node` Manages a node configuration
         
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
         
@@ -58,46 +58,64 @@ class Node(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        if address is None:
-            raise TypeError("Missing required property 'address'")
-        __props__['address'] = address
-
-        __props__['connection_limit'] = connection_limit
-
-        __props__['dynamic_ratio'] = dynamic_ratio
-
-        __props__['fqdn'] = fqdn
-
-        __props__['monitor'] = monitor
-
-        if name is None:
-            raise TypeError("Missing required property 'name'")
-        __props__['name'] = name
-
-        __props__['rate_limit'] = rate_limit
-
-        __props__['state'] = state
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            if address is None:
+                raise TypeError("Missing required property 'address'")
+            __props__['address'] = address
+            __props__['connection_limit'] = connection_limit
+            __props__['dynamic_ratio'] = dynamic_ratio
+            __props__['fqdn'] = fqdn
+            __props__['monitor'] = monitor
+            if name is None:
+                raise TypeError("Missing required property 'name'")
+            __props__['name'] = name
+            __props__['rate_limit'] = rate_limit
+            __props__['state'] = state
         super(Node, __self__).__init__(
             'f5bigip:ltm/node:Node',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, address=None, connection_limit=None, dynamic_ratio=None, fqdn=None, monitor=None, name=None, rate_limit=None, state=None):
+        """
+        Get an existing Node resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] address: IP or hostname of the node
+        :param pulumi.Input[float] connection_limit: Specifies the maximum number of connections allowed for the node or node address.
+        :param pulumi.Input[float] dynamic_ratio: Specifies the fixed ratio value used for a node during ratio load balancing.
+        :param pulumi.Input[str] monitor: specifies the name of the monitor or monitor rule that you want to associate with the node.
+        :param pulumi.Input[str] name: Name of the node
+        :param pulumi.Input[str] state: Default is "user-up" you can set to "user-down" if you want to disable
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_node.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["address"] = address
+        __props__["connection_limit"] = connection_limit
+        __props__["dynamic_ratio"] = dynamic_ratio
+        __props__["fqdn"] = fqdn
+        __props__["monitor"] = monitor
+        __props__["name"] = name
+        __props__["rate_limit"] = rate_limit
+        __props__["state"] = state
+        return Node(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

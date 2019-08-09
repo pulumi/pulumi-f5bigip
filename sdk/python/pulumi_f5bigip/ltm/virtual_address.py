@@ -41,9 +41,9 @@ class VirtualAddress(pulumi.CustomResource):
     """
     Specify the partition and traffic group
     """
-    def __init__(__self__, resource_name, opts=None, advertize_route=None, arp=None, auto_delete=None, conn_limit=None, enabled=None, icmp_echo=None, name=None, traffic_group=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, advertize_route=None, arp=None, auto_delete=None, conn_limit=None, enabled=None, icmp_echo=None, name=None, traffic_group=None, __props__=None, __name__=None, __opts__=None):
         """
-        `bigip_ltm_virtual_address` Configures Virtual Server
+        `ltm.VirtualAddress` Configures Virtual Server
         
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
         
@@ -66,44 +66,64 @@ class VirtualAddress(pulumi.CustomResource):
         if __opts__ is not None:
             warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
             opts = __opts__
-        if not resource_name:
-            raise TypeError('Missing resource name argument (for URN creation)')
-        if not isinstance(resource_name, str):
-            raise TypeError('Expected resource name to be a string')
-        if opts and not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-
-        __props__ = dict()
-
-        __props__['advertize_route'] = advertize_route
-
-        __props__['arp'] = arp
-
-        __props__['auto_delete'] = auto_delete
-
-        __props__['conn_limit'] = conn_limit
-
-        __props__['enabled'] = enabled
-
-        __props__['icmp_echo'] = icmp_echo
-
-        if name is None:
-            raise TypeError("Missing required property 'name'")
-        __props__['name'] = name
-
-        __props__['traffic_group'] = traffic_group
-
         if opts is None:
             opts = pulumi.ResourceOptions()
+        if not isinstance(opts, pulumi.ResourceOptions):
+            raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
             opts.version = utilities.get_version()
+        if opts.id is None:
+            if __props__ is not None:
+                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
+            __props__ = dict()
+
+            __props__['advertize_route'] = advertize_route
+            __props__['arp'] = arp
+            __props__['auto_delete'] = auto_delete
+            __props__['conn_limit'] = conn_limit
+            __props__['enabled'] = enabled
+            __props__['icmp_echo'] = icmp_echo
+            if name is None:
+                raise TypeError("Missing required property 'name'")
+            __props__['name'] = name
+            __props__['traffic_group'] = traffic_group
         super(VirtualAddress, __self__).__init__(
             'f5bigip:ltm/virtualAddress:VirtualAddress',
             resource_name,
             __props__,
             opts)
 
+    @staticmethod
+    def get(resource_name, id, opts=None, advertize_route=None, arp=None, auto_delete=None, conn_limit=None, enabled=None, icmp_echo=None, name=None, traffic_group=None):
+        """
+        Get an existing VirtualAddress resource's state with the given name, id, and optional extra
+        properties used to qualify the lookup.
+        :param str resource_name: The unique name of the resulting resource.
+        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] advertize_route: Enabled dynamic routing of the address
+        :param pulumi.Input[bool] arp: Enable or disable ARP for the virtual address
+        :param pulumi.Input[bool] auto_delete: Automatically delete the virtual address with the virtual server
+        :param pulumi.Input[float] conn_limit: Max number of connections for virtual address
+        :param pulumi.Input[bool] enabled: Enable or disable the virtual address
+        :param pulumi.Input[bool] icmp_echo: Enable/Disable ICMP response to the virtual address
+        :param pulumi.Input[str] name: Name of the virtual address
+        :param pulumi.Input[str] traffic_group: Specify the partition and traffic group
 
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_virtual_address.html.markdown.
+        """
+        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+
+        __props__ = dict()
+        __props__["advertize_route"] = advertize_route
+        __props__["arp"] = arp
+        __props__["auto_delete"] = auto_delete
+        __props__["conn_limit"] = conn_limit
+        __props__["enabled"] = enabled
+        __props__["icmp_echo"] = icmp_echo
+        __props__["name"] = name
+        __props__["traffic_group"] = traffic_group
+        return VirtualAddress(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 

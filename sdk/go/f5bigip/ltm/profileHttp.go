@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// `bigip_ltm_profile_http` Configures a custom profile_http for use by health checks.
+// `ltm.ProfileHttp` Configures a custom profileHttp for use by health checks.
 // 
 // For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 //

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * `bigip_ltm_datagroup` Manages internal (in-line) datagroup configuration
+ * `f5bigip.ltm.DataGroup` Manages internal (in-line) datagroup configuration
  * 
  * Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-datagroup.
  * 

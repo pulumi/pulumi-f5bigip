@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// `bigip_ltm_pool_attachment` Manages nodes membership in pools
+// `ltm.PoolAttachment` Manages nodes membership in pools
 // 
 // Resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 //

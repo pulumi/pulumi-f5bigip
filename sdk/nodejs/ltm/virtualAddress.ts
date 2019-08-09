@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * `bigip_ltm_virtual_address` Configures Virtual Server
+ * `f5bigip.ltm.VirtualAddress` Configures Virtual Server
  * 
  * For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
  * 
@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  * 
- * const vsVa = new f5bigip.ltm.VirtualAddress("vs_va", {
+ * const vsVa = new f5bigip.ltm.VirtualAddress("vsVa", {
  *     advertizeRoute: true,
  *     name: "/Common/vs_va",
  * });

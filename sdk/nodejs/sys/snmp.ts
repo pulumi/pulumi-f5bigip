@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * `bigip_sys_snmp` provides details bout how to enable "ilx", "asm" "apm" resource on BIG-IP
+ * `f5bigip.sys.Snmp` provides details bout how to enable "ilx", "asm" "apm" resource on BIG-IP
  * ## Example Usage
  * 
  * 

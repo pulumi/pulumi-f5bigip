@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * `bigip_net_selfip` Manages a selfip configuration
+ * `f5bigip.net.SelfIp` Manages a selfip configuration
  * 
  * Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-selfip.
  *

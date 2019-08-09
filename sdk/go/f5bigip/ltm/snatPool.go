@@ -8,7 +8,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// `bigip_ltm_snatpool` Collections of SNAT translation addresses
+// `ltm.SnatPool` Collections of SNAT translation addresses
 // 
 // Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-snatpool. 
 //
