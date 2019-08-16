@@ -32,6 +32,7 @@ func NewVirtualServer(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["clientProfiles"] = nil
+		inputs["description"] = nil
 		inputs["destination"] = nil
 		inputs["fallbackPersistenceProfile"] = nil
 		inputs["ipProtocol"] = nil
@@ -53,6 +54,7 @@ func NewVirtualServer(ctx *pulumi.Context,
 		inputs["vlansEnabled"] = nil
 	} else {
 		inputs["clientProfiles"] = args.ClientProfiles
+		inputs["description"] = args.Description
 		inputs["destination"] = args.Destination
 		inputs["fallbackPersistenceProfile"] = args.FallbackPersistenceProfile
 		inputs["ipProtocol"] = args.IpProtocol
@@ -87,6 +89,7 @@ func GetVirtualServer(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["clientProfiles"] = state.ClientProfiles
+		inputs["description"] = state.Description
 		inputs["destination"] = state.Destination
 		inputs["fallbackPersistenceProfile"] = state.FallbackPersistenceProfile
 		inputs["ipProtocol"] = state.IpProtocol
@@ -127,6 +130,11 @@ func (r *VirtualServer) ID() *pulumi.IDOutput {
 // List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
 func (r *VirtualServer) ClientProfiles() *pulumi.ArrayOutput {
 	return (*pulumi.ArrayOutput)(r.s.State["clientProfiles"])
+}
+
+// Description of Virtual server
+func (r *VirtualServer) Description() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Destination IP
@@ -226,6 +234,8 @@ func (r *VirtualServer) VlansEnabled() *pulumi.BoolOutput {
 type VirtualServerState struct {
 	// List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
 	ClientProfiles interface{}
+	// Description of Virtual server
+	Description interface{}
 	// Destination IP
 	Destination interface{}
 	// Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
@@ -268,6 +278,8 @@ type VirtualServerState struct {
 type VirtualServerArgs struct {
 	// List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
 	ClientProfiles interface{}
+	// Description of Virtual server
+	Description interface{}
 	// Destination IP
 	Destination interface{}
 	// Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.

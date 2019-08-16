@@ -27,6 +27,7 @@ func NewPool(ctx *pulumi.Context,
 	if args == nil {
 		inputs["allowNat"] = nil
 		inputs["allowSnat"] = nil
+		inputs["description"] = nil
 		inputs["loadBalancingMode"] = nil
 		inputs["monitors"] = nil
 		inputs["name"] = nil
@@ -36,6 +37,7 @@ func NewPool(ctx *pulumi.Context,
 	} else {
 		inputs["allowNat"] = args.AllowNat
 		inputs["allowSnat"] = args.AllowSnat
+		inputs["description"] = args.Description
 		inputs["loadBalancingMode"] = args.LoadBalancingMode
 		inputs["monitors"] = args.Monitors
 		inputs["name"] = args.Name
@@ -58,6 +60,7 @@ func GetPool(ctx *pulumi.Context,
 	if state != nil {
 		inputs["allowNat"] = state.AllowNat
 		inputs["allowSnat"] = state.AllowSnat
+		inputs["description"] = state.Description
 		inputs["loadBalancingMode"] = state.LoadBalancingMode
 		inputs["monitors"] = state.Monitors
 		inputs["name"] = state.Name
@@ -90,6 +93,11 @@ func (r *Pool) AllowNat() *pulumi.StringOutput {
 // Allow SNAT
 func (r *Pool) AllowSnat() *pulumi.StringOutput {
 	return (*pulumi.StringOutput)(r.s.State["allowSnat"])
+}
+
+// Userdefined value to describe the pool 
+func (r *Pool) Description() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Possible values: round-robin, ...
@@ -128,6 +136,8 @@ type PoolState struct {
 	AllowNat interface{}
 	// Allow SNAT
 	AllowSnat interface{}
+	// Userdefined value to describe the pool 
+	Description interface{}
 	// Possible values: round-robin, ...
 	LoadBalancingMode interface{}
 	// List of monitor names to associate with the pool
@@ -148,6 +158,8 @@ type PoolArgs struct {
 	AllowNat interface{}
 	// Allow SNAT
 	AllowSnat interface{}
+	// Userdefined value to describe the pool 
+	Description interface{}
 	// Possible values: round-robin, ...
 	LoadBalancingMode interface{}
 	// List of monitor names to associate with the pool

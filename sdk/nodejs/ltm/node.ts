@@ -43,6 +43,10 @@ export class Node extends pulumi.CustomResource {
      */
     public readonly connectionLimit!: pulumi.Output<number>;
     /**
+     * User-defined description give ltm_node
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the fixed ratio value used for a node during ratio load balancing.
      */
     public readonly dynamicRatio!: pulumi.Output<number>;
@@ -50,7 +54,7 @@ export class Node extends pulumi.CustomResource {
     /**
      * specifies the name of the monitor or monitor rule that you want to associate with the node.
      */
-    public readonly monitor!: pulumi.Output<string>;
+    public readonly monitor!: pulumi.Output<string | undefined>;
     /**
      * Name of the node
      */
@@ -63,7 +67,7 @@ export class Node extends pulumi.CustomResource {
     /**
      * Default is "user-up" you can set to "user-down" if you want to disable
      */
-    public readonly state!: pulumi.Output<string>;
+    public readonly state!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Node resource with the given unique name, arguments, and options.
@@ -79,6 +83,7 @@ export class Node extends pulumi.CustomResource {
             const state = argsOrState as NodeState | undefined;
             inputs["address"] = state ? state.address : undefined;
             inputs["connectionLimit"] = state ? state.connectionLimit : undefined;
+            inputs["description"] = state ? state.description : undefined;
             inputs["dynamicRatio"] = state ? state.dynamicRatio : undefined;
             inputs["fqdn"] = state ? state.fqdn : undefined;
             inputs["monitor"] = state ? state.monitor : undefined;
@@ -95,6 +100,7 @@ export class Node extends pulumi.CustomResource {
             }
             inputs["address"] = args ? args.address : undefined;
             inputs["connectionLimit"] = args ? args.connectionLimit : undefined;
+            inputs["description"] = args ? args.description : undefined;
             inputs["dynamicRatio"] = args ? args.dynamicRatio : undefined;
             inputs["fqdn"] = args ? args.fqdn : undefined;
             inputs["monitor"] = args ? args.monitor : undefined;
@@ -125,6 +131,10 @@ export interface NodeState {
      * Specifies the maximum number of connections allowed for the node or node address.
      */
     readonly connectionLimit?: pulumi.Input<number>;
+    /**
+     * User-defined description give ltm_node
+     */
+    readonly description?: pulumi.Input<string>;
     /**
      * Specifies the fixed ratio value used for a node during ratio load balancing.
      */
@@ -161,6 +171,10 @@ export interface NodeArgs {
      * Specifies the maximum number of connections allowed for the node or node address.
      */
     readonly connectionLimit?: pulumi.Input<number>;
+    /**
+     * User-defined description give ltm_node
+     */
+    readonly description?: pulumi.Input<string>;
     /**
      * Specifies the fixed ratio value used for a node during ratio load balancing.
      */

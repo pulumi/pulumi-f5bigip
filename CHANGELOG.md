@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-___NULL___
+* Upgrade to v0.12.4 of the BigIP Terraform Provider
 
 ---
 

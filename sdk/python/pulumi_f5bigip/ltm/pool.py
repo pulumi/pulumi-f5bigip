@@ -11,6 +11,10 @@ from .. import utilities, tables
 class Pool(pulumi.CustomResource):
     allow_nat: pulumi.Output[str]
     allow_snat: pulumi.Output[str]
+    description: pulumi.Output[str]
+    """
+    Userdefined value to describe the pool 
+    """
     load_balancing_mode: pulumi.Output[str]
     monitors: pulumi.Output[list]
     """
@@ -23,7 +27,7 @@ class Pool(pulumi.CustomResource):
     reselect_tries: pulumi.Output[float]
     service_down_action: pulumi.Output[str]
     slow_ramp_time: pulumi.Output[float]
-    def __init__(__self__, resource_name, opts=None, allow_nat=None, allow_snat=None, load_balancing_mode=None, monitors=None, name=None, reselect_tries=None, service_down_action=None, slow_ramp_time=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, allow_nat=None, allow_snat=None, description=None, load_balancing_mode=None, monitors=None, name=None, reselect_tries=None, service_down_action=None, slow_ramp_time=None, __props__=None, __name__=None, __opts__=None):
         """
         `ltm.Pool` Manages a pool configuration.
         
@@ -31,6 +35,7 @@ class Pool(pulumi.CustomResource):
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: Userdefined value to describe the pool 
         :param pulumi.Input[list] monitors: List of monitor names to associate with the pool
         :param pulumi.Input[str] name: Name of the pool
 
@@ -55,6 +60,7 @@ class Pool(pulumi.CustomResource):
 
             __props__['allow_nat'] = allow_nat
             __props__['allow_snat'] = allow_snat
+            __props__['description'] = description
             __props__['load_balancing_mode'] = load_balancing_mode
             __props__['monitors'] = monitors
             if name is None:
@@ -70,13 +76,14 @@ class Pool(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, allow_nat=None, allow_snat=None, load_balancing_mode=None, monitors=None, name=None, reselect_tries=None, service_down_action=None, slow_ramp_time=None):
+    def get(resource_name, id, opts=None, allow_nat=None, allow_snat=None, description=None, load_balancing_mode=None, monitors=None, name=None, reselect_tries=None, service_down_action=None, slow_ramp_time=None):
         """
         Get an existing Pool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: Userdefined value to describe the pool 
         :param pulumi.Input[list] monitors: List of monitor names to associate with the pool
         :param pulumi.Input[str] name: Name of the pool
 
@@ -87,6 +94,7 @@ class Pool(pulumi.CustomResource):
         __props__ = dict()
         __props__["allow_nat"] = allow_nat
         __props__["allow_snat"] = allow_snat
+        __props__["description"] = description
         __props__["load_balancing_mode"] = load_balancing_mode
         __props__["monitors"] = monitors
         __props__["name"] = name

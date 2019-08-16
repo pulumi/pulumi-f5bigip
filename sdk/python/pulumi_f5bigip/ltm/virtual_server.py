@@ -13,6 +13,10 @@ class VirtualServer(pulumi.CustomResource):
     """
     List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
     """
+    description: pulumi.Output[str]
+    """
+    Description of Virtual server
+    """
     destination: pulumi.Output[str]
     """
     Destination IP
@@ -77,7 +81,7 @@ class VirtualServer(pulumi.CustomResource):
     """
     Enables the virtual server on the VLANs specified by the VLANs option.
     """
-    def __init__(__self__, resource_name, opts=None, client_profiles=None, destination=None, fallback_persistence_profile=None, ip_protocol=None, irules=None, mask=None, name=None, persistence_profiles=None, policies=None, pool=None, port=None, profiles=None, server_profiles=None, snatpool=None, source=None, source_address_translation=None, translate_address=None, translate_port=None, vlans=None, vlans_enabled=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, client_profiles=None, description=None, destination=None, fallback_persistence_profile=None, ip_protocol=None, irules=None, mask=None, name=None, persistence_profiles=None, policies=None, pool=None, port=None, profiles=None, server_profiles=None, snatpool=None, source=None, source_address_translation=None, translate_address=None, translate_port=None, vlans=None, vlans_enabled=None, __props__=None, __name__=None, __opts__=None):
         """
         `ltm.VirtualServer` Configures Virtual Server
         
@@ -86,6 +90,7 @@ class VirtualServer(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] client_profiles: List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
+        :param pulumi.Input[str] description: Description of Virtual server
         :param pulumi.Input[str] destination: Destination IP
         :param pulumi.Input[str] fallback_persistence_profile: Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
         :param pulumi.Input[str] mask: Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
@@ -122,6 +127,7 @@ class VirtualServer(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['client_profiles'] = client_profiles
+            __props__['description'] = description
             if destination is None:
                 raise TypeError("Missing required property 'destination'")
             __props__['destination'] = destination
@@ -154,7 +160,7 @@ class VirtualServer(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, client_profiles=None, destination=None, fallback_persistence_profile=None, ip_protocol=None, irules=None, mask=None, name=None, persistence_profiles=None, policies=None, pool=None, port=None, profiles=None, server_profiles=None, snatpool=None, source=None, source_address_translation=None, translate_address=None, translate_port=None, vlans=None, vlans_enabled=None):
+    def get(resource_name, id, opts=None, client_profiles=None, description=None, destination=None, fallback_persistence_profile=None, ip_protocol=None, irules=None, mask=None, name=None, persistence_profiles=None, policies=None, pool=None, port=None, profiles=None, server_profiles=None, snatpool=None, source=None, source_address_translation=None, translate_address=None, translate_port=None, vlans=None, vlans_enabled=None):
         """
         Get an existing VirtualServer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -162,6 +168,7 @@ class VirtualServer(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] client_profiles: List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
+        :param pulumi.Input[str] description: Description of Virtual server
         :param pulumi.Input[str] destination: Destination IP
         :param pulumi.Input[str] fallback_persistence_profile: Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
         :param pulumi.Input[str] mask: Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
@@ -184,6 +191,7 @@ class VirtualServer(pulumi.CustomResource):
 
         __props__ = dict()
         __props__["client_profiles"] = client_profiles
+        __props__["description"] = description
         __props__["destination"] = destination
         __props__["fallback_persistence_profile"] = fallback_persistence_profile
         __props__["ip_protocol"] = ip_protocol

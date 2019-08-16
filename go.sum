@@ -160,6 +160,8 @@ github.com/f5devcentral/go-bigip v0.0.0-20190402212725-071d11dbe258 h1:MVJHMpTOz
 github.com/f5devcentral/go-bigip v0.0.0-20190402212725-071d11dbe258/go.mod h1:JZj/iVxDmEnGPyEwuNj7x0fuH2CtUBbD2J48MMp/SE8=
 github.com/f5devcentral/go-bigip v0.0.0-20190501191628-90a141f856d1 h1:KUsCxFbh6QfIvpAjD16LKvYXjALFDqx1uJWp++qHrw8=
 github.com/f5devcentral/go-bigip v0.0.0-20190501191628-90a141f856d1/go.mod h1:JZj/iVxDmEnGPyEwuNj7x0fuH2CtUBbD2J48MMp/SE8=
+github.com/f5devcentral/go-bigip v0.0.0-20190813232614-cb399c531a76 h1:ByEsHgPSS0vZJVut1PhCeBUGWuzCNwF30BYKI15AgDU=
+github.com/f5devcentral/go-bigip v0.0.0-20190813232614-cb399c531a76/go.mod h1:JZj/iVxDmEnGPyEwuNj7x0fuH2CtUBbD2J48MMp/SE8=
 github.com/fatih/color v1.7.0 h1:DkWD4oS2D8LGGgTQ6IvwJJXSL5Vp2ffcQg58nFV38Ys=
 github.com/fatih/color v1.7.0/go.mod h1:Zm6kSWBoL9eyXnKyktHP6abPY2pDugNf5KwzbycvMj4=
 github.com/flynn/go-shlex v0.0.0-20150515145356-3f9db97f8568/go.mod h1:xEzjJPgXI435gkrCt3MPfRiAkVrwSbHsst4LCFVfpJc=
@@ -285,6 +287,7 @@ github.com/hashicorp/go-plugin v0.0.0-20190212232519-b838ffee39ce/go.mod h1:++Uy
 github.com/hashicorp/go-plugin v0.0.0-20190322172744-52e1c4730856/go.mod h1:++UyYGoz3o5w9ZzAdZxtQKrWWP+iqPBn3cQptSMzBuY=
 github.com/hashicorp/go-plugin v1.0.1-0.20190430211030-5692942914bb h1:Zg2pmmk0lrLFL85lQGt08bOUBpIBaVs6/psiAyx0c4w=
 github.com/hashicorp/go-plugin v1.0.1-0.20190430211030-5692942914bb/go.mod h1:++UyYGoz3o5w9ZzAdZxtQKrWWP+iqPBn3cQptSMzBuY=
+github.com/hashicorp/go-plugin v1.0.1-0.20190610192547-a1bc61569a26 h1:hRho44SAoNu1CBtn5r8Q9J3rCs4ZverWZ4R+UeeNuWM=
 github.com/hashicorp/go-plugin v1.0.1-0.20190610192547-a1bc61569a26/go.mod h1:++UyYGoz3o5w9ZzAdZxtQKrWWP+iqPBn3cQptSMzBuY=
 github.com/hashicorp/go-retryablehttp v0.5.1/go.mod h1:9B5zBasrRhHXnJnui7y6sL7es7NDiJgTc6Er0maI1Xs=
 github.com/hashicorp/go-retryablehttp v0.5.2/go.mod h1:9B5zBasrRhHXnJnui7y6sL7es7NDiJgTc6Er0maI1Xs=
@@ -624,6 +627,8 @@ github.com/terraform-providers/terraform-provider-bigip v0.12.2 h1:3FeovrScnmdAr
 github.com/terraform-providers/terraform-provider-bigip v0.12.2/go.mod h1:h4pckwEk0saMfTI6MNn+BTKf2E8AIgk0Z4Nql/Qqdl4=
 github.com/terraform-providers/terraform-provider-bigip v0.12.3 h1:+2st4+2jQWTTIByQOP+/MBcQpJ6fgG0xIRZgxlOD/Yc=
 github.com/terraform-providers/terraform-provider-bigip v0.12.3/go.mod h1:TfpGKxCKDPeo7GDubJir0lbzehIGf+awIZKppfDLwxY=
+github.com/terraform-providers/terraform-provider-bigip v0.12.4 h1:Dr32VaISQVmb/uqqvMv/fPBzA4AqBFJjB1dWrLgw4Y0=
+github.com/terraform-providers/terraform-provider-bigip v0.12.4/go.mod h1:658HrgIcqBR90guJa4XFc1U1rRwU2vrFBpIusphhHv4=
 github.com/terraform-providers/terraform-provider-openstack v1.15.0/go.mod h1:2aQ6n/BtChAl1y2S60vebhyJyZXBsuAI5G4+lHrT1Ew=
 github.com/texttheater/golang-levenshtein v0.0.0-20180516184445-d188e65d659e h1:T5PdfK/M1xyrHwynxMIVMWLS7f/qHwfslZphxtGnw7s=
 github.com/texttheater/golang-levenshtein v0.0.0-20180516184445-d188e65d659e/go.mod h1:XDKHRm5ThF8YJjx001LtgelzsoaEcvnA7lVWz9EeX3g=

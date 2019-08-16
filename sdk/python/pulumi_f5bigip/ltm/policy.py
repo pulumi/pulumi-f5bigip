@@ -63,18 +63,12 @@ class Policy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if controls is None:
-                raise TypeError("Missing required property 'controls'")
             __props__['controls'] = controls
             if name is None:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['published_copy'] = published_copy
-            if requires is None:
-                raise TypeError("Missing required property 'requires'")
             __props__['requires'] = requires
-            if rules is None:
-                raise TypeError("Missing required property 'rules'")
             __props__['rules'] = rules
             __props__['strategy'] = strategy
         super(Policy, __self__).__init__(
