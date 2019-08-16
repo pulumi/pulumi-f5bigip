@@ -21,7 +21,7 @@ require (
 	github.com/pulumi/pulumi-terraform v0.18.4-0.20190809001837-9db2fc93cdf5
 	github.com/smartystreets/assertions v0.0.0-20190116191733-b6c0e53d7304 // indirect
 	github.com/stretchr/testify v1.3.1-0.20190311161405-34c6fa2dc709
-	github.com/terraform-providers/terraform-provider-bigip v0.12.3
+	github.com/terraform-providers/terraform-provider-bigip v0.12.4
 	golang.org/x/build v0.0.0-20190314133821-5284462c4bec // indirect
 	gopkg.in/vmihailenco/msgpack.v2 v2.9.1 // indirect
 )
