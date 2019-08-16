@@ -43,6 +43,10 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly allowSnat!: pulumi.Output<string>;
     /**
+     * Userdefined value to describe the pool 
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
      * Possible values: round-robin, ...
      */
     public readonly loadBalancingMode!: pulumi.Output<string>;
@@ -81,6 +85,7 @@ export class Pool extends pulumi.CustomResource {
             const state = argsOrState as PoolState | undefined;
             inputs["allowNat"] = state ? state.allowNat : undefined;
             inputs["allowSnat"] = state ? state.allowSnat : undefined;
+            inputs["description"] = state ? state.description : undefined;
             inputs["loadBalancingMode"] = state ? state.loadBalancingMode : undefined;
             inputs["monitors"] = state ? state.monitors : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -94,6 +99,7 @@ export class Pool extends pulumi.CustomResource {
             }
             inputs["allowNat"] = args ? args.allowNat : undefined;
             inputs["allowSnat"] = args ? args.allowSnat : undefined;
+            inputs["description"] = args ? args.description : undefined;
             inputs["loadBalancingMode"] = args ? args.loadBalancingMode : undefined;
             inputs["monitors"] = args ? args.monitors : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -124,6 +130,10 @@ export interface PoolState {
      * Allow SNAT
      */
     readonly allowSnat?: pulumi.Input<string>;
+    /**
+     * Userdefined value to describe the pool 
+     */
+    readonly description?: pulumi.Input<string>;
     /**
      * Possible values: round-robin, ...
      */
@@ -162,6 +172,10 @@ export interface PoolArgs {
      * Allow SNAT
      */
     readonly allowSnat?: pulumi.Input<string>;
+    /**
+     * Userdefined value to describe the pool 
+     */
+    readonly description?: pulumi.Input<string>;
     /**
      * Possible values: round-robin, ...
      */

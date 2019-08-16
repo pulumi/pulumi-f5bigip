@@ -20,17 +20,8 @@ type Policy struct {
 // NewPolicy registers a new resource with the given unique name, arguments, and options.
 func NewPolicy(ctx *pulumi.Context,
 	name string, args *PolicyArgs, opts ...pulumi.ResourceOpt) (*Policy, error) {
-	if args == nil || args.Controls == nil {
-		return nil, errors.New("missing required argument 'Controls'")
-	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.Requires == nil {
-		return nil, errors.New("missing required argument 'Requires'")
-	}
-	if args == nil || args.Rules == nil {
-		return nil, errors.New("missing required argument 'Rules'")
 	}
 	inputs := make(map[string]interface{})
 	if args == nil {

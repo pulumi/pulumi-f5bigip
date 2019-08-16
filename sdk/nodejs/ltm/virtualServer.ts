@@ -39,6 +39,10 @@ export class VirtualServer extends pulumi.CustomResource {
      */
     public readonly clientProfiles!: pulumi.Output<string[]>;
     /**
+     * Description of Virtual server
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
      * Destination IP
      */
     public readonly destination!: pulumi.Output<string>;
@@ -122,6 +126,7 @@ export class VirtualServer extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as VirtualServerState | undefined;
             inputs["clientProfiles"] = state ? state.clientProfiles : undefined;
+            inputs["description"] = state ? state.description : undefined;
             inputs["destination"] = state ? state.destination : undefined;
             inputs["fallbackPersistenceProfile"] = state ? state.fallbackPersistenceProfile : undefined;
             inputs["ipProtocol"] = state ? state.ipProtocol : undefined;
@@ -153,6 +158,7 @@ export class VirtualServer extends pulumi.CustomResource {
                 throw new Error("Missing required property 'port'");
             }
             inputs["clientProfiles"] = args ? args.clientProfiles : undefined;
+            inputs["description"] = args ? args.description : undefined;
             inputs["destination"] = args ? args.destination : undefined;
             inputs["fallbackPersistenceProfile"] = args ? args.fallbackPersistenceProfile : undefined;
             inputs["ipProtocol"] = args ? args.ipProtocol : undefined;
@@ -192,6 +198,10 @@ export interface VirtualServerState {
      * List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
      */
     readonly clientProfiles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Description of Virtual server
+     */
+    readonly description?: pulumi.Input<string>;
     /**
      * Destination IP
      */
@@ -272,6 +282,10 @@ export interface VirtualServerArgs {
      * List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
      */
     readonly clientProfiles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Description of Virtual server
+     */
+    readonly description?: pulumi.Input<string>;
     /**
      * Destination IP
      */

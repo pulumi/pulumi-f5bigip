@@ -30,6 +30,7 @@ func NewNode(ctx *pulumi.Context,
 	if args == nil {
 		inputs["address"] = nil
 		inputs["connectionLimit"] = nil
+		inputs["description"] = nil
 		inputs["dynamicRatio"] = nil
 		inputs["fqdn"] = nil
 		inputs["monitor"] = nil
@@ -39,6 +40,7 @@ func NewNode(ctx *pulumi.Context,
 	} else {
 		inputs["address"] = args.Address
 		inputs["connectionLimit"] = args.ConnectionLimit
+		inputs["description"] = args.Description
 		inputs["dynamicRatio"] = args.DynamicRatio
 		inputs["fqdn"] = args.Fqdn
 		inputs["monitor"] = args.Monitor
@@ -61,6 +63,7 @@ func GetNode(ctx *pulumi.Context,
 	if state != nil {
 		inputs["address"] = state.Address
 		inputs["connectionLimit"] = state.ConnectionLimit
+		inputs["description"] = state.Description
 		inputs["dynamicRatio"] = state.DynamicRatio
 		inputs["fqdn"] = state.Fqdn
 		inputs["monitor"] = state.Monitor
@@ -93,6 +96,11 @@ func (r *Node) Address() *pulumi.StringOutput {
 // Specifies the maximum number of connections allowed for the node or node address.
 func (r *Node) ConnectionLimit() *pulumi.IntOutput {
 	return (*pulumi.IntOutput)(r.s.State["connectionLimit"])
+}
+
+// User-defined description give ltm_node
+func (r *Node) Description() *pulumi.StringOutput {
+	return (*pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Specifies the fixed ratio value used for a node during ratio load balancing.
@@ -131,6 +139,8 @@ type NodeState struct {
 	Address interface{}
 	// Specifies the maximum number of connections allowed for the node or node address.
 	ConnectionLimit interface{}
+	// User-defined description give ltm_node
+	Description interface{}
 	// Specifies the fixed ratio value used for a node during ratio load balancing.
 	DynamicRatio interface{}
 	Fqdn interface{}
@@ -151,6 +161,8 @@ type NodeArgs struct {
 	Address interface{}
 	// Specifies the maximum number of connections allowed for the node or node address.
 	ConnectionLimit interface{}
+	// User-defined description give ltm_node
+	Description interface{}
 	// Specifies the fixed ratio value used for a node during ratio load balancing.
 	DynamicRatio interface{}
 	Fqdn interface{}
