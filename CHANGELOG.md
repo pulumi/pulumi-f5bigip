@@ -2,9 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v0.12.4 of the BigIP Terraform Provider
+_(none)_
 
 ---
+
+## 0.2.9 (2019-08-20)
+* Upgrade to v0.12.4 of the BigIP Terraform Provider
+* Depend on latest pulumi package
 
 ## 0.2.8 (2019-08-09)
 * Upgrade to pulumi-terraform@9db2fc93cd
