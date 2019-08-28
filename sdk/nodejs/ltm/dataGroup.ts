@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -69,7 +71,7 @@ export class DataGroup extends pulumi.CustomResource {
     /**
      * a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
      */
-    public readonly records!: pulumi.Output<{ data?: string, name: string }[] | undefined>;
+    public readonly records!: pulumi.Output<outputs.ltm.DataGroupRecord[] | undefined>;
     /**
      * datagroup type (applies to the `name` field of the record), supports: `string`, `ip` or `integer`
      */
@@ -124,7 +126,7 @@ export interface DataGroupState {
     /**
      * a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
      */
-    readonly records?: pulumi.Input<pulumi.Input<{ data?: pulumi.Input<string>, name: pulumi.Input<string> }>[]>;
+    readonly records?: pulumi.Input<pulumi.Input<inputs.ltm.DataGroupRecord>[]>;
     /**
      * datagroup type (applies to the `name` field of the record), supports: `string`, `ip` or `integer`
      */
@@ -142,7 +144,7 @@ export interface DataGroupArgs {
     /**
      * a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
      */
-    readonly records?: pulumi.Input<pulumi.Input<{ data?: pulumi.Input<string>, name: pulumi.Input<string> }>[]>;
+    readonly records?: pulumi.Input<pulumi.Input<inputs.ltm.DataGroupRecord>[]>;
     /**
      * datagroup type (applies to the `name` field of the record), supports: `string`, `ip` or `integer`
      */

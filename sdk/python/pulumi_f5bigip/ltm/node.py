@@ -6,6 +6,7 @@ import json
 import warnings
 import pulumi
 import pulumi.runtime
+from typing import Union
 from .. import utilities, tables
 
 class Node(pulumi.CustomResource):
@@ -54,6 +55,14 @@ class Node(pulumi.CustomResource):
         :param pulumi.Input[str] monitor: specifies the name of the monitor or monitor rule that you want to associate with the node.
         :param pulumi.Input[str] name: Name of the node
         :param pulumi.Input[str] state: Default is "user-up" you can set to "user-down" if you want to disable
+        
+        The **fqdn** object supports the following:
+        
+          * `addressFamily` (`pulumi.Input[str]`) - Specifies the node's address family. The default is 'unspecified', or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
+          * `autopopulate` (`pulumi.Input[str]`)
+          * `downinterval` (`pulumi.Input[float]`)
+          * `interval` (`pulumi.Input[str]`) - Specifies the amount of time before sending the next DNS query. Default is 3600. This needs to be specified inside the fqdn (fully qualified domain name).
+          * `name` (`pulumi.Input[str]`) - Name of the node
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_node.html.markdown.
         """
@@ -98,6 +107,7 @@ class Node(pulumi.CustomResource):
         """
         Get an existing Node resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
+        
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -108,10 +118,18 @@ class Node(pulumi.CustomResource):
         :param pulumi.Input[str] monitor: specifies the name of the monitor or monitor rule that you want to associate with the node.
         :param pulumi.Input[str] name: Name of the node
         :param pulumi.Input[str] state: Default is "user-up" you can set to "user-down" if you want to disable
+        
+        The **fqdn** object supports the following:
+        
+          * `addressFamily` (`pulumi.Input[str]`) - Specifies the node's address family. The default is 'unspecified', or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
+          * `autopopulate` (`pulumi.Input[str]`)
+          * `downinterval` (`pulumi.Input[float]`)
+          * `interval` (`pulumi.Input[str]`) - Specifies the amount of time before sending the next DNS query. Default is 3600. This needs to be specified inside the fqdn (fully qualified domain name).
+          * `name` (`pulumi.Input[str]`) - Name of the node
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_node.html.markdown.
         """
-        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+        opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
         __props__["address"] = address

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -50,7 +52,7 @@ export class Node extends pulumi.CustomResource {
      * Specifies the fixed ratio value used for a node during ratio load balancing.
      */
     public readonly dynamicRatio!: pulumi.Output<number>;
-    public readonly fqdn!: pulumi.Output<{ addressFamily?: string, autopopulate: string, downinterval: number, interval: string, name?: string } | undefined>;
+    public readonly fqdn!: pulumi.Output<outputs.ltm.NodeFqdn | undefined>;
     /**
      * specifies the name of the monitor or monitor rule that you want to associate with the node.
      */
@@ -139,7 +141,7 @@ export interface NodeState {
      * Specifies the fixed ratio value used for a node during ratio load balancing.
      */
     readonly dynamicRatio?: pulumi.Input<number>;
-    readonly fqdn?: pulumi.Input<{ addressFamily?: pulumi.Input<string>, autopopulate?: pulumi.Input<string>, downinterval?: pulumi.Input<number>, interval?: pulumi.Input<string>, name?: pulumi.Input<string> }>;
+    readonly fqdn?: pulumi.Input<inputs.ltm.NodeFqdn>;
     /**
      * specifies the name of the monitor or monitor rule that you want to associate with the node.
      */
@@ -179,7 +181,7 @@ export interface NodeArgs {
      * Specifies the fixed ratio value used for a node during ratio load balancing.
      */
     readonly dynamicRatio?: pulumi.Input<number>;
-    readonly fqdn?: pulumi.Input<{ addressFamily?: pulumi.Input<string>, autopopulate?: pulumi.Input<string>, downinterval?: pulumi.Input<number>, interval?: pulumi.Input<string>, name?: pulumi.Input<string> }>;
+    readonly fqdn?: pulumi.Input<inputs.ltm.NodeFqdn>;
     /**
      * specifies the name of the monitor or monitor rule that you want to associate with the node.
      */
