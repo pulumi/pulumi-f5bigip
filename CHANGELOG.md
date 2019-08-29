@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade pulumi-terraform to 3f206601e7
+_(none)_
 
 ---
+
+## 0.2.10 (2019-08-29)
+* Upgrade pulumi-terraform to 3f206601e7
 
 ## 0.2.9 (2019-08-20)
 * Upgrade to v0.12.4 of the BigIP Terraform Provider
@@ -47,4 +50,3 @@ CHANGELOG
 
 ## 0.1.0 (2019-02-01)
 * Initial release of F5 Big IP provider
-
