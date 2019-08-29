@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -75,7 +77,7 @@ export class Snat extends pulumi.CustomResource {
     /**
      * IP or hostname of the snat
      */
-    public readonly origins!: pulumi.Output<{ appService?: string, name?: string }[]>;
+    public readonly origins!: pulumi.Output<outputs.ltm.SnatOrigin[]>;
     /**
      * Displays the administrative partition within which this profile resides
      */
@@ -178,7 +180,7 @@ export interface SnatState {
     /**
      * IP or hostname of the snat
      */
-    readonly origins?: pulumi.Input<pulumi.Input<{ appService?: pulumi.Input<string>, name?: pulumi.Input<string> }>[]>;
+    readonly origins?: pulumi.Input<pulumi.Input<inputs.ltm.SnatOrigin>[]>;
     /**
      * Displays the administrative partition within which this profile resides
      */
@@ -228,7 +230,7 @@ export interface SnatArgs {
     /**
      * IP or hostname of the snat
      */
-    readonly origins: pulumi.Input<pulumi.Input<{ appService?: pulumi.Input<string>, name?: pulumi.Input<string> }>[]>;
+    readonly origins: pulumi.Input<pulumi.Input<inputs.ltm.SnatOrigin>[]>;
     /**
      * Displays the administrative partition within which this profile resides
      */

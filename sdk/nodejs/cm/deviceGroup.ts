@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -71,7 +73,7 @@ export class DeviceGroup extends pulumi.CustomResource {
     /**
      * Name of the device to be included in device group, this need to be configured before using devicegroup resource
      */
-    public readonly devices!: pulumi.Output<{ name?: string, setSyncLeader?: boolean }[] | undefined>;
+    public readonly devices!: pulumi.Output<outputs.cm.DeviceGroupDevice[] | undefined>;
     /**
      * Specifies if the device-group will perform a full-load upon sync
      */
@@ -162,7 +164,7 @@ export interface DeviceGroupState {
     /**
      * Name of the device to be included in device group, this need to be configured before using devicegroup resource
      */
-    readonly devices?: pulumi.Input<pulumi.Input<{ name?: pulumi.Input<string>, setSyncLeader?: pulumi.Input<boolean> }>[]>;
+    readonly devices?: pulumi.Input<pulumi.Input<inputs.cm.DeviceGroupDevice>[]>;
     /**
      * Specifies if the device-group will perform a full-load upon sync
      */
@@ -208,7 +210,7 @@ export interface DeviceGroupArgs {
     /**
      * Name of the device to be included in device group, this need to be configured before using devicegroup resource
      */
-    readonly devices?: pulumi.Input<pulumi.Input<{ name?: pulumi.Input<string>, setSyncLeader?: pulumi.Input<boolean> }>[]>;
+    readonly devices?: pulumi.Input<pulumi.Input<inputs.cm.DeviceGroupDevice>[]>;
     /**
      * Specifies if the device-group will perform a full-load upon sync
      */

@@ -10,4 +10,5 @@ import * as config from "./config/index";
 import * as ltm from "./ltm/index";
 import * as net from "./net/index";
 import * as sys from "./sys/index";
-export {cm, config, ltm, net, sys};
+import * as types from "./types/index";
+export {cm, config, ltm, net, sys, types};

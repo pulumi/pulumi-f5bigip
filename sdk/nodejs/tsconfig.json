@@ -55,6 +55,9 @@
         "sys/provision.ts",
         "sys/snmp.ts",
         "sys/snmpTraps.ts",
+        "types/index.ts",
+        "types/input.ts",
+        "types/output.ts",
         "utilities.ts"
     ]
 }

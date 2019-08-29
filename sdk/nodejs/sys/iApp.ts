@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -96,8 +98,8 @@ export class IApp extends pulumi.CustomResource {
      * Refer to the Json file which will be deployed on F5 BIG-IP.
      */
     public readonly jsonfile!: pulumi.Output<string | undefined>;
-    public readonly lists!: pulumi.Output<{ encrypted?: string, value?: string }[] | undefined>;
-    public readonly metadatas!: pulumi.Output<{ persists?: string, value?: string }[] | undefined>;
+    public readonly lists!: pulumi.Output<outputs.sys.IAppList[] | undefined>;
+    public readonly metadatas!: pulumi.Output<outputs.sys.IAppMetadata[] | undefined>;
     /**
      * Name of the iApp.
      */
@@ -110,7 +112,7 @@ export class IApp extends pulumi.CustomResource {
      * BIG-IP password
      */
     public readonly strictUpdates!: pulumi.Output<string | undefined>;
-    public readonly tables!: pulumi.Output<{ columnNames?: string[], encryptedColumns?: string, name?: string, rows?: { rows?: string[] }[] }[] | undefined>;
+    public readonly tables!: pulumi.Output<outputs.sys.IAppTable[] | undefined>;
     /**
      * BIG-IP password
      */
@@ -127,7 +129,7 @@ export class IApp extends pulumi.CustomResource {
      * BIG-IP password
      */
     public readonly trafficGroup!: pulumi.Output<string | undefined>;
-    public readonly variables!: pulumi.Output<{ encrypted?: string, name?: string, value?: string }[] | undefined>;
+    public readonly variables!: pulumi.Output<outputs.sys.IAppVariable[] | undefined>;
 
     /**
      * Create a IApp resource with the given unique name, arguments, and options.
@@ -217,8 +219,8 @@ export interface IAppState {
      * Refer to the Json file which will be deployed on F5 BIG-IP.
      */
     readonly jsonfile?: pulumi.Input<string>;
-    readonly lists?: pulumi.Input<pulumi.Input<{ encrypted?: pulumi.Input<string>, value?: pulumi.Input<string> }>[]>;
-    readonly metadatas?: pulumi.Input<pulumi.Input<{ persists?: pulumi.Input<string>, value?: pulumi.Input<string> }>[]>;
+    readonly lists?: pulumi.Input<pulumi.Input<inputs.sys.IAppList>[]>;
+    readonly metadatas?: pulumi.Input<pulumi.Input<inputs.sys.IAppMetadata>[]>;
     /**
      * Name of the iApp.
      */
@@ -231,7 +233,7 @@ export interface IAppState {
      * BIG-IP password
      */
     readonly strictUpdates?: pulumi.Input<string>;
-    readonly tables?: pulumi.Input<pulumi.Input<{ columnNames?: pulumi.Input<pulumi.Input<string>[]>, encryptedColumns?: pulumi.Input<string>, name?: pulumi.Input<string>, rows?: pulumi.Input<pulumi.Input<{ rows?: pulumi.Input<pulumi.Input<string>[]> }>[]> }>[]>;
+    readonly tables?: pulumi.Input<pulumi.Input<inputs.sys.IAppTable>[]>;
     /**
      * BIG-IP password
      */
@@ -248,7 +250,7 @@ export interface IAppState {
      * BIG-IP password
      */
     readonly trafficGroup?: pulumi.Input<string>;
-    readonly variables?: pulumi.Input<pulumi.Input<{ encrypted?: pulumi.Input<string>, name?: pulumi.Input<string>, value?: pulumi.Input<string> }>[]>;
+    readonly variables?: pulumi.Input<pulumi.Input<inputs.sys.IAppVariable>[]>;
 }
 
 /**
@@ -279,8 +281,8 @@ export interface IAppArgs {
      * Refer to the Json file which will be deployed on F5 BIG-IP.
      */
     readonly jsonfile?: pulumi.Input<string>;
-    readonly lists?: pulumi.Input<pulumi.Input<{ encrypted?: pulumi.Input<string>, value?: pulumi.Input<string> }>[]>;
-    readonly metadatas?: pulumi.Input<pulumi.Input<{ persists?: pulumi.Input<string>, value?: pulumi.Input<string> }>[]>;
+    readonly lists?: pulumi.Input<pulumi.Input<inputs.sys.IAppList>[]>;
+    readonly metadatas?: pulumi.Input<pulumi.Input<inputs.sys.IAppMetadata>[]>;
     /**
      * Name of the iApp.
      */
@@ -293,7 +295,7 @@ export interface IAppArgs {
      * BIG-IP password
      */
     readonly strictUpdates?: pulumi.Input<string>;
-    readonly tables?: pulumi.Input<pulumi.Input<{ columnNames?: pulumi.Input<pulumi.Input<string>[]>, encryptedColumns?: pulumi.Input<string>, name?: pulumi.Input<string>, rows?: pulumi.Input<pulumi.Input<{ rows?: pulumi.Input<pulumi.Input<string>[]> }>[]> }>[]>;
+    readonly tables?: pulumi.Input<pulumi.Input<inputs.sys.IAppTable>[]>;
     /**
      * BIG-IP password
      */
@@ -310,5 +312,5 @@ export interface IAppArgs {
      * BIG-IP password
      */
     readonly trafficGroup?: pulumi.Input<string>;
-    readonly variables?: pulumi.Input<pulumi.Input<{ encrypted?: pulumi.Input<string>, name?: pulumi.Input<string>, value?: pulumi.Input<string> }>[]>;
+    readonly variables?: pulumi.Input<pulumi.Input<inputs.sys.IAppVariable>[]>;
 }

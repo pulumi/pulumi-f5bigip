@@ -6,6 +6,7 @@ import json
 import warnings
 import pulumi
 import pulumi.runtime
+from typing import Union
 from .. import utilities, tables
 
 class DeviceGroup(pulumi.CustomResource):
@@ -17,6 +18,9 @@ class DeviceGroup(pulumi.CustomResource):
     devices: pulumi.Output[list]
     """
     Name of the device to be included in device group, this need to be configured before using devicegroup resource
+    
+      * `name` (`str`) - Is the name of the device Group
+      * `setSyncLeader` (`bool`)
     """
     full_load_on_sync: pulumi.Output[str]
     incremental_config: pulumi.Output[float]
@@ -41,6 +45,11 @@ class DeviceGroup(pulumi.CustomResource):
         :param pulumi.Input[list] devices: Name of the device to be included in device group, this need to be configured before using devicegroup resource
         :param pulumi.Input[str] name: Is the name of the device Group
         :param pulumi.Input[str] type: Specifies if the device-group will be used for failover or resource syncing
+        
+        The **devices** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - Is the name of the device Group
+          * `setSyncLeader` (`pulumi.Input[bool]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/cm_devicegroup.html.markdown.
         """
@@ -82,6 +91,7 @@ class DeviceGroup(pulumi.CustomResource):
         """
         Get an existing DeviceGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
+        
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -89,10 +99,15 @@ class DeviceGroup(pulumi.CustomResource):
         :param pulumi.Input[list] devices: Name of the device to be included in device group, this need to be configured before using devicegroup resource
         :param pulumi.Input[str] name: Is the name of the device Group
         :param pulumi.Input[str] type: Specifies if the device-group will be used for failover or resource syncing
+        
+        The **devices** object supports the following:
+        
+          * `name` (`pulumi.Input[str]`) - Is the name of the device Group
+          * `setSyncLeader` (`pulumi.Input[bool]`)
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/cm_devicegroup.html.markdown.
         """
-        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+        opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
         __props__["auto_sync"] = auto_sync

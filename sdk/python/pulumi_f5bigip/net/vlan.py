@@ -6,12 +6,16 @@ import json
 import warnings
 import pulumi
 import pulumi.runtime
+from typing import Union
 from .. import utilities, tables
 
 class Vlan(pulumi.CustomResource):
     interfaces: pulumi.Output[list]
     """
     Specifies which interfaces you want this VLAN to use for traffic management.
+    
+      * `tagged` (`bool`) - Specifies a list of tagged interfaces or trunks associated with this VLAN. Note that you can associate tagged interfaces or trunks with any number of VLANs.
+      * `vlanport` (`str`) - Physical or virtual port used for traffic
     """
     name: pulumi.Output[str]
     """
@@ -32,6 +36,11 @@ class Vlan(pulumi.CustomResource):
         :param pulumi.Input[list] interfaces: Specifies which interfaces you want this VLAN to use for traffic management.
         :param pulumi.Input[str] name: Name of the vlan
         :param pulumi.Input[float] tag: Specifies a number that the system adds into the header of any frame passing through the VLAN.
+        
+        The **interfaces** object supports the following:
+        
+          * `tagged` (`pulumi.Input[bool]`) - Specifies a list of tagged interfaces or trunks associated with this VLAN. Note that you can associate tagged interfaces or trunks with any number of VLANs.
+          * `vlanport` (`pulumi.Input[str]`) - Physical or virtual port used for traffic
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/net_vlan.html.markdown.
         """
@@ -68,16 +77,22 @@ class Vlan(pulumi.CustomResource):
         """
         Get an existing Vlan resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
+        
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] interfaces: Specifies which interfaces you want this VLAN to use for traffic management.
         :param pulumi.Input[str] name: Name of the vlan
         :param pulumi.Input[float] tag: Specifies a number that the system adds into the header of any frame passing through the VLAN.
+        
+        The **interfaces** object supports the following:
+        
+          * `tagged` (`pulumi.Input[bool]`) - Specifies a list of tagged interfaces or trunks associated with this VLAN. Note that you can associate tagged interfaces or trunks with any number of VLANs.
+          * `vlanport` (`pulumi.Input[str]`) - Physical or virtual port used for traffic
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/net_vlan.html.markdown.
         """
-        opts = pulumi.ResourceOptions(id=id) if opts is None else opts.merge(pulumi.ResourceOptions(id=id))
+        opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
         __props__["interfaces"] = interfaces

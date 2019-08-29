@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -59,7 +61,7 @@ export class Vlan extends pulumi.CustomResource {
     /**
      * Specifies which interfaces you want this VLAN to use for traffic management.
      */
-    public readonly interfaces!: pulumi.Output<{ tagged?: boolean, vlanport?: string }[] | undefined>;
+    public readonly interfaces!: pulumi.Output<outputs.net.VlanInterface[] | undefined>;
     /**
      * Name of the vlan
      */
@@ -111,7 +113,7 @@ export interface VlanState {
     /**
      * Specifies which interfaces you want this VLAN to use for traffic management.
      */
-    readonly interfaces?: pulumi.Input<pulumi.Input<{ tagged?: pulumi.Input<boolean>, vlanport?: pulumi.Input<string> }>[]>;
+    readonly interfaces?: pulumi.Input<pulumi.Input<inputs.net.VlanInterface>[]>;
     /**
      * Name of the vlan
      */
@@ -129,7 +131,7 @@ export interface VlanArgs {
     /**
      * Specifies which interfaces you want this VLAN to use for traffic management.
      */
-    readonly interfaces?: pulumi.Input<pulumi.Input<{ tagged?: pulumi.Input<boolean>, vlanport?: pulumi.Input<string> }>[]>;
+    readonly interfaces?: pulumi.Input<pulumi.Input<inputs.net.VlanInterface>[]>;
     /**
      * Name of the vlan
      */
