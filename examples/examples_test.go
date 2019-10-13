@@ -20,40 +20,59 @@ import (
 	"testing"
 
 	"github.com/pulumi/pulumi/pkg/testing/integration"
-
-	"github.com/stretchr/testify/assert"
 )
 
-var base = integration.ProgramTestOptions{
-	ExpectRefreshChanges: true,
-	// Note: no Config! This package should be usable without any config.
+func TestAccVirtualAppliance(t *testing.T) {
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: path.Join(getCwd(t), "virtualappliance"),
+			// TODO[pulumi/pulumi-f5bigip#21]: Can we get this to a state where the empty preview and update actually
+			// have no changes?
+			AllowEmptyPreviewChanges: true,
+			AllowEmptyUpdateChanges:  true,
+		})
+
+	integration.ProgramTest(t, &test)
 }
 
-func TestWebserver(t *testing.T) {
-	region := os.Getenv("AWS_REGION")
-	if region == "" {
+func getRegion(t *testing.T) string {
+	envRegion := os.Getenv("AWS_REGION")
+	if envRegion == "" {
 		t.Skipf("Skipping test due to missing AWS_REGION environment variable")
 	}
+
+	return envRegion
+}
+
+func getCwd(t *testing.T) string {
 	cwd, err := os.Getwd()
-	if !assert.NoError(t, err) {
+	if err != nil {
 		t.FailNow()
 	}
 
-	opts := base.With(integration.ProgramTestOptions{
-		Dependencies: []string{
-			"@pulumi/f5bigip",
-		},
+	return cwd
+}
+
+func getBaseOptions() integration.ProgramTestOptions {
+	return integration.ProgramTestOptions{
+		ExpectRefreshChanges: true,
+	}
+}
+
+func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
+	region := getRegion(t)
+	base := getBaseOptions()
+	baseJS := base.With(integration.ProgramTestOptions{
 		Config: map[string]string{
 			"aws:region":       region,
 			"f5bigip:address":  "",
 			"f5bigip:password": "",
 			"f5bigip:username": "",
 		},
-		Dir: path.Join(cwd, "virtualappliance"),
-		// TODO[pulumi/pulumi-f5bigip#21]: Can we get this to a state where the empty preview and update actually
-		// have no changes?
-		AllowEmptyPreviewChanges: true,
-		AllowEmptyUpdateChanges:  true,
+		Dependencies: []string{
+			"@pulumi/f5bigip",
+		},
 	})
-	integration.ProgramTest(t, &opts)
+
+	return baseJS
 }
