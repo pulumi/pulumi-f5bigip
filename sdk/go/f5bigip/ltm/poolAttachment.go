@@ -58,23 +58,23 @@ func GetPoolAttachment(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *PoolAttachment) URN() *pulumi.URNOutput {
+func (r *PoolAttachment) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *PoolAttachment) ID() *pulumi.IDOutput {
+func (r *PoolAttachment) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Node to add to the pool in /Partition/NodeName:Port format (e.g. /Common/Node01:80)
-func (r *PoolAttachment) Node() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["node"])
+func (r *PoolAttachment) Node() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["node"])
 }
 
 // Name of the pool in /Partition/Name format
-func (r *PoolAttachment) Pool() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["pool"])
+func (r *PoolAttachment) Pool() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["pool"])
 }
 
 // Input properties used for looking up and filtering PoolAttachment resources.

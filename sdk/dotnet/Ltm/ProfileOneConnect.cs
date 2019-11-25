@@ -79,7 +79,7 @@ namespace Pulumi.F5bigip.Ltm
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ProfileOneConnect(string name, ProfileOneConnectArgs args, CustomResourceOptions? options = null)
-            : base("f5bigip:ltm/profileOneConnect:ProfileOneConnect", name, args, MakeResourceOptions(options, ""))
+            : base("f5bigip:ltm/profileOneConnect:ProfileOneConnect", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

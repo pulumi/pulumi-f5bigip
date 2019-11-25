@@ -94,94 +94,94 @@ func GetIApp(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *IApp) URN() *pulumi.URNOutput {
+func (r *IApp) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *IApp) ID() *pulumi.IDOutput {
+func (r *IApp) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Address of the Iapp which needs to be Iappensed
-func (r *IApp) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *IApp) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // BIG-IP password
-func (r *IApp) Devicegroup() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["devicegroup"])
+func (r *IApp) Devicegroup() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["devicegroup"])
 }
 
 // BIG-IP password
-func (r *IApp) ExecuteAction() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["executeAction"])
+func (r *IApp) ExecuteAction() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["executeAction"])
 }
 
 // BIG-IP password
-func (r *IApp) InheritedDevicegroup() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["inheritedDevicegroup"])
+func (r *IApp) InheritedDevicegroup() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["inheritedDevicegroup"])
 }
 
 // BIG-IP password
-func (r *IApp) InheritedTrafficGroup() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["inheritedTrafficGroup"])
+func (r *IApp) InheritedTrafficGroup() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["inheritedTrafficGroup"])
 }
 
 // Refer to the Json file which will be deployed on F5 BIG-IP.
-func (r *IApp) Jsonfile() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["jsonfile"])
+func (r *IApp) Jsonfile() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["jsonfile"])
 }
 
-func (r *IApp) Lists() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["lists"])
+func (r *IApp) Lists() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["lists"])
 }
 
-func (r *IApp) Metadatas() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["metadatas"])
+func (r *IApp) Metadatas() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["metadatas"])
 }
 
 // Name of the iApp.
-func (r *IApp) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *IApp) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Address of the Iapp which needs to be Iappensed
-func (r *IApp) Partition() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["partition"])
+func (r *IApp) Partition() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["partition"])
 }
 
 // BIG-IP password
-func (r *IApp) StrictUpdates() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["strictUpdates"])
+func (r *IApp) StrictUpdates() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["strictUpdates"])
 }
 
-func (r *IApp) Tables() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["tables"])
-}
-
-// BIG-IP password
-func (r *IApp) Template() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["template"])
+func (r *IApp) Tables() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["tables"])
 }
 
 // BIG-IP password
-func (r *IApp) TemplateModified() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["templateModified"])
+func (r *IApp) Template() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["template"])
 }
 
 // BIG-IP password
-func (r *IApp) TemplatePrerequisiteErrors() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["templatePrerequisiteErrors"])
+func (r *IApp) TemplateModified() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["templateModified"])
 }
 
 // BIG-IP password
-func (r *IApp) TrafficGroup() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["trafficGroup"])
+func (r *IApp) TemplatePrerequisiteErrors() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["templatePrerequisiteErrors"])
 }
 
-func (r *IApp) Variables() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["variables"])
+// BIG-IP password
+func (r *IApp) TrafficGroup() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["trafficGroup"])
+}
+
+func (r *IApp) Variables() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["variables"])
 }
 
 // Input properties used for looking up and filtering IApp resources.

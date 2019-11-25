@@ -3,15 +3,11 @@ module github.com/pulumi/pulumi-f5bigip
 go 1.12
 
 require (
-	github.com/Azure/go-autorest/autorest/azure/auth v0.3.0 // indirect
-	github.com/Azure/go-autorest/autorest/to v0.3.0 // indirect
-	github.com/Azure/go-autorest/autorest/validation v0.2.0 // indirect
 	github.com/hashicorp/terraform v0.12.7
 	github.com/pkg/errors v0.8.1
-	github.com/pulumi/pulumi v1.0.0
-	github.com/pulumi/pulumi-terraform v0.18.4-0.20191030013051-eccdb58dc332
+	github.com/pulumi/pulumi v1.6.0
+	github.com/pulumi/pulumi-terraform v0.18.4-0.20191125202445-a1e49034a3d8
 	github.com/terraform-providers/terraform-provider-bigip v0.12.4
-	golang.org/x/xerrors v0.0.0-20190717185122-a985d3407aa7 // indirect
 )
 
 replace (

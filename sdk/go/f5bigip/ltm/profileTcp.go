@@ -79,63 +79,63 @@ func GetProfileTcp(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ProfileTcp) URN() *pulumi.URNOutput {
+func (r *ProfileTcp) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ProfileTcp) ID() *pulumi.IDOutput {
+func (r *ProfileTcp) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the number of seconds that a connection remains in a LAST-ACK state before quitting. A value of 0 represents a term of forever (or until the maxrtx of the FIN state). The default value is 5 seconds.
-func (r *ProfileTcp) CloseWaitTimeout() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["closeWaitTimeout"])
+func (r *ProfileTcp) CloseWaitTimeout() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["closeWaitTimeout"])
 }
 
 // Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
-func (r *ProfileTcp) DefaultsFrom() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultsFrom"])
+func (r *ProfileTcp) DefaultsFrom() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultsFrom"])
 }
 
 // Specifies, when enabled, that the system defers allocation of the connection chain context until the client response is received. This option is useful for dealing with 3-way handshake DOS attacks. The default value is disabled.
-func (r *ProfileTcp) DeferredAccept() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["deferredAccept"])
+func (r *ProfileTcp) DeferredAccept() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["deferredAccept"])
 }
 
 // When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet.
-func (r *ProfileTcp) FastOpen() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["fastOpen"])
+func (r *ProfileTcp) FastOpen() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["fastOpen"])
 }
 
 // Specifies the number of seconds that a connection is in the FIN-WAIT-2 state before quitting. The default value is 300 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state).
-func (r *ProfileTcp) Finwait2timeout() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["finwait2timeout"])
+func (r *ProfileTcp) Finwait2timeout() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["finwait2timeout"])
 }
 
 // Specifies the number of seconds that a connection is in the FIN-WAIT-1 or closing state before quitting. The default value is 5 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state). You can also specify immediate or indefinite.
-func (r *ProfileTcp) FinwaitTimeout() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["finwaitTimeout"])
+func (r *ProfileTcp) FinwaitTimeout() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["finwaitTimeout"])
 }
 
 // Specifies the number of seconds that a connection is idle before the connection is eligible for deletion. The default value is 300 seconds.
-func (r *ProfileTcp) IdleTimeout() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["idleTimeout"])
+func (r *ProfileTcp) IdleTimeout() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["idleTimeout"])
 }
 
 // Specifies the keep alive probe interval, in seconds. The default value is 1800 seconds.
-func (r *ProfileTcp) KeepaliveInterval() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["keepaliveInterval"])
+func (r *ProfileTcp) KeepaliveInterval() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["keepaliveInterval"])
 }
 
 // Name of the profile_tcp
-func (r *ProfileTcp) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ProfileTcp) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Displays the administrative partition within which this profile resides
-func (r *ProfileTcp) Partition() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["partition"])
+func (r *ProfileTcp) Partition() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["partition"])
 }
 
 // Input properties used for looking up and filtering ProfileTcp resources.

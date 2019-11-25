@@ -85,83 +85,83 @@ func GetSnmpTraps(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SnmpTraps) URN() *pulumi.URNOutput {
+func (r *SnmpTraps) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SnmpTraps) ID() *pulumi.IDOutput {
+func (r *SnmpTraps) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Encrypted password
-func (r *SnmpTraps) AuthPasswordencrypted() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["authPasswordencrypted"])
+func (r *SnmpTraps) AuthPasswordencrypted() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["authPasswordencrypted"])
 }
 
 // Specifies the protocol used to authenticate the user.
-func (r *SnmpTraps) AuthProtocol() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["authProtocol"])
+func (r *SnmpTraps) AuthProtocol() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["authProtocol"])
 }
 
 // Specifies the community string used for this trap.
-func (r *SnmpTraps) Community() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["community"])
+func (r *SnmpTraps) Community() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["community"])
 }
 
 // The port that the trap will be sent to.
-func (r *SnmpTraps) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *SnmpTraps) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Specifies the authoritative security engine for SNMPv3.
-func (r *SnmpTraps) EngineId() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["engineId"])
+func (r *SnmpTraps) EngineId() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["engineId"])
 }
 
 // The host the trap will be sent to.
-func (r *SnmpTraps) Host() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["host"])
+func (r *SnmpTraps) Host() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["host"])
 }
 
 // Name of the snmp trap.
-func (r *SnmpTraps) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *SnmpTraps) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // User defined description.
-func (r *SnmpTraps) Port() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["port"])
+func (r *SnmpTraps) Port() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["port"])
 }
 
 // Specifies the clear text password used to encrypt traffic. This field will not be displayed.
-func (r *SnmpTraps) PrivacyPassword() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["privacyPassword"])
+func (r *SnmpTraps) PrivacyPassword() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["privacyPassword"])
 }
 
 // Specifies the encrypted password used to encrypt traffic.
-func (r *SnmpTraps) PrivacyPasswordEncrypted() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["privacyPasswordEncrypted"])
+func (r *SnmpTraps) PrivacyPasswordEncrypted() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["privacyPasswordEncrypted"])
 }
 
 // Specifies the protocol used to encrypt traffic.
-func (r *SnmpTraps) PrivacyProtocol() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["privacyProtocol"])
+func (r *SnmpTraps) PrivacyProtocol() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["privacyProtocol"])
 }
 
 // Specifies whether or not traffic is encrypted and whether or not authentication is required.
-func (r *SnmpTraps) SecurityLevel() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["securityLevel"])
+func (r *SnmpTraps) SecurityLevel() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["securityLevel"])
 }
 
 // Security name used in conjunction with SNMPv3.
-func (r *SnmpTraps) SecurityName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["securityName"])
+func (r *SnmpTraps) SecurityName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["securityName"])
 }
 
 // SNMP version used for sending the trap.
-func (r *SnmpTraps) Version() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["version"])
+func (r *SnmpTraps) Version() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["version"])
 }
 
 // Input properties used for looking up and filtering SnmpTraps resources.

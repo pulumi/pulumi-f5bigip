@@ -66,11 +66,9 @@ namespace Pulumi.F5bigip
         static Utilities()
         {
             var assembly = typeof(Utilities).GetTypeInfo().Assembly;
-            using (var stream = assembly.GetManifestResourceStream("Pulumi.F5bigip.version.txt"))
-            using (var reader = new StreamReader(stream))
-            {
-                version = reader.ReadToEnd().Trim();
-            }
+            using var stream = assembly.GetManifestResourceStream("Pulumi.Azure.version.txt");
+            using var reader = new StreamReader(stream ?? throw new NotSupportedException("Missing embedded version.txt file"));
+            version = reader.ReadToEnd().Trim();
         }
     }
 }
