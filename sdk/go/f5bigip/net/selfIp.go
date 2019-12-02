@@ -67,33 +67,33 @@ func GetSelfIp(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *SelfIp) URN() *pulumi.URNOutput {
+func (r *SelfIp) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *SelfIp) ID() *pulumi.IDOutput {
+func (r *SelfIp) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // The Self IP's address and netmask.
-func (r *SelfIp) Ip() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ip"])
+func (r *SelfIp) Ip() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ip"])
 }
 
 // Name of the selfip
-func (r *SelfIp) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *SelfIp) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
-func (r *SelfIp) TrafficGroup() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["trafficGroup"])
+func (r *SelfIp) TrafficGroup() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["trafficGroup"])
 }
 
 // Specifies the VLAN for which you are setting a self IP address. This setting must be provided when a self IP is created.
-func (r *SelfIp) Vlan() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["vlan"])
+func (r *SelfIp) Vlan() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["vlan"])
 }
 
 // Input properties used for looking up and filtering SelfIp resources.

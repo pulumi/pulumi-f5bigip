@@ -65,43 +65,43 @@ func GetProvision(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Provision) URN() *pulumi.URNOutput {
+func (r *Provision) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Provision) ID() *pulumi.IDOutput {
+func (r *Provision) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // cpu Ratio
-func (r *Provision) CpuRatio() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["cpuRatio"])
+func (r *Provision) CpuRatio() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["cpuRatio"])
 }
 
 // disk Ratio
-func (r *Provision) DiskRatio() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["diskRatio"])
+func (r *Provision) DiskRatio() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["diskRatio"])
 }
 
 // path
-func (r *Provision) FullPath() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["fullPath"])
+func (r *Provision) FullPath() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["fullPath"])
 }
 
 // what level nominal or dedicated
-func (r *Provision) Level() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["level"])
+func (r *Provision) Level() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["level"])
 }
 
 // memory Ratio
-func (r *Provision) MemoryRatio() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["memoryRatio"])
+func (r *Provision) MemoryRatio() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["memoryRatio"])
 }
 
 // Name of the module to be provisioned
-func (r *Provision) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Provision) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Input properties used for looking up and filtering Provision resources.

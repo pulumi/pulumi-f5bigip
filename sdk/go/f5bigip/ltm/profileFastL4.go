@@ -79,63 +79,63 @@ func GetProfileFastL4(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ProfileFastL4) URN() *pulumi.URNOutput {
+func (r *ProfileFastL4) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ProfileFastL4) ID() *pulumi.IDOutput {
+func (r *ProfileFastL4) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies late binding client timeout in seconds. This setting specifies the number of seconds allowed for a client to transmit enough data to select a server when late binding is enabled. If it expires timeout-recovery mode will dictate what action to take.
-func (r *ProfileFastL4) ClientTimeout() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["clientTimeout"])
+func (r *ProfileFastL4) ClientTimeout() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["clientTimeout"])
 }
 
 // Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
-func (r *ProfileFastL4) DefaultsFrom() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultsFrom"])
+func (r *ProfileFastL4) DefaultsFrom() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultsFrom"])
 }
 
 // Enables or disables late binding explicit flow migration that allows iRules to control when flows move from software to hardware. Explicit flow migration is disabled by default hence BIG-IP automatically migrates flows from software to hardware.
-func (r *ProfileFastL4) ExplicitflowMigration() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["explicitflowMigration"])
+func (r *ProfileFastL4) ExplicitflowMigration() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["explicitflowMigration"])
 }
 
 // Enables or disables hardware SYN cookie support when PVA10 is present on the system. Note that when you set the hardware syncookie option to enabled, you may also want to set the following bigdb database variables using the "/sys modify db" command, based on your requirements: pva.SynCookies.Full.ConnectionThreshold (default: 500000), pva.SynCookies.Assist.ConnectionThreshold (default: 500000) pva.SynCookies.ClientWindow (default: 0). The default value is disabled.
-func (r *ProfileFastL4) HardwareSyncookie() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["hardwareSyncookie"])
+func (r *ProfileFastL4) HardwareSyncookie() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["hardwareSyncookie"])
 }
 
 // Specifies an idle timeout in seconds. This setting specifies the number of seconds that a connection is idle before the connection is eligible for deletion.When you specify an idle timeout for the Fast L4 profile, the value must be greater than the bigdb database variable Pva.Scrub time in msec for it to work properly.The default value is 300 seconds.
-func (r *ProfileFastL4) IdleTimeout() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["idleTimeout"])
+func (r *ProfileFastL4) IdleTimeout() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["idleTimeout"])
 }
 
 // Specifies an IP ToS number for the client side. This option specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to clients. The default value is 65535 (pass-through), which indicates, do not modify.
-func (r *ProfileFastL4) IptosToclient() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["iptosToclient"])
+func (r *ProfileFastL4) IptosToclient() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["iptosToclient"])
 }
 
 // Specifies an IP ToS number for the server side. This setting specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to servers. The default value is 65535 (pass-through), which indicates, do not modify.
-func (r *ProfileFastL4) IptosToserver() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["iptosToserver"])
+func (r *ProfileFastL4) IptosToserver() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["iptosToserver"])
 }
 
 // Specifies the keep alive probe interval, in seconds. The default value is disabled (0 seconds).
-func (r *ProfileFastL4) KeepaliveInterval() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["keepaliveInterval"])
+func (r *ProfileFastL4) KeepaliveInterval() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["keepaliveInterval"])
 }
 
 // Name of the profile_fastl4
-func (r *ProfileFastL4) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ProfileFastL4) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Displays the administrative partition within which this profile resides
-func (r *ProfileFastL4) Partition() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["partition"])
+func (r *ProfileFastL4) Partition() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["partition"])
 }
 
 // Input properties used for looking up and filtering ProfileFastL4 resources.

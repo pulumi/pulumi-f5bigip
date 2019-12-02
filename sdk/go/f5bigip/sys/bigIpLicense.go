@@ -53,23 +53,23 @@ func GetBigIpLicense(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *BigIpLicense) URN() *pulumi.URNOutput {
+func (r *BigIpLicense) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *BigIpLicense) ID() *pulumi.IDOutput {
+func (r *BigIpLicense) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Tmsh command to execute tmsh commands like install
-func (r *BigIpLicense) Command() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["command"])
+func (r *BigIpLicense) Command() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["command"])
 }
 
 // A unique Key F5 provides for Licensing BIG-IP
-func (r *BigIpLicense) RegistrationKey() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["registrationKey"])
+func (r *BigIpLicense) RegistrationKey() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["registrationKey"])
 }
 
 // Input properties used for looking up and filtering BigIpLicense resources.

@@ -59,33 +59,33 @@ func GetDns(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Dns) URN() *pulumi.URNOutput {
+func (r *Dns) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Dns) ID() *pulumi.IDOutput {
+func (r *Dns) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Name of the Dns Servers
-func (r *Dns) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Dns) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Name or IP address of the DNS server
-func (r *Dns) NameServers() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["nameServers"])
+func (r *Dns) NameServers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["nameServers"])
 }
 
 // Configures the number of dots needed in a name before an initial absolute query will be made.
-func (r *Dns) NumberOfDots() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["numberOfDots"])
+func (r *Dns) NumberOfDots() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["numberOfDots"])
 }
 
 // Specify what domains you want to search
-func (r *Dns) Searches() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["searches"])
+func (r *Dns) Searches() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["searches"])
 }
 
 // Input properties used for looking up and filtering Dns resources.

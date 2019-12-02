@@ -58,23 +58,23 @@ func GetIRule(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *IRule) URN() *pulumi.URNOutput {
+func (r *IRule) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *IRule) ID() *pulumi.IDOutput {
+func (r *IRule) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Body of the iRule
-func (r *IRule) Irule() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["irule"])
+func (r *IRule) Irule() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["irule"])
 }
 
 // Name of the iRule
-func (r *IRule) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *IRule) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Input properties used for looking up and filtering IRule resources.

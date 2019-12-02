@@ -115,114 +115,114 @@ func GetMonitor(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Monitor) URN() *pulumi.URNOutput {
+func (r *Monitor) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Monitor) ID() *pulumi.IDOutput {
+func (r *Monitor) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // ftp adaptive
-func (r *Monitor) Adaptive() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["adaptive"])
+func (r *Monitor) Adaptive() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["adaptive"])
 }
 
 // Integer value
-func (r *Monitor) AdaptiveLimit() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["adaptiveLimit"])
+func (r *Monitor) AdaptiveLimit() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["adaptiveLimit"])
 }
 
 // Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
-func (r *Monitor) Compatibility() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["compatibility"])
+func (r *Monitor) Compatibility() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["compatibility"])
 }
 
 // Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
-func (r *Monitor) DefaultsFrom() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultsFrom"])
+func (r *Monitor) DefaultsFrom() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultsFrom"])
 }
 
 // Specify an alias address for monitoring
-func (r *Monitor) Destination() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["destination"])
+func (r *Monitor) Destination() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["destination"])
 }
 
 // Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
-func (r *Monitor) Filename() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["filename"])
+func (r *Monitor) Filename() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["filename"])
 }
 
 // Check interval in seconds
-func (r *Monitor) Interval() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["interval"])
+func (r *Monitor) Interval() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["interval"])
 }
 
-func (r *Monitor) IpDscp() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["ipDscp"])
+func (r *Monitor) IpDscp() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["ipDscp"])
 }
 
-func (r *Monitor) ManualResume() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["manualResume"])
+func (r *Monitor) ManualResume() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["manualResume"])
 }
 
 // Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
-func (r *Monitor) Mode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["mode"])
+func (r *Monitor) Mode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["mode"])
 }
 
 // Name of the monitor
-func (r *Monitor) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Monitor) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Existing LTM monitor to inherit from
-func (r *Monitor) Parent() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["parent"])
+func (r *Monitor) Parent() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["parent"])
 }
 
 // Specifies the password if the monitored target requires authentication
-func (r *Monitor) Password() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["password"])
+func (r *Monitor) Password() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["password"])
 }
 
 // Expected response string
-func (r *Monitor) Receive() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["receive"])
+func (r *Monitor) Receive() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["receive"])
 }
 
 // Expected response string.
-func (r *Monitor) ReceiveDisable() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["receiveDisable"])
+func (r *Monitor) ReceiveDisable() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["receiveDisable"])
 }
 
-func (r *Monitor) Reverse() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["reverse"])
+func (r *Monitor) Reverse() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["reverse"])
 }
 
 // Request string to send
-func (r *Monitor) Send() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["send"])
+func (r *Monitor) Send() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["send"])
 }
 
 // Time in seconds
-func (r *Monitor) TimeUntilUp() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["timeUntilUp"])
+func (r *Monitor) TimeUntilUp() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["timeUntilUp"])
 }
 
 // Timeout in seconds
-func (r *Monitor) Timeout() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["timeout"])
+func (r *Monitor) Timeout() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["timeout"])
 }
 
-func (r *Monitor) Transparent() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["transparent"])
+func (r *Monitor) Transparent() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["transparent"])
 }
 
 // Specifies the user name if the monitored target requires authentication
-func (r *Monitor) Username() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["username"])
+func (r *Monitor) Username() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["username"])
 }
 
 // Input properties used for looking up and filtering Monitor resources.

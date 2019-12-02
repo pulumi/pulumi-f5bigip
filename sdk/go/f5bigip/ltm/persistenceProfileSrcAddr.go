@@ -110,74 +110,74 @@ func GetPersistenceProfileSrcAddr(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *PersistenceProfileSrcAddr) URN() *pulumi.URNOutput {
+func (r *PersistenceProfileSrcAddr) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *PersistenceProfileSrcAddr) ID() *pulumi.IDOutput {
+func (r *PersistenceProfileSrcAddr) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *PersistenceProfileSrcAddr) AppService() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["appService"])
+func (r *PersistenceProfileSrcAddr) AppService() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["appService"])
 }
 
 // Inherit defaults from parent profile
-func (r *PersistenceProfileSrcAddr) DefaultsFrom() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultsFrom"])
+func (r *PersistenceProfileSrcAddr) DefaultsFrom() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultsFrom"])
 }
 
 // Specify the hash algorithm
-func (r *PersistenceProfileSrcAddr) HashAlgorithm() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["hashAlgorithm"])
+func (r *PersistenceProfileSrcAddr) HashAlgorithm() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["hashAlgorithm"])
 }
 
 // To enable _ disable directs all to the same single pool member
-func (r *PersistenceProfileSrcAddr) MapProxies() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["mapProxies"])
+func (r *PersistenceProfileSrcAddr) MapProxies() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["mapProxies"])
 }
 
 // Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
 // when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
-func (r *PersistenceProfileSrcAddr) Mask() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["mask"])
+func (r *PersistenceProfileSrcAddr) Mask() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["mask"])
 }
 
 // To enable _ disable match across pools with given persistence record
-func (r *PersistenceProfileSrcAddr) MatchAcrossPools() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["matchAcrossPools"])
+func (r *PersistenceProfileSrcAddr) MatchAcrossPools() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["matchAcrossPools"])
 }
 
 // To enable _ disable match across services with given persistence record
-func (r *PersistenceProfileSrcAddr) MatchAcrossServices() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["matchAcrossServices"])
+func (r *PersistenceProfileSrcAddr) MatchAcrossServices() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["matchAcrossServices"])
 }
 
 // To enable _ disable match across services with given persistence record
-func (r *PersistenceProfileSrcAddr) MatchAcrossVirtuals() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["matchAcrossVirtuals"])
+func (r *PersistenceProfileSrcAddr) MatchAcrossVirtuals() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["matchAcrossVirtuals"])
 }
 
 // To enable _ disable
-func (r *PersistenceProfileSrcAddr) Mirror() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["mirror"])
+func (r *PersistenceProfileSrcAddr) Mirror() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["mirror"])
 }
 
 // Name of the persistence profile
-func (r *PersistenceProfileSrcAddr) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *PersistenceProfileSrcAddr) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
 // limits remain hard limits and are not overridden.
-func (r *PersistenceProfileSrcAddr) OverrideConnLimit() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["overrideConnLimit"])
+func (r *PersistenceProfileSrcAddr) OverrideConnLimit() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["overrideConnLimit"])
 }
 
 // Timeout for persistence of the session
-func (r *PersistenceProfileSrcAddr) Timeout() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["timeout"])
+func (r *PersistenceProfileSrcAddr) Timeout() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["timeout"])
 }
 
 // Input properties used for looking up and filtering PersistenceProfileSrcAddr resources.

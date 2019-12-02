@@ -84,7 +84,7 @@ namespace Pulumi.F5bigip.Cm
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DeviceGroup(string name, DeviceGroupArgs? args = null, CustomResourceOptions? options = null)
-            : base("f5bigip:cm/deviceGroup:DeviceGroup", name, args, MakeResourceOptions(options, ""))
+            : base("f5bigip:cm/deviceGroup:DeviceGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

@@ -76,58 +76,58 @@ func GetProfileOneConnect(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ProfileOneConnect) URN() *pulumi.URNOutput {
+func (r *ProfileOneConnect) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ProfileOneConnect) ID() *pulumi.IDOutput {
+func (r *ProfileOneConnect) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
-func (r *ProfileOneConnect) DefaultsFrom() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultsFrom"])
+func (r *ProfileOneConnect) DefaultsFrom() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultsFrom"])
 }
 
 // Specifies the number of seconds that a connection is idle before the connection flow is eligible for deletion. Possible values are disabled, indefinite, or a numeric value that you specify. The default value is disabled.
-func (r *ProfileOneConnect) IdleTimeoutOverride() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["idleTimeoutOverride"])
+func (r *ProfileOneConnect) IdleTimeoutOverride() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["idleTimeoutOverride"])
 }
 
 // Specifies the maximum age in number of seconds allowed for a connection in the connection reuse pool. For any connection with an age higher than this value, the system removes that connection from the reuse pool. The default value is 86400.
-func (r *ProfileOneConnect) MaxAge() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["maxAge"])
+func (r *ProfileOneConnect) MaxAge() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["maxAge"])
 }
 
 // Specifies the maximum number of times that a server-side connection can be reused. The default value is 1000.
-func (r *ProfileOneConnect) MaxReuse() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["maxReuse"])
+func (r *ProfileOneConnect) MaxReuse() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["maxReuse"])
 }
 
 // Specifies the maximum number of connections that the system holds in the connection reuse pool. If the pool is already full, then the server-side connection closes after the response is completed. The default value is 10000.
-func (r *ProfileOneConnect) MaxSize() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["maxSize"])
+func (r *ProfileOneConnect) MaxSize() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["maxSize"])
 }
 
 // Name of the profile_oneconnect
-func (r *ProfileOneConnect) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ProfileOneConnect) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Displays the administrative partition within which this profile resides
-func (r *ProfileOneConnect) Partition() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["partition"])
+func (r *ProfileOneConnect) Partition() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["partition"])
 }
 
 // Specify if you want to share the pool, default value is "disabled"
-func (r *ProfileOneConnect) SharePools() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sharePools"])
+func (r *ProfileOneConnect) SharePools() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sharePools"])
 }
 
 // Specifies a source IP mask. The default value is 0.0.0.0. The system applies the value of this option to the source address to determine its eligibility for reuse. A mask of 0.0.0.0 causes the system to share reused connections across all clients. A host mask (all 1's in binary), causes the system to share only those reused connections originating from the same client IP address.
-func (r *ProfileOneConnect) SourceMask() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sourceMask"])
+func (r *ProfileOneConnect) SourceMask() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sourceMask"])
 }
 
 // Input properties used for looking up and filtering ProfileOneConnect resources.

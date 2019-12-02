@@ -52,28 +52,28 @@ func GetSnmp(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Snmp) URN() *pulumi.URNOutput {
+func (r *Snmp) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Snmp) ID() *pulumi.IDOutput {
+func (r *Snmp) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Configures hosts or networks from which snmpd can accept traffic. Entries go directly into hosts.allow.
-func (r *Snmp) Allowedaddresses() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["allowedaddresses"])
+func (r *Snmp) Allowedaddresses() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["allowedaddresses"])
 }
 
 // Specifies the contact information for the system administrator.
-func (r *Snmp) SysContact() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sysContact"])
+func (r *Snmp) SysContact() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sysContact"])
 }
 
 // Describes the system's physical location.
-func (r *Snmp) SysLocation() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sysLocation"])
+func (r *Snmp) SysLocation() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sysLocation"])
 }
 
 // Input properties used for looking up and filtering Snmp resources.

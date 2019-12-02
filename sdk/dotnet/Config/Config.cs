@@ -3,7 +3,7 @@
 
 using System.Collections.Immutable;
 
-namespace Pulumi.F5bigip.Config
+namespace Pulumi.F5bigip
 {
     public static class Config
     {

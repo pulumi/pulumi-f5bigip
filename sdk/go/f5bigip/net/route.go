@@ -61,28 +61,28 @@ func GetRoute(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Route) URN() *pulumi.URNOutput {
+func (r *Route) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Route) ID() *pulumi.IDOutput {
+func (r *Route) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Gateway address
-func (r *Route) Gw() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["gw"])
+func (r *Route) Gw() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["gw"])
 }
 
 // Name of the route
-func (r *Route) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Route) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies a gateway address for the route.
-func (r *Route) Network() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["network"])
+func (r *Route) Network() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["network"])
 }
 
 // Input properties used for looking up and filtering Route resources.
