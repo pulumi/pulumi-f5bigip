@@ -67,43 +67,43 @@ func GetProfileHttp2(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ProfileHttp2) URN() *pulumi.URNOutput {
+func (r *ProfileHttp2) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ProfileHttp2) ID() *pulumi.IDOutput {
+func (r *ProfileHttp2) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies what will cause an incoming connection to be handled as a HTTP/2 connection. The default values npn and alpn specify that the TLS next-protocol-negotiation and application-layer-protocol-negotiation extensions will be used.
-func (r *ProfileHttp2) ActivationModes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["activationModes"])
+func (r *ProfileHttp2) ActivationModes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["activationModes"])
 }
 
 // Specifies how many concurrent requests are allowed to be outstanding on a single HTTP/2 connection.
-func (r *ProfileHttp2) ConcurrentStreamsPerConnection() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["concurrentStreamsPerConnection"])
+func (r *ProfileHttp2) ConcurrentStreamsPerConnection() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["concurrentStreamsPerConnection"])
 }
 
 // Specifies the number of seconds that a connection is idle before the connection is eligible for deletion..
-func (r *ProfileHttp2) ConnectionIdleTimeout() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["connectionIdleTimeout"])
+func (r *ProfileHttp2) ConnectionIdleTimeout() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["connectionIdleTimeout"])
 }
 
 // Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
-func (r *ProfileHttp2) DefaultsFrom() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultsFrom"])
+func (r *ProfileHttp2) DefaultsFrom() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultsFrom"])
 }
 
 // Use the parent Http2 profile
-func (r *ProfileHttp2) HeaderTableSize() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["headerTableSize"])
+func (r *ProfileHttp2) HeaderTableSize() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["headerTableSize"])
 }
 
 // Name of the profile_http2
-func (r *ProfileHttp2) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ProfileHttp2) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Input properties used for looking up and filtering ProfileHttp2 resources.

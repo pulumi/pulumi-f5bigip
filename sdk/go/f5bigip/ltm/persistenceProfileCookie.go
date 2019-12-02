@@ -136,98 +136,98 @@ func GetPersistenceProfileCookie(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *PersistenceProfileCookie) URN() *pulumi.URNOutput {
+func (r *PersistenceProfileCookie) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *PersistenceProfileCookie) ID() *pulumi.IDOutput {
+func (r *PersistenceProfileCookie) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // To enable _ disable always sending cookies
-func (r *PersistenceProfileCookie) AlwaysSend() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["alwaysSend"])
+func (r *PersistenceProfileCookie) AlwaysSend() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["alwaysSend"])
 }
 
-func (r *PersistenceProfileCookie) AppService() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["appService"])
+func (r *PersistenceProfileCookie) AppService() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["appService"])
 }
 
 // To required, preferred, or disabled policy for cookie encryption
-func (r *PersistenceProfileCookie) CookieEncryption() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["cookieEncryption"])
+func (r *PersistenceProfileCookie) CookieEncryption() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["cookieEncryption"])
 }
 
 // Passphrase for encrypted cookies
-func (r *PersistenceProfileCookie) CookieEncryptionPassphrase() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["cookieEncryptionPassphrase"])
+func (r *PersistenceProfileCookie) CookieEncryptionPassphrase() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["cookieEncryptionPassphrase"])
 }
 
 // Name of the cookie to track persistence
-func (r *PersistenceProfileCookie) CookieName() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["cookieName"])
+func (r *PersistenceProfileCookie) CookieName() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["cookieName"])
 }
 
 // Inherit defaults from parent profile
-func (r *PersistenceProfileCookie) DefaultsFrom() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultsFrom"])
+func (r *PersistenceProfileCookie) DefaultsFrom() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultsFrom"])
 }
 
 // Expiration TTL for cookie specified in D:H:M:S or in seconds
-func (r *PersistenceProfileCookie) Expiration() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["expiration"])
+func (r *PersistenceProfileCookie) Expiration() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["expiration"])
 }
 
 // Length of hash to apply to cookie
-func (r *PersistenceProfileCookie) HashLength() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["hashLength"])
+func (r *PersistenceProfileCookie) HashLength() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["hashLength"])
 }
 
 // Number of characters to skip in the cookie for the hash
-func (r *PersistenceProfileCookie) HashOffset() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["hashOffset"])
+func (r *PersistenceProfileCookie) HashOffset() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["hashOffset"])
 }
 
 // To enable _ disable sending only over http
-func (r *PersistenceProfileCookie) Httponly() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["httponly"])
+func (r *PersistenceProfileCookie) Httponly() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["httponly"])
 }
 
 // To enable _ disable match across pools with given persistence record
-func (r *PersistenceProfileCookie) MatchAcrossPools() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["matchAcrossPools"])
+func (r *PersistenceProfileCookie) MatchAcrossPools() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["matchAcrossPools"])
 }
 
 // To enable _ disable match across services with given persistence record
-func (r *PersistenceProfileCookie) MatchAcrossServices() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["matchAcrossServices"])
+func (r *PersistenceProfileCookie) MatchAcrossServices() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["matchAcrossServices"])
 }
 
 // To enable _ disable match across virtual servers with given persistence record
-func (r *PersistenceProfileCookie) MatchAcrossVirtuals() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["matchAcrossVirtuals"])
+func (r *PersistenceProfileCookie) MatchAcrossVirtuals() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["matchAcrossVirtuals"])
 }
 
 // To enable _ disable
-func (r *PersistenceProfileCookie) Mirror() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["mirror"])
+func (r *PersistenceProfileCookie) Mirror() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["mirror"])
 }
 
 // Name of the persistence profile
-func (r *PersistenceProfileCookie) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *PersistenceProfileCookie) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
 // limits remain hard limits and are not overridden.
-func (r *PersistenceProfileCookie) OverrideConnLimit() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["overrideConnLimit"])
+func (r *PersistenceProfileCookie) OverrideConnLimit() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["overrideConnLimit"])
 }
 
 // Timeout for persistence of the session
-func (r *PersistenceProfileCookie) Timeout() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["timeout"])
+func (r *PersistenceProfileCookie) Timeout() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["timeout"])
 }
 
 // Input properties used for looking up and filtering PersistenceProfileCookie resources.

@@ -58,28 +58,28 @@ func GetVlan(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Vlan) URN() *pulumi.URNOutput {
+func (r *Vlan) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Vlan) ID() *pulumi.IDOutput {
+func (r *Vlan) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies which interfaces you want this VLAN to use for traffic management.
-func (r *Vlan) Interfaces() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["interfaces"])
+func (r *Vlan) Interfaces() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["interfaces"])
 }
 
 // Name of the vlan
-func (r *Vlan) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Vlan) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies a number that the system adds into the header of any frame passing through the VLAN.
-func (r *Vlan) Tag() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["tag"])
+func (r *Vlan) Tag() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["tag"])
 }
 
 // Input properties used for looking up and filtering Vlan resources.

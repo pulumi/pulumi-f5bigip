@@ -68,43 +68,43 @@ func GetProfileHttpCompress(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *ProfileHttpCompress) URN() *pulumi.URNOutput {
+func (r *ProfileHttpCompress) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *ProfileHttpCompress) ID() *pulumi.IDOutput {
+func (r *ProfileHttpCompress) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Excludes a specified list of content types from compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
-func (r *ProfileHttpCompress) ContentTypeExcludes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["contentTypeExcludes"])
+func (r *ProfileHttpCompress) ContentTypeExcludes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["contentTypeExcludes"])
 }
 
 // Specifies a list of content types for compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
-func (r *ProfileHttpCompress) ContentTypeIncludes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["contentTypeIncludes"])
+func (r *ProfileHttpCompress) ContentTypeIncludes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["contentTypeIncludes"])
 }
 
 // Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
-func (r *ProfileHttpCompress) DefaultsFrom() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultsFrom"])
+func (r *ProfileHttpCompress) DefaultsFrom() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultsFrom"])
 }
 
 // Name of the profile_httpcompress
-func (r *ProfileHttpCompress) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *ProfileHttpCompress) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Disables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you do not want to compress.
-func (r *ProfileHttpCompress) UriExcludes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["uriExcludes"])
+func (r *ProfileHttpCompress) UriExcludes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["uriExcludes"])
 }
 
 // Enables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you want to compress.
-func (r *ProfileHttpCompress) UriIncludes() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["uriIncludes"])
+func (r *ProfileHttpCompress) UriIncludes() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["uriIncludes"])
 }
 
 // Input properties used for looking up and filtering ProfileHttpCompress resources.

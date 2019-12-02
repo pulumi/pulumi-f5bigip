@@ -79,58 +79,58 @@ func GetNode(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Node) URN() *pulumi.URNOutput {
+func (r *Node) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Node) ID() *pulumi.IDOutput {
+func (r *Node) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // IP or hostname of the node
-func (r *Node) Address() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["address"])
+func (r *Node) Address() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["address"])
 }
 
 // Specifies the maximum number of connections allowed for the node or node address.
-func (r *Node) ConnectionLimit() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["connectionLimit"])
+func (r *Node) ConnectionLimit() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["connectionLimit"])
 }
 
 // User-defined description give ltm_node
-func (r *Node) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Node) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Specifies the fixed ratio value used for a node during ratio load balancing.
-func (r *Node) DynamicRatio() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["dynamicRatio"])
+func (r *Node) DynamicRatio() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["dynamicRatio"])
 }
 
-func (r *Node) Fqdn() *pulumi.Output {
+func (r *Node) Fqdn() pulumi.Output {
 	return r.s.State["fqdn"]
 }
 
 // specifies the name of the monitor or monitor rule that you want to associate with the node.
-func (r *Node) Monitor() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["monitor"])
+func (r *Node) Monitor() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["monitor"])
 }
 
 // Name of the node
-func (r *Node) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Node) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies the maximum number of connections per second allowed for a node or node address. The default value is
 // 'disabled'.
-func (r *Node) RateLimit() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["rateLimit"])
+func (r *Node) RateLimit() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["rateLimit"])
 }
 
 // Default is "user-up" you can set to "user-down" if you want to disable
-func (r *Node) State() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["state"])
+func (r *Node) State() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["state"])
 }
 
 // Input properties used for looking up and filtering Node resources.

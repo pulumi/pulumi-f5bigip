@@ -95,58 +95,58 @@ func GetPersistenceProfileSsl(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *PersistenceProfileSsl) URN() *pulumi.URNOutput {
+func (r *PersistenceProfileSsl) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *PersistenceProfileSsl) ID() *pulumi.IDOutput {
+func (r *PersistenceProfileSsl) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
-func (r *PersistenceProfileSsl) AppService() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["appService"])
+func (r *PersistenceProfileSsl) AppService() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["appService"])
 }
 
 // Inherit defaults from parent profile
-func (r *PersistenceProfileSsl) DefaultsFrom() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["defaultsFrom"])
+func (r *PersistenceProfileSsl) DefaultsFrom() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultsFrom"])
 }
 
 // To enable _ disable match across pools with given persistence record
-func (r *PersistenceProfileSsl) MatchAcrossPools() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["matchAcrossPools"])
+func (r *PersistenceProfileSsl) MatchAcrossPools() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["matchAcrossPools"])
 }
 
 // To enable _ disable match across services with given persistence record
-func (r *PersistenceProfileSsl) MatchAcrossServices() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["matchAcrossServices"])
+func (r *PersistenceProfileSsl) MatchAcrossServices() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["matchAcrossServices"])
 }
 
 // To enable _ disable match across services with given persistence record
-func (r *PersistenceProfileSsl) MatchAcrossVirtuals() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["matchAcrossVirtuals"])
+func (r *PersistenceProfileSsl) MatchAcrossVirtuals() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["matchAcrossVirtuals"])
 }
 
 // To enable _ disable
-func (r *PersistenceProfileSsl) Mirror() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["mirror"])
+func (r *PersistenceProfileSsl) Mirror() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["mirror"])
 }
 
 // Name of the persistence profile
-func (r *PersistenceProfileSsl) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *PersistenceProfileSsl) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
 // limits remain hard limits and are not overridden.
-func (r *PersistenceProfileSsl) OverrideConnLimit() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["overrideConnLimit"])
+func (r *PersistenceProfileSsl) OverrideConnLimit() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["overrideConnLimit"])
 }
 
 // Timeout for persistence of the session
-func (r *PersistenceProfileSsl) Timeout() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["timeout"])
+func (r *PersistenceProfileSsl) Timeout() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["timeout"])
 }
 
 // Input properties used for looking up and filtering PersistenceProfileSsl resources.

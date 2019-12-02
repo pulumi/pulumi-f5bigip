@@ -73,63 +73,63 @@ func GetDeviceGroup(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *DeviceGroup) URN() *pulumi.URNOutput {
+func (r *DeviceGroup) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *DeviceGroup) ID() *pulumi.IDOutput {
+func (r *DeviceGroup) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies if the device-group will automatically sync configuration data to its members
-func (r *DeviceGroup) AutoSync() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["autoSync"])
+func (r *DeviceGroup) AutoSync() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["autoSync"])
 }
 
 // Description of Device group
-func (r *DeviceGroup) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *DeviceGroup) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Name of the device to be included in device group, this need to be configured before using devicegroup resource
-func (r *DeviceGroup) Devices() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["devices"])
+func (r *DeviceGroup) Devices() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["devices"])
 }
 
 // Specifies if the device-group will perform a full-load upon sync
-func (r *DeviceGroup) FullLoadOnSync() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["fullLoadOnSync"])
+func (r *DeviceGroup) FullLoadOnSync() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["fullLoadOnSync"])
 }
 
 // Specifies the maximum size (in KB) to devote to incremental config sync cached transactions. The default is 1024 KB.
-func (r *DeviceGroup) IncrementalConfig() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["incrementalConfig"])
+func (r *DeviceGroup) IncrementalConfig() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["incrementalConfig"])
 }
 
 // Is the name of the device Group
-func (r *DeviceGroup) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *DeviceGroup) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specifies if the device-group will use a network connection for failover
-func (r *DeviceGroup) NetworkFailover() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["networkFailover"])
+func (r *DeviceGroup) NetworkFailover() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["networkFailover"])
 }
 
 // Device administrative partition
-func (r *DeviceGroup) Partition() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["partition"])
+func (r *DeviceGroup) Partition() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["partition"])
 }
 
 // Specifies whether the configuration should be saved upon auto-sync.
-func (r *DeviceGroup) SaveOnAutoSync() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["saveOnAutoSync"])
+func (r *DeviceGroup) SaveOnAutoSync() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["saveOnAutoSync"])
 }
 
 // Specifies if the device-group will be used for failover or resource syncing
-func (r *DeviceGroup) Type() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["type"])
+func (r *DeviceGroup) Type() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["type"])
 }
 
 // Input properties used for looking up and filtering DeviceGroup resources.

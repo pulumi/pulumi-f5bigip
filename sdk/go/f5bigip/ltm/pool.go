@@ -76,58 +76,58 @@ func GetPool(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Pool) URN() *pulumi.URNOutput {
+func (r *Pool) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Pool) ID() *pulumi.IDOutput {
+func (r *Pool) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Allow NAT
-func (r *Pool) AllowNat() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["allowNat"])
+func (r *Pool) AllowNat() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["allowNat"])
 }
 
 // Allow SNAT
-func (r *Pool) AllowSnat() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["allowSnat"])
+func (r *Pool) AllowSnat() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["allowSnat"])
 }
 
 // Userdefined value to describe the pool 
-func (r *Pool) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Pool) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Possible values: round-robin, ...
-func (r *Pool) LoadBalancingMode() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["loadBalancingMode"])
+func (r *Pool) LoadBalancingMode() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["loadBalancingMode"])
 }
 
 // List of monitor names to associate with the pool
-func (r *Pool) Monitors() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["monitors"])
+func (r *Pool) Monitors() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["monitors"])
 }
 
 // Name of the pool
-func (r *Pool) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Pool) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Number of times the system tries to select a new pool member after a failure.
-func (r *Pool) ReselectTries() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["reselectTries"])
+func (r *Pool) ReselectTries() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["reselectTries"])
 }
 
 // Possible values: none, reset, reselect, drop
-func (r *Pool) ServiceDownAction() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["serviceDownAction"])
+func (r *Pool) ServiceDownAction() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["serviceDownAction"])
 }
 
 // Slow ramp time for pool members
-func (r *Pool) SlowRampTime() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["slowRampTime"])
+func (r *Pool) SlowRampTime() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["slowRampTime"])
 }
 
 // Input properties used for looking up and filtering Pool resources.

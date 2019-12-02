@@ -73,53 +73,53 @@ func GetVirtualAddress(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *VirtualAddress) URN() *pulumi.URNOutput {
+func (r *VirtualAddress) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *VirtualAddress) ID() *pulumi.IDOutput {
+func (r *VirtualAddress) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Enabled dynamic routing of the address
-func (r *VirtualAddress) AdvertizeRoute() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["advertizeRoute"])
+func (r *VirtualAddress) AdvertizeRoute() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["advertizeRoute"])
 }
 
 // Enable or disable ARP for the virtual address
-func (r *VirtualAddress) Arp() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["arp"])
+func (r *VirtualAddress) Arp() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["arp"])
 }
 
 // Automatically delete the virtual address with the virtual server
-func (r *VirtualAddress) AutoDelete() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["autoDelete"])
+func (r *VirtualAddress) AutoDelete() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["autoDelete"])
 }
 
 // Max number of connections for virtual address
-func (r *VirtualAddress) ConnLimit() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["connLimit"])
+func (r *VirtualAddress) ConnLimit() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["connLimit"])
 }
 
 // Enable or disable the virtual address
-func (r *VirtualAddress) Enabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["enabled"])
+func (r *VirtualAddress) Enabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["enabled"])
 }
 
 // Enable/Disable ICMP response to the virtual address
-func (r *VirtualAddress) IcmpEcho() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["icmpEcho"])
+func (r *VirtualAddress) IcmpEcho() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["icmpEcho"])
 }
 
 // Name of the virtual address
-func (r *VirtualAddress) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *VirtualAddress) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Specify the partition and traffic group
-func (r *VirtualAddress) TrafficGroup() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["trafficGroup"])
+func (r *VirtualAddress) TrafficGroup() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["trafficGroup"])
 }
 
 // Input properties used for looking up and filtering VirtualAddress resources.

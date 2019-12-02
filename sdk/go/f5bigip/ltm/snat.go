@@ -85,68 +85,68 @@ func GetSnat(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Snat) URN() *pulumi.URNOutput {
+func (r *Snat) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Snat) ID() *pulumi.IDOutput {
+func (r *Snat) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies whether to automatically map last hop for pools or not. The default is to use next level's defaul
-func (r *Snat) Autolasthop() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["autolasthop"])
+func (r *Snat) Autolasthop() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["autolasthop"])
 }
 
 // Fullpath
-func (r *Snat) FullPath() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["fullPath"])
+func (r *Snat) FullPath() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["fullPath"])
 }
 
 // Enables or disables mirroring of SNAT connections.
-func (r *Snat) Mirror() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["mirror"])
+func (r *Snat) Mirror() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["mirror"])
 }
 
 // Name of the snat
-func (r *Snat) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Snat) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // IP or hostname of the snat
-func (r *Snat) Origins() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["origins"])
+func (r *Snat) Origins() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["origins"])
 }
 
 // Displays the administrative partition within which this profile resides
-func (r *Snat) Partition() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["partition"])
+func (r *Snat) Partition() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["partition"])
 }
 
 // Specifies the name of a SNAT pool. You can only use this option when automap and translation are not used.
-func (r *Snat) Snatpool() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["snatpool"])
+func (r *Snat) Snatpool() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["snatpool"])
 }
 
 // Specifies whether the system preserves the source port of the connection. The default is preserve. Use of the preserve-strict setting should be restricted to UDP only under very special circumstances such as nPath or transparent (that is, no translation of any other L3/L4 field), where there is a 1:1 relationship between virtual IP addresses and node addresses, or when clustered multi-processing (CMP) is disabled. The change setting is useful for obfuscating internal network addresses.
-func (r *Snat) Sourceport() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sourceport"])
+func (r *Snat) Sourceport() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sourceport"])
 }
 
 // Specifies the name of a translated IP address. Note that translated addresses are outside the traffic management system. You can only use this option when automap and snatpool are not used.
-func (r *Snat) Translation() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["translation"])
+func (r *Snat) Translation() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["translation"])
 }
 
 // Specifies the name of the VLAN to which you want to assign the SNAT. The default is vlans-enabled.
-func (r *Snat) Vlans() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["vlans"])
+func (r *Snat) Vlans() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["vlans"])
 }
 
 // Disables the SNAT on all VLANs.
-func (r *Snat) Vlansdisabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["vlansdisabled"])
+func (r *Snat) Vlansdisabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["vlansdisabled"])
 }
 
 // Input properties used for looking up and filtering Snat resources.

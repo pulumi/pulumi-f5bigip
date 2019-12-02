@@ -47,7 +47,7 @@ namespace Pulumi.F5bigip.Sys
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Dns(string name, DnsArgs args, CustomResourceOptions? options = null)
-            : base("f5bigip:sys/dns:Dns", name, args, MakeResourceOptions(options, ""))
+            : base("f5bigip:sys/dns:Dns", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
         {
         }
 

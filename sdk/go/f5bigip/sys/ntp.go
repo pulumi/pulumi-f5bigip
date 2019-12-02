@@ -58,28 +58,28 @@ func GetNtp(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Ntp) URN() *pulumi.URNOutput {
+func (r *Ntp) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Ntp) ID() *pulumi.IDOutput {
+func (r *Ntp) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Name of the ntp Servers
-func (r *Ntp) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *Ntp) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Adds NTP servers to or deletes NTP servers from the BIG-IP system.
-func (r *Ntp) Servers() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["servers"])
+func (r *Ntp) Servers() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["servers"])
 }
 
 // Specifies the time zone that you want to use for the system time.
-func (r *Ntp) Timezone() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["timezone"])
+func (r *Ntp) Timezone() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["timezone"])
 }
 
 // Input properties used for looking up and filtering Ntp resources.

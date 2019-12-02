@@ -64,33 +64,33 @@ func GetDevice(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Device) URN() *pulumi.URNOutput {
+func (r *Device) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Device) ID() *pulumi.IDOutput {
+func (r *Device) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // IP address used for config sync
-func (r *Device) ConfigsyncIp() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["configsyncIp"])
+func (r *Device) ConfigsyncIp() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["configsyncIp"])
 }
 
 // IP address used for state mirroring
-func (r *Device) MirrorIp() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["mirrorIp"])
+func (r *Device) MirrorIp() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["mirrorIp"])
 }
 
 // Secondary IP address used for state mirroring
-func (r *Device) MirrorSecondaryIp() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["mirrorSecondaryIp"])
+func (r *Device) MirrorSecondaryIp() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["mirrorSecondaryIp"])
 }
 
 // Address of the Device which needs to be Deviceensed
-func (r *Device) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Device) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // Input properties used for looking up and filtering Device resources.

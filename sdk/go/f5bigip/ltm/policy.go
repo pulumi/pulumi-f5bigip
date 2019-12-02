@@ -67,43 +67,43 @@ func GetPolicy(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *Policy) URN() *pulumi.URNOutput {
+func (r *Policy) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *Policy) ID() *pulumi.IDOutput {
+func (r *Policy) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // Specifies the controls
-func (r *Policy) Controls() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["controls"])
+func (r *Policy) Controls() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["controls"])
 }
 
 // Name of the Policy
-func (r *Policy) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *Policy) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // If you want to publish the policy else it will be deployed in Drafts mode.
-func (r *Policy) PublishedCopy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["publishedCopy"])
+func (r *Policy) PublishedCopy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["publishedCopy"])
 }
 
 // Specifies the protocol
-func (r *Policy) Requires() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["requires"])
+func (r *Policy) Requires() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["requires"])
 }
 
 // Rules can be applied using the policy
-func (r *Policy) Rules() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["rules"])
+func (r *Policy) Rules() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["rules"])
 }
 
 // Specifies the match strategy
-func (r *Policy) Strategy() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["strategy"])
+func (r *Policy) Strategy() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["strategy"])
 }
 
 // Input properties used for looking up and filtering Policy resources.

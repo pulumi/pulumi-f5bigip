@@ -118,116 +118,116 @@ func GetVirtualServer(ctx *pulumi.Context,
 }
 
 // URN is this resource's unique name assigned by Pulumi.
-func (r *VirtualServer) URN() *pulumi.URNOutput {
+func (r *VirtualServer) URN() pulumi.URNOutput {
 	return r.s.URN()
 }
 
 // ID is this resource's unique identifier assigned by its provider.
-func (r *VirtualServer) ID() *pulumi.IDOutput {
+func (r *VirtualServer) ID() pulumi.IDOutput {
 	return r.s.ID()
 }
 
 // List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
-func (r *VirtualServer) ClientProfiles() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["clientProfiles"])
+func (r *VirtualServer) ClientProfiles() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["clientProfiles"])
 }
 
 // Description of Virtual server
-func (r *VirtualServer) Description() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["description"])
+func (r *VirtualServer) Description() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["description"])
 }
 
 // Destination IP
-func (r *VirtualServer) Destination() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["destination"])
+func (r *VirtualServer) Destination() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["destination"])
 }
 
 // Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
-func (r *VirtualServer) FallbackPersistenceProfile() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["fallbackPersistenceProfile"])
+func (r *VirtualServer) FallbackPersistenceProfile() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["fallbackPersistenceProfile"])
 }
 
 // all, tcp, udp
-func (r *VirtualServer) IpProtocol() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["ipProtocol"])
+func (r *VirtualServer) IpProtocol() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["ipProtocol"])
 }
 
-func (r *VirtualServer) Irules() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["irules"])
+func (r *VirtualServer) Irules() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["irules"])
 }
 
 // Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
-func (r *VirtualServer) Mask() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["mask"])
+func (r *VirtualServer) Mask() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["mask"])
 }
 
 // Name of the virtual server
-func (r *VirtualServer) Name() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["name"])
+func (r *VirtualServer) Name() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["name"])
 }
 
 // List of persistence profiles associated with the Virtual Server.
-func (r *VirtualServer) PersistenceProfiles() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["persistenceProfiles"])
+func (r *VirtualServer) PersistenceProfiles() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["persistenceProfiles"])
 }
 
-func (r *VirtualServer) Policies() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["policies"])
+func (r *VirtualServer) Policies() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["policies"])
 }
 
 // Default pool name
-func (r *VirtualServer) Pool() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["pool"])
+func (r *VirtualServer) Pool() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["pool"])
 }
 
 // Listen port for the virtual server
-func (r *VirtualServer) Port() *pulumi.IntOutput {
-	return (*pulumi.IntOutput)(r.s.State["port"])
+func (r *VirtualServer) Port() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["port"])
 }
 
 // List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
-func (r *VirtualServer) Profiles() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["profiles"])
+func (r *VirtualServer) Profiles() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["profiles"])
 }
 
 // List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
-func (r *VirtualServer) ServerProfiles() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["serverProfiles"])
+func (r *VirtualServer) ServerProfiles() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["serverProfiles"])
 }
 
 // Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
-func (r *VirtualServer) Snatpool() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["snatpool"])
+func (r *VirtualServer) Snatpool() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["snatpool"])
 }
 
 // Specifies an IP address or network from which the virtual server will accept traffic.
-func (r *VirtualServer) Source() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["source"])
+func (r *VirtualServer) Source() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["source"])
 }
 
 // Can be either omitted for none or the values automap or snat
-func (r *VirtualServer) SourceAddressTranslation() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["sourceAddressTranslation"])
+func (r *VirtualServer) SourceAddressTranslation() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["sourceAddressTranslation"])
 }
 
 // Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
-func (r *VirtualServer) TranslateAddress() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["translateAddress"])
+func (r *VirtualServer) TranslateAddress() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["translateAddress"])
 }
 
 // Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
-func (r *VirtualServer) TranslatePort() *pulumi.StringOutput {
-	return (*pulumi.StringOutput)(r.s.State["translatePort"])
+func (r *VirtualServer) TranslatePort() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["translatePort"])
 }
 
 // The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.
-func (r *VirtualServer) Vlans() *pulumi.ArrayOutput {
-	return (*pulumi.ArrayOutput)(r.s.State["vlans"])
+func (r *VirtualServer) Vlans() pulumi.ArrayOutput {
+	return (pulumi.ArrayOutput)(r.s.State["vlans"])
 }
 
 // Enables the virtual server on the VLANs specified by the VLANs option.
-func (r *VirtualServer) VlansEnabled() *pulumi.BoolOutput {
-	return (*pulumi.BoolOutput)(r.s.State["vlansEnabled"])
+func (r *VirtualServer) VlansEnabled() pulumi.BoolOutput {
+	return (pulumi.BoolOutput)(r.s.State["vlansEnabled"])
 }
 
 // Input properties used for looking up and filtering VirtualServer resources.
