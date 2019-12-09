@@ -6,7 +6,7 @@ using System.IO;
 using System.Reflection;
 using Pulumi;
 
-namespace Pulumi.F5bigip
+namespace Pulumi.F5BigIP
 {
     static class Utilities
     {
@@ -66,7 +66,7 @@ namespace Pulumi.F5bigip
         static Utilities()
         {
             var assembly = typeof(Utilities).GetTypeInfo().Assembly;
-            using var stream = assembly.GetManifestResourceStream("Pulumi.F5bigip.version.txt");
+            using var stream = assembly.GetManifestResourceStream("Pulumi.F5BigIP.version.txt");
             using var reader = new StreamReader(stream ?? throw new NotSupportedException("Missing embedded version.txt file"));
             version = reader.ReadToEnd().Trim();
         }

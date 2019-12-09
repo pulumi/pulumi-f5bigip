@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.F5bigip.Sys
+namespace Pulumi.F5BigIP.Sys
 {
     public partial class BigIpLicense : Pulumi.CustomResource
     {

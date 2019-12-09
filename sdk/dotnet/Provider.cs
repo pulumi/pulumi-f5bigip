@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.F5bigip
+namespace Pulumi.F5BigIP
 {
     /// <summary>
     /// The provider type for the bigip package. By default, resources use package-wide configuration

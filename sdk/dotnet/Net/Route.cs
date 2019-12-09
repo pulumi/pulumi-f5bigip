@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.F5bigip.Net
+namespace Pulumi.F5BigIP.Net
 {
     /// <summary>
     /// `f5bigip.net.Route` Manages a route configuration
