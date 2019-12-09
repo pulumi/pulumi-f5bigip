@@ -38,8 +38,8 @@ var namespaceMap = map[string]string{
 	f5BigIPPkg: "F5BigIP",
 }
 
-// f5BigIPMember manufactures a type token for the F5 BigIP package and the given module and type.  It automatically uses the
-// F5 BigIP package and names the file by simply lower casing the resource's first character.
+// f5BigIPMember manufactures a type token for the F5 BigIP package and the given module and type.  It automatically
+// uses the F5 BigIP package and names the file by simply lower casing the resource's first character.
 func f5BigIPMember(moduleTitle string, mem string) tokens.ModuleMember {
 	moduleName := strings.ToLower(moduleTitle)
 	namespaceMap[moduleName] = moduleTitle
