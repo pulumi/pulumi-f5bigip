@@ -2,7 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Namespace names in .NET SDK are adjusted to PascalCase
+([#38](https://github.com/pulumi/pulumi-f5bigip/pull/38)).
 
 ---
 

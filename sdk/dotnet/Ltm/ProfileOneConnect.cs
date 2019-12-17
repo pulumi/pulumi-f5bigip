@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.F5bigip.Ltm
+namespace Pulumi.F5BigIP.Ltm
 {
     /// <summary>
     /// `f5bigip.ltm.ProfileOneConnect` Configures a custom profile_oneconnect for use by health checks.

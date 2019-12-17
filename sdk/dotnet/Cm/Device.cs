@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.F5bigip.Cm
+namespace Pulumi.F5BigIP.CM
 {
     /// <summary>
     /// `f5bigip.cm.Device` provides details about a specific bigip

@@ -15,6 +15,7 @@
 package f5bigip
 
 import (
+	"strings"
 	"unicode"
 
 	"github.com/hashicorp/terraform/helper/schema"
@@ -27,15 +28,24 @@ import (
 // all of the F5 BigIP token components used below.
 const (
 	f5BigIPPkg    = "f5bigip"
-	f5BigIPCMMod  = "cm"  // Centralized Management (CM)
-	f5BigIPLTMMod = "ltm" // Local Traffic Manager (LTM)
-	f5BigIPNetMod = "net" // Network
-	f5BigIPSysMod = "sys" // System
+	f5BigIPCMMod  = "CM"  // Centralized Management (CM)
+	f5BigIPLTMMod = "Ltm" // Local Traffic Manager (LTM)
+	f5BigIPNetMod = "Net" // Network
+	f5BigIPSysMod = "Sys" // System
 )
 
-// f5BigIPMember manufactures a type token for the F5 BigIP package and the given module and type.
-func f5BigIPMember(mod string, mem string) tokens.ModuleMember {
-	return tokens.ModuleMember(f5BigIPPkg + ":" + mod + ":" + mem)
+var namespaceMap = map[string]string{
+	f5BigIPPkg: "F5BigIP",
+}
+
+// f5BigIPMember manufactures a type token for the F5 BigIP package and the given module and type.  It automatically
+// uses the F5 BigIP package and names the file by simply lower casing the resource's first character.
+func f5BigIPMember(moduleTitle string, mem string) tokens.ModuleMember {
+	moduleName := strings.ToLower(moduleTitle)
+	namespaceMap[moduleName] = moduleTitle
+	fn := string(unicode.ToLower(rune(mem[0]))) + mem[1:]
+	token := moduleName + "/" + fn
+	return tokens.ModuleMember(f5BigIPPkg + ":" + token + ":" + mem)
 }
 
 // f5BigIPType manufactures a type token for the F5 BigIP package and the given module and type.
@@ -43,11 +53,9 @@ func f5BigIPType(mod string, typ string) tokens.Type {
 	return tokens.Type(f5BigIPMember(mod, typ))
 }
 
-// f5BigIPResource manufactures a standard resource token given a module and resource name.  It automatically uses the
-// F5 BigIP package and names the file by simply lower casing the resource's first character.
+// f5BigIPResource manufactures a standard resource token given a module and resource name.
 func f5BigIPResource(mod string, res string) tokens.Type {
-	fn := string(unicode.ToLower(rune(res[0]))) + res[1:]
-	return f5BigIPType(mod+"/"+fn, res)
+	return f5BigIPType(mod, res)
 }
 
 // Provider returns additional overlaid schema and metadata associated with the F5 BigIP package.
@@ -114,6 +122,7 @@ func Provider() tfbridge.ProviderInfo {
 				"Pulumi":                       "1.5.0-*",
 				"System.Collections.Immutable": "1.6.0",
 			},
+			Namespaces: namespaceMap,
 		},
 	}
 }

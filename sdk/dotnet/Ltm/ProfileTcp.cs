@@ -5,7 +5,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.F5bigip.Ltm
+namespace Pulumi.F5BigIP.Ltm
 {
     /// <summary>
     /// `f5bigip.ltm.ProfileTcp` Configures a custom profile_tcp for use by health checks.
