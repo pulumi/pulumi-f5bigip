@@ -32,6 +32,7 @@ func NewVirtualServer(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if args == nil {
 		inputs["clientProfiles"] = nil
+		inputs["defaultPersistenceProfile"] = nil
 		inputs["description"] = nil
 		inputs["destination"] = nil
 		inputs["fallbackPersistenceProfile"] = nil
@@ -48,12 +49,14 @@ func NewVirtualServer(ctx *pulumi.Context,
 		inputs["snatpool"] = nil
 		inputs["source"] = nil
 		inputs["sourceAddressTranslation"] = nil
+		inputs["state"] = nil
 		inputs["translateAddress"] = nil
 		inputs["translatePort"] = nil
 		inputs["vlans"] = nil
 		inputs["vlansEnabled"] = nil
 	} else {
 		inputs["clientProfiles"] = args.ClientProfiles
+		inputs["defaultPersistenceProfile"] = args.DefaultPersistenceProfile
 		inputs["description"] = args.Description
 		inputs["destination"] = args.Destination
 		inputs["fallbackPersistenceProfile"] = args.FallbackPersistenceProfile
@@ -70,6 +73,7 @@ func NewVirtualServer(ctx *pulumi.Context,
 		inputs["snatpool"] = args.Snatpool
 		inputs["source"] = args.Source
 		inputs["sourceAddressTranslation"] = args.SourceAddressTranslation
+		inputs["state"] = args.State
 		inputs["translateAddress"] = args.TranslateAddress
 		inputs["translatePort"] = args.TranslatePort
 		inputs["vlans"] = args.Vlans
@@ -89,6 +93,7 @@ func GetVirtualServer(ctx *pulumi.Context,
 	inputs := make(map[string]interface{})
 	if state != nil {
 		inputs["clientProfiles"] = state.ClientProfiles
+		inputs["defaultPersistenceProfile"] = state.DefaultPersistenceProfile
 		inputs["description"] = state.Description
 		inputs["destination"] = state.Destination
 		inputs["fallbackPersistenceProfile"] = state.FallbackPersistenceProfile
@@ -105,6 +110,7 @@ func GetVirtualServer(ctx *pulumi.Context,
 		inputs["snatpool"] = state.Snatpool
 		inputs["source"] = state.Source
 		inputs["sourceAddressTranslation"] = state.SourceAddressTranslation
+		inputs["state"] = state.State
 		inputs["translateAddress"] = state.TranslateAddress
 		inputs["translatePort"] = state.TranslatePort
 		inputs["vlans"] = state.Vlans
@@ -132,6 +138,10 @@ func (r *VirtualServer) ClientProfiles() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["clientProfiles"])
 }
 
+func (r *VirtualServer) DefaultPersistenceProfile() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["defaultPersistenceProfile"])
+}
+
 // Description of Virtual server
 func (r *VirtualServer) Description() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["description"])
@@ -152,6 +162,7 @@ func (r *VirtualServer) IpProtocol() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["ipProtocol"])
 }
 
+// The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
 func (r *VirtualServer) Irules() pulumi.ArrayOutput {
 	return (pulumi.ArrayOutput)(r.s.State["irules"])
 }
@@ -210,6 +221,11 @@ func (r *VirtualServer) SourceAddressTranslation() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["sourceAddressTranslation"])
 }
 
+// Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
+func (r *VirtualServer) State() pulumi.StringOutput {
+	return (pulumi.StringOutput)(r.s.State["state"])
+}
+
 // Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
 func (r *VirtualServer) TranslateAddress() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["translateAddress"])
@@ -234,6 +250,7 @@ func (r *VirtualServer) VlansEnabled() pulumi.BoolOutput {
 type VirtualServerState struct {
 	// List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
 	ClientProfiles interface{}
+	DefaultPersistenceProfile interface{}
 	// Description of Virtual server
 	Description interface{}
 	// Destination IP
@@ -242,6 +259,7 @@ type VirtualServerState struct {
 	FallbackPersistenceProfile interface{}
 	// all, tcp, udp
 	IpProtocol interface{}
+	// The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
 	Irules interface{}
 	// Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
 	Mask interface{}
@@ -264,6 +282,8 @@ type VirtualServerState struct {
 	Source interface{}
 	// Can be either omitted for none or the values automap or snat
 	SourceAddressTranslation interface{}
+	// Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
+	State interface{}
 	// Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
 	TranslateAddress interface{}
 	// Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
@@ -278,6 +298,7 @@ type VirtualServerState struct {
 type VirtualServerArgs struct {
 	// List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
 	ClientProfiles interface{}
+	DefaultPersistenceProfile interface{}
 	// Description of Virtual server
 	Description interface{}
 	// Destination IP
@@ -286,6 +307,7 @@ type VirtualServerArgs struct {
 	FallbackPersistenceProfile interface{}
 	// all, tcp, udp
 	IpProtocol interface{}
+	// The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
 	Irules interface{}
 	// Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
 	Mask interface{}
@@ -308,6 +330,8 @@ type VirtualServerArgs struct {
 	Source interface{}
 	// Can be either omitted for none or the values automap or snat
 	SourceAddressTranslation interface{}
+	// Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
+	State interface{}
 	// Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
 	TranslateAddress interface{}
 	// Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service

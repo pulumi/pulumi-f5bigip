@@ -26,6 +26,11 @@ password = __config__.get('password')
 The user's password
 """
 
+port = __config__.get('port')
+"""
+Management Port to connect to Bigip
+"""
+
 token_auth = __config__.get('tokenAuth')
 """
 Enable to use an external authentication source (LDAP, TACACS, etc)

@@ -23,6 +23,11 @@ func GetPassword(ctx *pulumi.Context) string {
 	return config.Get(ctx, "f5bigip:password")
 }
 
+// Management Port to connect to Bigip
+func GetPort(ctx *pulumi.Context) string {
+	return config.Get(ctx, "f5bigip:port")
+}
+
 // Enable to use an external authentication source (LDAP, TACACS, etc)
 func GetTokenAuth(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "f5bigip:tokenAuth")
