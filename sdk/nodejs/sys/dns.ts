@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * `bigipLtmDns` Configures DNS server on F5 BIG-IP
+ * `f5bigip.sys.Dns` Configures DNS server on F5 BIG-IP
  * 
  * 
  * 
@@ -17,11 +17,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  * 
- * const dns1 = new f5bigip.LtmDns("dns1", {
+ * const dns1 = new f5bigip.sys.Dns("dns1", {
  *     description: "/Common/DNS1",
  *     nameServers: ["1.1.1.1"],
- *     numberofDots: 2,
- *     search: ["f5.com"],
+ *     numberOfDots: 2,
+ *     searches: ["f5.com"],
  * });
  * ```
  *

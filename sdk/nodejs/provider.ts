@@ -50,6 +50,7 @@ export class Provider extends pulumi.ProviderResource {
             inputs["address"] = args ? args.address : undefined;
             inputs["loginRef"] = args ? args.loginRef : undefined;
             inputs["password"] = args ? args.password : undefined;
+            inputs["port"] = args ? args.port : undefined;
             inputs["tokenAuth"] = pulumi.output(args ? args.tokenAuth : undefined).apply(JSON.stringify);
             inputs["username"] = args ? args.username : undefined;
         }
@@ -80,6 +81,10 @@ export interface ProviderArgs {
      * The user's password
      */
     readonly password: pulumi.Input<string>;
+    /**
+     * Management Port to connect to Bigip
+     */
+    readonly port?: pulumi.Input<string>;
     /**
      * Enable to use an external authentication source (LDAP, TACACS, etc)
      */

@@ -36,11 +36,12 @@ class Node(pulumi.CustomResource):
     Name of the node
     """
     rate_limit: pulumi.Output[str]
+    ratio: pulumi.Output[float]
     state: pulumi.Output[str]
     """
     Default is "user-up" you can set to "user-down" if you want to disable
     """
-    def __init__(__self__, resource_name, opts=None, address=None, connection_limit=None, description=None, dynamic_ratio=None, fqdn=None, monitor=None, name=None, rate_limit=None, state=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, address=None, connection_limit=None, description=None, dynamic_ratio=None, fqdn=None, monitor=None, name=None, rate_limit=None, ratio=None, state=None, __props__=None, __name__=None, __opts__=None):
         """
         `ltm.Node` Manages a node configuration
         
@@ -95,6 +96,7 @@ class Node(pulumi.CustomResource):
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['rate_limit'] = rate_limit
+            __props__['ratio'] = ratio
             __props__['state'] = state
         super(Node, __self__).__init__(
             'f5bigip:ltm/node:Node',
@@ -103,7 +105,7 @@ class Node(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, address=None, connection_limit=None, description=None, dynamic_ratio=None, fqdn=None, monitor=None, name=None, rate_limit=None, state=None):
+    def get(resource_name, id, opts=None, address=None, connection_limit=None, description=None, dynamic_ratio=None, fqdn=None, monitor=None, name=None, rate_limit=None, ratio=None, state=None):
         """
         Get an existing Node resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -140,6 +142,7 @@ class Node(pulumi.CustomResource):
         __props__["monitor"] = monitor
         __props__["name"] = name
         __props__["rate_limit"] = rate_limit
+        __props__["ratio"] = ratio
         __props__["state"] = state
         return Node(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):

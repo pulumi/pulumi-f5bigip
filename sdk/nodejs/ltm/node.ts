@@ -67,6 +67,10 @@ export class Node extends pulumi.CustomResource {
      */
     public readonly rateLimit!: pulumi.Output<string>;
     /**
+     * Sets the ratio number for the node.
+     */
+    public readonly ratio!: pulumi.Output<number>;
+    /**
      * Default is "user-up" you can set to "user-down" if you want to disable
      */
     public readonly state!: pulumi.Output<string | undefined>;
@@ -91,6 +95,7 @@ export class Node extends pulumi.CustomResource {
             inputs["monitor"] = state ? state.monitor : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["rateLimit"] = state ? state.rateLimit : undefined;
+            inputs["ratio"] = state ? state.ratio : undefined;
             inputs["state"] = state ? state.state : undefined;
         } else {
             const args = argsOrState as NodeArgs | undefined;
@@ -108,6 +113,7 @@ export class Node extends pulumi.CustomResource {
             inputs["monitor"] = args ? args.monitor : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["rateLimit"] = args ? args.rateLimit : undefined;
+            inputs["ratio"] = args ? args.ratio : undefined;
             inputs["state"] = args ? args.state : undefined;
         }
         if (!opts) {
@@ -156,6 +162,10 @@ export interface NodeState {
      */
     readonly rateLimit?: pulumi.Input<string>;
     /**
+     * Sets the ratio number for the node.
+     */
+    readonly ratio?: pulumi.Input<number>;
+    /**
      * Default is "user-up" you can set to "user-down" if you want to disable
      */
     readonly state?: pulumi.Input<string>;
@@ -195,6 +205,10 @@ export interface NodeArgs {
      * 'disabled'.
      */
     readonly rateLimit?: pulumi.Input<string>;
+    /**
+     * Sets the ratio number for the node.
+     */
+    readonly ratio?: pulumi.Input<number>;
     /**
      * Default is "user-up" you can set to "user-down" if you want to disable
      */

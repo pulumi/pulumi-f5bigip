@@ -25,6 +25,11 @@ namespace Pulumi.F5BigIP
         public static string? Password { get; set; } = __config.Get("password");
 
         /// <summary>
+        /// Management Port to connect to Bigip
+        /// </summary>
+        public static string? Port { get; set; } = __config.Get("port");
+
+        /// <summary>
         /// Enable to use an external authentication source (LDAP, TACACS, etc)
         /// </summary>
         public static bool? TokenAuth { get; set; } = __config.GetBoolean("tokenAuth");

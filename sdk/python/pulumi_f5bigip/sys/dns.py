@@ -25,7 +25,7 @@ class Dns(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, description=None, name_servers=None, number_of_dots=None, searches=None, __props__=None, __name__=None, __opts__=None):
         """
-        `bigip_ltm_dns` Configures DNS server on F5 BIG-IP
+        `sys.Dns` Configures DNS server on F5 BIG-IP
         
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

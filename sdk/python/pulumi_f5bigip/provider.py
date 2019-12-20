@@ -10,7 +10,7 @@ from typing import Union
 from . import utilities, tables
 
 class Provider(pulumi.ProviderResource):
-    def __init__(__self__, resource_name, opts=None, address=None, login_ref=None, password=None, token_auth=None, username=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, address=None, login_ref=None, password=None, port=None, token_auth=None, username=None, __props__=None, __name__=None, __opts__=None):
         """
         The provider type for the bigip package. By default, resources use package-wide configuration
         settings, however an explicit `Provider` instance may be created and passed during resource
@@ -46,6 +46,7 @@ class Provider(pulumi.ProviderResource):
             if password is None:
                 raise TypeError("Missing required property 'password'")
             __props__['password'] = password
+            __props__['port'] = port
             __props__['token_auth'] = pulumi.Output.from_input(token_auth).apply(json.dumps) if token_auth is not None else None
             if username is None:
                 raise TypeError("Missing required property 'username'")

@@ -40,6 +40,7 @@ export class VirtualServer extends pulumi.CustomResource {
      * List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
      */
     public readonly clientProfiles!: pulumi.Output<string[]>;
+    public readonly defaultPersistenceProfile!: pulumi.Output<string | undefined>;
     /**
      * Description of Virtual server
      */
@@ -56,6 +57,9 @@ export class VirtualServer extends pulumi.CustomResource {
      * all, tcp, udp
      */
     public readonly ipProtocol!: pulumi.Output<string>;
+    /**
+     * The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
+     */
     public readonly irules!: pulumi.Output<string[] | undefined>;
     /**
      * Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
@@ -99,6 +103,10 @@ export class VirtualServer extends pulumi.CustomResource {
      */
     public readonly sourceAddressTranslation!: pulumi.Output<string>;
     /**
+     * Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
+     */
+    public readonly state!: pulumi.Output<string | undefined>;
+    /**
      * Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
      */
     public readonly translateAddress!: pulumi.Output<string>;
@@ -128,6 +136,7 @@ export class VirtualServer extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as VirtualServerState | undefined;
             inputs["clientProfiles"] = state ? state.clientProfiles : undefined;
+            inputs["defaultPersistenceProfile"] = state ? state.defaultPersistenceProfile : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["destination"] = state ? state.destination : undefined;
             inputs["fallbackPersistenceProfile"] = state ? state.fallbackPersistenceProfile : undefined;
@@ -144,6 +153,7 @@ export class VirtualServer extends pulumi.CustomResource {
             inputs["snatpool"] = state ? state.snatpool : undefined;
             inputs["source"] = state ? state.source : undefined;
             inputs["sourceAddressTranslation"] = state ? state.sourceAddressTranslation : undefined;
+            inputs["state"] = state ? state.state : undefined;
             inputs["translateAddress"] = state ? state.translateAddress : undefined;
             inputs["translatePort"] = state ? state.translatePort : undefined;
             inputs["vlans"] = state ? state.vlans : undefined;
@@ -160,6 +170,7 @@ export class VirtualServer extends pulumi.CustomResource {
                 throw new Error("Missing required property 'port'");
             }
             inputs["clientProfiles"] = args ? args.clientProfiles : undefined;
+            inputs["defaultPersistenceProfile"] = args ? args.defaultPersistenceProfile : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["destination"] = args ? args.destination : undefined;
             inputs["fallbackPersistenceProfile"] = args ? args.fallbackPersistenceProfile : undefined;
@@ -176,6 +187,7 @@ export class VirtualServer extends pulumi.CustomResource {
             inputs["snatpool"] = args ? args.snatpool : undefined;
             inputs["source"] = args ? args.source : undefined;
             inputs["sourceAddressTranslation"] = args ? args.sourceAddressTranslation : undefined;
+            inputs["state"] = args ? args.state : undefined;
             inputs["translateAddress"] = args ? args.translateAddress : undefined;
             inputs["translatePort"] = args ? args.translatePort : undefined;
             inputs["vlans"] = args ? args.vlans : undefined;
@@ -200,6 +212,7 @@ export interface VirtualServerState {
      * List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
      */
     readonly clientProfiles?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly defaultPersistenceProfile?: pulumi.Input<string>;
     /**
      * Description of Virtual server
      */
@@ -216,6 +229,9 @@ export interface VirtualServerState {
      * all, tcp, udp
      */
     readonly ipProtocol?: pulumi.Input<string>;
+    /**
+     * The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
+     */
     readonly irules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
@@ -259,6 +275,10 @@ export interface VirtualServerState {
      */
     readonly sourceAddressTranslation?: pulumi.Input<string>;
     /**
+     * Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
+     */
+    readonly state?: pulumi.Input<string>;
+    /**
      * Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
      */
     readonly translateAddress?: pulumi.Input<string>;
@@ -284,6 +304,7 @@ export interface VirtualServerArgs {
      * List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
      */
     readonly clientProfiles?: pulumi.Input<pulumi.Input<string>[]>;
+    readonly defaultPersistenceProfile?: pulumi.Input<string>;
     /**
      * Description of Virtual server
      */
@@ -300,6 +321,9 @@ export interface VirtualServerArgs {
      * all, tcp, udp
      */
     readonly ipProtocol?: pulumi.Input<string>;
+    /**
+     * The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
+     */
     readonly irules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
@@ -342,6 +366,10 @@ export interface VirtualServerArgs {
      * Can be either omitted for none or the values automap or snat
      */
     readonly sourceAddressTranslation?: pulumi.Input<string>;
+    /**
+     * Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
+     */
+    readonly state?: pulumi.Input<string>;
     /**
      * Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
      */

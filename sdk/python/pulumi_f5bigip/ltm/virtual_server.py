@@ -14,6 +14,7 @@ class VirtualServer(pulumi.CustomResource):
     """
     List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
     """
+    default_persistence_profile: pulumi.Output[str]
     description: pulumi.Output[str]
     """
     Description of Virtual server
@@ -28,6 +29,9 @@ class VirtualServer(pulumi.CustomResource):
     """
     ip_protocol: pulumi.Output[str]
     irules: pulumi.Output[list]
+    """
+    The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
+    """
     mask: pulumi.Output[str]
     """
     Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
@@ -66,6 +70,7 @@ class VirtualServer(pulumi.CustomResource):
     """
     Can be either omitted for none or the values automap or snat
     """
+    state: pulumi.Output[str]
     translate_address: pulumi.Output[str]
     """
     Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
@@ -82,7 +87,7 @@ class VirtualServer(pulumi.CustomResource):
     """
     Enables the virtual server on the VLANs specified by the VLANs option.
     """
-    def __init__(__self__, resource_name, opts=None, client_profiles=None, description=None, destination=None, fallback_persistence_profile=None, ip_protocol=None, irules=None, mask=None, name=None, persistence_profiles=None, policies=None, pool=None, port=None, profiles=None, server_profiles=None, snatpool=None, source=None, source_address_translation=None, translate_address=None, translate_port=None, vlans=None, vlans_enabled=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, client_profiles=None, default_persistence_profile=None, description=None, destination=None, fallback_persistence_profile=None, ip_protocol=None, irules=None, mask=None, name=None, persistence_profiles=None, policies=None, pool=None, port=None, profiles=None, server_profiles=None, snatpool=None, source=None, source_address_translation=None, state=None, translate_address=None, translate_port=None, vlans=None, vlans_enabled=None, __props__=None, __name__=None, __opts__=None):
         """
         `ltm.VirtualServer` Configures Virtual Server
         
@@ -94,6 +99,7 @@ class VirtualServer(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of Virtual server
         :param pulumi.Input[str] destination: Destination IP
         :param pulumi.Input[str] fallback_persistence_profile: Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
+        :param pulumi.Input[list] irules: The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
         :param pulumi.Input[str] mask: Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
         :param pulumi.Input[list] persistence_profiles: List of persistence profiles associated with the Virtual Server.
         :param pulumi.Input[str] pool: Default pool name
@@ -128,6 +134,7 @@ class VirtualServer(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['client_profiles'] = client_profiles
+            __props__['default_persistence_profile'] = default_persistence_profile
             __props__['description'] = description
             if destination is None:
                 raise TypeError("Missing required property 'destination'")
@@ -150,6 +157,7 @@ class VirtualServer(pulumi.CustomResource):
             __props__['snatpool'] = snatpool
             __props__['source'] = source
             __props__['source_address_translation'] = source_address_translation
+            __props__['state'] = state
             __props__['translate_address'] = translate_address
             __props__['translate_port'] = translate_port
             __props__['vlans'] = vlans
@@ -161,7 +169,7 @@ class VirtualServer(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, client_profiles=None, description=None, destination=None, fallback_persistence_profile=None, ip_protocol=None, irules=None, mask=None, name=None, persistence_profiles=None, policies=None, pool=None, port=None, profiles=None, server_profiles=None, snatpool=None, source=None, source_address_translation=None, translate_address=None, translate_port=None, vlans=None, vlans_enabled=None):
+    def get(resource_name, id, opts=None, client_profiles=None, default_persistence_profile=None, description=None, destination=None, fallback_persistence_profile=None, ip_protocol=None, irules=None, mask=None, name=None, persistence_profiles=None, policies=None, pool=None, port=None, profiles=None, server_profiles=None, snatpool=None, source=None, source_address_translation=None, state=None, translate_address=None, translate_port=None, vlans=None, vlans_enabled=None):
         """
         Get an existing VirtualServer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -173,6 +181,7 @@ class VirtualServer(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of Virtual server
         :param pulumi.Input[str] destination: Destination IP
         :param pulumi.Input[str] fallback_persistence_profile: Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
+        :param pulumi.Input[list] irules: The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
         :param pulumi.Input[str] mask: Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
         :param pulumi.Input[list] persistence_profiles: List of persistence profiles associated with the Virtual Server.
         :param pulumi.Input[str] pool: Default pool name
@@ -193,6 +202,7 @@ class VirtualServer(pulumi.CustomResource):
 
         __props__ = dict()
         __props__["client_profiles"] = client_profiles
+        __props__["default_persistence_profile"] = default_persistence_profile
         __props__["description"] = description
         __props__["destination"] = destination
         __props__["fallback_persistence_profile"] = fallback_persistence_profile
@@ -209,6 +219,7 @@ class VirtualServer(pulumi.CustomResource):
         __props__["snatpool"] = snatpool
         __props__["source"] = source
         __props__["source_address_translation"] = source_address_translation
+        __props__["state"] = state
         __props__["translate_address"] = translate_address
         __props__["translate_port"] = translate_port
         __props__["vlans"] = vlans

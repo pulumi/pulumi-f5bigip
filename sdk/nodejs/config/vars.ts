@@ -19,6 +19,10 @@ export let loginRef: string | undefined = __config.get("loginRef");
  */
 export let password: string | undefined = __config.get("password");
 /**
+ * Management Port to connect to Bigip
+ */
+export let port: string | undefined = __config.get("port");
+/**
  * Enable to use an external authentication source (LDAP, TACACS, etc)
  */
 export let tokenAuth: boolean | undefined = __config.getObject<boolean>("tokenAuth");

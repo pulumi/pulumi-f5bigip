@@ -36,6 +36,7 @@ func NewNode(ctx *pulumi.Context,
 		inputs["monitor"] = nil
 		inputs["name"] = nil
 		inputs["rateLimit"] = nil
+		inputs["ratio"] = nil
 		inputs["state"] = nil
 	} else {
 		inputs["address"] = args.Address
@@ -46,6 +47,7 @@ func NewNode(ctx *pulumi.Context,
 		inputs["monitor"] = args.Monitor
 		inputs["name"] = args.Name
 		inputs["rateLimit"] = args.RateLimit
+		inputs["ratio"] = args.Ratio
 		inputs["state"] = args.State
 	}
 	s, err := ctx.RegisterResource("f5bigip:ltm/node:Node", name, true, inputs, opts...)
@@ -69,6 +71,7 @@ func GetNode(ctx *pulumi.Context,
 		inputs["monitor"] = state.Monitor
 		inputs["name"] = state.Name
 		inputs["rateLimit"] = state.RateLimit
+		inputs["ratio"] = state.Ratio
 		inputs["state"] = state.State
 	}
 	s, err := ctx.ReadResource("f5bigip:ltm/node:Node", name, id, inputs, opts...)
@@ -128,6 +131,11 @@ func (r *Node) RateLimit() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["rateLimit"])
 }
 
+// Sets the ratio number for the node.
+func (r *Node) Ratio() pulumi.IntOutput {
+	return (pulumi.IntOutput)(r.s.State["ratio"])
+}
+
 // Default is "user-up" you can set to "user-down" if you want to disable
 func (r *Node) State() pulumi.StringOutput {
 	return (pulumi.StringOutput)(r.s.State["state"])
@@ -151,6 +159,8 @@ type NodeState struct {
 	// Specifies the maximum number of connections per second allowed for a node or node address. The default value is
 	// 'disabled'.
 	RateLimit interface{}
+	// Sets the ratio number for the node.
+	Ratio interface{}
 	// Default is "user-up" you can set to "user-down" if you want to disable
 	State interface{}
 }
@@ -173,6 +183,8 @@ type NodeArgs struct {
 	// Specifies the maximum number of connections per second allowed for a node or node address. The default value is
 	// 'disabled'.
 	RateLimit interface{}
+	// Sets the ratio number for the node.
+	Ratio interface{}
 	// Default is "user-up" you can set to "user-down" if you want to disable
 	State interface{}
 }

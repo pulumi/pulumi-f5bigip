@@ -18,8 +18,8 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/hashicorp/terraform/helper/schema"
-	"github.com/pulumi/pulumi-terraform/pkg/tfbridge"
+	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
+	"github.com/pulumi/pulumi-terraform-bridge/pkg/tfbridge"
 	"github.com/pulumi/pulumi/pkg/tokens"
 
 	"github.com/terraform-providers/terraform-provider-bigip/bigip"
@@ -119,7 +119,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		CSharp: &tfbridge.CSharpInfo{
 			PackageReferences: map[string]string{
-				"Pulumi":                       "1.5.0-*",
+				"Pulumi":                       "1.7.0-preview",
 				"System.Collections.Immutable": "1.6.0",
 			},
 			Namespaces: namespaceMap,
