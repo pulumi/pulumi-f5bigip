@@ -2,12 +2,15 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 1.3.0 (2020-01-02)
 * Namespace names in .NET SDK are adjusted to PascalCase
 ([#38](https://github.com/pulumi/pulumi-f5bigip/pull/38)).
 * Upgrade to v1.1.1 of the BigIP Terraform Provider
 * Upgrade to pulumi-terraform-bridge v1.5.2
-
----
 
 ## 1.2.0 (2019-12-04)
 * Upgrade to support go 1.13.x
