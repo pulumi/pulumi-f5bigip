@@ -30,6 +30,19 @@ To use from Python, install using `pip`:
 To use from Go, use `go get` to grab the latest version of the library
 
     $ go get github.com/pulumi/pulumi-f5bigip/sdk/go/...
+    
+    
+## Configuration
+
+The following configuration points are available:
+
+- `f5bigip:address` - Domain name/IP of the BigIP. May be set via the `BIGIP_HOST` environment variable.
+- `f5bigip:port` - Management Port to connect to BigIP.
+- `f5bigip:username` - Username with API access to the BigIP. May be set via the `BIGIP_USER` environment variable.
+- `f5bigip:password` - Password for API access to the BigIP. May be set via the `BIGIP_PASSWORD` environment variable.
+- `f5bigip:tokenAuth` - Enable to use an external authentication source (LDAP, TACACS, etc). May be set via the `BIGIP_TOKEN_AUTH` environment variable.
+- `f5bigip:tokenAuth` - Enable to use an external authentication source (LDAP, TACACS, etc). May be set via the `BIGIP_TOKEN_AUTH` environment variable.
+- `f5bigip:loginRef` - Login reference for token authentication (see BIG-IP REST docs for details) May be set via the `BIGIP_LOGIN_REF` environment variable.
 
 ## Reference
 
