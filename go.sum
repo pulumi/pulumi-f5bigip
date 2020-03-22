@@ -134,8 +134,8 @@ github.com/eapache/go-xerial-snappy v0.0.0-20180814174437-776d5712da21/go.mod h1
 github.com/eapache/queue v1.1.0/go.mod h1:6eCeP0CKFpHLu8blIFXhExK/dRa7WDZfr6jVFPTqq+I=
 github.com/emirpasic/gods v1.9.0 h1:rUF4PuzEjMChMiNsVjdI+SyLu7rEqpQ5reNFnhC7oFo=
 github.com/emirpasic/gods v1.9.0/go.mod h1:YfzfFFoVP/catgzJb4IKIqXjX78Ha8FMSDh3ymbK86o=
-github.com/f5devcentral/go-bigip v0.0.0-20191210104813-c271f8ad800c h1:0/0D5cLWPfu5UgK4WEHiYmhbZfBvUedB7/LLBjaY4G4=
-github.com/f5devcentral/go-bigip v0.0.0-20191210104813-c271f8ad800c/go.mod h1:JZj/iVxDmEnGPyEwuNj7x0fuH2CtUBbD2J48MMp/SE8=
+github.com/f5devcentral/go-bigip v0.0.0-20200318113605-0ac57f01614f h1:9+urm3oRZ9bEKqqQ3wWmzVWsQP0WbreyhzBePjH8pS4=
+github.com/f5devcentral/go-bigip v0.0.0-20200318113605-0ac57f01614f/go.mod h1:JZj/iVxDmEnGPyEwuNj7x0fuH2CtUBbD2J48MMp/SE8=
 github.com/fatih/color v1.7.0 h1:DkWD4oS2D8LGGgTQ6IvwJJXSL5Vp2ffcQg58nFV38Ys=
 github.com/fatih/color v1.7.0/go.mod h1:Zm6kSWBoL9eyXnKyktHP6abPY2pDugNf5KwzbycvMj4=
 github.com/fatih/structs v1.1.0/go.mod h1:9NiDSp5zOcgEDl+j00MP/WkGVPOlPRLejGD8Ga6PJ7M=
@@ -433,8 +433,8 @@ github.com/stretchr/testify v1.2.2/go.mod h1:a8OnRcib4nhh0OaRAV+Yts87kKdq0PP7pXf
 github.com/stretchr/testify v1.3.0/go.mod h1:M5WIy9Dh21IEIfnGCwXGc5bZfKNJtfHm1UVUgZn+9EI=
 github.com/stretchr/testify v1.4.1-0.20191106224347-f1bd0923b832 h1:oun9LXpnh9ourZ6f+yQUGVg4g+Klumg+eFXQztqkHSY=
 github.com/stretchr/testify v1.4.1-0.20191106224347-f1bd0923b832/go.mod h1:j7eGeouHqKxXV5pUuKE4zz7dFj8WfuZ+81PSLYec5m4=
-github.com/terraform-providers/terraform-provider-bigip v1.1.1 h1:k/d3uUnKm0B3sD2KrlvqmwWKpDMr1/KSlSuBtNWSXgA=
-github.com/terraform-providers/terraform-provider-bigip v1.1.1/go.mod h1:7ihxHq2vFqX9s8PMySazTOOoPWl9b/DsYoaIlfv9VW4=
+github.com/terraform-providers/terraform-provider-bigip v1.1.2 h1:MFoABtTrUVuST9MaFjNnNFS+2Ce1uW2UGtuHkHU9tLI=
+github.com/terraform-providers/terraform-provider-bigip v1.1.2/go.mod h1:W0uw8cJtoqQTGpQuNvV1fRHLxQtCEHYquXZ9d6Rfgo0=
 github.com/texttheater/golang-levenshtein v0.0.0-20180516184445-d188e65d659e h1:T5PdfK/M1xyrHwynxMIVMWLS7f/qHwfslZphxtGnw7s=
 github.com/texttheater/golang-levenshtein v0.0.0-20180516184445-d188e65d659e/go.mod h1:XDKHRm5ThF8YJjx001LtgelzsoaEcvnA7lVWz9EeX3g=
 github.com/tidwall/pretty v0.0.0-20190325153808-1166b9ac2b65/go.mod h1:XNkn88O1ChpSDQmQeStsy+sBenx6DDtFZJxhVysOjyk=
