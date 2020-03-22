@@ -15,6 +15,9 @@ class Policy(pulumi.CustomResource):
     Specifies the controls
     """
     name: pulumi.Output[str]
+    """
+    Name of the Policy
+    """
     published_copy: pulumi.Output[str]
     """
     If you want to publish the policy else it will be deployed in Drafts mode.
@@ -26,9 +29,8 @@ class Policy(pulumi.CustomResource):
     rules: pulumi.Output[list]
     """
     Rules can be applied using the policy
-    
+
       * `actions` (`list`)
-    
         * `app_service` (`str`)
         * `application` (`str`)
         * `asm` (`bool`)
@@ -131,9 +133,8 @@ class Policy(pulumi.CustomResource):
         * `vlanId` (`float`)
         * `wam` (`bool`)
         * `write` (`bool`)
-    
+
       * `conditions` (`list`)
-    
         * `address` (`bool`)
         * `all` (`bool`)
         * `app_service` (`str`)
@@ -224,7 +225,7 @@ class Policy(pulumi.CustomResource):
         * `version` (`bool`)
         * `vlan` (`bool`)
         * `vlanId` (`bool`)
-    
+
       * `name` (`str`)
     """
     strategy: pulumi.Output[str]
@@ -234,21 +235,23 @@ class Policy(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, controls=None, name=None, published_copy=None, requires=None, rules=None, strategy=None, __props__=None, __name__=None, __opts__=None):
         """
         `ltm.Policy` Configures Virtual Server
-        
+
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_policy.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] controls: Specifies the controls
+        :param pulumi.Input[str] name: Name of the Policy
         :param pulumi.Input[str] published_copy: If you want to publish the policy else it will be deployed in Drafts mode.
         :param pulumi.Input[list] requires: Specifies the protocol
         :param pulumi.Input[list] rules: Rules can be applied using the policy
         :param pulumi.Input[str] strategy: Specifies the match strategy
-        
+
         The **rules** object supports the following:
-        
+
           * `actions` (`pulumi.Input[list]`)
-        
             * `app_service` (`pulumi.Input[str]`)
             * `application` (`pulumi.Input[str]`)
             * `asm` (`pulumi.Input[bool]`)
@@ -351,9 +354,8 @@ class Policy(pulumi.CustomResource):
             * `vlanId` (`pulumi.Input[float]`)
             * `wam` (`pulumi.Input[bool]`)
             * `write` (`pulumi.Input[bool]`)
-        
+
           * `conditions` (`pulumi.Input[list]`)
-        
             * `address` (`pulumi.Input[bool]`)
             * `all` (`pulumi.Input[bool]`)
             * `app_service` (`pulumi.Input[str]`)
@@ -444,10 +446,8 @@ class Policy(pulumi.CustomResource):
             * `version` (`pulumi.Input[bool]`)
             * `vlan` (`pulumi.Input[bool]`)
             * `vlanId` (`pulumi.Input[bool]`)
-        
-          * `name` (`pulumi.Input[str]`)
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_policy.html.markdown.
+          * `name` (`pulumi.Input[str]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -485,20 +485,20 @@ class Policy(pulumi.CustomResource):
         """
         Get an existing Policy resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] controls: Specifies the controls
+        :param pulumi.Input[str] name: Name of the Policy
         :param pulumi.Input[str] published_copy: If you want to publish the policy else it will be deployed in Drafts mode.
         :param pulumi.Input[list] requires: Specifies the protocol
         :param pulumi.Input[list] rules: Rules can be applied using the policy
         :param pulumi.Input[str] strategy: Specifies the match strategy
-        
+
         The **rules** object supports the following:
-        
+
           * `actions` (`pulumi.Input[list]`)
-        
             * `app_service` (`pulumi.Input[str]`)
             * `application` (`pulumi.Input[str]`)
             * `asm` (`pulumi.Input[bool]`)
@@ -601,9 +601,8 @@ class Policy(pulumi.CustomResource):
             * `vlanId` (`pulumi.Input[float]`)
             * `wam` (`pulumi.Input[bool]`)
             * `write` (`pulumi.Input[bool]`)
-        
+
           * `conditions` (`pulumi.Input[list]`)
-        
             * `address` (`pulumi.Input[bool]`)
             * `all` (`pulumi.Input[bool]`)
             * `app_service` (`pulumi.Input[str]`)
@@ -694,14 +693,13 @@ class Policy(pulumi.CustomResource):
             * `version` (`pulumi.Input[bool]`)
             * `vlan` (`pulumi.Input[bool]`)
             * `vlanId` (`pulumi.Input[bool]`)
-        
-          * `name` (`pulumi.Input[str]`)
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_policy.html.markdown.
+          * `name` (`pulumi.Input[str]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["controls"] = controls
         __props__["name"] = name
         __props__["published_copy"] = published_copy

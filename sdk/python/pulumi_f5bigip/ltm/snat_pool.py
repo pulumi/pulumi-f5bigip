@@ -21,15 +21,15 @@ class SnatPool(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, members=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
         `ltm.SnatPool` Collections of SNAT translation addresses
-        
+
         Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-snatpool. 
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_snatpool.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] members: Specifies a translation address to add to or delete from a SNAT pool (at least one address is required)
         :param pulumi.Input[str] name: Name of the snatpool
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_snatpool.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -65,18 +65,17 @@ class SnatPool(pulumi.CustomResource):
         """
         Get an existing SnatPool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] members: Specifies a translation address to add to or delete from a SNAT pool (at least one address is required)
         :param pulumi.Input[str] name: Name of the snatpool
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_snatpool.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["members"] = members
         __props__["name"] = name
         return SnatPool(resource_name, opts=opts, __props__=__props__)

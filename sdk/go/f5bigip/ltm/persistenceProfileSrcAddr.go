@@ -12,32 +12,32 @@ import (
 )
 
 // Configures a source address persistence profile
-// 
+//
 // ## Reference
-// 
+//
 // `name` - (Required) Name of the virtual address
-// 
+//
 // `defaultsFrom` - (Required) Parent cookie persistence profile
-// 
+//
 // `matchAcrossPools` (Optional) (enabled or disabled) match across pools with given persistence record
-// 
+//
 // `matchAcrossServices` (Optional) (enabled or disabled) match across services with given persistence record
-// 
+//
 // `matchAcrossVirtuals` (Optional) (enabled or disabled) match across virtual servers with given persistence record
-// 
+//
 // `mirror` (Optional) (enabled or disabled) mirror persistence record
-// 
+//
 // `timeout` (Optional) (enabled or disabled) Timeout for persistence of the session in seconds
-// 
+//
 // `overrideConnLimit` (Optional) (enabled or disabled) Enable or dissable pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
-// 
+//
 // `hashAlgorithm` (Optional) Specify the hash algorithm
-// 
+//
 // `mask` (Optional) Identify a range of source IP addresses to manage together as a single source address affinity persistent connection when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
-// 
+//
 // `mapProxies` (Optional) (enabled or disabled) Directs all to the same single pool member
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_persistence_profile_srcaddr.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_persistence_profile_srcaddr.html.markdown.
 type PersistenceProfileSrcAddr struct {
 	pulumi.CustomResourceState
 

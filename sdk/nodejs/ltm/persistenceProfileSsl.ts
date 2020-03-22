@@ -6,9 +6,6 @@ import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
-/**
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_persistence_profile_ssl.html.markdown.
- */
 export class PersistenceProfileSsl extends pulumi.CustomResource {
     /**
      * Get an existing PersistenceProfileSsl resource's state with the given name, ID, and optional extra

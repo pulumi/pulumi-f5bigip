@@ -12,48 +12,96 @@ from .. import utilities, tables
 class PersistenceProfileSrcAddr(pulumi.CustomResource):
     app_service: pulumi.Output[str]
     defaults_from: pulumi.Output[str]
+    """
+    Inherit defaults from parent profile
+    """
     hash_algorithm: pulumi.Output[str]
+    """
+    Specify the hash algorithm
+    """
     map_proxies: pulumi.Output[str]
+    """
+    To enable _ disable directs all to the same single pool member
+    """
     mask: pulumi.Output[str]
+    """
+    Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
+    when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
+    """
     match_across_pools: pulumi.Output[str]
+    """
+    To enable _ disable match across pools with given persistence record
+    """
     match_across_services: pulumi.Output[str]
+    """
+    To enable _ disable match across services with given persistence record
+    """
     match_across_virtuals: pulumi.Output[str]
+    """
+    To enable _ disable match across services with given persistence record
+    """
     mirror: pulumi.Output[str]
+    """
+    To enable _ disable
+    """
     name: pulumi.Output[str]
+    """
+    Name of the persistence profile
+    """
     override_conn_limit: pulumi.Output[str]
+    """
+    To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
+    limits remain hard limits and are not overridden.
+    """
     timeout: pulumi.Output[float]
+    """
+    Timeout for persistence of the session
+    """
     def __init__(__self__, resource_name, opts=None, app_service=None, defaults_from=None, hash_algorithm=None, map_proxies=None, mask=None, match_across_pools=None, match_across_services=None, match_across_virtuals=None, mirror=None, name=None, override_conn_limit=None, timeout=None, __props__=None, __name__=None, __opts__=None):
         """
         Configures a source address persistence profile
-        
+
         ## Reference
-        
+
         `name` - (Required) Name of the virtual address
-        
+
         `defaults_from` - (Required) Parent cookie persistence profile
-        
+
         `match_across_pools` (Optional) (enabled or disabled) match across pools with given persistence record
-        
+
         `match_across_services` (Optional) (enabled or disabled) match across services with given persistence record
-        
+
         `match_across_virtuals` (Optional) (enabled or disabled) match across virtual servers with given persistence record
-        
+
         `mirror` (Optional) (enabled or disabled) mirror persistence record
-        
+
         `timeout` (Optional) (enabled or disabled) Timeout for persistence of the session in seconds
-        
+
         `override_conn_limit` (Optional) (enabled or disabled) Enable or dissable pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
-        
+
         `hash_algorithm` (Optional) Specify the hash algorithm
-        
+
         `mask` (Optional) Identify a range of source IP addresses to manage together as a single source address affinity persistent connection when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
-        
+
         `map_proxies` (Optional) (enabled or disabled) Directs all to the same single pool member
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_persistence_profile_srcaddr.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_persistence_profile_srcaddr.html.markdown.
+        :param pulumi.Input[str] defaults_from: Inherit defaults from parent profile
+        :param pulumi.Input[str] hash_algorithm: Specify the hash algorithm
+        :param pulumi.Input[str] map_proxies: To enable _ disable directs all to the same single pool member
+        :param pulumi.Input[str] mask: Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
+               when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
+        :param pulumi.Input[str] match_across_pools: To enable _ disable match across pools with given persistence record
+        :param pulumi.Input[str] match_across_services: To enable _ disable match across services with given persistence record
+        :param pulumi.Input[str] match_across_virtuals: To enable _ disable match across services with given persistence record
+        :param pulumi.Input[str] mirror: To enable _ disable
+        :param pulumi.Input[str] name: Name of the persistence profile
+        :param pulumi.Input[str] override_conn_limit: To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
+               limits remain hard limits and are not overridden.
+        :param pulumi.Input[float] timeout: Timeout for persistence of the session
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -99,16 +147,28 @@ class PersistenceProfileSrcAddr(pulumi.CustomResource):
         """
         Get an existing PersistenceProfileSrcAddr resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_persistence_profile_srcaddr.html.markdown.
+        :param pulumi.Input[str] defaults_from: Inherit defaults from parent profile
+        :param pulumi.Input[str] hash_algorithm: Specify the hash algorithm
+        :param pulumi.Input[str] map_proxies: To enable _ disable directs all to the same single pool member
+        :param pulumi.Input[str] mask: Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
+               when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
+        :param pulumi.Input[str] match_across_pools: To enable _ disable match across pools with given persistence record
+        :param pulumi.Input[str] match_across_services: To enable _ disable match across services with given persistence record
+        :param pulumi.Input[str] match_across_virtuals: To enable _ disable match across services with given persistence record
+        :param pulumi.Input[str] mirror: To enable _ disable
+        :param pulumi.Input[str] name: Name of the persistence profile
+        :param pulumi.Input[str] override_conn_limit: To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
+               limits remain hard limits and are not overridden.
+        :param pulumi.Input[float] timeout: Timeout for persistence of the session
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["app_service"] = app_service
         __props__["defaults_from"] = defaults_from
         __props__["hash_algorithm"] = hash_algorithm

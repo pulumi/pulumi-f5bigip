@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  * 
  * `httponly` (Optional) (enabled or disabled) Sending only over http
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_persistence_profile_cookie.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_persistence_profile_cookie.html.markdown.
  */
 export class PersistenceProfileCookie extends pulumi.CustomResource {
     /**

@@ -12,12 +12,12 @@ import (
 )
 
 // `ltm.PoolAttachment` Manages nodes membership in pools
-// 
+//
 // Resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-// 
+//
 // Note: node must be the full path to the node followed by the port. For example /Common/my-node:80
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_pool_attachment.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_pool_attachment.html.markdown.
 type PoolAttachment struct {
 	pulumi.CustomResourceState
 

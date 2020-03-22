@@ -49,9 +49,11 @@ class ProfileOneConnect(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, defaults_from=None, idle_timeout_override=None, max_age=None, max_reuse=None, max_size=None, name=None, partition=None, share_pools=None, source_mask=None, __props__=None, __name__=None, __opts__=None):
         """
         `ltm.ProfileOneConnect` Configures a custom profile_oneconnect for use by health checks.
-        
+
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_profile_oneconnect.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] defaults_from: Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
@@ -63,8 +65,6 @@ class ProfileOneConnect(pulumi.CustomResource):
         :param pulumi.Input[str] partition: Displays the administrative partition within which this profile resides
         :param pulumi.Input[str] share_pools: Specify if you want to share the pool, default value is "disabled"
         :param pulumi.Input[str] source_mask: Specifies a source IP mask. The default value is 0.0.0.0. The system applies the value of this option to the source address to determine its eligibility for reuse. A mask of 0.0.0.0 causes the system to share reused connections across all clients. A host mask (all 1's in binary), causes the system to share only those reused connections originating from the same client IP address.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_profile_oneconnect.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -105,7 +105,7 @@ class ProfileOneConnect(pulumi.CustomResource):
         """
         Get an existing ProfileOneConnect resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -118,12 +118,11 @@ class ProfileOneConnect(pulumi.CustomResource):
         :param pulumi.Input[str] partition: Displays the administrative partition within which this profile resides
         :param pulumi.Input[str] share_pools: Specify if you want to share the pool, default value is "disabled"
         :param pulumi.Input[str] source_mask: Specifies a source IP mask. The default value is 0.0.0.0. The system applies the value of this option to the source address to determine its eligibility for reuse. A mask of 0.0.0.0 causes the system to share reused connections across all clients. A host mask (all 1's in binary), causes the system to share only those reused connections originating from the same client IP address.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_profile_oneconnect.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["defaults_from"] = defaults_from
         __props__["idle_timeout_override"] = idle_timeout_override
         __props__["max_age"] = max_age

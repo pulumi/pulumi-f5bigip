@@ -11,19 +11,43 @@ from .. import utilities, tables
 
 class Provision(pulumi.CustomResource):
     cpu_ratio: pulumi.Output[float]
+    """
+    cpu Ratio
+    """
     disk_ratio: pulumi.Output[float]
+    """
+    disk Ratio
+    """
     full_path: pulumi.Output[str]
+    """
+    path
+    """
     level: pulumi.Output[str]
+    """
+    what level nominal or dedicated
+    """
     memory_ratio: pulumi.Output[float]
+    """
+    memory Ratio
+    """
     name: pulumi.Output[str]
+    """
+    Name of the module to be provisioned
+    """
     def __init__(__self__, resource_name, opts=None, cpu_ratio=None, disk_ratio=None, full_path=None, level=None, memory_ratio=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
         `sys.Provision` provides details bout how to enable "ilx", "asm" "apm" resource on BIG-IP
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_sys_provision.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/sys_provision.html.markdown.
+        :param pulumi.Input[float] cpu_ratio: cpu Ratio
+        :param pulumi.Input[float] disk_ratio: disk Ratio
+        :param pulumi.Input[str] full_path: path
+        :param pulumi.Input[str] level: what level nominal or dedicated
+        :param pulumi.Input[float] memory_ratio: memory Ratio
+        :param pulumi.Input[str] name: Name of the module to be provisioned
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -61,16 +85,21 @@ class Provision(pulumi.CustomResource):
         """
         Get an existing Provision resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/sys_provision.html.markdown.
+        :param pulumi.Input[float] cpu_ratio: cpu Ratio
+        :param pulumi.Input[float] disk_ratio: disk Ratio
+        :param pulumi.Input[str] full_path: path
+        :param pulumi.Input[str] level: what level nominal or dedicated
+        :param pulumi.Input[float] memory_ratio: memory Ratio
+        :param pulumi.Input[str] name: Name of the module to be provisioned
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["cpu_ratio"] = cpu_ratio
         __props__["disk_ratio"] = disk_ratio
         __props__["full_path"] = full_path

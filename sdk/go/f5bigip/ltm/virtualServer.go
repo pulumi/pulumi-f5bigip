@@ -12,10 +12,10 @@ import (
 )
 
 // `ltm.VirtualServer` Configures Virtual Server
-// 
+//
 // For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_virtual_server.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_virtual_server.html.markdown.
 type VirtualServer struct {
 	pulumi.CustomResourceState
 

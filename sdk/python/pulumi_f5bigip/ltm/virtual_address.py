@@ -45,9 +45,11 @@ class VirtualAddress(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, advertize_route=None, arp=None, auto_delete=None, conn_limit=None, enabled=None, icmp_echo=None, name=None, traffic_group=None, __props__=None, __name__=None, __opts__=None):
         """
         `ltm.VirtualAddress` Configures Virtual Server
-        
+
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_virtual_address.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] advertize_route: Enabled dynamic routing of the address
@@ -58,8 +60,6 @@ class VirtualAddress(pulumi.CustomResource):
         :param pulumi.Input[bool] icmp_echo: Enable/Disable ICMP response to the virtual address
         :param pulumi.Input[str] name: Name of the virtual address
         :param pulumi.Input[str] traffic_group: Specify the partition and traffic group
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_virtual_address.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -99,7 +99,7 @@ class VirtualAddress(pulumi.CustomResource):
         """
         Get an existing VirtualAddress resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -111,12 +111,11 @@ class VirtualAddress(pulumi.CustomResource):
         :param pulumi.Input[bool] icmp_echo: Enable/Disable ICMP response to the virtual address
         :param pulumi.Input[str] name: Name of the virtual address
         :param pulumi.Input[str] traffic_group: Specify the partition and traffic group
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_virtual_address.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["advertize_route"] = advertize_route
         __props__["arp"] = arp
         __props__["auto_delete"] = auto_delete

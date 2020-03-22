@@ -15,22 +15,40 @@ class DeviceGroup(pulumi.CustomResource):
     Specifies if the device-group will automatically sync configuration data to its members
     """
     description: pulumi.Output[str]
+    """
+    Description of Device group
+    """
     devices: pulumi.Output[list]
     """
     Name of the device to be included in device group, this need to be configured before using devicegroup resource
-    
+
       * `name` (`str`) - Is the name of the device Group
       * `setSyncLeader` (`bool`)
     """
     full_load_on_sync: pulumi.Output[str]
+    """
+    Specifies if the device-group will perform a full-load upon sync
+    """
     incremental_config: pulumi.Output[float]
+    """
+    Specifies the maximum size (in KB) to devote to incremental config sync cached transactions. The default is 1024 KB.
+    """
     name: pulumi.Output[str]
     """
     Is the name of the device Group
     """
     network_failover: pulumi.Output[str]
+    """
+    Specifies if the device-group will use a network connection for failover
+    """
     partition: pulumi.Output[str]
+    """
+    Device administrative partition
+    """
     save_on_auto_sync: pulumi.Output[str]
+    """
+    Specifies whether the configuration should be saved upon auto-sync.
+    """
     type: pulumi.Output[str]
     """
     Specifies if the device-group will be used for failover or resource syncing
@@ -38,20 +56,26 @@ class DeviceGroup(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, auto_sync=None, description=None, devices=None, full_load_on_sync=None, incremental_config=None, name=None, network_failover=None, partition=None, save_on_auto_sync=None, type=None, __props__=None, __name__=None, __opts__=None):
         """
         `cm.DeviceGroup` A device group is a collection of BIG-IP devices that are configured to securely synchronize their BIG-IP configuration data, and fail over when needed.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_cm_devicegroup.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_sync: Specifies if the device-group will automatically sync configuration data to its members
+        :param pulumi.Input[str] description: Description of Device group
         :param pulumi.Input[list] devices: Name of the device to be included in device group, this need to be configured before using devicegroup resource
+        :param pulumi.Input[str] full_load_on_sync: Specifies if the device-group will perform a full-load upon sync
+        :param pulumi.Input[float] incremental_config: Specifies the maximum size (in KB) to devote to incremental config sync cached transactions. The default is 1024 KB.
         :param pulumi.Input[str] name: Is the name of the device Group
+        :param pulumi.Input[str] network_failover: Specifies if the device-group will use a network connection for failover
+        :param pulumi.Input[str] partition: Device administrative partition
+        :param pulumi.Input[str] save_on_auto_sync: Specifies whether the configuration should be saved upon auto-sync.
         :param pulumi.Input[str] type: Specifies if the device-group will be used for failover or resource syncing
-        
+
         The **devices** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - Is the name of the device Group
           * `setSyncLeader` (`pulumi.Input[bool]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/cm_devicegroup.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -91,25 +115,30 @@ class DeviceGroup(pulumi.CustomResource):
         """
         Get an existing DeviceGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_sync: Specifies if the device-group will automatically sync configuration data to its members
+        :param pulumi.Input[str] description: Description of Device group
         :param pulumi.Input[list] devices: Name of the device to be included in device group, this need to be configured before using devicegroup resource
+        :param pulumi.Input[str] full_load_on_sync: Specifies if the device-group will perform a full-load upon sync
+        :param pulumi.Input[float] incremental_config: Specifies the maximum size (in KB) to devote to incremental config sync cached transactions. The default is 1024 KB.
         :param pulumi.Input[str] name: Is the name of the device Group
+        :param pulumi.Input[str] network_failover: Specifies if the device-group will use a network connection for failover
+        :param pulumi.Input[str] partition: Device administrative partition
+        :param pulumi.Input[str] save_on_auto_sync: Specifies whether the configuration should be saved upon auto-sync.
         :param pulumi.Input[str] type: Specifies if the device-group will be used for failover or resource syncing
-        
+
         The **devices** object supports the following:
-        
+
           * `name` (`pulumi.Input[str]`) - Is the name of the device Group
           * `setSyncLeader` (`pulumi.Input[bool]`)
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/cm_devicegroup.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["auto_sync"] = auto_sync
         __props__["description"] = description
         __props__["devices"] = devices

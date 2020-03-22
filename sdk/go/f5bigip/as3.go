@@ -12,10 +12,10 @@ import (
 )
 
 // `.As3` provides details about bigip as3 resource
-// 
+//
 // This resource is helpful to configure as3 declarative JSON on BIG-IP.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/as3.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_as3.html.markdown.
 type As3 struct {
 	pulumi.CustomResourceState
 

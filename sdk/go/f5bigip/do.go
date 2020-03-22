@@ -12,10 +12,10 @@ import (
 )
 
 // `.Do` provides details about bigip do resource
-// 
+//
 // This resource is helpful to configure do declarative JSON on BIG-IP.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/do.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_do.html.markdown.
 type Do struct {
 	pulumi.CustomResourceState
 

@@ -12,10 +12,10 @@ import (
 )
 
 // `sys.Ntp` provides details about a specific bigip
-// 
+//
 // This resource is helpful when configuring NTP server on the BIG-IP.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/sys_ntp.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_sys_ntp.html.markdown.
 type Ntp struct {
 	pulumi.CustomResourceState
 

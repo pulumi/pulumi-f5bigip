@@ -15,17 +15,21 @@ class Do(pulumi.CustomResource):
     Name of the of the Declarative DO JSON file
     """
     tenant_name: pulumi.Output[str]
+    """
+    unique identifier for DO resource
+    """
     def __init__(__self__, resource_name, opts=None, do_json=None, tenant_name=None, __props__=None, __name__=None, __opts__=None):
         """
         `.Do` provides details about bigip do resource
-        
+
         This resource is helpful to configure do declarative JSON on BIG-IP.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_do.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] do_json: Name of the of the Declarative DO JSON file
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/do.html.markdown.
+        :param pulumi.Input[str] tenant_name: unique identifier for DO resource
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -61,17 +65,17 @@ class Do(pulumi.CustomResource):
         """
         Get an existing Do resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] do_json: Name of the of the Declarative DO JSON file
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/do.html.markdown.
+        :param pulumi.Input[str] tenant_name: unique identifier for DO resource
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["do_json"] = do_json
         __props__["tenant_name"] = tenant_name
         return Do(resource_name, opts=opts, __props__=__props__)

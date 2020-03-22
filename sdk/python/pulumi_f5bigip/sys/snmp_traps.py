@@ -11,7 +11,13 @@ from .. import utilities, tables
 
 class SnmpTraps(pulumi.CustomResource):
     auth_passwordencrypted: pulumi.Output[str]
+    """
+    Encrypted password
+    """
     auth_protocol: pulumi.Output[str]
+    """
+    Specifies the protocol used to authenticate the user.
+    """
     community: pulumi.Output[str]
     """
     Specifies the community string used for this trap.
@@ -21,6 +27,9 @@ class SnmpTraps(pulumi.CustomResource):
     The port that the trap will be sent to.
     """
     engine_id: pulumi.Output[str]
+    """
+    Specifies the authoritative security engine for SNMPv3.
+    """
     host: pulumi.Output[str]
     """
     The host the trap will be sent to.
@@ -34,24 +43,51 @@ class SnmpTraps(pulumi.CustomResource):
     User defined description.
     """
     privacy_password: pulumi.Output[str]
+    """
+    Specifies the clear text password used to encrypt traffic. This field will not be displayed.
+    """
     privacy_password_encrypted: pulumi.Output[str]
+    """
+    Specifies the encrypted password used to encrypt traffic.
+    """
     privacy_protocol: pulumi.Output[str]
+    """
+    Specifies the protocol used to encrypt traffic.
+    """
     security_level: pulumi.Output[str]
+    """
+    Specifies whether or not traffic is encrypted and whether or not authentication is required.
+    """
     security_name: pulumi.Output[str]
+    """
+    Security name used in conjunction with SNMPv3.
+    """
     version: pulumi.Output[str]
+    """
+    SNMP version used for sending the trap.
+    """
     def __init__(__self__, resource_name, opts=None, auth_passwordencrypted=None, auth_protocol=None, community=None, description=None, engine_id=None, host=None, name=None, port=None, privacy_password=None, privacy_password_encrypted=None, privacy_protocol=None, security_level=None, security_name=None, version=None, __props__=None, __name__=None, __opts__=None):
         """
         `sys.SnmpTraps` provides details bout how to enable snmp_traps resource on BIG-IP
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_sys_snmp_traps.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] auth_passwordencrypted: Encrypted password
+        :param pulumi.Input[str] auth_protocol: Specifies the protocol used to authenticate the user.
         :param pulumi.Input[str] community: Specifies the community string used for this trap.
         :param pulumi.Input[str] description: The port that the trap will be sent to.
+        :param pulumi.Input[str] engine_id: Specifies the authoritative security engine for SNMPv3.
         :param pulumi.Input[str] host: The host the trap will be sent to.
         :param pulumi.Input[str] name: Name of the snmp trap.
         :param pulumi.Input[float] port: User defined description.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/sys_snmp_traps.html.markdown.
+        :param pulumi.Input[str] privacy_password: Specifies the clear text password used to encrypt traffic. This field will not be displayed.
+        :param pulumi.Input[str] privacy_password_encrypted: Specifies the encrypted password used to encrypt traffic.
+        :param pulumi.Input[str] privacy_protocol: Specifies the protocol used to encrypt traffic.
+        :param pulumi.Input[str] security_level: Specifies whether or not traffic is encrypted and whether or not authentication is required.
+        :param pulumi.Input[str] security_name: Security name used in conjunction with SNMPv3.
+        :param pulumi.Input[str] version: SNMP version used for sending the trap.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -95,21 +131,29 @@ class SnmpTraps(pulumi.CustomResource):
         """
         Get an existing SnmpTraps resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] auth_passwordencrypted: Encrypted password
+        :param pulumi.Input[str] auth_protocol: Specifies the protocol used to authenticate the user.
         :param pulumi.Input[str] community: Specifies the community string used for this trap.
         :param pulumi.Input[str] description: The port that the trap will be sent to.
+        :param pulumi.Input[str] engine_id: Specifies the authoritative security engine for SNMPv3.
         :param pulumi.Input[str] host: The host the trap will be sent to.
         :param pulumi.Input[str] name: Name of the snmp trap.
         :param pulumi.Input[float] port: User defined description.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/sys_snmp_traps.html.markdown.
+        :param pulumi.Input[str] privacy_password: Specifies the clear text password used to encrypt traffic. This field will not be displayed.
+        :param pulumi.Input[str] privacy_password_encrypted: Specifies the encrypted password used to encrypt traffic.
+        :param pulumi.Input[str] privacy_protocol: Specifies the protocol used to encrypt traffic.
+        :param pulumi.Input[str] security_level: Specifies whether or not traffic is encrypted and whether or not authentication is required.
+        :param pulumi.Input[str] security_name: Security name used in conjunction with SNMPv3.
+        :param pulumi.Input[str] version: SNMP version used for sending the trap.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["auth_passwordencrypted"] = auth_passwordencrypted
         __props__["auth_protocol"] = auth_protocol
         __props__["community"] = community

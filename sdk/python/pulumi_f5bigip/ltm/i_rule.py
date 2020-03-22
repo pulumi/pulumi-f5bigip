@@ -21,15 +21,15 @@ class IRule(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, irule=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
         `ltm.IRule` Creates iRule on BIG-IP F5 device
-        
+
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_irule.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] irule: Body of the iRule
         :param pulumi.Input[str] name: Name of the iRule
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_irule.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -65,18 +65,17 @@ class IRule(pulumi.CustomResource):
         """
         Get an existing IRule resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] irule: Body of the iRule
         :param pulumi.Input[str] name: Name of the iRule
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_irule.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["irule"] = irule
         __props__["name"] = name
         return IRule(resource_name, opts=opts, __props__=__props__)

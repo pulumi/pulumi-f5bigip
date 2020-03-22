@@ -9,7 +9,7 @@ import * as utilities from "./utilities";
  * 
  * This resource is helpful to configure as3 declarative JSON on BIG-IP.
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/as3.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_as3.html.markdown.
  */
 export class As3 extends pulumi.CustomResource {
     /**

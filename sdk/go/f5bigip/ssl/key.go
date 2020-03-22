@@ -13,8 +13,8 @@ import (
 
 // `ssl.Key` This resource will import SSL certificate key on BIG-IP LTM. 
 // Certificate key can be imported from certificate key files on the local disk, in PEM format
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ssl_key.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ssl_key.html.markdown.
 type Key struct {
 	pulumi.CustomResourceState
 

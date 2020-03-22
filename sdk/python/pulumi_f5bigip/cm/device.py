@@ -11,19 +11,35 @@ from .. import utilities, tables
 
 class Device(pulumi.CustomResource):
     configsync_ip: pulumi.Output[str]
+    """
+    IP address used for config sync
+    """
     mirror_ip: pulumi.Output[str]
+    """
+    IP address used for state mirroring
+    """
     mirror_secondary_ip: pulumi.Output[str]
+    """
+    Secondary IP address used for state mirroring
+    """
     name: pulumi.Output[str]
+    """
+    Address of the Device which needs to be Deviceensed
+    """
     def __init__(__self__, resource_name, opts=None, configsync_ip=None, mirror_ip=None, mirror_secondary_ip=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
         `cm.Device` provides details about a specific bigip
-        
+
         This resource is helpful when configuring the BIG-IP device in cluster or in HA mode.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_cm_device.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/cm_device.html.markdown.
+        :param pulumi.Input[str] configsync_ip: IP address used for config sync
+        :param pulumi.Input[str] mirror_ip: IP address used for state mirroring
+        :param pulumi.Input[str] mirror_secondary_ip: Secondary IP address used for state mirroring
+        :param pulumi.Input[str] name: Address of the Device which needs to be Deviceensed
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -61,16 +77,19 @@ class Device(pulumi.CustomResource):
         """
         Get an existing Device resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/cm_device.html.markdown.
+        :param pulumi.Input[str] configsync_ip: IP address used for config sync
+        :param pulumi.Input[str] mirror_ip: IP address used for state mirroring
+        :param pulumi.Input[str] mirror_secondary_ip: Secondary IP address used for state mirroring
+        :param pulumi.Input[str] name: Address of the Device which needs to be Deviceensed
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["configsync_ip"] = configsync_ip
         __props__["mirror_ip"] = mirror_ip
         __props__["mirror_secondary_ip"] = mirror_secondary_ip

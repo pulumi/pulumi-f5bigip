@@ -11,65 +11,131 @@ from .. import utilities, tables
 
 class PersistenceProfileCookie(pulumi.CustomResource):
     always_send: pulumi.Output[str]
+    """
+    To enable _ disable always sending cookies
+    """
     app_service: pulumi.Output[str]
     cookie_encryption: pulumi.Output[str]
+    """
+    To required, preferred, or disabled policy for cookie encryption
+    """
     cookie_encryption_passphrase: pulumi.Output[str]
+    """
+    Passphrase for encrypted cookies
+    """
     cookie_name: pulumi.Output[str]
+    """
+    Name of the cookie to track persistence
+    """
     defaults_from: pulumi.Output[str]
+    """
+    Inherit defaults from parent profile
+    """
     expiration: pulumi.Output[str]
+    """
+    Expiration TTL for cookie specified in D:H:M:S or in seconds
+    """
     hash_length: pulumi.Output[float]
+    """
+    Length of hash to apply to cookie
+    """
     hash_offset: pulumi.Output[float]
+    """
+    Number of characters to skip in the cookie for the hash
+    """
     httponly: pulumi.Output[str]
+    """
+    To enable _ disable sending only over http
+    """
     match_across_pools: pulumi.Output[str]
+    """
+    To enable _ disable match across pools with given persistence record
+    """
     match_across_services: pulumi.Output[str]
+    """
+    To enable _ disable match across services with given persistence record
+    """
     match_across_virtuals: pulumi.Output[str]
+    """
+    To enable _ disable match across virtual servers with given persistence record
+    """
     mirror: pulumi.Output[str]
+    """
+    To enable _ disable
+    """
     name: pulumi.Output[str]
+    """
+    Name of the persistence profile
+    """
     override_conn_limit: pulumi.Output[str]
+    """
+    To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
+    limits remain hard limits and are not overridden.
+    """
     timeout: pulumi.Output[float]
+    """
+    Timeout for persistence of the session
+    """
     def __init__(__self__, resource_name, opts=None, always_send=None, app_service=None, cookie_encryption=None, cookie_encryption_passphrase=None, cookie_name=None, defaults_from=None, expiration=None, hash_length=None, hash_offset=None, httponly=None, match_across_pools=None, match_across_services=None, match_across_virtuals=None, mirror=None, name=None, override_conn_limit=None, timeout=None, __props__=None, __name__=None, __opts__=None):
         """
         Configures a cookie persistence profile
-        
+
         ## Reference
-        
+
         `name` - (Required) Name of the virtual address
-        
+
         `defaults_from` - (Required) Parent cookie persistence profile
-        
+
         `match_across_pools` (Optional) (enabled or disabled) match across pools with given persistence record
-        
+
         `match_across_services` (Optional) (enabled or disabled) match across services with given persistence record
-        
+
         `match_across_virtuals` (Optional) (enabled or disabled) match across virtual servers with given persistence record
-        
+
         `mirror` (Optional) (enabled or disabled) mirror persistence record
-        
+
         `timeout` (Optional) (enabled or disabled) Timeout for persistence of the session in seconds
-        
+
         `override_conn_limit` (Optional) (enabled or disabled) Enable or dissable pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
-        
+
         `always_send` (Optional) (enabled or disabled) always send cookies
-        
+
         `cookie_encryption` (Optional) (required, preferred, or disabled) To required, preferred, or disabled policy for cookie encryption
-        
+
         `cookie_encryption_passphrase` (Optional) (required, preferred, or disabled) Passphrase for encrypted cookies. The field is encrypted on the server and will always return differently then set.
         If this is configured specify `ignore_changes` under the `lifecycle` block to ignore returned encrypted value.
-        
+
         `cookie_name` (Optional) Name of the cookie to track persistence
-        
+
         `expiration` (Optional) Expiration TTL for cookie specified in DAY:HOUR:MIN:SECONDS (Examples: 1:0:0:0 one day, 1:0:0 one hour, 30:0 thirty minutes)
-        
+
         `hash_length` (Optional) (Integer) Length of hash to apply to cookie
-        
+
         `hash_offset` (Optional) (Integer) Number of characters to skip in the cookie for the hash
-        
+
         `httponly` (Optional) (enabled or disabled) Sending only over http
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_persistence_profile_cookie.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_persistence_profile_cookie.html.markdown.
+        :param pulumi.Input[str] always_send: To enable _ disable always sending cookies
+        :param pulumi.Input[str] cookie_encryption: To required, preferred, or disabled policy for cookie encryption
+        :param pulumi.Input[str] cookie_encryption_passphrase: Passphrase for encrypted cookies
+        :param pulumi.Input[str] cookie_name: Name of the cookie to track persistence
+        :param pulumi.Input[str] defaults_from: Inherit defaults from parent profile
+        :param pulumi.Input[str] expiration: Expiration TTL for cookie specified in D:H:M:S or in seconds
+        :param pulumi.Input[float] hash_length: Length of hash to apply to cookie
+        :param pulumi.Input[float] hash_offset: Number of characters to skip in the cookie for the hash
+        :param pulumi.Input[str] httponly: To enable _ disable sending only over http
+        :param pulumi.Input[str] match_across_pools: To enable _ disable match across pools with given persistence record
+        :param pulumi.Input[str] match_across_services: To enable _ disable match across services with given persistence record
+        :param pulumi.Input[str] match_across_virtuals: To enable _ disable match across virtual servers with given persistence record
+        :param pulumi.Input[str] mirror: To enable _ disable
+        :param pulumi.Input[str] name: Name of the persistence profile
+        :param pulumi.Input[str] override_conn_limit: To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
+               limits remain hard limits and are not overridden.
+        :param pulumi.Input[float] timeout: Timeout for persistence of the session
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -120,16 +186,32 @@ class PersistenceProfileCookie(pulumi.CustomResource):
         """
         Get an existing PersistenceProfileCookie resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_persistence_profile_cookie.html.markdown.
+        :param pulumi.Input[str] always_send: To enable _ disable always sending cookies
+        :param pulumi.Input[str] cookie_encryption: To required, preferred, or disabled policy for cookie encryption
+        :param pulumi.Input[str] cookie_encryption_passphrase: Passphrase for encrypted cookies
+        :param pulumi.Input[str] cookie_name: Name of the cookie to track persistence
+        :param pulumi.Input[str] defaults_from: Inherit defaults from parent profile
+        :param pulumi.Input[str] expiration: Expiration TTL for cookie specified in D:H:M:S or in seconds
+        :param pulumi.Input[float] hash_length: Length of hash to apply to cookie
+        :param pulumi.Input[float] hash_offset: Number of characters to skip in the cookie for the hash
+        :param pulumi.Input[str] httponly: To enable _ disable sending only over http
+        :param pulumi.Input[str] match_across_pools: To enable _ disable match across pools with given persistence record
+        :param pulumi.Input[str] match_across_services: To enable _ disable match across services with given persistence record
+        :param pulumi.Input[str] match_across_virtuals: To enable _ disable match across virtual servers with given persistence record
+        :param pulumi.Input[str] mirror: To enable _ disable
+        :param pulumi.Input[str] name: Name of the persistence profile
+        :param pulumi.Input[str] override_conn_limit: To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
+               limits remain hard limits and are not overridden.
+        :param pulumi.Input[float] timeout: Timeout for persistence of the session
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["always_send"] = always_send
         __props__["app_service"] = app_service
         __props__["cookie_encryption"] = cookie_encryption

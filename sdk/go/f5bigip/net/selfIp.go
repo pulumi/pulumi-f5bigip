@@ -12,10 +12,10 @@ import (
 )
 
 // `net.SelfIp` Manages a selfip configuration
-// 
+//
 // Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-selfip.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/net_selfip.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_net_selfip.html.markdown.
 type SelfIp struct {
 	pulumi.CustomResourceState
 

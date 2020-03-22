@@ -11,6 +11,9 @@ from .. import utilities, tables
 
 class Dns(pulumi.CustomResource):
     description: pulumi.Output[str]
+    """
+    Name of the Dns Servers
+    """
     name_servers: pulumi.Output[list]
     """
     Name or IP address of the DNS server
@@ -26,14 +29,15 @@ class Dns(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, description=None, name_servers=None, number_of_dots=None, searches=None, __props__=None, __name__=None, __opts__=None):
         """
         `sys.Dns` Configures DNS server on F5 BIG-IP
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_sys_dns.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: Name of the Dns Servers
         :param pulumi.Input[list] name_servers: Name or IP address of the DNS server
         :param pulumi.Input[float] number_of_dots: Configures the number of dots needed in a name before an initial absolute query will be made.
         :param pulumi.Input[list] searches: Specify what domains you want to search
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/sys_dns.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -69,19 +73,19 @@ class Dns(pulumi.CustomResource):
         """
         Get an existing Dns resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: Name of the Dns Servers
         :param pulumi.Input[list] name_servers: Name or IP address of the DNS server
         :param pulumi.Input[float] number_of_dots: Configures the number of dots needed in a name before an initial absolute query will be made.
         :param pulumi.Input[list] searches: Specify what domains you want to search
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/sys_dns.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["description"] = description
         __props__["name_servers"] = name_servers
         __props__["number_of_dots"] = number_of_dots

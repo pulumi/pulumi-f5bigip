@@ -11,7 +11,13 @@ from .. import utilities, tables
 
 class Certificate(pulumi.CustomResource):
     content: pulumi.Output[str]
+    """
+    Content of certificate on Disk
+    """
     name: pulumi.Output[str]
+    """
+    Name of SSL Certificate with .crt extension
+    """
     partition: pulumi.Output[str]
     """
     Partition on to SSL Certificate to be imported
@@ -20,12 +26,14 @@ class Certificate(pulumi.CustomResource):
         """
         `ssl.Certificate` This resource will import SSL certificates on BIG-IP LTM. 
         Certificates can be imported from certificate files on the local disk, in PEM format
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ssl_certificate.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] content: Content of certificate on Disk
+        :param pulumi.Input[str] name: Name of SSL Certificate with .crt extension
         :param pulumi.Input[str] partition: Partition on to SSL Certificate to be imported
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ssl_certificate.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -62,17 +70,18 @@ class Certificate(pulumi.CustomResource):
         """
         Get an existing Certificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] content: Content of certificate on Disk
+        :param pulumi.Input[str] name: Name of SSL Certificate with .crt extension
         :param pulumi.Input[str] partition: Partition on to SSL Certificate to be imported
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ssl_certificate.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["content"] = content
         __props__["name"] = name
         __props__["partition"] = partition

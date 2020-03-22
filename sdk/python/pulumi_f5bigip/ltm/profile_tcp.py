@@ -53,9 +53,11 @@ class ProfileTcp(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, close_wait_timeout=None, defaults_from=None, deferred_accept=None, fast_open=None, finwait2timeout=None, finwait_timeout=None, idle_timeout=None, keepalive_interval=None, name=None, partition=None, __props__=None, __name__=None, __opts__=None):
         """
         `ltm.ProfileTcp` Configures a custom profile_tcp for use by health checks.
-        
+
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_profile_tcp.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] close_wait_timeout: Specifies the number of seconds that a connection remains in a LAST-ACK state before quitting. A value of 0 represents a term of forever (or until the maxrtx of the FIN state). The default value is 5 seconds.
@@ -68,8 +70,6 @@ class ProfileTcp(pulumi.CustomResource):
         :param pulumi.Input[float] keepalive_interval: Specifies the keep alive probe interval, in seconds. The default value is 1800 seconds.
         :param pulumi.Input[str] name: Name of the profile_tcp
         :param pulumi.Input[str] partition: Displays the administrative partition within which this profile resides
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_profile_tcp.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -111,7 +111,7 @@ class ProfileTcp(pulumi.CustomResource):
         """
         Get an existing ProfileTcp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -125,12 +125,11 @@ class ProfileTcp(pulumi.CustomResource):
         :param pulumi.Input[float] keepalive_interval: Specifies the keep alive probe interval, in seconds. The default value is 1800 seconds.
         :param pulumi.Input[str] name: Name of the profile_tcp
         :param pulumi.Input[str] partition: Displays the administrative partition within which this profile resides
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_profile_tcp.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["close_wait_timeout"] = close_wait_timeout
         __props__["defaults_from"] = defaults_from
         __props__["deferred_accept"] = deferred_accept

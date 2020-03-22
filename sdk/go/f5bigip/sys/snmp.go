@@ -11,8 +11,8 @@ import (
 )
 
 // `sys.Snmp` provides details bout how to enable "ilx", "asm" "apm" resource on BIG-IP
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/sys_snmp.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_sys_snmp.html.markdown.
 type Snmp struct {
 	pulumi.CustomResourceState
 

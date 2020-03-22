@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *  * `tables` - Values provided like pool name, nodes etc.
  *  * `variables` - Name, values, encrypted or not
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/sys_iapp.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_sys_iapp.html.markdown.
  */
 export class IApp extends pulumi.CustomResource {
     /**

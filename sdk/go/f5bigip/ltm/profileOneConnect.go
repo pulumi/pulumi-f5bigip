@@ -12,10 +12,10 @@ import (
 )
 
 // `ltm.ProfileOneConnect` Configures a custom profileOneconnect for use by health checks.
-// 
+//
 // For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_profile_oneconnect.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_profile_oneconnect.html.markdown.
 type ProfileOneConnect struct {
 	pulumi.CustomResourceState
 
