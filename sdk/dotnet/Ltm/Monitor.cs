@@ -36,6 +36,12 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> Compatibility { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the database in which the user is created
+        /// </summary>
+        [Output("database")]
+        public Output<string?> Database { get; private set; } = null!;
+
+        /// <summary>
         /// Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or
         /// /Common/gateway-icmp.
         /// </summary>
@@ -85,7 +91,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> Parent { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the password if the monitored target requires authentication
+        /// Specifies the password if the monitored target requires authentication 
         /// </summary>
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
@@ -197,6 +203,12 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Compatibility { get; set; }
 
         /// <summary>
+        /// Specifies the database in which the user is created
+        /// </summary>
+        [Input("database")]
+        public Input<string>? Database { get; set; }
+
+        /// <summary>
         /// Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or
         /// /Common/gateway-icmp.
         /// </summary>
@@ -246,7 +258,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string> Parent { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the password if the monitored target requires authentication
+        /// Specifies the password if the monitored target requires authentication 
         /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
@@ -319,6 +331,12 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Compatibility { get; set; }
 
         /// <summary>
+        /// Specifies the database in which the user is created
+        /// </summary>
+        [Input("database")]
+        public Input<string>? Database { get; set; }
+
+        /// <summary>
         /// Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or
         /// /Common/gateway-icmp.
         /// </summary>
@@ -368,7 +386,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Parent { get; set; }
 
         /// <summary>
-        /// Specifies the password if the monitored target requires authentication
+        /// Specifies the password if the monitored target requires authentication 
         /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }

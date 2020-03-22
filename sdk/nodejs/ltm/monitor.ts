@@ -49,6 +49,10 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly compatibility!: pulumi.Output<string>;
     /**
+     * Specifies the database in which the user is created
+     */
+    public readonly database!: pulumi.Output<string | undefined>;
+    /**
      * Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
      */
     public readonly defaultsFrom!: pulumi.Output<string | undefined>;
@@ -79,7 +83,7 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly parent!: pulumi.Output<string>;
     /**
-     * Specifies the password if the monitored target requires authentication
+     * Specifies the password if the monitored target requires authentication 
      */
     public readonly password!: pulumi.Output<string | undefined>;
     /**
@@ -124,6 +128,7 @@ export class Monitor extends pulumi.CustomResource {
             inputs["adaptive"] = state ? state.adaptive : undefined;
             inputs["adaptiveLimit"] = state ? state.adaptiveLimit : undefined;
             inputs["compatibility"] = state ? state.compatibility : undefined;
+            inputs["database"] = state ? state.database : undefined;
             inputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
             inputs["destination"] = state ? state.destination : undefined;
             inputs["filename"] = state ? state.filename : undefined;
@@ -153,6 +158,7 @@ export class Monitor extends pulumi.CustomResource {
             inputs["adaptive"] = args ? args.adaptive : undefined;
             inputs["adaptiveLimit"] = args ? args.adaptiveLimit : undefined;
             inputs["compatibility"] = args ? args.compatibility : undefined;
+            inputs["database"] = args ? args.database : undefined;
             inputs["defaultsFrom"] = args ? args.defaultsFrom : undefined;
             inputs["destination"] = args ? args.destination : undefined;
             inputs["filename"] = args ? args.filename : undefined;
@@ -200,6 +206,10 @@ export interface MonitorState {
      */
     readonly compatibility?: pulumi.Input<string>;
     /**
+     * Specifies the database in which the user is created
+     */
+    readonly database?: pulumi.Input<string>;
+    /**
      * Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
      */
     readonly defaultsFrom?: pulumi.Input<string>;
@@ -230,7 +240,7 @@ export interface MonitorState {
      */
     readonly parent?: pulumi.Input<string>;
     /**
-     * Specifies the password if the monitored target requires authentication
+     * Specifies the password if the monitored target requires authentication 
      */
     readonly password?: pulumi.Input<string>;
     /**
@@ -278,6 +288,10 @@ export interface MonitorArgs {
      */
     readonly compatibility?: pulumi.Input<string>;
     /**
+     * Specifies the database in which the user is created
+     */
+    readonly database?: pulumi.Input<string>;
+    /**
      * Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
      */
     readonly defaultsFrom?: pulumi.Input<string>;
@@ -308,7 +322,7 @@ export interface MonitorArgs {
      */
     readonly parent: pulumi.Input<string>;
     /**
-     * Specifies the password if the monitored target requires authentication
+     * Specifies the password if the monitored target requires authentication 
      */
     readonly password?: pulumi.Input<string>;
     /**

@@ -22,7 +22,7 @@ type Provision struct {
 	// disk Ratio
 	DiskRatio pulumi.IntPtrOutput `pulumi:"diskRatio"`
 	// path
-	FullPath pulumi.StringPtrOutput `pulumi:"fullPath"`
+	FullPath pulumi.StringOutput `pulumi:"fullPath"`
 	// what level nominal or dedicated
 	Level pulumi.StringPtrOutput `pulumi:"level"`
 	// memory Ratio

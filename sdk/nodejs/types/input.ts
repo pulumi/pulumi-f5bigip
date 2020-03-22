@@ -259,6 +259,26 @@ export namespace ltm {
         vlanId?: pulumi.Input<boolean>;
     }
 
+    export interface ProfileClientSslCertKeyChain {
+        /**
+         * Specifies a cert name for use.
+         */
+        cert?: pulumi.Input<string>;
+        /**
+         * Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+         */
+        chain?: pulumi.Input<string>;
+        /**
+         * Contains a key name
+         */
+        key?: pulumi.Input<string>;
+        /**
+         * Specifies the name of the profile. (type `string`)
+         */
+        name?: pulumi.Input<string>;
+        passphrase?: pulumi.Input<string>;
+    }
+
     export interface SnatOrigin {
         appService?: pulumi.Input<string>;
         /**

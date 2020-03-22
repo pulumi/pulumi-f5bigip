@@ -1691,6 +1691,128 @@ func (o PolicyRuleConditionArrayOutput) Index(i pulumi.IntInput) PolicyRuleCondi
 	}).(PolicyRuleConditionOutput)
 }
 
+type ProfileClientSslCertKeyChain struct {
+	// Specifies a cert name for use.
+	Cert *string `pulumi:"cert"`
+	// Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+	Chain *string `pulumi:"chain"`
+	// Contains a key name
+	Key *string `pulumi:"key"`
+	// Specifies the name of the profile. (type `string`)
+	Name *string `pulumi:"name"`
+	Passphrase *string `pulumi:"passphrase"`
+}
+
+type ProfileClientSslCertKeyChainInput interface {
+	pulumi.Input
+
+	ToProfileClientSslCertKeyChainOutput() ProfileClientSslCertKeyChainOutput
+	ToProfileClientSslCertKeyChainOutputWithContext(context.Context) ProfileClientSslCertKeyChainOutput
+}
+
+type ProfileClientSslCertKeyChainArgs struct {
+	// Specifies a cert name for use.
+	Cert pulumi.StringPtrInput `pulumi:"cert"`
+	// Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+	Chain pulumi.StringPtrInput `pulumi:"chain"`
+	// Contains a key name
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Specifies the name of the profile. (type `string`)
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	Passphrase pulumi.StringPtrInput `pulumi:"passphrase"`
+}
+
+func (ProfileClientSslCertKeyChainArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileClientSslCertKeyChain)(nil)).Elem()
+}
+
+func (i ProfileClientSslCertKeyChainArgs) ToProfileClientSslCertKeyChainOutput() ProfileClientSslCertKeyChainOutput {
+	return i.ToProfileClientSslCertKeyChainOutputWithContext(context.Background())
+}
+
+func (i ProfileClientSslCertKeyChainArgs) ToProfileClientSslCertKeyChainOutputWithContext(ctx context.Context) ProfileClientSslCertKeyChainOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileClientSslCertKeyChainOutput)
+}
+
+type ProfileClientSslCertKeyChainArrayInput interface {
+	pulumi.Input
+
+	ToProfileClientSslCertKeyChainArrayOutput() ProfileClientSslCertKeyChainArrayOutput
+	ToProfileClientSslCertKeyChainArrayOutputWithContext(context.Context) ProfileClientSslCertKeyChainArrayOutput
+}
+
+type ProfileClientSslCertKeyChainArray []ProfileClientSslCertKeyChainInput
+
+func (ProfileClientSslCertKeyChainArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProfileClientSslCertKeyChain)(nil)).Elem()
+}
+
+func (i ProfileClientSslCertKeyChainArray) ToProfileClientSslCertKeyChainArrayOutput() ProfileClientSslCertKeyChainArrayOutput {
+	return i.ToProfileClientSslCertKeyChainArrayOutputWithContext(context.Background())
+}
+
+func (i ProfileClientSslCertKeyChainArray) ToProfileClientSslCertKeyChainArrayOutputWithContext(ctx context.Context) ProfileClientSslCertKeyChainArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileClientSslCertKeyChainArrayOutput)
+}
+
+type ProfileClientSslCertKeyChainOutput struct { *pulumi.OutputState }
+
+func (ProfileClientSslCertKeyChainOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileClientSslCertKeyChain)(nil)).Elem()
+}
+
+func (o ProfileClientSslCertKeyChainOutput) ToProfileClientSslCertKeyChainOutput() ProfileClientSslCertKeyChainOutput {
+	return o
+}
+
+func (o ProfileClientSslCertKeyChainOutput) ToProfileClientSslCertKeyChainOutputWithContext(ctx context.Context) ProfileClientSslCertKeyChainOutput {
+	return o
+}
+
+// Specifies a cert name for use.
+func (o ProfileClientSslCertKeyChainOutput) Cert() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ProfileClientSslCertKeyChain) *string { return v.Cert }).(pulumi.StringPtrOutput)
+}
+
+// Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+func (o ProfileClientSslCertKeyChainOutput) Chain() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ProfileClientSslCertKeyChain) *string { return v.Chain }).(pulumi.StringPtrOutput)
+}
+
+// Contains a key name
+func (o ProfileClientSslCertKeyChainOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ProfileClientSslCertKeyChain) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the profile. (type `string`)
+func (o ProfileClientSslCertKeyChainOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ProfileClientSslCertKeyChain) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ProfileClientSslCertKeyChainOutput) Passphrase() pulumi.StringPtrOutput {
+	return o.ApplyT(func (v ProfileClientSslCertKeyChain) *string { return v.Passphrase }).(pulumi.StringPtrOutput)
+}
+
+type ProfileClientSslCertKeyChainArrayOutput struct { *pulumi.OutputState}
+
+func (ProfileClientSslCertKeyChainArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProfileClientSslCertKeyChain)(nil)).Elem()
+}
+
+func (o ProfileClientSslCertKeyChainArrayOutput) ToProfileClientSslCertKeyChainArrayOutput() ProfileClientSslCertKeyChainArrayOutput {
+	return o
+}
+
+func (o ProfileClientSslCertKeyChainArrayOutput) ToProfileClientSslCertKeyChainArrayOutputWithContext(ctx context.Context) ProfileClientSslCertKeyChainArrayOutput {
+	return o
+}
+
+func (o ProfileClientSslCertKeyChainArrayOutput) Index(i pulumi.IntInput) ProfileClientSslCertKeyChainOutput {
+	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ProfileClientSslCertKeyChain {
+		return vs[0].([]ProfileClientSslCertKeyChain)[vs[1].(int)]
+	}).(ProfileClientSslCertKeyChainOutput)
+}
+
 type SnatOrigin struct {
 	AppService *string `pulumi:"appService"`
 	// Name of the snat
@@ -1797,6 +1919,8 @@ func init() {
 	pulumi.RegisterOutputType(PolicyRuleActionArrayOutput{})
 	pulumi.RegisterOutputType(PolicyRuleConditionOutput{})
 	pulumi.RegisterOutputType(PolicyRuleConditionArrayOutput{})
+	pulumi.RegisterOutputType(ProfileClientSslCertKeyChainOutput{})
+	pulumi.RegisterOutputType(ProfileClientSslCertKeyChainArrayOutput{})
 	pulumi.RegisterOutputType(SnatOriginOutput{})
 	pulumi.RegisterOutputType(SnatOriginArrayOutput{})
 }

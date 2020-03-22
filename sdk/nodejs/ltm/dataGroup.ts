@@ -27,8 +27,8 @@ import * as utilities from "../utilities";
  *             name: "abc.com",
  *         },
  *         {
+ *             data: "123",
  *             name: "test",
- *             value: "123",
  *         },
  *     ],
  *     type: "string",

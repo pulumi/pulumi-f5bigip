@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./as3";
+export * from "./do";
 export * from "./provider";
 
 // Export sub-modules:
@@ -9,6 +11,7 @@ import * as cm from "./cm/index";
 import * as config from "./config/index";
 import * as ltm from "./ltm/index";
 import * as net from "./net/index";
+import * as ssl from "./ssl/index";
 import * as sys from "./sys/index";
 import * as types from "./types/index";
-export {cm, config, ltm, net, sys, types};
+export {cm, config, ltm, net, ssl, sys, types};

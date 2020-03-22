@@ -31,7 +31,7 @@ namespace Pulumi.F5BigIP.Sys
         /// path
         /// </summary>
         [Output("fullPath")]
-        public Output<string?> FullPath { get; private set; } = null!;
+        public Output<string> FullPath { get; private set; } = null!;
 
         /// <summary>
         /// what level nominal or dedicated

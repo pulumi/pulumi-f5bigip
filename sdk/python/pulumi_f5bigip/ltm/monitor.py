@@ -16,6 +16,10 @@ class Monitor(pulumi.CustomResource):
     """
     Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
     """
+    database: pulumi.Output[str]
+    """
+    Specifies the database in which the user is created
+    """
     defaults_from: pulumi.Output[str]
     destination: pulumi.Output[str]
     """
@@ -44,6 +48,9 @@ class Monitor(pulumi.CustomResource):
     Existing LTM monitor to inherit from
     """
     password: pulumi.Output[str]
+    """
+    Specifies the password if the monitored target requires authentication 
+    """
     receive: pulumi.Output[str]
     """
     Expected response string
@@ -61,7 +68,10 @@ class Monitor(pulumi.CustomResource):
     """
     transparent: pulumi.Output[str]
     username: pulumi.Output[str]
-    def __init__(__self__, resource_name, opts=None, adaptive=None, adaptive_limit=None, compatibility=None, defaults_from=None, destination=None, filename=None, interval=None, ip_dscp=None, manual_resume=None, mode=None, name=None, parent=None, password=None, receive=None, receive_disable=None, reverse=None, send=None, time_until_up=None, timeout=None, transparent=None, username=None, __props__=None, __name__=None, __opts__=None):
+    """
+    Specifies the user name if the monitored target requires authentication
+    """
+    def __init__(__self__, resource_name, opts=None, adaptive=None, adaptive_limit=None, compatibility=None, database=None, defaults_from=None, destination=None, filename=None, interval=None, ip_dscp=None, manual_resume=None, mode=None, name=None, parent=None, password=None, receive=None, receive_disable=None, reverse=None, send=None, time_until_up=None, timeout=None, transparent=None, username=None, __props__=None, __name__=None, __opts__=None):
         """
         `ltm.Monitor` Configures a custom monitor for use by health checks.
         
@@ -70,15 +80,18 @@ class Monitor(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] compatibility: Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
+        :param pulumi.Input[str] database: Specifies the database in which the user is created
         :param pulumi.Input[str] destination: Specify an alias address for monitoring
         :param pulumi.Input[str] filename: Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
         :param pulumi.Input[float] interval: Check interval in seconds
         :param pulumi.Input[str] mode: Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
         :param pulumi.Input[str] name: Name of the monitor
         :param pulumi.Input[str] parent: Existing LTM monitor to inherit from
+        :param pulumi.Input[str] password: Specifies the password if the monitored target requires authentication 
         :param pulumi.Input[str] receive: Expected response string
         :param pulumi.Input[str] send: Request string to send
         :param pulumi.Input[float] timeout: Timeout in seconds
+        :param pulumi.Input[str] username: Specifies the user name if the monitored target requires authentication
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_monitor.html.markdown.
         """
@@ -102,6 +115,7 @@ class Monitor(pulumi.CustomResource):
             __props__['adaptive'] = adaptive
             __props__['adaptive_limit'] = adaptive_limit
             __props__['compatibility'] = compatibility
+            __props__['database'] = database
             __props__['defaults_from'] = defaults_from
             __props__['destination'] = destination
             __props__['filename'] = filename
@@ -131,7 +145,7 @@ class Monitor(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, adaptive=None, adaptive_limit=None, compatibility=None, defaults_from=None, destination=None, filename=None, interval=None, ip_dscp=None, manual_resume=None, mode=None, name=None, parent=None, password=None, receive=None, receive_disable=None, reverse=None, send=None, time_until_up=None, timeout=None, transparent=None, username=None):
+    def get(resource_name, id, opts=None, adaptive=None, adaptive_limit=None, compatibility=None, database=None, defaults_from=None, destination=None, filename=None, interval=None, ip_dscp=None, manual_resume=None, mode=None, name=None, parent=None, password=None, receive=None, receive_disable=None, reverse=None, send=None, time_until_up=None, timeout=None, transparent=None, username=None):
         """
         Get an existing Monitor resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -140,15 +154,18 @@ class Monitor(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] compatibility: Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
+        :param pulumi.Input[str] database: Specifies the database in which the user is created
         :param pulumi.Input[str] destination: Specify an alias address for monitoring
         :param pulumi.Input[str] filename: Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
         :param pulumi.Input[float] interval: Check interval in seconds
         :param pulumi.Input[str] mode: Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
         :param pulumi.Input[str] name: Name of the monitor
         :param pulumi.Input[str] parent: Existing LTM monitor to inherit from
+        :param pulumi.Input[str] password: Specifies the password if the monitored target requires authentication 
         :param pulumi.Input[str] receive: Expected response string
         :param pulumi.Input[str] send: Request string to send
         :param pulumi.Input[float] timeout: Timeout in seconds
+        :param pulumi.Input[str] username: Specifies the user name if the monitored target requires authentication
 
         > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_monitor.html.markdown.
         """
@@ -158,6 +175,7 @@ class Monitor(pulumi.CustomResource):
         __props__["adaptive"] = adaptive
         __props__["adaptive_limit"] = adaptive_limit
         __props__["compatibility"] = compatibility
+        __props__["database"] = database
         __props__["defaults_from"] = defaults_from
         __props__["destination"] = destination
         __props__["filename"] = filename
