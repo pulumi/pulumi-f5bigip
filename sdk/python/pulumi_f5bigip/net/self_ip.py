@@ -29,17 +29,17 @@ class SelfIp(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, ip=None, name=None, traffic_group=None, vlan=None, __props__=None, __name__=None, __opts__=None):
         """
         `net.SelfIp` Manages a selfip configuration
-        
+
         Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-selfip.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_net_selfip.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] ip: The Self IP's address and netmask.
         :param pulumi.Input[str] name: Name of the selfip
         :param pulumi.Input[str] traffic_group: Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
         :param pulumi.Input[str] vlan: Specifies the VLAN for which you are setting a self IP address. This setting must be provided when a self IP is created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/net_selfip.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -79,7 +79,7 @@ class SelfIp(pulumi.CustomResource):
         """
         Get an existing SelfIp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -87,12 +87,11 @@ class SelfIp(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the selfip
         :param pulumi.Input[str] traffic_group: Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
         :param pulumi.Input[str] vlan: Specifies the VLAN for which you are setting a self IP address. This setting must be provided when a self IP is created.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/net_selfip.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["ip"] = ip
         __props__["name"] = name
         __props__["traffic_group"] = traffic_group

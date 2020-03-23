@@ -11,12 +11,21 @@ from .. import utilities, tables
 
 class Pool(pulumi.CustomResource):
     allow_nat: pulumi.Output[str]
+    """
+    Allow NAT
+    """
     allow_snat: pulumi.Output[str]
+    """
+    Allow SNAT
+    """
     description: pulumi.Output[str]
     """
     Userdefined value to describe the pool 
     """
     load_balancing_mode: pulumi.Output[str]
+    """
+    Possible values: round-robin, ...
+    """
     monitors: pulumi.Output[list]
     """
     List of monitor names to associate with the pool
@@ -26,21 +35,36 @@ class Pool(pulumi.CustomResource):
     Name of the pool
     """
     reselect_tries: pulumi.Output[float]
+    """
+    Number of times the system tries to select a new pool member after a failure.
+    """
     service_down_action: pulumi.Output[str]
+    """
+    Possible values: none, reset, reselect, drop
+    """
     slow_ramp_time: pulumi.Output[float]
+    """
+    Slow ramp time for pool members
+    """
     def __init__(__self__, resource_name, opts=None, allow_nat=None, allow_snat=None, description=None, load_balancing_mode=None, monitors=None, name=None, reselect_tries=None, service_down_action=None, slow_ramp_time=None, __props__=None, __name__=None, __opts__=None):
         """
         `ltm.Pool` Manages a pool configuration.
-        
+
         Resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_pool.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] allow_nat: Allow NAT
+        :param pulumi.Input[str] allow_snat: Allow SNAT
         :param pulumi.Input[str] description: Userdefined value to describe the pool 
+        :param pulumi.Input[str] load_balancing_mode: Possible values: round-robin, ...
         :param pulumi.Input[list] monitors: List of monitor names to associate with the pool
         :param pulumi.Input[str] name: Name of the pool
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_pool.html.markdown.
+        :param pulumi.Input[float] reselect_tries: Number of times the system tries to select a new pool member after a failure.
+        :param pulumi.Input[str] service_down_action: Possible values: none, reset, reselect, drop
+        :param pulumi.Input[float] slow_ramp_time: Slow ramp time for pool members
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -81,19 +105,24 @@ class Pool(pulumi.CustomResource):
         """
         Get an existing Pool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] allow_nat: Allow NAT
+        :param pulumi.Input[str] allow_snat: Allow SNAT
         :param pulumi.Input[str] description: Userdefined value to describe the pool 
+        :param pulumi.Input[str] load_balancing_mode: Possible values: round-robin, ...
         :param pulumi.Input[list] monitors: List of monitor names to associate with the pool
         :param pulumi.Input[str] name: Name of the pool
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_pool.html.markdown.
+        :param pulumi.Input[float] reselect_tries: Number of times the system tries to select a new pool member after a failure.
+        :param pulumi.Input[str] service_down_action: Possible values: none, reset, reselect, drop
+        :param pulumi.Input[float] slow_ramp_time: Slow ramp time for pool members
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["allow_nat"] = allow_nat
         __props__["allow_snat"] = allow_snat
         __props__["description"] = description

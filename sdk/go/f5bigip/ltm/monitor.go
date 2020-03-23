@@ -12,10 +12,10 @@ import (
 )
 
 // `ltm.Monitor` Configures a custom monitor for use by health checks.
-// 
+//
 // For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-// 
-// > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_monitor.html.markdown.
+//
+// > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_monitor.html.markdown.
 type Monitor struct {
 	pulumi.CustomResourceState
 
@@ -25,6 +25,8 @@ type Monitor struct {
 	AdaptiveLimit pulumi.IntOutput `pulumi:"adaptiveLimit"`
 	// Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
 	Compatibility pulumi.StringOutput `pulumi:"compatibility"`
+	// Specifies the database in which the user is created
+	Database pulumi.StringPtrOutput `pulumi:"database"`
 	// Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
 	DefaultsFrom pulumi.StringPtrOutput `pulumi:"defaultsFrom"`
 	// Specify an alias address for monitoring
@@ -41,7 +43,7 @@ type Monitor struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Existing LTM monitor to inherit from
 	Parent pulumi.StringOutput `pulumi:"parent"`
-	// Specifies the password if the monitored target requires authentication
+	// Specifies the password if the monitored target requires authentication 
 	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// Expected response string
 	Receive pulumi.StringPtrOutput `pulumi:"receive"`
@@ -99,6 +101,8 @@ type monitorState struct {
 	AdaptiveLimit *int `pulumi:"adaptiveLimit"`
 	// Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
 	Compatibility *string `pulumi:"compatibility"`
+	// Specifies the database in which the user is created
+	Database *string `pulumi:"database"`
 	// Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
 	DefaultsFrom *string `pulumi:"defaultsFrom"`
 	// Specify an alias address for monitoring
@@ -115,7 +119,7 @@ type monitorState struct {
 	Name *string `pulumi:"name"`
 	// Existing LTM monitor to inherit from
 	Parent *string `pulumi:"parent"`
-	// Specifies the password if the monitored target requires authentication
+	// Specifies the password if the monitored target requires authentication 
 	Password *string `pulumi:"password"`
 	// Expected response string
 	Receive *string `pulumi:"receive"`
@@ -140,6 +144,8 @@ type MonitorState struct {
 	AdaptiveLimit pulumi.IntPtrInput
 	// Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
 	Compatibility pulumi.StringPtrInput
+	// Specifies the database in which the user is created
+	Database pulumi.StringPtrInput
 	// Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
 	DefaultsFrom pulumi.StringPtrInput
 	// Specify an alias address for monitoring
@@ -156,7 +162,7 @@ type MonitorState struct {
 	Name pulumi.StringPtrInput
 	// Existing LTM monitor to inherit from
 	Parent pulumi.StringPtrInput
-	// Specifies the password if the monitored target requires authentication
+	// Specifies the password if the monitored target requires authentication 
 	Password pulumi.StringPtrInput
 	// Expected response string
 	Receive pulumi.StringPtrInput
@@ -185,6 +191,8 @@ type monitorArgs struct {
 	AdaptiveLimit *int `pulumi:"adaptiveLimit"`
 	// Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
 	Compatibility *string `pulumi:"compatibility"`
+	// Specifies the database in which the user is created
+	Database *string `pulumi:"database"`
 	// Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
 	DefaultsFrom *string `pulumi:"defaultsFrom"`
 	// Specify an alias address for monitoring
@@ -201,7 +209,7 @@ type monitorArgs struct {
 	Name string `pulumi:"name"`
 	// Existing LTM monitor to inherit from
 	Parent string `pulumi:"parent"`
-	// Specifies the password if the monitored target requires authentication
+	// Specifies the password if the monitored target requires authentication 
 	Password *string `pulumi:"password"`
 	// Expected response string
 	Receive *string `pulumi:"receive"`
@@ -227,6 +235,8 @@ type MonitorArgs struct {
 	AdaptiveLimit pulumi.IntPtrInput
 	// Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
 	Compatibility pulumi.StringPtrInput
+	// Specifies the database in which the user is created
+	Database pulumi.StringPtrInput
 	// Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
 	DefaultsFrom pulumi.StringPtrInput
 	// Specify an alias address for monitoring
@@ -243,7 +253,7 @@ type MonitorArgs struct {
 	Name pulumi.StringInput
 	// Existing LTM monitor to inherit from
 	Parent pulumi.StringInput
-	// Specifies the password if the monitored target requires authentication
+	// Specifies the password if the monitored target requires authentication 
 	Password pulumi.StringPtrInput
 	// Expected response string
 	Receive pulumi.StringPtrInput

@@ -57,9 +57,11 @@ class ProfileFastHttp(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, connpool_maxreuse=None, connpool_maxsize=None, connpool_minsize=None, connpool_replenish=None, connpool_step=None, connpoolidle_timeoutoverride=None, defaults_from=None, forcehttp10response=None, idle_timeout=None, maxheader_size=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
         `ltm.ProfileFastHttp` Configures a custom profile_fasthttp for use by health checks.
-        
+
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_profile_fasthttp.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] connpool_maxreuse: Specifies the maximum number of times that the system can re-use a current connection. The default value is 0 (zero).
@@ -73,8 +75,6 @@ class ProfileFastHttp(pulumi.CustomResource):
         :param pulumi.Input[float] idle_timeout: Specifies an idle timeout in seconds. This setting specifies the number of seconds that a connection is idle before the connection is eligible for deletion.When you specify an idle timeout for the Fast L4 profile, the value must be greater than the bigdb database variable Pva.Scrub time in msec for it to work properly.The default value is 300 seconds.
         :param pulumi.Input[float] maxheader_size: Specifies the maximum amount of HTTP header data that the system buffers before making a load balancing decision. The default setting is 32768.
         :param pulumi.Input[str] name: Name of the profile_fasthttp
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_profile_fasthttp.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -117,7 +117,7 @@ class ProfileFastHttp(pulumi.CustomResource):
         """
         Get an existing ProfileFastHttp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -132,12 +132,11 @@ class ProfileFastHttp(pulumi.CustomResource):
         :param pulumi.Input[float] idle_timeout: Specifies an idle timeout in seconds. This setting specifies the number of seconds that a connection is idle before the connection is eligible for deletion.When you specify an idle timeout for the Fast L4 profile, the value must be greater than the bigdb database variable Pva.Scrub time in msec for it to work properly.The default value is 300 seconds.
         :param pulumi.Input[float] maxheader_size: Specifies the maximum amount of HTTP header data that the system buffers before making a load balancing decision. The default setting is 32768.
         :param pulumi.Input[str] name: Name of the profile_fasthttp
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_profile_fasthttp.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["connpool_maxreuse"] = connpool_maxreuse
         __props__["connpool_maxsize"] = connpool_maxsize
         __props__["connpool_minsize"] = connpool_minsize

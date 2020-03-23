@@ -11,7 +11,13 @@ from .. import utilities, tables
 
 class Snat(pulumi.CustomResource):
     autolasthop: pulumi.Output[str]
+    """
+    Specifies whether to automatically map last hop for pools or not. The default is to use next level's defaul
+    """
     full_path: pulumi.Output[str]
+    """
+    Fullpath
+    """
     mirror: pulumi.Output[str]
     """
     Enables or disables mirroring of SNAT connections.
@@ -23,7 +29,7 @@ class Snat(pulumi.CustomResource):
     origins: pulumi.Output[list]
     """
     IP or hostname of the snat
-    
+
       * `app_service` (`str`)
       * `name` (`str`) - Name of the snat
     """
@@ -54,11 +60,15 @@ class Snat(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, autolasthop=None, full_path=None, mirror=None, name=None, origins=None, partition=None, snatpool=None, sourceport=None, translation=None, vlans=None, vlansdisabled=None, __props__=None, __name__=None, __opts__=None):
         """
         `ltm.Snat` Manages a snat configuration
-        
+
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_snat.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] autolasthop: Specifies whether to automatically map last hop for pools or not. The default is to use next level's defaul
+        :param pulumi.Input[str] full_path: Fullpath
         :param pulumi.Input[str] mirror: Enables or disables mirroring of SNAT connections.
         :param pulumi.Input[str] name: Name of the snat
         :param pulumi.Input[list] origins: IP or hostname of the snat
@@ -68,13 +78,11 @@ class Snat(pulumi.CustomResource):
         :param pulumi.Input[str] translation: Specifies the name of a translated IP address. Note that translated addresses are outside the traffic management system. You can only use this option when automap and snatpool are not used.
         :param pulumi.Input[list] vlans: Specifies the name of the VLAN to which you want to assign the SNAT. The default is vlans-enabled.
         :param pulumi.Input[bool] vlansdisabled: Disables the SNAT on all VLANs.
-        
+
         The **origins** object supports the following:
-        
+
           * `app_service` (`pulumi.Input[str]`)
           * `name` (`pulumi.Input[str]`) - Name of the snat
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_snat.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -119,10 +127,12 @@ class Snat(pulumi.CustomResource):
         """
         Get an existing Snat resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] autolasthop: Specifies whether to automatically map last hop for pools or not. The default is to use next level's defaul
+        :param pulumi.Input[str] full_path: Fullpath
         :param pulumi.Input[str] mirror: Enables or disables mirroring of SNAT connections.
         :param pulumi.Input[str] name: Name of the snat
         :param pulumi.Input[list] origins: IP or hostname of the snat
@@ -132,17 +142,16 @@ class Snat(pulumi.CustomResource):
         :param pulumi.Input[str] translation: Specifies the name of a translated IP address. Note that translated addresses are outside the traffic management system. You can only use this option when automap and snatpool are not used.
         :param pulumi.Input[list] vlans: Specifies the name of the VLAN to which you want to assign the SNAT. The default is vlans-enabled.
         :param pulumi.Input[bool] vlansdisabled: Disables the SNAT on all VLANs.
-        
+
         The **origins** object supports the following:
-        
+
           * `app_service` (`pulumi.Input[str]`)
           * `name` (`pulumi.Input[str]`) - Name of the snat
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_snat.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["autolasthop"] = autolasthop
         __props__["full_path"] = full_path
         __props__["mirror"] = mirror

@@ -37,10 +37,12 @@ class ProfileHttpCompress(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, content_type_excludes=None, content_type_includes=None, defaults_from=None, name=None, uri_excludes=None, uri_includes=None, __props__=None, __name__=None, __opts__=None):
         """
         `ltm.ProfileHttpCompress`  Virtual server HTTP compression profile configuration
-        
-        
+
+
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_profile_httpcompress.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] content_type_excludes: Excludes a specified list of content types from compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
@@ -49,8 +51,6 @@ class ProfileHttpCompress(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the profile_httpcompress
         :param pulumi.Input[list] uri_excludes: Disables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you do not want to compress.
         :param pulumi.Input[list] uri_includes: Enables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you want to compress.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_profile_httpcompress.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -88,7 +88,7 @@ class ProfileHttpCompress(pulumi.CustomResource):
         """
         Get an existing ProfileHttpCompress resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -98,12 +98,11 @@ class ProfileHttpCompress(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the profile_httpcompress
         :param pulumi.Input[list] uri_excludes: Disables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you do not want to compress.
         :param pulumi.Input[list] uri_includes: Enables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you want to compress.
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_profile_httpcompress.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["content_type_excludes"] = content_type_excludes
         __props__["content_type_includes"] = content_type_includes
         __props__["defaults_from"] = defaults_from

@@ -36,7 +36,14 @@ class Node(pulumi.CustomResource):
     Name of the node
     """
     rate_limit: pulumi.Output[str]
+    """
+    Specifies the maximum number of connections per second allowed for a node or node address. The default value is
+    'disabled'.
+    """
     ratio: pulumi.Output[float]
+    """
+    Sets the ratio number for the node.
+    """
     state: pulumi.Output[str]
     """
     Default is "user-up" you can set to "user-down" if you want to disable
@@ -44,9 +51,11 @@ class Node(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, address=None, connection_limit=None, description=None, dynamic_ratio=None, fqdn=None, monitor=None, name=None, rate_limit=None, ratio=None, state=None, __props__=None, __name__=None, __opts__=None):
         """
         `ltm.Node` Manages a node configuration
-        
+
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-        
+
+        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_node.html.markdown.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address: IP or hostname of the node
@@ -55,17 +64,18 @@ class Node(pulumi.CustomResource):
         :param pulumi.Input[float] dynamic_ratio: Specifies the fixed ratio value used for a node during ratio load balancing.
         :param pulumi.Input[str] monitor: specifies the name of the monitor or monitor rule that you want to associate with the node.
         :param pulumi.Input[str] name: Name of the node
+        :param pulumi.Input[str] rate_limit: Specifies the maximum number of connections per second allowed for a node or node address. The default value is
+               'disabled'.
+        :param pulumi.Input[float] ratio: Sets the ratio number for the node.
         :param pulumi.Input[str] state: Default is "user-up" you can set to "user-down" if you want to disable
-        
+
         The **fqdn** object supports the following:
-        
+
           * `addressFamily` (`pulumi.Input[str]`) - Specifies the node's address family. The default is 'unspecified', or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
           * `autopopulate` (`pulumi.Input[str]`)
           * `downinterval` (`pulumi.Input[float]`)
           * `interval` (`pulumi.Input[str]`) - Specifies the amount of time before sending the next DNS query. Default is 3600. This needs to be specified inside the fqdn (fully qualified domain name).
           * `name` (`pulumi.Input[str]`) - Name of the node
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_node.html.markdown.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -109,7 +119,7 @@ class Node(pulumi.CustomResource):
         """
         Get an existing Node resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
-        
+
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -119,21 +129,23 @@ class Node(pulumi.CustomResource):
         :param pulumi.Input[float] dynamic_ratio: Specifies the fixed ratio value used for a node during ratio load balancing.
         :param pulumi.Input[str] monitor: specifies the name of the monitor or monitor rule that you want to associate with the node.
         :param pulumi.Input[str] name: Name of the node
+        :param pulumi.Input[str] rate_limit: Specifies the maximum number of connections per second allowed for a node or node address. The default value is
+               'disabled'.
+        :param pulumi.Input[float] ratio: Sets the ratio number for the node.
         :param pulumi.Input[str] state: Default is "user-up" you can set to "user-down" if you want to disable
-        
+
         The **fqdn** object supports the following:
-        
+
           * `addressFamily` (`pulumi.Input[str]`) - Specifies the node's address family. The default is 'unspecified', or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
           * `autopopulate` (`pulumi.Input[str]`)
           * `downinterval` (`pulumi.Input[float]`)
           * `interval` (`pulumi.Input[str]`) - Specifies the amount of time before sending the next DNS query. Default is 3600. This needs to be specified inside the fqdn (fully qualified domain name).
           * `name` (`pulumi.Input[str]`) - Name of the node
-
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_node.html.markdown.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
+
         __props__["address"] = address
         __props__["connection_limit"] = connection_limit
         __props__["description"] = description

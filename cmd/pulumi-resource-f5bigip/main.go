@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+//go:generate go run ./generate.go
+
 package main
 
 import (
@@ -22,5 +24,5 @@ import (
 )
 
 func main() {
-	tfbridge.Main("f5bigip", version.Version, f5bigip.Provider())
+	tfbridge.Main("f5bigip", version.Version, f5bigip.Provider(), pulumiSchema)
 }

@@ -15,17 +15,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  * 
- * const provisionIlx = new f5bigip.sys.Provision("provision-ilx", {
+ * const testProvision = new f5bigip.sys.Provision("test-provision", {
  *     cpuRatio: 0,
  *     diskRatio: 0,
- *     fullPath: "ilx",
- *     level: "nominal",
+ *     fullPath: "asm",
+ *     level: "none",
  *     memoryRatio: 0,
- *     name: "/Common/ilx",
+ *     name: "TEST_ASM_PROVISION_NAME",
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/sys_provision.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_sys_provision.html.markdown.
  */
 export class Provision extends pulumi.CustomResource {
     /**
@@ -65,7 +65,7 @@ export class Provision extends pulumi.CustomResource {
     /**
      * path
      */
-    public readonly fullPath!: pulumi.Output<string | undefined>;
+    public readonly fullPath!: pulumi.Output<string>;
     /**
      * what level nominal or dedicated
      */

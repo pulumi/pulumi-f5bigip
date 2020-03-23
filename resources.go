@@ -27,11 +27,14 @@ import (
 
 // all of the F5 BigIP token components used below.
 const (
-	f5BigIPPkg    = "f5bigip"
-	f5BigIPCMMod  = "CM"  // Centralized Management (CM)
-	f5BigIPLTMMod = "Ltm" // Local Traffic Manager (LTM)
-	f5BigIPNetMod = "Net" // Network
-	f5BigIPSysMod = "Sys" // System
+	f5BigIPPkg     = "f5bigip"
+	f5BigIPCMMod   = "CM"    // Centralized Management (CM)
+	f5BigIPLTMMod  = "Ltm"   // Local Traffic Manager (LTM)
+	f5BigIPNetMod  = "Net"   // Network
+	f5BigIPSysMod  = "Sys"   // System
+	f5BigIPSslMod  = "Ssl"   // Ssl
+	f5BigIPMainMod = "Index" // Index
+
 )
 
 var namespaceMap = map[string]string{
@@ -96,6 +99,8 @@ func Provider() tfbridge.ProviderInfo {
 			"bigip_ltm_snatpool":                    {Tok: f5BigIPResource(f5BigIPLTMMod, "SnatPool")},
 			"bigip_ltm_virtual_address":             {Tok: f5BigIPResource(f5BigIPLTMMod, "VirtualAddress")},
 			"bigip_ltm_virtual_server":              {Tok: f5BigIPResource(f5BigIPLTMMod, "VirtualServer")},
+			"bigip_ltm_profile_client_ssl":          {Tok: f5BigIPResource(f5BigIPLTMMod, "ProfileClientSsl")},
+			"bigip_ltm_profile_server_ssl":          {Tok: f5BigIPResource(f5BigIPLTMMod, "ProfileServerSsl")},
 			"bigip_sys_dns":                         {Tok: f5BigIPResource(f5BigIPSysMod, "Dns")},
 			"bigip_sys_iapp":                        {Tok: f5BigIPResource(f5BigIPSysMod, "IApp")},
 			"bigip_sys_ntp":                         {Tok: f5BigIPResource(f5BigIPSysMod, "Ntp")},
@@ -103,6 +108,10 @@ func Provider() tfbridge.ProviderInfo {
 			"bigip_sys_snmp":                        {Tok: f5BigIPResource(f5BigIPSysMod, "Snmp")},
 			"bigip_sys_snmp_traps":                  {Tok: f5BigIPResource(f5BigIPSysMod, "SnmpTraps")},
 			"bigip_sys_bigiplicense":                {Tok: f5BigIPResource(f5BigIPSysMod, "BigIpLicense")},
+			"bigip_ssl_certificate":                 {Tok: f5BigIPResource(f5BigIPSslMod, "Certificate")},
+			"bigip_ssl_key":                         {Tok: f5BigIPResource(f5BigIPSslMod, "Key")},
+			"bigip_as3":                             {Tok: f5BigIPResource(f5BigIPMainMod, "As3")},
+			"bigip_do":                              {Tok: f5BigIPResource(f5BigIPMainMod, "Do")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
@@ -119,7 +128,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		CSharp: &tfbridge.CSharpInfo{
 			PackageReferences: map[string]string{
-				"Pulumi":                       "1.9.1-preview",
+				"Pulumi":                       "1.12.1-preview",
 				"System.Collections.Immutable": "1.6.0",
 			},
 			Namespaces: namespaceMap,

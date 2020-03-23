@@ -259,6 +259,26 @@ export namespace ltm {
         vlanId: boolean;
     }
 
+    export interface ProfileClientSslCertKeyChain {
+        /**
+         * Specifies a cert name for use.
+         */
+        cert?: string;
+        /**
+         * Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+         */
+        chain?: string;
+        /**
+         * Contains a key name
+         */
+        key?: string;
+        /**
+         * Specifies the name of the profile. (type `string`)
+         */
+        name?: string;
+        passphrase?: string;
+    }
+
     export interface SnatOrigin {
         appService?: string;
         /**

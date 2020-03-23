@@ -19,17 +19,26 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  * 
- * const snat3 = new f5bigip.ltm.Snat("snat3", {
- *     mirror: "false",
- *     // this is using snatpool translation is not required
- *     name: "snat3",
- *     origins: ["6.1.6.6"],
- *     snatpool: "/Common/sanjaysnatpool",
- *     vlans: ["test-vlan"],
+ * const testSnat = new f5bigip.ltm.Snat("test-snat", {
+ *     autolasthop: "default",
+ *     fullPath: "/Common/test-snat",
+ *     mirror: "disabled",
+ *     name: "TEST_SNAT_NAME",
+ *     origins: [
+ *         {
+ *             name: "2.2.2.2",
+ *         },
+ *         {
+ *             name: "3.3.3.3",
+ *         },
+ *     ],
+ *     partition: "Common",
+ *     translation: "/Common/136.1.1.1",
+ *     vlansdisabled: true,
  * });
  * ```
  *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/ltm_snat.html.markdown.
+ * > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_snat.html.markdown.
  */
 export class Snat extends pulumi.CustomResource {
     /**
