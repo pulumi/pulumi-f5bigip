@@ -117,4 +117,3 @@ type SelfIpArgs struct {
 func (SelfIpArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*selfIpArgs)(nil)).Elem()
 }
-

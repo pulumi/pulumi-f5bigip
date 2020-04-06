@@ -101,4 +101,3 @@ type NtpArgs struct {
 func (NtpArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ntpArgs)(nil)).Elem()
 }
-

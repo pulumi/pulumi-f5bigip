@@ -180,4 +180,3 @@ type PersistenceProfileSslArgs struct {
 func (PersistenceProfileSslArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*persistenceProfileSslArgs)(nil)).Elem()
 }
-

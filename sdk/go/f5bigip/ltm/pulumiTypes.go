@@ -65,7 +65,7 @@ func (i DataGroupRecordArray) ToDataGroupRecordArrayOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(DataGroupRecordArrayOutput)
 }
 
-type DataGroupRecordOutput struct { *pulumi.OutputState }
+type DataGroupRecordOutput struct{ *pulumi.OutputState }
 
 func (DataGroupRecordOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataGroupRecord)(nil)).Elem()
@@ -81,15 +81,15 @@ func (o DataGroupRecordOutput) ToDataGroupRecordOutputWithContext(ctx context.Co
 
 // , sets the value of the record's `data` attribute, specifying a value here will create a record in the form of `name := data`
 func (o DataGroupRecordOutput) Data() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DataGroupRecord) *string { return v.Data }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DataGroupRecord) *string { return v.Data }).(pulumi.StringPtrOutput)
 }
 
 // , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
 func (o DataGroupRecordOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v DataGroupRecord) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v DataGroupRecord) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type DataGroupRecordArrayOutput struct { *pulumi.OutputState}
+type DataGroupRecordArrayOutput struct{ *pulumi.OutputState }
 
 func (DataGroupRecordArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]DataGroupRecord)(nil)).Elem()
@@ -104,7 +104,7 @@ func (o DataGroupRecordArrayOutput) ToDataGroupRecordArrayOutputWithContext(ctx 
 }
 
 func (o DataGroupRecordArrayOutput) Index(i pulumi.IntInput) DataGroupRecordOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) DataGroupRecord {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataGroupRecord {
 		return vs[0].([]DataGroupRecord)[vs[1].(int)]
 	}).(DataGroupRecordOutput)
 }
@@ -112,8 +112,8 @@ func (o DataGroupRecordArrayOutput) Index(i pulumi.IntInput) DataGroupRecordOutp
 type NodeFqdn struct {
 	// Specifies the node's address family. The default is 'unspecified', or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
 	AddressFamily *string `pulumi:"addressFamily"`
-	Autopopulate *string `pulumi:"autopopulate"`
-	Downinterval *int `pulumi:"downinterval"`
+	Autopopulate  *string `pulumi:"autopopulate"`
+	Downinterval  *int    `pulumi:"downinterval"`
 	// Specifies the amount of time before sending the next DNS query. Default is 3600. This needs to be specified inside the fqdn (fully qualified domain name).
 	Interval *string `pulumi:"interval"`
 	// Name of the node
@@ -130,8 +130,8 @@ type NodeFqdnInput interface {
 type NodeFqdnArgs struct {
 	// Specifies the node's address family. The default is 'unspecified', or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
 	AddressFamily pulumi.StringPtrInput `pulumi:"addressFamily"`
-	Autopopulate pulumi.StringPtrInput `pulumi:"autopopulate"`
-	Downinterval pulumi.IntPtrInput `pulumi:"downinterval"`
+	Autopopulate  pulumi.StringPtrInput `pulumi:"autopopulate"`
+	Downinterval  pulumi.IntPtrInput    `pulumi:"downinterval"`
 	// Specifies the amount of time before sending the next DNS query. Default is 3600. This needs to be specified inside the fqdn (fully qualified domain name).
 	Interval pulumi.StringPtrInput `pulumi:"interval"`
 	// Name of the node
@@ -167,7 +167,8 @@ type NodeFqdnPtrInput interface {
 
 type nodeFqdnPtrType NodeFqdnArgs
 
-func NodeFqdnPtr(v *NodeFqdnArgs) NodeFqdnPtrInput {	return (*nodeFqdnPtrType)(v)
+func NodeFqdnPtr(v *NodeFqdnArgs) NodeFqdnPtrInput {
+	return (*nodeFqdnPtrType)(v)
 }
 
 func (*nodeFqdnPtrType) ElementType() reflect.Type {
@@ -182,7 +183,7 @@ func (i *nodeFqdnPtrType) ToNodeFqdnPtrOutputWithContext(ctx context.Context) No
 	return pulumi.ToOutputWithContext(ctx, i).(NodeFqdnPtrOutput)
 }
 
-type NodeFqdnOutput struct { *pulumi.OutputState }
+type NodeFqdnOutput struct{ *pulumi.OutputState }
 
 func (NodeFqdnOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*NodeFqdn)(nil)).Elem()
@@ -205,30 +206,31 @@ func (o NodeFqdnOutput) ToNodeFqdnPtrOutputWithContext(ctx context.Context) Node
 		return &v
 	}).(NodeFqdnPtrOutput)
 }
+
 // Specifies the node's address family. The default is 'unspecified', or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
 func (o NodeFqdnOutput) AddressFamily() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v NodeFqdn) *string { return v.AddressFamily }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v NodeFqdn) *string { return v.AddressFamily }).(pulumi.StringPtrOutput)
 }
 
 func (o NodeFqdnOutput) Autopopulate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v NodeFqdn) *string { return v.Autopopulate }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v NodeFqdn) *string { return v.Autopopulate }).(pulumi.StringPtrOutput)
 }
 
 func (o NodeFqdnOutput) Downinterval() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v NodeFqdn) *int { return v.Downinterval }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v NodeFqdn) *int { return v.Downinterval }).(pulumi.IntPtrOutput)
 }
 
 // Specifies the amount of time before sending the next DNS query. Default is 3600. This needs to be specified inside the fqdn (fully qualified domain name).
 func (o NodeFqdnOutput) Interval() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v NodeFqdn) *string { return v.Interval }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v NodeFqdn) *string { return v.Interval }).(pulumi.StringPtrOutput)
 }
 
 // Name of the node
 func (o NodeFqdnOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v NodeFqdn) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v NodeFqdn) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-type NodeFqdnPtrOutput struct { *pulumi.OutputState}
+type NodeFqdnPtrOutput struct{ *pulumi.OutputState }
 
 func (NodeFqdnPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**NodeFqdn)(nil)).Elem()
@@ -243,36 +245,36 @@ func (o NodeFqdnPtrOutput) ToNodeFqdnPtrOutputWithContext(ctx context.Context) N
 }
 
 func (o NodeFqdnPtrOutput) Elem() NodeFqdnOutput {
-	return o.ApplyT(func (v *NodeFqdn) NodeFqdn { return *v }).(NodeFqdnOutput)
+	return o.ApplyT(func(v *NodeFqdn) NodeFqdn { return *v }).(NodeFqdnOutput)
 }
 
 // Specifies the node's address family. The default is 'unspecified', or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
 func (o NodeFqdnPtrOutput) AddressFamily() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v NodeFqdn) *string { return v.AddressFamily }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v NodeFqdn) *string { return v.AddressFamily }).(pulumi.StringPtrOutput)
 }
 
 func (o NodeFqdnPtrOutput) Autopopulate() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v NodeFqdn) *string { return v.Autopopulate }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v NodeFqdn) *string { return v.Autopopulate }).(pulumi.StringPtrOutput)
 }
 
 func (o NodeFqdnPtrOutput) Downinterval() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v NodeFqdn) *int { return v.Downinterval }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v NodeFqdn) *int { return v.Downinterval }).(pulumi.IntPtrOutput)
 }
 
 // Specifies the amount of time before sending the next DNS query. Default is 3600. This needs to be specified inside the fqdn (fully qualified domain name).
 func (o NodeFqdnPtrOutput) Interval() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v NodeFqdn) *string { return v.Interval }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v NodeFqdn) *string { return v.Interval }).(pulumi.StringPtrOutput)
 }
 
 // Name of the node
 func (o NodeFqdnPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v NodeFqdn) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v NodeFqdn) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type PolicyRule struct {
-	Actions []PolicyRuleAction `pulumi:"actions"`
+	Actions    []PolicyRuleAction    `pulumi:"actions"`
 	Conditions []PolicyRuleCondition `pulumi:"conditions"`
-	Name string `pulumi:"name"`
+	Name       string                `pulumi:"name"`
 }
 
 type PolicyRuleInput interface {
@@ -283,9 +285,9 @@ type PolicyRuleInput interface {
 }
 
 type PolicyRuleArgs struct {
-	Actions PolicyRuleActionArrayInput `pulumi:"actions"`
+	Actions    PolicyRuleActionArrayInput    `pulumi:"actions"`
 	Conditions PolicyRuleConditionArrayInput `pulumi:"conditions"`
-	Name pulumi.StringInput `pulumi:"name"`
+	Name       pulumi.StringInput            `pulumi:"name"`
 }
 
 func (PolicyRuleArgs) ElementType() reflect.Type {
@@ -321,7 +323,7 @@ func (i PolicyRuleArray) ToPolicyRuleArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyRuleArrayOutput)
 }
 
-type PolicyRuleOutput struct { *pulumi.OutputState }
+type PolicyRuleOutput struct{ *pulumi.OutputState }
 
 func (PolicyRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PolicyRule)(nil)).Elem()
@@ -336,18 +338,18 @@ func (o PolicyRuleOutput) ToPolicyRuleOutputWithContext(ctx context.Context) Pol
 }
 
 func (o PolicyRuleOutput) Actions() PolicyRuleActionArrayOutput {
-	return o.ApplyT(func (v PolicyRule) []PolicyRuleAction { return v.Actions }).(PolicyRuleActionArrayOutput)
+	return o.ApplyT(func(v PolicyRule) []PolicyRuleAction { return v.Actions }).(PolicyRuleActionArrayOutput)
 }
 
 func (o PolicyRuleOutput) Conditions() PolicyRuleConditionArrayOutput {
-	return o.ApplyT(func (v PolicyRule) []PolicyRuleCondition { return v.Conditions }).(PolicyRuleConditionArrayOutput)
+	return o.ApplyT(func(v PolicyRule) []PolicyRuleCondition { return v.Conditions }).(PolicyRuleConditionArrayOutput)
 }
 
 func (o PolicyRuleOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func (v PolicyRule) string { return v.Name }).(pulumi.StringOutput)
+	return o.ApplyT(func(v PolicyRule) string { return v.Name }).(pulumi.StringOutput)
 }
 
-type PolicyRuleArrayOutput struct { *pulumi.OutputState}
+type PolicyRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (PolicyRuleArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]PolicyRule)(nil)).Elem()
@@ -362,117 +364,117 @@ func (o PolicyRuleArrayOutput) ToPolicyRuleArrayOutputWithContext(ctx context.Co
 }
 
 func (o PolicyRuleArrayOutput) Index(i pulumi.IntInput) PolicyRuleOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) PolicyRule {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyRule {
 		return vs[0].([]PolicyRule)[vs[1].(int)]
 	}).(PolicyRuleOutput)
 }
 
 type PolicyRuleAction struct {
-	AppService *string `pulumi:"appService"`
-	Application *string `pulumi:"application"`
-	Asm *bool `pulumi:"asm"`
-	Avr *bool `pulumi:"avr"`
-	Cache *bool `pulumi:"cache"`
-	Carp *bool `pulumi:"carp"`
-	Category *string `pulumi:"category"`
-	Classify *bool `pulumi:"classify"`
-	ClonePool *string `pulumi:"clonePool"`
-	Code *int `pulumi:"code"`
-	Compress *bool `pulumi:"compress"`
-	Content *string `pulumi:"content"`
-	CookieHash *bool `pulumi:"cookieHash"`
-	CookieInsert *bool `pulumi:"cookieInsert"`
-	CookiePassive *bool `pulumi:"cookiePassive"`
-	CookieRewrite *bool `pulumi:"cookieRewrite"`
-	Decompress *bool `pulumi:"decompress"`
-	Defer *bool `pulumi:"defer"`
-	DestinationAddress *bool `pulumi:"destinationAddress"`
-	Disable *bool `pulumi:"disable"`
-	Domain *string `pulumi:"domain"`
-	Enable *bool `pulumi:"enable"`
-	Expiry *string `pulumi:"expiry"`
-	ExpirySecs *int `pulumi:"expirySecs"`
-	Expression *string `pulumi:"expression"`
-	Extension *string `pulumi:"extension"`
-	Facility *string `pulumi:"facility"`
+	AppService         *string `pulumi:"appService"`
+	Application        *string `pulumi:"application"`
+	Asm                *bool   `pulumi:"asm"`
+	Avr                *bool   `pulumi:"avr"`
+	Cache              *bool   `pulumi:"cache"`
+	Carp               *bool   `pulumi:"carp"`
+	Category           *string `pulumi:"category"`
+	Classify           *bool   `pulumi:"classify"`
+	ClonePool          *string `pulumi:"clonePool"`
+	Code               *int    `pulumi:"code"`
+	Compress           *bool   `pulumi:"compress"`
+	Content            *string `pulumi:"content"`
+	CookieHash         *bool   `pulumi:"cookieHash"`
+	CookieInsert       *bool   `pulumi:"cookieInsert"`
+	CookiePassive      *bool   `pulumi:"cookiePassive"`
+	CookieRewrite      *bool   `pulumi:"cookieRewrite"`
+	Decompress         *bool   `pulumi:"decompress"`
+	Defer              *bool   `pulumi:"defer"`
+	DestinationAddress *bool   `pulumi:"destinationAddress"`
+	Disable            *bool   `pulumi:"disable"`
+	Domain             *string `pulumi:"domain"`
+	Enable             *bool   `pulumi:"enable"`
+	Expiry             *string `pulumi:"expiry"`
+	ExpirySecs         *int    `pulumi:"expirySecs"`
+	Expression         *string `pulumi:"expression"`
+	Extension          *string `pulumi:"extension"`
+	Facility           *string `pulumi:"facility"`
 	// This action will affect forwarding.
-	Forward *bool `pulumi:"forward"`
-	FromProfile *string `pulumi:"fromProfile"`
-	Hash *bool `pulumi:"hash"`
-	Host *string `pulumi:"host"`
-	Http *bool `pulumi:"http"`
-	HttpBasicAuth *bool `pulumi:"httpBasicAuth"`
-	HttpCookie *bool `pulumi:"httpCookie"`
-	HttpHeader *bool `pulumi:"httpHeader"`
-	HttpHost *bool `pulumi:"httpHost"`
-	HttpReferer *bool `pulumi:"httpReferer"`
-	HttpReply *bool `pulumi:"httpReply"`
-	HttpSetCookie *bool `pulumi:"httpSetCookie"`
-	HttpUri *bool `pulumi:"httpUri"`
-	Ifile *string `pulumi:"ifile"`
-	Insert *bool `pulumi:"insert"`
+	Forward         *bool   `pulumi:"forward"`
+	FromProfile     *string `pulumi:"fromProfile"`
+	Hash            *bool   `pulumi:"hash"`
+	Host            *string `pulumi:"host"`
+	Http            *bool   `pulumi:"http"`
+	HttpBasicAuth   *bool   `pulumi:"httpBasicAuth"`
+	HttpCookie      *bool   `pulumi:"httpCookie"`
+	HttpHeader      *bool   `pulumi:"httpHeader"`
+	HttpHost        *bool   `pulumi:"httpHost"`
+	HttpReferer     *bool   `pulumi:"httpReferer"`
+	HttpReply       *bool   `pulumi:"httpReply"`
+	HttpSetCookie   *bool   `pulumi:"httpSetCookie"`
+	HttpUri         *bool   `pulumi:"httpUri"`
+	Ifile           *string `pulumi:"ifile"`
+	Insert          *bool   `pulumi:"insert"`
 	InternalVirtual *string `pulumi:"internalVirtual"`
-	IpAddress *string `pulumi:"ipAddress"`
-	Key *string `pulumi:"key"`
-	L7dos *bool `pulumi:"l7dos"`
-	Length *int `pulumi:"length"`
-	Location *string `pulumi:"location"`
-	Log *bool `pulumi:"log"`
-	LtmPolicy *bool `pulumi:"ltmPolicy"`
-	Member *string `pulumi:"member"`
-	Message *string `pulumi:"message"`
-	Netmask *string `pulumi:"netmask"`
-	Nexthop *string `pulumi:"nexthop"`
-	Node *string `pulumi:"node"`
-	Offset *int `pulumi:"offset"`
-	Path *string `pulumi:"path"`
-	Pem *bool `pulumi:"pem"`
-	Persist *bool `pulumi:"persist"`
-	Pin *bool `pulumi:"pin"`
-	Policy *string `pulumi:"policy"`
+	IpAddress       *string `pulumi:"ipAddress"`
+	Key             *string `pulumi:"key"`
+	L7dos           *bool   `pulumi:"l7dos"`
+	Length          *int    `pulumi:"length"`
+	Location        *string `pulumi:"location"`
+	Log             *bool   `pulumi:"log"`
+	LtmPolicy       *bool   `pulumi:"ltmPolicy"`
+	Member          *string `pulumi:"member"`
+	Message         *string `pulumi:"message"`
+	Netmask         *string `pulumi:"netmask"`
+	Nexthop         *string `pulumi:"nexthop"`
+	Node            *string `pulumi:"node"`
+	Offset          *int    `pulumi:"offset"`
+	Path            *string `pulumi:"path"`
+	Pem             *bool   `pulumi:"pem"`
+	Persist         *bool   `pulumi:"persist"`
+	Pin             *bool   `pulumi:"pin"`
+	Policy          *string `pulumi:"policy"`
 	// This action will direct the stream to this pool.
-	Pool *string `pulumi:"pool"`
-	Port *int `pulumi:"port"`
-	Priority *string `pulumi:"priority"`
-	Profile *string `pulumi:"profile"`
-	Protocol *string `pulumi:"protocol"`
-	QueryString *string `pulumi:"queryString"`
-	Rateclass *string `pulumi:"rateclass"`
-	Redirect *bool `pulumi:"redirect"`
-	Remove *bool `pulumi:"remove"`
-	Replace *bool `pulumi:"replace"`
-	Request *bool `pulumi:"request"`
-	RequestAdapt *bool `pulumi:"requestAdapt"`
-	Reset *bool `pulumi:"reset"`
-	Response *bool `pulumi:"response"`
-	ResponseAdapt *bool `pulumi:"responseAdapt"`
-	Scheme *string `pulumi:"scheme"`
-	Script *string `pulumi:"script"`
-	Select *bool `pulumi:"select"`
-	ServerSsl *bool `pulumi:"serverSsl"`
-	SetVariable *bool `pulumi:"setVariable"`
-	Snat *string `pulumi:"snat"`
-	Snatpool *string `pulumi:"snatpool"`
-	SourceAddress *bool `pulumi:"sourceAddress"`
-	SslClientHello *bool `pulumi:"sslClientHello"`
-	SslServerHandshake *bool `pulumi:"sslServerHandshake"`
-	SslServerHello *bool `pulumi:"sslServerHello"`
-	SslSessionId *bool `pulumi:"sslSessionId"`
-	Status *int `pulumi:"status"`
-	Tcl *bool `pulumi:"tcl"`
-	TcpNagle *bool `pulumi:"tcpNagle"`
-	Text *string `pulumi:"text"`
-	Timeout *int `pulumi:"timeout"`
+	Pool               *string `pulumi:"pool"`
+	Port               *int    `pulumi:"port"`
+	Priority           *string `pulumi:"priority"`
+	Profile            *string `pulumi:"profile"`
+	Protocol           *string `pulumi:"protocol"`
+	QueryString        *string `pulumi:"queryString"`
+	Rateclass          *string `pulumi:"rateclass"`
+	Redirect           *bool   `pulumi:"redirect"`
+	Remove             *bool   `pulumi:"remove"`
+	Replace            *bool   `pulumi:"replace"`
+	Request            *bool   `pulumi:"request"`
+	RequestAdapt       *bool   `pulumi:"requestAdapt"`
+	Reset              *bool   `pulumi:"reset"`
+	Response           *bool   `pulumi:"response"`
+	ResponseAdapt      *bool   `pulumi:"responseAdapt"`
+	Scheme             *string `pulumi:"scheme"`
+	Script             *string `pulumi:"script"`
+	Select             *bool   `pulumi:"select"`
+	ServerSsl          *bool   `pulumi:"serverSsl"`
+	SetVariable        *bool   `pulumi:"setVariable"`
+	Snat               *string `pulumi:"snat"`
+	Snatpool           *string `pulumi:"snatpool"`
+	SourceAddress      *bool   `pulumi:"sourceAddress"`
+	SslClientHello     *bool   `pulumi:"sslClientHello"`
+	SslServerHandshake *bool   `pulumi:"sslServerHandshake"`
+	SslServerHello     *bool   `pulumi:"sslServerHello"`
+	SslSessionId       *bool   `pulumi:"sslSessionId"`
+	Status             *int    `pulumi:"status"`
+	Tcl                *bool   `pulumi:"tcl"`
+	TcpNagle           *bool   `pulumi:"tcpNagle"`
+	Text               *string `pulumi:"text"`
+	Timeout            *int    `pulumi:"timeout"`
 	// If Rule is used then you need to provide the tmName it can be any value
-	TmName *string `pulumi:"tmName"`
-	Uie *bool `pulumi:"uie"`
-	Universal *bool `pulumi:"universal"`
-	Value *string `pulumi:"value"`
-	Virtual *string `pulumi:"virtual"`
-	Vlan *string `pulumi:"vlan"`
-	VlanId *int `pulumi:"vlanId"`
-	Wam *bool `pulumi:"wam"`
-	Write *bool `pulumi:"write"`
+	TmName    *string `pulumi:"tmName"`
+	Uie       *bool   `pulumi:"uie"`
+	Universal *bool   `pulumi:"universal"`
+	Value     *string `pulumi:"value"`
+	Virtual   *string `pulumi:"virtual"`
+	Vlan      *string `pulumi:"vlan"`
+	VlanId    *int    `pulumi:"vlanId"`
+	Wam       *bool   `pulumi:"wam"`
+	Write     *bool   `pulumi:"write"`
 }
 
 type PolicyRuleActionInput interface {
@@ -483,111 +485,111 @@ type PolicyRuleActionInput interface {
 }
 
 type PolicyRuleActionArgs struct {
-	AppService pulumi.StringPtrInput `pulumi:"appService"`
-	Application pulumi.StringPtrInput `pulumi:"application"`
-	Asm pulumi.BoolPtrInput `pulumi:"asm"`
-	Avr pulumi.BoolPtrInput `pulumi:"avr"`
-	Cache pulumi.BoolPtrInput `pulumi:"cache"`
-	Carp pulumi.BoolPtrInput `pulumi:"carp"`
-	Category pulumi.StringPtrInput `pulumi:"category"`
-	Classify pulumi.BoolPtrInput `pulumi:"classify"`
-	ClonePool pulumi.StringPtrInput `pulumi:"clonePool"`
-	Code pulumi.IntPtrInput `pulumi:"code"`
-	Compress pulumi.BoolPtrInput `pulumi:"compress"`
-	Content pulumi.StringPtrInput `pulumi:"content"`
-	CookieHash pulumi.BoolPtrInput `pulumi:"cookieHash"`
-	CookieInsert pulumi.BoolPtrInput `pulumi:"cookieInsert"`
-	CookiePassive pulumi.BoolPtrInput `pulumi:"cookiePassive"`
-	CookieRewrite pulumi.BoolPtrInput `pulumi:"cookieRewrite"`
-	Decompress pulumi.BoolPtrInput `pulumi:"decompress"`
-	Defer pulumi.BoolPtrInput `pulumi:"defer"`
-	DestinationAddress pulumi.BoolPtrInput `pulumi:"destinationAddress"`
-	Disable pulumi.BoolPtrInput `pulumi:"disable"`
-	Domain pulumi.StringPtrInput `pulumi:"domain"`
-	Enable pulumi.BoolPtrInput `pulumi:"enable"`
-	Expiry pulumi.StringPtrInput `pulumi:"expiry"`
-	ExpirySecs pulumi.IntPtrInput `pulumi:"expirySecs"`
-	Expression pulumi.StringPtrInput `pulumi:"expression"`
-	Extension pulumi.StringPtrInput `pulumi:"extension"`
-	Facility pulumi.StringPtrInput `pulumi:"facility"`
+	AppService         pulumi.StringPtrInput `pulumi:"appService"`
+	Application        pulumi.StringPtrInput `pulumi:"application"`
+	Asm                pulumi.BoolPtrInput   `pulumi:"asm"`
+	Avr                pulumi.BoolPtrInput   `pulumi:"avr"`
+	Cache              pulumi.BoolPtrInput   `pulumi:"cache"`
+	Carp               pulumi.BoolPtrInput   `pulumi:"carp"`
+	Category           pulumi.StringPtrInput `pulumi:"category"`
+	Classify           pulumi.BoolPtrInput   `pulumi:"classify"`
+	ClonePool          pulumi.StringPtrInput `pulumi:"clonePool"`
+	Code               pulumi.IntPtrInput    `pulumi:"code"`
+	Compress           pulumi.BoolPtrInput   `pulumi:"compress"`
+	Content            pulumi.StringPtrInput `pulumi:"content"`
+	CookieHash         pulumi.BoolPtrInput   `pulumi:"cookieHash"`
+	CookieInsert       pulumi.BoolPtrInput   `pulumi:"cookieInsert"`
+	CookiePassive      pulumi.BoolPtrInput   `pulumi:"cookiePassive"`
+	CookieRewrite      pulumi.BoolPtrInput   `pulumi:"cookieRewrite"`
+	Decompress         pulumi.BoolPtrInput   `pulumi:"decompress"`
+	Defer              pulumi.BoolPtrInput   `pulumi:"defer"`
+	DestinationAddress pulumi.BoolPtrInput   `pulumi:"destinationAddress"`
+	Disable            pulumi.BoolPtrInput   `pulumi:"disable"`
+	Domain             pulumi.StringPtrInput `pulumi:"domain"`
+	Enable             pulumi.BoolPtrInput   `pulumi:"enable"`
+	Expiry             pulumi.StringPtrInput `pulumi:"expiry"`
+	ExpirySecs         pulumi.IntPtrInput    `pulumi:"expirySecs"`
+	Expression         pulumi.StringPtrInput `pulumi:"expression"`
+	Extension          pulumi.StringPtrInput `pulumi:"extension"`
+	Facility           pulumi.StringPtrInput `pulumi:"facility"`
 	// This action will affect forwarding.
-	Forward pulumi.BoolPtrInput `pulumi:"forward"`
-	FromProfile pulumi.StringPtrInput `pulumi:"fromProfile"`
-	Hash pulumi.BoolPtrInput `pulumi:"hash"`
-	Host pulumi.StringPtrInput `pulumi:"host"`
-	Http pulumi.BoolPtrInput `pulumi:"http"`
-	HttpBasicAuth pulumi.BoolPtrInput `pulumi:"httpBasicAuth"`
-	HttpCookie pulumi.BoolPtrInput `pulumi:"httpCookie"`
-	HttpHeader pulumi.BoolPtrInput `pulumi:"httpHeader"`
-	HttpHost pulumi.BoolPtrInput `pulumi:"httpHost"`
-	HttpReferer pulumi.BoolPtrInput `pulumi:"httpReferer"`
-	HttpReply pulumi.BoolPtrInput `pulumi:"httpReply"`
-	HttpSetCookie pulumi.BoolPtrInput `pulumi:"httpSetCookie"`
-	HttpUri pulumi.BoolPtrInput `pulumi:"httpUri"`
-	Ifile pulumi.StringPtrInput `pulumi:"ifile"`
-	Insert pulumi.BoolPtrInput `pulumi:"insert"`
+	Forward         pulumi.BoolPtrInput   `pulumi:"forward"`
+	FromProfile     pulumi.StringPtrInput `pulumi:"fromProfile"`
+	Hash            pulumi.BoolPtrInput   `pulumi:"hash"`
+	Host            pulumi.StringPtrInput `pulumi:"host"`
+	Http            pulumi.BoolPtrInput   `pulumi:"http"`
+	HttpBasicAuth   pulumi.BoolPtrInput   `pulumi:"httpBasicAuth"`
+	HttpCookie      pulumi.BoolPtrInput   `pulumi:"httpCookie"`
+	HttpHeader      pulumi.BoolPtrInput   `pulumi:"httpHeader"`
+	HttpHost        pulumi.BoolPtrInput   `pulumi:"httpHost"`
+	HttpReferer     pulumi.BoolPtrInput   `pulumi:"httpReferer"`
+	HttpReply       pulumi.BoolPtrInput   `pulumi:"httpReply"`
+	HttpSetCookie   pulumi.BoolPtrInput   `pulumi:"httpSetCookie"`
+	HttpUri         pulumi.BoolPtrInput   `pulumi:"httpUri"`
+	Ifile           pulumi.StringPtrInput `pulumi:"ifile"`
+	Insert          pulumi.BoolPtrInput   `pulumi:"insert"`
 	InternalVirtual pulumi.StringPtrInput `pulumi:"internalVirtual"`
-	IpAddress pulumi.StringPtrInput `pulumi:"ipAddress"`
-	Key pulumi.StringPtrInput `pulumi:"key"`
-	L7dos pulumi.BoolPtrInput `pulumi:"l7dos"`
-	Length pulumi.IntPtrInput `pulumi:"length"`
-	Location pulumi.StringPtrInput `pulumi:"location"`
-	Log pulumi.BoolPtrInput `pulumi:"log"`
-	LtmPolicy pulumi.BoolPtrInput `pulumi:"ltmPolicy"`
-	Member pulumi.StringPtrInput `pulumi:"member"`
-	Message pulumi.StringPtrInput `pulumi:"message"`
-	Netmask pulumi.StringPtrInput `pulumi:"netmask"`
-	Nexthop pulumi.StringPtrInput `pulumi:"nexthop"`
-	Node pulumi.StringPtrInput `pulumi:"node"`
-	Offset pulumi.IntPtrInput `pulumi:"offset"`
-	Path pulumi.StringPtrInput `pulumi:"path"`
-	Pem pulumi.BoolPtrInput `pulumi:"pem"`
-	Persist pulumi.BoolPtrInput `pulumi:"persist"`
-	Pin pulumi.BoolPtrInput `pulumi:"pin"`
-	Policy pulumi.StringPtrInput `pulumi:"policy"`
+	IpAddress       pulumi.StringPtrInput `pulumi:"ipAddress"`
+	Key             pulumi.StringPtrInput `pulumi:"key"`
+	L7dos           pulumi.BoolPtrInput   `pulumi:"l7dos"`
+	Length          pulumi.IntPtrInput    `pulumi:"length"`
+	Location        pulumi.StringPtrInput `pulumi:"location"`
+	Log             pulumi.BoolPtrInput   `pulumi:"log"`
+	LtmPolicy       pulumi.BoolPtrInput   `pulumi:"ltmPolicy"`
+	Member          pulumi.StringPtrInput `pulumi:"member"`
+	Message         pulumi.StringPtrInput `pulumi:"message"`
+	Netmask         pulumi.StringPtrInput `pulumi:"netmask"`
+	Nexthop         pulumi.StringPtrInput `pulumi:"nexthop"`
+	Node            pulumi.StringPtrInput `pulumi:"node"`
+	Offset          pulumi.IntPtrInput    `pulumi:"offset"`
+	Path            pulumi.StringPtrInput `pulumi:"path"`
+	Pem             pulumi.BoolPtrInput   `pulumi:"pem"`
+	Persist         pulumi.BoolPtrInput   `pulumi:"persist"`
+	Pin             pulumi.BoolPtrInput   `pulumi:"pin"`
+	Policy          pulumi.StringPtrInput `pulumi:"policy"`
 	// This action will direct the stream to this pool.
-	Pool pulumi.StringPtrInput `pulumi:"pool"`
-	Port pulumi.IntPtrInput `pulumi:"port"`
-	Priority pulumi.StringPtrInput `pulumi:"priority"`
-	Profile pulumi.StringPtrInput `pulumi:"profile"`
-	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
-	QueryString pulumi.StringPtrInput `pulumi:"queryString"`
-	Rateclass pulumi.StringPtrInput `pulumi:"rateclass"`
-	Redirect pulumi.BoolPtrInput `pulumi:"redirect"`
-	Remove pulumi.BoolPtrInput `pulumi:"remove"`
-	Replace pulumi.BoolPtrInput `pulumi:"replace"`
-	Request pulumi.BoolPtrInput `pulumi:"request"`
-	RequestAdapt pulumi.BoolPtrInput `pulumi:"requestAdapt"`
-	Reset pulumi.BoolPtrInput `pulumi:"reset"`
-	Response pulumi.BoolPtrInput `pulumi:"response"`
-	ResponseAdapt pulumi.BoolPtrInput `pulumi:"responseAdapt"`
-	Scheme pulumi.StringPtrInput `pulumi:"scheme"`
-	Script pulumi.StringPtrInput `pulumi:"script"`
-	Select pulumi.BoolPtrInput `pulumi:"select"`
-	ServerSsl pulumi.BoolPtrInput `pulumi:"serverSsl"`
-	SetVariable pulumi.BoolPtrInput `pulumi:"setVariable"`
-	Snat pulumi.StringPtrInput `pulumi:"snat"`
-	Snatpool pulumi.StringPtrInput `pulumi:"snatpool"`
-	SourceAddress pulumi.BoolPtrInput `pulumi:"sourceAddress"`
-	SslClientHello pulumi.BoolPtrInput `pulumi:"sslClientHello"`
-	SslServerHandshake pulumi.BoolPtrInput `pulumi:"sslServerHandshake"`
-	SslServerHello pulumi.BoolPtrInput `pulumi:"sslServerHello"`
-	SslSessionId pulumi.BoolPtrInput `pulumi:"sslSessionId"`
-	Status pulumi.IntPtrInput `pulumi:"status"`
-	Tcl pulumi.BoolPtrInput `pulumi:"tcl"`
-	TcpNagle pulumi.BoolPtrInput `pulumi:"tcpNagle"`
-	Text pulumi.StringPtrInput `pulumi:"text"`
-	Timeout pulumi.IntPtrInput `pulumi:"timeout"`
+	Pool               pulumi.StringPtrInput `pulumi:"pool"`
+	Port               pulumi.IntPtrInput    `pulumi:"port"`
+	Priority           pulumi.StringPtrInput `pulumi:"priority"`
+	Profile            pulumi.StringPtrInput `pulumi:"profile"`
+	Protocol           pulumi.StringPtrInput `pulumi:"protocol"`
+	QueryString        pulumi.StringPtrInput `pulumi:"queryString"`
+	Rateclass          pulumi.StringPtrInput `pulumi:"rateclass"`
+	Redirect           pulumi.BoolPtrInput   `pulumi:"redirect"`
+	Remove             pulumi.BoolPtrInput   `pulumi:"remove"`
+	Replace            pulumi.BoolPtrInput   `pulumi:"replace"`
+	Request            pulumi.BoolPtrInput   `pulumi:"request"`
+	RequestAdapt       pulumi.BoolPtrInput   `pulumi:"requestAdapt"`
+	Reset              pulumi.BoolPtrInput   `pulumi:"reset"`
+	Response           pulumi.BoolPtrInput   `pulumi:"response"`
+	ResponseAdapt      pulumi.BoolPtrInput   `pulumi:"responseAdapt"`
+	Scheme             pulumi.StringPtrInput `pulumi:"scheme"`
+	Script             pulumi.StringPtrInput `pulumi:"script"`
+	Select             pulumi.BoolPtrInput   `pulumi:"select"`
+	ServerSsl          pulumi.BoolPtrInput   `pulumi:"serverSsl"`
+	SetVariable        pulumi.BoolPtrInput   `pulumi:"setVariable"`
+	Snat               pulumi.StringPtrInput `pulumi:"snat"`
+	Snatpool           pulumi.StringPtrInput `pulumi:"snatpool"`
+	SourceAddress      pulumi.BoolPtrInput   `pulumi:"sourceAddress"`
+	SslClientHello     pulumi.BoolPtrInput   `pulumi:"sslClientHello"`
+	SslServerHandshake pulumi.BoolPtrInput   `pulumi:"sslServerHandshake"`
+	SslServerHello     pulumi.BoolPtrInput   `pulumi:"sslServerHello"`
+	SslSessionId       pulumi.BoolPtrInput   `pulumi:"sslSessionId"`
+	Status             pulumi.IntPtrInput    `pulumi:"status"`
+	Tcl                pulumi.BoolPtrInput   `pulumi:"tcl"`
+	TcpNagle           pulumi.BoolPtrInput   `pulumi:"tcpNagle"`
+	Text               pulumi.StringPtrInput `pulumi:"text"`
+	Timeout            pulumi.IntPtrInput    `pulumi:"timeout"`
 	// If Rule is used then you need to provide the tmName it can be any value
-	TmName pulumi.StringPtrInput `pulumi:"tmName"`
-	Uie pulumi.BoolPtrInput `pulumi:"uie"`
-	Universal pulumi.BoolPtrInput `pulumi:"universal"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
-	Virtual pulumi.StringPtrInput `pulumi:"virtual"`
-	Vlan pulumi.StringPtrInput `pulumi:"vlan"`
-	VlanId pulumi.IntPtrInput `pulumi:"vlanId"`
-	Wam pulumi.BoolPtrInput `pulumi:"wam"`
-	Write pulumi.BoolPtrInput `pulumi:"write"`
+	TmName    pulumi.StringPtrInput `pulumi:"tmName"`
+	Uie       pulumi.BoolPtrInput   `pulumi:"uie"`
+	Universal pulumi.BoolPtrInput   `pulumi:"universal"`
+	Value     pulumi.StringPtrInput `pulumi:"value"`
+	Virtual   pulumi.StringPtrInput `pulumi:"virtual"`
+	Vlan      pulumi.StringPtrInput `pulumi:"vlan"`
+	VlanId    pulumi.IntPtrInput    `pulumi:"vlanId"`
+	Wam       pulumi.BoolPtrInput   `pulumi:"wam"`
+	Write     pulumi.BoolPtrInput   `pulumi:"write"`
 }
 
 func (PolicyRuleActionArgs) ElementType() reflect.Type {
@@ -623,7 +625,7 @@ func (i PolicyRuleActionArray) ToPolicyRuleActionArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyRuleActionArrayOutput)
 }
 
-type PolicyRuleActionOutput struct { *pulumi.OutputState }
+type PolicyRuleActionOutput struct{ *pulumi.OutputState }
 
 func (PolicyRuleActionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PolicyRuleAction)(nil)).Elem()
@@ -638,417 +640,417 @@ func (o PolicyRuleActionOutput) ToPolicyRuleActionOutputWithContext(ctx context.
 }
 
 func (o PolicyRuleActionOutput) AppService() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.AppService }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.AppService }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Application() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.Application }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Application }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Asm() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.Asm }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Asm }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Avr() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.Avr }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Avr }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Cache() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.Cache }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Cache }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Carp() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.Carp }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Carp }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Category() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.Category }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Category }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Classify() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.Classify }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Classify }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) ClonePool() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.ClonePool }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.ClonePool }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Code() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *int { return v.Code }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *int { return v.Code }).(pulumi.IntPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Compress() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.Compress }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Compress }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Content() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.Content }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Content }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) CookieHash() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.CookieHash }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.CookieHash }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) CookieInsert() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.CookieInsert }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.CookieInsert }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) CookiePassive() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.CookiePassive }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.CookiePassive }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) CookieRewrite() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.CookieRewrite }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.CookieRewrite }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Decompress() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.Decompress }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Decompress }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Defer() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.Defer }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Defer }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) DestinationAddress() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.DestinationAddress }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.DestinationAddress }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Disable() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.Disable }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Disable }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Domain() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.Domain }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Domain }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Enable() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.Enable }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Enable }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Expiry() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.Expiry }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Expiry }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) ExpirySecs() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *int { return v.ExpirySecs }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *int { return v.ExpirySecs }).(pulumi.IntPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Expression() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.Expression }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Expression }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Extension() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.Extension }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Extension }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Facility() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.Facility }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Facility }).(pulumi.StringPtrOutput)
 }
 
 // This action will affect forwarding.
 func (o PolicyRuleActionOutput) Forward() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.Forward }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Forward }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) FromProfile() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.FromProfile }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.FromProfile }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Hash() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.Hash }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Hash }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Host() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.Host }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Host }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Http() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.Http }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Http }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) HttpBasicAuth() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.HttpBasicAuth }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.HttpBasicAuth }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) HttpCookie() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.HttpCookie }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.HttpCookie }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) HttpHeader() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.HttpHeader }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.HttpHeader }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) HttpHost() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.HttpHost }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.HttpHost }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) HttpReferer() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.HttpReferer }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.HttpReferer }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) HttpReply() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.HttpReply }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.HttpReply }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) HttpSetCookie() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.HttpSetCookie }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.HttpSetCookie }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) HttpUri() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.HttpUri }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.HttpUri }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Ifile() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.Ifile }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Ifile }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Insert() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.Insert }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Insert }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) InternalVirtual() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.InternalVirtual }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.InternalVirtual }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) IpAddress() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.IpAddress }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.Key }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) L7dos() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.L7dos }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.L7dos }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Length() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *int { return v.Length }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *int { return v.Length }).(pulumi.IntPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.Location }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Log() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.Log }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Log }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) LtmPolicy() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.LtmPolicy }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.LtmPolicy }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Member() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.Member }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Member }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.Message }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Netmask() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.Netmask }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Netmask }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Nexthop() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.Nexthop }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Nexthop }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Node() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.Node }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Node }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Offset() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *int { return v.Offset }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *int { return v.Offset }).(pulumi.IntPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.Path }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Path }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Pem() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.Pem }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Pem }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Persist() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.Persist }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Persist }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Pin() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.Pin }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Pin }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Policy() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.Policy }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Policy }).(pulumi.StringPtrOutput)
 }
 
 // This action will direct the stream to this pool.
 func (o PolicyRuleActionOutput) Pool() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.Pool }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Pool }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *int { return v.Port }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Priority() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.Priority }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Priority }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Profile() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.Profile }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Profile }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Protocol() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) QueryString() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.QueryString }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.QueryString }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Rateclass() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.Rateclass }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Rateclass }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Redirect() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.Redirect }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Redirect }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Remove() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.Remove }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Remove }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Replace() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.Replace }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Replace }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Request() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.Request }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Request }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) RequestAdapt() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.RequestAdapt }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.RequestAdapt }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Reset() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.Reset }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Reset }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Response() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.Response }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Response }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) ResponseAdapt() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.ResponseAdapt }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.ResponseAdapt }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Scheme() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.Scheme }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Scheme }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Script() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.Script }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Script }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Select() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.Select }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Select }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) ServerSsl() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.ServerSsl }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.ServerSsl }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) SetVariable() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.SetVariable }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.SetVariable }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Snat() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.Snat }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Snat }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Snatpool() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.Snatpool }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Snatpool }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) SourceAddress() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.SourceAddress }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.SourceAddress }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) SslClientHello() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.SslClientHello }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.SslClientHello }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) SslServerHandshake() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.SslServerHandshake }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.SslServerHandshake }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) SslServerHello() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.SslServerHello }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.SslServerHello }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) SslSessionId() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.SslSessionId }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.SslSessionId }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Status() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *int { return v.Status }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *int { return v.Status }).(pulumi.IntPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Tcl() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.Tcl }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Tcl }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) TcpNagle() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.TcpNagle }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.TcpNagle }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Text() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.Text }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Text }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Timeout() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *int { return v.Timeout }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *int { return v.Timeout }).(pulumi.IntPtrOutput)
 }
 
 // If Rule is used then you need to provide the tmName it can be any value
 func (o PolicyRuleActionOutput) TmName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.TmName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.TmName }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Uie() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.Uie }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Uie }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Universal() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.Universal }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Universal }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.Value }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Virtual() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.Virtual }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Virtual }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Vlan() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *string { return v.Vlan }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Vlan }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) VlanId() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *int { return v.VlanId }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *int { return v.VlanId }).(pulumi.IntPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Wam() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.Wam }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Wam }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Write() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleAction) *bool { return v.Write }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Write }).(pulumi.BoolPtrOutput)
 }
 
-type PolicyRuleActionArrayOutput struct { *pulumi.OutputState}
+type PolicyRuleActionArrayOutput struct{ *pulumi.OutputState }
 
 func (PolicyRuleActionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]PolicyRuleAction)(nil)).Elem()
@@ -1063,103 +1065,103 @@ func (o PolicyRuleActionArrayOutput) ToPolicyRuleActionArrayOutputWithContext(ct
 }
 
 func (o PolicyRuleActionArrayOutput) Index(i pulumi.IntInput) PolicyRuleActionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) PolicyRuleAction {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyRuleAction {
 		return vs[0].([]PolicyRuleAction)[vs[1].(int)]
 	}).(PolicyRuleActionOutput)
 }
 
 type PolicyRuleCondition struct {
-	Address *bool `pulumi:"address"`
-	All *bool `pulumi:"all"`
-	AppService *string `pulumi:"appService"`
-	BrowserType *bool `pulumi:"browserType"`
-	BrowserVersion *bool `pulumi:"browserVersion"`
-	CaseInsensitive *bool `pulumi:"caseInsensitive"`
-	CaseSensitive *bool `pulumi:"caseSensitive"`
-	Cipher *bool `pulumi:"cipher"`
-	CipherBits *bool `pulumi:"cipherBits"`
-	ClientSsl *bool `pulumi:"clientSsl"`
-	Code *bool `pulumi:"code"`
-	CommonName *bool `pulumi:"commonName"`
-	Contains *bool `pulumi:"contains"`
-	Continent *bool `pulumi:"continent"`
-	CountryCode *bool `pulumi:"countryCode"`
-	CountryName *bool `pulumi:"countryName"`
-	CpuUsage *bool `pulumi:"cpuUsage"`
-	DeviceMake *bool `pulumi:"deviceMake"`
-	DeviceModel *bool `pulumi:"deviceModel"`
-	Domain *bool `pulumi:"domain"`
-	EndsWith *bool `pulumi:"endsWith"`
-	Equals *bool `pulumi:"equals"`
-	Expiry *bool `pulumi:"expiry"`
-	Extension *bool `pulumi:"extension"`
-	External *bool `pulumi:"external"`
-	Geoip *bool `pulumi:"geoip"`
-	Greater *bool `pulumi:"greater"`
-	GreaterOrEqual *bool `pulumi:"greaterOrEqual"`
-	Host *bool `pulumi:"host"`
-	HttpBasicAuth *bool `pulumi:"httpBasicAuth"`
-	HttpCookie *bool `pulumi:"httpCookie"`
-	HttpHeader *bool `pulumi:"httpHeader"`
-	HttpHost *bool `pulumi:"httpHost"`
-	HttpMethod *bool `pulumi:"httpMethod"`
-	HttpReferer *bool `pulumi:"httpReferer"`
-	HttpSetCookie *bool `pulumi:"httpSetCookie"`
-	HttpStatus *bool `pulumi:"httpStatus"`
-	HttpUri *bool `pulumi:"httpUri"`
-	HttpUserAgent *bool `pulumi:"httpUserAgent"`
-	HttpVersion *bool `pulumi:"httpVersion"`
-	Index *int `pulumi:"index"`
-	Internal *bool `pulumi:"internal"`
-	Isp *bool `pulumi:"isp"`
-	Last15secs *bool `pulumi:"last15secs"`
-	Last1min *bool `pulumi:"last1min"`
-	Last5mins *bool `pulumi:"last5mins"`
-	Less *bool `pulumi:"less"`
-	LessOrEqual *bool `pulumi:"lessOrEqual"`
-	Local *bool `pulumi:"local"`
-	Major *bool `pulumi:"major"`
-	Matches *bool `pulumi:"matches"`
-	Minor *bool `pulumi:"minor"`
-	Missing *bool `pulumi:"missing"`
-	Mss *bool `pulumi:"mss"`
-	Not *bool `pulumi:"not"`
-	Org *bool `pulumi:"org"`
-	Password *bool `pulumi:"password"`
-	Path *bool `pulumi:"path"`
-	PathSegment *bool `pulumi:"pathSegment"`
-	Port *bool `pulumi:"port"`
-	Present *bool `pulumi:"present"`
-	Protocol *bool `pulumi:"protocol"`
-	QueryParameter *bool `pulumi:"queryParameter"`
-	QueryString *bool `pulumi:"queryString"`
-	RegionCode *bool `pulumi:"regionCode"`
-	RegionName *bool `pulumi:"regionName"`
-	Remote *bool `pulumi:"remote"`
-	Request *bool `pulumi:"request"`
-	Response *bool `pulumi:"response"`
-	RouteDomain *bool `pulumi:"routeDomain"`
-	Rtt *bool `pulumi:"rtt"`
-	Scheme *bool `pulumi:"scheme"`
-	ServerName *bool `pulumi:"serverName"`
-	SslCert *bool `pulumi:"sslCert"`
-	SslClientHello *bool `pulumi:"sslClientHello"`
-	SslExtension *bool `pulumi:"sslExtension"`
-	SslServerHandshake *bool `pulumi:"sslServerHandshake"`
-	SslServerHello *bool `pulumi:"sslServerHello"`
-	StartsWith *bool `pulumi:"startsWith"`
-	Tcp *bool `pulumi:"tcp"`
-	Text *bool `pulumi:"text"`
+	Address            *bool   `pulumi:"address"`
+	All                *bool   `pulumi:"all"`
+	AppService         *string `pulumi:"appService"`
+	BrowserType        *bool   `pulumi:"browserType"`
+	BrowserVersion     *bool   `pulumi:"browserVersion"`
+	CaseInsensitive    *bool   `pulumi:"caseInsensitive"`
+	CaseSensitive      *bool   `pulumi:"caseSensitive"`
+	Cipher             *bool   `pulumi:"cipher"`
+	CipherBits         *bool   `pulumi:"cipherBits"`
+	ClientSsl          *bool   `pulumi:"clientSsl"`
+	Code               *bool   `pulumi:"code"`
+	CommonName         *bool   `pulumi:"commonName"`
+	Contains           *bool   `pulumi:"contains"`
+	Continent          *bool   `pulumi:"continent"`
+	CountryCode        *bool   `pulumi:"countryCode"`
+	CountryName        *bool   `pulumi:"countryName"`
+	CpuUsage           *bool   `pulumi:"cpuUsage"`
+	DeviceMake         *bool   `pulumi:"deviceMake"`
+	DeviceModel        *bool   `pulumi:"deviceModel"`
+	Domain             *bool   `pulumi:"domain"`
+	EndsWith           *bool   `pulumi:"endsWith"`
+	Equals             *bool   `pulumi:"equals"`
+	Expiry             *bool   `pulumi:"expiry"`
+	Extension          *bool   `pulumi:"extension"`
+	External           *bool   `pulumi:"external"`
+	Geoip              *bool   `pulumi:"geoip"`
+	Greater            *bool   `pulumi:"greater"`
+	GreaterOrEqual     *bool   `pulumi:"greaterOrEqual"`
+	Host               *bool   `pulumi:"host"`
+	HttpBasicAuth      *bool   `pulumi:"httpBasicAuth"`
+	HttpCookie         *bool   `pulumi:"httpCookie"`
+	HttpHeader         *bool   `pulumi:"httpHeader"`
+	HttpHost           *bool   `pulumi:"httpHost"`
+	HttpMethod         *bool   `pulumi:"httpMethod"`
+	HttpReferer        *bool   `pulumi:"httpReferer"`
+	HttpSetCookie      *bool   `pulumi:"httpSetCookie"`
+	HttpStatus         *bool   `pulumi:"httpStatus"`
+	HttpUri            *bool   `pulumi:"httpUri"`
+	HttpUserAgent      *bool   `pulumi:"httpUserAgent"`
+	HttpVersion        *bool   `pulumi:"httpVersion"`
+	Index              *int    `pulumi:"index"`
+	Internal           *bool   `pulumi:"internal"`
+	Isp                *bool   `pulumi:"isp"`
+	Last15secs         *bool   `pulumi:"last15secs"`
+	Last1min           *bool   `pulumi:"last1min"`
+	Last5mins          *bool   `pulumi:"last5mins"`
+	Less               *bool   `pulumi:"less"`
+	LessOrEqual        *bool   `pulumi:"lessOrEqual"`
+	Local              *bool   `pulumi:"local"`
+	Major              *bool   `pulumi:"major"`
+	Matches            *bool   `pulumi:"matches"`
+	Minor              *bool   `pulumi:"minor"`
+	Missing            *bool   `pulumi:"missing"`
+	Mss                *bool   `pulumi:"mss"`
+	Not                *bool   `pulumi:"not"`
+	Org                *bool   `pulumi:"org"`
+	Password           *bool   `pulumi:"password"`
+	Path               *bool   `pulumi:"path"`
+	PathSegment        *bool   `pulumi:"pathSegment"`
+	Port               *bool   `pulumi:"port"`
+	Present            *bool   `pulumi:"present"`
+	Protocol           *bool   `pulumi:"protocol"`
+	QueryParameter     *bool   `pulumi:"queryParameter"`
+	QueryString        *bool   `pulumi:"queryString"`
+	RegionCode         *bool   `pulumi:"regionCode"`
+	RegionName         *bool   `pulumi:"regionName"`
+	Remote             *bool   `pulumi:"remote"`
+	Request            *bool   `pulumi:"request"`
+	Response           *bool   `pulumi:"response"`
+	RouteDomain        *bool   `pulumi:"routeDomain"`
+	Rtt                *bool   `pulumi:"rtt"`
+	Scheme             *bool   `pulumi:"scheme"`
+	ServerName         *bool   `pulumi:"serverName"`
+	SslCert            *bool   `pulumi:"sslCert"`
+	SslClientHello     *bool   `pulumi:"sslClientHello"`
+	SslExtension       *bool   `pulumi:"sslExtension"`
+	SslServerHandshake *bool   `pulumi:"sslServerHandshake"`
+	SslServerHello     *bool   `pulumi:"sslServerHello"`
+	StartsWith         *bool   `pulumi:"startsWith"`
+	Tcp                *bool   `pulumi:"tcp"`
+	Text               *bool   `pulumi:"text"`
 	// If Rule is used then you need to provide the tmName it can be any value
-	TmName *string `pulumi:"tmName"`
-	UnnamedQueryParameter *bool `pulumi:"unnamedQueryParameter"`
-	UserAgentToken *bool `pulumi:"userAgentToken"`
-	Username *bool `pulumi:"username"`
-	Value *bool `pulumi:"value"`
-	Values []string `pulumi:"values"`
-	Version *bool `pulumi:"version"`
-	Vlan *bool `pulumi:"vlan"`
-	VlanId *bool `pulumi:"vlanId"`
+	TmName                *string  `pulumi:"tmName"`
+	UnnamedQueryParameter *bool    `pulumi:"unnamedQueryParameter"`
+	UserAgentToken        *bool    `pulumi:"userAgentToken"`
+	Username              *bool    `pulumi:"username"`
+	Value                 *bool    `pulumi:"value"`
+	Values                []string `pulumi:"values"`
+	Version               *bool    `pulumi:"version"`
+	Vlan                  *bool    `pulumi:"vlan"`
+	VlanId                *bool    `pulumi:"vlanId"`
 }
 
 type PolicyRuleConditionInput interface {
@@ -1170,97 +1172,97 @@ type PolicyRuleConditionInput interface {
 }
 
 type PolicyRuleConditionArgs struct {
-	Address pulumi.BoolPtrInput `pulumi:"address"`
-	All pulumi.BoolPtrInput `pulumi:"all"`
-	AppService pulumi.StringPtrInput `pulumi:"appService"`
-	BrowserType pulumi.BoolPtrInput `pulumi:"browserType"`
-	BrowserVersion pulumi.BoolPtrInput `pulumi:"browserVersion"`
-	CaseInsensitive pulumi.BoolPtrInput `pulumi:"caseInsensitive"`
-	CaseSensitive pulumi.BoolPtrInput `pulumi:"caseSensitive"`
-	Cipher pulumi.BoolPtrInput `pulumi:"cipher"`
-	CipherBits pulumi.BoolPtrInput `pulumi:"cipherBits"`
-	ClientSsl pulumi.BoolPtrInput `pulumi:"clientSsl"`
-	Code pulumi.BoolPtrInput `pulumi:"code"`
-	CommonName pulumi.BoolPtrInput `pulumi:"commonName"`
-	Contains pulumi.BoolPtrInput `pulumi:"contains"`
-	Continent pulumi.BoolPtrInput `pulumi:"continent"`
-	CountryCode pulumi.BoolPtrInput `pulumi:"countryCode"`
-	CountryName pulumi.BoolPtrInput `pulumi:"countryName"`
-	CpuUsage pulumi.BoolPtrInput `pulumi:"cpuUsage"`
-	DeviceMake pulumi.BoolPtrInput `pulumi:"deviceMake"`
-	DeviceModel pulumi.BoolPtrInput `pulumi:"deviceModel"`
-	Domain pulumi.BoolPtrInput `pulumi:"domain"`
-	EndsWith pulumi.BoolPtrInput `pulumi:"endsWith"`
-	Equals pulumi.BoolPtrInput `pulumi:"equals"`
-	Expiry pulumi.BoolPtrInput `pulumi:"expiry"`
-	Extension pulumi.BoolPtrInput `pulumi:"extension"`
-	External pulumi.BoolPtrInput `pulumi:"external"`
-	Geoip pulumi.BoolPtrInput `pulumi:"geoip"`
-	Greater pulumi.BoolPtrInput `pulumi:"greater"`
-	GreaterOrEqual pulumi.BoolPtrInput `pulumi:"greaterOrEqual"`
-	Host pulumi.BoolPtrInput `pulumi:"host"`
-	HttpBasicAuth pulumi.BoolPtrInput `pulumi:"httpBasicAuth"`
-	HttpCookie pulumi.BoolPtrInput `pulumi:"httpCookie"`
-	HttpHeader pulumi.BoolPtrInput `pulumi:"httpHeader"`
-	HttpHost pulumi.BoolPtrInput `pulumi:"httpHost"`
-	HttpMethod pulumi.BoolPtrInput `pulumi:"httpMethod"`
-	HttpReferer pulumi.BoolPtrInput `pulumi:"httpReferer"`
-	HttpSetCookie pulumi.BoolPtrInput `pulumi:"httpSetCookie"`
-	HttpStatus pulumi.BoolPtrInput `pulumi:"httpStatus"`
-	HttpUri pulumi.BoolPtrInput `pulumi:"httpUri"`
-	HttpUserAgent pulumi.BoolPtrInput `pulumi:"httpUserAgent"`
-	HttpVersion pulumi.BoolPtrInput `pulumi:"httpVersion"`
-	Index pulumi.IntPtrInput `pulumi:"index"`
-	Internal pulumi.BoolPtrInput `pulumi:"internal"`
-	Isp pulumi.BoolPtrInput `pulumi:"isp"`
-	Last15secs pulumi.BoolPtrInput `pulumi:"last15secs"`
-	Last1min pulumi.BoolPtrInput `pulumi:"last1min"`
-	Last5mins pulumi.BoolPtrInput `pulumi:"last5mins"`
-	Less pulumi.BoolPtrInput `pulumi:"less"`
-	LessOrEqual pulumi.BoolPtrInput `pulumi:"lessOrEqual"`
-	Local pulumi.BoolPtrInput `pulumi:"local"`
-	Major pulumi.BoolPtrInput `pulumi:"major"`
-	Matches pulumi.BoolPtrInput `pulumi:"matches"`
-	Minor pulumi.BoolPtrInput `pulumi:"minor"`
-	Missing pulumi.BoolPtrInput `pulumi:"missing"`
-	Mss pulumi.BoolPtrInput `pulumi:"mss"`
-	Not pulumi.BoolPtrInput `pulumi:"not"`
-	Org pulumi.BoolPtrInput `pulumi:"org"`
-	Password pulumi.BoolPtrInput `pulumi:"password"`
-	Path pulumi.BoolPtrInput `pulumi:"path"`
-	PathSegment pulumi.BoolPtrInput `pulumi:"pathSegment"`
-	Port pulumi.BoolPtrInput `pulumi:"port"`
-	Present pulumi.BoolPtrInput `pulumi:"present"`
-	Protocol pulumi.BoolPtrInput `pulumi:"protocol"`
-	QueryParameter pulumi.BoolPtrInput `pulumi:"queryParameter"`
-	QueryString pulumi.BoolPtrInput `pulumi:"queryString"`
-	RegionCode pulumi.BoolPtrInput `pulumi:"regionCode"`
-	RegionName pulumi.BoolPtrInput `pulumi:"regionName"`
-	Remote pulumi.BoolPtrInput `pulumi:"remote"`
-	Request pulumi.BoolPtrInput `pulumi:"request"`
-	Response pulumi.BoolPtrInput `pulumi:"response"`
-	RouteDomain pulumi.BoolPtrInput `pulumi:"routeDomain"`
-	Rtt pulumi.BoolPtrInput `pulumi:"rtt"`
-	Scheme pulumi.BoolPtrInput `pulumi:"scheme"`
-	ServerName pulumi.BoolPtrInput `pulumi:"serverName"`
-	SslCert pulumi.BoolPtrInput `pulumi:"sslCert"`
-	SslClientHello pulumi.BoolPtrInput `pulumi:"sslClientHello"`
-	SslExtension pulumi.BoolPtrInput `pulumi:"sslExtension"`
-	SslServerHandshake pulumi.BoolPtrInput `pulumi:"sslServerHandshake"`
-	SslServerHello pulumi.BoolPtrInput `pulumi:"sslServerHello"`
-	StartsWith pulumi.BoolPtrInput `pulumi:"startsWith"`
-	Tcp pulumi.BoolPtrInput `pulumi:"tcp"`
-	Text pulumi.BoolPtrInput `pulumi:"text"`
+	Address            pulumi.BoolPtrInput   `pulumi:"address"`
+	All                pulumi.BoolPtrInput   `pulumi:"all"`
+	AppService         pulumi.StringPtrInput `pulumi:"appService"`
+	BrowserType        pulumi.BoolPtrInput   `pulumi:"browserType"`
+	BrowserVersion     pulumi.BoolPtrInput   `pulumi:"browserVersion"`
+	CaseInsensitive    pulumi.BoolPtrInput   `pulumi:"caseInsensitive"`
+	CaseSensitive      pulumi.BoolPtrInput   `pulumi:"caseSensitive"`
+	Cipher             pulumi.BoolPtrInput   `pulumi:"cipher"`
+	CipherBits         pulumi.BoolPtrInput   `pulumi:"cipherBits"`
+	ClientSsl          pulumi.BoolPtrInput   `pulumi:"clientSsl"`
+	Code               pulumi.BoolPtrInput   `pulumi:"code"`
+	CommonName         pulumi.BoolPtrInput   `pulumi:"commonName"`
+	Contains           pulumi.BoolPtrInput   `pulumi:"contains"`
+	Continent          pulumi.BoolPtrInput   `pulumi:"continent"`
+	CountryCode        pulumi.BoolPtrInput   `pulumi:"countryCode"`
+	CountryName        pulumi.BoolPtrInput   `pulumi:"countryName"`
+	CpuUsage           pulumi.BoolPtrInput   `pulumi:"cpuUsage"`
+	DeviceMake         pulumi.BoolPtrInput   `pulumi:"deviceMake"`
+	DeviceModel        pulumi.BoolPtrInput   `pulumi:"deviceModel"`
+	Domain             pulumi.BoolPtrInput   `pulumi:"domain"`
+	EndsWith           pulumi.BoolPtrInput   `pulumi:"endsWith"`
+	Equals             pulumi.BoolPtrInput   `pulumi:"equals"`
+	Expiry             pulumi.BoolPtrInput   `pulumi:"expiry"`
+	Extension          pulumi.BoolPtrInput   `pulumi:"extension"`
+	External           pulumi.BoolPtrInput   `pulumi:"external"`
+	Geoip              pulumi.BoolPtrInput   `pulumi:"geoip"`
+	Greater            pulumi.BoolPtrInput   `pulumi:"greater"`
+	GreaterOrEqual     pulumi.BoolPtrInput   `pulumi:"greaterOrEqual"`
+	Host               pulumi.BoolPtrInput   `pulumi:"host"`
+	HttpBasicAuth      pulumi.BoolPtrInput   `pulumi:"httpBasicAuth"`
+	HttpCookie         pulumi.BoolPtrInput   `pulumi:"httpCookie"`
+	HttpHeader         pulumi.BoolPtrInput   `pulumi:"httpHeader"`
+	HttpHost           pulumi.BoolPtrInput   `pulumi:"httpHost"`
+	HttpMethod         pulumi.BoolPtrInput   `pulumi:"httpMethod"`
+	HttpReferer        pulumi.BoolPtrInput   `pulumi:"httpReferer"`
+	HttpSetCookie      pulumi.BoolPtrInput   `pulumi:"httpSetCookie"`
+	HttpStatus         pulumi.BoolPtrInput   `pulumi:"httpStatus"`
+	HttpUri            pulumi.BoolPtrInput   `pulumi:"httpUri"`
+	HttpUserAgent      pulumi.BoolPtrInput   `pulumi:"httpUserAgent"`
+	HttpVersion        pulumi.BoolPtrInput   `pulumi:"httpVersion"`
+	Index              pulumi.IntPtrInput    `pulumi:"index"`
+	Internal           pulumi.BoolPtrInput   `pulumi:"internal"`
+	Isp                pulumi.BoolPtrInput   `pulumi:"isp"`
+	Last15secs         pulumi.BoolPtrInput   `pulumi:"last15secs"`
+	Last1min           pulumi.BoolPtrInput   `pulumi:"last1min"`
+	Last5mins          pulumi.BoolPtrInput   `pulumi:"last5mins"`
+	Less               pulumi.BoolPtrInput   `pulumi:"less"`
+	LessOrEqual        pulumi.BoolPtrInput   `pulumi:"lessOrEqual"`
+	Local              pulumi.BoolPtrInput   `pulumi:"local"`
+	Major              pulumi.BoolPtrInput   `pulumi:"major"`
+	Matches            pulumi.BoolPtrInput   `pulumi:"matches"`
+	Minor              pulumi.BoolPtrInput   `pulumi:"minor"`
+	Missing            pulumi.BoolPtrInput   `pulumi:"missing"`
+	Mss                pulumi.BoolPtrInput   `pulumi:"mss"`
+	Not                pulumi.BoolPtrInput   `pulumi:"not"`
+	Org                pulumi.BoolPtrInput   `pulumi:"org"`
+	Password           pulumi.BoolPtrInput   `pulumi:"password"`
+	Path               pulumi.BoolPtrInput   `pulumi:"path"`
+	PathSegment        pulumi.BoolPtrInput   `pulumi:"pathSegment"`
+	Port               pulumi.BoolPtrInput   `pulumi:"port"`
+	Present            pulumi.BoolPtrInput   `pulumi:"present"`
+	Protocol           pulumi.BoolPtrInput   `pulumi:"protocol"`
+	QueryParameter     pulumi.BoolPtrInput   `pulumi:"queryParameter"`
+	QueryString        pulumi.BoolPtrInput   `pulumi:"queryString"`
+	RegionCode         pulumi.BoolPtrInput   `pulumi:"regionCode"`
+	RegionName         pulumi.BoolPtrInput   `pulumi:"regionName"`
+	Remote             pulumi.BoolPtrInput   `pulumi:"remote"`
+	Request            pulumi.BoolPtrInput   `pulumi:"request"`
+	Response           pulumi.BoolPtrInput   `pulumi:"response"`
+	RouteDomain        pulumi.BoolPtrInput   `pulumi:"routeDomain"`
+	Rtt                pulumi.BoolPtrInput   `pulumi:"rtt"`
+	Scheme             pulumi.BoolPtrInput   `pulumi:"scheme"`
+	ServerName         pulumi.BoolPtrInput   `pulumi:"serverName"`
+	SslCert            pulumi.BoolPtrInput   `pulumi:"sslCert"`
+	SslClientHello     pulumi.BoolPtrInput   `pulumi:"sslClientHello"`
+	SslExtension       pulumi.BoolPtrInput   `pulumi:"sslExtension"`
+	SslServerHandshake pulumi.BoolPtrInput   `pulumi:"sslServerHandshake"`
+	SslServerHello     pulumi.BoolPtrInput   `pulumi:"sslServerHello"`
+	StartsWith         pulumi.BoolPtrInput   `pulumi:"startsWith"`
+	Tcp                pulumi.BoolPtrInput   `pulumi:"tcp"`
+	Text               pulumi.BoolPtrInput   `pulumi:"text"`
 	// If Rule is used then you need to provide the tmName it can be any value
-	TmName pulumi.StringPtrInput `pulumi:"tmName"`
-	UnnamedQueryParameter pulumi.BoolPtrInput `pulumi:"unnamedQueryParameter"`
-	UserAgentToken pulumi.BoolPtrInput `pulumi:"userAgentToken"`
-	Username pulumi.BoolPtrInput `pulumi:"username"`
-	Value pulumi.BoolPtrInput `pulumi:"value"`
-	Values pulumi.StringArrayInput `pulumi:"values"`
-	Version pulumi.BoolPtrInput `pulumi:"version"`
-	Vlan pulumi.BoolPtrInput `pulumi:"vlan"`
-	VlanId pulumi.BoolPtrInput `pulumi:"vlanId"`
+	TmName                pulumi.StringPtrInput   `pulumi:"tmName"`
+	UnnamedQueryParameter pulumi.BoolPtrInput     `pulumi:"unnamedQueryParameter"`
+	UserAgentToken        pulumi.BoolPtrInput     `pulumi:"userAgentToken"`
+	Username              pulumi.BoolPtrInput     `pulumi:"username"`
+	Value                 pulumi.BoolPtrInput     `pulumi:"value"`
+	Values                pulumi.StringArrayInput `pulumi:"values"`
+	Version               pulumi.BoolPtrInput     `pulumi:"version"`
+	Vlan                  pulumi.BoolPtrInput     `pulumi:"vlan"`
+	VlanId                pulumi.BoolPtrInput     `pulumi:"vlanId"`
 }
 
 func (PolicyRuleConditionArgs) ElementType() reflect.Type {
@@ -1296,7 +1298,7 @@ func (i PolicyRuleConditionArray) ToPolicyRuleConditionArrayOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyRuleConditionArrayOutput)
 }
 
-type PolicyRuleConditionOutput struct { *pulumi.OutputState }
+type PolicyRuleConditionOutput struct{ *pulumi.OutputState }
 
 func (PolicyRuleConditionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*PolicyRuleCondition)(nil)).Elem()
@@ -1311,367 +1313,367 @@ func (o PolicyRuleConditionOutput) ToPolicyRuleConditionOutputWithContext(ctx co
 }
 
 func (o PolicyRuleConditionOutput) Address() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Address }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Address }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) All() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.All }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.All }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) AppService() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *string { return v.AppService }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *string { return v.AppService }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) BrowserType() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.BrowserType }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.BrowserType }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) BrowserVersion() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.BrowserVersion }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.BrowserVersion }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) CaseInsensitive() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.CaseInsensitive }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.CaseInsensitive }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) CaseSensitive() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.CaseSensitive }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.CaseSensitive }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Cipher() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Cipher }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Cipher }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) CipherBits() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.CipherBits }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.CipherBits }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) ClientSsl() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.ClientSsl }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.ClientSsl }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Code() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Code }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Code }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) CommonName() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.CommonName }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.CommonName }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Contains() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Contains }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Contains }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Continent() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Continent }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Continent }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) CountryCode() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.CountryCode }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.CountryCode }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) CountryName() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.CountryName }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.CountryName }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) CpuUsage() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.CpuUsage }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.CpuUsage }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) DeviceMake() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.DeviceMake }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.DeviceMake }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) DeviceModel() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.DeviceModel }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.DeviceModel }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Domain() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Domain }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Domain }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) EndsWith() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.EndsWith }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.EndsWith }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Equals() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Equals }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Equals }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Expiry() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Expiry }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Expiry }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Extension() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Extension }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Extension }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) External() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.External }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.External }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Geoip() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Geoip }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Geoip }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Greater() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Greater }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Greater }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) GreaterOrEqual() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.GreaterOrEqual }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.GreaterOrEqual }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Host() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Host }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Host }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) HttpBasicAuth() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.HttpBasicAuth }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.HttpBasicAuth }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) HttpCookie() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.HttpCookie }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.HttpCookie }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) HttpHeader() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.HttpHeader }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.HttpHeader }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) HttpHost() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.HttpHost }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.HttpHost }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) HttpMethod() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.HttpMethod }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.HttpMethod }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) HttpReferer() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.HttpReferer }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.HttpReferer }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) HttpSetCookie() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.HttpSetCookie }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.HttpSetCookie }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) HttpStatus() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.HttpStatus }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.HttpStatus }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) HttpUri() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.HttpUri }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.HttpUri }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) HttpUserAgent() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.HttpUserAgent }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.HttpUserAgent }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) HttpVersion() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.HttpVersion }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.HttpVersion }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Index() pulumi.IntPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *int { return v.Index }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *int { return v.Index }).(pulumi.IntPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Internal() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Internal }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Internal }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Isp() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Isp }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Isp }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Last15secs() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Last15secs }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Last15secs }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Last1min() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Last1min }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Last1min }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Last5mins() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Last5mins }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Last5mins }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Less() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Less }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Less }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) LessOrEqual() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.LessOrEqual }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.LessOrEqual }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Local() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Local }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Local }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Major() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Major }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Major }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Matches() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Matches }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Matches }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Minor() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Minor }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Minor }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Missing() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Missing }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Missing }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Mss() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Mss }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Mss }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Not() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Not }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Not }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Org() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Org }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Org }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Password() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Password }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Password }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Path() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Path }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Path }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) PathSegment() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.PathSegment }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.PathSegment }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Port() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Port }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Port }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Present() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Present }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Present }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Protocol() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Protocol }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Protocol }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) QueryParameter() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.QueryParameter }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.QueryParameter }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) QueryString() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.QueryString }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.QueryString }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) RegionCode() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.RegionCode }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.RegionCode }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) RegionName() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.RegionName }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.RegionName }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Remote() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Remote }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Remote }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Request() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Request }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Request }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Response() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Response }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Response }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) RouteDomain() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.RouteDomain }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.RouteDomain }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Rtt() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Rtt }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Rtt }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Scheme() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Scheme }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Scheme }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) ServerName() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.ServerName }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.ServerName }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) SslCert() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.SslCert }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.SslCert }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) SslClientHello() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.SslClientHello }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.SslClientHello }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) SslExtension() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.SslExtension }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.SslExtension }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) SslServerHandshake() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.SslServerHandshake }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.SslServerHandshake }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) SslServerHello() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.SslServerHello }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.SslServerHello }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) StartsWith() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.StartsWith }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.StartsWith }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Tcp() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Tcp }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Tcp }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Text() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Text }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Text }).(pulumi.BoolPtrOutput)
 }
 
 // If Rule is used then you need to provide the tmName it can be any value
 func (o PolicyRuleConditionOutput) TmName() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *string { return v.TmName }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *string { return v.TmName }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) UnnamedQueryParameter() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.UnnamedQueryParameter }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.UnnamedQueryParameter }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) UserAgentToken() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.UserAgentToken }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.UserAgentToken }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Username() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Username }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Username }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Value() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Value }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Value }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) []string { return v.Values }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
 
 func (o PolicyRuleConditionOutput) Version() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Version }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Version }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) Vlan() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.Vlan }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Vlan }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) VlanId() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v PolicyRuleCondition) *bool { return v.VlanId }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.VlanId }).(pulumi.BoolPtrOutput)
 }
 
-type PolicyRuleConditionArrayOutput struct { *pulumi.OutputState}
+type PolicyRuleConditionArrayOutput struct{ *pulumi.OutputState }
 
 func (PolicyRuleConditionArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]PolicyRuleCondition)(nil)).Elem()
@@ -1686,7 +1688,7 @@ func (o PolicyRuleConditionArrayOutput) ToPolicyRuleConditionArrayOutputWithCont
 }
 
 func (o PolicyRuleConditionArrayOutput) Index(i pulumi.IntInput) PolicyRuleConditionOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) PolicyRuleCondition {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyRuleCondition {
 		return vs[0].([]PolicyRuleCondition)[vs[1].(int)]
 	}).(PolicyRuleConditionOutput)
 }
@@ -1699,7 +1701,7 @@ type ProfileClientSslCertKeyChain struct {
 	// Contains a key name
 	Key *string `pulumi:"key"`
 	// Specifies the name of the profile. (type `string`)
-	Name *string `pulumi:"name"`
+	Name       *string `pulumi:"name"`
 	Passphrase *string `pulumi:"passphrase"`
 }
 
@@ -1718,7 +1720,7 @@ type ProfileClientSslCertKeyChainArgs struct {
 	// Contains a key name
 	Key pulumi.StringPtrInput `pulumi:"key"`
 	// Specifies the name of the profile. (type `string`)
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name       pulumi.StringPtrInput `pulumi:"name"`
 	Passphrase pulumi.StringPtrInput `pulumi:"passphrase"`
 }
 
@@ -1755,7 +1757,7 @@ func (i ProfileClientSslCertKeyChainArray) ToProfileClientSslCertKeyChainArrayOu
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileClientSslCertKeyChainArrayOutput)
 }
 
-type ProfileClientSslCertKeyChainOutput struct { *pulumi.OutputState }
+type ProfileClientSslCertKeyChainOutput struct{ *pulumi.OutputState }
 
 func (ProfileClientSslCertKeyChainOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ProfileClientSslCertKeyChain)(nil)).Elem()
@@ -1771,29 +1773,29 @@ func (o ProfileClientSslCertKeyChainOutput) ToProfileClientSslCertKeyChainOutput
 
 // Specifies a cert name for use.
 func (o ProfileClientSslCertKeyChainOutput) Cert() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ProfileClientSslCertKeyChain) *string { return v.Cert }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ProfileClientSslCertKeyChain) *string { return v.Cert }).(pulumi.StringPtrOutput)
 }
 
 // Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
 func (o ProfileClientSslCertKeyChainOutput) Chain() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ProfileClientSslCertKeyChain) *string { return v.Chain }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ProfileClientSslCertKeyChain) *string { return v.Chain }).(pulumi.StringPtrOutput)
 }
 
 // Contains a key name
 func (o ProfileClientSslCertKeyChainOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ProfileClientSslCertKeyChain) *string { return v.Key }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ProfileClientSslCertKeyChain) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the name of the profile. (type `string`)
 func (o ProfileClientSslCertKeyChainOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ProfileClientSslCertKeyChain) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ProfileClientSslCertKeyChain) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o ProfileClientSslCertKeyChainOutput) Passphrase() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v ProfileClientSslCertKeyChain) *string { return v.Passphrase }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v ProfileClientSslCertKeyChain) *string { return v.Passphrase }).(pulumi.StringPtrOutput)
 }
 
-type ProfileClientSslCertKeyChainArrayOutput struct { *pulumi.OutputState}
+type ProfileClientSslCertKeyChainArrayOutput struct{ *pulumi.OutputState }
 
 func (ProfileClientSslCertKeyChainArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]ProfileClientSslCertKeyChain)(nil)).Elem()
@@ -1808,7 +1810,7 @@ func (o ProfileClientSslCertKeyChainArrayOutput) ToProfileClientSslCertKeyChainA
 }
 
 func (o ProfileClientSslCertKeyChainArrayOutput) Index(i pulumi.IntInput) ProfileClientSslCertKeyChainOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) ProfileClientSslCertKeyChain {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProfileClientSslCertKeyChain {
 		return vs[0].([]ProfileClientSslCertKeyChain)[vs[1].(int)]
 	}).(ProfileClientSslCertKeyChainOutput)
 }
@@ -1865,7 +1867,7 @@ func (i SnatOriginArray) ToSnatOriginArrayOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(SnatOriginArrayOutput)
 }
 
-type SnatOriginOutput struct { *pulumi.OutputState }
+type SnatOriginOutput struct{ *pulumi.OutputState }
 
 func (SnatOriginOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SnatOrigin)(nil)).Elem()
@@ -1880,15 +1882,15 @@ func (o SnatOriginOutput) ToSnatOriginOutputWithContext(ctx context.Context) Sna
 }
 
 func (o SnatOriginOutput) AppService() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SnatOrigin) *string { return v.AppService }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SnatOrigin) *string { return v.AppService }).(pulumi.StringPtrOutput)
 }
 
 // Name of the snat
 func (o SnatOriginOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v SnatOrigin) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v SnatOrigin) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-type SnatOriginArrayOutput struct { *pulumi.OutputState}
+type SnatOriginArrayOutput struct{ *pulumi.OutputState }
 
 func (SnatOriginArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]SnatOrigin)(nil)).Elem()
@@ -1903,7 +1905,7 @@ func (o SnatOriginArrayOutput) ToSnatOriginArrayOutputWithContext(ctx context.Co
 }
 
 func (o SnatOriginArrayOutput) Index(i pulumi.IntInput) SnatOriginOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) SnatOrigin {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SnatOrigin {
 		return vs[0].([]SnatOrigin)[vs[1].(int)]
 	}).(SnatOriginOutput)
 }

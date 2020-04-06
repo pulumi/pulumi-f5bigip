@@ -13,7 +13,7 @@ import (
 
 type IAppList struct {
 	Encrypted *string `pulumi:"encrypted"`
-	Value *string `pulumi:"value"`
+	Value     *string `pulumi:"value"`
 }
 
 type IAppListInput interface {
@@ -25,7 +25,7 @@ type IAppListInput interface {
 
 type IAppListArgs struct {
 	Encrypted pulumi.StringPtrInput `pulumi:"encrypted"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Value     pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (IAppListArgs) ElementType() reflect.Type {
@@ -61,7 +61,7 @@ func (i IAppListArray) ToIAppListArrayOutputWithContext(ctx context.Context) IAp
 	return pulumi.ToOutputWithContext(ctx, i).(IAppListArrayOutput)
 }
 
-type IAppListOutput struct { *pulumi.OutputState }
+type IAppListOutput struct{ *pulumi.OutputState }
 
 func (IAppListOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IAppList)(nil)).Elem()
@@ -76,14 +76,14 @@ func (o IAppListOutput) ToIAppListOutputWithContext(ctx context.Context) IAppLis
 }
 
 func (o IAppListOutput) Encrypted() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v IAppList) *string { return v.Encrypted }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v IAppList) *string { return v.Encrypted }).(pulumi.StringPtrOutput)
 }
 
 func (o IAppListOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v IAppList) *string { return v.Value }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v IAppList) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-type IAppListArrayOutput struct { *pulumi.OutputState}
+type IAppListArrayOutput struct{ *pulumi.OutputState }
 
 func (IAppListArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]IAppList)(nil)).Elem()
@@ -98,14 +98,14 @@ func (o IAppListArrayOutput) ToIAppListArrayOutputWithContext(ctx context.Contex
 }
 
 func (o IAppListArrayOutput) Index(i pulumi.IntInput) IAppListOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) IAppList {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IAppList {
 		return vs[0].([]IAppList)[vs[1].(int)]
 	}).(IAppListOutput)
 }
 
 type IAppMetadata struct {
 	Persists *string `pulumi:"persists"`
-	Value *string `pulumi:"value"`
+	Value    *string `pulumi:"value"`
 }
 
 type IAppMetadataInput interface {
@@ -117,7 +117,7 @@ type IAppMetadataInput interface {
 
 type IAppMetadataArgs struct {
 	Persists pulumi.StringPtrInput `pulumi:"persists"`
-	Value pulumi.StringPtrInput `pulumi:"value"`
+	Value    pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (IAppMetadataArgs) ElementType() reflect.Type {
@@ -153,7 +153,7 @@ func (i IAppMetadataArray) ToIAppMetadataArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(IAppMetadataArrayOutput)
 }
 
-type IAppMetadataOutput struct { *pulumi.OutputState }
+type IAppMetadataOutput struct{ *pulumi.OutputState }
 
 func (IAppMetadataOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IAppMetadata)(nil)).Elem()
@@ -168,14 +168,14 @@ func (o IAppMetadataOutput) ToIAppMetadataOutputWithContext(ctx context.Context)
 }
 
 func (o IAppMetadataOutput) Persists() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v IAppMetadata) *string { return v.Persists }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v IAppMetadata) *string { return v.Persists }).(pulumi.StringPtrOutput)
 }
 
 func (o IAppMetadataOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v IAppMetadata) *string { return v.Value }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v IAppMetadata) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-type IAppMetadataArrayOutput struct { *pulumi.OutputState}
+type IAppMetadataArrayOutput struct{ *pulumi.OutputState }
 
 func (IAppMetadataArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]IAppMetadata)(nil)).Elem()
@@ -190,16 +190,16 @@ func (o IAppMetadataArrayOutput) ToIAppMetadataArrayOutputWithContext(ctx contex
 }
 
 func (o IAppMetadataArrayOutput) Index(i pulumi.IntInput) IAppMetadataOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) IAppMetadata {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IAppMetadata {
 		return vs[0].([]IAppMetadata)[vs[1].(int)]
 	}).(IAppMetadataOutput)
 }
 
 type IAppTable struct {
-	ColumnNames []string `pulumi:"columnNames"`
-	EncryptedColumns *string `pulumi:"encryptedColumns"`
+	ColumnNames      []string `pulumi:"columnNames"`
+	EncryptedColumns *string  `pulumi:"encryptedColumns"`
 	// Name of the iApp.
-	Name *string `pulumi:"name"`
+	Name *string        `pulumi:"name"`
 	Rows []IAppTableRow `pulumi:"rows"`
 }
 
@@ -211,10 +211,10 @@ type IAppTableInput interface {
 }
 
 type IAppTableArgs struct {
-	ColumnNames pulumi.StringArrayInput `pulumi:"columnNames"`
-	EncryptedColumns pulumi.StringPtrInput `pulumi:"encryptedColumns"`
+	ColumnNames      pulumi.StringArrayInput `pulumi:"columnNames"`
+	EncryptedColumns pulumi.StringPtrInput   `pulumi:"encryptedColumns"`
 	// Name of the iApp.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringPtrInput  `pulumi:"name"`
 	Rows IAppTableRowArrayInput `pulumi:"rows"`
 }
 
@@ -251,7 +251,7 @@ func (i IAppTableArray) ToIAppTableArrayOutputWithContext(ctx context.Context) I
 	return pulumi.ToOutputWithContext(ctx, i).(IAppTableArrayOutput)
 }
 
-type IAppTableOutput struct { *pulumi.OutputState }
+type IAppTableOutput struct{ *pulumi.OutputState }
 
 func (IAppTableOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IAppTable)(nil)).Elem()
@@ -266,23 +266,23 @@ func (o IAppTableOutput) ToIAppTableOutputWithContext(ctx context.Context) IAppT
 }
 
 func (o IAppTableOutput) ColumnNames() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v IAppTable) []string { return v.ColumnNames }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v IAppTable) []string { return v.ColumnNames }).(pulumi.StringArrayOutput)
 }
 
 func (o IAppTableOutput) EncryptedColumns() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v IAppTable) *string { return v.EncryptedColumns }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v IAppTable) *string { return v.EncryptedColumns }).(pulumi.StringPtrOutput)
 }
 
 // Name of the iApp.
 func (o IAppTableOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v IAppTable) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v IAppTable) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o IAppTableOutput) Rows() IAppTableRowArrayOutput {
-	return o.ApplyT(func (v IAppTable) []IAppTableRow { return v.Rows }).(IAppTableRowArrayOutput)
+	return o.ApplyT(func(v IAppTable) []IAppTableRow { return v.Rows }).(IAppTableRowArrayOutput)
 }
 
-type IAppTableArrayOutput struct { *pulumi.OutputState}
+type IAppTableArrayOutput struct{ *pulumi.OutputState }
 
 func (IAppTableArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]IAppTable)(nil)).Elem()
@@ -297,7 +297,7 @@ func (o IAppTableArrayOutput) ToIAppTableArrayOutputWithContext(ctx context.Cont
 }
 
 func (o IAppTableArrayOutput) Index(i pulumi.IntInput) IAppTableOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) IAppTable {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IAppTable {
 		return vs[0].([]IAppTable)[vs[1].(int)]
 	}).(IAppTableOutput)
 }
@@ -350,7 +350,7 @@ func (i IAppTableRowArray) ToIAppTableRowArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(IAppTableRowArrayOutput)
 }
 
-type IAppTableRowOutput struct { *pulumi.OutputState }
+type IAppTableRowOutput struct{ *pulumi.OutputState }
 
 func (IAppTableRowOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IAppTableRow)(nil)).Elem()
@@ -365,10 +365,10 @@ func (o IAppTableRowOutput) ToIAppTableRowOutputWithContext(ctx context.Context)
 }
 
 func (o IAppTableRowOutput) Rows() pulumi.StringArrayOutput {
-	return o.ApplyT(func (v IAppTableRow) []string { return v.Rows }).(pulumi.StringArrayOutput)
+	return o.ApplyT(func(v IAppTableRow) []string { return v.Rows }).(pulumi.StringArrayOutput)
 }
 
-type IAppTableRowArrayOutput struct { *pulumi.OutputState}
+type IAppTableRowArrayOutput struct{ *pulumi.OutputState }
 
 func (IAppTableRowArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]IAppTableRow)(nil)).Elem()
@@ -383,7 +383,7 @@ func (o IAppTableRowArrayOutput) ToIAppTableRowArrayOutputWithContext(ctx contex
 }
 
 func (o IAppTableRowArrayOutput) Index(i pulumi.IntInput) IAppTableRowOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) IAppTableRow {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IAppTableRow {
 		return vs[0].([]IAppTableRow)[vs[1].(int)]
 	}).(IAppTableRowOutput)
 }
@@ -391,7 +391,7 @@ func (o IAppTableRowArrayOutput) Index(i pulumi.IntInput) IAppTableRowOutput {
 type IAppVariable struct {
 	Encrypted *string `pulumi:"encrypted"`
 	// Name of the iApp.
-	Name *string `pulumi:"name"`
+	Name  *string `pulumi:"name"`
 	Value *string `pulumi:"value"`
 }
 
@@ -405,7 +405,7 @@ type IAppVariableInput interface {
 type IAppVariableArgs struct {
 	Encrypted pulumi.StringPtrInput `pulumi:"encrypted"`
 	// Name of the iApp.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name  pulumi.StringPtrInput `pulumi:"name"`
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -442,7 +442,7 @@ func (i IAppVariableArray) ToIAppVariableArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(IAppVariableArrayOutput)
 }
 
-type IAppVariableOutput struct { *pulumi.OutputState }
+type IAppVariableOutput struct{ *pulumi.OutputState }
 
 func (IAppVariableOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IAppVariable)(nil)).Elem()
@@ -457,19 +457,19 @@ func (o IAppVariableOutput) ToIAppVariableOutputWithContext(ctx context.Context)
 }
 
 func (o IAppVariableOutput) Encrypted() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v IAppVariable) *string { return v.Encrypted }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v IAppVariable) *string { return v.Encrypted }).(pulumi.StringPtrOutput)
 }
 
 // Name of the iApp.
 func (o IAppVariableOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v IAppVariable) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v IAppVariable) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o IAppVariableOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v IAppVariable) *string { return v.Value }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v IAppVariable) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-type IAppVariableArrayOutput struct { *pulumi.OutputState}
+type IAppVariableArrayOutput struct{ *pulumi.OutputState }
 
 func (IAppVariableArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]IAppVariable)(nil)).Elem()
@@ -484,7 +484,7 @@ func (o IAppVariableArrayOutput) ToIAppVariableArrayOutputWithContext(ctx contex
 }
 
 func (o IAppVariableArrayOutput) Index(i pulumi.IntInput) IAppVariableOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) IAppVariable {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IAppVariable {
 		return vs[0].([]IAppVariable)[vs[1].(int)]
 	}).(IAppVariableOutput)
 }

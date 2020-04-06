@@ -20,8 +20,8 @@ type VirtualServer struct {
 	pulumi.CustomResourceState
 
 	// List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
-	ClientProfiles pulumi.StringArrayOutput `pulumi:"clientProfiles"`
-	DefaultPersistenceProfile pulumi.StringPtrOutput `pulumi:"defaultPersistenceProfile"`
+	ClientProfiles            pulumi.StringArrayOutput `pulumi:"clientProfiles"`
+	DefaultPersistenceProfile pulumi.StringPtrOutput   `pulumi:"defaultPersistenceProfile"`
 	// Description of Virtual server
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Destination IP
@@ -38,7 +38,7 @@ type VirtualServer struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of persistence profiles associated with the Virtual Server.
 	PersistenceProfiles pulumi.StringArrayOutput `pulumi:"persistenceProfiles"`
-	Policies pulumi.StringArrayOutput `pulumi:"policies"`
+	Policies            pulumi.StringArrayOutput `pulumi:"policies"`
 	// Default pool name
 	Pool pulumi.StringPtrOutput `pulumi:"pool"`
 	// Listen port for the virtual server
@@ -103,8 +103,8 @@ func GetVirtualServer(ctx *pulumi.Context,
 // Input properties used for looking up and filtering VirtualServer resources.
 type virtualServerState struct {
 	// List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
-	ClientProfiles []string `pulumi:"clientProfiles"`
-	DefaultPersistenceProfile *string `pulumi:"defaultPersistenceProfile"`
+	ClientProfiles            []string `pulumi:"clientProfiles"`
+	DefaultPersistenceProfile *string  `pulumi:"defaultPersistenceProfile"`
 	// Description of Virtual server
 	Description *string `pulumi:"description"`
 	// Destination IP
@@ -121,7 +121,7 @@ type virtualServerState struct {
 	Name *string `pulumi:"name"`
 	// List of persistence profiles associated with the Virtual Server.
 	PersistenceProfiles []string `pulumi:"persistenceProfiles"`
-	Policies []string `pulumi:"policies"`
+	Policies            []string `pulumi:"policies"`
 	// Default pool name
 	Pool *string `pulumi:"pool"`
 	// Listen port for the virtual server
@@ -150,7 +150,7 @@ type virtualServerState struct {
 
 type VirtualServerState struct {
 	// List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
-	ClientProfiles pulumi.StringArrayInput
+	ClientProfiles            pulumi.StringArrayInput
 	DefaultPersistenceProfile pulumi.StringPtrInput
 	// Description of Virtual server
 	Description pulumi.StringPtrInput
@@ -168,7 +168,7 @@ type VirtualServerState struct {
 	Name pulumi.StringPtrInput
 	// List of persistence profiles associated with the Virtual Server.
 	PersistenceProfiles pulumi.StringArrayInput
-	Policies pulumi.StringArrayInput
+	Policies            pulumi.StringArrayInput
 	// Default pool name
 	Pool pulumi.StringPtrInput
 	// Listen port for the virtual server
@@ -201,8 +201,8 @@ func (VirtualServerState) ElementType() reflect.Type {
 
 type virtualServerArgs struct {
 	// List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
-	ClientProfiles []string `pulumi:"clientProfiles"`
-	DefaultPersistenceProfile *string `pulumi:"defaultPersistenceProfile"`
+	ClientProfiles            []string `pulumi:"clientProfiles"`
+	DefaultPersistenceProfile *string  `pulumi:"defaultPersistenceProfile"`
 	// Description of Virtual server
 	Description *string `pulumi:"description"`
 	// Destination IP
@@ -219,7 +219,7 @@ type virtualServerArgs struct {
 	Name string `pulumi:"name"`
 	// List of persistence profiles associated with the Virtual Server.
 	PersistenceProfiles []string `pulumi:"persistenceProfiles"`
-	Policies []string `pulumi:"policies"`
+	Policies            []string `pulumi:"policies"`
 	// Default pool name
 	Pool *string `pulumi:"pool"`
 	// Listen port for the virtual server
@@ -249,7 +249,7 @@ type virtualServerArgs struct {
 // The set of arguments for constructing a VirtualServer resource.
 type VirtualServerArgs struct {
 	// List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
-	ClientProfiles pulumi.StringArrayInput
+	ClientProfiles            pulumi.StringArrayInput
 	DefaultPersistenceProfile pulumi.StringPtrInput
 	// Description of Virtual server
 	Description pulumi.StringPtrInput
@@ -267,7 +267,7 @@ type VirtualServerArgs struct {
 	Name pulumi.StringInput
 	// List of persistence profiles associated with the Virtual Server.
 	PersistenceProfiles pulumi.StringArrayInput
-	Policies pulumi.StringArrayInput
+	Policies            pulumi.StringArrayInput
 	// Default pool name
 	Pool pulumi.StringPtrInput
 	// Listen port for the virtual server
@@ -297,4 +297,3 @@ type VirtualServerArgs struct {
 func (VirtualServerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualServerArgs)(nil)).Elem()
 }
-

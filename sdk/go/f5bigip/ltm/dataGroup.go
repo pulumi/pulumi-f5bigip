@@ -104,4 +104,3 @@ type DataGroupArgs struct {
 func (DataGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataGroupArgs)(nil)).Elem()
 }
-

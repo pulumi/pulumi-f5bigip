@@ -221,4 +221,3 @@ type PersistenceProfileSrcAddrArgs struct {
 func (PersistenceProfileSrcAddrArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*persistenceProfileSrcAddrArgs)(nil)).Elem()
 }
-

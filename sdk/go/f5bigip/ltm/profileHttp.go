@@ -344,4 +344,3 @@ type ProfileHttpArgs struct {
 func (ProfileHttpArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileHttpArgs)(nil)).Elem()
 }
-

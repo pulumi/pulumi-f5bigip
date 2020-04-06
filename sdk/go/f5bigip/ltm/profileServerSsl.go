@@ -93,9 +93,9 @@ type ProfileServerSsl struct {
 	SslForwardProxyBypass pulumi.StringOutput `pulumi:"sslForwardProxyBypass"`
 	// SSL sign hash (any, sha1, sha256, sha384)
 	SslSignHash pulumi.StringOutput `pulumi:"sslSignHash"`
-	// Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile. 
-	StrictResume pulumi.StringOutput `pulumi:"strictResume"`
-	TmOptions pulumi.StringArrayOutput `pulumi:"tmOptions"`
+	// Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
+	StrictResume pulumi.StringOutput      `pulumi:"strictResume"`
+	TmOptions    pulumi.StringArrayOutput `pulumi:"tmOptions"`
 	// Unclean Shutdown (enabled / disabled)
 	UncleanShutdown pulumi.StringOutput `pulumi:"uncleanShutdown"`
 	// Unclean Shutdown (drop / ignore)
@@ -209,9 +209,9 @@ type profileServerSslState struct {
 	SslForwardProxyBypass *string `pulumi:"sslForwardProxyBypass"`
 	// SSL sign hash (any, sha1, sha256, sha384)
 	SslSignHash *string `pulumi:"sslSignHash"`
-	// Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile. 
-	StrictResume *string `pulumi:"strictResume"`
-	TmOptions []string `pulumi:"tmOptions"`
+	// Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
+	StrictResume *string  `pulumi:"strictResume"`
+	TmOptions    []string `pulumi:"tmOptions"`
 	// Unclean Shutdown (enabled / disabled)
 	UncleanShutdown *string `pulumi:"uncleanShutdown"`
 	// Unclean Shutdown (drop / ignore)
@@ -295,9 +295,9 @@ type ProfileServerSslState struct {
 	SslForwardProxyBypass pulumi.StringPtrInput
 	// SSL sign hash (any, sha1, sha256, sha384)
 	SslSignHash pulumi.StringPtrInput
-	// Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile. 
+	// Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
 	StrictResume pulumi.StringPtrInput
-	TmOptions pulumi.StringArrayInput
+	TmOptions    pulumi.StringArrayInput
 	// Unclean Shutdown (enabled / disabled)
 	UncleanShutdown pulumi.StringPtrInput
 	// Unclean Shutdown (drop / ignore)
@@ -385,9 +385,9 @@ type profileServerSslArgs struct {
 	SslForwardProxyBypass *string `pulumi:"sslForwardProxyBypass"`
 	// SSL sign hash (any, sha1, sha256, sha384)
 	SslSignHash *string `pulumi:"sslSignHash"`
-	// Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile. 
-	StrictResume *string `pulumi:"strictResume"`
-	TmOptions []string `pulumi:"tmOptions"`
+	// Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
+	StrictResume *string  `pulumi:"strictResume"`
+	TmOptions    []string `pulumi:"tmOptions"`
 	// Unclean Shutdown (enabled / disabled)
 	UncleanShutdown *string `pulumi:"uncleanShutdown"`
 	// Unclean Shutdown (drop / ignore)
@@ -472,9 +472,9 @@ type ProfileServerSslArgs struct {
 	SslForwardProxyBypass pulumi.StringPtrInput
 	// SSL sign hash (any, sha1, sha256, sha384)
 	SslSignHash pulumi.StringPtrInput
-	// Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile. 
+	// Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
 	StrictResume pulumi.StringPtrInput
-	TmOptions pulumi.StringArrayInput
+	TmOptions    pulumi.StringArrayInput
 	// Unclean Shutdown (enabled / disabled)
 	UncleanShutdown pulumi.StringPtrInput
 	// Unclean Shutdown (drop / ignore)
@@ -484,4 +484,3 @@ type ProfileServerSslArgs struct {
 func (ProfileServerSslArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileServerSslArgs)(nil)).Elem()
 }
-

@@ -95,4 +95,3 @@ type SnmpArgs struct {
 func (SnmpArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*snmpArgs)(nil)).Elem()
 }
-

@@ -151,4 +151,3 @@ type VirtualAddressArgs struct {
 func (VirtualAddressArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualAddressArgs)(nil)).Elem()
 }
-

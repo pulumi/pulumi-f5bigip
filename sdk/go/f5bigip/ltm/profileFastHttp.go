@@ -181,4 +181,3 @@ type ProfileFastHttpArgs struct {
 func (ProfileFastHttpArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileFastHttpArgs)(nil)).Elem()
 }
-

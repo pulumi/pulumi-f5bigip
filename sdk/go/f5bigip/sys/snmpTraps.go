@@ -205,4 +205,3 @@ type SnmpTrapsArgs struct {
 func (SnmpTrapsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*snmpTrapsArgs)(nil)).Elem()
 }
-

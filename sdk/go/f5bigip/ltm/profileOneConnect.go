@@ -161,4 +161,3 @@ type ProfileOneConnectArgs struct {
 func (ProfileOneConnectArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileOneConnectArgs)(nil)).Elem()
 }
-

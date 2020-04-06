@@ -277,4 +277,3 @@ type PersistenceProfileCookieArgs struct {
 func (PersistenceProfileCookieArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*persistenceProfileCookieArgs)(nil)).Elem()
 }
-

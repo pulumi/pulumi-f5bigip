@@ -12,17 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-//go:generate go run ./generate.go
-
 package main
 
 import (
-	"github.com/pulumi/pulumi-terraform-bridge/pkg/tfbridge"
+	"github.com/pulumi/pulumi-terraform-bridge/pkg/tfgen"
 
-	"github.com/pulumi/pulumi-f5bigip"
-	"github.com/pulumi/pulumi-f5bigip/pkg/version"
+	f5bigip "github.com/pulumi/pulumi-f5bigip/provider"
+	"github.com/pulumi/pulumi-f5bigip/provider/pkg/version"
 )
 
 func main() {
-	tfbridge.Main("f5bigip", version.Version, f5bigip.Provider(), pulumiSchema)
+	tfgen.Main("f5bigip", version.Version, f5bigip.Provider())
 }

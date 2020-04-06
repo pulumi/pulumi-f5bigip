@@ -35,8 +35,8 @@ type ProfileClientSsl struct {
 	// Specifies a cert name for use.
 	Cert pulumi.StringOutput `pulumi:"cert"`
 	// Cert extension includes for ssl forward proxy
-	CertExtensionIncludes pulumi.StringArrayOutput `pulumi:"certExtensionIncludes"`
-	CertKeyChains ProfileClientSslCertKeyChainArrayOutput `pulumi:"certKeyChains"`
+	CertExtensionIncludes pulumi.StringArrayOutput                `pulumi:"certExtensionIncludes"`
+	CertKeyChains         ProfileClientSslCertKeyChainArrayOutput `pulumi:"certKeyChains"`
 	// Life span of the certificate in days for ssl forward proxy
 	CertLifeSpan pulumi.IntOutput `pulumi:"certLifeSpan"`
 	// Cert lookup by ip address and port enabled / disabled
@@ -117,9 +117,9 @@ type ProfileClientSsl struct {
 	SslForwardProxyBypass pulumi.StringOutput `pulumi:"sslForwardProxyBypass"`
 	// SSL sign hash (any, sha1, sha256, sha384)
 	SslSignHash pulumi.StringOutput `pulumi:"sslSignHash"`
-	// Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile. 
-	StrictResume pulumi.StringOutput `pulumi:"strictResume"`
-	TmOptions pulumi.StringArrayOutput `pulumi:"tmOptions"`
+	// Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
+	StrictResume pulumi.StringOutput      `pulumi:"strictResume"`
+	TmOptions    pulumi.StringArrayOutput `pulumi:"tmOptions"`
 	// Unclean Shutdown (enabled / disabled)
 	UncleanShutdown pulumi.StringOutput `pulumi:"uncleanShutdown"`
 }
@@ -173,8 +173,8 @@ type profileClientSslState struct {
 	// Specifies a cert name for use.
 	Cert *string `pulumi:"cert"`
 	// Cert extension includes for ssl forward proxy
-	CertExtensionIncludes []string `pulumi:"certExtensionIncludes"`
-	CertKeyChains []ProfileClientSslCertKeyChain `pulumi:"certKeyChains"`
+	CertExtensionIncludes []string                       `pulumi:"certExtensionIncludes"`
+	CertKeyChains         []ProfileClientSslCertKeyChain `pulumi:"certKeyChains"`
 	// Life span of the certificate in days for ssl forward proxy
 	CertLifeSpan *int `pulumi:"certLifeSpan"`
 	// Cert lookup by ip address and port enabled / disabled
@@ -255,9 +255,9 @@ type profileClientSslState struct {
 	SslForwardProxyBypass *string `pulumi:"sslForwardProxyBypass"`
 	// SSL sign hash (any, sha1, sha256, sha384)
 	SslSignHash *string `pulumi:"sslSignHash"`
-	// Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile. 
-	StrictResume *string `pulumi:"strictResume"`
-	TmOptions []string `pulumi:"tmOptions"`
+	// Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
+	StrictResume *string  `pulumi:"strictResume"`
+	TmOptions    []string `pulumi:"tmOptions"`
 	// Unclean Shutdown (enabled / disabled)
 	UncleanShutdown *string `pulumi:"uncleanShutdown"`
 }
@@ -282,7 +282,7 @@ type ProfileClientSslState struct {
 	Cert pulumi.StringPtrInput
 	// Cert extension includes for ssl forward proxy
 	CertExtensionIncludes pulumi.StringArrayInput
-	CertKeyChains ProfileClientSslCertKeyChainArrayInput
+	CertKeyChains         ProfileClientSslCertKeyChainArrayInput
 	// Life span of the certificate in days for ssl forward proxy
 	CertLifeSpan pulumi.IntPtrInput
 	// Cert lookup by ip address and port enabled / disabled
@@ -363,9 +363,9 @@ type ProfileClientSslState struct {
 	SslForwardProxyBypass pulumi.StringPtrInput
 	// SSL sign hash (any, sha1, sha256, sha384)
 	SslSignHash pulumi.StringPtrInput
-	// Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile. 
+	// Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
 	StrictResume pulumi.StringPtrInput
-	TmOptions pulumi.StringArrayInput
+	TmOptions    pulumi.StringArrayInput
 	// Unclean Shutdown (enabled / disabled)
 	UncleanShutdown pulumi.StringPtrInput
 }
@@ -393,8 +393,8 @@ type profileClientSslArgs struct {
 	// Specifies a cert name for use.
 	Cert *string `pulumi:"cert"`
 	// Cert extension includes for ssl forward proxy
-	CertExtensionIncludes []string `pulumi:"certExtensionIncludes"`
-	CertKeyChains []ProfileClientSslCertKeyChain `pulumi:"certKeyChains"`
+	CertExtensionIncludes []string                       `pulumi:"certExtensionIncludes"`
+	CertKeyChains         []ProfileClientSslCertKeyChain `pulumi:"certKeyChains"`
 	// Life span of the certificate in days for ssl forward proxy
 	CertLifeSpan *int `pulumi:"certLifeSpan"`
 	// Cert lookup by ip address and port enabled / disabled
@@ -475,9 +475,9 @@ type profileClientSslArgs struct {
 	SslForwardProxyBypass *string `pulumi:"sslForwardProxyBypass"`
 	// SSL sign hash (any, sha1, sha256, sha384)
 	SslSignHash *string `pulumi:"sslSignHash"`
-	// Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile. 
-	StrictResume *string `pulumi:"strictResume"`
-	TmOptions []string `pulumi:"tmOptions"`
+	// Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
+	StrictResume *string  `pulumi:"strictResume"`
+	TmOptions    []string `pulumi:"tmOptions"`
 	// Unclean Shutdown (enabled / disabled)
 	UncleanShutdown *string `pulumi:"uncleanShutdown"`
 }
@@ -503,7 +503,7 @@ type ProfileClientSslArgs struct {
 	Cert pulumi.StringPtrInput
 	// Cert extension includes for ssl forward proxy
 	CertExtensionIncludes pulumi.StringArrayInput
-	CertKeyChains ProfileClientSslCertKeyChainArrayInput
+	CertKeyChains         ProfileClientSslCertKeyChainArrayInput
 	// Life span of the certificate in days for ssl forward proxy
 	CertLifeSpan pulumi.IntPtrInput
 	// Cert lookup by ip address and port enabled / disabled
@@ -584,9 +584,9 @@ type ProfileClientSslArgs struct {
 	SslForwardProxyBypass pulumi.StringPtrInput
 	// SSL sign hash (any, sha1, sha256, sha384)
 	SslSignHash pulumi.StringPtrInput
-	// Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile. 
+	// Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
 	StrictResume pulumi.StringPtrInput
-	TmOptions pulumi.StringArrayInput
+	TmOptions    pulumi.StringArrayInput
 	// Unclean Shutdown (enabled / disabled)
 	UncleanShutdown pulumi.StringPtrInput
 }
@@ -594,4 +594,3 @@ type ProfileClientSslArgs struct {
 func (ProfileClientSslArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileClientSslArgs)(nil)).Elem()
 }
-

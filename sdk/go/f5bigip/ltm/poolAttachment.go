@@ -96,4 +96,3 @@ type PoolAttachmentArgs struct {
 func (PoolAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*poolAttachmentArgs)(nil)).Elem()
 }
-

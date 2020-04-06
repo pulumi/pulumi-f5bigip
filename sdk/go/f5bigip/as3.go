@@ -94,4 +94,3 @@ type As3Args struct {
 func (As3Args) ElementType() reflect.Type {
 	return reflect.TypeOf((*as3Args)(nil)).Elem()
 }
-
