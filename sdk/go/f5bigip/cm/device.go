@@ -114,4 +114,3 @@ type DeviceArgs struct {
 func (DeviceArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*deviceArgs)(nil)).Elem()
 }
-

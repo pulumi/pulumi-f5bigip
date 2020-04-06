@@ -129,4 +129,3 @@ type ProvisionArgs struct {
 func (ProvisionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*provisionArgs)(nil)).Elem()
 }
-

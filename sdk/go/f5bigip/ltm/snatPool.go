@@ -13,7 +13,7 @@ import (
 
 // `ltm.SnatPool` Collections of SNAT translation addresses
 //
-// Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-snatpool. 
+// Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-snatpool.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_snatpool.html.markdown.
 type SnatPool struct {
@@ -94,4 +94,3 @@ type SnatPoolArgs struct {
 func (SnatPoolArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*snatPoolArgs)(nil)).Elem()
 }
-

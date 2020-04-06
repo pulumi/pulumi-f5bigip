@@ -132,4 +132,3 @@ type ProfileHttpCompressArgs struct {
 func (ProfileHttpCompressArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileHttpCompressArgs)(nil)).Elem()
 }
-

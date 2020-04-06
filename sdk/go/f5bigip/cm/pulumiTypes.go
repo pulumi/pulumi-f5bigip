@@ -13,8 +13,8 @@ import (
 
 type DeviceGroupDevice struct {
 	// Is the name of the device Group
-	Name *string `pulumi:"name"`
-	SetSyncLeader *bool `pulumi:"setSyncLeader"`
+	Name          *string `pulumi:"name"`
+	SetSyncLeader *bool   `pulumi:"setSyncLeader"`
 }
 
 type DeviceGroupDeviceInput interface {
@@ -26,8 +26,8 @@ type DeviceGroupDeviceInput interface {
 
 type DeviceGroupDeviceArgs struct {
 	// Is the name of the device Group
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	SetSyncLeader pulumi.BoolPtrInput `pulumi:"setSyncLeader"`
+	Name          pulumi.StringPtrInput `pulumi:"name"`
+	SetSyncLeader pulumi.BoolPtrInput   `pulumi:"setSyncLeader"`
 }
 
 func (DeviceGroupDeviceArgs) ElementType() reflect.Type {
@@ -63,7 +63,7 @@ func (i DeviceGroupDeviceArray) ToDeviceGroupDeviceArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceGroupDeviceArrayOutput)
 }
 
-type DeviceGroupDeviceOutput struct { *pulumi.OutputState }
+type DeviceGroupDeviceOutput struct{ *pulumi.OutputState }
 
 func (DeviceGroupDeviceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DeviceGroupDevice)(nil)).Elem()
@@ -79,14 +79,14 @@ func (o DeviceGroupDeviceOutput) ToDeviceGroupDeviceOutputWithContext(ctx contex
 
 // Is the name of the device Group
 func (o DeviceGroupDeviceOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v DeviceGroupDevice) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v DeviceGroupDevice) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 func (o DeviceGroupDeviceOutput) SetSyncLeader() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v DeviceGroupDevice) *bool { return v.SetSyncLeader }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v DeviceGroupDevice) *bool { return v.SetSyncLeader }).(pulumi.BoolPtrOutput)
 }
 
-type DeviceGroupDeviceArrayOutput struct { *pulumi.OutputState}
+type DeviceGroupDeviceArrayOutput struct{ *pulumi.OutputState }
 
 func (DeviceGroupDeviceArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]DeviceGroupDevice)(nil)).Elem()
@@ -101,7 +101,7 @@ func (o DeviceGroupDeviceArrayOutput) ToDeviceGroupDeviceArrayOutputWithContext(
 }
 
 func (o DeviceGroupDeviceArrayOutput) Index(i pulumi.IntInput) DeviceGroupDeviceOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) DeviceGroupDevice {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeviceGroupDevice {
 		return vs[0].([]DeviceGroupDevice)[vs[1].(int)]
 	}).(DeviceGroupDeviceOutput)
 }

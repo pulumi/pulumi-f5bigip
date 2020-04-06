@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// `ssl.Certificate` This resource will import SSL certificates on BIG-IP LTM. 
+// `ssl.Certificate` This resource will import SSL certificates on BIG-IP LTM.
 // Certificates can be imported from certificate files on the local disk, in PEM format
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ssl_certificate.html.markdown.
@@ -103,4 +103,3 @@ type CertificateArgs struct {
 func (CertificateArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*certificateArgs)(nil)).Elem()
 }
-

@@ -23,7 +23,7 @@ type Pool struct {
 	AllowNat pulumi.StringOutput `pulumi:"allowNat"`
 	// Allow SNAT
 	AllowSnat pulumi.StringOutput `pulumi:"allowSnat"`
-	// Userdefined value to describe the pool 
+	// Userdefined value to describe the pool
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Possible values: round-robin, ...
 	LoadBalancingMode pulumi.StringOutput `pulumi:"loadBalancingMode"`
@@ -74,7 +74,7 @@ type poolState struct {
 	AllowNat *string `pulumi:"allowNat"`
 	// Allow SNAT
 	AllowSnat *string `pulumi:"allowSnat"`
-	// Userdefined value to describe the pool 
+	// Userdefined value to describe the pool
 	Description *string `pulumi:"description"`
 	// Possible values: round-robin, ...
 	LoadBalancingMode *string `pulumi:"loadBalancingMode"`
@@ -95,7 +95,7 @@ type PoolState struct {
 	AllowNat pulumi.StringPtrInput
 	// Allow SNAT
 	AllowSnat pulumi.StringPtrInput
-	// Userdefined value to describe the pool 
+	// Userdefined value to describe the pool
 	Description pulumi.StringPtrInput
 	// Possible values: round-robin, ...
 	LoadBalancingMode pulumi.StringPtrInput
@@ -120,7 +120,7 @@ type poolArgs struct {
 	AllowNat *string `pulumi:"allowNat"`
 	// Allow SNAT
 	AllowSnat *string `pulumi:"allowSnat"`
-	// Userdefined value to describe the pool 
+	// Userdefined value to describe the pool
 	Description *string `pulumi:"description"`
 	// Possible values: round-robin, ...
 	LoadBalancingMode *string `pulumi:"loadBalancingMode"`
@@ -142,7 +142,7 @@ type PoolArgs struct {
 	AllowNat pulumi.StringPtrInput
 	// Allow SNAT
 	AllowSnat pulumi.StringPtrInput
-	// Userdefined value to describe the pool 
+	// Userdefined value to describe the pool
 	Description pulumi.StringPtrInput
 	// Possible values: round-robin, ...
 	LoadBalancingMode pulumi.StringPtrInput
@@ -161,4 +161,3 @@ type PoolArgs struct {
 func (PoolArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*poolArgs)(nil)).Elem()
 }
-

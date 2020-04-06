@@ -65,7 +65,7 @@ func (i VlanInterfaceArray) ToVlanInterfaceArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(VlanInterfaceArrayOutput)
 }
 
-type VlanInterfaceOutput struct { *pulumi.OutputState }
+type VlanInterfaceOutput struct{ *pulumi.OutputState }
 
 func (VlanInterfaceOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VlanInterface)(nil)).Elem()
@@ -81,15 +81,15 @@ func (o VlanInterfaceOutput) ToVlanInterfaceOutputWithContext(ctx context.Contex
 
 // Specifies a list of tagged interfaces or trunks associated with this VLAN. Note that you can associate tagged interfaces or trunks with any number of VLANs.
 func (o VlanInterfaceOutput) Tagged() pulumi.BoolPtrOutput {
-	return o.ApplyT(func (v VlanInterface) *bool { return v.Tagged }).(pulumi.BoolPtrOutput)
+	return o.ApplyT(func(v VlanInterface) *bool { return v.Tagged }).(pulumi.BoolPtrOutput)
 }
 
 // Physical or virtual port used for traffic
 func (o VlanInterfaceOutput) Vlanport() pulumi.StringPtrOutput {
-	return o.ApplyT(func (v VlanInterface) *string { return v.Vlanport }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v VlanInterface) *string { return v.Vlanport }).(pulumi.StringPtrOutput)
 }
 
-type VlanInterfaceArrayOutput struct { *pulumi.OutputState}
+type VlanInterfaceArrayOutput struct{ *pulumi.OutputState }
 
 func (VlanInterfaceArrayOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*[]VlanInterface)(nil)).Elem()
@@ -104,7 +104,7 @@ func (o VlanInterfaceArrayOutput) ToVlanInterfaceArrayOutputWithContext(ctx cont
 }
 
 func (o VlanInterfaceArrayOutput) Index(i pulumi.IntInput) VlanInterfaceOutput {
-	return pulumi.All(o, i).ApplyT(func (vs []interface{}) VlanInterface {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VlanInterface {
 		return vs[0].([]VlanInterface)[vs[1].(int)]
 	}).(VlanInterfaceOutput)
 }

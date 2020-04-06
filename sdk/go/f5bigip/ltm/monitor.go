@@ -34,8 +34,8 @@ type Monitor struct {
 	// Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
 	Filename pulumi.StringPtrOutput `pulumi:"filename"`
 	// Check interval in seconds
-	Interval pulumi.IntOutput `pulumi:"interval"`
-	IpDscp pulumi.IntOutput `pulumi:"ipDscp"`
+	Interval     pulumi.IntOutput    `pulumi:"interval"`
+	IpDscp       pulumi.IntOutput    `pulumi:"ipDscp"`
 	ManualResume pulumi.StringOutput `pulumi:"manualResume"`
 	// Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
 	Mode pulumi.StringOutput `pulumi:"mode"`
@@ -43,19 +43,19 @@ type Monitor struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Existing LTM monitor to inherit from
 	Parent pulumi.StringOutput `pulumi:"parent"`
-	// Specifies the password if the monitored target requires authentication 
+	// Specifies the password if the monitored target requires authentication
 	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// Expected response string
 	Receive pulumi.StringPtrOutput `pulumi:"receive"`
 	// Expected response string.
 	ReceiveDisable pulumi.StringPtrOutput `pulumi:"receiveDisable"`
-	Reverse pulumi.StringOutput `pulumi:"reverse"`
+	Reverse        pulumi.StringOutput    `pulumi:"reverse"`
 	// Request string to send
 	Send pulumi.StringPtrOutput `pulumi:"send"`
 	// Time in seconds
 	TimeUntilUp pulumi.IntOutput `pulumi:"timeUntilUp"`
 	// Timeout in seconds
-	Timeout pulumi.IntOutput `pulumi:"timeout"`
+	Timeout     pulumi.IntOutput    `pulumi:"timeout"`
 	Transparent pulumi.StringOutput `pulumi:"transparent"`
 	// Specifies the user name if the monitored target requires authentication
 	Username pulumi.StringPtrOutput `pulumi:"username"`
@@ -110,8 +110,8 @@ type monitorState struct {
 	// Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
 	Filename *string `pulumi:"filename"`
 	// Check interval in seconds
-	Interval *int `pulumi:"interval"`
-	IpDscp *int `pulumi:"ipDscp"`
+	Interval     *int    `pulumi:"interval"`
+	IpDscp       *int    `pulumi:"ipDscp"`
 	ManualResume *string `pulumi:"manualResume"`
 	// Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
 	Mode *string `pulumi:"mode"`
@@ -119,19 +119,19 @@ type monitorState struct {
 	Name *string `pulumi:"name"`
 	// Existing LTM monitor to inherit from
 	Parent *string `pulumi:"parent"`
-	// Specifies the password if the monitored target requires authentication 
+	// Specifies the password if the monitored target requires authentication
 	Password *string `pulumi:"password"`
 	// Expected response string
 	Receive *string `pulumi:"receive"`
 	// Expected response string.
 	ReceiveDisable *string `pulumi:"receiveDisable"`
-	Reverse *string `pulumi:"reverse"`
+	Reverse        *string `pulumi:"reverse"`
 	// Request string to send
 	Send *string `pulumi:"send"`
 	// Time in seconds
 	TimeUntilUp *int `pulumi:"timeUntilUp"`
 	// Timeout in seconds
-	Timeout *int `pulumi:"timeout"`
+	Timeout     *int    `pulumi:"timeout"`
 	Transparent *string `pulumi:"transparent"`
 	// Specifies the user name if the monitored target requires authentication
 	Username *string `pulumi:"username"`
@@ -153,8 +153,8 @@ type MonitorState struct {
 	// Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
 	Filename pulumi.StringPtrInput
 	// Check interval in seconds
-	Interval pulumi.IntPtrInput
-	IpDscp pulumi.IntPtrInput
+	Interval     pulumi.IntPtrInput
+	IpDscp       pulumi.IntPtrInput
 	ManualResume pulumi.StringPtrInput
 	// Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
 	Mode pulumi.StringPtrInput
@@ -162,19 +162,19 @@ type MonitorState struct {
 	Name pulumi.StringPtrInput
 	// Existing LTM monitor to inherit from
 	Parent pulumi.StringPtrInput
-	// Specifies the password if the monitored target requires authentication 
+	// Specifies the password if the monitored target requires authentication
 	Password pulumi.StringPtrInput
 	// Expected response string
 	Receive pulumi.StringPtrInput
 	// Expected response string.
 	ReceiveDisable pulumi.StringPtrInput
-	Reverse pulumi.StringPtrInput
+	Reverse        pulumi.StringPtrInput
 	// Request string to send
 	Send pulumi.StringPtrInput
 	// Time in seconds
 	TimeUntilUp pulumi.IntPtrInput
 	// Timeout in seconds
-	Timeout pulumi.IntPtrInput
+	Timeout     pulumi.IntPtrInput
 	Transparent pulumi.StringPtrInput
 	// Specifies the user name if the monitored target requires authentication
 	Username pulumi.StringPtrInput
@@ -200,8 +200,8 @@ type monitorArgs struct {
 	// Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
 	Filename *string `pulumi:"filename"`
 	// Check interval in seconds
-	Interval *int `pulumi:"interval"`
-	IpDscp *int `pulumi:"ipDscp"`
+	Interval     *int    `pulumi:"interval"`
+	IpDscp       *int    `pulumi:"ipDscp"`
 	ManualResume *string `pulumi:"manualResume"`
 	// Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
 	Mode *string `pulumi:"mode"`
@@ -209,19 +209,19 @@ type monitorArgs struct {
 	Name string `pulumi:"name"`
 	// Existing LTM monitor to inherit from
 	Parent string `pulumi:"parent"`
-	// Specifies the password if the monitored target requires authentication 
+	// Specifies the password if the monitored target requires authentication
 	Password *string `pulumi:"password"`
 	// Expected response string
 	Receive *string `pulumi:"receive"`
 	// Expected response string.
 	ReceiveDisable *string `pulumi:"receiveDisable"`
-	Reverse *string `pulumi:"reverse"`
+	Reverse        *string `pulumi:"reverse"`
 	// Request string to send
 	Send *string `pulumi:"send"`
 	// Time in seconds
 	TimeUntilUp *int `pulumi:"timeUntilUp"`
 	// Timeout in seconds
-	Timeout *int `pulumi:"timeout"`
+	Timeout     *int    `pulumi:"timeout"`
 	Transparent *string `pulumi:"transparent"`
 	// Specifies the user name if the monitored target requires authentication
 	Username *string `pulumi:"username"`
@@ -244,8 +244,8 @@ type MonitorArgs struct {
 	// Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
 	Filename pulumi.StringPtrInput
 	// Check interval in seconds
-	Interval pulumi.IntPtrInput
-	IpDscp pulumi.IntPtrInput
+	Interval     pulumi.IntPtrInput
+	IpDscp       pulumi.IntPtrInput
 	ManualResume pulumi.StringPtrInput
 	// Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
 	Mode pulumi.StringPtrInput
@@ -253,19 +253,19 @@ type MonitorArgs struct {
 	Name pulumi.StringInput
 	// Existing LTM monitor to inherit from
 	Parent pulumi.StringInput
-	// Specifies the password if the monitored target requires authentication 
+	// Specifies the password if the monitored target requires authentication
 	Password pulumi.StringPtrInput
 	// Expected response string
 	Receive pulumi.StringPtrInput
 	// Expected response string.
 	ReceiveDisable pulumi.StringPtrInput
-	Reverse pulumi.StringPtrInput
+	Reverse        pulumi.StringPtrInput
 	// Request string to send
 	Send pulumi.StringPtrInput
 	// Time in seconds
 	TimeUntilUp pulumi.IntPtrInput
 	// Timeout in seconds
-	Timeout pulumi.IntPtrInput
+	Timeout     pulumi.IntPtrInput
 	Transparent pulumi.StringPtrInput
 	// Specifies the user name if the monitored target requires authentication
 	Username pulumi.StringPtrInput
@@ -274,4 +274,3 @@ type MonitorArgs struct {
 func (MonitorArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*monitorArgs)(nil)).Elem()
 }
-

@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/go/pulumi"
 )
 
-// `sys.IApp` resource helps you to deploy Application Services template that can be used to automate and orchestrate Layer 4-7 applications service deployments using F5 Network.  
+// `sys.IApp` resource helps you to deploy Application Services template that can be used to automate and orchestrate Layer 4-7 applications service deployments using F5 Network.
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_sys_iapp.html.markdown.
 type IApp struct {
@@ -27,8 +27,8 @@ type IApp struct {
 	// BIG-IP password
 	InheritedTrafficGroup pulumi.StringPtrOutput `pulumi:"inheritedTrafficGroup"`
 	// Refer to the Json file which will be deployed on F5 BIG-IP.
-	Jsonfile pulumi.StringPtrOutput `pulumi:"jsonfile"`
-	Lists IAppListArrayOutput `pulumi:"lists"`
+	Jsonfile  pulumi.StringPtrOutput  `pulumi:"jsonfile"`
+	Lists     IAppListArrayOutput     `pulumi:"lists"`
 	Metadatas IAppMetadataArrayOutput `pulumi:"metadatas"`
 	// Name of the iApp.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
@@ -36,7 +36,7 @@ type IApp struct {
 	Partition pulumi.StringPtrOutput `pulumi:"partition"`
 	// BIG-IP password
 	StrictUpdates pulumi.StringPtrOutput `pulumi:"strictUpdates"`
-	Tables IAppTableArrayOutput `pulumi:"tables"`
+	Tables        IAppTableArrayOutput   `pulumi:"tables"`
 	// BIG-IP password
 	Template pulumi.StringPtrOutput `pulumi:"template"`
 	// BIG-IP password
@@ -44,8 +44,8 @@ type IApp struct {
 	// BIG-IP password
 	TemplatePrerequisiteErrors pulumi.StringPtrOutput `pulumi:"templatePrerequisiteErrors"`
 	// BIG-IP password
-	TrafficGroup pulumi.StringPtrOutput `pulumi:"trafficGroup"`
-	Variables IAppVariableArrayOutput `pulumi:"variables"`
+	TrafficGroup pulumi.StringPtrOutput  `pulumi:"trafficGroup"`
+	Variables    IAppVariableArrayOutput `pulumi:"variables"`
 }
 
 // NewIApp registers a new resource with the given unique name, arguments, and options.
@@ -87,16 +87,16 @@ type iappState struct {
 	// BIG-IP password
 	InheritedTrafficGroup *string `pulumi:"inheritedTrafficGroup"`
 	// Refer to the Json file which will be deployed on F5 BIG-IP.
-	Jsonfile *string `pulumi:"jsonfile"`
-	Lists []IAppList `pulumi:"lists"`
+	Jsonfile  *string        `pulumi:"jsonfile"`
+	Lists     []IAppList     `pulumi:"lists"`
 	Metadatas []IAppMetadata `pulumi:"metadatas"`
 	// Name of the iApp.
 	Name *string `pulumi:"name"`
 	// Address of the Iapp which needs to be Iappensed
 	Partition *string `pulumi:"partition"`
 	// BIG-IP password
-	StrictUpdates *string `pulumi:"strictUpdates"`
-	Tables []IAppTable `pulumi:"tables"`
+	StrictUpdates *string     `pulumi:"strictUpdates"`
+	Tables        []IAppTable `pulumi:"tables"`
 	// BIG-IP password
 	Template *string `pulumi:"template"`
 	// BIG-IP password
@@ -104,8 +104,8 @@ type iappState struct {
 	// BIG-IP password
 	TemplatePrerequisiteErrors *string `pulumi:"templatePrerequisiteErrors"`
 	// BIG-IP password
-	TrafficGroup *string `pulumi:"trafficGroup"`
-	Variables []IAppVariable `pulumi:"variables"`
+	TrafficGroup *string        `pulumi:"trafficGroup"`
+	Variables    []IAppVariable `pulumi:"variables"`
 }
 
 type IAppState struct {
@@ -120,8 +120,8 @@ type IAppState struct {
 	// BIG-IP password
 	InheritedTrafficGroup pulumi.StringPtrInput
 	// Refer to the Json file which will be deployed on F5 BIG-IP.
-	Jsonfile pulumi.StringPtrInput
-	Lists IAppListArrayInput
+	Jsonfile  pulumi.StringPtrInput
+	Lists     IAppListArrayInput
 	Metadatas IAppMetadataArrayInput
 	// Name of the iApp.
 	Name pulumi.StringPtrInput
@@ -129,7 +129,7 @@ type IAppState struct {
 	Partition pulumi.StringPtrInput
 	// BIG-IP password
 	StrictUpdates pulumi.StringPtrInput
-	Tables IAppTableArrayInput
+	Tables        IAppTableArrayInput
 	// BIG-IP password
 	Template pulumi.StringPtrInput
 	// BIG-IP password
@@ -138,7 +138,7 @@ type IAppState struct {
 	TemplatePrerequisiteErrors pulumi.StringPtrInput
 	// BIG-IP password
 	TrafficGroup pulumi.StringPtrInput
-	Variables IAppVariableArrayInput
+	Variables    IAppVariableArrayInput
 }
 
 func (IAppState) ElementType() reflect.Type {
@@ -157,16 +157,16 @@ type iappArgs struct {
 	// BIG-IP password
 	InheritedTrafficGroup *string `pulumi:"inheritedTrafficGroup"`
 	// Refer to the Json file which will be deployed on F5 BIG-IP.
-	Jsonfile *string `pulumi:"jsonfile"`
-	Lists []IAppList `pulumi:"lists"`
+	Jsonfile  *string        `pulumi:"jsonfile"`
+	Lists     []IAppList     `pulumi:"lists"`
 	Metadatas []IAppMetadata `pulumi:"metadatas"`
 	// Name of the iApp.
 	Name *string `pulumi:"name"`
 	// Address of the Iapp which needs to be Iappensed
 	Partition *string `pulumi:"partition"`
 	// BIG-IP password
-	StrictUpdates *string `pulumi:"strictUpdates"`
-	Tables []IAppTable `pulumi:"tables"`
+	StrictUpdates *string     `pulumi:"strictUpdates"`
+	Tables        []IAppTable `pulumi:"tables"`
 	// BIG-IP password
 	Template *string `pulumi:"template"`
 	// BIG-IP password
@@ -174,8 +174,8 @@ type iappArgs struct {
 	// BIG-IP password
 	TemplatePrerequisiteErrors *string `pulumi:"templatePrerequisiteErrors"`
 	// BIG-IP password
-	TrafficGroup *string `pulumi:"trafficGroup"`
-	Variables []IAppVariable `pulumi:"variables"`
+	TrafficGroup *string        `pulumi:"trafficGroup"`
+	Variables    []IAppVariable `pulumi:"variables"`
 }
 
 // The set of arguments for constructing a IApp resource.
@@ -191,8 +191,8 @@ type IAppArgs struct {
 	// BIG-IP password
 	InheritedTrafficGroup pulumi.StringPtrInput
 	// Refer to the Json file which will be deployed on F5 BIG-IP.
-	Jsonfile pulumi.StringPtrInput
-	Lists IAppListArrayInput
+	Jsonfile  pulumi.StringPtrInput
+	Lists     IAppListArrayInput
 	Metadatas IAppMetadataArrayInput
 	// Name of the iApp.
 	Name pulumi.StringPtrInput
@@ -200,7 +200,7 @@ type IAppArgs struct {
 	Partition pulumi.StringPtrInput
 	// BIG-IP password
 	StrictUpdates pulumi.StringPtrInput
-	Tables IAppTableArrayInput
+	Tables        IAppTableArrayInput
 	// BIG-IP password
 	Template pulumi.StringPtrInput
 	// BIG-IP password
@@ -209,10 +209,9 @@ type IAppArgs struct {
 	TemplatePrerequisiteErrors pulumi.StringPtrInput
 	// BIG-IP password
 	TrafficGroup pulumi.StringPtrInput
-	Variables IAppVariableArrayInput
+	Variables    IAppVariableArrayInput
 }
 
 func (IAppArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*iappArgs)(nil)).Elem()
 }
-

@@ -184,4 +184,3 @@ type SnatArgs struct {
 func (SnatArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*snatArgs)(nil)).Elem()
 }
-

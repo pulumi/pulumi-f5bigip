@@ -94,4 +94,3 @@ type DoArgs struct {
 func (DoArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*doArgs)(nil)).Elem()
 }
-

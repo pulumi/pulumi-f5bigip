@@ -26,8 +26,8 @@ type Node struct {
 	// User-defined description give ltm_node
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Specifies the fixed ratio value used for a node during ratio load balancing.
-	DynamicRatio pulumi.IntOutput `pulumi:"dynamicRatio"`
-	Fqdn NodeFqdnPtrOutput `pulumi:"fqdn"`
+	DynamicRatio pulumi.IntOutput  `pulumi:"dynamicRatio"`
+	Fqdn         NodeFqdnPtrOutput `pulumi:"fqdn"`
 	// specifies the name of the monitor or monitor rule that you want to associate with the node.
 	Monitor pulumi.StringPtrOutput `pulumi:"monitor"`
 	// Name of the node
@@ -82,8 +82,8 @@ type nodeState struct {
 	// User-defined description give ltm_node
 	Description *string `pulumi:"description"`
 	// Specifies the fixed ratio value used for a node during ratio load balancing.
-	DynamicRatio *int `pulumi:"dynamicRatio"`
-	Fqdn *NodeFqdn `pulumi:"fqdn"`
+	DynamicRatio *int      `pulumi:"dynamicRatio"`
+	Fqdn         *NodeFqdn `pulumi:"fqdn"`
 	// specifies the name of the monitor or monitor rule that you want to associate with the node.
 	Monitor *string `pulumi:"monitor"`
 	// Name of the node
@@ -106,7 +106,7 @@ type NodeState struct {
 	Description pulumi.StringPtrInput
 	// Specifies the fixed ratio value used for a node during ratio load balancing.
 	DynamicRatio pulumi.IntPtrInput
-	Fqdn NodeFqdnPtrInput
+	Fqdn         NodeFqdnPtrInput
 	// specifies the name of the monitor or monitor rule that you want to associate with the node.
 	Monitor pulumi.StringPtrInput
 	// Name of the node
@@ -132,8 +132,8 @@ type nodeArgs struct {
 	// User-defined description give ltm_node
 	Description *string `pulumi:"description"`
 	// Specifies the fixed ratio value used for a node during ratio load balancing.
-	DynamicRatio *int `pulumi:"dynamicRatio"`
-	Fqdn *NodeFqdn `pulumi:"fqdn"`
+	DynamicRatio *int      `pulumi:"dynamicRatio"`
+	Fqdn         *NodeFqdn `pulumi:"fqdn"`
 	// specifies the name of the monitor or monitor rule that you want to associate with the node.
 	Monitor *string `pulumi:"monitor"`
 	// Name of the node
@@ -157,7 +157,7 @@ type NodeArgs struct {
 	Description pulumi.StringPtrInput
 	// Specifies the fixed ratio value used for a node during ratio load balancing.
 	DynamicRatio pulumi.IntPtrInput
-	Fqdn NodeFqdnPtrInput
+	Fqdn         NodeFqdnPtrInput
 	// specifies the name of the monitor or monitor rule that you want to associate with the node.
 	Monitor pulumi.StringPtrInput
 	// Name of the node
@@ -174,4 +174,3 @@ type NodeArgs struct {
 func (NodeArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*nodeArgs)(nil)).Elem()
 }
-

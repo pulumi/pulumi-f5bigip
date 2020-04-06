@@ -94,4 +94,3 @@ type IRuleArgs struct {
 func (IRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*iruleArgs)(nil)).Elem()
 }
-

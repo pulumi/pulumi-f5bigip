@@ -171,4 +171,3 @@ type ProfileFastL4Args struct {
 func (ProfileFastL4Args) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileFastL4Args)(nil)).Elem()
 }
-
