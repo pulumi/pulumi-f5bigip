@@ -12,6 +12,11 @@ namespace Pulumi.F5BigIP.Sys
     /// <summary>
     /// `f5bigip.sys.Dns` Configures DNS server on F5 BIG-IP
     /// 
+    /// 
+    /// 
+    /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_sys_dns.html.markdown.
     /// </summary>
     public partial class Dns : Pulumi.CustomResource

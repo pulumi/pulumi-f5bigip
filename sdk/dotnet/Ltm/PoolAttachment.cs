@@ -16,6 +16,8 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// Note: node must be the full path to the node followed by the port. For example /Common/my-node:80
     /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_pool_attachment.html.markdown.
     /// </summary>
     public partial class PoolAttachment : Pulumi.CustomResource

@@ -24,6 +24,9 @@ class IRule(pulumi.CustomResource):
 
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 
+
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_irule.html.markdown.
 
         :param str resource_name: The name of the resource.

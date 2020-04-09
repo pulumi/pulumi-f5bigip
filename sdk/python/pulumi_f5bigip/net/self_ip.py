@@ -32,6 +32,9 @@ class SelfIp(pulumi.CustomResource):
 
         Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-selfip.
 
+
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_net_selfip.html.markdown.
 
         :param str resource_name: The name of the resource.

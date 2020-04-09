@@ -70,6 +70,7 @@ class SnmpTraps(pulumi.CustomResource):
         """
         `sys.SnmpTraps` provides details bout how to enable snmp_traps resource on BIG-IP
 
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_sys_snmp_traps.html.markdown.
 
         :param str resource_name: The name of the resource.

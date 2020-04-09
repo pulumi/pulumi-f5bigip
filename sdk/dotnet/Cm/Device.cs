@@ -14,6 +14,7 @@ namespace Pulumi.F5BigIP.CM
     /// 
     /// This resource is helpful when configuring the BIG-IP device in cluster or in HA mode.
     /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_cm_device.html.markdown.
     /// </summary>
     public partial class Device : Pulumi.CustomResource

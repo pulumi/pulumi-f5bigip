@@ -8,12 +8,15 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // `ltm.DataGroup` Manages internal (in-line) datagroup configuration
 //
 // Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-datagroup.
+//
+//
+//
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_datagroup.html.markdown.
 type DataGroup struct {

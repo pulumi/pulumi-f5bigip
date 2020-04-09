@@ -14,6 +14,7 @@ namespace Pulumi.F5BigIP.Sys
     /// 
     /// This resource is helpful when configuring NTP server on the BIG-IP.
     /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_sys_ntp.html.markdown.
     /// </summary>
     public partial class Ntp : Pulumi.CustomResource

@@ -14,6 +14,9 @@ namespace Pulumi.F5BigIP.Net
     /// 
     /// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
     /// 
+    /// 
+    /// 
+    /// 
     /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_net_route.html.markdown.
     /// </summary>
     public partial class Route : Pulumi.CustomResource

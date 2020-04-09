@@ -26,6 +26,8 @@ class PoolAttachment(pulumi.CustomResource):
 
         Note: node must be the full path to the node followed by the port. For example /Common/my-node:80
 
+
+
         > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_pool_attachment.html.markdown.
 
         :param str resource_name: The name of the resource.

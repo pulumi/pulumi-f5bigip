@@ -8,10 +8,14 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
 // `ltm.ProfileClientSsl` Manages client SSL profiles on a BIG-IP
+//
+//
+//
+//
 //
 // > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_profile_client_ssl.html.markdown.
 type ProfileClientSsl struct {
