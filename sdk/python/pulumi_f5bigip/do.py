@@ -25,8 +25,6 @@ class Do(pulumi.CustomResource):
         This resource is helpful to configure do declarative JSON on BIG-IP.
 
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_do.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] do_json: Name of the of the Declarative DO JSON file

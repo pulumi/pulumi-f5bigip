@@ -115,8 +115,6 @@ class PersistenceProfileCookie(pulumi.CustomResource):
 
         `httponly` (Optional) (enabled or disabled) Sending only over http
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_persistence_profile_cookie.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] always_send: To enable _ disable always sending cookies

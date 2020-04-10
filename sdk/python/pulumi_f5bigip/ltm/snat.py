@@ -66,8 +66,6 @@ class Snat(pulumi.CustomResource):
 
 
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_snat.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] autolasthop: Specifies whether to automatically map last hop for pools or not. The default is to use next level's defaul
