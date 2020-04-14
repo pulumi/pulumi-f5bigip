@@ -13,8 +13,6 @@ namespace Pulumi.F5BigIP.Ltm
     /// `f5bigip.ltm.ProfileHttp2` Configures a custom profile_http2 for use by health checks.
     /// 
     /// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_profile_http2.html.markdown.
     /// </summary>
     public partial class ProfileHttp2 : Pulumi.CustomResource
     {
@@ -63,7 +61,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ProfileHttp2(string name, ProfileHttp2Args args, CustomResourceOptions? options = null)
-            : base("f5bigip:ltm/profileHttp2:ProfileHttp2", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("f5bigip:ltm/profileHttp2:ProfileHttp2", name, args ?? new ProfileHttp2Args(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -13,14 +13,12 @@ namespace Pulumi.F5BigIP.Ltm
     /// `f5bigip.ltm.ProfileHttp` Configures a custom profile_http for use by health checks.
     /// 
     /// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_profile_http.html.markdown.
     /// </summary>
     public partial class ProfileHttp : Pulumi.CustomResource
     {
         /// <summary>
-        /// Enables or disables trusting the client IP address, and statistics from the client IP address, based on the
-        /// request's XFF (X-forwarded-for) headers, if they exist.
+        /// Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's
+        /// XFF (X-forwarded-for) headers, if they exist.
         /// </summary>
         [Output("acceptXff")]
         public Output<string?> AcceptXff { get; private set; } = null!;
@@ -140,8 +138,8 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<ImmutableArray<string>> ResponseHeadersPermitteds { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is
-        /// BigIP. If no string is specified, then no Server header will be added to such responses
+        /// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no
+        /// string is specified, then no Server header will be added to such responses
         /// </summary>
         [Output("serverAgentName")]
         public Output<string?> ServerAgentName { get; private set; } = null!;
@@ -185,7 +183,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ProfileHttp(string name, ProfileHttpArgs args, CustomResourceOptions? options = null)
-            : base("f5bigip:ltm/profileHttp:ProfileHttp", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("f5bigip:ltm/profileHttp:ProfileHttp", name, args ?? new ProfileHttpArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -223,8 +221,8 @@ namespace Pulumi.F5BigIP.Ltm
     public sealed class ProfileHttpArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enables or disables trusting the client IP address, and statistics from the client IP address, based on the
-        /// request's XFF (X-forwarded-for) headers, if they exist.
+        /// Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's
+        /// XFF (X-forwarded-for) headers, if they exist.
         /// </summary>
         [Input("acceptXff")]
         public Input<string>? AcceptXff { get; set; }
@@ -362,8 +360,8 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is
-        /// BigIP. If no string is specified, then no Server header will be added to such responses
+        /// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no
+        /// string is specified, then no Server header will be added to such responses
         /// </summary>
         [Input("serverAgentName")]
         public Input<string>? ServerAgentName { get; set; }
@@ -412,8 +410,8 @@ namespace Pulumi.F5BigIP.Ltm
     public sealed class ProfileHttpState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enables or disables trusting the client IP address, and statistics from the client IP address, based on the
-        /// request's XFF (X-forwarded-for) headers, if they exist.
+        /// Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's
+        /// XFF (X-forwarded-for) headers, if they exist.
         /// </summary>
         [Input("acceptXff")]
         public Input<string>? AcceptXff { get; set; }
@@ -551,8 +549,8 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is
-        /// BigIP. If no string is specified, then no Server header will be added to such responses
+        /// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no
+        /// string is specified, then no Server header will be added to such responses
         /// </summary>
         [Input("serverAgentName")]
         public Input<string>? ServerAgentName { get; set; }

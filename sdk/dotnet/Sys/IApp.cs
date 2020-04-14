@@ -11,8 +11,6 @@ namespace Pulumi.F5BigIP.Sys
 {
     /// <summary>
     /// `f5bigip.sys.IApp` resource helps you to deploy Application Services template that can be used to automate and orchestrate Layer 4-7 applications service deployments using F5 Network.  
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_sys_iapp.html.markdown.
     /// </summary>
     public partial class IApp : Pulumi.CustomResource
     {
@@ -53,10 +51,10 @@ namespace Pulumi.F5BigIP.Sys
         public Output<string?> Jsonfile { get; private set; } = null!;
 
         [Output("lists")]
-        public Output<ImmutableArray<Outputs.IAppLists>> Lists { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.IAppList>> Lists { get; private set; } = null!;
 
         [Output("metadatas")]
-        public Output<ImmutableArray<Outputs.IAppMetadatas>> Metadatas { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.IAppMetadata>> Metadatas { get; private set; } = null!;
 
         /// <summary>
         /// Name of the iApp.
@@ -77,7 +75,7 @@ namespace Pulumi.F5BigIP.Sys
         public Output<string?> StrictUpdates { get; private set; } = null!;
 
         [Output("tables")]
-        public Output<ImmutableArray<Outputs.IAppTables>> Tables { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.IAppTable>> Tables { get; private set; } = null!;
 
         /// <summary>
         /// BIG-IP password
@@ -104,7 +102,7 @@ namespace Pulumi.F5BigIP.Sys
         public Output<string?> TrafficGroup { get; private set; } = null!;
 
         [Output("variables")]
-        public Output<ImmutableArray<Outputs.IAppVariables>> Variables { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.IAppVariable>> Variables { get; private set; } = null!;
 
 
         /// <summary>
@@ -115,7 +113,7 @@ namespace Pulumi.F5BigIP.Sys
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IApp(string name, IAppArgs? args = null, CustomResourceOptions? options = null)
-            : base("f5bigip:sys/iApp:IApp", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("f5bigip:sys/iApp:IApp", name, args ?? new IAppArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -189,18 +187,18 @@ namespace Pulumi.F5BigIP.Sys
         public Input<string>? Jsonfile { get; set; }
 
         [Input("lists")]
-        private InputList<Inputs.IAppListsArgs>? _lists;
-        public InputList<Inputs.IAppListsArgs> Lists
+        private InputList<Inputs.IAppListArgs>? _lists;
+        public InputList<Inputs.IAppListArgs> Lists
         {
-            get => _lists ?? (_lists = new InputList<Inputs.IAppListsArgs>());
+            get => _lists ?? (_lists = new InputList<Inputs.IAppListArgs>());
             set => _lists = value;
         }
 
         [Input("metadatas")]
-        private InputList<Inputs.IAppMetadatasArgs>? _metadatas;
-        public InputList<Inputs.IAppMetadatasArgs> Metadatas
+        private InputList<Inputs.IAppMetadataArgs>? _metadatas;
+        public InputList<Inputs.IAppMetadataArgs> Metadatas
         {
-            get => _metadatas ?? (_metadatas = new InputList<Inputs.IAppMetadatasArgs>());
+            get => _metadatas ?? (_metadatas = new InputList<Inputs.IAppMetadataArgs>());
             set => _metadatas = value;
         }
 
@@ -223,10 +221,10 @@ namespace Pulumi.F5BigIP.Sys
         public Input<string>? StrictUpdates { get; set; }
 
         [Input("tables")]
-        private InputList<Inputs.IAppTablesArgs>? _tables;
-        public InputList<Inputs.IAppTablesArgs> Tables
+        private InputList<Inputs.IAppTableArgs>? _tables;
+        public InputList<Inputs.IAppTableArgs> Tables
         {
-            get => _tables ?? (_tables = new InputList<Inputs.IAppTablesArgs>());
+            get => _tables ?? (_tables = new InputList<Inputs.IAppTableArgs>());
             set => _tables = value;
         }
 
@@ -255,10 +253,10 @@ namespace Pulumi.F5BigIP.Sys
         public Input<string>? TrafficGroup { get; set; }
 
         [Input("variables")]
-        private InputList<Inputs.IAppVariablesArgs>? _variables;
-        public InputList<Inputs.IAppVariablesArgs> Variables
+        private InputList<Inputs.IAppVariableArgs>? _variables;
+        public InputList<Inputs.IAppVariableArgs> Variables
         {
-            get => _variables ?? (_variables = new InputList<Inputs.IAppVariablesArgs>());
+            get => _variables ?? (_variables = new InputList<Inputs.IAppVariableArgs>());
             set => _variables = value;
         }
 
@@ -306,18 +304,18 @@ namespace Pulumi.F5BigIP.Sys
         public Input<string>? Jsonfile { get; set; }
 
         [Input("lists")]
-        private InputList<Inputs.IAppListsGetArgs>? _lists;
-        public InputList<Inputs.IAppListsGetArgs> Lists
+        private InputList<Inputs.IAppListGetArgs>? _lists;
+        public InputList<Inputs.IAppListGetArgs> Lists
         {
-            get => _lists ?? (_lists = new InputList<Inputs.IAppListsGetArgs>());
+            get => _lists ?? (_lists = new InputList<Inputs.IAppListGetArgs>());
             set => _lists = value;
         }
 
         [Input("metadatas")]
-        private InputList<Inputs.IAppMetadatasGetArgs>? _metadatas;
-        public InputList<Inputs.IAppMetadatasGetArgs> Metadatas
+        private InputList<Inputs.IAppMetadataGetArgs>? _metadatas;
+        public InputList<Inputs.IAppMetadataGetArgs> Metadatas
         {
-            get => _metadatas ?? (_metadatas = new InputList<Inputs.IAppMetadatasGetArgs>());
+            get => _metadatas ?? (_metadatas = new InputList<Inputs.IAppMetadataGetArgs>());
             set => _metadatas = value;
         }
 
@@ -340,10 +338,10 @@ namespace Pulumi.F5BigIP.Sys
         public Input<string>? StrictUpdates { get; set; }
 
         [Input("tables")]
-        private InputList<Inputs.IAppTablesGetArgs>? _tables;
-        public InputList<Inputs.IAppTablesGetArgs> Tables
+        private InputList<Inputs.IAppTableGetArgs>? _tables;
+        public InputList<Inputs.IAppTableGetArgs> Tables
         {
-            get => _tables ?? (_tables = new InputList<Inputs.IAppTablesGetArgs>());
+            get => _tables ?? (_tables = new InputList<Inputs.IAppTableGetArgs>());
             set => _tables = value;
         }
 
@@ -372,298 +370,15 @@ namespace Pulumi.F5BigIP.Sys
         public Input<string>? TrafficGroup { get; set; }
 
         [Input("variables")]
-        private InputList<Inputs.IAppVariablesGetArgs>? _variables;
-        public InputList<Inputs.IAppVariablesGetArgs> Variables
+        private InputList<Inputs.IAppVariableGetArgs>? _variables;
+        public InputList<Inputs.IAppVariableGetArgs> Variables
         {
-            get => _variables ?? (_variables = new InputList<Inputs.IAppVariablesGetArgs>());
+            get => _variables ?? (_variables = new InputList<Inputs.IAppVariableGetArgs>());
             set => _variables = value;
         }
 
         public IAppState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class IAppListsArgs : Pulumi.ResourceArgs
-    {
-        [Input("encrypted")]
-        public Input<string>? Encrypted { get; set; }
-
-        [Input("value")]
-        public Input<string>? Value { get; set; }
-
-        public IAppListsArgs()
-        {
-        }
-    }
-
-    public sealed class IAppListsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("encrypted")]
-        public Input<string>? Encrypted { get; set; }
-
-        [Input("value")]
-        public Input<string>? Value { get; set; }
-
-        public IAppListsGetArgs()
-        {
-        }
-    }
-
-    public sealed class IAppMetadatasArgs : Pulumi.ResourceArgs
-    {
-        [Input("persists")]
-        public Input<string>? Persists { get; set; }
-
-        [Input("value")]
-        public Input<string>? Value { get; set; }
-
-        public IAppMetadatasArgs()
-        {
-        }
-    }
-
-    public sealed class IAppMetadatasGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("persists")]
-        public Input<string>? Persists { get; set; }
-
-        [Input("value")]
-        public Input<string>? Value { get; set; }
-
-        public IAppMetadatasGetArgs()
-        {
-        }
-    }
-
-    public sealed class IAppTablesArgs : Pulumi.ResourceArgs
-    {
-        [Input("columnNames")]
-        private InputList<string>? _columnNames;
-        public InputList<string> ColumnNames
-        {
-            get => _columnNames ?? (_columnNames = new InputList<string>());
-            set => _columnNames = value;
-        }
-
-        [Input("encryptedColumns")]
-        public Input<string>? EncryptedColumns { get; set; }
-
-        /// <summary>
-        /// Name of the iApp.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        [Input("rows")]
-        private InputList<IAppTablesRowsArgs>? _rows;
-        public InputList<IAppTablesRowsArgs> Rows
-        {
-            get => _rows ?? (_rows = new InputList<IAppTablesRowsArgs>());
-            set => _rows = value;
-        }
-
-        public IAppTablesArgs()
-        {
-        }
-    }
-
-    public sealed class IAppTablesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("columnNames")]
-        private InputList<string>? _columnNames;
-        public InputList<string> ColumnNames
-        {
-            get => _columnNames ?? (_columnNames = new InputList<string>());
-            set => _columnNames = value;
-        }
-
-        [Input("encryptedColumns")]
-        public Input<string>? EncryptedColumns { get; set; }
-
-        /// <summary>
-        /// Name of the iApp.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        [Input("rows")]
-        private InputList<IAppTablesRowsGetArgs>? _rows;
-        public InputList<IAppTablesRowsGetArgs> Rows
-        {
-            get => _rows ?? (_rows = new InputList<IAppTablesRowsGetArgs>());
-            set => _rows = value;
-        }
-
-        public IAppTablesGetArgs()
-        {
-        }
-    }
-
-    public sealed class IAppTablesRowsArgs : Pulumi.ResourceArgs
-    {
-        [Input("rows")]
-        private InputList<string>? _rows;
-        public InputList<string> Rows
-        {
-            get => _rows ?? (_rows = new InputList<string>());
-            set => _rows = value;
-        }
-
-        public IAppTablesRowsArgs()
-        {
-        }
-    }
-
-    public sealed class IAppTablesRowsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("rows")]
-        private InputList<string>? _rows;
-        public InputList<string> Rows
-        {
-            get => _rows ?? (_rows = new InputList<string>());
-            set => _rows = value;
-        }
-
-        public IAppTablesRowsGetArgs()
-        {
-        }
-    }
-
-    public sealed class IAppVariablesArgs : Pulumi.ResourceArgs
-    {
-        [Input("encrypted")]
-        public Input<string>? Encrypted { get; set; }
-
-        /// <summary>
-        /// Name of the iApp.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        [Input("value")]
-        public Input<string>? Value { get; set; }
-
-        public IAppVariablesArgs()
-        {
-        }
-    }
-
-    public sealed class IAppVariablesGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("encrypted")]
-        public Input<string>? Encrypted { get; set; }
-
-        /// <summary>
-        /// Name of the iApp.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        [Input("value")]
-        public Input<string>? Value { get; set; }
-
-        public IAppVariablesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class IAppLists
-    {
-        public readonly string? Encrypted;
-        public readonly string? Value;
-
-        [OutputConstructor]
-        private IAppLists(
-            string? encrypted,
-            string? value)
-        {
-            Encrypted = encrypted;
-            Value = value;
-        }
-    }
-
-    [OutputType]
-    public sealed class IAppMetadatas
-    {
-        public readonly string? Persists;
-        public readonly string? Value;
-
-        [OutputConstructor]
-        private IAppMetadatas(
-            string? persists,
-            string? value)
-        {
-            Persists = persists;
-            Value = value;
-        }
-    }
-
-    [OutputType]
-    public sealed class IAppTables
-    {
-        public readonly ImmutableArray<string> ColumnNames;
-        public readonly string? EncryptedColumns;
-        /// <summary>
-        /// Name of the iApp.
-        /// </summary>
-        public readonly string? Name;
-        public readonly ImmutableArray<IAppTablesRows> Rows;
-
-        [OutputConstructor]
-        private IAppTables(
-            ImmutableArray<string> columnNames,
-            string? encryptedColumns,
-            string? name,
-            ImmutableArray<IAppTablesRows> rows)
-        {
-            ColumnNames = columnNames;
-            EncryptedColumns = encryptedColumns;
-            Name = name;
-            Rows = rows;
-        }
-    }
-
-    [OutputType]
-    public sealed class IAppTablesRows
-    {
-        public readonly ImmutableArray<string> Rows;
-
-        [OutputConstructor]
-        private IAppTablesRows(ImmutableArray<string> rows)
-        {
-            Rows = rows;
-        }
-    }
-
-    [OutputType]
-    public sealed class IAppVariables
-    {
-        public readonly string? Encrypted;
-        /// <summary>
-        /// Name of the iApp.
-        /// </summary>
-        public readonly string? Name;
-        public readonly string? Value;
-
-        [OutputConstructor]
-        private IAppVariables(
-            string? encrypted,
-            string? name,
-            string? value)
-        {
-            Encrypted = encrypted;
-            Name = name;
-            Value = value;
-        }
-    }
     }
 }

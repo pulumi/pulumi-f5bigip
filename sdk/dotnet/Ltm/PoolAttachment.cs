@@ -15,8 +15,6 @@ namespace Pulumi.F5BigIP.Ltm
     /// Resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
     /// 
     /// Note: node must be the full path to the node followed by the port. For example /Common/my-node:80
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_pool_attachment.html.markdown.
     /// </summary>
     public partial class PoolAttachment : Pulumi.CustomResource
     {
@@ -41,7 +39,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PoolAttachment(string name, PoolAttachmentArgs args, CustomResourceOptions? options = null)
-            : base("f5bigip:ltm/poolAttachment:PoolAttachment", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("f5bigip:ltm/poolAttachment:PoolAttachment", name, args ?? new PoolAttachmentArgs(), MakeResourceOptions(options, ""))
         {
         }
 

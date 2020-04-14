@@ -8,7 +8,6 @@ namespace Pulumi.F5BigIP
     public static class Config
     {
         private static readonly Pulumi.Config __config = new Pulumi.Config("f5bigip");
-
         /// <summary>
         /// Domain name/IP of the BigIP
         /// </summary>
@@ -39,8 +38,5 @@ namespace Pulumi.F5BigIP
         /// </summary>
         public static string? Username { get; set; } = __config.Get("username");
 
-    }
-    namespace ConfigTypes
-    {
     }
 }

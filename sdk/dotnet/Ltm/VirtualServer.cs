@@ -13,8 +13,6 @@ namespace Pulumi.F5BigIP.Ltm
     /// `f5bigip.ltm.VirtualServer` Configures Virtual Server
     /// 
     /// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_virtual_server.html.markdown.
     /// </summary>
     public partial class VirtualServer : Pulumi.CustomResource
     {
@@ -121,8 +119,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> SourceAddressTranslation { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the virtual server and its resources are available for load balancing. The default is
-        /// Enabled
+        /// Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
         /// </summary>
         [Output("state")]
         public Output<string?> State { get; private set; } = null!;
@@ -160,7 +157,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public VirtualServer(string name, VirtualServerArgs args, CustomResourceOptions? options = null)
-            : base("f5bigip:ltm/virtualServer:VirtualServer", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("f5bigip:ltm/virtualServer:VirtualServer", name, args ?? new VirtualServerArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -335,8 +332,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? SourceAddressTranslation { get; set; }
 
         /// <summary>
-        /// Specifies whether the virtual server and its resources are available for load balancing. The default is
-        /// Enabled
+        /// Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
@@ -516,8 +512,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? SourceAddressTranslation { get; set; }
 
         /// <summary>
-        /// Specifies whether the virtual server and its resources are available for load balancing. The default is
-        /// Enabled
+        /// Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }

@@ -13,8 +13,6 @@ namespace Pulumi.F5BigIP
     /// `f5bigip..As3` provides details about bigip as3 resource
     /// 
     /// This resource is helpful to configure as3 declarative JSON on BIG-IP.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_as3.html.markdown.
     /// </summary>
     public partial class As3 : Pulumi.CustomResource
     {
@@ -39,7 +37,7 @@ namespace Pulumi.F5BigIP
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public As3(string name, As3Args args, CustomResourceOptions? options = null)
-            : base("f5bigip:index/as3:As3", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("f5bigip:index/as3:As3", name, args ?? new As3Args(), MakeResourceOptions(options, ""))
         {
         }
 

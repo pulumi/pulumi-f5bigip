@@ -13,8 +13,6 @@ namespace Pulumi.F5BigIP
     /// `f5bigip..Do` provides details about bigip do resource
     /// 
     /// This resource is helpful to configure do declarative JSON on BIG-IP.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_do.html.markdown.
     /// </summary>
     public partial class Do : Pulumi.CustomResource
     {
@@ -39,7 +37,7 @@ namespace Pulumi.F5BigIP
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Do(string name, DoArgs args, CustomResourceOptions? options = null)
-            : base("f5bigip:index/do:Do", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("f5bigip:index/do:Do", name, args ?? new DoArgs(), MakeResourceOptions(options, ""))
         {
         }
 

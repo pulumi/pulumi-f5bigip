@@ -15,10 +15,9 @@
 package main
 
 import (
-	"github.com/pulumi/pulumi-terraform-bridge/pkg/tfgen"
-
-	f5bigip "github.com/pulumi/pulumi-f5bigip/provider"
-	"github.com/pulumi/pulumi-f5bigip/provider/pkg/version"
+	f5bigip "github.com/pulumi/pulumi-f5bigip/provider/v2"
+	"github.com/pulumi/pulumi-f5bigip/provider/v2/pkg/version"
+	"github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfgen"
 )
 
 func main() {

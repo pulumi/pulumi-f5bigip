@@ -13,8 +13,6 @@ namespace Pulumi.F5BigIP.Ltm
     /// `f5bigip.ltm.Monitor` Configures a custom monitor for use by health checks.
     /// 
     /// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_monitor.html.markdown.
     /// </summary>
     public partial class Monitor : Pulumi.CustomResource
     {
@@ -43,8 +41,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string?> Database { get; private set; } = null!;
 
         /// <summary>
-        /// Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or
-        /// /Common/gateway-icmp.
+        /// Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
         /// </summary>
         [Output("defaultsFrom")]
         public Output<string?> DefaultsFrom { get; private set; } = null!;
@@ -148,7 +145,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Monitor(string name, MonitorArgs args, CustomResourceOptions? options = null)
-            : base("f5bigip:ltm/monitor:Monitor", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("f5bigip:ltm/monitor:Monitor", name, args ?? new MonitorArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -210,8 +207,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Database { get; set; }
 
         /// <summary>
-        /// Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or
-        /// /Common/gateway-icmp.
+        /// Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
         /// </summary>
         [Input("defaultsFrom")]
         public Input<string>? DefaultsFrom { get; set; }
@@ -338,8 +334,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Database { get; set; }
 
         /// <summary>
-        /// Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or
-        /// /Common/gateway-icmp.
+        /// Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
         /// </summary>
         [Input("defaultsFrom")]
         public Input<string>? DefaultsFrom { get; set; }

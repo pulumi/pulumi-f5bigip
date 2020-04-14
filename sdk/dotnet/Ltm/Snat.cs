@@ -13,8 +13,6 @@ namespace Pulumi.F5BigIP.Ltm
     /// `f5bigip.ltm.Snat` Manages a snat configuration
     /// 
     /// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_snat.html.markdown.
     /// </summary>
     public partial class Snat : Pulumi.CustomResource
     {
@@ -46,7 +44,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// IP or hostname of the snat
         /// </summary>
         [Output("origins")]
-        public Output<ImmutableArray<Outputs.SnatOrigins>> Origins { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.SnatOrigin>> Origins { get; private set; } = null!;
 
         /// <summary>
         /// Displays the administrative partition within which this profile resides
@@ -93,7 +91,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Snat(string name, SnatArgs args, CustomResourceOptions? options = null)
-            : base("f5bigip:ltm/snat:Snat", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("f5bigip:ltm/snat:Snat", name, args ?? new SnatArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -155,14 +153,14 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string> Name { get; set; } = null!;
 
         [Input("origins", required: true)]
-        private InputList<Inputs.SnatOriginsArgs>? _origins;
+        private InputList<Inputs.SnatOriginArgs>? _origins;
 
         /// <summary>
         /// IP or hostname of the snat
         /// </summary>
-        public InputList<Inputs.SnatOriginsArgs> Origins
+        public InputList<Inputs.SnatOriginArgs> Origins
         {
-            get => _origins ?? (_origins = new InputList<Inputs.SnatOriginsArgs>());
+            get => _origins ?? (_origins = new InputList<Inputs.SnatOriginArgs>());
             set => _origins = value;
         }
 
@@ -240,14 +238,14 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Name { get; set; }
 
         [Input("origins")]
-        private InputList<Inputs.SnatOriginsGetArgs>? _origins;
+        private InputList<Inputs.SnatOriginGetArgs>? _origins;
 
         /// <summary>
         /// IP or hostname of the snat
         /// </summary>
-        public InputList<Inputs.SnatOriginsGetArgs> Origins
+        public InputList<Inputs.SnatOriginGetArgs> Origins
         {
-            get => _origins ?? (_origins = new InputList<Inputs.SnatOriginsGetArgs>());
+            get => _origins ?? (_origins = new InputList<Inputs.SnatOriginGetArgs>());
             set => _origins = value;
         }
 
@@ -296,64 +294,5 @@ namespace Pulumi.F5BigIP.Ltm
         public SnatState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class SnatOriginsArgs : Pulumi.ResourceArgs
-    {
-        [Input("appService")]
-        public Input<string>? AppService { get; set; }
-
-        /// <summary>
-        /// Name of the snat
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        public SnatOriginsArgs()
-        {
-        }
-    }
-
-    public sealed class SnatOriginsGetArgs : Pulumi.ResourceArgs
-    {
-        [Input("appService")]
-        public Input<string>? AppService { get; set; }
-
-        /// <summary>
-        /// Name of the snat
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        public SnatOriginsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class SnatOrigins
-    {
-        public readonly string? AppService;
-        /// <summary>
-        /// Name of the snat
-        /// </summary>
-        public readonly string? Name;
-
-        [OutputConstructor]
-        private SnatOrigins(
-            string? appService,
-            string? name)
-        {
-            AppService = appService;
-            Name = name;
-        }
-    }
     }
 }

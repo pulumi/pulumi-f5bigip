@@ -11,8 +11,6 @@ namespace Pulumi.F5BigIP.CM
 {
     /// <summary>
     /// `f5bigip.cm.DeviceGroup` A device group is a collection of BIG-IP devices that are configured to securely synchronize their BIG-IP configuration data, and fail over when needed.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_cm_devicegroup.html.markdown.
     /// </summary>
     public partial class DeviceGroup : Pulumi.CustomResource
     {
@@ -32,7 +30,7 @@ namespace Pulumi.F5BigIP.CM
         /// Name of the device to be included in device group, this need to be configured before using devicegroup resource
         /// </summary>
         [Output("devices")]
-        public Output<ImmutableArray<Outputs.DeviceGroupDevices>> Devices { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DeviceGroupDevice>> Devices { get; private set; } = null!;
 
         /// <summary>
         /// Specifies if the device-group will perform a full-load upon sync
@@ -41,8 +39,7 @@ namespace Pulumi.F5BigIP.CM
         public Output<string?> FullLoadOnSync { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the maximum size (in KB) to devote to incremental config sync cached transactions. The default is
-        /// 1024 KB.
+        /// Specifies the maximum size (in KB) to devote to incremental config sync cached transactions. The default is 1024 KB.
         /// </summary>
         [Output("incrementalConfig")]
         public Output<int?> IncrementalConfig { get; private set; } = null!;
@@ -86,7 +83,7 @@ namespace Pulumi.F5BigIP.CM
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DeviceGroup(string name, DeviceGroupArgs? args = null, CustomResourceOptions? options = null)
-            : base("f5bigip:cm/deviceGroup:DeviceGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("f5bigip:cm/deviceGroup:DeviceGroup", name, args ?? new DeviceGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -136,14 +133,14 @@ namespace Pulumi.F5BigIP.CM
         public Input<string>? Description { get; set; }
 
         [Input("devices")]
-        private InputList<Inputs.DeviceGroupDevicesArgs>? _devices;
+        private InputList<Inputs.DeviceGroupDeviceArgs>? _devices;
 
         /// <summary>
         /// Name of the device to be included in device group, this need to be configured before using devicegroup resource
         /// </summary>
-        public InputList<Inputs.DeviceGroupDevicesArgs> Devices
+        public InputList<Inputs.DeviceGroupDeviceArgs> Devices
         {
-            get => _devices ?? (_devices = new InputList<Inputs.DeviceGroupDevicesArgs>());
+            get => _devices ?? (_devices = new InputList<Inputs.DeviceGroupDeviceArgs>());
             set => _devices = value;
         }
 
@@ -154,8 +151,7 @@ namespace Pulumi.F5BigIP.CM
         public Input<string>? FullLoadOnSync { get; set; }
 
         /// <summary>
-        /// Specifies the maximum size (in KB) to devote to incremental config sync cached transactions. The default is
-        /// 1024 KB.
+        /// Specifies the maximum size (in KB) to devote to incremental config sync cached transactions. The default is 1024 KB.
         /// </summary>
         [Input("incrementalConfig")]
         public Input<int>? IncrementalConfig { get; set; }
@@ -210,14 +206,14 @@ namespace Pulumi.F5BigIP.CM
         public Input<string>? Description { get; set; }
 
         [Input("devices")]
-        private InputList<Inputs.DeviceGroupDevicesGetArgs>? _devices;
+        private InputList<Inputs.DeviceGroupDeviceGetArgs>? _devices;
 
         /// <summary>
         /// Name of the device to be included in device group, this need to be configured before using devicegroup resource
         /// </summary>
-        public InputList<Inputs.DeviceGroupDevicesGetArgs> Devices
+        public InputList<Inputs.DeviceGroupDeviceGetArgs> Devices
         {
-            get => _devices ?? (_devices = new InputList<Inputs.DeviceGroupDevicesGetArgs>());
+            get => _devices ?? (_devices = new InputList<Inputs.DeviceGroupDeviceGetArgs>());
             set => _devices = value;
         }
 
@@ -228,8 +224,7 @@ namespace Pulumi.F5BigIP.CM
         public Input<string>? FullLoadOnSync { get; set; }
 
         /// <summary>
-        /// Specifies the maximum size (in KB) to devote to incremental config sync cached transactions. The default is
-        /// 1024 KB.
+        /// Specifies the maximum size (in KB) to devote to incremental config sync cached transactions. The default is 1024 KB.
         /// </summary>
         [Input("incrementalConfig")]
         public Input<int>? IncrementalConfig { get; set; }
@@ -267,64 +262,5 @@ namespace Pulumi.F5BigIP.CM
         public DeviceGroupState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class DeviceGroupDevicesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Is the name of the device Group
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        [Input("setSyncLeader")]
-        public Input<bool>? SetSyncLeader { get; set; }
-
-        public DeviceGroupDevicesArgs()
-        {
-        }
-    }
-
-    public sealed class DeviceGroupDevicesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Is the name of the device Group
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        [Input("setSyncLeader")]
-        public Input<bool>? SetSyncLeader { get; set; }
-
-        public DeviceGroupDevicesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class DeviceGroupDevices
-    {
-        /// <summary>
-        /// Is the name of the device Group
-        /// </summary>
-        public readonly string? Name;
-        public readonly bool? SetSyncLeader;
-
-        [OutputConstructor]
-        private DeviceGroupDevices(
-            string? name,
-            bool? setSyncLeader)
-        {
-            Name = name;
-            SetSyncLeader = setSyncLeader;
-        }
-    }
     }
 }

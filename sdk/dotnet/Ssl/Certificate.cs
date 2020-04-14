@@ -12,8 +12,6 @@ namespace Pulumi.F5BigIP.Ssl
     /// <summary>
     /// `f5bigip.ssl.Certificate` This resource will import SSL certificates on BIG-IP LTM. 
     /// Certificates can be imported from certificate files on the local disk, in PEM format
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ssl_certificate.html.markdown.
     /// </summary>
     public partial class Certificate : Pulumi.CustomResource
     {
@@ -44,7 +42,7 @@ namespace Pulumi.F5BigIP.Ssl
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Certificate(string name, CertificateArgs args, CustomResourceOptions? options = null)
-            : base("f5bigip:ssl/certificate:Certificate", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("f5bigip:ssl/certificate:Certificate", name, args ?? new CertificateArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -13,8 +13,6 @@ namespace Pulumi.F5BigIP.Net
     /// `f5bigip.net.SelfIp` Manages a selfip configuration
     /// 
     /// Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-selfip.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_net_selfip.html.markdown.
     /// </summary>
     public partial class SelfIp : Pulumi.CustomResource
     {
@@ -51,7 +49,7 @@ namespace Pulumi.F5BigIP.Net
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public SelfIp(string name, SelfIpArgs args, CustomResourceOptions? options = null)
-            : base("f5bigip:net/selfIp:SelfIp", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("f5bigip:net/selfIp:SelfIp", name, args ?? new SelfIpArgs(), MakeResourceOptions(options, ""))
         {
         }
 

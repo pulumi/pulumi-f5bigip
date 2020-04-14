@@ -13,8 +13,6 @@ namespace Pulumi.F5BigIP.Ltm
     /// `f5bigip.ltm.ProfileTcp` Configures a custom profile_tcp for use by health checks.
     /// 
     /// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_profile_tcp.html.markdown.
     /// </summary>
     public partial class ProfileTcp : Pulumi.CustomResource
     {
@@ -87,7 +85,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ProfileTcp(string name, ProfileTcpArgs args, CustomResourceOptions? options = null)
-            : base("f5bigip:ltm/profileTcp:ProfileTcp", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("f5bigip:ltm/profileTcp:ProfileTcp", name, args ?? new ProfileTcpArgs(), MakeResourceOptions(options, ""))
         {
         }
 

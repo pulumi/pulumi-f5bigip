@@ -4,11 +4,13 @@
         "@types/node": "latest"
     },
     "dependencies": {
-        "@pulumi/aws": "latest",
-        "@pulumi/f5bigip": "latest",
-        "@pulumi/pulumi": "latest",
-        "@pulumi/random": "latest",
+        "@pulumi/aws": "2.0.0-beta.1",
+        "@pulumi/pulumi": "2.0.0-beta.3",
+        "@pulumi/random": "2.0.0-beta.2",
         "@types/node-fetch": "^2.1.4",
         "node-fetch": "^2.3.0"
+    },
+    "peerDependencies": {
+        "@pulumi/f5bigip": "dev"
     }
 }

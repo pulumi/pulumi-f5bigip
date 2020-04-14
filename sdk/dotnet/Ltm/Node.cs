@@ -13,8 +13,6 @@ namespace Pulumi.F5BigIP.Ltm
     /// `f5bigip.ltm.Node` Manages a node configuration
     /// 
     /// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_node.html.markdown.
     /// </summary>
     public partial class Node : Pulumi.CustomResource
     {
@@ -58,8 +56,8 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the maximum number of connections per second allowed for a node or node address. The default value
-        /// is 'disabled'.
+        /// Specifies the maximum number of connections per second allowed for a node or node address. The default value is
+        /// 'disabled'.
         /// </summary>
         [Output("rateLimit")]
         public Output<string> RateLimit { get; private set; } = null!;
@@ -85,7 +83,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Node(string name, NodeArgs args, CustomResourceOptions? options = null)
-            : base("f5bigip:ltm/node:Node", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("f5bigip:ltm/node:Node", name, args ?? new NodeArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -162,8 +160,8 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the maximum number of connections per second allowed for a node or node address. The default value
-        /// is 'disabled'.
+        /// Specifies the maximum number of connections per second allowed for a node or node address. The default value is
+        /// 'disabled'.
         /// </summary>
         [Input("rateLimit")]
         public Input<string>? RateLimit { get; set; }
@@ -227,8 +225,8 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the maximum number of connections per second allowed for a node or node address. The default value
-        /// is 'disabled'.
+        /// Specifies the maximum number of connections per second allowed for a node or node address. The default value is
+        /// 'disabled'.
         /// </summary>
         [Input("rateLimit")]
         public Input<string>? RateLimit { get; set; }
@@ -248,109 +246,5 @@ namespace Pulumi.F5BigIP.Ltm
         public NodeState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class NodeFqdnArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the node's address family. The default is 'unspecified', or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
-        /// </summary>
-        [Input("addressFamily")]
-        public Input<string>? AddressFamily { get; set; }
-
-        [Input("autopopulate")]
-        public Input<string>? Autopopulate { get; set; }
-
-        [Input("downinterval")]
-        public Input<int>? Downinterval { get; set; }
-
-        /// <summary>
-        /// Specifies the amount of time before sending the next DNS query. Default is 3600. This needs to be specified inside the fqdn (fully qualified domain name).
-        /// </summary>
-        [Input("interval")]
-        public Input<string>? Interval { get; set; }
-
-        /// <summary>
-        /// Name of the node
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        public NodeFqdnArgs()
-        {
-        }
-    }
-
-    public sealed class NodeFqdnGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies the node's address family. The default is 'unspecified', or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
-        /// </summary>
-        [Input("addressFamily")]
-        public Input<string>? AddressFamily { get; set; }
-
-        [Input("autopopulate")]
-        public Input<string>? Autopopulate { get; set; }
-
-        [Input("downinterval")]
-        public Input<int>? Downinterval { get; set; }
-
-        /// <summary>
-        /// Specifies the amount of time before sending the next DNS query. Default is 3600. This needs to be specified inside the fqdn (fully qualified domain name).
-        /// </summary>
-        [Input("interval")]
-        public Input<string>? Interval { get; set; }
-
-        /// <summary>
-        /// Name of the node
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        public NodeFqdnGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class NodeFqdn
-    {
-        /// <summary>
-        /// Specifies the node's address family. The default is 'unspecified', or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
-        /// </summary>
-        public readonly string? AddressFamily;
-        public readonly string Autopopulate;
-        public readonly int Downinterval;
-        /// <summary>
-        /// Specifies the amount of time before sending the next DNS query. Default is 3600. This needs to be specified inside the fqdn (fully qualified domain name).
-        /// </summary>
-        public readonly string Interval;
-        /// <summary>
-        /// Name of the node
-        /// </summary>
-        public readonly string? Name;
-
-        [OutputConstructor]
-        private NodeFqdn(
-            string? addressFamily,
-            string autopopulate,
-            int downinterval,
-            string interval,
-            string? name)
-        {
-            AddressFamily = addressFamily;
-            Autopopulate = autopopulate;
-            Downinterval = downinterval;
-            Interval = interval;
-            Name = name;
-        }
-    }
     }
 }

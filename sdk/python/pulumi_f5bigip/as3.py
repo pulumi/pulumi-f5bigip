@@ -24,8 +24,6 @@ class As3(pulumi.CustomResource):
 
         This resource is helpful to configure as3 declarative JSON on BIG-IP.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_as3.html.markdown.
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which can be a template/json file used with builtin ```templatefile``` function (or) ```file``` function

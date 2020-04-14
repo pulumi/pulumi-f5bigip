@@ -13,8 +13,6 @@ namespace Pulumi.F5BigIP.Net
     /// `f5bigip.net.Vlan` Manages a vlan configuration
     /// 
     /// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_net_vlan.html.markdown.
     /// </summary>
     public partial class Vlan : Pulumi.CustomResource
     {
@@ -22,7 +20,7 @@ namespace Pulumi.F5BigIP.Net
         /// Specifies which interfaces you want this VLAN to use for traffic management.
         /// </summary>
         [Output("interfaces")]
-        public Output<ImmutableArray<Outputs.VlanInterfaces>> Interfaces { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.VlanInterface>> Interfaces { get; private set; } = null!;
 
         /// <summary>
         /// Name of the vlan
@@ -45,7 +43,7 @@ namespace Pulumi.F5BigIP.Net
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Vlan(string name, VlanArgs args, CustomResourceOptions? options = null)
-            : base("f5bigip:net/vlan:Vlan", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("f5bigip:net/vlan:Vlan", name, args ?? new VlanArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -83,14 +81,14 @@ namespace Pulumi.F5BigIP.Net
     public sealed class VlanArgs : Pulumi.ResourceArgs
     {
         [Input("interfaces")]
-        private InputList<Inputs.VlanInterfacesArgs>? _interfaces;
+        private InputList<Inputs.VlanInterfaceArgs>? _interfaces;
 
         /// <summary>
         /// Specifies which interfaces you want this VLAN to use for traffic management.
         /// </summary>
-        public InputList<Inputs.VlanInterfacesArgs> Interfaces
+        public InputList<Inputs.VlanInterfaceArgs> Interfaces
         {
-            get => _interfaces ?? (_interfaces = new InputList<Inputs.VlanInterfacesArgs>());
+            get => _interfaces ?? (_interfaces = new InputList<Inputs.VlanInterfaceArgs>());
             set => _interfaces = value;
         }
 
@@ -114,14 +112,14 @@ namespace Pulumi.F5BigIP.Net
     public sealed class VlanState : Pulumi.ResourceArgs
     {
         [Input("interfaces")]
-        private InputList<Inputs.VlanInterfacesGetArgs>? _interfaces;
+        private InputList<Inputs.VlanInterfaceGetArgs>? _interfaces;
 
         /// <summary>
         /// Specifies which interfaces you want this VLAN to use for traffic management.
         /// </summary>
-        public InputList<Inputs.VlanInterfacesGetArgs> Interfaces
+        public InputList<Inputs.VlanInterfaceGetArgs> Interfaces
         {
-            get => _interfaces ?? (_interfaces = new InputList<Inputs.VlanInterfacesGetArgs>());
+            get => _interfaces ?? (_interfaces = new InputList<Inputs.VlanInterfaceGetArgs>());
             set => _interfaces = value;
         }
 
@@ -140,73 +138,5 @@ namespace Pulumi.F5BigIP.Net
         public VlanState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class VlanInterfacesArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies a list of tagged interfaces or trunks associated with this VLAN. Note that you can associate tagged interfaces or trunks with any number of VLANs.
-        /// </summary>
-        [Input("tagged")]
-        public Input<bool>? Tagged { get; set; }
-
-        /// <summary>
-        /// Physical or virtual port used for traffic
-        /// </summary>
-        [Input("vlanport")]
-        public Input<string>? Vlanport { get; set; }
-
-        public VlanInterfacesArgs()
-        {
-        }
-    }
-
-    public sealed class VlanInterfacesGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies a list of tagged interfaces or trunks associated with this VLAN. Note that you can associate tagged interfaces or trunks with any number of VLANs.
-        /// </summary>
-        [Input("tagged")]
-        public Input<bool>? Tagged { get; set; }
-
-        /// <summary>
-        /// Physical or virtual port used for traffic
-        /// </summary>
-        [Input("vlanport")]
-        public Input<string>? Vlanport { get; set; }
-
-        public VlanInterfacesGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class VlanInterfaces
-    {
-        /// <summary>
-        /// Specifies a list of tagged interfaces or trunks associated with this VLAN. Note that you can associate tagged interfaces or trunks with any number of VLANs.
-        /// </summary>
-        public readonly bool? Tagged;
-        /// <summary>
-        /// Physical or virtual port used for traffic
-        /// </summary>
-        public readonly string? Vlanport;
-
-        [OutputConstructor]
-        private VlanInterfaces(
-            bool? tagged,
-            string? vlanport)
-        {
-            Tagged = tagged;
-            Vlanport = vlanport;
-        }
-    }
     }
 }

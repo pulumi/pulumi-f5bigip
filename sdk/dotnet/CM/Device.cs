@@ -13,8 +13,6 @@ namespace Pulumi.F5BigIP.CM
     /// `f5bigip.cm.Device` provides details about a specific bigip
     /// 
     /// This resource is helpful when configuring the BIG-IP device in cluster or in HA mode.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_cm_device.html.markdown.
     /// </summary>
     public partial class Device : Pulumi.CustomResource
     {
@@ -51,7 +49,7 @@ namespace Pulumi.F5BigIP.CM
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Device(string name, DeviceArgs args, CustomResourceOptions? options = null)
-            : base("f5bigip:cm/device:Device", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("f5bigip:cm/device:Device", name, args ?? new DeviceArgs(), MakeResourceOptions(options, ""))
         {
         }
 

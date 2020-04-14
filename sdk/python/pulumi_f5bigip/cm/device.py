@@ -32,7 +32,6 @@ class Device(pulumi.CustomResource):
 
         This resource is helpful when configuring the BIG-IP device in cluster or in HA mode.
 
-        > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_cm_device.html.markdown.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -13,8 +13,6 @@ namespace Pulumi.F5BigIP.Sys
     /// `f5bigip.sys.Ntp` provides details about a specific bigip
     /// 
     /// This resource is helpful when configuring NTP server on the BIG-IP.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_sys_ntp.html.markdown.
     /// </summary>
     public partial class Ntp : Pulumi.CustomResource
     {
@@ -45,7 +43,7 @@ namespace Pulumi.F5BigIP.Sys
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public Ntp(string name, NtpArgs args, CustomResourceOptions? options = null)
-            : base("f5bigip:sys/ntp:Ntp", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("f5bigip:sys/ntp:Ntp", name, args ?? new NtpArgs(), MakeResourceOptions(options, ""))
         {
         }
 

@@ -13,8 +13,6 @@ namespace Pulumi.F5BigIP.Ltm
     /// `f5bigip.ltm.DataGroup` Manages internal (in-line) datagroup configuration
     /// 
     /// Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-datagroup.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_datagroup.html.markdown.
     /// </summary>
     public partial class DataGroup : Pulumi.CustomResource
     {
@@ -28,7 +26,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
         /// </summary>
         [Output("records")]
-        public Output<ImmutableArray<Outputs.DataGroupRecords>> Records { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.DataGroupRecord>> Records { get; private set; } = null!;
 
         /// <summary>
         /// datagroup type (applies to the `name` field of the record), supports: `string`, `ip` or `integer`
@@ -45,7 +43,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public DataGroup(string name, DataGroupArgs args, CustomResourceOptions? options = null)
-            : base("f5bigip:ltm/dataGroup:DataGroup", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("f5bigip:ltm/dataGroup:DataGroup", name, args ?? new DataGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -89,14 +87,14 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string> Name { get; set; } = null!;
 
         [Input("records")]
-        private InputList<Inputs.DataGroupRecordsArgs>? _records;
+        private InputList<Inputs.DataGroupRecordArgs>? _records;
 
         /// <summary>
         /// a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
         /// </summary>
-        public InputList<Inputs.DataGroupRecordsArgs> Records
+        public InputList<Inputs.DataGroupRecordArgs> Records
         {
-            get => _records ?? (_records = new InputList<Inputs.DataGroupRecordsArgs>());
+            get => _records ?? (_records = new InputList<Inputs.DataGroupRecordArgs>());
             set => _records = value;
         }
 
@@ -120,14 +118,14 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Name { get; set; }
 
         [Input("records")]
-        private InputList<Inputs.DataGroupRecordsGetArgs>? _records;
+        private InputList<Inputs.DataGroupRecordGetArgs>? _records;
 
         /// <summary>
         /// a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
         /// </summary>
-        public InputList<Inputs.DataGroupRecordsGetArgs> Records
+        public InputList<Inputs.DataGroupRecordGetArgs> Records
         {
-            get => _records ?? (_records = new InputList<Inputs.DataGroupRecordsGetArgs>());
+            get => _records ?? (_records = new InputList<Inputs.DataGroupRecordGetArgs>());
             set => _records = value;
         }
 
@@ -140,73 +138,5 @@ namespace Pulumi.F5BigIP.Ltm
         public DataGroupState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class DataGroupRecordsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// , sets the value of the record's `data` attribute, specifying a value here will create a record in the form of `name := data`
-        /// </summary>
-        [Input("data")]
-        public Input<string>? Data { get; set; }
-
-        /// <summary>
-        /// , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public DataGroupRecordsArgs()
-        {
-        }
-    }
-
-    public sealed class DataGroupRecordsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// , sets the value of the record's `data` attribute, specifying a value here will create a record in the form of `name := data`
-        /// </summary>
-        [Input("data")]
-        public Input<string>? Data { get; set; }
-
-        /// <summary>
-        /// , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        public DataGroupRecordsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class DataGroupRecords
-    {
-        /// <summary>
-        /// , sets the value of the record's `data` attribute, specifying a value here will create a record in the form of `name := data`
-        /// </summary>
-        public readonly string? Data;
-        /// <summary>
-        /// , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
-        /// </summary>
-        public readonly string Name;
-
-        [OutputConstructor]
-        private DataGroupRecords(
-            string? data,
-            string name)
-        {
-            Data = data;
-            Name = name;
-        }
-    }
     }
 }

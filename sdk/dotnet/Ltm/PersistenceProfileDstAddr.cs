@@ -29,8 +29,6 @@ namespace Pulumi.F5BigIP.Ltm
     /// `timeout` (Optional) (enabled or disabled) Timeout for persistence of the session in seconds
     /// 
     /// `override_conn_limit` (Optional) (enabled or disabled) Enable or dissable pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_persistence_profile_dstaddr.html.markdown.
     /// </summary>
     public partial class PersistenceProfileDstAddr : Pulumi.CustomResource
     {
@@ -50,8 +48,8 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string?> HashAlgorithm { get; private set; } = null!;
 
         /// <summary>
-        /// Identify a range of source IP addresses to manage together as a single source address affinity persistent
-        /// connection when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
+        /// Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
+        /// when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
         /// </summary>
         [Output("mask")]
         public Output<string?> Mask { get; private set; } = null!;
@@ -87,8 +85,8 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual
-        /// connection limits remain hard limits and are not overridden.
+        /// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
+        /// limits remain hard limits and are not overridden.
         /// </summary>
         [Output("overrideConnLimit")]
         public Output<string?> OverrideConnLimit { get; private set; } = null!;
@@ -108,7 +106,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public PersistenceProfileDstAddr(string name, PersistenceProfileDstAddrArgs args, CustomResourceOptions? options = null)
-            : base("f5bigip:ltm/persistenceProfileDstAddr:PersistenceProfileDstAddr", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("f5bigip:ltm/persistenceProfileDstAddr:PersistenceProfileDstAddr", name, args ?? new PersistenceProfileDstAddrArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -161,8 +159,8 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? HashAlgorithm { get; set; }
 
         /// <summary>
-        /// Identify a range of source IP addresses to manage together as a single source address affinity persistent
-        /// connection when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
+        /// Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
+        /// when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
         /// </summary>
         [Input("mask")]
         public Input<string>? Mask { get; set; }
@@ -198,8 +196,8 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual
-        /// connection limits remain hard limits and are not overridden.
+        /// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
+        /// limits remain hard limits and are not overridden.
         /// </summary>
         [Input("overrideConnLimit")]
         public Input<string>? OverrideConnLimit { get; set; }
@@ -233,8 +231,8 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? HashAlgorithm { get; set; }
 
         /// <summary>
-        /// Identify a range of source IP addresses to manage together as a single source address affinity persistent
-        /// connection when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
+        /// Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
+        /// when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
         /// </summary>
         [Input("mask")]
         public Input<string>? Mask { get; set; }
@@ -270,8 +268,8 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual
-        /// connection limits remain hard limits and are not overridden.
+        /// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
+        /// limits remain hard limits and are not overridden.
         /// </summary>
         [Input("overrideConnLimit")]
         public Input<string>? OverrideConnLimit { get; set; }

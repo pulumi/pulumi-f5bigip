@@ -11,8 +11,6 @@ namespace Pulumi.F5BigIP.Ltm
 {
     /// <summary>
     /// `f5bigip.ltm.ProfileClientSsl` Manages client SSL profiles on a BIG-IP
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_profile_client_ssl.html.markdown.
     /// </summary>
     public partial class ProfileClientSsl : Pulumi.CustomResource
     {
@@ -72,7 +70,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<ImmutableArray<string>> CertExtensionIncludes { get; private set; } = null!;
 
         [Output("certKeyChains")]
-        public Output<ImmutableArray<Outputs.ProfileClientSslCertKeyChains>> CertKeyChains { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.ProfileClientSslCertKeyChain>> CertKeyChains { get; private set; } = null!;
 
         /// <summary>
         /// Life span of the certificate in days for ssl forward proxy
@@ -330,7 +328,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public ProfileClientSsl(string name, ProfileClientSslArgs args, CustomResourceOptions? options = null)
-            : base("f5bigip:ltm/profileClientSsl:ProfileClientSsl", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("f5bigip:ltm/profileClientSsl:ProfileClientSsl", name, args ?? new ProfileClientSslArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -429,10 +427,10 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         [Input("certKeyChains")]
-        private InputList<Inputs.ProfileClientSslCertKeyChainsArgs>? _certKeyChains;
-        public InputList<Inputs.ProfileClientSslCertKeyChainsArgs> CertKeyChains
+        private InputList<Inputs.ProfileClientSslCertKeyChainArgs>? _certKeyChains;
+        public InputList<Inputs.ProfileClientSslCertKeyChainArgs> CertKeyChains
         {
-            get => _certKeyChains ?? (_certKeyChains = new InputList<Inputs.ProfileClientSslCertKeyChainsArgs>());
+            get => _certKeyChains ?? (_certKeyChains = new InputList<Inputs.ProfileClientSslCertKeyChainArgs>());
             set => _certKeyChains = value;
         }
 
@@ -757,10 +755,10 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         [Input("certKeyChains")]
-        private InputList<Inputs.ProfileClientSslCertKeyChainsGetArgs>? _certKeyChains;
-        public InputList<Inputs.ProfileClientSslCertKeyChainsGetArgs> CertKeyChains
+        private InputList<Inputs.ProfileClientSslCertKeyChainGetArgs>? _certKeyChains;
+        public InputList<Inputs.ProfileClientSslCertKeyChainGetArgs> CertKeyChains
         {
-            get => _certKeyChains ?? (_certKeyChains = new InputList<Inputs.ProfileClientSslCertKeyChainsGetArgs>());
+            get => _certKeyChains ?? (_certKeyChains = new InputList<Inputs.ProfileClientSslCertKeyChainGetArgs>());
             set => _certKeyChains = value;
         }
 
@@ -1019,118 +1017,5 @@ namespace Pulumi.F5BigIP.Ltm
         public ProfileClientSslState()
         {
         }
-    }
-
-    namespace Inputs
-    {
-
-    public sealed class ProfileClientSslCertKeyChainsArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies a cert name for use.
-        /// </summary>
-        [Input("cert")]
-        public Input<string>? Cert { get; set; }
-
-        /// <summary>
-        /// Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
-        /// </summary>
-        [Input("chain")]
-        public Input<string>? Chain { get; set; }
-
-        /// <summary>
-        /// Contains a key name
-        /// </summary>
-        [Input("key")]
-        public Input<string>? Key { get; set; }
-
-        /// <summary>
-        /// Specifies the name of the profile. (type `string`)
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        [Input("passphrase")]
-        public Input<string>? Passphrase { get; set; }
-
-        public ProfileClientSslCertKeyChainsArgs()
-        {
-        }
-    }
-
-    public sealed class ProfileClientSslCertKeyChainsGetArgs : Pulumi.ResourceArgs
-    {
-        /// <summary>
-        /// Specifies a cert name for use.
-        /// </summary>
-        [Input("cert")]
-        public Input<string>? Cert { get; set; }
-
-        /// <summary>
-        /// Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
-        /// </summary>
-        [Input("chain")]
-        public Input<string>? Chain { get; set; }
-
-        /// <summary>
-        /// Contains a key name
-        /// </summary>
-        [Input("key")]
-        public Input<string>? Key { get; set; }
-
-        /// <summary>
-        /// Specifies the name of the profile. (type `string`)
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        [Input("passphrase")]
-        public Input<string>? Passphrase { get; set; }
-
-        public ProfileClientSslCertKeyChainsGetArgs()
-        {
-        }
-    }
-    }
-
-    namespace Outputs
-    {
-
-    [OutputType]
-    public sealed class ProfileClientSslCertKeyChains
-    {
-        /// <summary>
-        /// Specifies a cert name for use.
-        /// </summary>
-        public readonly string? Cert;
-        /// <summary>
-        /// Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
-        /// </summary>
-        public readonly string? Chain;
-        /// <summary>
-        /// Contains a key name
-        /// </summary>
-        public readonly string? Key;
-        /// <summary>
-        /// Specifies the name of the profile. (type `string`)
-        /// </summary>
-        public readonly string? Name;
-        public readonly string? Passphrase;
-
-        [OutputConstructor]
-        private ProfileClientSslCertKeyChains(
-            string? cert,
-            string? chain,
-            string? key,
-            string? name,
-            string? passphrase)
-        {
-            Cert = cert;
-            Chain = chain;
-            Key = key;
-            Name = name;
-            Passphrase = passphrase;
-        }
-    }
     }
 }

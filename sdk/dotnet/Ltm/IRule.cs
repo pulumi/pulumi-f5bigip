@@ -13,8 +13,6 @@ namespace Pulumi.F5BigIP.Ltm
     /// `f5bigip.ltm.IRule` Creates iRule on BIG-IP F5 device
     /// 
     /// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-    /// 
-    /// &gt; This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_irule.html.markdown.
     /// </summary>
     public partial class IRule : Pulumi.CustomResource
     {
@@ -39,7 +37,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
         public IRule(string name, IRuleArgs args, CustomResourceOptions? options = null)
-            : base("f5bigip:ltm/iRule:IRule", name, args ?? ResourceArgs.Empty, MakeResourceOptions(options, ""))
+            : base("f5bigip:ltm/iRule:IRule", name, args ?? new IRuleArgs(), MakeResourceOptions(options, ""))
         {
         }
 
