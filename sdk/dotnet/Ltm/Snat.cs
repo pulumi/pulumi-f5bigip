@@ -17,7 +17,7 @@ namespace Pulumi.F5BigIP.Ltm
     public partial class Snat : Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies whether to automatically map last hop for pools or not. The default is to use next level's defaul
+        /// -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
         /// </summary>
         [Output("autolasthop")]
         public Output<string?> Autolasthop { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.F5BigIP.Ltm
     public sealed class SnatArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether to automatically map last hop for pools or not. The default is to use next level's defaul
+        /// -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
         /// </summary>
         [Input("autolasthop")]
         public Input<string>? Autolasthop { get; set; }
@@ -214,7 +214,7 @@ namespace Pulumi.F5BigIP.Ltm
     public sealed class SnatState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether to automatically map last hop for pools or not. The default is to use next level's defaul
+        /// -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
         /// </summary>
         [Input("autolasthop")]
         public Input<string>? Autolasthop { get; set; }

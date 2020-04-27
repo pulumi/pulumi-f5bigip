@@ -25,7 +25,7 @@ type VirtualServer struct {
 	Destination pulumi.StringOutput `pulumi:"destination"`
 	// Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
 	FallbackPersistenceProfile pulumi.StringOutput `pulumi:"fallbackPersistenceProfile"`
-	// all, tcp, udp
+	// Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
 	IpProtocol pulumi.StringOutput `pulumi:"ipProtocol"`
 	// The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
 	Irules pulumi.StringArrayOutput `pulumi:"irules"`
@@ -108,7 +108,7 @@ type virtualServerState struct {
 	Destination *string `pulumi:"destination"`
 	// Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
 	FallbackPersistenceProfile *string `pulumi:"fallbackPersistenceProfile"`
-	// all, tcp, udp
+	// Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
 	IpProtocol *string `pulumi:"ipProtocol"`
 	// The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
 	Irules []string `pulumi:"irules"`
@@ -155,7 +155,7 @@ type VirtualServerState struct {
 	Destination pulumi.StringPtrInput
 	// Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
 	FallbackPersistenceProfile pulumi.StringPtrInput
-	// all, tcp, udp
+	// Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
 	IpProtocol pulumi.StringPtrInput
 	// The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
 	Irules pulumi.StringArrayInput
@@ -206,7 +206,7 @@ type virtualServerArgs struct {
 	Destination string `pulumi:"destination"`
 	// Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
 	FallbackPersistenceProfile *string `pulumi:"fallbackPersistenceProfile"`
-	// all, tcp, udp
+	// Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
 	IpProtocol *string `pulumi:"ipProtocol"`
 	// The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
 	Irules []string `pulumi:"irules"`
@@ -254,7 +254,7 @@ type VirtualServerArgs struct {
 	Destination pulumi.StringInput
 	// Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
 	FallbackPersistenceProfile pulumi.StringPtrInput
-	// all, tcp, udp
+	// Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
 	IpProtocol pulumi.StringPtrInput
 	// The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
 	Irules pulumi.StringArrayInput

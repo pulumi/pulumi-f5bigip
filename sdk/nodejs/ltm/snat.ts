@@ -69,7 +69,7 @@ export class Snat extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies whether to automatically map last hop for pools or not. The default is to use next level's defaul
+     * -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
      */
     public readonly autolasthop!: pulumi.Output<string | undefined>;
     /**
@@ -172,7 +172,7 @@ export class Snat extends pulumi.CustomResource {
  */
 export interface SnatState {
     /**
-     * Specifies whether to automatically map last hop for pools or not. The default is to use next level's defaul
+     * -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
      */
     readonly autolasthop?: pulumi.Input<string>;
     /**
@@ -222,7 +222,7 @@ export interface SnatState {
  */
 export interface SnatArgs {
     /**
-     * Specifies whether to automatically map last hop for pools or not. The default is to use next level's defaul
+     * -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
      */
     readonly autolasthop?: pulumi.Input<string>;
     /**

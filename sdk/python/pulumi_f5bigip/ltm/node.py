@@ -37,8 +37,7 @@ class Node(pulumi.CustomResource):
     """
     rate_limit: pulumi.Output[str]
     """
-    Specifies the maximum number of connections per second allowed for a node or node address. The default value is
-    'disabled'.
+    Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
     """
     ratio: pulumi.Output[float]
     """
@@ -65,8 +64,7 @@ class Node(pulumi.CustomResource):
         :param pulumi.Input[float] dynamic_ratio: Specifies the fixed ratio value used for a node during ratio load balancing.
         :param pulumi.Input[str] monitor: specifies the name of the monitor or monitor rule that you want to associate with the node.
         :param pulumi.Input[str] name: Name of the node
-        :param pulumi.Input[str] rate_limit: Specifies the maximum number of connections per second allowed for a node or node address. The default value is
-               'disabled'.
+        :param pulumi.Input[str] rate_limit: Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
         :param pulumi.Input[float] ratio: Sets the ratio number for the node.
         :param pulumi.Input[str] state: Default is "user-up" you can set to "user-down" if you want to disable
 
@@ -130,8 +128,7 @@ class Node(pulumi.CustomResource):
         :param pulumi.Input[float] dynamic_ratio: Specifies the fixed ratio value used for a node during ratio load balancing.
         :param pulumi.Input[str] monitor: specifies the name of the monitor or monitor rule that you want to associate with the node.
         :param pulumi.Input[str] name: Name of the node
-        :param pulumi.Input[str] rate_limit: Specifies the maximum number of connections per second allowed for a node or node address. The default value is
-               'disabled'.
+        :param pulumi.Input[str] rate_limit: Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
         :param pulumi.Input[float] ratio: Sets the ratio number for the node.
         :param pulumi.Input[str] state: Default is "user-up" you can set to "user-down" if you want to disable
 

@@ -46,6 +46,9 @@ export namespace ltm {
     export interface PolicyRule {
         actions?: outputs.ltm.PolicyRuleAction[];
         conditions?: outputs.ltm.PolicyRuleCondition[];
+        /**
+         * Name of the Policy
+         */
         name: string;
     }
 

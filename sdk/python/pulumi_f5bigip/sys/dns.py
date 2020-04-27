@@ -12,7 +12,7 @@ from .. import utilities, tables
 class Dns(pulumi.CustomResource):
     description: pulumi.Output[str]
     """
-    Name of the Dns Servers
+    Provide description for your DNS server
     """
     name_servers: pulumi.Output[list]
     """
@@ -37,7 +37,7 @@ class Dns(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Name of the Dns Servers
+        :param pulumi.Input[str] description: Provide description for your DNS server
         :param pulumi.Input[list] name_servers: Name or IP address of the DNS server
         :param pulumi.Input[float] number_of_dots: Configures the number of dots needed in a name before an initial absolute query will be made.
         :param pulumi.Input[list] searches: Specify what domains you want to search
@@ -80,7 +80,7 @@ class Dns(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Name of the Dns Servers
+        :param pulumi.Input[str] description: Provide description for your DNS server
         :param pulumi.Input[list] name_servers: Name or IP address of the DNS server
         :param pulumi.Input[float] number_of_dots: Configures the number of dots needed in a name before an initial absolute query will be made.
         :param pulumi.Input[list] searches: Specify what domains you want to search

@@ -16,7 +16,7 @@ class Key(pulumi.CustomResource):
     """
     name: pulumi.Output[str]
     """
-    Name of SSL Certificate key with .key extension
+    Name of the SSL Certificate key to be Imported on to BIGIP
     """
     partition: pulumi.Output[str]
     """
@@ -33,7 +33,7 @@ class Key(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content: Content of SSL certificate key present on local Disk
-        :param pulumi.Input[str] name: Name of SSL Certificate key with .key extension
+        :param pulumi.Input[str] name: Name of the SSL Certificate key to be Imported on to BIGIP
         :param pulumi.Input[str] partition: Partition on to SSL Certificate key to be imported
         """
         if __name__ is not None:
@@ -76,7 +76,7 @@ class Key(pulumi.CustomResource):
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content: Content of SSL certificate key present on local Disk
-        :param pulumi.Input[str] name: Name of SSL Certificate key with .key extension
+        :param pulumi.Input[str] name: Name of the SSL Certificate key to be Imported on to BIGIP
         :param pulumi.Input[str] partition: Partition on to SSL Certificate key to be imported
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))

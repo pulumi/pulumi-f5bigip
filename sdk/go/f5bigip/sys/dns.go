@@ -14,7 +14,7 @@ import (
 type Dns struct {
 	pulumi.CustomResourceState
 
-	// Name of the Dns Servers
+	// Provide description for your DNS server
 	Description pulumi.StringOutput `pulumi:"description"`
 	// Name or IP address of the DNS server
 	NameServers pulumi.StringArrayOutput `pulumi:"nameServers"`
@@ -55,7 +55,7 @@ func GetDns(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Dns resources.
 type dnsState struct {
-	// Name of the Dns Servers
+	// Provide description for your DNS server
 	Description *string `pulumi:"description"`
 	// Name or IP address of the DNS server
 	NameServers []string `pulumi:"nameServers"`
@@ -66,7 +66,7 @@ type dnsState struct {
 }
 
 type DnsState struct {
-	// Name of the Dns Servers
+	// Provide description for your DNS server
 	Description pulumi.StringPtrInput
 	// Name or IP address of the DNS server
 	NameServers pulumi.StringArrayInput
@@ -81,7 +81,7 @@ func (DnsState) ElementType() reflect.Type {
 }
 
 type dnsArgs struct {
-	// Name of the Dns Servers
+	// Provide description for your DNS server
 	Description string `pulumi:"description"`
 	// Name or IP address of the DNS server
 	NameServers []string `pulumi:"nameServers"`
@@ -93,7 +93,7 @@ type dnsArgs struct {
 
 // The set of arguments for constructing a Dns resource.
 type DnsArgs struct {
-	// Name of the Dns Servers
+	// Provide description for your DNS server
 	Description pulumi.StringInput
 	// Name or IP address of the DNS server
 	NameServers pulumi.StringArrayInput

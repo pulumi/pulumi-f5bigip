@@ -22,7 +22,7 @@ namespace Pulumi.F5BigIP.Ssl
         public Output<string> Content { get; private set; } = null!;
 
         /// <summary>
-        /// Name of SSL Certificate key with .key extension
+        /// Name of the SSL Certificate key to be Imported on to BIGIP
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -86,7 +86,7 @@ namespace Pulumi.F5BigIP.Ssl
         public Input<string> Content { get; set; } = null!;
 
         /// <summary>
-        /// Name of SSL Certificate key with .key extension
+        /// Name of the SSL Certificate key to be Imported on to BIGIP
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -111,7 +111,7 @@ namespace Pulumi.F5BigIP.Ssl
         public Input<string>? Content { get; set; }
 
         /// <summary>
-        /// Name of SSL Certificate key with .key extension
+        /// Name of the SSL Certificate key to be Imported on to BIGIP
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

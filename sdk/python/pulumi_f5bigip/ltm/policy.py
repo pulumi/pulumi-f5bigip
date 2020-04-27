@@ -226,7 +226,7 @@ class Policy(pulumi.CustomResource):
         * `vlan` (`bool`)
         * `vlanId` (`bool`)
 
-      * `name` (`str`)
+      * `name` (`str`) - Name of the Policy
     """
     strategy: pulumi.Output[str]
     """
@@ -448,7 +448,7 @@ class Policy(pulumi.CustomResource):
             * `vlan` (`pulumi.Input[bool]`)
             * `vlanId` (`pulumi.Input[bool]`)
 
-          * `name` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - Name of the Policy
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -695,7 +695,7 @@ class Policy(pulumi.CustomResource):
             * `vlan` (`pulumi.Input[bool]`)
             * `vlanId` (`pulumi.Input[bool]`)
 
-          * `name` (`pulumi.Input[str]`)
+          * `name` (`pulumi.Input[str]`) - Name of the Policy
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

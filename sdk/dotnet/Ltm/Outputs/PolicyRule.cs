@@ -15,6 +15,9 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
     {
         public readonly ImmutableArray<Outputs.PolicyRuleAction> Actions;
         public readonly ImmutableArray<Outputs.PolicyRuleCondition> Conditions;
+        /// <summary>
+        /// Name of the Policy
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

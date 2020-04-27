@@ -16,7 +16,7 @@ import (
 type Snat struct {
 	pulumi.CustomResourceState
 
-	// Specifies whether to automatically map last hop for pools or not. The default is to use next level's defaul
+	// -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
 	Autolasthop pulumi.StringPtrOutput `pulumi:"autolasthop"`
 	// Fullpath
 	FullPath pulumi.StringPtrOutput `pulumi:"fullPath"`
@@ -74,7 +74,7 @@ func GetSnat(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Snat resources.
 type snatState struct {
-	// Specifies whether to automatically map last hop for pools or not. The default is to use next level's defaul
+	// -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
 	Autolasthop *string `pulumi:"autolasthop"`
 	// Fullpath
 	FullPath *string `pulumi:"fullPath"`
@@ -99,7 +99,7 @@ type snatState struct {
 }
 
 type SnatState struct {
-	// Specifies whether to automatically map last hop for pools or not. The default is to use next level's defaul
+	// -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
 	Autolasthop pulumi.StringPtrInput
 	// Fullpath
 	FullPath pulumi.StringPtrInput
@@ -128,7 +128,7 @@ func (SnatState) ElementType() reflect.Type {
 }
 
 type snatArgs struct {
-	// Specifies whether to automatically map last hop for pools or not. The default is to use next level's defaul
+	// -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
 	Autolasthop *string `pulumi:"autolasthop"`
 	// Fullpath
 	FullPath *string `pulumi:"fullPath"`
@@ -154,7 +154,7 @@ type snatArgs struct {
 
 // The set of arguments for constructing a Snat resource.
 type SnatArgs struct {
-	// Specifies whether to automatically map last hop for pools or not. The default is to use next level's defaul
+	// -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
 	Autolasthop pulumi.StringPtrInput
 	// Fullpath
 	FullPath pulumi.StringPtrInput
