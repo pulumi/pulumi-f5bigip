@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-f5bigip/sdk
+module github.com/pulumi/pulumi-f5bigip/sdk/v2
 
 go 1.13
 
