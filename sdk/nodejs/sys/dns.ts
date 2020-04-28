@@ -56,7 +56,7 @@ export class Dns extends pulumi.CustomResource {
     }
 
     /**
-     * Name of the Dns Servers
+     * Provide description for your DNS server
      */
     public readonly description!: pulumi.Output<string>;
     /**
@@ -114,7 +114,7 @@ export class Dns extends pulumi.CustomResource {
  */
 export interface DnsState {
     /**
-     * Name of the Dns Servers
+     * Provide description for your DNS server
      */
     readonly description?: pulumi.Input<string>;
     /**
@@ -136,7 +136,7 @@ export interface DnsState {
  */
 export interface DnsArgs {
     /**
-     * Name of the Dns Servers
+     * Provide description for your DNS server
      */
     readonly description: pulumi.Input<string>;
     /**

@@ -59,8 +59,7 @@ export class Node extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies the maximum number of connections per second allowed for a node or node address. The default value is
-     * 'disabled'.
+     * Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
      */
     public readonly rateLimit!: pulumi.Output<string>;
     /**
@@ -154,8 +153,7 @@ export interface NodeState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Specifies the maximum number of connections per second allowed for a node or node address. The default value is
-     * 'disabled'.
+     * Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
      */
     readonly rateLimit?: pulumi.Input<string>;
     /**
@@ -198,8 +196,7 @@ export interface NodeArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Specifies the maximum number of connections per second allowed for a node or node address. The default value is
-     * 'disabled'.
+     * Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
      */
     readonly rateLimit?: pulumi.Input<string>;
     /**

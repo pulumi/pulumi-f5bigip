@@ -12,7 +12,7 @@ from .. import utilities, tables
 class Snat(pulumi.CustomResource):
     autolasthop: pulumi.Output[str]
     """
-    Specifies whether to automatically map last hop for pools or not. The default is to use next level's defaul
+    -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
     """
     full_path: pulumi.Output[str]
     """
@@ -68,7 +68,7 @@ class Snat(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] autolasthop: Specifies whether to automatically map last hop for pools or not. The default is to use next level's defaul
+        :param pulumi.Input[str] autolasthop: -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
         :param pulumi.Input[str] full_path: Fullpath
         :param pulumi.Input[str] mirror: Enables or disables mirroring of SNAT connections.
         :param pulumi.Input[str] name: Name of the snat
@@ -132,7 +132,7 @@ class Snat(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] autolasthop: Specifies whether to automatically map last hop for pools or not. The default is to use next level's defaul
+        :param pulumi.Input[str] autolasthop: -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
         :param pulumi.Input[str] full_path: Fullpath
         :param pulumi.Input[str] mirror: Enables or disables mirroring of SNAT connections.
         :param pulumi.Input[str] name: Name of the snat

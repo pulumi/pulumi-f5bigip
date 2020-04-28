@@ -44,7 +44,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> FallbackPersistenceProfile { get; private set; } = null!;
 
         /// <summary>
-        /// all, tcp, udp
+        /// Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
         /// </summary>
         [Output("ipProtocol")]
         public Output<string> IpProtocol { get; private set; } = null!;
@@ -228,7 +228,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? FallbackPersistenceProfile { get; set; }
 
         /// <summary>
-        /// all, tcp, udp
+        /// Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
         /// </summary>
         [Input("ipProtocol")]
         public Input<string>? IpProtocol { get; set; }
@@ -408,7 +408,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? FallbackPersistenceProfile { get; set; }
 
         /// <summary>
-        /// all, tcp, udp
+        /// Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
         /// </summary>
         [Input("ipProtocol")]
         public Input<string>? IpProtocol { get; set; }

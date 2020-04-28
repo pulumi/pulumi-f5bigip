@@ -46,6 +46,9 @@ export namespace ltm {
     export interface PolicyRule {
         actions?: pulumi.Input<pulumi.Input<inputs.ltm.PolicyRuleAction>[]>;
         conditions?: pulumi.Input<pulumi.Input<inputs.ltm.PolicyRuleCondition>[]>;
+        /**
+         * Name of the Policy
+         */
         name: pulumi.Input<string>;
     }
 

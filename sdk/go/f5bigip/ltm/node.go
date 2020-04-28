@@ -29,8 +29,7 @@ type Node struct {
 	Monitor pulumi.StringPtrOutput `pulumi:"monitor"`
 	// Name of the node
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the maximum number of connections per second allowed for a node or node address. The default value is
-	// 'disabled'.
+	// Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
 	RateLimit pulumi.StringOutput `pulumi:"rateLimit"`
 	// Sets the ratio number for the node.
 	Ratio pulumi.IntOutput `pulumi:"ratio"`
@@ -85,8 +84,7 @@ type nodeState struct {
 	Monitor *string `pulumi:"monitor"`
 	// Name of the node
 	Name *string `pulumi:"name"`
-	// Specifies the maximum number of connections per second allowed for a node or node address. The default value is
-	// 'disabled'.
+	// Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
 	RateLimit *string `pulumi:"rateLimit"`
 	// Sets the ratio number for the node.
 	Ratio *int `pulumi:"ratio"`
@@ -108,8 +106,7 @@ type NodeState struct {
 	Monitor pulumi.StringPtrInput
 	// Name of the node
 	Name pulumi.StringPtrInput
-	// Specifies the maximum number of connections per second allowed for a node or node address. The default value is
-	// 'disabled'.
+	// Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
 	RateLimit pulumi.StringPtrInput
 	// Sets the ratio number for the node.
 	Ratio pulumi.IntPtrInput
@@ -135,8 +132,7 @@ type nodeArgs struct {
 	Monitor *string `pulumi:"monitor"`
 	// Name of the node
 	Name string `pulumi:"name"`
-	// Specifies the maximum number of connections per second allowed for a node or node address. The default value is
-	// 'disabled'.
+	// Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
 	RateLimit *string `pulumi:"rateLimit"`
 	// Sets the ratio number for the node.
 	Ratio *int `pulumi:"ratio"`
@@ -159,8 +155,7 @@ type NodeArgs struct {
 	Monitor pulumi.StringPtrInput
 	// Name of the node
 	Name pulumi.StringInput
-	// Specifies the maximum number of connections per second allowed for a node or node address. The default value is
-	// 'disabled'.
+	// Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
 	RateLimit pulumi.StringPtrInput
 	// Sets the ratio number for the node.
 	Ratio pulumi.IntPtrInput

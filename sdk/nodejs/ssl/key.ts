@@ -44,7 +44,7 @@ export class Key extends pulumi.CustomResource {
      */
     public readonly content!: pulumi.Output<string>;
     /**
-     * Name of SSL Certificate key with .key extension
+     * Name of the SSL Certificate key to be Imported on to BIGIP
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -99,7 +99,7 @@ export interface KeyState {
      */
     readonly content?: pulumi.Input<string>;
     /**
-     * Name of SSL Certificate key with .key extension
+     * Name of the SSL Certificate key to be Imported on to BIGIP
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -117,7 +117,7 @@ export interface KeyArgs {
      */
     readonly content: pulumi.Input<string>;
     /**
-     * Name of SSL Certificate key with .key extension
+     * Name of the SSL Certificate key to be Imported on to BIGIP
      */
     readonly name: pulumi.Input<string>;
     /**

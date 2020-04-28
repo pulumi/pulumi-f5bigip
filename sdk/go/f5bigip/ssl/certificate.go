@@ -17,7 +17,7 @@ type Certificate struct {
 
 	// Content of certificate on Disk
 	Content pulumi.StringOutput `pulumi:"content"`
-	// Name of SSL Certificate with .crt extension
+	// Name of the SSL Certificate to be Imported on to BIGIP
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Partition on to SSL Certificate to be imported
 	Partition pulumi.StringPtrOutput `pulumi:"partition"`
@@ -59,7 +59,7 @@ func GetCertificate(ctx *pulumi.Context,
 type certificateState struct {
 	// Content of certificate on Disk
 	Content *string `pulumi:"content"`
-	// Name of SSL Certificate with .crt extension
+	// Name of the SSL Certificate to be Imported on to BIGIP
 	Name *string `pulumi:"name"`
 	// Partition on to SSL Certificate to be imported
 	Partition *string `pulumi:"partition"`
@@ -68,7 +68,7 @@ type certificateState struct {
 type CertificateState struct {
 	// Content of certificate on Disk
 	Content pulumi.StringPtrInput
-	// Name of SSL Certificate with .crt extension
+	// Name of the SSL Certificate to be Imported on to BIGIP
 	Name pulumi.StringPtrInput
 	// Partition on to SSL Certificate to be imported
 	Partition pulumi.StringPtrInput
@@ -81,7 +81,7 @@ func (CertificateState) ElementType() reflect.Type {
 type certificateArgs struct {
 	// Content of certificate on Disk
 	Content string `pulumi:"content"`
-	// Name of SSL Certificate with .crt extension
+	// Name of the SSL Certificate to be Imported on to BIGIP
 	Name string `pulumi:"name"`
 	// Partition on to SSL Certificate to be imported
 	Partition *string `pulumi:"partition"`
@@ -91,7 +91,7 @@ type certificateArgs struct {
 type CertificateArgs struct {
 	// Content of certificate on Disk
 	Content pulumi.StringInput
-	// Name of SSL Certificate with .crt extension
+	// Name of the SSL Certificate to be Imported on to BIGIP
 	Name pulumi.StringInput
 	// Partition on to SSL Certificate to be imported
 	Partition pulumi.StringPtrInput

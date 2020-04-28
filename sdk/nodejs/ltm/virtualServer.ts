@@ -60,7 +60,7 @@ export class VirtualServer extends pulumi.CustomResource {
      */
     public readonly fallbackPersistenceProfile!: pulumi.Output<string>;
     /**
-     * all, tcp, udp
+     * Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
      */
     public readonly ipProtocol!: pulumi.Output<string>;
     /**
@@ -232,7 +232,7 @@ export interface VirtualServerState {
      */
     readonly fallbackPersistenceProfile?: pulumi.Input<string>;
     /**
-     * all, tcp, udp
+     * Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
      */
     readonly ipProtocol?: pulumi.Input<string>;
     /**
@@ -324,7 +324,7 @@ export interface VirtualServerArgs {
      */
     readonly fallbackPersistenceProfile?: pulumi.Input<string>;
     /**
-     * all, tcp, udp
+     * Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
      */
     readonly ipProtocol?: pulumi.Input<string>;
     /**

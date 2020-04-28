@@ -15,7 +15,7 @@ namespace Pulumi.F5BigIP.Sys
     public partial class Dns : Pulumi.CustomResource
     {
         /// <summary>
-        /// Name of the Dns Servers
+        /// Provide description for your DNS server
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
@@ -85,7 +85,7 @@ namespace Pulumi.F5BigIP.Sys
     public sealed class DnsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the Dns Servers
+        /// Provide description for your DNS server
         /// </summary>
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
@@ -128,7 +128,7 @@ namespace Pulumi.F5BigIP.Sys
     public sealed class DnsState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the Dns Servers
+        /// Provide description for your DNS server
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }

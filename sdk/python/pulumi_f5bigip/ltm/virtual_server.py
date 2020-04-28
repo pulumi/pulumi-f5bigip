@@ -29,7 +29,7 @@ class VirtualServer(pulumi.CustomResource):
     """
     ip_protocol: pulumi.Output[str]
     """
-    all, tcp, udp
+    Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
     """
     irules: pulumi.Output[list]
     """
@@ -111,7 +111,7 @@ class VirtualServer(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of Virtual server
         :param pulumi.Input[str] destination: Destination IP
         :param pulumi.Input[str] fallback_persistence_profile: Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
-        :param pulumi.Input[str] ip_protocol: all, tcp, udp
+        :param pulumi.Input[str] ip_protocol: Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
         :param pulumi.Input[list] irules: The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
         :param pulumi.Input[str] mask: Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
         :param pulumi.Input[str] name: Name of the virtual server
@@ -194,7 +194,7 @@ class VirtualServer(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of Virtual server
         :param pulumi.Input[str] destination: Destination IP
         :param pulumi.Input[str] fallback_persistence_profile: Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
-        :param pulumi.Input[str] ip_protocol: all, tcp, udp
+        :param pulumi.Input[str] ip_protocol: Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
         :param pulumi.Input[list] irules: The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
         :param pulumi.Input[str] mask: Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
         :param pulumi.Input[str] name: Name of the virtual server

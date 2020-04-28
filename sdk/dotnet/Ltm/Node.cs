@@ -56,8 +56,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the maximum number of connections per second allowed for a node or node address. The default value is
-        /// 'disabled'.
+        /// Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
         /// </summary>
         [Output("rateLimit")]
         public Output<string> RateLimit { get; private set; } = null!;
@@ -160,8 +159,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the maximum number of connections per second allowed for a node or node address. The default value is
-        /// 'disabled'.
+        /// Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
         /// </summary>
         [Input("rateLimit")]
         public Input<string>? RateLimit { get; set; }
@@ -225,8 +223,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the maximum number of connections per second allowed for a node or node address. The default value is
-        /// 'disabled'.
+        /// Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
         /// </summary>
         [Input("rateLimit")]
         public Input<string>? RateLimit { get; set; }

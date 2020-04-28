@@ -273,31 +273,57 @@ func (o NodeFqdnPtrOutput) Elem() NodeFqdnOutput {
 
 // Specifies the node's address family. The default is 'unspecified', or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
 func (o NodeFqdnPtrOutput) AddressFamily() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NodeFqdn) *string { return v.AddressFamily }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *NodeFqdn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AddressFamily
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o NodeFqdnPtrOutput) Autopopulate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NodeFqdn) *string { return v.Autopopulate }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *NodeFqdn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Autopopulate
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o NodeFqdnPtrOutput) Downinterval() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v NodeFqdn) *int { return v.Downinterval }).(pulumi.IntPtrOutput)
+	return o.ApplyT(func(v *NodeFqdn) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Downinterval
+	}).(pulumi.IntPtrOutput)
 }
 
 // Specifies the amount of time before sending the next DNS query. Default is 3600. This needs to be specified inside the fqdn (fully qualified domain name).
 func (o NodeFqdnPtrOutput) Interval() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NodeFqdn) *string { return v.Interval }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *NodeFqdn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.StringPtrOutput)
 }
 
 // Name of the node
 func (o NodeFqdnPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v NodeFqdn) *string { return v.Name }).(pulumi.StringPtrOutput)
+	return o.ApplyT(func(v *NodeFqdn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 type PolicyRule struct {
 	Actions    []PolicyRuleAction    `pulumi:"actions"`
 	Conditions []PolicyRuleCondition `pulumi:"conditions"`
-	Name       string                `pulumi:"name"`
+	// Name of the Policy
+	Name string `pulumi:"name"`
 }
 
 // PolicyRuleInput is an input type that accepts PolicyRuleArgs and PolicyRuleOutput values.
@@ -315,7 +341,8 @@ type PolicyRuleInput interface {
 type PolicyRuleArgs struct {
 	Actions    PolicyRuleActionArrayInput    `pulumi:"actions"`
 	Conditions PolicyRuleConditionArrayInput `pulumi:"conditions"`
-	Name       pulumi.StringInput            `pulumi:"name"`
+	// Name of the Policy
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (PolicyRuleArgs) ElementType() reflect.Type {
@@ -378,6 +405,7 @@ func (o PolicyRuleOutput) Conditions() PolicyRuleConditionArrayOutput {
 	return o.ApplyT(func(v PolicyRule) []PolicyRuleCondition { return v.Conditions }).(PolicyRuleConditionArrayOutput)
 }
 
+// Name of the Policy
 func (o PolicyRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyRule) string { return v.Name }).(pulumi.StringOutput)
 }
