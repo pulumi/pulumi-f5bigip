@@ -37,6 +37,22 @@ class Provision(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, cpu_ratio=None, disk_ratio=None, full_path=None, level=None, memory_ratio=None, name=None, __props__=None, __name__=None, __opts__=None):
         """
         `sys.Provision` provides details bout how to enable "ilx", "asm" "apm" resource on BIG-IP
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        test_provision = f5bigip.sys.Provision("test-provision",
+            cpu_ratio=0,
+            disk_ratio=0,
+            full_path="asm",
+            level="none",
+            memory_ratio=0,
+            name="TEST_ASM_PROVISION_NAME")
+        ```
 
 
         :param str resource_name: The name of the resource.

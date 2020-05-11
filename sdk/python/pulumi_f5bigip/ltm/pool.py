@@ -48,13 +48,7 @@ class Pool(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, allow_nat=None, allow_snat=None, description=None, load_balancing_mode=None, monitors=None, name=None, reselect_tries=None, service_down_action=None, slow_ramp_time=None, __props__=None, __name__=None, __opts__=None):
         """
-        `ltm.Pool` Manages a pool configuration.
-
-        Resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-
-
-
-
+        Create a Pool resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] allow_nat: Allow NAT

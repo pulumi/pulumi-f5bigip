@@ -32,6 +32,28 @@ class DataGroup(pulumi.CustomResource):
         Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-datagroup.
 
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        datagroup = f5bigip.ltm.DataGroup("datagroup",
+            name="/Common/dgx2",
+            records=[
+                {
+                    "data": "pool1",
+                    "name": "abc.com",
+                },
+                {
+                    "data": "123",
+                    "name": "test",
+                },
+            ],
+            type="string")
+        ```
 
 
         :param str resource_name: The name of the resource.

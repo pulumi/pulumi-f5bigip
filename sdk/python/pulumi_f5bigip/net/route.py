@@ -29,6 +29,19 @@ class Route(pulumi.CustomResource):
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        route2 = f5bigip.net.Route("route2",
+            gw="1.1.1.2",
+            name="external-route",
+            network="10.10.10.0/24")
+        ```
 
 
         :param str resource_name: The name of the resource.

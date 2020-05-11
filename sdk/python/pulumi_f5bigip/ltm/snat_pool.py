@@ -25,6 +25,21 @@ class SnatPool(pulumi.CustomResource):
         Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-snatpool. 
 
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        snatpool_sanjose = f5bigip.ltm.SnatPool("snatpoolSanjose",
+            members=[
+                "191.1.1.1",
+                "194.2.2.2",
+            ],
+            name="/Common/snatpool_sanjose")
+        ```
 
 
         :param str resource_name: The name of the resource.

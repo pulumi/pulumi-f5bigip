@@ -69,6 +69,21 @@ class SnmpTraps(pulumi.CustomResource):
     def __init__(__self__, resource_name, opts=None, auth_passwordencrypted=None, auth_protocol=None, community=None, description=None, engine_id=None, host=None, name=None, port=None, privacy_password=None, privacy_password_encrypted=None, privacy_protocol=None, security_level=None, security_name=None, version=None, __props__=None, __name__=None, __opts__=None):
         """
         `sys.SnmpTraps` provides details bout how to enable snmp_traps resource on BIG-IP
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        snmp_traps = f5bigip.sys.SnmpTraps("snmpTraps",
+            community="f5community",
+            description="Setup snmp traps",
+            host="195.10.10.1",
+            name="snmptraps",
+            port=111)
+        ```
 
 
         :param str resource_name: The name of the resource.

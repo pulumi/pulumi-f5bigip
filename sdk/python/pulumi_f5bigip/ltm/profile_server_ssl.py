@@ -177,6 +177,21 @@ class ProfileServerSsl(pulumi.CustomResource):
 
 
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        test__server_ssl = f5bigip.ltm.ProfileServerSsl("test-ServerSsl",
+            authenticate="always",
+            ciphers="DEFAULT",
+            defaults_from="/Common/serverssl",
+            name="/Common/test-ServerSsl",
+            partition="Common")
+        ```
 
 
         :param str resource_name: The name of the resource.

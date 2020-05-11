@@ -41,6 +41,25 @@ class ProfileHttpCompress(pulumi.CustomResource):
 
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        sjhttpcompression = f5bigip.ltm.ProfileHttpCompress("sjhttpcompression",
+            content_type_excludes=["nicecontentexclude.com"],
+            content_type_includes=["nicecontent.com"],
+            defaults_from="/Common/httpcompression",
+            name="/Common/sjhttpcompression2",
+            uri_excludes=[
+                "www.abc.f5.com",
+                "www.abc2.f5.com",
+            ],
+            uri_includes=["www.xyzbc.cisco.com"])
+        ```
 
 
         :param str resource_name: The name of the resource.

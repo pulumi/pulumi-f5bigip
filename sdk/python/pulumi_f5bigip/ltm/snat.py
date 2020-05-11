@@ -64,6 +64,31 @@ class Snat(pulumi.CustomResource):
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        test_snat = f5bigip.ltm.Snat("test-snat",
+            autolasthop="default",
+            full_path="/Common/test-snat",
+            mirror="disabled",
+            name="TEST_SNAT_NAME",
+            origins=[
+                {
+                    "name": "2.2.2.2",
+                },
+                {
+                    "name": "3.3.3.3",
+                },
+            ],
+            partition="Common",
+            translation="/Common/136.1.1.1",
+            vlansdisabled=True)
+        ```
 
 
         :param str resource_name: The name of the resource.

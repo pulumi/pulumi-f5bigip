@@ -32,6 +32,22 @@ class Vlan(pulumi.CustomResource):
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        vlan1 = f5bigip.net.Vlan("vlan1",
+            interfaces=[{
+                "tagged": False,
+                "vlanport": 1.2,
+            }],
+            name="/Common/Internal",
+            tag=101)
+        ```
 
 
         :param str resource_name: The name of the resource.

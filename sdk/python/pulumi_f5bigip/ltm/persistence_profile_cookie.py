@@ -78,43 +78,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, always_send=None, app_service=None, cookie_encryption=None, cookie_encryption_passphrase=None, cookie_name=None, defaults_from=None, expiration=None, hash_length=None, hash_offset=None, httponly=None, match_across_pools=None, match_across_services=None, match_across_virtuals=None, mirror=None, name=None, override_conn_limit=None, timeout=None, __props__=None, __name__=None, __opts__=None):
         """
-        Configures a cookie persistence profile
-
-        ## Reference
-
-        `name` - (Required) Name of the virtual address
-
-        `defaults_from` - (Required) Parent cookie persistence profile
-
-        `match_across_pools` (Optional) (enabled or disabled) match across pools with given persistence record
-
-        `match_across_services` (Optional) (enabled or disabled) match across services with given persistence record
-
-        `match_across_virtuals` (Optional) (enabled or disabled) match across virtual servers with given persistence record
-
-        `mirror` (Optional) (enabled or disabled) mirror persistence record
-
-        `timeout` (Optional) (enabled or disabled) Timeout for persistence of the session in seconds
-
-        `override_conn_limit` (Optional) (enabled or disabled) Enable or dissable pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
-
-        `always_send` (Optional) (enabled or disabled) always send cookies
-
-        `cookie_encryption` (Optional) (required, preferred, or disabled) To required, preferred, or disabled policy for cookie encryption
-
-        `cookie_encryption_passphrase` (Optional) (required, preferred, or disabled) Passphrase for encrypted cookies. The field is encrypted on the server and will always return differently then set.
-        If this is configured specify `ignore_changes` under the `lifecycle` block to ignore returned encrypted value.
-
-        `cookie_name` (Optional) Name of the cookie to track persistence
-
-        `expiration` (Optional) Expiration TTL for cookie specified in DAY:HOUR:MIN:SECONDS (Examples: 1:0:0:0 one day, 1:0:0 one hour, 30:0 thirty minutes)
-
-        `hash_length` (Optional) (Integer) Length of hash to apply to cookie
-
-        `hash_offset` (Optional) (Integer) Number of characters to skip in the cookie for the hash
-
-        `httponly` (Optional) (enabled or disabled) Sending only over http
-
+        Create a PersistenceProfileCookie resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] always_send: To enable _ disable always sending cookies

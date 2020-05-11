@@ -28,6 +28,19 @@ class Key(pulumi.CustomResource):
         Certificate key can be imported from certificate key files on the local disk, in PEM format
 
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        test_key = f5bigip.ssl.Key("test-key",
+            name="serverkey.key",
+            content=(lambda path: open(path).read())("serverkey.key"),
+            partition="Common")
+        ```
 
 
         :param str resource_name: The name of the resource.

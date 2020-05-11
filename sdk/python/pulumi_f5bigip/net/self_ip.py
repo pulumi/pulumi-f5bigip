@@ -33,6 +33,20 @@ class SelfIp(pulumi.CustomResource):
         Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-selfip.
 
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        selfip1 = f5bigip.net.SelfIp("selfip1",
+            name="/Common/internalselfIP",
+            ip="11.1.1.1/24",
+            vlan="/Common/internal",
+            traffic_group="traffic-group-1")
+        ```
 
 
         :param str resource_name: The name of the resource.

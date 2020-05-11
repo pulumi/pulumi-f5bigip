@@ -88,12 +88,7 @@ class Monitor(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, adaptive=None, adaptive_limit=None, compatibility=None, database=None, defaults_from=None, destination=None, filename=None, interval=None, ip_dscp=None, manual_resume=None, mode=None, name=None, parent=None, password=None, receive=None, receive_disable=None, reverse=None, send=None, time_until_up=None, timeout=None, transparent=None, username=None, __props__=None, __name__=None, __opts__=None):
         """
-        `ltm.Monitor` Configures a custom monitor for use by health checks.
-
-        For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-
-
-
+        Create a Monitor resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] adaptive: ftp adaptive

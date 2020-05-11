@@ -114,7 +114,6 @@ func Provider() tfbridge.ProviderInfo {
 			"bigip_do":                              {Tok: f5BigIPResource(f5BigIPMainMod, "Do")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
-			AsyncDataSources: true,
 			Dependencies: map[string]string{
 				"@pulumi/pulumi": "^2.0.0",
 			},

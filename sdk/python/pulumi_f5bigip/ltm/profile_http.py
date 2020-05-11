@@ -122,6 +122,25 @@ class ProfileHttp(pulumi.CustomResource):
 
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        sanjose_http = f5bigip.ltm.ProfileHttp("sanjose-http",
+            defaults_from="/Common/http",
+            description="some http",
+            fallback_host="titanic",
+            fallback_status_codes=[
+                "400",
+                "500",
+                "300",
+            ],
+            name="/Common/sanjose-http")
+        ```
 
 
         :param str resource_name: The name of the resource.

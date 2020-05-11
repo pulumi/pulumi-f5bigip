@@ -58,6 +58,28 @@ class DeviceGroup(pulumi.CustomResource):
         `cm.DeviceGroup` A device group is a collection of BIG-IP devices that are configured to securely synchronize their BIG-IP configuration data, and fail over when needed.
 
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        my_new_devicegroup = f5bigip.cm.DeviceGroup("myNewDevicegroup",
+            auto_sync="enabled",
+            devices=[
+                {
+                    "name": "bigip1.cisco.com",
+                },
+                {
+                    "name": "bigip200.f5.com",
+                },
+            ],
+            full_load_on_sync="true",
+            name="sanjose_devicegroup",
+            type="sync-only")
+        ```
 
 
         :param str resource_name: The name of the resource.

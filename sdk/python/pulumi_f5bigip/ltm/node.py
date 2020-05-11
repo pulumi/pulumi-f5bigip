@@ -49,13 +49,7 @@ class Node(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, address=None, connection_limit=None, description=None, dynamic_ratio=None, fqdn=None, monitor=None, name=None, rate_limit=None, ratio=None, state=None, __props__=None, __name__=None, __opts__=None):
         """
-        `ltm.Node` Manages a node configuration
-
-        For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-
-
-
-
+        Create a Node resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address: IP or hostname of the node
