@@ -31,6 +31,20 @@ class Device(pulumi.CustomResource):
         `cm.Device` provides details about a specific bigip
 
         This resource is helpful when configuring the BIG-IP device in cluster or in HA mode.
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        my_new_device = f5bigip.cm.Device("myNewDevice",
+            configsync_ip="2.2.2.2",
+            mirror_ip="10.10.10.10",
+            mirror_secondary_ip="11.11.11.11",
+            name="bigip300.f5.com")
+        ```
 
 
         :param str resource_name: The name of the resource.

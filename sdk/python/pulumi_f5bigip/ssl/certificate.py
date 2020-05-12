@@ -28,6 +28,19 @@ class Certificate(pulumi.CustomResource):
         Certificates can be imported from certificate files on the local disk, in PEM format
 
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        test_cert = f5bigip.ssl.Certificate("test-cert",
+            name="servercert.crt",
+            content=(lambda path: open(path).read())("servercert.crt"),
+            partition="Common")
+        ```
 
 
         :param str resource_name: The name of the resource.

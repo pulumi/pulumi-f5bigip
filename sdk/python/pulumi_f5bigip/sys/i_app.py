@@ -70,7 +70,40 @@ class IApp(pulumi.CustomResource):
         """
         `sys.IApp` resource helps you to deploy Application Services template that can be used to automate and orchestrate Layer 4-7 applications service deployments using F5 Network.  
 
+        ## Example Usage
 
+
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        simplehttp = f5bigip.sys.IApp("simplehttp",
+            name="simplehttp",
+            jsonfile=(lambda path: open(path).read())("simplehttp.json"))
+        ```
+
+        ## Example Usage of Json file
+
+        ```python
+        import pulumi
+        ```
+
+         * `description` - User defined description.
+         * `deviceGroup` - The name of the device group that the application service is assigned to.
+         * `executeAction` - Run the specified template action associated with the application.
+         * `inheritedDevicegroup`- Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use 'device-group default' or 'device-group non-default' to set this.
+         * `inheritedTrafficGroup` - Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use 'traffic-group default' or 'traffic-group non-default' to set this.
+         * `partition` - Displays the administrative partition within which the application resides.
+         * `strictUpdates` - Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system's application management interfaces.
+         * `template` - The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.
+         * `templateModified` - Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.
+         * `templatePrerequisiteErrors` - Indicates any missing prerequisites associated with the template that defines this application.
+         * `trafficGroup` - The name of the traffic group that the application service is assigned to.
+         * `lists` - string values
+         * `metadata` - User defined generic data for the application service. It is a name and value pair.
+         * `tables` - Values provided like pool name, nodes etc.
+         * `variables` - Name, values, encrypted or not
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

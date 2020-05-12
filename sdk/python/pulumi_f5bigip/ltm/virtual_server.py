@@ -98,13 +98,7 @@ class VirtualServer(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, client_profiles=None, default_persistence_profile=None, description=None, destination=None, fallback_persistence_profile=None, ip_protocol=None, irules=None, mask=None, name=None, persistence_profiles=None, policies=None, pool=None, port=None, profiles=None, server_profiles=None, snatpool=None, source=None, source_address_translation=None, state=None, translate_address=None, translate_port=None, vlans=None, vlans_enabled=None, __props__=None, __name__=None, __opts__=None):
         """
-        `ltm.VirtualServer` Configures Virtual Server
-
-        For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-
-
-
-
+        Create a VirtualServer resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[list] client_profiles: List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles

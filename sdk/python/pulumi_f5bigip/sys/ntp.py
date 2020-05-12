@@ -27,6 +27,19 @@ class Ntp(pulumi.CustomResource):
         `sys.Ntp` provides details about a specific bigip
 
         This resource is helpful when configuring NTP server on the BIG-IP.
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        ntp1 = f5bigip.sys.Ntp("ntp1",
+            description="/Common/NTP1",
+            servers=["time.facebook.com"],
+            timezone="America/Los_Angeles")
+        ```
 
 
         :param str resource_name: The name of the resource.

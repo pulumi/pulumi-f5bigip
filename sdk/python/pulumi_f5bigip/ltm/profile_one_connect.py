@@ -52,6 +52,25 @@ class ProfileOneConnect(pulumi.CustomResource):
 
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        oneconnect_sanjose = f5bigip.ltm.ProfileOneConnect("oneconnect-sanjose",
+            defaults_from="/Common/oneconnect",
+            idle_timeout_override="disabled",
+            max_age=3600,
+            max_reuse=1000,
+            max_size=1000,
+            name="sanjose",
+            partition="Common",
+            share_pools="disabled",
+            source_mask="255.255.255.255")
+        ```
 
 
         :param str resource_name: The name of the resource.

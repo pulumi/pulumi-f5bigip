@@ -33,6 +33,20 @@ class Dns(pulumi.CustomResource):
 
 
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        dns1 = f5bigip.sys.Dns("dns1",
+            description="/Common/DNS1",
+            name_servers=["1.1.1.1"],
+            number_of_dots=2,
+            searches=["f5.com"])
+        ```
 
 
         :param str resource_name: The name of the resource.

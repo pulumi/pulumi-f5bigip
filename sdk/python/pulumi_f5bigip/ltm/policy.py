@@ -239,6 +239,29 @@ class Policy(pulumi.CustomResource):
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        test_policy = f5bigip.ltm.Policy("test-policy",
+            name="my_policy",
+            strategy="first-match",
+            requires=["http"],
+            published_copy="Drafts/my_policy",
+            controls=["forwarding"],
+            rule=[{
+                "name": "rule6",
+                "action": [{
+                    "tmName": "20",
+                    "forward": True,
+                    "pool": "/Common/mypool",
+                }],
+            }])
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -46,26 +46,7 @@ class PersistenceProfileSsl(pulumi.CustomResource):
     """
     def __init__(__self__, resource_name, opts=None, app_service=None, defaults_from=None, match_across_pools=None, match_across_services=None, match_across_virtuals=None, mirror=None, name=None, override_conn_limit=None, timeout=None, __props__=None, __name__=None, __opts__=None):
         """
-        Configures an SSL persistence profile
-
-        ## Reference
-
-        `name` - (Required) Name of the virtual address
-
-        `defaults_from` - (Required) Parent cookie persistence profile
-
-        `match_across_pools` (Optional) (enabled or disabled) match across pools with given persistence record
-
-        `match_across_services` (Optional) (enabled or disabled) match across services with given persistence record
-
-        `match_across_virtuals` (Optional) (enabled or disabled) match across virtual servers with given persistence record
-
-        `mirror` (Optional) (enabled or disabled) mirror persistence record
-
-        `timeout` (Optional) (enabled or disabled) Timeout for persistence of the session in seconds
-
-        `override_conn_limit` (Optional) (enabled or disabled) Enable or dissable pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
-
+        Create a PersistenceProfileSsl resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] defaults_from: Inherit defaults from parent profile

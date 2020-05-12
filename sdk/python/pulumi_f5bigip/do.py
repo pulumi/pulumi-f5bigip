@@ -23,6 +23,18 @@ class Do(pulumi.CustomResource):
         `.Do` provides details about bigip do resource
 
         This resource is helpful to configure do declarative JSON on BIG-IP.
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        do_example = f5bigip.Do("do-example",
+            do_json=(lambda path: open(path).read())("example.json"),
+            tenant_name="sample_test1")
+        ```
 
 
         :param str resource_name: The name of the resource.

@@ -60,6 +60,27 @@ class ProfileFastHttp(pulumi.CustomResource):
 
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 
+        ## Example Usage
+
+
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        sjfasthttpprofile = f5bigip.ltm.ProfileFastHttp("sjfasthttpprofile",
+            connpool_maxreuse=2,
+            connpool_maxsize=2048,
+            connpool_minsize=0,
+            connpool_replenish="enabled",
+            connpool_step=4,
+            connpoolidle_timeoutoverride=0,
+            defaults_from="/Common/fasthttp",
+            forcehttp10response="disabled",
+            idle_timeout=300,
+            maxheader_size=32768,
+            name="sjfasthttpprofile")
+        ```
 
 
         :param str resource_name: The name of the resource.
