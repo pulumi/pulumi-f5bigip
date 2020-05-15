@@ -17,16 +17,28 @@ namespace Pulumi.F5BigIP
     public partial class As3 : Pulumi.CustomResource
     {
         /// <summary>
-        /// Path/Filename of Declarative AS3 JSON which can be a template/json file used with builtin ```templatefile``` function (or) ```file``` function
+        /// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         /// </summary>
         [Output("as3Json")]
         public Output<string> As3Json { get; private set; } = null!;
 
         /// <summary>
+        /// If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified 
+        /// </summary>
+        [Output("tenantFilter")]
+        public Output<string?> TenantFilter { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of Tenant
+        /// </summary>
+        [Output("tenantList")]
+        public Output<string> TenantList { get; private set; } = null!;
+
+        /// <summary>
         /// Name of Tenant
         /// </summary>
         [Output("tenantName")]
-        public Output<string> TenantName { get; private set; } = null!;
+        public Output<string?> TenantName { get; private set; } = null!;
 
 
         /// <summary>
@@ -75,16 +87,28 @@ namespace Pulumi.F5BigIP
     public sealed class As3Args : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Path/Filename of Declarative AS3 JSON which can be a template/json file used with builtin ```templatefile``` function (or) ```file``` function
+        /// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         /// </summary>
         [Input("as3Json", required: true)]
         public Input<string> As3Json { get; set; } = null!;
 
         /// <summary>
+        /// If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified 
+        /// </summary>
+        [Input("tenantFilter")]
+        public Input<string>? TenantFilter { get; set; }
+
+        /// <summary>
         /// Name of Tenant
         /// </summary>
-        [Input("tenantName", required: true)]
-        public Input<string> TenantName { get; set; } = null!;
+        [Input("tenantList")]
+        public Input<string>? TenantList { get; set; }
+
+        /// <summary>
+        /// Name of Tenant
+        /// </summary>
+        [Input("tenantName")]
+        public Input<string>? TenantName { get; set; }
 
         public As3Args()
         {
@@ -94,10 +118,22 @@ namespace Pulumi.F5BigIP
     public sealed class As3State : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Path/Filename of Declarative AS3 JSON which can be a template/json file used with builtin ```templatefile``` function (or) ```file``` function
+        /// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         /// </summary>
         [Input("as3Json")]
         public Input<string>? As3Json { get; set; }
+
+        /// <summary>
+        /// If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified 
+        /// </summary>
+        [Input("tenantFilter")]
+        public Input<string>? TenantFilter { get; set; }
+
+        /// <summary>
+        /// Name of Tenant
+        /// </summary>
+        [Input("tenantList")]
+        public Input<string>? TenantList { get; set; }
 
         /// <summary>
         /// Name of Tenant

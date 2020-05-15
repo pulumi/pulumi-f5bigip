@@ -19,7 +19,9 @@ type Do struct {
 	// Name of the of the Declarative DO JSON file
 	DoJson pulumi.StringOutput `pulumi:"doJson"`
 	// unique identifier for DO resource
-	TenantName pulumi.StringOutput `pulumi:"tenantName"`
+	TenantName pulumi.StringPtrOutput `pulumi:"tenantName"`
+	// DO json
+	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
 }
 
 // NewDo registers a new resource with the given unique name, arguments, and options.
@@ -27,9 +29,6 @@ func NewDo(ctx *pulumi.Context,
 	name string, args *DoArgs, opts ...pulumi.ResourceOption) (*Do, error) {
 	if args == nil || args.DoJson == nil {
 		return nil, errors.New("missing required argument 'DoJson'")
-	}
-	if args == nil || args.TenantName == nil {
-		return nil, errors.New("missing required argument 'TenantName'")
 	}
 	if args == nil {
 		args = &DoArgs{}
@@ -60,6 +59,8 @@ type doState struct {
 	DoJson *string `pulumi:"doJson"`
 	// unique identifier for DO resource
 	TenantName *string `pulumi:"tenantName"`
+	// DO json
+	Timeout *int `pulumi:"timeout"`
 }
 
 type DoState struct {
@@ -67,6 +68,8 @@ type DoState struct {
 	DoJson pulumi.StringPtrInput
 	// unique identifier for DO resource
 	TenantName pulumi.StringPtrInput
+	// DO json
+	Timeout pulumi.IntPtrInput
 }
 
 func (DoState) ElementType() reflect.Type {
@@ -77,7 +80,9 @@ type doArgs struct {
 	// Name of the of the Declarative DO JSON file
 	DoJson string `pulumi:"doJson"`
 	// unique identifier for DO resource
-	TenantName string `pulumi:"tenantName"`
+	TenantName *string `pulumi:"tenantName"`
+	// DO json
+	Timeout *int `pulumi:"timeout"`
 }
 
 // The set of arguments for constructing a Do resource.
@@ -85,7 +90,9 @@ type DoArgs struct {
 	// Name of the of the Declarative DO JSON file
 	DoJson pulumi.StringInput
 	// unique identifier for DO resource
-	TenantName pulumi.StringInput
+	TenantName pulumi.StringPtrInput
+	// DO json
+	Timeout pulumi.IntPtrInput
 }
 
 func (DoArgs) ElementType() reflect.Type {

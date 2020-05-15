@@ -10,17 +10,29 @@ import (
 
 // Domain name/IP of the BigIP
 func GetAddress(ctx *pulumi.Context) string {
-	return config.Get(ctx, "f5bigip:address")
+	v, err := config.Try(ctx, "f5bigip:address")
+	if err == nil {
+		return v
+	}
+	return getEnvOrDefault("", nil, "BIGIP_HOST").(string)
 }
 
 // Login reference for token authentication (see BIG-IP REST docs for details)
 func GetLoginRef(ctx *pulumi.Context) string {
-	return config.Get(ctx, "f5bigip:loginRef")
+	v, err := config.Try(ctx, "f5bigip:loginRef")
+	if err == nil {
+		return v
+	}
+	return getEnvOrDefault("", nil, "BIGIP_LOGIN_REF").(string)
 }
 
 // The user's password
 func GetPassword(ctx *pulumi.Context) string {
-	return config.Get(ctx, "f5bigip:password")
+	v, err := config.Try(ctx, "f5bigip:password")
+	if err == nil {
+		return v
+	}
+	return getEnvOrDefault("", nil, "BIGIP_PASSWORD").(string)
 }
 
 // Management Port to connect to Bigip
@@ -30,10 +42,18 @@ func GetPort(ctx *pulumi.Context) string {
 
 // Enable to use an external authentication source (LDAP, TACACS, etc)
 func GetTokenAuth(ctx *pulumi.Context) bool {
-	return config.GetBool(ctx, "f5bigip:tokenAuth")
+	v, err := config.TryBool(ctx, "f5bigip:tokenAuth")
+	if err == nil {
+		return v
+	}
+	return getEnvOrDefault(false, parseEnvBool, "BIGIP_TOKEN_AUTH").(bool)
 }
 
 // Username with API access to the BigIP
 func GetUsername(ctx *pulumi.Context) string {
-	return config.Get(ctx, "f5bigip:username")
+	v, err := config.Try(ctx, "f5bigip:username")
+	if err == nil {
+		return v
+	}
+	return getEnvOrDefault("", nil, "BIGIP_USER").(string)
 }

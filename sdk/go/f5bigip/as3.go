@@ -16,10 +16,14 @@ import (
 type As3 struct {
 	pulumi.CustomResourceState
 
-	// Path/Filename of Declarative AS3 JSON which can be a template/json file used with builtin ```templatefile``` function (or) ```file``` function
+	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
 	As3Json pulumi.StringOutput `pulumi:"as3Json"`
+	// If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified
+	TenantFilter pulumi.StringPtrOutput `pulumi:"tenantFilter"`
 	// Name of Tenant
-	TenantName pulumi.StringOutput `pulumi:"tenantName"`
+	TenantList pulumi.StringOutput `pulumi:"tenantList"`
+	// Name of Tenant
+	TenantName pulumi.StringPtrOutput `pulumi:"tenantName"`
 }
 
 // NewAs3 registers a new resource with the given unique name, arguments, and options.
@@ -27,9 +31,6 @@ func NewAs3(ctx *pulumi.Context,
 	name string, args *As3Args, opts ...pulumi.ResourceOption) (*As3, error) {
 	if args == nil || args.As3Json == nil {
 		return nil, errors.New("missing required argument 'As3Json'")
-	}
-	if args == nil || args.TenantName == nil {
-		return nil, errors.New("missing required argument 'TenantName'")
 	}
 	if args == nil {
 		args = &As3Args{}
@@ -56,15 +57,23 @@ func GetAs3(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering As3 resources.
 type as3State struct {
-	// Path/Filename of Declarative AS3 JSON which can be a template/json file used with builtin ```templatefile``` function (or) ```file``` function
+	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
 	As3Json *string `pulumi:"as3Json"`
+	// If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified
+	TenantFilter *string `pulumi:"tenantFilter"`
+	// Name of Tenant
+	TenantList *string `pulumi:"tenantList"`
 	// Name of Tenant
 	TenantName *string `pulumi:"tenantName"`
 }
 
 type As3State struct {
-	// Path/Filename of Declarative AS3 JSON which can be a template/json file used with builtin ```templatefile``` function (or) ```file``` function
+	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
 	As3Json pulumi.StringPtrInput
+	// If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified
+	TenantFilter pulumi.StringPtrInput
+	// Name of Tenant
+	TenantList pulumi.StringPtrInput
 	// Name of Tenant
 	TenantName pulumi.StringPtrInput
 }
@@ -74,18 +83,26 @@ func (As3State) ElementType() reflect.Type {
 }
 
 type as3Args struct {
-	// Path/Filename of Declarative AS3 JSON which can be a template/json file used with builtin ```templatefile``` function (or) ```file``` function
+	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
 	As3Json string `pulumi:"as3Json"`
+	// If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified
+	TenantFilter *string `pulumi:"tenantFilter"`
 	// Name of Tenant
-	TenantName string `pulumi:"tenantName"`
+	TenantList *string `pulumi:"tenantList"`
+	// Name of Tenant
+	TenantName *string `pulumi:"tenantName"`
 }
 
 // The set of arguments for constructing a As3 resource.
 type As3Args struct {
-	// Path/Filename of Declarative AS3 JSON which can be a template/json file used with builtin ```templatefile``` function (or) ```file``` function
+	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
 	As3Json pulumi.StringInput
+	// If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified
+	TenantFilter pulumi.StringPtrInput
 	// Name of Tenant
-	TenantName pulumi.StringInput
+	TenantList pulumi.StringPtrInput
+	// Name of Tenant
+	TenantName pulumi.StringPtrInput
 }
 
 func (As3Args) ElementType() reflect.Type {

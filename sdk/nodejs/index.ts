@@ -3,6 +3,8 @@
 
 // Export members:
 export * from "./as3";
+export * from "./command";
+export * from "./commonLicenseManageBigIq";
 export * from "./do";
 export * from "./provider";
 

@@ -6,7 +6,6 @@ package f5bigip
 import (
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
@@ -21,17 +20,23 @@ type Provider struct {
 // NewProvider registers a new resource with the given unique name, arguments, and options.
 func NewProvider(ctx *pulumi.Context,
 	name string, args *ProviderArgs, opts ...pulumi.ResourceOption) (*Provider, error) {
-	if args == nil || args.Address == nil {
-		return nil, errors.New("missing required argument 'Address'")
-	}
-	if args == nil || args.Password == nil {
-		return nil, errors.New("missing required argument 'Password'")
-	}
-	if args == nil || args.Username == nil {
-		return nil, errors.New("missing required argument 'Username'")
-	}
 	if args == nil {
 		args = &ProviderArgs{}
+	}
+	if args.Address == nil {
+		args.Address = pulumi.StringPtr(getEnvOrDefault("", nil, "BIGIP_HOST").(string))
+	}
+	if args.LoginRef == nil {
+		args.LoginRef = pulumi.StringPtr(getEnvOrDefault("", nil, "BIGIP_LOGIN_REF").(string))
+	}
+	if args.Password == nil {
+		args.Password = pulumi.StringPtr(getEnvOrDefault("", nil, "BIGIP_PASSWORD").(string))
+	}
+	if args.TokenAuth == nil {
+		args.TokenAuth = pulumi.BoolPtr(getEnvOrDefault(false, parseEnvBool, "BIGIP_TOKEN_AUTH").(bool))
+	}
+	if args.Username == nil {
+		args.Username = pulumi.StringPtr(getEnvOrDefault("", nil, "BIGIP_USER").(string))
 	}
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:f5bigip", name, args, &resource, opts...)
@@ -43,33 +48,33 @@ func NewProvider(ctx *pulumi.Context,
 
 type providerArgs struct {
 	// Domain name/IP of the BigIP
-	Address string `pulumi:"address"`
+	Address *string `pulumi:"address"`
 	// Login reference for token authentication (see BIG-IP REST docs for details)
 	LoginRef *string `pulumi:"loginRef"`
 	// The user's password
-	Password string `pulumi:"password"`
+	Password *string `pulumi:"password"`
 	// Management Port to connect to Bigip
 	Port *string `pulumi:"port"`
 	// Enable to use an external authentication source (LDAP, TACACS, etc)
 	TokenAuth *bool `pulumi:"tokenAuth"`
 	// Username with API access to the BigIP
-	Username string `pulumi:"username"`
+	Username *string `pulumi:"username"`
 }
 
 // The set of arguments for constructing a Provider resource.
 type ProviderArgs struct {
 	// Domain name/IP of the BigIP
-	Address pulumi.StringInput
+	Address pulumi.StringPtrInput
 	// Login reference for token authentication (see BIG-IP REST docs for details)
 	LoginRef pulumi.StringPtrInput
 	// The user's password
-	Password pulumi.StringInput
+	Password pulumi.StringPtrInput
 	// Management Port to connect to Bigip
 	Port pulumi.StringPtrInput
 	// Enable to use an external authentication source (LDAP, TACACS, etc)
 	TokenAuth pulumi.BoolPtrInput
 	// Username with API access to the BigIP
-	Username pulumi.StringInput
+	Username pulumi.StringPtrInput
 }
 
 func (ProviderArgs) ElementType() reflect.Type {

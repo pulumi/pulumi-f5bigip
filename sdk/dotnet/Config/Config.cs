@@ -11,17 +11,17 @@ namespace Pulumi.F5BigIP
         /// <summary>
         /// Domain name/IP of the BigIP
         /// </summary>
-        public static string? Address { get; set; } = __config.Get("address");
+        public static string? Address { get; set; } = __config.Get("address") ?? Utilities.GetEnv("BIGIP_HOST");
 
         /// <summary>
         /// Login reference for token authentication (see BIG-IP REST docs for details)
         /// </summary>
-        public static string? LoginRef { get; set; } = __config.Get("loginRef");
+        public static string? LoginRef { get; set; } = __config.Get("loginRef") ?? Utilities.GetEnv("BIGIP_LOGIN_REF");
 
         /// <summary>
         /// The user's password
         /// </summary>
-        public static string? Password { get; set; } = __config.Get("password");
+        public static string? Password { get; set; } = __config.Get("password") ?? Utilities.GetEnv("BIGIP_PASSWORD");
 
         /// <summary>
         /// Management Port to connect to Bigip
@@ -31,12 +31,12 @@ namespace Pulumi.F5BigIP
         /// <summary>
         /// Enable to use an external authentication source (LDAP, TACACS, etc)
         /// </summary>
-        public static bool? TokenAuth { get; set; } = __config.GetBoolean("tokenAuth");
+        public static bool? TokenAuth { get; set; } = __config.GetBoolean("tokenAuth") ?? Utilities.GetEnvBoolean("BIGIP_TOKEN_AUTH");
 
         /// <summary>
         /// Username with API access to the BigIP
         /// </summary>
-        public static string? Username { get; set; } = __config.Get("username");
+        public static string? Username { get; set; } = __config.Get("username") ?? Utilities.GetEnv("BIGIP_USER");
 
     }
 }

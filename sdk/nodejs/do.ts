@@ -19,7 +19,7 @@ import * as utilities from "./utilities";
  * 
  * const doExample = new f5bigip.Do("do-example", {
  *     doJson: fs.readFileSync("example.json", "utf-8"),
- *     tenantName: "sampleTest1",
+ *     timeout: 15,
  * });
  * ```
  *
@@ -59,7 +59,11 @@ export class Do extends pulumi.CustomResource {
     /**
      * unique identifier for DO resource
      */
-    public readonly tenantName!: pulumi.Output<string>;
+    public readonly tenantName!: pulumi.Output<string | undefined>;
+    /**
+     * DO json
+     */
+    public readonly timeout!: pulumi.Output<number | undefined>;
 
     /**
      * Create a Do resource with the given unique name, arguments, and options.
@@ -75,16 +79,15 @@ export class Do extends pulumi.CustomResource {
             const state = argsOrState as DoState | undefined;
             inputs["doJson"] = state ? state.doJson : undefined;
             inputs["tenantName"] = state ? state.tenantName : undefined;
+            inputs["timeout"] = state ? state.timeout : undefined;
         } else {
             const args = argsOrState as DoArgs | undefined;
             if (!args || args.doJson === undefined) {
                 throw new Error("Missing required property 'doJson'");
             }
-            if (!args || args.tenantName === undefined) {
-                throw new Error("Missing required property 'tenantName'");
-            }
             inputs["doJson"] = args ? args.doJson : undefined;
             inputs["tenantName"] = args ? args.tenantName : undefined;
+            inputs["timeout"] = args ? args.timeout : undefined;
         }
         if (!opts) {
             opts = {}
@@ -107,8 +110,14 @@ export interface DoState {
     readonly doJson?: pulumi.Input<string>;
     /**
      * unique identifier for DO resource
+     * 
+     * @deprecated this attribute is no longer in use
      */
     readonly tenantName?: pulumi.Input<string>;
+    /**
+     * DO json
+     */
+    readonly timeout?: pulumi.Input<number>;
 }
 
 /**
@@ -121,6 +130,12 @@ export interface DoArgs {
     readonly doJson: pulumi.Input<string>;
     /**
      * unique identifier for DO resource
+     * 
+     * @deprecated this attribute is no longer in use
      */
-    readonly tenantName: pulumi.Input<string>;
+    readonly tenantName?: pulumi.Input<string>;
+    /**
+     * DO json
+     */
+    readonly timeout?: pulumi.Input<number>;
 }

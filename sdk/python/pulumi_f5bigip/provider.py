@@ -44,16 +44,20 @@ class Provider(pulumi.ProviderResource):
             __props__ = dict()
 
             if address is None:
-                raise TypeError("Missing required property 'address'")
+                address = utilities.get_env('BIGIP_HOST')
             __props__['address'] = address
+            if login_ref is None:
+                login_ref = utilities.get_env('BIGIP_LOGIN_REF')
             __props__['login_ref'] = login_ref
             if password is None:
-                raise TypeError("Missing required property 'password'")
+                password = utilities.get_env('BIGIP_PASSWORD')
             __props__['password'] = password
             __props__['port'] = port
+            if token_auth is None:
+                token_auth = utilities.get_env_bool('BIGIP_TOKEN_AUTH')
             __props__['token_auth'] = pulumi.Output.from_input(token_auth).apply(json.dumps) if token_auth is not None else None
             if username is None:
-                raise TypeError("Missing required property 'username'")
+                username = utilities.get_env('BIGIP_USER')
             __props__['username'] = username
         super(Provider, __self__).__init__(
             'f5bigip',

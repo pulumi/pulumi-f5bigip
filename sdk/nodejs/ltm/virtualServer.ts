@@ -61,7 +61,7 @@ export class VirtualServer extends pulumi.CustomResource {
     /**
      * Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
      */
-    public readonly mask!: pulumi.Output<string | undefined>;
+    public readonly mask!: pulumi.Output<string>;
     /**
      * Name of the virtual server
      */
@@ -94,7 +94,7 @@ export class VirtualServer extends pulumi.CustomResource {
     /**
      * Specifies an IP address or network from which the virtual server will accept traffic.
      */
-    public readonly source!: pulumi.Output<string | undefined>;
+    public readonly source!: pulumi.Output<string>;
     /**
      * Can be either omitted for none or the values automap or snat
      */

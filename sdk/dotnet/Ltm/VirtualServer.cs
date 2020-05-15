@@ -59,7 +59,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
         /// </summary>
         [Output("mask")]
-        public Output<string?> Mask { get; private set; } = null!;
+        public Output<string> Mask { get; private set; } = null!;
 
         /// <summary>
         /// Name of the virtual server
@@ -110,7 +110,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// Specifies an IP address or network from which the virtual server will accept traffic.
         /// </summary>
         [Output("source")]
-        public Output<string?> Source { get; private set; } = null!;
+        public Output<string> Source { get; private set; } = null!;
 
         /// <summary>
         /// Can be either omitted for none or the values automap or snat

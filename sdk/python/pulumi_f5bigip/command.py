@@ -9,24 +9,21 @@ import pulumi.runtime
 from typing import Union
 from . import utilities, tables
 
-class Do(pulumi.CustomResource):
-    do_json: pulumi.Output[str]
+class Command(pulumi.CustomResource):
+    command_results: pulumi.Output[list]
     """
-    Name of the of the Declarative DO JSON file
+    The resulting output from the `commands` executed
     """
-    tenant_name: pulumi.Output[str]
+    commands: pulumi.Output[list]
     """
-    unique identifier for DO resource
+    The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result` 
     """
-    timeout: pulumi.Output[float]
-    """
-    DO json
-    """
-    def __init__(__self__, resource_name, opts=None, do_json=None, tenant_name=None, timeout=None, __props__=None, __name__=None, __opts__=None):
+    when: pulumi.Output[str]
+    def __init__(__self__, resource_name, opts=None, command_results=None, commands=None, when=None, __props__=None, __name__=None, __opts__=None):
         """
-        `.Do` provides details about bigip do resource
+        `.Command` Run TMSH commands on F5 devices
 
-        This resource is helpful to configure do declarative JSON on BIG-IP.
+        This resource is helpful to send TMSH command to an BIG-IP node and returns the results read from the device
         ## Example Usage
 
 
@@ -35,17 +32,17 @@ class Do(pulumi.CustomResource):
         import pulumi
         import pulumi_f5bigip as f5bigip
 
-        do_example = f5bigip.Do("do-example",
-            do_json=(lambda path: open(path).read())("example.json"),
-            timeout=15)
+        #create ltm node
+        test_command = f5bigip.Command("test-command",
+            commands=["delete ltm node 10.10.10.70"],
+            when="destroy")
         ```
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] do_json: Name of the of the Declarative DO JSON file
-        :param pulumi.Input[str] tenant_name: unique identifier for DO resource
-        :param pulumi.Input[float] timeout: DO json
+        :param pulumi.Input[list] command_results: The resulting output from the `commands` executed
+        :param pulumi.Input[list] commands: The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result` 
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -64,38 +61,37 @@ class Do(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if do_json is None:
-                raise TypeError("Missing required property 'do_json'")
-            __props__['do_json'] = do_json
-            __props__['tenant_name'] = tenant_name
-            __props__['timeout'] = timeout
-        super(Do, __self__).__init__(
-            'f5bigip:index/do:Do',
+            __props__['command_results'] = command_results
+            if commands is None:
+                raise TypeError("Missing required property 'commands'")
+            __props__['commands'] = commands
+            __props__['when'] = when
+        super(Command, __self__).__init__(
+            'f5bigip:index/command:Command',
             resource_name,
             __props__,
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, do_json=None, tenant_name=None, timeout=None):
+    def get(resource_name, id, opts=None, command_results=None, commands=None, when=None):
         """
-        Get an existing Do resource's state with the given name, id, and optional extra
+        Get an existing Command resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] do_json: Name of the of the Declarative DO JSON file
-        :param pulumi.Input[str] tenant_name: unique identifier for DO resource
-        :param pulumi.Input[float] timeout: DO json
+        :param pulumi.Input[list] command_results: The resulting output from the `commands` executed
+        :param pulumi.Input[list] commands: The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result` 
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
-        __props__["do_json"] = do_json
-        __props__["tenant_name"] = tenant_name
-        __props__["timeout"] = timeout
-        return Do(resource_name, opts=opts, __props__=__props__)
+        __props__["command_results"] = command_results
+        __props__["commands"] = commands
+        __props__["when"] = when
+        return Command(resource_name, opts=opts, __props__=__props__)
     def translate_output_property(self, prop):
         return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
