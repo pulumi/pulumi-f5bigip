@@ -36,7 +36,7 @@ let nginxInstances = [];
 for (let i = 0; i < 2; i++) {
     const nginxInstance = new aws.ec2.Instance(`nginx-${i}`, {
         ami: ubuntuAmiId,
-        instanceType: "t2.medium",
+        instanceType: "t3.medium",
         tags: Object.assign({ Name: `nginx-${i}` }, baseTags),
 
         vpcSecurityGroupIds: [nginxSecGroup.id],

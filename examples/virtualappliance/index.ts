@@ -58,12 +58,11 @@ const pool = new f5bigip.ltm.Pool("backend", {
     allowSnat: "yes",
 }, { provider: f5bigipProvider });
 
-const poolAttachments = backendinstances.instancePublicIps.map((backendAddress, i) => {
+backendinstances.instancePublicIps.map((backendAddress, i) => {
     const applicationPoolAttachment = new f5bigip.ltm.PoolAttachment(`backend-${i}`, {
         pool: pool.name,
         node: pulumi.interpolate`/Common/${backendAddress}:80`,
     }, { provider: f5bigipProvider });
-    return applicationPoolAttachment;
 });
 
 const virtualServer = new f5bigip.ltm.VirtualServer("backend", {

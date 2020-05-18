@@ -31,17 +31,17 @@ const firewall = new aws.ec2.SecurityGroup("bigIp", {
 
 /*
     NOTE: We pin to a specific AMI Name because later versions seem to never complete startup - even without our userdata script.
-    https://aws.amazon.com/marketplace/pp/B079C44MFH?qid=1546534998240&sr=0-13
+    https://aws.amazon.com/marketplace/server/procurement?productId=63f7b910-af5e-4aa0-9358-d66b7c51ebaa
     aws ec2 describe-images \
-        --filters "Name=product-code,Values=8esk90vx7v713sa0muq2skw3j" \
-        --filters "Name=name,Values='F5 Networks BIGIP-14.0.0.1-0.0.2 PAYG - Good 25Mbps *'"
+        --filters "Name=product-code,Values=5x25i6gbbamyu00x1p90k0qsq" \
+        --filters "Name=name,Values='F5 Networks BIGIP-14.0.0.1-0.0.2 PAYG - Better 25Mbps *'"
 */
 const bigIpAmiId = aws.getAmi({
     mostRecent: true,
     owners: ["679593333241"],
     filters: [
-        { name: "product-code", values: ["8esk90vx7v713sa0muq2skw3j"] },
-        { name: "name", values: ["F5 Networks BIGIP-14.0.0.1-0.0.2 PAYG - Good 25Mbps *"] },
+        { name: "product-code", values: ["5x25i6gbbamyu00x1p90k0qsq"] },
+        { name: "name", values: ["F5 Networks BIGIP-14.0.0.1-0.0.2 PAYG - Better 25Mbps *"] },
     ]
 }).then(ami => ami.id);
 
@@ -79,7 +79,7 @@ nohup /tmp/pulumi-startup-script.sh &> /tmp/pulumi-startup-script.out &
 
 const f5BigIpInstance = new aws.ec2.Instance("bigIp", {
     ami: bigIpAmiId,
-    instanceType: "t2.medium",
+    instanceType: "t2.large",
     tags: Object.assign({ Name: "bigIp" }, baseTags),
     userData: bigIpUserData,
 
