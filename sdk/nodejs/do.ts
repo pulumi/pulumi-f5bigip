@@ -6,24 +6,22 @@ import * as utilities from "./utilities";
 
 /**
  * `f5bigip..Do` provides details about bigip do resource
- * 
+ *
  * This resource is helpful to configure do declarative JSON on BIG-IP.
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  * import * as fs from "fs";
- * 
+ *
  * const doExample = new f5bigip.Do("do-example", {
  *     doJson: fs.readFileSync("example.json", "utf-8"),
  *     tenantName: "sampleTest1",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_do.html.markdown.
  */
 export class Do extends pulumi.CustomResource {
     /**

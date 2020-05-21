@@ -9,13 +9,13 @@ import * as utilities from "../utilities";
 /**
  * `f5bigip.sys.SnmpTraps` provides details bout how to enable snmpTraps resource on BIG-IP
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
- * 
+ *
  * const snmpTraps = new f5bigip.sys.SnmpTraps("snmpTraps", {
  *     community: "f5community",
  *     description: "Setup snmp traps",
@@ -24,8 +24,6 @@ import * as utilities from "../utilities";
  *     port: 111,
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_sys_snmp_traps.html.markdown.
  */
 export class SnmpTraps extends pulumi.CustomResource {
     /**

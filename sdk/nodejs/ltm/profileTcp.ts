@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * `f5bigip.ltm.ProfileTcp` Configures a custom profileTcp for use by health checks.
- * 
+ *
  * For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
- * 
+ *
  * const sanjoseTcpLanProfile = new f5bigip.ltm.ProfileTcp("sanjose-tcp-lan-profile", {
  *     closeWaitTimeout: 5,
  *     deferredAccept: "enabled",
@@ -30,8 +30,6 @@ import * as utilities from "../utilities";
  *     name: "sanjose-tcp-lan-profile",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_profile_tcp.html.markdown.
  */
 export class ProfileTcp extends pulumi.CustomResource {
     /**

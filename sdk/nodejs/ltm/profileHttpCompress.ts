@@ -8,18 +8,18 @@ import * as utilities from "../utilities";
 
 /**
  * `f5bigip.ltm.ProfileHttpCompress`  Virtual server HTTP compression profile configuration
- * 
- * 
+ *
+ *
  * For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
- * 
+ *
  * const sjhttpcompression = new f5bigip.ltm.ProfileHttpCompress("sjhttpcompression", {
  *     contentTypeExcludes: ["nicecontentexclude.com"],
  *     contentTypeIncludes: ["nicecontent.com"],
@@ -32,8 +32,6 @@ import * as utilities from "../utilities";
  *     uriIncludes: ["www.xyzbc.cisco.com"],
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_profile_httpcompress.html.markdown.
  */
 export class ProfileHttpCompress extends pulumi.CustomResource {
     /**

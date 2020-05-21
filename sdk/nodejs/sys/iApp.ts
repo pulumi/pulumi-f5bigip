@@ -8,28 +8,28 @@ import * as utilities from "../utilities";
 
 /**
  * `f5bigip.sys.IApp` resource helps you to deploy Application Services template that can be used to automate and orchestrate Layer 4-7 applications service deployments using F5 Network.  
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  * import * from "fs";
- * 
+ *
  * const simplehttp = new f5bigip.sys.IApp("simplehttp", {
  *     name: "simplehttp",
  *     jsonfile: fs.readFileSync("simplehttp.json"),
  * });
  * ```
- * 
+ *
  * ## Example Usage of Json file
- * 
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * ```
- * 
+ *
  *  * `description` - User defined description.
  *  * `deviceGroup` - The name of the device group that the application service is assigned to.
  *  * `executeAction` - Run the specified template action associated with the application.
@@ -45,8 +45,6 @@ import * as utilities from "../utilities";
  *  * `metadata` - User defined generic data for the application service. It is a name and value pair.
  *  * `tables` - Values provided like pool name, nodes etc.
  *  * `variables` - Name, values, encrypted or not
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_sys_iapp.html.markdown.
  */
 export class IApp extends pulumi.CustomResource {
     /**

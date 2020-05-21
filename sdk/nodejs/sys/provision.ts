@@ -9,13 +9,13 @@ import * as utilities from "../utilities";
 /**
  * `f5bigip.sys.Provision` provides details bout how to enable "ilx", "asm" "apm" resource on BIG-IP
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
- * 
+ *
  * const testProvision = new f5bigip.sys.Provision("test-provision", {
  *     cpuRatio: 0,
  *     diskRatio: 0,
@@ -25,8 +25,6 @@ import * as utilities from "../utilities";
  *     name: "TEST_ASM_PROVISION_NAME",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_sys_provision.html.markdown.
  */
 export class Provision extends pulumi.CustomResource {
     /**

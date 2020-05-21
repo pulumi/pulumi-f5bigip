@@ -8,18 +8,18 @@ import * as utilities from "../utilities";
 
 /**
  * `f5bigip.ltm.SnatPool` Collections of SNAT translation addresses
- * 
+ *
  * Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-snatpool. 
- * 
- * 
+ *
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
- * 
+ *
  * const snatpoolSanjose = new f5bigip.ltm.SnatPool("snatpoolSanjose", {
  *     members: [
  *         "191.1.1.1",
@@ -28,8 +28,6 @@ import * as utilities from "../utilities";
  *     name: "/Common/snatpool_sanjose",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_snatpool.html.markdown.
  */
 export class SnatPool extends pulumi.CustomResource {
     /**
