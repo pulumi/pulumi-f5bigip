@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * `f5bigip.ltm.ProfileClientSsl` Manages client SSL profiles on a BIG-IP
- * 
- * 
- * 
+ *
+ *
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
- * 
+ *
  * const test_ClientSsl = new f5bigip.ltm.ProfileClientSsl("test-ClientSsl", {
  *     authenticate: "always",
  *     ciphers: "DEFAULT",
@@ -27,8 +27,6 @@ import * as utilities from "../utilities";
  *     partition: "Common",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_profile_client_ssl.html.markdown.
  */
 export class ProfileClientSsl extends pulumi.CustomResource {
     /**

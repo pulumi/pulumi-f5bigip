@@ -6,18 +6,18 @@ import * as utilities from "../utilities";
 
 /**
  * `f5bigip.net.SelfIp` Manages a selfip configuration
- * 
+ *
  * Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-selfip.
- * 
- * 
+ *
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
- * 
+ *
  * const selfip1 = new f5bigip.net.SelfIp("selfip1", {
  *     name: "/Common/internalselfIP",
  *     ip: "11.1.1.1/24",
@@ -25,8 +25,6 @@ import * as utilities from "../utilities";
  *     trafficGroup: "traffic-group-1",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_net_selfip.html.markdown.
  */
 export class SelfIp extends pulumi.CustomResource {
     /**

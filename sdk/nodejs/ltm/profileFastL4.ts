@@ -8,17 +8,17 @@ import * as utilities from "../utilities";
 
 /**
  * `f5bigip.ltm.ProfileFastL4` Configures a custom profileFastl4 for use by health checks.
- * 
+ *
  * For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
- * 
+ *
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
- * 
+ *
  * const profileFastl4 = new f5bigip.ltm.ProfileFastL4("profileFastl4", {
  *     clientTimeout: 40,
  *     defaultsFrom: "/Common/fastL4",
@@ -32,8 +32,6 @@ import * as utilities from "../utilities";
  *     partition: "Common",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_ltm_profile_fastl4.html.markdown.
  */
 export class ProfileFastL4 extends pulumi.CustomResource {
     /**

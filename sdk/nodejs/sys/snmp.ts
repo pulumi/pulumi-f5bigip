@@ -9,21 +9,19 @@ import * as utilities from "../utilities";
 /**
  * `f5bigip.sys.Snmp` provides details bout how to enable "ilx", "asm" "apm" resource on BIG-IP
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
- * 
+ *
  * const snmp = new f5bigip.sys.Snmp("snmp", {
  *     allowedaddresses: ["202.10.10.2"],
  *     sysContact: " NetOPsAdmin s.shitole@f5.com",
  *     sysLocation: "SeattleHQ",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_sys_snmp.html.markdown.
  */
 export class Snmp extends pulumi.CustomResource {
     /**

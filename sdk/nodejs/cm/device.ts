@@ -6,16 +6,16 @@ import * as utilities from "../utilities";
 
 /**
  * `f5bigip.cm.Device` provides details about a specific bigip
- * 
+ *
  * This resource is helpful when configuring the BIG-IP device in cluster or in HA mode.
  * ## Example Usage
- * 
- * 
- * 
+ *
+ *
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
- * 
+ *
  * const myNewDevice = new f5bigip.cm.Device("myNewDevice", {
  *     configsyncIp: "2.2.2.2",
  *     mirrorIp: "10.10.10.10",
@@ -23,8 +23,6 @@ import * as utilities from "../utilities";
  *     name: "bigip300.f5.com",
  * });
  * ```
- *
- * > This content is derived from https://github.com/terraform-providers/terraform-provider-bigip/blob/master/website/docs/r/bigip_cm_device.html.markdown.
  */
 export class Device extends pulumi.CustomResource {
     /**
