@@ -9,13 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.F5BigIP.Ltm
 {
-    /// <summary>
-    /// `f5bigip.ltm.PoolAttachment` Manages nodes membership in pools
-    /// 
-    /// Resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-    /// 
-    /// Note: node must be the full path to the node followed by the port. For example /Common/my-node:80
-    /// </summary>
     public partial class PoolAttachment : Pulumi.CustomResource
     {
         /// <summary>

@@ -13,6 +13,35 @@ namespace Pulumi.F5BigIP.Ltm
     /// `f5bigip.ltm.ProfileHttp2` Configures a custom profile_http2 for use by health checks.
     /// 
     /// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var nyhttp2 = new F5BigIP.Ltm.ProfileHttp2("nyhttp2", new F5BigIP.Ltm.ProfileHttp2Args
+    ///         {
+    ///             ActivationModes = 
+    ///             {
+    ///                 "alpn",
+    ///                 "npn",
+    ///             },
+    ///             ConcurrentStreamsPerConnection = 10,
+    ///             ConnectionIdleTimeout = 30,
+    ///             DefaultsFrom = "/Common/http2",
+    ///             Name = "/Common/NewYork_http2",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ProfileHttp2 : Pulumi.CustomResource
     {

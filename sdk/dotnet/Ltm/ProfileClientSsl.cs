@@ -11,6 +11,33 @@ namespace Pulumi.F5BigIP.Ltm
 {
     /// <summary>
     /// `f5bigip.ltm.ProfileClientSsl` Manages client SSL profiles on a BIG-IP
+    /// 
+    /// 
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var test_ClientSsl = new F5BigIP.Ltm.ProfileClientSsl("test-ClientSsl", new F5BigIP.Ltm.ProfileClientSslArgs
+    ///         {
+    ///             Authenticate = "always",
+    ///             Ciphers = "DEFAULT",
+    ///             DefaultsFrom = "/Common/clientssl",
+    ///             Name = "/Common/test-ClientSsl",
+    ///             Partition = "Common",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ProfileClientSsl : Pulumi.CustomResource
     {

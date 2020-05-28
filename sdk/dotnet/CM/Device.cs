@@ -13,6 +13,29 @@ namespace Pulumi.F5BigIP.CM
     /// `f5bigip.cm.Device` provides details about a specific bigip
     /// 
     /// This resource is helpful when configuring the BIG-IP device in cluster or in HA mode.
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var myNewDevice = new F5BigIP.CM.Device("myNewDevice", new F5BigIP.CM.DeviceArgs
+    ///         {
+    ///             ConfigsyncIp = "2.2.2.2",
+    ///             MirrorIp = "10.10.10.10",
+    ///             MirrorSecondaryIp = "11.11.11.11",
+    ///             Name = "bigip300.f5.com",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Device : Pulumi.CustomResource
     {

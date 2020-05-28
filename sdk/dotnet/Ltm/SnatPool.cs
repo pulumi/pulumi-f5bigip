@@ -13,6 +13,33 @@ namespace Pulumi.F5BigIP.Ltm
     /// `f5bigip.ltm.SnatPool` Collections of SNAT translation addresses
     /// 
     /// Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-snatpool. 
+    /// 
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var snatpoolSanjose = new F5BigIP.Ltm.SnatPool("snatpoolSanjose", new F5BigIP.Ltm.SnatPoolArgs
+    ///         {
+    ///             Members = 
+    ///             {
+    ///                 "191.1.1.1",
+    ///                 "194.2.2.2",
+    ///             },
+    ///             Name = "/Common/snatpool_sanjose",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SnatPool : Pulumi.CustomResource
     {

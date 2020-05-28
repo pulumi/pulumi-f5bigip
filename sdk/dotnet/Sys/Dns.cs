@@ -11,6 +11,39 @@ namespace Pulumi.F5BigIP.Sys
 {
     /// <summary>
     /// `f5bigip.sys.Dns` Configures DNS server on F5 BIG-IP
+    /// 
+    /// 
+    /// 
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var dns1 = new F5BigIP.Sys.Dns("dns1", new F5BigIP.Sys.DnsArgs
+    ///         {
+    ///             Description = "/Common/DNS1",
+    ///             NameServers = 
+    ///             {
+    ///                 "1.1.1.1",
+    ///             },
+    ///             NumberOfDots = 2,
+    ///             Searches = 
+    ///             {
+    ///                 "f5.com",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Dns : Pulumi.CustomResource
     {

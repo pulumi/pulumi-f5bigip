@@ -13,6 +13,30 @@ namespace Pulumi.F5BigIP.Net
     /// `f5bigip.net.Route` Manages a route configuration
     /// 
     /// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+    /// 
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var route2 = new F5BigIP.Net.Route("route2", new F5BigIP.Net.RouteArgs
+    ///         {
+    ///             Gw = "1.1.1.2",
+    ///             Name = "external-route",
+    ///             Network = "10.10.10.0/24",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Route : Pulumi.CustomResource
     {

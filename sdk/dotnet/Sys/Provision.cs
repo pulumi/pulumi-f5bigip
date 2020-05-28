@@ -11,6 +11,31 @@ namespace Pulumi.F5BigIP.Sys
 {
     /// <summary>
     /// `f5bigip.sys.Provision` provides details bout how to enable "ilx", "asm" "apm" resource on BIG-IP
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var test_provision = new F5BigIP.Sys.Provision("test-provision", new F5BigIP.Sys.ProvisionArgs
+    ///         {
+    ///             CpuRatio = 0,
+    ///             DiskRatio = 0,
+    ///             FullPath = "asm",
+    ///             Level = "none",
+    ///             MemoryRatio = 0,
+    ///             Name = "TEST_ASM_PROVISION_NAME",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Provision : Pulumi.CustomResource
     {
