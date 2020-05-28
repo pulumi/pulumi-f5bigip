@@ -11,6 +11,30 @@ namespace Pulumi.F5BigIP.Sys
 {
     /// <summary>
     /// `f5bigip.sys.SnmpTraps` provides details bout how to enable snmp_traps resource on BIG-IP
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var snmpTraps = new F5BigIP.Sys.SnmpTraps("snmpTraps", new F5BigIP.Sys.SnmpTrapsArgs
+    ///         {
+    ///             Community = "f5community",
+    ///             Description = "Setup snmp traps",
+    ///             Host = "195.10.10.1",
+    ///             Name = "snmptraps",
+    ///             Port = 111,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SnmpTraps : Pulumi.CustomResource
     {

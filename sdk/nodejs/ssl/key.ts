@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  * import * from "fs";
  *
- * const test-key = new f5bigip.ssl.Key("test-key", {
+ * const testKey = new f5bigip.ssl.Key("test-key", {
  *     name: "serverkey.key",
  *     content: fs.readFileSync("serverkey.key"),
  *     partition: "Common",

@@ -14,6 +14,45 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// 
     /// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var sjhttpcompression = new F5BigIP.Ltm.ProfileHttpCompress("sjhttpcompression", new F5BigIP.Ltm.ProfileHttpCompressArgs
+    ///         {
+    ///             ContentTypeExcludes = 
+    ///             {
+    ///                 "nicecontentexclude.com",
+    ///             },
+    ///             ContentTypeIncludes = 
+    ///             {
+    ///                 "nicecontent.com",
+    ///             },
+    ///             DefaultsFrom = "/Common/httpcompression",
+    ///             Name = "/Common/sjhttpcompression2",
+    ///             UriExcludes = 
+    ///             {
+    ///                 "www.abc.f5.com",
+    ///                 "www.abc2.f5.com",
+    ///             },
+    ///             UriIncludes = 
+    ///             {
+    ///                 "www.xyzbc.cisco.com",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ProfileHttpCompress : Pulumi.CustomResource
     {

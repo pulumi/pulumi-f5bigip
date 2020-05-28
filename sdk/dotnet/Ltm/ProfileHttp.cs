@@ -13,6 +13,36 @@ namespace Pulumi.F5BigIP.Ltm
     /// `f5bigip.ltm.ProfileHttp` Configures a custom profile_http for use by health checks.
     /// 
     /// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var sanjose_http = new F5BigIP.Ltm.ProfileHttp("sanjose-http", new F5BigIP.Ltm.ProfileHttpArgs
+    ///         {
+    ///             DefaultsFrom = "/Common/http",
+    ///             Description = "some http",
+    ///             FallbackHost = "titanic",
+    ///             FallbackStatusCodes = 
+    ///             {
+    ///                 "400",
+    ///                 "500",
+    ///                 "300",
+    ///             },
+    ///             Name = "/Common/sanjose-http",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ProfileHttp : Pulumi.CustomResource
     {

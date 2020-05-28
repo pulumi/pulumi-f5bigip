@@ -13,6 +13,37 @@ namespace Pulumi.F5BigIP.Net
     /// `f5bigip.net.Vlan` Manages a vlan configuration
     /// 
     /// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+    /// 
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var vlan1 = new F5BigIP.Net.Vlan("vlan1", new F5BigIP.Net.VlanArgs
+    ///         {
+    ///             Interfaces = 
+    ///             {
+    ///                 new F5BigIP.Net.Inputs.VlanInterfaceArgs
+    ///                 {
+    ///                     Tagged = false,
+    ///                     Vlanport = 1.2,
+    ///                 },
+    ///             },
+    ///             Name = "/Common/Internal",
+    ///             Tag = 101,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Vlan : Pulumi.CustomResource
     {

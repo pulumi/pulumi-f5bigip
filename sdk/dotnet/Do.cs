@@ -13,6 +13,28 @@ namespace Pulumi.F5BigIP
     /// `f5bigip..Do` provides details about bigip do resource
     /// 
     /// This resource is helpful to configure do declarative JSON on BIG-IP.
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using System.IO;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var do_example = new F5BigIP.Do("do-example", new F5BigIP.DoArgs
+    ///         {
+    ///             DoJson = File.ReadAllText("example.json"),
+    ///             TenantName = "sample_test1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Do : Pulumi.CustomResource
     {

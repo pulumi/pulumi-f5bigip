@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const test-policy = new f5bigip.ltm.Policy("test-policy", {
+ * const testPolicy = new f5bigip.ltm.Policy("test-policy", {
  *     name: "myPolicy",
  *     strategy: "first-match",
  *     requires: ["http"],

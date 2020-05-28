@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  * import * from "fs";
  *
- * const test-cert = new f5bigip.ssl.Certificate("test-cert", {
+ * const testCert = new f5bigip.ssl.Certificate("test-cert", {
  *     name: "servercert.crt",
  *     content: fs.readFileSync("servercert.crt"),
  *     partition: "Common",

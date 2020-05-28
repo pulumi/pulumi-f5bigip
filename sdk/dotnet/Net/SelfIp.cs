@@ -13,6 +13,31 @@ namespace Pulumi.F5BigIP.Net
     /// `f5bigip.net.SelfIp` Manages a selfip configuration
     /// 
     /// Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-selfip.
+    /// 
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var selfip1 = new F5BigIP.Net.SelfIp("selfip1", new F5BigIP.Net.SelfIpArgs
+    ///         {
+    ///             Name = "/Common/internalselfIP",
+    ///             Ip = "11.1.1.1/24",
+    ///             Vlan = "/Common/internal",
+    ///             TrafficGroup = "traffic-group-1",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class SelfIp : Pulumi.CustomResource
     {

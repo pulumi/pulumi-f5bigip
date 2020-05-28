@@ -13,6 +13,42 @@ namespace Pulumi.F5BigIP.Ltm
     /// `f5bigip.ltm.DataGroup` Manages internal (in-line) datagroup configuration
     /// 
     /// Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-datagroup.
+    /// 
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var datagroup = new F5BigIP.Ltm.DataGroup("datagroup", new F5BigIP.Ltm.DataGroupArgs
+    ///         {
+    ///             Name = "/Common/dgx2",
+    ///             Records = 
+    ///             {
+    ///                 new F5BigIP.Ltm.Inputs.DataGroupRecordArgs
+    ///                 {
+    ///                     Data = "pool1",
+    ///                     Name = "abc.com",
+    ///                 },
+    ///                 new F5BigIP.Ltm.Inputs.DataGroupRecordArgs
+    ///                 {
+    ///                     Data = "123",
+    ///                     Name = "test",
+    ///                 },
+    ///             },
+    ///             Type = "string",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class DataGroup : Pulumi.CustomResource
     {

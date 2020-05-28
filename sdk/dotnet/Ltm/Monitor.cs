@@ -9,11 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.F5BigIP.Ltm
 {
-    /// <summary>
-    /// `f5bigip.ltm.Monitor` Configures a custom monitor for use by health checks.
-    /// 
-    /// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-    /// </summary>
     public partial class Monitor : Pulumi.CustomResource
     {
         /// <summary>

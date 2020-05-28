@@ -13,6 +13,35 @@ namespace Pulumi.F5BigIP.Ltm
     /// `f5bigip.ltm.ProfileOneConnect` Configures a custom profile_oneconnect for use by health checks.
     /// 
     /// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var oneconnect_sanjose = new F5BigIP.Ltm.ProfileOneConnect("oneconnect-sanjose", new F5BigIP.Ltm.ProfileOneConnectArgs
+    ///         {
+    ///             DefaultsFrom = "/Common/oneconnect",
+    ///             IdleTimeoutOverride = "disabled",
+    ///             MaxAge = 3600,
+    ///             MaxReuse = 1000,
+    ///             MaxSize = 1000,
+    ///             Name = "sanjose",
+    ///             Partition = "Common",
+    ///             SharePools = "disabled",
+    ///             SourceMask = "255.255.255.255",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ProfileOneConnect : Pulumi.CustomResource
     {

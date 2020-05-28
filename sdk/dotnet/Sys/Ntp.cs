@@ -13,6 +13,31 @@ namespace Pulumi.F5BigIP.Sys
     /// `f5bigip.sys.Ntp` provides details about a specific bigip
     /// 
     /// This resource is helpful when configuring NTP server on the BIG-IP.
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var ntp1 = new F5BigIP.Sys.Ntp("ntp1", new F5BigIP.Sys.NtpArgs
+    ///         {
+    ///             Description = "/Common/NTP1",
+    ///             Servers = 
+    ///             {
+    ///                 "time.facebook.com",
+    ///             },
+    ///             Timezone = "America/Los_Angeles",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Ntp : Pulumi.CustomResource
     {

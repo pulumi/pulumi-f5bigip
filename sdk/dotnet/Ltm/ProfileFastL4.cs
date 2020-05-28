@@ -13,6 +13,36 @@ namespace Pulumi.F5BigIP.Ltm
     /// `f5bigip.ltm.ProfileFastL4` Configures a custom profile_fastl4 for use by health checks.
     /// 
     /// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// 
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var profileFastl4 = new F5BigIP.Ltm.ProfileFastL4("profileFastl4", new F5BigIP.Ltm.ProfileFastL4Args
+    ///         {
+    ///             ClientTimeout = 40,
+    ///             DefaultsFrom = "/Common/fastL4",
+    ///             ExplicitflowMigration = "enabled",
+    ///             HardwareSyncookie = "enabled",
+    ///             IdleTimeout = "200",
+    ///             IptosToclient = "pass-through",
+    ///             IptosToserver = "pass-through",
+    ///             KeepaliveInterval = "disabled",
+    ///             Name = "/Common/sjfastl4profile",
+    ///             Partition = "Common",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class ProfileFastL4 : Pulumi.CustomResource
     {
