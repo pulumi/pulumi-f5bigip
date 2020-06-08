@@ -3,7 +3,7 @@
 
 // Export members:
 export * from "./dataGroup";
-export * from "./iRule";
+export * from "./irule";
 export * from "./monitor";
 export * from "./node";
 export * from "./persistenceProfileCookie";

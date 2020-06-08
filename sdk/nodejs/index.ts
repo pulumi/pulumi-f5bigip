@@ -7,11 +7,11 @@ export * from "./do";
 export * from "./provider";
 
 // Export sub-modules:
-import * as cm from "./cm/index";
-import * as config from "./config/index";
-import * as ltm from "./ltm/index";
-import * as net from "./net/index";
-import * as ssl from "./ssl/index";
-import * as sys from "./sys/index";
-import * as types from "./types/index";
+import * as cm from "./cm";
+import * as config from "./config";
+import * as ltm from "./ltm";
+import * as net from "./net";
+import * as ssl from "./ssl";
+import * as sys from "./sys";
+import * as types from "./types";
 export {cm, config, ltm, net, ssl, sys, types};
