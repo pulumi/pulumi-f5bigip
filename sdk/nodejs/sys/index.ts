@@ -4,7 +4,7 @@
 // Export members:
 export * from "./bigIpLicense";
 export * from "./dns";
-export * from "./iApp";
+export * from "./iapp";
 export * from "./ntp";
 export * from "./provision";
 export * from "./snmp";

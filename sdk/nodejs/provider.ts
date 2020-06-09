@@ -35,7 +35,6 @@ export class Provider extends pulumi.ProviderResource {
      */
     constructor(name: string, args: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        {
             if (!args || args.address === undefined) {
                 throw new Error("Missing required property 'address'");
             }
@@ -45,13 +44,12 @@ export class Provider extends pulumi.ProviderResource {
             if (!args || args.username === undefined) {
                 throw new Error("Missing required property 'username'");
             }
-            inputs["address"] = args ? args.address : undefined;
-            inputs["loginRef"] = args ? args.loginRef : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["tokenAuth"] = pulumi.output(args ? args.tokenAuth : undefined).apply(JSON.stringify);
-            inputs["username"] = args ? args.username : undefined;
-        }
+        inputs["address"] = args ? args.address : undefined;
+        inputs["loginRef"] = args ? args.loginRef : undefined;
+        inputs["password"] = args ? args.password : undefined;
+        inputs["port"] = args ? args.port : undefined;
+        inputs["tokenAuth"] = pulumi.output(args ? args.tokenAuth : undefined).apply(JSON.stringify);
+        inputs["username"] = args ? args.username : undefined;
         if (!opts) {
             opts = {}
         }

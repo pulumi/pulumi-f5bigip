@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -40,6 +38,7 @@ export class ProfileHttp extends pulumi.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param id The _unique_ provider ID of the resource to lookup.
      * @param state Any extra arguments used during the lookup.
+     * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ProfileHttpState, opts?: pulumi.CustomResourceOptions): ProfileHttp {
         return new ProfileHttp(name, <any>state, { ...opts, id: id });
@@ -60,8 +59,8 @@ export class ProfileHttp extends pulumi.CustomResource {
     }
 
     /**
-     * Enables or disables trusting the client IP address, and statistics from the client IP address, based on the
-     * request's XFF (X-forwarded-for) headers, if they exist.
+     * Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's
+     * XFF (X-forwarded-for) headers, if they exist.
      */
     public readonly acceptXff!: pulumi.Output<string | undefined>;
     /**
@@ -255,8 +254,8 @@ export class ProfileHttp extends pulumi.CustomResource {
  */
 export interface ProfileHttpState {
     /**
-     * Enables or disables trusting the client IP address, and statistics from the client IP address, based on the
-     * request's XFF (X-forwarded-for) headers, if they exist.
+     * Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's
+     * XFF (X-forwarded-for) headers, if they exist.
      */
     readonly acceptXff?: pulumi.Input<string>;
     /**
@@ -367,8 +366,8 @@ export interface ProfileHttpState {
  */
 export interface ProfileHttpArgs {
     /**
-     * Enables or disables trusting the client IP address, and statistics from the client IP address, based on the
-     * request's XFF (X-forwarded-for) headers, if they exist.
+     * Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's
+     * XFF (X-forwarded-for) headers, if they exist.
      */
     readonly acceptXff?: pulumi.Input<string>;
     /**
