@@ -251,6 +251,16 @@ jobs:
       run: echo ::add-path::${{ github.workspace }}/bin
     - name: Install pipenv
       uses: dschep/install-pipenv-action@v1
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-region: ${{ env.AWS_REGION }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        role-duration-seconds: 3600
+        role-external-id: upload-pulumi-release
+        role-session-name: ${{ env.PROVIDER }}@githubActions
+        role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
     - name: Install dependencies
       run: make -f Makefile.github install_${{ matrix.language}}_sdk
     - name: Run tests
