@@ -12,10 +12,7 @@ namespace Pulumi.F5BigIP.CM
     /// <summary>
     /// `f5bigip.cm.DeviceGroup` A device group is a collection of BIG-IP devices that are configured to securely synchronize their BIG-IP configuration data, and fail over when needed.
     /// 
-    /// 
     /// ## Example Usage
-    /// 
-    /// 
     /// 
     /// ```csharp
     /// using Pulumi;

@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * `f5bigip..As3` provides details about bigip as3 resource
+ * `f5bigip.As3` provides details about bigip as3 resource
  *
  * This resource is helpful to configure as3 declarative JSON on BIG-IP.
  */

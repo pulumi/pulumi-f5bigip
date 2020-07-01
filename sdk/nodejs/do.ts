@@ -5,21 +5,19 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * `f5bigip..Do` provides details about bigip do resource
+ * `f5bigip.Do` provides details about bigip do resource
  *
  * This resource is helpful to configure do declarative JSON on BIG-IP.
  * ## Example Usage
- *
- *
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  * import * as fs from "fs";
  *
- * const doExample = new f5bigip.Do("do-example", {
+ * const do_example = new f5bigip.Do("do-example", {
  *     doJson: fs.readFileSync("example.json", "utf-8"),
- *     tenantName: "sampleTest1",
+ *     tenantName: "sample_test1",
  * });
  * ```
  */

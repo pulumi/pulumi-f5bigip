@@ -13,6 +13,66 @@ import (
 // `ltm.VirtualServer` Configures Virtual Server
 //
 // For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ltm.NewVirtualServer(ctx, "http", &ltm.VirtualServerArgs{
+// 			Name:        pulumi.String("/Common/terraform_vs_http"),
+// 			Destination: pulumi.String("10.12.12.12"),
+// 			Port:        pulumi.Int(80),
+// 			Pool:        pulumi.String("/Common/the-default-pool"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ltm.NewVirtualServer(ctx, "httpsVirtualServer", &ltm.VirtualServerArgs{
+// 			Name:        pulumi.String("/Common/terraform_vs_https"),
+// 			Destination: pulumi.String(_var.Vip_ip),
+// 			Description: pulumi.String("VirtualServer-test"),
+// 			Port:        pulumi.Int(443),
+// 			Pool:        pulumi.String(_var.Pool),
+// 			Profiles: pulumi.StringArray{
+// 				pulumi.String("/Common/tcp"),
+// 				pulumi.String("/Common/my-awesome-ssl-cert"),
+// 				pulumi.String("/Common/http"),
+// 			},
+// 			SourceAddressTranslation: pulumi.String("automap"),
+// 			TranslateAddress:         pulumi.String("enabled"),
+// 			TranslatePort:            pulumi.String("enabled"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ltm.NewVirtualServer(ctx, "httpsLtm_virtualServerVirtualServer", &ltm.VirtualServerArgs{
+// 			Name:        pulumi.String("/Common/terraform_vs_https"),
+// 			Destination: pulumi.String("10.255.255.254"),
+// 			Description: pulumi.String("VirtualServer-test"),
+// 			Port:        pulumi.Int(443),
+// 			ClientProfiles: pulumi.StringArray{
+// 				pulumi.String("/Common/clientssl"),
+// 			},
+// 			ServerProfiles: pulumi.StringArray{
+// 				pulumi.String("/Common/serverssl"),
+// 			},
+// 			SourceAddressTranslation: pulumi.String("automap"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type VirtualServer struct {
 	pulumi.CustomResourceState
 

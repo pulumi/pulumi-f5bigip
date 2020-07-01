@@ -9,6 +9,41 @@ using Pulumi.Serialization;
 
 namespace Pulumi.F5BigIP.Ltm
 {
+    /// <summary>
+    /// `f5bigip.ltm.Node` Manages a node configuration
+    /// 
+    /// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var node = new F5BigIP.Ltm.Node("node", new F5BigIP.Ltm.NodeArgs
+    ///         {
+    ///             Address = "192.168.30.1",
+    ///             ConnectionLimit = 0,
+    ///             Description = "Test-Node",
+    ///             DynamicRatio = 1,
+    ///             Fqdn = new F5BigIP.Ltm.Inputs.NodeFqdnArgs
+    ///             {
+    ///                 AddressFamily = "ipv4",
+    ///                 Interval = "3000",
+    ///             },
+    ///             Monitor = "/Common/icmp",
+    ///             Name = "/Common/terraform_node1",
+    ///             RateLimit = "disabled",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// </summary>
     public partial class Node : Pulumi.CustomResource
     {
         /// <summary>

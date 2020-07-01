@@ -12,12 +12,7 @@ namespace Pulumi.F5BigIP.Sys
     /// <summary>
     /// `f5bigip.sys.Dns` Configures DNS server on F5 BIG-IP
     /// 
-    /// 
-    /// 
-    /// 
     /// ## Example Usage
-    /// 
-    /// 
     /// 
     /// ```csharp
     /// using Pulumi;

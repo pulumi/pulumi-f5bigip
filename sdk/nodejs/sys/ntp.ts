@@ -10,8 +10,6 @@ import * as utilities from "../utilities";
  * This resource is helpful when configuring NTP server on the BIG-IP.
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";

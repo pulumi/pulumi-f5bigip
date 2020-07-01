@@ -18,8 +18,7 @@ type IAppList struct {
 // IAppListInput is an input type that accepts IAppListArgs and IAppListOutput values.
 // You can construct a concrete instance of `IAppListInput` via:
 //
-// 		 IAppListArgs{...}
-//
+//          IAppListArgs{...}
 type IAppListInput interface {
 	pulumi.Input
 
@@ -47,8 +46,7 @@ func (i IAppListArgs) ToIAppListOutputWithContext(ctx context.Context) IAppListO
 // IAppListArrayInput is an input type that accepts IAppListArray and IAppListArrayOutput values.
 // You can construct a concrete instance of `IAppListArrayInput` via:
 //
-// 		 IAppListArray{ IAppListArgs{...} }
-//
+//          IAppListArray{ IAppListArgs{...} }
 type IAppListArrayInput interface {
 	pulumi.Input
 
@@ -120,8 +118,7 @@ type IAppMetadata struct {
 // IAppMetadataInput is an input type that accepts IAppMetadataArgs and IAppMetadataOutput values.
 // You can construct a concrete instance of `IAppMetadataInput` via:
 //
-// 		 IAppMetadataArgs{...}
-//
+//          IAppMetadataArgs{...}
 type IAppMetadataInput interface {
 	pulumi.Input
 
@@ -149,8 +146,7 @@ func (i IAppMetadataArgs) ToIAppMetadataOutputWithContext(ctx context.Context) I
 // IAppMetadataArrayInput is an input type that accepts IAppMetadataArray and IAppMetadataArrayOutput values.
 // You can construct a concrete instance of `IAppMetadataArrayInput` via:
 //
-// 		 IAppMetadataArray{ IAppMetadataArgs{...} }
-//
+//          IAppMetadataArray{ IAppMetadataArgs{...} }
 type IAppMetadataArrayInput interface {
 	pulumi.Input
 
@@ -225,8 +221,7 @@ type IAppTable struct {
 // IAppTableInput is an input type that accepts IAppTableArgs and IAppTableOutput values.
 // You can construct a concrete instance of `IAppTableInput` via:
 //
-// 		 IAppTableArgs{...}
-//
+//          IAppTableArgs{...}
 type IAppTableInput interface {
 	pulumi.Input
 
@@ -257,8 +252,7 @@ func (i IAppTableArgs) ToIAppTableOutputWithContext(ctx context.Context) IAppTab
 // IAppTableArrayInput is an input type that accepts IAppTableArray and IAppTableArrayOutput values.
 // You can construct a concrete instance of `IAppTableArrayInput` via:
 //
-// 		 IAppTableArray{ IAppTableArgs{...} }
-//
+//          IAppTableArray{ IAppTableArgs{...} }
 type IAppTableArrayInput interface {
 	pulumi.Input
 
@@ -338,8 +332,7 @@ type IAppTableRow struct {
 // IAppTableRowInput is an input type that accepts IAppTableRowArgs and IAppTableRowOutput values.
 // You can construct a concrete instance of `IAppTableRowInput` via:
 //
-// 		 IAppTableRowArgs{...}
-//
+//          IAppTableRowArgs{...}
 type IAppTableRowInput interface {
 	pulumi.Input
 
@@ -366,8 +359,7 @@ func (i IAppTableRowArgs) ToIAppTableRowOutputWithContext(ctx context.Context) I
 // IAppTableRowArrayInput is an input type that accepts IAppTableRowArray and IAppTableRowArrayOutput values.
 // You can construct a concrete instance of `IAppTableRowArrayInput` via:
 //
-// 		 IAppTableRowArray{ IAppTableRowArgs{...} }
-//
+//          IAppTableRowArray{ IAppTableRowArgs{...} }
 type IAppTableRowArrayInput interface {
 	pulumi.Input
 
@@ -437,8 +429,7 @@ type IAppVariable struct {
 // IAppVariableInput is an input type that accepts IAppVariableArgs and IAppVariableOutput values.
 // You can construct a concrete instance of `IAppVariableInput` via:
 //
-// 		 IAppVariableArgs{...}
-//
+//          IAppVariableArgs{...}
 type IAppVariableInput interface {
 	pulumi.Input
 
@@ -468,8 +459,7 @@ func (i IAppVariableArgs) ToIAppVariableOutputWithContext(ctx context.Context) I
 // IAppVariableArrayInput is an input type that accepts IAppVariableArray and IAppVariableArrayOutput values.
 // You can construct a concrete instance of `IAppVariableArrayInput` via:
 //
-// 		 IAppVariableArray{ IAppVariableArgs{...} }
-//
+//          IAppVariableArray{ IAppVariableArgs{...} }
 type IAppVariableArrayInput interface {
 	pulumi.Input
 

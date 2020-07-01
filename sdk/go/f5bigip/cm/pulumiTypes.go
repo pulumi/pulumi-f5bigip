@@ -19,8 +19,7 @@ type DeviceGroupDevice struct {
 // DeviceGroupDeviceInput is an input type that accepts DeviceGroupDeviceArgs and DeviceGroupDeviceOutput values.
 // You can construct a concrete instance of `DeviceGroupDeviceInput` via:
 //
-// 		 DeviceGroupDeviceArgs{...}
-//
+//          DeviceGroupDeviceArgs{...}
 type DeviceGroupDeviceInput interface {
 	pulumi.Input
 
@@ -49,8 +48,7 @@ func (i DeviceGroupDeviceArgs) ToDeviceGroupDeviceOutputWithContext(ctx context.
 // DeviceGroupDeviceArrayInput is an input type that accepts DeviceGroupDeviceArray and DeviceGroupDeviceArrayOutput values.
 // You can construct a concrete instance of `DeviceGroupDeviceArrayInput` via:
 //
-// 		 DeviceGroupDeviceArray{ DeviceGroupDeviceArgs{...} }
-//
+//          DeviceGroupDeviceArray{ DeviceGroupDeviceArgs{...} }
 type DeviceGroupDeviceArrayInput interface {
 	pulumi.Input
 

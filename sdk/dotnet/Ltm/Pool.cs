@@ -9,6 +9,39 @@ using Pulumi.Serialization;
 
 namespace Pulumi.F5BigIP.Ltm
 {
+    /// <summary>
+    /// `f5bigip.ltm.Pool` Manages a pool configuration.
+    /// 
+    /// Resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var pool = new F5BigIP.Ltm.Pool("pool", new F5BigIP.Ltm.PoolArgs
+    ///         {
+    ///             Name = "/Common/terraform-pool",
+    ///             LoadBalancingMode = "round-robin",
+    ///             Description = "Test-Pool",
+    ///             Monitors = 
+    ///             {
+    ///                 bigip_ltm_monitor.Monitor.Name,
+    ///                 bigip_ltm_monitor.Monitor2.Name,
+    ///             },
+    ///             AllowSnat = "yes",
+    ///             AllowNat = "yes",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// </summary>
     public partial class Pool : Pulumi.CustomResource
     {
         /// <summary>
@@ -24,7 +57,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> AllowSnat { get; private set; } = null!;
 
         /// <summary>
-        /// Userdefined value to describe the pool 
+        /// Userdefined value to describe the pool
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -124,7 +157,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? AllowSnat { get; set; }
 
         /// <summary>
-        /// Userdefined value to describe the pool 
+        /// Userdefined value to describe the pool
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -191,7 +224,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? AllowSnat { get; set; }
 
         /// <summary>
-        /// Userdefined value to describe the pool 
+        /// Userdefined value to describe the pool
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }

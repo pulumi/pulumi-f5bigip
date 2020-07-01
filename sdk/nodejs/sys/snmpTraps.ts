@@ -8,13 +8,11 @@ import * as utilities from "../utilities";
  * `f5bigip.sys.SnmpTraps` provides details bout how to enable snmpTraps resource on BIG-IP
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const snmpTraps = new f5bigip.sys.SnmpTraps("snmpTraps", {
+ * const snmpTraps = new f5bigip.sys.SnmpTraps("snmp_traps", {
  *     community: "f5community",
  *     description: "Setup snmp traps",
  *     host: "195.10.10.1",

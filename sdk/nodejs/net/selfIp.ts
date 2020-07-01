@@ -9,10 +9,7 @@ import * as utilities from "../utilities";
  *
  * Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-selfip.
  *
- *
  * ## Example Usage
- *
- *
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -23,6 +20,8 @@ import * as utilities from "../utilities";
  *     ip: "11.1.1.1/24",
  *     vlan: "/Common/internal",
  *     trafficGroup: "traffic-group-1",
+ * }, {
+ *     dependsOn: [bigip_net_vlan.vlan1],
  * });
  * ```
  */

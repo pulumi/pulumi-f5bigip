@@ -13,6 +13,51 @@ import (
 // `ltm.Policy` Configures Virtual Server
 //
 // For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ltm.NewPolicy(ctx, "test_policy", &ltm.PolicyArgs{
+// 			Name:     pulumi.String("my_policy"),
+// 			Strategy: pulumi.String("first-match"),
+// 			Requires: pulumi.StringArray{
+// 				pulumi.String("http"),
+// 			},
+// 			PublishedCopy: pulumi.String("Drafts/my_policy"),
+// 			Controls: pulumi.StringArray{
+// 				pulumi.String("forwarding"),
+// 			},
+// 			Rules: ltm.PolicyRuleArray{
+// 				&ltm.PolicyRuleArgs{
+// 					Name: pulumi.String("rule6"),
+// 					Actions: ltm.PolicyRuleActionArray{
+// 						&ltm.PolicyRuleActionArgs{
+// 							TmName:  pulumi.String("20"),
+// 							Forward: pulumi.Bool(true),
+// 							Pool:    pulumi.String("/Common/mypool"),
+// 						},
+// 					},
+// 				},
+// 			},
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			bigip_ltm_pool.Mypool,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Policy struct {
 	pulumi.CustomResourceState
 

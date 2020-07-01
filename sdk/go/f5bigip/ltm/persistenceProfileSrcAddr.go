@@ -12,6 +12,39 @@ import (
 
 // Configures a source address persistence profile
 //
+// ## Example
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ltm.NewPersistenceProfileSrcAddr(ctx, "srcaddr", &ltm.PersistenceProfileSrcAddrArgs{
+// 			DefaultsFrom:        pulumi.String("/Common/source_addr"),
+// 			HashAlgorithm:       pulumi.String("carp"),
+// 			MapProxies:          pulumi.String("enabled"),
+// 			Mask:                pulumi.String("255.255.255.255"),
+// 			MatchAcrossPools:    pulumi.String("enabled"),
+// 			MatchAcrossServices: pulumi.String("enabled"),
+// 			MatchAcrossVirtuals: pulumi.String("enabled"),
+// 			Mirror:              pulumi.String("enabled"),
+// 			Name:                pulumi.String("/Common/terraform_srcaddr"),
+// 			OverrideConnLimit:   pulumi.String("enabled"),
+// 			Timeout:             pulumi.Int(3600),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Reference
 //
 // `name` - (Required) Name of the virtual address

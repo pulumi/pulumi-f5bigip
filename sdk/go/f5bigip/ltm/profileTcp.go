@@ -13,6 +13,36 @@ import (
 // `ltm.ProfileTcp` Configures a custom profileTcp for use by health checks.
 //
 // For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ltm.NewProfileTcp(ctx, "sanjose_tcp_lan_profile", &ltm.ProfileTcpArgs{
+// 			CloseWaitTimeout:  pulumi.Int(5),
+// 			DeferredAccept:    pulumi.String("enabled"),
+// 			FastOpen:          pulumi.String("enabled"),
+// 			Finwait2timeout:   pulumi.Int(5),
+// 			FinwaitTimeout:    pulumi.Int(300),
+// 			IdleTimeout:       pulumi.Int(200),
+// 			KeepaliveInterval: pulumi.Int(1700),
+// 			Name:              pulumi.String("sanjose-tcp-lan-profile"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ProfileTcp struct {
 	pulumi.CustomResourceState
 

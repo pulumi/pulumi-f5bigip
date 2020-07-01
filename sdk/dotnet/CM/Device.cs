@@ -15,8 +15,6 @@ namespace Pulumi.F5BigIP.CM
     /// This resource is helpful when configuring the BIG-IP device in cluster or in HA mode.
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;

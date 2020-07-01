@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// `.Do` provides details about bigip do resource
+// `Do` provides details about bigip do resource
 //
 // This resource is helpful to configure do declarative JSON on BIG-IP.
 type Do struct {

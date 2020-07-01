@@ -9,6 +9,62 @@ using Pulumi.Serialization;
 
 namespace Pulumi.F5BigIP.Ltm
 {
+    /// <summary>
+    /// Configures a source address persistence profile
+    /// 
+    /// ## Example
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var srcaddr = new F5BigIP.Ltm.PersistenceProfileSrcAddr("srcaddr", new F5BigIP.Ltm.PersistenceProfileSrcAddrArgs
+    ///         {
+    ///             DefaultsFrom = "/Common/source_addr",
+    ///             HashAlgorithm = "carp",
+    ///             MapProxies = "enabled",
+    ///             Mask = "255.255.255.255",
+    ///             MatchAcrossPools = "enabled",
+    ///             MatchAcrossServices = "enabled",
+    ///             MatchAcrossVirtuals = "enabled",
+    ///             Mirror = "enabled",
+    ///             Name = "/Common/terraform_srcaddr",
+    ///             OverrideConnLimit = "enabled",
+    ///             Timeout = 3600,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Reference
+    /// 
+    /// `name` - (Required) Name of the virtual address
+    /// 
+    /// `defaults_from` - (Required) Parent cookie persistence profile
+    /// 
+    /// `match_across_pools` (Optional) (enabled or disabled) match across pools with given persistence record
+    /// 
+    /// `match_across_services` (Optional) (enabled or disabled) match across services with given persistence record
+    /// 
+    /// `match_across_virtuals` (Optional) (enabled or disabled) match across virtual servers with given persistence record
+    /// 
+    /// `mirror` (Optional) (enabled or disabled) mirror persistence record
+    /// 
+    /// `timeout` (Optional) (enabled or disabled) Timeout for persistence of the session in seconds
+    /// 
+    /// `override_conn_limit` (Optional) (enabled or disabled) Enable or dissable pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
+    /// 
+    /// `hash_algorithm` (Optional) Specify the hash algorithm
+    /// 
+    /// `mask` (Optional) Identify a range of source IP addresses to manage together as a single source address affinity persistent connection when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
+    /// 
+    /// `map_proxies` (Optional) (enabled or disabled) Directs all to the same single pool member
+    /// </summary>
     public partial class PersistenceProfileSrcAddr : Pulumi.CustomResource
     {
         [Output("appService")]

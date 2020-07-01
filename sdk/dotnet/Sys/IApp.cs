@@ -10,11 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Sys
 {
     /// <summary>
-    /// `f5bigip.sys.IApp` resource helps you to deploy Application Services template that can be used to automate and orchestrate Layer 4-7 applications service deployments using F5 Network.  
+    /// `f5bigip.sys.IApp` resource helps you to deploy Application Services template that can be used to automate and orchestrate Layer 4-7 applications service deployments using F5 Network.
     /// 
     /// ## Example Usage
-    /// 
-    /// 
     /// 
     /// ```csharp
     /// using System.IO;
@@ -34,9 +32,7 @@ namespace Pulumi.F5BigIP.Sys
     /// 
     /// }
     /// ```
-    /// 
-    /// ## Example Usage of Json file
-    /// 
+    /// ### Json File
     /// ```csharp
     /// using Pulumi;
     /// 

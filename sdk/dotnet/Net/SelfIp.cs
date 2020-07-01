@@ -14,10 +14,7 @@ namespace Pulumi.F5BigIP.Net
     /// 
     /// Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-selfip.
     /// 
-    /// 
     /// ## Example Usage
-    /// 
-    /// 
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -33,6 +30,12 @@ namespace Pulumi.F5BigIP.Net
     ///             Ip = "11.1.1.1/24",
     ///             Vlan = "/Common/internal",
     ///             TrafficGroup = "traffic-group-1",
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 bigip_net_vlan.Vlan1,
+    ///             },
     ///         });
     ///     }
     /// 

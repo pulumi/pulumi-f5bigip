@@ -5,20 +5,17 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * `f5bigip.ssl.Certificate` This resource will import SSL certificates on BIG-IP LTM. 
+ * `f5bigip.ssl.Certificate` This resource will import SSL certificates on BIG-IP LTM.
  * Certificates can be imported from certificate files on the local disk, in PEM format
  *
- *
  * ## Example Usage
- *
- *
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  * import * from "fs";
  *
- * const testCert = new f5bigip.ssl.Certificate("test-cert", {
+ * const test_cert = new f5bigip.ssl.Certificate("test-cert", {
  *     name: "servercert.crt",
  *     content: fs.readFileSync("servercert.crt"),
  *     partition: "Common",

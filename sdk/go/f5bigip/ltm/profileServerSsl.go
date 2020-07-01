@@ -11,6 +11,33 @@ import (
 )
 
 // `ltm.ProfileServerSsl` Manages server SSL profiles on a BIG-IP
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ltm.NewProfileServerSsl(ctx, "test_ServerSsl", &ltm.ProfileServerSslArgs{
+// 			Authenticate: pulumi.String("always"),
+// 			Ciphers:      pulumi.String("DEFAULT"),
+// 			DefaultsFrom: pulumi.String("/Common/serverssl"),
+// 			Name:         pulumi.String("/Common/test-ServerSsl"),
+// 			Partition:    pulumi.String("Common"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ProfileServerSsl struct {
 	pulumi.CustomResourceState
 

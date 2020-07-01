@@ -13,6 +13,40 @@ import (
 // `ltm.DataGroup` Manages internal (in-line) datagroup configuration
 //
 // Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-datagroup.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ltm.NewDataGroup(ctx, "datagroup", &ltm.DataGroupArgs{
+// 			Name: pulumi.String("/Common/dgx2"),
+// 			Records: ltm.DataGroupRecordArray{
+// 				&ltm.DataGroupRecordArgs{
+// 					Data: pulumi.String("pool1"),
+// 					Name: pulumi.String("abc.com"),
+// 				},
+// 				&ltm.DataGroupRecordArgs{
+// 					Data: pulumi.String("123"),
+// 					Name: pulumi.String("test"),
+// 				},
+// 			},
+// 			Type: pulumi.String("string"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type DataGroup struct {
 	pulumi.CustomResourceState
 

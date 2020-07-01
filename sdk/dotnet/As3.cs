@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP
 {
     /// <summary>
-    /// `f5bigip..As3` provides details about bigip as3 resource
+    /// `f5bigip.As3` provides details about bigip as3 resource
     /// 
     /// This resource is helpful to configure as3 declarative JSON on BIG-IP.
     /// </summary>

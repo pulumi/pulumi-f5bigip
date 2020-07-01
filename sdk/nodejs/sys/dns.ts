@@ -7,12 +7,7 @@ import * as utilities from "../utilities";
 /**
  * `f5bigip.sys.Dns` Configures DNS server on F5 BIG-IP
  *
- *
- *
- *
  * ## Example Usage
- *
- *
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

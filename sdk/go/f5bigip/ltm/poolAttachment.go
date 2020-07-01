@@ -10,11 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// `ltm.PoolAttachment` Manages nodes membership in pools
-//
-// Resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-//
-// Note: node must be the full path to the node followed by the port. For example /Common/my-node:80
 type PoolAttachment struct {
 	pulumi.CustomResourceState
 
