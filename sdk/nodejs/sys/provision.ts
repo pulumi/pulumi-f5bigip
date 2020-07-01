@@ -8,13 +8,11 @@ import * as utilities from "../utilities";
  * `f5bigip.sys.Provision` provides details bout how to enable "ilx", "asm" "apm" resource on BIG-IP
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const testProvision = new f5bigip.sys.Provision("test-provision", {
+ * const test_provision = new f5bigip.sys.Provision("test-provision", {
  *     cpuRatio: 0,
  *     diskRatio: 0,
  *     fullPath: "asm",

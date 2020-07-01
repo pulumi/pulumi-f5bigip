@@ -13,6 +13,31 @@ import (
 // `cm.Device` provides details about a specific bigip
 //
 // This resource is helpful when configuring the BIG-IP device in cluster or in HA mode.
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/cm"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := cm.NewDevice(ctx, "myNewDevice", &cm.DeviceArgs{
+// 			ConfigsyncIp:      pulumi.String("2.2.2.2"),
+// 			MirrorIp:          pulumi.String("10.10.10.10"),
+// 			MirrorSecondaryIp: pulumi.String("11.11.11.11"),
+// 			Name:              pulumi.String("bigip300.f5.com"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Device struct {
 	pulumi.CustomResourceState
 

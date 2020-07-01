@@ -13,6 +13,39 @@ import (
 // `ltm.Node` Manages a node configuration
 //
 // For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ltm.NewNode(ctx, "node", &ltm.NodeArgs{
+// 			Address:         pulumi.String("192.168.30.1"),
+// 			ConnectionLimit: pulumi.Int(0),
+// 			Description:     pulumi.String("Test-Node"),
+// 			DynamicRatio:    pulumi.Int(1),
+// 			Fqdn: &ltm.NodeFqdnArgs{
+// 				AddressFamily: pulumi.String("ipv4"),
+// 				Interval:      pulumi.String("3000"),
+// 			},
+// 			Monitor:   pulumi.String("/Common/icmp"),
+// 			Name:      pulumi.String("/Common/terraform_node1"),
+// 			RateLimit: pulumi.String("disabled"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Node struct {
 	pulumi.CustomResourceState
 

@@ -10,12 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP
 {
     /// <summary>
-    /// `f5bigip..Do` provides details about bigip do resource
+    /// `f5bigip.Do` provides details about bigip do resource
     /// 
     /// This resource is helpful to configure do declarative JSON on BIG-IP.
     /// ## Example Usage
-    /// 
-    /// 
     /// 
     /// ```csharp
     /// using System.IO;

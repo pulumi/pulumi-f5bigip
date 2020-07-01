@@ -13,6 +13,38 @@ import (
 // `ltm.ProfileFastL4` Configures a custom profileFastl4 for use by health checks.
 //
 // For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ltm.NewProfileFastL4(ctx, "profileFastl4", &ltm.ProfileFastL4Args{
+// 			ClientTimeout:         pulumi.Int(40),
+// 			DefaultsFrom:          pulumi.String("/Common/fastL4"),
+// 			ExplicitflowMigration: pulumi.String("enabled"),
+// 			HardwareSyncookie:     pulumi.String("enabled"),
+// 			IdleTimeout:           pulumi.String("200"),
+// 			IptosToclient:         pulumi.String("pass-through"),
+// 			IptosToserver:         pulumi.String("pass-through"),
+// 			KeepaliveInterval:     pulumi.String("disabled"),
+// 			Name:                  pulumi.String("/Common/sjfastl4profile"),
+// 			Partition:             pulumi.String("Common"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ProfileFastL4 struct {
 	pulumi.CustomResourceState
 

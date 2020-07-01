@@ -11,13 +11,11 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const oneconnectSanjose = new f5bigip.ltm.ProfileOneConnect("oneconnect-sanjose", {
+ * const oneconnect_sanjose = new f5bigip.ltm.ProfileOneConnect("oneconnect-sanjose", {
  *     defaultsFrom: "/Common/oneconnect",
  *     idleTimeoutOverride: "disabled",
  *     maxAge: 3600,

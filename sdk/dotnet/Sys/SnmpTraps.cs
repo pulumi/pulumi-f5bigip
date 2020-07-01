@@ -13,8 +13,6 @@ namespace Pulumi.F5BigIP.Sys
     /// `f5bigip.sys.SnmpTraps` provides details bout how to enable snmp_traps resource on BIG-IP
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;

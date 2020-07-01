@@ -13,6 +13,57 @@ namespace Pulumi.F5BigIP.Ltm
     /// `f5bigip.ltm.Policy` Configures Virtual Server
     /// 
     /// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var test_policy = new F5BigIP.Ltm.Policy("test-policy", new F5BigIP.Ltm.PolicyArgs
+    ///         {
+    ///             Name = "my_policy",
+    ///             Strategy = "first-match",
+    ///             Requires = 
+    ///             {
+    ///                 "http",
+    ///             },
+    ///             PublishedCopy = "Drafts/my_policy",
+    ///             Controls = 
+    ///             {
+    ///                 "forwarding",
+    ///             },
+    ///             Rules = 
+    ///             {
+    ///                 new F5BigIP.Ltm.Inputs.PolicyRuleArgs
+    ///                 {
+    ///                     Name = "rule6",
+    ///                     Actions = 
+    ///                     {
+    ///                         new F5BigIP.Ltm.Inputs.PolicyRuleActionArgs
+    ///                         {
+    ///                             TmName = "20",
+    ///                             Forward = true,
+    ///                             Pool = "/Common/mypool",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 bigip_ltm_pool.Mypool,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     public partial class Policy : Pulumi.CustomResource
     {

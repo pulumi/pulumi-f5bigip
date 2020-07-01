@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// `.As3` provides details about bigip as3 resource
+// `As3` provides details about bigip as3 resource
 //
 // This resource is helpful to configure as3 declarative JSON on BIG-IP.
 type As3 struct {

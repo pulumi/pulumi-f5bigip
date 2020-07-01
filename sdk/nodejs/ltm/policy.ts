@@ -11,29 +11,28 @@ import * as utilities from "../utilities";
  *
  * For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
  *
- *
  * ## Example Usage
- *
- *
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const testPolicy = new f5bigip.ltm.Policy("test-policy", {
- *     name: "myPolicy",
+ * const test_policy = new f5bigip.ltm.Policy("test-policy", {
+ *     name: "my_policy",
  *     strategy: "first-match",
  *     requires: ["http"],
  *     publishedCopy: "Drafts/my_policy",
  *     controls: ["forwarding"],
- *     rule: [{
+ *     rules: [{
  *         name: "rule6",
- *         action: [{
+ *         actions: [{
  *             tmName: "20",
  *             forward: true,
  *             pool: "/Common/mypool",
  *         }],
  *     }],
+ * }, {
+ *     dependsOn: [bigip_ltm_pool.mypool],
  * });
  * ```
  */

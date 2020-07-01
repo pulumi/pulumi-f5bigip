@@ -11,13 +11,11 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const profileFastl4 = new f5bigip.ltm.ProfileFastL4("profileFastl4", {
+ * const profileFastl4 = new f5bigip.ltm.ProfileFastL4("profile_fastl4", {
  *     clientTimeout: 40,
  *     defaultsFrom: "/Common/fastL4",
  *     explicitflowMigration: "enabled",

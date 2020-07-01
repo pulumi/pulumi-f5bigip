@@ -4,6 +4,30 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * `f5bigip.ltm.Pool` Manages a pool configuration.
+ *
+ * Resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const pool = new f5bigip.ltm.Pool("pool", {
+ *     name: "/Common/terraform-pool",
+ *     loadBalancingMode: "round-robin",
+ *     description: "Test-Pool",
+ *     monitors: [
+ *         bigip_ltm_monitor.monitor.name,
+ *         bigip_ltm_monitor.monitor2.name,
+ *     ],
+ *     allowSnat: "yes",
+ *     allowNat: "yes",
+ * });
+ * ```
+ */
 export class Pool extends pulumi.CustomResource {
     /**
      * Get an existing Pool resource's state with the given name, ID, and optional extra
@@ -41,7 +65,7 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly allowSnat!: pulumi.Output<string>;
     /**
-     * Userdefined value to describe the pool 
+     * Userdefined value to describe the pool
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -129,7 +153,7 @@ export interface PoolState {
      */
     readonly allowSnat?: pulumi.Input<string>;
     /**
-     * Userdefined value to describe the pool 
+     * Userdefined value to describe the pool
      */
     readonly description?: pulumi.Input<string>;
     /**
@@ -171,7 +195,7 @@ export interface PoolArgs {
      */
     readonly allowSnat?: pulumi.Input<string>;
     /**
-     * Userdefined value to describe the pool 
+     * Userdefined value to describe the pool
      */
     readonly description?: pulumi.Input<string>;
     /**

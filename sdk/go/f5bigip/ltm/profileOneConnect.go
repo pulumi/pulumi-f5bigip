@@ -13,6 +13,37 @@ import (
 // `ltm.ProfileOneConnect` Configures a custom profileOneconnect for use by health checks.
 //
 // For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ltm.NewProfileOneConnect(ctx, "oneconnect_sanjose", &ltm.ProfileOneConnectArgs{
+// 			DefaultsFrom:        pulumi.String("/Common/oneconnect"),
+// 			IdleTimeoutOverride: pulumi.String("disabled"),
+// 			MaxAge:              pulumi.Int(3600),
+// 			MaxReuse:            pulumi.Int(1000),
+// 			MaxSize:             pulumi.Int(1000),
+// 			Name:                pulumi.String("sanjose"),
+// 			Partition:           pulumi.String("Common"),
+// 			SharePools:          pulumi.String("disabled"),
+// 			SourceMask:          pulumi.String("255.255.255.255"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ProfileOneConnect struct {
 	pulumi.CustomResourceState
 

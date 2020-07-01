@@ -9,11 +9,7 @@ import * as utilities from "../utilities";
 /**
  * `f5bigip.ltm.ProfileClientSsl` Manages client SSL profiles on a BIG-IP
  *
- *
- *
  * ## Example Usage
- *
- *
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -251,7 +247,7 @@ export class ProfileClientSsl extends pulumi.CustomResource {
      */
     public readonly sslSignHash!: pulumi.Output<string>;
     /**
-     * Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile. 
+     * Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
      */
     public readonly strictResume!: pulumi.Output<string>;
     public readonly tmOptions!: pulumi.Output<string[]>;
@@ -590,7 +586,7 @@ export interface ProfileClientSslState {
      */
     readonly sslSignHash?: pulumi.Input<string>;
     /**
-     * Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile. 
+     * Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
      */
     readonly strictResume?: pulumi.Input<string>;
     readonly tmOptions?: pulumi.Input<pulumi.Input<string>[]>;
@@ -799,7 +795,7 @@ export interface ProfileClientSslArgs {
      */
     readonly sslSignHash?: pulumi.Input<string>;
     /**
-     * Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile. 
+     * Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
      */
     readonly strictResume?: pulumi.Input<string>;
     readonly tmOptions?: pulumi.Input<pulumi.Input<string>[]>;

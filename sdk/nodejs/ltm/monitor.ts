@@ -4,6 +4,46 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * `f5bigip.ltm.Monitor` Configures a custom monitor for use by health checks.
+ *
+ * For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const monitor = new f5bigip.ltm.Monitor("monitor", {
+ *     destination: "1.2.3.4:1234",
+ *     interval: 999,
+ *     name: "/Common/terraform_monitor",
+ *     parent: "/Common/http",
+ *     send: "GET /some/path\n",
+ *     timeout: 999,
+ * });
+ * const test_ftp_monitor = new f5bigip.ltm.Monitor("test-ftp-monitor", {
+ *     destination: "*:8008",
+ *     filename: "somefile",
+ *     interval: 5,
+ *     name: "/Common/ftp-test",
+ *     parent: "/Common/ftp",
+ *     timeUntilUp: 0,
+ *     timeout: 16,
+ * });
+ * const test_postgresql_monitor = new f5bigip.ltm.Monitor("test-postgresql-monitor", {
+ *     interval: 5,
+ *     name: "/Common/test-postgresql-monitor",
+ *     parent: "/Common/postgresql",
+ *     password: "abcd1234",
+ *     receive: "Test",
+ *     send: "SELECT 'Test';",
+ *     timeout: 16,
+ *     username: "abcd",
+ * });
+ * ```
+ */
 export class Monitor extends pulumi.CustomResource {
     /**
      * Get an existing Monitor resource's state with the given name, ID, and optional extra
@@ -79,7 +119,7 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly parent!: pulumi.Output<string>;
     /**
-     * Specifies the password if the monitored target requires authentication 
+     * Specifies the password if the monitored target requires authentication
      */
     public readonly password!: pulumi.Output<string | undefined>;
     /**
@@ -236,7 +276,7 @@ export interface MonitorState {
      */
     readonly parent?: pulumi.Input<string>;
     /**
-     * Specifies the password if the monitored target requires authentication 
+     * Specifies the password if the monitored target requires authentication
      */
     readonly password?: pulumi.Input<string>;
     /**
@@ -318,7 +358,7 @@ export interface MonitorArgs {
      */
     readonly parent: pulumi.Input<string>;
     /**
-     * Specifies the password if the monitored target requires authentication 
+     * Specifies the password if the monitored target requires authentication
      */
     readonly password?: pulumi.Input<string>;
     /**

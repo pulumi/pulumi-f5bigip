@@ -10,13 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Ssl
 {
     /// <summary>
-    /// `f5bigip.ssl.Key` This resource will import SSL certificate key on BIG-IP LTM. 
+    /// `f5bigip.ssl.Key` This resource will import SSL certificate key on BIG-IP LTM.
     /// Certificate key can be imported from certificate key files on the local disk, in PEM format
     /// 
-    /// 
     /// ## Example Usage
-    /// 
-    /// 
     /// 
     /// ```csharp
     /// using System.IO;

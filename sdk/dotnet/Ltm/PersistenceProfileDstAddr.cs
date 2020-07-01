@@ -9,6 +9,55 @@ using Pulumi.Serialization;
 
 namespace Pulumi.F5BigIP.Ltm
 {
+    /// <summary>
+    /// Configures a cookie persistence profile
+    /// 
+    /// ## Example
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var dstaddr = new F5BigIP.Ltm.PersistenceProfileDstAddr("dstaddr", new F5BigIP.Ltm.PersistenceProfileDstAddrArgs
+    ///         {
+    ///             DefaultsFrom = "/Common/dest_addr",
+    ///             HashAlgorithm = "carp",
+    ///             Mask = "255.255.255.255",
+    ///             MatchAcrossPools = "enabled",
+    ///             MatchAcrossServices = "enabled",
+    ///             MatchAcrossVirtuals = "enabled",
+    ///             Mirror = "enabled",
+    ///             Name = "/Common/terraform_ppdstaddr",
+    ///             OverrideConnLimit = "enabled",
+    ///             Timeout = 3600,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## Reference
+    /// 
+    /// `name` - (Required) Name of the virtual address
+    /// 
+    /// `defaults_from` - (Optional) Specifies the existing profile from which the system imports settings for the new profile.
+    /// 
+    /// `match_across_pools` (Optional) (enabled or disabled) match across pools with given persistence record
+    /// 
+    /// `match_across_services` (Optional) (enabled or disabled) match across services with given persistence record
+    /// 
+    /// `match_across_virtuals` (Optional) (enabled or disabled) match across virtual servers with given persistence record
+    /// 
+    /// `mirror` (Optional) (enabled or disabled) mirror persistence record
+    /// 
+    /// `timeout` (Optional) (enabled or disabled) Timeout for persistence of the session in seconds
+    /// 
+    /// `override_conn_limit` (Optional) (enabled or disabled) Enable or dissable pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
+    /// </summary>
     public partial class PersistenceProfileDstAddr : Pulumi.CustomResource
     {
         [Output("appService")]

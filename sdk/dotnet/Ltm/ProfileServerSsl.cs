@@ -12,11 +12,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// <summary>
     /// `f5bigip.ltm.ProfileServerSsl` Manages server SSL profiles on a BIG-IP
     /// 
-    /// 
-    /// 
     /// ## Example Usage
-    /// 
-    /// 
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -262,7 +258,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> SslSignHash { get; private set; } = null!;
 
         /// <summary>
-        /// Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile. 
+        /// Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
         /// </summary>
         [Output("strictResume")]
         public Output<string> StrictResume { get; private set; } = null!;
@@ -549,7 +545,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? SslSignHash { get; set; }
 
         /// <summary>
-        /// Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile. 
+        /// Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
         /// </summary>
         [Input("strictResume")]
         public Input<string>? StrictResume { get; set; }
@@ -802,7 +798,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? SslSignHash { get; set; }
 
         /// <summary>
-        /// Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile. 
+        /// Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
         /// </summary>
         [Input("strictResume")]
         public Input<string>? StrictResume { get; set; }

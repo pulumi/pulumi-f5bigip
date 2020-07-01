@@ -13,6 +13,37 @@ import (
 // `ltm.ProfileHttp` Configures a custom profileHttp for use by health checks.
 //
 // For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ltm.NewProfileHttp(ctx, "sanjose_http", &ltm.ProfileHttpArgs{
+// 			DefaultsFrom: pulumi.String("/Common/http"),
+// 			Description:  pulumi.String("some http"),
+// 			FallbackHost: pulumi.String("titanic"),
+// 			FallbackStatusCodes: pulumi.StringArray{
+// 				pulumi.String("400"),
+// 				pulumi.String("500"),
+// 				pulumi.String("300"),
+// 			},
+// 			Name: pulumi.String("/Common/sanjose-http"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type ProfileHttp struct {
 	pulumi.CustomResourceState
 

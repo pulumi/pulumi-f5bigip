@@ -20,8 +20,7 @@ type DataGroupRecord struct {
 // DataGroupRecordInput is an input type that accepts DataGroupRecordArgs and DataGroupRecordOutput values.
 // You can construct a concrete instance of `DataGroupRecordInput` via:
 //
-// 		 DataGroupRecordArgs{...}
-//
+//          DataGroupRecordArgs{...}
 type DataGroupRecordInput interface {
 	pulumi.Input
 
@@ -51,8 +50,7 @@ func (i DataGroupRecordArgs) ToDataGroupRecordOutputWithContext(ctx context.Cont
 // DataGroupRecordArrayInput is an input type that accepts DataGroupRecordArray and DataGroupRecordArrayOutput values.
 // You can construct a concrete instance of `DataGroupRecordArrayInput` via:
 //
-// 		 DataGroupRecordArray{ DataGroupRecordArgs{...} }
-//
+//          DataGroupRecordArray{ DataGroupRecordArgs{...} }
 type DataGroupRecordArrayInput interface {
 	pulumi.Input
 
@@ -132,8 +130,7 @@ type NodeFqdn struct {
 // NodeFqdnInput is an input type that accepts NodeFqdnArgs and NodeFqdnOutput values.
 // You can construct a concrete instance of `NodeFqdnInput` via:
 //
-// 		 NodeFqdnArgs{...}
-//
+//          NodeFqdnArgs{...}
 type NodeFqdnInput interface {
 	pulumi.Input
 
@@ -175,12 +172,11 @@ func (i NodeFqdnArgs) ToNodeFqdnPtrOutputWithContext(ctx context.Context) NodeFq
 // NodeFqdnPtrInput is an input type that accepts NodeFqdnArgs, NodeFqdnPtr and NodeFqdnPtrOutput values.
 // You can construct a concrete instance of `NodeFqdnPtrInput` via:
 //
-// 		 NodeFqdnArgs{...}
+//          NodeFqdnArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type NodeFqdnPtrInput interface {
 	pulumi.Input
 
@@ -329,8 +325,7 @@ type PolicyRule struct {
 // PolicyRuleInput is an input type that accepts PolicyRuleArgs and PolicyRuleOutput values.
 // You can construct a concrete instance of `PolicyRuleInput` via:
 //
-// 		 PolicyRuleArgs{...}
-//
+//          PolicyRuleArgs{...}
 type PolicyRuleInput interface {
 	pulumi.Input
 
@@ -360,8 +355,7 @@ func (i PolicyRuleArgs) ToPolicyRuleOutputWithContext(ctx context.Context) Polic
 // PolicyRuleArrayInput is an input type that accepts PolicyRuleArray and PolicyRuleArrayOutput values.
 // You can construct a concrete instance of `PolicyRuleArrayInput` via:
 //
-// 		 PolicyRuleArray{ PolicyRuleArgs{...} }
-//
+//          PolicyRuleArray{ PolicyRuleArgs{...} }
 type PolicyRuleArrayInput interface {
 	pulumi.Input
 
@@ -541,8 +535,7 @@ type PolicyRuleAction struct {
 // PolicyRuleActionInput is an input type that accepts PolicyRuleActionArgs and PolicyRuleActionOutput values.
 // You can construct a concrete instance of `PolicyRuleActionInput` via:
 //
-// 		 PolicyRuleActionArgs{...}
-//
+//          PolicyRuleActionArgs{...}
 type PolicyRuleActionInput interface {
 	pulumi.Input
 
@@ -673,8 +666,7 @@ func (i PolicyRuleActionArgs) ToPolicyRuleActionOutputWithContext(ctx context.Co
 // PolicyRuleActionArrayInput is an input type that accepts PolicyRuleActionArray and PolicyRuleActionArrayOutput values.
 // You can construct a concrete instance of `PolicyRuleActionArrayInput` via:
 //
-// 		 PolicyRuleActionArray{ PolicyRuleActionArgs{...} }
-//
+//          PolicyRuleActionArray{ PolicyRuleActionArgs{...} }
 type PolicyRuleActionArrayInput interface {
 	pulumi.Input
 
@@ -1238,8 +1230,7 @@ type PolicyRuleCondition struct {
 // PolicyRuleConditionInput is an input type that accepts PolicyRuleConditionArgs and PolicyRuleConditionOutput values.
 // You can construct a concrete instance of `PolicyRuleConditionInput` via:
 //
-// 		 PolicyRuleConditionArgs{...}
-//
+//          PolicyRuleConditionArgs{...}
 type PolicyRuleConditionInput interface {
 	pulumi.Input
 
@@ -1356,8 +1347,7 @@ func (i PolicyRuleConditionArgs) ToPolicyRuleConditionOutputWithContext(ctx cont
 // PolicyRuleConditionArrayInput is an input type that accepts PolicyRuleConditionArray and PolicyRuleConditionArrayOutput values.
 // You can construct a concrete instance of `PolicyRuleConditionArrayInput` via:
 //
-// 		 PolicyRuleConditionArray{ PolicyRuleConditionArgs{...} }
-//
+//          PolicyRuleConditionArray{ PolicyRuleConditionArgs{...} }
 type PolicyRuleConditionArrayInput interface {
 	pulumi.Input
 
@@ -1789,8 +1779,7 @@ type ProfileClientSslCertKeyChain struct {
 // ProfileClientSslCertKeyChainInput is an input type that accepts ProfileClientSslCertKeyChainArgs and ProfileClientSslCertKeyChainOutput values.
 // You can construct a concrete instance of `ProfileClientSslCertKeyChainInput` via:
 //
-// 		 ProfileClientSslCertKeyChainArgs{...}
-//
+//          ProfileClientSslCertKeyChainArgs{...}
 type ProfileClientSslCertKeyChainInput interface {
 	pulumi.Input
 
@@ -1825,8 +1814,7 @@ func (i ProfileClientSslCertKeyChainArgs) ToProfileClientSslCertKeyChainOutputWi
 // ProfileClientSslCertKeyChainArrayInput is an input type that accepts ProfileClientSslCertKeyChainArray and ProfileClientSslCertKeyChainArrayOutput values.
 // You can construct a concrete instance of `ProfileClientSslCertKeyChainArrayInput` via:
 //
-// 		 ProfileClientSslCertKeyChainArray{ ProfileClientSslCertKeyChainArgs{...} }
-//
+//          ProfileClientSslCertKeyChainArray{ ProfileClientSslCertKeyChainArgs{...} }
 type ProfileClientSslCertKeyChainArrayInput interface {
 	pulumi.Input
 
@@ -1915,8 +1903,7 @@ type SnatOrigin struct {
 // SnatOriginInput is an input type that accepts SnatOriginArgs and SnatOriginOutput values.
 // You can construct a concrete instance of `SnatOriginInput` via:
 //
-// 		 SnatOriginArgs{...}
-//
+//          SnatOriginArgs{...}
 type SnatOriginInput interface {
 	pulumi.Input
 
@@ -1945,8 +1932,7 @@ func (i SnatOriginArgs) ToSnatOriginOutputWithContext(ctx context.Context) SnatO
 // SnatOriginArrayInput is an input type that accepts SnatOriginArray and SnatOriginArrayOutput values.
 // You can construct a concrete instance of `SnatOriginArrayInput` via:
 //
-// 		 SnatOriginArray{ SnatOriginArgs{...} }
-//
+//          SnatOriginArray{ SnatOriginArgs{...} }
 type SnatOriginArrayInput interface {
 	pulumi.Input
 

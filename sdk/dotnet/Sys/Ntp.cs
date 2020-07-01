@@ -15,8 +15,6 @@ namespace Pulumi.F5BigIP.Sys
     /// This resource is helpful when configuring NTP server on the BIG-IP.
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;

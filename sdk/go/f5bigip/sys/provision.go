@@ -11,6 +11,33 @@ import (
 )
 
 // `sys.Provision` provides details bout how to enable "ilx", "asm" "apm" resource on BIG-IP
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/sys"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sys.NewProvision(ctx, "test_provision", &sys.ProvisionArgs{
+// 			CpuRatio:    pulumi.Int(0),
+// 			DiskRatio:   pulumi.Int(0),
+// 			FullPath:    pulumi.String("asm"),
+// 			Level:       pulumi.String("none"),
+// 			MemoryRatio: pulumi.Int(0),
+// 			Name:        pulumi.String("TEST_ASM_PROVISION_NAME"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Provision struct {
 	pulumi.CustomResourceState
 

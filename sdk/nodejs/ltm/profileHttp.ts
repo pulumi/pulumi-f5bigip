@@ -11,13 +11,11 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const sanjoseHttp = new f5bigip.ltm.ProfileHttp("sanjose-http", {
+ * const sanjose_http = new f5bigip.ltm.ProfileHttp("sanjose-http", {
  *     defaultsFrom: "/Common/http",
  *     description: "some http",
  *     fallbackHost: "titanic",

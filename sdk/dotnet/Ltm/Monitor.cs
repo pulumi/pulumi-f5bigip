@@ -9,6 +9,58 @@ using Pulumi.Serialization;
 
 namespace Pulumi.F5BigIP.Ltm
 {
+    /// <summary>
+    /// `f5bigip.ltm.Monitor` Configures a custom monitor for use by health checks.
+    /// 
+    /// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var monitor = new F5BigIP.Ltm.Monitor("monitor", new F5BigIP.Ltm.MonitorArgs
+    ///         {
+    ///             Destination = "1.2.3.4:1234",
+    ///             Interval = 999,
+    ///             Name = "/Common/terraform_monitor",
+    ///             Parent = "/Common/http",
+    ///             Send = @"GET /some/path
+    /// 
+    /// ",
+    ///             Timeout = 999,
+    ///         });
+    ///         var test_ftp_monitor = new F5BigIP.Ltm.Monitor("test-ftp-monitor", new F5BigIP.Ltm.MonitorArgs
+    ///         {
+    ///             Destination = "*:8008",
+    ///             Filename = "somefile",
+    ///             Interval = 5,
+    ///             Name = "/Common/ftp-test",
+    ///             Parent = "/Common/ftp",
+    ///             TimeUntilUp = 0,
+    ///             Timeout = 16,
+    ///         });
+    ///         var test_postgresql_monitor = new F5BigIP.Ltm.Monitor("test-postgresql-monitor", new F5BigIP.Ltm.MonitorArgs
+    ///         {
+    ///             Interval = 5,
+    ///             Name = "/Common/test-postgresql-monitor",
+    ///             Parent = "/Common/postgresql",
+    ///             Password = "abcd1234",
+    ///             Receive = "Test",
+    ///             Send = "SELECT 'Test';",
+    ///             Timeout = 16,
+    ///             Username = "abcd",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// </summary>
     public partial class Monitor : Pulumi.CustomResource
     {
         /// <summary>
@@ -84,7 +136,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> Parent { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the password if the monitored target requires authentication 
+        /// Specifies the password if the monitored target requires authentication
         /// </summary>
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
@@ -250,7 +302,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string> Parent { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the password if the monitored target requires authentication 
+        /// Specifies the password if the monitored target requires authentication
         /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
@@ -377,7 +429,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Parent { get; set; }
 
         /// <summary>
-        /// Specifies the password if the monitored target requires authentication 
+        /// Specifies the password if the monitored target requires authentication
         /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }

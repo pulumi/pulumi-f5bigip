@@ -12,6 +12,38 @@ import (
 
 // Configures a cookie persistence profile
 //
+// ## Example
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ltm.NewPersistenceProfileDstAddr(ctx, "dstaddr", &ltm.PersistenceProfileDstAddrArgs{
+// 			DefaultsFrom:        pulumi.String("/Common/dest_addr"),
+// 			HashAlgorithm:       pulumi.String("carp"),
+// 			Mask:                pulumi.String("255.255.255.255"),
+// 			MatchAcrossPools:    pulumi.String("enabled"),
+// 			MatchAcrossServices: pulumi.String("enabled"),
+// 			MatchAcrossVirtuals: pulumi.String("enabled"),
+// 			Mirror:              pulumi.String("enabled"),
+// 			Name:                pulumi.String("/Common/terraform_ppdstaddr"),
+// 			OverrideConnLimit:   pulumi.String("enabled"),
+// 			Timeout:             pulumi.Int(3600),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Reference
 //
 // `name` - (Required) Name of the virtual address

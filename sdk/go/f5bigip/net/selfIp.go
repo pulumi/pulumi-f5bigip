@@ -13,6 +13,34 @@ import (
 // `net.SelfIp` Manages a selfip configuration
 //
 // Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-selfip.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/net"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := net.NewSelfIp(ctx, "selfip1", &net.SelfIpArgs{
+// 			Name:         pulumi.String("/Common/internalselfIP"),
+// 			Ip:           pulumi.String("11.1.1.1/24"),
+// 			Vlan:         pulumi.String("/Common/internal"),
+// 			TrafficGroup: pulumi.String("traffic-group-1"),
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			bigip_net_vlan.Vlan1,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type SelfIp struct {
 	pulumi.CustomResourceState
 

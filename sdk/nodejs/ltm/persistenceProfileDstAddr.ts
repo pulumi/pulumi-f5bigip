@@ -4,6 +4,47 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Configures a cookie persistence profile
+ *
+ * ## Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const dstaddr = new f5bigip.ltm.PersistenceProfileDstAddr("dstaddr", {
+ *     defaultsFrom: "/Common/dest_addr",
+ *     hashAlgorithm: "carp",
+ *     mask: "255.255.255.255",
+ *     matchAcrossPools: "enabled",
+ *     matchAcrossServices: "enabled",
+ *     matchAcrossVirtuals: "enabled",
+ *     mirror: "enabled",
+ *     name: "/Common/terraform_ppdstaddr",
+ *     overrideConnLimit: "enabled",
+ *     timeout: 3600,
+ * });
+ * ```
+ *
+ * ## Reference
+ *
+ * `name` - (Required) Name of the virtual address
+ *
+ * `defaultsFrom` - (Optional) Specifies the existing profile from which the system imports settings for the new profile.
+ *
+ * `matchAcrossPools` (Optional) (enabled or disabled) match across pools with given persistence record
+ *
+ * `matchAcrossServices` (Optional) (enabled or disabled) match across services with given persistence record
+ *
+ * `matchAcrossVirtuals` (Optional) (enabled or disabled) match across virtual servers with given persistence record
+ *
+ * `mirror` (Optional) (enabled or disabled) mirror persistence record
+ *
+ * `timeout` (Optional) (enabled or disabled) Timeout for persistence of the session in seconds
+ *
+ * `overrideConnLimit` (Optional) (enabled or disabled) Enable or dissable pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
+ */
 export class PersistenceProfileDstAddr extends pulumi.CustomResource {
     /**
      * Get an existing PersistenceProfileDstAddr resource's state with the given name, ID, and optional extra
