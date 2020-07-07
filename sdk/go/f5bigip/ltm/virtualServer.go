@@ -90,7 +90,7 @@ type VirtualServer struct {
 	// The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
 	Irules pulumi.StringArrayOutput `pulumi:"irules"`
 	// Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
-	Mask pulumi.StringPtrOutput `pulumi:"mask"`
+	Mask pulumi.StringOutput `pulumi:"mask"`
 	// Name of the virtual server
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of persistence profiles associated with the Virtual Server.
@@ -107,7 +107,7 @@ type VirtualServer struct {
 	// Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
 	Snatpool pulumi.StringOutput `pulumi:"snatpool"`
 	// Specifies an IP address or network from which the virtual server will accept traffic.
-	Source pulumi.StringPtrOutput `pulumi:"source"`
+	Source pulumi.StringOutput `pulumi:"source"`
 	// Can be either omitted for none or the values automap or snat
 	SourceAddressTranslation pulumi.StringOutput `pulumi:"sourceAddressTranslation"`
 	// Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled

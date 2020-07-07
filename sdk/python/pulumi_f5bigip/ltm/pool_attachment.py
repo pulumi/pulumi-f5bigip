@@ -12,19 +12,49 @@ from .. import utilities, tables
 class PoolAttachment(pulumi.CustomResource):
     node: pulumi.Output[str]
     """
-    Node to add to the pool in /Partition/NodeName:Port format (e.g. /Common/Node01:80)
+    Name of the Node with service port. (Name of Node should be referenced from `ltm.Node` resource)
     """
     pool: pulumi.Output[str]
     """
-    Name of the pool in /Partition/Name format
+    Name of the pool, which should be referenced from `ltm.Pool` resource
     """
     def __init__(__self__, resource_name, opts=None, node=None, pool=None, __props__=None, __name__=None, __opts__=None):
         """
-        Create a PoolAttachment resource with the given unique name, props, and options.
+        `ltm.PoolAttachment` Manages nodes membership in pools
+
+        Resources should be named with their "full path". The full path is the combination of the partition + name of the resource.
+        For example /Common/my-pool.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        monitor = f5bigip.ltm.Monitor("monitor",
+            name="/Common/terraform_monitor",
+            parent="/Common/http",
+            send="GET /some/path\n",
+            timeout="999",
+            interval="998")
+        pool = f5bigip.ltm.Pool("pool",
+            name="/Common/terraform-pool",
+            load_balancing_mode="round-robin",
+            monitors=[monitor.name],
+            allow_snat="yes",
+            allow_nat="yes")
+        node = f5bigip.ltm.Node("node",
+            name="/Common/terraform_node",
+            address="192.168.30.2")
+        attach_node = f5bigip.ltm.PoolAttachment("attachNode",
+            pool=pool.name,
+            node=node.name.apply(lambda name: f"{name}:80"))
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] node: Node to add to the pool in /Partition/NodeName:Port format (e.g. /Common/Node01:80)
-        :param pulumi.Input[str] pool: Name of the pool in /Partition/Name format
+        :param pulumi.Input[str] node: Name of the Node with service port. (Name of Node should be referenced from `ltm.Node` resource)
+        :param pulumi.Input[str] pool: Name of the pool, which should be referenced from `ltm.Pool` resource
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -64,8 +94,8 @@ class PoolAttachment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param str id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] node: Node to add to the pool in /Partition/NodeName:Port format (e.g. /Common/Node01:80)
-        :param pulumi.Input[str] pool: Name of the pool in /Partition/Name format
+        :param pulumi.Input[str] node: Name of the Node with service port. (Name of Node should be referenced from `ltm.Node` resource)
+        :param pulumi.Input[str] pool: Name of the pool, which should be referenced from `ltm.Pool` resource
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 

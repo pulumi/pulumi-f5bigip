@@ -18,7 +18,11 @@ class Do(pulumi.CustomResource):
     """
     unique identifier for DO resource
     """
-    def __init__(__self__, resource_name, opts=None, do_json=None, tenant_name=None, __props__=None, __name__=None, __opts__=None):
+    timeout: pulumi.Output[float]
+    """
+    DO json
+    """
+    def __init__(__self__, resource_name, opts=None, do_json=None, tenant_name=None, timeout=None, __props__=None, __name__=None, __opts__=None):
         """
         `Do` provides details about bigip do resource
 
@@ -31,13 +35,14 @@ class Do(pulumi.CustomResource):
 
         do_example = f5bigip.Do("do-example",
             do_json=(lambda path: open(path).read())("example.json"),
-            tenant_name="sample_test1")
+            timeout=15)
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] do_json: Name of the of the Declarative DO JSON file
         :param pulumi.Input[str] tenant_name: unique identifier for DO resource
+        :param pulumi.Input[float] timeout: DO json
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -59,9 +64,11 @@ class Do(pulumi.CustomResource):
             if do_json is None:
                 raise TypeError("Missing required property 'do_json'")
             __props__['do_json'] = do_json
-            if tenant_name is None:
-                raise TypeError("Missing required property 'tenant_name'")
+            if tenant_name is not None:
+                warnings.warn("this attribute is no longer in use", DeprecationWarning)
+                pulumi.log.warn("tenant_name is deprecated: this attribute is no longer in use")
             __props__['tenant_name'] = tenant_name
+            __props__['timeout'] = timeout
         super(Do, __self__).__init__(
             'f5bigip:index/do:Do',
             resource_name,
@@ -69,7 +76,7 @@ class Do(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, do_json=None, tenant_name=None):
+    def get(resource_name, id, opts=None, do_json=None, tenant_name=None, timeout=None):
         """
         Get an existing Do resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -79,6 +86,7 @@ class Do(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] do_json: Name of the of the Declarative DO JSON file
         :param pulumi.Input[str] tenant_name: unique identifier for DO resource
+        :param pulumi.Input[float] timeout: DO json
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -86,6 +94,7 @@ class Do(pulumi.CustomResource):
 
         __props__["do_json"] = do_json
         __props__["tenant_name"] = tenant_name
+        __props__["timeout"] = timeout
         return Do(resource_name, opts=opts, __props__=__props__)
 
     def translate_output_property(self, prop):

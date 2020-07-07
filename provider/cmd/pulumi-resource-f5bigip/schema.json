@@ -2421,52 +2421,78 @@
             }
         },
         "f5bigip:index/as3:As3": {
-            "description": "`f5bigip.As3` provides details about bigip as3 resource\n\nThis resource is helpful to configure as3 declarative JSON on BIG-IP.\n",
+            "description": "`f5bigip.As3` provides details about bigip as3 resource\n\nThis resource is helpful to configure as3 declarative JSON on BIG-IP.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\nimport * as fs from \"fs\";\n\n// Example Usage for json file with tenant filter\nconst as3_example1 = new f5bigip.As3(\"as3-example1\", {\n    as3Json: fs.readFileSync(\"example2.json\", \"utf-8\"),\n    tenantFilter: \"Sample_03\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\n# Example Usage for json file with tenant filter\nas3_example1 = f5bigip.As3(\"as3-example1\",\n    as3_json=(lambda path: open(path).read())(\"example2.json\"),\n    tenant_filter=\"Sample_03\")\n```\n```csharp\nusing System.IO;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Example Usage for json file with tenant filter\n        var as3_example1 = new F5BigIP.As3(\"as3-example1\", new F5BigIP.As3Args\n        {\n            As3Json = File.ReadAllText(\"example2.json\"),\n            TenantFilter = \"Sample_03\",\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "as3Json": {
                     "type": "string",
-                    "description": "Path/Filename of Declarative AS3 JSON which can be a template/json file used with builtin ```templatefile``` function (or) ```file``` function\n"
+                    "description": "Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function\n"
+                },
+                "tenantFilter": {
+                    "type": "string",
+                    "description": "If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified\n"
+                },
+                "tenantList": {
+                    "type": "string",
+                    "description": "Name of Tenant\n"
                 },
                 "tenantName": {
                     "type": "string",
-                    "description": "Name of Tenant\n"
+                    "description": "Name of Tenant\n",
+                    "deprecationMessage": "this attribute is no longer in use"
                 }
             },
             "required": [
                 "as3Json",
-                "tenantName"
+                "tenantList"
             ],
             "inputProperties": {
                 "as3Json": {
                     "type": "string",
-                    "description": "Path/Filename of Declarative AS3 JSON which can be a template/json file used with builtin ```templatefile``` function (or) ```file``` function\n"
+                    "description": "Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function\n"
+                },
+                "tenantFilter": {
+                    "type": "string",
+                    "description": "If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified\n"
+                },
+                "tenantList": {
+                    "type": "string",
+                    "description": "Name of Tenant\n"
                 },
                 "tenantName": {
                     "type": "string",
-                    "description": "Name of Tenant\n"
+                    "description": "Name of Tenant\n",
+                    "deprecationMessage": "this attribute is no longer in use"
                 }
             },
             "requiredInputs": [
-                "as3Json",
-                "tenantName"
+                "as3Json"
             ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering As3 resources.\n",
                 "properties": {
                     "as3Json": {
                         "type": "string",
-                        "description": "Path/Filename of Declarative AS3 JSON which can be a template/json file used with builtin ```templatefile``` function (or) ```file``` function\n"
+                        "description": "Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function\n"
+                    },
+                    "tenantFilter": {
+                        "type": "string",
+                        "description": "If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified\n"
+                    },
+                    "tenantList": {
+                        "type": "string",
+                        "description": "Name of Tenant\n"
                     },
                     "tenantName": {
                         "type": "string",
-                        "description": "Name of Tenant\n"
+                        "description": "Name of Tenant\n",
+                        "deprecationMessage": "this attribute is no longer in use"
                     }
                 },
                 "type": "object"
             }
         },
         "f5bigip:index/do:Do": {
-            "description": "`f5bigip.Do` provides details about bigip do resource\n\nThis resource is helpful to configure do declarative JSON on BIG-IP.\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\nimport * as fs from \"fs\";\n\nconst do_example = new f5bigip.Do(\"do-example\", {\n    doJson: fs.readFileSync(\"example.json\", \"utf-8\"),\n    tenantName: \"sample_test1\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ndo_example = f5bigip.Do(\"do-example\",\n    do_json=(lambda path: open(path).read())(\"example.json\"),\n    tenant_name=\"sample_test1\")\n```\n```csharp\nusing System.IO;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var do_example = new F5BigIP.Do(\"do-example\", new F5BigIP.DoArgs\n        {\n            DoJson = File.ReadAllText(\"example.json\"),\n            TenantName = \"sample_test1\",\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "`f5bigip.Do` provides details about bigip do resource\n\nThis resource is helpful to configure do declarative JSON on BIG-IP.\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\nimport * as fs from \"fs\";\n\nconst do_example = new f5bigip.Do(\"do-example\", {\n    doJson: fs.readFileSync(\"example.json\", \"utf-8\"),\n    timeout: 15,\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ndo_example = f5bigip.Do(\"do-example\",\n    do_json=(lambda path: open(path).read())(\"example.json\"),\n    timeout=15)\n```\n```csharp\nusing System.IO;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var do_example = new F5BigIP.Do(\"do-example\", new F5BigIP.DoArgs\n        {\n            DoJson = File.ReadAllText(\"example.json\"),\n            Timeout = 15,\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "doJson": {
                     "type": "string",
@@ -2474,12 +2500,16 @@
                 },
                 "tenantName": {
                     "type": "string",
-                    "description": "unique identifier for DO resource\n"
+                    "description": "unique identifier for DO resource\n",
+                    "deprecationMessage": "this attribute is no longer in use"
+                },
+                "timeout": {
+                    "type": "integer",
+                    "description": "DO json\n"
                 }
             },
             "required": [
-                "doJson",
-                "tenantName"
+                "doJson"
             ],
             "inputProperties": {
                 "doJson": {
@@ -2488,12 +2518,16 @@
                 },
                 "tenantName": {
                     "type": "string",
-                    "description": "unique identifier for DO resource\n"
+                    "description": "unique identifier for DO resource\n",
+                    "deprecationMessage": "this attribute is no longer in use"
+                },
+                "timeout": {
+                    "type": "integer",
+                    "description": "DO json\n"
                 }
             },
             "requiredInputs": [
-                "doJson",
-                "tenantName"
+                "doJson"
             ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering Do resources.\n",
@@ -2504,7 +2538,12 @@
                     },
                     "tenantName": {
                         "type": "string",
-                        "description": "unique identifier for DO resource\n"
+                        "description": "unique identifier for DO resource\n",
+                        "deprecationMessage": "this attribute is no longer in use"
+                    },
+                    "timeout": {
+                        "type": "integer",
+                        "description": "DO json\n"
                     }
                 },
                 "type": "object"
@@ -3970,14 +4009,15 @@
             }
         },
         "f5bigip:ltm/poolAttachment:PoolAttachment": {
+            "description": "`f5bigip.ltm.PoolAttachment` Manages nodes membership in pools\n\nResources should be named with their \"full path\". The full path is the combination of the partition + name of the resource. \nFor example /Common/my-pool.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst monitor = new f5bigip.ltm.Monitor(\"monitor\", {\n    name: \"/Common/terraform_monitor\",\n    parent: \"/Common/http\",\n    send: \"GET /some/path\r\\n\",\n    timeout: \"999\",\n    interval: \"998\",\n});\nconst pool = new f5bigip.ltm.Pool(\"pool\", {\n    name: \"/Common/terraform-pool\",\n    loadBalancingMode: \"round-robin\",\n    monitors: [monitor.name],\n    allowSnat: \"yes\",\n    allowNat: \"yes\",\n});\nconst node = new f5bigip.ltm.Node(\"node\", {\n    name: \"/Common/terraform_node\",\n    address: \"192.168.30.2\",\n});\nconst attachNode = new f5bigip.ltm.PoolAttachment(\"attachNode\", {\n    pool: pool.name,\n    node: pulumi.interpolate`${node.name}:80`,\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nmonitor = f5bigip.ltm.Monitor(\"monitor\",\n    name=\"/Common/terraform_monitor\",\n    parent=\"/Common/http\",\n    send=\"GET /some/path\r\\n\",\n    timeout=\"999\",\n    interval=\"998\")\npool = f5bigip.ltm.Pool(\"pool\",\n    name=\"/Common/terraform-pool\",\n    load_balancing_mode=\"round-robin\",\n    monitors=[monitor.name],\n    allow_snat=\"yes\",\n    allow_nat=\"yes\")\nnode = f5bigip.ltm.Node(\"node\",\n    name=\"/Common/terraform_node\",\n    address=\"192.168.30.2\")\nattach_node = f5bigip.ltm.PoolAttachment(\"attachNode\",\n    pool=pool.name,\n    node=node.name.apply(lambda name: f\"{name}:80\"))\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var monitor = new F5BigIP.Ltm.Monitor(\"monitor\", new F5BigIP.Ltm.MonitorArgs\n        {\n            Name = \"/Common/terraform_monitor\",\n            Parent = \"/Common/http\",\n            Send = @\"GET /some/path\r\n\",\n            Timeout = 999,\n            Interval = 998,\n        });\n        var pool = new F5BigIP.Ltm.Pool(\"pool\", new F5BigIP.Ltm.PoolArgs\n        {\n            Name = \"/Common/terraform-pool\",\n            LoadBalancingMode = \"round-robin\",\n            Monitors = \n            {\n                monitor.Name,\n            },\n            AllowSnat = \"yes\",\n            AllowNat = \"yes\",\n        });\n        var node = new F5BigIP.Ltm.Node(\"node\", new F5BigIP.Ltm.NodeArgs\n        {\n            Name = \"/Common/terraform_node\",\n            Address = \"192.168.30.2\",\n        });\n        var attachNode = new F5BigIP.Ltm.PoolAttachment(\"attachNode\", new F5BigIP.Ltm.PoolAttachmentArgs\n        {\n            Pool = pool.Name,\n            Node = node.Name.Apply(name =\u003e $\"{name}:80\"),\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmonitor, err := ltm.NewMonitor(ctx, \"monitor\", \u0026ltm.MonitorArgs{\n\t\t\tName:   pulumi.String(\"/Common/terraform_monitor\"),\n\t\t\tParent: pulumi.String(\"/Common/http\"),\n\t\t\tSend: pulumi.String(\"GET /some/path\r\\n\"),\n\t\t\tTimeout:  pulumi.Int(999),\n\t\t\tInterval: pulumi.Int(998),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tpool, err := ltm.NewPool(ctx, \"pool\", \u0026ltm.PoolArgs{\n\t\t\tName:              pulumi.String(\"/Common/terraform-pool\"),\n\t\t\tLoadBalancingMode: pulumi.String(\"round-robin\"),\n\t\t\tMonitors: pulumi.StringArray{\n\t\t\t\tmonitor.Name,\n\t\t\t},\n\t\t\tAllowSnat: pulumi.String(\"yes\"),\n\t\t\tAllowNat:  pulumi.String(\"yes\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tnode, err := ltm.NewNode(ctx, \"node\", \u0026ltm.NodeArgs{\n\t\t\tName:    pulumi.String(\"/Common/terraform_node\"),\n\t\t\tAddress: pulumi.String(\"192.168.30.2\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewPoolAttachment(ctx, \"attachNode\", \u0026ltm.PoolAttachmentArgs{\n\t\t\tPool: pool.Name,\n\t\t\tNode: node.Name.ApplyT(func(name string) (string, error) {\n\t\t\t\treturn fmt.Sprintf(\"%v%v\", name, \":80\"), nil\n\t\t\t}).(pulumi.StringOutput),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "node": {
                     "type": "string",
-                    "description": "Node to add to the pool in /Partition/NodeName:Port format (e.g. /Common/Node01:80)\n"
+                    "description": "Name of the Node with service port. (Name of Node should be referenced from `f5bigip.ltm.Node` resource)\n"
                 },
                 "pool": {
                     "type": "string",
-                    "description": "Name of the pool in /Partition/Name format\n"
+                    "description": "Name of the pool, which should be referenced from `f5bigip.ltm.Pool` resource\n"
                 }
             },
             "required": [
@@ -3987,11 +4027,11 @@
             "inputProperties": {
                 "node": {
                     "type": "string",
-                    "description": "Node to add to the pool in /Partition/NodeName:Port format (e.g. /Common/Node01:80)\n"
+                    "description": "Name of the Node with service port. (Name of Node should be referenced from `f5bigip.ltm.Node` resource)\n"
                 },
                 "pool": {
                     "type": "string",
-                    "description": "Name of the pool in /Partition/Name format\n"
+                    "description": "Name of the pool, which should be referenced from `f5bigip.ltm.Pool` resource\n"
                 }
             },
             "requiredInputs": [
@@ -4003,11 +4043,11 @@
                 "properties": {
                     "node": {
                         "type": "string",
-                        "description": "Node to add to the pool in /Partition/NodeName:Port format (e.g. /Common/Node01:80)\n"
+                        "description": "Name of the Node with service port. (Name of Node should be referenced from `f5bigip.ltm.Node` resource)\n"
                     },
                     "pool": {
                         "type": "string",
-                        "description": "Name of the pool in /Partition/Name format\n"
+                        "description": "Name of the pool, which should be referenced from `f5bigip.ltm.Pool` resource\n"
                     }
                 },
                 "type": "object"
@@ -6869,12 +6909,14 @@
                 "destination",
                 "fallbackPersistenceProfile",
                 "ipProtocol",
+                "mask",
                 "name",
                 "persistenceProfiles",
                 "port",
                 "profiles",
                 "serverProfiles",
                 "snatpool",
+                "source",
                 "sourceAddressTranslation",
                 "translateAddress",
                 "translatePort",

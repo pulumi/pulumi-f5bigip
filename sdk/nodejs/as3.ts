@@ -8,6 +8,20 @@ import * as utilities from "./utilities";
  * `f5bigip.As3` provides details about bigip as3 resource
  *
  * This resource is helpful to configure as3 declarative JSON on BIG-IP.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ * import * as fs from "fs";
+ *
+ * // Example Usage for json file with tenant filter
+ * const as3_example1 = new f5bigip.As3("as3-example1", {
+ *     as3Json: fs.readFileSync("example2.json", "utf-8"),
+ *     tenantFilter: "Sample_03",
+ * });
+ * ```
  */
 export class As3 extends pulumi.CustomResource {
     /**
@@ -38,13 +52,23 @@ export class As3 extends pulumi.CustomResource {
     }
 
     /**
-     * Path/Filename of Declarative AS3 JSON which can be a template/json file used with builtin ```templatefile``` function (or) ```file``` function
+     * Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
      */
     public readonly as3Json!: pulumi.Output<string>;
     /**
+     * If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified
+     */
+    public readonly tenantFilter!: pulumi.Output<string | undefined>;
+    /**
      * Name of Tenant
      */
-    public readonly tenantName!: pulumi.Output<string>;
+    public readonly tenantList!: pulumi.Output<string>;
+    /**
+     * Name of Tenant
+     *
+     * @deprecated this attribute is no longer in use
+     */
+    public readonly tenantName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a As3 resource with the given unique name, arguments, and options.
@@ -59,16 +83,17 @@ export class As3 extends pulumi.CustomResource {
         if (opts && opts.id) {
             const state = argsOrState as As3State | undefined;
             inputs["as3Json"] = state ? state.as3Json : undefined;
+            inputs["tenantFilter"] = state ? state.tenantFilter : undefined;
+            inputs["tenantList"] = state ? state.tenantList : undefined;
             inputs["tenantName"] = state ? state.tenantName : undefined;
         } else {
             const args = argsOrState as As3Args | undefined;
             if (!args || args.as3Json === undefined) {
                 throw new Error("Missing required property 'as3Json'");
             }
-            if (!args || args.tenantName === undefined) {
-                throw new Error("Missing required property 'tenantName'");
-            }
             inputs["as3Json"] = args ? args.as3Json : undefined;
+            inputs["tenantFilter"] = args ? args.tenantFilter : undefined;
+            inputs["tenantList"] = args ? args.tenantList : undefined;
             inputs["tenantName"] = args ? args.tenantName : undefined;
         }
         if (!opts) {
@@ -87,11 +112,21 @@ export class As3 extends pulumi.CustomResource {
  */
 export interface As3State {
     /**
-     * Path/Filename of Declarative AS3 JSON which can be a template/json file used with builtin ```templatefile``` function (or) ```file``` function
+     * Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
      */
     readonly as3Json?: pulumi.Input<string>;
     /**
+     * If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified
+     */
+    readonly tenantFilter?: pulumi.Input<string>;
+    /**
      * Name of Tenant
+     */
+    readonly tenantList?: pulumi.Input<string>;
+    /**
+     * Name of Tenant
+     *
+     * @deprecated this attribute is no longer in use
      */
     readonly tenantName?: pulumi.Input<string>;
 }
@@ -101,11 +136,21 @@ export interface As3State {
  */
 export interface As3Args {
     /**
-     * Path/Filename of Declarative AS3 JSON which can be a template/json file used with builtin ```templatefile``` function (or) ```file``` function
+     * Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
      */
     readonly as3Json: pulumi.Input<string>;
     /**
+     * If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified
+     */
+    readonly tenantFilter?: pulumi.Input<string>;
+    /**
      * Name of Tenant
      */
-    readonly tenantName: pulumi.Input<string>;
+    readonly tenantList?: pulumi.Input<string>;
+    /**
+     * Name of Tenant
+     *
+     * @deprecated this attribute is no longer in use
+     */
+    readonly tenantName?: pulumi.Input<string>;
 }

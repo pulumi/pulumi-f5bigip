@@ -9,16 +9,67 @@ using Pulumi.Serialization;
 
 namespace Pulumi.F5BigIP.Ltm
 {
+    /// <summary>
+    /// `f5bigip.ltm.PoolAttachment` Manages nodes membership in pools
+    /// 
+    /// Resources should be named with their "full path". The full path is the combination of the partition + name of the resource.
+    /// For example /Common/my-pool.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var monitor = new F5BigIP.Ltm.Monitor("monitor", new F5BigIP.Ltm.MonitorArgs
+    ///         {
+    ///             Name = "/Common/terraform_monitor",
+    ///             Parent = "/Common/http",
+    ///             Send = @"GET /some/path
+    /// ",
+    ///             Timeout = 999,
+    ///             Interval = 998,
+    ///         });
+    ///         var pool = new F5BigIP.Ltm.Pool("pool", new F5BigIP.Ltm.PoolArgs
+    ///         {
+    ///             Name = "/Common/terraform-pool",
+    ///             LoadBalancingMode = "round-robin",
+    ///             Monitors = 
+    ///             {
+    ///                 monitor.Name,
+    ///             },
+    ///             AllowSnat = "yes",
+    ///             AllowNat = "yes",
+    ///         });
+    ///         var node = new F5BigIP.Ltm.Node("node", new F5BigIP.Ltm.NodeArgs
+    ///         {
+    ///             Name = "/Common/terraform_node",
+    ///             Address = "192.168.30.2",
+    ///         });
+    ///         var attachNode = new F5BigIP.Ltm.PoolAttachment("attachNode", new F5BigIP.Ltm.PoolAttachmentArgs
+    ///         {
+    ///             Pool = pool.Name,
+    ///             Node = node.Name.Apply(name =&gt; $"{name}:80"),
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// </summary>
     public partial class PoolAttachment : Pulumi.CustomResource
     {
         /// <summary>
-        /// Node to add to the pool in /Partition/NodeName:Port format (e.g. /Common/Node01:80)
+        /// Name of the Node with service port. (Name of Node should be referenced from `f5bigip.ltm.Node` resource)
         /// </summary>
         [Output("node")]
         public Output<string> Node { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the pool in /Partition/Name format
+        /// Name of the pool, which should be referenced from `f5bigip.ltm.Pool` resource
         /// </summary>
         [Output("pool")]
         public Output<string> Pool { get; private set; } = null!;
@@ -70,13 +121,13 @@ namespace Pulumi.F5BigIP.Ltm
     public sealed class PoolAttachmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Node to add to the pool in /Partition/NodeName:Port format (e.g. /Common/Node01:80)
+        /// Name of the Node with service port. (Name of Node should be referenced from `f5bigip.ltm.Node` resource)
         /// </summary>
         [Input("node", required: true)]
         public Input<string> Node { get; set; } = null!;
 
         /// <summary>
-        /// Name of the pool in /Partition/Name format
+        /// Name of the pool, which should be referenced from `f5bigip.ltm.Pool` resource
         /// </summary>
         [Input("pool", required: true)]
         public Input<string> Pool { get; set; } = null!;
@@ -89,13 +140,13 @@ namespace Pulumi.F5BigIP.Ltm
     public sealed class PoolAttachmentState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Node to add to the pool in /Partition/NodeName:Port format (e.g. /Common/Node01:80)
+        /// Name of the Node with service port. (Name of Node should be referenced from `f5bigip.ltm.Node` resource)
         /// </summary>
         [Input("node")]
         public Input<string>? Node { get; set; }
 
         /// <summary>
-        /// Name of the pool in /Partition/Name format
+        /// Name of the pool, which should be referenced from `f5bigip.ltm.Pool` resource
         /// </summary>
         [Input("pool")]
         public Input<string>? Pool { get; set; }

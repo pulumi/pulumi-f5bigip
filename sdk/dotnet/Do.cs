@@ -27,7 +27,7 @@ namespace Pulumi.F5BigIP
     ///         var do_example = new F5BigIP.Do("do-example", new F5BigIP.DoArgs
     ///         {
     ///             DoJson = File.ReadAllText("example.json"),
-    ///             TenantName = "sample_test1",
+    ///             Timeout = 15,
     ///         });
     ///     }
     /// 
@@ -46,7 +46,13 @@ namespace Pulumi.F5BigIP
         /// unique identifier for DO resource
         /// </summary>
         [Output("tenantName")]
-        public Output<string> TenantName { get; private set; } = null!;
+        public Output<string?> TenantName { get; private set; } = null!;
+
+        /// <summary>
+        /// DO json
+        /// </summary>
+        [Output("timeout")]
+        public Output<int?> Timeout { get; private set; } = null!;
 
 
         /// <summary>
@@ -103,8 +109,14 @@ namespace Pulumi.F5BigIP
         /// <summary>
         /// unique identifier for DO resource
         /// </summary>
-        [Input("tenantName", required: true)]
-        public Input<string> TenantName { get; set; } = null!;
+        [Input("tenantName")]
+        public Input<string>? TenantName { get; set; }
+
+        /// <summary>
+        /// DO json
+        /// </summary>
+        [Input("timeout")]
+        public Input<int>? Timeout { get; set; }
 
         public DoArgs()
         {
@@ -124,6 +136,12 @@ namespace Pulumi.F5BigIP
         /// </summary>
         [Input("tenantName")]
         public Input<string>? TenantName { get; set; }
+
+        /// <summary>
+        /// DO json
+        /// </summary>
+        [Input("timeout")]
+        public Input<int>? Timeout { get; set; }
 
         public DoState()
         {

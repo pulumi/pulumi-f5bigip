@@ -16,7 +16,7 @@ const virtualapplicanceAddress = pulumi.all([virtualappliance.f5Address, virtual
     const agent = new https.Agent({
         rejectUnauthorized: false
     });
-    const token = new Buffer(`admin:${password}`).toString("base64");
+    const token = Buffer.from(`admin:${password}`).toString("base64");
     while (!ready) {
         try {
             const res = await fetch(`${address}/mgmt/tm/ltm`, { 
@@ -28,8 +28,11 @@ const virtualapplicanceAddress = pulumi.all([virtualappliance.f5Address, virtual
             if (res.status == 200) {
                 console.log("bigip virtual appliance is ready")
                 ready = true;
-            }
-        } catch { }
+             }
+
+        } catch (err) {
+            console.log(`caught exception: ${err}`)
+        }
         // Keep trying
         console.log("waiting for bigip virtual appliance address to be ready")
         sleep(10000);
@@ -58,12 +61,18 @@ const pool = new f5bigip.ltm.Pool("backend", {
     allowSnat: "yes",
 }, { provider: f5bigipProvider });
 
-const poolAttachments = backendinstances.instancePublicIps.map((backendAddress, i) => {
+backendinstances.instancePublicIps.map((backendAddress, i) => {
+
+    const node = new f5bigip.ltm.Node(`backend-${i}`, {
+        name: `/Common/node-${i}`,
+        address: backendAddress.apply(x=>x.toString()),
+    }, { provider: f5bigipProvider })
+
     const applicationPoolAttachment = new f5bigip.ltm.PoolAttachment(`backend-${i}`, {
         pool: pool.name,
-        node: pulumi.interpolate`/Common/${backendAddress}:80`,
+        node: node.name.apply( x => x + ":80"),
     }, { provider: f5bigipProvider });
-    return applicationPoolAttachment;
+
 });
 
 const virtualServer = new f5bigip.ltm.VirtualServer("backend", {
