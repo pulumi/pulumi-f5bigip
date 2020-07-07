@@ -4,6 +4,42 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * `f5bigip.ltm.PoolAttachment` Manages nodes membership in pools
+ *
+ * Resources should be named with their "full path". The full path is the combination of the partition + name of the resource.
+ * For example /Common/my-pool.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const monitor = new f5bigip.ltm.Monitor("monitor", {
+ *     name: "/Common/terraform_monitor",
+ *     parent: "/Common/http",
+ *     send: "GET /some/path\n",
+ *     timeout: "999",
+ *     interval: "998",
+ * });
+ * const pool = new f5bigip.ltm.Pool("pool", {
+ *     name: "/Common/terraform-pool",
+ *     loadBalancingMode: "round-robin",
+ *     monitors: [monitor.name],
+ *     allowSnat: "yes",
+ *     allowNat: "yes",
+ * });
+ * const node = new f5bigip.ltm.Node("node", {
+ *     name: "/Common/terraform_node",
+ *     address: "192.168.30.2",
+ * });
+ * const attachNode = new f5bigip.ltm.PoolAttachment("attachNode", {
+ *     pool: pool.name,
+ *     node: pulumi.interpolate`${node.name}:80`,
+ * });
+ * ```
+ */
 export class PoolAttachment extends pulumi.CustomResource {
     /**
      * Get an existing PoolAttachment resource's state with the given name, ID, and optional extra
@@ -33,11 +69,11 @@ export class PoolAttachment extends pulumi.CustomResource {
     }
 
     /**
-     * Node to add to the pool in /Partition/NodeName:Port format (e.g. /Common/Node01:80)
+     * Name of the Node with service port. (Name of Node should be referenced from `f5bigip.ltm.Node` resource)
      */
     public readonly node!: pulumi.Output<string>;
     /**
-     * Name of the pool in /Partition/Name format
+     * Name of the pool, which should be referenced from `f5bigip.ltm.Pool` resource
      */
     public readonly pool!: pulumi.Output<string>;
 
@@ -82,11 +118,11 @@ export class PoolAttachment extends pulumi.CustomResource {
  */
 export interface PoolAttachmentState {
     /**
-     * Node to add to the pool in /Partition/NodeName:Port format (e.g. /Common/Node01:80)
+     * Name of the Node with service port. (Name of Node should be referenced from `f5bigip.ltm.Node` resource)
      */
     readonly node?: pulumi.Input<string>;
     /**
-     * Name of the pool in /Partition/Name format
+     * Name of the pool, which should be referenced from `f5bigip.ltm.Pool` resource
      */
     readonly pool?: pulumi.Input<string>;
 }
@@ -96,11 +132,11 @@ export interface PoolAttachmentState {
  */
 export interface PoolAttachmentArgs {
     /**
-     * Node to add to the pool in /Partition/NodeName:Port format (e.g. /Common/Node01:80)
+     * Name of the Node with service port. (Name of Node should be referenced from `f5bigip.ltm.Node` resource)
      */
     readonly node: pulumi.Input<string>;
     /**
-     * Name of the pool in /Partition/Name format
+     * Name of the pool, which should be referenced from `f5bigip.ltm.Pool` resource
      */
     readonly pool: pulumi.Input<string>;
 }

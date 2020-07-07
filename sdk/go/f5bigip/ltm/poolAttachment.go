@@ -10,12 +10,73 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// `ltm.PoolAttachment` Manages nodes membership in pools
+//
+// Resources should be named with their "full path". The full path is the combination of the partition + name of the resource.
+// For example /Common/my-pool.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		monitor, err := ltm.NewMonitor(ctx, "monitor", &ltm.MonitorArgs{
+// 			Name:   pulumi.String("/Common/terraform_monitor"),
+// 			Parent: pulumi.String("/Common/http"),
+// 			Send: pulumi.String("GET /some/path\n"),
+// 			Timeout:  pulumi.Int(999),
+// 			Interval: pulumi.Int(998),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		pool, err := ltm.NewPool(ctx, "pool", &ltm.PoolArgs{
+// 			Name:              pulumi.String("/Common/terraform-pool"),
+// 			LoadBalancingMode: pulumi.String("round-robin"),
+// 			Monitors: pulumi.StringArray{
+// 				monitor.Name,
+// 			},
+// 			AllowSnat: pulumi.String("yes"),
+// 			AllowNat:  pulumi.String("yes"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		node, err := ltm.NewNode(ctx, "node", &ltm.NodeArgs{
+// 			Name:    pulumi.String("/Common/terraform_node"),
+// 			Address: pulumi.String("192.168.30.2"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ltm.NewPoolAttachment(ctx, "attachNode", &ltm.PoolAttachmentArgs{
+// 			Pool: pool.Name,
+// 			Node: node.Name.ApplyT(func(name string) (string, error) {
+// 				return fmt.Sprintf("%v%v", name, ":80"), nil
+// 			}).(pulumi.StringOutput),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type PoolAttachment struct {
 	pulumi.CustomResourceState
 
-	// Node to add to the pool in /Partition/NodeName:Port format (e.g. /Common/Node01:80)
+	// Name of the Node with service port. (Name of Node should be referenced from `ltm.Node` resource)
 	Node pulumi.StringOutput `pulumi:"node"`
-	// Name of the pool in /Partition/Name format
+	// Name of the pool, which should be referenced from `ltm.Pool` resource
 	Pool pulumi.StringOutput `pulumi:"pool"`
 }
 
@@ -53,16 +114,16 @@ func GetPoolAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PoolAttachment resources.
 type poolAttachmentState struct {
-	// Node to add to the pool in /Partition/NodeName:Port format (e.g. /Common/Node01:80)
+	// Name of the Node with service port. (Name of Node should be referenced from `ltm.Node` resource)
 	Node *string `pulumi:"node"`
-	// Name of the pool in /Partition/Name format
+	// Name of the pool, which should be referenced from `ltm.Pool` resource
 	Pool *string `pulumi:"pool"`
 }
 
 type PoolAttachmentState struct {
-	// Node to add to the pool in /Partition/NodeName:Port format (e.g. /Common/Node01:80)
+	// Name of the Node with service port. (Name of Node should be referenced from `ltm.Node` resource)
 	Node pulumi.StringPtrInput
-	// Name of the pool in /Partition/Name format
+	// Name of the pool, which should be referenced from `ltm.Pool` resource
 	Pool pulumi.StringPtrInput
 }
 
@@ -71,17 +132,17 @@ func (PoolAttachmentState) ElementType() reflect.Type {
 }
 
 type poolAttachmentArgs struct {
-	// Node to add to the pool in /Partition/NodeName:Port format (e.g. /Common/Node01:80)
+	// Name of the Node with service port. (Name of Node should be referenced from `ltm.Node` resource)
 	Node string `pulumi:"node"`
-	// Name of the pool in /Partition/Name format
+	// Name of the pool, which should be referenced from `ltm.Pool` resource
 	Pool string `pulumi:"pool"`
 }
 
 // The set of arguments for constructing a PoolAttachment resource.
 type PoolAttachmentArgs struct {
-	// Node to add to the pool in /Partition/NodeName:Port format (e.g. /Common/Node01:80)
+	// Name of the Node with service port. (Name of Node should be referenced from `ltm.Node` resource)
 	Node pulumi.StringInput
-	// Name of the pool in /Partition/Name format
+	// Name of the pool, which should be referenced from `ltm.Pool` resource
 	Pool pulumi.StringInput
 }
 
