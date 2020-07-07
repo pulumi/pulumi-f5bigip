@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v1.2.1 of the BipIP Terraform Provider
+_(none)_
 
 ---
+
+## 2.2.0 (2020-07-07)
+* Upgrade to v1.2.1 of the BipIP Terraform Provider
 
 ## 2.1.3 (2020-06-11)
 * Switch to GitHub actions for build
