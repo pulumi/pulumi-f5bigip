@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v1.3.0 of the BigIP Terraform Provider
+_(none)_
 
 ---
+
+## 2.3.0 (2020-07-24)
+* Upgrade to v1.3.0 of the BigIP Terraform Provider
 
 ## 2.2.0 (2020-07-07)
 * Upgrade to v1.2.1 of the BipIP Terraform Provider
