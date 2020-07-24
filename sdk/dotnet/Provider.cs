@@ -69,6 +69,12 @@ namespace Pulumi.F5BigIP
         public Input<string>? Port { get; set; }
 
         /// <summary>
+        /// If this flag set to true,sending telemetry data to TEEM will be disabled
+        /// </summary>
+        [Input("teemDisable", json: true)]
+        public Input<bool>? TeemDisable { get; set; }
+
+        /// <summary>
         /// Enable to use an external authentication source (LDAP, TACACS, etc)
         /// </summary>
         [Input("tokenAuth", json: true)]

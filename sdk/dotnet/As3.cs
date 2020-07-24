@@ -39,6 +39,12 @@ namespace Pulumi.F5BigIP
     public partial class As3 : Pulumi.CustomResource
     {
         /// <summary>
+        /// Name of Application
+        /// </summary>
+        [Output("applicationList")]
+        public Output<string> ApplicationList { get; private set; } = null!;
+
+        /// <summary>
         /// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         /// </summary>
         [Output("as3Json")]
@@ -109,6 +115,12 @@ namespace Pulumi.F5BigIP
     public sealed class As3Args : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Name of Application
+        /// </summary>
+        [Input("applicationList")]
+        public Input<string>? ApplicationList { get; set; }
+
+        /// <summary>
         /// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         /// </summary>
         [Input("as3Json", required: true)]
@@ -139,6 +151,12 @@ namespace Pulumi.F5BigIP
 
     public sealed class As3State : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Name of Application
+        /// </summary>
+        [Input("applicationList")]
+        public Input<string>? ApplicationList { get; set; }
+
         /// <summary>
         /// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         /// </summary>

@@ -25,6 +25,10 @@ export let password: string | undefined = __config.get("password");
  */
 export let port: string | undefined = __config.get("port");
 /**
+ * If this flag set to true,sending telemetry data to TEEM will be disabled
+ */
+export let teemDisable: boolean | undefined = __config.getObject<boolean>("teemDisable");
+/**
  * Enable to use an external authentication source (LDAP, TACACS, etc)
  */
 export let tokenAuth: boolean | undefined = __config.getObject<boolean>("tokenAuth");

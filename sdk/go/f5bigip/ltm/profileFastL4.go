@@ -49,25 +49,25 @@ type ProfileFastL4 struct {
 	pulumi.CustomResourceState
 
 	// Specifies late binding client timeout in seconds. This setting specifies the number of seconds allowed for a client to transmit enough data to select a server when late binding is enabled. If it expires timeout-recovery mode will dictate what action to take.
-	ClientTimeout pulumi.IntPtrOutput `pulumi:"clientTimeout"`
+	ClientTimeout pulumi.IntOutput `pulumi:"clientTimeout"`
 	// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
-	DefaultsFrom pulumi.StringPtrOutput `pulumi:"defaultsFrom"`
+	DefaultsFrom pulumi.StringOutput `pulumi:"defaultsFrom"`
 	// Enables or disables late binding explicit flow migration that allows iRules to control when flows move from software to hardware. Explicit flow migration is disabled by default hence BIG-IP automatically migrates flows from software to hardware.
-	ExplicitflowMigration pulumi.StringPtrOutput `pulumi:"explicitflowMigration"`
+	ExplicitflowMigration pulumi.StringOutput `pulumi:"explicitflowMigration"`
 	// Enables or disables hardware SYN cookie support when PVA10 is present on the system. Note that when you set the hardware syncookie option to enabled, you may also want to set the following bigdb database variables using the "/sys modify db" command, based on your requirements: pva.SynCookies.Full.ConnectionThreshold (default: 500000), pva.SynCookies.Assist.ConnectionThreshold (default: 500000) pva.SynCookies.ClientWindow (default: 0). The default value is disabled.
-	HardwareSyncookie pulumi.StringPtrOutput `pulumi:"hardwareSyncookie"`
+	HardwareSyncookie pulumi.StringOutput `pulumi:"hardwareSyncookie"`
 	// Specifies an idle timeout in seconds. This setting specifies the number of seconds that a connection is idle before the connection is eligible for deletion.When you specify an idle timeout for the Fast L4 profile, the value must be greater than the bigdb database variable Pva.Scrub time in msec for it to work properly.The default value is 300 seconds.
-	IdleTimeout pulumi.StringPtrOutput `pulumi:"idleTimeout"`
+	IdleTimeout pulumi.StringOutput `pulumi:"idleTimeout"`
 	// Specifies an IP ToS number for the client side. This option specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to clients. The default value is 65535 (pass-through), which indicates, do not modify.
-	IptosToclient pulumi.StringPtrOutput `pulumi:"iptosToclient"`
+	IptosToclient pulumi.StringOutput `pulumi:"iptosToclient"`
 	// Specifies an IP ToS number for the server side. This setting specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to servers. The default value is 65535 (pass-through), which indicates, do not modify.
-	IptosToserver pulumi.StringPtrOutput `pulumi:"iptosToserver"`
+	IptosToserver pulumi.StringOutput `pulumi:"iptosToserver"`
 	// Specifies the keep alive probe interval, in seconds. The default value is disabled (0 seconds).
-	KeepaliveInterval pulumi.StringPtrOutput `pulumi:"keepaliveInterval"`
+	KeepaliveInterval pulumi.StringOutput `pulumi:"keepaliveInterval"`
 	// Name of the profile_fastl4
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Displays the administrative partition within which this profile resides
-	Partition pulumi.StringPtrOutput `pulumi:"partition"`
+	Partition pulumi.StringOutput `pulumi:"partition"`
 }
 
 // NewProfileFastL4 registers a new resource with the given unique name, arguments, and options.

@@ -11,7 +11,7 @@ from . import utilities, tables
 
 
 class Provider(pulumi.ProviderResource):
-    def __init__(__self__, resource_name, opts=None, address=None, login_ref=None, password=None, port=None, token_auth=None, username=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__, resource_name, opts=None, address=None, login_ref=None, password=None, port=None, teem_disable=None, token_auth=None, username=None, __props__=None, __name__=None, __opts__=None):
         """
         The provider type for the bigip package. By default, resources use package-wide configuration
         settings, however an explicit `Provider` instance may be created and passed during resource
@@ -24,6 +24,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] login_ref: Login reference for token authentication (see BIG-IP REST docs for details)
         :param pulumi.Input[str] password: The user's password
         :param pulumi.Input[str] port: Management Port to connect to Bigip
+        :param pulumi.Input[bool] teem_disable: If this flag set to true,sending telemetry data to TEEM will be disabled
         :param pulumi.Input[bool] token_auth: Enable to use an external authentication source (LDAP, TACACS, etc)
         :param pulumi.Input[str] username: Username with API access to the BigIP
         """
@@ -52,6 +53,7 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError("Missing required property 'password'")
             __props__['password'] = password
             __props__['port'] = port
+            __props__['teem_disable'] = pulumi.Output.from_input(teem_disable).apply(json.dumps) if teem_disable is not None else None
             __props__['token_auth'] = pulumi.Output.from_input(token_auth).apply(json.dumps) if token_auth is not None else None
             if username is None:
                 raise TypeError("Missing required property 'username'")

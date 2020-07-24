@@ -48,6 +48,7 @@ export class Provider extends pulumi.ProviderResource {
         inputs["loginRef"] = args ? args.loginRef : undefined;
         inputs["password"] = args ? args.password : undefined;
         inputs["port"] = args ? args.port : undefined;
+        inputs["teemDisable"] = pulumi.output(args ? args.teemDisable : undefined).apply(JSON.stringify);
         inputs["tokenAuth"] = pulumi.output(args ? args.tokenAuth : undefined).apply(JSON.stringify);
         inputs["username"] = args ? args.username : undefined;
         if (!opts) {
@@ -81,6 +82,10 @@ export interface ProviderArgs {
      * Management Port to connect to Bigip
      */
     readonly port?: pulumi.Input<string>;
+    /**
+     * If this flag set to true,sending telemetry data to TEEM will be disabled
+     */
+    readonly teemDisable?: pulumi.Input<boolean>;
     /**
      * Enable to use an external authentication source (LDAP, TACACS, etc)
      */

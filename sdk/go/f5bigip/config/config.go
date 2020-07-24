@@ -28,6 +28,11 @@ func GetPort(ctx *pulumi.Context) string {
 	return config.Get(ctx, "f5bigip:port")
 }
 
+// If this flag set to true,sending telemetry data to TEEM will be disabled
+func GetTeemDisable(ctx *pulumi.Context) bool {
+	return config.GetBool(ctx, "f5bigip:teemDisable")
+}
+
 // Enable to use an external authentication source (LDAP, TACACS, etc)
 func GetTokenAuth(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "f5bigip:tokenAuth")
