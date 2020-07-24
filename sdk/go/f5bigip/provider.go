@@ -50,6 +50,8 @@ type providerArgs struct {
 	Password string `pulumi:"password"`
 	// Management Port to connect to Bigip
 	Port *string `pulumi:"port"`
+	// If this flag set to true,sending telemetry data to TEEM will be disabled
+	TeemDisable *bool `pulumi:"teemDisable"`
 	// Enable to use an external authentication source (LDAP, TACACS, etc)
 	TokenAuth *bool `pulumi:"tokenAuth"`
 	// Username with API access to the BigIP
@@ -66,6 +68,8 @@ type ProviderArgs struct {
 	Password pulumi.StringInput
 	// Management Port to connect to Bigip
 	Port pulumi.StringPtrInput
+	// If this flag set to true,sending telemetry data to TEEM will be disabled
+	TeemDisable pulumi.BoolPtrInput
 	// Enable to use an external authentication source (LDAP, TACACS, etc)
 	TokenAuth pulumi.BoolPtrInput
 	// Username with API access to the BigIP

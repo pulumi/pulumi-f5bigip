@@ -31,6 +31,10 @@
                 "type": "string",
                 "description": "Management Port to connect to Bigip\n"
             },
+            "teemDisable": {
+                "type": "boolean",
+                "description": "If this flag set to true,sending telemetry data to TEEM will be disabled\n"
+            },
             "tokenAuth": {
                 "type": "boolean",
                 "description": "Enable to use an external authentication source (LDAP, TACACS, etc)\n"
@@ -2193,6 +2197,10 @@
                 "type": "string",
                 "description": "Management Port to connect to Bigip\n"
             },
+            "teemDisable": {
+                "type": "boolean",
+                "description": "If this flag set to true,sending telemetry data to TEEM will be disabled\n"
+            },
             "tokenAuth": {
                 "type": "boolean",
                 "description": "Enable to use an external authentication source (LDAP, TACACS, etc)\n"
@@ -2423,6 +2431,10 @@
         "f5bigip:index/as3:As3": {
             "description": "`f5bigip.As3` provides details about bigip as3 resource\n\nThis resource is helpful to configure as3 declarative JSON on BIG-IP.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\nimport * as fs from \"fs\";\n\n// Example Usage for json file with tenant filter\nconst as3_example1 = new f5bigip.As3(\"as3-example1\", {\n    as3Json: fs.readFileSync(\"example2.json\", \"utf-8\"),\n    tenantFilter: \"Sample_03\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\n# Example Usage for json file with tenant filter\nas3_example1 = f5bigip.As3(\"as3-example1\",\n    as3_json=(lambda path: open(path).read())(\"example2.json\"),\n    tenant_filter=\"Sample_03\")\n```\n```csharp\nusing System.IO;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Example Usage for json file with tenant filter\n        var as3_example1 = new F5BigIP.As3(\"as3-example1\", new F5BigIP.As3Args\n        {\n            As3Json = File.ReadAllText(\"example2.json\"),\n            TenantFilter = \"Sample_03\",\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
+                "applicationList": {
+                    "type": "string",
+                    "description": "Name of Application\n"
+                },
                 "as3Json": {
                     "type": "string",
                     "description": "Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function\n"
@@ -2442,10 +2454,15 @@
                 }
             },
             "required": [
+                "applicationList",
                 "as3Json",
                 "tenantList"
             ],
             "inputProperties": {
+                "applicationList": {
+                    "type": "string",
+                    "description": "Name of Application\n"
+                },
                 "as3Json": {
                     "type": "string",
                     "description": "Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function\n"
@@ -2470,6 +2487,10 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering As3 resources.\n",
                 "properties": {
+                    "applicationList": {
+                        "type": "string",
+                        "description": "Name of Application\n"
+                    },
                     "as3Json": {
                         "type": "string",
                         "description": "Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function\n"
@@ -2486,6 +2507,419 @@
                         "type": "string",
                         "description": "Name of Tenant\n",
                         "deprecationMessage": "this attribute is no longer in use"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "f5bigip:index/bigIqAs3:BigIqAs3": {
+            "description": "`f5bigip.BigIqAs3` provides details about bigiq as3 resource\n\nThis resource is helpful to configure as3 declarative JSON on BIG-IP through BIG-IQ.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\nimport * as fs from \"fs\";\n\n// Example Usage for json file\nconst exampletask = new f5bigip.BigIqAs3(\"exampletask\", {\n    as3Json: fs.readFileSync(\"bigiq_example.json\", \"utf-8\"),\n    bigiqAddress: \"xx.xx.xxx.xx\",\n    bigiqPassword: \"xxxxxxxxx\",\n    bigiqUser: \"xxxxx\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\n# Example Usage for json file\nexampletask = f5bigip.BigIqAs3(\"exampletask\",\n    as3_json=(lambda path: open(path).read())(\"bigiq_example.json\"),\n    bigiq_address=\"xx.xx.xxx.xx\",\n    bigiq_password=\"xxxxxxxxx\",\n    bigiq_user=\"xxxxx\")\n```\n```csharp\nusing System.IO;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Example Usage for json file\n        var exampletask = new F5BigIP.BigIqAs3(\"exampletask\", new F5BigIP.BigIqAs3Args\n        {\n            As3Json = File.ReadAllText(\"bigiq_example.json\"),\n            BigiqAddress = \"xx.xx.xxx.xx\",\n            BigiqPassword = \"xxxxxxxxx\",\n            BigiqUser = \"xxxxx\",\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "as3Json": {
+                    "type": "string",
+                    "description": "Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function\n"
+                },
+                "bigiqAddress": {
+                    "type": "string",
+                    "description": "Address of the BIG-IQ to which your targer BIG-IP is attached\n"
+                },
+                "bigiqLoginRef": {
+                    "type": "string",
+                    "description": "Login reference for token authentication (see BIG-IQ REST docs for details)\n"
+                },
+                "bigiqPassword": {
+                    "type": "string",
+                    "description": "Password of the BIG-IQ to which your targer BIG-IP is attached\n"
+                },
+                "bigiqPort": {
+                    "type": "string",
+                    "description": "The registration key pool to use\n"
+                },
+                "bigiqTokenAuth": {
+                    "type": "boolean",
+                    "description": "Enable to use an external authentication source (LDAP, TACACS, etc)\n"
+                },
+                "bigiqUser": {
+                    "type": "string",
+                    "description": "User name  of the BIG-IQ to which your targer BIG-IP is attached\n"
+                },
+                "tenantList": {
+                    "type": "string",
+                    "description": "Name of Tenant\n"
+                }
+            },
+            "required": [
+                "as3Json",
+                "bigiqAddress",
+                "bigiqPassword",
+                "bigiqUser",
+                "tenantList"
+            ],
+            "inputProperties": {
+                "as3Json": {
+                    "type": "string",
+                    "description": "Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function\n"
+                },
+                "bigiqAddress": {
+                    "type": "string",
+                    "description": "Address of the BIG-IQ to which your targer BIG-IP is attached\n"
+                },
+                "bigiqLoginRef": {
+                    "type": "string",
+                    "description": "Login reference for token authentication (see BIG-IQ REST docs for details)\n"
+                },
+                "bigiqPassword": {
+                    "type": "string",
+                    "description": "Password of the BIG-IQ to which your targer BIG-IP is attached\n"
+                },
+                "bigiqPort": {
+                    "type": "string",
+                    "description": "The registration key pool to use\n"
+                },
+                "bigiqTokenAuth": {
+                    "type": "boolean",
+                    "description": "Enable to use an external authentication source (LDAP, TACACS, etc)\n"
+                },
+                "bigiqUser": {
+                    "type": "string",
+                    "description": "User name  of the BIG-IQ to which your targer BIG-IP is attached\n"
+                },
+                "tenantList": {
+                    "type": "string",
+                    "description": "Name of Tenant\n"
+                }
+            },
+            "requiredInputs": [
+                "as3Json",
+                "bigiqAddress",
+                "bigiqPassword",
+                "bigiqUser"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering BigIqAs3 resources.\n",
+                "properties": {
+                    "as3Json": {
+                        "type": "string",
+                        "description": "Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function\n"
+                    },
+                    "bigiqAddress": {
+                        "type": "string",
+                        "description": "Address of the BIG-IQ to which your targer BIG-IP is attached\n"
+                    },
+                    "bigiqLoginRef": {
+                        "type": "string",
+                        "description": "Login reference for token authentication (see BIG-IQ REST docs for details)\n"
+                    },
+                    "bigiqPassword": {
+                        "type": "string",
+                        "description": "Password of the BIG-IQ to which your targer BIG-IP is attached\n"
+                    },
+                    "bigiqPort": {
+                        "type": "string",
+                        "description": "The registration key pool to use\n"
+                    },
+                    "bigiqTokenAuth": {
+                        "type": "boolean",
+                        "description": "Enable to use an external authentication source (LDAP, TACACS, etc)\n"
+                    },
+                    "bigiqUser": {
+                        "type": "string",
+                        "description": "User name  of the BIG-IQ to which your targer BIG-IP is attached\n"
+                    },
+                    "tenantList": {
+                        "type": "string",
+                        "description": "Name of Tenant\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "f5bigip:index/command:Command": {
+            "description": "`f5bigip.Command` Run TMSH commands on F5 devices\n\nThis resource is helpful to send TMSH command to an BIG-IP node and returns the results read from the device\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\n//create ltm node\nconst test_command = new f5bigip.Command(\"test-command\", {\n    commands: [\"delete ltm node 10.10.10.70\"],\n    when: \"destroy\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\n#create ltm node\ntest_command = f5bigip.Command(\"test-command\",\n    commands=[\"delete ltm node 10.10.10.70\"],\n    when=\"destroy\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        //create ltm node\n        var test_command = new F5BigIP.Command(\"test-command\", new F5BigIP.CommandArgs\n        {\n            Commands = \n            {\n                \"delete ltm node 10.10.10.70\",\n            },\n            When = \"destroy\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := f5bigip.NewCommand(ctx, \"test_command\", \u0026f5bigip.CommandArgs{\n\t\t\tCommands: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"delete ltm node 10.10.10.70\"),\n\t\t\t},\n\t\t\tWhen: pulumi.String(\"destroy\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "commandResults": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The resulting output from the `commands` executed\n"
+                },
+                "commands": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`\n"
+                },
+                "when": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "commandResults",
+                "commands"
+            ],
+            "inputProperties": {
+                "commandResults": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The resulting output from the `commands` executed\n"
+                },
+                "commands": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`\n"
+                },
+                "when": {
+                    "type": "string"
+                }
+            },
+            "requiredInputs": [
+                "commands"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Command resources.\n",
+                "properties": {
+                    "commandResults": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The resulting output from the `commands` executed\n"
+                    },
+                    "commands": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`\n"
+                    },
+                    "when": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "f5bigip:index/commonLicenseManageBigIq:CommonLicenseManageBigIq": {
+            "description": "`f5bigip.CommonLicenseManageBigIq` This Resource is used for BIGIP/Provider License Management from BIGIQ\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\n// MANAGED Regkey Pool\nconst testExampleCommonLicenseManageBigIq = new f5bigip.CommonLicenseManageBigIq(\"testExampleCommonLicenseManageBigIq\", {\n    bigiqAddress: _var.bigiq,\n    bigiqUser: _var.bigiq_un,\n    bigiqPassword: _var.bigiq_pw,\n    licensePoolname: \"regkeypool_name\",\n    assignmentType: \"MANAGED\",\n});\n// UNMANAGED Regkey Pool\nconst testExampleIndex_commonLicenseManageBigIqCommonLicenseManageBigIq = new f5bigip.CommonLicenseManageBigIq(\"testExampleIndex/commonLicenseManageBigIqCommonLicenseManageBigIq\", {\n    bigiqAddress: _var.bigiq,\n    bigiqUser: _var.bigiq_un,\n    bigiqPassword: _var.bigiq_pw,\n    licensePoolname: \"regkeypool_name\",\n    assignmentType: \"UNMANAGED\",\n});\n// UNMANAGED Utility Pool\nconst testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq = new f5bigip.CommonLicenseManageBigIq(\"testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq\", {\n    bigiqAddress: _var.bigiq,\n    bigiqUser: _var.bigiq_un,\n    bigiqPassword: _var.bigiq_pw,\n    licensePoolname: \"utilitypool_name\",\n    assignmentType: \"UNMANAGED\",\n    unitOfMeasure: \"yearly\",\n    skukeyword1: \"BTHSM200M\",\n});\n// UNREACHABLE Regkey Pool\nconst testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq1 = new f5bigip.CommonLicenseManageBigIq(\"testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq1\", {\n    bigiqAddress: \"xxx.xxx.xxx.xxx\",\n    bigiqUser: \"xxxx\",\n    bigiqPassword: \"xxxxx\",\n    licensePoolname: \"regkey_pool_name\",\n    assignmentType: \"UNREACHABLE\",\n    macAddress: \"FA:16:3E:1B:6D:32\",\n    hypervisor: \"azure\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\n# MANAGED Regkey Pool\ntest_example_common_license_manage_big_iq = f5bigip.CommonLicenseManageBigIq(\"testExampleCommonLicenseManageBigIq\",\n    bigiq_address=var[\"bigiq\"],\n    bigiq_user=var[\"bigiq_un\"],\n    bigiq_password=var[\"bigiq_pw\"],\n    license_poolname=\"regkeypool_name\",\n    assignment_type=\"MANAGED\")\n# UNMANAGED Regkey Pool\ntest_example_index_common_license_manage_big_iq_common_license_manage_big_iq = f5bigip.CommonLicenseManageBigIq(\"testExampleIndex/commonLicenseManageBigIqCommonLicenseManageBigIq\",\n    bigiq_address=var[\"bigiq\"],\n    bigiq_user=var[\"bigiq_un\"],\n    bigiq_password=var[\"bigiq_pw\"],\n    license_poolname=\"regkeypool_name\",\n    assignment_type=\"UNMANAGED\")\n# UNMANAGED Utility Pool\ntest_example_f5bigip_index_common_license_manage_big_iq_common_license_manage_big_iq = f5bigip.CommonLicenseManageBigIq(\"testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq\",\n    bigiq_address=var[\"bigiq\"],\n    bigiq_user=var[\"bigiq_un\"],\n    bigiq_password=var[\"bigiq_pw\"],\n    license_poolname=\"utilitypool_name\",\n    assignment_type=\"UNMANAGED\",\n    unit_of_measure=\"yearly\",\n    skukeyword1=\"BTHSM200M\")\n# UNREACHABLE Regkey Pool\ntest_example_f5bigip_index_common_license_manage_big_iq_common_license_manage_big_iq1 = f5bigip.CommonLicenseManageBigIq(\"testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq1\",\n    bigiq_address=\"xxx.xxx.xxx.xxx\",\n    bigiq_user=\"xxxx\",\n    bigiq_password=\"xxxxx\",\n    license_poolname=\"regkey_pool_name\",\n    assignment_type=\"UNREACHABLE\",\n    mac_address=\"FA:16:3E:1B:6D:32\",\n    hypervisor=\"azure\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // MANAGED Regkey Pool\n        var testExampleCommonLicenseManageBigIq = new F5BigIP.CommonLicenseManageBigIq(\"testExampleCommonLicenseManageBigIq\", new F5BigIP.CommonLicenseManageBigIqArgs\n        {\n            BigiqAddress = @var.Bigiq,\n            BigiqUser = @var.Bigiq_un,\n            BigiqPassword = @var.Bigiq_pw,\n            LicensePoolname = \"regkeypool_name\",\n            AssignmentType = \"MANAGED\",\n        });\n        // UNMANAGED Regkey Pool\n        var testExampleIndex_commonLicenseManageBigIqCommonLicenseManageBigIq = new F5BigIP.CommonLicenseManageBigIq(\"testExampleIndex/commonLicenseManageBigIqCommonLicenseManageBigIq\", new F5BigIP.CommonLicenseManageBigIqArgs\n        {\n            BigiqAddress = @var.Bigiq,\n            BigiqUser = @var.Bigiq_un,\n            BigiqPassword = @var.Bigiq_pw,\n            LicensePoolname = \"regkeypool_name\",\n            AssignmentType = \"UNMANAGED\",\n        });\n        // UNMANAGED Utility Pool\n        var testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq = new F5BigIP.CommonLicenseManageBigIq(\"testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq\", new F5BigIP.CommonLicenseManageBigIqArgs\n        {\n            BigiqAddress = @var.Bigiq,\n            BigiqUser = @var.Bigiq_un,\n            BigiqPassword = @var.Bigiq_pw,\n            LicensePoolname = \"utilitypool_name\",\n            AssignmentType = \"UNMANAGED\",\n            UnitOfMeasure = \"yearly\",\n            Skukeyword1 = \"BTHSM200M\",\n        });\n        // UNREACHABLE Regkey Pool\n        var testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq1 = new F5BigIP.CommonLicenseManageBigIq(\"testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq1\", new F5BigIP.CommonLicenseManageBigIqArgs\n        {\n            BigiqAddress = \"xxx.xxx.xxx.xxx\",\n            BigiqUser = \"xxxx\",\n            BigiqPassword = \"xxxxx\",\n            LicensePoolname = \"regkey_pool_name\",\n            AssignmentType = \"UNREACHABLE\",\n            MacAddress = \"FA:16:3E:1B:6D:32\",\n            Hypervisor = \"azure\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := f5bigip.NewCommonLicenseManageBigIq(ctx, \"testExampleCommonLicenseManageBigIq\", \u0026f5bigip.CommonLicenseManageBigIqArgs{\n\t\t\tBigiqAddress:    pulumi.String(_var.Bigiq),\n\t\t\tBigiqUser:       pulumi.String(_var.Bigiq_un),\n\t\t\tBigiqPassword:   pulumi.String(_var.Bigiq_pw),\n\t\t\tLicensePoolname: pulumi.String(\"regkeypool_name\"),\n\t\t\tAssignmentType:  pulumi.String(\"MANAGED\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = f5bigip.NewCommonLicenseManageBigIq(ctx, \"testExampleIndex_commonLicenseManageBigIqCommonLicenseManageBigIq\", \u0026f5bigip.CommonLicenseManageBigIqArgs{\n\t\t\tBigiqAddress:    pulumi.String(_var.Bigiq),\n\t\t\tBigiqUser:       pulumi.String(_var.Bigiq_un),\n\t\t\tBigiqPassword:   pulumi.String(_var.Bigiq_pw),\n\t\t\tLicensePoolname: pulumi.String(\"regkeypool_name\"),\n\t\t\tAssignmentType:  pulumi.String(\"UNMANAGED\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = f5bigip.NewCommonLicenseManageBigIq(ctx, \"testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq\", \u0026f5bigip.CommonLicenseManageBigIqArgs{\n\t\t\tBigiqAddress:    pulumi.String(_var.Bigiq),\n\t\t\tBigiqUser:       pulumi.String(_var.Bigiq_un),\n\t\t\tBigiqPassword:   pulumi.String(_var.Bigiq_pw),\n\t\t\tLicensePoolname: pulumi.String(\"utilitypool_name\"),\n\t\t\tAssignmentType:  pulumi.String(\"UNMANAGED\"),\n\t\t\tUnitOfMeasure:   pulumi.String(\"yearly\"),\n\t\t\tSkukeyword1:     pulumi.String(\"BTHSM200M\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = f5bigip.NewCommonLicenseManageBigIq(ctx, \"testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq1\", \u0026f5bigip.CommonLicenseManageBigIqArgs{\n\t\t\tBigiqAddress:    pulumi.String(\"xxx.xxx.xxx.xxx\"),\n\t\t\tBigiqUser:       pulumi.String(\"xxxx\"),\n\t\t\tBigiqPassword:   pulumi.String(\"xxxxx\"),\n\t\t\tLicensePoolname: pulumi.String(\"regkey_pool_name\"),\n\t\t\tAssignmentType:  pulumi.String(\"UNREACHABLE\"),\n\t\t\tMacAddress:      pulumi.String(\"FA:16:3E:1B:6D:32\"),\n\t\t\tHypervisor:      pulumi.String(\"azure\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "assignmentType": {
+                    "type": "string",
+                    "description": "The type of assignment, which is determined by whether the BIG-IP is unreachable, unmanaged, or managed by BIG-IQ. Possible values: “UNREACHABLE”, “UNMANAGED”, or “MANAGED”.\n"
+                },
+                "bigiqAddress": {
+                    "type": "string",
+                    "description": "BIGIQ License Manager IP Address, variable type `string`\n"
+                },
+                "bigiqLoginRef": {
+                    "type": "string",
+                    "description": "BIGIQ Login reference for token authentication\n"
+                },
+                "bigiqPassword": {
+                    "type": "string",
+                    "description": "BIGIQ License Manager password.  variable type `string`\n"
+                },
+                "bigiqPort": {
+                    "type": "string",
+                    "description": "type `int`, BIGIQ License Manager Port number, specify if port is other than `443`\n"
+                },
+                "bigiqTokenAuth": {
+                    "type": "boolean",
+                    "description": "type `bool`, if set to `true` enables Token based Authentication,default is `false`\n"
+                },
+                "bigiqUser": {
+                    "type": "string",
+                    "description": "BIGIQ License Manager username, variable type `string`\n"
+                },
+                "deviceLicenseStatus": {
+                    "type": "string",
+                    "description": "Status of Licence Assignment\n"
+                },
+                "hypervisor": {
+                    "type": "string",
+                    "description": "Identifies the platform running the BIG-IP VE. Possible values: “aws”, “azure”, “gce”, “vmware”, “hyperv”, “kvm”, or “xen”. type `string`\n"
+                },
+                "key": {
+                    "type": "string",
+                    "description": "License Assignment is done with specified `key`, supported only with RegKeypool type License assignement. type `string`\n"
+                },
+                "licensePoolname": {
+                    "type": "string",
+                    "description": "A name given to the license pool. type `string`\n"
+                },
+                "macAddress": {
+                    "type": "string",
+                    "description": "MAC address of the BIG-IP. type `string`\n"
+                },
+                "skukeyword1": {
+                    "type": "string",
+                    "description": "An optional offering name. type `string`\n"
+                },
+                "skukeyword2": {
+                    "type": "string",
+                    "description": "An optional offering name. type `string`\n"
+                },
+                "tenant": {
+                    "type": "string",
+                    "description": "For an unreachable BIG-IP, you can provide an optional description for the assignment in this field.\n"
+                },
+                "unitOfMeasure": {
+                    "type": "string",
+                    "description": "The units used to measure billing. For example, “hourly” or “daily”. Type `string`\n"
+                }
+            },
+            "required": [
+                "assignmentType",
+                "bigiqAddress",
+                "bigiqPassword",
+                "bigiqUser",
+                "deviceLicenseStatus",
+                "licensePoolname"
+            ],
+            "inputProperties": {
+                "assignmentType": {
+                    "type": "string",
+                    "description": "The type of assignment, which is determined by whether the BIG-IP is unreachable, unmanaged, or managed by BIG-IQ. Possible values: “UNREACHABLE”, “UNMANAGED”, or “MANAGED”.\n"
+                },
+                "bigiqAddress": {
+                    "type": "string",
+                    "description": "BIGIQ License Manager IP Address, variable type `string`\n"
+                },
+                "bigiqLoginRef": {
+                    "type": "string",
+                    "description": "BIGIQ Login reference for token authentication\n"
+                },
+                "bigiqPassword": {
+                    "type": "string",
+                    "description": "BIGIQ License Manager password.  variable type `string`\n"
+                },
+                "bigiqPort": {
+                    "type": "string",
+                    "description": "type `int`, BIGIQ License Manager Port number, specify if port is other than `443`\n"
+                },
+                "bigiqTokenAuth": {
+                    "type": "boolean",
+                    "description": "type `bool`, if set to `true` enables Token based Authentication,default is `false`\n"
+                },
+                "bigiqUser": {
+                    "type": "string",
+                    "description": "BIGIQ License Manager username, variable type `string`\n"
+                },
+                "deviceLicenseStatus": {
+                    "type": "string",
+                    "description": "Status of Licence Assignment\n"
+                },
+                "hypervisor": {
+                    "type": "string",
+                    "description": "Identifies the platform running the BIG-IP VE. Possible values: “aws”, “azure”, “gce”, “vmware”, “hyperv”, “kvm”, or “xen”. type `string`\n"
+                },
+                "key": {
+                    "type": "string",
+                    "description": "License Assignment is done with specified `key`, supported only with RegKeypool type License assignement. type `string`\n"
+                },
+                "licensePoolname": {
+                    "type": "string",
+                    "description": "A name given to the license pool. type `string`\n"
+                },
+                "macAddress": {
+                    "type": "string",
+                    "description": "MAC address of the BIG-IP. type `string`\n"
+                },
+                "skukeyword1": {
+                    "type": "string",
+                    "description": "An optional offering name. type `string`\n"
+                },
+                "skukeyword2": {
+                    "type": "string",
+                    "description": "An optional offering name. type `string`\n"
+                },
+                "tenant": {
+                    "type": "string",
+                    "description": "For an unreachable BIG-IP, you can provide an optional description for the assignment in this field.\n"
+                },
+                "unitOfMeasure": {
+                    "type": "string",
+                    "description": "The units used to measure billing. For example, “hourly” or “daily”. Type `string`\n"
+                }
+            },
+            "requiredInputs": [
+                "assignmentType",
+                "bigiqAddress",
+                "bigiqPassword",
+                "bigiqUser",
+                "licensePoolname"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering CommonLicenseManageBigIq resources.\n",
+                "properties": {
+                    "assignmentType": {
+                        "type": "string",
+                        "description": "The type of assignment, which is determined by whether the BIG-IP is unreachable, unmanaged, or managed by BIG-IQ. Possible values: “UNREACHABLE”, “UNMANAGED”, or “MANAGED”.\n"
+                    },
+                    "bigiqAddress": {
+                        "type": "string",
+                        "description": "BIGIQ License Manager IP Address, variable type `string`\n"
+                    },
+                    "bigiqLoginRef": {
+                        "type": "string",
+                        "description": "BIGIQ Login reference for token authentication\n"
+                    },
+                    "bigiqPassword": {
+                        "type": "string",
+                        "description": "BIGIQ License Manager password.  variable type `string`\n"
+                    },
+                    "bigiqPort": {
+                        "type": "string",
+                        "description": "type `int`, BIGIQ License Manager Port number, specify if port is other than `443`\n"
+                    },
+                    "bigiqTokenAuth": {
+                        "type": "boolean",
+                        "description": "type `bool`, if set to `true` enables Token based Authentication,default is `false`\n"
+                    },
+                    "bigiqUser": {
+                        "type": "string",
+                        "description": "BIGIQ License Manager username, variable type `string`\n"
+                    },
+                    "deviceLicenseStatus": {
+                        "type": "string",
+                        "description": "Status of Licence Assignment\n"
+                    },
+                    "hypervisor": {
+                        "type": "string",
+                        "description": "Identifies the platform running the BIG-IP VE. Possible values: “aws”, “azure”, “gce”, “vmware”, “hyperv”, “kvm”, or “xen”. type `string`\n"
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "License Assignment is done with specified `key`, supported only with RegKeypool type License assignement. type `string`\n"
+                    },
+                    "licensePoolname": {
+                        "type": "string",
+                        "description": "A name given to the license pool. type `string`\n"
+                    },
+                    "macAddress": {
+                        "type": "string",
+                        "description": "MAC address of the BIG-IP. type `string`\n"
+                    },
+                    "skukeyword1": {
+                        "type": "string",
+                        "description": "An optional offering name. type `string`\n"
+                    },
+                    "skukeyword2": {
+                        "type": "string",
+                        "description": "An optional offering name. type `string`\n"
+                    },
+                    "tenant": {
+                        "type": "string",
+                        "description": "For an unreachable BIG-IP, you can provide an optional description for the assignment in this field.\n"
+                    },
+                    "unitOfMeasure": {
+                        "type": "string",
+                        "description": "The units used to measure billing. For example, “hourly” or “daily”. Type `string`\n"
                     }
                 },
                 "type": "object"
@@ -4950,7 +5384,16 @@
                 }
             },
             "required": [
-                "name"
+                "clientTimeout",
+                "defaultsFrom",
+                "explicitflowMigration",
+                "hardwareSyncookie",
+                "idleTimeout",
+                "iptosToclient",
+                "iptosToserver",
+                "keepaliveInterval",
+                "name",
+                "partition"
             ],
             "inputProperties": {
                 "clientTimeout": {

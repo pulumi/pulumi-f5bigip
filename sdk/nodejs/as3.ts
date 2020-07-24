@@ -52,6 +52,10 @@ export class As3 extends pulumi.CustomResource {
     }
 
     /**
+     * Name of Application
+     */
+    public readonly applicationList!: pulumi.Output<string>;
+    /**
      * Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
      */
     public readonly as3Json!: pulumi.Output<string>;
@@ -82,6 +86,7 @@ export class As3 extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as As3State | undefined;
+            inputs["applicationList"] = state ? state.applicationList : undefined;
             inputs["as3Json"] = state ? state.as3Json : undefined;
             inputs["tenantFilter"] = state ? state.tenantFilter : undefined;
             inputs["tenantList"] = state ? state.tenantList : undefined;
@@ -91,6 +96,7 @@ export class As3 extends pulumi.CustomResource {
             if (!args || args.as3Json === undefined) {
                 throw new Error("Missing required property 'as3Json'");
             }
+            inputs["applicationList"] = args ? args.applicationList : undefined;
             inputs["as3Json"] = args ? args.as3Json : undefined;
             inputs["tenantFilter"] = args ? args.tenantFilter : undefined;
             inputs["tenantList"] = args ? args.tenantList : undefined;
@@ -111,6 +117,10 @@ export class As3 extends pulumi.CustomResource {
  * Input properties used for looking up and filtering As3 resources.
  */
 export interface As3State {
+    /**
+     * Name of Application
+     */
+    readonly applicationList?: pulumi.Input<string>;
     /**
      * Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
      */
@@ -135,6 +145,10 @@ export interface As3State {
  * The set of arguments for constructing a As3 resource.
  */
 export interface As3Args {
+    /**
+     * Name of Application
+     */
+    readonly applicationList?: pulumi.Input<string>;
     /**
      * Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
      */

@@ -29,6 +29,11 @@ namespace Pulumi.F5BigIP
         public static string? Port { get; set; } = __config.Get("port");
 
         /// <summary>
+        /// If this flag set to true,sending telemetry data to TEEM will be disabled
+        /// </summary>
+        public static bool? TeemDisable { get; set; } = __config.GetBoolean("teemDisable");
+
+        /// <summary>
         /// Enable to use an external authentication source (LDAP, TACACS, etc)
         /// </summary>
         public static bool? TokenAuth { get; set; } = __config.GetBoolean("tokenAuth");

@@ -30,6 +30,11 @@ port = __config__.get('port')
 Management Port to connect to Bigip
 """
 
+teem_disable = __config__.get('teemDisable')
+"""
+If this flag set to true,sending telemetry data to TEEM will be disabled
+"""
+
 token_auth = __config__.get('tokenAuth')
 """
 Enable to use an external authentication source (LDAP, TACACS, etc)

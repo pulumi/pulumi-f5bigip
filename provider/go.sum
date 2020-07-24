@@ -154,6 +154,10 @@ github.com/f5devcentral/go-bigip v0.0.0-20200318113605-0ac57f01614f h1:9+urm3oRZ
 github.com/f5devcentral/go-bigip v0.0.0-20200318113605-0ac57f01614f/go.mod h1:JZj/iVxDmEnGPyEwuNj7x0fuH2CtUBbD2J48MMp/SE8=
 github.com/f5devcentral/go-bigip v0.0.0-20200610140822-65789d10c97a h1:1GMT/Bu/DxDVGNv7VXbC8Of+sK80PHEG6ozKbwBCMr0=
 github.com/f5devcentral/go-bigip v0.0.0-20200610140822-65789d10c97a/go.mod h1:JZj/iVxDmEnGPyEwuNj7x0fuH2CtUBbD2J48MMp/SE8=
+github.com/f5devcentral/go-bigip v0.0.0-20200722055207-e529427f4f82 h1:ld/E4o3tpe6BAeArXYwq5Je2+uP103O0sKoKv4dpxsI=
+github.com/f5devcentral/go-bigip v0.0.0-20200722055207-e529427f4f82/go.mod h1:JZj/iVxDmEnGPyEwuNj7x0fuH2CtUBbD2J48MMp/SE8=
+github.com/f5devcentral/go-bigip/f5teem v0.0.0-20200722055207-e529427f4f82 h1:xsT3VjiR23lBfkZz45NBixPPmt0QKWgW7WG3o0J0viY=
+github.com/f5devcentral/go-bigip/f5teem v0.0.0-20200722055207-e529427f4f82/go.mod h1:1Ly3xA1+0ydxV5iDxUBmOt4saqtbFZmxFxcRCcs6Xfk=
 github.com/fatih/color v1.7.0/go.mod h1:Zm6kSWBoL9eyXnKyktHP6abPY2pDugNf5KwzbycvMj4=
 github.com/fatih/color v1.9.0 h1:8xPHl4/q1VyqGIPif1F+1V3Y3lSmrq01EabUW3CoW5s=
 github.com/fatih/color v1.9.0/go.mod h1:eQcE1qtQxscV5RaZvpXrrb8Drkc3/DdQ+uUYCNjL+zU=
@@ -524,6 +528,8 @@ github.com/terraform-providers/terraform-provider-bigip v1.1.2 h1:MFoABtTrUVuST9
 github.com/terraform-providers/terraform-provider-bigip v1.1.2/go.mod h1:W0uw8cJtoqQTGpQuNvV1fRHLxQtCEHYquXZ9d6Rfgo0=
 github.com/terraform-providers/terraform-provider-bigip v1.2.1 h1:XjIsvAxOiHUg3eqLDaqn+eo2gag06xA3b8U6o+fcDkI=
 github.com/terraform-providers/terraform-provider-bigip v1.2.1/go.mod h1:LRloDDLijvVC1taozhIsJba4Guk0xRrPRgt68RwAPiM=
+github.com/terraform-providers/terraform-provider-bigip v1.3.0 h1:BGo5IboxbCGzWqgpcsnSAVgYpYXbPzxKx/VGXDaEA/0=
+github.com/terraform-providers/terraform-provider-bigip v1.3.0/go.mod h1:G3Reykt9n57KGpH2zeKxVtr/N1ejrQtl5iMuEilCuQU=
 github.com/terraform-providers/terraform-provider-http v1.2.0 h1:pOP/SNlLjB18CydtTJJwzkZGkHYX3LWzIoQpYQuBdyw=
 github.com/terraform-providers/terraform-provider-http v1.2.0/go.mod h1:2Iot921OkLVSZr8FbIkvRN84ZV3w+oFKb7RlmPTQQAQ=
 github.com/texttheater/golang-levenshtein v0.0.0-20191208221605-eb6844b05fc6 h1:9VTskZOIRf2vKF3UL8TuWElry5pgUpV1tFSe/e/0m/E=
