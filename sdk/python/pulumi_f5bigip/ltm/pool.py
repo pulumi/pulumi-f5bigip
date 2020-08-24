@@ -5,48 +5,28 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['Pool']
 
 
 class Pool(pulumi.CustomResource):
-    allow_nat: pulumi.Output[str]
-    """
-    Allow NAT
-    """
-    allow_snat: pulumi.Output[str]
-    """
-    Allow SNAT
-    """
-    description: pulumi.Output[str]
-    """
-    Userdefined value to describe the pool
-    """
-    load_balancing_mode: pulumi.Output[str]
-    """
-    Possible values: round-robin, ...
-    """
-    monitors: pulumi.Output[list]
-    """
-    List of monitor names to associate with the pool
-    """
-    name: pulumi.Output[str]
-    """
-    Name of the pool
-    """
-    reselect_tries: pulumi.Output[float]
-    """
-    Number of times the system tries to select a new pool member after a failure.
-    """
-    service_down_action: pulumi.Output[str]
-    """
-    Possible values: none, reset, reselect, drop
-    """
-    slow_ramp_time: pulumi.Output[float]
-    """
-    Slow ramp time for pool members
-    """
-    def __init__(__self__, resource_name, opts=None, allow_nat=None, allow_snat=None, description=None, load_balancing_mode=None, monitors=None, name=None, reselect_tries=None, service_down_action=None, slow_ramp_time=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_nat: Optional[pulumi.Input[str]] = None,
+                 allow_snat: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 load_balancing_mode: Optional[pulumi.Input[str]] = None,
+                 monitors: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 reselect_tries: Optional[pulumi.Input[float]] = None,
+                 service_down_action: Optional[pulumi.Input[str]] = None,
+                 slow_ramp_time: Optional[pulumi.Input[float]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         `ltm.Pool` Manages a pool configuration.
 
@@ -76,7 +56,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[str] allow_snat: Allow SNAT
         :param pulumi.Input[str] description: Userdefined value to describe the pool
         :param pulumi.Input[str] load_balancing_mode: Possible values: round-robin, ...
-        :param pulumi.Input[list] monitors: List of monitor names to associate with the pool
+        :param pulumi.Input[List[pulumi.Input[str]]] monitors: List of monitor names to associate with the pool
         :param pulumi.Input[str] name: Name of the pool
         :param pulumi.Input[float] reselect_tries: Number of times the system tries to select a new pool member after a failure.
         :param pulumi.Input[str] service_down_action: Possible values: none, reset, reselect, drop
@@ -93,7 +73,7 @@ class Pool(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -117,19 +97,30 @@ class Pool(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, allow_nat=None, allow_snat=None, description=None, load_balancing_mode=None, monitors=None, name=None, reselect_tries=None, service_down_action=None, slow_ramp_time=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            allow_nat: Optional[pulumi.Input[str]] = None,
+            allow_snat: Optional[pulumi.Input[str]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            load_balancing_mode: Optional[pulumi.Input[str]] = None,
+            monitors: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            reselect_tries: Optional[pulumi.Input[float]] = None,
+            service_down_action: Optional[pulumi.Input[str]] = None,
+            slow_ramp_time: Optional[pulumi.Input[float]] = None) -> 'Pool':
         """
         Get an existing Pool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] allow_nat: Allow NAT
         :param pulumi.Input[str] allow_snat: Allow SNAT
         :param pulumi.Input[str] description: Userdefined value to describe the pool
         :param pulumi.Input[str] load_balancing_mode: Possible values: round-robin, ...
-        :param pulumi.Input[list] monitors: List of monitor names to associate with the pool
+        :param pulumi.Input[List[pulumi.Input[str]]] monitors: List of monitor names to associate with the pool
         :param pulumi.Input[str] name: Name of the pool
         :param pulumi.Input[float] reselect_tries: Number of times the system tries to select a new pool member after a failure.
         :param pulumi.Input[str] service_down_action: Possible values: none, reset, reselect, drop
@@ -150,8 +141,81 @@ class Pool(pulumi.CustomResource):
         __props__["slow_ramp_time"] = slow_ramp_time
         return Pool(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="allowNat")
+    def allow_nat(self) -> str:
+        """
+        Allow NAT
+        """
+        return pulumi.get(self, "allow_nat")
+
+    @property
+    @pulumi.getter(name="allowSnat")
+    def allow_snat(self) -> str:
+        """
+        Allow SNAT
+        """
+        return pulumi.get(self, "allow_snat")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Userdefined value to describe the pool
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="loadBalancingMode")
+    def load_balancing_mode(self) -> str:
+        """
+        Possible values: round-robin, ...
+        """
+        return pulumi.get(self, "load_balancing_mode")
+
+    @property
+    @pulumi.getter
+    def monitors(self) -> List[str]:
+        """
+        List of monitor names to associate with the pool
+        """
+        return pulumi.get(self, "monitors")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the pool
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="reselectTries")
+    def reselect_tries(self) -> float:
+        """
+        Number of times the system tries to select a new pool member after a failure.
+        """
+        return pulumi.get(self, "reselect_tries")
+
+    @property
+    @pulumi.getter(name="serviceDownAction")
+    def service_down_action(self) -> str:
+        """
+        Possible values: none, reset, reselect, drop
+        """
+        return pulumi.get(self, "service_down_action")
+
+    @property
+    @pulumi.getter(name="slowRampTime")
+    def slow_ramp_time(self) -> float:
+        """
+        Slow ramp time for pool members
+        """
+        return pulumi.get(self, "slow_ramp_time")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

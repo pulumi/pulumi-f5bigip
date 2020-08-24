@@ -5,21 +5,22 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+
+__all__ = ['Command']
 
 
 class Command(pulumi.CustomResource):
-    command_results: pulumi.Output[list]
-    """
-    The resulting output from the `commands` executed
-    """
-    commands: pulumi.Output[list]
-    """
-    The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`
-    """
-    when: pulumi.Output[str]
-    def __init__(__self__, resource_name, opts=None, command_results=None, commands=None, when=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 command_results: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 commands: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 when: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         `Command` Run TMSH commands on F5 devices
 
@@ -38,8 +39,8 @@ class Command(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] command_results: The resulting output from the `commands` executed
-        :param pulumi.Input[list] commands: The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`
+        :param pulumi.Input[List[pulumi.Input[str]]] command_results: The resulting output from the `commands` executed
+        :param pulumi.Input[List[pulumi.Input[str]]] commands: The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -52,7 +53,7 @@ class Command(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -70,16 +71,21 @@ class Command(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, command_results=None, commands=None, when=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            command_results: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            commands: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            when: Optional[pulumi.Input[str]] = None) -> 'Command':
         """
         Get an existing Command resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] command_results: The resulting output from the `commands` executed
-        :param pulumi.Input[list] commands: The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`
+        :param pulumi.Input[List[pulumi.Input[str]]] command_results: The resulting output from the `commands` executed
+        :param pulumi.Input[List[pulumi.Input[str]]] commands: The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -90,8 +96,30 @@ class Command(pulumi.CustomResource):
         __props__["when"] = when
         return Command(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="commandResults")
+    def command_results(self) -> List[str]:
+        """
+        The resulting output from the `commands` executed
+        """
+        return pulumi.get(self, "command_results")
+
+    @property
+    @pulumi.getter
+    def commands(self) -> List[str]:
+        """
+        The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`
+        """
+        return pulumi.get(self, "commands")
+
+    @property
+    @pulumi.getter
+    def when(self) -> Optional[str]:
+        return pulumi.get(self, "when")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

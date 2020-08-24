@@ -5,32 +5,24 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+
+__all__ = ['As3']
 
 
 class As3(pulumi.CustomResource):
-    application_list: pulumi.Output[str]
-    """
-    Name of Application
-    """
-    as3_json: pulumi.Output[str]
-    """
-    Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
-    """
-    tenant_filter: pulumi.Output[str]
-    """
-    If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified
-    """
-    tenant_list: pulumi.Output[str]
-    """
-    Name of Tenant
-    """
-    tenant_name: pulumi.Output[str]
-    """
-    Name of Tenant
-    """
-    def __init__(__self__, resource_name, opts=None, application_list=None, as3_json=None, tenant_filter=None, tenant_list=None, tenant_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 application_list: Optional[pulumi.Input[str]] = None,
+                 as3_json: Optional[pulumi.Input[str]] = None,
+                 tenant_filter: Optional[pulumi.Input[str]] = None,
+                 tenant_list: Optional[pulumi.Input[str]] = None,
+                 tenant_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         `As3` provides details about bigip as3 resource
 
@@ -67,7 +59,7 @@ class As3(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -90,13 +82,20 @@ class As3(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, application_list=None, as3_json=None, tenant_filter=None, tenant_list=None, tenant_name=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            application_list: Optional[pulumi.Input[str]] = None,
+            as3_json: Optional[pulumi.Input[str]] = None,
+            tenant_filter: Optional[pulumi.Input[str]] = None,
+            tenant_list: Optional[pulumi.Input[str]] = None,
+            tenant_name: Optional[pulumi.Input[str]] = None) -> 'As3':
         """
         Get an existing As3 resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_list: Name of Application
         :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
@@ -115,8 +114,49 @@ class As3(pulumi.CustomResource):
         __props__["tenant_name"] = tenant_name
         return As3(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="applicationList")
+    def application_list(self) -> str:
+        """
+        Name of Application
+        """
+        return pulumi.get(self, "application_list")
+
+    @property
+    @pulumi.getter(name="as3Json")
+    def as3_json(self) -> str:
+        """
+        Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        """
+        return pulumi.get(self, "as3_json")
+
+    @property
+    @pulumi.getter(name="tenantFilter")
+    def tenant_filter(self) -> Optional[str]:
+        """
+        If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified
+        """
+        return pulumi.get(self, "tenant_filter")
+
+    @property
+    @pulumi.getter(name="tenantList")
+    def tenant_list(self) -> str:
+        """
+        Name of Tenant
+        """
+        return pulumi.get(self, "tenant_list")
+
+    @property
+    @pulumi.getter(name="tenantName")
+    def tenant_name(self) -> Optional[str]:
+        """
+        Name of Tenant
+        """
+        return pulumi.get(self, "tenant_name")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

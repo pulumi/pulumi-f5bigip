@@ -5,44 +5,27 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['VirtualAddress']
 
 
 class VirtualAddress(pulumi.CustomResource):
-    advertize_route: pulumi.Output[bool]
-    """
-    Enabled dynamic routing of the address
-    """
-    arp: pulumi.Output[bool]
-    """
-    Enable or disable ARP for the virtual address
-    """
-    auto_delete: pulumi.Output[bool]
-    """
-    Automatically delete the virtual address with the virtual server
-    """
-    conn_limit: pulumi.Output[float]
-    """
-    Max number of connections for virtual address
-    """
-    enabled: pulumi.Output[bool]
-    """
-    Enable or disable the virtual address
-    """
-    icmp_echo: pulumi.Output[bool]
-    """
-    Enable/Disable ICMP response to the virtual address
-    """
-    name: pulumi.Output[str]
-    """
-    Name of the virtual address
-    """
-    traffic_group: pulumi.Output[str]
-    """
-    Specify the partition and traffic group
-    """
-    def __init__(__self__, resource_name, opts=None, advertize_route=None, arp=None, auto_delete=None, conn_limit=None, enabled=None, icmp_echo=None, name=None, traffic_group=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 advertize_route: Optional[pulumi.Input[bool]] = None,
+                 arp: Optional[pulumi.Input[bool]] = None,
+                 auto_delete: Optional[pulumi.Input[bool]] = None,
+                 conn_limit: Optional[pulumi.Input[float]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 icmp_echo: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 traffic_group: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         `ltm.VirtualAddress` Configures Virtual Server
 
@@ -81,7 +64,7 @@ class VirtualAddress(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -104,13 +87,23 @@ class VirtualAddress(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, advertize_route=None, arp=None, auto_delete=None, conn_limit=None, enabled=None, icmp_echo=None, name=None, traffic_group=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            advertize_route: Optional[pulumi.Input[bool]] = None,
+            arp: Optional[pulumi.Input[bool]] = None,
+            auto_delete: Optional[pulumi.Input[bool]] = None,
+            conn_limit: Optional[pulumi.Input[float]] = None,
+            enabled: Optional[pulumi.Input[bool]] = None,
+            icmp_echo: Optional[pulumi.Input[bool]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            traffic_group: Optional[pulumi.Input[str]] = None) -> 'VirtualAddress':
         """
         Get an existing VirtualAddress resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] advertize_route: Enabled dynamic routing of the address
         :param pulumi.Input[bool] arp: Enable or disable ARP for the virtual address
@@ -135,8 +128,73 @@ class VirtualAddress(pulumi.CustomResource):
         __props__["traffic_group"] = traffic_group
         return VirtualAddress(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="advertizeRoute")
+    def advertize_route(self) -> Optional[bool]:
+        """
+        Enabled dynamic routing of the address
+        """
+        return pulumi.get(self, "advertize_route")
+
+    @property
+    @pulumi.getter
+    def arp(self) -> Optional[bool]:
+        """
+        Enable or disable ARP for the virtual address
+        """
+        return pulumi.get(self, "arp")
+
+    @property
+    @pulumi.getter(name="autoDelete")
+    def auto_delete(self) -> Optional[bool]:
+        """
+        Automatically delete the virtual address with the virtual server
+        """
+        return pulumi.get(self, "auto_delete")
+
+    @property
+    @pulumi.getter(name="connLimit")
+    def conn_limit(self) -> Optional[float]:
+        """
+        Max number of connections for virtual address
+        """
+        return pulumi.get(self, "conn_limit")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Enable or disable the virtual address
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="icmpEcho")
+    def icmp_echo(self) -> Optional[bool]:
+        """
+        Enable/Disable ICMP response to the virtual address
+        """
+        return pulumi.get(self, "icmp_echo")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the virtual address
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="trafficGroup")
+    def traffic_group(self) -> Optional[str]:
+        """
+        Specify the partition and traffic group
+        """
+        return pulumi.get(self, "traffic_group")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

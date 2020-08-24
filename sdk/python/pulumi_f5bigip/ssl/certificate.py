@@ -5,24 +5,22 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['Certificate']
 
 
 class Certificate(pulumi.CustomResource):
-    content: pulumi.Output[str]
-    """
-    Content of certificate on Disk
-    """
-    name: pulumi.Output[str]
-    """
-    Name of the SSL Certificate to be Imported on to BIGIP
-    """
-    partition: pulumi.Output[str]
-    """
-    Partition on to SSL Certificate to be imported
-    """
-    def __init__(__self__, resource_name, opts=None, content=None, name=None, partition=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 content: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 partition: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         `ssl.Certificate` This resource will import SSL certificates on BIG-IP LTM.
         Certificates can be imported from certificate files on the local disk, in PEM format
@@ -56,7 +54,7 @@ class Certificate(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -76,13 +74,18 @@ class Certificate(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, content=None, name=None, partition=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            content: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            partition: Optional[pulumi.Input[str]] = None) -> 'Certificate':
         """
         Get an existing Certificate resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content: Content of certificate on Disk
         :param pulumi.Input[str] name: Name of the SSL Certificate to be Imported on to BIGIP
@@ -97,8 +100,33 @@ class Certificate(pulumi.CustomResource):
         __props__["partition"] = partition
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def content(self) -> str:
+        """
+        Content of certificate on Disk
+        """
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the SSL Certificate to be Imported on to BIGIP
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def partition(self) -> Optional[str]:
+        """
+        Partition on to SSL Certificate to be imported
+        """
+        return pulumi.get(self, "partition")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

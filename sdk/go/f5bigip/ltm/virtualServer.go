@@ -37,10 +37,10 @@ import (
 // 		}
 // 		_, err = ltm.NewVirtualServer(ctx, "httpsVirtualServer", &ltm.VirtualServerArgs{
 // 			Name:        pulumi.String("/Common/terraform_vs_https"),
-// 			Destination: pulumi.String(_var.Vip_ip),
+// 			Destination: pulumi.Any(_var.Vip_ip),
 // 			Description: pulumi.String("VirtualServer-test"),
 // 			Port:        pulumi.Int(443),
-// 			Pool:        pulumi.String(_var.Pool),
+// 			Pool:        pulumi.Any(_var.Pool),
 // 			Profiles: pulumi.StringArray{
 // 				pulumi.String("/Common/tcp"),
 // 				pulumi.String("/Common/my-awesome-ssl-cert"),

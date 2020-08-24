@@ -10,3 +10,5 @@ from .ntp import *
 from .provision import *
 from .snmp import *
 from .snmp_traps import *
+from ._inputs import *
+from . import outputs

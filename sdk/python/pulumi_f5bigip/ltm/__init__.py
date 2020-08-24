@@ -27,3 +27,5 @@ from .snat import *
 from .snat_pool import *
 from .virtual_address import *
 from .virtual_server import *
+from ._inputs import *
+from . import outputs

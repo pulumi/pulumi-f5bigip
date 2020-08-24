@@ -5,20 +5,21 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['PoolAttachment']
 
 
 class PoolAttachment(pulumi.CustomResource):
-    node: pulumi.Output[str]
-    """
-    Name of the Node with service port. (Name of Node should be referenced from `ltm.Node` resource)
-    """
-    pool: pulumi.Output[str]
-    """
-    Name of the pool, which should be referenced from `ltm.Pool` resource
-    """
-    def __init__(__self__, resource_name, opts=None, node=None, pool=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 node: Optional[pulumi.Input[str]] = None,
+                 pool: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         `ltm.PoolAttachment` Manages nodes membership in pools
 
@@ -35,8 +36,8 @@ class PoolAttachment(pulumi.CustomResource):
             name="/Common/terraform_monitor",
             parent="/Common/http",
             send="GET /some/path\n",
-            timeout="999",
-            interval="998")
+            timeout=999,
+            interval=998)
         pool = f5bigip.ltm.Pool("pool",
             name="/Common/terraform-pool",
             load_balancing_mode="round-robin",
@@ -67,7 +68,7 @@ class PoolAttachment(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -86,13 +87,17 @@ class PoolAttachment(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, node=None, pool=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            node: Optional[pulumi.Input[str]] = None,
+            pool: Optional[pulumi.Input[str]] = None) -> 'PoolAttachment':
         """
         Get an existing PoolAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] node: Name of the Node with service port. (Name of Node should be referenced from `ltm.Node` resource)
         :param pulumi.Input[str] pool: Name of the pool, which should be referenced from `ltm.Pool` resource
@@ -105,8 +110,25 @@ class PoolAttachment(pulumi.CustomResource):
         __props__["pool"] = pool
         return PoolAttachment(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def node(self) -> str:
+        """
+        Name of the Node with service port. (Name of Node should be referenced from `ltm.Node` resource)
+        """
+        return pulumi.get(self, "node")
+
+    @property
+    @pulumi.getter
+    def pool(self) -> str:
+        """
+        Name of the pool, which should be referenced from `ltm.Pool` resource
+        """
+        return pulumi.get(self, "pool")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+
