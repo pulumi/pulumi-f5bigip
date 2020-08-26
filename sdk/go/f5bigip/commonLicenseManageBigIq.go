@@ -25,9 +25,9 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := f5bigip.NewCommonLicenseManageBigIq(ctx, "testExampleCommonLicenseManageBigIq", &f5bigip.CommonLicenseManageBigIqArgs{
-// 			BigiqAddress:    pulumi.String(_var.Bigiq),
-// 			BigiqUser:       pulumi.String(_var.Bigiq_un),
-// 			BigiqPassword:   pulumi.String(_var.Bigiq_pw),
+// 			BigiqAddress:    pulumi.Any(_var.Bigiq),
+// 			BigiqUser:       pulumi.Any(_var.Bigiq_un),
+// 			BigiqPassword:   pulumi.Any(_var.Bigiq_pw),
 // 			LicensePoolname: pulumi.String("regkeypool_name"),
 // 			AssignmentType:  pulumi.String("MANAGED"),
 // 		})
@@ -35,9 +35,9 @@ import (
 // 			return err
 // 		}
 // 		_, err = f5bigip.NewCommonLicenseManageBigIq(ctx, "testExampleIndex_commonLicenseManageBigIqCommonLicenseManageBigIq", &f5bigip.CommonLicenseManageBigIqArgs{
-// 			BigiqAddress:    pulumi.String(_var.Bigiq),
-// 			BigiqUser:       pulumi.String(_var.Bigiq_un),
-// 			BigiqPassword:   pulumi.String(_var.Bigiq_pw),
+// 			BigiqAddress:    pulumi.Any(_var.Bigiq),
+// 			BigiqUser:       pulumi.Any(_var.Bigiq_un),
+// 			BigiqPassword:   pulumi.Any(_var.Bigiq_pw),
 // 			LicensePoolname: pulumi.String("regkeypool_name"),
 // 			AssignmentType:  pulumi.String("UNMANAGED"),
 // 		})
@@ -45,9 +45,9 @@ import (
 // 			return err
 // 		}
 // 		_, err = f5bigip.NewCommonLicenseManageBigIq(ctx, "testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq", &f5bigip.CommonLicenseManageBigIqArgs{
-// 			BigiqAddress:    pulumi.String(_var.Bigiq),
-// 			BigiqUser:       pulumi.String(_var.Bigiq_un),
-// 			BigiqPassword:   pulumi.String(_var.Bigiq_pw),
+// 			BigiqAddress:    pulumi.Any(_var.Bigiq),
+// 			BigiqUser:       pulumi.Any(_var.Bigiq_un),
+// 			BigiqPassword:   pulumi.Any(_var.Bigiq_pw),
 // 			LicensePoolname: pulumi.String("utilitypool_name"),
 // 			AssignmentType:  pulumi.String("UNMANAGED"),
 // 			UnitOfMeasure:   pulumi.String("yearly"),

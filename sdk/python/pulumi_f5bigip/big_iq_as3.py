@@ -5,44 +5,27 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from . import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from . import _utilities, _tables
+
+__all__ = ['BigIqAs3']
 
 
 class BigIqAs3(pulumi.CustomResource):
-    as3_json: pulumi.Output[str]
-    """
-    Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
-    """
-    bigiq_address: pulumi.Output[str]
-    """
-    Address of the BIG-IQ to which your targer BIG-IP is attached
-    """
-    bigiq_login_ref: pulumi.Output[str]
-    """
-    Login reference for token authentication (see BIG-IQ REST docs for details)
-    """
-    bigiq_password: pulumi.Output[str]
-    """
-    Password of the BIG-IQ to which your targer BIG-IP is attached
-    """
-    bigiq_port: pulumi.Output[str]
-    """
-    The registration key pool to use
-    """
-    bigiq_token_auth: pulumi.Output[bool]
-    """
-    Enable to use an external authentication source (LDAP, TACACS, etc)
-    """
-    bigiq_user: pulumi.Output[str]
-    """
-    User name  of the BIG-IQ to which your targer BIG-IP is attached
-    """
-    tenant_list: pulumi.Output[str]
-    """
-    Name of Tenant
-    """
-    def __init__(__self__, resource_name, opts=None, as3_json=None, bigiq_address=None, bigiq_login_ref=None, bigiq_password=None, bigiq_port=None, bigiq_token_auth=None, bigiq_user=None, tenant_list=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 as3_json: Optional[pulumi.Input[str]] = None,
+                 bigiq_address: Optional[pulumi.Input[str]] = None,
+                 bigiq_login_ref: Optional[pulumi.Input[str]] = None,
+                 bigiq_password: Optional[pulumi.Input[str]] = None,
+                 bigiq_port: Optional[pulumi.Input[str]] = None,
+                 bigiq_token_auth: Optional[pulumi.Input[bool]] = None,
+                 bigiq_user: Optional[pulumi.Input[str]] = None,
+                 tenant_list: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         `BigIqAs3` provides details about bigiq as3 resource
 
@@ -84,7 +67,7 @@ class BigIqAs3(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -113,13 +96,23 @@ class BigIqAs3(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, as3_json=None, bigiq_address=None, bigiq_login_ref=None, bigiq_password=None, bigiq_port=None, bigiq_token_auth=None, bigiq_user=None, tenant_list=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            as3_json: Optional[pulumi.Input[str]] = None,
+            bigiq_address: Optional[pulumi.Input[str]] = None,
+            bigiq_login_ref: Optional[pulumi.Input[str]] = None,
+            bigiq_password: Optional[pulumi.Input[str]] = None,
+            bigiq_port: Optional[pulumi.Input[str]] = None,
+            bigiq_token_auth: Optional[pulumi.Input[bool]] = None,
+            bigiq_user: Optional[pulumi.Input[str]] = None,
+            tenant_list: Optional[pulumi.Input[str]] = None) -> 'BigIqAs3':
         """
         Get an existing BigIqAs3 resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         :param pulumi.Input[str] bigiq_address: Address of the BIG-IQ to which your targer BIG-IP is attached
@@ -144,8 +137,73 @@ class BigIqAs3(pulumi.CustomResource):
         __props__["tenant_list"] = tenant_list
         return BigIqAs3(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="as3Json")
+    def as3_json(self) -> str:
+        """
+        Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        """
+        return pulumi.get(self, "as3_json")
+
+    @property
+    @pulumi.getter(name="bigiqAddress")
+    def bigiq_address(self) -> str:
+        """
+        Address of the BIG-IQ to which your targer BIG-IP is attached
+        """
+        return pulumi.get(self, "bigiq_address")
+
+    @property
+    @pulumi.getter(name="bigiqLoginRef")
+    def bigiq_login_ref(self) -> Optional[str]:
+        """
+        Login reference for token authentication (see BIG-IQ REST docs for details)
+        """
+        return pulumi.get(self, "bigiq_login_ref")
+
+    @property
+    @pulumi.getter(name="bigiqPassword")
+    def bigiq_password(self) -> str:
+        """
+        Password of the BIG-IQ to which your targer BIG-IP is attached
+        """
+        return pulumi.get(self, "bigiq_password")
+
+    @property
+    @pulumi.getter(name="bigiqPort")
+    def bigiq_port(self) -> Optional[str]:
+        """
+        The registration key pool to use
+        """
+        return pulumi.get(self, "bigiq_port")
+
+    @property
+    @pulumi.getter(name="bigiqTokenAuth")
+    def bigiq_token_auth(self) -> Optional[bool]:
+        """
+        Enable to use an external authentication source (LDAP, TACACS, etc)
+        """
+        return pulumi.get(self, "bigiq_token_auth")
+
+    @property
+    @pulumi.getter(name="bigiqUser")
+    def bigiq_user(self) -> str:
+        """
+        User name  of the BIG-IQ to which your targer BIG-IP is attached
+        """
+        return pulumi.get(self, "bigiq_user")
+
+    @property
+    @pulumi.getter(name="tenantList")
+    def tenant_list(self) -> str:
+        """
+        Name of Tenant
+        """
+        return pulumi.get(self, "tenant_list")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

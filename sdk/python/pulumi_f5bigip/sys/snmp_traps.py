@@ -5,68 +5,33 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['SnmpTraps']
 
 
 class SnmpTraps(pulumi.CustomResource):
-    auth_passwordencrypted: pulumi.Output[str]
-    """
-    Encrypted password
-    """
-    auth_protocol: pulumi.Output[str]
-    """
-    Specifies the protocol used to authenticate the user.
-    """
-    community: pulumi.Output[str]
-    """
-    Specifies the community string used for this trap.
-    """
-    description: pulumi.Output[str]
-    """
-    The port that the trap will be sent to.
-    """
-    engine_id: pulumi.Output[str]
-    """
-    Specifies the authoritative security engine for SNMPv3.
-    """
-    host: pulumi.Output[str]
-    """
-    The host the trap will be sent to.
-    """
-    name: pulumi.Output[str]
-    """
-    Name of the snmp trap.
-    """
-    port: pulumi.Output[float]
-    """
-    User defined description.
-    """
-    privacy_password: pulumi.Output[str]
-    """
-    Specifies the clear text password used to encrypt traffic. This field will not be displayed.
-    """
-    privacy_password_encrypted: pulumi.Output[str]
-    """
-    Specifies the encrypted password used to encrypt traffic.
-    """
-    privacy_protocol: pulumi.Output[str]
-    """
-    Specifies the protocol used to encrypt traffic.
-    """
-    security_level: pulumi.Output[str]
-    """
-    Specifies whether or not traffic is encrypted and whether or not authentication is required.
-    """
-    security_name: pulumi.Output[str]
-    """
-    Security name used in conjunction with SNMPv3.
-    """
-    version: pulumi.Output[str]
-    """
-    SNMP version used for sending the trap.
-    """
-    def __init__(__self__, resource_name, opts=None, auth_passwordencrypted=None, auth_protocol=None, community=None, description=None, engine_id=None, host=None, name=None, port=None, privacy_password=None, privacy_password_encrypted=None, privacy_protocol=None, security_level=None, security_name=None, version=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auth_passwordencrypted: Optional[pulumi.Input[str]] = None,
+                 auth_protocol: Optional[pulumi.Input[str]] = None,
+                 community: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 engine_id: Optional[pulumi.Input[str]] = None,
+                 host: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[float]] = None,
+                 privacy_password: Optional[pulumi.Input[str]] = None,
+                 privacy_password_encrypted: Optional[pulumi.Input[str]] = None,
+                 privacy_protocol: Optional[pulumi.Input[str]] = None,
+                 security_level: Optional[pulumi.Input[str]] = None,
+                 security_name: Optional[pulumi.Input[str]] = None,
+                 version: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         `sys.SnmpTraps` provides details bout how to enable snmp_traps resource on BIG-IP
         ## Example Usage
@@ -111,7 +76,7 @@ class SnmpTraps(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -138,13 +103,29 @@ class SnmpTraps(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, auth_passwordencrypted=None, auth_protocol=None, community=None, description=None, engine_id=None, host=None, name=None, port=None, privacy_password=None, privacy_password_encrypted=None, privacy_protocol=None, security_level=None, security_name=None, version=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            auth_passwordencrypted: Optional[pulumi.Input[str]] = None,
+            auth_protocol: Optional[pulumi.Input[str]] = None,
+            community: Optional[pulumi.Input[str]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            engine_id: Optional[pulumi.Input[str]] = None,
+            host: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            port: Optional[pulumi.Input[float]] = None,
+            privacy_password: Optional[pulumi.Input[str]] = None,
+            privacy_password_encrypted: Optional[pulumi.Input[str]] = None,
+            privacy_protocol: Optional[pulumi.Input[str]] = None,
+            security_level: Optional[pulumi.Input[str]] = None,
+            security_name: Optional[pulumi.Input[str]] = None,
+            version: Optional[pulumi.Input[str]] = None) -> 'SnmpTraps':
         """
         Get an existing SnmpTraps resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auth_passwordencrypted: Encrypted password
         :param pulumi.Input[str] auth_protocol: Specifies the protocol used to authenticate the user.
@@ -181,8 +162,121 @@ class SnmpTraps(pulumi.CustomResource):
         __props__["version"] = version
         return SnmpTraps(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="authPasswordencrypted")
+    def auth_passwordencrypted(self) -> Optional[str]:
+        """
+        Encrypted password
+        """
+        return pulumi.get(self, "auth_passwordencrypted")
+
+    @property
+    @pulumi.getter(name="authProtocol")
+    def auth_protocol(self) -> Optional[str]:
+        """
+        Specifies the protocol used to authenticate the user.
+        """
+        return pulumi.get(self, "auth_protocol")
+
+    @property
+    @pulumi.getter
+    def community(self) -> Optional[str]:
+        """
+        Specifies the community string used for this trap.
+        """
+        return pulumi.get(self, "community")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The port that the trap will be sent to.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="engineId")
+    def engine_id(self) -> Optional[str]:
+        """
+        Specifies the authoritative security engine for SNMPv3.
+        """
+        return pulumi.get(self, "engine_id")
+
+    @property
+    @pulumi.getter
+    def host(self) -> Optional[str]:
+        """
+        The host the trap will be sent to.
+        """
+        return pulumi.get(self, "host")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the snmp trap.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[float]:
+        """
+        User defined description.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="privacyPassword")
+    def privacy_password(self) -> Optional[str]:
+        """
+        Specifies the clear text password used to encrypt traffic. This field will not be displayed.
+        """
+        return pulumi.get(self, "privacy_password")
+
+    @property
+    @pulumi.getter(name="privacyPasswordEncrypted")
+    def privacy_password_encrypted(self) -> Optional[str]:
+        """
+        Specifies the encrypted password used to encrypt traffic.
+        """
+        return pulumi.get(self, "privacy_password_encrypted")
+
+    @property
+    @pulumi.getter(name="privacyProtocol")
+    def privacy_protocol(self) -> Optional[str]:
+        """
+        Specifies the protocol used to encrypt traffic.
+        """
+        return pulumi.get(self, "privacy_protocol")
+
+    @property
+    @pulumi.getter(name="securityLevel")
+    def security_level(self) -> Optional[str]:
+        """
+        Specifies whether or not traffic is encrypted and whether or not authentication is required.
+        """
+        return pulumi.get(self, "security_level")
+
+    @property
+    @pulumi.getter(name="securityName")
+    def security_name(self) -> Optional[str]:
+        """
+        Security name used in conjunction with SNMPv3.
+        """
+        return pulumi.get(self, "security_name")
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[str]:
+        """
+        SNMP version used for sending the trap.
+        """
+        return pulumi.get(self, "version")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

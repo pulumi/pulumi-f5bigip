@@ -5,98 +5,42 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['VirtualServer']
 
 
 class VirtualServer(pulumi.CustomResource):
-    client_profiles: pulumi.Output[list]
-    """
-    List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
-    """
-    default_persistence_profile: pulumi.Output[str]
-    description: pulumi.Output[str]
-    """
-    Description of Virtual server
-    """
-    destination: pulumi.Output[str]
-    """
-    Destination IP
-    """
-    fallback_persistence_profile: pulumi.Output[str]
-    """
-    Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
-    """
-    ip_protocol: pulumi.Output[str]
-    """
-    Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
-    """
-    irules: pulumi.Output[list]
-    """
-    The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
-    """
-    mask: pulumi.Output[str]
-    """
-    Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
-    """
-    name: pulumi.Output[str]
-    """
-    Name of the virtual server
-    """
-    persistence_profiles: pulumi.Output[list]
-    """
-    List of persistence profiles associated with the Virtual Server.
-    """
-    policies: pulumi.Output[list]
-    pool: pulumi.Output[str]
-    """
-    Default pool name
-    """
-    port: pulumi.Output[float]
-    """
-    Listen port for the virtual server
-    """
-    profiles: pulumi.Output[list]
-    """
-    List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
-    """
-    server_profiles: pulumi.Output[list]
-    """
-    List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
-    """
-    snatpool: pulumi.Output[str]
-    """
-    Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
-    """
-    source: pulumi.Output[str]
-    """
-    Specifies an IP address or network from which the virtual server will accept traffic.
-    """
-    source_address_translation: pulumi.Output[str]
-    """
-    Can be either omitted for none or the values automap or snat
-    """
-    state: pulumi.Output[str]
-    """
-    Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
-    """
-    translate_address: pulumi.Output[str]
-    """
-    Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
-    """
-    translate_port: pulumi.Output[str]
-    """
-    Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
-    """
-    vlans: pulumi.Output[list]
-    """
-    The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.
-    """
-    vlans_enabled: pulumi.Output[bool]
-    """
-    Enables the virtual server on the VLANs specified by the VLANs option.
-    """
-    def __init__(__self__, resource_name, opts=None, client_profiles=None, default_persistence_profile=None, description=None, destination=None, fallback_persistence_profile=None, ip_protocol=None, irules=None, mask=None, name=None, persistence_profiles=None, policies=None, pool=None, port=None, profiles=None, server_profiles=None, snatpool=None, source=None, source_address_translation=None, state=None, translate_address=None, translate_port=None, vlans=None, vlans_enabled=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 client_profiles: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 default_persistence_profile: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 destination: Optional[pulumi.Input[str]] = None,
+                 fallback_persistence_profile: Optional[pulumi.Input[str]] = None,
+                 ip_protocol: Optional[pulumi.Input[str]] = None,
+                 irules: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 mask: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 persistence_profiles: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 policies: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 pool: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[float]] = None,
+                 profiles: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 server_profiles: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 snatpool: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input[str]] = None,
+                 source_address_translation: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[str]] = None,
+                 translate_address: Optional[pulumi.Input[str]] = None,
+                 translate_port: Optional[pulumi.Input[str]] = None,
+                 vlans: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 vlans_enabled: Optional[pulumi.Input[bool]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         `ltm.VirtualServer` Configures Virtual Server
 
@@ -141,26 +85,26 @@ class VirtualServer(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] client_profiles: List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
+        :param pulumi.Input[List[pulumi.Input[str]]] client_profiles: List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
         :param pulumi.Input[str] description: Description of Virtual server
         :param pulumi.Input[str] destination: Destination IP
         :param pulumi.Input[str] fallback_persistence_profile: Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
         :param pulumi.Input[str] ip_protocol: Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
-        :param pulumi.Input[list] irules: The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
+        :param pulumi.Input[List[pulumi.Input[str]]] irules: The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
         :param pulumi.Input[str] mask: Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
         :param pulumi.Input[str] name: Name of the virtual server
-        :param pulumi.Input[list] persistence_profiles: List of persistence profiles associated with the Virtual Server.
+        :param pulumi.Input[List[pulumi.Input[str]]] persistence_profiles: List of persistence profiles associated with the Virtual Server.
         :param pulumi.Input[str] pool: Default pool name
         :param pulumi.Input[float] port: Listen port for the virtual server
-        :param pulumi.Input[list] profiles: List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
-        :param pulumi.Input[list] server_profiles: List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
+        :param pulumi.Input[List[pulumi.Input[str]]] profiles: List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
+        :param pulumi.Input[List[pulumi.Input[str]]] server_profiles: List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
         :param pulumi.Input[str] snatpool: Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
         :param pulumi.Input[str] source: Specifies an IP address or network from which the virtual server will accept traffic.
         :param pulumi.Input[str] source_address_translation: Can be either omitted for none or the values automap or snat
         :param pulumi.Input[str] state: Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
         :param pulumi.Input[str] translate_address: Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
         :param pulumi.Input[str] translate_port: Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
-        :param pulumi.Input[list] vlans: The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.
+        :param pulumi.Input[List[pulumi.Input[str]]] vlans: The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.
         :param pulumi.Input[bool] vlans_enabled: Enables the virtual server on the VLANs specified by the VLANs option.
         """
         if __name__ is not None:
@@ -174,7 +118,7 @@ class VirtualServer(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -216,34 +160,59 @@ class VirtualServer(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, client_profiles=None, default_persistence_profile=None, description=None, destination=None, fallback_persistence_profile=None, ip_protocol=None, irules=None, mask=None, name=None, persistence_profiles=None, policies=None, pool=None, port=None, profiles=None, server_profiles=None, snatpool=None, source=None, source_address_translation=None, state=None, translate_address=None, translate_port=None, vlans=None, vlans_enabled=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            client_profiles: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            default_persistence_profile: Optional[pulumi.Input[str]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            destination: Optional[pulumi.Input[str]] = None,
+            fallback_persistence_profile: Optional[pulumi.Input[str]] = None,
+            ip_protocol: Optional[pulumi.Input[str]] = None,
+            irules: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            mask: Optional[pulumi.Input[str]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            persistence_profiles: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            policies: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            pool: Optional[pulumi.Input[str]] = None,
+            port: Optional[pulumi.Input[float]] = None,
+            profiles: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            server_profiles: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            snatpool: Optional[pulumi.Input[str]] = None,
+            source: Optional[pulumi.Input[str]] = None,
+            source_address_translation: Optional[pulumi.Input[str]] = None,
+            state: Optional[pulumi.Input[str]] = None,
+            translate_address: Optional[pulumi.Input[str]] = None,
+            translate_port: Optional[pulumi.Input[str]] = None,
+            vlans: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            vlans_enabled: Optional[pulumi.Input[bool]] = None) -> 'VirtualServer':
         """
         Get an existing VirtualServer resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[list] client_profiles: List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
+        :param pulumi.Input[List[pulumi.Input[str]]] client_profiles: List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
         :param pulumi.Input[str] description: Description of Virtual server
         :param pulumi.Input[str] destination: Destination IP
         :param pulumi.Input[str] fallback_persistence_profile: Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
         :param pulumi.Input[str] ip_protocol: Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
-        :param pulumi.Input[list] irules: The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
+        :param pulumi.Input[List[pulumi.Input[str]]] irules: The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
         :param pulumi.Input[str] mask: Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
         :param pulumi.Input[str] name: Name of the virtual server
-        :param pulumi.Input[list] persistence_profiles: List of persistence profiles associated with the Virtual Server.
+        :param pulumi.Input[List[pulumi.Input[str]]] persistence_profiles: List of persistence profiles associated with the Virtual Server.
         :param pulumi.Input[str] pool: Default pool name
         :param pulumi.Input[float] port: Listen port for the virtual server
-        :param pulumi.Input[list] profiles: List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
-        :param pulumi.Input[list] server_profiles: List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
+        :param pulumi.Input[List[pulumi.Input[str]]] profiles: List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
+        :param pulumi.Input[List[pulumi.Input[str]]] server_profiles: List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
         :param pulumi.Input[str] snatpool: Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
         :param pulumi.Input[str] source: Specifies an IP address or network from which the virtual server will accept traffic.
         :param pulumi.Input[str] source_address_translation: Can be either omitted for none or the values automap or snat
         :param pulumi.Input[str] state: Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
         :param pulumi.Input[str] translate_address: Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
         :param pulumi.Input[str] translate_port: Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
-        :param pulumi.Input[list] vlans: The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.
+        :param pulumi.Input[List[pulumi.Input[str]]] vlans: The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.
         :param pulumi.Input[bool] vlans_enabled: Enables the virtual server on the VLANs specified by the VLANs option.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -275,8 +244,187 @@ class VirtualServer(pulumi.CustomResource):
         __props__["vlans_enabled"] = vlans_enabled
         return VirtualServer(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="clientProfiles")
+    def client_profiles(self) -> List[str]:
+        """
+        List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
+        """
+        return pulumi.get(self, "client_profiles")
+
+    @property
+    @pulumi.getter(name="defaultPersistenceProfile")
+    def default_persistence_profile(self) -> Optional[str]:
+        return pulumi.get(self, "default_persistence_profile")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of Virtual server
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def destination(self) -> str:
+        """
+        Destination IP
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter(name="fallbackPersistenceProfile")
+    def fallback_persistence_profile(self) -> str:
+        """
+        Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
+        """
+        return pulumi.get(self, "fallback_persistence_profile")
+
+    @property
+    @pulumi.getter(name="ipProtocol")
+    def ip_protocol(self) -> str:
+        """
+        Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
+        """
+        return pulumi.get(self, "ip_protocol")
+
+    @property
+    @pulumi.getter
+    def irules(self) -> Optional[List[str]]:
+        """
+        The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
+        """
+        return pulumi.get(self, "irules")
+
+    @property
+    @pulumi.getter
+    def mask(self) -> str:
+        """
+        Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
+        """
+        return pulumi.get(self, "mask")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the virtual server
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="persistenceProfiles")
+    def persistence_profiles(self) -> List[str]:
+        """
+        List of persistence profiles associated with the Virtual Server.
+        """
+        return pulumi.get(self, "persistence_profiles")
+
+    @property
+    @pulumi.getter
+    def policies(self) -> Optional[List[str]]:
+        return pulumi.get(self, "policies")
+
+    @property
+    @pulumi.getter
+    def pool(self) -> Optional[str]:
+        """
+        Default pool name
+        """
+        return pulumi.get(self, "pool")
+
+    @property
+    @pulumi.getter
+    def port(self) -> float:
+        """
+        Listen port for the virtual server
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def profiles(self) -> List[str]:
+        """
+        List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
+        """
+        return pulumi.get(self, "profiles")
+
+    @property
+    @pulumi.getter(name="serverProfiles")
+    def server_profiles(self) -> List[str]:
+        """
+        List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
+        """
+        return pulumi.get(self, "server_profiles")
+
+    @property
+    @pulumi.getter
+    def snatpool(self) -> str:
+        """
+        Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
+        """
+        return pulumi.get(self, "snatpool")
+
+    @property
+    @pulumi.getter
+    def source(self) -> str:
+        """
+        Specifies an IP address or network from which the virtual server will accept traffic.
+        """
+        return pulumi.get(self, "source")
+
+    @property
+    @pulumi.getter(name="sourceAddressTranslation")
+    def source_address_translation(self) -> str:
+        """
+        Can be either omitted for none or the values automap or snat
+        """
+        return pulumi.get(self, "source_address_translation")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[str]:
+        """
+        Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
+        """
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="translateAddress")
+    def translate_address(self) -> str:
+        """
+        Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
+        """
+        return pulumi.get(self, "translate_address")
+
+    @property
+    @pulumi.getter(name="translatePort")
+    def translate_port(self) -> str:
+        """
+        Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
+        """
+        return pulumi.get(self, "translate_port")
+
+    @property
+    @pulumi.getter
+    def vlans(self) -> Optional[List[str]]:
+        """
+        The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.
+        """
+        return pulumi.get(self, "vlans")
+
+    @property
+    @pulumi.getter(name="vlansEnabled")
+    def vlans_enabled(self) -> bool:
+        """
+        Enables the virtual server on the VLANs specified by the VLANs option.
+        """
+        return pulumi.get(self, "vlans_enabled")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

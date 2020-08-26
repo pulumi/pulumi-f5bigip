@@ -5,52 +5,29 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['ProfileTcp']
 
 
 class ProfileTcp(pulumi.CustomResource):
-    close_wait_timeout: pulumi.Output[float]
-    """
-    Specifies the number of seconds that a connection remains in a LAST-ACK state before quitting. A value of 0 represents a term of forever (or until the maxrtx of the FIN state). The default value is 5 seconds.
-    """
-    defaults_from: pulumi.Output[str]
-    """
-    Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
-    """
-    deferred_accept: pulumi.Output[str]
-    """
-    Specifies, when enabled, that the system defers allocation of the connection chain context until the client response is received. This option is useful for dealing with 3-way handshake DOS attacks. The default value is disabled.
-    """
-    fast_open: pulumi.Output[str]
-    """
-    When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet.
-    """
-    finwait2timeout: pulumi.Output[float]
-    """
-    Specifies the number of seconds that a connection is in the FIN-WAIT-2 state before quitting. The default value is 300 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state).
-    """
-    finwait_timeout: pulumi.Output[float]
-    """
-    Specifies the number of seconds that a connection is in the FIN-WAIT-1 or closing state before quitting. The default value is 5 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state). You can also specify immediate or indefinite.
-    """
-    idle_timeout: pulumi.Output[float]
-    """
-    Specifies the number of seconds that a connection is idle before the connection is eligible for deletion. The default value is 300 seconds.
-    """
-    keepalive_interval: pulumi.Output[float]
-    """
-    Specifies the keep alive probe interval, in seconds. The default value is 1800 seconds.
-    """
-    name: pulumi.Output[str]
-    """
-    Name of the profile_tcp
-    """
-    partition: pulumi.Output[str]
-    """
-    Displays the administrative partition within which this profile resides
-    """
-    def __init__(__self__, resource_name, opts=None, close_wait_timeout=None, defaults_from=None, deferred_accept=None, fast_open=None, finwait2timeout=None, finwait_timeout=None, idle_timeout=None, keepalive_interval=None, name=None, partition=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 close_wait_timeout: Optional[pulumi.Input[float]] = None,
+                 defaults_from: Optional[pulumi.Input[str]] = None,
+                 deferred_accept: Optional[pulumi.Input[str]] = None,
+                 fast_open: Optional[pulumi.Input[str]] = None,
+                 finwait2timeout: Optional[pulumi.Input[float]] = None,
+                 finwait_timeout: Optional[pulumi.Input[float]] = None,
+                 idle_timeout: Optional[pulumi.Input[float]] = None,
+                 keepalive_interval: Optional[pulumi.Input[float]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 partition: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         `ltm.ProfileTcp` Configures a custom profile_tcp for use by health checks.
 
@@ -97,7 +74,7 @@ class ProfileTcp(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -122,13 +99,25 @@ class ProfileTcp(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, close_wait_timeout=None, defaults_from=None, deferred_accept=None, fast_open=None, finwait2timeout=None, finwait_timeout=None, idle_timeout=None, keepalive_interval=None, name=None, partition=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            close_wait_timeout: Optional[pulumi.Input[float]] = None,
+            defaults_from: Optional[pulumi.Input[str]] = None,
+            deferred_accept: Optional[pulumi.Input[str]] = None,
+            fast_open: Optional[pulumi.Input[str]] = None,
+            finwait2timeout: Optional[pulumi.Input[float]] = None,
+            finwait_timeout: Optional[pulumi.Input[float]] = None,
+            idle_timeout: Optional[pulumi.Input[float]] = None,
+            keepalive_interval: Optional[pulumi.Input[float]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            partition: Optional[pulumi.Input[str]] = None) -> 'ProfileTcp':
         """
         Get an existing ProfileTcp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] close_wait_timeout: Specifies the number of seconds that a connection remains in a LAST-ACK state before quitting. A value of 0 represents a term of forever (or until the maxrtx of the FIN state). The default value is 5 seconds.
         :param pulumi.Input[str] defaults_from: Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
@@ -157,8 +146,89 @@ class ProfileTcp(pulumi.CustomResource):
         __props__["partition"] = partition
         return ProfileTcp(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="closeWaitTimeout")
+    def close_wait_timeout(self) -> Optional[float]:
+        """
+        Specifies the number of seconds that a connection remains in a LAST-ACK state before quitting. A value of 0 represents a term of forever (or until the maxrtx of the FIN state). The default value is 5 seconds.
+        """
+        return pulumi.get(self, "close_wait_timeout")
+
+    @property
+    @pulumi.getter(name="defaultsFrom")
+    def defaults_from(self) -> Optional[str]:
+        """
+        Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
+        """
+        return pulumi.get(self, "defaults_from")
+
+    @property
+    @pulumi.getter(name="deferredAccept")
+    def deferred_accept(self) -> Optional[str]:
+        """
+        Specifies, when enabled, that the system defers allocation of the connection chain context until the client response is received. This option is useful for dealing with 3-way handshake DOS attacks. The default value is disabled.
+        """
+        return pulumi.get(self, "deferred_accept")
+
+    @property
+    @pulumi.getter(name="fastOpen")
+    def fast_open(self) -> Optional[str]:
+        """
+        When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet.
+        """
+        return pulumi.get(self, "fast_open")
+
+    @property
+    @pulumi.getter
+    def finwait2timeout(self) -> Optional[float]:
+        """
+        Specifies the number of seconds that a connection is in the FIN-WAIT-2 state before quitting. The default value is 300 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state).
+        """
+        return pulumi.get(self, "finwait2timeout")
+
+    @property
+    @pulumi.getter(name="finwaitTimeout")
+    def finwait_timeout(self) -> Optional[float]:
+        """
+        Specifies the number of seconds that a connection is in the FIN-WAIT-1 or closing state before quitting. The default value is 5 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state). You can also specify immediate or indefinite.
+        """
+        return pulumi.get(self, "finwait_timeout")
+
+    @property
+    @pulumi.getter(name="idleTimeout")
+    def idle_timeout(self) -> Optional[float]:
+        """
+        Specifies the number of seconds that a connection is idle before the connection is eligible for deletion. The default value is 300 seconds.
+        """
+        return pulumi.get(self, "idle_timeout")
+
+    @property
+    @pulumi.getter(name="keepaliveInterval")
+    def keepalive_interval(self) -> Optional[float]:
+        """
+        Specifies the keep alive probe interval, in seconds. The default value is 1800 seconds.
+        """
+        return pulumi.get(self, "keepalive_interval")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the profile_tcp
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def partition(self) -> Optional[str]:
+        """
+        Displays the administrative partition within which this profile resides
+        """
+        return pulumi.get(self, "partition")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

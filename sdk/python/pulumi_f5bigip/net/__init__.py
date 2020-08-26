@@ -6,3 +6,5 @@
 from .route import *
 from .self_ip import *
 from .vlan import *
+from ._inputs import *
+from . import outputs

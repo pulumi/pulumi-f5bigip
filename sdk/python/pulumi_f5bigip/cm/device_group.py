@@ -5,55 +5,31 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['DeviceGroup']
 
 
 class DeviceGroup(pulumi.CustomResource):
-    auto_sync: pulumi.Output[str]
-    """
-    Specifies if the device-group will automatically sync configuration data to its members
-    """
-    description: pulumi.Output[str]
-    """
-    Description of Device group
-    """
-    devices: pulumi.Output[list]
-    """
-    Name of the device to be included in device group, this need to be configured before using devicegroup resource
-
-      * `name` (`str`) - Is the name of the device Group
-      * `setSyncLeader` (`bool`)
-    """
-    full_load_on_sync: pulumi.Output[str]
-    """
-    Specifies if the device-group will perform a full-load upon sync
-    """
-    incremental_config: pulumi.Output[float]
-    """
-    Specifies the maximum size (in KB) to devote to incremental config sync cached transactions. The default is 1024 KB.
-    """
-    name: pulumi.Output[str]
-    """
-    Is the name of the device Group
-    """
-    network_failover: pulumi.Output[str]
-    """
-    Specifies if the device-group will use a network connection for failover
-    """
-    partition: pulumi.Output[str]
-    """
-    Device administrative partition
-    """
-    save_on_auto_sync: pulumi.Output[str]
-    """
-    Specifies whether the configuration should be saved upon auto-sync.
-    """
-    type: pulumi.Output[str]
-    """
-    Specifies if the device-group will be used for failover or resource syncing
-    """
-    def __init__(__self__, resource_name, opts=None, auto_sync=None, description=None, devices=None, full_load_on_sync=None, incremental_config=None, name=None, network_failover=None, partition=None, save_on_auto_sync=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_sync: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 devices: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DeviceGroupDeviceArgs']]]]] = None,
+                 full_load_on_sync: Optional[pulumi.Input[str]] = None,
+                 incremental_config: Optional[pulumi.Input[float]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network_failover: Optional[pulumi.Input[str]] = None,
+                 partition: Optional[pulumi.Input[str]] = None,
+                 save_on_auto_sync: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         `cm.DeviceGroup` A device group is a collection of BIG-IP devices that are configured to securely synchronize their BIG-IP configuration data, and fail over when needed.
 
@@ -66,12 +42,12 @@ class DeviceGroup(pulumi.CustomResource):
         my_new_devicegroup = f5bigip.cm.DeviceGroup("myNewDevicegroup",
             auto_sync="enabled",
             devices=[
-                {
-                    "name": "bigip1.cisco.com",
-                },
-                {
-                    "name": "bigip200.f5.com",
-                },
+                f5bigip.cm.DeviceGroupDeviceArgs(
+                    name="bigip1.cisco.com",
+                ),
+                f5bigip.cm.DeviceGroupDeviceArgs(
+                    name="bigip200.f5.com",
+                ),
             ],
             full_load_on_sync="true",
             name="sanjose_devicegroup",
@@ -82,7 +58,7 @@ class DeviceGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_sync: Specifies if the device-group will automatically sync configuration data to its members
         :param pulumi.Input[str] description: Description of Device group
-        :param pulumi.Input[list] devices: Name of the device to be included in device group, this need to be configured before using devicegroup resource
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DeviceGroupDeviceArgs']]]] devices: Name of the device to be included in device group, this need to be configured before using devicegroup resource
         :param pulumi.Input[str] full_load_on_sync: Specifies if the device-group will perform a full-load upon sync
         :param pulumi.Input[float] incremental_config: Specifies the maximum size (in KB) to devote to incremental config sync cached transactions. The default is 1024 KB.
         :param pulumi.Input[str] name: Is the name of the device Group
@@ -90,11 +66,6 @@ class DeviceGroup(pulumi.CustomResource):
         :param pulumi.Input[str] partition: Device administrative partition
         :param pulumi.Input[str] save_on_auto_sync: Specifies whether the configuration should be saved upon auto-sync.
         :param pulumi.Input[str] type: Specifies if the device-group will be used for failover or resource syncing
-
-        The **devices** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - Is the name of the device Group
-          * `setSyncLeader` (`pulumi.Input[bool]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -107,7 +78,7 @@ class DeviceGroup(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -130,17 +101,29 @@ class DeviceGroup(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, auto_sync=None, description=None, devices=None, full_load_on_sync=None, incremental_config=None, name=None, network_failover=None, partition=None, save_on_auto_sync=None, type=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            auto_sync: Optional[pulumi.Input[str]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            devices: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DeviceGroupDeviceArgs']]]]] = None,
+            full_load_on_sync: Optional[pulumi.Input[str]] = None,
+            incremental_config: Optional[pulumi.Input[float]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            network_failover: Optional[pulumi.Input[str]] = None,
+            partition: Optional[pulumi.Input[str]] = None,
+            save_on_auto_sync: Optional[pulumi.Input[str]] = None,
+            type: Optional[pulumi.Input[str]] = None) -> 'DeviceGroup':
         """
         Get an existing DeviceGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_sync: Specifies if the device-group will automatically sync configuration data to its members
         :param pulumi.Input[str] description: Description of Device group
-        :param pulumi.Input[list] devices: Name of the device to be included in device group, this need to be configured before using devicegroup resource
+        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DeviceGroupDeviceArgs']]]] devices: Name of the device to be included in device group, this need to be configured before using devicegroup resource
         :param pulumi.Input[str] full_load_on_sync: Specifies if the device-group will perform a full-load upon sync
         :param pulumi.Input[float] incremental_config: Specifies the maximum size (in KB) to devote to incremental config sync cached transactions. The default is 1024 KB.
         :param pulumi.Input[str] name: Is the name of the device Group
@@ -148,11 +131,6 @@ class DeviceGroup(pulumi.CustomResource):
         :param pulumi.Input[str] partition: Device administrative partition
         :param pulumi.Input[str] save_on_auto_sync: Specifies whether the configuration should be saved upon auto-sync.
         :param pulumi.Input[str] type: Specifies if the device-group will be used for failover or resource syncing
-
-        The **devices** object supports the following:
-
-          * `name` (`pulumi.Input[str]`) - Is the name of the device Group
-          * `setSyncLeader` (`pulumi.Input[bool]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -170,8 +148,89 @@ class DeviceGroup(pulumi.CustomResource):
         __props__["type"] = type
         return DeviceGroup(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="autoSync")
+    def auto_sync(self) -> Optional[str]:
+        """
+        Specifies if the device-group will automatically sync configuration data to its members
+        """
+        return pulumi.get(self, "auto_sync")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Description of Device group
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def devices(self) -> Optional[List['outputs.DeviceGroupDevice']]:
+        """
+        Name of the device to be included in device group, this need to be configured before using devicegroup resource
+        """
+        return pulumi.get(self, "devices")
+
+    @property
+    @pulumi.getter(name="fullLoadOnSync")
+    def full_load_on_sync(self) -> Optional[str]:
+        """
+        Specifies if the device-group will perform a full-load upon sync
+        """
+        return pulumi.get(self, "full_load_on_sync")
+
+    @property
+    @pulumi.getter(name="incrementalConfig")
+    def incremental_config(self) -> Optional[float]:
+        """
+        Specifies the maximum size (in KB) to devote to incremental config sync cached transactions. The default is 1024 KB.
+        """
+        return pulumi.get(self, "incremental_config")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Is the name of the device Group
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkFailover")
+    def network_failover(self) -> Optional[str]:
+        """
+        Specifies if the device-group will use a network connection for failover
+        """
+        return pulumi.get(self, "network_failover")
+
+    @property
+    @pulumi.getter
+    def partition(self) -> Optional[str]:
+        """
+        Device administrative partition
+        """
+        return pulumi.get(self, "partition")
+
+    @property
+    @pulumi.getter(name="saveOnAutoSync")
+    def save_on_auto_sync(self) -> Optional[str]:
+        """
+        Specifies whether the configuration should be saved upon auto-sync.
+        """
+        return pulumi.get(self, "save_on_auto_sync")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        Specifies if the device-group will be used for failover or resource syncing
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

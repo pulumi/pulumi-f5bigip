@@ -1,4 +1,10 @@
-[![Build Status](https://travis-ci.com/pulumi/pulumi-f5bigip.svg?token=eHg7Zp5zdDDJfTjY8ejq&branch=master)](https://travis-ci.com/pulumi/pulumi-f5bigip)
+[![Actions Status](https://github.com/pulumi/pulumi-f5bigip/workflows/master/badge.svg)](https://github.com/pulumi/pulumi-f5bigip/actions)
+[![Slack](http://www.pulumi.com/images/docs/badges/slack.svg)](https://slack.pulumi.com)
+[![NPM version](https://badge.fury.io/js/%40pulumi%2Ff5bigip.svg)](https://www.npmjs.com/package/@pulumi/f5bigip)
+[![Python version](https://badge.fury.io/py/pulumi-f5bigip.svg)](https://pypi.org/project/pulumi-f5bigip)
+[![NuGet version](https://badge.fury.io/nu/pulumi.f5bigip.svg)](https://badge.fury.io/nu/pulumi.f5bigip)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/pulumi/pulumi-f5bigip/sdk/v2/go)](https://pkg.go.dev/github.com/pulumi/pulumi-f5bigip/sdk/v2/go)
+[![License](https://img.shields.io/npm/l/%40pulumi%2Fpulumi.svg)](https://github.com/pulumi/pulumi-f5bigip/blob/master/LICENSE)
 
 # F5 BigIP Provider
 

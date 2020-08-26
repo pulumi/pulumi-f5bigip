@@ -5,48 +5,28 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['ProfileOneConnect']
 
 
 class ProfileOneConnect(pulumi.CustomResource):
-    defaults_from: pulumi.Output[str]
-    """
-    Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
-    """
-    idle_timeout_override: pulumi.Output[str]
-    """
-    Specifies the number of seconds that a connection is idle before the connection flow is eligible for deletion. Possible values are disabled, indefinite, or a numeric value that you specify. The default value is disabled.
-    """
-    max_age: pulumi.Output[float]
-    """
-    Specifies the maximum age in number of seconds allowed for a connection in the connection reuse pool. For any connection with an age higher than this value, the system removes that connection from the reuse pool. The default value is 86400.
-    """
-    max_reuse: pulumi.Output[float]
-    """
-    Specifies the maximum number of times that a server-side connection can be reused. The default value is 1000.
-    """
-    max_size: pulumi.Output[float]
-    """
-    Specifies the maximum number of connections that the system holds in the connection reuse pool. If the pool is already full, then the server-side connection closes after the response is completed. The default value is 10000.
-    """
-    name: pulumi.Output[str]
-    """
-    Name of the profile_oneconnect
-    """
-    partition: pulumi.Output[str]
-    """
-    Displays the administrative partition within which this profile resides
-    """
-    share_pools: pulumi.Output[str]
-    """
-    Specify if you want to share the pool, default value is "disabled"
-    """
-    source_mask: pulumi.Output[str]
-    """
-    Specifies a source IP mask. The default value is 0.0.0.0. The system applies the value of this option to the source address to determine its eligibility for reuse. A mask of 0.0.0.0 causes the system to share reused connections across all clients. A host mask (all 1's in binary), causes the system to share only those reused connections originating from the same client IP address.
-    """
-    def __init__(__self__, resource_name, opts=None, defaults_from=None, idle_timeout_override=None, max_age=None, max_reuse=None, max_size=None, name=None, partition=None, share_pools=None, source_mask=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 defaults_from: Optional[pulumi.Input[str]] = None,
+                 idle_timeout_override: Optional[pulumi.Input[str]] = None,
+                 max_age: Optional[pulumi.Input[float]] = None,
+                 max_reuse: Optional[pulumi.Input[float]] = None,
+                 max_size: Optional[pulumi.Input[float]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 partition: Optional[pulumi.Input[str]] = None,
+                 share_pools: Optional[pulumi.Input[str]] = None,
+                 source_mask: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         `ltm.ProfileOneConnect` Configures a custom profile_oneconnect for use by health checks.
 
@@ -93,7 +73,7 @@ class ProfileOneConnect(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -117,13 +97,24 @@ class ProfileOneConnect(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, defaults_from=None, idle_timeout_override=None, max_age=None, max_reuse=None, max_size=None, name=None, partition=None, share_pools=None, source_mask=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            defaults_from: Optional[pulumi.Input[str]] = None,
+            idle_timeout_override: Optional[pulumi.Input[str]] = None,
+            max_age: Optional[pulumi.Input[float]] = None,
+            max_reuse: Optional[pulumi.Input[float]] = None,
+            max_size: Optional[pulumi.Input[float]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            partition: Optional[pulumi.Input[str]] = None,
+            share_pools: Optional[pulumi.Input[str]] = None,
+            source_mask: Optional[pulumi.Input[str]] = None) -> 'ProfileOneConnect':
         """
         Get an existing ProfileOneConnect resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] defaults_from: Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         :param pulumi.Input[str] idle_timeout_override: Specifies the number of seconds that a connection is idle before the connection flow is eligible for deletion. Possible values are disabled, indefinite, or a numeric value that you specify. The default value is disabled.
@@ -150,8 +141,81 @@ class ProfileOneConnect(pulumi.CustomResource):
         __props__["source_mask"] = source_mask
         return ProfileOneConnect(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="defaultsFrom")
+    def defaults_from(self) -> Optional[str]:
+        """
+        Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
+        """
+        return pulumi.get(self, "defaults_from")
+
+    @property
+    @pulumi.getter(name="idleTimeoutOverride")
+    def idle_timeout_override(self) -> Optional[str]:
+        """
+        Specifies the number of seconds that a connection is idle before the connection flow is eligible for deletion. Possible values are disabled, indefinite, or a numeric value that you specify. The default value is disabled.
+        """
+        return pulumi.get(self, "idle_timeout_override")
+
+    @property
+    @pulumi.getter(name="maxAge")
+    def max_age(self) -> Optional[float]:
+        """
+        Specifies the maximum age in number of seconds allowed for a connection in the connection reuse pool. For any connection with an age higher than this value, the system removes that connection from the reuse pool. The default value is 86400.
+        """
+        return pulumi.get(self, "max_age")
+
+    @property
+    @pulumi.getter(name="maxReuse")
+    def max_reuse(self) -> Optional[float]:
+        """
+        Specifies the maximum number of times that a server-side connection can be reused. The default value is 1000.
+        """
+        return pulumi.get(self, "max_reuse")
+
+    @property
+    @pulumi.getter(name="maxSize")
+    def max_size(self) -> Optional[float]:
+        """
+        Specifies the maximum number of connections that the system holds in the connection reuse pool. If the pool is already full, then the server-side connection closes after the response is completed. The default value is 10000.
+        """
+        return pulumi.get(self, "max_size")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the profile_oneconnect
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def partition(self) -> Optional[str]:
+        """
+        Displays the administrative partition within which this profile resides
+        """
+        return pulumi.get(self, "partition")
+
+    @property
+    @pulumi.getter(name="sharePools")
+    def share_pools(self) -> Optional[str]:
+        """
+        Specify if you want to share the pool, default value is "disabled"
+        """
+        return pulumi.get(self, "share_pools")
+
+    @property
+    @pulumi.getter(name="sourceMask")
+    def source_mask(self) -> Optional[str]:
+        """
+        Specifies a source IP mask. The default value is 0.0.0.0. The system applies the value of this option to the source address to determine its eligibility for reuse. A mask of 0.0.0.0 causes the system to share reused connections across all clients. A host mask (all 1's in binary), causes the system to share only those reused connections originating from the same client IP address.
+        """
+        return pulumi.get(self, "source_mask")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

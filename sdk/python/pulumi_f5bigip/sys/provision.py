@@ -5,36 +5,25 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['Provision']
 
 
 class Provision(pulumi.CustomResource):
-    cpu_ratio: pulumi.Output[float]
-    """
-    cpu Ratio
-    """
-    disk_ratio: pulumi.Output[float]
-    """
-    disk Ratio
-    """
-    full_path: pulumi.Output[str]
-    """
-    path
-    """
-    level: pulumi.Output[str]
-    """
-    what level nominal or dedicated
-    """
-    memory_ratio: pulumi.Output[float]
-    """
-    memory Ratio
-    """
-    name: pulumi.Output[str]
-    """
-    Name of the module to be provisioned
-    """
-    def __init__(__self__, resource_name, opts=None, cpu_ratio=None, disk_ratio=None, full_path=None, level=None, memory_ratio=None, name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 cpu_ratio: Optional[pulumi.Input[float]] = None,
+                 disk_ratio: Optional[pulumi.Input[float]] = None,
+                 full_path: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 memory_ratio: Optional[pulumi.Input[float]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         `sys.Provision` provides details bout how to enable "ilx", "asm" "apm" resource on BIG-IP
         ## Example Usage
@@ -72,7 +61,7 @@ class Provision(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -93,13 +82,21 @@ class Provision(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, cpu_ratio=None, disk_ratio=None, full_path=None, level=None, memory_ratio=None, name=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            cpu_ratio: Optional[pulumi.Input[float]] = None,
+            disk_ratio: Optional[pulumi.Input[float]] = None,
+            full_path: Optional[pulumi.Input[str]] = None,
+            level: Optional[pulumi.Input[str]] = None,
+            memory_ratio: Optional[pulumi.Input[float]] = None,
+            name: Optional[pulumi.Input[str]] = None) -> 'Provision':
         """
         Get an existing Provision resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] cpu_ratio: cpu Ratio
         :param pulumi.Input[float] disk_ratio: disk Ratio
@@ -120,8 +117,57 @@ class Provision(pulumi.CustomResource):
         __props__["name"] = name
         return Provision(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="cpuRatio")
+    def cpu_ratio(self) -> Optional[float]:
+        """
+        cpu Ratio
+        """
+        return pulumi.get(self, "cpu_ratio")
+
+    @property
+    @pulumi.getter(name="diskRatio")
+    def disk_ratio(self) -> Optional[float]:
+        """
+        disk Ratio
+        """
+        return pulumi.get(self, "disk_ratio")
+
+    @property
+    @pulumi.getter(name="fullPath")
+    def full_path(self) -> str:
+        """
+        path
+        """
+        return pulumi.get(self, "full_path")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        """
+        what level nominal or dedicated
+        """
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter(name="memoryRatio")
+    def memory_ratio(self) -> Optional[float]:
+        """
+        memory Ratio
+        """
+        return pulumi.get(self, "memory_ratio")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the module to be provisioned
+        """
+        return pulumi.get(self, "name")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+
