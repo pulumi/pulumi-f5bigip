@@ -13,7 +13,7 @@ __all__ = ['CommonLicenseManageBigIq']
 
 class CommonLicenseManageBigIq(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  assignment_type: Optional[pulumi.Input[str]] = None,
                  bigiq_address: Optional[pulumi.Input[str]] = None,
@@ -213,7 +213,7 @@ class CommonLicenseManageBigIq(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="assignmentType")
-    def assignment_type(self) -> str:
+    def assignment_type(self) -> pulumi.Output[str]:
         """
         The type of assignment, which is determined by whether the BIG-IP is unreachable, unmanaged, or managed by BIG-IQ. Possible values: “UNREACHABLE”, “UNMANAGED”, or “MANAGED”.
         """
@@ -221,7 +221,7 @@ class CommonLicenseManageBigIq(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bigiqAddress")
-    def bigiq_address(self) -> str:
+    def bigiq_address(self) -> pulumi.Output[str]:
         """
         BIGIQ License Manager IP Address, variable type `string`
         """
@@ -229,7 +229,7 @@ class CommonLicenseManageBigIq(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bigiqLoginRef")
-    def bigiq_login_ref(self) -> Optional[str]:
+    def bigiq_login_ref(self) -> pulumi.Output[Optional[str]]:
         """
         BIGIQ Login reference for token authentication
         """
@@ -237,7 +237,7 @@ class CommonLicenseManageBigIq(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bigiqPassword")
-    def bigiq_password(self) -> str:
+    def bigiq_password(self) -> pulumi.Output[str]:
         """
         BIGIQ License Manager password.  variable type `string`
         """
@@ -245,7 +245,7 @@ class CommonLicenseManageBigIq(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bigiqPort")
-    def bigiq_port(self) -> Optional[str]:
+    def bigiq_port(self) -> pulumi.Output[Optional[str]]:
         """
         type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
         """
@@ -253,7 +253,7 @@ class CommonLicenseManageBigIq(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bigiqTokenAuth")
-    def bigiq_token_auth(self) -> Optional[bool]:
+    def bigiq_token_auth(self) -> pulumi.Output[Optional[bool]]:
         """
         type `bool`, if set to `true` enables Token based Authentication,default is `false`
         """
@@ -261,7 +261,7 @@ class CommonLicenseManageBigIq(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="bigiqUser")
-    def bigiq_user(self) -> str:
+    def bigiq_user(self) -> pulumi.Output[str]:
         """
         BIGIQ License Manager username, variable type `string`
         """
@@ -269,7 +269,7 @@ class CommonLicenseManageBigIq(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deviceLicenseStatus")
-    def device_license_status(self) -> str:
+    def device_license_status(self) -> pulumi.Output[str]:
         """
         Status of Licence Assignment
         """
@@ -277,7 +277,7 @@ class CommonLicenseManageBigIq(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def hypervisor(self) -> Optional[str]:
+    def hypervisor(self) -> pulumi.Output[Optional[str]]:
         """
         Identifies the platform running the BIG-IP VE. Possible values: “aws”, “azure”, “gce”, “vmware”, “hyperv”, “kvm”, or “xen”. type `string`
         """
@@ -285,7 +285,7 @@ class CommonLicenseManageBigIq(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def key(self) -> Optional[str]:
+    def key(self) -> pulumi.Output[Optional[str]]:
         """
         License Assignment is done with specified `key`, supported only with RegKeypool type License assignement. type `string`
         """
@@ -293,7 +293,7 @@ class CommonLicenseManageBigIq(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="licensePoolname")
-    def license_poolname(self) -> str:
+    def license_poolname(self) -> pulumi.Output[str]:
         """
         A name given to the license pool. type `string`
         """
@@ -301,7 +301,7 @@ class CommonLicenseManageBigIq(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="macAddress")
-    def mac_address(self) -> Optional[str]:
+    def mac_address(self) -> pulumi.Output[Optional[str]]:
         """
         MAC address of the BIG-IP. type `string`
         """
@@ -309,7 +309,7 @@ class CommonLicenseManageBigIq(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def skukeyword1(self) -> Optional[str]:
+    def skukeyword1(self) -> pulumi.Output[Optional[str]]:
         """
         An optional offering name. type `string`
         """
@@ -317,7 +317,7 @@ class CommonLicenseManageBigIq(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def skukeyword2(self) -> Optional[str]:
+    def skukeyword2(self) -> pulumi.Output[Optional[str]]:
         """
         An optional offering name. type `string`
         """
@@ -325,7 +325,7 @@ class CommonLicenseManageBigIq(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tenant(self) -> Optional[str]:
+    def tenant(self) -> pulumi.Output[Optional[str]]:
         """
         For an unreachable BIG-IP, you can provide an optional description for the assignment in this field.
         """
@@ -333,7 +333,7 @@ class CommonLicenseManageBigIq(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="unitOfMeasure")
-    def unit_of_measure(self) -> Optional[str]:
+    def unit_of_measure(self) -> pulumi.Output[Optional[str]]:
         """
         The units used to measure billing. For example, “hourly” or “daily”. Type `string`
         """

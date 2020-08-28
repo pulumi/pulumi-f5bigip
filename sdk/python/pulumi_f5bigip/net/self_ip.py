@@ -13,7 +13,7 @@ __all__ = ['SelfIp']
 
 class SelfIp(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  ip: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -113,7 +113,7 @@ class SelfIp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def ip(self) -> str:
+    def ip(self) -> pulumi.Output[str]:
         """
         The Self IP's address and netmask.
         """
@@ -121,7 +121,7 @@ class SelfIp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the selfip
         """
@@ -129,7 +129,7 @@ class SelfIp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trafficGroup")
-    def traffic_group(self) -> Optional[str]:
+    def traffic_group(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
         """
@@ -137,7 +137,7 @@ class SelfIp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def vlan(self) -> str:
+    def vlan(self) -> pulumi.Output[str]:
         """
         Specifies the VLAN for which you are setting a self IP address. This setting must be provided when a self IP is created.
         """

@@ -13,7 +13,7 @@ __all__ = ['IRule']
 
 class IRule(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  irule: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -85,7 +85,7 @@ class IRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def irule(self) -> str:
+    def irule(self) -> pulumi.Output[str]:
         """
         Body of the iRule
         """
@@ -93,7 +93,7 @@ class IRule(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the iRule
         """

@@ -13,7 +13,7 @@ __all__ = ['Route']
 
 class Route(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  gw: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -103,7 +103,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def gw(self) -> Optional[str]:
+    def gw(self) -> pulumi.Output[Optional[str]]:
         """
         Gateway address
         """
@@ -111,7 +111,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the route
         """
@@ -119,7 +119,7 @@ class Route(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def network(self) -> str:
+    def network(self) -> pulumi.Output[str]:
         """
         Specifies a gateway address for the route.
         """

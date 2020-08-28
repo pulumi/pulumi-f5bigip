@@ -13,7 +13,7 @@ __all__ = ['Monitor']
 
 class Monitor(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  adaptive: Optional[pulumi.Input[str]] = None,
                  adaptive_limit: Optional[pulumi.Input[float]] = None,
@@ -231,7 +231,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def adaptive(self) -> str:
+    def adaptive(self) -> pulumi.Output[str]:
         """
         ftp adaptive
         """
@@ -239,7 +239,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="adaptiveLimit")
-    def adaptive_limit(self) -> float:
+    def adaptive_limit(self) -> pulumi.Output[float]:
         """
         Integer value
         """
@@ -247,7 +247,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def compatibility(self) -> str:
+    def compatibility(self) -> pulumi.Output[str]:
         """
         Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
         """
@@ -255,7 +255,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def database(self) -> Optional[str]:
+    def database(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the database in which the user is created
         """
@@ -263,7 +263,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> Optional[str]:
+    def defaults_from(self) -> pulumi.Output[Optional[str]]:
         """
         Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
         """
@@ -271,7 +271,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def destination(self) -> str:
+    def destination(self) -> pulumi.Output[str]:
         """
         Specify an alias address for monitoring
         """
@@ -279,7 +279,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def filename(self) -> Optional[str]:
+    def filename(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
         """
@@ -287,7 +287,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def interval(self) -> float:
+    def interval(self) -> pulumi.Output[float]:
         """
         Check interval in seconds
         """
@@ -295,17 +295,17 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipDscp")
-    def ip_dscp(self) -> float:
+    def ip_dscp(self) -> pulumi.Output[float]:
         return pulumi.get(self, "ip_dscp")
 
     @property
     @pulumi.getter(name="manualResume")
-    def manual_resume(self) -> str:
+    def manual_resume(self) -> pulumi.Output[str]:
         return pulumi.get(self, "manual_resume")
 
     @property
     @pulumi.getter
-    def mode(self) -> str:
+    def mode(self) -> pulumi.Output[str]:
         """
         Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
         """
@@ -313,7 +313,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the monitor
         """
@@ -321,7 +321,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def parent(self) -> str:
+    def parent(self) -> pulumi.Output[str]:
         """
         Existing LTM monitor to inherit from
         """
@@ -329,7 +329,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def password(self) -> Optional[str]:
+    def password(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the password if the monitored target requires authentication
         """
@@ -337,7 +337,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def receive(self) -> Optional[str]:
+    def receive(self) -> pulumi.Output[Optional[str]]:
         """
         Expected response string
         """
@@ -345,7 +345,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="receiveDisable")
-    def receive_disable(self) -> Optional[str]:
+    def receive_disable(self) -> pulumi.Output[Optional[str]]:
         """
         Expected response string.
         """
@@ -353,12 +353,12 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def reverse(self) -> str:
+    def reverse(self) -> pulumi.Output[str]:
         return pulumi.get(self, "reverse")
 
     @property
     @pulumi.getter
-    def send(self) -> Optional[str]:
+    def send(self) -> pulumi.Output[Optional[str]]:
         """
         Request string to send
         """
@@ -366,7 +366,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timeUntilUp")
-    def time_until_up(self) -> float:
+    def time_until_up(self) -> pulumi.Output[float]:
         """
         Time in seconds
         """
@@ -374,7 +374,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def timeout(self) -> float:
+    def timeout(self) -> pulumi.Output[float]:
         """
         Timeout in seconds
         """
@@ -382,12 +382,12 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def transparent(self) -> str:
+    def transparent(self) -> pulumi.Output[str]:
         return pulumi.get(self, "transparent")
 
     @property
     @pulumi.getter
-    def username(self) -> Optional[str]:
+    def username(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the user name if the monitored target requires authentication
         """

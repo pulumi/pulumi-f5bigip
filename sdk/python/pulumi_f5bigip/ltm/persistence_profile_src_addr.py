@@ -13,7 +13,7 @@ __all__ = ['PersistenceProfileSrcAddr']
 
 class PersistenceProfileSrcAddr(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_service: Optional[pulumi.Input[str]] = None,
                  defaults_from: Optional[pulumi.Input[str]] = None,
@@ -189,12 +189,12 @@ class PersistenceProfileSrcAddr(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appService")
-    def app_service(self) -> Optional[str]:
+    def app_service(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "app_service")
 
     @property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> str:
+    def defaults_from(self) -> pulumi.Output[str]:
         """
         Inherit defaults from parent profile
         """
@@ -202,7 +202,7 @@ class PersistenceProfileSrcAddr(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hashAlgorithm")
-    def hash_algorithm(self) -> Optional[str]:
+    def hash_algorithm(self) -> pulumi.Output[Optional[str]]:
         """
         Specify the hash algorithm
         """
@@ -210,7 +210,7 @@ class PersistenceProfileSrcAddr(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mapProxies")
-    def map_proxies(self) -> Optional[str]:
+    def map_proxies(self) -> pulumi.Output[Optional[str]]:
         """
         To enable _ disable directs all to the same single pool member
         """
@@ -218,7 +218,7 @@ class PersistenceProfileSrcAddr(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def mask(self) -> Optional[str]:
+    def mask(self) -> pulumi.Output[Optional[str]]:
         """
         Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
         when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
@@ -227,7 +227,7 @@ class PersistenceProfileSrcAddr(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="matchAcrossPools")
-    def match_across_pools(self) -> Optional[str]:
+    def match_across_pools(self) -> pulumi.Output[Optional[str]]:
         """
         To enable _ disable match across pools with given persistence record
         """
@@ -235,7 +235,7 @@ class PersistenceProfileSrcAddr(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="matchAcrossServices")
-    def match_across_services(self) -> Optional[str]:
+    def match_across_services(self) -> pulumi.Output[Optional[str]]:
         """
         To enable _ disable match across services with given persistence record
         """
@@ -243,7 +243,7 @@ class PersistenceProfileSrcAddr(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="matchAcrossVirtuals")
-    def match_across_virtuals(self) -> Optional[str]:
+    def match_across_virtuals(self) -> pulumi.Output[Optional[str]]:
         """
         To enable _ disable match across services with given persistence record
         """
@@ -251,7 +251,7 @@ class PersistenceProfileSrcAddr(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def mirror(self) -> Optional[str]:
+    def mirror(self) -> pulumi.Output[Optional[str]]:
         """
         To enable _ disable
         """
@@ -259,7 +259,7 @@ class PersistenceProfileSrcAddr(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the persistence profile
         """
@@ -267,7 +267,7 @@ class PersistenceProfileSrcAddr(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="overrideConnLimit")
-    def override_conn_limit(self) -> Optional[str]:
+    def override_conn_limit(self) -> pulumi.Output[Optional[str]]:
         """
         To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
         limits remain hard limits and are not overridden.
@@ -276,7 +276,7 @@ class PersistenceProfileSrcAddr(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def timeout(self) -> Optional[float]:
+    def timeout(self) -> pulumi.Output[Optional[float]]:
         """
         Timeout for persistence of the session
         """

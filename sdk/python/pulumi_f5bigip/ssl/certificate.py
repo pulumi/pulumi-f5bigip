@@ -13,7 +13,7 @@ __all__ = ['Certificate']
 
 class Certificate(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -102,7 +102,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def content(self) -> str:
+    def content(self) -> pulumi.Output[str]:
         """
         Content of certificate on Disk
         """
@@ -110,7 +110,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the SSL Certificate to be Imported on to BIGIP
         """
@@ -118,7 +118,7 @@ class Certificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def partition(self) -> Optional[str]:
+    def partition(self) -> pulumi.Output[Optional[str]]:
         """
         Partition on to SSL Certificate to be imported
         """

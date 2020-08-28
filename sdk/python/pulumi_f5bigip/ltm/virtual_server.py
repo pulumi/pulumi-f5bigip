@@ -13,7 +13,7 @@ __all__ = ['VirtualServer']
 
 class VirtualServer(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  client_profiles: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  default_persistence_profile: Optional[pulumi.Input[str]] = None,
@@ -246,7 +246,7 @@ class VirtualServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientProfiles")
-    def client_profiles(self) -> List[str]:
+    def client_profiles(self) -> pulumi.Output[List[str]]:
         """
         List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
         """
@@ -254,12 +254,12 @@ class VirtualServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultPersistenceProfile")
-    def default_persistence_profile(self) -> Optional[str]:
+    def default_persistence_profile(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "default_persistence_profile")
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of Virtual server
         """
@@ -267,7 +267,7 @@ class VirtualServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def destination(self) -> str:
+    def destination(self) -> pulumi.Output[str]:
         """
         Destination IP
         """
@@ -275,7 +275,7 @@ class VirtualServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fallbackPersistenceProfile")
-    def fallback_persistence_profile(self) -> str:
+    def fallback_persistence_profile(self) -> pulumi.Output[str]:
         """
         Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
         """
@@ -283,7 +283,7 @@ class VirtualServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipProtocol")
-    def ip_protocol(self) -> str:
+    def ip_protocol(self) -> pulumi.Output[str]:
         """
         Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
         """
@@ -291,7 +291,7 @@ class VirtualServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def irules(self) -> Optional[List[str]]:
+    def irules(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
         """
@@ -299,7 +299,7 @@ class VirtualServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def mask(self) -> str:
+    def mask(self) -> pulumi.Output[str]:
         """
         Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
         """
@@ -307,7 +307,7 @@ class VirtualServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the virtual server
         """
@@ -315,7 +315,7 @@ class VirtualServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="persistenceProfiles")
-    def persistence_profiles(self) -> List[str]:
+    def persistence_profiles(self) -> pulumi.Output[List[str]]:
         """
         List of persistence profiles associated with the Virtual Server.
         """
@@ -323,12 +323,12 @@ class VirtualServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def policies(self) -> Optional[List[str]]:
+    def policies(self) -> pulumi.Output[Optional[List[str]]]:
         return pulumi.get(self, "policies")
 
     @property
     @pulumi.getter
-    def pool(self) -> Optional[str]:
+    def pool(self) -> pulumi.Output[Optional[str]]:
         """
         Default pool name
         """
@@ -336,7 +336,7 @@ class VirtualServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> float:
+    def port(self) -> pulumi.Output[float]:
         """
         Listen port for the virtual server
         """
@@ -344,7 +344,7 @@ class VirtualServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def profiles(self) -> List[str]:
+    def profiles(self) -> pulumi.Output[List[str]]:
         """
         List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
         """
@@ -352,7 +352,7 @@ class VirtualServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverProfiles")
-    def server_profiles(self) -> List[str]:
+    def server_profiles(self) -> pulumi.Output[List[str]]:
         """
         List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
         """
@@ -360,7 +360,7 @@ class VirtualServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def snatpool(self) -> str:
+    def snatpool(self) -> pulumi.Output[str]:
         """
         Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
         """
@@ -368,7 +368,7 @@ class VirtualServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def source(self) -> str:
+    def source(self) -> pulumi.Output[str]:
         """
         Specifies an IP address or network from which the virtual server will accept traffic.
         """
@@ -376,7 +376,7 @@ class VirtualServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceAddressTranslation")
-    def source_address_translation(self) -> str:
+    def source_address_translation(self) -> pulumi.Output[str]:
         """
         Can be either omitted for none or the values automap or snat
         """
@@ -384,7 +384,7 @@ class VirtualServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
         """
@@ -392,7 +392,7 @@ class VirtualServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="translateAddress")
-    def translate_address(self) -> str:
+    def translate_address(self) -> pulumi.Output[str]:
         """
         Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
         """
@@ -400,7 +400,7 @@ class VirtualServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="translatePort")
-    def translate_port(self) -> str:
+    def translate_port(self) -> pulumi.Output[str]:
         """
         Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
         """
@@ -408,7 +408,7 @@ class VirtualServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def vlans(self) -> Optional[List[str]]:
+    def vlans(self) -> pulumi.Output[Optional[List[str]]]:
         """
         The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.
         """
@@ -416,7 +416,7 @@ class VirtualServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vlansEnabled")
-    def vlans_enabled(self) -> bool:
+    def vlans_enabled(self) -> pulumi.Output[bool]:
         """
         Enables the virtual server on the VLANs specified by the VLANs option.
         """

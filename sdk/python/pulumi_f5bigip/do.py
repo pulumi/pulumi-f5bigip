@@ -13,7 +13,7 @@ __all__ = ['Do']
 
 class Do(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  do_json: Optional[pulumi.Input[str]] = None,
                  tenant_name: Optional[pulumi.Input[str]] = None,
@@ -102,7 +102,7 @@ class Do(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="doJson")
-    def do_json(self) -> str:
+    def do_json(self) -> pulumi.Output[str]:
         """
         Name of the of the Declarative DO JSON file
         """
@@ -110,7 +110,7 @@ class Do(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tenantName")
-    def tenant_name(self) -> Optional[str]:
+    def tenant_name(self) -> pulumi.Output[Optional[str]]:
         """
         unique identifier for DO resource
         """
@@ -118,7 +118,7 @@ class Do(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def timeout(self) -> Optional[float]:
+    def timeout(self) -> pulumi.Output[Optional[float]]:
         """
         DO json
         """

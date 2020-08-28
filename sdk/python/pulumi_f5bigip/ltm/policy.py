@@ -15,7 +15,7 @@ __all__ = ['Policy']
 
 class Policy(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  controls: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -132,7 +132,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def controls(self) -> Optional[List[str]]:
+    def controls(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Specifies the controls
         """
@@ -140,7 +140,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the Policy
         """
@@ -148,7 +148,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="publishedCopy")
-    def published_copy(self) -> Optional[str]:
+    def published_copy(self) -> pulumi.Output[Optional[str]]:
         """
         If you want to publish the policy else it will be deployed in Drafts mode.
         """
@@ -156,7 +156,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def requires(self) -> Optional[List[str]]:
+    def requires(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Specifies the protocol
         """
@@ -164,7 +164,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def rules(self) -> Optional[List['outputs.PolicyRule']]:
+    def rules(self) -> pulumi.Output[Optional[List['outputs.PolicyRule']]]:
         """
         Rules can be applied using the policy
         """
@@ -172,7 +172,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def strategy(self) -> Optional[str]:
+    def strategy(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the match strategy
         """

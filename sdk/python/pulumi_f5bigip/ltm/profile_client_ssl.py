@@ -15,7 +15,7 @@ __all__ = ['ProfileClientSsl']
 
 class ProfileClientSsl(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alert_timeout: Optional[pulumi.Input[str]] = None,
                  allow_non_ssl: Optional[pulumi.Input[str]] = None,
@@ -397,7 +397,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="alertTimeout")
-    def alert_timeout(self) -> str:
+    def alert_timeout(self) -> pulumi.Output[str]:
         """
         Alert time out
         """
@@ -405,7 +405,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowNonSsl")
-    def allow_non_ssl(self) -> str:
+    def allow_non_ssl(self) -> pulumi.Output[str]:
         """
         Enables or disables acceptance of non-SSL connections, When creating a new profile, the setting is provided by the parent profile
         """
@@ -413,7 +413,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def authenticate(self) -> str:
+    def authenticate(self) -> pulumi.Output[str]:
         """
         Specifies the frequency of client authentication for an SSL session.When `once`,specifies that the system authenticates the client once for an SSL session.
         When `always`, specifies that the system authenticates the client once for an SSL session and also upon reuse of that session.
@@ -422,7 +422,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authenticateDepth")
-    def authenticate_depth(self) -> float:
+    def authenticate_depth(self) -> pulumi.Output[float]:
         """
         Specifies the maximum number of certificates to be traversed in a client certificate chain
         """
@@ -430,7 +430,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="caFile")
-    def ca_file(self) -> str:
+    def ca_file(self) -> pulumi.Output[str]:
         """
         Client certificate file path. Default None.
         """
@@ -438,7 +438,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cacheSize")
-    def cache_size(self) -> float:
+    def cache_size(self) -> pulumi.Output[float]:
         """
         Cache size (sessions).
         """
@@ -446,7 +446,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cacheTimeout")
-    def cache_timeout(self) -> float:
+    def cache_timeout(self) -> pulumi.Output[float]:
         """
         Cache time out
         """
@@ -454,7 +454,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def cert(self) -> str:
+    def cert(self) -> pulumi.Output[str]:
         """
         Specifies a cert name for use.
         """
@@ -462,7 +462,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certExtensionIncludes")
-    def cert_extension_includes(self) -> List[str]:
+    def cert_extension_includes(self) -> pulumi.Output[List[str]]:
         """
         Cert extension includes for ssl forward proxy
         """
@@ -470,12 +470,12 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certKeyChains")
-    def cert_key_chains(self) -> List['outputs.ProfileClientSslCertKeyChain']:
+    def cert_key_chains(self) -> pulumi.Output[List['outputs.ProfileClientSslCertKeyChain']]:
         return pulumi.get(self, "cert_key_chains")
 
     @property
     @pulumi.getter(name="certLifeSpan")
-    def cert_life_span(self) -> float:
+    def cert_life_span(self) -> pulumi.Output[float]:
         """
         Life span of the certificate in days for ssl forward proxy
         """
@@ -483,7 +483,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certLookupByIpaddrPort")
-    def cert_lookup_by_ipaddr_port(self) -> str:
+    def cert_lookup_by_ipaddr_port(self) -> pulumi.Output[str]:
         """
         Cert lookup by ip address and port enabled / disabled
         """
@@ -491,7 +491,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def chain(self) -> str:
+    def chain(self) -> pulumi.Output[str]:
         """
         Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
         """
@@ -499,7 +499,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def ciphers(self) -> str:
+    def ciphers(self) -> pulumi.Output[str]:
         """
         Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
         """
@@ -507,7 +507,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientCertCa")
-    def client_cert_ca(self) -> str:
+    def client_cert_ca(self) -> pulumi.Output[str]:
         """
         client certificate name
         """
@@ -515,7 +515,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="crlFile")
-    def crl_file(self) -> str:
+    def crl_file(self) -> pulumi.Output[str]:
         """
         Certificate revocation file name
         """
@@ -523,7 +523,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> Optional[str]:
+    def defaults_from(self) -> pulumi.Output[Optional[str]]:
         """
         The parent template of this monitor template. Once this value has been set, it cannot be changed. By default, this value is the `clientssl` parent on the `Common` partition.
         """
@@ -531,7 +531,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="forwardProxyBypassDefaultAction")
-    def forward_proxy_bypass_default_action(self) -> str:
+    def forward_proxy_bypass_default_action(self) -> pulumi.Output[str]:
         """
         Forward proxy bypass default action. (enabled / disabled)
         """
@@ -539,7 +539,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fullPath")
-    def full_path(self) -> str:
+    def full_path(self) -> pulumi.Output[str]:
         """
         full path of the profile
         """
@@ -547,7 +547,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def generation(self) -> float:
+    def generation(self) -> pulumi.Output[float]:
         """
         generation
         """
@@ -555,7 +555,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="genericAlert")
-    def generic_alert(self) -> str:
+    def generic_alert(self) -> pulumi.Output[str]:
         """
         Generic alerts enabled / disabled.
         """
@@ -563,7 +563,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="handshakeTimeout")
-    def handshake_timeout(self) -> str:
+    def handshake_timeout(self) -> pulumi.Output[str]:
         """
         Handshake time out (seconds)
         """
@@ -571,7 +571,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="inheritCertKeychain")
-    def inherit_cert_keychain(self) -> str:
+    def inherit_cert_keychain(self) -> pulumi.Output[str]:
         """
         Inherit cert key chain
         """
@@ -579,7 +579,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def key(self) -> str:
+    def key(self) -> pulumi.Output[str]:
         """
         Contains a key name
         """
@@ -587,7 +587,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="modSslMethods")
-    def mod_ssl_methods(self) -> str:
+    def mod_ssl_methods(self) -> pulumi.Output[str]:
         """
         ModSSL Methods enabled / disabled. Default is disabled.
         """
@@ -595,7 +595,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def mode(self) -> str:
+    def mode(self) -> pulumi.Output[str]:
         """
         ModSSL Methods enabled / disabled. Default is disabled.
         """
@@ -603,7 +603,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Specifies the name of the profile. (type `string`)
         """
@@ -611,7 +611,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def partition(self) -> str:
+    def partition(self) -> pulumi.Output[str]:
         """
         Device partition to manage resources on.
         """
@@ -619,7 +619,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def passphrase(self) -> str:
+    def passphrase(self) -> pulumi.Output[str]:
         """
         Client Certificate Constrained Delegation CA passphrase
         """
@@ -627,7 +627,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="peerCertMode")
-    def peer_cert_mode(self) -> str:
+    def peer_cert_mode(self) -> pulumi.Output[str]:
         """
         Specifies the way the system handles client certificates.When ignore, specifies that the system ignores certificates from client systems.When require, specifies that the system requires a client to present a valid certificate.When request, specifies that the system requests a valid certificate from a client but always authenticate the client.
         """
@@ -635,7 +635,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="proxyCaCert")
-    def proxy_ca_cert(self) -> str:
+    def proxy_ca_cert(self) -> pulumi.Output[str]:
         """
         Proxy CA Cert
         """
@@ -643,7 +643,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="proxyCaKey")
-    def proxy_ca_key(self) -> str:
+    def proxy_ca_key(self) -> pulumi.Output[str]:
         """
         Proxy CA Key
         """
@@ -651,7 +651,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="proxyCaPassphrase")
-    def proxy_ca_passphrase(self) -> str:
+    def proxy_ca_passphrase(self) -> pulumi.Output[str]:
         """
         Proxy CA Passphrase
         """
@@ -659,7 +659,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="proxySsl")
-    def proxy_ssl(self) -> str:
+    def proxy_ssl(self) -> pulumi.Output[str]:
         """
         Proxy SSL enabled / disabled. Default is disabled.
         """
@@ -667,7 +667,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="proxySslPassthrough")
-    def proxy_ssl_passthrough(self) -> str:
+    def proxy_ssl_passthrough(self) -> pulumi.Output[str]:
         """
         Proxy SSL passthrough enabled / disabled. Default is disabled.
         """
@@ -675,7 +675,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="renegotiatePeriod")
-    def renegotiate_period(self) -> str:
+    def renegotiate_period(self) -> pulumi.Output[str]:
         """
         Renogotiate Period (seconds)
         """
@@ -683,7 +683,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="renegotiateSize")
-    def renegotiate_size(self) -> str:
+    def renegotiate_size(self) -> pulumi.Output[str]:
         """
         Renogotiate Size
         """
@@ -691,7 +691,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def renegotiation(self) -> str:
+    def renegotiation(self) -> pulumi.Output[str]:
         """
         Enables or disables SSL renegotiation.When creating a new profile, the setting is provided by the parent profile
         """
@@ -699,7 +699,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="retainCertificate")
-    def retain_certificate(self) -> str:
+    def retain_certificate(self) -> pulumi.Output[str]:
         """
         When `true`, client certificate is retained in SSL session.
         """
@@ -707,7 +707,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="secureRenegotiation")
-    def secure_renegotiation(self) -> str:
+    def secure_renegotiation(self) -> pulumi.Output[str]:
         """
         Specifies the method of secure renegotiations for SSL connections. When creating a new profile, the setting is provided by the parent profile.
         When `request` is set the system request secure renegotation of SSL connections.
@@ -718,7 +718,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverName")
-    def server_name(self) -> str:
+    def server_name(self) -> pulumi.Output[str]:
         """
         Specifies the fully qualified DNS hostname of the server used in Server Name Indication communications. When creating a new profile, the setting is provided by the parent profile.The server name can also be a wildcard string containing the asterisk `*` character.
         """
@@ -726,7 +726,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sessionMirroring")
-    def session_mirroring(self) -> str:
+    def session_mirroring(self) -> pulumi.Output[str]:
         """
         Session Mirroring (enabled / disabled)
         """
@@ -734,7 +734,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sessionTicket")
-    def session_ticket(self) -> str:
+    def session_ticket(self) -> pulumi.Output[str]:
         """
         Session Ticket (enabled / disabled)
         """
@@ -742,7 +742,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sniDefault")
-    def sni_default(self) -> str:
+    def sni_default(self) -> pulumi.Output[str]:
         """
         Indicates that the system uses this profile as the default SSL profile when there is no match to the server name, or when the client provides no SNI extension support.When creating a new profile, the setting is provided by the parent profile.
         There can be only one SSL profile with this setting enabled.
@@ -751,7 +751,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sniRequire")
-    def sni_require(self) -> str:
+    def sni_require(self) -> pulumi.Output[str]:
         """
         Requires that the network peers also provide SNI support, this setting only takes effect when `sni_default` is set to `true`.When creating a new profile, the setting is provided by the parent profile
         """
@@ -759,7 +759,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sslForwardProxy")
-    def ssl_forward_proxy(self) -> str:
+    def ssl_forward_proxy(self) -> pulumi.Output[str]:
         """
         SSL forward Proxy (enabled / disabled)
         """
@@ -767,7 +767,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sslForwardProxyBypass")
-    def ssl_forward_proxy_bypass(self) -> str:
+    def ssl_forward_proxy_bypass(self) -> pulumi.Output[str]:
         """
         SSL forward Proxy Bypass (enabled / disabled)
         """
@@ -775,7 +775,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sslSignHash")
-    def ssl_sign_hash(self) -> str:
+    def ssl_sign_hash(self) -> pulumi.Output[str]:
         """
         SSL sign hash (any, sha1, sha256, sha384)
         """
@@ -783,7 +783,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="strictResume")
-    def strict_resume(self) -> str:
+    def strict_resume(self) -> pulumi.Output[str]:
         """
         Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
         """
@@ -791,12 +791,12 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tmOptions")
-    def tm_options(self) -> List[str]:
+    def tm_options(self) -> pulumi.Output[List[str]]:
         return pulumi.get(self, "tm_options")
 
     @property
     @pulumi.getter(name="uncleanShutdown")
-    def unclean_shutdown(self) -> str:
+    def unclean_shutdown(self) -> pulumi.Output[str]:
         """
         Unclean Shutdown (enabled / disabled)
         """

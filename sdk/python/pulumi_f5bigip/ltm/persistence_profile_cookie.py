@@ -13,7 +13,7 @@ __all__ = ['PersistenceProfileCookie']
 
 class PersistenceProfileCookie(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  always_send: Optional[pulumi.Input[str]] = None,
                  app_service: Optional[pulumi.Input[str]] = None,
@@ -230,7 +230,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="alwaysSend")
-    def always_send(self) -> Optional[str]:
+    def always_send(self) -> pulumi.Output[Optional[str]]:
         """
         To enable _ disable always sending cookies
         """
@@ -238,12 +238,12 @@ class PersistenceProfileCookie(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appService")
-    def app_service(self) -> Optional[str]:
+    def app_service(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "app_service")
 
     @property
     @pulumi.getter(name="cookieEncryption")
-    def cookie_encryption(self) -> Optional[str]:
+    def cookie_encryption(self) -> pulumi.Output[Optional[str]]:
         """
         To required, preferred, or disabled policy for cookie encryption
         """
@@ -251,7 +251,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cookieEncryptionPassphrase")
-    def cookie_encryption_passphrase(self) -> Optional[str]:
+    def cookie_encryption_passphrase(self) -> pulumi.Output[Optional[str]]:
         """
         Passphrase for encrypted cookies
         """
@@ -259,7 +259,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cookieName")
-    def cookie_name(self) -> Optional[str]:
+    def cookie_name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the cookie to track persistence
         """
@@ -267,7 +267,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> str:
+    def defaults_from(self) -> pulumi.Output[str]:
         """
         Inherit defaults from parent profile
         """
@@ -275,7 +275,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def expiration(self) -> Optional[str]:
+    def expiration(self) -> pulumi.Output[Optional[str]]:
         """
         Expiration TTL for cookie specified in D:H:M:S or in seconds
         """
@@ -283,7 +283,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hashLength")
-    def hash_length(self) -> Optional[float]:
+    def hash_length(self) -> pulumi.Output[Optional[float]]:
         """
         Length of hash to apply to cookie
         """
@@ -291,7 +291,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hashOffset")
-    def hash_offset(self) -> Optional[float]:
+    def hash_offset(self) -> pulumi.Output[Optional[float]]:
         """
         Number of characters to skip in the cookie for the hash
         """
@@ -299,7 +299,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def httponly(self) -> Optional[str]:
+    def httponly(self) -> pulumi.Output[Optional[str]]:
         """
         To enable _ disable sending only over http
         """
@@ -307,7 +307,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="matchAcrossPools")
-    def match_across_pools(self) -> Optional[str]:
+    def match_across_pools(self) -> pulumi.Output[Optional[str]]:
         """
         To enable _ disable match across pools with given persistence record
         """
@@ -315,7 +315,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="matchAcrossServices")
-    def match_across_services(self) -> Optional[str]:
+    def match_across_services(self) -> pulumi.Output[Optional[str]]:
         """
         To enable _ disable match across services with given persistence record
         """
@@ -323,7 +323,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="matchAcrossVirtuals")
-    def match_across_virtuals(self) -> Optional[str]:
+    def match_across_virtuals(self) -> pulumi.Output[Optional[str]]:
         """
         To enable _ disable match across virtual servers with given persistence record
         """
@@ -331,7 +331,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def mirror(self) -> Optional[str]:
+    def mirror(self) -> pulumi.Output[Optional[str]]:
         """
         To enable _ disable
         """
@@ -339,7 +339,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the persistence profile
         """
@@ -347,7 +347,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="overrideConnLimit")
-    def override_conn_limit(self) -> Optional[str]:
+    def override_conn_limit(self) -> pulumi.Output[Optional[str]]:
         """
         To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
         limits remain hard limits and are not overridden.
@@ -356,7 +356,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def timeout(self) -> Optional[float]:
+    def timeout(self) -> pulumi.Output[Optional[float]]:
         """
         Timeout for persistence of the session
         """

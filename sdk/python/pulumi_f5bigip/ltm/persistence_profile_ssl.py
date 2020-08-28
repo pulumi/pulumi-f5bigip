@@ -13,7 +13,7 @@ __all__ = ['PersistenceProfileSsl']
 
 class PersistenceProfileSsl(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_service: Optional[pulumi.Input[str]] = None,
                  defaults_from: Optional[pulumi.Input[str]] = None,
@@ -160,12 +160,12 @@ class PersistenceProfileSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="appService")
-    def app_service(self) -> Optional[str]:
+    def app_service(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "app_service")
 
     @property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> str:
+    def defaults_from(self) -> pulumi.Output[str]:
         """
         Inherit defaults from parent profile
         """
@@ -173,7 +173,7 @@ class PersistenceProfileSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="matchAcrossPools")
-    def match_across_pools(self) -> Optional[str]:
+    def match_across_pools(self) -> pulumi.Output[Optional[str]]:
         """
         To enable _ disable match across pools with given persistence record
         """
@@ -181,7 +181,7 @@ class PersistenceProfileSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="matchAcrossServices")
-    def match_across_services(self) -> Optional[str]:
+    def match_across_services(self) -> pulumi.Output[Optional[str]]:
         """
         To enable _ disable match across services with given persistence record
         """
@@ -189,7 +189,7 @@ class PersistenceProfileSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="matchAcrossVirtuals")
-    def match_across_virtuals(self) -> Optional[str]:
+    def match_across_virtuals(self) -> pulumi.Output[Optional[str]]:
         """
         To enable _ disable match across services with given persistence record
         """
@@ -197,7 +197,7 @@ class PersistenceProfileSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def mirror(self) -> Optional[str]:
+    def mirror(self) -> pulumi.Output[Optional[str]]:
         """
         To enable _ disable
         """
@@ -205,7 +205,7 @@ class PersistenceProfileSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the persistence profile
         """
@@ -213,7 +213,7 @@ class PersistenceProfileSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="overrideConnLimit")
-    def override_conn_limit(self) -> Optional[str]:
+    def override_conn_limit(self) -> pulumi.Output[Optional[str]]:
         """
         To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
         limits remain hard limits and are not overridden.
@@ -222,7 +222,7 @@ class PersistenceProfileSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def timeout(self) -> Optional[float]:
+    def timeout(self) -> pulumi.Output[Optional[float]]:
         """
         Timeout for persistence of the session
         """

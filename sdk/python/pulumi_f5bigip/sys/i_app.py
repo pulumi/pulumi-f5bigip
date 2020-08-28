@@ -15,7 +15,7 @@ __all__ = ['IApp']
 
 class IApp(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  devicegroup: Optional[pulumi.Input[str]] = None,
@@ -194,7 +194,7 @@ class IApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Address of the Iapp which needs to be Iappensed
         """
@@ -202,7 +202,7 @@ class IApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def devicegroup(self) -> Optional[str]:
+    def devicegroup(self) -> pulumi.Output[Optional[str]]:
         """
         BIG-IP password
         """
@@ -210,7 +210,7 @@ class IApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="executeAction")
-    def execute_action(self) -> Optional[str]:
+    def execute_action(self) -> pulumi.Output[Optional[str]]:
         """
         BIG-IP password
         """
@@ -218,7 +218,7 @@ class IApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="inheritedDevicegroup")
-    def inherited_devicegroup(self) -> Optional[str]:
+    def inherited_devicegroup(self) -> pulumi.Output[Optional[str]]:
         """
         BIG-IP password
         """
@@ -226,7 +226,7 @@ class IApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="inheritedTrafficGroup")
-    def inherited_traffic_group(self) -> Optional[str]:
+    def inherited_traffic_group(self) -> pulumi.Output[Optional[str]]:
         """
         BIG-IP password
         """
@@ -234,7 +234,7 @@ class IApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def jsonfile(self) -> Optional[str]:
+    def jsonfile(self) -> pulumi.Output[Optional[str]]:
         """
         Refer to the Json file which will be deployed on F5 BIG-IP.
         """
@@ -242,17 +242,17 @@ class IApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def lists(self) -> Optional[List['outputs.IAppList']]:
+    def lists(self) -> pulumi.Output[Optional[List['outputs.IAppList']]]:
         return pulumi.get(self, "lists")
 
     @property
     @pulumi.getter
-    def metadatas(self) -> Optional[List['outputs.IAppMetadata']]:
+    def metadatas(self) -> pulumi.Output[Optional[List['outputs.IAppMetadata']]]:
         return pulumi.get(self, "metadatas")
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the iApp.
         """
@@ -260,7 +260,7 @@ class IApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def partition(self) -> Optional[str]:
+    def partition(self) -> pulumi.Output[Optional[str]]:
         """
         Address of the Iapp which needs to be Iappensed
         """
@@ -268,7 +268,7 @@ class IApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="strictUpdates")
-    def strict_updates(self) -> Optional[str]:
+    def strict_updates(self) -> pulumi.Output[Optional[str]]:
         """
         BIG-IP password
         """
@@ -276,12 +276,12 @@ class IApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tables(self) -> Optional[List['outputs.IAppTable']]:
+    def tables(self) -> pulumi.Output[Optional[List['outputs.IAppTable']]]:
         return pulumi.get(self, "tables")
 
     @property
     @pulumi.getter
-    def template(self) -> Optional[str]:
+    def template(self) -> pulumi.Output[Optional[str]]:
         """
         BIG-IP password
         """
@@ -289,7 +289,7 @@ class IApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="templateModified")
-    def template_modified(self) -> Optional[str]:
+    def template_modified(self) -> pulumi.Output[Optional[str]]:
         """
         BIG-IP password
         """
@@ -297,7 +297,7 @@ class IApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="templatePrerequisiteErrors")
-    def template_prerequisite_errors(self) -> Optional[str]:
+    def template_prerequisite_errors(self) -> pulumi.Output[Optional[str]]:
         """
         BIG-IP password
         """
@@ -305,7 +305,7 @@ class IApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trafficGroup")
-    def traffic_group(self) -> Optional[str]:
+    def traffic_group(self) -> pulumi.Output[Optional[str]]:
         """
         BIG-IP password
         """
@@ -313,7 +313,7 @@ class IApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def variables(self) -> Optional[List['outputs.IAppVariable']]:
+    def variables(self) -> pulumi.Output[Optional[List['outputs.IAppVariable']]]:
         return pulumi.get(self, "variables")
 
     def translate_output_property(self, prop):

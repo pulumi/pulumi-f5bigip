@@ -13,7 +13,7 @@ __all__ = ['Device']
 
 class Device(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configsync_ip: Optional[pulumi.Input[str]] = None,
                  mirror_ip: Optional[pulumi.Input[str]] = None,
@@ -109,7 +109,7 @@ class Device(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="configsyncIp")
-    def configsync_ip(self) -> str:
+    def configsync_ip(self) -> pulumi.Output[str]:
         """
         IP address used for config sync
         """
@@ -117,7 +117,7 @@ class Device(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mirrorIp")
-    def mirror_ip(self) -> Optional[str]:
+    def mirror_ip(self) -> pulumi.Output[Optional[str]]:
         """
         IP address used for state mirroring
         """
@@ -125,7 +125,7 @@ class Device(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="mirrorSecondaryIp")
-    def mirror_secondary_ip(self) -> Optional[str]:
+    def mirror_secondary_ip(self) -> pulumi.Output[Optional[str]]:
         """
         Secondary IP address used for state mirroring
         """
@@ -133,7 +133,7 @@ class Device(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Address of the Device which needs to be Deviceensed
         """

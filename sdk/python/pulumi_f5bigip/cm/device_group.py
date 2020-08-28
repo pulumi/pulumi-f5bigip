@@ -15,7 +15,7 @@ __all__ = ['DeviceGroup']
 
 class DeviceGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_sync: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -150,7 +150,7 @@ class DeviceGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoSync")
-    def auto_sync(self) -> Optional[str]:
+    def auto_sync(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies if the device-group will automatically sync configuration data to its members
         """
@@ -158,7 +158,7 @@ class DeviceGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Description of Device group
         """
@@ -166,7 +166,7 @@ class DeviceGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def devices(self) -> Optional[List['outputs.DeviceGroupDevice']]:
+    def devices(self) -> pulumi.Output[Optional[List['outputs.DeviceGroupDevice']]]:
         """
         Name of the device to be included in device group, this need to be configured before using devicegroup resource
         """
@@ -174,7 +174,7 @@ class DeviceGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fullLoadOnSync")
-    def full_load_on_sync(self) -> Optional[str]:
+    def full_load_on_sync(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies if the device-group will perform a full-load upon sync
         """
@@ -182,7 +182,7 @@ class DeviceGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="incrementalConfig")
-    def incremental_config(self) -> Optional[float]:
+    def incremental_config(self) -> pulumi.Output[Optional[float]]:
         """
         Specifies the maximum size (in KB) to devote to incremental config sync cached transactions. The default is 1024 KB.
         """
@@ -190,7 +190,7 @@ class DeviceGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Is the name of the device Group
         """
@@ -198,7 +198,7 @@ class DeviceGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="networkFailover")
-    def network_failover(self) -> Optional[str]:
+    def network_failover(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies if the device-group will use a network connection for failover
         """
@@ -206,7 +206,7 @@ class DeviceGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def partition(self) -> Optional[str]:
+    def partition(self) -> pulumi.Output[Optional[str]]:
         """
         Device administrative partition
         """
@@ -214,7 +214,7 @@ class DeviceGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="saveOnAutoSync")
-    def save_on_auto_sync(self) -> Optional[str]:
+    def save_on_auto_sync(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies whether the configuration should be saved upon auto-sync.
         """
@@ -222,7 +222,7 @@ class DeviceGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[str]:
+    def type(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies if the device-group will be used for failover or resource syncing
         """

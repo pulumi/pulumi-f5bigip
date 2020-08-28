@@ -13,7 +13,7 @@ __all__ = ['SnatPool']
 
 class SnatPool(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  members: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -99,7 +99,7 @@ class SnatPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def members(self) -> List[str]:
+    def members(self) -> pulumi.Output[List[str]]:
         """
         Specifies a translation address to add to or delete from a SNAT pool (at least one address is required)
         """
@@ -107,7 +107,7 @@ class SnatPool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the snatpool
         """

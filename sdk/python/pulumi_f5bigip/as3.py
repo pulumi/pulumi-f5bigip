@@ -13,7 +13,7 @@ __all__ = ['As3']
 
 class As3(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_list: Optional[pulumi.Input[str]] = None,
                  as3_json: Optional[pulumi.Input[str]] = None,
@@ -116,7 +116,7 @@ class As3(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationList")
-    def application_list(self) -> str:
+    def application_list(self) -> pulumi.Output[str]:
         """
         Name of Application
         """
@@ -124,7 +124,7 @@ class As3(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="as3Json")
-    def as3_json(self) -> str:
+    def as3_json(self) -> pulumi.Output[str]:
         """
         Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         """
@@ -132,7 +132,7 @@ class As3(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tenantFilter")
-    def tenant_filter(self) -> Optional[str]:
+    def tenant_filter(self) -> pulumi.Output[Optional[str]]:
         """
         If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified
         """
@@ -140,7 +140,7 @@ class As3(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tenantList")
-    def tenant_list(self) -> str:
+    def tenant_list(self) -> pulumi.Output[str]:
         """
         Name of Tenant
         """
@@ -148,7 +148,7 @@ class As3(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tenantName")
-    def tenant_name(self) -> Optional[str]:
+    def tenant_name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of Tenant
         """

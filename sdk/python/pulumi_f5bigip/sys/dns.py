@@ -13,7 +13,7 @@ __all__ = ['Dns']
 
 class Dns(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name_servers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -106,7 +106,7 @@ class Dns(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> pulumi.Output[str]:
         """
         Provide description for your DNS server
         """
@@ -114,7 +114,7 @@ class Dns(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nameServers")
-    def name_servers(self) -> Optional[List[str]]:
+    def name_servers(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Name or IP address of the DNS server
         """
@@ -122,7 +122,7 @@ class Dns(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="numberOfDots")
-    def number_of_dots(self) -> Optional[float]:
+    def number_of_dots(self) -> pulumi.Output[Optional[float]]:
         """
         Configures the number of dots needed in a name before an initial absolute query will be made.
         """
@@ -130,7 +130,7 @@ class Dns(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def searches(self) -> Optional[List[str]]:
+    def searches(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Specify what domains you want to search
         """

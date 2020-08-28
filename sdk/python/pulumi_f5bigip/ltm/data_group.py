@@ -15,7 +15,7 @@ __all__ = ['DataGroup']
 
 class DataGroup(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  records: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DataGroupRecordArgs']]]]] = None,
@@ -114,7 +114,7 @@ class DataGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
         """
@@ -122,7 +122,7 @@ class DataGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def records(self) -> Optional[List['outputs.DataGroupRecord']]:
+    def records(self) -> pulumi.Output[Optional[List['outputs.DataGroupRecord']]]:
         """
         a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
         """
@@ -130,7 +130,7 @@ class DataGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> str:
+    def type(self) -> pulumi.Output[str]:
         """
         datagroup type (applies to the `name` field of the record), supports: `string`, `ip` or `integer`
         """

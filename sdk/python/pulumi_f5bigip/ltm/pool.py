@@ -13,7 +13,7 @@ __all__ = ['Pool']
 
 class Pool(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allow_nat: Optional[pulumi.Input[str]] = None,
                  allow_snat: Optional[pulumi.Input[str]] = None,
@@ -143,7 +143,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowNat")
-    def allow_nat(self) -> str:
+    def allow_nat(self) -> pulumi.Output[str]:
         """
         Allow NAT
         """
@@ -151,7 +151,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="allowSnat")
-    def allow_snat(self) -> str:
+    def allow_snat(self) -> pulumi.Output[str]:
         """
         Allow SNAT
         """
@@ -159,7 +159,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         Userdefined value to describe the pool
         """
@@ -167,7 +167,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="loadBalancingMode")
-    def load_balancing_mode(self) -> str:
+    def load_balancing_mode(self) -> pulumi.Output[str]:
         """
         Possible values: round-robin, ...
         """
@@ -175,7 +175,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def monitors(self) -> List[str]:
+    def monitors(self) -> pulumi.Output[List[str]]:
         """
         List of monitor names to associate with the pool
         """
@@ -183,7 +183,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the pool
         """
@@ -191,7 +191,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="reselectTries")
-    def reselect_tries(self) -> float:
+    def reselect_tries(self) -> pulumi.Output[float]:
         """
         Number of times the system tries to select a new pool member after a failure.
         """
@@ -199,7 +199,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceDownAction")
-    def service_down_action(self) -> str:
+    def service_down_action(self) -> pulumi.Output[str]:
         """
         Possible values: none, reset, reselect, drop
         """
@@ -207,7 +207,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="slowRampTime")
-    def slow_ramp_time(self) -> float:
+    def slow_ramp_time(self) -> pulumi.Output[float]:
         """
         Slow ramp time for pool members
         """

@@ -13,7 +13,7 @@ __all__ = ['ProfileHttpCompress']
 
 class ProfileHttpCompress(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content_type_excludes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  content_type_includes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -125,7 +125,7 @@ class ProfileHttpCompress(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentTypeExcludes")
-    def content_type_excludes(self) -> Optional[List[str]]:
+    def content_type_excludes(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Excludes a specified list of content types from compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
         """
@@ -133,7 +133,7 @@ class ProfileHttpCompress(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="contentTypeIncludes")
-    def content_type_includes(self) -> Optional[List[str]]:
+    def content_type_includes(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Specifies a list of content types for compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
         """
@@ -141,7 +141,7 @@ class ProfileHttpCompress(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> Optional[str]:
+    def defaults_from(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         """
@@ -149,7 +149,7 @@ class ProfileHttpCompress(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the profile_httpcompress
         """
@@ -157,7 +157,7 @@ class ProfileHttpCompress(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uriExcludes")
-    def uri_excludes(self) -> Optional[List[str]]:
+    def uri_excludes(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Disables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you do not want to compress.
         """
@@ -165,7 +165,7 @@ class ProfileHttpCompress(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="uriIncludes")
-    def uri_includes(self) -> Optional[List[str]]:
+    def uri_includes(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Enables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you want to compress.
         """

@@ -13,7 +13,7 @@ __all__ = ['Command']
 
 class Command(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  command_results: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  commands: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -98,7 +98,7 @@ class Command(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="commandResults")
-    def command_results(self) -> List[str]:
+    def command_results(self) -> pulumi.Output[List[str]]:
         """
         The resulting output from the `commands` executed
         """
@@ -106,7 +106,7 @@ class Command(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def commands(self) -> List[str]:
+    def commands(self) -> pulumi.Output[List[str]]:
         """
         The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`
         """
@@ -114,7 +114,7 @@ class Command(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def when(self) -> Optional[str]:
+    def when(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "when")
 
     def translate_output_property(self, prop):
