@@ -15,7 +15,7 @@ __all__ = ['Snat']
 
 class Snat(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  autolasthop: Optional[pulumi.Input[str]] = None,
                  full_path: Optional[pulumi.Input[str]] = None,
@@ -165,7 +165,7 @@ class Snat(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def autolasthop(self) -> Optional[str]:
+    def autolasthop(self) -> pulumi.Output[Optional[str]]:
         """
         -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
         """
@@ -173,7 +173,7 @@ class Snat(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fullPath")
-    def full_path(self) -> Optional[str]:
+    def full_path(self) -> pulumi.Output[Optional[str]]:
         """
         Fullpath
         """
@@ -181,7 +181,7 @@ class Snat(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def mirror(self) -> Optional[str]:
+    def mirror(self) -> pulumi.Output[Optional[str]]:
         """
         Enables or disables mirroring of SNAT connections.
         """
@@ -189,7 +189,7 @@ class Snat(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the snat
         """
@@ -197,7 +197,7 @@ class Snat(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def origins(self) -> List['outputs.SnatOrigin']:
+    def origins(self) -> pulumi.Output[List['outputs.SnatOrigin']]:
         """
         IP or hostname of the snat
         """
@@ -205,7 +205,7 @@ class Snat(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def partition(self) -> Optional[str]:
+    def partition(self) -> pulumi.Output[Optional[str]]:
         """
         Displays the administrative partition within which this profile resides
         """
@@ -213,7 +213,7 @@ class Snat(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def snatpool(self) -> Optional[str]:
+    def snatpool(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the name of a SNAT pool. You can only use this option when automap and translation are not used.
         """
@@ -221,7 +221,7 @@ class Snat(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def sourceport(self) -> Optional[str]:
+    def sourceport(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies whether the system preserves the source port of the connection. The default is preserve. Use of the preserve-strict setting should be restricted to UDP only under very special circumstances such as nPath or transparent (that is, no translation of any other L3/L4 field), where there is a 1:1 relationship between virtual IP addresses and node addresses, or when clustered multi-processing (CMP) is disabled. The change setting is useful for obfuscating internal network addresses.
         """
@@ -229,7 +229,7 @@ class Snat(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def translation(self) -> Optional[str]:
+    def translation(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the name of a translated IP address. Note that translated addresses are outside the traffic management system. You can only use this option when automap and snatpool are not used.
         """
@@ -237,7 +237,7 @@ class Snat(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def vlans(self) -> Optional[List[str]]:
+    def vlans(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Specifies the name of the VLAN to which you want to assign the SNAT. The default is vlans-enabled.
         """
@@ -245,7 +245,7 @@ class Snat(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def vlansdisabled(self) -> Optional[bool]:
+    def vlansdisabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Disables the SNAT on all VLANs.
         """

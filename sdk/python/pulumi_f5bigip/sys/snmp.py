@@ -13,7 +13,7 @@ __all__ = ['Snmp']
 
 class Snmp(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allowedaddresses: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  sys_contact: Optional[pulumi.Input[str]] = None,
@@ -96,7 +96,7 @@ class Snmp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def allowedaddresses(self) -> Optional[List[str]]:
+    def allowedaddresses(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Configures hosts or networks from which snmpd can accept traffic. Entries go directly into hosts.allow.
         """
@@ -104,7 +104,7 @@ class Snmp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sysContact")
-    def sys_contact(self) -> Optional[str]:
+    def sys_contact(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the contact information for the system administrator.
         """
@@ -112,7 +112,7 @@ class Snmp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sysLocation")
-    def sys_location(self) -> Optional[str]:
+    def sys_location(self) -> pulumi.Output[Optional[str]]:
         """
         Describes the system's physical location.
         """

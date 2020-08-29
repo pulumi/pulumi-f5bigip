@@ -13,7 +13,7 @@ __all__ = ['PoolAttachment']
 
 class PoolAttachment(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  node: Optional[pulumi.Input[str]] = None,
                  pool: Optional[pulumi.Input[str]] = None,
@@ -112,7 +112,7 @@ class PoolAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def node(self) -> str:
+    def node(self) -> pulumi.Output[str]:
         """
         Name of the Node with service port. (Name of Node should be referenced from `ltm.Node` resource)
         """
@@ -120,7 +120,7 @@ class PoolAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def pool(self) -> str:
+    def pool(self) -> pulumi.Output[str]:
         """
         Name of the pool, which should be referenced from `ltm.Pool` resource
         """

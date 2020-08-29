@@ -13,7 +13,7 @@ __all__ = ['BigIpLicense']
 
 class BigIpLicense(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  command: Optional[pulumi.Input[str]] = None,
                  registration_key: Optional[pulumi.Input[str]] = None,
@@ -82,7 +82,7 @@ class BigIpLicense(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def command(self) -> str:
+    def command(self) -> pulumi.Output[str]:
         """
         Tmsh command to execute tmsh commands like install
         """
@@ -90,7 +90,7 @@ class BigIpLicense(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="registrationKey")
-    def registration_key(self) -> str:
+    def registration_key(self) -> pulumi.Output[str]:
         """
         A unique Key F5 provides for Licensing BIG-IP
         """

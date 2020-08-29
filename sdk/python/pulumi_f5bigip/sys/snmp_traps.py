@@ -13,7 +13,7 @@ __all__ = ['SnmpTraps']
 
 class SnmpTraps(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth_passwordencrypted: Optional[pulumi.Input[str]] = None,
                  auth_protocol: Optional[pulumi.Input[str]] = None,
@@ -164,7 +164,7 @@ class SnmpTraps(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authPasswordencrypted")
-    def auth_passwordencrypted(self) -> Optional[str]:
+    def auth_passwordencrypted(self) -> pulumi.Output[Optional[str]]:
         """
         Encrypted password
         """
@@ -172,7 +172,7 @@ class SnmpTraps(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authProtocol")
-    def auth_protocol(self) -> Optional[str]:
+    def auth_protocol(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the protocol used to authenticate the user.
         """
@@ -180,7 +180,7 @@ class SnmpTraps(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def community(self) -> Optional[str]:
+    def community(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the community string used for this trap.
         """
@@ -188,7 +188,7 @@ class SnmpTraps(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         The port that the trap will be sent to.
         """
@@ -196,7 +196,7 @@ class SnmpTraps(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="engineId")
-    def engine_id(self) -> Optional[str]:
+    def engine_id(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the authoritative security engine for SNMPv3.
         """
@@ -204,7 +204,7 @@ class SnmpTraps(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def host(self) -> Optional[str]:
+    def host(self) -> pulumi.Output[Optional[str]]:
         """
         The host the trap will be sent to.
         """
@@ -212,7 +212,7 @@ class SnmpTraps(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[str]:
+    def name(self) -> pulumi.Output[Optional[str]]:
         """
         Name of the snmp trap.
         """
@@ -220,7 +220,7 @@ class SnmpTraps(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[float]:
+    def port(self) -> pulumi.Output[Optional[float]]:
         """
         User defined description.
         """
@@ -228,7 +228,7 @@ class SnmpTraps(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privacyPassword")
-    def privacy_password(self) -> Optional[str]:
+    def privacy_password(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the clear text password used to encrypt traffic. This field will not be displayed.
         """
@@ -236,7 +236,7 @@ class SnmpTraps(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privacyPasswordEncrypted")
-    def privacy_password_encrypted(self) -> Optional[str]:
+    def privacy_password_encrypted(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the encrypted password used to encrypt traffic.
         """
@@ -244,7 +244,7 @@ class SnmpTraps(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="privacyProtocol")
-    def privacy_protocol(self) -> Optional[str]:
+    def privacy_protocol(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the protocol used to encrypt traffic.
         """
@@ -252,7 +252,7 @@ class SnmpTraps(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityLevel")
-    def security_level(self) -> Optional[str]:
+    def security_level(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies whether or not traffic is encrypted and whether or not authentication is required.
         """
@@ -260,7 +260,7 @@ class SnmpTraps(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityName")
-    def security_name(self) -> Optional[str]:
+    def security_name(self) -> pulumi.Output[Optional[str]]:
         """
         Security name used in conjunction with SNMPv3.
         """
@@ -268,7 +268,7 @@ class SnmpTraps(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> Optional[str]:
+    def version(self) -> pulumi.Output[Optional[str]]:
         """
         SNMP version used for sending the trap.
         """

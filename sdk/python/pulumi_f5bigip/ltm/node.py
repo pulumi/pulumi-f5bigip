@@ -15,7 +15,7 @@ __all__ = ['Node']
 
 class Node(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address: Optional[pulumi.Input[str]] = None,
                  connection_limit: Optional[pulumi.Input[float]] = None,
@@ -153,7 +153,7 @@ class Node(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def address(self) -> str:
+    def address(self) -> pulumi.Output[str]:
         """
         IP or hostname of the node
         """
@@ -161,7 +161,7 @@ class Node(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionLimit")
-    def connection_limit(self) -> float:
+    def connection_limit(self) -> pulumi.Output[float]:
         """
         Specifies the maximum number of connections allowed for the node or node address.
         """
@@ -169,7 +169,7 @@ class Node(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> Optional[str]:
+    def description(self) -> pulumi.Output[Optional[str]]:
         """
         User-defined description give ltm_node
         """
@@ -177,7 +177,7 @@ class Node(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dynamicRatio")
-    def dynamic_ratio(self) -> float:
+    def dynamic_ratio(self) -> pulumi.Output[float]:
         """
         Specifies the fixed ratio value used for a node during ratio load balancing.
         """
@@ -185,12 +185,12 @@ class Node(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def fqdn(self) -> Optional['outputs.NodeFqdn']:
+    def fqdn(self) -> pulumi.Output[Optional['outputs.NodeFqdn']]:
         return pulumi.get(self, "fqdn")
 
     @property
     @pulumi.getter
-    def monitor(self) -> Optional[str]:
+    def monitor(self) -> pulumi.Output[Optional[str]]:
         """
         specifies the name of the monitor or monitor rule that you want to associate with the node.
         """
@@ -198,7 +198,7 @@ class Node(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the node
         """
@@ -206,7 +206,7 @@ class Node(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="rateLimit")
-    def rate_limit(self) -> str:
+    def rate_limit(self) -> pulumi.Output[str]:
         """
         Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
         """
@@ -214,7 +214,7 @@ class Node(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def ratio(self) -> float:
+    def ratio(self) -> pulumi.Output[float]:
         """
         Sets the ratio number for the node.
         """
@@ -222,7 +222,7 @@ class Node(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def state(self) -> Optional[str]:
+    def state(self) -> pulumi.Output[Optional[str]]:
         """
         Default is "user-up" you can set to "user-down" if you want to disable
         """

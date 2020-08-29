@@ -13,7 +13,7 @@ __all__ = ['Ntp']
 
 class Ntp(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  servers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
@@ -100,7 +100,7 @@ class Ntp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> str:
+    def description(self) -> pulumi.Output[str]:
         """
         Name of the ntp Servers
         """
@@ -108,7 +108,7 @@ class Ntp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def servers(self) -> Optional[List[str]]:
+    def servers(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Adds NTP servers to or deletes NTP servers from the BIG-IP system.
         """
@@ -116,7 +116,7 @@ class Ntp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def timezone(self) -> Optional[str]:
+    def timezone(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the time zone that you want to use for the system time.
         """

@@ -13,7 +13,7 @@ __all__ = ['ProfileHttp2']
 
 class ProfileHttp2(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  activation_modes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  concurrent_streams_per_connection: Optional[pulumi.Input[float]] = None,
@@ -124,7 +124,7 @@ class ProfileHttp2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="activationModes")
-    def activation_modes(self) -> Optional[List[str]]:
+    def activation_modes(self) -> pulumi.Output[Optional[List[str]]]:
         """
         Specifies what will cause an incoming connection to be handled as a HTTP/2 connection. The default values npn and alpn specify that the TLS next-protocol-negotiation and application-layer-protocol-negotiation extensions will be used.
         """
@@ -132,7 +132,7 @@ class ProfileHttp2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="concurrentStreamsPerConnection")
-    def concurrent_streams_per_connection(self) -> Optional[float]:
+    def concurrent_streams_per_connection(self) -> pulumi.Output[Optional[float]]:
         """
         Specifies how many concurrent requests are allowed to be outstanding on a single HTTP/2 connection.
         """
@@ -140,7 +140,7 @@ class ProfileHttp2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionIdleTimeout")
-    def connection_idle_timeout(self) -> Optional[float]:
+    def connection_idle_timeout(self) -> pulumi.Output[Optional[float]]:
         """
         Specifies the number of seconds that a connection is idle before the connection is eligible for deletion..
         """
@@ -148,7 +148,7 @@ class ProfileHttp2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> Optional[str]:
+    def defaults_from(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         """
@@ -156,7 +156,7 @@ class ProfileHttp2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="headerTableSize")
-    def header_table_size(self) -> Optional[float]:
+    def header_table_size(self) -> pulumi.Output[Optional[float]]:
         """
         Use the parent Http2 profile
         """
@@ -164,7 +164,7 @@ class ProfileHttp2(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the profile_http2
         """

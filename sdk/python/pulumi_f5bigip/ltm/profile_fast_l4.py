@@ -13,7 +13,7 @@ __all__ = ['ProfileFastL4']
 
 class ProfileFastL4(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  client_timeout: Optional[pulumi.Input[float]] = None,
                  defaults_from: Optional[pulumi.Input[str]] = None,
@@ -150,7 +150,7 @@ class ProfileFastL4(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientTimeout")
-    def client_timeout(self) -> float:
+    def client_timeout(self) -> pulumi.Output[float]:
         """
         Specifies late binding client timeout in seconds. This setting specifies the number of seconds allowed for a client to transmit enough data to select a server when late binding is enabled. If it expires timeout-recovery mode will dictate what action to take.
         """
@@ -158,7 +158,7 @@ class ProfileFastL4(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> str:
+    def defaults_from(self) -> pulumi.Output[str]:
         """
         Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         """
@@ -166,7 +166,7 @@ class ProfileFastL4(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="explicitflowMigration")
-    def explicitflow_migration(self) -> str:
+    def explicitflow_migration(self) -> pulumi.Output[str]:
         """
         Enables or disables late binding explicit flow migration that allows iRules to control when flows move from software to hardware. Explicit flow migration is disabled by default hence BIG-IP automatically migrates flows from software to hardware.
         """
@@ -174,7 +174,7 @@ class ProfileFastL4(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hardwareSyncookie")
-    def hardware_syncookie(self) -> str:
+    def hardware_syncookie(self) -> pulumi.Output[str]:
         """
         Enables or disables hardware SYN cookie support when PVA10 is present on the system. Note that when you set the hardware syncookie option to enabled, you may also want to set the following bigdb database variables using the "/sys modify db" command, based on your requirements: pva.SynCookies.Full.ConnectionThreshold (default: 500000), pva.SynCookies.Assist.ConnectionThreshold (default: 500000) pva.SynCookies.ClientWindow (default: 0). The default value is disabled.
         """
@@ -182,7 +182,7 @@ class ProfileFastL4(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="idleTimeout")
-    def idle_timeout(self) -> str:
+    def idle_timeout(self) -> pulumi.Output[str]:
         """
         Specifies an idle timeout in seconds. This setting specifies the number of seconds that a connection is idle before the connection is eligible for deletion.When you specify an idle timeout for the Fast L4 profile, the value must be greater than the bigdb database variable Pva.Scrub time in msec for it to work properly.The default value is 300 seconds.
         """
@@ -190,7 +190,7 @@ class ProfileFastL4(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iptosToclient")
-    def iptos_toclient(self) -> str:
+    def iptos_toclient(self) -> pulumi.Output[str]:
         """
         Specifies an IP ToS number for the client side. This option specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to clients. The default value is 65535 (pass-through), which indicates, do not modify.
         """
@@ -198,7 +198,7 @@ class ProfileFastL4(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="iptosToserver")
-    def iptos_toserver(self) -> str:
+    def iptos_toserver(self) -> pulumi.Output[str]:
         """
         Specifies an IP ToS number for the server side. This setting specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to servers. The default value is 65535 (pass-through), which indicates, do not modify.
         """
@@ -206,7 +206,7 @@ class ProfileFastL4(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keepaliveInterval")
-    def keepalive_interval(self) -> str:
+    def keepalive_interval(self) -> pulumi.Output[str]:
         """
         Specifies the keep alive probe interval, in seconds. The default value is disabled (0 seconds).
         """
@@ -214,7 +214,7 @@ class ProfileFastL4(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the profile_fastl4
         """
@@ -222,7 +222,7 @@ class ProfileFastL4(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def partition(self) -> str:
+    def partition(self) -> pulumi.Output[str]:
         """
         Displays the administrative partition within which this profile resides
         """

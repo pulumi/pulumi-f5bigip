@@ -13,7 +13,7 @@ __all__ = ['VirtualAddress']
 
 class VirtualAddress(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  advertize_route: Optional[pulumi.Input[bool]] = None,
                  arp: Optional[pulumi.Input[bool]] = None,
@@ -130,7 +130,7 @@ class VirtualAddress(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="advertizeRoute")
-    def advertize_route(self) -> Optional[bool]:
+    def advertize_route(self) -> pulumi.Output[Optional[bool]]:
         """
         Enabled dynamic routing of the address
         """
@@ -138,7 +138,7 @@ class VirtualAddress(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def arp(self) -> Optional[bool]:
+    def arp(self) -> pulumi.Output[Optional[bool]]:
         """
         Enable or disable ARP for the virtual address
         """
@@ -146,7 +146,7 @@ class VirtualAddress(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoDelete")
-    def auto_delete(self) -> Optional[bool]:
+    def auto_delete(self) -> pulumi.Output[Optional[bool]]:
         """
         Automatically delete the virtual address with the virtual server
         """
@@ -154,7 +154,7 @@ class VirtualAddress(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connLimit")
-    def conn_limit(self) -> Optional[float]:
+    def conn_limit(self) -> pulumi.Output[Optional[float]]:
         """
         Max number of connections for virtual address
         """
@@ -162,7 +162,7 @@ class VirtualAddress(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def enabled(self) -> Optional[bool]:
+    def enabled(self) -> pulumi.Output[Optional[bool]]:
         """
         Enable or disable the virtual address
         """
@@ -170,7 +170,7 @@ class VirtualAddress(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="icmpEcho")
-    def icmp_echo(self) -> Optional[bool]:
+    def icmp_echo(self) -> pulumi.Output[Optional[bool]]:
         """
         Enable/Disable ICMP response to the virtual address
         """
@@ -178,7 +178,7 @@ class VirtualAddress(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the virtual address
         """
@@ -186,7 +186,7 @@ class VirtualAddress(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="trafficGroup")
-    def traffic_group(self) -> Optional[str]:
+    def traffic_group(self) -> pulumi.Output[Optional[str]]:
         """
         Specify the partition and traffic group
         """

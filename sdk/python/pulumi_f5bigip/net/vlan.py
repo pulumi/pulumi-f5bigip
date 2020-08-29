@@ -15,7 +15,7 @@ __all__ = ['Vlan']
 
 class Vlan(pulumi.CustomResource):
     def __init__(__self__,
-                 resource_name,
+                 resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  interfaces: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VlanInterfaceArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -106,7 +106,7 @@ class Vlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def interfaces(self) -> Optional[List['outputs.VlanInterface']]:
+    def interfaces(self) -> pulumi.Output[Optional[List['outputs.VlanInterface']]]:
         """
         Specifies which interfaces you want this VLAN to use for traffic management.
         """
@@ -114,7 +114,7 @@ class Vlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the vlan
         """
@@ -122,7 +122,7 @@ class Vlan(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tag(self) -> Optional[float]:
+    def tag(self) -> pulumi.Output[Optional[float]]:
         """
         Specifies a number that the system adds into the header of any frame passing through the VLAN.
         """
