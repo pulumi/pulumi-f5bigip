@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -61,7 +61,7 @@ class NodeFqdnArgs:
     def __init__(__self__, *,
                  address_family: Optional[pulumi.Input[str]] = None,
                  autopopulate: Optional[pulumi.Input[str]] = None,
-                 downinterval: Optional[pulumi.Input[float]] = None,
+                 downinterval: Optional[pulumi.Input[int]] = None,
                  interval: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
@@ -103,11 +103,11 @@ class NodeFqdnArgs:
 
     @property
     @pulumi.getter
-    def downinterval(self) -> Optional[pulumi.Input[float]]:
+    def downinterval(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "downinterval")
 
     @downinterval.setter
-    def downinterval(self, value: Optional[pulumi.Input[float]]):
+    def downinterval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "downinterval", value)
 
     @property
@@ -139,8 +139,8 @@ class NodeFqdnArgs:
 class PolicyRuleArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 actions: Optional[pulumi.Input[List[pulumi.Input['PolicyRuleActionArgs']]]] = None,
-                 conditions: Optional[pulumi.Input[List[pulumi.Input['PolicyRuleConditionArgs']]]] = None):
+                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleActionArgs']]]] = None,
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleConditionArgs']]]] = None):
         """
         :param pulumi.Input[str] name: Name of the Policy
         """
@@ -164,20 +164,20 @@ class PolicyRuleArgs:
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[List[pulumi.Input['PolicyRuleActionArgs']]]]:
+    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleActionArgs']]]]:
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: Optional[pulumi.Input[List[pulumi.Input['PolicyRuleActionArgs']]]]):
+    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleActionArgs']]]]):
         pulumi.set(self, "actions", value)
 
     @property
     @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[List[pulumi.Input['PolicyRuleConditionArgs']]]]:
+    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleConditionArgs']]]]:
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[List[pulumi.Input['PolicyRuleConditionArgs']]]]):
+    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleConditionArgs']]]]):
         pulumi.set(self, "conditions", value)
 
 
@@ -193,7 +193,7 @@ class PolicyRuleActionArgs:
                  category: Optional[pulumi.Input[str]] = None,
                  classify: Optional[pulumi.Input[bool]] = None,
                  clone_pool: Optional[pulumi.Input[str]] = None,
-                 code: Optional[pulumi.Input[float]] = None,
+                 code: Optional[pulumi.Input[int]] = None,
                  compress: Optional[pulumi.Input[bool]] = None,
                  content: Optional[pulumi.Input[str]] = None,
                  cookie_hash: Optional[pulumi.Input[bool]] = None,
@@ -207,7 +207,7 @@ class PolicyRuleActionArgs:
                  domain: Optional[pulumi.Input[str]] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
                  expiry: Optional[pulumi.Input[str]] = None,
-                 expiry_secs: Optional[pulumi.Input[float]] = None,
+                 expiry_secs: Optional[pulumi.Input[int]] = None,
                  expression: Optional[pulumi.Input[str]] = None,
                  extension: Optional[pulumi.Input[str]] = None,
                  facility: Optional[pulumi.Input[str]] = None,
@@ -230,7 +230,7 @@ class PolicyRuleActionArgs:
                  ip_address: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
                  l7dos: Optional[pulumi.Input[bool]] = None,
-                 length: Optional[pulumi.Input[float]] = None,
+                 length: Optional[pulumi.Input[int]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  log: Optional[pulumi.Input[bool]] = None,
                  ltm_policy: Optional[pulumi.Input[bool]] = None,
@@ -239,14 +239,14 @@ class PolicyRuleActionArgs:
                  netmask: Optional[pulumi.Input[str]] = None,
                  nexthop: Optional[pulumi.Input[str]] = None,
                  node: Optional[pulumi.Input[str]] = None,
-                 offset: Optional[pulumi.Input[float]] = None,
+                 offset: Optional[pulumi.Input[int]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  pem: Optional[pulumi.Input[bool]] = None,
                  persist: Optional[pulumi.Input[bool]] = None,
                  pin: Optional[pulumi.Input[bool]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
                  pool: Optional[pulumi.Input[str]] = None,
-                 port: Optional[pulumi.Input[float]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
                  priority: Optional[pulumi.Input[str]] = None,
                  profile: Optional[pulumi.Input[str]] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
@@ -272,18 +272,18 @@ class PolicyRuleActionArgs:
                  ssl_server_handshake: Optional[pulumi.Input[bool]] = None,
                  ssl_server_hello: Optional[pulumi.Input[bool]] = None,
                  ssl_session_id: Optional[pulumi.Input[bool]] = None,
-                 status: Optional[pulumi.Input[float]] = None,
+                 status: Optional[pulumi.Input[int]] = None,
                  tcl: Optional[pulumi.Input[bool]] = None,
                  tcp_nagle: Optional[pulumi.Input[bool]] = None,
                  text: Optional[pulumi.Input[str]] = None,
-                 timeout: Optional[pulumi.Input[float]] = None,
+                 timeout: Optional[pulumi.Input[int]] = None,
                  tm_name: Optional[pulumi.Input[str]] = None,
                  uie: Optional[pulumi.Input[bool]] = None,
                  universal: Optional[pulumi.Input[bool]] = None,
                  value: Optional[pulumi.Input[str]] = None,
                  virtual: Optional[pulumi.Input[str]] = None,
                  vlan: Optional[pulumi.Input[str]] = None,
-                 vlan_id: Optional[pulumi.Input[float]] = None,
+                 vlan_id: Optional[pulumi.Input[int]] = None,
                  wam: Optional[pulumi.Input[bool]] = None,
                  write: Optional[pulumi.Input[bool]] = None):
         """
@@ -579,11 +579,11 @@ class PolicyRuleActionArgs:
 
     @property
     @pulumi.getter
-    def code(self) -> Optional[pulumi.Input[float]]:
+    def code(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "code")
 
     @code.setter
-    def code(self, value: Optional[pulumi.Input[float]]):
+    def code(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "code", value)
 
     @property
@@ -705,11 +705,11 @@ class PolicyRuleActionArgs:
 
     @property
     @pulumi.getter(name="expirySecs")
-    def expiry_secs(self) -> Optional[pulumi.Input[float]]:
+    def expiry_secs(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "expiry_secs")
 
     @expiry_secs.setter
-    def expiry_secs(self, value: Optional[pulumi.Input[float]]):
+    def expiry_secs(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "expiry_secs", value)
 
     @property
@@ -915,11 +915,11 @@ class PolicyRuleActionArgs:
 
     @property
     @pulumi.getter
-    def length(self) -> Optional[pulumi.Input[float]]:
+    def length(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "length")
 
     @length.setter
-    def length(self, value: Optional[pulumi.Input[float]]):
+    def length(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "length", value)
 
     @property
@@ -996,11 +996,11 @@ class PolicyRuleActionArgs:
 
     @property
     @pulumi.getter
-    def offset(self) -> Optional[pulumi.Input[float]]:
+    def offset(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "offset")
 
     @offset.setter
-    def offset(self, value: Optional[pulumi.Input[float]]):
+    def offset(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "offset", value)
 
     @property
@@ -1062,11 +1062,11 @@ class PolicyRuleActionArgs:
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[pulumi.Input[float]]:
+    def port(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "port")
 
     @port.setter
-    def port(self, value: Optional[pulumi.Input[float]]):
+    def port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "port", value)
 
     @property
@@ -1296,11 +1296,11 @@ class PolicyRuleActionArgs:
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[pulumi.Input[float]]:
+    def status(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "status")
 
     @status.setter
-    def status(self, value: Optional[pulumi.Input[float]]):
+    def status(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "status", value)
 
     @property
@@ -1332,11 +1332,11 @@ class PolicyRuleActionArgs:
 
     @property
     @pulumi.getter
-    def timeout(self) -> Optional[pulumi.Input[float]]:
+    def timeout(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "timeout")
 
     @timeout.setter
-    def timeout(self, value: Optional[pulumi.Input[float]]):
+    def timeout(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "timeout", value)
 
     @property
@@ -1398,11 +1398,11 @@ class PolicyRuleActionArgs:
 
     @property
     @pulumi.getter(name="vlanId")
-    def vlan_id(self) -> Optional[pulumi.Input[float]]:
+    def vlan_id(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "vlan_id")
 
     @vlan_id.setter
-    def vlan_id(self, value: Optional[pulumi.Input[float]]):
+    def vlan_id(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "vlan_id", value)
 
     @property
@@ -1467,7 +1467,7 @@ class PolicyRuleConditionArgs:
                  http_uri: Optional[pulumi.Input[bool]] = None,
                  http_user_agent: Optional[pulumi.Input[bool]] = None,
                  http_version: Optional[pulumi.Input[bool]] = None,
-                 index: Optional[pulumi.Input[float]] = None,
+                 index: Optional[pulumi.Input[int]] = None,
                  internal: Optional[pulumi.Input[bool]] = None,
                  isp: Optional[pulumi.Input[bool]] = None,
                  last15secs: Optional[pulumi.Input[bool]] = None,
@@ -1513,7 +1513,7 @@ class PolicyRuleConditionArgs:
                  user_agent_token: Optional[pulumi.Input[bool]] = None,
                  username: Optional[pulumi.Input[bool]] = None,
                  value: Optional[pulumi.Input[bool]] = None,
-                 values: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  version: Optional[pulumi.Input[bool]] = None,
                  vlan: Optional[pulumi.Input[bool]] = None,
                  vlan_id: Optional[pulumi.Input[bool]] = None):
@@ -2063,11 +2063,11 @@ class PolicyRuleConditionArgs:
 
     @property
     @pulumi.getter
-    def index(self) -> Optional[pulumi.Input[float]]:
+    def index(self) -> Optional[pulumi.Input[int]]:
         return pulumi.get(self, "index")
 
     @index.setter
-    def index(self, value: Optional[pulumi.Input[float]]):
+    def index(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "index", value)
 
     @property
@@ -2480,11 +2480,11 @@ class PolicyRuleConditionArgs:
 
     @property
     @pulumi.getter
-    def values(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "values")
 
     @values.setter
-    def values(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "values", value)
 
     @property

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['ProfileServerSsl']
@@ -17,17 +17,17 @@ class ProfileServerSsl(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alert_timeout: Optional[pulumi.Input[str]] = None,
                  authenticate: Optional[pulumi.Input[str]] = None,
-                 authenticate_depth: Optional[pulumi.Input[float]] = None,
+                 authenticate_depth: Optional[pulumi.Input[int]] = None,
                  ca_file: Optional[pulumi.Input[str]] = None,
-                 cache_size: Optional[pulumi.Input[float]] = None,
-                 cache_timeout: Optional[pulumi.Input[float]] = None,
+                 cache_size: Optional[pulumi.Input[int]] = None,
+                 cache_timeout: Optional[pulumi.Input[int]] = None,
                  cert: Optional[pulumi.Input[str]] = None,
                  chain: Optional[pulumi.Input[str]] = None,
                  ciphers: Optional[pulumi.Input[str]] = None,
                  defaults_from: Optional[pulumi.Input[str]] = None,
                  expire_cert_response_control: Optional[pulumi.Input[str]] = None,
                  full_path: Optional[pulumi.Input[str]] = None,
-                 generation: Optional[pulumi.Input[float]] = None,
+                 generation: Optional[pulumi.Input[int]] = None,
                  generic_alert: Optional[pulumi.Input[str]] = None,
                  handshake_timeout: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None,
@@ -52,7 +52,7 @@ class ProfileServerSsl(pulumi.CustomResource):
                  ssl_forward_proxy_bypass: Optional[pulumi.Input[str]] = None,
                  ssl_sign_hash: Optional[pulumi.Input[str]] = None,
                  strict_resume: Optional[pulumi.Input[str]] = None,
-                 tm_options: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 tm_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  unclean_shutdown: Optional[pulumi.Input[str]] = None,
                  untrusted_cert_response_control: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -79,17 +79,17 @@ class ProfileServerSsl(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alert_timeout: Alert time out
         :param pulumi.Input[str] authenticate: Server authentication once / always (default is once).
-        :param pulumi.Input[float] authenticate_depth: Client certificate chain traversal depth. Default 9.
+        :param pulumi.Input[int] authenticate_depth: Client certificate chain traversal depth. Default 9.
         :param pulumi.Input[str] ca_file: Client certificate file path. Default None.
-        :param pulumi.Input[float] cache_size: Cache size (sessions).
-        :param pulumi.Input[float] cache_timeout: Cache time out
+        :param pulumi.Input[int] cache_size: Cache size (sessions).
+        :param pulumi.Input[int] cache_timeout: Cache time out
         :param pulumi.Input[str] cert: Specifies the name of the certificate that the system uses for server-side SSL processing.
         :param pulumi.Input[str] chain: Specifies the certificates-key chain to associate with the SSL profile
         :param pulumi.Input[str] ciphers: Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
         :param pulumi.Input[str] defaults_from: The parent template of this monitor template. Once this value has been set, it cannot be changed. By default, this value is `/Common/serverssl`.
         :param pulumi.Input[str] expire_cert_response_control: Response if the cert is expired (drop / ignore).
         :param pulumi.Input[str] full_path: full path of the profile
-        :param pulumi.Input[float] generation: generation
+        :param pulumi.Input[int] generation: generation
         :param pulumi.Input[str] generic_alert: Generic alerts enabled / disabled.
         :param pulumi.Input[str] handshake_timeout: Handshake time out (seconds)
         :param pulumi.Input[str] key: Specifies the file name of the SSL key.
@@ -192,17 +192,17 @@ class ProfileServerSsl(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             alert_timeout: Optional[pulumi.Input[str]] = None,
             authenticate: Optional[pulumi.Input[str]] = None,
-            authenticate_depth: Optional[pulumi.Input[float]] = None,
+            authenticate_depth: Optional[pulumi.Input[int]] = None,
             ca_file: Optional[pulumi.Input[str]] = None,
-            cache_size: Optional[pulumi.Input[float]] = None,
-            cache_timeout: Optional[pulumi.Input[float]] = None,
+            cache_size: Optional[pulumi.Input[int]] = None,
+            cache_timeout: Optional[pulumi.Input[int]] = None,
             cert: Optional[pulumi.Input[str]] = None,
             chain: Optional[pulumi.Input[str]] = None,
             ciphers: Optional[pulumi.Input[str]] = None,
             defaults_from: Optional[pulumi.Input[str]] = None,
             expire_cert_response_control: Optional[pulumi.Input[str]] = None,
             full_path: Optional[pulumi.Input[str]] = None,
-            generation: Optional[pulumi.Input[float]] = None,
+            generation: Optional[pulumi.Input[int]] = None,
             generic_alert: Optional[pulumi.Input[str]] = None,
             handshake_timeout: Optional[pulumi.Input[str]] = None,
             key: Optional[pulumi.Input[str]] = None,
@@ -227,7 +227,7 @@ class ProfileServerSsl(pulumi.CustomResource):
             ssl_forward_proxy_bypass: Optional[pulumi.Input[str]] = None,
             ssl_sign_hash: Optional[pulumi.Input[str]] = None,
             strict_resume: Optional[pulumi.Input[str]] = None,
-            tm_options: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            tm_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             unclean_shutdown: Optional[pulumi.Input[str]] = None,
             untrusted_cert_response_control: Optional[pulumi.Input[str]] = None) -> 'ProfileServerSsl':
         """
@@ -239,17 +239,17 @@ class ProfileServerSsl(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alert_timeout: Alert time out
         :param pulumi.Input[str] authenticate: Server authentication once / always (default is once).
-        :param pulumi.Input[float] authenticate_depth: Client certificate chain traversal depth. Default 9.
+        :param pulumi.Input[int] authenticate_depth: Client certificate chain traversal depth. Default 9.
         :param pulumi.Input[str] ca_file: Client certificate file path. Default None.
-        :param pulumi.Input[float] cache_size: Cache size (sessions).
-        :param pulumi.Input[float] cache_timeout: Cache time out
+        :param pulumi.Input[int] cache_size: Cache size (sessions).
+        :param pulumi.Input[int] cache_timeout: Cache time out
         :param pulumi.Input[str] cert: Specifies the name of the certificate that the system uses for server-side SSL processing.
         :param pulumi.Input[str] chain: Specifies the certificates-key chain to associate with the SSL profile
         :param pulumi.Input[str] ciphers: Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
         :param pulumi.Input[str] defaults_from: The parent template of this monitor template. Once this value has been set, it cannot be changed. By default, this value is `/Common/serverssl`.
         :param pulumi.Input[str] expire_cert_response_control: Response if the cert is expired (drop / ignore).
         :param pulumi.Input[str] full_path: full path of the profile
-        :param pulumi.Input[float] generation: generation
+        :param pulumi.Input[int] generation: generation
         :param pulumi.Input[str] generic_alert: Generic alerts enabled / disabled.
         :param pulumi.Input[str] handshake_timeout: Handshake time out (seconds)
         :param pulumi.Input[str] key: Specifies the file name of the SSL key.
@@ -345,7 +345,7 @@ class ProfileServerSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authenticateDepth")
-    def authenticate_depth(self) -> pulumi.Output[float]:
+    def authenticate_depth(self) -> pulumi.Output[int]:
         """
         Client certificate chain traversal depth. Default 9.
         """
@@ -361,7 +361,7 @@ class ProfileServerSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cacheSize")
-    def cache_size(self) -> pulumi.Output[float]:
+    def cache_size(self) -> pulumi.Output[int]:
         """
         Cache size (sessions).
         """
@@ -369,7 +369,7 @@ class ProfileServerSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cacheTimeout")
-    def cache_timeout(self) -> pulumi.Output[float]:
+    def cache_timeout(self) -> pulumi.Output[int]:
         """
         Cache time out
         """
@@ -425,7 +425,7 @@ class ProfileServerSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def generation(self) -> pulumi.Output[float]:
+    def generation(self) -> pulumi.Output[int]:
         """
         generation
         """
@@ -629,7 +629,7 @@ class ProfileServerSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tmOptions")
-    def tm_options(self) -> pulumi.Output[List[str]]:
+    def tm_options(self) -> pulumi.Output[Sequence[str]]:
         return pulumi.get(self, "tm_options")
 
     @property

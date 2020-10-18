@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Dns']
@@ -16,9 +16,9 @@ class Dns(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 name_servers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 number_of_dots: Optional[pulumi.Input[float]] = None,
-                 searches: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 number_of_dots: Optional[pulumi.Input[int]] = None,
+                 searches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -41,9 +41,9 @@ class Dns(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Provide description for your DNS server
-        :param pulumi.Input[List[pulumi.Input[str]]] name_servers: Name or IP address of the DNS server
-        :param pulumi.Input[float] number_of_dots: Configures the number of dots needed in a name before an initial absolute query will be made.
-        :param pulumi.Input[List[pulumi.Input[str]]] searches: Specify what domains you want to search
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] name_servers: Name or IP address of the DNS server
+        :param pulumi.Input[int] number_of_dots: Configures the number of dots needed in a name before an initial absolute query will be made.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] searches: Specify what domains you want to search
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -79,9 +79,9 @@ class Dns(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
-            name_servers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            number_of_dots: Optional[pulumi.Input[float]] = None,
-            searches: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'Dns':
+            name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            number_of_dots: Optional[pulumi.Input[int]] = None,
+            searches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'Dns':
         """
         Get an existing Dns resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -90,9 +90,9 @@ class Dns(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Provide description for your DNS server
-        :param pulumi.Input[List[pulumi.Input[str]]] name_servers: Name or IP address of the DNS server
-        :param pulumi.Input[float] number_of_dots: Configures the number of dots needed in a name before an initial absolute query will be made.
-        :param pulumi.Input[List[pulumi.Input[str]]] searches: Specify what domains you want to search
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] name_servers: Name or IP address of the DNS server
+        :param pulumi.Input[int] number_of_dots: Configures the number of dots needed in a name before an initial absolute query will be made.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] searches: Specify what domains you want to search
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -114,7 +114,7 @@ class Dns(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nameServers")
-    def name_servers(self) -> pulumi.Output[Optional[List[str]]]:
+    def name_servers(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Name or IP address of the DNS server
         """
@@ -122,7 +122,7 @@ class Dns(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="numberOfDots")
-    def number_of_dots(self) -> pulumi.Output[Optional[float]]:
+    def number_of_dots(self) -> pulumi.Output[Optional[int]]:
         """
         Configures the number of dots needed in a name before an initial absolute query will be made.
         """
@@ -130,7 +130,7 @@ class Dns(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def searches(self) -> pulumi.Output[Optional[List[str]]]:
+    def searches(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Specify what domains you want to search
         """

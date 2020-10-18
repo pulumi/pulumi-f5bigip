@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,14 +18,14 @@ class Node(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  address: Optional[pulumi.Input[str]] = None,
-                 connection_limit: Optional[pulumi.Input[float]] = None,
+                 connection_limit: Optional[pulumi.Input[int]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 dynamic_ratio: Optional[pulumi.Input[float]] = None,
+                 dynamic_ratio: Optional[pulumi.Input[int]] = None,
                  fqdn: Optional[pulumi.Input[pulumi.InputType['NodeFqdnArgs']]] = None,
                  monitor: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rate_limit: Optional[pulumi.Input[str]] = None,
-                 ratio: Optional[pulumi.Input[float]] = None,
+                 ratio: Optional[pulumi.Input[int]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -58,13 +58,13 @@ class Node(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address: IP or hostname of the node
-        :param pulumi.Input[float] connection_limit: Specifies the maximum number of connections allowed for the node or node address.
+        :param pulumi.Input[int] connection_limit: Specifies the maximum number of connections allowed for the node or node address.
         :param pulumi.Input[str] description: User-defined description give ltm_node
-        :param pulumi.Input[float] dynamic_ratio: Specifies the fixed ratio value used for a node during ratio load balancing.
+        :param pulumi.Input[int] dynamic_ratio: Specifies the fixed ratio value used for a node during ratio load balancing.
         :param pulumi.Input[str] monitor: specifies the name of the monitor or monitor rule that you want to associate with the node.
         :param pulumi.Input[str] name: Name of the node
         :param pulumi.Input[str] rate_limit: Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
-        :param pulumi.Input[float] ratio: Sets the ratio number for the node.
+        :param pulumi.Input[int] ratio: Sets the ratio number for the node.
         :param pulumi.Input[str] state: Default is "user-up" you can set to "user-down" if you want to disable
         """
         if __name__ is not None:
@@ -109,14 +109,14 @@ class Node(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             address: Optional[pulumi.Input[str]] = None,
-            connection_limit: Optional[pulumi.Input[float]] = None,
+            connection_limit: Optional[pulumi.Input[int]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            dynamic_ratio: Optional[pulumi.Input[float]] = None,
+            dynamic_ratio: Optional[pulumi.Input[int]] = None,
             fqdn: Optional[pulumi.Input[pulumi.InputType['NodeFqdnArgs']]] = None,
             monitor: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             rate_limit: Optional[pulumi.Input[str]] = None,
-            ratio: Optional[pulumi.Input[float]] = None,
+            ratio: Optional[pulumi.Input[int]] = None,
             state: Optional[pulumi.Input[str]] = None) -> 'Node':
         """
         Get an existing Node resource's state with the given name, id, and optional extra
@@ -126,13 +126,13 @@ class Node(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address: IP or hostname of the node
-        :param pulumi.Input[float] connection_limit: Specifies the maximum number of connections allowed for the node or node address.
+        :param pulumi.Input[int] connection_limit: Specifies the maximum number of connections allowed for the node or node address.
         :param pulumi.Input[str] description: User-defined description give ltm_node
-        :param pulumi.Input[float] dynamic_ratio: Specifies the fixed ratio value used for a node during ratio load balancing.
+        :param pulumi.Input[int] dynamic_ratio: Specifies the fixed ratio value used for a node during ratio load balancing.
         :param pulumi.Input[str] monitor: specifies the name of the monitor or monitor rule that you want to associate with the node.
         :param pulumi.Input[str] name: Name of the node
         :param pulumi.Input[str] rate_limit: Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
-        :param pulumi.Input[float] ratio: Sets the ratio number for the node.
+        :param pulumi.Input[int] ratio: Sets the ratio number for the node.
         :param pulumi.Input[str] state: Default is "user-up" you can set to "user-down" if you want to disable
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -161,7 +161,7 @@ class Node(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionLimit")
-    def connection_limit(self) -> pulumi.Output[float]:
+    def connection_limit(self) -> pulumi.Output[int]:
         """
         Specifies the maximum number of connections allowed for the node or node address.
         """
@@ -177,7 +177,7 @@ class Node(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dynamicRatio")
-    def dynamic_ratio(self) -> pulumi.Output[float]:
+    def dynamic_ratio(self) -> pulumi.Output[int]:
         """
         Specifies the fixed ratio value used for a node during ratio load balancing.
         """
@@ -214,7 +214,7 @@ class Node(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def ratio(self) -> pulumi.Output[float]:
+    def ratio(self) -> pulumi.Output[int]:
         """
         Sets the ratio number for the node.
         """

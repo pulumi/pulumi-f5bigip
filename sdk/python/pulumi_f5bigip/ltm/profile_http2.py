@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['ProfileHttp2']
@@ -15,11 +15,11 @@ class ProfileHttp2(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 activation_modes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 concurrent_streams_per_connection: Optional[pulumi.Input[float]] = None,
-                 connection_idle_timeout: Optional[pulumi.Input[float]] = None,
+                 activation_modes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 concurrent_streams_per_connection: Optional[pulumi.Input[int]] = None,
+                 connection_idle_timeout: Optional[pulumi.Input[int]] = None,
                  defaults_from: Optional[pulumi.Input[str]] = None,
-                 header_table_size: Optional[pulumi.Input[float]] = None,
+                 header_table_size: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -48,11 +48,11 @@ class ProfileHttp2(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] activation_modes: Specifies what will cause an incoming connection to be handled as a HTTP/2 connection. The default values npn and alpn specify that the TLS next-protocol-negotiation and application-layer-protocol-negotiation extensions will be used.
-        :param pulumi.Input[float] concurrent_streams_per_connection: Specifies how many concurrent requests are allowed to be outstanding on a single HTTP/2 connection.
-        :param pulumi.Input[float] connection_idle_timeout: Specifies the number of seconds that a connection is idle before the connection is eligible for deletion..
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] activation_modes: Specifies what will cause an incoming connection to be handled as a HTTP/2 connection. The default values npn and alpn specify that the TLS next-protocol-negotiation and application-layer-protocol-negotiation extensions will be used.
+        :param pulumi.Input[int] concurrent_streams_per_connection: Specifies how many concurrent requests are allowed to be outstanding on a single HTTP/2 connection.
+        :param pulumi.Input[int] connection_idle_timeout: Specifies the number of seconds that a connection is idle before the connection is eligible for deletion..
         :param pulumi.Input[str] defaults_from: Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
-        :param pulumi.Input[float] header_table_size: Use the parent Http2 profile
+        :param pulumi.Input[int] header_table_size: Use the parent Http2 profile
         :param pulumi.Input[str] name: Name of the profile_http2
         """
         if __name__ is not None:
@@ -90,11 +90,11 @@ class ProfileHttp2(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            activation_modes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            concurrent_streams_per_connection: Optional[pulumi.Input[float]] = None,
-            connection_idle_timeout: Optional[pulumi.Input[float]] = None,
+            activation_modes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            concurrent_streams_per_connection: Optional[pulumi.Input[int]] = None,
+            connection_idle_timeout: Optional[pulumi.Input[int]] = None,
             defaults_from: Optional[pulumi.Input[str]] = None,
-            header_table_size: Optional[pulumi.Input[float]] = None,
+            header_table_size: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'ProfileHttp2':
         """
         Get an existing ProfileHttp2 resource's state with the given name, id, and optional extra
@@ -103,11 +103,11 @@ class ProfileHttp2(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] activation_modes: Specifies what will cause an incoming connection to be handled as a HTTP/2 connection. The default values npn and alpn specify that the TLS next-protocol-negotiation and application-layer-protocol-negotiation extensions will be used.
-        :param pulumi.Input[float] concurrent_streams_per_connection: Specifies how many concurrent requests are allowed to be outstanding on a single HTTP/2 connection.
-        :param pulumi.Input[float] connection_idle_timeout: Specifies the number of seconds that a connection is idle before the connection is eligible for deletion..
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] activation_modes: Specifies what will cause an incoming connection to be handled as a HTTP/2 connection. The default values npn and alpn specify that the TLS next-protocol-negotiation and application-layer-protocol-negotiation extensions will be used.
+        :param pulumi.Input[int] concurrent_streams_per_connection: Specifies how many concurrent requests are allowed to be outstanding on a single HTTP/2 connection.
+        :param pulumi.Input[int] connection_idle_timeout: Specifies the number of seconds that a connection is idle before the connection is eligible for deletion..
         :param pulumi.Input[str] defaults_from: Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
-        :param pulumi.Input[float] header_table_size: Use the parent Http2 profile
+        :param pulumi.Input[int] header_table_size: Use the parent Http2 profile
         :param pulumi.Input[str] name: Name of the profile_http2
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -124,7 +124,7 @@ class ProfileHttp2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="activationModes")
-    def activation_modes(self) -> pulumi.Output[Optional[List[str]]]:
+    def activation_modes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Specifies what will cause an incoming connection to be handled as a HTTP/2 connection. The default values npn and alpn specify that the TLS next-protocol-negotiation and application-layer-protocol-negotiation extensions will be used.
         """
@@ -132,7 +132,7 @@ class ProfileHttp2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="concurrentStreamsPerConnection")
-    def concurrent_streams_per_connection(self) -> pulumi.Output[Optional[float]]:
+    def concurrent_streams_per_connection(self) -> pulumi.Output[Optional[int]]:
         """
         Specifies how many concurrent requests are allowed to be outstanding on a single HTTP/2 connection.
         """
@@ -140,7 +140,7 @@ class ProfileHttp2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connectionIdleTimeout")
-    def connection_idle_timeout(self) -> pulumi.Output[Optional[float]]:
+    def connection_idle_timeout(self) -> pulumi.Output[Optional[int]]:
         """
         Specifies the number of seconds that a connection is idle before the connection is eligible for deletion..
         """
@@ -156,7 +156,7 @@ class ProfileHttp2(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="headerTableSize")
-    def header_table_size(self) -> pulumi.Output[Optional[float]]:
+    def header_table_size(self) -> pulumi.Output[Optional[int]]:
         """
         Use the parent Http2 profile
         """

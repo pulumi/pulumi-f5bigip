@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Snmp']
@@ -15,7 +15,7 @@ class Snmp(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowedaddresses: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 allowedaddresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sys_contact: Optional[pulumi.Input[str]] = None,
                  sys_location: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -37,7 +37,7 @@ class Snmp(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] allowedaddresses: Configures hosts or networks from which snmpd can accept traffic. Entries go directly into hosts.allow.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowedaddresses: Configures hosts or networks from which snmpd can accept traffic. Entries go directly into hosts.allow.
         :param pulumi.Input[str] sys_contact: Specifies the contact information for the system administrator.
         :param pulumi.Input[str] sys_location: Describes the system's physical location.
         """
@@ -71,7 +71,7 @@ class Snmp(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            allowedaddresses: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            allowedaddresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             sys_contact: Optional[pulumi.Input[str]] = None,
             sys_location: Optional[pulumi.Input[str]] = None) -> 'Snmp':
         """
@@ -81,7 +81,7 @@ class Snmp(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] allowedaddresses: Configures hosts or networks from which snmpd can accept traffic. Entries go directly into hosts.allow.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowedaddresses: Configures hosts or networks from which snmpd can accept traffic. Entries go directly into hosts.allow.
         :param pulumi.Input[str] sys_contact: Specifies the contact information for the system administrator.
         :param pulumi.Input[str] sys_location: Describes the system's physical location.
         """
@@ -96,7 +96,7 @@ class Snmp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def allowedaddresses(self) -> pulumi.Output[Optional[List[str]]]:
+    def allowedaddresses(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Configures hosts or networks from which snmpd can accept traffic. Entries go directly into hosts.allow.
         """

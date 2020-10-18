@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Ntp']
@@ -16,7 +16,7 @@ class Ntp(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 servers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  timezone: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -40,7 +40,7 @@ class Ntp(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Name of the ntp Servers
-        :param pulumi.Input[List[pulumi.Input[str]]] servers: Adds NTP servers to or deletes NTP servers from the BIG-IP system.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] servers: Adds NTP servers to or deletes NTP servers from the BIG-IP system.
         :param pulumi.Input[str] timezone: Specifies the time zone that you want to use for the system time.
         """
         if __name__ is not None:
@@ -76,7 +76,7 @@ class Ntp(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
-            servers: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             timezone: Optional[pulumi.Input[str]] = None) -> 'Ntp':
         """
         Get an existing Ntp resource's state with the given name, id, and optional extra
@@ -86,7 +86,7 @@ class Ntp(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Name of the ntp Servers
-        :param pulumi.Input[List[pulumi.Input[str]]] servers: Adds NTP servers to or deletes NTP servers from the BIG-IP system.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] servers: Adds NTP servers to or deletes NTP servers from the BIG-IP system.
         :param pulumi.Input[str] timezone: Specifies the time zone that you want to use for the system time.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -108,7 +108,7 @@ class Ntp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def servers(self) -> pulumi.Output[Optional[List[str]]]:
+    def servers(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Adds NTP servers to or deletes NTP servers from the BIG-IP system.
         """

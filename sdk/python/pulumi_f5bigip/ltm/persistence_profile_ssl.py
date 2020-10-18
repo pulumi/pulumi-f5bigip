@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['PersistenceProfileSsl']
@@ -23,7 +23,7 @@ class PersistenceProfileSsl(pulumi.CustomResource):
                  mirror: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  override_conn_limit: Optional[pulumi.Input[str]] = None,
-                 timeout: Optional[pulumi.Input[float]] = None,
+                 timeout: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -75,7 +75,7 @@ class PersistenceProfileSsl(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the persistence profile
         :param pulumi.Input[str] override_conn_limit: To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
                limits remain hard limits and are not overridden.
-        :param pulumi.Input[float] timeout: Timeout for persistence of the session
+        :param pulumi.Input[int] timeout: Timeout for persistence of the session
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -125,7 +125,7 @@ class PersistenceProfileSsl(pulumi.CustomResource):
             mirror: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             override_conn_limit: Optional[pulumi.Input[str]] = None,
-            timeout: Optional[pulumi.Input[float]] = None) -> 'PersistenceProfileSsl':
+            timeout: Optional[pulumi.Input[int]] = None) -> 'PersistenceProfileSsl':
         """
         Get an existing PersistenceProfileSsl resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -141,7 +141,7 @@ class PersistenceProfileSsl(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the persistence profile
         :param pulumi.Input[str] override_conn_limit: To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
                limits remain hard limits and are not overridden.
-        :param pulumi.Input[float] timeout: Timeout for persistence of the session
+        :param pulumi.Input[int] timeout: Timeout for persistence of the session
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -222,7 +222,7 @@ class PersistenceProfileSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def timeout(self) -> pulumi.Output[Optional[float]]:
+    def timeout(self) -> pulumi.Output[Optional[int]]:
         """
         Timeout for persistence of the session
         """

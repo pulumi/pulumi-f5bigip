@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Monitor']
@@ -16,14 +16,14 @@ class Monitor(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  adaptive: Optional[pulumi.Input[str]] = None,
-                 adaptive_limit: Optional[pulumi.Input[float]] = None,
+                 adaptive_limit: Optional[pulumi.Input[int]] = None,
                  compatibility: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  defaults_from: Optional[pulumi.Input[str]] = None,
                  destination: Optional[pulumi.Input[str]] = None,
                  filename: Optional[pulumi.Input[str]] = None,
-                 interval: Optional[pulumi.Input[float]] = None,
-                 ip_dscp: Optional[pulumi.Input[float]] = None,
+                 interval: Optional[pulumi.Input[int]] = None,
+                 ip_dscp: Optional[pulumi.Input[int]] = None,
                  manual_resume: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -33,8 +33,8 @@ class Monitor(pulumi.CustomResource):
                  receive_disable: Optional[pulumi.Input[str]] = None,
                  reverse: Optional[pulumi.Input[str]] = None,
                  send: Optional[pulumi.Input[str]] = None,
-                 time_until_up: Optional[pulumi.Input[float]] = None,
-                 timeout: Optional[pulumi.Input[float]] = None,
+                 time_until_up: Optional[pulumi.Input[int]] = None,
+                 timeout: Optional[pulumi.Input[int]] = None,
                  transparent: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -82,13 +82,13 @@ class Monitor(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] adaptive: ftp adaptive
-        :param pulumi.Input[float] adaptive_limit: Integer value
+        :param pulumi.Input[int] adaptive_limit: Integer value
         :param pulumi.Input[str] compatibility: Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
         :param pulumi.Input[str] database: Specifies the database in which the user is created
         :param pulumi.Input[str] defaults_from: Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
         :param pulumi.Input[str] destination: Specify an alias address for monitoring
         :param pulumi.Input[str] filename: Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
-        :param pulumi.Input[float] interval: Check interval in seconds
+        :param pulumi.Input[int] interval: Check interval in seconds
         :param pulumi.Input[str] mode: Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
         :param pulumi.Input[str] name: Name of the monitor
         :param pulumi.Input[str] parent: Existing LTM monitor to inherit from
@@ -96,8 +96,8 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] receive: Expected response string
         :param pulumi.Input[str] receive_disable: Expected response string.
         :param pulumi.Input[str] send: Request string to send
-        :param pulumi.Input[float] time_until_up: Time in seconds
-        :param pulumi.Input[float] timeout: Timeout in seconds
+        :param pulumi.Input[int] time_until_up: Time in seconds
+        :param pulumi.Input[int] timeout: Timeout in seconds
         :param pulumi.Input[str] username: Specifies the user name if the monitored target requires authentication
         """
         if __name__ is not None:
@@ -154,14 +154,14 @@ class Monitor(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             adaptive: Optional[pulumi.Input[str]] = None,
-            adaptive_limit: Optional[pulumi.Input[float]] = None,
+            adaptive_limit: Optional[pulumi.Input[int]] = None,
             compatibility: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
             defaults_from: Optional[pulumi.Input[str]] = None,
             destination: Optional[pulumi.Input[str]] = None,
             filename: Optional[pulumi.Input[str]] = None,
-            interval: Optional[pulumi.Input[float]] = None,
-            ip_dscp: Optional[pulumi.Input[float]] = None,
+            interval: Optional[pulumi.Input[int]] = None,
+            ip_dscp: Optional[pulumi.Input[int]] = None,
             manual_resume: Optional[pulumi.Input[str]] = None,
             mode: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -171,8 +171,8 @@ class Monitor(pulumi.CustomResource):
             receive_disable: Optional[pulumi.Input[str]] = None,
             reverse: Optional[pulumi.Input[str]] = None,
             send: Optional[pulumi.Input[str]] = None,
-            time_until_up: Optional[pulumi.Input[float]] = None,
-            timeout: Optional[pulumi.Input[float]] = None,
+            time_until_up: Optional[pulumi.Input[int]] = None,
+            timeout: Optional[pulumi.Input[int]] = None,
             transparent: Optional[pulumi.Input[str]] = None,
             username: Optional[pulumi.Input[str]] = None) -> 'Monitor':
         """
@@ -183,13 +183,13 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] adaptive: ftp adaptive
-        :param pulumi.Input[float] adaptive_limit: Integer value
+        :param pulumi.Input[int] adaptive_limit: Integer value
         :param pulumi.Input[str] compatibility: Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
         :param pulumi.Input[str] database: Specifies the database in which the user is created
         :param pulumi.Input[str] defaults_from: Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
         :param pulumi.Input[str] destination: Specify an alias address for monitoring
         :param pulumi.Input[str] filename: Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
-        :param pulumi.Input[float] interval: Check interval in seconds
+        :param pulumi.Input[int] interval: Check interval in seconds
         :param pulumi.Input[str] mode: Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
         :param pulumi.Input[str] name: Name of the monitor
         :param pulumi.Input[str] parent: Existing LTM monitor to inherit from
@@ -197,8 +197,8 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] receive: Expected response string
         :param pulumi.Input[str] receive_disable: Expected response string.
         :param pulumi.Input[str] send: Request string to send
-        :param pulumi.Input[float] time_until_up: Time in seconds
-        :param pulumi.Input[float] timeout: Timeout in seconds
+        :param pulumi.Input[int] time_until_up: Time in seconds
+        :param pulumi.Input[int] timeout: Timeout in seconds
         :param pulumi.Input[str] username: Specifies the user name if the monitored target requires authentication
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -239,7 +239,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="adaptiveLimit")
-    def adaptive_limit(self) -> pulumi.Output[float]:
+    def adaptive_limit(self) -> pulumi.Output[int]:
         """
         Integer value
         """
@@ -287,7 +287,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def interval(self) -> pulumi.Output[float]:
+    def interval(self) -> pulumi.Output[int]:
         """
         Check interval in seconds
         """
@@ -295,7 +295,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="ipDscp")
-    def ip_dscp(self) -> pulumi.Output[float]:
+    def ip_dscp(self) -> pulumi.Output[int]:
         return pulumi.get(self, "ip_dscp")
 
     @property
@@ -366,7 +366,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="timeUntilUp")
-    def time_until_up(self) -> pulumi.Output[float]:
+    def time_until_up(self) -> pulumi.Output[int]:
         """
         Time in seconds
         """
@@ -374,7 +374,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def timeout(self) -> pulumi.Output[float]:
+    def timeout(self) -> pulumi.Output[int]:
         """
         Timeout in seconds
         """

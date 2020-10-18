@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -77,10 +77,10 @@ class IAppMetadataArgs:
 @pulumi.input_type
 class IAppTableArgs:
     def __init__(__self__, *,
-                 column_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  encrypted_columns: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 rows: Optional[pulumi.Input[List[pulumi.Input['IAppTableRowArgs']]]] = None):
+                 rows: Optional[pulumi.Input[Sequence[pulumi.Input['IAppTableRowArgs']]]] = None):
         """
         :param pulumi.Input[str] name: Name of the iApp.
         """
@@ -95,11 +95,11 @@ class IAppTableArgs:
 
     @property
     @pulumi.getter(name="columnNames")
-    def column_names(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def column_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "column_names")
 
     @column_names.setter
-    def column_names(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def column_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "column_names", value)
 
     @property
@@ -125,28 +125,28 @@ class IAppTableArgs:
 
     @property
     @pulumi.getter
-    def rows(self) -> Optional[pulumi.Input[List[pulumi.Input['IAppTableRowArgs']]]]:
+    def rows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IAppTableRowArgs']]]]:
         return pulumi.get(self, "rows")
 
     @rows.setter
-    def rows(self, value: Optional[pulumi.Input[List[pulumi.Input['IAppTableRowArgs']]]]):
+    def rows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IAppTableRowArgs']]]]):
         pulumi.set(self, "rows", value)
 
 
 @pulumi.input_type
 class IAppTableRowArgs:
     def __init__(__self__, *,
-                 rows: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 rows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         if rows is not None:
             pulumi.set(__self__, "rows", rows)
 
     @property
     @pulumi.getter
-    def rows(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def rows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "rows")
 
     @rows.setter
-    def rows(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def rows(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "rows", value)
 
 

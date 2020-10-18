@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['PersistenceProfileCookie']
@@ -22,8 +22,8 @@ class PersistenceProfileCookie(pulumi.CustomResource):
                  cookie_name: Optional[pulumi.Input[str]] = None,
                  defaults_from: Optional[pulumi.Input[str]] = None,
                  expiration: Optional[pulumi.Input[str]] = None,
-                 hash_length: Optional[pulumi.Input[float]] = None,
-                 hash_offset: Optional[pulumi.Input[float]] = None,
+                 hash_length: Optional[pulumi.Input[int]] = None,
+                 hash_offset: Optional[pulumi.Input[int]] = None,
                  httponly: Optional[pulumi.Input[str]] = None,
                  match_across_pools: Optional[pulumi.Input[str]] = None,
                  match_across_services: Optional[pulumi.Input[str]] = None,
@@ -31,7 +31,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
                  mirror: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  override_conn_limit: Optional[pulumi.Input[str]] = None,
-                 timeout: Optional[pulumi.Input[float]] = None,
+                 timeout: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -103,8 +103,8 @@ class PersistenceProfileCookie(pulumi.CustomResource):
         :param pulumi.Input[str] cookie_name: Name of the cookie to track persistence
         :param pulumi.Input[str] defaults_from: Inherit defaults from parent profile
         :param pulumi.Input[str] expiration: Expiration TTL for cookie specified in D:H:M:S or in seconds
-        :param pulumi.Input[float] hash_length: Length of hash to apply to cookie
-        :param pulumi.Input[float] hash_offset: Number of characters to skip in the cookie for the hash
+        :param pulumi.Input[int] hash_length: Length of hash to apply to cookie
+        :param pulumi.Input[int] hash_offset: Number of characters to skip in the cookie for the hash
         :param pulumi.Input[str] httponly: To enable _ disable sending only over http
         :param pulumi.Input[str] match_across_pools: To enable _ disable match across pools with given persistence record
         :param pulumi.Input[str] match_across_services: To enable _ disable match across services with given persistence record
@@ -113,7 +113,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the persistence profile
         :param pulumi.Input[str] override_conn_limit: To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
                limits remain hard limits and are not overridden.
-        :param pulumi.Input[float] timeout: Timeout for persistence of the session
+        :param pulumi.Input[int] timeout: Timeout for persistence of the session
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -170,8 +170,8 @@ class PersistenceProfileCookie(pulumi.CustomResource):
             cookie_name: Optional[pulumi.Input[str]] = None,
             defaults_from: Optional[pulumi.Input[str]] = None,
             expiration: Optional[pulumi.Input[str]] = None,
-            hash_length: Optional[pulumi.Input[float]] = None,
-            hash_offset: Optional[pulumi.Input[float]] = None,
+            hash_length: Optional[pulumi.Input[int]] = None,
+            hash_offset: Optional[pulumi.Input[int]] = None,
             httponly: Optional[pulumi.Input[str]] = None,
             match_across_pools: Optional[pulumi.Input[str]] = None,
             match_across_services: Optional[pulumi.Input[str]] = None,
@@ -179,7 +179,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
             mirror: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             override_conn_limit: Optional[pulumi.Input[str]] = None,
-            timeout: Optional[pulumi.Input[float]] = None) -> 'PersistenceProfileCookie':
+            timeout: Optional[pulumi.Input[int]] = None) -> 'PersistenceProfileCookie':
         """
         Get an existing PersistenceProfileCookie resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -193,8 +193,8 @@ class PersistenceProfileCookie(pulumi.CustomResource):
         :param pulumi.Input[str] cookie_name: Name of the cookie to track persistence
         :param pulumi.Input[str] defaults_from: Inherit defaults from parent profile
         :param pulumi.Input[str] expiration: Expiration TTL for cookie specified in D:H:M:S or in seconds
-        :param pulumi.Input[float] hash_length: Length of hash to apply to cookie
-        :param pulumi.Input[float] hash_offset: Number of characters to skip in the cookie for the hash
+        :param pulumi.Input[int] hash_length: Length of hash to apply to cookie
+        :param pulumi.Input[int] hash_offset: Number of characters to skip in the cookie for the hash
         :param pulumi.Input[str] httponly: To enable _ disable sending only over http
         :param pulumi.Input[str] match_across_pools: To enable _ disable match across pools with given persistence record
         :param pulumi.Input[str] match_across_services: To enable _ disable match across services with given persistence record
@@ -203,7 +203,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the persistence profile
         :param pulumi.Input[str] override_conn_limit: To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
                limits remain hard limits and are not overridden.
-        :param pulumi.Input[float] timeout: Timeout for persistence of the session
+        :param pulumi.Input[int] timeout: Timeout for persistence of the session
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -283,7 +283,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hashLength")
-    def hash_length(self) -> pulumi.Output[Optional[float]]:
+    def hash_length(self) -> pulumi.Output[Optional[int]]:
         """
         Length of hash to apply to cookie
         """
@@ -291,7 +291,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hashOffset")
-    def hash_offset(self) -> pulumi.Output[Optional[float]]:
+    def hash_offset(self) -> pulumi.Output[Optional[int]]:
         """
         Number of characters to skip in the cookie for the hash
         """
@@ -356,7 +356,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def timeout(self) -> pulumi.Output[Optional[float]]:
+    def timeout(self) -> pulumi.Output[Optional[int]]:
         """
         Timeout for persistence of the session
         """

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = ['Do']
@@ -17,7 +17,7 @@ class Do(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  do_json: Optional[pulumi.Input[str]] = None,
                  tenant_name: Optional[pulumi.Input[str]] = None,
-                 timeout: Optional[pulumi.Input[float]] = None,
+                 timeout: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -40,7 +40,7 @@ class Do(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] do_json: Name of the of the Declarative DO JSON file
         :param pulumi.Input[str] tenant_name: unique identifier for DO resource
-        :param pulumi.Input[float] timeout: DO json
+        :param pulumi.Input[int] timeout: DO json
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -79,7 +79,7 @@ class Do(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             do_json: Optional[pulumi.Input[str]] = None,
             tenant_name: Optional[pulumi.Input[str]] = None,
-            timeout: Optional[pulumi.Input[float]] = None) -> 'Do':
+            timeout: Optional[pulumi.Input[int]] = None) -> 'Do':
         """
         Get an existing Do resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -89,7 +89,7 @@ class Do(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] do_json: Name of the of the Declarative DO JSON file
         :param pulumi.Input[str] tenant_name: unique identifier for DO resource
-        :param pulumi.Input[float] timeout: DO json
+        :param pulumi.Input[int] timeout: DO json
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -118,7 +118,7 @@ class Do(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def timeout(self) -> pulumi.Output[Optional[float]]:
+    def timeout(self) -> pulumi.Output[Optional[int]]:
         """
         DO json
         """
