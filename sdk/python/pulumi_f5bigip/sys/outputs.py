@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -68,10 +68,10 @@ class IAppMetadata(dict):
 @pulumi.output_type
 class IAppTable(dict):
     def __init__(__self__, *,
-                 column_names: Optional[List[str]] = None,
+                 column_names: Optional[Sequence[str]] = None,
                  encrypted_columns: Optional[str] = None,
                  name: Optional[str] = None,
-                 rows: Optional[List['outputs.IAppTableRow']] = None):
+                 rows: Optional[Sequence['outputs.IAppTableRow']] = None):
         """
         :param str name: Name of the iApp.
         """
@@ -86,7 +86,7 @@ class IAppTable(dict):
 
     @property
     @pulumi.getter(name="columnNames")
-    def column_names(self) -> Optional[List[str]]:
+    def column_names(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "column_names")
 
     @property
@@ -104,7 +104,7 @@ class IAppTable(dict):
 
     @property
     @pulumi.getter
-    def rows(self) -> Optional[List['outputs.IAppTableRow']]:
+    def rows(self) -> Optional[Sequence['outputs.IAppTableRow']]:
         return pulumi.get(self, "rows")
 
     def _translate_property(self, prop):
@@ -114,13 +114,13 @@ class IAppTable(dict):
 @pulumi.output_type
 class IAppTableRow(dict):
     def __init__(__self__, *,
-                 rows: Optional[List[str]] = None):
+                 rows: Optional[Sequence[str]] = None):
         if rows is not None:
             pulumi.set(__self__, "rows", rows)
 
     @property
     @pulumi.getter
-    def rows(self) -> Optional[List[str]]:
+    def rows(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "rows")
 
     def _translate_property(self, prop):

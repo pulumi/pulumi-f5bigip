@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -17,11 +17,11 @@ class Policy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 controls: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 controls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  published_copy: Optional[pulumi.Input[str]] = None,
-                 requires: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PolicyRuleArgs']]]]] = None,
+                 requires: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyRuleArgs']]]]] = None,
                  strategy: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -56,11 +56,11 @@ class Policy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] controls: Specifies the controls
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] controls: Specifies the controls
         :param pulumi.Input[str] name: Name of the Policy
         :param pulumi.Input[str] published_copy: If you want to publish the policy else it will be deployed in Drafts mode.
-        :param pulumi.Input[List[pulumi.Input[str]]] requires: Specifies the protocol
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PolicyRuleArgs']]]] rules: Rules can be applied using the policy
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] requires: Specifies the protocol
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyRuleArgs']]]] rules: Rules can be applied using the policy
         :param pulumi.Input[str] strategy: Specifies the match strategy
         """
         if __name__ is not None:
@@ -98,11 +98,11 @@ class Policy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            controls: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            controls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             published_copy: Optional[pulumi.Input[str]] = None,
-            requires: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            rules: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['PolicyRuleArgs']]]]] = None,
+            requires: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyRuleArgs']]]]] = None,
             strategy: Optional[pulumi.Input[str]] = None) -> 'Policy':
         """
         Get an existing Policy resource's state with the given name, id, and optional extra
@@ -111,11 +111,11 @@ class Policy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[List[pulumi.Input[str]]] controls: Specifies the controls
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] controls: Specifies the controls
         :param pulumi.Input[str] name: Name of the Policy
         :param pulumi.Input[str] published_copy: If you want to publish the policy else it will be deployed in Drafts mode.
-        :param pulumi.Input[List[pulumi.Input[str]]] requires: Specifies the protocol
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['PolicyRuleArgs']]]] rules: Rules can be applied using the policy
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] requires: Specifies the protocol
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyRuleArgs']]]] rules: Rules can be applied using the policy
         :param pulumi.Input[str] strategy: Specifies the match strategy
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -132,7 +132,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def controls(self) -> pulumi.Output[Optional[List[str]]]:
+    def controls(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Specifies the controls
         """
@@ -156,7 +156,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def requires(self) -> pulumi.Output[Optional[List[str]]]:
+    def requires(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Specifies the protocol
         """
@@ -164,7 +164,7 @@ class Policy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def rules(self) -> pulumi.Output[Optional[List['outputs.PolicyRule']]]:
+    def rules(self) -> pulumi.Output[Optional[Sequence['outputs.PolicyRule']]]:
         """
         Rules can be applied using the policy
         """

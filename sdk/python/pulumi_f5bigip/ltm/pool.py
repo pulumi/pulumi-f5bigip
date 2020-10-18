@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Pool']
@@ -19,11 +19,11 @@ class Pool(pulumi.CustomResource):
                  allow_snat: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  load_balancing_mode: Optional[pulumi.Input[str]] = None,
-                 monitors: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 monitors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 reselect_tries: Optional[pulumi.Input[float]] = None,
+                 reselect_tries: Optional[pulumi.Input[int]] = None,
                  service_down_action: Optional[pulumi.Input[str]] = None,
-                 slow_ramp_time: Optional[pulumi.Input[float]] = None,
+                 slow_ramp_time: Optional[pulumi.Input[int]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -56,11 +56,11 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[str] allow_snat: Allow SNAT
         :param pulumi.Input[str] description: Userdefined value to describe the pool
         :param pulumi.Input[str] load_balancing_mode: Possible values: round-robin, ...
-        :param pulumi.Input[List[pulumi.Input[str]]] monitors: List of monitor names to associate with the pool
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] monitors: List of monitor names to associate with the pool
         :param pulumi.Input[str] name: Name of the pool
-        :param pulumi.Input[float] reselect_tries: Number of times the system tries to select a new pool member after a failure.
+        :param pulumi.Input[int] reselect_tries: Number of times the system tries to select a new pool member after a failure.
         :param pulumi.Input[str] service_down_action: Possible values: none, reset, reselect, drop
-        :param pulumi.Input[float] slow_ramp_time: Slow ramp time for pool members
+        :param pulumi.Input[int] slow_ramp_time: Slow ramp time for pool members
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -104,11 +104,11 @@ class Pool(pulumi.CustomResource):
             allow_snat: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             load_balancing_mode: Optional[pulumi.Input[str]] = None,
-            monitors: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            monitors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            reselect_tries: Optional[pulumi.Input[float]] = None,
+            reselect_tries: Optional[pulumi.Input[int]] = None,
             service_down_action: Optional[pulumi.Input[str]] = None,
-            slow_ramp_time: Optional[pulumi.Input[float]] = None) -> 'Pool':
+            slow_ramp_time: Optional[pulumi.Input[int]] = None) -> 'Pool':
         """
         Get an existing Pool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -120,11 +120,11 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[str] allow_snat: Allow SNAT
         :param pulumi.Input[str] description: Userdefined value to describe the pool
         :param pulumi.Input[str] load_balancing_mode: Possible values: round-robin, ...
-        :param pulumi.Input[List[pulumi.Input[str]]] monitors: List of monitor names to associate with the pool
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] monitors: List of monitor names to associate with the pool
         :param pulumi.Input[str] name: Name of the pool
-        :param pulumi.Input[float] reselect_tries: Number of times the system tries to select a new pool member after a failure.
+        :param pulumi.Input[int] reselect_tries: Number of times the system tries to select a new pool member after a failure.
         :param pulumi.Input[str] service_down_action: Possible values: none, reset, reselect, drop
-        :param pulumi.Input[float] slow_ramp_time: Slow ramp time for pool members
+        :param pulumi.Input[int] slow_ramp_time: Slow ramp time for pool members
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -175,7 +175,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def monitors(self) -> pulumi.Output[List[str]]:
+    def monitors(self) -> pulumi.Output[Sequence[str]]:
         """
         List of monitor names to associate with the pool
         """
@@ -191,7 +191,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="reselectTries")
-    def reselect_tries(self) -> pulumi.Output[float]:
+    def reselect_tries(self) -> pulumi.Output[int]:
         """
         Number of times the system tries to select a new pool member after a failure.
         """
@@ -207,7 +207,7 @@ class Pool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="slowRampTime")
-    def slow_ramp_time(self) -> pulumi.Output[float]:
+    def slow_ramp_time(self) -> pulumi.Output[int]:
         """
         Slow ramp time for pool members
         """

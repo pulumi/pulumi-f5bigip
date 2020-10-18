@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -23,17 +23,17 @@ class IApp(pulumi.CustomResource):
                  inherited_devicegroup: Optional[pulumi.Input[str]] = None,
                  inherited_traffic_group: Optional[pulumi.Input[str]] = None,
                  jsonfile: Optional[pulumi.Input[str]] = None,
-                 lists: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IAppListArgs']]]]] = None,
-                 metadatas: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IAppMetadataArgs']]]]] = None,
+                 lists: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IAppListArgs']]]]] = None,
+                 metadatas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IAppMetadataArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  partition: Optional[pulumi.Input[str]] = None,
                  strict_updates: Optional[pulumi.Input[str]] = None,
-                 tables: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IAppTableArgs']]]]] = None,
+                 tables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IAppTableArgs']]]]] = None,
                  template: Optional[pulumi.Input[str]] = None,
                  template_modified: Optional[pulumi.Input[str]] = None,
                  template_prerequisite_errors: Optional[pulumi.Input[str]] = None,
                  traffic_group: Optional[pulumi.Input[str]] = None,
-                 variables: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IAppVariableArgs']]]]] = None,
+                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IAppVariableArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -137,17 +137,17 @@ class IApp(pulumi.CustomResource):
             inherited_devicegroup: Optional[pulumi.Input[str]] = None,
             inherited_traffic_group: Optional[pulumi.Input[str]] = None,
             jsonfile: Optional[pulumi.Input[str]] = None,
-            lists: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IAppListArgs']]]]] = None,
-            metadatas: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IAppMetadataArgs']]]]] = None,
+            lists: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IAppListArgs']]]]] = None,
+            metadatas: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IAppMetadataArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             partition: Optional[pulumi.Input[str]] = None,
             strict_updates: Optional[pulumi.Input[str]] = None,
-            tables: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IAppTableArgs']]]]] = None,
+            tables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IAppTableArgs']]]]] = None,
             template: Optional[pulumi.Input[str]] = None,
             template_modified: Optional[pulumi.Input[str]] = None,
             template_prerequisite_errors: Optional[pulumi.Input[str]] = None,
             traffic_group: Optional[pulumi.Input[str]] = None,
-            variables: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['IAppVariableArgs']]]]] = None) -> 'IApp':
+            variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IAppVariableArgs']]]]] = None) -> 'IApp':
         """
         Get an existing IApp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -242,12 +242,12 @@ class IApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def lists(self) -> pulumi.Output[Optional[List['outputs.IAppList']]]:
+    def lists(self) -> pulumi.Output[Optional[Sequence['outputs.IAppList']]]:
         return pulumi.get(self, "lists")
 
     @property
     @pulumi.getter
-    def metadatas(self) -> pulumi.Output[Optional[List['outputs.IAppMetadata']]]:
+    def metadatas(self) -> pulumi.Output[Optional[Sequence['outputs.IAppMetadata']]]:
         return pulumi.get(self, "metadatas")
 
     @property
@@ -276,7 +276,7 @@ class IApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def tables(self) -> pulumi.Output[Optional[List['outputs.IAppTable']]]:
+    def tables(self) -> pulumi.Output[Optional[Sequence['outputs.IAppTable']]]:
         return pulumi.get(self, "tables")
 
     @property
@@ -313,7 +313,7 @@ class IApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def variables(self) -> pulumi.Output[Optional[List['outputs.IAppVariable']]]:
+    def variables(self) -> pulumi.Output[Optional[Sequence['outputs.IAppVariable']]]:
         return pulumi.get(self, "variables")
 
     def translate_output_property(self, prop):

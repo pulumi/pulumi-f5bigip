@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['SnmpTraps']
@@ -22,7 +22,7 @@ class SnmpTraps(pulumi.CustomResource):
                  engine_id: Optional[pulumi.Input[str]] = None,
                  host: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 port: Optional[pulumi.Input[float]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
                  privacy_password: Optional[pulumi.Input[str]] = None,
                  privacy_password_encrypted: Optional[pulumi.Input[str]] = None,
                  privacy_protocol: Optional[pulumi.Input[str]] = None,
@@ -57,7 +57,7 @@ class SnmpTraps(pulumi.CustomResource):
         :param pulumi.Input[str] engine_id: Specifies the authoritative security engine for SNMPv3.
         :param pulumi.Input[str] host: The host the trap will be sent to.
         :param pulumi.Input[str] name: Name of the snmp trap.
-        :param pulumi.Input[float] port: User defined description.
+        :param pulumi.Input[int] port: User defined description.
         :param pulumi.Input[str] privacy_password: Specifies the clear text password used to encrypt traffic. This field will not be displayed.
         :param pulumi.Input[str] privacy_password_encrypted: Specifies the encrypted password used to encrypt traffic.
         :param pulumi.Input[str] privacy_protocol: Specifies the protocol used to encrypt traffic.
@@ -113,7 +113,7 @@ class SnmpTraps(pulumi.CustomResource):
             engine_id: Optional[pulumi.Input[str]] = None,
             host: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            port: Optional[pulumi.Input[float]] = None,
+            port: Optional[pulumi.Input[int]] = None,
             privacy_password: Optional[pulumi.Input[str]] = None,
             privacy_password_encrypted: Optional[pulumi.Input[str]] = None,
             privacy_protocol: Optional[pulumi.Input[str]] = None,
@@ -134,7 +134,7 @@ class SnmpTraps(pulumi.CustomResource):
         :param pulumi.Input[str] engine_id: Specifies the authoritative security engine for SNMPv3.
         :param pulumi.Input[str] host: The host the trap will be sent to.
         :param pulumi.Input[str] name: Name of the snmp trap.
-        :param pulumi.Input[float] port: User defined description.
+        :param pulumi.Input[int] port: User defined description.
         :param pulumi.Input[str] privacy_password: Specifies the clear text password used to encrypt traffic. This field will not be displayed.
         :param pulumi.Input[str] privacy_password_encrypted: Specifies the encrypted password used to encrypt traffic.
         :param pulumi.Input[str] privacy_protocol: Specifies the protocol used to encrypt traffic.
@@ -220,7 +220,7 @@ class SnmpTraps(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def port(self) -> pulumi.Output[Optional[float]]:
+    def port(self) -> pulumi.Output[Optional[int]]:
         """
         User defined description.
         """

@@ -1,3 +1,0 @@
-name: f5bigip
-description: A Pulumi resource provider for f5bigip.
-language: schema

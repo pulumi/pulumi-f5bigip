@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -20,14 +20,14 @@ class ProfileClientSsl(pulumi.CustomResource):
                  alert_timeout: Optional[pulumi.Input[str]] = None,
                  allow_non_ssl: Optional[pulumi.Input[str]] = None,
                  authenticate: Optional[pulumi.Input[str]] = None,
-                 authenticate_depth: Optional[pulumi.Input[float]] = None,
+                 authenticate_depth: Optional[pulumi.Input[int]] = None,
                  ca_file: Optional[pulumi.Input[str]] = None,
-                 cache_size: Optional[pulumi.Input[float]] = None,
-                 cache_timeout: Optional[pulumi.Input[float]] = None,
+                 cache_size: Optional[pulumi.Input[int]] = None,
+                 cache_timeout: Optional[pulumi.Input[int]] = None,
                  cert: Optional[pulumi.Input[str]] = None,
-                 cert_extension_includes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 cert_key_chains: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ProfileClientSslCertKeyChainArgs']]]]] = None,
-                 cert_life_span: Optional[pulumi.Input[float]] = None,
+                 cert_extension_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 cert_key_chains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileClientSslCertKeyChainArgs']]]]] = None,
+                 cert_life_span: Optional[pulumi.Input[int]] = None,
                  cert_lookup_by_ipaddr_port: Optional[pulumi.Input[str]] = None,
                  chain: Optional[pulumi.Input[str]] = None,
                  ciphers: Optional[pulumi.Input[str]] = None,
@@ -36,7 +36,7 @@ class ProfileClientSsl(pulumi.CustomResource):
                  defaults_from: Optional[pulumi.Input[str]] = None,
                  forward_proxy_bypass_default_action: Optional[pulumi.Input[str]] = None,
                  full_path: Optional[pulumi.Input[str]] = None,
-                 generation: Optional[pulumi.Input[float]] = None,
+                 generation: Optional[pulumi.Input[int]] = None,
                  generic_alert: Optional[pulumi.Input[str]] = None,
                  handshake_timeout: Optional[pulumi.Input[str]] = None,
                  inherit_cert_keychain: Optional[pulumi.Input[str]] = None,
@@ -66,7 +66,7 @@ class ProfileClientSsl(pulumi.CustomResource):
                  ssl_forward_proxy_bypass: Optional[pulumi.Input[str]] = None,
                  ssl_sign_hash: Optional[pulumi.Input[str]] = None,
                  strict_resume: Optional[pulumi.Input[str]] = None,
-                 tm_options: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 tm_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  unclean_shutdown: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -94,13 +94,13 @@ class ProfileClientSsl(pulumi.CustomResource):
         :param pulumi.Input[str] allow_non_ssl: Enables or disables acceptance of non-SSL connections, When creating a new profile, the setting is provided by the parent profile
         :param pulumi.Input[str] authenticate: Specifies the frequency of client authentication for an SSL session.When `once`,specifies that the system authenticates the client once for an SSL session.
                When `always`, specifies that the system authenticates the client once for an SSL session and also upon reuse of that session.
-        :param pulumi.Input[float] authenticate_depth: Specifies the maximum number of certificates to be traversed in a client certificate chain
+        :param pulumi.Input[int] authenticate_depth: Specifies the maximum number of certificates to be traversed in a client certificate chain
         :param pulumi.Input[str] ca_file: Client certificate file path. Default None.
-        :param pulumi.Input[float] cache_size: Cache size (sessions).
-        :param pulumi.Input[float] cache_timeout: Cache time out
+        :param pulumi.Input[int] cache_size: Cache size (sessions).
+        :param pulumi.Input[int] cache_timeout: Cache time out
         :param pulumi.Input[str] cert: Specifies a cert name for use.
-        :param pulumi.Input[List[pulumi.Input[str]]] cert_extension_includes: Cert extension includes for ssl forward proxy
-        :param pulumi.Input[float] cert_life_span: Life span of the certificate in days for ssl forward proxy
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cert_extension_includes: Cert extension includes for ssl forward proxy
+        :param pulumi.Input[int] cert_life_span: Life span of the certificate in days for ssl forward proxy
         :param pulumi.Input[str] cert_lookup_by_ipaddr_port: Cert lookup by ip address and port enabled / disabled
         :param pulumi.Input[str] chain: Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
         :param pulumi.Input[str] ciphers: Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
@@ -109,7 +109,7 @@ class ProfileClientSsl(pulumi.CustomResource):
         :param pulumi.Input[str] defaults_from: The parent template of this monitor template. Once this value has been set, it cannot be changed. By default, this value is the `clientssl` parent on the `Common` partition.
         :param pulumi.Input[str] forward_proxy_bypass_default_action: Forward proxy bypass default action. (enabled / disabled)
         :param pulumi.Input[str] full_path: full path of the profile
-        :param pulumi.Input[float] generation: generation
+        :param pulumi.Input[int] generation: generation
         :param pulumi.Input[str] generic_alert: Generic alerts enabled / disabled.
         :param pulumi.Input[str] handshake_timeout: Handshake time out (seconds)
         :param pulumi.Input[str] inherit_cert_keychain: Inherit cert key chain
@@ -228,14 +228,14 @@ class ProfileClientSsl(pulumi.CustomResource):
             alert_timeout: Optional[pulumi.Input[str]] = None,
             allow_non_ssl: Optional[pulumi.Input[str]] = None,
             authenticate: Optional[pulumi.Input[str]] = None,
-            authenticate_depth: Optional[pulumi.Input[float]] = None,
+            authenticate_depth: Optional[pulumi.Input[int]] = None,
             ca_file: Optional[pulumi.Input[str]] = None,
-            cache_size: Optional[pulumi.Input[float]] = None,
-            cache_timeout: Optional[pulumi.Input[float]] = None,
+            cache_size: Optional[pulumi.Input[int]] = None,
+            cache_timeout: Optional[pulumi.Input[int]] = None,
             cert: Optional[pulumi.Input[str]] = None,
-            cert_extension_includes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-            cert_key_chains: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['ProfileClientSslCertKeyChainArgs']]]]] = None,
-            cert_life_span: Optional[pulumi.Input[float]] = None,
+            cert_extension_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            cert_key_chains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileClientSslCertKeyChainArgs']]]]] = None,
+            cert_life_span: Optional[pulumi.Input[int]] = None,
             cert_lookup_by_ipaddr_port: Optional[pulumi.Input[str]] = None,
             chain: Optional[pulumi.Input[str]] = None,
             ciphers: Optional[pulumi.Input[str]] = None,
@@ -244,7 +244,7 @@ class ProfileClientSsl(pulumi.CustomResource):
             defaults_from: Optional[pulumi.Input[str]] = None,
             forward_proxy_bypass_default_action: Optional[pulumi.Input[str]] = None,
             full_path: Optional[pulumi.Input[str]] = None,
-            generation: Optional[pulumi.Input[float]] = None,
+            generation: Optional[pulumi.Input[int]] = None,
             generic_alert: Optional[pulumi.Input[str]] = None,
             handshake_timeout: Optional[pulumi.Input[str]] = None,
             inherit_cert_keychain: Optional[pulumi.Input[str]] = None,
@@ -274,7 +274,7 @@ class ProfileClientSsl(pulumi.CustomResource):
             ssl_forward_proxy_bypass: Optional[pulumi.Input[str]] = None,
             ssl_sign_hash: Optional[pulumi.Input[str]] = None,
             strict_resume: Optional[pulumi.Input[str]] = None,
-            tm_options: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            tm_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             unclean_shutdown: Optional[pulumi.Input[str]] = None) -> 'ProfileClientSsl':
         """
         Get an existing ProfileClientSsl resource's state with the given name, id, and optional extra
@@ -287,13 +287,13 @@ class ProfileClientSsl(pulumi.CustomResource):
         :param pulumi.Input[str] allow_non_ssl: Enables or disables acceptance of non-SSL connections, When creating a new profile, the setting is provided by the parent profile
         :param pulumi.Input[str] authenticate: Specifies the frequency of client authentication for an SSL session.When `once`,specifies that the system authenticates the client once for an SSL session.
                When `always`, specifies that the system authenticates the client once for an SSL session and also upon reuse of that session.
-        :param pulumi.Input[float] authenticate_depth: Specifies the maximum number of certificates to be traversed in a client certificate chain
+        :param pulumi.Input[int] authenticate_depth: Specifies the maximum number of certificates to be traversed in a client certificate chain
         :param pulumi.Input[str] ca_file: Client certificate file path. Default None.
-        :param pulumi.Input[float] cache_size: Cache size (sessions).
-        :param pulumi.Input[float] cache_timeout: Cache time out
+        :param pulumi.Input[int] cache_size: Cache size (sessions).
+        :param pulumi.Input[int] cache_timeout: Cache time out
         :param pulumi.Input[str] cert: Specifies a cert name for use.
-        :param pulumi.Input[List[pulumi.Input[str]]] cert_extension_includes: Cert extension includes for ssl forward proxy
-        :param pulumi.Input[float] cert_life_span: Life span of the certificate in days for ssl forward proxy
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] cert_extension_includes: Cert extension includes for ssl forward proxy
+        :param pulumi.Input[int] cert_life_span: Life span of the certificate in days for ssl forward proxy
         :param pulumi.Input[str] cert_lookup_by_ipaddr_port: Cert lookup by ip address and port enabled / disabled
         :param pulumi.Input[str] chain: Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
         :param pulumi.Input[str] ciphers: Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
@@ -302,7 +302,7 @@ class ProfileClientSsl(pulumi.CustomResource):
         :param pulumi.Input[str] defaults_from: The parent template of this monitor template. Once this value has been set, it cannot be changed. By default, this value is the `clientssl` parent on the `Common` partition.
         :param pulumi.Input[str] forward_proxy_bypass_default_action: Forward proxy bypass default action. (enabled / disabled)
         :param pulumi.Input[str] full_path: full path of the profile
-        :param pulumi.Input[float] generation: generation
+        :param pulumi.Input[int] generation: generation
         :param pulumi.Input[str] generic_alert: Generic alerts enabled / disabled.
         :param pulumi.Input[str] handshake_timeout: Handshake time out (seconds)
         :param pulumi.Input[str] inherit_cert_keychain: Inherit cert key chain
@@ -422,7 +422,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="authenticateDepth")
-    def authenticate_depth(self) -> pulumi.Output[float]:
+    def authenticate_depth(self) -> pulumi.Output[int]:
         """
         Specifies the maximum number of certificates to be traversed in a client certificate chain
         """
@@ -438,7 +438,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cacheSize")
-    def cache_size(self) -> pulumi.Output[float]:
+    def cache_size(self) -> pulumi.Output[int]:
         """
         Cache size (sessions).
         """
@@ -446,7 +446,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cacheTimeout")
-    def cache_timeout(self) -> pulumi.Output[float]:
+    def cache_timeout(self) -> pulumi.Output[int]:
         """
         Cache time out
         """
@@ -462,7 +462,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certExtensionIncludes")
-    def cert_extension_includes(self) -> pulumi.Output[List[str]]:
+    def cert_extension_includes(self) -> pulumi.Output[Sequence[str]]:
         """
         Cert extension includes for ssl forward proxy
         """
@@ -470,12 +470,12 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="certKeyChains")
-    def cert_key_chains(self) -> pulumi.Output[List['outputs.ProfileClientSslCertKeyChain']]:
+    def cert_key_chains(self) -> pulumi.Output[Sequence['outputs.ProfileClientSslCertKeyChain']]:
         return pulumi.get(self, "cert_key_chains")
 
     @property
     @pulumi.getter(name="certLifeSpan")
-    def cert_life_span(self) -> pulumi.Output[float]:
+    def cert_life_span(self) -> pulumi.Output[int]:
         """
         Life span of the certificate in days for ssl forward proxy
         """
@@ -547,7 +547,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def generation(self) -> pulumi.Output[float]:
+    def generation(self) -> pulumi.Output[int]:
         """
         generation
         """
@@ -791,7 +791,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tmOptions")
-    def tm_options(self) -> pulumi.Output[List[str]]:
+    def tm_options(self) -> pulumi.Output[Sequence[str]]:
         return pulumi.get(self, "tm_options")
 
     @property

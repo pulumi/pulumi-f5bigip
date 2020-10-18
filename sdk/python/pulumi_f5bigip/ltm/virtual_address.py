@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['VirtualAddress']
@@ -18,7 +18,7 @@ class VirtualAddress(pulumi.CustomResource):
                  advertize_route: Optional[pulumi.Input[bool]] = None,
                  arp: Optional[pulumi.Input[bool]] = None,
                  auto_delete: Optional[pulumi.Input[bool]] = None,
-                 conn_limit: Optional[pulumi.Input[float]] = None,
+                 conn_limit: Optional[pulumi.Input[int]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  icmp_echo: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -47,7 +47,7 @@ class VirtualAddress(pulumi.CustomResource):
         :param pulumi.Input[bool] advertize_route: Enabled dynamic routing of the address
         :param pulumi.Input[bool] arp: Enable or disable ARP for the virtual address
         :param pulumi.Input[bool] auto_delete: Automatically delete the virtual address with the virtual server
-        :param pulumi.Input[float] conn_limit: Max number of connections for virtual address
+        :param pulumi.Input[int] conn_limit: Max number of connections for virtual address
         :param pulumi.Input[bool] enabled: Enable or disable the virtual address
         :param pulumi.Input[bool] icmp_echo: Enable/Disable ICMP response to the virtual address
         :param pulumi.Input[str] name: Name of the virtual address
@@ -93,7 +93,7 @@ class VirtualAddress(pulumi.CustomResource):
             advertize_route: Optional[pulumi.Input[bool]] = None,
             arp: Optional[pulumi.Input[bool]] = None,
             auto_delete: Optional[pulumi.Input[bool]] = None,
-            conn_limit: Optional[pulumi.Input[float]] = None,
+            conn_limit: Optional[pulumi.Input[int]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             icmp_echo: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -108,7 +108,7 @@ class VirtualAddress(pulumi.CustomResource):
         :param pulumi.Input[bool] advertize_route: Enabled dynamic routing of the address
         :param pulumi.Input[bool] arp: Enable or disable ARP for the virtual address
         :param pulumi.Input[bool] auto_delete: Automatically delete the virtual address with the virtual server
-        :param pulumi.Input[float] conn_limit: Max number of connections for virtual address
+        :param pulumi.Input[int] conn_limit: Max number of connections for virtual address
         :param pulumi.Input[bool] enabled: Enable or disable the virtual address
         :param pulumi.Input[bool] icmp_echo: Enable/Disable ICMP response to the virtual address
         :param pulumi.Input[str] name: Name of the virtual address
@@ -154,7 +154,7 @@ class VirtualAddress(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="connLimit")
-    def conn_limit(self) -> pulumi.Output[Optional[float]]:
+    def conn_limit(self) -> pulumi.Output[Optional[int]]:
         """
         Max number of connections for virtual address
         """

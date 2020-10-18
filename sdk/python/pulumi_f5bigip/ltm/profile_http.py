@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['ProfileHttp']
@@ -21,9 +21,9 @@ class ProfileHttp(pulumi.CustomResource):
                  defaults_from: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encrypt_cookie_secret: Optional[pulumi.Input[str]] = None,
-                 encrypt_cookies: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 encrypt_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  fallback_host: Optional[pulumi.Input[str]] = None,
-                 fallback_status_codes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 fallback_status_codes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  head_erase: Optional[pulumi.Input[str]] = None,
                  head_insert: Optional[pulumi.Input[str]] = None,
                  insert_xforwarded_for: Optional[pulumi.Input[str]] = None,
@@ -34,13 +34,13 @@ class ProfileHttp(pulumi.CustomResource):
                  redirect_rewrite: Optional[pulumi.Input[str]] = None,
                  request_chunking: Optional[pulumi.Input[str]] = None,
                  response_chunking: Optional[pulumi.Input[str]] = None,
-                 response_headers_permitteds: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 response_headers_permitteds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  server_agent_name: Optional[pulumi.Input[str]] = None,
                  tm_partition: Optional[pulumi.Input[str]] = None,
                  via_host_name: Optional[pulumi.Input[str]] = None,
                  via_request: Optional[pulumi.Input[str]] = None,
                  via_response: Optional[pulumi.Input[str]] = None,
-                 xff_alternative_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 xff_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -76,9 +76,9 @@ class ProfileHttp(pulumi.CustomResource):
         :param pulumi.Input[str] defaults_from: Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         :param pulumi.Input[str] description: User defibned description
         :param pulumi.Input[str] encrypt_cookie_secret: Specifies a passphrase for the cookie encryption
-        :param pulumi.Input[List[pulumi.Input[str]]] encrypt_cookies: Encrypts specified cookies that the BIG-IP system sends to a client system
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] encrypt_cookies: Encrypts specified cookies that the BIG-IP system sends to a client system
         :param pulumi.Input[str] fallback_host: Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
-        :param pulumi.Input[List[pulumi.Input[str]]] fallback_status_codes: Specifies one or more three-digit status codes that can be returned by an HTTP server.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] fallback_status_codes: Specifies one or more three-digit status codes that can be returned by an HTTP server.
         :param pulumi.Input[str] head_erase: Specifies the header string that you want to erase from an HTTP request. You can also specify none
         :param pulumi.Input[str] head_insert: Specifies a quoted header string that you want to insert into an HTTP request
         :param pulumi.Input[str] insert_xforwarded_for: When using connection pooling, which allows clients to make use of other client requests' server-side connections, you can insert the X-Forwarded-For header and specify a client IP address
@@ -89,14 +89,14 @@ class ProfileHttp(pulumi.CustomResource):
         :param pulumi.Input[str] redirect_rewrite: Specifies which of the application HTTP redirects the system rewrites to HTTPS.
         :param pulumi.Input[str] request_chunking: Specifies how to handle chunked and unchunked requests.
         :param pulumi.Input[str] response_chunking: Specifies how to handle chunked and unchunked responses.
-        :param pulumi.Input[List[pulumi.Input[str]]] response_headers_permitteds: Specifies headers that the BIG-IP system allows in an HTTP response.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] response_headers_permitteds: Specifies headers that the BIG-IP system allows in an HTTP response.
         :param pulumi.Input[str] server_agent_name: Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no
                string is specified, then no Server header will be added to such responses
         :param pulumi.Input[str] tm_partition: Displays the administrative partition within which this profile resides.
         :param pulumi.Input[str] via_host_name: Specifies the hostname to include into Via header
         :param pulumi.Input[str] via_request: Specifies whether to append, remove, or preserve a Via header in an HTTP request
         :param pulumi.Input[str] via_response: Specifies whether to append, remove, or preserve a Via header in an HTTP request
-        :param pulumi.Input[List[pulumi.Input[str]]] xff_alternative_names: Specifies alternative XFF headers instead of the default X-forwarded-for header
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] xff_alternative_names: Specifies alternative XFF headers instead of the default X-forwarded-for header
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -161,9 +161,9 @@ class ProfileHttp(pulumi.CustomResource):
             defaults_from: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             encrypt_cookie_secret: Optional[pulumi.Input[str]] = None,
-            encrypt_cookies: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            encrypt_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             fallback_host: Optional[pulumi.Input[str]] = None,
-            fallback_status_codes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            fallback_status_codes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             head_erase: Optional[pulumi.Input[str]] = None,
             head_insert: Optional[pulumi.Input[str]] = None,
             insert_xforwarded_for: Optional[pulumi.Input[str]] = None,
@@ -174,13 +174,13 @@ class ProfileHttp(pulumi.CustomResource):
             redirect_rewrite: Optional[pulumi.Input[str]] = None,
             request_chunking: Optional[pulumi.Input[str]] = None,
             response_chunking: Optional[pulumi.Input[str]] = None,
-            response_headers_permitteds: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            response_headers_permitteds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             server_agent_name: Optional[pulumi.Input[str]] = None,
             tm_partition: Optional[pulumi.Input[str]] = None,
             via_host_name: Optional[pulumi.Input[str]] = None,
             via_request: Optional[pulumi.Input[str]] = None,
             via_response: Optional[pulumi.Input[str]] = None,
-            xff_alternative_names: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None) -> 'ProfileHttp':
+            xff_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'ProfileHttp':
         """
         Get an existing ProfileHttp resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -195,9 +195,9 @@ class ProfileHttp(pulumi.CustomResource):
         :param pulumi.Input[str] defaults_from: Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         :param pulumi.Input[str] description: User defibned description
         :param pulumi.Input[str] encrypt_cookie_secret: Specifies a passphrase for the cookie encryption
-        :param pulumi.Input[List[pulumi.Input[str]]] encrypt_cookies: Encrypts specified cookies that the BIG-IP system sends to a client system
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] encrypt_cookies: Encrypts specified cookies that the BIG-IP system sends to a client system
         :param pulumi.Input[str] fallback_host: Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
-        :param pulumi.Input[List[pulumi.Input[str]]] fallback_status_codes: Specifies one or more three-digit status codes that can be returned by an HTTP server.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] fallback_status_codes: Specifies one or more three-digit status codes that can be returned by an HTTP server.
         :param pulumi.Input[str] head_erase: Specifies the header string that you want to erase from an HTTP request. You can also specify none
         :param pulumi.Input[str] head_insert: Specifies a quoted header string that you want to insert into an HTTP request
         :param pulumi.Input[str] insert_xforwarded_for: When using connection pooling, which allows clients to make use of other client requests' server-side connections, you can insert the X-Forwarded-For header and specify a client IP address
@@ -208,14 +208,14 @@ class ProfileHttp(pulumi.CustomResource):
         :param pulumi.Input[str] redirect_rewrite: Specifies which of the application HTTP redirects the system rewrites to HTTPS.
         :param pulumi.Input[str] request_chunking: Specifies how to handle chunked and unchunked requests.
         :param pulumi.Input[str] response_chunking: Specifies how to handle chunked and unchunked responses.
-        :param pulumi.Input[List[pulumi.Input[str]]] response_headers_permitteds: Specifies headers that the BIG-IP system allows in an HTTP response.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] response_headers_permitteds: Specifies headers that the BIG-IP system allows in an HTTP response.
         :param pulumi.Input[str] server_agent_name: Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no
                string is specified, then no Server header will be added to such responses
         :param pulumi.Input[str] tm_partition: Displays the administrative partition within which this profile resides.
         :param pulumi.Input[str] via_host_name: Specifies the hostname to include into Via header
         :param pulumi.Input[str] via_request: Specifies whether to append, remove, or preserve a Via header in an HTTP request
         :param pulumi.Input[str] via_response: Specifies whether to append, remove, or preserve a Via header in an HTTP request
-        :param pulumi.Input[List[pulumi.Input[str]]] xff_alternative_names: Specifies alternative XFF headers instead of the default X-forwarded-for header
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] xff_alternative_names: Specifies alternative XFF headers instead of the default X-forwarded-for header
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -300,7 +300,7 @@ class ProfileHttp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="encryptCookies")
-    def encrypt_cookies(self) -> pulumi.Output[Optional[List[str]]]:
+    def encrypt_cookies(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Encrypts specified cookies that the BIG-IP system sends to a client system
         """
@@ -316,7 +316,7 @@ class ProfileHttp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fallbackStatusCodes")
-    def fallback_status_codes(self) -> pulumi.Output[Optional[List[str]]]:
+    def fallback_status_codes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Specifies one or more three-digit status codes that can be returned by an HTTP server.
         """
@@ -404,7 +404,7 @@ class ProfileHttp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="responseHeadersPermitteds")
-    def response_headers_permitteds(self) -> pulumi.Output[Optional[List[str]]]:
+    def response_headers_permitteds(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Specifies headers that the BIG-IP system allows in an HTTP response.
         """
@@ -453,7 +453,7 @@ class ProfileHttp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="xffAlternativeNames")
-    def xff_alternative_names(self) -> pulumi.Output[Optional[List[str]]]:
+    def xff_alternative_names(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         Specifies alternative XFF headers instead of the default X-forwarded-for header
         """

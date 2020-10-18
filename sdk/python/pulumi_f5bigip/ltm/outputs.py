@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -57,7 +57,7 @@ class NodeFqdn(dict):
     def __init__(__self__, *,
                  address_family: Optional[str] = None,
                  autopopulate: Optional[str] = None,
-                 downinterval: Optional[float] = None,
+                 downinterval: Optional[int] = None,
                  interval: Optional[str] = None,
                  name: Optional[str] = None):
         """
@@ -91,7 +91,7 @@ class NodeFqdn(dict):
 
     @property
     @pulumi.getter
-    def downinterval(self) -> Optional[float]:
+    def downinterval(self) -> Optional[int]:
         return pulumi.get(self, "downinterval")
 
     @property
@@ -118,8 +118,8 @@ class NodeFqdn(dict):
 class PolicyRule(dict):
     def __init__(__self__, *,
                  name: str,
-                 actions: Optional[List['outputs.PolicyRuleAction']] = None,
-                 conditions: Optional[List['outputs.PolicyRuleCondition']] = None):
+                 actions: Optional[Sequence['outputs.PolicyRuleAction']] = None,
+                 conditions: Optional[Sequence['outputs.PolicyRuleCondition']] = None):
         """
         :param str name: Name of the Policy
         """
@@ -139,12 +139,12 @@ class PolicyRule(dict):
 
     @property
     @pulumi.getter
-    def actions(self) -> Optional[List['outputs.PolicyRuleAction']]:
+    def actions(self) -> Optional[Sequence['outputs.PolicyRuleAction']]:
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter
-    def conditions(self) -> Optional[List['outputs.PolicyRuleCondition']]:
+    def conditions(self) -> Optional[Sequence['outputs.PolicyRuleCondition']]:
         return pulumi.get(self, "conditions")
 
     def _translate_property(self, prop):
@@ -163,7 +163,7 @@ class PolicyRuleAction(dict):
                  category: Optional[str] = None,
                  classify: Optional[bool] = None,
                  clone_pool: Optional[str] = None,
-                 code: Optional[float] = None,
+                 code: Optional[int] = None,
                  compress: Optional[bool] = None,
                  content: Optional[str] = None,
                  cookie_hash: Optional[bool] = None,
@@ -177,7 +177,7 @@ class PolicyRuleAction(dict):
                  domain: Optional[str] = None,
                  enable: Optional[bool] = None,
                  expiry: Optional[str] = None,
-                 expiry_secs: Optional[float] = None,
+                 expiry_secs: Optional[int] = None,
                  expression: Optional[str] = None,
                  extension: Optional[str] = None,
                  facility: Optional[str] = None,
@@ -200,7 +200,7 @@ class PolicyRuleAction(dict):
                  ip_address: Optional[str] = None,
                  key: Optional[str] = None,
                  l7dos: Optional[bool] = None,
-                 length: Optional[float] = None,
+                 length: Optional[int] = None,
                  location: Optional[str] = None,
                  log: Optional[bool] = None,
                  ltm_policy: Optional[bool] = None,
@@ -209,14 +209,14 @@ class PolicyRuleAction(dict):
                  netmask: Optional[str] = None,
                  nexthop: Optional[str] = None,
                  node: Optional[str] = None,
-                 offset: Optional[float] = None,
+                 offset: Optional[int] = None,
                  path: Optional[str] = None,
                  pem: Optional[bool] = None,
                  persist: Optional[bool] = None,
                  pin: Optional[bool] = None,
                  policy: Optional[str] = None,
                  pool: Optional[str] = None,
-                 port: Optional[float] = None,
+                 port: Optional[int] = None,
                  priority: Optional[str] = None,
                  profile: Optional[str] = None,
                  protocol: Optional[str] = None,
@@ -242,18 +242,18 @@ class PolicyRuleAction(dict):
                  ssl_server_handshake: Optional[bool] = None,
                  ssl_server_hello: Optional[bool] = None,
                  ssl_session_id: Optional[bool] = None,
-                 status: Optional[float] = None,
+                 status: Optional[int] = None,
                  tcl: Optional[bool] = None,
                  tcp_nagle: Optional[bool] = None,
                  text: Optional[str] = None,
-                 timeout: Optional[float] = None,
+                 timeout: Optional[int] = None,
                  tm_name: Optional[str] = None,
                  uie: Optional[bool] = None,
                  universal: Optional[bool] = None,
                  value: Optional[str] = None,
                  virtual: Optional[str] = None,
                  vlan: Optional[str] = None,
-                 vlan_id: Optional[float] = None,
+                 vlan_id: Optional[int] = None,
                  wam: Optional[bool] = None,
                  write: Optional[bool] = None):
         """
@@ -513,7 +513,7 @@ class PolicyRuleAction(dict):
 
     @property
     @pulumi.getter
-    def code(self) -> Optional[float]:
+    def code(self) -> Optional[int]:
         return pulumi.get(self, "code")
 
     @property
@@ -583,7 +583,7 @@ class PolicyRuleAction(dict):
 
     @property
     @pulumi.getter(name="expirySecs")
-    def expiry_secs(self) -> Optional[float]:
+    def expiry_secs(self) -> Optional[int]:
         return pulumi.get(self, "expiry_secs")
 
     @property
@@ -701,7 +701,7 @@ class PolicyRuleAction(dict):
 
     @property
     @pulumi.getter
-    def length(self) -> Optional[float]:
+    def length(self) -> Optional[int]:
         return pulumi.get(self, "length")
 
     @property
@@ -746,7 +746,7 @@ class PolicyRuleAction(dict):
 
     @property
     @pulumi.getter
-    def offset(self) -> Optional[float]:
+    def offset(self) -> Optional[int]:
         return pulumi.get(self, "offset")
 
     @property
@@ -784,7 +784,7 @@ class PolicyRuleAction(dict):
 
     @property
     @pulumi.getter
-    def port(self) -> Optional[float]:
+    def port(self) -> Optional[int]:
         return pulumi.get(self, "port")
 
     @property
@@ -914,7 +914,7 @@ class PolicyRuleAction(dict):
 
     @property
     @pulumi.getter
-    def status(self) -> Optional[float]:
+    def status(self) -> Optional[int]:
         return pulumi.get(self, "status")
 
     @property
@@ -934,7 +934,7 @@ class PolicyRuleAction(dict):
 
     @property
     @pulumi.getter
-    def timeout(self) -> Optional[float]:
+    def timeout(self) -> Optional[int]:
         return pulumi.get(self, "timeout")
 
     @property
@@ -972,7 +972,7 @@ class PolicyRuleAction(dict):
 
     @property
     @pulumi.getter(name="vlanId")
-    def vlan_id(self) -> Optional[float]:
+    def vlan_id(self) -> Optional[int]:
         return pulumi.get(self, "vlan_id")
 
     @property
@@ -1032,7 +1032,7 @@ class PolicyRuleCondition(dict):
                  http_uri: Optional[bool] = None,
                  http_user_agent: Optional[bool] = None,
                  http_version: Optional[bool] = None,
-                 index: Optional[float] = None,
+                 index: Optional[int] = None,
                  internal: Optional[bool] = None,
                  isp: Optional[bool] = None,
                  last15secs: Optional[bool] = None,
@@ -1078,7 +1078,7 @@ class PolicyRuleCondition(dict):
                  user_agent_token: Optional[bool] = None,
                  username: Optional[bool] = None,
                  value: Optional[bool] = None,
-                 values: Optional[List[str]] = None,
+                 values: Optional[Sequence[str]] = None,
                  version: Optional[bool] = None,
                  vlan: Optional[bool] = None,
                  vlan_id: Optional[bool] = None):
@@ -1468,7 +1468,7 @@ class PolicyRuleCondition(dict):
 
     @property
     @pulumi.getter
-    def index(self) -> Optional[float]:
+    def index(self) -> Optional[int]:
         return pulumi.get(self, "index")
 
     @property
@@ -1701,7 +1701,7 @@ class PolicyRuleCondition(dict):
 
     @property
     @pulumi.getter
-    def values(self) -> Optional[List[str]]:
+    def values(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "values")
 
     @property

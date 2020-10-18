@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -18,7 +18,7 @@ class DataGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 records: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DataGroupRecordArgs']]]]] = None,
+                 records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataGroupRecordArgs']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -52,7 +52,7 @@ class DataGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DataGroupRecordArgs']]]] records: a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataGroupRecordArgs']]]] records: a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
         :param pulumi.Input[str] type: datagroup type (applies to the `name` field of the record), supports: `string`, `ip` or `integer`
         """
         if __name__ is not None:
@@ -90,7 +90,7 @@ class DataGroup(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             name: Optional[pulumi.Input[str]] = None,
-            records: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['DataGroupRecordArgs']]]]] = None,
+            records: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataGroupRecordArgs']]]]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'DataGroup':
         """
         Get an existing DataGroup resource's state with the given name, id, and optional extra
@@ -100,7 +100,7 @@ class DataGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['DataGroupRecordArgs']]]] records: a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataGroupRecordArgs']]]] records: a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
         :param pulumi.Input[str] type: datagroup type (applies to the `name` field of the record), supports: `string`, `ip` or `integer`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -122,7 +122,7 @@ class DataGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def records(self) -> pulumi.Output[Optional[List['outputs.DataGroupRecord']]]:
+    def records(self) -> pulumi.Output[Optional[Sequence['outputs.DataGroupRecord']]]:
         """
         a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
         """

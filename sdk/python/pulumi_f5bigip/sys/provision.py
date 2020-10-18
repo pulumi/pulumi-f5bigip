@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Provision']
@@ -15,11 +15,11 @@ class Provision(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cpu_ratio: Optional[pulumi.Input[float]] = None,
-                 disk_ratio: Optional[pulumi.Input[float]] = None,
+                 cpu_ratio: Optional[pulumi.Input[int]] = None,
+                 disk_ratio: Optional[pulumi.Input[int]] = None,
                  full_path: Optional[pulumi.Input[str]] = None,
                  level: Optional[pulumi.Input[str]] = None,
-                 memory_ratio: Optional[pulumi.Input[float]] = None,
+                 memory_ratio: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -43,11 +43,11 @@ class Provision(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] cpu_ratio: cpu Ratio
-        :param pulumi.Input[float] disk_ratio: disk Ratio
+        :param pulumi.Input[int] cpu_ratio: cpu Ratio
+        :param pulumi.Input[int] disk_ratio: disk Ratio
         :param pulumi.Input[str] full_path: path
         :param pulumi.Input[str] level: what level nominal or dedicated
-        :param pulumi.Input[float] memory_ratio: memory Ratio
+        :param pulumi.Input[int] memory_ratio: memory Ratio
         :param pulumi.Input[str] name: Name of the module to be provisioned
         """
         if __name__ is not None:
@@ -85,11 +85,11 @@ class Provision(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            cpu_ratio: Optional[pulumi.Input[float]] = None,
-            disk_ratio: Optional[pulumi.Input[float]] = None,
+            cpu_ratio: Optional[pulumi.Input[int]] = None,
+            disk_ratio: Optional[pulumi.Input[int]] = None,
             full_path: Optional[pulumi.Input[str]] = None,
             level: Optional[pulumi.Input[str]] = None,
-            memory_ratio: Optional[pulumi.Input[float]] = None,
+            memory_ratio: Optional[pulumi.Input[int]] = None,
             name: Optional[pulumi.Input[str]] = None) -> 'Provision':
         """
         Get an existing Provision resource's state with the given name, id, and optional extra
@@ -98,11 +98,11 @@ class Provision(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] cpu_ratio: cpu Ratio
-        :param pulumi.Input[float] disk_ratio: disk Ratio
+        :param pulumi.Input[int] cpu_ratio: cpu Ratio
+        :param pulumi.Input[int] disk_ratio: disk Ratio
         :param pulumi.Input[str] full_path: path
         :param pulumi.Input[str] level: what level nominal or dedicated
-        :param pulumi.Input[float] memory_ratio: memory Ratio
+        :param pulumi.Input[int] memory_ratio: memory Ratio
         :param pulumi.Input[str] name: Name of the module to be provisioned
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -119,7 +119,7 @@ class Provision(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="cpuRatio")
-    def cpu_ratio(self) -> pulumi.Output[Optional[float]]:
+    def cpu_ratio(self) -> pulumi.Output[Optional[int]]:
         """
         cpu Ratio
         """
@@ -127,7 +127,7 @@ class Provision(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="diskRatio")
-    def disk_ratio(self) -> pulumi.Output[Optional[float]]:
+    def disk_ratio(self) -> pulumi.Output[Optional[int]]:
         """
         disk Ratio
         """
@@ -151,7 +151,7 @@ class Provision(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="memoryRatio")
-    def memory_ratio(self) -> pulumi.Output[Optional[float]]:
+    def memory_ratio(self) -> pulumi.Output[Optional[int]]:
         """
         memory Ratio
         """
