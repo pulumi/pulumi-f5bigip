@@ -26,7 +26,7 @@ namespace Pulumi.F5BigIP.Ltm
     ///     {
     ///         var vsVa = new F5BigIP.Ltm.VirtualAddress("vsVa", new F5BigIP.Ltm.VirtualAddressArgs
     ///         {
-    ///             AdvertizeRoute = true,
+    ///             AdvertizeRoute = "true",
     ///             Name = "/Common/vs_va",
     ///         });
     ///     }
@@ -40,7 +40,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// Enabled dynamic routing of the address
         /// </summary>
         [Output("advertizeRoute")]
-        public Output<bool?> AdvertizeRoute { get; private set; } = null!;
+        public Output<string?> AdvertizeRoute { get; private set; } = null!;
 
         /// <summary>
         /// Enable or disable ARP for the virtual address
@@ -134,7 +134,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// Enabled dynamic routing of the address
         /// </summary>
         [Input("advertizeRoute")]
-        public Input<bool>? AdvertizeRoute { get; set; }
+        public Input<string>? AdvertizeRoute { get; set; }
 
         /// <summary>
         /// Enable or disable ARP for the virtual address
@@ -189,7 +189,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// Enabled dynamic routing of the address
         /// </summary>
         [Input("advertizeRoute")]
-        public Input<bool>? AdvertizeRoute { get; set; }
+        public Input<string>? AdvertizeRoute { get; set; }
 
         /// <summary>
         /// Enable or disable ARP for the virtual address

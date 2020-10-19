@@ -7,9 +7,6 @@ import * as utilities from "../utilities";
 /**
  * `f5bigip.ltm.PoolAttachment` Manages nodes membership in pools
  *
- * Resources should be named with their "full path". The full path is the combination of the partition + name of the resource.
- * For example /Common/my-pool.
- *
  * ## Example Usage
  *
  * ```typescript
@@ -30,13 +27,14 @@ import * as utilities from "../utilities";
  *     allowSnat: "yes",
  *     allowNat: "yes",
  * });
- * const node = new f5bigip.ltm.Node("node", {
- *     name: "/Common/terraform_node",
- *     address: "192.168.30.2",
- * });
  * const attachNode = new f5bigip.ltm.PoolAttachment("attachNode", {
  *     pool: pool.name,
- *     node: pulumi.interpolate`${node.name}:80`,
+ *     node: "1.1.1.1:80",
+ *     ratio: 2,
+ *     connectionLimit: 2,
+ *     connectionRateLimit: 2,
+ *     priorityGroup: 2,
+ *     dynamicRatio: 3,
  * });
  * ```
  */
@@ -69,13 +67,37 @@ export class PoolAttachment extends pulumi.CustomResource {
     }
 
     /**
-     * Name of the Node with service port. (Name of Node should be referenced from `f5bigip.ltm.Node` resource)
+     * Specifies a maximum established connection limit for a pool member or node.The default is 0, meaning that there is no limit to the number of connections.
+     */
+    public readonly connectionLimit!: pulumi.Output<number>;
+    /**
+     * Specifies the maximum number of connections-per-second allowed for a pool member,The default is 0.
+     */
+    public readonly connectionRateLimit!: pulumi.Output<string>;
+    /**
+     * Specifies the fixed ratio value used for a node during ratio load balancing.
+     */
+    public readonly dynamicRatio!: pulumi.Output<number>;
+    /**
+     * Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled
+     */
+    public readonly fqdnAutopopulate!: pulumi.Output<string | undefined>;
+    /**
+     * Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
      */
     public readonly node!: pulumi.Output<string>;
     /**
-     * Name of the pool, which should be referenced from `f5bigip.ltm.Pool` resource
+     * Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
      */
     public readonly pool!: pulumi.Output<string>;
+    /**
+     * Specifies a number representing the priority group for the pool member. The default is 0, meaning that the member has no priority
+     */
+    public readonly priorityGroup!: pulumi.Output<number>;
+    /**
+     * "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
+     */
+    public readonly ratio!: pulumi.Output<number>;
 
     /**
      * Create a PoolAttachment resource with the given unique name, arguments, and options.
@@ -89,8 +111,14 @@ export class PoolAttachment extends pulumi.CustomResource {
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as PoolAttachmentState | undefined;
+            inputs["connectionLimit"] = state ? state.connectionLimit : undefined;
+            inputs["connectionRateLimit"] = state ? state.connectionRateLimit : undefined;
+            inputs["dynamicRatio"] = state ? state.dynamicRatio : undefined;
+            inputs["fqdnAutopopulate"] = state ? state.fqdnAutopopulate : undefined;
             inputs["node"] = state ? state.node : undefined;
             inputs["pool"] = state ? state.pool : undefined;
+            inputs["priorityGroup"] = state ? state.priorityGroup : undefined;
+            inputs["ratio"] = state ? state.ratio : undefined;
         } else {
             const args = argsOrState as PoolAttachmentArgs | undefined;
             if (!args || args.node === undefined) {
@@ -99,8 +127,14 @@ export class PoolAttachment extends pulumi.CustomResource {
             if (!args || args.pool === undefined) {
                 throw new Error("Missing required property 'pool'");
             }
+            inputs["connectionLimit"] = args ? args.connectionLimit : undefined;
+            inputs["connectionRateLimit"] = args ? args.connectionRateLimit : undefined;
+            inputs["dynamicRatio"] = args ? args.dynamicRatio : undefined;
+            inputs["fqdnAutopopulate"] = args ? args.fqdnAutopopulate : undefined;
             inputs["node"] = args ? args.node : undefined;
             inputs["pool"] = args ? args.pool : undefined;
+            inputs["priorityGroup"] = args ? args.priorityGroup : undefined;
+            inputs["ratio"] = args ? args.ratio : undefined;
         }
         if (!opts) {
             opts = {}
@@ -118,13 +152,37 @@ export class PoolAttachment extends pulumi.CustomResource {
  */
 export interface PoolAttachmentState {
     /**
-     * Name of the Node with service port. (Name of Node should be referenced from `f5bigip.ltm.Node` resource)
+     * Specifies a maximum established connection limit for a pool member or node.The default is 0, meaning that there is no limit to the number of connections.
+     */
+    readonly connectionLimit?: pulumi.Input<number>;
+    /**
+     * Specifies the maximum number of connections-per-second allowed for a pool member,The default is 0.
+     */
+    readonly connectionRateLimit?: pulumi.Input<string>;
+    /**
+     * Specifies the fixed ratio value used for a node during ratio load balancing.
+     */
+    readonly dynamicRatio?: pulumi.Input<number>;
+    /**
+     * Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled
+     */
+    readonly fqdnAutopopulate?: pulumi.Input<string>;
+    /**
+     * Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
      */
     readonly node?: pulumi.Input<string>;
     /**
-     * Name of the pool, which should be referenced from `f5bigip.ltm.Pool` resource
+     * Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
      */
     readonly pool?: pulumi.Input<string>;
+    /**
+     * Specifies a number representing the priority group for the pool member. The default is 0, meaning that the member has no priority
+     */
+    readonly priorityGroup?: pulumi.Input<number>;
+    /**
+     * "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
+     */
+    readonly ratio?: pulumi.Input<number>;
 }
 
 /**
@@ -132,11 +190,35 @@ export interface PoolAttachmentState {
  */
 export interface PoolAttachmentArgs {
     /**
-     * Name of the Node with service port. (Name of Node should be referenced from `f5bigip.ltm.Node` resource)
+     * Specifies a maximum established connection limit for a pool member or node.The default is 0, meaning that there is no limit to the number of connections.
+     */
+    readonly connectionLimit?: pulumi.Input<number>;
+    /**
+     * Specifies the maximum number of connections-per-second allowed for a pool member,The default is 0.
+     */
+    readonly connectionRateLimit?: pulumi.Input<string>;
+    /**
+     * Specifies the fixed ratio value used for a node during ratio load balancing.
+     */
+    readonly dynamicRatio?: pulumi.Input<number>;
+    /**
+     * Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled
+     */
+    readonly fqdnAutopopulate?: pulumi.Input<string>;
+    /**
+     * Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
      */
     readonly node: pulumi.Input<string>;
     /**
-     * Name of the pool, which should be referenced from `f5bigip.ltm.Pool` resource
+     * Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
      */
     readonly pool: pulumi.Input<string>;
+    /**
+     * Specifies a number representing the priority group for the pool member. The default is 0, meaning that the member has no priority
+     */
+    readonly priorityGroup?: pulumi.Input<number>;
+    /**
+     * "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
+     */
+    readonly ratio?: pulumi.Input<number>;
 }

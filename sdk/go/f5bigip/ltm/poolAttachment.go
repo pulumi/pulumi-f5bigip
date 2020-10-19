@@ -12,17 +12,12 @@ import (
 
 // `ltm.PoolAttachment` Manages nodes membership in pools
 //
-// Resources should be named with their "full path". The full path is the combination of the partition + name of the resource.
-// For example /Common/my-pool.
-//
 // ## Example Usage
 //
 // ```go
 // package main
 //
 // import (
-// 	"fmt"
-//
 // 	"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
@@ -51,18 +46,14 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		node, err := ltm.NewNode(ctx, "node", &ltm.NodeArgs{
-// 			Name:    pulumi.String("/Common/terraform_node"),
-// 			Address: pulumi.String("192.168.30.2"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
 // 		_, err = ltm.NewPoolAttachment(ctx, "attachNode", &ltm.PoolAttachmentArgs{
-// 			Pool: pool.Name,
-// 			Node: node.Name.ApplyT(func(name string) (string, error) {
-// 				return fmt.Sprintf("%v%v", name, ":80"), nil
-// 			}).(pulumi.StringOutput),
+// 			Pool:                pool.Name,
+// 			Node:                pulumi.String("1.1.1.1:80"),
+// 			Ratio:               pulumi.Int(2),
+// 			ConnectionLimit:     pulumi.Int(2),
+// 			ConnectionRateLimit: pulumi.String("2"),
+// 			PriorityGroup:       pulumi.Int(2),
+// 			DynamicRatio:        pulumi.Int(3),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -74,10 +65,22 @@ import (
 type PoolAttachment struct {
 	pulumi.CustomResourceState
 
-	// Name of the Node with service port. (Name of Node should be referenced from `ltm.Node` resource)
+	// Specifies a maximum established connection limit for a pool member or node.The default is 0, meaning that there is no limit to the number of connections.
+	ConnectionLimit pulumi.IntOutput `pulumi:"connectionLimit"`
+	// Specifies the maximum number of connections-per-second allowed for a pool member,The default is 0.
+	ConnectionRateLimit pulumi.StringOutput `pulumi:"connectionRateLimit"`
+	// Specifies the fixed ratio value used for a node during ratio load balancing.
+	DynamicRatio pulumi.IntOutput `pulumi:"dynamicRatio"`
+	// Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled
+	FqdnAutopopulate pulumi.StringPtrOutput `pulumi:"fqdnAutopopulate"`
+	// Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
 	Node pulumi.StringOutput `pulumi:"node"`
-	// Name of the pool, which should be referenced from `ltm.Pool` resource
+	// Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
 	Pool pulumi.StringOutput `pulumi:"pool"`
+	// Specifies a number representing the priority group for the pool member. The default is 0, meaning that the member has no priority
+	PriorityGroup pulumi.IntOutput `pulumi:"priorityGroup"`
+	// "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
+	Ratio pulumi.IntOutput `pulumi:"ratio"`
 }
 
 // NewPoolAttachment registers a new resource with the given unique name, arguments, and options.
@@ -114,17 +117,41 @@ func GetPoolAttachment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PoolAttachment resources.
 type poolAttachmentState struct {
-	// Name of the Node with service port. (Name of Node should be referenced from `ltm.Node` resource)
+	// Specifies a maximum established connection limit for a pool member or node.The default is 0, meaning that there is no limit to the number of connections.
+	ConnectionLimit *int `pulumi:"connectionLimit"`
+	// Specifies the maximum number of connections-per-second allowed for a pool member,The default is 0.
+	ConnectionRateLimit *string `pulumi:"connectionRateLimit"`
+	// Specifies the fixed ratio value used for a node during ratio load balancing.
+	DynamicRatio *int `pulumi:"dynamicRatio"`
+	// Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled
+	FqdnAutopopulate *string `pulumi:"fqdnAutopopulate"`
+	// Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
 	Node *string `pulumi:"node"`
-	// Name of the pool, which should be referenced from `ltm.Pool` resource
+	// Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
 	Pool *string `pulumi:"pool"`
+	// Specifies a number representing the priority group for the pool member. The default is 0, meaning that the member has no priority
+	PriorityGroup *int `pulumi:"priorityGroup"`
+	// "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
+	Ratio *int `pulumi:"ratio"`
 }
 
 type PoolAttachmentState struct {
-	// Name of the Node with service port. (Name of Node should be referenced from `ltm.Node` resource)
+	// Specifies a maximum established connection limit for a pool member or node.The default is 0, meaning that there is no limit to the number of connections.
+	ConnectionLimit pulumi.IntPtrInput
+	// Specifies the maximum number of connections-per-second allowed for a pool member,The default is 0.
+	ConnectionRateLimit pulumi.StringPtrInput
+	// Specifies the fixed ratio value used for a node during ratio load balancing.
+	DynamicRatio pulumi.IntPtrInput
+	// Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled
+	FqdnAutopopulate pulumi.StringPtrInput
+	// Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
 	Node pulumi.StringPtrInput
-	// Name of the pool, which should be referenced from `ltm.Pool` resource
+	// Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
 	Pool pulumi.StringPtrInput
+	// Specifies a number representing the priority group for the pool member. The default is 0, meaning that the member has no priority
+	PriorityGroup pulumi.IntPtrInput
+	// "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
+	Ratio pulumi.IntPtrInput
 }
 
 func (PoolAttachmentState) ElementType() reflect.Type {
@@ -132,18 +159,42 @@ func (PoolAttachmentState) ElementType() reflect.Type {
 }
 
 type poolAttachmentArgs struct {
-	// Name of the Node with service port. (Name of Node should be referenced from `ltm.Node` resource)
+	// Specifies a maximum established connection limit for a pool member or node.The default is 0, meaning that there is no limit to the number of connections.
+	ConnectionLimit *int `pulumi:"connectionLimit"`
+	// Specifies the maximum number of connections-per-second allowed for a pool member,The default is 0.
+	ConnectionRateLimit *string `pulumi:"connectionRateLimit"`
+	// Specifies the fixed ratio value used for a node during ratio load balancing.
+	DynamicRatio *int `pulumi:"dynamicRatio"`
+	// Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled
+	FqdnAutopopulate *string `pulumi:"fqdnAutopopulate"`
+	// Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
 	Node string `pulumi:"node"`
-	// Name of the pool, which should be referenced from `ltm.Pool` resource
+	// Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
 	Pool string `pulumi:"pool"`
+	// Specifies a number representing the priority group for the pool member. The default is 0, meaning that the member has no priority
+	PriorityGroup *int `pulumi:"priorityGroup"`
+	// "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
+	Ratio *int `pulumi:"ratio"`
 }
 
 // The set of arguments for constructing a PoolAttachment resource.
 type PoolAttachmentArgs struct {
-	// Name of the Node with service port. (Name of Node should be referenced from `ltm.Node` resource)
+	// Specifies a maximum established connection limit for a pool member or node.The default is 0, meaning that there is no limit to the number of connections.
+	ConnectionLimit pulumi.IntPtrInput
+	// Specifies the maximum number of connections-per-second allowed for a pool member,The default is 0.
+	ConnectionRateLimit pulumi.StringPtrInput
+	// Specifies the fixed ratio value used for a node during ratio load balancing.
+	DynamicRatio pulumi.IntPtrInput
+	// Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled
+	FqdnAutopopulate pulumi.StringPtrInput
+	// Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
 	Node pulumi.StringInput
-	// Name of the pool, which should be referenced from `ltm.Pool` resource
+	// Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
 	Pool pulumi.StringInput
+	// Specifies a number representing the priority group for the pool member. The default is 0, meaning that the member has no priority
+	PriorityGroup pulumi.IntPtrInput
+	// "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
+	Ratio pulumi.IntPtrInput
 }
 
 func (PoolAttachmentArgs) ElementType() reflect.Type {

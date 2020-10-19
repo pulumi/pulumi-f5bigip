@@ -18,11 +18,11 @@ import (
 	"strings"
 	"unicode"
 
+	"github.com/F5Networks/terraform-provider-bigip/bigip"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfbridge"
 	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfshim/sdk-v1"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/tokens"
-	"github.com/terraform-providers/terraform-provider-bigip/bigip"
 )
 
 // all of the F5 BigIP token components used below.
@@ -71,6 +71,7 @@ func Provider() tfbridge.ProviderInfo {
 		License:     "Apache-2.0",
 		Homepage:    "https://pulumi.io",
 		Repository:  "https://github.com/pulumi/pulumi-f5bigip",
+		GitHubOrg:   "F5Networks",
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"bigip_cm_device":                       {Tok: makeResource(f5BigIPCMMod, "Device")},
 			"bigip_cm_devicegroup":                  {Tok: makeResource(f5BigIPCMMod, "DeviceGroup")},

@@ -27,12 +27,11 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := ltm.NewPolicy(ctx, "test_policy", &ltm.PolicyArgs{
-// 			Name:     pulumi.String("my_policy"),
-// 			Strategy: pulumi.String("first-match"),
+// 			Name:     pulumi.String("test-policy"),
+// 			Strategy: pulumi.String("/Common/first-match"),
 // 			Requires: pulumi.StringArray{
 // 				pulumi.String("http"),
 // 			},
-// 			PublishedCopy: pulumi.String("Drafts/my_policy"),
 // 			Controls: pulumi.StringArray{
 // 				pulumi.String("forwarding"),
 // 			},
@@ -41,9 +40,8 @@ import (
 // 					Name: pulumi.String("rule6"),
 // 					Actions: ltm.PolicyRuleActionArray{
 // 						&ltm.PolicyRuleActionArgs{
-// 							TmName:  pulumi.String("20"),
 // 							Forward: pulumi.Bool(true),
-// 							Pool:    pulumi.String("/Common/mypool"),
+// 							Pool:    pulumi.Any(bigip_ltm_pool.Pool.Name),
 // 						},
 // 					},
 // 				},

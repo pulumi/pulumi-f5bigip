@@ -38,7 +38,7 @@ namespace Pulumi.F5BigIP.Net
     public partial class Route : Pulumi.CustomResource
     {
         /// <summary>
-        /// Gateway address
+        /// Specifies a gateway address for the route.
         /// </summary>
         [Output("gw")]
         public Output<string?> Gw { get; private set; } = null!;
@@ -50,7 +50,7 @@ namespace Pulumi.F5BigIP.Net
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a gateway address for the route.
+        /// The destination subnet and netmask for the route.
         /// </summary>
         [Output("network")]
         public Output<string> Network { get; private set; } = null!;
@@ -102,7 +102,7 @@ namespace Pulumi.F5BigIP.Net
     public sealed class RouteArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Gateway address
+        /// Specifies a gateway address for the route.
         /// </summary>
         [Input("gw")]
         public Input<string>? Gw { get; set; }
@@ -114,7 +114,7 @@ namespace Pulumi.F5BigIP.Net
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Specifies a gateway address for the route.
+        /// The destination subnet and netmask for the route.
         /// </summary>
         [Input("network", required: true)]
         public Input<string> Network { get; set; } = null!;
@@ -127,7 +127,7 @@ namespace Pulumi.F5BigIP.Net
     public sealed class RouteState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Gateway address
+        /// Specifies a gateway address for the route.
         /// </summary>
         [Input("gw")]
         public Input<string>? Gw { get; set; }
@@ -139,7 +139,7 @@ namespace Pulumi.F5BigIP.Net
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies a gateway address for the route.
+        /// The destination subnet and netmask for the route.
         /// </summary>
         [Input("network")]
         public Input<string>? Network { get; set; }

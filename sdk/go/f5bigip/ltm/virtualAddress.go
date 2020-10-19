@@ -27,7 +27,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := ltm.NewVirtualAddress(ctx, "vsVa", &ltm.VirtualAddressArgs{
-// 			AdvertizeRoute: pulumi.Bool(true),
+// 			AdvertizeRoute: pulumi.String("true"),
 // 			Name:           pulumi.String("/Common/vs_va"),
 // 		})
 // 		if err != nil {
@@ -41,7 +41,7 @@ type VirtualAddress struct {
 	pulumi.CustomResourceState
 
 	// Enabled dynamic routing of the address
-	AdvertizeRoute pulumi.BoolPtrOutput `pulumi:"advertizeRoute"`
+	AdvertizeRoute pulumi.StringPtrOutput `pulumi:"advertizeRoute"`
 	// Enable or disable ARP for the virtual address
 	Arp pulumi.BoolPtrOutput `pulumi:"arp"`
 	// Automatically delete the virtual address with the virtual server
@@ -90,7 +90,7 @@ func GetVirtualAddress(ctx *pulumi.Context,
 // Input properties used for looking up and filtering VirtualAddress resources.
 type virtualAddressState struct {
 	// Enabled dynamic routing of the address
-	AdvertizeRoute *bool `pulumi:"advertizeRoute"`
+	AdvertizeRoute *string `pulumi:"advertizeRoute"`
 	// Enable or disable ARP for the virtual address
 	Arp *bool `pulumi:"arp"`
 	// Automatically delete the virtual address with the virtual server
@@ -109,7 +109,7 @@ type virtualAddressState struct {
 
 type VirtualAddressState struct {
 	// Enabled dynamic routing of the address
-	AdvertizeRoute pulumi.BoolPtrInput
+	AdvertizeRoute pulumi.StringPtrInput
 	// Enable or disable ARP for the virtual address
 	Arp pulumi.BoolPtrInput
 	// Automatically delete the virtual address with the virtual server
@@ -132,7 +132,7 @@ func (VirtualAddressState) ElementType() reflect.Type {
 
 type virtualAddressArgs struct {
 	// Enabled dynamic routing of the address
-	AdvertizeRoute *bool `pulumi:"advertizeRoute"`
+	AdvertizeRoute *string `pulumi:"advertizeRoute"`
 	// Enable or disable ARP for the virtual address
 	Arp *bool `pulumi:"arp"`
 	// Automatically delete the virtual address with the virtual server
@@ -152,7 +152,7 @@ type virtualAddressArgs struct {
 // The set of arguments for constructing a VirtualAddress resource.
 type VirtualAddressArgs struct {
 	// Enabled dynamic routing of the address
-	AdvertizeRoute pulumi.BoolPtrInput
+	AdvertizeRoute pulumi.StringPtrInput
 	// Enable or disable ARP for the virtual address
 	Arp pulumi.BoolPtrInput
 	// Automatically delete the virtual address with the virtual server

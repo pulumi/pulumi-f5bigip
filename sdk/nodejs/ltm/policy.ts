@@ -18,17 +18,15 @@ import * as utilities from "../utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const test_policy = new f5bigip.ltm.Policy("test-policy", {
- *     name: "my_policy",
- *     strategy: "first-match",
+ *     name: "test-policy",
+ *     strategy: "/Common/first-match",
  *     requires: ["http"],
- *     publishedCopy: "Drafts/my_policy",
  *     controls: ["forwarding"],
  *     rules: [{
  *         name: "rule6",
  *         actions: [{
- *             tmName: "20",
  *             forward: true,
- *             pool: "/Common/mypool",
+ *             pool: bigip_ltm_pool.pool.name,
  *         }],
  *     }],
  * }, {

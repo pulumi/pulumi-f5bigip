@@ -8,7 +8,7 @@
     ],
     "homepage": "https://pulumi.io",
     "license": "Apache-2.0",
-    "attribution": "This Pulumi package is based on the [`bigip` Terraform Provider](https://github.com/terraform-providers/terraform-provider-bigip).",
+    "attribution": "This Pulumi package is based on the [`bigip` Terraform Provider](https://github.com/F5Networks/terraform-provider-bigip).",
     "repository": "https://github.com/pulumi/pulumi-f5bigip",
     "meta": {
         "moduleFormat": "(.*)(?:/[^/]*)"
@@ -2429,7 +2429,7 @@
             }
         },
         "f5bigip:index/as3:As3": {
-            "description": "`f5bigip.As3` provides details about bigip as3 resource\n\nThis resource is helpful to configure as3 declarative JSON on BIG-IP.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\nimport * as fs from \"fs\";\n\n// Example Usage for json file with tenant filter\nconst as3_example1 = new f5bigip.As3(\"as3-example1\", {\n    as3Json: fs.readFileSync(\"example2.json\", \"utf-8\"),\n    tenantFilter: \"Sample_03\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\n# Example Usage for json file with tenant filter\nas3_example1 = f5bigip.As3(\"as3-example1\",\n    as3_json=(lambda path: open(path).read())(\"example2.json\"),\n    tenant_filter=\"Sample_03\")\n```\n```csharp\nusing System.IO;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Example Usage for json file with tenant filter\n        var as3_example1 = new F5BigIP.As3(\"as3-example1\", new F5BigIP.As3Args\n        {\n            As3Json = File.ReadAllText(\"example2.json\"),\n            TenantFilter = \"Sample_03\",\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "`f5bigip.As3` provides details about bigip as3 resource\n\nThis resource is helpful to configure as3 declarative JSON on BIG-IP.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\nimport * from \"fs\";\n\n// Example Usage for json file\nconst as3_example1As3 = new f5bigip.As3(\"as3-example1As3\", {as3Json: fs.readFileSync(\"example1.json\")});\n// Example Usage for json file with tenant filter\nconst as3_example1Index_as3As3 = new f5bigip.As3(\"as3-example1Index/as3As3\", {\n    as3Json: fs.readFileSync(\"example2.json\"),\n    tenantFilter: \"Sample_03\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\n# Example Usage for json file\nas3_example1_as3 = f5bigip.As3(\"as3-example1As3\", as3_json=(lambda path: open(path).read())(\"example1.json\"))\n# Example Usage for json file with tenant filter\nas3_example1_index_as3_as3 = f5bigip.As3(\"as3-example1Index/as3As3\",\n    as3_json=(lambda path: open(path).read())(\"example2.json\"),\n    tenant_filter=\"Sample_03\")\n```\n```csharp\nusing System.IO;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Example Usage for json file\n        var as3_example1As3 = new F5BigIP.As3(\"as3-example1As3\", new F5BigIP.As3Args\n        {\n            As3Json = File.ReadAllText(\"example1.json\"),\n        });\n        // Example Usage for json file with tenant filter\n        var as3_example1Index_as3As3 = new F5BigIP.As3(\"as3-example1Index/as3As3\", new F5BigIP.As3Args\n        {\n            As3Json = File.ReadAllText(\"example2.json\"),\n            TenantFilter = \"Sample_03\",\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "applicationList": {
                     "type": "string",
@@ -2513,15 +2513,14 @@
             }
         },
         "f5bigip:index/bigIqAs3:BigIqAs3": {
-            "description": "`f5bigip.BigIqAs3` provides details about bigiq as3 resource\n\nThis resource is helpful to configure as3 declarative JSON on BIG-IP through BIG-IQ.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\nimport * as fs from \"fs\";\n\n// Example Usage for json file\nconst exampletask = new f5bigip.BigIqAs3(\"exampletask\", {\n    as3Json: fs.readFileSync(\"bigiq_example.json\", \"utf-8\"),\n    bigiqAddress: \"xx.xx.xxx.xx\",\n    bigiqPassword: \"xxxxxxxxx\",\n    bigiqUser: \"xxxxx\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\n# Example Usage for json file\nexampletask = f5bigip.BigIqAs3(\"exampletask\",\n    as3_json=(lambda path: open(path).read())(\"bigiq_example.json\"),\n    bigiq_address=\"xx.xx.xxx.xx\",\n    bigiq_password=\"xxxxxxxxx\",\n    bigiq_user=\"xxxxx\")\n```\n```csharp\nusing System.IO;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Example Usage for json file\n        var exampletask = new F5BigIP.BigIqAs3(\"exampletask\", new F5BigIP.BigIqAs3Args\n        {\n            As3Json = File.ReadAllText(\"bigiq_example.json\"),\n            BigiqAddress = \"xx.xx.xxx.xx\",\n            BigiqPassword = \"xxxxxxxxx\",\n            BigiqUser = \"xxxxx\",\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "as3Json": {
                     "type": "string",
-                    "description": "Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function\n"
+                    "description": "AS3 json\n"
                 },
                 "bigiqAddress": {
                     "type": "string",
-                    "description": "Address of the BIG-IQ to which your targer BIG-IP is attached\n"
+                    "description": "The registration key pool to use\n"
                 },
                 "bigiqLoginRef": {
                     "type": "string",
@@ -2529,7 +2528,7 @@
                 },
                 "bigiqPassword": {
                     "type": "string",
-                    "description": "Password of the BIG-IQ to which your targer BIG-IP is attached\n"
+                    "description": "The registration key pool to use\n"
                 },
                 "bigiqPort": {
                     "type": "string",
@@ -2541,7 +2540,7 @@
                 },
                 "bigiqUser": {
                     "type": "string",
-                    "description": "User name  of the BIG-IQ to which your targer BIG-IP is attached\n"
+                    "description": "The registration key pool to use\n"
                 },
                 "tenantList": {
                     "type": "string",
@@ -2558,11 +2557,11 @@
             "inputProperties": {
                 "as3Json": {
                     "type": "string",
-                    "description": "Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function\n"
+                    "description": "AS3 json\n"
                 },
                 "bigiqAddress": {
                     "type": "string",
-                    "description": "Address of the BIG-IQ to which your targer BIG-IP is attached\n"
+                    "description": "The registration key pool to use\n"
                 },
                 "bigiqLoginRef": {
                     "type": "string",
@@ -2570,7 +2569,7 @@
                 },
                 "bigiqPassword": {
                     "type": "string",
-                    "description": "Password of the BIG-IQ to which your targer BIG-IP is attached\n"
+                    "description": "The registration key pool to use\n"
                 },
                 "bigiqPort": {
                     "type": "string",
@@ -2582,7 +2581,7 @@
                 },
                 "bigiqUser": {
                     "type": "string",
-                    "description": "User name  of the BIG-IQ to which your targer BIG-IP is attached\n"
+                    "description": "The registration key pool to use\n"
                 },
                 "tenantList": {
                     "type": "string",
@@ -2600,11 +2599,11 @@
                 "properties": {
                     "as3Json": {
                         "type": "string",
-                        "description": "Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function\n"
+                        "description": "AS3 json\n"
                     },
                     "bigiqAddress": {
                         "type": "string",
-                        "description": "Address of the BIG-IQ to which your targer BIG-IP is attached\n"
+                        "description": "The registration key pool to use\n"
                     },
                     "bigiqLoginRef": {
                         "type": "string",
@@ -2612,7 +2611,7 @@
                     },
                     "bigiqPassword": {
                         "type": "string",
-                        "description": "Password of the BIG-IQ to which your targer BIG-IP is attached\n"
+                        "description": "The registration key pool to use\n"
                     },
                     "bigiqPort": {
                         "type": "string",
@@ -2624,7 +2623,7 @@
                     },
                     "bigiqUser": {
                         "type": "string",
-                        "description": "User name  of the BIG-IQ to which your targer BIG-IP is attached\n"
+                        "description": "The registration key pool to use\n"
                     },
                     "tenantList": {
                         "type": "string",
@@ -3185,7 +3184,6 @@
             "required": [
                 "adaptive",
                 "adaptiveLimit",
-                "compatibility",
                 "destination",
                 "interval",
                 "ipDscp",
@@ -4182,7 +4180,7 @@
             }
         },
         "f5bigip:ltm/policy:Policy": {
-            "description": "`f5bigip.ltm.Policy` Configures Virtual Server\n\nFor resources should be named with their \"full path\". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst test_policy = new f5bigip.ltm.Policy(\"test-policy\", {\n    name: \"my_policy\",\n    strategy: \"first-match\",\n    requires: [\"http\"],\n    publishedCopy: \"Drafts/my_policy\",\n    controls: [\"forwarding\"],\n    rules: [{\n        name: \"rule6\",\n        actions: [{\n            tmName: \"20\",\n            forward: true,\n            pool: \"/Common/mypool\",\n        }],\n    }],\n}, {\n    dependsOn: [bigip_ltm_pool.mypool],\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ntest_policy = f5bigip.ltm.Policy(\"test-policy\",\n    name=\"my_policy\",\n    strategy=\"first-match\",\n    requires=[\"http\"],\n    published_copy=\"Drafts/my_policy\",\n    controls=[\"forwarding\"],\n    rules=[f5bigip.ltm.PolicyRuleArgs(\n        name=\"rule6\",\n        actions=[f5bigip.ltm.PolicyRuleActionArgs(\n            tm_name=\"20\",\n            forward=True,\n            pool=\"/Common/mypool\",\n        )],\n    )],\n    opts=ResourceOptions(depends_on=[bigip_ltm_pool[\"mypool\"]]))\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test_policy = new F5BigIP.Ltm.Policy(\"test-policy\", new F5BigIP.Ltm.PolicyArgs\n        {\n            Name = \"my_policy\",\n            Strategy = \"first-match\",\n            Requires = \n            {\n                \"http\",\n            },\n            PublishedCopy = \"Drafts/my_policy\",\n            Controls = \n            {\n                \"forwarding\",\n            },\n            Rules = \n            {\n                new F5BigIP.Ltm.Inputs.PolicyRuleArgs\n                {\n                    Name = \"rule6\",\n                    Actions = \n                    {\n                        new F5BigIP.Ltm.Inputs.PolicyRuleActionArgs\n                        {\n                            TmName = \"20\",\n                            Forward = true,\n                            Pool = \"/Common/mypool\",\n                        },\n                    },\n                },\n            },\n        }, new CustomResourceOptions\n        {\n            DependsOn = \n            {\n                bigip_ltm_pool.Mypool,\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewPolicy(ctx, \"test_policy\", \u0026ltm.PolicyArgs{\n\t\t\tName:     pulumi.String(\"my_policy\"),\n\t\t\tStrategy: pulumi.String(\"first-match\"),\n\t\t\tRequires: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"http\"),\n\t\t\t},\n\t\t\tPublishedCopy: pulumi.String(\"Drafts/my_policy\"),\n\t\t\tControls: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"forwarding\"),\n\t\t\t},\n\t\t\tRules: ltm.PolicyRuleArray{\n\t\t\t\t\u0026ltm.PolicyRuleArgs{\n\t\t\t\t\tName: pulumi.String(\"rule6\"),\n\t\t\t\t\tActions: ltm.PolicyRuleActionArray{\n\t\t\t\t\t\t\u0026ltm.PolicyRuleActionArgs{\n\t\t\t\t\t\t\tTmName:  pulumi.String(\"20\"),\n\t\t\t\t\t\t\tForward: pulumi.Bool(true),\n\t\t\t\t\t\t\tPool:    pulumi.String(\"/Common/mypool\"),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tbigip_ltm_pool.Mypool,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "`f5bigip.ltm.Policy` Configures Virtual Server\n\nFor resources should be named with their \"full path\". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst test_policy = new f5bigip.ltm.Policy(\"test-policy\", {\n    name: \"test-policy\",\n    strategy: \"/Common/first-match\",\n    requires: [\"http\"],\n    controls: [\"forwarding\"],\n    rules: [{\n        name: \"rule6\",\n        actions: [{\n            forward: true,\n            pool: bigip_ltm_pool.pool.name,\n        }],\n    }],\n}, {\n    dependsOn: [bigip_ltm_pool.mypool],\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ntest_policy = f5bigip.ltm.Policy(\"test-policy\",\n    name=\"test-policy\",\n    strategy=\"/Common/first-match\",\n    requires=[\"http\"],\n    controls=[\"forwarding\"],\n    rules=[f5bigip.ltm.PolicyRuleArgs(\n        name=\"rule6\",\n        actions=[f5bigip.ltm.PolicyRuleActionArgs(\n            forward=True,\n            pool=bigip_ltm_pool[\"pool\"][\"name\"],\n        )],\n    )],\n    opts=ResourceOptions(depends_on=[bigip_ltm_pool[\"mypool\"]]))\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test_policy = new F5BigIP.Ltm.Policy(\"test-policy\", new F5BigIP.Ltm.PolicyArgs\n        {\n            Name = \"test-policy\",\n            Strategy = \"/Common/first-match\",\n            Requires = \n            {\n                \"http\",\n            },\n            Controls = \n            {\n                \"forwarding\",\n            },\n            Rules = \n            {\n                new F5BigIP.Ltm.Inputs.PolicyRuleArgs\n                {\n                    Name = \"rule6\",\n                    Actions = \n                    {\n                        new F5BigIP.Ltm.Inputs.PolicyRuleActionArgs\n                        {\n                            Forward = true,\n                            Pool = bigip_ltm_pool.Pool.Name,\n                        },\n                    },\n                },\n            },\n        }, new CustomResourceOptions\n        {\n            DependsOn = \n            {\n                bigip_ltm_pool.Mypool,\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewPolicy(ctx, \"test_policy\", \u0026ltm.PolicyArgs{\n\t\t\tName:     pulumi.String(\"test-policy\"),\n\t\t\tStrategy: pulumi.String(\"/Common/first-match\"),\n\t\t\tRequires: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"http\"),\n\t\t\t},\n\t\t\tControls: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"forwarding\"),\n\t\t\t},\n\t\t\tRules: ltm.PolicyRuleArray{\n\t\t\t\t\u0026ltm.PolicyRuleArgs{\n\t\t\t\t\tName: pulumi.String(\"rule6\"),\n\t\t\t\t\tActions: ltm.PolicyRuleActionArray{\n\t\t\t\t\t\t\u0026ltm.PolicyRuleActionArgs{\n\t\t\t\t\t\t\tForward: pulumi.Bool(true),\n\t\t\t\t\t\t\tPool:    pulumi.Any(bigip_ltm_pool.Pool.Name),\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tbigip_ltm_pool.Mypool,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "controls": {
                     "type": "array",
@@ -4443,29 +4441,82 @@
             }
         },
         "f5bigip:ltm/poolAttachment:PoolAttachment": {
-            "description": "`f5bigip.ltm.PoolAttachment` Manages nodes membership in pools\n\nResources should be named with their \"full path\". The full path is the combination of the partition + name of the resource. \nFor example /Common/my-pool.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst monitor = new f5bigip.ltm.Monitor(\"monitor\", {\n    name: \"/Common/terraform_monitor\",\n    parent: \"/Common/http\",\n    send: \"GET /some/path\r\\n\",\n    timeout: \"999\",\n    interval: \"998\",\n});\nconst pool = new f5bigip.ltm.Pool(\"pool\", {\n    name: \"/Common/terraform-pool\",\n    loadBalancingMode: \"round-robin\",\n    monitors: [monitor.name],\n    allowSnat: \"yes\",\n    allowNat: \"yes\",\n});\nconst node = new f5bigip.ltm.Node(\"node\", {\n    name: \"/Common/terraform_node\",\n    address: \"192.168.30.2\",\n});\nconst attachNode = new f5bigip.ltm.PoolAttachment(\"attachNode\", {\n    pool: pool.name,\n    node: pulumi.interpolate`${node.name}:80`,\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nmonitor = f5bigip.ltm.Monitor(\"monitor\",\n    name=\"/Common/terraform_monitor\",\n    parent=\"/Common/http\",\n    send=\"GET /some/path\r\\n\",\n    timeout=999,\n    interval=998)\npool = f5bigip.ltm.Pool(\"pool\",\n    name=\"/Common/terraform-pool\",\n    load_balancing_mode=\"round-robin\",\n    monitors=[monitor.name],\n    allow_snat=\"yes\",\n    allow_nat=\"yes\")\nnode = f5bigip.ltm.Node(\"node\",\n    name=\"/Common/terraform_node\",\n    address=\"192.168.30.2\")\nattach_node = f5bigip.ltm.PoolAttachment(\"attachNode\",\n    pool=pool.name,\n    node=node.name.apply(lambda name: f\"{name}:80\"))\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var monitor = new F5BigIP.Ltm.Monitor(\"monitor\", new F5BigIP.Ltm.MonitorArgs\n        {\n            Name = \"/Common/terraform_monitor\",\n            Parent = \"/Common/http\",\n            Send = @\"GET /some/path\r\n\",\n            Timeout = 999,\n            Interval = 998,\n        });\n        var pool = new F5BigIP.Ltm.Pool(\"pool\", new F5BigIP.Ltm.PoolArgs\n        {\n            Name = \"/Common/terraform-pool\",\n            LoadBalancingMode = \"round-robin\",\n            Monitors = \n            {\n                monitor.Name,\n            },\n            AllowSnat = \"yes\",\n            AllowNat = \"yes\",\n        });\n        var node = new F5BigIP.Ltm.Node(\"node\", new F5BigIP.Ltm.NodeArgs\n        {\n            Name = \"/Common/terraform_node\",\n            Address = \"192.168.30.2\",\n        });\n        var attachNode = new F5BigIP.Ltm.PoolAttachment(\"attachNode\", new F5BigIP.Ltm.PoolAttachmentArgs\n        {\n            Pool = pool.Name,\n            Node = node.Name.Apply(name =\u003e $\"{name}:80\"),\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmonitor, err := ltm.NewMonitor(ctx, \"monitor\", \u0026ltm.MonitorArgs{\n\t\t\tName:   pulumi.String(\"/Common/terraform_monitor\"),\n\t\t\tParent: pulumi.String(\"/Common/http\"),\n\t\t\tSend: pulumi.String(\"GET /some/path\r\\n\"),\n\t\t\tTimeout:  pulumi.Int(999),\n\t\t\tInterval: pulumi.Int(998),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tpool, err := ltm.NewPool(ctx, \"pool\", \u0026ltm.PoolArgs{\n\t\t\tName:              pulumi.String(\"/Common/terraform-pool\"),\n\t\t\tLoadBalancingMode: pulumi.String(\"round-robin\"),\n\t\t\tMonitors: pulumi.StringArray{\n\t\t\t\tmonitor.Name,\n\t\t\t},\n\t\t\tAllowSnat: pulumi.String(\"yes\"),\n\t\t\tAllowNat:  pulumi.String(\"yes\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tnode, err := ltm.NewNode(ctx, \"node\", \u0026ltm.NodeArgs{\n\t\t\tName:    pulumi.String(\"/Common/terraform_node\"),\n\t\t\tAddress: pulumi.String(\"192.168.30.2\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewPoolAttachment(ctx, \"attachNode\", \u0026ltm.PoolAttachmentArgs{\n\t\t\tPool: pool.Name,\n\t\t\tNode: node.Name.ApplyT(func(name string) (string, error) {\n\t\t\t\treturn fmt.Sprintf(\"%v%v\", name, \":80\"), nil\n\t\t\t}).(pulumi.StringOutput),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "`f5bigip.ltm.PoolAttachment` Manages nodes membership in pools\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst monitor = new f5bigip.ltm.Monitor(\"monitor\", {\n    name: \"/Common/terraform_monitor\",\n    parent: \"/Common/http\",\n    send: \"GET /some/path\r\\n\",\n    timeout: \"999\",\n    interval: \"998\",\n});\nconst pool = new f5bigip.ltm.Pool(\"pool\", {\n    name: \"/Common/terraform-pool\",\n    loadBalancingMode: \"round-robin\",\n    monitors: [monitor.name],\n    allowSnat: \"yes\",\n    allowNat: \"yes\",\n});\nconst attachNode = new f5bigip.ltm.PoolAttachment(\"attachNode\", {\n    pool: pool.name,\n    node: \"1.1.1.1:80\",\n    ratio: 2,\n    connectionLimit: 2,\n    connectionRateLimit: 2,\n    priorityGroup: 2,\n    dynamicRatio: 3,\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nmonitor = f5bigip.ltm.Monitor(\"monitor\",\n    name=\"/Common/terraform_monitor\",\n    parent=\"/Common/http\",\n    send=\"GET /some/path\r\\n\",\n    timeout=999,\n    interval=998)\npool = f5bigip.ltm.Pool(\"pool\",\n    name=\"/Common/terraform-pool\",\n    load_balancing_mode=\"round-robin\",\n    monitors=[monitor.name],\n    allow_snat=\"yes\",\n    allow_nat=\"yes\")\nattach_node = f5bigip.ltm.PoolAttachment(\"attachNode\",\n    pool=pool.name,\n    node=\"1.1.1.1:80\",\n    ratio=2,\n    connection_limit=2,\n    connection_rate_limit=\"2\",\n    priority_group=2,\n    dynamic_ratio=3)\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var monitor = new F5BigIP.Ltm.Monitor(\"monitor\", new F5BigIP.Ltm.MonitorArgs\n        {\n            Name = \"/Common/terraform_monitor\",\n            Parent = \"/Common/http\",\n            Send = @\"GET /some/path\r\n\",\n            Timeout = 999,\n            Interval = 998,\n        });\n        var pool = new F5BigIP.Ltm.Pool(\"pool\", new F5BigIP.Ltm.PoolArgs\n        {\n            Name = \"/Common/terraform-pool\",\n            LoadBalancingMode = \"round-robin\",\n            Monitors = \n            {\n                monitor.Name,\n            },\n            AllowSnat = \"yes\",\n            AllowNat = \"yes\",\n        });\n        var attachNode = new F5BigIP.Ltm.PoolAttachment(\"attachNode\", new F5BigIP.Ltm.PoolAttachmentArgs\n        {\n            Pool = pool.Name,\n            Node = \"1.1.1.1:80\",\n            Ratio = 2,\n            ConnectionLimit = 2,\n            ConnectionRateLimit = \"2\",\n            PriorityGroup = 2,\n            DynamicRatio = 3,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmonitor, err := ltm.NewMonitor(ctx, \"monitor\", \u0026ltm.MonitorArgs{\n\t\t\tName:   pulumi.String(\"/Common/terraform_monitor\"),\n\t\t\tParent: pulumi.String(\"/Common/http\"),\n\t\t\tSend: pulumi.String(\"GET /some/path\r\\n\"),\n\t\t\tTimeout:  pulumi.Int(999),\n\t\t\tInterval: pulumi.Int(998),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tpool, err := ltm.NewPool(ctx, \"pool\", \u0026ltm.PoolArgs{\n\t\t\tName:              pulumi.String(\"/Common/terraform-pool\"),\n\t\t\tLoadBalancingMode: pulumi.String(\"round-robin\"),\n\t\t\tMonitors: pulumi.StringArray{\n\t\t\t\tmonitor.Name,\n\t\t\t},\n\t\t\tAllowSnat: pulumi.String(\"yes\"),\n\t\t\tAllowNat:  pulumi.String(\"yes\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewPoolAttachment(ctx, \"attachNode\", \u0026ltm.PoolAttachmentArgs{\n\t\t\tPool:                pool.Name,\n\t\t\tNode:                pulumi.String(\"1.1.1.1:80\"),\n\t\t\tRatio:               pulumi.Int(2),\n\t\t\tConnectionLimit:     pulumi.Int(2),\n\t\t\tConnectionRateLimit: pulumi.String(\"2\"),\n\t\t\tPriorityGroup:       pulumi.Int(2),\n\t\t\tDynamicRatio:        pulumi.Int(3),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
+                "connectionLimit": {
+                    "type": "integer",
+                    "description": "Specifies a maximum established connection limit for a pool member or node.The default is 0, meaning that there is no limit to the number of connections.\n"
+                },
+                "connectionRateLimit": {
+                    "type": "string",
+                    "description": "Specifies the maximum number of connections-per-second allowed for a pool member,The default is 0.\n"
+                },
+                "dynamicRatio": {
+                    "type": "integer",
+                    "description": "Specifies the fixed ratio value used for a node during ratio load balancing.\n"
+                },
+                "fqdnAutopopulate": {
+                    "type": "string",
+                    "description": "Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled\n"
+                },
                 "node": {
                     "type": "string",
-                    "description": "Name of the Node with service port. (Name of Node should be referenced from `f5bigip.ltm.Node` resource)\n"
+                    "description": "Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)\n"
                 },
                 "pool": {
                     "type": "string",
-                    "description": "Name of the pool, which should be referenced from `f5bigip.ltm.Pool` resource\n"
+                    "description": "Name of the pool to which members should be attached,it should be \"full path\".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)\n"
+                },
+                "priorityGroup": {
+                    "type": "integer",
+                    "description": "Specifies a number representing the priority group for the pool member. The default is 0, meaning that the member has no priority\n"
+                },
+                "ratio": {
+                    "type": "integer",
+                    "description": "\"Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.\".\n"
                 }
             },
             "required": [
+                "connectionLimit",
+                "connectionRateLimit",
+                "dynamicRatio",
                 "node",
-                "pool"
+                "pool",
+                "priorityGroup",
+                "ratio"
             ],
             "inputProperties": {
+                "connectionLimit": {
+                    "type": "integer",
+                    "description": "Specifies a maximum established connection limit for a pool member or node.The default is 0, meaning that there is no limit to the number of connections.\n"
+                },
+                "connectionRateLimit": {
+                    "type": "string",
+                    "description": "Specifies the maximum number of connections-per-second allowed for a pool member,The default is 0.\n"
+                },
+                "dynamicRatio": {
+                    "type": "integer",
+                    "description": "Specifies the fixed ratio value used for a node during ratio load balancing.\n"
+                },
+                "fqdnAutopopulate": {
+                    "type": "string",
+                    "description": "Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled\n"
+                },
                 "node": {
                     "type": "string",
-                    "description": "Name of the Node with service port. (Name of Node should be referenced from `f5bigip.ltm.Node` resource)\n"
+                    "description": "Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)\n"
                 },
                 "pool": {
                     "type": "string",
-                    "description": "Name of the pool, which should be referenced from `f5bigip.ltm.Pool` resource\n"
+                    "description": "Name of the pool to which members should be attached,it should be \"full path\".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)\n"
+                },
+                "priorityGroup": {
+                    "type": "integer",
+                    "description": "Specifies a number representing the priority group for the pool member. The default is 0, meaning that the member has no priority\n"
+                },
+                "ratio": {
+                    "type": "integer",
+                    "description": "\"Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.\".\n"
                 }
             },
             "requiredInputs": [
@@ -4475,13 +4526,37 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering PoolAttachment resources.\n",
                 "properties": {
+                    "connectionLimit": {
+                        "type": "integer",
+                        "description": "Specifies a maximum established connection limit for a pool member or node.The default is 0, meaning that there is no limit to the number of connections.\n"
+                    },
+                    "connectionRateLimit": {
+                        "type": "string",
+                        "description": "Specifies the maximum number of connections-per-second allowed for a pool member,The default is 0.\n"
+                    },
+                    "dynamicRatio": {
+                        "type": "integer",
+                        "description": "Specifies the fixed ratio value used for a node during ratio load balancing.\n"
+                    },
+                    "fqdnAutopopulate": {
+                        "type": "string",
+                        "description": "Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled\n"
+                    },
                     "node": {
                         "type": "string",
-                        "description": "Name of the Node with service port. (Name of Node should be referenced from `f5bigip.ltm.Node` resource)\n"
+                        "description": "Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)\n"
                     },
                     "pool": {
                         "type": "string",
-                        "description": "Name of the pool, which should be referenced from `f5bigip.ltm.Pool` resource\n"
+                        "description": "Name of the pool to which members should be attached,it should be \"full path\".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)\n"
+                    },
+                    "priorityGroup": {
+                        "type": "integer",
+                        "description": "Specifies a number representing the priority group for the pool member. The default is 0, meaning that the member has no priority\n"
+                    },
+                    "ratio": {
+                        "type": "integer",
+                        "description": "\"Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.\".\n"
                     }
                 },
                 "type": "object"
@@ -5608,7 +5683,7 @@
                 },
                 "description": {
                     "type": "string",
-                    "description": "User defibned description\n"
+                    "description": "User defined description\n"
                 },
                 "encryptCookieSecret": {
                     "type": "string",
@@ -5708,8 +5783,27 @@
                 }
             },
             "required": [
+                "acceptXff",
+                "basicAuthRealm",
                 "defaultsFrom",
-                "name"
+                "description",
+                "fallbackHost",
+                "headErase",
+                "headInsert",
+                "insertXforwardedFor",
+                "lwsSeparator",
+                "name",
+                "oneconnectTransformations",
+                "proxyType",
+                "redirectRewrite",
+                "requestChunking",
+                "responseChunking",
+                "responseHeadersPermitteds",
+                "serverAgentName",
+                "viaHostName",
+                "viaRequest",
+                "viaResponse",
+                "xffAlternativeNames"
             ],
             "inputProperties": {
                 "acceptXff": {
@@ -5730,7 +5824,7 @@
                 },
                 "description": {
                     "type": "string",
-                    "description": "User defibned description\n"
+                    "description": "User defined description\n"
                 },
                 "encryptCookieSecret": {
                     "type": "string",
@@ -5830,7 +5924,6 @@
                 }
             },
             "requiredInputs": [
-                "defaultsFrom",
                 "name"
             ],
             "stateInputs": {
@@ -5854,7 +5947,7 @@
                     },
                     "description": {
                         "type": "string",
-                        "description": "User defibned description\n"
+                        "description": "User defined description\n"
                     },
                     "encryptCookieSecret": {
                         "type": "string",
@@ -7118,10 +7211,10 @@
             }
         },
         "f5bigip:ltm/virtualAddress:VirtualAddress": {
-            "description": "`f5bigip.ltm.VirtualAddress` Configures Virtual Server\n\nFor resources should be named with their \"full path\". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst vsVa = new f5bigip.ltm.VirtualAddress(\"vs_va\", {\n    advertizeRoute: true,\n    name: \"/Common/vs_va\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nvs_va = f5bigip.ltm.VirtualAddress(\"vsVa\",\n    advertize_route=True,\n    name=\"/Common/vs_va\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var vsVa = new F5BigIP.Ltm.VirtualAddress(\"vsVa\", new F5BigIP.Ltm.VirtualAddressArgs\n        {\n            AdvertizeRoute = true,\n            Name = \"/Common/vs_va\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewVirtualAddress(ctx, \"vsVa\", \u0026ltm.VirtualAddressArgs{\n\t\t\tAdvertizeRoute: pulumi.Bool(true),\n\t\t\tName:           pulumi.String(\"/Common/vs_va\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "`f5bigip.ltm.VirtualAddress` Configures Virtual Server\n\nFor resources should be named with their \"full path\". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst vsVa = new f5bigip.ltm.VirtualAddress(\"vs_va\", {\n    advertizeRoute: \"true\",\n    name: \"/Common/vs_va\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nvs_va = f5bigip.ltm.VirtualAddress(\"vsVa\",\n    advertize_route=\"true\",\n    name=\"/Common/vs_va\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var vsVa = new F5BigIP.Ltm.VirtualAddress(\"vsVa\", new F5BigIP.Ltm.VirtualAddressArgs\n        {\n            AdvertizeRoute = \"true\",\n            Name = \"/Common/vs_va\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewVirtualAddress(ctx, \"vsVa\", \u0026ltm.VirtualAddressArgs{\n\t\t\tAdvertizeRoute: pulumi.String(\"true\"),\n\t\t\tName:           pulumi.String(\"/Common/vs_va\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "advertizeRoute": {
-                    "type": "boolean",
+                    "type": "string",
                     "description": "Enabled dynamic routing of the address\n"
                 },
                 "arp": {
@@ -7158,7 +7251,7 @@
             ],
             "inputProperties": {
                 "advertizeRoute": {
-                    "type": "boolean",
+                    "type": "string",
                     "description": "Enabled dynamic routing of the address\n"
                 },
                 "arp": {
@@ -7197,7 +7290,7 @@
                 "description": "Input properties used for looking up and filtering VirtualAddress resources.\n",
                 "properties": {
                     "advertizeRoute": {
-                        "type": "boolean",
+                        "type": "string",
                         "description": "Enabled dynamic routing of the address\n"
                     },
                     "arp": {
@@ -7606,7 +7699,7 @@
             "properties": {
                 "gw": {
                     "type": "string",
-                    "description": "Gateway address\n"
+                    "description": "Specifies a gateway address for the route.\n"
                 },
                 "name": {
                     "type": "string",
@@ -7614,7 +7707,7 @@
                 },
                 "network": {
                     "type": "string",
-                    "description": "Specifies a gateway address for the route.\n"
+                    "description": "The destination subnet and netmask for the route.\n"
                 }
             },
             "required": [
@@ -7624,7 +7717,7 @@
             "inputProperties": {
                 "gw": {
                     "type": "string",
-                    "description": "Gateway address\n"
+                    "description": "Specifies a gateway address for the route.\n"
                 },
                 "name": {
                     "type": "string",
@@ -7632,7 +7725,7 @@
                 },
                 "network": {
                     "type": "string",
-                    "description": "Specifies a gateway address for the route.\n"
+                    "description": "The destination subnet and netmask for the route.\n"
                 }
             },
             "requiredInputs": [
@@ -7644,7 +7737,7 @@
                 "properties": {
                     "gw": {
                         "type": "string",
-                        "description": "Gateway address\n"
+                        "description": "Specifies a gateway address for the route.\n"
                     },
                     "name": {
                         "type": "string",
@@ -7652,7 +7745,7 @@
                     },
                     "network": {
                         "type": "string",
-                        "description": "Specifies a gateway address for the route.\n"
+                        "description": "The destination subnet and netmask for the route.\n"
                     }
                 },
                 "type": "object"
@@ -8699,11 +8792,11 @@
             "disableUnionOutputTypes": true,
             "packageDescription": "A Pulumi package for creating and managing F5 BigIP resources.",
             "packageName": "",
-            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/terraform-providers/terraform-provider-bigip)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-f5bigip` repo](https://github.com/pulumi/pulumi-f5bigip/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-providers/terraform-provider-bigip` repo](https://github.com/terraform-providers/terraform-provider-bigip/issues).",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/F5Networks/terraform-provider-bigip)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-f5bigip` repo](https://github.com/pulumi/pulumi-f5bigip/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`F5Networks/terraform-provider-bigip` repo](https://github.com/F5Networks/terraform-provider-bigip/issues).",
             "typescriptVersion": ""
         },
         "python": {
-            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/terraform-providers/terraform-provider-bigip)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-f5bigip` repo](https://github.com/pulumi/pulumi-f5bigip/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-providers/terraform-provider-bigip` repo](https://github.com/terraform-providers/terraform-provider-bigip/issues).",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/F5Networks/terraform-provider-bigip)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-f5bigip` repo](https://github.com/pulumi/pulumi-f5bigip/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`F5Networks/terraform-provider-bigip` repo](https://github.com/F5Networks/terraform-provider-bigip/issues).",
             "requires": {
                 "pulumi": "\u003e=2.9.0,\u003c3.0.0"
             },

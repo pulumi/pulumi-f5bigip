@@ -76,7 +76,7 @@ type Monitor struct {
 	// Integer value
 	AdaptiveLimit pulumi.IntOutput `pulumi:"adaptiveLimit"`
 	// Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
-	Compatibility pulumi.StringOutput `pulumi:"compatibility"`
+	Compatibility pulumi.StringPtrOutput `pulumi:"compatibility"`
 	// Specifies the database in which the user is created
 	Database pulumi.StringPtrOutput `pulumi:"database"`
 	// Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.

@@ -25,8 +25,13 @@ namespace Pulumi.F5BigIP
     /// {
     ///     public MyStack()
     ///     {
+    ///         // Example Usage for json file
+    ///         var as3_example1As3 = new F5BigIP.As3("as3-example1As3", new F5BigIP.As3Args
+    ///         {
+    ///             As3Json = File.ReadAllText("example1.json"),
+    ///         });
     ///         // Example Usage for json file with tenant filter
-    ///         var as3_example1 = new F5BigIP.As3("as3-example1", new F5BigIP.As3Args
+    ///         var as3_example1Index_as3As3 = new F5BigIP.As3("as3-example1Index/as3As3", new F5BigIP.As3Args
     ///         {
     ///             As3Json = File.ReadAllText("example2.json"),
     ///             TenantFilter = "Sample_03",

@@ -34,8 +34,10 @@ class As3(pulumi.CustomResource):
         import pulumi
         import pulumi_f5bigip as f5bigip
 
+        # Example Usage for json file
+        as3_example1_as3 = f5bigip.As3("as3-example1As3", as3_json=(lambda path: open(path).read())("example1.json"))
         # Example Usage for json file with tenant filter
-        as3_example1 = f5bigip.As3("as3-example1",
+        as3_example1_index_as3_as3 = f5bigip.As3("as3-example1Index/as3As3",
             as3_json=(lambda path: open(path).read())("example2.json"),
             tenant_filter="Sample_03")
         ```
