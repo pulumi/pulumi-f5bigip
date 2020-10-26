@@ -160,7 +160,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// Request string to send
         /// </summary>
         [Output("send")]
-        public Output<string?> Send { get; private set; } = null!;
+        public Output<string> Send { get; private set; } = null!;
 
         /// <summary>
         /// Time in seconds

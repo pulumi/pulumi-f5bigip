@@ -103,7 +103,7 @@ type Monitor struct {
 	ReceiveDisable pulumi.StringPtrOutput `pulumi:"receiveDisable"`
 	Reverse        pulumi.StringOutput    `pulumi:"reverse"`
 	// Request string to send
-	Send pulumi.StringPtrOutput `pulumi:"send"`
+	Send pulumi.StringOutput `pulumi:"send"`
 	// Time in seconds
 	TimeUntilUp pulumi.IntOutput `pulumi:"timeUntilUp"`
 	// Timeout in seconds

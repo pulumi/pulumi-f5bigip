@@ -1048,7 +1048,6 @@
                         "expression",
                         "extension",
                         "facility",
-                        "forward",
                         "fromProfile",
                         "hash",
                         "host",
@@ -3192,6 +3191,7 @@
                 "name",
                 "parent",
                 "reverse",
+                "send",
                 "timeUntilUp",
                 "timeout",
                 "transparent"
@@ -4298,23 +4298,27 @@
             }
         },
         "f5bigip:ltm/pool:Pool": {
-            "description": "`f5bigip.ltm.Pool` Manages a pool configuration.\n\nResources should be named with their \"full path\". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst pool = new f5bigip.ltm.Pool(\"pool\", {\n    name: \"/Common/terraform-pool\",\n    loadBalancingMode: \"round-robin\",\n    description: \"Test-Pool\",\n    monitors: [\n        bigip_ltm_monitor.monitor.name,\n        bigip_ltm_monitor.monitor2.name,\n    ],\n    allowSnat: \"yes\",\n    allowNat: \"yes\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\npool = f5bigip.ltm.Pool(\"pool\",\n    name=\"/Common/terraform-pool\",\n    load_balancing_mode=\"round-robin\",\n    description=\"Test-Pool\",\n    monitors=[\n        bigip_ltm_monitor[\"monitor\"][\"name\"],\n        bigip_ltm_monitor[\"monitor2\"][\"name\"],\n    ],\n    allow_snat=\"yes\",\n    allow_nat=\"yes\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var pool = new F5BigIP.Ltm.Pool(\"pool\", new F5BigIP.Ltm.PoolArgs\n        {\n            Name = \"/Common/terraform-pool\",\n            LoadBalancingMode = \"round-robin\",\n            Description = \"Test-Pool\",\n            Monitors = \n            {\n                bigip_ltm_monitor.Monitor.Name,\n                bigip_ltm_monitor.Monitor2.Name,\n            },\n            AllowSnat = \"yes\",\n            AllowNat = \"yes\",\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "`f5bigip.ltm.Pool` Manages a pool configuration.\n\nResources should be named with their \"full path\". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst monitor = new f5bigip.ltm.Monitor(\"monitor\", {\n    name: \"/Common/terraform_monitor\",\n    parent: \"/Common/http\",\n});\nconst pool = new f5bigip.ltm.Pool(\"pool\", {\n    name: \"/Common/Axiom_Environment_APP1_Pool\",\n    loadBalancingMode: \"round-robin\",\n    minimumActiveMembers: 1,\n    monitors: [monitor.name],\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nmonitor = f5bigip.ltm.Monitor(\"monitor\",\n    name=\"/Common/terraform_monitor\",\n    parent=\"/Common/http\")\npool = f5bigip.ltm.Pool(\"pool\",\n    name=\"/Common/Axiom_Environment_APP1_Pool\",\n    load_balancing_mode=\"round-robin\",\n    minimum_active_members=1,\n    monitors=[monitor.name])\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var monitor = new F5BigIP.Ltm.Monitor(\"monitor\", new F5BigIP.Ltm.MonitorArgs\n        {\n            Name = \"/Common/terraform_monitor\",\n            Parent = \"/Common/http\",\n        });\n        var pool = new F5BigIP.Ltm.Pool(\"pool\", new F5BigIP.Ltm.PoolArgs\n        {\n            Name = \"/Common/Axiom_Environment_APP1_Pool\",\n            LoadBalancingMode = \"round-robin\",\n            MinimumActiveMembers = 1,\n            Monitors = \n            {\n                monitor.Name,\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmonitor, err := ltm.NewMonitor(ctx, \"monitor\", \u0026ltm.MonitorArgs{\n\t\t\tName:   pulumi.String(\"/Common/terraform_monitor\"),\n\t\t\tParent: pulumi.String(\"/Common/http\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewPool(ctx, \"pool\", \u0026ltm.PoolArgs{\n\t\t\tName:                 pulumi.String(\"/Common/Axiom_Environment_APP1_Pool\"),\n\t\t\tLoadBalancingMode:    pulumi.String(\"round-robin\"),\n\t\t\tMinimumActiveMembers: pulumi.Int(1),\n\t\t\tMonitors: pulumi.StringArray{\n\t\t\t\tmonitor.Name,\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "allowNat": {
                     "type": "string",
-                    "description": "Allow NAT\n"
+                    "description": "Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].\n"
                 },
                 "allowSnat": {
                     "type": "string",
-                    "description": "Allow SNAT\n"
+                    "description": "Specifies whether SNATs are automatically enabled or disabled for any connections using this pool,[ Default : `yes`, Possible Values `yes` or `no`].\n"
                 },
                 "description": {
                     "type": "string",
-                    "description": "Userdefined value to describe the pool\n"
+                    "description": "Specifies descriptive text that identifies the pool.\n"
                 },
                 "loadBalancingMode": {
                     "type": "string",
-                    "description": "Possible values: round-robin, ...\n"
+                    "description": "Specifies the load balancing method. The default is Round Robin.\n"
+                },
+                "minimumActiveMembers": {
+                    "type": "integer",
+                    "description": "Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `disabled`.\n"
                 },
                 "monitors": {
                     "type": "array",
@@ -4325,25 +4329,26 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of the pool\n"
+                    "description": "Name of the pool,it should be \"full path\".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)\n"
                 },
                 "reselectTries": {
                     "type": "integer",
-                    "description": "Number of times the system tries to select a new pool member after a failure.\n"
+                    "description": "Specifies the number of times the system tries to contact a new pool member after a passive failure.\n"
                 },
                 "serviceDownAction": {
                     "type": "string",
-                    "description": "Possible values: none, reset, reselect, drop\n"
+                    "description": "Specifies how the system should respond when the target pool member becomes unavailable. The default is `None`, Possible values: `[none, reset, reselect, drop]`.\n"
                 },
                 "slowRampTime": {
                     "type": "integer",
-                    "description": "Slow ramp time for pool members\n"
+                    "description": "Specifies the duration during which the system sends less traffic to a newly-enabled pool member.\n"
                 }
             },
             "required": [
                 "allowNat",
                 "allowSnat",
                 "loadBalancingMode",
+                "minimumActiveMembers",
                 "monitors",
                 "name",
                 "reselectTries",
@@ -4353,19 +4358,23 @@
             "inputProperties": {
                 "allowNat": {
                     "type": "string",
-                    "description": "Allow NAT\n"
+                    "description": "Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].\n"
                 },
                 "allowSnat": {
                     "type": "string",
-                    "description": "Allow SNAT\n"
+                    "description": "Specifies whether SNATs are automatically enabled or disabled for any connections using this pool,[ Default : `yes`, Possible Values `yes` or `no`].\n"
                 },
                 "description": {
                     "type": "string",
-                    "description": "Userdefined value to describe the pool\n"
+                    "description": "Specifies descriptive text that identifies the pool.\n"
                 },
                 "loadBalancingMode": {
                     "type": "string",
-                    "description": "Possible values: round-robin, ...\n"
+                    "description": "Specifies the load balancing method. The default is Round Robin.\n"
+                },
+                "minimumActiveMembers": {
+                    "type": "integer",
+                    "description": "Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `disabled`.\n"
                 },
                 "monitors": {
                     "type": "array",
@@ -4376,19 +4385,19 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of the pool\n"
+                    "description": "Name of the pool,it should be \"full path\".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)\n"
                 },
                 "reselectTries": {
                     "type": "integer",
-                    "description": "Number of times the system tries to select a new pool member after a failure.\n"
+                    "description": "Specifies the number of times the system tries to contact a new pool member after a passive failure.\n"
                 },
                 "serviceDownAction": {
                     "type": "string",
-                    "description": "Possible values: none, reset, reselect, drop\n"
+                    "description": "Specifies how the system should respond when the target pool member becomes unavailable. The default is `None`, Possible values: `[none, reset, reselect, drop]`.\n"
                 },
                 "slowRampTime": {
                     "type": "integer",
-                    "description": "Slow ramp time for pool members\n"
+                    "description": "Specifies the duration during which the system sends less traffic to a newly-enabled pool member.\n"
                 }
             },
             "requiredInputs": [
@@ -4399,19 +4408,23 @@
                 "properties": {
                     "allowNat": {
                         "type": "string",
-                        "description": "Allow NAT\n"
+                        "description": "Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].\n"
                     },
                     "allowSnat": {
                         "type": "string",
-                        "description": "Allow SNAT\n"
+                        "description": "Specifies whether SNATs are automatically enabled or disabled for any connections using this pool,[ Default : `yes`, Possible Values `yes` or `no`].\n"
                     },
                     "description": {
                         "type": "string",
-                        "description": "Userdefined value to describe the pool\n"
+                        "description": "Specifies descriptive text that identifies the pool.\n"
                     },
                     "loadBalancingMode": {
                         "type": "string",
-                        "description": "Possible values: round-robin, ...\n"
+                        "description": "Specifies the load balancing method. The default is Round Robin.\n"
+                    },
+                    "minimumActiveMembers": {
+                        "type": "integer",
+                        "description": "Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `disabled`.\n"
                     },
                     "monitors": {
                         "type": "array",
@@ -4422,19 +4435,19 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "Name of the pool\n"
+                        "description": "Name of the pool,it should be \"full path\".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)\n"
                     },
                     "reselectTries": {
                         "type": "integer",
-                        "description": "Number of times the system tries to select a new pool member after a failure.\n"
+                        "description": "Specifies the number of times the system tries to contact a new pool member after a passive failure.\n"
                     },
                     "serviceDownAction": {
                         "type": "string",
-                        "description": "Possible values: none, reset, reselect, drop\n"
+                        "description": "Specifies how the system should respond when the target pool member becomes unavailable. The default is `None`, Possible values: `[none, reset, reselect, drop]`.\n"
                     },
                     "slowRampTime": {
                         "type": "integer",
-                        "description": "Slow ramp time for pool members\n"
+                        "description": "Specifies the duration during which the system sends less traffic to a newly-enabled pool member.\n"
                     }
                 },
                 "type": "object"
@@ -5563,14 +5576,14 @@
             }
         },
         "f5bigip:ltm/profileHttp2:ProfileHttp2": {
-            "description": "`f5bigip.ltm.ProfileHttp2` Configures a custom profile_http2 for use by health checks.\n\nFor resources should be named with their \"full path\". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst nyhttp2 = new f5bigip.ltm.ProfileHttp2(\"nyhttp2\", {\n    activationModes: [\n        \"alpn\",\n        \"npn\",\n    ],\n    concurrentStreamsPerConnection: 10,\n    connectionIdleTimeout: 30,\n    defaultsFrom: \"/Common/http2\",\n    name: \"/Common/NewYork_http2\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nnyhttp2 = f5bigip.ltm.ProfileHttp2(\"nyhttp2\",\n    activation_modes=[\n        \"alpn\",\n        \"npn\",\n    ],\n    concurrent_streams_per_connection=10,\n    connection_idle_timeout=30,\n    defaults_from=\"/Common/http2\",\n    name=\"/Common/NewYork_http2\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var nyhttp2 = new F5BigIP.Ltm.ProfileHttp2(\"nyhttp2\", new F5BigIP.Ltm.ProfileHttp2Args\n        {\n            ActivationModes = \n            {\n                \"alpn\",\n                \"npn\",\n            },\n            ConcurrentStreamsPerConnection = 10,\n            ConnectionIdleTimeout = 30,\n            DefaultsFrom = \"/Common/http2\",\n            Name = \"/Common/NewYork_http2\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewProfileHttp2(ctx, \"nyhttp2\", \u0026ltm.ProfileHttp2Args{\n\t\t\tActivationModes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"alpn\"),\n\t\t\t\tpulumi.String(\"npn\"),\n\t\t\t},\n\t\t\tConcurrentStreamsPerConnection: pulumi.Int(10),\n\t\t\tConnectionIdleTimeout:          pulumi.Int(30),\n\t\t\tDefaultsFrom:                   pulumi.String(\"/Common/http2\"),\n\t\t\tName:                           pulumi.String(\"/Common/NewYork_http2\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "`f5bigip.ltm.ProfileHttp2` Configures a custom profile_http2 for use by health checks.\n\nFor resources should be named with their \"full path\". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst nyhttp2 = new f5bigip.ltm.ProfileHttp2(\"nyhttp2\", {\n    name: \"/Common/test-profile-http2\",\n    frameSize: 2021,\n    receiveWindow: 31,\n    writeSize: 16380,\n    headerTableSize: 4092,\n    includeContentLength: \"enabled\",\n    enforceTlsRequirements: \"enabled\",\n    insertHeader: \"disabled\",\n    concurrentStreamsPerConnection: 30,\n    connectionIdleTimeout: 100,\n    activationModes: [\"always\"],\n});\n//Child Profile which inherits parent http2 profile\nconst nyhttp2_child = new f5bigip.ltm.ProfileHttp2(\"nyhttp2-child\", {\n    name: \"/Common/test-profile-http2-child\",\n    defaultsFrom: nyhttp2.name,\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nnyhttp2 = f5bigip.ltm.ProfileHttp2(\"nyhttp2\",\n    name=\"/Common/test-profile-http2\",\n    frame_size=2021,\n    receive_window=31,\n    write_size=16380,\n    header_table_size=4092,\n    include_content_length=\"enabled\",\n    enforce_tls_requirements=\"enabled\",\n    insert_header=\"disabled\",\n    concurrent_streams_per_connection=30,\n    connection_idle_timeout=100,\n    activation_modes=[\"always\"])\n#Child Profile which inherits parent http2 profile\nnyhttp2_child = f5bigip.ltm.ProfileHttp2(\"nyhttp2-child\",\n    name=\"/Common/test-profile-http2-child\",\n    defaults_from=nyhttp2.name)\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var nyhttp2 = new F5BigIP.Ltm.ProfileHttp2(\"nyhttp2\", new F5BigIP.Ltm.ProfileHttp2Args\n        {\n            Name = \"/Common/test-profile-http2\",\n            FrameSize = 2021,\n            ReceiveWindow = 31,\n            WriteSize = 16380,\n            HeaderTableSize = 4092,\n            IncludeContentLength = \"enabled\",\n            EnforceTlsRequirements = \"enabled\",\n            InsertHeader = \"disabled\",\n            ConcurrentStreamsPerConnection = 30,\n            ConnectionIdleTimeout = 100,\n            ActivationModes = \n            {\n                \"always\",\n            },\n        });\n        //Child Profile which inherits parent http2 profile\n        var nyhttp2_child = new F5BigIP.Ltm.ProfileHttp2(\"nyhttp2-child\", new F5BigIP.Ltm.ProfileHttp2Args\n        {\n            Name = \"/Common/test-profile-http2-child\",\n            DefaultsFrom = nyhttp2.Name,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tnyhttp2, err := ltm.NewProfileHttp2(ctx, \"nyhttp2\", \u0026ltm.ProfileHttp2Args{\n\t\t\tName:                           pulumi.String(\"/Common/test-profile-http2\"),\n\t\t\tFrameSize:                      pulumi.Int(2021),\n\t\t\tReceiveWindow:                  pulumi.Int(31),\n\t\t\tWriteSize:                      pulumi.Int(16380),\n\t\t\tHeaderTableSize:                pulumi.Int(4092),\n\t\t\tIncludeContentLength:           pulumi.String(\"enabled\"),\n\t\t\tEnforceTlsRequirements:         pulumi.String(\"enabled\"),\n\t\t\tInsertHeader:                   pulumi.String(\"disabled\"),\n\t\t\tConcurrentStreamsPerConnection: pulumi.Int(30),\n\t\t\tConnectionIdleTimeout:          pulumi.Int(100),\n\t\t\tActivationModes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"always\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewProfileHttp2(ctx, \"nyhttp2_child\", \u0026ltm.ProfileHttp2Args{\n\t\t\tName:         pulumi.String(\"/Common/test-profile-http2-child\"),\n\t\t\tDefaultsFrom: nyhttp2.Name,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "activationModes": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies what will cause an incoming connection to be handled as a HTTP/2 connection. The default values npn and alpn specify that the TLS next-protocol-negotiation and application-layer-protocol-negotiation extensions will be used.\n"
+                    "description": "This setting specifies the condition that will cause the BIG-IP system to handle an incoming connection as an HTTP/2 connection, Allowed values : `[“alpn”]` (or) `[“always”]`.\n"
                 },
                 "concurrentStreamsPerConnection": {
                     "type": "integer",
@@ -5578,23 +5591,63 @@
                 },
                 "connectionIdleTimeout": {
                     "type": "integer",
-                    "description": "Specifies the number of seconds that a connection is idle before the connection is eligible for deletion..\n"
+                    "description": "Specifies the number of seconds that a connection is idle before the connection is eligible for deletion.\n"
                 },
                 "defaultsFrom": {
                     "type": "string",
                     "description": "Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.\n"
                 },
+                "enforceTlsRequirements": {
+                    "type": "string",
+                    "description": "Enable or disable enforcement of TLS requirements,Allowed Values : `\"enabled\"/\"disabled\"` [Default:`\"enabled\"`].\n"
+                },
+                "frameSize": {
+                    "type": "integer",
+                    "description": "The size of the data frames, in bytes, that the HTTP/2 protocol sends to the client. `Default: 2048`.\n"
+                },
                 "headerTableSize": {
                     "type": "integer",
-                    "description": "Use the parent Http2 profile\n"
+                    "description": "The size of the header table, in KB, for the HTTP headers that the HTTP/2 protocol compresses to save bandwidth.\n"
+                },
+                "includeContentLength": {
+                    "type": "string",
+                    "description": "Enable to include content-length in HTTP/2 headers,Default : disabled\n"
+                },
+                "insertHeader": {
+                    "type": "string",
+                    "description": "This setting specifies whether the BIG-IP system should add an HTTP header to the HTTP request to show that the request was received over HTTP/2, Allowed Values : `\"enabled\"/\"disabled\"` [ Default: `\"disabled\"`].\n"
+                },
+                "insertHeaderName": {
+                    "type": "string",
+                    "description": "This setting specifies the name of the header that the BIG-IP system will add to the HTTP request when the Insert Header is enabled.\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of the profile_http2\n"
+                    "description": "Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-http2-profile`.\n"
+                },
+                "receiveWindow": {
+                    "type": "integer",
+                    "description": "The flow-control size for upload streams, in KB. `Default: 32`.\n"
+                },
+                "writeSize": {
+                    "type": "integer",
+                    "description": "The total size of combined data frames, in bytes, that the HTTP/2 protocol sends in a single write function. `Default: 16384`\".\n"
                 }
             },
             "required": [
-                "name"
+                "activationModes",
+                "concurrentStreamsPerConnection",
+                "connectionIdleTimeout",
+                "defaultsFrom",
+                "enforceTlsRequirements",
+                "frameSize",
+                "headerTableSize",
+                "includeContentLength",
+                "insertHeader",
+                "insertHeaderName",
+                "name",
+                "receiveWindow",
+                "writeSize"
             ],
             "inputProperties": {
                 "activationModes": {
@@ -5602,7 +5655,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies what will cause an incoming connection to be handled as a HTTP/2 connection. The default values npn and alpn specify that the TLS next-protocol-negotiation and application-layer-protocol-negotiation extensions will be used.\n"
+                    "description": "This setting specifies the condition that will cause the BIG-IP system to handle an incoming connection as an HTTP/2 connection, Allowed values : `[“alpn”]` (or) `[“always”]`.\n"
                 },
                 "concurrentStreamsPerConnection": {
                     "type": "integer",
@@ -5610,19 +5663,47 @@
                 },
                 "connectionIdleTimeout": {
                     "type": "integer",
-                    "description": "Specifies the number of seconds that a connection is idle before the connection is eligible for deletion..\n"
+                    "description": "Specifies the number of seconds that a connection is idle before the connection is eligible for deletion.\n"
                 },
                 "defaultsFrom": {
                     "type": "string",
                     "description": "Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.\n"
                 },
+                "enforceTlsRequirements": {
+                    "type": "string",
+                    "description": "Enable or disable enforcement of TLS requirements,Allowed Values : `\"enabled\"/\"disabled\"` [Default:`\"enabled\"`].\n"
+                },
+                "frameSize": {
+                    "type": "integer",
+                    "description": "The size of the data frames, in bytes, that the HTTP/2 protocol sends to the client. `Default: 2048`.\n"
+                },
                 "headerTableSize": {
                     "type": "integer",
-                    "description": "Use the parent Http2 profile\n"
+                    "description": "The size of the header table, in KB, for the HTTP headers that the HTTP/2 protocol compresses to save bandwidth.\n"
+                },
+                "includeContentLength": {
+                    "type": "string",
+                    "description": "Enable to include content-length in HTTP/2 headers,Default : disabled\n"
+                },
+                "insertHeader": {
+                    "type": "string",
+                    "description": "This setting specifies whether the BIG-IP system should add an HTTP header to the HTTP request to show that the request was received over HTTP/2, Allowed Values : `\"enabled\"/\"disabled\"` [ Default: `\"disabled\"`].\n"
+                },
+                "insertHeaderName": {
+                    "type": "string",
+                    "description": "This setting specifies the name of the header that the BIG-IP system will add to the HTTP request when the Insert Header is enabled.\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of the profile_http2\n"
+                    "description": "Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-http2-profile`.\n"
+                },
+                "receiveWindow": {
+                    "type": "integer",
+                    "description": "The flow-control size for upload streams, in KB. `Default: 32`.\n"
+                },
+                "writeSize": {
+                    "type": "integer",
+                    "description": "The total size of combined data frames, in bytes, that the HTTP/2 protocol sends in a single write function. `Default: 16384`\".\n"
                 }
             },
             "requiredInputs": [
@@ -5636,7 +5717,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "Specifies what will cause an incoming connection to be handled as a HTTP/2 connection. The default values npn and alpn specify that the TLS next-protocol-negotiation and application-layer-protocol-negotiation extensions will be used.\n"
+                        "description": "This setting specifies the condition that will cause the BIG-IP system to handle an incoming connection as an HTTP/2 connection, Allowed values : `[“alpn”]` (or) `[“always”]`.\n"
                     },
                     "concurrentStreamsPerConnection": {
                         "type": "integer",
@@ -5644,19 +5725,47 @@
                     },
                     "connectionIdleTimeout": {
                         "type": "integer",
-                        "description": "Specifies the number of seconds that a connection is idle before the connection is eligible for deletion..\n"
+                        "description": "Specifies the number of seconds that a connection is idle before the connection is eligible for deletion.\n"
                     },
                     "defaultsFrom": {
                         "type": "string",
                         "description": "Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.\n"
                     },
+                    "enforceTlsRequirements": {
+                        "type": "string",
+                        "description": "Enable or disable enforcement of TLS requirements,Allowed Values : `\"enabled\"/\"disabled\"` [Default:`\"enabled\"`].\n"
+                    },
+                    "frameSize": {
+                        "type": "integer",
+                        "description": "The size of the data frames, in bytes, that the HTTP/2 protocol sends to the client. `Default: 2048`.\n"
+                    },
                     "headerTableSize": {
                         "type": "integer",
-                        "description": "Use the parent Http2 profile\n"
+                        "description": "The size of the header table, in KB, for the HTTP headers that the HTTP/2 protocol compresses to save bandwidth.\n"
+                    },
+                    "includeContentLength": {
+                        "type": "string",
+                        "description": "Enable to include content-length in HTTP/2 headers,Default : disabled\n"
+                    },
+                    "insertHeader": {
+                        "type": "string",
+                        "description": "This setting specifies whether the BIG-IP system should add an HTTP header to the HTTP request to show that the request was received over HTTP/2, Allowed Values : `\"enabled\"/\"disabled\"` [ Default: `\"disabled\"`].\n"
+                    },
+                    "insertHeaderName": {
+                        "type": "string",
+                        "description": "This setting specifies the name of the header that the BIG-IP system will add to the HTTP request when the Insert Header is enabled.\n"
                     },
                     "name": {
                         "type": "string",
-                        "description": "Name of the profile_http2\n"
+                        "description": "Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-http2-profile`.\n"
+                    },
+                    "receiveWindow": {
+                        "type": "integer",
+                        "description": "The flow-control size for upload streams, in KB. `Default: 32`.\n"
+                    },
+                    "writeSize": {
+                        "type": "integer",
+                        "description": "The total size of combined data frames, in bytes, that the HTTP/2 protocol sends in a single write function. `Default: 16384`\".\n"
                     }
                 },
                 "type": "object"
@@ -6891,6 +7000,14 @@
                 }
             },
             "required": [
+                "closeWaitTimeout",
+                "defaultsFrom",
+                "deferredAccept",
+                "fastOpen",
+                "finwait2timeout",
+                "finwaitTimeout",
+                "idleTimeout",
+                "keepaliveInterval",
                 "name"
             ],
             "inputProperties": {

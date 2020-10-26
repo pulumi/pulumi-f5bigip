@@ -24,18 +24,20 @@ namespace Pulumi.F5BigIP.Ltm
     /// {
     ///     public MyStack()
     ///     {
+    ///         var monitor = new F5BigIP.Ltm.Monitor("monitor", new F5BigIP.Ltm.MonitorArgs
+    ///         {
+    ///             Name = "/Common/terraform_monitor",
+    ///             Parent = "/Common/http",
+    ///         });
     ///         var pool = new F5BigIP.Ltm.Pool("pool", new F5BigIP.Ltm.PoolArgs
     ///         {
-    ///             Name = "/Common/terraform-pool",
+    ///             Name = "/Common/Axiom_Environment_APP1_Pool",
     ///             LoadBalancingMode = "round-robin",
-    ///             Description = "Test-Pool",
+    ///             MinimumActiveMembers = 1,
     ///             Monitors = 
     ///             {
-    ///                 bigip_ltm_monitor.Monitor.Name,
-    ///                 bigip_ltm_monitor.Monitor2.Name,
+    ///                 monitor.Name,
     ///             },
-    ///             AllowSnat = "yes",
-    ///             AllowNat = "yes",
     ///         });
     ///     }
     /// 
@@ -45,28 +47,34 @@ namespace Pulumi.F5BigIP.Ltm
     public partial class Pool : Pulumi.CustomResource
     {
         /// <summary>
-        /// Allow NAT
+        /// Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].
         /// </summary>
         [Output("allowNat")]
         public Output<string> AllowNat { get; private set; } = null!;
 
         /// <summary>
-        /// Allow SNAT
+        /// Specifies whether SNATs are automatically enabled or disabled for any connections using this pool,[ Default : `yes`, Possible Values `yes` or `no`].
         /// </summary>
         [Output("allowSnat")]
         public Output<string> AllowSnat { get; private set; } = null!;
 
         /// <summary>
-        /// Userdefined value to describe the pool
+        /// Specifies descriptive text that identifies the pool.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Possible values: round-robin, ...
+        /// Specifies the load balancing method. The default is Round Robin.
         /// </summary>
         [Output("loadBalancingMode")]
         public Output<string> LoadBalancingMode { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `disabled`.
+        /// </summary>
+        [Output("minimumActiveMembers")]
+        public Output<int> MinimumActiveMembers { get; private set; } = null!;
 
         /// <summary>
         /// List of monitor names to associate with the pool
@@ -75,25 +83,25 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<ImmutableArray<string>> Monitors { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the pool
+        /// Name of the pool,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Number of times the system tries to select a new pool member after a failure.
+        /// Specifies the number of times the system tries to contact a new pool member after a passive failure.
         /// </summary>
         [Output("reselectTries")]
         public Output<int> ReselectTries { get; private set; } = null!;
 
         /// <summary>
-        /// Possible values: none, reset, reselect, drop
+        /// Specifies how the system should respond when the target pool member becomes unavailable. The default is `None`, Possible values: `[none, reset, reselect, drop]`.
         /// </summary>
         [Output("serviceDownAction")]
         public Output<string> ServiceDownAction { get; private set; } = null!;
 
         /// <summary>
-        /// Slow ramp time for pool members
+        /// Specifies the duration during which the system sends less traffic to a newly-enabled pool member.
         /// </summary>
         [Output("slowRampTime")]
         public Output<int> SlowRampTime { get; private set; } = null!;
@@ -145,28 +153,34 @@ namespace Pulumi.F5BigIP.Ltm
     public sealed class PoolArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Allow NAT
+        /// Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].
         /// </summary>
         [Input("allowNat")]
         public Input<string>? AllowNat { get; set; }
 
         /// <summary>
-        /// Allow SNAT
+        /// Specifies whether SNATs are automatically enabled or disabled for any connections using this pool,[ Default : `yes`, Possible Values `yes` or `no`].
         /// </summary>
         [Input("allowSnat")]
         public Input<string>? AllowSnat { get; set; }
 
         /// <summary>
-        /// Userdefined value to describe the pool
+        /// Specifies descriptive text that identifies the pool.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Possible values: round-robin, ...
+        /// Specifies the load balancing method. The default is Round Robin.
         /// </summary>
         [Input("loadBalancingMode")]
         public Input<string>? LoadBalancingMode { get; set; }
+
+        /// <summary>
+        /// Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `disabled`.
+        /// </summary>
+        [Input("minimumActiveMembers")]
+        public Input<int>? MinimumActiveMembers { get; set; }
 
         [Input("monitors")]
         private InputList<string>? _monitors;
@@ -181,25 +195,25 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Name of the pool
+        /// Name of the pool,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Number of times the system tries to select a new pool member after a failure.
+        /// Specifies the number of times the system tries to contact a new pool member after a passive failure.
         /// </summary>
         [Input("reselectTries")]
         public Input<int>? ReselectTries { get; set; }
 
         /// <summary>
-        /// Possible values: none, reset, reselect, drop
+        /// Specifies how the system should respond when the target pool member becomes unavailable. The default is `None`, Possible values: `[none, reset, reselect, drop]`.
         /// </summary>
         [Input("serviceDownAction")]
         public Input<string>? ServiceDownAction { get; set; }
 
         /// <summary>
-        /// Slow ramp time for pool members
+        /// Specifies the duration during which the system sends less traffic to a newly-enabled pool member.
         /// </summary>
         [Input("slowRampTime")]
         public Input<int>? SlowRampTime { get; set; }
@@ -212,28 +226,34 @@ namespace Pulumi.F5BigIP.Ltm
     public sealed class PoolState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Allow NAT
+        /// Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].
         /// </summary>
         [Input("allowNat")]
         public Input<string>? AllowNat { get; set; }
 
         /// <summary>
-        /// Allow SNAT
+        /// Specifies whether SNATs are automatically enabled or disabled for any connections using this pool,[ Default : `yes`, Possible Values `yes` or `no`].
         /// </summary>
         [Input("allowSnat")]
         public Input<string>? AllowSnat { get; set; }
 
         /// <summary>
-        /// Userdefined value to describe the pool
+        /// Specifies descriptive text that identifies the pool.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Possible values: round-robin, ...
+        /// Specifies the load balancing method. The default is Round Robin.
         /// </summary>
         [Input("loadBalancingMode")]
         public Input<string>? LoadBalancingMode { get; set; }
+
+        /// <summary>
+        /// Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `disabled`.
+        /// </summary>
+        [Input("minimumActiveMembers")]
+        public Input<int>? MinimumActiveMembers { get; set; }
 
         [Input("monitors")]
         private InputList<string>? _monitors;
@@ -248,25 +268,25 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Name of the pool
+        /// Name of the pool,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Number of times the system tries to select a new pool member after a failure.
+        /// Specifies the number of times the system tries to contact a new pool member after a passive failure.
         /// </summary>
         [Input("reselectTries")]
         public Input<int>? ReselectTries { get; set; }
 
         /// <summary>
-        /// Possible values: none, reset, reselect, drop
+        /// Specifies how the system should respond when the target pool member becomes unavailable. The default is `None`, Possible values: `[none, reset, reselect, drop]`.
         /// </summary>
         [Input("serviceDownAction")]
         public Input<string>? ServiceDownAction { get; set; }
 
         /// <summary>
-        /// Slow ramp time for pool members
+        /// Specifies the duration during which the system sends less traffic to a newly-enabled pool member.
         /// </summary>
         [Input("slowRampTime")]
         public Input<int>? SlowRampTime { get; set; }

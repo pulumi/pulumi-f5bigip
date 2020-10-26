@@ -358,7 +358,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def send(self) -> pulumi.Output[Optional[str]]:
+    def send(self) -> pulumi.Output[str]:
         """
         Request string to send
         """

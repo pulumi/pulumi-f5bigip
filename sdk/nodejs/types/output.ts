@@ -84,7 +84,7 @@ export namespace ltm {
         /**
          * This action will affect forwarding.
          */
-        forward: boolean;
+        forward?: boolean;
         fromProfile: string;
         hash: boolean;
         host: string;

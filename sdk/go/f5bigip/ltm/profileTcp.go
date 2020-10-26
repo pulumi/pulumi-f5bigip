@@ -47,21 +47,21 @@ type ProfileTcp struct {
 	pulumi.CustomResourceState
 
 	// Specifies the number of seconds that a connection remains in a LAST-ACK state before quitting. A value of 0 represents a term of forever (or until the maxrtx of the FIN state). The default value is 5 seconds.
-	CloseWaitTimeout pulumi.IntPtrOutput `pulumi:"closeWaitTimeout"`
+	CloseWaitTimeout pulumi.IntOutput `pulumi:"closeWaitTimeout"`
 	// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
-	DefaultsFrom pulumi.StringPtrOutput `pulumi:"defaultsFrom"`
+	DefaultsFrom pulumi.StringOutput `pulumi:"defaultsFrom"`
 	// Specifies, when enabled, that the system defers allocation of the connection chain context until the client response is received. This option is useful for dealing with 3-way handshake DOS attacks. The default value is disabled.
-	DeferredAccept pulumi.StringPtrOutput `pulumi:"deferredAccept"`
+	DeferredAccept pulumi.StringOutput `pulumi:"deferredAccept"`
 	// When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet.
-	FastOpen pulumi.StringPtrOutput `pulumi:"fastOpen"`
+	FastOpen pulumi.StringOutput `pulumi:"fastOpen"`
 	// Specifies the number of seconds that a connection is in the FIN-WAIT-2 state before quitting. The default value is 300 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state).
-	Finwait2timeout pulumi.IntPtrOutput `pulumi:"finwait2timeout"`
+	Finwait2timeout pulumi.IntOutput `pulumi:"finwait2timeout"`
 	// Specifies the number of seconds that a connection is in the FIN-WAIT-1 or closing state before quitting. The default value is 5 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state). You can also specify immediate or indefinite.
-	FinwaitTimeout pulumi.IntPtrOutput `pulumi:"finwaitTimeout"`
+	FinwaitTimeout pulumi.IntOutput `pulumi:"finwaitTimeout"`
 	// Specifies the number of seconds that a connection is idle before the connection is eligible for deletion. The default value is 300 seconds.
-	IdleTimeout pulumi.IntPtrOutput `pulumi:"idleTimeout"`
+	IdleTimeout pulumi.IntOutput `pulumi:"idleTimeout"`
 	// Specifies the keep alive probe interval, in seconds. The default value is 1800 seconds.
-	KeepaliveInterval pulumi.IntPtrOutput `pulumi:"keepaliveInterval"`
+	KeepaliveInterval pulumi.IntOutput `pulumi:"keepaliveInterval"`
 	// Name of the profile_tcp
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Displays the administrative partition within which this profile resides

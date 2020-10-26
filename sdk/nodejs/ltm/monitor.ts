@@ -134,7 +134,7 @@ export class Monitor extends pulumi.CustomResource {
     /**
      * Request string to send
      */
-    public readonly send!: pulumi.Output<string | undefined>;
+    public readonly send!: pulumi.Output<string>;
     /**
      * Time in seconds
      */

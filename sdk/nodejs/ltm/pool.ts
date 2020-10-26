@@ -15,16 +15,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
+ * const monitor = new f5bigip.ltm.Monitor("monitor", {
+ *     name: "/Common/terraform_monitor",
+ *     parent: "/Common/http",
+ * });
  * const pool = new f5bigip.ltm.Pool("pool", {
- *     name: "/Common/terraform-pool",
+ *     name: "/Common/Axiom_Environment_APP1_Pool",
  *     loadBalancingMode: "round-robin",
- *     description: "Test-Pool",
- *     monitors: [
- *         bigip_ltm_monitor.monitor.name,
- *         bigip_ltm_monitor.monitor2.name,
- *     ],
- *     allowSnat: "yes",
- *     allowNat: "yes",
+ *     minimumActiveMembers: 1,
+ *     monitors: [monitor.name],
  * });
  * ```
  */
@@ -57,39 +56,43 @@ export class Pool extends pulumi.CustomResource {
     }
 
     /**
-     * Allow NAT
+     * Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].
      */
     public readonly allowNat!: pulumi.Output<string>;
     /**
-     * Allow SNAT
+     * Specifies whether SNATs are automatically enabled or disabled for any connections using this pool,[ Default : `yes`, Possible Values `yes` or `no`].
      */
     public readonly allowSnat!: pulumi.Output<string>;
     /**
-     * Userdefined value to describe the pool
+     * Specifies descriptive text that identifies the pool.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * Possible values: round-robin, ...
+     * Specifies the load balancing method. The default is Round Robin.
      */
     public readonly loadBalancingMode!: pulumi.Output<string>;
+    /**
+     * Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `disabled`.
+     */
+    public readonly minimumActiveMembers!: pulumi.Output<number>;
     /**
      * List of monitor names to associate with the pool
      */
     public readonly monitors!: pulumi.Output<string[]>;
     /**
-     * Name of the pool
+     * Name of the pool,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Number of times the system tries to select a new pool member after a failure.
+     * Specifies the number of times the system tries to contact a new pool member after a passive failure.
      */
     public readonly reselectTries!: pulumi.Output<number>;
     /**
-     * Possible values: none, reset, reselect, drop
+     * Specifies how the system should respond when the target pool member becomes unavailable. The default is `None`, Possible values: `[none, reset, reselect, drop]`.
      */
     public readonly serviceDownAction!: pulumi.Output<string>;
     /**
-     * Slow ramp time for pool members
+     * Specifies the duration during which the system sends less traffic to a newly-enabled pool member.
      */
     public readonly slowRampTime!: pulumi.Output<number>;
 
@@ -109,6 +112,7 @@ export class Pool extends pulumi.CustomResource {
             inputs["allowSnat"] = state ? state.allowSnat : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["loadBalancingMode"] = state ? state.loadBalancingMode : undefined;
+            inputs["minimumActiveMembers"] = state ? state.minimumActiveMembers : undefined;
             inputs["monitors"] = state ? state.monitors : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["reselectTries"] = state ? state.reselectTries : undefined;
@@ -123,6 +127,7 @@ export class Pool extends pulumi.CustomResource {
             inputs["allowSnat"] = args ? args.allowSnat : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["loadBalancingMode"] = args ? args.loadBalancingMode : undefined;
+            inputs["minimumActiveMembers"] = args ? args.minimumActiveMembers : undefined;
             inputs["monitors"] = args ? args.monitors : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["reselectTries"] = args ? args.reselectTries : undefined;
@@ -145,39 +150,43 @@ export class Pool extends pulumi.CustomResource {
  */
 export interface PoolState {
     /**
-     * Allow NAT
+     * Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].
      */
     readonly allowNat?: pulumi.Input<string>;
     /**
-     * Allow SNAT
+     * Specifies whether SNATs are automatically enabled or disabled for any connections using this pool,[ Default : `yes`, Possible Values `yes` or `no`].
      */
     readonly allowSnat?: pulumi.Input<string>;
     /**
-     * Userdefined value to describe the pool
+     * Specifies descriptive text that identifies the pool.
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * Possible values: round-robin, ...
+     * Specifies the load balancing method. The default is Round Robin.
      */
     readonly loadBalancingMode?: pulumi.Input<string>;
+    /**
+     * Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `disabled`.
+     */
+    readonly minimumActiveMembers?: pulumi.Input<number>;
     /**
      * List of monitor names to associate with the pool
      */
     readonly monitors?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Name of the pool
+     * Name of the pool,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Number of times the system tries to select a new pool member after a failure.
+     * Specifies the number of times the system tries to contact a new pool member after a passive failure.
      */
     readonly reselectTries?: pulumi.Input<number>;
     /**
-     * Possible values: none, reset, reselect, drop
+     * Specifies how the system should respond when the target pool member becomes unavailable. The default is `None`, Possible values: `[none, reset, reselect, drop]`.
      */
     readonly serviceDownAction?: pulumi.Input<string>;
     /**
-     * Slow ramp time for pool members
+     * Specifies the duration during which the system sends less traffic to a newly-enabled pool member.
      */
     readonly slowRampTime?: pulumi.Input<number>;
 }
@@ -187,39 +196,43 @@ export interface PoolState {
  */
 export interface PoolArgs {
     /**
-     * Allow NAT
+     * Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].
      */
     readonly allowNat?: pulumi.Input<string>;
     /**
-     * Allow SNAT
+     * Specifies whether SNATs are automatically enabled or disabled for any connections using this pool,[ Default : `yes`, Possible Values `yes` or `no`].
      */
     readonly allowSnat?: pulumi.Input<string>;
     /**
-     * Userdefined value to describe the pool
+     * Specifies descriptive text that identifies the pool.
      */
     readonly description?: pulumi.Input<string>;
     /**
-     * Possible values: round-robin, ...
+     * Specifies the load balancing method. The default is Round Robin.
      */
     readonly loadBalancingMode?: pulumi.Input<string>;
+    /**
+     * Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `disabled`.
+     */
+    readonly minimumActiveMembers?: pulumi.Input<number>;
     /**
      * List of monitor names to associate with the pool
      */
     readonly monitors?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Name of the pool
+     * Name of the pool,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Number of times the system tries to select a new pool member after a failure.
+     * Specifies the number of times the system tries to contact a new pool member after a passive failure.
      */
     readonly reselectTries?: pulumi.Input<number>;
     /**
-     * Possible values: none, reset, reselect, drop
+     * Specifies how the system should respond when the target pool member becomes unavailable. The default is `None`, Possible values: `[none, reset, reselect, drop]`.
      */
     readonly serviceDownAction?: pulumi.Input<string>;
     /**
-     * Slow ramp time for pool members
+     * Specifies the duration during which the system sends less traffic to a newly-enabled pool member.
      */
     readonly slowRampTime?: pulumi.Input<number>;
 }
