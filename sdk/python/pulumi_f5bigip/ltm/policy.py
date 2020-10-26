@@ -38,17 +38,15 @@ class Policy(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         test_policy = f5bigip.ltm.Policy("test-policy",
-            name="my_policy",
-            strategy="first-match",
+            name="test-policy",
+            strategy="/Common/first-match",
             requires=["http"],
-            published_copy="Drafts/my_policy",
             controls=["forwarding"],
             rules=[f5bigip.ltm.PolicyRuleArgs(
                 name="rule6",
                 actions=[f5bigip.ltm.PolicyRuleActionArgs(
-                    tm_name="20",
                     forward=True,
-                    pool="/Common/mypool",
+                    pool=bigip_ltm_pool["pool"]["name"],
                 )],
             )],
             opts=ResourceOptions(depends_on=[bigip_ltm_pool["mypool"]]))

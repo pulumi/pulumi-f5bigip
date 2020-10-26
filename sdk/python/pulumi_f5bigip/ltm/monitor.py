@@ -247,7 +247,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def compatibility(self) -> pulumi.Output[str]:
+    def compatibility(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
         """
@@ -358,7 +358,7 @@ class Monitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def send(self) -> pulumi.Output[Optional[str]]:
+    def send(self) -> pulumi.Output[str]:
         """
         Request string to send
         """

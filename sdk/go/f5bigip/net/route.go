@@ -41,11 +41,11 @@ import (
 type Route struct {
 	pulumi.CustomResourceState
 
-	// Gateway address
+	// Specifies a gateway address for the route.
 	Gw pulumi.StringPtrOutput `pulumi:"gw"`
 	// Name of the route
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies a gateway address for the route.
+	// The destination subnet and netmask for the route.
 	Network pulumi.StringOutput `pulumi:"network"`
 }
 
@@ -83,20 +83,20 @@ func GetRoute(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Route resources.
 type routeState struct {
-	// Gateway address
+	// Specifies a gateway address for the route.
 	Gw *string `pulumi:"gw"`
 	// Name of the route
 	Name *string `pulumi:"name"`
-	// Specifies a gateway address for the route.
+	// The destination subnet and netmask for the route.
 	Network *string `pulumi:"network"`
 }
 
 type RouteState struct {
-	// Gateway address
+	// Specifies a gateway address for the route.
 	Gw pulumi.StringPtrInput
 	// Name of the route
 	Name pulumi.StringPtrInput
-	// Specifies a gateway address for the route.
+	// The destination subnet and netmask for the route.
 	Network pulumi.StringPtrInput
 }
 
@@ -105,21 +105,21 @@ func (RouteState) ElementType() reflect.Type {
 }
 
 type routeArgs struct {
-	// Gateway address
+	// Specifies a gateway address for the route.
 	Gw *string `pulumi:"gw"`
 	// Name of the route
 	Name string `pulumi:"name"`
-	// Specifies a gateway address for the route.
+	// The destination subnet and netmask for the route.
 	Network string `pulumi:"network"`
 }
 
 // The set of arguments for constructing a Route resource.
 type RouteArgs struct {
-	// Gateway address
+	// Specifies a gateway address for the route.
 	Gw pulumi.StringPtrInput
 	// Name of the route
 	Name pulumi.StringInput
-	// Specifies a gateway address for the route.
+	// The destination subnet and netmask for the route.
 	Network pulumi.StringInput
 }
 

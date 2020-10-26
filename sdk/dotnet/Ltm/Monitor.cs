@@ -79,7 +79,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
         /// </summary>
         [Output("compatibility")]
-        public Output<string> Compatibility { get; private set; } = null!;
+        public Output<string?> Compatibility { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the database in which the user is created
@@ -160,7 +160,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// Request string to send
         /// </summary>
         [Output("send")]
-        public Output<string?> Send { get; private set; } = null!;
+        public Output<string> Send { get; private set; } = null!;
 
         /// <summary>
         /// Time in seconds

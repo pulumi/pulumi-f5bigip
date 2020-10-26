@@ -12,9 +12,6 @@ namespace Pulumi.F5BigIP.Ltm
     /// <summary>
     /// `f5bigip.ltm.PoolAttachment` Manages nodes membership in pools
     /// 
-    /// Resources should be named with their "full path". The full path is the combination of the partition + name of the resource.
-    /// For example /Common/my-pool.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -45,15 +42,15 @@ namespace Pulumi.F5BigIP.Ltm
     ///             AllowSnat = "yes",
     ///             AllowNat = "yes",
     ///         });
-    ///         var node = new F5BigIP.Ltm.Node("node", new F5BigIP.Ltm.NodeArgs
-    ///         {
-    ///             Name = "/Common/terraform_node",
-    ///             Address = "192.168.30.2",
-    ///         });
     ///         var attachNode = new F5BigIP.Ltm.PoolAttachment("attachNode", new F5BigIP.Ltm.PoolAttachmentArgs
     ///         {
     ///             Pool = pool.Name,
-    ///             Node = node.Name.Apply(name =&gt; $"{name}:80"),
+    ///             Node = "1.1.1.1:80",
+    ///             Ratio = 2,
+    ///             ConnectionLimit = 2,
+    ///             ConnectionRateLimit = "2",
+    ///             PriorityGroup = 2,
+    ///             DynamicRatio = 3,
     ///         });
     ///     }
     /// 
@@ -63,16 +60,52 @@ namespace Pulumi.F5BigIP.Ltm
     public partial class PoolAttachment : Pulumi.CustomResource
     {
         /// <summary>
-        /// Name of the Node with service port. (Name of Node should be referenced from `f5bigip.ltm.Node` resource)
+        /// Specifies a maximum established connection limit for a pool member or node.The default is 0, meaning that there is no limit to the number of connections.
+        /// </summary>
+        [Output("connectionLimit")]
+        public Output<int> ConnectionLimit { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the maximum number of connections-per-second allowed for a pool member,The default is 0.
+        /// </summary>
+        [Output("connectionRateLimit")]
+        public Output<string> ConnectionRateLimit { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the fixed ratio value used for a node during ratio load balancing.
+        /// </summary>
+        [Output("dynamicRatio")]
+        public Output<int> DynamicRatio { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled
+        /// </summary>
+        [Output("fqdnAutopopulate")]
+        public Output<string?> FqdnAutopopulate { get; private set; } = null!;
+
+        /// <summary>
+        /// Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
         /// </summary>
         [Output("node")]
         public Output<string> Node { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the pool, which should be referenced from `f5bigip.ltm.Pool` resource
+        /// Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
         /// </summary>
         [Output("pool")]
         public Output<string> Pool { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies a number representing the priority group for the pool member. The default is 0, meaning that the member has no priority
+        /// </summary>
+        [Output("priorityGroup")]
+        public Output<int> PriorityGroup { get; private set; } = null!;
+
+        /// <summary>
+        /// "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
+        /// </summary>
+        [Output("ratio")]
+        public Output<int> Ratio { get; private set; } = null!;
 
 
         /// <summary>
@@ -121,16 +154,52 @@ namespace Pulumi.F5BigIP.Ltm
     public sealed class PoolAttachmentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the Node with service port. (Name of Node should be referenced from `f5bigip.ltm.Node` resource)
+        /// Specifies a maximum established connection limit for a pool member or node.The default is 0, meaning that there is no limit to the number of connections.
+        /// </summary>
+        [Input("connectionLimit")]
+        public Input<int>? ConnectionLimit { get; set; }
+
+        /// <summary>
+        /// Specifies the maximum number of connections-per-second allowed for a pool member,The default is 0.
+        /// </summary>
+        [Input("connectionRateLimit")]
+        public Input<string>? ConnectionRateLimit { get; set; }
+
+        /// <summary>
+        /// Specifies the fixed ratio value used for a node during ratio load balancing.
+        /// </summary>
+        [Input("dynamicRatio")]
+        public Input<int>? DynamicRatio { get; set; }
+
+        /// <summary>
+        /// Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled
+        /// </summary>
+        [Input("fqdnAutopopulate")]
+        public Input<string>? FqdnAutopopulate { get; set; }
+
+        /// <summary>
+        /// Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
         /// </summary>
         [Input("node", required: true)]
         public Input<string> Node { get; set; } = null!;
 
         /// <summary>
-        /// Name of the pool, which should be referenced from `f5bigip.ltm.Pool` resource
+        /// Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
         /// </summary>
         [Input("pool", required: true)]
         public Input<string> Pool { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies a number representing the priority group for the pool member. The default is 0, meaning that the member has no priority
+        /// </summary>
+        [Input("priorityGroup")]
+        public Input<int>? PriorityGroup { get; set; }
+
+        /// <summary>
+        /// "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
+        /// </summary>
+        [Input("ratio")]
+        public Input<int>? Ratio { get; set; }
 
         public PoolAttachmentArgs()
         {
@@ -140,16 +209,52 @@ namespace Pulumi.F5BigIP.Ltm
     public sealed class PoolAttachmentState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the Node with service port. (Name of Node should be referenced from `f5bigip.ltm.Node` resource)
+        /// Specifies a maximum established connection limit for a pool member or node.The default is 0, meaning that there is no limit to the number of connections.
+        /// </summary>
+        [Input("connectionLimit")]
+        public Input<int>? ConnectionLimit { get; set; }
+
+        /// <summary>
+        /// Specifies the maximum number of connections-per-second allowed for a pool member,The default is 0.
+        /// </summary>
+        [Input("connectionRateLimit")]
+        public Input<string>? ConnectionRateLimit { get; set; }
+
+        /// <summary>
+        /// Specifies the fixed ratio value used for a node during ratio load balancing.
+        /// </summary>
+        [Input("dynamicRatio")]
+        public Input<int>? DynamicRatio { get; set; }
+
+        /// <summary>
+        /// Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled
+        /// </summary>
+        [Input("fqdnAutopopulate")]
+        public Input<string>? FqdnAutopopulate { get; set; }
+
+        /// <summary>
+        /// Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
         /// </summary>
         [Input("node")]
         public Input<string>? Node { get; set; }
 
         /// <summary>
-        /// Name of the pool, which should be referenced from `f5bigip.ltm.Pool` resource
+        /// Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
         /// </summary>
         [Input("pool")]
         public Input<string>? Pool { get; set; }
+
+        /// <summary>
+        /// Specifies a number representing the priority group for the pool member. The default is 0, meaning that the member has no priority
+        /// </summary>
+        [Input("priorityGroup")]
+        public Input<int>? PriorityGroup { get; set; }
+
+        /// <summary>
+        /// "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
+        /// </summary>
+        [Input("ratio")]
+        public Input<int>? Ratio { get; set; }
 
         public PoolAttachmentState()
         {

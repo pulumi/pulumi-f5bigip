@@ -19,6 +19,7 @@ class Pool(pulumi.CustomResource):
                  allow_snat: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  load_balancing_mode: Optional[pulumi.Input[str]] = None,
+                 minimum_active_members: Optional[pulumi.Input[int]] = None,
                  monitors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  reselect_tries: Optional[pulumi.Input[int]] = None,
@@ -38,29 +39,28 @@ class Pool(pulumi.CustomResource):
         import pulumi
         import pulumi_f5bigip as f5bigip
 
+        monitor = f5bigip.ltm.Monitor("monitor",
+            name="/Common/terraform_monitor",
+            parent="/Common/http")
         pool = f5bigip.ltm.Pool("pool",
-            name="/Common/terraform-pool",
+            name="/Common/Axiom_Environment_APP1_Pool",
             load_balancing_mode="round-robin",
-            description="Test-Pool",
-            monitors=[
-                bigip_ltm_monitor["monitor"]["name"],
-                bigip_ltm_monitor["monitor2"]["name"],
-            ],
-            allow_snat="yes",
-            allow_nat="yes")
+            minimum_active_members=1,
+            monitors=[monitor.name])
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] allow_nat: Allow NAT
-        :param pulumi.Input[str] allow_snat: Allow SNAT
-        :param pulumi.Input[str] description: Userdefined value to describe the pool
-        :param pulumi.Input[str] load_balancing_mode: Possible values: round-robin, ...
+        :param pulumi.Input[str] allow_nat: Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].
+        :param pulumi.Input[str] allow_snat: Specifies whether SNATs are automatically enabled or disabled for any connections using this pool,[ Default : `yes`, Possible Values `yes` or `no`].
+        :param pulumi.Input[str] description: Specifies descriptive text that identifies the pool.
+        :param pulumi.Input[str] load_balancing_mode: Specifies the load balancing method. The default is Round Robin.
+        :param pulumi.Input[int] minimum_active_members: Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `disabled`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] monitors: List of monitor names to associate with the pool
-        :param pulumi.Input[str] name: Name of the pool
-        :param pulumi.Input[int] reselect_tries: Number of times the system tries to select a new pool member after a failure.
-        :param pulumi.Input[str] service_down_action: Possible values: none, reset, reselect, drop
-        :param pulumi.Input[int] slow_ramp_time: Slow ramp time for pool members
+        :param pulumi.Input[str] name: Name of the pool,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
+        :param pulumi.Input[int] reselect_tries: Specifies the number of times the system tries to contact a new pool member after a passive failure.
+        :param pulumi.Input[str] service_down_action: Specifies how the system should respond when the target pool member becomes unavailable. The default is `None`, Possible values: `[none, reset, reselect, drop]`.
+        :param pulumi.Input[int] slow_ramp_time: Specifies the duration during which the system sends less traffic to a newly-enabled pool member.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -83,6 +83,7 @@ class Pool(pulumi.CustomResource):
             __props__['allow_snat'] = allow_snat
             __props__['description'] = description
             __props__['load_balancing_mode'] = load_balancing_mode
+            __props__['minimum_active_members'] = minimum_active_members
             __props__['monitors'] = monitors
             if name is None:
                 raise TypeError("Missing required property 'name'")
@@ -104,6 +105,7 @@ class Pool(pulumi.CustomResource):
             allow_snat: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
             load_balancing_mode: Optional[pulumi.Input[str]] = None,
+            minimum_active_members: Optional[pulumi.Input[int]] = None,
             monitors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             reselect_tries: Optional[pulumi.Input[int]] = None,
@@ -116,15 +118,16 @@ class Pool(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] allow_nat: Allow NAT
-        :param pulumi.Input[str] allow_snat: Allow SNAT
-        :param pulumi.Input[str] description: Userdefined value to describe the pool
-        :param pulumi.Input[str] load_balancing_mode: Possible values: round-robin, ...
+        :param pulumi.Input[str] allow_nat: Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].
+        :param pulumi.Input[str] allow_snat: Specifies whether SNATs are automatically enabled or disabled for any connections using this pool,[ Default : `yes`, Possible Values `yes` or `no`].
+        :param pulumi.Input[str] description: Specifies descriptive text that identifies the pool.
+        :param pulumi.Input[str] load_balancing_mode: Specifies the load balancing method. The default is Round Robin.
+        :param pulumi.Input[int] minimum_active_members: Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `disabled`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] monitors: List of monitor names to associate with the pool
-        :param pulumi.Input[str] name: Name of the pool
-        :param pulumi.Input[int] reselect_tries: Number of times the system tries to select a new pool member after a failure.
-        :param pulumi.Input[str] service_down_action: Possible values: none, reset, reselect, drop
-        :param pulumi.Input[int] slow_ramp_time: Slow ramp time for pool members
+        :param pulumi.Input[str] name: Name of the pool,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
+        :param pulumi.Input[int] reselect_tries: Specifies the number of times the system tries to contact a new pool member after a passive failure.
+        :param pulumi.Input[str] service_down_action: Specifies how the system should respond when the target pool member becomes unavailable. The default is `None`, Possible values: `[none, reset, reselect, drop]`.
+        :param pulumi.Input[int] slow_ramp_time: Specifies the duration during which the system sends less traffic to a newly-enabled pool member.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -134,6 +137,7 @@ class Pool(pulumi.CustomResource):
         __props__["allow_snat"] = allow_snat
         __props__["description"] = description
         __props__["load_balancing_mode"] = load_balancing_mode
+        __props__["minimum_active_members"] = minimum_active_members
         __props__["monitors"] = monitors
         __props__["name"] = name
         __props__["reselect_tries"] = reselect_tries
@@ -145,7 +149,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter(name="allowNat")
     def allow_nat(self) -> pulumi.Output[str]:
         """
-        Allow NAT
+        Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].
         """
         return pulumi.get(self, "allow_nat")
 
@@ -153,7 +157,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter(name="allowSnat")
     def allow_snat(self) -> pulumi.Output[str]:
         """
-        Allow SNAT
+        Specifies whether SNATs are automatically enabled or disabled for any connections using this pool,[ Default : `yes`, Possible Values `yes` or `no`].
         """
         return pulumi.get(self, "allow_snat")
 
@@ -161,7 +165,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        Userdefined value to describe the pool
+        Specifies descriptive text that identifies the pool.
         """
         return pulumi.get(self, "description")
 
@@ -169,9 +173,17 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter(name="loadBalancingMode")
     def load_balancing_mode(self) -> pulumi.Output[str]:
         """
-        Possible values: round-robin, ...
+        Specifies the load balancing method. The default is Round Robin.
         """
         return pulumi.get(self, "load_balancing_mode")
+
+    @property
+    @pulumi.getter(name="minimumActiveMembers")
+    def minimum_active_members(self) -> pulumi.Output[int]:
+        """
+        Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `disabled`.
+        """
+        return pulumi.get(self, "minimum_active_members")
 
     @property
     @pulumi.getter
@@ -185,7 +197,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the pool
+        Name of the pool,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
         """
         return pulumi.get(self, "name")
 
@@ -193,7 +205,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter(name="reselectTries")
     def reselect_tries(self) -> pulumi.Output[int]:
         """
-        Number of times the system tries to select a new pool member after a failure.
+        Specifies the number of times the system tries to contact a new pool member after a passive failure.
         """
         return pulumi.get(self, "reselect_tries")
 
@@ -201,7 +213,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter(name="serviceDownAction")
     def service_down_action(self) -> pulumi.Output[str]:
         """
-        Possible values: none, reset, reselect, drop
+        Specifies how the system should respond when the target pool member becomes unavailable. The default is `None`, Possible values: `[none, reset, reselect, drop]`.
         """
         return pulumi.get(self, "service_down_action")
 
@@ -209,7 +221,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter(name="slowRampTime")
     def slow_ramp_time(self) -> pulumi.Output[int]:
         """
-        Slow ramp time for pool members
+        Specifies the duration during which the system sends less traffic to a newly-enabled pool member.
         """
         return pulumi.get(self, "slow_ramp_time")
 

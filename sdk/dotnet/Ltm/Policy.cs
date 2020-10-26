@@ -26,13 +26,12 @@ namespace Pulumi.F5BigIP.Ltm
     ///     {
     ///         var test_policy = new F5BigIP.Ltm.Policy("test-policy", new F5BigIP.Ltm.PolicyArgs
     ///         {
-    ///             Name = "my_policy",
-    ///             Strategy = "first-match",
+    ///             Name = "test-policy",
+    ///             Strategy = "/Common/first-match",
     ///             Requires = 
     ///             {
     ///                 "http",
     ///             },
-    ///             PublishedCopy = "Drafts/my_policy",
     ///             Controls = 
     ///             {
     ///                 "forwarding",
@@ -46,9 +45,8 @@ namespace Pulumi.F5BigIP.Ltm
     ///                     {
     ///                         new F5BigIP.Ltm.Inputs.PolicyRuleActionArgs
     ///                         {
-    ///                             TmName = "20",
     ///                             Forward = true,
-    ///                             Pool = "/Common/mypool",
+    ///                             Pool = bigip_ltm_pool.Pool.Name,
     ///                         },
     ///                     },
     ///                 },

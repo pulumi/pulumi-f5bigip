@@ -49,7 +49,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// XFF (X-forwarded-for) headers, if they exist.
         /// </summary>
         [Output("acceptXff")]
-        public Output<string?> AcceptXff { get; private set; } = null!;
+        public Output<string> AcceptXff { get; private set; } = null!;
 
         /// <summary>
         /// The application service to which the object belongs.
@@ -61,7 +61,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is none
         /// </summary>
         [Output("basicAuthRealm")]
-        public Output<string?> BasicAuthRealm { get; private set; } = null!;
+        public Output<string> BasicAuthRealm { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
@@ -70,10 +70,10 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> DefaultsFrom { get; private set; } = null!;
 
         /// <summary>
-        /// User defibned description
+        /// User defined description
         /// </summary>
         [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
+        public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
         /// Specifies a passphrase for the cookie encryption
@@ -91,7 +91,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
         /// </summary>
         [Output("fallbackHost")]
-        public Output<string?> FallbackHost { get; private set; } = null!;
+        public Output<string> FallbackHost { get; private set; } = null!;
 
         /// <summary>
         /// Specifies one or more three-digit status codes that can be returned by an HTTP server.
@@ -103,25 +103,25 @@ namespace Pulumi.F5BigIP.Ltm
         /// Specifies the header string that you want to erase from an HTTP request. You can also specify none
         /// </summary>
         [Output("headErase")]
-        public Output<string?> HeadErase { get; private set; } = null!;
+        public Output<string> HeadErase { get; private set; } = null!;
 
         /// <summary>
         /// Specifies a quoted header string that you want to insert into an HTTP request
         /// </summary>
         [Output("headInsert")]
-        public Output<string?> HeadInsert { get; private set; } = null!;
+        public Output<string> HeadInsert { get; private set; } = null!;
 
         /// <summary>
         /// When using connection pooling, which allows clients to make use of other client requests' server-side connections, you can insert the X-Forwarded-For header and specify a client IP address
         /// </summary>
         [Output("insertXforwardedFor")]
-        public Output<string?> InsertXforwardedFor { get; private set; } = null!;
+        public Output<string> InsertXforwardedFor { get; private set; } = null!;
 
         /// <summary>
         /// Specifies a quoted header string that you want to insert into an HTTP request. You can also specify none.
         /// </summary>
         [Output("lwsSeparator")]
-        public Output<string?> LwsSeparator { get; private set; } = null!;
+        public Output<string> LwsSeparator { get; private set; } = null!;
 
         /// <summary>
         /// Name of the profile_http
@@ -133,31 +133,31 @@ namespace Pulumi.F5BigIP.Ltm
         /// Enables the system to perform HTTP header transformations for the purpose of  keeping server-side connections open. This feature requires configuration of a OneConnect profile
         /// </summary>
         [Output("oneconnectTransformations")]
-        public Output<string?> OneconnectTransformations { get; private set; } = null!;
+        public Output<string> OneconnectTransformations { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the type of HTTP proxy.
         /// </summary>
         [Output("proxyType")]
-        public Output<string?> ProxyType { get; private set; } = null!;
+        public Output<string> ProxyType { get; private set; } = null!;
 
         /// <summary>
         /// Specifies which of the application HTTP redirects the system rewrites to HTTPS.
         /// </summary>
         [Output("redirectRewrite")]
-        public Output<string?> RedirectRewrite { get; private set; } = null!;
+        public Output<string> RedirectRewrite { get; private set; } = null!;
 
         /// <summary>
         /// Specifies how to handle chunked and unchunked requests.
         /// </summary>
         [Output("requestChunking")]
-        public Output<string?> RequestChunking { get; private set; } = null!;
+        public Output<string> RequestChunking { get; private set; } = null!;
 
         /// <summary>
         /// Specifies how to handle chunked and unchunked responses.
         /// </summary>
         [Output("responseChunking")]
-        public Output<string?> ResponseChunking { get; private set; } = null!;
+        public Output<string> ResponseChunking { get; private set; } = null!;
 
         /// <summary>
         /// Specifies headers that the BIG-IP system allows in an HTTP response.
@@ -170,7 +170,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// string is specified, then no Server header will be added to such responses
         /// </summary>
         [Output("serverAgentName")]
-        public Output<string?> ServerAgentName { get; private set; } = null!;
+        public Output<string> ServerAgentName { get; private set; } = null!;
 
         /// <summary>
         /// Displays the administrative partition within which this profile resides.
@@ -182,19 +182,19 @@ namespace Pulumi.F5BigIP.Ltm
         /// Specifies the hostname to include into Via header
         /// </summary>
         [Output("viaHostName")]
-        public Output<string?> ViaHostName { get; private set; } = null!;
+        public Output<string> ViaHostName { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether to append, remove, or preserve a Via header in an HTTP request
         /// </summary>
         [Output("viaRequest")]
-        public Output<string?> ViaRequest { get; private set; } = null!;
+        public Output<string> ViaRequest { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether to append, remove, or preserve a Via header in an HTTP request
         /// </summary>
         [Output("viaResponse")]
-        public Output<string?> ViaResponse { get; private set; } = null!;
+        public Output<string> ViaResponse { get; private set; } = null!;
 
         /// <summary>
         /// Specifies alternative XFF headers instead of the default X-forwarded-for header
@@ -270,11 +270,11 @@ namespace Pulumi.F5BigIP.Ltm
         /// <summary>
         /// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         /// </summary>
-        [Input("defaultsFrom", required: true)]
-        public Input<string> DefaultsFrom { get; set; } = null!;
+        [Input("defaultsFrom")]
+        public Input<string>? DefaultsFrom { get; set; }
 
         /// <summary>
-        /// User defibned description
+        /// User defined description
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -463,7 +463,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? DefaultsFrom { get; set; }
 
         /// <summary>
-        /// User defibned description
+        /// User defined description
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }

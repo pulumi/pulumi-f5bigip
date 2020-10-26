@@ -4,27 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * `f5bigip.BigIqAs3` provides details about bigiq as3 resource
- *
- * This resource is helpful to configure as3 declarative JSON on BIG-IP through BIG-IQ.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- * import * as fs from "fs";
- *
- * // Example Usage for json file
- * const exampletask = new f5bigip.BigIqAs3("exampletask", {
- *     as3Json: fs.readFileSync("bigiq_example.json", "utf-8"),
- *     bigiqAddress: "xx.xx.xxx.xx",
- *     bigiqPassword: "xxxxxxxxx",
- *     bigiqUser: "xxxxx",
- * });
- * ```
- */
 export class BigIqAs3 extends pulumi.CustomResource {
     /**
      * Get an existing BigIqAs3 resource's state with the given name, ID, and optional extra
@@ -54,11 +33,11 @@ export class BigIqAs3 extends pulumi.CustomResource {
     }
 
     /**
-     * Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+     * AS3 json
      */
     public readonly as3Json!: pulumi.Output<string>;
     /**
-     * Address of the BIG-IQ to which your targer BIG-IP is attached
+     * The registration key pool to use
      */
     public readonly bigiqAddress!: pulumi.Output<string>;
     /**
@@ -66,7 +45,7 @@ export class BigIqAs3 extends pulumi.CustomResource {
      */
     public readonly bigiqLoginRef!: pulumi.Output<string | undefined>;
     /**
-     * Password of the BIG-IQ to which your targer BIG-IP is attached
+     * The registration key pool to use
      */
     public readonly bigiqPassword!: pulumi.Output<string>;
     /**
@@ -78,7 +57,7 @@ export class BigIqAs3 extends pulumi.CustomResource {
      */
     public readonly bigiqTokenAuth!: pulumi.Output<boolean | undefined>;
     /**
-     * User name  of the BIG-IQ to which your targer BIG-IP is attached
+     * The registration key pool to use
      */
     public readonly bigiqUser!: pulumi.Output<string>;
     /**
@@ -145,11 +124,11 @@ export class BigIqAs3 extends pulumi.CustomResource {
  */
 export interface BigIqAs3State {
     /**
-     * Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+     * AS3 json
      */
     readonly as3Json?: pulumi.Input<string>;
     /**
-     * Address of the BIG-IQ to which your targer BIG-IP is attached
+     * The registration key pool to use
      */
     readonly bigiqAddress?: pulumi.Input<string>;
     /**
@@ -157,7 +136,7 @@ export interface BigIqAs3State {
      */
     readonly bigiqLoginRef?: pulumi.Input<string>;
     /**
-     * Password of the BIG-IQ to which your targer BIG-IP is attached
+     * The registration key pool to use
      */
     readonly bigiqPassword?: pulumi.Input<string>;
     /**
@@ -169,7 +148,7 @@ export interface BigIqAs3State {
      */
     readonly bigiqTokenAuth?: pulumi.Input<boolean>;
     /**
-     * User name  of the BIG-IQ to which your targer BIG-IP is attached
+     * The registration key pool to use
      */
     readonly bigiqUser?: pulumi.Input<string>;
     /**
@@ -183,11 +162,11 @@ export interface BigIqAs3State {
  */
 export interface BigIqAs3Args {
     /**
-     * Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+     * AS3 json
      */
     readonly as3Json: pulumi.Input<string>;
     /**
-     * Address of the BIG-IQ to which your targer BIG-IP is attached
+     * The registration key pool to use
      */
     readonly bigiqAddress: pulumi.Input<string>;
     /**
@@ -195,7 +174,7 @@ export interface BigIqAs3Args {
      */
     readonly bigiqLoginRef?: pulumi.Input<string>;
     /**
-     * Password of the BIG-IQ to which your targer BIG-IP is attached
+     * The registration key pool to use
      */
     readonly bigiqPassword: pulumi.Input<string>;
     /**
@@ -207,7 +186,7 @@ export interface BigIqAs3Args {
      */
     readonly bigiqTokenAuth?: pulumi.Input<boolean>;
     /**
-     * User name  of the BIG-IQ to which your targer BIG-IP is attached
+     * The registration key pool to use
      */
     readonly bigiqUser: pulumi.Input<string>;
     /**

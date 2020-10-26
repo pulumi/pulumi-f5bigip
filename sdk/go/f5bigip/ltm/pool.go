@@ -13,26 +13,63 @@ import (
 // `ltm.Pool` Manages a pool configuration.
 //
 // Resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		monitor, err := ltm.NewMonitor(ctx, "monitor", &ltm.MonitorArgs{
+// 			Name:   pulumi.String("/Common/terraform_monitor"),
+// 			Parent: pulumi.String("/Common/http"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ltm.NewPool(ctx, "pool", &ltm.PoolArgs{
+// 			Name:                 pulumi.String("/Common/Axiom_Environment_APP1_Pool"),
+// 			LoadBalancingMode:    pulumi.String("round-robin"),
+// 			MinimumActiveMembers: pulumi.Int(1),
+// 			Monitors: pulumi.StringArray{
+// 				monitor.Name,
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Pool struct {
 	pulumi.CustomResourceState
 
-	// Allow NAT
+	// Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].
 	AllowNat pulumi.StringOutput `pulumi:"allowNat"`
-	// Allow SNAT
+	// Specifies whether SNATs are automatically enabled or disabled for any connections using this pool,[ Default : `yes`, Possible Values `yes` or `no`].
 	AllowSnat pulumi.StringOutput `pulumi:"allowSnat"`
-	// Userdefined value to describe the pool
+	// Specifies descriptive text that identifies the pool.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Possible values: round-robin, ...
+	// Specifies the load balancing method. The default is Round Robin.
 	LoadBalancingMode pulumi.StringOutput `pulumi:"loadBalancingMode"`
+	// Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `disabled`.
+	MinimumActiveMembers pulumi.IntOutput `pulumi:"minimumActiveMembers"`
 	// List of monitor names to associate with the pool
 	Monitors pulumi.StringArrayOutput `pulumi:"monitors"`
-	// Name of the pool
+	// Name of the pool,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Number of times the system tries to select a new pool member after a failure.
+	// Specifies the number of times the system tries to contact a new pool member after a passive failure.
 	ReselectTries pulumi.IntOutput `pulumi:"reselectTries"`
-	// Possible values: none, reset, reselect, drop
+	// Specifies how the system should respond when the target pool member becomes unavailable. The default is `None`, Possible values: `[none, reset, reselect, drop]`.
 	ServiceDownAction pulumi.StringOutput `pulumi:"serviceDownAction"`
-	// Slow ramp time for pool members
+	// Specifies the duration during which the system sends less traffic to a newly-enabled pool member.
 	SlowRampTime pulumi.IntOutput `pulumi:"slowRampTime"`
 }
 
@@ -67,44 +104,48 @@ func GetPool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Pool resources.
 type poolState struct {
-	// Allow NAT
+	// Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].
 	AllowNat *string `pulumi:"allowNat"`
-	// Allow SNAT
+	// Specifies whether SNATs are automatically enabled or disabled for any connections using this pool,[ Default : `yes`, Possible Values `yes` or `no`].
 	AllowSnat *string `pulumi:"allowSnat"`
-	// Userdefined value to describe the pool
+	// Specifies descriptive text that identifies the pool.
 	Description *string `pulumi:"description"`
-	// Possible values: round-robin, ...
+	// Specifies the load balancing method. The default is Round Robin.
 	LoadBalancingMode *string `pulumi:"loadBalancingMode"`
+	// Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `disabled`.
+	MinimumActiveMembers *int `pulumi:"minimumActiveMembers"`
 	// List of monitor names to associate with the pool
 	Monitors []string `pulumi:"monitors"`
-	// Name of the pool
+	// Name of the pool,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
 	Name *string `pulumi:"name"`
-	// Number of times the system tries to select a new pool member after a failure.
+	// Specifies the number of times the system tries to contact a new pool member after a passive failure.
 	ReselectTries *int `pulumi:"reselectTries"`
-	// Possible values: none, reset, reselect, drop
+	// Specifies how the system should respond when the target pool member becomes unavailable. The default is `None`, Possible values: `[none, reset, reselect, drop]`.
 	ServiceDownAction *string `pulumi:"serviceDownAction"`
-	// Slow ramp time for pool members
+	// Specifies the duration during which the system sends less traffic to a newly-enabled pool member.
 	SlowRampTime *int `pulumi:"slowRampTime"`
 }
 
 type PoolState struct {
-	// Allow NAT
+	// Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].
 	AllowNat pulumi.StringPtrInput
-	// Allow SNAT
+	// Specifies whether SNATs are automatically enabled or disabled for any connections using this pool,[ Default : `yes`, Possible Values `yes` or `no`].
 	AllowSnat pulumi.StringPtrInput
-	// Userdefined value to describe the pool
+	// Specifies descriptive text that identifies the pool.
 	Description pulumi.StringPtrInput
-	// Possible values: round-robin, ...
+	// Specifies the load balancing method. The default is Round Robin.
 	LoadBalancingMode pulumi.StringPtrInput
+	// Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `disabled`.
+	MinimumActiveMembers pulumi.IntPtrInput
 	// List of monitor names to associate with the pool
 	Monitors pulumi.StringArrayInput
-	// Name of the pool
+	// Name of the pool,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
 	Name pulumi.StringPtrInput
-	// Number of times the system tries to select a new pool member after a failure.
+	// Specifies the number of times the system tries to contact a new pool member after a passive failure.
 	ReselectTries pulumi.IntPtrInput
-	// Possible values: none, reset, reselect, drop
+	// Specifies how the system should respond when the target pool member becomes unavailable. The default is `None`, Possible values: `[none, reset, reselect, drop]`.
 	ServiceDownAction pulumi.StringPtrInput
-	// Slow ramp time for pool members
+	// Specifies the duration during which the system sends less traffic to a newly-enabled pool member.
 	SlowRampTime pulumi.IntPtrInput
 }
 
@@ -113,45 +154,49 @@ func (PoolState) ElementType() reflect.Type {
 }
 
 type poolArgs struct {
-	// Allow NAT
+	// Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].
 	AllowNat *string `pulumi:"allowNat"`
-	// Allow SNAT
+	// Specifies whether SNATs are automatically enabled or disabled for any connections using this pool,[ Default : `yes`, Possible Values `yes` or `no`].
 	AllowSnat *string `pulumi:"allowSnat"`
-	// Userdefined value to describe the pool
+	// Specifies descriptive text that identifies the pool.
 	Description *string `pulumi:"description"`
-	// Possible values: round-robin, ...
+	// Specifies the load balancing method. The default is Round Robin.
 	LoadBalancingMode *string `pulumi:"loadBalancingMode"`
+	// Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `disabled`.
+	MinimumActiveMembers *int `pulumi:"minimumActiveMembers"`
 	// List of monitor names to associate with the pool
 	Monitors []string `pulumi:"monitors"`
-	// Name of the pool
+	// Name of the pool,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
 	Name string `pulumi:"name"`
-	// Number of times the system tries to select a new pool member after a failure.
+	// Specifies the number of times the system tries to contact a new pool member after a passive failure.
 	ReselectTries *int `pulumi:"reselectTries"`
-	// Possible values: none, reset, reselect, drop
+	// Specifies how the system should respond when the target pool member becomes unavailable. The default is `None`, Possible values: `[none, reset, reselect, drop]`.
 	ServiceDownAction *string `pulumi:"serviceDownAction"`
-	// Slow ramp time for pool members
+	// Specifies the duration during which the system sends less traffic to a newly-enabled pool member.
 	SlowRampTime *int `pulumi:"slowRampTime"`
 }
 
 // The set of arguments for constructing a Pool resource.
 type PoolArgs struct {
-	// Allow NAT
+	// Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].
 	AllowNat pulumi.StringPtrInput
-	// Allow SNAT
+	// Specifies whether SNATs are automatically enabled or disabled for any connections using this pool,[ Default : `yes`, Possible Values `yes` or `no`].
 	AllowSnat pulumi.StringPtrInput
-	// Userdefined value to describe the pool
+	// Specifies descriptive text that identifies the pool.
 	Description pulumi.StringPtrInput
-	// Possible values: round-robin, ...
+	// Specifies the load balancing method. The default is Round Robin.
 	LoadBalancingMode pulumi.StringPtrInput
+	// Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `disabled`.
+	MinimumActiveMembers pulumi.IntPtrInput
 	// List of monitor names to associate with the pool
 	Monitors pulumi.StringArrayInput
-	// Name of the pool
+	// Name of the pool,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
 	Name pulumi.StringInput
-	// Number of times the system tries to select a new pool member after a failure.
+	// Specifies the number of times the system tries to contact a new pool member after a passive failure.
 	ReselectTries pulumi.IntPtrInput
-	// Possible values: none, reset, reselect, drop
+	// Specifies how the system should respond when the target pool member becomes unavailable. The default is `None`, Possible values: `[none, reset, reselect, drop]`.
 	ServiceDownAction pulumi.StringPtrInput
-	// Slow ramp time for pool members
+	// Specifies the duration during which the system sends less traffic to a newly-enabled pool member.
 	SlowRampTime pulumi.IntPtrInput
 }
 

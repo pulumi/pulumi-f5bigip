@@ -51,7 +51,7 @@ export class Route extends pulumi.CustomResource {
     }
 
     /**
-     * Gateway address
+     * Specifies a gateway address for the route.
      */
     public readonly gw!: pulumi.Output<string | undefined>;
     /**
@@ -59,7 +59,7 @@ export class Route extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies a gateway address for the route.
+     * The destination subnet and netmask for the route.
      */
     public readonly network!: pulumi.Output<string>;
 
@@ -106,7 +106,7 @@ export class Route extends pulumi.CustomResource {
  */
 export interface RouteState {
     /**
-     * Gateway address
+     * Specifies a gateway address for the route.
      */
     readonly gw?: pulumi.Input<string>;
     /**
@@ -114,7 +114,7 @@ export interface RouteState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Specifies a gateway address for the route.
+     * The destination subnet and netmask for the route.
      */
     readonly network?: pulumi.Input<string>;
 }
@@ -124,7 +124,7 @@ export interface RouteState {
  */
 export interface RouteArgs {
     /**
-     * Gateway address
+     * Specifies a gateway address for the route.
      */
     readonly gw?: pulumi.Input<string>;
     /**
@@ -132,7 +132,7 @@ export interface RouteArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Specifies a gateway address for the route.
+     * The destination subnet and netmask for the route.
      */
     readonly network: pulumi.Input<string>;
 }

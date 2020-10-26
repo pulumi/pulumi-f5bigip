@@ -2,8 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to pulumi-terraform-bridge v2.8.0
-* Upgrade to Pulumi v2.10.0
+* Upgrade to v1.4.0s of the BigIP Terraform Provider
 * Upgrade to Pulumi v2.12.0 and pulumi-terraform-bridge v2.11.0
 
 ---

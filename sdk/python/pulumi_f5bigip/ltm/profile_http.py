@@ -74,7 +74,7 @@ class ProfileHttp(pulumi.CustomResource):
         :param pulumi.Input[str] app_service: The application service to which the object belongs.
         :param pulumi.Input[str] basic_auth_realm: Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is none
         :param pulumi.Input[str] defaults_from: Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
-        :param pulumi.Input[str] description: User defibned description
+        :param pulumi.Input[str] description: User defined description
         :param pulumi.Input[str] encrypt_cookie_secret: Specifies a passphrase for the cookie encryption
         :param pulumi.Input[Sequence[pulumi.Input[str]]] encrypt_cookies: Encrypts specified cookies that the BIG-IP system sends to a client system
         :param pulumi.Input[str] fallback_host: Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
@@ -118,8 +118,6 @@ class ProfileHttp(pulumi.CustomResource):
             __props__['accept_xff'] = accept_xff
             __props__['app_service'] = app_service
             __props__['basic_auth_realm'] = basic_auth_realm
-            if defaults_from is None:
-                raise TypeError("Missing required property 'defaults_from'")
             __props__['defaults_from'] = defaults_from
             __props__['description'] = description
             __props__['encrypt_cookie_secret'] = encrypt_cookie_secret
@@ -193,7 +191,7 @@ class ProfileHttp(pulumi.CustomResource):
         :param pulumi.Input[str] app_service: The application service to which the object belongs.
         :param pulumi.Input[str] basic_auth_realm: Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is none
         :param pulumi.Input[str] defaults_from: Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
-        :param pulumi.Input[str] description: User defibned description
+        :param pulumi.Input[str] description: User defined description
         :param pulumi.Input[str] encrypt_cookie_secret: Specifies a passphrase for the cookie encryption
         :param pulumi.Input[Sequence[pulumi.Input[str]]] encrypt_cookies: Encrypts specified cookies that the BIG-IP system sends to a client system
         :param pulumi.Input[str] fallback_host: Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
@@ -251,7 +249,7 @@ class ProfileHttp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="acceptXff")
-    def accept_xff(self) -> pulumi.Output[Optional[str]]:
+    def accept_xff(self) -> pulumi.Output[str]:
         """
         Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's
         XFF (X-forwarded-for) headers, if they exist.
@@ -268,7 +266,7 @@ class ProfileHttp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="basicAuthRealm")
-    def basic_auth_realm(self) -> pulumi.Output[Optional[str]]:
+    def basic_auth_realm(self) -> pulumi.Output[str]:
         """
         Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is none
         """
@@ -284,9 +282,9 @@ class ProfileHttp(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
+    def description(self) -> pulumi.Output[str]:
         """
-        User defibned description
+        User defined description
         """
         return pulumi.get(self, "description")
 
@@ -308,7 +306,7 @@ class ProfileHttp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fallbackHost")
-    def fallback_host(self) -> pulumi.Output[Optional[str]]:
+    def fallback_host(self) -> pulumi.Output[str]:
         """
         Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
         """
@@ -324,7 +322,7 @@ class ProfileHttp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="headErase")
-    def head_erase(self) -> pulumi.Output[Optional[str]]:
+    def head_erase(self) -> pulumi.Output[str]:
         """
         Specifies the header string that you want to erase from an HTTP request. You can also specify none
         """
@@ -332,7 +330,7 @@ class ProfileHttp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="headInsert")
-    def head_insert(self) -> pulumi.Output[Optional[str]]:
+    def head_insert(self) -> pulumi.Output[str]:
         """
         Specifies a quoted header string that you want to insert into an HTTP request
         """
@@ -340,7 +338,7 @@ class ProfileHttp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="insertXforwardedFor")
-    def insert_xforwarded_for(self) -> pulumi.Output[Optional[str]]:
+    def insert_xforwarded_for(self) -> pulumi.Output[str]:
         """
         When using connection pooling, which allows clients to make use of other client requests' server-side connections, you can insert the X-Forwarded-For header and specify a client IP address
         """
@@ -348,7 +346,7 @@ class ProfileHttp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="lwsSeparator")
-    def lws_separator(self) -> pulumi.Output[Optional[str]]:
+    def lws_separator(self) -> pulumi.Output[str]:
         """
         Specifies a quoted header string that you want to insert into an HTTP request. You can also specify none.
         """
@@ -364,7 +362,7 @@ class ProfileHttp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="oneconnectTransformations")
-    def oneconnect_transformations(self) -> pulumi.Output[Optional[str]]:
+    def oneconnect_transformations(self) -> pulumi.Output[str]:
         """
         Enables the system to perform HTTP header transformations for the purpose of  keeping server-side connections open. This feature requires configuration of a OneConnect profile
         """
@@ -372,7 +370,7 @@ class ProfileHttp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="proxyType")
-    def proxy_type(self) -> pulumi.Output[Optional[str]]:
+    def proxy_type(self) -> pulumi.Output[str]:
         """
         Specifies the type of HTTP proxy.
         """
@@ -380,7 +378,7 @@ class ProfileHttp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="redirectRewrite")
-    def redirect_rewrite(self) -> pulumi.Output[Optional[str]]:
+    def redirect_rewrite(self) -> pulumi.Output[str]:
         """
         Specifies which of the application HTTP redirects the system rewrites to HTTPS.
         """
@@ -388,7 +386,7 @@ class ProfileHttp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="requestChunking")
-    def request_chunking(self) -> pulumi.Output[Optional[str]]:
+    def request_chunking(self) -> pulumi.Output[str]:
         """
         Specifies how to handle chunked and unchunked requests.
         """
@@ -396,7 +394,7 @@ class ProfileHttp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="responseChunking")
-    def response_chunking(self) -> pulumi.Output[Optional[str]]:
+    def response_chunking(self) -> pulumi.Output[str]:
         """
         Specifies how to handle chunked and unchunked responses.
         """
@@ -404,7 +402,7 @@ class ProfileHttp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="responseHeadersPermitteds")
-    def response_headers_permitteds(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def response_headers_permitteds(self) -> pulumi.Output[Sequence[str]]:
         """
         Specifies headers that the BIG-IP system allows in an HTTP response.
         """
@@ -412,7 +410,7 @@ class ProfileHttp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverAgentName")
-    def server_agent_name(self) -> pulumi.Output[Optional[str]]:
+    def server_agent_name(self) -> pulumi.Output[str]:
         """
         Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no
         string is specified, then no Server header will be added to such responses
@@ -429,7 +427,7 @@ class ProfileHttp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="viaHostName")
-    def via_host_name(self) -> pulumi.Output[Optional[str]]:
+    def via_host_name(self) -> pulumi.Output[str]:
         """
         Specifies the hostname to include into Via header
         """
@@ -437,7 +435,7 @@ class ProfileHttp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="viaRequest")
-    def via_request(self) -> pulumi.Output[Optional[str]]:
+    def via_request(self) -> pulumi.Output[str]:
         """
         Specifies whether to append, remove, or preserve a Via header in an HTTP request
         """
@@ -445,7 +443,7 @@ class ProfileHttp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="viaResponse")
-    def via_response(self) -> pulumi.Output[Optional[str]]:
+    def via_response(self) -> pulumi.Output[str]:
         """
         Specifies whether to append, remove, or preserve a Via header in an HTTP request
         """
@@ -453,7 +451,7 @@ class ProfileHttp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="xffAlternativeNames")
-    def xff_alternative_names(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def xff_alternative_names(self) -> pulumi.Output[Sequence[str]]:
         """
         Specifies alternative XFF headers instead of the default X-forwarded-for header
         """

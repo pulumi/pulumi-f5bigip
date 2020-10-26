@@ -26,15 +26,27 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ltm.NewProfileHttp2(ctx, "nyhttp2", &ltm.ProfileHttp2Args{
+// 		nyhttp2, err := ltm.NewProfileHttp2(ctx, "nyhttp2", &ltm.ProfileHttp2Args{
+// 			Name:                           pulumi.String("/Common/test-profile-http2"),
+// 			FrameSize:                      pulumi.Int(2021),
+// 			ReceiveWindow:                  pulumi.Int(31),
+// 			WriteSize:                      pulumi.Int(16380),
+// 			HeaderTableSize:                pulumi.Int(4092),
+// 			IncludeContentLength:           pulumi.String("enabled"),
+// 			EnforceTlsRequirements:         pulumi.String("enabled"),
+// 			InsertHeader:                   pulumi.String("disabled"),
+// 			ConcurrentStreamsPerConnection: pulumi.Int(30),
+// 			ConnectionIdleTimeout:          pulumi.Int(100),
 // 			ActivationModes: pulumi.StringArray{
-// 				pulumi.String("alpn"),
-// 				pulumi.String("npn"),
+// 				pulumi.String("always"),
 // 			},
-// 			ConcurrentStreamsPerConnection: pulumi.Int(10),
-// 			ConnectionIdleTimeout:          pulumi.Int(30),
-// 			DefaultsFrom:                   pulumi.String("/Common/http2"),
-// 			Name:                           pulumi.String("/Common/NewYork_http2"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ltm.NewProfileHttp2(ctx, "nyhttp2_child", &ltm.ProfileHttp2Args{
+// 			Name:         pulumi.String("/Common/test-profile-http2-child"),
+// 			DefaultsFrom: nyhttp2.Name,
 // 		})
 // 		if err != nil {
 // 			return err
@@ -46,18 +58,32 @@ import (
 type ProfileHttp2 struct {
 	pulumi.CustomResourceState
 
-	// Specifies what will cause an incoming connection to be handled as a HTTP/2 connection. The default values npn and alpn specify that the TLS next-protocol-negotiation and application-layer-protocol-negotiation extensions will be used.
+	// This setting specifies the condition that will cause the BIG-IP system to handle an incoming connection as an HTTP/2 connection, Allowed values : `[“alpn”]` (or) `[“always”]`.
 	ActivationModes pulumi.StringArrayOutput `pulumi:"activationModes"`
 	// Specifies how many concurrent requests are allowed to be outstanding on a single HTTP/2 connection.
-	ConcurrentStreamsPerConnection pulumi.IntPtrOutput `pulumi:"concurrentStreamsPerConnection"`
-	// Specifies the number of seconds that a connection is idle before the connection is eligible for deletion..
-	ConnectionIdleTimeout pulumi.IntPtrOutput `pulumi:"connectionIdleTimeout"`
+	ConcurrentStreamsPerConnection pulumi.IntOutput `pulumi:"concurrentStreamsPerConnection"`
+	// Specifies the number of seconds that a connection is idle before the connection is eligible for deletion.
+	ConnectionIdleTimeout pulumi.IntOutput `pulumi:"connectionIdleTimeout"`
 	// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
-	DefaultsFrom pulumi.StringPtrOutput `pulumi:"defaultsFrom"`
-	// Use the parent Http2 profile
-	HeaderTableSize pulumi.IntPtrOutput `pulumi:"headerTableSize"`
-	// Name of the profile_http2
+	DefaultsFrom pulumi.StringOutput `pulumi:"defaultsFrom"`
+	// Enable or disable enforcement of TLS requirements,Allowed Values : `"enabled"/"disabled"` [Default:`"enabled"`].
+	EnforceTlsRequirements pulumi.StringOutput `pulumi:"enforceTlsRequirements"`
+	// The size of the data frames, in bytes, that the HTTP/2 protocol sends to the client. `Default: 2048`.
+	FrameSize pulumi.IntOutput `pulumi:"frameSize"`
+	// The size of the header table, in KB, for the HTTP headers that the HTTP/2 protocol compresses to save bandwidth.
+	HeaderTableSize pulumi.IntOutput `pulumi:"headerTableSize"`
+	// Enable to include content-length in HTTP/2 headers,Default : disabled
+	IncludeContentLength pulumi.StringOutput `pulumi:"includeContentLength"`
+	// This setting specifies whether the BIG-IP system should add an HTTP header to the HTTP request to show that the request was received over HTTP/2, Allowed Values : `"enabled"/"disabled"` [ Default: `"disabled"`].
+	InsertHeader pulumi.StringOutput `pulumi:"insertHeader"`
+	// This setting specifies the name of the header that the BIG-IP system will add to the HTTP request when the Insert Header is enabled.
+	InsertHeaderName pulumi.StringOutput `pulumi:"insertHeaderName"`
+	// Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-http2-profile`.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The flow-control size for upload streams, in KB. `Default: 32`.
+	ReceiveWindow pulumi.IntOutput `pulumi:"receiveWindow"`
+	// The total size of combined data frames, in bytes, that the HTTP/2 protocol sends in a single write function. `Default: 16384`".
+	WriteSize pulumi.IntOutput `pulumi:"writeSize"`
 }
 
 // NewProfileHttp2 registers a new resource with the given unique name, arguments, and options.
@@ -91,33 +117,61 @@ func GetProfileHttp2(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProfileHttp2 resources.
 type profileHttp2State struct {
-	// Specifies what will cause an incoming connection to be handled as a HTTP/2 connection. The default values npn and alpn specify that the TLS next-protocol-negotiation and application-layer-protocol-negotiation extensions will be used.
+	// This setting specifies the condition that will cause the BIG-IP system to handle an incoming connection as an HTTP/2 connection, Allowed values : `[“alpn”]` (or) `[“always”]`.
 	ActivationModes []string `pulumi:"activationModes"`
 	// Specifies how many concurrent requests are allowed to be outstanding on a single HTTP/2 connection.
 	ConcurrentStreamsPerConnection *int `pulumi:"concurrentStreamsPerConnection"`
-	// Specifies the number of seconds that a connection is idle before the connection is eligible for deletion..
+	// Specifies the number of seconds that a connection is idle before the connection is eligible for deletion.
 	ConnectionIdleTimeout *int `pulumi:"connectionIdleTimeout"`
 	// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
 	DefaultsFrom *string `pulumi:"defaultsFrom"`
-	// Use the parent Http2 profile
+	// Enable or disable enforcement of TLS requirements,Allowed Values : `"enabled"/"disabled"` [Default:`"enabled"`].
+	EnforceTlsRequirements *string `pulumi:"enforceTlsRequirements"`
+	// The size of the data frames, in bytes, that the HTTP/2 protocol sends to the client. `Default: 2048`.
+	FrameSize *int `pulumi:"frameSize"`
+	// The size of the header table, in KB, for the HTTP headers that the HTTP/2 protocol compresses to save bandwidth.
 	HeaderTableSize *int `pulumi:"headerTableSize"`
-	// Name of the profile_http2
+	// Enable to include content-length in HTTP/2 headers,Default : disabled
+	IncludeContentLength *string `pulumi:"includeContentLength"`
+	// This setting specifies whether the BIG-IP system should add an HTTP header to the HTTP request to show that the request was received over HTTP/2, Allowed Values : `"enabled"/"disabled"` [ Default: `"disabled"`].
+	InsertHeader *string `pulumi:"insertHeader"`
+	// This setting specifies the name of the header that the BIG-IP system will add to the HTTP request when the Insert Header is enabled.
+	InsertHeaderName *string `pulumi:"insertHeaderName"`
+	// Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-http2-profile`.
 	Name *string `pulumi:"name"`
+	// The flow-control size for upload streams, in KB. `Default: 32`.
+	ReceiveWindow *int `pulumi:"receiveWindow"`
+	// The total size of combined data frames, in bytes, that the HTTP/2 protocol sends in a single write function. `Default: 16384`".
+	WriteSize *int `pulumi:"writeSize"`
 }
 
 type ProfileHttp2State struct {
-	// Specifies what will cause an incoming connection to be handled as a HTTP/2 connection. The default values npn and alpn specify that the TLS next-protocol-negotiation and application-layer-protocol-negotiation extensions will be used.
+	// This setting specifies the condition that will cause the BIG-IP system to handle an incoming connection as an HTTP/2 connection, Allowed values : `[“alpn”]` (or) `[“always”]`.
 	ActivationModes pulumi.StringArrayInput
 	// Specifies how many concurrent requests are allowed to be outstanding on a single HTTP/2 connection.
 	ConcurrentStreamsPerConnection pulumi.IntPtrInput
-	// Specifies the number of seconds that a connection is idle before the connection is eligible for deletion..
+	// Specifies the number of seconds that a connection is idle before the connection is eligible for deletion.
 	ConnectionIdleTimeout pulumi.IntPtrInput
 	// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
 	DefaultsFrom pulumi.StringPtrInput
-	// Use the parent Http2 profile
+	// Enable or disable enforcement of TLS requirements,Allowed Values : `"enabled"/"disabled"` [Default:`"enabled"`].
+	EnforceTlsRequirements pulumi.StringPtrInput
+	// The size of the data frames, in bytes, that the HTTP/2 protocol sends to the client. `Default: 2048`.
+	FrameSize pulumi.IntPtrInput
+	// The size of the header table, in KB, for the HTTP headers that the HTTP/2 protocol compresses to save bandwidth.
 	HeaderTableSize pulumi.IntPtrInput
-	// Name of the profile_http2
+	// Enable to include content-length in HTTP/2 headers,Default : disabled
+	IncludeContentLength pulumi.StringPtrInput
+	// This setting specifies whether the BIG-IP system should add an HTTP header to the HTTP request to show that the request was received over HTTP/2, Allowed Values : `"enabled"/"disabled"` [ Default: `"disabled"`].
+	InsertHeader pulumi.StringPtrInput
+	// This setting specifies the name of the header that the BIG-IP system will add to the HTTP request when the Insert Header is enabled.
+	InsertHeaderName pulumi.StringPtrInput
+	// Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-http2-profile`.
 	Name pulumi.StringPtrInput
+	// The flow-control size for upload streams, in KB. `Default: 32`.
+	ReceiveWindow pulumi.IntPtrInput
+	// The total size of combined data frames, in bytes, that the HTTP/2 protocol sends in a single write function. `Default: 16384`".
+	WriteSize pulumi.IntPtrInput
 }
 
 func (ProfileHttp2State) ElementType() reflect.Type {
@@ -125,34 +179,62 @@ func (ProfileHttp2State) ElementType() reflect.Type {
 }
 
 type profileHttp2Args struct {
-	// Specifies what will cause an incoming connection to be handled as a HTTP/2 connection. The default values npn and alpn specify that the TLS next-protocol-negotiation and application-layer-protocol-negotiation extensions will be used.
+	// This setting specifies the condition that will cause the BIG-IP system to handle an incoming connection as an HTTP/2 connection, Allowed values : `[“alpn”]` (or) `[“always”]`.
 	ActivationModes []string `pulumi:"activationModes"`
 	// Specifies how many concurrent requests are allowed to be outstanding on a single HTTP/2 connection.
 	ConcurrentStreamsPerConnection *int `pulumi:"concurrentStreamsPerConnection"`
-	// Specifies the number of seconds that a connection is idle before the connection is eligible for deletion..
+	// Specifies the number of seconds that a connection is idle before the connection is eligible for deletion.
 	ConnectionIdleTimeout *int `pulumi:"connectionIdleTimeout"`
 	// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
 	DefaultsFrom *string `pulumi:"defaultsFrom"`
-	// Use the parent Http2 profile
+	// Enable or disable enforcement of TLS requirements,Allowed Values : `"enabled"/"disabled"` [Default:`"enabled"`].
+	EnforceTlsRequirements *string `pulumi:"enforceTlsRequirements"`
+	// The size of the data frames, in bytes, that the HTTP/2 protocol sends to the client. `Default: 2048`.
+	FrameSize *int `pulumi:"frameSize"`
+	// The size of the header table, in KB, for the HTTP headers that the HTTP/2 protocol compresses to save bandwidth.
 	HeaderTableSize *int `pulumi:"headerTableSize"`
-	// Name of the profile_http2
+	// Enable to include content-length in HTTP/2 headers,Default : disabled
+	IncludeContentLength *string `pulumi:"includeContentLength"`
+	// This setting specifies whether the BIG-IP system should add an HTTP header to the HTTP request to show that the request was received over HTTP/2, Allowed Values : `"enabled"/"disabled"` [ Default: `"disabled"`].
+	InsertHeader *string `pulumi:"insertHeader"`
+	// This setting specifies the name of the header that the BIG-IP system will add to the HTTP request when the Insert Header is enabled.
+	InsertHeaderName *string `pulumi:"insertHeaderName"`
+	// Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-http2-profile`.
 	Name string `pulumi:"name"`
+	// The flow-control size for upload streams, in KB. `Default: 32`.
+	ReceiveWindow *int `pulumi:"receiveWindow"`
+	// The total size of combined data frames, in bytes, that the HTTP/2 protocol sends in a single write function. `Default: 16384`".
+	WriteSize *int `pulumi:"writeSize"`
 }
 
 // The set of arguments for constructing a ProfileHttp2 resource.
 type ProfileHttp2Args struct {
-	// Specifies what will cause an incoming connection to be handled as a HTTP/2 connection. The default values npn and alpn specify that the TLS next-protocol-negotiation and application-layer-protocol-negotiation extensions will be used.
+	// This setting specifies the condition that will cause the BIG-IP system to handle an incoming connection as an HTTP/2 connection, Allowed values : `[“alpn”]` (or) `[“always”]`.
 	ActivationModes pulumi.StringArrayInput
 	// Specifies how many concurrent requests are allowed to be outstanding on a single HTTP/2 connection.
 	ConcurrentStreamsPerConnection pulumi.IntPtrInput
-	// Specifies the number of seconds that a connection is idle before the connection is eligible for deletion..
+	// Specifies the number of seconds that a connection is idle before the connection is eligible for deletion.
 	ConnectionIdleTimeout pulumi.IntPtrInput
 	// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
 	DefaultsFrom pulumi.StringPtrInput
-	// Use the parent Http2 profile
+	// Enable or disable enforcement of TLS requirements,Allowed Values : `"enabled"/"disabled"` [Default:`"enabled"`].
+	EnforceTlsRequirements pulumi.StringPtrInput
+	// The size of the data frames, in bytes, that the HTTP/2 protocol sends to the client. `Default: 2048`.
+	FrameSize pulumi.IntPtrInput
+	// The size of the header table, in KB, for the HTTP headers that the HTTP/2 protocol compresses to save bandwidth.
 	HeaderTableSize pulumi.IntPtrInput
-	// Name of the profile_http2
+	// Enable to include content-length in HTTP/2 headers,Default : disabled
+	IncludeContentLength pulumi.StringPtrInput
+	// This setting specifies whether the BIG-IP system should add an HTTP header to the HTTP request to show that the request was received over HTTP/2, Allowed Values : `"enabled"/"disabled"` [ Default: `"disabled"`].
+	InsertHeader pulumi.StringPtrInput
+	// This setting specifies the name of the header that the BIG-IP system will add to the HTTP request when the Insert Header is enabled.
+	InsertHeaderName pulumi.StringPtrInput
+	// Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-http2-profile`.
 	Name pulumi.StringInput
+	// The flow-control size for upload streams, in KB. `Default: 32`.
+	ReceiveWindow pulumi.IntPtrInput
+	// The total size of combined data frames, in bytes, that the HTTP/2 protocol sends in a single write function. `Default: 16384`".
+	WriteSize pulumi.IntPtrInput
 }
 
 func (ProfileHttp2Args) ElementType() reflect.Type {

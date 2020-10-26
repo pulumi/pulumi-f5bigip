@@ -49,56 +49,56 @@ type ProfileHttp struct {
 
 	// Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's
 	// XFF (X-forwarded-for) headers, if they exist.
-	AcceptXff pulumi.StringPtrOutput `pulumi:"acceptXff"`
+	AcceptXff pulumi.StringOutput `pulumi:"acceptXff"`
 	// The application service to which the object belongs.
 	AppService pulumi.StringPtrOutput `pulumi:"appService"`
 	// Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is none
-	BasicAuthRealm pulumi.StringPtrOutput `pulumi:"basicAuthRealm"`
+	BasicAuthRealm pulumi.StringOutput `pulumi:"basicAuthRealm"`
 	// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
 	DefaultsFrom pulumi.StringOutput `pulumi:"defaultsFrom"`
-	// User defibned description
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// User defined description
+	Description pulumi.StringOutput `pulumi:"description"`
 	// Specifies a passphrase for the cookie encryption
 	EncryptCookieSecret pulumi.StringPtrOutput `pulumi:"encryptCookieSecret"`
 	// Encrypts specified cookies that the BIG-IP system sends to a client system
 	EncryptCookies pulumi.StringArrayOutput `pulumi:"encryptCookies"`
 	// Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
-	FallbackHost pulumi.StringPtrOutput `pulumi:"fallbackHost"`
+	FallbackHost pulumi.StringOutput `pulumi:"fallbackHost"`
 	// Specifies one or more three-digit status codes that can be returned by an HTTP server.
 	FallbackStatusCodes pulumi.StringArrayOutput `pulumi:"fallbackStatusCodes"`
 	// Specifies the header string that you want to erase from an HTTP request. You can also specify none
-	HeadErase pulumi.StringPtrOutput `pulumi:"headErase"`
+	HeadErase pulumi.StringOutput `pulumi:"headErase"`
 	// Specifies a quoted header string that you want to insert into an HTTP request
-	HeadInsert pulumi.StringPtrOutput `pulumi:"headInsert"`
+	HeadInsert pulumi.StringOutput `pulumi:"headInsert"`
 	// When using connection pooling, which allows clients to make use of other client requests' server-side connections, you can insert the X-Forwarded-For header and specify a client IP address
-	InsertXforwardedFor pulumi.StringPtrOutput `pulumi:"insertXforwardedFor"`
+	InsertXforwardedFor pulumi.StringOutput `pulumi:"insertXforwardedFor"`
 	// Specifies a quoted header string that you want to insert into an HTTP request. You can also specify none.
-	LwsSeparator pulumi.StringPtrOutput `pulumi:"lwsSeparator"`
+	LwsSeparator pulumi.StringOutput `pulumi:"lwsSeparator"`
 	// Name of the profile_http
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Enables the system to perform HTTP header transformations for the purpose of  keeping server-side connections open. This feature requires configuration of a OneConnect profile
-	OneconnectTransformations pulumi.StringPtrOutput `pulumi:"oneconnectTransformations"`
+	OneconnectTransformations pulumi.StringOutput `pulumi:"oneconnectTransformations"`
 	// Specifies the type of HTTP proxy.
-	ProxyType pulumi.StringPtrOutput `pulumi:"proxyType"`
+	ProxyType pulumi.StringOutput `pulumi:"proxyType"`
 	// Specifies which of the application HTTP redirects the system rewrites to HTTPS.
-	RedirectRewrite pulumi.StringPtrOutput `pulumi:"redirectRewrite"`
+	RedirectRewrite pulumi.StringOutput `pulumi:"redirectRewrite"`
 	// Specifies how to handle chunked and unchunked requests.
-	RequestChunking pulumi.StringPtrOutput `pulumi:"requestChunking"`
+	RequestChunking pulumi.StringOutput `pulumi:"requestChunking"`
 	// Specifies how to handle chunked and unchunked responses.
-	ResponseChunking pulumi.StringPtrOutput `pulumi:"responseChunking"`
+	ResponseChunking pulumi.StringOutput `pulumi:"responseChunking"`
 	// Specifies headers that the BIG-IP system allows in an HTTP response.
 	ResponseHeadersPermitteds pulumi.StringArrayOutput `pulumi:"responseHeadersPermitteds"`
 	// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no
 	// string is specified, then no Server header will be added to such responses
-	ServerAgentName pulumi.StringPtrOutput `pulumi:"serverAgentName"`
+	ServerAgentName pulumi.StringOutput `pulumi:"serverAgentName"`
 	// Displays the administrative partition within which this profile resides.
 	TmPartition pulumi.StringPtrOutput `pulumi:"tmPartition"`
 	// Specifies the hostname to include into Via header
-	ViaHostName pulumi.StringPtrOutput `pulumi:"viaHostName"`
+	ViaHostName pulumi.StringOutput `pulumi:"viaHostName"`
 	// Specifies whether to append, remove, or preserve a Via header in an HTTP request
-	ViaRequest pulumi.StringPtrOutput `pulumi:"viaRequest"`
+	ViaRequest pulumi.StringOutput `pulumi:"viaRequest"`
 	// Specifies whether to append, remove, or preserve a Via header in an HTTP request
-	ViaResponse pulumi.StringPtrOutput `pulumi:"viaResponse"`
+	ViaResponse pulumi.StringOutput `pulumi:"viaResponse"`
 	// Specifies alternative XFF headers instead of the default X-forwarded-for header
 	XffAlternativeNames pulumi.StringArrayOutput `pulumi:"xffAlternativeNames"`
 }
@@ -106,9 +106,6 @@ type ProfileHttp struct {
 // NewProfileHttp registers a new resource with the given unique name, arguments, and options.
 func NewProfileHttp(ctx *pulumi.Context,
 	name string, args *ProfileHttpArgs, opts ...pulumi.ResourceOption) (*ProfileHttp, error) {
-	if args == nil || args.DefaultsFrom == nil {
-		return nil, errors.New("missing required argument 'DefaultsFrom'")
-	}
 	if args == nil || args.Name == nil {
 		return nil, errors.New("missing required argument 'Name'")
 	}
@@ -146,7 +143,7 @@ type profileHttpState struct {
 	BasicAuthRealm *string `pulumi:"basicAuthRealm"`
 	// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
 	DefaultsFrom *string `pulumi:"defaultsFrom"`
-	// User defibned description
+	// User defined description
 	Description *string `pulumi:"description"`
 	// Specifies a passphrase for the cookie encryption
 	EncryptCookieSecret *string `pulumi:"encryptCookieSecret"`
@@ -203,7 +200,7 @@ type ProfileHttpState struct {
 	BasicAuthRealm pulumi.StringPtrInput
 	// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
 	DefaultsFrom pulumi.StringPtrInput
-	// User defibned description
+	// User defined description
 	Description pulumi.StringPtrInput
 	// Specifies a passphrase for the cookie encryption
 	EncryptCookieSecret pulumi.StringPtrInput
@@ -263,8 +260,8 @@ type profileHttpArgs struct {
 	// Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is none
 	BasicAuthRealm *string `pulumi:"basicAuthRealm"`
 	// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
-	DefaultsFrom string `pulumi:"defaultsFrom"`
-	// User defibned description
+	DefaultsFrom *string `pulumi:"defaultsFrom"`
+	// User defined description
 	Description *string `pulumi:"description"`
 	// Specifies a passphrase for the cookie encryption
 	EncryptCookieSecret *string `pulumi:"encryptCookieSecret"`
@@ -321,8 +318,8 @@ type ProfileHttpArgs struct {
 	// Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is none
 	BasicAuthRealm pulumi.StringPtrInput
 	// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
-	DefaultsFrom pulumi.StringInput
-	// User defibned description
+	DefaultsFrom pulumi.StringPtrInput
+	// User defined description
 	Description pulumi.StringPtrInput
 	// Specifies a passphrase for the cookie encryption
 	EncryptCookieSecret pulumi.StringPtrInput

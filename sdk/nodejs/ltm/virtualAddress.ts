@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const vsVa = new f5bigip.ltm.VirtualAddress("vs_va", {
- *     advertizeRoute: true,
+ *     advertizeRoute: "true",
  *     name: "/Common/vs_va",
  * });
  * ```
@@ -52,7 +52,7 @@ export class VirtualAddress extends pulumi.CustomResource {
     /**
      * Enabled dynamic routing of the address
      */
-    public readonly advertizeRoute!: pulumi.Output<boolean | undefined>;
+    public readonly advertizeRoute!: pulumi.Output<string | undefined>;
     /**
      * Enable or disable ARP for the virtual address
      */
@@ -134,7 +134,7 @@ export interface VirtualAddressState {
     /**
      * Enabled dynamic routing of the address
      */
-    readonly advertizeRoute?: pulumi.Input<boolean>;
+    readonly advertizeRoute?: pulumi.Input<string>;
     /**
      * Enable or disable ARP for the virtual address
      */
@@ -172,7 +172,7 @@ export interface VirtualAddressArgs {
     /**
      * Enabled dynamic routing of the address
      */
-    readonly advertizeRoute?: pulumi.Input<boolean>;
+    readonly advertizeRoute?: pulumi.Input<string>;
     /**
      * Enable or disable ARP for the virtual address
      */

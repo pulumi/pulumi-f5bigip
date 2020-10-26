@@ -83,7 +83,7 @@ export class Monitor extends pulumi.CustomResource {
     /**
      * Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
      */
-    public readonly compatibility!: pulumi.Output<string>;
+    public readonly compatibility!: pulumi.Output<string | undefined>;
     /**
      * Specifies the database in which the user is created
      */
@@ -134,7 +134,7 @@ export class Monitor extends pulumi.CustomResource {
     /**
      * Request string to send
      */
-    public readonly send!: pulumi.Output<string | undefined>;
+    public readonly send!: pulumi.Output<string>;
     /**
      * Time in seconds
      */

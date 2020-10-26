@@ -26,15 +26,26 @@ namespace Pulumi.F5BigIP.Ltm
     ///     {
     ///         var nyhttp2 = new F5BigIP.Ltm.ProfileHttp2("nyhttp2", new F5BigIP.Ltm.ProfileHttp2Args
     ///         {
+    ///             Name = "/Common/test-profile-http2",
+    ///             FrameSize = 2021,
+    ///             ReceiveWindow = 31,
+    ///             WriteSize = 16380,
+    ///             HeaderTableSize = 4092,
+    ///             IncludeContentLength = "enabled",
+    ///             EnforceTlsRequirements = "enabled",
+    ///             InsertHeader = "disabled",
+    ///             ConcurrentStreamsPerConnection = 30,
+    ///             ConnectionIdleTimeout = 100,
     ///             ActivationModes = 
     ///             {
-    ///                 "alpn",
-    ///                 "npn",
+    ///                 "always",
     ///             },
-    ///             ConcurrentStreamsPerConnection = 10,
-    ///             ConnectionIdleTimeout = 30,
-    ///             DefaultsFrom = "/Common/http2",
-    ///             Name = "/Common/NewYork_http2",
+    ///         });
+    ///         //Child Profile which inherits parent http2 profile
+    ///         var nyhttp2_child = new F5BigIP.Ltm.ProfileHttp2("nyhttp2-child", new F5BigIP.Ltm.ProfileHttp2Args
+    ///         {
+    ///             Name = "/Common/test-profile-http2-child",
+    ///             DefaultsFrom = nyhttp2.Name,
     ///         });
     ///     }
     /// 
@@ -44,7 +55,7 @@ namespace Pulumi.F5BigIP.Ltm
     public partial class ProfileHttp2 : Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies what will cause an incoming connection to be handled as a HTTP/2 connection. The default values npn and alpn specify that the TLS next-protocol-negotiation and application-layer-protocol-negotiation extensions will be used.
+        /// This setting specifies the condition that will cause the BIG-IP system to handle an incoming connection as an HTTP/2 connection, Allowed values : `[“alpn”]` (or) `[“always”]`.
         /// </summary>
         [Output("activationModes")]
         public Output<ImmutableArray<string>> ActivationModes { get; private set; } = null!;
@@ -53,31 +64,73 @@ namespace Pulumi.F5BigIP.Ltm
         /// Specifies how many concurrent requests are allowed to be outstanding on a single HTTP/2 connection.
         /// </summary>
         [Output("concurrentStreamsPerConnection")]
-        public Output<int?> ConcurrentStreamsPerConnection { get; private set; } = null!;
+        public Output<int> ConcurrentStreamsPerConnection { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the number of seconds that a connection is idle before the connection is eligible for deletion..
+        /// Specifies the number of seconds that a connection is idle before the connection is eligible for deletion.
         /// </summary>
         [Output("connectionIdleTimeout")]
-        public Output<int?> ConnectionIdleTimeout { get; private set; } = null!;
+        public Output<int> ConnectionIdleTimeout { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         /// </summary>
         [Output("defaultsFrom")]
-        public Output<string?> DefaultsFrom { get; private set; } = null!;
+        public Output<string> DefaultsFrom { get; private set; } = null!;
 
         /// <summary>
-        /// Use the parent Http2 profile
+        /// Enable or disable enforcement of TLS requirements,Allowed Values : `"enabled"/"disabled"` [Default:`"enabled"`].
+        /// </summary>
+        [Output("enforceTlsRequirements")]
+        public Output<string> EnforceTlsRequirements { get; private set; } = null!;
+
+        /// <summary>
+        /// The size of the data frames, in bytes, that the HTTP/2 protocol sends to the client. `Default: 2048`.
+        /// </summary>
+        [Output("frameSize")]
+        public Output<int> FrameSize { get; private set; } = null!;
+
+        /// <summary>
+        /// The size of the header table, in KB, for the HTTP headers that the HTTP/2 protocol compresses to save bandwidth.
         /// </summary>
         [Output("headerTableSize")]
-        public Output<int?> HeaderTableSize { get; private set; } = null!;
+        public Output<int> HeaderTableSize { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the profile_http2
+        /// Enable to include content-length in HTTP/2 headers,Default : disabled
+        /// </summary>
+        [Output("includeContentLength")]
+        public Output<string> IncludeContentLength { get; private set; } = null!;
+
+        /// <summary>
+        /// This setting specifies whether the BIG-IP system should add an HTTP header to the HTTP request to show that the request was received over HTTP/2, Allowed Values : `"enabled"/"disabled"` [ Default: `"disabled"`].
+        /// </summary>
+        [Output("insertHeader")]
+        public Output<string> InsertHeader { get; private set; } = null!;
+
+        /// <summary>
+        /// This setting specifies the name of the header that the BIG-IP system will add to the HTTP request when the Insert Header is enabled.
+        /// </summary>
+        [Output("insertHeaderName")]
+        public Output<string> InsertHeaderName { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-http2-profile`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The flow-control size for upload streams, in KB. `Default: 32`.
+        /// </summary>
+        [Output("receiveWindow")]
+        public Output<int> ReceiveWindow { get; private set; } = null!;
+
+        /// <summary>
+        /// The total size of combined data frames, in bytes, that the HTTP/2 protocol sends in a single write function. `Default: 16384`".
+        /// </summary>
+        [Output("writeSize")]
+        public Output<int> WriteSize { get; private set; } = null!;
 
 
         /// <summary>
@@ -129,7 +182,7 @@ namespace Pulumi.F5BigIP.Ltm
         private InputList<string>? _activationModes;
 
         /// <summary>
-        /// Specifies what will cause an incoming connection to be handled as a HTTP/2 connection. The default values npn and alpn specify that the TLS next-protocol-negotiation and application-layer-protocol-negotiation extensions will be used.
+        /// This setting specifies the condition that will cause the BIG-IP system to handle an incoming connection as an HTTP/2 connection, Allowed values : `[“alpn”]` (or) `[“always”]`.
         /// </summary>
         public InputList<string> ActivationModes
         {
@@ -144,7 +197,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<int>? ConcurrentStreamsPerConnection { get; set; }
 
         /// <summary>
-        /// Specifies the number of seconds that a connection is idle before the connection is eligible for deletion..
+        /// Specifies the number of seconds that a connection is idle before the connection is eligible for deletion.
         /// </summary>
         [Input("connectionIdleTimeout")]
         public Input<int>? ConnectionIdleTimeout { get; set; }
@@ -156,16 +209,58 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? DefaultsFrom { get; set; }
 
         /// <summary>
-        /// Use the parent Http2 profile
+        /// Enable or disable enforcement of TLS requirements,Allowed Values : `"enabled"/"disabled"` [Default:`"enabled"`].
+        /// </summary>
+        [Input("enforceTlsRequirements")]
+        public Input<string>? EnforceTlsRequirements { get; set; }
+
+        /// <summary>
+        /// The size of the data frames, in bytes, that the HTTP/2 protocol sends to the client. `Default: 2048`.
+        /// </summary>
+        [Input("frameSize")]
+        public Input<int>? FrameSize { get; set; }
+
+        /// <summary>
+        /// The size of the header table, in KB, for the HTTP headers that the HTTP/2 protocol compresses to save bandwidth.
         /// </summary>
         [Input("headerTableSize")]
         public Input<int>? HeaderTableSize { get; set; }
 
         /// <summary>
-        /// Name of the profile_http2
+        /// Enable to include content-length in HTTP/2 headers,Default : disabled
+        /// </summary>
+        [Input("includeContentLength")]
+        public Input<string>? IncludeContentLength { get; set; }
+
+        /// <summary>
+        /// This setting specifies whether the BIG-IP system should add an HTTP header to the HTTP request to show that the request was received over HTTP/2, Allowed Values : `"enabled"/"disabled"` [ Default: `"disabled"`].
+        /// </summary>
+        [Input("insertHeader")]
+        public Input<string>? InsertHeader { get; set; }
+
+        /// <summary>
+        /// This setting specifies the name of the header that the BIG-IP system will add to the HTTP request when the Insert Header is enabled.
+        /// </summary>
+        [Input("insertHeaderName")]
+        public Input<string>? InsertHeaderName { get; set; }
+
+        /// <summary>
+        /// Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-http2-profile`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The flow-control size for upload streams, in KB. `Default: 32`.
+        /// </summary>
+        [Input("receiveWindow")]
+        public Input<int>? ReceiveWindow { get; set; }
+
+        /// <summary>
+        /// The total size of combined data frames, in bytes, that the HTTP/2 protocol sends in a single write function. `Default: 16384`".
+        /// </summary>
+        [Input("writeSize")]
+        public Input<int>? WriteSize { get; set; }
 
         public ProfileHttp2Args()
         {
@@ -178,7 +273,7 @@ namespace Pulumi.F5BigIP.Ltm
         private InputList<string>? _activationModes;
 
         /// <summary>
-        /// Specifies what will cause an incoming connection to be handled as a HTTP/2 connection. The default values npn and alpn specify that the TLS next-protocol-negotiation and application-layer-protocol-negotiation extensions will be used.
+        /// This setting specifies the condition that will cause the BIG-IP system to handle an incoming connection as an HTTP/2 connection, Allowed values : `[“alpn”]` (or) `[“always”]`.
         /// </summary>
         public InputList<string> ActivationModes
         {
@@ -193,7 +288,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<int>? ConcurrentStreamsPerConnection { get; set; }
 
         /// <summary>
-        /// Specifies the number of seconds that a connection is idle before the connection is eligible for deletion..
+        /// Specifies the number of seconds that a connection is idle before the connection is eligible for deletion.
         /// </summary>
         [Input("connectionIdleTimeout")]
         public Input<int>? ConnectionIdleTimeout { get; set; }
@@ -205,16 +300,58 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? DefaultsFrom { get; set; }
 
         /// <summary>
-        /// Use the parent Http2 profile
+        /// Enable or disable enforcement of TLS requirements,Allowed Values : `"enabled"/"disabled"` [Default:`"enabled"`].
+        /// </summary>
+        [Input("enforceTlsRequirements")]
+        public Input<string>? EnforceTlsRequirements { get; set; }
+
+        /// <summary>
+        /// The size of the data frames, in bytes, that the HTTP/2 protocol sends to the client. `Default: 2048`.
+        /// </summary>
+        [Input("frameSize")]
+        public Input<int>? FrameSize { get; set; }
+
+        /// <summary>
+        /// The size of the header table, in KB, for the HTTP headers that the HTTP/2 protocol compresses to save bandwidth.
         /// </summary>
         [Input("headerTableSize")]
         public Input<int>? HeaderTableSize { get; set; }
 
         /// <summary>
-        /// Name of the profile_http2
+        /// Enable to include content-length in HTTP/2 headers,Default : disabled
+        /// </summary>
+        [Input("includeContentLength")]
+        public Input<string>? IncludeContentLength { get; set; }
+
+        /// <summary>
+        /// This setting specifies whether the BIG-IP system should add an HTTP header to the HTTP request to show that the request was received over HTTP/2, Allowed Values : `"enabled"/"disabled"` [ Default: `"disabled"`].
+        /// </summary>
+        [Input("insertHeader")]
+        public Input<string>? InsertHeader { get; set; }
+
+        /// <summary>
+        /// This setting specifies the name of the header that the BIG-IP system will add to the HTTP request when the Insert Header is enabled.
+        /// </summary>
+        [Input("insertHeaderName")]
+        public Input<string>? InsertHeaderName { get; set; }
+
+        /// <summary>
+        /// Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-http2-profile`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The flow-control size for upload streams, in KB. `Default: 32`.
+        /// </summary>
+        [Input("receiveWindow")]
+        public Input<int>? ReceiveWindow { get; set; }
+
+        /// <summary>
+        /// The total size of combined data frames, in bytes, that the HTTP/2 protocol sends in a single write function. `Default: 16384`".
+        /// </summary>
+        [Input("writeSize")]
+        public Input<int>? WriteSize { get; set; }
 
         public ProfileHttp2State()
         {

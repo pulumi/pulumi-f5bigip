@@ -15,7 +15,7 @@ class VirtualAddress(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 advertize_route: Optional[pulumi.Input[bool]] = None,
+                 advertize_route: Optional[pulumi.Input[str]] = None,
                  arp: Optional[pulumi.Input[bool]] = None,
                  auto_delete: Optional[pulumi.Input[bool]] = None,
                  conn_limit: Optional[pulumi.Input[int]] = None,
@@ -38,13 +38,13 @@ class VirtualAddress(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         vs_va = f5bigip.ltm.VirtualAddress("vsVa",
-            advertize_route=True,
+            advertize_route="true",
             name="/Common/vs_va")
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] advertize_route: Enabled dynamic routing of the address
+        :param pulumi.Input[str] advertize_route: Enabled dynamic routing of the address
         :param pulumi.Input[bool] arp: Enable or disable ARP for the virtual address
         :param pulumi.Input[bool] auto_delete: Automatically delete the virtual address with the virtual server
         :param pulumi.Input[int] conn_limit: Max number of connections for virtual address
@@ -90,7 +90,7 @@ class VirtualAddress(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            advertize_route: Optional[pulumi.Input[bool]] = None,
+            advertize_route: Optional[pulumi.Input[str]] = None,
             arp: Optional[pulumi.Input[bool]] = None,
             auto_delete: Optional[pulumi.Input[bool]] = None,
             conn_limit: Optional[pulumi.Input[int]] = None,
@@ -105,7 +105,7 @@ class VirtualAddress(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] advertize_route: Enabled dynamic routing of the address
+        :param pulumi.Input[str] advertize_route: Enabled dynamic routing of the address
         :param pulumi.Input[bool] arp: Enable or disable ARP for the virtual address
         :param pulumi.Input[bool] auto_delete: Automatically delete the virtual address with the virtual server
         :param pulumi.Input[int] conn_limit: Max number of connections for virtual address
@@ -130,7 +130,7 @@ class VirtualAddress(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="advertizeRoute")
-    def advertize_route(self) -> pulumi.Output[Optional[bool]]:
+    def advertize_route(self) -> pulumi.Output[Optional[str]]:
         """
         Enabled dynamic routing of the address
         """
