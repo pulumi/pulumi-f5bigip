@@ -4,6 +4,7 @@
 package ltm
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -353,4 +354,43 @@ type VirtualServerArgs struct {
 
 func (VirtualServerArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualServerArgs)(nil)).Elem()
+}
+
+type VirtualServerInput interface {
+	pulumi.Input
+
+	ToVirtualServerOutput() VirtualServerOutput
+	ToVirtualServerOutputWithContext(ctx context.Context) VirtualServerOutput
+}
+
+func (VirtualServer) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualServer)(nil)).Elem()
+}
+
+func (i VirtualServer) ToVirtualServerOutput() VirtualServerOutput {
+	return i.ToVirtualServerOutputWithContext(context.Background())
+}
+
+func (i VirtualServer) ToVirtualServerOutputWithContext(ctx context.Context) VirtualServerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualServerOutput)
+}
+
+type VirtualServerOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualServerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualServerOutput)(nil)).Elem()
+}
+
+func (o VirtualServerOutput) ToVirtualServerOutput() VirtualServerOutput {
+	return o
+}
+
+func (o VirtualServerOutput) ToVirtualServerOutputWithContext(ctx context.Context) VirtualServerOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualServerOutput{})
 }

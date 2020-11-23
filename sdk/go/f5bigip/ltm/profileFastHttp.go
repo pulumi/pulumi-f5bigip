@@ -4,6 +4,7 @@
 package ltm
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -210,4 +211,43 @@ type ProfileFastHttpArgs struct {
 
 func (ProfileFastHttpArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileFastHttpArgs)(nil)).Elem()
+}
+
+type ProfileFastHttpInput interface {
+	pulumi.Input
+
+	ToProfileFastHttpOutput() ProfileFastHttpOutput
+	ToProfileFastHttpOutputWithContext(ctx context.Context) ProfileFastHttpOutput
+}
+
+func (ProfileFastHttp) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileFastHttp)(nil)).Elem()
+}
+
+func (i ProfileFastHttp) ToProfileFastHttpOutput() ProfileFastHttpOutput {
+	return i.ToProfileFastHttpOutputWithContext(context.Background())
+}
+
+func (i ProfileFastHttp) ToProfileFastHttpOutputWithContext(ctx context.Context) ProfileFastHttpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileFastHttpOutput)
+}
+
+type ProfileFastHttpOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProfileFastHttpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileFastHttpOutput)(nil)).Elem()
+}
+
+func (o ProfileFastHttpOutput) ToProfileFastHttpOutput() ProfileFastHttpOutput {
+	return o
+}
+
+func (o ProfileFastHttpOutput) ToProfileFastHttpOutputWithContext(ctx context.Context) ProfileFastHttpOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProfileFastHttpOutput{})
 }

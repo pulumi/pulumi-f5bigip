@@ -4,6 +4,7 @@
 package ltm
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -197,4 +198,43 @@ type ProfileTcpArgs struct {
 
 func (ProfileTcpArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileTcpArgs)(nil)).Elem()
+}
+
+type ProfileTcpInput interface {
+	pulumi.Input
+
+	ToProfileTcpOutput() ProfileTcpOutput
+	ToProfileTcpOutputWithContext(ctx context.Context) ProfileTcpOutput
+}
+
+func (ProfileTcp) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileTcp)(nil)).Elem()
+}
+
+func (i ProfileTcp) ToProfileTcpOutput() ProfileTcpOutput {
+	return i.ToProfileTcpOutputWithContext(context.Background())
+}
+
+func (i ProfileTcp) ToProfileTcpOutputWithContext(ctx context.Context) ProfileTcpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileTcpOutput)
+}
+
+type ProfileTcpOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProfileTcpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileTcpOutput)(nil)).Elem()
+}
+
+func (o ProfileTcpOutput) ToProfileTcpOutput() ProfileTcpOutput {
+	return o
+}
+
+func (o ProfileTcpOutput) ToProfileTcpOutputWithContext(ctx context.Context) ProfileTcpOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProfileTcpOutput{})
 }

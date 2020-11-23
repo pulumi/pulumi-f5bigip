@@ -4,6 +4,7 @@
 package f5bigip
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -107,4 +108,43 @@ type DoArgs struct {
 
 func (DoArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*doArgs)(nil)).Elem()
+}
+
+type DoInput interface {
+	pulumi.Input
+
+	ToDoOutput() DoOutput
+	ToDoOutputWithContext(ctx context.Context) DoOutput
+}
+
+func (Do) ElementType() reflect.Type {
+	return reflect.TypeOf((*Do)(nil)).Elem()
+}
+
+func (i Do) ToDoOutput() DoOutput {
+	return i.ToDoOutputWithContext(context.Background())
+}
+
+func (i Do) ToDoOutputWithContext(ctx context.Context) DoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DoOutput)
+}
+
+type DoOutput struct {
+	*pulumi.OutputState
+}
+
+func (DoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DoOutput)(nil)).Elem()
+}
+
+func (o DoOutput) ToDoOutput() DoOutput {
+	return o
+}
+
+func (o DoOutput) ToDoOutputWithContext(ctx context.Context) DoOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DoOutput{})
 }

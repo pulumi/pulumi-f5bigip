@@ -4,6 +4,7 @@
 package f5bigip
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -153,4 +154,43 @@ type BigIqAs3Args struct {
 
 func (BigIqAs3Args) ElementType() reflect.Type {
 	return reflect.TypeOf((*bigIqAs3Args)(nil)).Elem()
+}
+
+type BigIqAs3Input interface {
+	pulumi.Input
+
+	ToBigIqAs3Output() BigIqAs3Output
+	ToBigIqAs3OutputWithContext(ctx context.Context) BigIqAs3Output
+}
+
+func (BigIqAs3) ElementType() reflect.Type {
+	return reflect.TypeOf((*BigIqAs3)(nil)).Elem()
+}
+
+func (i BigIqAs3) ToBigIqAs3Output() BigIqAs3Output {
+	return i.ToBigIqAs3OutputWithContext(context.Background())
+}
+
+func (i BigIqAs3) ToBigIqAs3OutputWithContext(ctx context.Context) BigIqAs3Output {
+	return pulumi.ToOutputWithContext(ctx, i).(BigIqAs3Output)
+}
+
+type BigIqAs3Output struct {
+	*pulumi.OutputState
+}
+
+func (BigIqAs3Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*BigIqAs3Output)(nil)).Elem()
+}
+
+func (o BigIqAs3Output) ToBigIqAs3Output() BigIqAs3Output {
+	return o
+}
+
+func (o BigIqAs3Output) ToBigIqAs3OutputWithContext(ctx context.Context) BigIqAs3Output {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BigIqAs3Output{})
 }

@@ -4,6 +4,7 @@
 package net
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -141,4 +142,43 @@ type SelfIpArgs struct {
 
 func (SelfIpArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*selfIpArgs)(nil)).Elem()
+}
+
+type SelfIpInput interface {
+	pulumi.Input
+
+	ToSelfIpOutput() SelfIpOutput
+	ToSelfIpOutputWithContext(ctx context.Context) SelfIpOutput
+}
+
+func (SelfIp) ElementType() reflect.Type {
+	return reflect.TypeOf((*SelfIp)(nil)).Elem()
+}
+
+func (i SelfIp) ToSelfIpOutput() SelfIpOutput {
+	return i.ToSelfIpOutputWithContext(context.Background())
+}
+
+func (i SelfIp) ToSelfIpOutputWithContext(ctx context.Context) SelfIpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SelfIpOutput)
+}
+
+type SelfIpOutput struct {
+	*pulumi.OutputState
+}
+
+func (SelfIpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SelfIpOutput)(nil)).Elem()
+}
+
+func (o SelfIpOutput) ToSelfIpOutput() SelfIpOutput {
+	return o
+}
+
+func (o SelfIpOutput) ToSelfIpOutputWithContext(ctx context.Context) SelfIpOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SelfIpOutput{})
 }

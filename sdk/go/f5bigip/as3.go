@@ -4,6 +4,7 @@
 package f5bigip
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -127,4 +128,43 @@ type As3Args struct {
 
 func (As3Args) ElementType() reflect.Type {
 	return reflect.TypeOf((*as3Args)(nil)).Elem()
+}
+
+type As3Input interface {
+	pulumi.Input
+
+	ToAs3Output() As3Output
+	ToAs3OutputWithContext(ctx context.Context) As3Output
+}
+
+func (As3) ElementType() reflect.Type {
+	return reflect.TypeOf((*As3)(nil)).Elem()
+}
+
+func (i As3) ToAs3Output() As3Output {
+	return i.ToAs3OutputWithContext(context.Background())
+}
+
+func (i As3) ToAs3OutputWithContext(ctx context.Context) As3Output {
+	return pulumi.ToOutputWithContext(ctx, i).(As3Output)
+}
+
+type As3Output struct {
+	*pulumi.OutputState
+}
+
+func (As3Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*As3Output)(nil)).Elem()
+}
+
+func (o As3Output) ToAs3Output() As3Output {
+	return o
+}
+
+func (o As3Output) ToAs3OutputWithContext(ctx context.Context) As3Output {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(As3Output{})
 }

@@ -4,6 +4,7 @@
 package ltm
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -250,4 +251,43 @@ type PersistenceProfileSrcAddrArgs struct {
 
 func (PersistenceProfileSrcAddrArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*persistenceProfileSrcAddrArgs)(nil)).Elem()
+}
+
+type PersistenceProfileSrcAddrInput interface {
+	pulumi.Input
+
+	ToPersistenceProfileSrcAddrOutput() PersistenceProfileSrcAddrOutput
+	ToPersistenceProfileSrcAddrOutputWithContext(ctx context.Context) PersistenceProfileSrcAddrOutput
+}
+
+func (PersistenceProfileSrcAddr) ElementType() reflect.Type {
+	return reflect.TypeOf((*PersistenceProfileSrcAddr)(nil)).Elem()
+}
+
+func (i PersistenceProfileSrcAddr) ToPersistenceProfileSrcAddrOutput() PersistenceProfileSrcAddrOutput {
+	return i.ToPersistenceProfileSrcAddrOutputWithContext(context.Background())
+}
+
+func (i PersistenceProfileSrcAddr) ToPersistenceProfileSrcAddrOutputWithContext(ctx context.Context) PersistenceProfileSrcAddrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PersistenceProfileSrcAddrOutput)
+}
+
+type PersistenceProfileSrcAddrOutput struct {
+	*pulumi.OutputState
+}
+
+func (PersistenceProfileSrcAddrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PersistenceProfileSrcAddrOutput)(nil)).Elem()
+}
+
+func (o PersistenceProfileSrcAddrOutput) ToPersistenceProfileSrcAddrOutput() PersistenceProfileSrcAddrOutput {
+	return o
+}
+
+func (o PersistenceProfileSrcAddrOutput) ToPersistenceProfileSrcAddrOutputWithContext(ctx context.Context) PersistenceProfileSrcAddrOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PersistenceProfileSrcAddrOutput{})
 }

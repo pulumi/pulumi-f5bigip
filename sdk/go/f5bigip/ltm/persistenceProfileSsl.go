@@ -4,6 +4,7 @@
 package ltm
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -206,4 +207,43 @@ type PersistenceProfileSslArgs struct {
 
 func (PersistenceProfileSslArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*persistenceProfileSslArgs)(nil)).Elem()
+}
+
+type PersistenceProfileSslInput interface {
+	pulumi.Input
+
+	ToPersistenceProfileSslOutput() PersistenceProfileSslOutput
+	ToPersistenceProfileSslOutputWithContext(ctx context.Context) PersistenceProfileSslOutput
+}
+
+func (PersistenceProfileSsl) ElementType() reflect.Type {
+	return reflect.TypeOf((*PersistenceProfileSsl)(nil)).Elem()
+}
+
+func (i PersistenceProfileSsl) ToPersistenceProfileSslOutput() PersistenceProfileSslOutput {
+	return i.ToPersistenceProfileSslOutputWithContext(context.Background())
+}
+
+func (i PersistenceProfileSsl) ToPersistenceProfileSslOutputWithContext(ctx context.Context) PersistenceProfileSslOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PersistenceProfileSslOutput)
+}
+
+type PersistenceProfileSslOutput struct {
+	*pulumi.OutputState
+}
+
+func (PersistenceProfileSslOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PersistenceProfileSslOutput)(nil)).Elem()
+}
+
+func (o PersistenceProfileSslOutput) ToPersistenceProfileSslOutput() PersistenceProfileSslOutput {
+	return o
+}
+
+func (o PersistenceProfileSslOutput) ToPersistenceProfileSslOutputWithContext(ctx context.Context) PersistenceProfileSslOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PersistenceProfileSslOutput{})
 }

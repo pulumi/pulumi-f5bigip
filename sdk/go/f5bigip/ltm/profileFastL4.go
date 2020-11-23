@@ -4,6 +4,7 @@
 package ltm
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -44,6 +45,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// BIG-IP LTM fastl4 profiles can be imported using the `name`, e.g.
+//
+// ```sh
+//  $ pulumi import f5bigip:ltm/profileFastL4:ProfileFastL4 test-fastl4 /Common/test-fastl4
 // ```
 type ProfileFastL4 struct {
 	pulumi.CustomResourceState
@@ -199,4 +208,43 @@ type ProfileFastL4Args struct {
 
 func (ProfileFastL4Args) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileFastL4Args)(nil)).Elem()
+}
+
+type ProfileFastL4Input interface {
+	pulumi.Input
+
+	ToProfileFastL4Output() ProfileFastL4Output
+	ToProfileFastL4OutputWithContext(ctx context.Context) ProfileFastL4Output
+}
+
+func (ProfileFastL4) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileFastL4)(nil)).Elem()
+}
+
+func (i ProfileFastL4) ToProfileFastL4Output() ProfileFastL4Output {
+	return i.ToProfileFastL4OutputWithContext(context.Background())
+}
+
+func (i ProfileFastL4) ToProfileFastL4OutputWithContext(ctx context.Context) ProfileFastL4Output {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileFastL4Output)
+}
+
+type ProfileFastL4Output struct {
+	*pulumi.OutputState
+}
+
+func (ProfileFastL4Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileFastL4Output)(nil)).Elem()
+}
+
+func (o ProfileFastL4Output) ToProfileFastL4Output() ProfileFastL4Output {
+	return o
+}
+
+func (o ProfileFastL4Output) ToProfileFastL4OutputWithContext(ctx context.Context) ProfileFastL4Output {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProfileFastL4Output{})
 }

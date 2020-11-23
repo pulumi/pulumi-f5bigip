@@ -4,6 +4,7 @@
 package ltm
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -188,4 +189,43 @@ type ProfileOneConnectArgs struct {
 
 func (ProfileOneConnectArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileOneConnectArgs)(nil)).Elem()
+}
+
+type ProfileOneConnectInput interface {
+	pulumi.Input
+
+	ToProfileOneConnectOutput() ProfileOneConnectOutput
+	ToProfileOneConnectOutputWithContext(ctx context.Context) ProfileOneConnectOutput
+}
+
+func (ProfileOneConnect) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileOneConnect)(nil)).Elem()
+}
+
+func (i ProfileOneConnect) ToProfileOneConnectOutput() ProfileOneConnectOutput {
+	return i.ToProfileOneConnectOutputWithContext(context.Background())
+}
+
+func (i ProfileOneConnect) ToProfileOneConnectOutputWithContext(ctx context.Context) ProfileOneConnectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileOneConnectOutput)
+}
+
+type ProfileOneConnectOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProfileOneConnectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileOneConnectOutput)(nil)).Elem()
+}
+
+func (o ProfileOneConnectOutput) ToProfileOneConnectOutput() ProfileOneConnectOutput {
+	return o
+}
+
+func (o ProfileOneConnectOutput) ToProfileOneConnectOutputWithContext(ctx context.Context) ProfileOneConnectOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProfileOneConnectOutput{})
 }

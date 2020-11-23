@@ -52,6 +52,14 @@ class ProfileFastL4(pulumi.CustomResource):
             partition="Common")
         ```
 
+        ## Import
+
+        BIG-IP LTM fastl4 profiles can be imported using the `name`, e.g.
+
+        ```sh
+         $ pulumi import f5bigip:ltm/profileFastL4:ProfileFastL4 test-fastl4 /Common/test-fastl4
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] client_timeout: Specifies late binding client timeout in seconds. This setting specifies the number of seconds allowed for a client to transmit enough data to select a server when late binding is enabled. If it expires timeout-recovery mode will dictate what action to take.

@@ -4,6 +4,7 @@
 package ltm
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -43,6 +44,14 @@ import (
 // 		return nil
 // 	})
 // }
+// ```
+//
+// ## Import
+//
+// BIG-IP LTM http profiles can be imported using the `name`, e.g.
+//
+// ```sh
+//  $ pulumi import f5bigip:ltm/profileHttp:ProfileHttp test-http /Common/test-http
 // ```
 type ProfileHttp struct {
 	pulumi.CustomResourceState
@@ -368,4 +377,43 @@ type ProfileHttpArgs struct {
 
 func (ProfileHttpArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileHttpArgs)(nil)).Elem()
+}
+
+type ProfileHttpInput interface {
+	pulumi.Input
+
+	ToProfileHttpOutput() ProfileHttpOutput
+	ToProfileHttpOutputWithContext(ctx context.Context) ProfileHttpOutput
+}
+
+func (ProfileHttp) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileHttp)(nil)).Elem()
+}
+
+func (i ProfileHttp) ToProfileHttpOutput() ProfileHttpOutput {
+	return i.ToProfileHttpOutputWithContext(context.Background())
+}
+
+func (i ProfileHttp) ToProfileHttpOutputWithContext(ctx context.Context) ProfileHttpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileHttpOutput)
+}
+
+type ProfileHttpOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProfileHttpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileHttpOutput)(nil)).Elem()
+}
+
+func (o ProfileHttpOutput) ToProfileHttpOutput() ProfileHttpOutput {
+	return o
+}
+
+func (o ProfileHttpOutput) ToProfileHttpOutputWithContext(ctx context.Context) ProfileHttpOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProfileHttpOutput{})
 }

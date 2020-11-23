@@ -4,6 +4,7 @@
 package ltm
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -164,4 +165,43 @@ type ProfileHttpCompressArgs struct {
 
 func (ProfileHttpCompressArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileHttpCompressArgs)(nil)).Elem()
+}
+
+type ProfileHttpCompressInput interface {
+	pulumi.Input
+
+	ToProfileHttpCompressOutput() ProfileHttpCompressOutput
+	ToProfileHttpCompressOutputWithContext(ctx context.Context) ProfileHttpCompressOutput
+}
+
+func (ProfileHttpCompress) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileHttpCompress)(nil)).Elem()
+}
+
+func (i ProfileHttpCompress) ToProfileHttpCompressOutput() ProfileHttpCompressOutput {
+	return i.ToProfileHttpCompressOutputWithContext(context.Background())
+}
+
+func (i ProfileHttpCompress) ToProfileHttpCompressOutputWithContext(ctx context.Context) ProfileHttpCompressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileHttpCompressOutput)
+}
+
+type ProfileHttpCompressOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProfileHttpCompressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileHttpCompressOutput)(nil)).Elem()
+}
+
+func (o ProfileHttpCompressOutput) ToProfileHttpCompressOutput() ProfileHttpCompressOutput {
+	return o
+}
+
+func (o ProfileHttpCompressOutput) ToProfileHttpCompressOutputWithContext(ctx context.Context) ProfileHttpCompressOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProfileHttpCompressOutput{})
 }

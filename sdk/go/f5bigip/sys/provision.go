@@ -4,6 +4,7 @@
 package sys
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -152,4 +153,43 @@ type ProvisionArgs struct {
 
 func (ProvisionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*provisionArgs)(nil)).Elem()
+}
+
+type ProvisionInput interface {
+	pulumi.Input
+
+	ToProvisionOutput() ProvisionOutput
+	ToProvisionOutputWithContext(ctx context.Context) ProvisionOutput
+}
+
+func (Provision) ElementType() reflect.Type {
+	return reflect.TypeOf((*Provision)(nil)).Elem()
+}
+
+func (i Provision) ToProvisionOutput() ProvisionOutput {
+	return i.ToProvisionOutputWithContext(context.Background())
+}
+
+func (i Provision) ToProvisionOutputWithContext(ctx context.Context) ProvisionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProvisionOutput)
+}
+
+type ProvisionOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProvisionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProvisionOutput)(nil)).Elem()
+}
+
+func (o ProvisionOutput) ToProvisionOutput() ProvisionOutput {
+	return o
+}
+
+func (o ProvisionOutput) ToProvisionOutputWithContext(ctx context.Context) ProvisionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProvisionOutput{})
 }

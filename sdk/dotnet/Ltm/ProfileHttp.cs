@@ -41,6 +41,14 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// BIG-IP LTM http profiles can be imported using the `name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import f5bigip:ltm/profileHttp:ProfileHttp test-http /Common/test-http
+    /// ```
     /// </summary>
     public partial class ProfileHttp : Pulumi.CustomResource
     {

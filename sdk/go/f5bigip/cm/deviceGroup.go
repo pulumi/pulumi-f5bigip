@@ -4,6 +4,7 @@
 package cm
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -195,4 +196,43 @@ type DeviceGroupArgs struct {
 
 func (DeviceGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*deviceGroupArgs)(nil)).Elem()
+}
+
+type DeviceGroupInput interface {
+	pulumi.Input
+
+	ToDeviceGroupOutput() DeviceGroupOutput
+	ToDeviceGroupOutputWithContext(ctx context.Context) DeviceGroupOutput
+}
+
+func (DeviceGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceGroup)(nil)).Elem()
+}
+
+func (i DeviceGroup) ToDeviceGroupOutput() DeviceGroupOutput {
+	return i.ToDeviceGroupOutputWithContext(context.Background())
+}
+
+func (i DeviceGroup) ToDeviceGroupOutputWithContext(ctx context.Context) DeviceGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceGroupOutput)
+}
+
+type DeviceGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (DeviceGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceGroupOutput)(nil)).Elem()
+}
+
+func (o DeviceGroupOutput) ToDeviceGroupOutput() DeviceGroupOutput {
+	return o
+}
+
+func (o DeviceGroupOutput) ToDeviceGroupOutputWithContext(ctx context.Context) DeviceGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DeviceGroupOutput{})
 }

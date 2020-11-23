@@ -28,6 +28,14 @@ import * as utilities from "../utilities";
  *     partition: "Common",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * BIG-IP LTM fastl4 profiles can be imported using the `name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import f5bigip:ltm/profileFastL4:ProfileFastL4 test-fastl4 /Common/test-fastl4
+ * ```
  */
 export class ProfileFastL4 extends pulumi.CustomResource {
     /**

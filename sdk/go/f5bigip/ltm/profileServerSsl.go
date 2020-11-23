@@ -4,6 +4,7 @@
 package ltm
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -507,4 +508,43 @@ type ProfileServerSslArgs struct {
 
 func (ProfileServerSslArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileServerSslArgs)(nil)).Elem()
+}
+
+type ProfileServerSslInput interface {
+	pulumi.Input
+
+	ToProfileServerSslOutput() ProfileServerSslOutput
+	ToProfileServerSslOutputWithContext(ctx context.Context) ProfileServerSslOutput
+}
+
+func (ProfileServerSsl) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileServerSsl)(nil)).Elem()
+}
+
+func (i ProfileServerSsl) ToProfileServerSslOutput() ProfileServerSslOutput {
+	return i.ToProfileServerSslOutputWithContext(context.Background())
+}
+
+func (i ProfileServerSsl) ToProfileServerSslOutputWithContext(ctx context.Context) ProfileServerSslOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileServerSslOutput)
+}
+
+type ProfileServerSslOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProfileServerSslOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileServerSslOutput)(nil)).Elem()
+}
+
+func (o ProfileServerSslOutput) ToProfileServerSslOutput() ProfileServerSslOutput {
+	return o
+}
+
+func (o ProfileServerSslOutput) ToProfileServerSslOutputWithContext(ctx context.Context) ProfileServerSslOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProfileServerSslOutput{})
 }

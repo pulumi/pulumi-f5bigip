@@ -4,6 +4,7 @@
 package ltm
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -617,4 +618,43 @@ type ProfileClientSslArgs struct {
 
 func (ProfileClientSslArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileClientSslArgs)(nil)).Elem()
+}
+
+type ProfileClientSslInput interface {
+	pulumi.Input
+
+	ToProfileClientSslOutput() ProfileClientSslOutput
+	ToProfileClientSslOutputWithContext(ctx context.Context) ProfileClientSslOutput
+}
+
+func (ProfileClientSsl) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileClientSsl)(nil)).Elem()
+}
+
+func (i ProfileClientSsl) ToProfileClientSslOutput() ProfileClientSslOutput {
+	return i.ToProfileClientSslOutputWithContext(context.Background())
+}
+
+func (i ProfileClientSsl) ToProfileClientSslOutputWithContext(ctx context.Context) ProfileClientSslOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileClientSslOutput)
+}
+
+type ProfileClientSslOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProfileClientSslOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileClientSslOutput)(nil)).Elem()
+}
+
+func (o ProfileClientSslOutput) ToProfileClientSslOutput() ProfileClientSslOutput {
+	return o
+}
+
+func (o ProfileClientSslOutput) ToProfileClientSslOutputWithContext(ctx context.Context) ProfileClientSslOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProfileClientSslOutput{})
 }

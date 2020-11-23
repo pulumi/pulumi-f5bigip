@@ -27,6 +27,14 @@ import * as utilities from "../utilities";
  *     name: "/Common/sanjose-http",
  * });
  * ```
+ *
+ * ## Import
+ *
+ * BIG-IP LTM http profiles can be imported using the `name`, e.g.
+ *
+ * ```sh
+ *  $ pulumi import f5bigip:ltm/profileHttp:ProfileHttp test-http /Common/test-http
+ * ```
  */
 export class ProfileHttp extends pulumi.CustomResource {
     /**

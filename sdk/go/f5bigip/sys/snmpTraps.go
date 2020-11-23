@@ -4,6 +4,7 @@
 package sys
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -227,4 +228,43 @@ type SnmpTrapsArgs struct {
 
 func (SnmpTrapsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*snmpTrapsArgs)(nil)).Elem()
+}
+
+type SnmpTrapsInput interface {
+	pulumi.Input
+
+	ToSnmpTrapsOutput() SnmpTrapsOutput
+	ToSnmpTrapsOutputWithContext(ctx context.Context) SnmpTrapsOutput
+}
+
+func (SnmpTraps) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnmpTraps)(nil)).Elem()
+}
+
+func (i SnmpTraps) ToSnmpTrapsOutput() SnmpTrapsOutput {
+	return i.ToSnmpTrapsOutputWithContext(context.Background())
+}
+
+func (i SnmpTraps) ToSnmpTrapsOutputWithContext(ctx context.Context) SnmpTrapsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnmpTrapsOutput)
+}
+
+type SnmpTrapsOutput struct {
+	*pulumi.OutputState
+}
+
+func (SnmpTrapsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnmpTrapsOutput)(nil)).Elem()
+}
+
+func (o SnmpTrapsOutput) ToSnmpTrapsOutput() SnmpTrapsOutput {
+	return o
+}
+
+func (o SnmpTrapsOutput) ToSnmpTrapsOutputWithContext(ctx context.Context) SnmpTrapsOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SnmpTrapsOutput{})
 }

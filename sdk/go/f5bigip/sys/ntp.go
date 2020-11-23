@@ -4,6 +4,7 @@
 package sys
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -123,4 +124,43 @@ type NtpArgs struct {
 
 func (NtpArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*ntpArgs)(nil)).Elem()
+}
+
+type NtpInput interface {
+	pulumi.Input
+
+	ToNtpOutput() NtpOutput
+	ToNtpOutputWithContext(ctx context.Context) NtpOutput
+}
+
+func (Ntp) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ntp)(nil)).Elem()
+}
+
+func (i Ntp) ToNtpOutput() NtpOutput {
+	return i.ToNtpOutputWithContext(context.Background())
+}
+
+func (i Ntp) ToNtpOutputWithContext(ctx context.Context) NtpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NtpOutput)
+}
+
+type NtpOutput struct {
+	*pulumi.OutputState
+}
+
+func (NtpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NtpOutput)(nil)).Elem()
+}
+
+func (o NtpOutput) ToNtpOutput() NtpOutput {
+	return o
+}
+
+func (o NtpOutput) ToNtpOutputWithContext(ctx context.Context) NtpOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(NtpOutput{})
 }

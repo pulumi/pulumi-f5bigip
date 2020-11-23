@@ -74,7 +74,7 @@ class As3(pulumi.CustomResource):
             __props__['tenant_filter'] = tenant_filter
             __props__['tenant_list'] = tenant_list
             if tenant_name is not None:
-                warnings.warn("this attribute is no longer in use", DeprecationWarning)
+                warnings.warn("""this attribute is no longer in use""", DeprecationWarning)
                 pulumi.log.warn("tenant_name is deprecated: this attribute is no longer in use")
             __props__['tenant_name'] = tenant_name
         super(As3, __self__).__init__(
