@@ -4,6 +4,7 @@
 package sys
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -87,4 +88,43 @@ type BigIpLicenseArgs struct {
 
 func (BigIpLicenseArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*bigIpLicenseArgs)(nil)).Elem()
+}
+
+type BigIpLicenseInput interface {
+	pulumi.Input
+
+	ToBigIpLicenseOutput() BigIpLicenseOutput
+	ToBigIpLicenseOutputWithContext(ctx context.Context) BigIpLicenseOutput
+}
+
+func (BigIpLicense) ElementType() reflect.Type {
+	return reflect.TypeOf((*BigIpLicense)(nil)).Elem()
+}
+
+func (i BigIpLicense) ToBigIpLicenseOutput() BigIpLicenseOutput {
+	return i.ToBigIpLicenseOutputWithContext(context.Background())
+}
+
+func (i BigIpLicense) ToBigIpLicenseOutputWithContext(ctx context.Context) BigIpLicenseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BigIpLicenseOutput)
+}
+
+type BigIpLicenseOutput struct {
+	*pulumi.OutputState
+}
+
+func (BigIpLicenseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BigIpLicenseOutput)(nil)).Elem()
+}
+
+func (o BigIpLicenseOutput) ToBigIpLicenseOutput() BigIpLicenseOutput {
+	return o
+}
+
+func (o BigIpLicenseOutput) ToBigIpLicenseOutputWithContext(ctx context.Context) BigIpLicenseOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BigIpLicenseOutput{})
 }

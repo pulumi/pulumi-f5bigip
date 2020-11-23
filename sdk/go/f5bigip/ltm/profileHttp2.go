@@ -4,6 +4,7 @@
 package ltm
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -239,4 +240,43 @@ type ProfileHttp2Args struct {
 
 func (ProfileHttp2Args) ElementType() reflect.Type {
 	return reflect.TypeOf((*profileHttp2Args)(nil)).Elem()
+}
+
+type ProfileHttp2Input interface {
+	pulumi.Input
+
+	ToProfileHttp2Output() ProfileHttp2Output
+	ToProfileHttp2OutputWithContext(ctx context.Context) ProfileHttp2Output
+}
+
+func (ProfileHttp2) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileHttp2)(nil)).Elem()
+}
+
+func (i ProfileHttp2) ToProfileHttp2Output() ProfileHttp2Output {
+	return i.ToProfileHttp2OutputWithContext(context.Background())
+}
+
+func (i ProfileHttp2) ToProfileHttp2OutputWithContext(ctx context.Context) ProfileHttp2Output {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileHttp2Output)
+}
+
+type ProfileHttp2Output struct {
+	*pulumi.OutputState
+}
+
+func (ProfileHttp2Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileHttp2Output)(nil)).Elem()
+}
+
+func (o ProfileHttp2Output) ToProfileHttp2Output() ProfileHttp2Output {
+	return o
+}
+
+func (o ProfileHttp2Output) ToProfileHttp2OutputWithContext(ctx context.Context) ProfileHttp2Output {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProfileHttp2Output{})
 }

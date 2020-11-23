@@ -4,6 +4,7 @@
 package ltm
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -199,4 +200,43 @@ type PoolAttachmentArgs struct {
 
 func (PoolAttachmentArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*poolAttachmentArgs)(nil)).Elem()
+}
+
+type PoolAttachmentInput interface {
+	pulumi.Input
+
+	ToPoolAttachmentOutput() PoolAttachmentOutput
+	ToPoolAttachmentOutputWithContext(ctx context.Context) PoolAttachmentOutput
+}
+
+func (PoolAttachment) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolAttachment)(nil)).Elem()
+}
+
+func (i PoolAttachment) ToPoolAttachmentOutput() PoolAttachmentOutput {
+	return i.ToPoolAttachmentOutputWithContext(context.Background())
+}
+
+func (i PoolAttachment) ToPoolAttachmentOutputWithContext(ctx context.Context) PoolAttachmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolAttachmentOutput)
+}
+
+type PoolAttachmentOutput struct {
+	*pulumi.OutputState
+}
+
+func (PoolAttachmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolAttachmentOutput)(nil)).Elem()
+}
+
+func (o PoolAttachmentOutput) ToPoolAttachmentOutput() PoolAttachmentOutput {
+	return o
+}
+
+func (o PoolAttachmentOutput) ToPoolAttachmentOutputWithContext(ctx context.Context) PoolAttachmentOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PoolAttachmentOutput{})
 }

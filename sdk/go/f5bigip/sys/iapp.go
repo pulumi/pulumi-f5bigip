@@ -4,6 +4,7 @@
 package sys
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -243,4 +244,43 @@ type IAppArgs struct {
 
 func (IAppArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*iappArgs)(nil)).Elem()
+}
+
+type IAppInput interface {
+	pulumi.Input
+
+	ToIAppOutput() IAppOutput
+	ToIAppOutputWithContext(ctx context.Context) IAppOutput
+}
+
+func (IApp) ElementType() reflect.Type {
+	return reflect.TypeOf((*IApp)(nil)).Elem()
+}
+
+func (i IApp) ToIAppOutput() IAppOutput {
+	return i.ToIAppOutputWithContext(context.Background())
+}
+
+func (i IApp) ToIAppOutputWithContext(ctx context.Context) IAppOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IAppOutput)
+}
+
+type IAppOutput struct {
+	*pulumi.OutputState
+}
+
+func (IAppOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IAppOutput)(nil)).Elem()
+}
+
+func (o IAppOutput) ToIAppOutput() IAppOutput {
+	return o
+}
+
+func (o IAppOutput) ToIAppOutputWithContext(ctx context.Context) IAppOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IAppOutput{})
 }

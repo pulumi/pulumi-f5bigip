@@ -4,6 +4,7 @@
 package f5bigip
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -298,4 +299,43 @@ type CommonLicenseManageBigIqArgs struct {
 
 func (CommonLicenseManageBigIqArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*commonLicenseManageBigIqArgs)(nil)).Elem()
+}
+
+type CommonLicenseManageBigIqInput interface {
+	pulumi.Input
+
+	ToCommonLicenseManageBigIqOutput() CommonLicenseManageBigIqOutput
+	ToCommonLicenseManageBigIqOutputWithContext(ctx context.Context) CommonLicenseManageBigIqOutput
+}
+
+func (CommonLicenseManageBigIq) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommonLicenseManageBigIq)(nil)).Elem()
+}
+
+func (i CommonLicenseManageBigIq) ToCommonLicenseManageBigIqOutput() CommonLicenseManageBigIqOutput {
+	return i.ToCommonLicenseManageBigIqOutputWithContext(context.Background())
+}
+
+func (i CommonLicenseManageBigIq) ToCommonLicenseManageBigIqOutputWithContext(ctx context.Context) CommonLicenseManageBigIqOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommonLicenseManageBigIqOutput)
+}
+
+type CommonLicenseManageBigIqOutput struct {
+	*pulumi.OutputState
+}
+
+func (CommonLicenseManageBigIqOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommonLicenseManageBigIqOutput)(nil)).Elem()
+}
+
+func (o CommonLicenseManageBigIqOutput) ToCommonLicenseManageBigIqOutput() CommonLicenseManageBigIqOutput {
+	return o
+}
+
+func (o CommonLicenseManageBigIqOutput) ToCommonLicenseManageBigIqOutputWithContext(ctx context.Context) CommonLicenseManageBigIqOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CommonLicenseManageBigIqOutput{})
 }

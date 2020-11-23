@@ -4,6 +4,7 @@
 package ltm
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -217,4 +218,43 @@ type SnatArgs struct {
 
 func (SnatArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*snatArgs)(nil)).Elem()
+}
+
+type SnatInput interface {
+	pulumi.Input
+
+	ToSnatOutput() SnatOutput
+	ToSnatOutputWithContext(ctx context.Context) SnatOutput
+}
+
+func (Snat) ElementType() reflect.Type {
+	return reflect.TypeOf((*Snat)(nil)).Elem()
+}
+
+func (i Snat) ToSnatOutput() SnatOutput {
+	return i.ToSnatOutputWithContext(context.Background())
+}
+
+func (i Snat) ToSnatOutputWithContext(ctx context.Context) SnatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnatOutput)
+}
+
+type SnatOutput struct {
+	*pulumi.OutputState
+}
+
+func (SnatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnatOutput)(nil)).Elem()
+}
+
+func (o SnatOutput) ToSnatOutput() SnatOutput {
+	return o
+}
+
+func (o SnatOutput) ToSnatOutputWithContext(ctx context.Context) SnatOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(SnatOutput{})
 }

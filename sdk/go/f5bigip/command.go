@@ -4,6 +4,7 @@
 package f5bigip
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -117,4 +118,43 @@ type CommandArgs struct {
 
 func (CommandArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*commandArgs)(nil)).Elem()
+}
+
+type CommandInput interface {
+	pulumi.Input
+
+	ToCommandOutput() CommandOutput
+	ToCommandOutputWithContext(ctx context.Context) CommandOutput
+}
+
+func (Command) ElementType() reflect.Type {
+	return reflect.TypeOf((*Command)(nil)).Elem()
+}
+
+func (i Command) ToCommandOutput() CommandOutput {
+	return i.ToCommandOutputWithContext(context.Background())
+}
+
+func (i Command) ToCommandOutputWithContext(ctx context.Context) CommandOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommandOutput)
+}
+
+type CommandOutput struct {
+	*pulumi.OutputState
+}
+
+func (CommandOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommandOutput)(nil)).Elem()
+}
+
+func (o CommandOutput) ToCommandOutput() CommandOutput {
+	return o
+}
+
+func (o CommandOutput) ToCommandOutputWithContext(ctx context.Context) CommandOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(CommandOutput{})
 }

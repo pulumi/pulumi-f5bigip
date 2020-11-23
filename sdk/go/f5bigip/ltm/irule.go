@@ -4,6 +4,7 @@
 package ltm
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -90,4 +91,43 @@ type IRuleArgs struct {
 
 func (IRuleArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*iruleArgs)(nil)).Elem()
+}
+
+type IRuleInput interface {
+	pulumi.Input
+
+	ToIRuleOutput() IRuleOutput
+	ToIRuleOutputWithContext(ctx context.Context) IRuleOutput
+}
+
+func (IRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*IRule)(nil)).Elem()
+}
+
+func (i IRule) ToIRuleOutput() IRuleOutput {
+	return i.ToIRuleOutputWithContext(context.Background())
+}
+
+func (i IRule) ToIRuleOutputWithContext(ctx context.Context) IRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IRuleOutput)
+}
+
+type IRuleOutput struct {
+	*pulumi.OutputState
+}
+
+func (IRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IRuleOutput)(nil)).Elem()
+}
+
+func (o IRuleOutput) ToIRuleOutput() IRuleOutput {
+	return o
+}
+
+func (o IRuleOutput) ToIRuleOutputWithContext(ctx context.Context) IRuleOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IRuleOutput{})
 }

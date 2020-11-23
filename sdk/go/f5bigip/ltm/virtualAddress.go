@@ -4,6 +4,7 @@
 package ltm
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -171,4 +172,43 @@ type VirtualAddressArgs struct {
 
 func (VirtualAddressArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*virtualAddressArgs)(nil)).Elem()
+}
+
+type VirtualAddressInput interface {
+	pulumi.Input
+
+	ToVirtualAddressOutput() VirtualAddressOutput
+	ToVirtualAddressOutputWithContext(ctx context.Context) VirtualAddressOutput
+}
+
+func (VirtualAddress) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualAddress)(nil)).Elem()
+}
+
+func (i VirtualAddress) ToVirtualAddressOutput() VirtualAddressOutput {
+	return i.ToVirtualAddressOutputWithContext(context.Background())
+}
+
+func (i VirtualAddress) ToVirtualAddressOutputWithContext(ctx context.Context) VirtualAddressOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualAddressOutput)
+}
+
+type VirtualAddressOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualAddressOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualAddressOutput)(nil)).Elem()
+}
+
+func (o VirtualAddressOutput) ToVirtualAddressOutput() VirtualAddressOutput {
+	return o
+}
+
+func (o VirtualAddressOutput) ToVirtualAddressOutputWithContext(ctx context.Context) VirtualAddressOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VirtualAddressOutput{})
 }

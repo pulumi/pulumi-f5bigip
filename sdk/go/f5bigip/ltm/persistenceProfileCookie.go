@@ -4,6 +4,7 @@
 package ltm
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -308,4 +309,43 @@ type PersistenceProfileCookieArgs struct {
 
 func (PersistenceProfileCookieArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*persistenceProfileCookieArgs)(nil)).Elem()
+}
+
+type PersistenceProfileCookieInput interface {
+	pulumi.Input
+
+	ToPersistenceProfileCookieOutput() PersistenceProfileCookieOutput
+	ToPersistenceProfileCookieOutputWithContext(ctx context.Context) PersistenceProfileCookieOutput
+}
+
+func (PersistenceProfileCookie) ElementType() reflect.Type {
+	return reflect.TypeOf((*PersistenceProfileCookie)(nil)).Elem()
+}
+
+func (i PersistenceProfileCookie) ToPersistenceProfileCookieOutput() PersistenceProfileCookieOutput {
+	return i.ToPersistenceProfileCookieOutputWithContext(context.Background())
+}
+
+func (i PersistenceProfileCookie) ToPersistenceProfileCookieOutputWithContext(ctx context.Context) PersistenceProfileCookieOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PersistenceProfileCookieOutput)
+}
+
+type PersistenceProfileCookieOutput struct {
+	*pulumi.OutputState
+}
+
+func (PersistenceProfileCookieOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PersistenceProfileCookieOutput)(nil)).Elem()
+}
+
+func (o PersistenceProfileCookieOutput) ToPersistenceProfileCookieOutput() PersistenceProfileCookieOutput {
+	return o
+}
+
+func (o PersistenceProfileCookieOutput) ToPersistenceProfileCookieOutputWithContext(ctx context.Context) PersistenceProfileCookieOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PersistenceProfileCookieOutput{})
 }

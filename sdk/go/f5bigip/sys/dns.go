@@ -4,6 +4,7 @@
 package sys
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -135,4 +136,43 @@ type DnsArgs struct {
 
 func (DnsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dnsArgs)(nil)).Elem()
+}
+
+type DnsInput interface {
+	pulumi.Input
+
+	ToDnsOutput() DnsOutput
+	ToDnsOutputWithContext(ctx context.Context) DnsOutput
+}
+
+func (Dns) ElementType() reflect.Type {
+	return reflect.TypeOf((*Dns)(nil)).Elem()
+}
+
+func (i Dns) ToDnsOutput() DnsOutput {
+	return i.ToDnsOutputWithContext(context.Background())
+}
+
+func (i Dns) ToDnsOutputWithContext(ctx context.Context) DnsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DnsOutput)
+}
+
+type DnsOutput struct {
+	*pulumi.OutputState
+}
+
+func (DnsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DnsOutput)(nil)).Elem()
+}
+
+func (o DnsOutput) ToDnsOutput() DnsOutput {
+	return o
+}
+
+func (o DnsOutput) ToDnsOutputWithContext(ctx context.Context) DnsOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DnsOutput{})
 }

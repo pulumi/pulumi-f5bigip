@@ -63,7 +63,7 @@ class Do(pulumi.CustomResource):
                 raise TypeError("Missing required property 'do_json'")
             __props__['do_json'] = do_json
             if tenant_name is not None:
-                warnings.warn("this attribute is no longer in use", DeprecationWarning)
+                warnings.warn("""this attribute is no longer in use""", DeprecationWarning)
                 pulumi.log.warn("tenant_name is deprecated: this attribute is no longer in use")
             __props__['tenant_name'] = tenant_name
             __props__['timeout'] = timeout

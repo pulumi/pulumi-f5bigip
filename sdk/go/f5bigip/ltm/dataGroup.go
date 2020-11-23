@@ -4,6 +4,7 @@
 package ltm
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -134,4 +135,43 @@ type DataGroupArgs struct {
 
 func (DataGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dataGroupArgs)(nil)).Elem()
+}
+
+type DataGroupInput interface {
+	pulumi.Input
+
+	ToDataGroupOutput() DataGroupOutput
+	ToDataGroupOutputWithContext(ctx context.Context) DataGroupOutput
+}
+
+func (DataGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataGroup)(nil)).Elem()
+}
+
+func (i DataGroup) ToDataGroupOutput() DataGroupOutput {
+	return i.ToDataGroupOutputWithContext(context.Background())
+}
+
+func (i DataGroup) ToDataGroupOutputWithContext(ctx context.Context) DataGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataGroupOutput)
+}
+
+type DataGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (DataGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataGroupOutput)(nil)).Elem()
+}
+
+func (o DataGroupOutput) ToDataGroupOutput() DataGroupOutput {
+	return o
+}
+
+func (o DataGroupOutput) ToDataGroupOutputWithContext(ctx context.Context) DataGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DataGroupOutput{})
 }
