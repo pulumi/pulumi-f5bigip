@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *     forcehttp10response: "disabled",
  *     idleTimeout: 300,
  *     maxheaderSize: 32768,
- *     name: "sjfasthttpprofile",
+ *     name: "/Common/sjfasthttpprofile",
  * });
  * ```
  */

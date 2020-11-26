@@ -69,7 +69,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         /// </summary>
         [Output("defaultsFrom")]
-        public Output<string?> DefaultsFrom { get; private set; } = null!;
+        public Output<string> DefaultsFrom { get; private set; } = null!;
 
         /// <summary>
         /// Name of the profile_httpcompress

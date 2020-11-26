@@ -17,6 +17,7 @@ __all__ = [
     'PolicyRuleCondition',
     'ProfileClientSslCertKeyChain',
     'SnatOrigin',
+    'GetDataGroupRecordResult',
 ]
 
 @pulumi.output_type
@@ -1817,5 +1818,25 @@ class SnatOrigin(dict):
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class GetDataGroupRecordResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 data: Optional[str] = None):
+        pulumi.set(__self__, "name", name)
+        if data is not None:
+            pulumi.set(__self__, "data", data)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def data(self) -> Optional[str]:
+        return pulumi.get(self, "data")
 
 

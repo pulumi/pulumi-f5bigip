@@ -37,6 +37,8 @@ class ProfileServerSsl(pulumi.CustomResource):
                  partition: Optional[pulumi.Input[str]] = None,
                  passphrase: Optional[pulumi.Input[str]] = None,
                  peer_cert_mode: Optional[pulumi.Input[str]] = None,
+                 proxy_ca_cert: Optional[pulumi.Input[str]] = None,
+                 proxy_ca_key: Optional[pulumi.Input[str]] = None,
                  proxy_ssl: Optional[pulumi.Input[str]] = None,
                  renegotiate_period: Optional[pulumi.Input[str]] = None,
                  renegotiate_size: Optional[pulumi.Input[str]] = None,
@@ -71,8 +73,7 @@ class ProfileServerSsl(pulumi.CustomResource):
             authenticate="always",
             ciphers="DEFAULT",
             defaults_from="/Common/serverssl",
-            name="/Common/test-ServerSsl",
-            partition="Common")
+            name="/Common/test-ServerSsl")
         ```
 
         :param str resource_name: The name of the resource.
@@ -99,6 +100,8 @@ class ProfileServerSsl(pulumi.CustomResource):
         :param pulumi.Input[str] partition: Device partition to manage resources on.
         :param pulumi.Input[str] passphrase: Client Certificate Constrained Delegation CA passphrase
         :param pulumi.Input[str] peer_cert_mode: Specifies the way the system handles client certificates.When ignore, specifies that the system ignores certificates from client systems.When require, specifies that the system requires a client to present a valid certificate.When request, specifies that the system requests a valid certificate from a client but always authenticate the client.
+        :param pulumi.Input[str] proxy_ca_cert: Proxy CA Cert
+        :param pulumi.Input[str] proxy_ca_key: Proxy CA Key
         :param pulumi.Input[str] proxy_ssl: Proxy SSL enabled / disabled. Default is disabled.
         :param pulumi.Input[str] renegotiate_period: Renogotiate Period (seconds)
         :param pulumi.Input[str] renegotiate_size: Renogotiate Size
@@ -114,8 +117,8 @@ class ProfileServerSsl(pulumi.CustomResource):
         :param pulumi.Input[str] sni_default: Indicates that the system uses this profile as the default SSL profile when there is no match to the server name, or when the client provides no SNI extension support.When creating a new profile, the setting is provided by the parent profile.
                There can be only one SSL profile with this setting enabled.
         :param pulumi.Input[str] sni_require: Requires that the network peers also provide SNI support, this setting only takes effect when `sni_default` is set to `true`.When creating a new profile, the setting is provided by the parent profile
-        :param pulumi.Input[str] ssl_forward_proxy: SSL forward Proxy (enabled / disabled)
-        :param pulumi.Input[str] ssl_forward_proxy_bypass: SSL forward Proxy Bypass (enabled / disabled)
+        :param pulumi.Input[str] ssl_forward_proxy: Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
+        :param pulumi.Input[str] ssl_forward_proxy_bypass: Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
         :param pulumi.Input[str] ssl_sign_hash: SSL sign hash (any, sha1, sha256, sha384)
         :param pulumi.Input[str] strict_resume: Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
         :param pulumi.Input[str] unclean_shutdown: Unclean Shutdown (enabled / disabled)
@@ -162,6 +165,8 @@ class ProfileServerSsl(pulumi.CustomResource):
             __props__['partition'] = partition
             __props__['passphrase'] = passphrase
             __props__['peer_cert_mode'] = peer_cert_mode
+            __props__['proxy_ca_cert'] = proxy_ca_cert
+            __props__['proxy_ca_key'] = proxy_ca_key
             __props__['proxy_ssl'] = proxy_ssl
             __props__['renegotiate_period'] = renegotiate_period
             __props__['renegotiate_size'] = renegotiate_size
@@ -212,6 +217,8 @@ class ProfileServerSsl(pulumi.CustomResource):
             partition: Optional[pulumi.Input[str]] = None,
             passphrase: Optional[pulumi.Input[str]] = None,
             peer_cert_mode: Optional[pulumi.Input[str]] = None,
+            proxy_ca_cert: Optional[pulumi.Input[str]] = None,
+            proxy_ca_key: Optional[pulumi.Input[str]] = None,
             proxy_ssl: Optional[pulumi.Input[str]] = None,
             renegotiate_period: Optional[pulumi.Input[str]] = None,
             renegotiate_size: Optional[pulumi.Input[str]] = None,
@@ -259,6 +266,8 @@ class ProfileServerSsl(pulumi.CustomResource):
         :param pulumi.Input[str] partition: Device partition to manage resources on.
         :param pulumi.Input[str] passphrase: Client Certificate Constrained Delegation CA passphrase
         :param pulumi.Input[str] peer_cert_mode: Specifies the way the system handles client certificates.When ignore, specifies that the system ignores certificates from client systems.When require, specifies that the system requires a client to present a valid certificate.When request, specifies that the system requests a valid certificate from a client but always authenticate the client.
+        :param pulumi.Input[str] proxy_ca_cert: Proxy CA Cert
+        :param pulumi.Input[str] proxy_ca_key: Proxy CA Key
         :param pulumi.Input[str] proxy_ssl: Proxy SSL enabled / disabled. Default is disabled.
         :param pulumi.Input[str] renegotiate_period: Renogotiate Period (seconds)
         :param pulumi.Input[str] renegotiate_size: Renogotiate Size
@@ -274,8 +283,8 @@ class ProfileServerSsl(pulumi.CustomResource):
         :param pulumi.Input[str] sni_default: Indicates that the system uses this profile as the default SSL profile when there is no match to the server name, or when the client provides no SNI extension support.When creating a new profile, the setting is provided by the parent profile.
                There can be only one SSL profile with this setting enabled.
         :param pulumi.Input[str] sni_require: Requires that the network peers also provide SNI support, this setting only takes effect when `sni_default` is set to `true`.When creating a new profile, the setting is provided by the parent profile
-        :param pulumi.Input[str] ssl_forward_proxy: SSL forward Proxy (enabled / disabled)
-        :param pulumi.Input[str] ssl_forward_proxy_bypass: SSL forward Proxy Bypass (enabled / disabled)
+        :param pulumi.Input[str] ssl_forward_proxy: Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
+        :param pulumi.Input[str] ssl_forward_proxy_bypass: Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
         :param pulumi.Input[str] ssl_sign_hash: SSL sign hash (any, sha1, sha256, sha384)
         :param pulumi.Input[str] strict_resume: Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
         :param pulumi.Input[str] unclean_shutdown: Unclean Shutdown (enabled / disabled)
@@ -307,6 +316,8 @@ class ProfileServerSsl(pulumi.CustomResource):
         __props__["partition"] = partition
         __props__["passphrase"] = passphrase
         __props__["peer_cert_mode"] = peer_cert_mode
+        __props__["proxy_ca_cert"] = proxy_ca_cert
+        __props__["proxy_ca_key"] = proxy_ca_key
         __props__["proxy_ssl"] = proxy_ssl
         __props__["renegotiate_period"] = renegotiate_period
         __props__["renegotiate_size"] = renegotiate_size
@@ -504,6 +515,22 @@ class ProfileServerSsl(pulumi.CustomResource):
         return pulumi.get(self, "peer_cert_mode")
 
     @property
+    @pulumi.getter(name="proxyCaCert")
+    def proxy_ca_cert(self) -> pulumi.Output[str]:
+        """
+        Proxy CA Cert
+        """
+        return pulumi.get(self, "proxy_ca_cert")
+
+    @property
+    @pulumi.getter(name="proxyCaKey")
+    def proxy_ca_key(self) -> pulumi.Output[str]:
+        """
+        Proxy CA Key
+        """
+        return pulumi.get(self, "proxy_ca_key")
+
+    @property
     @pulumi.getter(name="proxySsl")
     def proxy_ssl(self) -> pulumi.Output[str]:
         """
@@ -599,7 +626,7 @@ class ProfileServerSsl(pulumi.CustomResource):
     @pulumi.getter(name="sslForwardProxy")
     def ssl_forward_proxy(self) -> pulumi.Output[str]:
         """
-        SSL forward Proxy (enabled / disabled)
+        Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
         """
         return pulumi.get(self, "ssl_forward_proxy")
 
@@ -607,7 +634,7 @@ class ProfileServerSsl(pulumi.CustomResource):
     @pulumi.getter(name="sslForwardProxyBypass")
     def ssl_forward_proxy_bypass(self) -> pulumi.Output[str]:
         """
-        SSL forward Proxy Bypass (enabled / disabled)
+        Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
         """
         return pulumi.get(self, "ssl_forward_proxy_bypass")
 

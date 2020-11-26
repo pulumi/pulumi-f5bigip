@@ -47,7 +47,7 @@ class ProfileTcp(pulumi.CustomResource):
             finwait_timeout=300,
             idle_timeout=200,
             keepalive_interval=1700,
-            name="sanjose-tcp-lan-profile")
+            name="/Common/sanjose-tcp-lan-profile")
         ```
 
         :param str resource_name: The name of the resource.

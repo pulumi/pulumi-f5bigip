@@ -35,7 +35,7 @@ import (
 // 			FinwaitTimeout:    pulumi.Int(300),
 // 			IdleTimeout:       pulumi.Int(200),
 // 			KeepaliveInterval: pulumi.Int(1700),
-// 			Name:              pulumi.String("sanjose-tcp-lan-profile"),
+// 			Name:              pulumi.String("/Common/sanjose-tcp-lan-profile"),
 // 		})
 // 		if err != nil {
 // 			return err

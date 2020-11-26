@@ -33,7 +33,7 @@ namespace Pulumi.F5BigIP.Ltm
     ///             FinwaitTimeout = 300,
     ///             IdleTimeout = 200,
     ///             KeepaliveInterval = 1700,
-    ///             Name = "sanjose-tcp-lan-profile",
+    ///             Name = "/Common/sanjose-tcp-lan-profile",
     ///         });
     ///     }
     /// 

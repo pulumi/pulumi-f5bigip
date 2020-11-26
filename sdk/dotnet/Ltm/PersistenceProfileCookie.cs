@@ -55,6 +55,8 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// `match_across_virtuals` (Optional) (enabled or disabled) match across virtual servers with given persistence record
     /// 
+    /// `method` (Optional) Specifies the type of cookie processing that the system uses. The default value is insert
+    /// 
     /// `mirror` (Optional) (enabled or disabled) mirror persistence record
     /// 
     /// `timeout` (Optional) (enabled or disabled) Timeout for persistence of the session in seconds
@@ -154,6 +156,12 @@ namespace Pulumi.F5BigIP.Ltm
         /// </summary>
         [Output("matchAcrossVirtuals")]
         public Output<string?> MatchAcrossVirtuals { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the type of cookie processing that the system uses
+        /// </summary>
+        [Output("method")]
+        public Output<string?> Method { get; private set; } = null!;
 
         /// <summary>
         /// To enable _ disable
@@ -302,6 +310,12 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? MatchAcrossVirtuals { get; set; }
 
         /// <summary>
+        /// Specifies the type of cookie processing that the system uses
+        /// </summary>
+        [Input("method")]
+        public Input<string>? Method { get; set; }
+
+        /// <summary>
         /// To enable _ disable
         /// </summary>
         [Input("mirror")]
@@ -407,6 +421,12 @@ namespace Pulumi.F5BigIP.Ltm
         /// </summary>
         [Input("matchAcrossVirtuals")]
         public Input<string>? MatchAcrossVirtuals { get; set; }
+
+        /// <summary>
+        /// Specifies the type of cookie processing that the system uses
+        /// </summary>
+        [Input("method")]
+        public Input<string>? Method { get; set; }
 
         /// <summary>
         /// To enable _ disable

@@ -37,7 +37,6 @@ import (
 // 			IptosToserver:         pulumi.String("pass-through"),
 // 			KeepaliveInterval:     pulumi.String("disabled"),
 // 			Name:                  pulumi.String("/Common/sjfastl4profile"),
-// 			Partition:             pulumi.String("Common"),
 // 		})
 // 		if err != nil {
 // 			return err

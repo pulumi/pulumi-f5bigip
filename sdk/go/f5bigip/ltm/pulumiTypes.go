@@ -1997,6 +1997,106 @@ func (o SnatOriginArrayOutput) Index(i pulumi.IntInput) SnatOriginOutput {
 	}).(SnatOriginOutput)
 }
 
+type GetDataGroupRecord struct {
+	Data *string `pulumi:"data"`
+	Name string  `pulumi:"name"`
+}
+
+// GetDataGroupRecordInput is an input type that accepts GetDataGroupRecordArgs and GetDataGroupRecordOutput values.
+// You can construct a concrete instance of `GetDataGroupRecordInput` via:
+//
+//          GetDataGroupRecordArgs{...}
+type GetDataGroupRecordInput interface {
+	pulumi.Input
+
+	ToGetDataGroupRecordOutput() GetDataGroupRecordOutput
+	ToGetDataGroupRecordOutputWithContext(context.Context) GetDataGroupRecordOutput
+}
+
+type GetDataGroupRecordArgs struct {
+	Data pulumi.StringPtrInput `pulumi:"data"`
+	Name pulumi.StringInput    `pulumi:"name"`
+}
+
+func (GetDataGroupRecordArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataGroupRecord)(nil)).Elem()
+}
+
+func (i GetDataGroupRecordArgs) ToGetDataGroupRecordOutput() GetDataGroupRecordOutput {
+	return i.ToGetDataGroupRecordOutputWithContext(context.Background())
+}
+
+func (i GetDataGroupRecordArgs) ToGetDataGroupRecordOutputWithContext(ctx context.Context) GetDataGroupRecordOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataGroupRecordOutput)
+}
+
+// GetDataGroupRecordArrayInput is an input type that accepts GetDataGroupRecordArray and GetDataGroupRecordArrayOutput values.
+// You can construct a concrete instance of `GetDataGroupRecordArrayInput` via:
+//
+//          GetDataGroupRecordArray{ GetDataGroupRecordArgs{...} }
+type GetDataGroupRecordArrayInput interface {
+	pulumi.Input
+
+	ToGetDataGroupRecordArrayOutput() GetDataGroupRecordArrayOutput
+	ToGetDataGroupRecordArrayOutputWithContext(context.Context) GetDataGroupRecordArrayOutput
+}
+
+type GetDataGroupRecordArray []GetDataGroupRecordInput
+
+func (GetDataGroupRecordArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataGroupRecord)(nil)).Elem()
+}
+
+func (i GetDataGroupRecordArray) ToGetDataGroupRecordArrayOutput() GetDataGroupRecordArrayOutput {
+	return i.ToGetDataGroupRecordArrayOutputWithContext(context.Background())
+}
+
+func (i GetDataGroupRecordArray) ToGetDataGroupRecordArrayOutputWithContext(ctx context.Context) GetDataGroupRecordArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDataGroupRecordArrayOutput)
+}
+
+type GetDataGroupRecordOutput struct{ *pulumi.OutputState }
+
+func (GetDataGroupRecordOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDataGroupRecord)(nil)).Elem()
+}
+
+func (o GetDataGroupRecordOutput) ToGetDataGroupRecordOutput() GetDataGroupRecordOutput {
+	return o
+}
+
+func (o GetDataGroupRecordOutput) ToGetDataGroupRecordOutputWithContext(ctx context.Context) GetDataGroupRecordOutput {
+	return o
+}
+
+func (o GetDataGroupRecordOutput) Data() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetDataGroupRecord) *string { return v.Data }).(pulumi.StringPtrOutput)
+}
+
+func (o GetDataGroupRecordOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDataGroupRecord) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type GetDataGroupRecordArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDataGroupRecordArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDataGroupRecord)(nil)).Elem()
+}
+
+func (o GetDataGroupRecordArrayOutput) ToGetDataGroupRecordArrayOutput() GetDataGroupRecordArrayOutput {
+	return o
+}
+
+func (o GetDataGroupRecordArrayOutput) ToGetDataGroupRecordArrayOutputWithContext(ctx context.Context) GetDataGroupRecordArrayOutput {
+	return o
+}
+
+func (o GetDataGroupRecordArrayOutput) Index(i pulumi.IntInput) GetDataGroupRecordOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDataGroupRecord {
+		return vs[0].([]GetDataGroupRecord)[vs[1].(int)]
+	}).(GetDataGroupRecordOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DataGroupRecordOutput{})
 	pulumi.RegisterOutputType(DataGroupRecordArrayOutput{})
@@ -2012,4 +2112,6 @@ func init() {
 	pulumi.RegisterOutputType(ProfileClientSslCertKeyChainArrayOutput{})
 	pulumi.RegisterOutputType(SnatOriginOutput{})
 	pulumi.RegisterOutputType(SnatOriginArrayOutput{})
+	pulumi.RegisterOutputType(GetDataGroupRecordOutput{})
+	pulumi.RegisterOutputType(GetDataGroupRecordArrayOutput{})
 }

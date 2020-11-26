@@ -7,6 +7,7 @@ export * from "./bigIqAs3";
 export * from "./command";
 export * from "./commonLicenseManageBigIq";
 export * from "./do";
+export * from "./eventServiceDiscovery";
 export * from "./provider";
 
 // Export sub-modules:

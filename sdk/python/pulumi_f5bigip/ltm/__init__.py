@@ -4,6 +4,9 @@
 
 # Export this package's modules as members:
 from .data_group import *
+from .get_data_group import *
+from .get_irule import *
+from .get_monitor import *
 from .i_rule import *
 from .monitor import *
 from .node import *

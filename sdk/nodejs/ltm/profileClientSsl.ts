@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  *     ciphers: "DEFAULT",
  *     defaultsFrom: "/Common/clientssl",
  *     name: "/Common/test-ClientSsl",
- *     partition: "Common",
  * });
  * ```
  */
@@ -234,11 +233,11 @@ export class ProfileClientSsl extends pulumi.CustomResource {
      */
     public readonly sniRequire!: pulumi.Output<string>;
     /**
-     * SSL forward Proxy (enabled / disabled)
+     * Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
      */
     public readonly sslForwardProxy!: pulumi.Output<string>;
     /**
-     * SSL forward Proxy Bypass (enabled / disabled)
+     * Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
      */
     public readonly sslForwardProxyBypass!: pulumi.Output<string>;
     /**
@@ -573,11 +572,11 @@ export interface ProfileClientSslState {
      */
     readonly sniRequire?: pulumi.Input<string>;
     /**
-     * SSL forward Proxy (enabled / disabled)
+     * Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
      */
     readonly sslForwardProxy?: pulumi.Input<string>;
     /**
-     * SSL forward Proxy Bypass (enabled / disabled)
+     * Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
      */
     readonly sslForwardProxyBypass?: pulumi.Input<string>;
     /**
@@ -782,11 +781,11 @@ export interface ProfileClientSslArgs {
      */
     readonly sniRequire?: pulumi.Input<string>;
     /**
-     * SSL forward Proxy (enabled / disabled)
+     * Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
      */
     readonly sslForwardProxy?: pulumi.Input<string>;
     /**
-     * SSL forward Proxy Bypass (enabled / disabled)
+     * Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
      */
     readonly sslForwardProxyBypass?: pulumi.Input<string>;
     /**

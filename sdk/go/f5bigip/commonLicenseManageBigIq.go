@@ -69,6 +69,26 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		_, err = f5bigip.NewCommonLicenseManageBigIq(ctx, "testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq2", &f5bigip.CommonLicenseManageBigIqArgs{
+// 			BigiqAddress:    pulumi.Any(_var.Bigiq),
+// 			BigiqUser:       pulumi.Any(_var.Bigiq_un),
+// 			BigiqPassword:   pulumi.Any(_var.Bigiq_pw),
+// 			LicensePoolname: pulumi.String("purchased_pool_name"),
+// 			AssignmentType:  pulumi.String("MANAGED"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = f5bigip.NewCommonLicenseManageBigIq(ctx, "testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq3", &f5bigip.CommonLicenseManageBigIqArgs{
+// 			BigiqAddress:    pulumi.Any(_var.Bigiq),
+// 			BigiqUser:       pulumi.Any(_var.Bigiq_un),
+// 			BigiqPassword:   pulumi.Any(_var.Bigiq_pw),
+// 			LicensePoolname: pulumi.String("purchased_pool_name"),
+// 			AssignmentType:  pulumi.String("UNMANAGED"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
 // 		return nil
 // 	})
 // }

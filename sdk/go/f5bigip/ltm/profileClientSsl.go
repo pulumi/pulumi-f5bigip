@@ -30,7 +30,6 @@ import (
 // 			Ciphers:      pulumi.String("DEFAULT"),
 // 			DefaultsFrom: pulumi.String("/Common/clientssl"),
 // 			Name:         pulumi.String("/Common/test-ClientSsl"),
-// 			Partition:    pulumi.String("Common"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -136,9 +135,9 @@ type ProfileClientSsl struct {
 	SniDefault pulumi.StringOutput `pulumi:"sniDefault"`
 	// Requires that the network peers also provide SNI support, this setting only takes effect when `sniDefault` is set to `true`.When creating a new profile, the setting is provided by the parent profile
 	SniRequire pulumi.StringOutput `pulumi:"sniRequire"`
-	// SSL forward Proxy (enabled / disabled)
+	// Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
 	SslForwardProxy pulumi.StringOutput `pulumi:"sslForwardProxy"`
-	// SSL forward Proxy Bypass (enabled / disabled)
+	// Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
 	SslForwardProxyBypass pulumi.StringOutput `pulumi:"sslForwardProxyBypass"`
 	// SSL sign hash (any, sha1, sha256, sha384)
 	SslSignHash pulumi.StringOutput `pulumi:"sslSignHash"`
@@ -274,9 +273,9 @@ type profileClientSslState struct {
 	SniDefault *string `pulumi:"sniDefault"`
 	// Requires that the network peers also provide SNI support, this setting only takes effect when `sniDefault` is set to `true`.When creating a new profile, the setting is provided by the parent profile
 	SniRequire *string `pulumi:"sniRequire"`
-	// SSL forward Proxy (enabled / disabled)
+	// Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
 	SslForwardProxy *string `pulumi:"sslForwardProxy"`
-	// SSL forward Proxy Bypass (enabled / disabled)
+	// Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
 	SslForwardProxyBypass *string `pulumi:"sslForwardProxyBypass"`
 	// SSL sign hash (any, sha1, sha256, sha384)
 	SslSignHash *string `pulumi:"sslSignHash"`
@@ -382,9 +381,9 @@ type ProfileClientSslState struct {
 	SniDefault pulumi.StringPtrInput
 	// Requires that the network peers also provide SNI support, this setting only takes effect when `sniDefault` is set to `true`.When creating a new profile, the setting is provided by the parent profile
 	SniRequire pulumi.StringPtrInput
-	// SSL forward Proxy (enabled / disabled)
+	// Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
 	SslForwardProxy pulumi.StringPtrInput
-	// SSL forward Proxy Bypass (enabled / disabled)
+	// Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
 	SslForwardProxyBypass pulumi.StringPtrInput
 	// SSL sign hash (any, sha1, sha256, sha384)
 	SslSignHash pulumi.StringPtrInput
@@ -494,9 +493,9 @@ type profileClientSslArgs struct {
 	SniDefault *string `pulumi:"sniDefault"`
 	// Requires that the network peers also provide SNI support, this setting only takes effect when `sniDefault` is set to `true`.When creating a new profile, the setting is provided by the parent profile
 	SniRequire *string `pulumi:"sniRequire"`
-	// SSL forward Proxy (enabled / disabled)
+	// Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
 	SslForwardProxy *string `pulumi:"sslForwardProxy"`
-	// SSL forward Proxy Bypass (enabled / disabled)
+	// Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
 	SslForwardProxyBypass *string `pulumi:"sslForwardProxyBypass"`
 	// SSL sign hash (any, sha1, sha256, sha384)
 	SslSignHash *string `pulumi:"sslSignHash"`
@@ -603,9 +602,9 @@ type ProfileClientSslArgs struct {
 	SniDefault pulumi.StringPtrInput
 	// Requires that the network peers also provide SNI support, this setting only takes effect when `sniDefault` is set to `true`.When creating a new profile, the setting is provided by the parent profile
 	SniRequire pulumi.StringPtrInput
-	// SSL forward Proxy (enabled / disabled)
+	// Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
 	SslForwardProxy pulumi.StringPtrInput
-	// SSL forward Proxy Bypass (enabled / disabled)
+	// Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
 	SslForwardProxyBypass pulumi.StringPtrInput
 	// SSL sign hash (any, sha1, sha256, sha384)
 	SslSignHash pulumi.StringPtrInput

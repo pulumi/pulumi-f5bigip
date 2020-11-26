@@ -48,8 +48,7 @@ class ProfileFastL4(pulumi.CustomResource):
             iptos_toclient="pass-through",
             iptos_toserver="pass-through",
             keepalive_interval="disabled",
-            name="/Common/sjfastl4profile",
-            partition="Common")
+            name="/Common/sjfastl4profile")
         ```
 
         ## Import

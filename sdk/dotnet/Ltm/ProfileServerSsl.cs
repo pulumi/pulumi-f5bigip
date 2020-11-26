@@ -28,7 +28,6 @@ namespace Pulumi.F5BigIP.Ltm
     ///             Ciphers = "DEFAULT",
     ///             DefaultsFrom = "/Common/serverssl",
     ///             Name = "/Common/test-ServerSsl",
-    ///             Partition = "Common",
     ///         });
     ///     }
     /// 
@@ -170,6 +169,18 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> PeerCertMode { get; private set; } = null!;
 
         /// <summary>
+        /// Proxy CA Cert
+        /// </summary>
+        [Output("proxyCaCert")]
+        public Output<string> ProxyCaCert { get; private set; } = null!;
+
+        /// <summary>
+        /// Proxy CA Key
+        /// </summary>
+        [Output("proxyCaKey")]
+        public Output<string> ProxyCaKey { get; private set; } = null!;
+
+        /// <summary>
         /// Proxy SSL enabled / disabled. Default is disabled.
         /// </summary>
         [Output("proxySsl")]
@@ -240,13 +251,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> SniRequire { get; private set; } = null!;
 
         /// <summary>
-        /// SSL forward Proxy (enabled / disabled)
+        /// Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
         /// </summary>
         [Output("sslForwardProxy")]
         public Output<string> SslForwardProxy { get; private set; } = null!;
 
         /// <summary>
-        /// SSL forward Proxy Bypass (enabled / disabled)
+        /// Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
         /// </summary>
         [Output("sslForwardProxyBypass")]
         public Output<string> SslForwardProxyBypass { get; private set; } = null!;
@@ -457,6 +468,18 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? PeerCertMode { get; set; }
 
         /// <summary>
+        /// Proxy CA Cert
+        /// </summary>
+        [Input("proxyCaCert")]
+        public Input<string>? ProxyCaCert { get; set; }
+
+        /// <summary>
+        /// Proxy CA Key
+        /// </summary>
+        [Input("proxyCaKey")]
+        public Input<string>? ProxyCaKey { get; set; }
+
+        /// <summary>
         /// Proxy SSL enabled / disabled. Default is disabled.
         /// </summary>
         [Input("proxySsl")]
@@ -527,13 +550,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? SniRequire { get; set; }
 
         /// <summary>
-        /// SSL forward Proxy (enabled / disabled)
+        /// Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
         /// </summary>
         [Input("sslForwardProxy")]
         public Input<string>? SslForwardProxy { get; set; }
 
         /// <summary>
-        /// SSL forward Proxy Bypass (enabled / disabled)
+        /// Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
         /// </summary>
         [Input("sslForwardProxyBypass")]
         public Input<string>? SslForwardProxyBypass { get; set; }
@@ -710,6 +733,18 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? PeerCertMode { get; set; }
 
         /// <summary>
+        /// Proxy CA Cert
+        /// </summary>
+        [Input("proxyCaCert")]
+        public Input<string>? ProxyCaCert { get; set; }
+
+        /// <summary>
+        /// Proxy CA Key
+        /// </summary>
+        [Input("proxyCaKey")]
+        public Input<string>? ProxyCaKey { get; set; }
+
+        /// <summary>
         /// Proxy SSL enabled / disabled. Default is disabled.
         /// </summary>
         [Input("proxySsl")]
@@ -780,13 +815,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? SniRequire { get; set; }
 
         /// <summary>
-        /// SSL forward Proxy (enabled / disabled)
+        /// Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
         /// </summary>
         [Input("sslForwardProxy")]
         public Input<string>? SslForwardProxy { get; set; }
 
         /// <summary>
-        /// SSL forward Proxy Bypass (enabled / disabled)
+        /// Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
         /// </summary>
         [Input("sslForwardProxyBypass")]
         public Input<string>? SslForwardProxyBypass { get; set; }

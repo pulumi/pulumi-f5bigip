@@ -24,21 +24,21 @@ namespace Pulumi.F5BigIP.Ltm
     /// {
     ///     public MyStack()
     ///     {
-    ///         var oneconnect_sanjose = new F5BigIP.Ltm.ProfileOneConnect("oneconnect-sanjose", new F5BigIP.Ltm.ProfileOneConnectArgs
+    ///         var test_oneconnect = new F5BigIP.Ltm.ProfileOneConnect("test-oneconnect", new F5BigIP.Ltm.ProfileOneConnectArgs
     ///         {
-    ///             DefaultsFrom = "/Common/oneconnect",
-    ///             IdleTimeoutOverride = "disabled",
-    ///             MaxAge = 3600,
-    ///             MaxReuse = 1000,
-    ///             MaxSize = 1000,
-    ///             Name = "sanjose",
-    ///             Partition = "Common",
-    ///             SharePools = "disabled",
-    ///             SourceMask = "255.255.255.255",
+    ///             Name = "/Common/test-oneconnect",
     ///         });
     ///     }
     /// 
     /// }
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// BIG-IP LTM oneconnect profiles can be imported using the `name` , e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import f5bigip:ltm/profileOneConnect:ProfileOneConnect test-oneconnect /Common/test-oneconnect
     /// ```
     /// </summary>
     public partial class ProfileOneConnect : Pulumi.CustomResource
@@ -47,34 +47,40 @@ namespace Pulumi.F5BigIP.Ltm
         /// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         /// </summary>
         [Output("defaultsFrom")]
-        public Output<string?> DefaultsFrom { get; private set; } = null!;
+        public Output<string> DefaultsFrom { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the number of seconds that a connection is idle before the connection flow is eligible for deletion. Possible values are disabled, indefinite, or a numeric value that you specify. The default value is disabled.
+        /// Specifies the number of seconds that a connection is idle before the connection flow is eligible for deletion. Possible values are `disabled`, `indefinite`, or a numeric value that you specify. The default value is `disabled`
         /// </summary>
         [Output("idleTimeoutOverride")]
-        public Output<string?> IdleTimeoutOverride { get; private set; } = null!;
+        public Output<string> IdleTimeoutOverride { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the maximum age in number of seconds allowed for a connection in the connection reuse pool. For any connection with an age higher than this value, the system removes that connection from the reuse pool. The default value is 86400.
+        /// Controls how connection limits are enforced in conjunction with OneConnect. The default is `None`. Supported Values: `[None,idle,strict]`
+        /// </summary>
+        [Output("limitType")]
+        public Output<string> LimitType { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the maximum age in number of seconds allowed for a connection in the connection reuse pool. For any connection with an age higher than this value, the system removes that connection from the reuse pool. The default value is `86400`.
         /// </summary>
         [Output("maxAge")]
-        public Output<int?> MaxAge { get; private set; } = null!;
+        public Output<int> MaxAge { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the maximum number of times that a server-side connection can be reused. The default value is 1000.
+        /// Specifies the maximum number of times that a server-side connection can be reused. The default value is `1000`.
         /// </summary>
         [Output("maxReuse")]
-        public Output<int?> MaxReuse { get; private set; } = null!;
+        public Output<int> MaxReuse { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the maximum number of connections that the system holds in the connection reuse pool. If the pool is already full, then the server-side connection closes after the response is completed. The default value is 10000.
+        /// Specifies the maximum number of connections that the system holds in the connection reuse pool. If the pool is already full, then the server-side connection closes after the response is completed. The default value is `10000`.
         /// </summary>
         [Output("maxSize")]
-        public Output<int?> MaxSize { get; private set; } = null!;
+        public Output<int> MaxSize { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the profile_oneconnect
+        /// Name of Profile should be full path.The full path is the combination of the `partition + profile_name`,For example `/Common/test-oneconnect-profile`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -83,19 +89,19 @@ namespace Pulumi.F5BigIP.Ltm
         /// Displays the administrative partition within which this profile resides
         /// </summary>
         [Output("partition")]
-        public Output<string?> Partition { get; private set; } = null!;
+        public Output<string> Partition { get; private set; } = null!;
 
         /// <summary>
-        /// Specify if you want to share the pool, default value is "disabled"
+        /// Specify if you want to share the pool, default value is `disabled`.
         /// </summary>
         [Output("sharePools")]
-        public Output<string?> SharePools { get; private set; } = null!;
+        public Output<string> SharePools { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a source IP mask. The default value is 0.0.0.0. The system applies the value of this option to the source address to determine its eligibility for reuse. A mask of 0.0.0.0 causes the system to share reused connections across all clients. A host mask (all 1's in binary), causes the system to share only those reused connections originating from the same client IP address.
+        /// Specifies a source IP mask. The default value is `0.0.0.0`. The system applies the value of this option to the source address to determine its eligibility for reuse. A mask of 0.0.0.0 causes the system to share reused connections across all clients. A host mask (all 1's in binary), causes the system to share only those reused connections originating from the same client IP address.
         /// </summary>
         [Output("sourceMask")]
-        public Output<string?> SourceMask { get; private set; } = null!;
+        public Output<string> SourceMask { get; private set; } = null!;
 
 
         /// <summary>
@@ -150,31 +156,37 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? DefaultsFrom { get; set; }
 
         /// <summary>
-        /// Specifies the number of seconds that a connection is idle before the connection flow is eligible for deletion. Possible values are disabled, indefinite, or a numeric value that you specify. The default value is disabled.
+        /// Specifies the number of seconds that a connection is idle before the connection flow is eligible for deletion. Possible values are `disabled`, `indefinite`, or a numeric value that you specify. The default value is `disabled`
         /// </summary>
         [Input("idleTimeoutOverride")]
         public Input<string>? IdleTimeoutOverride { get; set; }
 
         /// <summary>
-        /// Specifies the maximum age in number of seconds allowed for a connection in the connection reuse pool. For any connection with an age higher than this value, the system removes that connection from the reuse pool. The default value is 86400.
+        /// Controls how connection limits are enforced in conjunction with OneConnect. The default is `None`. Supported Values: `[None,idle,strict]`
+        /// </summary>
+        [Input("limitType")]
+        public Input<string>? LimitType { get; set; }
+
+        /// <summary>
+        /// Specifies the maximum age in number of seconds allowed for a connection in the connection reuse pool. For any connection with an age higher than this value, the system removes that connection from the reuse pool. The default value is `86400`.
         /// </summary>
         [Input("maxAge")]
         public Input<int>? MaxAge { get; set; }
 
         /// <summary>
-        /// Specifies the maximum number of times that a server-side connection can be reused. The default value is 1000.
+        /// Specifies the maximum number of times that a server-side connection can be reused. The default value is `1000`.
         /// </summary>
         [Input("maxReuse")]
         public Input<int>? MaxReuse { get; set; }
 
         /// <summary>
-        /// Specifies the maximum number of connections that the system holds in the connection reuse pool. If the pool is already full, then the server-side connection closes after the response is completed. The default value is 10000.
+        /// Specifies the maximum number of connections that the system holds in the connection reuse pool. If the pool is already full, then the server-side connection closes after the response is completed. The default value is `10000`.
         /// </summary>
         [Input("maxSize")]
         public Input<int>? MaxSize { get; set; }
 
         /// <summary>
-        /// Name of the profile_oneconnect
+        /// Name of Profile should be full path.The full path is the combination of the `partition + profile_name`,For example `/Common/test-oneconnect-profile`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -186,13 +198,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Partition { get; set; }
 
         /// <summary>
-        /// Specify if you want to share the pool, default value is "disabled"
+        /// Specify if you want to share the pool, default value is `disabled`.
         /// </summary>
         [Input("sharePools")]
         public Input<string>? SharePools { get; set; }
 
         /// <summary>
-        /// Specifies a source IP mask. The default value is 0.0.0.0. The system applies the value of this option to the source address to determine its eligibility for reuse. A mask of 0.0.0.0 causes the system to share reused connections across all clients. A host mask (all 1's in binary), causes the system to share only those reused connections originating from the same client IP address.
+        /// Specifies a source IP mask. The default value is `0.0.0.0`. The system applies the value of this option to the source address to determine its eligibility for reuse. A mask of 0.0.0.0 causes the system to share reused connections across all clients. A host mask (all 1's in binary), causes the system to share only those reused connections originating from the same client IP address.
         /// </summary>
         [Input("sourceMask")]
         public Input<string>? SourceMask { get; set; }
@@ -211,31 +223,37 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? DefaultsFrom { get; set; }
 
         /// <summary>
-        /// Specifies the number of seconds that a connection is idle before the connection flow is eligible for deletion. Possible values are disabled, indefinite, or a numeric value that you specify. The default value is disabled.
+        /// Specifies the number of seconds that a connection is idle before the connection flow is eligible for deletion. Possible values are `disabled`, `indefinite`, or a numeric value that you specify. The default value is `disabled`
         /// </summary>
         [Input("idleTimeoutOverride")]
         public Input<string>? IdleTimeoutOverride { get; set; }
 
         /// <summary>
-        /// Specifies the maximum age in number of seconds allowed for a connection in the connection reuse pool. For any connection with an age higher than this value, the system removes that connection from the reuse pool. The default value is 86400.
+        /// Controls how connection limits are enforced in conjunction with OneConnect. The default is `None`. Supported Values: `[None,idle,strict]`
+        /// </summary>
+        [Input("limitType")]
+        public Input<string>? LimitType { get; set; }
+
+        /// <summary>
+        /// Specifies the maximum age in number of seconds allowed for a connection in the connection reuse pool. For any connection with an age higher than this value, the system removes that connection from the reuse pool. The default value is `86400`.
         /// </summary>
         [Input("maxAge")]
         public Input<int>? MaxAge { get; set; }
 
         /// <summary>
-        /// Specifies the maximum number of times that a server-side connection can be reused. The default value is 1000.
+        /// Specifies the maximum number of times that a server-side connection can be reused. The default value is `1000`.
         /// </summary>
         [Input("maxReuse")]
         public Input<int>? MaxReuse { get; set; }
 
         /// <summary>
-        /// Specifies the maximum number of connections that the system holds in the connection reuse pool. If the pool is already full, then the server-side connection closes after the response is completed. The default value is 10000.
+        /// Specifies the maximum number of connections that the system holds in the connection reuse pool. If the pool is already full, then the server-side connection closes after the response is completed. The default value is `10000`.
         /// </summary>
         [Input("maxSize")]
         public Input<int>? MaxSize { get; set; }
 
         /// <summary>
-        /// Name of the profile_oneconnect
+        /// Name of Profile should be full path.The full path is the combination of the `partition + profile_name`,For example `/Common/test-oneconnect-profile`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -247,13 +265,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Partition { get; set; }
 
         /// <summary>
-        /// Specify if you want to share the pool, default value is "disabled"
+        /// Specify if you want to share the pool, default value is `disabled`.
         /// </summary>
         [Input("sharePools")]
         public Input<string>? SharePools { get; set; }
 
         /// <summary>
-        /// Specifies a source IP mask. The default value is 0.0.0.0. The system applies the value of this option to the source address to determine its eligibility for reuse. A mask of 0.0.0.0 causes the system to share reused connections across all clients. A host mask (all 1's in binary), causes the system to share only those reused connections originating from the same client IP address.
+        /// Specifies a source IP mask. The default value is `0.0.0.0`. The system applies the value of this option to the source address to determine its eligibility for reuse. A mask of 0.0.0.0 causes the system to share reused connections across all clients. A host mask (all 1's in binary), causes the system to share only those reused connections originating from the same client IP address.
         /// </summary>
         [Input("sourceMask")]
         public Input<string>? SourceMask { get; set; }

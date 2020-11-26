@@ -36,7 +36,7 @@ namespace Pulumi.F5BigIP.Ltm
     ///             Forcehttp10response = "disabled",
     ///             IdleTimeout = 300,
     ///             MaxheaderSize = 32768,
-    ///             Name = "sjfasthttpprofile",
+    ///             Name = "/Common/sjfasthttpprofile",
     ///         });
     ///     }
     /// 

@@ -73,6 +73,35 @@
             },
             "type": "object"
         },
+        "f5bigip:index/EventServiceDiscoveryNode:EventServiceDiscoveryNode": {
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ip": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "port": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
         "f5bigip:ltm/DataGroupRecord:DataGroupRecord": {
             "properties": {
                 "data": {
@@ -2021,6 +2050,30 @@
             },
             "type": "object"
         },
+        "f5bigip:ltm/getDataGroupRecord:getDataGroupRecord": {
+            "properties": {
+                "data": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name"
+            ]
+        },
         "f5bigip:net/VlanInterface:VlanInterface": {
             "properties": {
                 "tagged": {
@@ -2704,7 +2757,7 @@
             }
         },
         "f5bigip:index/commonLicenseManageBigIq:CommonLicenseManageBigIq": {
-            "description": "`f5bigip.CommonLicenseManageBigIq` This Resource is used for BIGIP/Provider License Management from BIGIQ\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\n// MANAGED Regkey Pool\nconst testExampleCommonLicenseManageBigIq = new f5bigip.CommonLicenseManageBigIq(\"testExampleCommonLicenseManageBigIq\", {\n    bigiqAddress: _var.bigiq,\n    bigiqUser: _var.bigiq_un,\n    bigiqPassword: _var.bigiq_pw,\n    licensePoolname: \"regkeypool_name\",\n    assignmentType: \"MANAGED\",\n});\n// UNMANAGED Regkey Pool\nconst testExampleIndex_commonLicenseManageBigIqCommonLicenseManageBigIq = new f5bigip.CommonLicenseManageBigIq(\"testExampleIndex/commonLicenseManageBigIqCommonLicenseManageBigIq\", {\n    bigiqAddress: _var.bigiq,\n    bigiqUser: _var.bigiq_un,\n    bigiqPassword: _var.bigiq_pw,\n    licensePoolname: \"regkeypool_name\",\n    assignmentType: \"UNMANAGED\",\n});\n// UNMANAGED Utility Pool\nconst testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq = new f5bigip.CommonLicenseManageBigIq(\"testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq\", {\n    bigiqAddress: _var.bigiq,\n    bigiqUser: _var.bigiq_un,\n    bigiqPassword: _var.bigiq_pw,\n    licensePoolname: \"utilitypool_name\",\n    assignmentType: \"UNMANAGED\",\n    unitOfMeasure: \"yearly\",\n    skukeyword1: \"BTHSM200M\",\n});\n// UNREACHABLE Regkey Pool\nconst testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq1 = new f5bigip.CommonLicenseManageBigIq(\"testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq1\", {\n    bigiqAddress: \"xxx.xxx.xxx.xxx\",\n    bigiqUser: \"xxxx\",\n    bigiqPassword: \"xxxxx\",\n    licensePoolname: \"regkey_pool_name\",\n    assignmentType: \"UNREACHABLE\",\n    macAddress: \"FA:16:3E:1B:6D:32\",\n    hypervisor: \"azure\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\n# MANAGED Regkey Pool\ntest_example_common_license_manage_big_iq = f5bigip.CommonLicenseManageBigIq(\"testExampleCommonLicenseManageBigIq\",\n    bigiq_address=var[\"bigiq\"],\n    bigiq_user=var[\"bigiq_un\"],\n    bigiq_password=var[\"bigiq_pw\"],\n    license_poolname=\"regkeypool_name\",\n    assignment_type=\"MANAGED\")\n# UNMANAGED Regkey Pool\ntest_example_index_common_license_manage_big_iq_common_license_manage_big_iq = f5bigip.CommonLicenseManageBigIq(\"testExampleIndex/commonLicenseManageBigIqCommonLicenseManageBigIq\",\n    bigiq_address=var[\"bigiq\"],\n    bigiq_user=var[\"bigiq_un\"],\n    bigiq_password=var[\"bigiq_pw\"],\n    license_poolname=\"regkeypool_name\",\n    assignment_type=\"UNMANAGED\")\n# UNMANAGED Utility Pool\ntest_example_f5bigip_index_common_license_manage_big_iq_common_license_manage_big_iq = f5bigip.CommonLicenseManageBigIq(\"testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq\",\n    bigiq_address=var[\"bigiq\"],\n    bigiq_user=var[\"bigiq_un\"],\n    bigiq_password=var[\"bigiq_pw\"],\n    license_poolname=\"utilitypool_name\",\n    assignment_type=\"UNMANAGED\",\n    unit_of_measure=\"yearly\",\n    skukeyword1=\"BTHSM200M\")\n# UNREACHABLE Regkey Pool\ntest_example_f5bigip_index_common_license_manage_big_iq_common_license_manage_big_iq1 = f5bigip.CommonLicenseManageBigIq(\"testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq1\",\n    bigiq_address=\"xxx.xxx.xxx.xxx\",\n    bigiq_user=\"xxxx\",\n    bigiq_password=\"xxxxx\",\n    license_poolname=\"regkey_pool_name\",\n    assignment_type=\"UNREACHABLE\",\n    mac_address=\"FA:16:3E:1B:6D:32\",\n    hypervisor=\"azure\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // MANAGED Regkey Pool\n        var testExampleCommonLicenseManageBigIq = new F5BigIP.CommonLicenseManageBigIq(\"testExampleCommonLicenseManageBigIq\", new F5BigIP.CommonLicenseManageBigIqArgs\n        {\n            BigiqAddress = @var.Bigiq,\n            BigiqUser = @var.Bigiq_un,\n            BigiqPassword = @var.Bigiq_pw,\n            LicensePoolname = \"regkeypool_name\",\n            AssignmentType = \"MANAGED\",\n        });\n        // UNMANAGED Regkey Pool\n        var testExampleIndex_commonLicenseManageBigIqCommonLicenseManageBigIq = new F5BigIP.CommonLicenseManageBigIq(\"testExampleIndex/commonLicenseManageBigIqCommonLicenseManageBigIq\", new F5BigIP.CommonLicenseManageBigIqArgs\n        {\n            BigiqAddress = @var.Bigiq,\n            BigiqUser = @var.Bigiq_un,\n            BigiqPassword = @var.Bigiq_pw,\n            LicensePoolname = \"regkeypool_name\",\n            AssignmentType = \"UNMANAGED\",\n        });\n        // UNMANAGED Utility Pool\n        var testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq = new F5BigIP.CommonLicenseManageBigIq(\"testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq\", new F5BigIP.CommonLicenseManageBigIqArgs\n        {\n            BigiqAddress = @var.Bigiq,\n            BigiqUser = @var.Bigiq_un,\n            BigiqPassword = @var.Bigiq_pw,\n            LicensePoolname = \"utilitypool_name\",\n            AssignmentType = \"UNMANAGED\",\n            UnitOfMeasure = \"yearly\",\n            Skukeyword1 = \"BTHSM200M\",\n        });\n        // UNREACHABLE Regkey Pool\n        var testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq1 = new F5BigIP.CommonLicenseManageBigIq(\"testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq1\", new F5BigIP.CommonLicenseManageBigIqArgs\n        {\n            BigiqAddress = \"xxx.xxx.xxx.xxx\",\n            BigiqUser = \"xxxx\",\n            BigiqPassword = \"xxxxx\",\n            LicensePoolname = \"regkey_pool_name\",\n            AssignmentType = \"UNREACHABLE\",\n            MacAddress = \"FA:16:3E:1B:6D:32\",\n            Hypervisor = \"azure\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := f5bigip.NewCommonLicenseManageBigIq(ctx, \"testExampleCommonLicenseManageBigIq\", \u0026f5bigip.CommonLicenseManageBigIqArgs{\n\t\t\tBigiqAddress:    pulumi.Any(_var.Bigiq),\n\t\t\tBigiqUser:       pulumi.Any(_var.Bigiq_un),\n\t\t\tBigiqPassword:   pulumi.Any(_var.Bigiq_pw),\n\t\t\tLicensePoolname: pulumi.String(\"regkeypool_name\"),\n\t\t\tAssignmentType:  pulumi.String(\"MANAGED\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = f5bigip.NewCommonLicenseManageBigIq(ctx, \"testExampleIndex_commonLicenseManageBigIqCommonLicenseManageBigIq\", \u0026f5bigip.CommonLicenseManageBigIqArgs{\n\t\t\tBigiqAddress:    pulumi.Any(_var.Bigiq),\n\t\t\tBigiqUser:       pulumi.Any(_var.Bigiq_un),\n\t\t\tBigiqPassword:   pulumi.Any(_var.Bigiq_pw),\n\t\t\tLicensePoolname: pulumi.String(\"regkeypool_name\"),\n\t\t\tAssignmentType:  pulumi.String(\"UNMANAGED\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = f5bigip.NewCommonLicenseManageBigIq(ctx, \"testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq\", \u0026f5bigip.CommonLicenseManageBigIqArgs{\n\t\t\tBigiqAddress:    pulumi.Any(_var.Bigiq),\n\t\t\tBigiqUser:       pulumi.Any(_var.Bigiq_un),\n\t\t\tBigiqPassword:   pulumi.Any(_var.Bigiq_pw),\n\t\t\tLicensePoolname: pulumi.String(\"utilitypool_name\"),\n\t\t\tAssignmentType:  pulumi.String(\"UNMANAGED\"),\n\t\t\tUnitOfMeasure:   pulumi.String(\"yearly\"),\n\t\t\tSkukeyword1:     pulumi.String(\"BTHSM200M\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = f5bigip.NewCommonLicenseManageBigIq(ctx, \"testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq1\", \u0026f5bigip.CommonLicenseManageBigIqArgs{\n\t\t\tBigiqAddress:    pulumi.String(\"xxx.xxx.xxx.xxx\"),\n\t\t\tBigiqUser:       pulumi.String(\"xxxx\"),\n\t\t\tBigiqPassword:   pulumi.String(\"xxxxx\"),\n\t\t\tLicensePoolname: pulumi.String(\"regkey_pool_name\"),\n\t\t\tAssignmentType:  pulumi.String(\"UNREACHABLE\"),\n\t\t\tMacAddress:      pulumi.String(\"FA:16:3E:1B:6D:32\"),\n\t\t\tHypervisor:      pulumi.String(\"azure\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "`f5bigip.CommonLicenseManageBigIq` This Resource is used for BIGIP/Provider License Management from BIGIQ\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\n// MANAGED Regkey Pool\nconst testExampleCommonLicenseManageBigIq = new f5bigip.CommonLicenseManageBigIq(\"testExampleCommonLicenseManageBigIq\", {\n    bigiqAddress: _var.bigiq,\n    bigiqUser: _var.bigiq_un,\n    bigiqPassword: _var.bigiq_pw,\n    licensePoolname: \"regkeypool_name\",\n    assignmentType: \"MANAGED\",\n});\n// UNMANAGED Regkey Pool\nconst testExampleIndex_commonLicenseManageBigIqCommonLicenseManageBigIq = new f5bigip.CommonLicenseManageBigIq(\"testExampleIndex/commonLicenseManageBigIqCommonLicenseManageBigIq\", {\n    bigiqAddress: _var.bigiq,\n    bigiqUser: _var.bigiq_un,\n    bigiqPassword: _var.bigiq_pw,\n    licensePoolname: \"regkeypool_name\",\n    assignmentType: \"UNMANAGED\",\n});\n// UNMANAGED Utility Pool\nconst testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq = new f5bigip.CommonLicenseManageBigIq(\"testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq\", {\n    bigiqAddress: _var.bigiq,\n    bigiqUser: _var.bigiq_un,\n    bigiqPassword: _var.bigiq_pw,\n    licensePoolname: \"utilitypool_name\",\n    assignmentType: \"UNMANAGED\",\n    unitOfMeasure: \"yearly\",\n    skukeyword1: \"BTHSM200M\",\n});\n// UNREACHABLE Regkey Pool\nconst testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq1 = new f5bigip.CommonLicenseManageBigIq(\"testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq1\", {\n    bigiqAddress: \"xxx.xxx.xxx.xxx\",\n    bigiqUser: \"xxxx\",\n    bigiqPassword: \"xxxxx\",\n    licensePoolname: \"regkey_pool_name\",\n    assignmentType: \"UNREACHABLE\",\n    macAddress: \"FA:16:3E:1B:6D:32\",\n    hypervisor: \"azure\",\n});\n// MANAGED Purchased Pool\nconst testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq2 = new f5bigip.CommonLicenseManageBigIq(\"testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq2\", {\n    bigiqAddress: _var.bigiq,\n    bigiqUser: _var.bigiq_un,\n    bigiqPassword: _var.bigiq_pw,\n    licensePoolname: \"purchased_pool_name\",\n    assignmentType: \"MANAGED\",\n});\n// UNMANAGED Purchased Pool\nconst testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq3 = new f5bigip.CommonLicenseManageBigIq(\"testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq3\", {\n    bigiqAddress: _var.bigiq,\n    bigiqUser: _var.bigiq_un,\n    bigiqPassword: _var.bigiq_pw,\n    licensePoolname: \"purchased_pool_name\",\n    assignmentType: \"UNMANAGED\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\n# MANAGED Regkey Pool\ntest_example_common_license_manage_big_iq = f5bigip.CommonLicenseManageBigIq(\"testExampleCommonLicenseManageBigIq\",\n    bigiq_address=var[\"bigiq\"],\n    bigiq_user=var[\"bigiq_un\"],\n    bigiq_password=var[\"bigiq_pw\"],\n    license_poolname=\"regkeypool_name\",\n    assignment_type=\"MANAGED\")\n# UNMANAGED Regkey Pool\ntest_example_index_common_license_manage_big_iq_common_license_manage_big_iq = f5bigip.CommonLicenseManageBigIq(\"testExampleIndex/commonLicenseManageBigIqCommonLicenseManageBigIq\",\n    bigiq_address=var[\"bigiq\"],\n    bigiq_user=var[\"bigiq_un\"],\n    bigiq_password=var[\"bigiq_pw\"],\n    license_poolname=\"regkeypool_name\",\n    assignment_type=\"UNMANAGED\")\n# UNMANAGED Utility Pool\ntest_example_f5bigip_index_common_license_manage_big_iq_common_license_manage_big_iq = f5bigip.CommonLicenseManageBigIq(\"testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq\",\n    bigiq_address=var[\"bigiq\"],\n    bigiq_user=var[\"bigiq_un\"],\n    bigiq_password=var[\"bigiq_pw\"],\n    license_poolname=\"utilitypool_name\",\n    assignment_type=\"UNMANAGED\",\n    unit_of_measure=\"yearly\",\n    skukeyword1=\"BTHSM200M\")\n# UNREACHABLE Regkey Pool\ntest_example_f5bigip_index_common_license_manage_big_iq_common_license_manage_big_iq1 = f5bigip.CommonLicenseManageBigIq(\"testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq1\",\n    bigiq_address=\"xxx.xxx.xxx.xxx\",\n    bigiq_user=\"xxxx\",\n    bigiq_password=\"xxxxx\",\n    license_poolname=\"regkey_pool_name\",\n    assignment_type=\"UNREACHABLE\",\n    mac_address=\"FA:16:3E:1B:6D:32\",\n    hypervisor=\"azure\")\n# MANAGED Purchased Pool\ntest_example_f5bigip_index_common_license_manage_big_iq_common_license_manage_big_iq2 = f5bigip.CommonLicenseManageBigIq(\"testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq2\",\n    bigiq_address=var[\"bigiq\"],\n    bigiq_user=var[\"bigiq_un\"],\n    bigiq_password=var[\"bigiq_pw\"],\n    license_poolname=\"purchased_pool_name\",\n    assignment_type=\"MANAGED\")\n# UNMANAGED Purchased Pool\ntest_example_f5bigip_index_common_license_manage_big_iq_common_license_manage_big_iq3 = f5bigip.CommonLicenseManageBigIq(\"testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq3\",\n    bigiq_address=var[\"bigiq\"],\n    bigiq_user=var[\"bigiq_un\"],\n    bigiq_password=var[\"bigiq_pw\"],\n    license_poolname=\"purchased_pool_name\",\n    assignment_type=\"UNMANAGED\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // MANAGED Regkey Pool\n        var testExampleCommonLicenseManageBigIq = new F5BigIP.CommonLicenseManageBigIq(\"testExampleCommonLicenseManageBigIq\", new F5BigIP.CommonLicenseManageBigIqArgs\n        {\n            BigiqAddress = @var.Bigiq,\n            BigiqUser = @var.Bigiq_un,\n            BigiqPassword = @var.Bigiq_pw,\n            LicensePoolname = \"regkeypool_name\",\n            AssignmentType = \"MANAGED\",\n        });\n        // UNMANAGED Regkey Pool\n        var testExampleIndex_commonLicenseManageBigIqCommonLicenseManageBigIq = new F5BigIP.CommonLicenseManageBigIq(\"testExampleIndex/commonLicenseManageBigIqCommonLicenseManageBigIq\", new F5BigIP.CommonLicenseManageBigIqArgs\n        {\n            BigiqAddress = @var.Bigiq,\n            BigiqUser = @var.Bigiq_un,\n            BigiqPassword = @var.Bigiq_pw,\n            LicensePoolname = \"regkeypool_name\",\n            AssignmentType = \"UNMANAGED\",\n        });\n        // UNMANAGED Utility Pool\n        var testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq = new F5BigIP.CommonLicenseManageBigIq(\"testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq\", new F5BigIP.CommonLicenseManageBigIqArgs\n        {\n            BigiqAddress = @var.Bigiq,\n            BigiqUser = @var.Bigiq_un,\n            BigiqPassword = @var.Bigiq_pw,\n            LicensePoolname = \"utilitypool_name\",\n            AssignmentType = \"UNMANAGED\",\n            UnitOfMeasure = \"yearly\",\n            Skukeyword1 = \"BTHSM200M\",\n        });\n        // UNREACHABLE Regkey Pool\n        var testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq1 = new F5BigIP.CommonLicenseManageBigIq(\"testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq1\", new F5BigIP.CommonLicenseManageBigIqArgs\n        {\n            BigiqAddress = \"xxx.xxx.xxx.xxx\",\n            BigiqUser = \"xxxx\",\n            BigiqPassword = \"xxxxx\",\n            LicensePoolname = \"regkey_pool_name\",\n            AssignmentType = \"UNREACHABLE\",\n            MacAddress = \"FA:16:3E:1B:6D:32\",\n            Hypervisor = \"azure\",\n        });\n        // MANAGED Purchased Pool\n        var testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq2 = new F5BigIP.CommonLicenseManageBigIq(\"testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq2\", new F5BigIP.CommonLicenseManageBigIqArgs\n        {\n            BigiqAddress = @var.Bigiq,\n            BigiqUser = @var.Bigiq_un,\n            BigiqPassword = @var.Bigiq_pw,\n            LicensePoolname = \"purchased_pool_name\",\n            AssignmentType = \"MANAGED\",\n        });\n        // UNMANAGED Purchased Pool\n        var testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq3 = new F5BigIP.CommonLicenseManageBigIq(\"testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq3\", new F5BigIP.CommonLicenseManageBigIqArgs\n        {\n            BigiqAddress = @var.Bigiq,\n            BigiqUser = @var.Bigiq_un,\n            BigiqPassword = @var.Bigiq_pw,\n            LicensePoolname = \"purchased_pool_name\",\n            AssignmentType = \"UNMANAGED\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := f5bigip.NewCommonLicenseManageBigIq(ctx, \"testExampleCommonLicenseManageBigIq\", \u0026f5bigip.CommonLicenseManageBigIqArgs{\n\t\t\tBigiqAddress:    pulumi.Any(_var.Bigiq),\n\t\t\tBigiqUser:       pulumi.Any(_var.Bigiq_un),\n\t\t\tBigiqPassword:   pulumi.Any(_var.Bigiq_pw),\n\t\t\tLicensePoolname: pulumi.String(\"regkeypool_name\"),\n\t\t\tAssignmentType:  pulumi.String(\"MANAGED\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = f5bigip.NewCommonLicenseManageBigIq(ctx, \"testExampleIndex_commonLicenseManageBigIqCommonLicenseManageBigIq\", \u0026f5bigip.CommonLicenseManageBigIqArgs{\n\t\t\tBigiqAddress:    pulumi.Any(_var.Bigiq),\n\t\t\tBigiqUser:       pulumi.Any(_var.Bigiq_un),\n\t\t\tBigiqPassword:   pulumi.Any(_var.Bigiq_pw),\n\t\t\tLicensePoolname: pulumi.String(\"regkeypool_name\"),\n\t\t\tAssignmentType:  pulumi.String(\"UNMANAGED\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = f5bigip.NewCommonLicenseManageBigIq(ctx, \"testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq\", \u0026f5bigip.CommonLicenseManageBigIqArgs{\n\t\t\tBigiqAddress:    pulumi.Any(_var.Bigiq),\n\t\t\tBigiqUser:       pulumi.Any(_var.Bigiq_un),\n\t\t\tBigiqPassword:   pulumi.Any(_var.Bigiq_pw),\n\t\t\tLicensePoolname: pulumi.String(\"utilitypool_name\"),\n\t\t\tAssignmentType:  pulumi.String(\"UNMANAGED\"),\n\t\t\tUnitOfMeasure:   pulumi.String(\"yearly\"),\n\t\t\tSkukeyword1:     pulumi.String(\"BTHSM200M\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = f5bigip.NewCommonLicenseManageBigIq(ctx, \"testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq1\", \u0026f5bigip.CommonLicenseManageBigIqArgs{\n\t\t\tBigiqAddress:    pulumi.String(\"xxx.xxx.xxx.xxx\"),\n\t\t\tBigiqUser:       pulumi.String(\"xxxx\"),\n\t\t\tBigiqPassword:   pulumi.String(\"xxxxx\"),\n\t\t\tLicensePoolname: pulumi.String(\"regkey_pool_name\"),\n\t\t\tAssignmentType:  pulumi.String(\"UNREACHABLE\"),\n\t\t\tMacAddress:      pulumi.String(\"FA:16:3E:1B:6D:32\"),\n\t\t\tHypervisor:      pulumi.String(\"azure\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = f5bigip.NewCommonLicenseManageBigIq(ctx, \"testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq2\", \u0026f5bigip.CommonLicenseManageBigIqArgs{\n\t\t\tBigiqAddress:    pulumi.Any(_var.Bigiq),\n\t\t\tBigiqUser:       pulumi.Any(_var.Bigiq_un),\n\t\t\tBigiqPassword:   pulumi.Any(_var.Bigiq_pw),\n\t\t\tLicensePoolname: pulumi.String(\"purchased_pool_name\"),\n\t\t\tAssignmentType:  pulumi.String(\"MANAGED\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = f5bigip.NewCommonLicenseManageBigIq(ctx, \"testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq3\", \u0026f5bigip.CommonLicenseManageBigIqArgs{\n\t\t\tBigiqAddress:    pulumi.Any(_var.Bigiq),\n\t\t\tBigiqUser:       pulumi.Any(_var.Bigiq_un),\n\t\t\tBigiqPassword:   pulumi.Any(_var.Bigiq_pw),\n\t\t\tLicensePoolname: pulumi.String(\"purchased_pool_name\"),\n\t\t\tAssignmentType:  pulumi.String(\"UNMANAGED\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "assignmentType": {
                     "type": "string",
@@ -2976,6 +3029,54 @@
                     "timeout": {
                         "type": "integer",
                         "description": "DO json\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "f5bigip:index/eventServiceDiscovery:EventServiceDiscovery": {
+            "properties": {
+                "nodes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/f5bigip:index/EventServiceDiscoveryNode:EventServiceDiscoveryNode"
+                    }
+                },
+                "taskid": {
+                    "type": "string",
+                    "description": "Name of the partition/tenant\n"
+                }
+            },
+            "required": [
+                "taskid"
+            ],
+            "inputProperties": {
+                "nodes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/f5bigip:index/EventServiceDiscoveryNode:EventServiceDiscoveryNode"
+                    }
+                },
+                "taskid": {
+                    "type": "string",
+                    "description": "Name of the partition/tenant\n"
+                }
+            },
+            "requiredInputs": [
+                "taskid"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering EventServiceDiscovery resources.\n",
+                "properties": {
+                    "nodes": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/f5bigip:index/EventServiceDiscoveryNode:EventServiceDiscoveryNode"
+                        }
+                    },
+                    "taskid": {
+                        "type": "string",
+                        "description": "Name of the partition/tenant\n"
                     }
                 },
                 "type": "object"
@@ -3520,7 +3621,7 @@
             }
         },
         "f5bigip:ltm/persistenceProfileCookie:PersistenceProfileCookie": {
-            "description": "Configures a cookie persistence profile\n\n## Example\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst testPpcookie = new f5bigip.ltm.PersistenceProfileCookie(\"testPpcookie\", {\n    name: \"/Common/terraform_cookie\",\n    defaultsFrom: \"/Common/cookie\",\n    matchAcrossPools: \"enabled\",\n    matchAcrossServices: \"enabled\",\n    matchAcrossVirtuals: \"enabled\",\n    timeout: 3600,\n    overrideConnLimit: \"enabled\",\n    alwaysSend: \"enabled\",\n    cookieEncryption: \"required\",\n    cookieEncryptionPassphrase: \"iam\",\n    cookieName: \"ham\",\n    expiration: \"1:0:0\",\n    hashLength: 0,\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ntest_ppcookie = f5bigip.ltm.PersistenceProfileCookie(\"testPpcookie\",\n    name=\"/Common/terraform_cookie\",\n    defaults_from=\"/Common/cookie\",\n    match_across_pools=\"enabled\",\n    match_across_services=\"enabled\",\n    match_across_virtuals=\"enabled\",\n    timeout=3600,\n    override_conn_limit=\"enabled\",\n    always_send=\"enabled\",\n    cookie_encryption=\"required\",\n    cookie_encryption_passphrase=\"iam\",\n    cookie_name=\"ham\",\n    expiration=\"1:0:0\",\n    hash_length=0)\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var testPpcookie = new F5BigIP.Ltm.PersistenceProfileCookie(\"testPpcookie\", new F5BigIP.Ltm.PersistenceProfileCookieArgs\n        {\n            Name = \"/Common/terraform_cookie\",\n            DefaultsFrom = \"/Common/cookie\",\n            MatchAcrossPools = \"enabled\",\n            MatchAcrossServices = \"enabled\",\n            MatchAcrossVirtuals = \"enabled\",\n            Timeout = 3600,\n            OverrideConnLimit = \"enabled\",\n            AlwaysSend = \"enabled\",\n            CookieEncryption = \"required\",\n            CookieEncryptionPassphrase = \"iam\",\n            CookieName = \"ham\",\n            Expiration = \"1:0:0\",\n            HashLength = 0,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewPersistenceProfileCookie(ctx, \"testPpcookie\", \u0026ltm.PersistenceProfileCookieArgs{\n\t\t\tName:                       pulumi.String(\"/Common/terraform_cookie\"),\n\t\t\tDefaultsFrom:               pulumi.String(\"/Common/cookie\"),\n\t\t\tMatchAcrossPools:           pulumi.String(\"enabled\"),\n\t\t\tMatchAcrossServices:        pulumi.String(\"enabled\"),\n\t\t\tMatchAcrossVirtuals:        pulumi.String(\"enabled\"),\n\t\t\tTimeout:                    pulumi.Int(3600),\n\t\t\tOverrideConnLimit:          pulumi.String(\"enabled\"),\n\t\t\tAlwaysSend:                 pulumi.String(\"enabled\"),\n\t\t\tCookieEncryption:           pulumi.String(\"required\"),\n\t\t\tCookieEncryptionPassphrase: pulumi.String(\"iam\"),\n\t\t\tCookieName:                 pulumi.String(\"ham\"),\n\t\t\tExpiration:                 pulumi.String(\"1:0:0\"),\n\t\t\tHashLength:                 pulumi.Int(0),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\n## Reference\n\n`name` - (Required) Name of the virtual address\n\n`defaults_from` - (Required) Parent cookie persistence profile\n\n`match_across_pools` (Optional) (enabled or disabled) match across pools with given persistence record\n\n`match_across_services` (Optional) (enabled or disabled) match across services with given persistence record\n\n`match_across_virtuals` (Optional) (enabled or disabled) match across virtual servers with given persistence record\n\n`mirror` (Optional) (enabled or disabled) mirror persistence record\n\n`timeout` (Optional) (enabled or disabled) Timeout for persistence of the session in seconds\n\n`override_conn_limit` (Optional) (enabled or disabled) Enable or dissable pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.\n\n`always_send` (Optional) (enabled or disabled) always send cookies\n\n`cookie_encryption` (Optional) (required, preferred, or disabled) To required, preferred, or disabled policy for cookie encryption\n\n`cookie_encryption_passphrase` (Optional) (required, preferred, or disabled) Passphrase for encrypted cookies. The field is encrypted on the server and will always return differently then set.\nIf this is configured specify `ignore_changes` under the `lifecycle` block to ignore returned encrypted value.\n\n`cookie_name` (Optional) Name of the cookie to track persistence\n\n`expiration` (Optional) Expiration TTL for cookie specified in DAY:HOUR:MIN:SECONDS (Examples: 1:0:0:0 one day, 1:0:0 one hour, 30:0 thirty minutes)\n\n`hash_length` (Optional) (Integer) Length of hash to apply to cookie\n\n`hash_offset` (Optional) (Integer) Number of characters to skip in the cookie for the hash\n\n`httponly` (Optional) (enabled or disabled) Sending only over http\n",
+            "description": "Configures a cookie persistence profile\n\n## Example\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst testPpcookie = new f5bigip.ltm.PersistenceProfileCookie(\"testPpcookie\", {\n    name: \"/Common/terraform_cookie\",\n    defaultsFrom: \"/Common/cookie\",\n    matchAcrossPools: \"enabled\",\n    matchAcrossServices: \"enabled\",\n    matchAcrossVirtuals: \"enabled\",\n    timeout: 3600,\n    overrideConnLimit: \"enabled\",\n    alwaysSend: \"enabled\",\n    cookieEncryption: \"required\",\n    cookieEncryptionPassphrase: \"iam\",\n    cookieName: \"ham\",\n    expiration: \"1:0:0\",\n    hashLength: 0,\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ntest_ppcookie = f5bigip.ltm.PersistenceProfileCookie(\"testPpcookie\",\n    name=\"/Common/terraform_cookie\",\n    defaults_from=\"/Common/cookie\",\n    match_across_pools=\"enabled\",\n    match_across_services=\"enabled\",\n    match_across_virtuals=\"enabled\",\n    timeout=3600,\n    override_conn_limit=\"enabled\",\n    always_send=\"enabled\",\n    cookie_encryption=\"required\",\n    cookie_encryption_passphrase=\"iam\",\n    cookie_name=\"ham\",\n    expiration=\"1:0:0\",\n    hash_length=0)\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var testPpcookie = new F5BigIP.Ltm.PersistenceProfileCookie(\"testPpcookie\", new F5BigIP.Ltm.PersistenceProfileCookieArgs\n        {\n            Name = \"/Common/terraform_cookie\",\n            DefaultsFrom = \"/Common/cookie\",\n            MatchAcrossPools = \"enabled\",\n            MatchAcrossServices = \"enabled\",\n            MatchAcrossVirtuals = \"enabled\",\n            Timeout = 3600,\n            OverrideConnLimit = \"enabled\",\n            AlwaysSend = \"enabled\",\n            CookieEncryption = \"required\",\n            CookieEncryptionPassphrase = \"iam\",\n            CookieName = \"ham\",\n            Expiration = \"1:0:0\",\n            HashLength = 0,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewPersistenceProfileCookie(ctx, \"testPpcookie\", \u0026ltm.PersistenceProfileCookieArgs{\n\t\t\tName:                       pulumi.String(\"/Common/terraform_cookie\"),\n\t\t\tDefaultsFrom:               pulumi.String(\"/Common/cookie\"),\n\t\t\tMatchAcrossPools:           pulumi.String(\"enabled\"),\n\t\t\tMatchAcrossServices:        pulumi.String(\"enabled\"),\n\t\t\tMatchAcrossVirtuals:        pulumi.String(\"enabled\"),\n\t\t\tTimeout:                    pulumi.Int(3600),\n\t\t\tOverrideConnLimit:          pulumi.String(\"enabled\"),\n\t\t\tAlwaysSend:                 pulumi.String(\"enabled\"),\n\t\t\tCookieEncryption:           pulumi.String(\"required\"),\n\t\t\tCookieEncryptionPassphrase: pulumi.String(\"iam\"),\n\t\t\tCookieName:                 pulumi.String(\"ham\"),\n\t\t\tExpiration:                 pulumi.String(\"1:0:0\"),\n\t\t\tHashLength:                 pulumi.Int(0),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\n## Reference\n\n`name` - (Required) Name of the virtual address\n\n`defaults_from` - (Required) Parent cookie persistence profile\n\n`match_across_pools` (Optional) (enabled or disabled) match across pools with given persistence record\n\n`match_across_services` (Optional) (enabled or disabled) match across services with given persistence record\n\n`match_across_virtuals` (Optional) (enabled or disabled) match across virtual servers with given persistence record\n\n`method` (Optional) Specifies the type of cookie processing that the system uses. The default value is insert\n\n`mirror` (Optional) (enabled or disabled) mirror persistence record\n\n`timeout` (Optional) (enabled or disabled) Timeout for persistence of the session in seconds\n\n`override_conn_limit` (Optional) (enabled or disabled) Enable or dissable pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.\n\n`always_send` (Optional) (enabled or disabled) always send cookies\n\n`cookie_encryption` (Optional) (required, preferred, or disabled) To required, preferred, or disabled policy for cookie encryption\n\n`cookie_encryption_passphrase` (Optional) (required, preferred, or disabled) Passphrase for encrypted cookies. The field is encrypted on the server and will always return differently then set.\nIf this is configured specify `ignore_changes` under the `lifecycle` block to ignore returned encrypted value.\n\n`cookie_name` (Optional) Name of the cookie to track persistence\n\n`expiration` (Optional) Expiration TTL for cookie specified in DAY:HOUR:MIN:SECONDS (Examples: 1:0:0:0 one day, 1:0:0 one hour, 30:0 thirty minutes)\n\n`hash_length` (Optional) (Integer) Length of hash to apply to cookie\n\n`hash_offset` (Optional) (Integer) Number of characters to skip in the cookie for the hash\n\n`httponly` (Optional) (enabled or disabled) Sending only over http\n",
             "properties": {
                 "alwaysSend": {
                     "type": "string",
@@ -3572,6 +3673,10 @@
                 "matchAcrossVirtuals": {
                     "type": "string",
                     "description": "To enable _ disable match across virtual servers with given persistence record\n"
+                },
+                "method": {
+                    "type": "string",
+                    "description": "Specifies the type of cookie processing that the system uses\n"
                 },
                 "mirror": {
                     "type": "string",
@@ -3645,6 +3750,10 @@
                 "matchAcrossVirtuals": {
                     "type": "string",
                     "description": "To enable _ disable match across virtual servers with given persistence record\n"
+                },
+                "method": {
+                    "type": "string",
+                    "description": "Specifies the type of cookie processing that the system uses\n"
                 },
                 "mirror": {
                     "type": "string",
@@ -3720,6 +3829,10 @@
                     "matchAcrossVirtuals": {
                         "type": "string",
                         "description": "To enable _ disable match across virtual servers with given persistence record\n"
+                    },
+                    "method": {
+                        "type": "string",
+                        "description": "Specifies the type of cookie processing that the system uses\n"
                     },
                     "mirror": {
                         "type": "string",
@@ -4576,7 +4689,7 @@
             }
         },
         "f5bigip:ltm/profileClientSsl:ProfileClientSsl": {
-            "description": "`f5bigip.ltm.ProfileClientSsl` Manages client SSL profiles on a BIG-IP\n\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst test_ClientSsl = new f5bigip.ltm.ProfileClientSsl(\"test-ClientSsl\", {\n    authenticate: \"always\",\n    ciphers: \"DEFAULT\",\n    defaultsFrom: \"/Common/clientssl\",\n    name: \"/Common/test-ClientSsl\",\n    partition: \"Common\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ntest__client_ssl = f5bigip.ltm.ProfileClientSsl(\"test-ClientSsl\",\n    authenticate=\"always\",\n    ciphers=\"DEFAULT\",\n    defaults_from=\"/Common/clientssl\",\n    name=\"/Common/test-ClientSsl\",\n    partition=\"Common\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test_ClientSsl = new F5BigIP.Ltm.ProfileClientSsl(\"test-ClientSsl\", new F5BigIP.Ltm.ProfileClientSslArgs\n        {\n            Authenticate = \"always\",\n            Ciphers = \"DEFAULT\",\n            DefaultsFrom = \"/Common/clientssl\",\n            Name = \"/Common/test-ClientSsl\",\n            Partition = \"Common\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewProfileClientSsl(ctx, \"test_ClientSsl\", \u0026ltm.ProfileClientSslArgs{\n\t\t\tAuthenticate: pulumi.String(\"always\"),\n\t\t\tCiphers:      pulumi.String(\"DEFAULT\"),\n\t\t\tDefaultsFrom: pulumi.String(\"/Common/clientssl\"),\n\t\t\tName:         pulumi.String(\"/Common/test-ClientSsl\"),\n\t\t\tPartition:    pulumi.String(\"Common\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "`f5bigip.ltm.ProfileClientSsl` Manages client SSL profiles on a BIG-IP\n\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst test_ClientSsl = new f5bigip.ltm.ProfileClientSsl(\"test-ClientSsl\", {\n    authenticate: \"always\",\n    ciphers: \"DEFAULT\",\n    defaultsFrom: \"/Common/clientssl\",\n    name: \"/Common/test-ClientSsl\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ntest__client_ssl = f5bigip.ltm.ProfileClientSsl(\"test-ClientSsl\",\n    authenticate=\"always\",\n    ciphers=\"DEFAULT\",\n    defaults_from=\"/Common/clientssl\",\n    name=\"/Common/test-ClientSsl\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test_ClientSsl = new F5BigIP.Ltm.ProfileClientSsl(\"test-ClientSsl\", new F5BigIP.Ltm.ProfileClientSslArgs\n        {\n            Authenticate = \"always\",\n            Ciphers = \"DEFAULT\",\n            DefaultsFrom = \"/Common/clientssl\",\n            Name = \"/Common/test-ClientSsl\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewProfileClientSsl(ctx, \"test_ClientSsl\", \u0026ltm.ProfileClientSslArgs{\n\t\t\tAuthenticate: pulumi.String(\"always\"),\n\t\t\tCiphers:      pulumi.String(\"DEFAULT\"),\n\t\t\tDefaultsFrom: pulumi.String(\"/Common/clientssl\"),\n\t\t\tName:         pulumi.String(\"/Common/test-ClientSsl\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "alertTimeout": {
                     "type": "string",
@@ -4765,11 +4878,11 @@
                 },
                 "sslForwardProxy": {
                     "type": "string",
-                    "description": "SSL forward Proxy (enabled / disabled)\n"
+                    "description": "Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.\n"
                 },
                 "sslForwardProxyBypass": {
                     "type": "string",
-                    "description": "SSL forward Proxy Bypass (enabled / disabled)\n"
+                    "description": "Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.\n"
                 },
                 "sslSignHash": {
                     "type": "string",
@@ -5030,11 +5143,11 @@
                 },
                 "sslForwardProxy": {
                     "type": "string",
-                    "description": "SSL forward Proxy (enabled / disabled)\n"
+                    "description": "Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.\n"
                 },
                 "sslForwardProxyBypass": {
                     "type": "string",
-                    "description": "SSL forward Proxy Bypass (enabled / disabled)\n"
+                    "description": "Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.\n"
                 },
                 "sslSignHash": {
                     "type": "string",
@@ -5248,11 +5361,11 @@
                     },
                     "sslForwardProxy": {
                         "type": "string",
-                        "description": "SSL forward Proxy (enabled / disabled)\n"
+                        "description": "Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.\n"
                     },
                     "sslForwardProxyBypass": {
                         "type": "string",
-                        "description": "SSL forward Proxy Bypass (enabled / disabled)\n"
+                        "description": "Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.\n"
                     },
                     "sslSignHash": {
                         "type": "string",
@@ -5277,7 +5390,7 @@
             }
         },
         "f5bigip:ltm/profileFastHttp:ProfileFastHttp": {
-            "description": "`f5bigip.ltm.ProfileFastHttp` Configures a custom profile_fasthttp for use by health checks.\n\nFor resources should be named with their \"full path\". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst sjfasthttpprofile = new f5bigip.ltm.ProfileFastHttp(\"sjfasthttpprofile\", {\n    connpoolMaxreuse: 2,\n    connpoolMaxsize: 2048,\n    connpoolMinsize: 0,\n    connpoolReplenish: \"enabled\",\n    connpoolStep: 4,\n    connpoolidleTimeoutoverride: 0,\n    defaultsFrom: \"/Common/fasthttp\",\n    forcehttp10response: \"disabled\",\n    idleTimeout: 300,\n    maxheaderSize: 32768,\n    name: \"sjfasthttpprofile\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nsjfasthttpprofile = f5bigip.ltm.ProfileFastHttp(\"sjfasthttpprofile\",\n    connpool_maxreuse=2,\n    connpool_maxsize=2048,\n    connpool_minsize=0,\n    connpool_replenish=\"enabled\",\n    connpool_step=4,\n    connpoolidle_timeoutoverride=0,\n    defaults_from=\"/Common/fasthttp\",\n    forcehttp10response=\"disabled\",\n    idle_timeout=300,\n    maxheader_size=32768,\n    name=\"sjfasthttpprofile\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var sjfasthttpprofile = new F5BigIP.Ltm.ProfileFastHttp(\"sjfasthttpprofile\", new F5BigIP.Ltm.ProfileFastHttpArgs\n        {\n            ConnpoolMaxreuse = 2,\n            ConnpoolMaxsize = 2048,\n            ConnpoolMinsize = 0,\n            ConnpoolReplenish = \"enabled\",\n            ConnpoolStep = 4,\n            ConnpoolidleTimeoutoverride = 0,\n            DefaultsFrom = \"/Common/fasthttp\",\n            Forcehttp10response = \"disabled\",\n            IdleTimeout = 300,\n            MaxheaderSize = 32768,\n            Name = \"sjfasthttpprofile\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewProfileFastHttp(ctx, \"sjfasthttpprofile\", \u0026ltm.ProfileFastHttpArgs{\n\t\t\tConnpoolMaxreuse:            pulumi.Int(2),\n\t\t\tConnpoolMaxsize:             pulumi.Int(2048),\n\t\t\tConnpoolMinsize:             pulumi.Int(0),\n\t\t\tConnpoolReplenish:           pulumi.String(\"enabled\"),\n\t\t\tConnpoolStep:                pulumi.Int(4),\n\t\t\tConnpoolidleTimeoutoverride: pulumi.Int(0),\n\t\t\tDefaultsFrom:                pulumi.String(\"/Common/fasthttp\"),\n\t\t\tForcehttp10response:         pulumi.String(\"disabled\"),\n\t\t\tIdleTimeout:                 pulumi.Int(300),\n\t\t\tMaxheaderSize:               pulumi.Int(32768),\n\t\t\tName:                        pulumi.String(\"sjfasthttpprofile\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "`f5bigip.ltm.ProfileFastHttp` Configures a custom profile_fasthttp for use by health checks.\n\nFor resources should be named with their \"full path\". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst sjfasthttpprofile = new f5bigip.ltm.ProfileFastHttp(\"sjfasthttpprofile\", {\n    connpoolMaxreuse: 2,\n    connpoolMaxsize: 2048,\n    connpoolMinsize: 0,\n    connpoolReplenish: \"enabled\",\n    connpoolStep: 4,\n    connpoolidleTimeoutoverride: 0,\n    defaultsFrom: \"/Common/fasthttp\",\n    forcehttp10response: \"disabled\",\n    idleTimeout: 300,\n    maxheaderSize: 32768,\n    name: \"/Common/sjfasthttpprofile\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nsjfasthttpprofile = f5bigip.ltm.ProfileFastHttp(\"sjfasthttpprofile\",\n    connpool_maxreuse=2,\n    connpool_maxsize=2048,\n    connpool_minsize=0,\n    connpool_replenish=\"enabled\",\n    connpool_step=4,\n    connpoolidle_timeoutoverride=0,\n    defaults_from=\"/Common/fasthttp\",\n    forcehttp10response=\"disabled\",\n    idle_timeout=300,\n    maxheader_size=32768,\n    name=\"/Common/sjfasthttpprofile\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var sjfasthttpprofile = new F5BigIP.Ltm.ProfileFastHttp(\"sjfasthttpprofile\", new F5BigIP.Ltm.ProfileFastHttpArgs\n        {\n            ConnpoolMaxreuse = 2,\n            ConnpoolMaxsize = 2048,\n            ConnpoolMinsize = 0,\n            ConnpoolReplenish = \"enabled\",\n            ConnpoolStep = 4,\n            ConnpoolidleTimeoutoverride = 0,\n            DefaultsFrom = \"/Common/fasthttp\",\n            Forcehttp10response = \"disabled\",\n            IdleTimeout = 300,\n            MaxheaderSize = 32768,\n            Name = \"/Common/sjfasthttpprofile\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewProfileFastHttp(ctx, \"sjfasthttpprofile\", \u0026ltm.ProfileFastHttpArgs{\n\t\t\tConnpoolMaxreuse:            pulumi.Int(2),\n\t\t\tConnpoolMaxsize:             pulumi.Int(2048),\n\t\t\tConnpoolMinsize:             pulumi.Int(0),\n\t\t\tConnpoolReplenish:           pulumi.String(\"enabled\"),\n\t\t\tConnpoolStep:                pulumi.Int(4),\n\t\t\tConnpoolidleTimeoutoverride: pulumi.Int(0),\n\t\t\tDefaultsFrom:                pulumi.String(\"/Common/fasthttp\"),\n\t\t\tForcehttp10response:         pulumi.String(\"disabled\"),\n\t\t\tIdleTimeout:                 pulumi.Int(300),\n\t\t\tMaxheaderSize:               pulumi.Int(32768),\n\t\t\tName:                        pulumi.String(\"/Common/sjfasthttpprofile\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "connpoolMaxreuse": {
                     "type": "integer",
@@ -5428,7 +5541,7 @@
             }
         },
         "f5bigip:ltm/profileFastL4:ProfileFastL4": {
-            "description": "`f5bigip.ltm.ProfileFastL4` Configures a custom profile_fastl4 for use by health checks.\n\nFor resources should be named with their \"full path\". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst profileFastl4 = new f5bigip.ltm.ProfileFastL4(\"profile_fastl4\", {\n    clientTimeout: 40,\n    defaultsFrom: \"/Common/fastL4\",\n    explicitflowMigration: \"enabled\",\n    hardwareSyncookie: \"enabled\",\n    idleTimeout: \"200\",\n    iptosToclient: \"pass-through\",\n    iptosToserver: \"pass-through\",\n    keepaliveInterval: \"disabled\", //This cannot take enabled\n    name: \"/Common/sjfastl4profile\",\n    partition: \"Common\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nprofile_fastl4 = f5bigip.ltm.ProfileFastL4(\"profileFastl4\",\n    client_timeout=40,\n    defaults_from=\"/Common/fastL4\",\n    explicitflow_migration=\"enabled\",\n    hardware_syncookie=\"enabled\",\n    idle_timeout=\"200\",\n    iptos_toclient=\"pass-through\",\n    iptos_toserver=\"pass-through\",\n    keepalive_interval=\"disabled\",\n    name=\"/Common/sjfastl4profile\",\n    partition=\"Common\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var profileFastl4 = new F5BigIP.Ltm.ProfileFastL4(\"profileFastl4\", new F5BigIP.Ltm.ProfileFastL4Args\n        {\n            ClientTimeout = 40,\n            DefaultsFrom = \"/Common/fastL4\",\n            ExplicitflowMigration = \"enabled\",\n            HardwareSyncookie = \"enabled\",\n            IdleTimeout = \"200\",\n            IptosToclient = \"pass-through\",\n            IptosToserver = \"pass-through\",\n            KeepaliveInterval = \"disabled\",\n            Name = \"/Common/sjfastl4profile\",\n            Partition = \"Common\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewProfileFastL4(ctx, \"profileFastl4\", \u0026ltm.ProfileFastL4Args{\n\t\t\tClientTimeout:         pulumi.Int(40),\n\t\t\tDefaultsFrom:          pulumi.String(\"/Common/fastL4\"),\n\t\t\tExplicitflowMigration: pulumi.String(\"enabled\"),\n\t\t\tHardwareSyncookie:     pulumi.String(\"enabled\"),\n\t\t\tIdleTimeout:           pulumi.String(\"200\"),\n\t\t\tIptosToclient:         pulumi.String(\"pass-through\"),\n\t\t\tIptosToserver:         pulumi.String(\"pass-through\"),\n\t\t\tKeepaliveInterval:     pulumi.String(\"disabled\"),\n\t\t\tName:                  pulumi.String(\"/Common/sjfastl4profile\"),\n\t\t\tPartition:             pulumi.String(\"Common\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nBIG-IP LTM fastl4 profiles can be imported using the `name`, e.g.\n\n```sh\n $ pulumi import f5bigip:ltm/profileFastL4:ProfileFastL4 test-fastl4 /Common/test-fastl4\n```\n\n ",
+            "description": "`f5bigip.ltm.ProfileFastL4` Configures a custom profile_fastl4 for use by health checks.\n\nFor resources should be named with their \"full path\". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst profileFastl4 = new f5bigip.ltm.ProfileFastL4(\"profile_fastl4\", {\n    clientTimeout: 40,\n    defaultsFrom: \"/Common/fastL4\",\n    explicitflowMigration: \"enabled\",\n    hardwareSyncookie: \"enabled\",\n    idleTimeout: \"200\",\n    iptosToclient: \"pass-through\",\n    iptosToserver: \"pass-through\",\n    keepaliveInterval: \"disabled\", //This cannot take enabled\n    name: \"/Common/sjfastl4profile\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nprofile_fastl4 = f5bigip.ltm.ProfileFastL4(\"profileFastl4\",\n    client_timeout=40,\n    defaults_from=\"/Common/fastL4\",\n    explicitflow_migration=\"enabled\",\n    hardware_syncookie=\"enabled\",\n    idle_timeout=\"200\",\n    iptos_toclient=\"pass-through\",\n    iptos_toserver=\"pass-through\",\n    keepalive_interval=\"disabled\",\n    name=\"/Common/sjfastl4profile\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var profileFastl4 = new F5BigIP.Ltm.ProfileFastL4(\"profileFastl4\", new F5BigIP.Ltm.ProfileFastL4Args\n        {\n            ClientTimeout = 40,\n            DefaultsFrom = \"/Common/fastL4\",\n            ExplicitflowMigration = \"enabled\",\n            HardwareSyncookie = \"enabled\",\n            IdleTimeout = \"200\",\n            IptosToclient = \"pass-through\",\n            IptosToserver = \"pass-through\",\n            KeepaliveInterval = \"disabled\",\n            Name = \"/Common/sjfastl4profile\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewProfileFastL4(ctx, \"profileFastl4\", \u0026ltm.ProfileFastL4Args{\n\t\t\tClientTimeout:         pulumi.Int(40),\n\t\t\tDefaultsFrom:          pulumi.String(\"/Common/fastL4\"),\n\t\t\tExplicitflowMigration: pulumi.String(\"enabled\"),\n\t\t\tHardwareSyncookie:     pulumi.String(\"enabled\"),\n\t\t\tIdleTimeout:           pulumi.String(\"200\"),\n\t\t\tIptosToclient:         pulumi.String(\"pass-through\"),\n\t\t\tIptosToserver:         pulumi.String(\"pass-through\"),\n\t\t\tKeepaliveInterval:     pulumi.String(\"disabled\"),\n\t\t\tName:                  pulumi.String(\"/Common/sjfastl4profile\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nBIG-IP LTM fastl4 profiles can be imported using the `name`, e.g.\n\n```sh\n $ pulumi import f5bigip:ltm/profileFastL4:ProfileFastL4 test-fastl4 /Common/test-fastl4\n```\n\n ",
             "properties": {
                 "clientTimeout": {
                     "type": "integer",
@@ -6199,7 +6312,12 @@
                 }
             },
             "required": [
-                "name"
+                "contentTypeExcludes",
+                "contentTypeIncludes",
+                "defaultsFrom",
+                "name",
+                "uriExcludes",
+                "uriIncludes"
             ],
             "inputProperties": {
                 "contentTypeExcludes": {
@@ -6286,7 +6404,7 @@
             }
         },
         "f5bigip:ltm/profileOneConnect:ProfileOneConnect": {
-            "description": "`f5bigip.ltm.ProfileOneConnect` Configures a custom profile_oneconnect for use by health checks.\n\nFor resources should be named with their \"full path\". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst oneconnect_sanjose = new f5bigip.ltm.ProfileOneConnect(\"oneconnect-sanjose\", {\n    defaultsFrom: \"/Common/oneconnect\",\n    idleTimeoutOverride: \"disabled\",\n    maxAge: 3600,\n    maxReuse: 1000,\n    maxSize: 1000,\n    name: \"sanjose\",\n    partition: \"Common\",\n    sharePools: \"disabled\",\n    sourceMask: \"255.255.255.255\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\noneconnect_sanjose = f5bigip.ltm.ProfileOneConnect(\"oneconnect-sanjose\",\n    defaults_from=\"/Common/oneconnect\",\n    idle_timeout_override=\"disabled\",\n    max_age=3600,\n    max_reuse=1000,\n    max_size=1000,\n    name=\"sanjose\",\n    partition=\"Common\",\n    share_pools=\"disabled\",\n    source_mask=\"255.255.255.255\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var oneconnect_sanjose = new F5BigIP.Ltm.ProfileOneConnect(\"oneconnect-sanjose\", new F5BigIP.Ltm.ProfileOneConnectArgs\n        {\n            DefaultsFrom = \"/Common/oneconnect\",\n            IdleTimeoutOverride = \"disabled\",\n            MaxAge = 3600,\n            MaxReuse = 1000,\n            MaxSize = 1000,\n            Name = \"sanjose\",\n            Partition = \"Common\",\n            SharePools = \"disabled\",\n            SourceMask = \"255.255.255.255\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewProfileOneConnect(ctx, \"oneconnect_sanjose\", \u0026ltm.ProfileOneConnectArgs{\n\t\t\tDefaultsFrom:        pulumi.String(\"/Common/oneconnect\"),\n\t\t\tIdleTimeoutOverride: pulumi.String(\"disabled\"),\n\t\t\tMaxAge:              pulumi.Int(3600),\n\t\t\tMaxReuse:            pulumi.Int(1000),\n\t\t\tMaxSize:             pulumi.Int(1000),\n\t\t\tName:                pulumi.String(\"sanjose\"),\n\t\t\tPartition:           pulumi.String(\"Common\"),\n\t\t\tSharePools:          pulumi.String(\"disabled\"),\n\t\t\tSourceMask:          pulumi.String(\"255.255.255.255\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "`f5bigip.ltm.ProfileOneConnect` Configures a custom profile_oneconnect for use by health checks.\n\nFor resources should be named with their \"full path\". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst test_oneconnect = new f5bigip.ltm.ProfileOneConnect(\"test-oneconnect\", {\n    name: \"/Common/test-oneconnect\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ntest_oneconnect = f5bigip.ltm.ProfileOneConnect(\"test-oneconnect\", name=\"/Common/test-oneconnect\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test_oneconnect = new F5BigIP.Ltm.ProfileOneConnect(\"test-oneconnect\", new F5BigIP.Ltm.ProfileOneConnectArgs\n        {\n            Name = \"/Common/test-oneconnect\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewProfileOneConnect(ctx, \"test_oneconnect\", \u0026ltm.ProfileOneConnectArgs{\n\t\t\tName: pulumi.String(\"/Common/test-oneconnect\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nBIG-IP LTM oneconnect profiles can be imported using the `name` , e.g.\n\n```sh\n $ pulumi import f5bigip:ltm/profileOneConnect:ProfileOneConnect test-oneconnect /Common/test-oneconnect\n```\n\n ",
             "properties": {
                 "defaultsFrom": {
                     "type": "string",
@@ -6294,23 +6412,27 @@
                 },
                 "idleTimeoutOverride": {
                     "type": "string",
-                    "description": "Specifies the number of seconds that a connection is idle before the connection flow is eligible for deletion. Possible values are disabled, indefinite, or a numeric value that you specify. The default value is disabled.\n"
+                    "description": "Specifies the number of seconds that a connection is idle before the connection flow is eligible for deletion. Possible values are `disabled`, `indefinite`, or a numeric value that you specify. The default value is `disabled`\n"
+                },
+                "limitType": {
+                    "type": "string",
+                    "description": "Controls how connection limits are enforced in conjunction with OneConnect. The default is `None`. Supported Values: `[None,idle,strict]`\n"
                 },
                 "maxAge": {
                     "type": "integer",
-                    "description": "Specifies the maximum age in number of seconds allowed for a connection in the connection reuse pool. For any connection with an age higher than this value, the system removes that connection from the reuse pool. The default value is 86400.\n"
+                    "description": "Specifies the maximum age in number of seconds allowed for a connection in the connection reuse pool. For any connection with an age higher than this value, the system removes that connection from the reuse pool. The default value is `86400`.\n"
                 },
                 "maxReuse": {
                     "type": "integer",
-                    "description": "Specifies the maximum number of times that a server-side connection can be reused. The default value is 1000.\n"
+                    "description": "Specifies the maximum number of times that a server-side connection can be reused. The default value is `1000`.\n"
                 },
                 "maxSize": {
                     "type": "integer",
-                    "description": "Specifies the maximum number of connections that the system holds in the connection reuse pool. If the pool is already full, then the server-side connection closes after the response is completed. The default value is 10000.\n"
+                    "description": "Specifies the maximum number of connections that the system holds in the connection reuse pool. If the pool is already full, then the server-side connection closes after the response is completed. The default value is `10000`.\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of the profile_oneconnect\n"
+                    "description": "Name of Profile should be full path.The full path is the combination of the `partition + profile_name`,For example `/Common/test-oneconnect-profile`.\n"
                 },
                 "partition": {
                     "type": "string",
@@ -6318,15 +6440,24 @@
                 },
                 "sharePools": {
                     "type": "string",
-                    "description": "Specify if you want to share the pool, default value is \"disabled\"\n"
+                    "description": "Specify if you want to share the pool, default value is `disabled`.\n"
                 },
                 "sourceMask": {
                     "type": "string",
-                    "description": "Specifies a source IP mask. The default value is 0.0.0.0. The system applies the value of this option to the source address to determine its eligibility for reuse. A mask of 0.0.0.0 causes the system to share reused connections across all clients. A host mask (all 1's in binary), causes the system to share only those reused connections originating from the same client IP address.\n"
+                    "description": "Specifies a source IP mask. The default value is `0.0.0.0`. The system applies the value of this option to the source address to determine its eligibility for reuse. A mask of 0.0.0.0 causes the system to share reused connections across all clients. A host mask (all 1's in binary), causes the system to share only those reused connections originating from the same client IP address.\n"
                 }
             },
             "required": [
-                "name"
+                "defaultsFrom",
+                "idleTimeoutOverride",
+                "limitType",
+                "maxAge",
+                "maxReuse",
+                "maxSize",
+                "name",
+                "partition",
+                "sharePools",
+                "sourceMask"
             ],
             "inputProperties": {
                 "defaultsFrom": {
@@ -6335,23 +6466,27 @@
                 },
                 "idleTimeoutOverride": {
                     "type": "string",
-                    "description": "Specifies the number of seconds that a connection is idle before the connection flow is eligible for deletion. Possible values are disabled, indefinite, or a numeric value that you specify. The default value is disabled.\n"
+                    "description": "Specifies the number of seconds that a connection is idle before the connection flow is eligible for deletion. Possible values are `disabled`, `indefinite`, or a numeric value that you specify. The default value is `disabled`\n"
+                },
+                "limitType": {
+                    "type": "string",
+                    "description": "Controls how connection limits are enforced in conjunction with OneConnect. The default is `None`. Supported Values: `[None,idle,strict]`\n"
                 },
                 "maxAge": {
                     "type": "integer",
-                    "description": "Specifies the maximum age in number of seconds allowed for a connection in the connection reuse pool. For any connection with an age higher than this value, the system removes that connection from the reuse pool. The default value is 86400.\n"
+                    "description": "Specifies the maximum age in number of seconds allowed for a connection in the connection reuse pool. For any connection with an age higher than this value, the system removes that connection from the reuse pool. The default value is `86400`.\n"
                 },
                 "maxReuse": {
                     "type": "integer",
-                    "description": "Specifies the maximum number of times that a server-side connection can be reused. The default value is 1000.\n"
+                    "description": "Specifies the maximum number of times that a server-side connection can be reused. The default value is `1000`.\n"
                 },
                 "maxSize": {
                     "type": "integer",
-                    "description": "Specifies the maximum number of connections that the system holds in the connection reuse pool. If the pool is already full, then the server-side connection closes after the response is completed. The default value is 10000.\n"
+                    "description": "Specifies the maximum number of connections that the system holds in the connection reuse pool. If the pool is already full, then the server-side connection closes after the response is completed. The default value is `10000`.\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of the profile_oneconnect\n"
+                    "description": "Name of Profile should be full path.The full path is the combination of the `partition + profile_name`,For example `/Common/test-oneconnect-profile`.\n"
                 },
                 "partition": {
                     "type": "string",
@@ -6359,11 +6494,11 @@
                 },
                 "sharePools": {
                     "type": "string",
-                    "description": "Specify if you want to share the pool, default value is \"disabled\"\n"
+                    "description": "Specify if you want to share the pool, default value is `disabled`.\n"
                 },
                 "sourceMask": {
                     "type": "string",
-                    "description": "Specifies a source IP mask. The default value is 0.0.0.0. The system applies the value of this option to the source address to determine its eligibility for reuse. A mask of 0.0.0.0 causes the system to share reused connections across all clients. A host mask (all 1's in binary), causes the system to share only those reused connections originating from the same client IP address.\n"
+                    "description": "Specifies a source IP mask. The default value is `0.0.0.0`. The system applies the value of this option to the source address to determine its eligibility for reuse. A mask of 0.0.0.0 causes the system to share reused connections across all clients. A host mask (all 1's in binary), causes the system to share only those reused connections originating from the same client IP address.\n"
                 }
             },
             "requiredInputs": [
@@ -6378,23 +6513,27 @@
                     },
                     "idleTimeoutOverride": {
                         "type": "string",
-                        "description": "Specifies the number of seconds that a connection is idle before the connection flow is eligible for deletion. Possible values are disabled, indefinite, or a numeric value that you specify. The default value is disabled.\n"
+                        "description": "Specifies the number of seconds that a connection is idle before the connection flow is eligible for deletion. Possible values are `disabled`, `indefinite`, or a numeric value that you specify. The default value is `disabled`\n"
+                    },
+                    "limitType": {
+                        "type": "string",
+                        "description": "Controls how connection limits are enforced in conjunction with OneConnect. The default is `None`. Supported Values: `[None,idle,strict]`\n"
                     },
                     "maxAge": {
                         "type": "integer",
-                        "description": "Specifies the maximum age in number of seconds allowed for a connection in the connection reuse pool. For any connection with an age higher than this value, the system removes that connection from the reuse pool. The default value is 86400.\n"
+                        "description": "Specifies the maximum age in number of seconds allowed for a connection in the connection reuse pool. For any connection with an age higher than this value, the system removes that connection from the reuse pool. The default value is `86400`.\n"
                     },
                     "maxReuse": {
                         "type": "integer",
-                        "description": "Specifies the maximum number of times that a server-side connection can be reused. The default value is 1000.\n"
+                        "description": "Specifies the maximum number of times that a server-side connection can be reused. The default value is `1000`.\n"
                     },
                     "maxSize": {
                         "type": "integer",
-                        "description": "Specifies the maximum number of connections that the system holds in the connection reuse pool. If the pool is already full, then the server-side connection closes after the response is completed. The default value is 10000.\n"
+                        "description": "Specifies the maximum number of connections that the system holds in the connection reuse pool. If the pool is already full, then the server-side connection closes after the response is completed. The default value is `10000`.\n"
                     },
                     "name": {
                         "type": "string",
-                        "description": "Name of the profile_oneconnect\n"
+                        "description": "Name of Profile should be full path.The full path is the combination of the `partition + profile_name`,For example `/Common/test-oneconnect-profile`.\n"
                     },
                     "partition": {
                         "type": "string",
@@ -6402,18 +6541,18 @@
                     },
                     "sharePools": {
                         "type": "string",
-                        "description": "Specify if you want to share the pool, default value is \"disabled\"\n"
+                        "description": "Specify if you want to share the pool, default value is `disabled`.\n"
                     },
                     "sourceMask": {
                         "type": "string",
-                        "description": "Specifies a source IP mask. The default value is 0.0.0.0. The system applies the value of this option to the source address to determine its eligibility for reuse. A mask of 0.0.0.0 causes the system to share reused connections across all clients. A host mask (all 1's in binary), causes the system to share only those reused connections originating from the same client IP address.\n"
+                        "description": "Specifies a source IP mask. The default value is `0.0.0.0`. The system applies the value of this option to the source address to determine its eligibility for reuse. A mask of 0.0.0.0 causes the system to share reused connections across all clients. A host mask (all 1's in binary), causes the system to share only those reused connections originating from the same client IP address.\n"
                     }
                 },
                 "type": "object"
             }
         },
         "f5bigip:ltm/profileServerSsl:ProfileServerSsl": {
-            "description": "`f5bigip.ltm.ProfileServerSsl` Manages server SSL profiles on a BIG-IP\n\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst test_ServerSsl = new f5bigip.ltm.ProfileServerSsl(\"test-ServerSsl\", {\n    authenticate: \"always\",\n    ciphers: \"DEFAULT\",\n    defaultsFrom: \"/Common/serverssl\",\n    name: \"/Common/test-ServerSsl\",\n    partition: \"Common\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ntest__server_ssl = f5bigip.ltm.ProfileServerSsl(\"test-ServerSsl\",\n    authenticate=\"always\",\n    ciphers=\"DEFAULT\",\n    defaults_from=\"/Common/serverssl\",\n    name=\"/Common/test-ServerSsl\",\n    partition=\"Common\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test_ServerSsl = new F5BigIP.Ltm.ProfileServerSsl(\"test-ServerSsl\", new F5BigIP.Ltm.ProfileServerSslArgs\n        {\n            Authenticate = \"always\",\n            Ciphers = \"DEFAULT\",\n            DefaultsFrom = \"/Common/serverssl\",\n            Name = \"/Common/test-ServerSsl\",\n            Partition = \"Common\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewProfileServerSsl(ctx, \"test_ServerSsl\", \u0026ltm.ProfileServerSslArgs{\n\t\t\tAuthenticate: pulumi.String(\"always\"),\n\t\t\tCiphers:      pulumi.String(\"DEFAULT\"),\n\t\t\tDefaultsFrom: pulumi.String(\"/Common/serverssl\"),\n\t\t\tName:         pulumi.String(\"/Common/test-ServerSsl\"),\n\t\t\tPartition:    pulumi.String(\"Common\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "`f5bigip.ltm.ProfileServerSsl` Manages server SSL profiles on a BIG-IP\n\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst test_ServerSsl = new f5bigip.ltm.ProfileServerSsl(\"test-ServerSsl\", {\n    authenticate: \"always\",\n    ciphers: \"DEFAULT\",\n    defaultsFrom: \"/Common/serverssl\",\n    name: \"/Common/test-ServerSsl\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ntest__server_ssl = f5bigip.ltm.ProfileServerSsl(\"test-ServerSsl\",\n    authenticate=\"always\",\n    ciphers=\"DEFAULT\",\n    defaults_from=\"/Common/serverssl\",\n    name=\"/Common/test-ServerSsl\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test_ServerSsl = new F5BigIP.Ltm.ProfileServerSsl(\"test-ServerSsl\", new F5BigIP.Ltm.ProfileServerSslArgs\n        {\n            Authenticate = \"always\",\n            Ciphers = \"DEFAULT\",\n            DefaultsFrom = \"/Common/serverssl\",\n            Name = \"/Common/test-ServerSsl\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewProfileServerSsl(ctx, \"test_ServerSsl\", \u0026ltm.ProfileServerSslArgs{\n\t\t\tAuthenticate: pulumi.String(\"always\"),\n\t\t\tCiphers:      pulumi.String(\"DEFAULT\"),\n\t\t\tDefaultsFrom: pulumi.String(\"/Common/serverssl\"),\n\t\t\tName:         pulumi.String(\"/Common/test-ServerSsl\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "alertTimeout": {
                     "type": "string",
@@ -6503,6 +6642,14 @@
                     "type": "string",
                     "description": "Specifies the way the system handles client certificates.When ignore, specifies that the system ignores certificates from client systems.When require, specifies that the system requires a client to present a valid certificate.When request, specifies that the system requests a valid certificate from a client but always authenticate the client.\n"
                 },
+                "proxyCaCert": {
+                    "type": "string",
+                    "description": "Proxy CA Cert\n"
+                },
+                "proxyCaKey": {
+                    "type": "string",
+                    "description": "Proxy CA Key\n"
+                },
                 "proxySsl": {
                     "type": "string",
                     "description": "Proxy SSL enabled / disabled. Default is disabled.\n"
@@ -6549,11 +6696,11 @@
                 },
                 "sslForwardProxy": {
                     "type": "string",
-                    "description": "SSL forward Proxy (enabled / disabled)\n"
+                    "description": "Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.\n"
                 },
                 "sslForwardProxyBypass": {
                     "type": "string",
-                    "description": "SSL forward Proxy Bypass (enabled / disabled)\n"
+                    "description": "Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.\n"
                 },
                 "sslSignHash": {
                     "type": "string",
@@ -6600,6 +6747,8 @@
                 "partition",
                 "passphrase",
                 "peerCertMode",
+                "proxyCaCert",
+                "proxyCaKey",
                 "proxySsl",
                 "renegotiatePeriod",
                 "renegotiateSize",
@@ -6708,6 +6857,14 @@
                     "type": "string",
                     "description": "Specifies the way the system handles client certificates.When ignore, specifies that the system ignores certificates from client systems.When require, specifies that the system requires a client to present a valid certificate.When request, specifies that the system requests a valid certificate from a client but always authenticate the client.\n"
                 },
+                "proxyCaCert": {
+                    "type": "string",
+                    "description": "Proxy CA Cert\n"
+                },
+                "proxyCaKey": {
+                    "type": "string",
+                    "description": "Proxy CA Key\n"
+                },
                 "proxySsl": {
                     "type": "string",
                     "description": "Proxy SSL enabled / disabled. Default is disabled.\n"
@@ -6754,11 +6911,11 @@
                 },
                 "sslForwardProxy": {
                     "type": "string",
-                    "description": "SSL forward Proxy (enabled / disabled)\n"
+                    "description": "Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.\n"
                 },
                 "sslForwardProxyBypass": {
                     "type": "string",
-                    "description": "SSL forward Proxy Bypass (enabled / disabled)\n"
+                    "description": "Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.\n"
                 },
                 "sslSignHash": {
                     "type": "string",
@@ -6877,6 +7034,14 @@
                         "type": "string",
                         "description": "Specifies the way the system handles client certificates.When ignore, specifies that the system ignores certificates from client systems.When require, specifies that the system requires a client to present a valid certificate.When request, specifies that the system requests a valid certificate from a client but always authenticate the client.\n"
                     },
+                    "proxyCaCert": {
+                        "type": "string",
+                        "description": "Proxy CA Cert\n"
+                    },
+                    "proxyCaKey": {
+                        "type": "string",
+                        "description": "Proxy CA Key\n"
+                    },
                     "proxySsl": {
                         "type": "string",
                         "description": "Proxy SSL enabled / disabled. Default is disabled.\n"
@@ -6923,11 +7088,11 @@
                     },
                     "sslForwardProxy": {
                         "type": "string",
-                        "description": "SSL forward Proxy (enabled / disabled)\n"
+                        "description": "Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.\n"
                     },
                     "sslForwardProxyBypass": {
                         "type": "string",
-                        "description": "SSL forward Proxy Bypass (enabled / disabled)\n"
+                        "description": "Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.\n"
                     },
                     "sslSignHash": {
                         "type": "string",
@@ -6956,7 +7121,7 @@
             }
         },
         "f5bigip:ltm/profileTcp:ProfileTcp": {
-            "description": "`f5bigip.ltm.ProfileTcp` Configures a custom profile_tcp for use by health checks.\n\nFor resources should be named with their \"full path\". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst sanjose_tcp_lan_profile = new f5bigip.ltm.ProfileTcp(\"sanjose-tcp-lan-profile\", {\n    closeWaitTimeout: 5,\n    deferredAccept: \"enabled\",\n    fastOpen: \"enabled\",\n    finwait2timeout: 5,\n    finwaitTimeout: 300,\n    idleTimeout: 200,\n    keepaliveInterval: 1700,\n    name: \"sanjose-tcp-lan-profile\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nsanjose_tcp_lan_profile = f5bigip.ltm.ProfileTcp(\"sanjose-tcp-lan-profile\",\n    close_wait_timeout=5,\n    deferred_accept=\"enabled\",\n    fast_open=\"enabled\",\n    finwait2timeout=5,\n    finwait_timeout=300,\n    idle_timeout=200,\n    keepalive_interval=1700,\n    name=\"sanjose-tcp-lan-profile\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var sanjose_tcp_lan_profile = new F5BigIP.Ltm.ProfileTcp(\"sanjose-tcp-lan-profile\", new F5BigIP.Ltm.ProfileTcpArgs\n        {\n            CloseWaitTimeout = 5,\n            DeferredAccept = \"enabled\",\n            FastOpen = \"enabled\",\n            Finwait2timeout = 5,\n            FinwaitTimeout = 300,\n            IdleTimeout = 200,\n            KeepaliveInterval = 1700,\n            Name = \"sanjose-tcp-lan-profile\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewProfileTcp(ctx, \"sanjose_tcp_lan_profile\", \u0026ltm.ProfileTcpArgs{\n\t\t\tCloseWaitTimeout:  pulumi.Int(5),\n\t\t\tDeferredAccept:    pulumi.String(\"enabled\"),\n\t\t\tFastOpen:          pulumi.String(\"enabled\"),\n\t\t\tFinwait2timeout:   pulumi.Int(5),\n\t\t\tFinwaitTimeout:    pulumi.Int(300),\n\t\t\tIdleTimeout:       pulumi.Int(200),\n\t\t\tKeepaliveInterval: pulumi.Int(1700),\n\t\t\tName:              pulumi.String(\"sanjose-tcp-lan-profile\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "`f5bigip.ltm.ProfileTcp` Configures a custom profile_tcp for use by health checks.\n\nFor resources should be named with their \"full path\". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst sanjose_tcp_lan_profile = new f5bigip.ltm.ProfileTcp(\"sanjose-tcp-lan-profile\", {\n    closeWaitTimeout: 5,\n    deferredAccept: \"enabled\",\n    fastOpen: \"enabled\",\n    finwait2timeout: 5,\n    finwaitTimeout: 300,\n    idleTimeout: 200,\n    keepaliveInterval: 1700,\n    name: \"/Common/sanjose-tcp-lan-profile\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nsanjose_tcp_lan_profile = f5bigip.ltm.ProfileTcp(\"sanjose-tcp-lan-profile\",\n    close_wait_timeout=5,\n    deferred_accept=\"enabled\",\n    fast_open=\"enabled\",\n    finwait2timeout=5,\n    finwait_timeout=300,\n    idle_timeout=200,\n    keepalive_interval=1700,\n    name=\"/Common/sanjose-tcp-lan-profile\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var sanjose_tcp_lan_profile = new F5BigIP.Ltm.ProfileTcp(\"sanjose-tcp-lan-profile\", new F5BigIP.Ltm.ProfileTcpArgs\n        {\n            CloseWaitTimeout = 5,\n            DeferredAccept = \"enabled\",\n            FastOpen = \"enabled\",\n            Finwait2timeout = 5,\n            FinwaitTimeout = 300,\n            IdleTimeout = 200,\n            KeepaliveInterval = 1700,\n            Name = \"/Common/sanjose-tcp-lan-profile\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewProfileTcp(ctx, \"sanjose_tcp_lan_profile\", \u0026ltm.ProfileTcpArgs{\n\t\t\tCloseWaitTimeout:  pulumi.Int(5),\n\t\t\tDeferredAccept:    pulumi.String(\"enabled\"),\n\t\t\tFastOpen:          pulumi.String(\"enabled\"),\n\t\t\tFinwait2timeout:   pulumi.Int(5),\n\t\t\tFinwaitTimeout:    pulumi.Int(300),\n\t\t\tIdleTimeout:       pulumi.Int(200),\n\t\t\tKeepaliveInterval: pulumi.Int(1700),\n\t\t\tName:              pulumi.String(\"/Common/sanjose-tcp-lan-profile\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "closeWaitTimeout": {
                     "type": "integer",
@@ -8880,6 +9045,256 @@
                     }
                 },
                 "type": "object"
+            }
+        }
+    },
+    "functions": {
+        "f5bigip:ltm/getDataGroup:getDataGroup": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getDataGroup.\n",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "partition": {
+                        "type": "string"
+                    },
+                    "records": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/f5bigip:ltm/getDataGroupRecord:getDataGroupRecord"
+                        }
+                    },
+                    "type": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name",
+                    "partition"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getDataGroup.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "partition": {
+                        "type": "string"
+                    },
+                    "records": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/f5bigip:ltm/getDataGroupRecord:getDataGroupRecord"
+                        }
+                    },
+                    "type": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name",
+                    "partition",
+                    "records",
+                    "type",
+                    "id"
+                ]
+            }
+        },
+        "f5bigip:ltm/getIrule:getIrule": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getIrule.\n",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "partition": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name",
+                    "partition"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getIrule.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "irule": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "partition": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "irule",
+                    "name",
+                    "partition",
+                    "id"
+                ]
+            }
+        },
+        "f5bigip:ltm/getMonitor:getMonitor": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getMonitor.\n",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "partition": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name",
+                    "partition"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getMonitor.\n",
+                "properties": {
+                    "adaptive": {
+                        "type": "string"
+                    },
+                    "adaptiveLimit": {
+                        "type": "integer"
+                    },
+                    "database": {
+                        "type": "string"
+                    },
+                    "defaultsFrom": {
+                        "type": "string"
+                    },
+                    "destination": {
+                        "type": "string"
+                    },
+                    "filename": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "interval": {
+                        "type": "integer"
+                    },
+                    "ipDscp": {
+                        "type": "integer"
+                    },
+                    "manualResume": {
+                        "type": "string"
+                    },
+                    "mode": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "partition": {
+                        "type": "string"
+                    },
+                    "receiveDisable": {
+                        "type": "string"
+                    },
+                    "reverse": {
+                        "type": "string"
+                    },
+                    "timeUntilUp": {
+                        "type": "integer"
+                    },
+                    "timeout": {
+                        "type": "integer"
+                    },
+                    "transparent": {
+                        "type": "string"
+                    },
+                    "username": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "adaptive",
+                    "adaptiveLimit",
+                    "database",
+                    "defaultsFrom",
+                    "destination",
+                    "filename",
+                    "interval",
+                    "ipDscp",
+                    "manualResume",
+                    "mode",
+                    "name",
+                    "partition",
+                    "receiveDisable",
+                    "reverse",
+                    "timeUntilUp",
+                    "timeout",
+                    "transparent",
+                    "username",
+                    "id"
+                ]
+            }
+        },
+        "f5bigip:ssl/getCertificate:getCertificate": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getCertificate.\n",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "partition": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name",
+                    "partition"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getCertificate.\n",
+                "properties": {
+                    "certificate": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "partition": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "certificate",
+                    "name",
+                    "partition",
+                    "id"
+                ]
             }
         }
     },

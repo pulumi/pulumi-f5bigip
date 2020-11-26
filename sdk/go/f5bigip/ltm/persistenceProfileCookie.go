@@ -60,6 +60,8 @@ import (
 //
 // `matchAcrossVirtuals` (Optional) (enabled or disabled) match across virtual servers with given persistence record
 //
+// `method` (Optional) Specifies the type of cookie processing that the system uses. The default value is insert
+//
 // `mirror` (Optional) (enabled or disabled) mirror persistence record
 //
 // `timeout` (Optional) (enabled or disabled) Timeout for persistence of the session in seconds
@@ -110,6 +112,8 @@ type PersistenceProfileCookie struct {
 	MatchAcrossServices pulumi.StringPtrOutput `pulumi:"matchAcrossServices"`
 	// To enable _ disable match across virtual servers with given persistence record
 	MatchAcrossVirtuals pulumi.StringPtrOutput `pulumi:"matchAcrossVirtuals"`
+	// Specifies the type of cookie processing that the system uses
+	Method pulumi.StringPtrOutput `pulumi:"method"`
 	// To enable _ disable
 	Mirror pulumi.StringPtrOutput `pulumi:"mirror"`
 	// Name of the persistence profile
@@ -180,6 +184,8 @@ type persistenceProfileCookieState struct {
 	MatchAcrossServices *string `pulumi:"matchAcrossServices"`
 	// To enable _ disable match across virtual servers with given persistence record
 	MatchAcrossVirtuals *string `pulumi:"matchAcrossVirtuals"`
+	// Specifies the type of cookie processing that the system uses
+	Method *string `pulumi:"method"`
 	// To enable _ disable
 	Mirror *string `pulumi:"mirror"`
 	// Name of the persistence profile
@@ -217,6 +223,8 @@ type PersistenceProfileCookieState struct {
 	MatchAcrossServices pulumi.StringPtrInput
 	// To enable _ disable match across virtual servers with given persistence record
 	MatchAcrossVirtuals pulumi.StringPtrInput
+	// Specifies the type of cookie processing that the system uses
+	Method pulumi.StringPtrInput
 	// To enable _ disable
 	Mirror pulumi.StringPtrInput
 	// Name of the persistence profile
@@ -258,6 +266,8 @@ type persistenceProfileCookieArgs struct {
 	MatchAcrossServices *string `pulumi:"matchAcrossServices"`
 	// To enable _ disable match across virtual servers with given persistence record
 	MatchAcrossVirtuals *string `pulumi:"matchAcrossVirtuals"`
+	// Specifies the type of cookie processing that the system uses
+	Method *string `pulumi:"method"`
 	// To enable _ disable
 	Mirror *string `pulumi:"mirror"`
 	// Name of the persistence profile
@@ -296,6 +306,8 @@ type PersistenceProfileCookieArgs struct {
 	MatchAcrossServices pulumi.StringPtrInput
 	// To enable _ disable match across virtual servers with given persistence record
 	MatchAcrossVirtuals pulumi.StringPtrInput
+	// Specifies the type of cookie processing that the system uses
+	Method pulumi.StringPtrInput
 	// To enable _ disable
 	Mirror pulumi.StringPtrInput
 	// Name of the persistence profile

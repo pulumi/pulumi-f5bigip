@@ -8,7 +8,10 @@ from .big_iq_as3 import *
 from .command import *
 from .common_license_manage_big_iq import *
 from .do import *
+from .event_service_discovery import *
 from .provider import *
+from ._inputs import *
+from . import outputs
 
 # Make subpackages available:
 from . import (
