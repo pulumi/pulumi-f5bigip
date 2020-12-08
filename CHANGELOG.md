@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v1.5.0 of the BigIP Terraform Provider
+_(none)_
 
 ---
+
+## 2.6.0 (2020-12-08)
+* Upgrade to v1.5.0 of the BigIP Terraform Provider
 
 ## 2.5.2 (2020-11-23)
 * Upgrade to pulumi-terraform-bridge v2.13.2  
