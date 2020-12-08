@@ -62,6 +62,24 @@ namespace Pulumi.F5BigIP
     ///             MacAddress = "FA:16:3E:1B:6D:32",
     ///             Hypervisor = "azure",
     ///         });
+    ///         // MANAGED Purchased Pool
+    ///         var testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq2 = new F5BigIP.CommonLicenseManageBigIq("testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq2", new F5BigIP.CommonLicenseManageBigIqArgs
+    ///         {
+    ///             BigiqAddress = @var.Bigiq,
+    ///             BigiqUser = @var.Bigiq_un,
+    ///             BigiqPassword = @var.Bigiq_pw,
+    ///             LicensePoolname = "purchased_pool_name",
+    ///             AssignmentType = "MANAGED",
+    ///         });
+    ///         // UNMANAGED Purchased Pool
+    ///         var testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq3 = new F5BigIP.CommonLicenseManageBigIq("testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq3", new F5BigIP.CommonLicenseManageBigIqArgs
+    ///         {
+    ///             BigiqAddress = @var.Bigiq,
+    ///             BigiqUser = @var.Bigiq_un,
+    ///             BigiqPassword = @var.Bigiq_pw,
+    ///             LicensePoolname = "purchased_pool_name",
+    ///             AssignmentType = "UNMANAGED",
+    ///         });
     ///     }
     /// 
     /// }

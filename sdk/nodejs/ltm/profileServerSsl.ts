@@ -18,7 +18,6 @@ import * as utilities from "../utilities";
  *     ciphers: "DEFAULT",
  *     defaultsFrom: "/Common/serverssl",
  *     name: "/Common/test-ServerSsl",
- *     partition: "Common",
  * });
  * ```
  */
@@ -139,6 +138,14 @@ export class ProfileServerSsl extends pulumi.CustomResource {
      */
     public readonly peerCertMode!: pulumi.Output<string>;
     /**
+     * Proxy CA Cert
+     */
+    public readonly proxyCaCert!: pulumi.Output<string>;
+    /**
+     * Proxy CA Key
+     */
+    public readonly proxyCaKey!: pulumi.Output<string>;
+    /**
      * Proxy SSL enabled / disabled. Default is disabled.
      */
     public readonly proxySsl!: pulumi.Output<string>;
@@ -187,11 +194,11 @@ export class ProfileServerSsl extends pulumi.CustomResource {
      */
     public readonly sniRequire!: pulumi.Output<string>;
     /**
-     * SSL forward Proxy (enabled / disabled)
+     * Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
      */
     public readonly sslForwardProxy!: pulumi.Output<string>;
     /**
-     * SSL forward Proxy Bypass (enabled / disabled)
+     * Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
      */
     public readonly sslForwardProxyBypass!: pulumi.Output<string>;
     /**
@@ -246,6 +253,8 @@ export class ProfileServerSsl extends pulumi.CustomResource {
             inputs["partition"] = state ? state.partition : undefined;
             inputs["passphrase"] = state ? state.passphrase : undefined;
             inputs["peerCertMode"] = state ? state.peerCertMode : undefined;
+            inputs["proxyCaCert"] = state ? state.proxyCaCert : undefined;
+            inputs["proxyCaKey"] = state ? state.proxyCaKey : undefined;
             inputs["proxySsl"] = state ? state.proxySsl : undefined;
             inputs["renegotiatePeriod"] = state ? state.renegotiatePeriod : undefined;
             inputs["renegotiateSize"] = state ? state.renegotiateSize : undefined;
@@ -291,6 +300,8 @@ export class ProfileServerSsl extends pulumi.CustomResource {
             inputs["partition"] = args ? args.partition : undefined;
             inputs["passphrase"] = args ? args.passphrase : undefined;
             inputs["peerCertMode"] = args ? args.peerCertMode : undefined;
+            inputs["proxyCaCert"] = args ? args.proxyCaCert : undefined;
+            inputs["proxyCaKey"] = args ? args.proxyCaKey : undefined;
             inputs["proxySsl"] = args ? args.proxySsl : undefined;
             inputs["renegotiatePeriod"] = args ? args.renegotiatePeriod : undefined;
             inputs["renegotiateSize"] = args ? args.renegotiateSize : undefined;
@@ -414,6 +425,14 @@ export interface ProfileServerSslState {
      */
     readonly peerCertMode?: pulumi.Input<string>;
     /**
+     * Proxy CA Cert
+     */
+    readonly proxyCaCert?: pulumi.Input<string>;
+    /**
+     * Proxy CA Key
+     */
+    readonly proxyCaKey?: pulumi.Input<string>;
+    /**
      * Proxy SSL enabled / disabled. Default is disabled.
      */
     readonly proxySsl?: pulumi.Input<string>;
@@ -462,11 +481,11 @@ export interface ProfileServerSslState {
      */
     readonly sniRequire?: pulumi.Input<string>;
     /**
-     * SSL forward Proxy (enabled / disabled)
+     * Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
      */
     readonly sslForwardProxy?: pulumi.Input<string>;
     /**
-     * SSL forward Proxy Bypass (enabled / disabled)
+     * Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
      */
     readonly sslForwardProxyBypass?: pulumi.Input<string>;
     /**
@@ -581,6 +600,14 @@ export interface ProfileServerSslArgs {
      */
     readonly peerCertMode?: pulumi.Input<string>;
     /**
+     * Proxy CA Cert
+     */
+    readonly proxyCaCert?: pulumi.Input<string>;
+    /**
+     * Proxy CA Key
+     */
+    readonly proxyCaKey?: pulumi.Input<string>;
+    /**
      * Proxy SSL enabled / disabled. Default is disabled.
      */
     readonly proxySsl?: pulumi.Input<string>;
@@ -629,11 +656,11 @@ export interface ProfileServerSslArgs {
      */
     readonly sniRequire?: pulumi.Input<string>;
     /**
-     * SSL forward Proxy (enabled / disabled)
+     * Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
      */
     readonly sslForwardProxy?: pulumi.Input<string>;
     /**
-     * SSL forward Proxy Bypass (enabled / disabled)
+     * Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
      */
     readonly sslForwardProxyBypass?: pulumi.Input<string>;
     /**

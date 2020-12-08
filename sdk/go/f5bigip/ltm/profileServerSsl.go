@@ -30,7 +30,6 @@ import (
 // 			Ciphers:      pulumi.String("DEFAULT"),
 // 			DefaultsFrom: pulumi.String("/Common/serverssl"),
 // 			Name:         pulumi.String("/Common/test-ServerSsl"),
-// 			Partition:    pulumi.String("Common"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -86,6 +85,10 @@ type ProfileServerSsl struct {
 	Passphrase pulumi.StringOutput `pulumi:"passphrase"`
 	// Specifies the way the system handles client certificates.When ignore, specifies that the system ignores certificates from client systems.When require, specifies that the system requires a client to present a valid certificate.When request, specifies that the system requests a valid certificate from a client but always authenticate the client.
 	PeerCertMode pulumi.StringOutput `pulumi:"peerCertMode"`
+	// Proxy CA Cert
+	ProxyCaCert pulumi.StringOutput `pulumi:"proxyCaCert"`
+	// Proxy CA Key
+	ProxyCaKey pulumi.StringOutput `pulumi:"proxyCaKey"`
 	// Proxy SSL enabled / disabled. Default is disabled.
 	ProxySsl pulumi.StringOutput `pulumi:"proxySsl"`
 	// Renogotiate Period (seconds)
@@ -112,9 +115,9 @@ type ProfileServerSsl struct {
 	SniDefault pulumi.StringOutput `pulumi:"sniDefault"`
 	// Requires that the network peers also provide SNI support, this setting only takes effect when `sniDefault` is set to `true`.When creating a new profile, the setting is provided by the parent profile
 	SniRequire pulumi.StringOutput `pulumi:"sniRequire"`
-	// SSL forward Proxy (enabled / disabled)
+	// Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
 	SslForwardProxy pulumi.StringOutput `pulumi:"sslForwardProxy"`
-	// SSL forward Proxy Bypass (enabled / disabled)
+	// Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
 	SslForwardProxyBypass pulumi.StringOutput `pulumi:"sslForwardProxyBypass"`
 	// SSL sign hash (any, sha1, sha256, sha384)
 	SslSignHash pulumi.StringOutput `pulumi:"sslSignHash"`
@@ -202,6 +205,10 @@ type profileServerSslState struct {
 	Passphrase *string `pulumi:"passphrase"`
 	// Specifies the way the system handles client certificates.When ignore, specifies that the system ignores certificates from client systems.When require, specifies that the system requires a client to present a valid certificate.When request, specifies that the system requests a valid certificate from a client but always authenticate the client.
 	PeerCertMode *string `pulumi:"peerCertMode"`
+	// Proxy CA Cert
+	ProxyCaCert *string `pulumi:"proxyCaCert"`
+	// Proxy CA Key
+	ProxyCaKey *string `pulumi:"proxyCaKey"`
 	// Proxy SSL enabled / disabled. Default is disabled.
 	ProxySsl *string `pulumi:"proxySsl"`
 	// Renogotiate Period (seconds)
@@ -228,9 +235,9 @@ type profileServerSslState struct {
 	SniDefault *string `pulumi:"sniDefault"`
 	// Requires that the network peers also provide SNI support, this setting only takes effect when `sniDefault` is set to `true`.When creating a new profile, the setting is provided by the parent profile
 	SniRequire *string `pulumi:"sniRequire"`
-	// SSL forward Proxy (enabled / disabled)
+	// Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
 	SslForwardProxy *string `pulumi:"sslForwardProxy"`
-	// SSL forward Proxy Bypass (enabled / disabled)
+	// Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
 	SslForwardProxyBypass *string `pulumi:"sslForwardProxyBypass"`
 	// SSL sign hash (any, sha1, sha256, sha384)
 	SslSignHash *string `pulumi:"sslSignHash"`
@@ -288,6 +295,10 @@ type ProfileServerSslState struct {
 	Passphrase pulumi.StringPtrInput
 	// Specifies the way the system handles client certificates.When ignore, specifies that the system ignores certificates from client systems.When require, specifies that the system requires a client to present a valid certificate.When request, specifies that the system requests a valid certificate from a client but always authenticate the client.
 	PeerCertMode pulumi.StringPtrInput
+	// Proxy CA Cert
+	ProxyCaCert pulumi.StringPtrInput
+	// Proxy CA Key
+	ProxyCaKey pulumi.StringPtrInput
 	// Proxy SSL enabled / disabled. Default is disabled.
 	ProxySsl pulumi.StringPtrInput
 	// Renogotiate Period (seconds)
@@ -314,9 +325,9 @@ type ProfileServerSslState struct {
 	SniDefault pulumi.StringPtrInput
 	// Requires that the network peers also provide SNI support, this setting only takes effect when `sniDefault` is set to `true`.When creating a new profile, the setting is provided by the parent profile
 	SniRequire pulumi.StringPtrInput
-	// SSL forward Proxy (enabled / disabled)
+	// Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
 	SslForwardProxy pulumi.StringPtrInput
-	// SSL forward Proxy Bypass (enabled / disabled)
+	// Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
 	SslForwardProxyBypass pulumi.StringPtrInput
 	// SSL sign hash (any, sha1, sha256, sha384)
 	SslSignHash pulumi.StringPtrInput
@@ -378,6 +389,10 @@ type profileServerSslArgs struct {
 	Passphrase *string `pulumi:"passphrase"`
 	// Specifies the way the system handles client certificates.When ignore, specifies that the system ignores certificates from client systems.When require, specifies that the system requires a client to present a valid certificate.When request, specifies that the system requests a valid certificate from a client but always authenticate the client.
 	PeerCertMode *string `pulumi:"peerCertMode"`
+	// Proxy CA Cert
+	ProxyCaCert *string `pulumi:"proxyCaCert"`
+	// Proxy CA Key
+	ProxyCaKey *string `pulumi:"proxyCaKey"`
 	// Proxy SSL enabled / disabled. Default is disabled.
 	ProxySsl *string `pulumi:"proxySsl"`
 	// Renogotiate Period (seconds)
@@ -404,9 +419,9 @@ type profileServerSslArgs struct {
 	SniDefault *string `pulumi:"sniDefault"`
 	// Requires that the network peers also provide SNI support, this setting only takes effect when `sniDefault` is set to `true`.When creating a new profile, the setting is provided by the parent profile
 	SniRequire *string `pulumi:"sniRequire"`
-	// SSL forward Proxy (enabled / disabled)
+	// Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
 	SslForwardProxy *string `pulumi:"sslForwardProxy"`
-	// SSL forward Proxy Bypass (enabled / disabled)
+	// Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
 	SslForwardProxyBypass *string `pulumi:"sslForwardProxyBypass"`
 	// SSL sign hash (any, sha1, sha256, sha384)
 	SslSignHash *string `pulumi:"sslSignHash"`
@@ -465,6 +480,10 @@ type ProfileServerSslArgs struct {
 	Passphrase pulumi.StringPtrInput
 	// Specifies the way the system handles client certificates.When ignore, specifies that the system ignores certificates from client systems.When require, specifies that the system requires a client to present a valid certificate.When request, specifies that the system requests a valid certificate from a client but always authenticate the client.
 	PeerCertMode pulumi.StringPtrInput
+	// Proxy CA Cert
+	ProxyCaCert pulumi.StringPtrInput
+	// Proxy CA Key
+	ProxyCaKey pulumi.StringPtrInput
 	// Proxy SSL enabled / disabled. Default is disabled.
 	ProxySsl pulumi.StringPtrInput
 	// Renogotiate Period (seconds)
@@ -491,9 +510,9 @@ type ProfileServerSslArgs struct {
 	SniDefault pulumi.StringPtrInput
 	// Requires that the network peers also provide SNI support, this setting only takes effect when `sniDefault` is set to `true`.When creating a new profile, the setting is provided by the parent profile
 	SniRequire pulumi.StringPtrInput
-	// SSL forward Proxy (enabled / disabled)
+	// Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
 	SslForwardProxy pulumi.StringPtrInput
-	// SSL forward Proxy Bypass (enabled / disabled)
+	// Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
 	SslForwardProxyBypass pulumi.StringPtrInput
 	// SSL sign hash (any, sha1, sha256, sha384)
 	SslSignHash pulumi.StringPtrInput

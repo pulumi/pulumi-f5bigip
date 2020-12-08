@@ -59,7 +59,7 @@ type ProfileHttpCompress struct {
 	// Specifies a list of content types for compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
 	ContentTypeIncludes pulumi.StringArrayOutput `pulumi:"contentTypeIncludes"`
 	// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
-	DefaultsFrom pulumi.StringPtrOutput `pulumi:"defaultsFrom"`
+	DefaultsFrom pulumi.StringOutput `pulumi:"defaultsFrom"`
 	// Name of the profile_httpcompress
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Disables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you do not want to compress.

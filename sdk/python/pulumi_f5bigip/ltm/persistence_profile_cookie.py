@@ -28,6 +28,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
                  match_across_pools: Optional[pulumi.Input[str]] = None,
                  match_across_services: Optional[pulumi.Input[str]] = None,
                  match_across_virtuals: Optional[pulumi.Input[str]] = None,
+                 method: Optional[pulumi.Input[str]] = None,
                  mirror: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  override_conn_limit: Optional[pulumi.Input[str]] = None,
@@ -72,6 +73,8 @@ class PersistenceProfileCookie(pulumi.CustomResource):
 
         `match_across_virtuals` (Optional) (enabled or disabled) match across virtual servers with given persistence record
 
+        `method` (Optional) Specifies the type of cookie processing that the system uses. The default value is insert
+
         `mirror` (Optional) (enabled or disabled) mirror persistence record
 
         `timeout` (Optional) (enabled or disabled) Timeout for persistence of the session in seconds
@@ -109,6 +112,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
         :param pulumi.Input[str] match_across_pools: To enable _ disable match across pools with given persistence record
         :param pulumi.Input[str] match_across_services: To enable _ disable match across services with given persistence record
         :param pulumi.Input[str] match_across_virtuals: To enable _ disable match across virtual servers with given persistence record
+        :param pulumi.Input[str] method: Specifies the type of cookie processing that the system uses
         :param pulumi.Input[str] mirror: To enable _ disable
         :param pulumi.Input[str] name: Name of the persistence profile
         :param pulumi.Input[str] override_conn_limit: To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
@@ -147,6 +151,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
             __props__['match_across_pools'] = match_across_pools
             __props__['match_across_services'] = match_across_services
             __props__['match_across_virtuals'] = match_across_virtuals
+            __props__['method'] = method
             __props__['mirror'] = mirror
             if name is None:
                 raise TypeError("Missing required property 'name'")
@@ -176,6 +181,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
             match_across_pools: Optional[pulumi.Input[str]] = None,
             match_across_services: Optional[pulumi.Input[str]] = None,
             match_across_virtuals: Optional[pulumi.Input[str]] = None,
+            method: Optional[pulumi.Input[str]] = None,
             mirror: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             override_conn_limit: Optional[pulumi.Input[str]] = None,
@@ -199,6 +205,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
         :param pulumi.Input[str] match_across_pools: To enable _ disable match across pools with given persistence record
         :param pulumi.Input[str] match_across_services: To enable _ disable match across services with given persistence record
         :param pulumi.Input[str] match_across_virtuals: To enable _ disable match across virtual servers with given persistence record
+        :param pulumi.Input[str] method: Specifies the type of cookie processing that the system uses
         :param pulumi.Input[str] mirror: To enable _ disable
         :param pulumi.Input[str] name: Name of the persistence profile
         :param pulumi.Input[str] override_conn_limit: To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
@@ -222,6 +229,7 @@ class PersistenceProfileCookie(pulumi.CustomResource):
         __props__["match_across_pools"] = match_across_pools
         __props__["match_across_services"] = match_across_services
         __props__["match_across_virtuals"] = match_across_virtuals
+        __props__["method"] = method
         __props__["mirror"] = mirror
         __props__["name"] = name
         __props__["override_conn_limit"] = override_conn_limit
@@ -328,6 +336,14 @@ class PersistenceProfileCookie(pulumi.CustomResource):
         To enable _ disable match across virtual servers with given persistence record
         """
         return pulumi.get(self, "match_across_virtuals")
+
+    @property
+    @pulumi.getter
+    def method(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the type of cookie processing that the system uses
+        """
+        return pulumi.get(self, "method")
 
     @property
     @pulumi.getter

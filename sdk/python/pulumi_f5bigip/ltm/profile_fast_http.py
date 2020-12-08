@@ -51,7 +51,7 @@ class ProfileFastHttp(pulumi.CustomResource):
             forcehttp10response="disabled",
             idle_timeout=300,
             maxheader_size=32768,
-            name="sjfasthttpprofile")
+            name="/Common/sjfasthttpprofile")
         ```
 
         :param str resource_name: The name of the resource.

@@ -42,6 +42,8 @@ import * as utilities from "../utilities";
  *
  * `matchAcrossVirtuals` (Optional) (enabled or disabled) match across virtual servers with given persistence record
  *
+ * `method` (Optional) Specifies the type of cookie processing that the system uses. The default value is insert
+ *
  * `mirror` (Optional) (enabled or disabled) mirror persistence record
  *
  * `timeout` (Optional) (enabled or disabled) Timeout for persistence of the session in seconds
@@ -143,6 +145,10 @@ export class PersistenceProfileCookie extends pulumi.CustomResource {
      */
     public readonly matchAcrossVirtuals!: pulumi.Output<string | undefined>;
     /**
+     * Specifies the type of cookie processing that the system uses
+     */
+    public readonly method!: pulumi.Output<string | undefined>;
+    /**
      * To enable _ disable
      */
     public readonly mirror!: pulumi.Output<string | undefined>;
@@ -185,6 +191,7 @@ export class PersistenceProfileCookie extends pulumi.CustomResource {
             inputs["matchAcrossPools"] = state ? state.matchAcrossPools : undefined;
             inputs["matchAcrossServices"] = state ? state.matchAcrossServices : undefined;
             inputs["matchAcrossVirtuals"] = state ? state.matchAcrossVirtuals : undefined;
+            inputs["method"] = state ? state.method : undefined;
             inputs["mirror"] = state ? state.mirror : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["overrideConnLimit"] = state ? state.overrideConnLimit : undefined;
@@ -210,6 +217,7 @@ export class PersistenceProfileCookie extends pulumi.CustomResource {
             inputs["matchAcrossPools"] = args ? args.matchAcrossPools : undefined;
             inputs["matchAcrossServices"] = args ? args.matchAcrossServices : undefined;
             inputs["matchAcrossVirtuals"] = args ? args.matchAcrossVirtuals : undefined;
+            inputs["method"] = args ? args.method : undefined;
             inputs["mirror"] = args ? args.mirror : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["overrideConnLimit"] = args ? args.overrideConnLimit : undefined;
@@ -279,6 +287,10 @@ export interface PersistenceProfileCookieState {
      * To enable _ disable match across virtual servers with given persistence record
      */
     readonly matchAcrossVirtuals?: pulumi.Input<string>;
+    /**
+     * Specifies the type of cookie processing that the system uses
+     */
+    readonly method?: pulumi.Input<string>;
     /**
      * To enable _ disable
      */
@@ -351,6 +363,10 @@ export interface PersistenceProfileCookieArgs {
      * To enable _ disable match across virtual servers with given persistence record
      */
     readonly matchAcrossVirtuals?: pulumi.Input<string>;
+    /**
+     * Specifies the type of cookie processing that the system uses
+     */
+    readonly method?: pulumi.Input<string>;
     /**
      * To enable _ disable
      */

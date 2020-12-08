@@ -16,6 +16,7 @@ __all__ = [
     'PolicyRuleConditionArgs',
     'ProfileClientSslCertKeyChainArgs',
     'SnatOriginArgs',
+    'GetDataGroupRecordArgs',
 ]
 
 @pulumi.input_type
@@ -2631,5 +2632,33 @@ class SnatOriginArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class GetDataGroupRecordArgs:
+    def __init__(__self__, *,
+                 name: str,
+                 data: Optional[str] = None):
+        pulumi.set(__self__, "name", name)
+        if data is not None:
+            pulumi.set(__self__, "data", data)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def data(self) -> Optional[str]:
+        return pulumi.get(self, "data")
+
+    @data.setter
+    def data(self, value: Optional[str]):
+        pulumi.set(self, "data", value)
 
 

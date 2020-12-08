@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     finwaitTimeout: 300,
  *     idleTimeout: 200,
  *     keepaliveInterval: 1700,
- *     name: "sanjose-tcp-lan-profile",
+ *     name: "/Common/sanjose-tcp-lan-profile",
  * });
  * ```
  */

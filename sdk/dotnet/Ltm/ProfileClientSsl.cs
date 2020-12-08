@@ -28,7 +28,6 @@ namespace Pulumi.F5BigIP.Ltm
     ///             Ciphers = "DEFAULT",
     ///             DefaultsFrom = "/Common/clientssl",
     ///             Name = "/Common/test-ClientSsl",
-    ///             Partition = "Common",
     ///         });
     ///     }
     /// 
@@ -310,13 +309,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> SniRequire { get; private set; } = null!;
 
         /// <summary>
-        /// SSL forward Proxy (enabled / disabled)
+        /// Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
         /// </summary>
         [Output("sslForwardProxy")]
         public Output<string> SslForwardProxy { get; private set; } = null!;
 
         /// <summary>
-        /// SSL forward Proxy Bypass (enabled / disabled)
+        /// Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
         /// </summary>
         [Output("sslForwardProxyBypass")]
         public Output<string> SslForwardProxyBypass { get; private set; } = null!;
@@ -672,13 +671,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? SniRequire { get; set; }
 
         /// <summary>
-        /// SSL forward Proxy (enabled / disabled)
+        /// Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
         /// </summary>
         [Input("sslForwardProxy")]
         public Input<string>? SslForwardProxy { get; set; }
 
         /// <summary>
-        /// SSL forward Proxy Bypass (enabled / disabled)
+        /// Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
         /// </summary>
         [Input("sslForwardProxyBypass")]
         public Input<string>? SslForwardProxyBypass { get; set; }
@@ -1000,13 +999,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? SniRequire { get; set; }
 
         /// <summary>
-        /// SSL forward Proxy (enabled / disabled)
+        /// Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
         /// </summary>
         [Input("sslForwardProxy")]
         public Input<string>? SslForwardProxy { get; set; }
 
         /// <summary>
-        /// SSL forward Proxy Bypass (enabled / disabled)
+        /// Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
         /// </summary>
         [Input("sslForwardProxyBypass")]
         public Input<string>? SslForwardProxyBypass { get; set; }

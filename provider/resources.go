@@ -27,13 +27,13 @@ import (
 
 // all of the F5 BigIP token components used below.
 const (
-	f5BigIPPkg     = "f5bigip"
-	f5BigIPCMMod   = "CM"    // Centralized Management (CM)
-	f5BigIPLTMMod  = "Ltm"   // Local Traffic Manager (LTM)
-	f5BigIPNetMod  = "Net"   // Network
-	f5BigIPSysMod  = "Sys"   // System
-	f5BigIPSslMod  = "Ssl"   // Ssl
-	f5BigIPMainMod = "Index" // Index
+	f5BigIPPkg = "f5bigip"
+	cmMod      = "CM"    // Centralized Management (CM)
+	ltmMod     = "Ltm"   // Local Traffic Manager (LTM)
+	netMod     = "Net"   // Network
+	sysMod     = "Sys"   // System
+	sslMod     = "Ssl"   // Ssl
+	mainMod    = "Index" // Index
 
 )
 
@@ -61,6 +61,10 @@ func makeResource(mod string, res string) tokens.Type {
 	return makeType(mod, res)
 }
 
+func makeDataSource(mod string, res string) tokens.ModuleMember {
+	return makeMember(mod, res)
+}
+
 // Provider returns additional overlaid schema and metadata associated with the F5 BigIP package.
 func Provider() tfbridge.ProviderInfo {
 	return tfbridge.ProviderInfo{
@@ -73,49 +77,56 @@ func Provider() tfbridge.ProviderInfo {
 		Repository:  "https://github.com/pulumi/pulumi-f5bigip",
 		GitHubOrg:   "F5Networks",
 		Resources: map[string]*tfbridge.ResourceInfo{
-			"bigip_cm_device":                       {Tok: makeResource(f5BigIPCMMod, "Device")},
-			"bigip_cm_devicegroup":                  {Tok: makeResource(f5BigIPCMMod, "DeviceGroup")},
-			"bigip_net_route":                       {Tok: makeResource(f5BigIPNetMod, "Route")},
-			"bigip_net_selfip":                      {Tok: makeResource(f5BigIPNetMod, "SelfIp")},
-			"bigip_net_vlan":                        {Tok: makeResource(f5BigIPNetMod, "Vlan")},
-			"bigip_ltm_irule":                       {Tok: makeResource(f5BigIPLTMMod, "IRule")},
-			"bigip_ltm_datagroup":                   {Tok: makeResource(f5BigIPLTMMod, "DataGroup")},
-			"bigip_ltm_monitor":                     {Tok: makeResource(f5BigIPLTMMod, "Monitor")},
-			"bigip_ltm_node":                        {Tok: makeResource(f5BigIPLTMMod, "Node")},
-			"bigip_ltm_pool":                        {Tok: makeResource(f5BigIPLTMMod, "Pool")},
-			"bigip_ltm_pool_attachment":             {Tok: makeResource(f5BigIPLTMMod, "PoolAttachment")},
-			"bigip_ltm_policy":                      {Tok: makeResource(f5BigIPLTMMod, "Policy")},
-			"bigip_ltm_profile_fasthttp":            {Tok: makeResource(f5BigIPLTMMod, "ProfileFastHttp")},
-			"bigip_ltm_profile_fastl4":              {Tok: makeResource(f5BigIPLTMMod, "ProfileFastL4")},
-			"bigip_ltm_profile_http":                {Tok: makeResource(f5BigIPLTMMod, "ProfileHttp")},
-			"bigip_ltm_profile_http2":               {Tok: makeResource(f5BigIPLTMMod, "ProfileHttp2")},
-			"bigip_ltm_profile_httpcompress":        {Tok: makeResource(f5BigIPLTMMod, "ProfileHttpCompress")},
-			"bigip_ltm_profile_oneconnect":          {Tok: makeResource(f5BigIPLTMMod, "ProfileOneConnect")},
-			"bigip_ltm_profile_tcp":                 {Tok: makeResource(f5BigIPLTMMod, "ProfileTcp")},
-			"bigip_ltm_persistence_profile_srcaddr": {Tok: makeResource(f5BigIPLTMMod, "PersistenceProfileSrcAddr")},
-			"bigip_ltm_persistence_profile_dstaddr": {Tok: makeResource(f5BigIPLTMMod, "PersistenceProfileDstAddr")},
-			"bigip_ltm_persistence_profile_ssl":     {Tok: makeResource(f5BigIPLTMMod, "PersistenceProfileSsl")},
-			"bigip_ltm_persistence_profile_cookie":  {Tok: makeResource(f5BigIPLTMMod, "PersistenceProfileCookie")},
-			"bigip_ltm_snat":                        {Tok: makeResource(f5BigIPLTMMod, "Snat")},
-			"bigip_ltm_snatpool":                    {Tok: makeResource(f5BigIPLTMMod, "SnatPool")},
-			"bigip_ltm_virtual_address":             {Tok: makeResource(f5BigIPLTMMod, "VirtualAddress")},
-			"bigip_ltm_virtual_server":              {Tok: makeResource(f5BigIPLTMMod, "VirtualServer")},
-			"bigip_ltm_profile_client_ssl":          {Tok: makeResource(f5BigIPLTMMod, "ProfileClientSsl")},
-			"bigip_ltm_profile_server_ssl":          {Tok: makeResource(f5BigIPLTMMod, "ProfileServerSsl")},
-			"bigip_sys_dns":                         {Tok: makeResource(f5BigIPSysMod, "Dns")},
-			"bigip_sys_iapp":                        {Tok: makeResource(f5BigIPSysMod, "IApp")},
-			"bigip_sys_ntp":                         {Tok: makeResource(f5BigIPSysMod, "Ntp")},
-			"bigip_sys_provision":                   {Tok: makeResource(f5BigIPSysMod, "Provision")},
-			"bigip_sys_snmp":                        {Tok: makeResource(f5BigIPSysMod, "Snmp")},
-			"bigip_sys_snmp_traps":                  {Tok: makeResource(f5BigIPSysMod, "SnmpTraps")},
-			"bigip_sys_bigiplicense":                {Tok: makeResource(f5BigIPSysMod, "BigIpLicense")},
-			"bigip_ssl_certificate":                 {Tok: makeResource(f5BigIPSslMod, "Certificate")},
-			"bigip_ssl_key":                         {Tok: makeResource(f5BigIPSslMod, "Key")},
-			"bigip_as3":                             {Tok: makeResource(f5BigIPMainMod, "As3")},
-			"bigip_do":                              {Tok: makeResource(f5BigIPMainMod, "Do")},
-			"bigip_bigiq_as3":                       {Tok: makeResource(f5BigIPMainMod, "BigIqAs3")},
-			"bigip_command":                         {Tok: makeResource(f5BigIPMainMod, "Command")},
-			"bigip_common_license_manage_bigiq":     {Tok: makeResource(f5BigIPMainMod, "CommonLicenseManageBigIq")},
+			"bigip_cm_device":                       {Tok: makeResource(cmMod, "Device")},
+			"bigip_cm_devicegroup":                  {Tok: makeResource(cmMod, "DeviceGroup")},
+			"bigip_net_route":                       {Tok: makeResource(netMod, "Route")},
+			"bigip_net_selfip":                      {Tok: makeResource(netMod, "SelfIp")},
+			"bigip_net_vlan":                        {Tok: makeResource(netMod, "Vlan")},
+			"bigip_ltm_irule":                       {Tok: makeResource(ltmMod, "IRule")},
+			"bigip_ltm_datagroup":                   {Tok: makeResource(ltmMod, "DataGroup")},
+			"bigip_ltm_monitor":                     {Tok: makeResource(ltmMod, "Monitor")},
+			"bigip_ltm_node":                        {Tok: makeResource(ltmMod, "Node")},
+			"bigip_ltm_pool":                        {Tok: makeResource(ltmMod, "Pool")},
+			"bigip_ltm_pool_attachment":             {Tok: makeResource(ltmMod, "PoolAttachment")},
+			"bigip_ltm_policy":                      {Tok: makeResource(ltmMod, "Policy")},
+			"bigip_ltm_profile_fasthttp":            {Tok: makeResource(ltmMod, "ProfileFastHttp")},
+			"bigip_ltm_profile_fastl4":              {Tok: makeResource(ltmMod, "ProfileFastL4")},
+			"bigip_ltm_profile_http":                {Tok: makeResource(ltmMod, "ProfileHttp")},
+			"bigip_ltm_profile_http2":               {Tok: makeResource(ltmMod, "ProfileHttp2")},
+			"bigip_ltm_profile_httpcompress":        {Tok: makeResource(ltmMod, "ProfileHttpCompress")},
+			"bigip_ltm_profile_oneconnect":          {Tok: makeResource(ltmMod, "ProfileOneConnect")},
+			"bigip_ltm_profile_tcp":                 {Tok: makeResource(ltmMod, "ProfileTcp")},
+			"bigip_ltm_persistence_profile_srcaddr": {Tok: makeResource(ltmMod, "PersistenceProfileSrcAddr")},
+			"bigip_ltm_persistence_profile_dstaddr": {Tok: makeResource(ltmMod, "PersistenceProfileDstAddr")},
+			"bigip_ltm_persistence_profile_ssl":     {Tok: makeResource(ltmMod, "PersistenceProfileSsl")},
+			"bigip_ltm_persistence_profile_cookie":  {Tok: makeResource(ltmMod, "PersistenceProfileCookie")},
+			"bigip_ltm_snat":                        {Tok: makeResource(ltmMod, "Snat")},
+			"bigip_ltm_snatpool":                    {Tok: makeResource(ltmMod, "SnatPool")},
+			"bigip_ltm_virtual_address":             {Tok: makeResource(ltmMod, "VirtualAddress")},
+			"bigip_ltm_virtual_server":              {Tok: makeResource(ltmMod, "VirtualServer")},
+			"bigip_ltm_profile_client_ssl":          {Tok: makeResource(ltmMod, "ProfileClientSsl")},
+			"bigip_ltm_profile_server_ssl":          {Tok: makeResource(ltmMod, "ProfileServerSsl")},
+			"bigip_sys_dns":                         {Tok: makeResource(sysMod, "Dns")},
+			"bigip_sys_iapp":                        {Tok: makeResource(sysMod, "IApp")},
+			"bigip_sys_ntp":                         {Tok: makeResource(sysMod, "Ntp")},
+			"bigip_sys_provision":                   {Tok: makeResource(sysMod, "Provision")},
+			"bigip_sys_snmp":                        {Tok: makeResource(sysMod, "Snmp")},
+			"bigip_sys_snmp_traps":                  {Tok: makeResource(sysMod, "SnmpTraps")},
+			"bigip_sys_bigiplicense":                {Tok: makeResource(sysMod, "BigIpLicense")},
+			"bigip_ssl_certificate":                 {Tok: makeResource(sslMod, "Certificate")},
+			"bigip_ssl_key":                         {Tok: makeResource(sslMod, "Key")},
+			"bigip_as3":                             {Tok: makeResource(mainMod, "As3")},
+			"bigip_do":                              {Tok: makeResource(mainMod, "Do")},
+			"bigip_bigiq_as3":                       {Tok: makeResource(mainMod, "BigIqAs3")},
+			"bigip_command":                         {Tok: makeResource(mainMod, "Command")},
+			"bigip_common_license_manage_bigiq":     {Tok: makeResource(mainMod, "CommonLicenseManageBigIq")},
+			"bigip_event_service_discovery":         {Tok: makeResource(mainMod, "EventServiceDiscovery")},
+		},
+		DataSources: map[string]*tfbridge.DataSourceInfo{
+			"bigip_ltm_datagroup":   {Tok: makeDataSource(ltmMod, "getDataGroup")},
+			"bigip_ltm_irule":       {Tok: makeDataSource(ltmMod, "getIrule")},
+			"bigip_ltm_monitor":     {Tok: makeDataSource(ltmMod, "getMonitor")},
+			"bigip_ssl_certificate": {Tok: makeDataSource(sslMod, "getCertificate")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

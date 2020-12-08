@@ -75,6 +75,20 @@ class CommonLicenseManageBigIq(pulumi.CustomResource):
             assignment_type="UNREACHABLE",
             mac_address="FA:16:3E:1B:6D:32",
             hypervisor="azure")
+        # MANAGED Purchased Pool
+        test_example_f5bigip_index_common_license_manage_big_iq_common_license_manage_big_iq2 = f5bigip.CommonLicenseManageBigIq("testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq2",
+            bigiq_address=var["bigiq"],
+            bigiq_user=var["bigiq_un"],
+            bigiq_password=var["bigiq_pw"],
+            license_poolname="purchased_pool_name",
+            assignment_type="MANAGED")
+        # UNMANAGED Purchased Pool
+        test_example_f5bigip_index_common_license_manage_big_iq_common_license_manage_big_iq3 = f5bigip.CommonLicenseManageBigIq("testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq3",
+            bigiq_address=var["bigiq"],
+            bigiq_user=var["bigiq_un"],
+            bigiq_password=var["bigiq_pw"],
+            license_poolname="purchased_pool_name",
+            assignment_type="UNMANAGED")
         ```
 
         :param str resource_name: The name of the resource.

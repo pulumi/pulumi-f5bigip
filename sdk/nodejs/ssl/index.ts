@@ -3,4 +3,5 @@
 
 // Export members:
 export * from "./certificate";
+export * from "./getCertificate";
 export * from "./key";

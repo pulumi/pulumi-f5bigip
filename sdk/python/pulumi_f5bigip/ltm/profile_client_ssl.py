@@ -84,8 +84,7 @@ class ProfileClientSsl(pulumi.CustomResource):
             authenticate="always",
             ciphers="DEFAULT",
             defaults_from="/Common/clientssl",
-            name="/Common/test-ClientSsl",
-            partition="Common")
+            name="/Common/test-ClientSsl")
         ```
 
         :param str resource_name: The name of the resource.
@@ -139,8 +138,8 @@ class ProfileClientSsl(pulumi.CustomResource):
         :param pulumi.Input[str] sni_default: Indicates that the system uses this profile as the default SSL profile when there is no match to the server name, or when the client provides no SNI extension support.When creating a new profile, the setting is provided by the parent profile.
                There can be only one SSL profile with this setting enabled.
         :param pulumi.Input[str] sni_require: Requires that the network peers also provide SNI support, this setting only takes effect when `sni_default` is set to `true`.When creating a new profile, the setting is provided by the parent profile
-        :param pulumi.Input[str] ssl_forward_proxy: SSL forward Proxy (enabled / disabled)
-        :param pulumi.Input[str] ssl_forward_proxy_bypass: SSL forward Proxy Bypass (enabled / disabled)
+        :param pulumi.Input[str] ssl_forward_proxy: Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
+        :param pulumi.Input[str] ssl_forward_proxy_bypass: Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
         :param pulumi.Input[str] ssl_sign_hash: SSL sign hash (any, sha1, sha256, sha384)
         :param pulumi.Input[str] strict_resume: Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
         :param pulumi.Input[str] unclean_shutdown: Unclean Shutdown (enabled / disabled)
@@ -332,8 +331,8 @@ class ProfileClientSsl(pulumi.CustomResource):
         :param pulumi.Input[str] sni_default: Indicates that the system uses this profile as the default SSL profile when there is no match to the server name, or when the client provides no SNI extension support.When creating a new profile, the setting is provided by the parent profile.
                There can be only one SSL profile with this setting enabled.
         :param pulumi.Input[str] sni_require: Requires that the network peers also provide SNI support, this setting only takes effect when `sni_default` is set to `true`.When creating a new profile, the setting is provided by the parent profile
-        :param pulumi.Input[str] ssl_forward_proxy: SSL forward Proxy (enabled / disabled)
-        :param pulumi.Input[str] ssl_forward_proxy_bypass: SSL forward Proxy Bypass (enabled / disabled)
+        :param pulumi.Input[str] ssl_forward_proxy: Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
+        :param pulumi.Input[str] ssl_forward_proxy_bypass: Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
         :param pulumi.Input[str] ssl_sign_hash: SSL sign hash (any, sha1, sha256, sha384)
         :param pulumi.Input[str] strict_resume: Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
         :param pulumi.Input[str] unclean_shutdown: Unclean Shutdown (enabled / disabled)
@@ -761,7 +760,7 @@ class ProfileClientSsl(pulumi.CustomResource):
     @pulumi.getter(name="sslForwardProxy")
     def ssl_forward_proxy(self) -> pulumi.Output[str]:
         """
-        SSL forward Proxy (enabled / disabled)
+        Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
         """
         return pulumi.get(self, "ssl_forward_proxy")
 
@@ -769,7 +768,7 @@ class ProfileClientSsl(pulumi.CustomResource):
     @pulumi.getter(name="sslForwardProxyBypass")
     def ssl_forward_proxy_bypass(self) -> pulumi.Output[str]:
         """
-        SSL forward Proxy Bypass (enabled / disabled)
+        Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
         """
         return pulumi.get(self, "ssl_forward_proxy_bypass")
 

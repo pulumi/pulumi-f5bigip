@@ -4,6 +4,11 @@
 import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 
+export interface EventServiceDiscoveryNode {
+    id?: pulumi.Input<string>;
+    ip?: pulumi.Input<string>;
+    port?: pulumi.Input<number>;
+}
 export namespace cm {
     export interface DeviceGroupDevice {
         /**
@@ -24,6 +29,11 @@ export namespace ltm {
          * , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
          */
         name: pulumi.Input<string>;
+    }
+
+    export interface GetDataGroupRecord {
+        data?: string;
+        name: string;
     }
 
     export interface NodeFqdn {

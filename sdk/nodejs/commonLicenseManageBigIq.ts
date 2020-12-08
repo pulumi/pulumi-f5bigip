@@ -49,6 +49,22 @@ import * as utilities from "./utilities";
  *     macAddress: "FA:16:3E:1B:6D:32",
  *     hypervisor: "azure",
  * });
+ * // MANAGED Purchased Pool
+ * const testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq2 = new f5bigip.CommonLicenseManageBigIq("testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq2", {
+ *     bigiqAddress: _var.bigiq,
+ *     bigiqUser: _var.bigiq_un,
+ *     bigiqPassword: _var.bigiq_pw,
+ *     licensePoolname: "purchased_pool_name",
+ *     assignmentType: "MANAGED",
+ * });
+ * // UNMANAGED Purchased Pool
+ * const testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq3 = new f5bigip.CommonLicenseManageBigIq("testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq3", {
+ *     bigiqAddress: _var.bigiq,
+ *     bigiqUser: _var.bigiq_un,
+ *     bigiqPassword: _var.bigiq_pw,
+ *     licensePoolname: "purchased_pool_name",
+ *     assignmentType: "UNMANAGED",
+ * });
  * ```
  */
 export class CommonLicenseManageBigIq extends pulumi.CustomResource {

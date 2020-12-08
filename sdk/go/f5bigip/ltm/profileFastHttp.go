@@ -38,7 +38,7 @@ import (
 // 			Forcehttp10response:         pulumi.String("disabled"),
 // 			IdleTimeout:                 pulumi.Int(300),
 // 			MaxheaderSize:               pulumi.Int(32768),
-// 			Name:                        pulumi.String("sjfasthttpprofile"),
+// 			Name:                        pulumi.String("/Common/sjfasthttpprofile"),
 // 		})
 // 		if err != nil {
 // 			return err

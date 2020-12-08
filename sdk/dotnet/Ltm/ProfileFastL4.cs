@@ -35,7 +35,6 @@ namespace Pulumi.F5BigIP.Ltm
     ///             IptosToserver = "pass-through",
     ///             KeepaliveInterval = "disabled",
     ///             Name = "/Common/sjfastl4profile",
-    ///             Partition = "Common",
     ///         });
     ///     }
     /// 
