@@ -318,7 +318,7 @@ func (o NodeFqdnPtrOutput) Name() pulumi.StringPtrOutput {
 type PolicyRule struct {
 	Actions    []PolicyRuleAction    `pulumi:"actions"`
 	Conditions []PolicyRuleCondition `pulumi:"conditions"`
-	// Name of the Policy
+	// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
 	Name string `pulumi:"name"`
 }
 
@@ -336,7 +336,7 @@ type PolicyRuleInput interface {
 type PolicyRuleArgs struct {
 	Actions    PolicyRuleActionArrayInput    `pulumi:"actions"`
 	Conditions PolicyRuleConditionArrayInput `pulumi:"conditions"`
-	// Name of the Policy
+	// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -399,7 +399,7 @@ func (o PolicyRuleOutput) Conditions() PolicyRuleConditionArrayOutput {
 	return o.ApplyT(func(v PolicyRule) []PolicyRuleCondition { return v.Conditions }).(PolicyRuleConditionArrayOutput)
 }
 
-// Name of the Policy
+// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
 func (o PolicyRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyRule) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -520,16 +520,15 @@ type PolicyRuleAction struct {
 	TcpNagle           *bool   `pulumi:"tcpNagle"`
 	Text               *string `pulumi:"text"`
 	Timeout            *int    `pulumi:"timeout"`
-	// If Rule is used then you need to provide the tmName it can be any value
-	TmName    *string `pulumi:"tmName"`
-	Uie       *bool   `pulumi:"uie"`
-	Universal *bool   `pulumi:"universal"`
-	Value     *string `pulumi:"value"`
-	Virtual   *string `pulumi:"virtual"`
-	Vlan      *string `pulumi:"vlan"`
-	VlanId    *int    `pulumi:"vlanId"`
-	Wam       *bool   `pulumi:"wam"`
-	Write     *bool   `pulumi:"write"`
+	TmName             *string `pulumi:"tmName"`
+	Uie                *bool   `pulumi:"uie"`
+	Universal          *bool   `pulumi:"universal"`
+	Value              *string `pulumi:"value"`
+	Virtual            *string `pulumi:"virtual"`
+	Vlan               *string `pulumi:"vlan"`
+	VlanId             *int    `pulumi:"vlanId"`
+	Wam                *bool   `pulumi:"wam"`
+	Write              *bool   `pulumi:"write"`
 }
 
 // PolicyRuleActionInput is an input type that accepts PolicyRuleActionArgs and PolicyRuleActionOutput values.
@@ -639,16 +638,15 @@ type PolicyRuleActionArgs struct {
 	TcpNagle           pulumi.BoolPtrInput   `pulumi:"tcpNagle"`
 	Text               pulumi.StringPtrInput `pulumi:"text"`
 	Timeout            pulumi.IntPtrInput    `pulumi:"timeout"`
-	// If Rule is used then you need to provide the tmName it can be any value
-	TmName    pulumi.StringPtrInput `pulumi:"tmName"`
-	Uie       pulumi.BoolPtrInput   `pulumi:"uie"`
-	Universal pulumi.BoolPtrInput   `pulumi:"universal"`
-	Value     pulumi.StringPtrInput `pulumi:"value"`
-	Virtual   pulumi.StringPtrInput `pulumi:"virtual"`
-	Vlan      pulumi.StringPtrInput `pulumi:"vlan"`
-	VlanId    pulumi.IntPtrInput    `pulumi:"vlanId"`
-	Wam       pulumi.BoolPtrInput   `pulumi:"wam"`
-	Write     pulumi.BoolPtrInput   `pulumi:"write"`
+	TmName             pulumi.StringPtrInput `pulumi:"tmName"`
+	Uie                pulumi.BoolPtrInput   `pulumi:"uie"`
+	Universal          pulumi.BoolPtrInput   `pulumi:"universal"`
+	Value              pulumi.StringPtrInput `pulumi:"value"`
+	Virtual            pulumi.StringPtrInput `pulumi:"virtual"`
+	Vlan               pulumi.StringPtrInput `pulumi:"vlan"`
+	VlanId             pulumi.IntPtrInput    `pulumi:"vlanId"`
+	Wam                pulumi.BoolPtrInput   `pulumi:"wam"`
+	Write              pulumi.BoolPtrInput   `pulumi:"write"`
 }
 
 func (PolicyRuleActionArgs) ElementType() reflect.Type {
@@ -1076,7 +1074,6 @@ func (o PolicyRuleActionOutput) Timeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v PolicyRuleAction) *int { return v.Timeout }).(pulumi.IntPtrOutput)
 }
 
-// If Rule is used then you need to provide the tmName it can be any value
 func (o PolicyRuleActionOutput) TmName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyRuleAction) *string { return v.TmName }).(pulumi.StringPtrOutput)
 }
@@ -1134,88 +1131,87 @@ func (o PolicyRuleActionArrayOutput) Index(i pulumi.IntInput) PolicyRuleActionOu
 }
 
 type PolicyRuleCondition struct {
-	Address            *bool   `pulumi:"address"`
-	All                *bool   `pulumi:"all"`
-	AppService         *string `pulumi:"appService"`
-	BrowserType        *bool   `pulumi:"browserType"`
-	BrowserVersion     *bool   `pulumi:"browserVersion"`
-	CaseInsensitive    *bool   `pulumi:"caseInsensitive"`
-	CaseSensitive      *bool   `pulumi:"caseSensitive"`
-	Cipher             *bool   `pulumi:"cipher"`
-	CipherBits         *bool   `pulumi:"cipherBits"`
-	ClientSsl          *bool   `pulumi:"clientSsl"`
-	Code               *bool   `pulumi:"code"`
-	CommonName         *bool   `pulumi:"commonName"`
-	Contains           *bool   `pulumi:"contains"`
-	Continent          *bool   `pulumi:"continent"`
-	CountryCode        *bool   `pulumi:"countryCode"`
-	CountryName        *bool   `pulumi:"countryName"`
-	CpuUsage           *bool   `pulumi:"cpuUsage"`
-	DeviceMake         *bool   `pulumi:"deviceMake"`
-	DeviceModel        *bool   `pulumi:"deviceModel"`
-	Domain             *bool   `pulumi:"domain"`
-	EndsWith           *bool   `pulumi:"endsWith"`
-	Equals             *bool   `pulumi:"equals"`
-	Expiry             *bool   `pulumi:"expiry"`
-	Extension          *bool   `pulumi:"extension"`
-	External           *bool   `pulumi:"external"`
-	Geoip              *bool   `pulumi:"geoip"`
-	Greater            *bool   `pulumi:"greater"`
-	GreaterOrEqual     *bool   `pulumi:"greaterOrEqual"`
-	Host               *bool   `pulumi:"host"`
-	HttpBasicAuth      *bool   `pulumi:"httpBasicAuth"`
-	HttpCookie         *bool   `pulumi:"httpCookie"`
-	HttpHeader         *bool   `pulumi:"httpHeader"`
-	HttpHost           *bool   `pulumi:"httpHost"`
-	HttpMethod         *bool   `pulumi:"httpMethod"`
-	HttpReferer        *bool   `pulumi:"httpReferer"`
-	HttpSetCookie      *bool   `pulumi:"httpSetCookie"`
-	HttpStatus         *bool   `pulumi:"httpStatus"`
-	HttpUri            *bool   `pulumi:"httpUri"`
-	HttpUserAgent      *bool   `pulumi:"httpUserAgent"`
-	HttpVersion        *bool   `pulumi:"httpVersion"`
-	Index              *int    `pulumi:"index"`
-	Internal           *bool   `pulumi:"internal"`
-	Isp                *bool   `pulumi:"isp"`
-	Last15secs         *bool   `pulumi:"last15secs"`
-	Last1min           *bool   `pulumi:"last1min"`
-	Last5mins          *bool   `pulumi:"last5mins"`
-	Less               *bool   `pulumi:"less"`
-	LessOrEqual        *bool   `pulumi:"lessOrEqual"`
-	Local              *bool   `pulumi:"local"`
-	Major              *bool   `pulumi:"major"`
-	Matches            *bool   `pulumi:"matches"`
-	Minor              *bool   `pulumi:"minor"`
-	Missing            *bool   `pulumi:"missing"`
-	Mss                *bool   `pulumi:"mss"`
-	Not                *bool   `pulumi:"not"`
-	Org                *bool   `pulumi:"org"`
-	Password           *bool   `pulumi:"password"`
-	Path               *bool   `pulumi:"path"`
-	PathSegment        *bool   `pulumi:"pathSegment"`
-	Port               *bool   `pulumi:"port"`
-	Present            *bool   `pulumi:"present"`
-	Protocol           *bool   `pulumi:"protocol"`
-	QueryParameter     *bool   `pulumi:"queryParameter"`
-	QueryString        *bool   `pulumi:"queryString"`
-	RegionCode         *bool   `pulumi:"regionCode"`
-	RegionName         *bool   `pulumi:"regionName"`
-	Remote             *bool   `pulumi:"remote"`
-	Request            *bool   `pulumi:"request"`
-	Response           *bool   `pulumi:"response"`
-	RouteDomain        *bool   `pulumi:"routeDomain"`
-	Rtt                *bool   `pulumi:"rtt"`
-	Scheme             *bool   `pulumi:"scheme"`
-	ServerName         *bool   `pulumi:"serverName"`
-	SslCert            *bool   `pulumi:"sslCert"`
-	SslClientHello     *bool   `pulumi:"sslClientHello"`
-	SslExtension       *bool   `pulumi:"sslExtension"`
-	SslServerHandshake *bool   `pulumi:"sslServerHandshake"`
-	SslServerHello     *bool   `pulumi:"sslServerHello"`
-	StartsWith         *bool   `pulumi:"startsWith"`
-	Tcp                *bool   `pulumi:"tcp"`
-	Text               *bool   `pulumi:"text"`
-	// If Rule is used then you need to provide the tmName it can be any value
+	Address               *bool    `pulumi:"address"`
+	All                   *bool    `pulumi:"all"`
+	AppService            *string  `pulumi:"appService"`
+	BrowserType           *bool    `pulumi:"browserType"`
+	BrowserVersion        *bool    `pulumi:"browserVersion"`
+	CaseInsensitive       *bool    `pulumi:"caseInsensitive"`
+	CaseSensitive         *bool    `pulumi:"caseSensitive"`
+	Cipher                *bool    `pulumi:"cipher"`
+	CipherBits            *bool    `pulumi:"cipherBits"`
+	ClientSsl             *bool    `pulumi:"clientSsl"`
+	Code                  *bool    `pulumi:"code"`
+	CommonName            *bool    `pulumi:"commonName"`
+	Contains              *bool    `pulumi:"contains"`
+	Continent             *bool    `pulumi:"continent"`
+	CountryCode           *bool    `pulumi:"countryCode"`
+	CountryName           *bool    `pulumi:"countryName"`
+	CpuUsage              *bool    `pulumi:"cpuUsage"`
+	DeviceMake            *bool    `pulumi:"deviceMake"`
+	DeviceModel           *bool    `pulumi:"deviceModel"`
+	Domain                *bool    `pulumi:"domain"`
+	EndsWith              *bool    `pulumi:"endsWith"`
+	Equals                *bool    `pulumi:"equals"`
+	Expiry                *bool    `pulumi:"expiry"`
+	Extension             *bool    `pulumi:"extension"`
+	External              *bool    `pulumi:"external"`
+	Geoip                 *bool    `pulumi:"geoip"`
+	Greater               *bool    `pulumi:"greater"`
+	GreaterOrEqual        *bool    `pulumi:"greaterOrEqual"`
+	Host                  *bool    `pulumi:"host"`
+	HttpBasicAuth         *bool    `pulumi:"httpBasicAuth"`
+	HttpCookie            *bool    `pulumi:"httpCookie"`
+	HttpHeader            *bool    `pulumi:"httpHeader"`
+	HttpHost              *bool    `pulumi:"httpHost"`
+	HttpMethod            *bool    `pulumi:"httpMethod"`
+	HttpReferer           *bool    `pulumi:"httpReferer"`
+	HttpSetCookie         *bool    `pulumi:"httpSetCookie"`
+	HttpStatus            *bool    `pulumi:"httpStatus"`
+	HttpUri               *bool    `pulumi:"httpUri"`
+	HttpUserAgent         *bool    `pulumi:"httpUserAgent"`
+	HttpVersion           *bool    `pulumi:"httpVersion"`
+	Index                 *int     `pulumi:"index"`
+	Internal              *bool    `pulumi:"internal"`
+	Isp                   *bool    `pulumi:"isp"`
+	Last15secs            *bool    `pulumi:"last15secs"`
+	Last1min              *bool    `pulumi:"last1min"`
+	Last5mins             *bool    `pulumi:"last5mins"`
+	Less                  *bool    `pulumi:"less"`
+	LessOrEqual           *bool    `pulumi:"lessOrEqual"`
+	Local                 *bool    `pulumi:"local"`
+	Major                 *bool    `pulumi:"major"`
+	Matches               *bool    `pulumi:"matches"`
+	Minor                 *bool    `pulumi:"minor"`
+	Missing               *bool    `pulumi:"missing"`
+	Mss                   *bool    `pulumi:"mss"`
+	Not                   *bool    `pulumi:"not"`
+	Org                   *bool    `pulumi:"org"`
+	Password              *bool    `pulumi:"password"`
+	Path                  *bool    `pulumi:"path"`
+	PathSegment           *bool    `pulumi:"pathSegment"`
+	Port                  *bool    `pulumi:"port"`
+	Present               *bool    `pulumi:"present"`
+	Protocol              *bool    `pulumi:"protocol"`
+	QueryParameter        *bool    `pulumi:"queryParameter"`
+	QueryString           *bool    `pulumi:"queryString"`
+	RegionCode            *bool    `pulumi:"regionCode"`
+	RegionName            *bool    `pulumi:"regionName"`
+	Remote                *bool    `pulumi:"remote"`
+	Request               *bool    `pulumi:"request"`
+	Response              *bool    `pulumi:"response"`
+	RouteDomain           *bool    `pulumi:"routeDomain"`
+	Rtt                   *bool    `pulumi:"rtt"`
+	Scheme                *bool    `pulumi:"scheme"`
+	ServerName            *bool    `pulumi:"serverName"`
+	SslCert               *bool    `pulumi:"sslCert"`
+	SslClientHello        *bool    `pulumi:"sslClientHello"`
+	SslExtension          *bool    `pulumi:"sslExtension"`
+	SslServerHandshake    *bool    `pulumi:"sslServerHandshake"`
+	SslServerHello        *bool    `pulumi:"sslServerHello"`
+	StartsWith            *bool    `pulumi:"startsWith"`
+	Tcp                   *bool    `pulumi:"tcp"`
+	Text                  *bool    `pulumi:"text"`
 	TmName                *string  `pulumi:"tmName"`
 	UnnamedQueryParameter *bool    `pulumi:"unnamedQueryParameter"`
 	UserAgentToken        *bool    `pulumi:"userAgentToken"`
@@ -1239,88 +1235,87 @@ type PolicyRuleConditionInput interface {
 }
 
 type PolicyRuleConditionArgs struct {
-	Address            pulumi.BoolPtrInput   `pulumi:"address"`
-	All                pulumi.BoolPtrInput   `pulumi:"all"`
-	AppService         pulumi.StringPtrInput `pulumi:"appService"`
-	BrowserType        pulumi.BoolPtrInput   `pulumi:"browserType"`
-	BrowserVersion     pulumi.BoolPtrInput   `pulumi:"browserVersion"`
-	CaseInsensitive    pulumi.BoolPtrInput   `pulumi:"caseInsensitive"`
-	CaseSensitive      pulumi.BoolPtrInput   `pulumi:"caseSensitive"`
-	Cipher             pulumi.BoolPtrInput   `pulumi:"cipher"`
-	CipherBits         pulumi.BoolPtrInput   `pulumi:"cipherBits"`
-	ClientSsl          pulumi.BoolPtrInput   `pulumi:"clientSsl"`
-	Code               pulumi.BoolPtrInput   `pulumi:"code"`
-	CommonName         pulumi.BoolPtrInput   `pulumi:"commonName"`
-	Contains           pulumi.BoolPtrInput   `pulumi:"contains"`
-	Continent          pulumi.BoolPtrInput   `pulumi:"continent"`
-	CountryCode        pulumi.BoolPtrInput   `pulumi:"countryCode"`
-	CountryName        pulumi.BoolPtrInput   `pulumi:"countryName"`
-	CpuUsage           pulumi.BoolPtrInput   `pulumi:"cpuUsage"`
-	DeviceMake         pulumi.BoolPtrInput   `pulumi:"deviceMake"`
-	DeviceModel        pulumi.BoolPtrInput   `pulumi:"deviceModel"`
-	Domain             pulumi.BoolPtrInput   `pulumi:"domain"`
-	EndsWith           pulumi.BoolPtrInput   `pulumi:"endsWith"`
-	Equals             pulumi.BoolPtrInput   `pulumi:"equals"`
-	Expiry             pulumi.BoolPtrInput   `pulumi:"expiry"`
-	Extension          pulumi.BoolPtrInput   `pulumi:"extension"`
-	External           pulumi.BoolPtrInput   `pulumi:"external"`
-	Geoip              pulumi.BoolPtrInput   `pulumi:"geoip"`
-	Greater            pulumi.BoolPtrInput   `pulumi:"greater"`
-	GreaterOrEqual     pulumi.BoolPtrInput   `pulumi:"greaterOrEqual"`
-	Host               pulumi.BoolPtrInput   `pulumi:"host"`
-	HttpBasicAuth      pulumi.BoolPtrInput   `pulumi:"httpBasicAuth"`
-	HttpCookie         pulumi.BoolPtrInput   `pulumi:"httpCookie"`
-	HttpHeader         pulumi.BoolPtrInput   `pulumi:"httpHeader"`
-	HttpHost           pulumi.BoolPtrInput   `pulumi:"httpHost"`
-	HttpMethod         pulumi.BoolPtrInput   `pulumi:"httpMethod"`
-	HttpReferer        pulumi.BoolPtrInput   `pulumi:"httpReferer"`
-	HttpSetCookie      pulumi.BoolPtrInput   `pulumi:"httpSetCookie"`
-	HttpStatus         pulumi.BoolPtrInput   `pulumi:"httpStatus"`
-	HttpUri            pulumi.BoolPtrInput   `pulumi:"httpUri"`
-	HttpUserAgent      pulumi.BoolPtrInput   `pulumi:"httpUserAgent"`
-	HttpVersion        pulumi.BoolPtrInput   `pulumi:"httpVersion"`
-	Index              pulumi.IntPtrInput    `pulumi:"index"`
-	Internal           pulumi.BoolPtrInput   `pulumi:"internal"`
-	Isp                pulumi.BoolPtrInput   `pulumi:"isp"`
-	Last15secs         pulumi.BoolPtrInput   `pulumi:"last15secs"`
-	Last1min           pulumi.BoolPtrInput   `pulumi:"last1min"`
-	Last5mins          pulumi.BoolPtrInput   `pulumi:"last5mins"`
-	Less               pulumi.BoolPtrInput   `pulumi:"less"`
-	LessOrEqual        pulumi.BoolPtrInput   `pulumi:"lessOrEqual"`
-	Local              pulumi.BoolPtrInput   `pulumi:"local"`
-	Major              pulumi.BoolPtrInput   `pulumi:"major"`
-	Matches            pulumi.BoolPtrInput   `pulumi:"matches"`
-	Minor              pulumi.BoolPtrInput   `pulumi:"minor"`
-	Missing            pulumi.BoolPtrInput   `pulumi:"missing"`
-	Mss                pulumi.BoolPtrInput   `pulumi:"mss"`
-	Not                pulumi.BoolPtrInput   `pulumi:"not"`
-	Org                pulumi.BoolPtrInput   `pulumi:"org"`
-	Password           pulumi.BoolPtrInput   `pulumi:"password"`
-	Path               pulumi.BoolPtrInput   `pulumi:"path"`
-	PathSegment        pulumi.BoolPtrInput   `pulumi:"pathSegment"`
-	Port               pulumi.BoolPtrInput   `pulumi:"port"`
-	Present            pulumi.BoolPtrInput   `pulumi:"present"`
-	Protocol           pulumi.BoolPtrInput   `pulumi:"protocol"`
-	QueryParameter     pulumi.BoolPtrInput   `pulumi:"queryParameter"`
-	QueryString        pulumi.BoolPtrInput   `pulumi:"queryString"`
-	RegionCode         pulumi.BoolPtrInput   `pulumi:"regionCode"`
-	RegionName         pulumi.BoolPtrInput   `pulumi:"regionName"`
-	Remote             pulumi.BoolPtrInput   `pulumi:"remote"`
-	Request            pulumi.BoolPtrInput   `pulumi:"request"`
-	Response           pulumi.BoolPtrInput   `pulumi:"response"`
-	RouteDomain        pulumi.BoolPtrInput   `pulumi:"routeDomain"`
-	Rtt                pulumi.BoolPtrInput   `pulumi:"rtt"`
-	Scheme             pulumi.BoolPtrInput   `pulumi:"scheme"`
-	ServerName         pulumi.BoolPtrInput   `pulumi:"serverName"`
-	SslCert            pulumi.BoolPtrInput   `pulumi:"sslCert"`
-	SslClientHello     pulumi.BoolPtrInput   `pulumi:"sslClientHello"`
-	SslExtension       pulumi.BoolPtrInput   `pulumi:"sslExtension"`
-	SslServerHandshake pulumi.BoolPtrInput   `pulumi:"sslServerHandshake"`
-	SslServerHello     pulumi.BoolPtrInput   `pulumi:"sslServerHello"`
-	StartsWith         pulumi.BoolPtrInput   `pulumi:"startsWith"`
-	Tcp                pulumi.BoolPtrInput   `pulumi:"tcp"`
-	Text               pulumi.BoolPtrInput   `pulumi:"text"`
-	// If Rule is used then you need to provide the tmName it can be any value
+	Address               pulumi.BoolPtrInput     `pulumi:"address"`
+	All                   pulumi.BoolPtrInput     `pulumi:"all"`
+	AppService            pulumi.StringPtrInput   `pulumi:"appService"`
+	BrowserType           pulumi.BoolPtrInput     `pulumi:"browserType"`
+	BrowserVersion        pulumi.BoolPtrInput     `pulumi:"browserVersion"`
+	CaseInsensitive       pulumi.BoolPtrInput     `pulumi:"caseInsensitive"`
+	CaseSensitive         pulumi.BoolPtrInput     `pulumi:"caseSensitive"`
+	Cipher                pulumi.BoolPtrInput     `pulumi:"cipher"`
+	CipherBits            pulumi.BoolPtrInput     `pulumi:"cipherBits"`
+	ClientSsl             pulumi.BoolPtrInput     `pulumi:"clientSsl"`
+	Code                  pulumi.BoolPtrInput     `pulumi:"code"`
+	CommonName            pulumi.BoolPtrInput     `pulumi:"commonName"`
+	Contains              pulumi.BoolPtrInput     `pulumi:"contains"`
+	Continent             pulumi.BoolPtrInput     `pulumi:"continent"`
+	CountryCode           pulumi.BoolPtrInput     `pulumi:"countryCode"`
+	CountryName           pulumi.BoolPtrInput     `pulumi:"countryName"`
+	CpuUsage              pulumi.BoolPtrInput     `pulumi:"cpuUsage"`
+	DeviceMake            pulumi.BoolPtrInput     `pulumi:"deviceMake"`
+	DeviceModel           pulumi.BoolPtrInput     `pulumi:"deviceModel"`
+	Domain                pulumi.BoolPtrInput     `pulumi:"domain"`
+	EndsWith              pulumi.BoolPtrInput     `pulumi:"endsWith"`
+	Equals                pulumi.BoolPtrInput     `pulumi:"equals"`
+	Expiry                pulumi.BoolPtrInput     `pulumi:"expiry"`
+	Extension             pulumi.BoolPtrInput     `pulumi:"extension"`
+	External              pulumi.BoolPtrInput     `pulumi:"external"`
+	Geoip                 pulumi.BoolPtrInput     `pulumi:"geoip"`
+	Greater               pulumi.BoolPtrInput     `pulumi:"greater"`
+	GreaterOrEqual        pulumi.BoolPtrInput     `pulumi:"greaterOrEqual"`
+	Host                  pulumi.BoolPtrInput     `pulumi:"host"`
+	HttpBasicAuth         pulumi.BoolPtrInput     `pulumi:"httpBasicAuth"`
+	HttpCookie            pulumi.BoolPtrInput     `pulumi:"httpCookie"`
+	HttpHeader            pulumi.BoolPtrInput     `pulumi:"httpHeader"`
+	HttpHost              pulumi.BoolPtrInput     `pulumi:"httpHost"`
+	HttpMethod            pulumi.BoolPtrInput     `pulumi:"httpMethod"`
+	HttpReferer           pulumi.BoolPtrInput     `pulumi:"httpReferer"`
+	HttpSetCookie         pulumi.BoolPtrInput     `pulumi:"httpSetCookie"`
+	HttpStatus            pulumi.BoolPtrInput     `pulumi:"httpStatus"`
+	HttpUri               pulumi.BoolPtrInput     `pulumi:"httpUri"`
+	HttpUserAgent         pulumi.BoolPtrInput     `pulumi:"httpUserAgent"`
+	HttpVersion           pulumi.BoolPtrInput     `pulumi:"httpVersion"`
+	Index                 pulumi.IntPtrInput      `pulumi:"index"`
+	Internal              pulumi.BoolPtrInput     `pulumi:"internal"`
+	Isp                   pulumi.BoolPtrInput     `pulumi:"isp"`
+	Last15secs            pulumi.BoolPtrInput     `pulumi:"last15secs"`
+	Last1min              pulumi.BoolPtrInput     `pulumi:"last1min"`
+	Last5mins             pulumi.BoolPtrInput     `pulumi:"last5mins"`
+	Less                  pulumi.BoolPtrInput     `pulumi:"less"`
+	LessOrEqual           pulumi.BoolPtrInput     `pulumi:"lessOrEqual"`
+	Local                 pulumi.BoolPtrInput     `pulumi:"local"`
+	Major                 pulumi.BoolPtrInput     `pulumi:"major"`
+	Matches               pulumi.BoolPtrInput     `pulumi:"matches"`
+	Minor                 pulumi.BoolPtrInput     `pulumi:"minor"`
+	Missing               pulumi.BoolPtrInput     `pulumi:"missing"`
+	Mss                   pulumi.BoolPtrInput     `pulumi:"mss"`
+	Not                   pulumi.BoolPtrInput     `pulumi:"not"`
+	Org                   pulumi.BoolPtrInput     `pulumi:"org"`
+	Password              pulumi.BoolPtrInput     `pulumi:"password"`
+	Path                  pulumi.BoolPtrInput     `pulumi:"path"`
+	PathSegment           pulumi.BoolPtrInput     `pulumi:"pathSegment"`
+	Port                  pulumi.BoolPtrInput     `pulumi:"port"`
+	Present               pulumi.BoolPtrInput     `pulumi:"present"`
+	Protocol              pulumi.BoolPtrInput     `pulumi:"protocol"`
+	QueryParameter        pulumi.BoolPtrInput     `pulumi:"queryParameter"`
+	QueryString           pulumi.BoolPtrInput     `pulumi:"queryString"`
+	RegionCode            pulumi.BoolPtrInput     `pulumi:"regionCode"`
+	RegionName            pulumi.BoolPtrInput     `pulumi:"regionName"`
+	Remote                pulumi.BoolPtrInput     `pulumi:"remote"`
+	Request               pulumi.BoolPtrInput     `pulumi:"request"`
+	Response              pulumi.BoolPtrInput     `pulumi:"response"`
+	RouteDomain           pulumi.BoolPtrInput     `pulumi:"routeDomain"`
+	Rtt                   pulumi.BoolPtrInput     `pulumi:"rtt"`
+	Scheme                pulumi.BoolPtrInput     `pulumi:"scheme"`
+	ServerName            pulumi.BoolPtrInput     `pulumi:"serverName"`
+	SslCert               pulumi.BoolPtrInput     `pulumi:"sslCert"`
+	SslClientHello        pulumi.BoolPtrInput     `pulumi:"sslClientHello"`
+	SslExtension          pulumi.BoolPtrInput     `pulumi:"sslExtension"`
+	SslServerHandshake    pulumi.BoolPtrInput     `pulumi:"sslServerHandshake"`
+	SslServerHello        pulumi.BoolPtrInput     `pulumi:"sslServerHello"`
+	StartsWith            pulumi.BoolPtrInput     `pulumi:"startsWith"`
+	Tcp                   pulumi.BoolPtrInput     `pulumi:"tcp"`
+	Text                  pulumi.BoolPtrInput     `pulumi:"text"`
 	TmName                pulumi.StringPtrInput   `pulumi:"tmName"`
 	UnnamedQueryParameter pulumi.BoolPtrInput     `pulumi:"unnamedQueryParameter"`
 	UserAgentToken        pulumi.BoolPtrInput     `pulumi:"userAgentToken"`
@@ -1707,7 +1702,6 @@ func (o PolicyRuleConditionOutput) Text() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.Text }).(pulumi.BoolPtrOutput)
 }
 
-// If Rule is used then you need to provide the tmName it can be any value
 func (o PolicyRuleConditionOutput) TmName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyRuleCondition) *string { return v.TmName }).(pulumi.StringPtrOutput)
 }

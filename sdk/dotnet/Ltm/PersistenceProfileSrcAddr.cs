@@ -68,7 +68,7 @@ namespace Pulumi.F5BigIP.Ltm
     public partial class PersistenceProfileSrcAddr : Pulumi.CustomResource
     {
         [Output("appService")]
-        public Output<string?> AppService { get; private set; } = null!;
+        public Output<string> AppService { get; private set; } = null!;
 
         /// <summary>
         /// Inherit defaults from parent profile
@@ -80,44 +80,44 @@ namespace Pulumi.F5BigIP.Ltm
         /// Specify the hash algorithm
         /// </summary>
         [Output("hashAlgorithm")]
-        public Output<string?> HashAlgorithm { get; private set; } = null!;
+        public Output<string> HashAlgorithm { get; private set; } = null!;
 
         /// <summary>
         /// To enable _ disable directs all to the same single pool member
         /// </summary>
         [Output("mapProxies")]
-        public Output<string?> MapProxies { get; private set; } = null!;
+        public Output<string> MapProxies { get; private set; } = null!;
 
         /// <summary>
         /// Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
         /// when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
         /// </summary>
         [Output("mask")]
-        public Output<string?> Mask { get; private set; } = null!;
+        public Output<string> Mask { get; private set; } = null!;
 
         /// <summary>
         /// To enable _ disable match across pools with given persistence record
         /// </summary>
         [Output("matchAcrossPools")]
-        public Output<string?> MatchAcrossPools { get; private set; } = null!;
+        public Output<string> MatchAcrossPools { get; private set; } = null!;
 
         /// <summary>
         /// To enable _ disable match across services with given persistence record
         /// </summary>
         [Output("matchAcrossServices")]
-        public Output<string?> MatchAcrossServices { get; private set; } = null!;
+        public Output<string> MatchAcrossServices { get; private set; } = null!;
 
         /// <summary>
         /// To enable _ disable match across services with given persistence record
         /// </summary>
         [Output("matchAcrossVirtuals")]
-        public Output<string?> MatchAcrossVirtuals { get; private set; } = null!;
+        public Output<string> MatchAcrossVirtuals { get; private set; } = null!;
 
         /// <summary>
         /// To enable _ disable
         /// </summary>
         [Output("mirror")]
-        public Output<string?> Mirror { get; private set; } = null!;
+        public Output<string> Mirror { get; private set; } = null!;
 
         /// <summary>
         /// Name of the persistence profile
@@ -130,13 +130,13 @@ namespace Pulumi.F5BigIP.Ltm
         /// limits remain hard limits and are not overridden.
         /// </summary>
         [Output("overrideConnLimit")]
-        public Output<string?> OverrideConnLimit { get; private set; } = null!;
+        public Output<string> OverrideConnLimit { get; private set; } = null!;
 
         /// <summary>
         /// Timeout for persistence of the session
         /// </summary>
         [Output("timeout")]
-        public Output<int?> Timeout { get; private set; } = null!;
+        public Output<int> Timeout { get; private set; } = null!;
 
 
         /// <summary>

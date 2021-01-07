@@ -86,28 +86,28 @@ namespace Pulumi.F5BigIP.Ltm
         /// To enable _ disable always sending cookies
         /// </summary>
         [Output("alwaysSend")]
-        public Output<string?> AlwaysSend { get; private set; } = null!;
+        public Output<string> AlwaysSend { get; private set; } = null!;
 
         [Output("appService")]
-        public Output<string?> AppService { get; private set; } = null!;
+        public Output<string> AppService { get; private set; } = null!;
 
         /// <summary>
         /// To required, preferred, or disabled policy for cookie encryption
         /// </summary>
         [Output("cookieEncryption")]
-        public Output<string?> CookieEncryption { get; private set; } = null!;
+        public Output<string> CookieEncryption { get; private set; } = null!;
 
         /// <summary>
         /// Passphrase for encrypted cookies
         /// </summary>
         [Output("cookieEncryptionPassphrase")]
-        public Output<string?> CookieEncryptionPassphrase { get; private set; } = null!;
+        public Output<string> CookieEncryptionPassphrase { get; private set; } = null!;
 
         /// <summary>
         /// Name of the cookie to track persistence
         /// </summary>
         [Output("cookieName")]
-        public Output<string?> CookieName { get; private set; } = null!;
+        public Output<string> CookieName { get; private set; } = null!;
 
         /// <summary>
         /// Inherit defaults from parent profile
@@ -119,55 +119,55 @@ namespace Pulumi.F5BigIP.Ltm
         /// Expiration TTL for cookie specified in D:H:M:S or in seconds
         /// </summary>
         [Output("expiration")]
-        public Output<string?> Expiration { get; private set; } = null!;
+        public Output<string> Expiration { get; private set; } = null!;
 
         /// <summary>
         /// Length of hash to apply to cookie
         /// </summary>
         [Output("hashLength")]
-        public Output<int?> HashLength { get; private set; } = null!;
+        public Output<int> HashLength { get; private set; } = null!;
 
         /// <summary>
         /// Number of characters to skip in the cookie for the hash
         /// </summary>
         [Output("hashOffset")]
-        public Output<int?> HashOffset { get; private set; } = null!;
+        public Output<int> HashOffset { get; private set; } = null!;
 
         /// <summary>
         /// To enable _ disable sending only over http
         /// </summary>
         [Output("httponly")]
-        public Output<string?> Httponly { get; private set; } = null!;
+        public Output<string> Httponly { get; private set; } = null!;
 
         /// <summary>
         /// To enable _ disable match across pools with given persistence record
         /// </summary>
         [Output("matchAcrossPools")]
-        public Output<string?> MatchAcrossPools { get; private set; } = null!;
+        public Output<string> MatchAcrossPools { get; private set; } = null!;
 
         /// <summary>
         /// To enable _ disable match across services with given persistence record
         /// </summary>
         [Output("matchAcrossServices")]
-        public Output<string?> MatchAcrossServices { get; private set; } = null!;
+        public Output<string> MatchAcrossServices { get; private set; } = null!;
 
         /// <summary>
         /// To enable _ disable match across virtual servers with given persistence record
         /// </summary>
         [Output("matchAcrossVirtuals")]
-        public Output<string?> MatchAcrossVirtuals { get; private set; } = null!;
+        public Output<string> MatchAcrossVirtuals { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the type of cookie processing that the system uses
         /// </summary>
         [Output("method")]
-        public Output<string?> Method { get; private set; } = null!;
+        public Output<string> Method { get; private set; } = null!;
 
         /// <summary>
         /// To enable _ disable
         /// </summary>
         [Output("mirror")]
-        public Output<string?> Mirror { get; private set; } = null!;
+        public Output<string> Mirror { get; private set; } = null!;
 
         /// <summary>
         /// Name of the persistence profile
@@ -180,13 +180,13 @@ namespace Pulumi.F5BigIP.Ltm
         /// limits remain hard limits and are not overridden.
         /// </summary>
         [Output("overrideConnLimit")]
-        public Output<string?> OverrideConnLimit { get; private set; } = null!;
+        public Output<string> OverrideConnLimit { get; private set; } = null!;
 
         /// <summary>
         /// Timeout for persistence of the session
         /// </summary>
         [Output("timeout")]
-        public Output<int?> Timeout { get; private set; } = null!;
+        public Output<int> Timeout { get; private set; } = null!;
 
 
         /// <summary>

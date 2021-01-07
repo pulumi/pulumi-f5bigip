@@ -143,7 +143,7 @@ class PolicyRuleArgs:
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleActionArgs']]]] = None,
                  conditions: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleConditionArgs']]]] = None):
         """
-        :param pulumi.Input[str] name: Name of the Policy
+        :param pulumi.Input[str] name: Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
         """
         pulumi.set(__self__, "name", name)
         if actions is not None:
@@ -155,7 +155,7 @@ class PolicyRuleArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Name of the Policy
+        Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
         """
         return pulumi.get(self, "name")
 
@@ -290,7 +290,6 @@ class PolicyRuleActionArgs:
         """
         :param pulumi.Input[bool] forward: This action will affect forwarding.
         :param pulumi.Input[str] pool: This action will direct the stream to this pool.
-        :param pulumi.Input[str] tm_name: If Rule is used then you need to provide the tm_name it can be any value
         """
         if app_service is not None:
             pulumi.set(__self__, "app_service", app_service)
@@ -1343,9 +1342,6 @@ class PolicyRuleActionArgs:
     @property
     @pulumi.getter(name="tmName")
     def tm_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        If Rule is used then you need to provide the tm_name it can be any value
-        """
         return pulumi.get(self, "tm_name")
 
     @tm_name.setter
@@ -1518,9 +1514,6 @@ class PolicyRuleConditionArgs:
                  version: Optional[pulumi.Input[bool]] = None,
                  vlan: Optional[pulumi.Input[bool]] = None,
                  vlan_id: Optional[pulumi.Input[bool]] = None):
-        """
-        :param pulumi.Input[str] tm_name: If Rule is used then you need to provide the tm_name it can be any value
-        """
         if address is not None:
             pulumi.set(__self__, "address", address)
         if all is not None:
@@ -2434,9 +2427,6 @@ class PolicyRuleConditionArgs:
     @property
     @pulumi.getter(name="tmName")
     def tm_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        If Rule is used then you need to provide the tm_name it can be any value
-        """
         return pulumi.get(self, "tm_name")
 
     @tm_name.setter

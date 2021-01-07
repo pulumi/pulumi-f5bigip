@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * `f5bigip.ltm.Policy` Configures Virtual Server
+ * `f5bigip.ltm.Policy` Configures ltm policies to manage traffic assigned to a virtual server
  *
  * For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
  *
@@ -16,20 +16,26 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
+ * const mypool = new f5bigip.ltm.Pool("mypool", {
+ *     name: "/Common/test-pool",
+ *     allowNat: "yes",
+ *     allowSnat: "yes",
+ *     loadBalancingMode: "round-robin",
+ * });
  * const test_policy = new f5bigip.ltm.Policy("test-policy", {
- *     name: "test-policy",
- *     strategy: "/Common/first-match",
+ *     name: "/Common/test-policy",
+ *     strategy: "first-match",
  *     requires: ["http"],
  *     controls: ["forwarding"],
  *     rules: [{
  *         name: "rule6",
  *         actions: [{
  *             forward: true,
- *             pool: bigip_ltm_pool.pool.name,
+ *             pool: mypool.name,
  *         }],
  *     }],
  * }, {
- *     dependsOn: [bigip_ltm_pool.mypool],
+ *     dependsOn: [mypool],
  * });
  * ```
  */
@@ -66,7 +72,7 @@ export class Policy extends pulumi.CustomResource {
      */
     public readonly controls!: pulumi.Output<string[] | undefined>;
     /**
-     * Name of the Policy
+     * Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -136,7 +142,7 @@ export interface PolicyState {
      */
     readonly controls?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Name of the Policy
+     * Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
      */
     readonly name?: pulumi.Input<string>;
     /**
@@ -166,7 +172,7 @@ export interface PolicyArgs {
      */
     readonly controls?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Name of the Policy
+     * Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
      */
     readonly name: pulumi.Input<string>;
     /**

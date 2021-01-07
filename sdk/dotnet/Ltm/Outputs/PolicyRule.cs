@@ -16,7 +16,7 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
         public readonly ImmutableArray<Outputs.PolicyRuleAction> Actions;
         public readonly ImmutableArray<Outputs.PolicyRuleCondition> Conditions;
         /// <summary>
-        /// Name of the Policy
+        /// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
         /// </summary>
         public readonly string Name;
 

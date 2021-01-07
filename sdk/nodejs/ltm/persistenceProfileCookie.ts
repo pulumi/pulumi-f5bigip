@@ -98,20 +98,20 @@ export class PersistenceProfileCookie extends pulumi.CustomResource {
     /**
      * To enable _ disable always sending cookies
      */
-    public readonly alwaysSend!: pulumi.Output<string | undefined>;
-    public readonly appService!: pulumi.Output<string | undefined>;
+    public readonly alwaysSend!: pulumi.Output<string>;
+    public readonly appService!: pulumi.Output<string>;
     /**
      * To required, preferred, or disabled policy for cookie encryption
      */
-    public readonly cookieEncryption!: pulumi.Output<string | undefined>;
+    public readonly cookieEncryption!: pulumi.Output<string>;
     /**
      * Passphrase for encrypted cookies
      */
-    public readonly cookieEncryptionPassphrase!: pulumi.Output<string | undefined>;
+    public readonly cookieEncryptionPassphrase!: pulumi.Output<string>;
     /**
      * Name of the cookie to track persistence
      */
-    public readonly cookieName!: pulumi.Output<string | undefined>;
+    public readonly cookieName!: pulumi.Output<string>;
     /**
      * Inherit defaults from parent profile
      */
@@ -119,39 +119,39 @@ export class PersistenceProfileCookie extends pulumi.CustomResource {
     /**
      * Expiration TTL for cookie specified in D:H:M:S or in seconds
      */
-    public readonly expiration!: pulumi.Output<string | undefined>;
+    public readonly expiration!: pulumi.Output<string>;
     /**
      * Length of hash to apply to cookie
      */
-    public readonly hashLength!: pulumi.Output<number | undefined>;
+    public readonly hashLength!: pulumi.Output<number>;
     /**
      * Number of characters to skip in the cookie for the hash
      */
-    public readonly hashOffset!: pulumi.Output<number | undefined>;
+    public readonly hashOffset!: pulumi.Output<number>;
     /**
      * To enable _ disable sending only over http
      */
-    public readonly httponly!: pulumi.Output<string | undefined>;
+    public readonly httponly!: pulumi.Output<string>;
     /**
      * To enable _ disable match across pools with given persistence record
      */
-    public readonly matchAcrossPools!: pulumi.Output<string | undefined>;
+    public readonly matchAcrossPools!: pulumi.Output<string>;
     /**
      * To enable _ disable match across services with given persistence record
      */
-    public readonly matchAcrossServices!: pulumi.Output<string | undefined>;
+    public readonly matchAcrossServices!: pulumi.Output<string>;
     /**
      * To enable _ disable match across virtual servers with given persistence record
      */
-    public readonly matchAcrossVirtuals!: pulumi.Output<string | undefined>;
+    public readonly matchAcrossVirtuals!: pulumi.Output<string>;
     /**
      * Specifies the type of cookie processing that the system uses
      */
-    public readonly method!: pulumi.Output<string | undefined>;
+    public readonly method!: pulumi.Output<string>;
     /**
      * To enable _ disable
      */
-    public readonly mirror!: pulumi.Output<string | undefined>;
+    public readonly mirror!: pulumi.Output<string>;
     /**
      * Name of the persistence profile
      */
@@ -160,11 +160,11 @@ export class PersistenceProfileCookie extends pulumi.CustomResource {
      * To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
      * limits remain hard limits and are not overridden.
      */
-    public readonly overrideConnLimit!: pulumi.Output<string | undefined>;
+    public readonly overrideConnLimit!: pulumi.Output<string>;
     /**
      * Timeout for persistence of the session
      */
-    public readonly timeout!: pulumi.Output<number | undefined>;
+    public readonly timeout!: pulumi.Output<number>;
 
     /**
      * Create a PersistenceProfileCookie resource with the given unique name, arguments, and options.

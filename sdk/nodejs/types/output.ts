@@ -57,7 +57,7 @@ export namespace ltm {
         actions?: outputs.ltm.PolicyRuleAction[];
         conditions?: outputs.ltm.PolicyRuleCondition[];
         /**
-         * Name of the Policy
+         * Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
          */
         name: string;
     }
@@ -162,9 +162,6 @@ export namespace ltm {
         tcpNagle: boolean;
         text: string;
         timeout: number;
-        /**
-         * If Rule is used then you need to provide the tmName it can be any value
-         */
         tmName: string;
         uie: boolean;
         universal: boolean;
@@ -258,9 +255,6 @@ export namespace ltm {
         startsWith: boolean;
         tcp: boolean;
         text: boolean;
-        /**
-         * If Rule is used then you need to provide the tmName it can be any value
-         */
         tmName: string;
         unnamedQueryParameter: boolean;
         userAgentToken: boolean;
