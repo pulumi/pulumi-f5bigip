@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v1.6.0 of the BigIP Terraform Provider
+_(none)_
 
 ---
+
+## 2.7.0 (2021-01-08)
+* Upgrade to v1.6.0 of the BigIP Terraform Provider
 
 ## 2.6.0 (2020-12-08)
 * Upgrade to v1.5.0 of the BigIP Terraform Provider
