@@ -29,7 +29,7 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
         }
 
         /// <summary>
-        /// Name of the Policy
+        /// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

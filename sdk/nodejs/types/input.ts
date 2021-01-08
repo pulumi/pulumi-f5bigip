@@ -57,7 +57,7 @@ export namespace ltm {
         actions?: pulumi.Input<pulumi.Input<inputs.ltm.PolicyRuleAction>[]>;
         conditions?: pulumi.Input<pulumi.Input<inputs.ltm.PolicyRuleCondition>[]>;
         /**
-         * Name of the Policy
+         * Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
          */
         name: pulumi.Input<string>;
     }
@@ -162,9 +162,6 @@ export namespace ltm {
         tcpNagle?: pulumi.Input<boolean>;
         text?: pulumi.Input<string>;
         timeout?: pulumi.Input<number>;
-        /**
-         * If Rule is used then you need to provide the tmName it can be any value
-         */
         tmName?: pulumi.Input<string>;
         uie?: pulumi.Input<boolean>;
         universal?: pulumi.Input<boolean>;
@@ -258,9 +255,6 @@ export namespace ltm {
         startsWith?: pulumi.Input<boolean>;
         tcp?: pulumi.Input<boolean>;
         text?: pulumi.Input<boolean>;
-        /**
-         * If Rule is used then you need to provide the tmName it can be any value
-         */
         tmName?: pulumi.Input<string>;
         unnamedQueryParameter?: pulumi.Input<boolean>;
         userAgentToken?: pulumi.Input<boolean>;

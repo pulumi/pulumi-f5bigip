@@ -297,9 +297,6 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }
 
-        /// <summary>
-        /// If Rule is used then you need to provide the tm_name it can be any value
-        /// </summary>
         [Input("tmName")]
         public Input<string>? TmName { get; set; }
 

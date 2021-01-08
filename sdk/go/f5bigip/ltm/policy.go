@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// `ltm.Policy` Configures Virtual Server
+// `ltm.Policy` Configures ltm policies to manage traffic assigned to a virtual server
 //
 // For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 //
@@ -27,9 +27,18 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ltm.NewPolicy(ctx, "test_policy", &ltm.PolicyArgs{
-// 			Name:     pulumi.String("test-policy"),
-// 			Strategy: pulumi.String("/Common/first-match"),
+// 		mypool, err := ltm.NewPool(ctx, "mypool", &ltm.PoolArgs{
+// 			Name:              pulumi.String("/Common/test-pool"),
+// 			AllowNat:          pulumi.String("yes"),
+// 			AllowSnat:         pulumi.String("yes"),
+// 			LoadBalancingMode: pulumi.String("round-robin"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ltm.NewPolicy(ctx, "test_policy", &ltm.PolicyArgs{
+// 			Name:     pulumi.String("/Common/test-policy"),
+// 			Strategy: pulumi.String("first-match"),
 // 			Requires: pulumi.StringArray{
 // 				pulumi.String("http"),
 // 			},
@@ -42,13 +51,13 @@ import (
 // 					Actions: ltm.PolicyRuleActionArray{
 // 						&ltm.PolicyRuleActionArgs{
 // 							Forward: pulumi.Bool(true),
-// 							Pool:    pulumi.Any(bigip_ltm_pool.Pool.Name),
+// 							Pool:    mypool.Name,
 // 						},
 // 					},
 // 				},
 // 			},
 // 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			bigip_ltm_pool.Mypool,
+// 			mypool,
 // 		}))
 // 		if err != nil {
 // 			return err
@@ -62,7 +71,7 @@ type Policy struct {
 
 	// Specifies the controls
 	Controls pulumi.StringArrayOutput `pulumi:"controls"`
-	// Name of the Policy
+	// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
 	Name pulumi.StringOutput `pulumi:"name"`
 	// If you want to publish the policy else it will be deployed in Drafts mode.
 	PublishedCopy pulumi.StringPtrOutput `pulumi:"publishedCopy"`
@@ -107,7 +116,7 @@ func GetPolicy(ctx *pulumi.Context,
 type policyState struct {
 	// Specifies the controls
 	Controls []string `pulumi:"controls"`
-	// Name of the Policy
+	// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
 	Name *string `pulumi:"name"`
 	// If you want to publish the policy else it will be deployed in Drafts mode.
 	PublishedCopy *string `pulumi:"publishedCopy"`
@@ -122,7 +131,7 @@ type policyState struct {
 type PolicyState struct {
 	// Specifies the controls
 	Controls pulumi.StringArrayInput
-	// Name of the Policy
+	// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
 	Name pulumi.StringPtrInput
 	// If you want to publish the policy else it will be deployed in Drafts mode.
 	PublishedCopy pulumi.StringPtrInput
@@ -141,7 +150,7 @@ func (PolicyState) ElementType() reflect.Type {
 type policyArgs struct {
 	// Specifies the controls
 	Controls []string `pulumi:"controls"`
-	// Name of the Policy
+	// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
 	Name string `pulumi:"name"`
 	// If you want to publish the policy else it will be deployed in Drafts mode.
 	PublishedCopy *string `pulumi:"publishedCopy"`
@@ -157,7 +166,7 @@ type policyArgs struct {
 type PolicyArgs struct {
 	// Specifies the controls
 	Controls pulumi.StringArrayInput
-	// Name of the Policy
+	// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
 	Name pulumi.StringInput
 	// If you want to publish the policy else it will be deployed in Drafts mode.
 	PublishedCopy pulumi.StringPtrInput

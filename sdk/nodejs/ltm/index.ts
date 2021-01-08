@@ -6,6 +6,7 @@ export * from "./dataGroup";
 export * from "./getDataGroup";
 export * from "./getIrule";
 export * from "./getMonitor";
+export * from "./getPool";
 export * from "./irule";
 export * from "./monitor";
 export * from "./node";

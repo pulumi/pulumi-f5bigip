@@ -88,41 +88,41 @@ type PersistenceProfileCookie struct {
 	pulumi.CustomResourceState
 
 	// To enable _ disable always sending cookies
-	AlwaysSend pulumi.StringPtrOutput `pulumi:"alwaysSend"`
-	AppService pulumi.StringPtrOutput `pulumi:"appService"`
+	AlwaysSend pulumi.StringOutput `pulumi:"alwaysSend"`
+	AppService pulumi.StringOutput `pulumi:"appService"`
 	// To required, preferred, or disabled policy for cookie encryption
-	CookieEncryption pulumi.StringPtrOutput `pulumi:"cookieEncryption"`
+	CookieEncryption pulumi.StringOutput `pulumi:"cookieEncryption"`
 	// Passphrase for encrypted cookies
-	CookieEncryptionPassphrase pulumi.StringPtrOutput `pulumi:"cookieEncryptionPassphrase"`
+	CookieEncryptionPassphrase pulumi.StringOutput `pulumi:"cookieEncryptionPassphrase"`
 	// Name of the cookie to track persistence
-	CookieName pulumi.StringPtrOutput `pulumi:"cookieName"`
+	CookieName pulumi.StringOutput `pulumi:"cookieName"`
 	// Inherit defaults from parent profile
 	DefaultsFrom pulumi.StringOutput `pulumi:"defaultsFrom"`
 	// Expiration TTL for cookie specified in D:H:M:S or in seconds
-	Expiration pulumi.StringPtrOutput `pulumi:"expiration"`
+	Expiration pulumi.StringOutput `pulumi:"expiration"`
 	// Length of hash to apply to cookie
-	HashLength pulumi.IntPtrOutput `pulumi:"hashLength"`
+	HashLength pulumi.IntOutput `pulumi:"hashLength"`
 	// Number of characters to skip in the cookie for the hash
-	HashOffset pulumi.IntPtrOutput `pulumi:"hashOffset"`
+	HashOffset pulumi.IntOutput `pulumi:"hashOffset"`
 	// To enable _ disable sending only over http
-	Httponly pulumi.StringPtrOutput `pulumi:"httponly"`
+	Httponly pulumi.StringOutput `pulumi:"httponly"`
 	// To enable _ disable match across pools with given persistence record
-	MatchAcrossPools pulumi.StringPtrOutput `pulumi:"matchAcrossPools"`
+	MatchAcrossPools pulumi.StringOutput `pulumi:"matchAcrossPools"`
 	// To enable _ disable match across services with given persistence record
-	MatchAcrossServices pulumi.StringPtrOutput `pulumi:"matchAcrossServices"`
+	MatchAcrossServices pulumi.StringOutput `pulumi:"matchAcrossServices"`
 	// To enable _ disable match across virtual servers with given persistence record
-	MatchAcrossVirtuals pulumi.StringPtrOutput `pulumi:"matchAcrossVirtuals"`
+	MatchAcrossVirtuals pulumi.StringOutput `pulumi:"matchAcrossVirtuals"`
 	// Specifies the type of cookie processing that the system uses
-	Method pulumi.StringPtrOutput `pulumi:"method"`
+	Method pulumi.StringOutput `pulumi:"method"`
 	// To enable _ disable
-	Mirror pulumi.StringPtrOutput `pulumi:"mirror"`
+	Mirror pulumi.StringOutput `pulumi:"mirror"`
 	// Name of the persistence profile
 	Name pulumi.StringOutput `pulumi:"name"`
 	// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
 	// limits remain hard limits and are not overridden.
-	OverrideConnLimit pulumi.StringPtrOutput `pulumi:"overrideConnLimit"`
+	OverrideConnLimit pulumi.StringOutput `pulumi:"overrideConnLimit"`
 	// Timeout for persistence of the session
-	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
+	Timeout pulumi.IntOutput `pulumi:"timeout"`
 }
 
 // NewPersistenceProfileCookie registers a new resource with the given unique name, arguments, and options.

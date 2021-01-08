@@ -27,7 +27,7 @@ class Policy(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        `ltm.Policy` Configures Virtual Server
+        `ltm.Policy` Configures ltm policies to manage traffic assigned to a virtual server
 
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 
@@ -37,25 +37,30 @@ class Policy(pulumi.CustomResource):
         import pulumi
         import pulumi_f5bigip as f5bigip
 
+        mypool = f5bigip.ltm.Pool("mypool",
+            name="/Common/test-pool",
+            allow_nat="yes",
+            allow_snat="yes",
+            load_balancing_mode="round-robin")
         test_policy = f5bigip.ltm.Policy("test-policy",
-            name="test-policy",
-            strategy="/Common/first-match",
+            name="/Common/test-policy",
+            strategy="first-match",
             requires=["http"],
             controls=["forwarding"],
             rules=[f5bigip.ltm.PolicyRuleArgs(
                 name="rule6",
                 actions=[f5bigip.ltm.PolicyRuleActionArgs(
                     forward=True,
-                    pool=bigip_ltm_pool["pool"]["name"],
+                    pool=mypool.name,
                 )],
             )],
-            opts=ResourceOptions(depends_on=[bigip_ltm_pool["mypool"]]))
+            opts=ResourceOptions(depends_on=[mypool]))
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] controls: Specifies the controls
-        :param pulumi.Input[str] name: Name of the Policy
+        :param pulumi.Input[str] name: Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
         :param pulumi.Input[str] published_copy: If you want to publish the policy else it will be deployed in Drafts mode.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] requires: Specifies the protocol
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyRuleArgs']]]] rules: Rules can be applied using the policy
@@ -110,7 +115,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] controls: Specifies the controls
-        :param pulumi.Input[str] name: Name of the Policy
+        :param pulumi.Input[str] name: Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
         :param pulumi.Input[str] published_copy: If you want to publish the policy else it will be deployed in Drafts mode.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] requires: Specifies the protocol
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyRuleArgs']]]] rules: Rules can be applied using the policy
@@ -140,7 +145,7 @@ class Policy(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the Policy
+        Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
         """
         return pulumi.get(self, "name")
 

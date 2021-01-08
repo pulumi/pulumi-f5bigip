@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Ltm
 {
     /// <summary>
-    /// `f5bigip.ltm.Policy` Configures Virtual Server
+    /// `f5bigip.ltm.Policy` Configures ltm policies to manage traffic assigned to a virtual server
     /// 
     /// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
     /// 
@@ -24,10 +24,17 @@ namespace Pulumi.F5BigIP.Ltm
     /// {
     ///     public MyStack()
     ///     {
+    ///         var mypool = new F5BigIP.Ltm.Pool("mypool", new F5BigIP.Ltm.PoolArgs
+    ///         {
+    ///             Name = "/Common/test-pool",
+    ///             AllowNat = "yes",
+    ///             AllowSnat = "yes",
+    ///             LoadBalancingMode = "round-robin",
+    ///         });
     ///         var test_policy = new F5BigIP.Ltm.Policy("test-policy", new F5BigIP.Ltm.PolicyArgs
     ///         {
-    ///             Name = "test-policy",
-    ///             Strategy = "/Common/first-match",
+    ///             Name = "/Common/test-policy",
+    ///             Strategy = "first-match",
     ///             Requires = 
     ///             {
     ///                 "http",
@@ -46,7 +53,7 @@ namespace Pulumi.F5BigIP.Ltm
     ///                         new F5BigIP.Ltm.Inputs.PolicyRuleActionArgs
     ///                         {
     ///                             Forward = true,
-    ///                             Pool = bigip_ltm_pool.Pool.Name,
+    ///                             Pool = mypool.Name,
     ///                         },
     ///                     },
     ///                 },
@@ -55,7 +62,7 @@ namespace Pulumi.F5BigIP.Ltm
     ///         {
     ///             DependsOn = 
     ///             {
-    ///                 bigip_ltm_pool.Mypool,
+    ///                 mypool,
     ///             },
     ///         });
     ///     }
@@ -72,7 +79,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<ImmutableArray<string>> Controls { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the Policy
+        /// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -160,7 +167,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Name of the Policy
+        /// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -221,7 +228,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Name of the Policy
+        /// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

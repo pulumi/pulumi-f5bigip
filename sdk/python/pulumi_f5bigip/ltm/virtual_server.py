@@ -315,7 +315,7 @@ class VirtualServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="persistenceProfiles")
-    def persistence_profiles(self) -> pulumi.Output[Sequence[str]]:
+    def persistence_profiles(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of persistence profiles associated with the Virtual Server.
         """

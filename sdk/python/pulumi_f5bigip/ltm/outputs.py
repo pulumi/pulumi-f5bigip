@@ -122,7 +122,7 @@ class PolicyRule(dict):
                  actions: Optional[Sequence['outputs.PolicyRuleAction']] = None,
                  conditions: Optional[Sequence['outputs.PolicyRuleCondition']] = None):
         """
-        :param str name: Name of the Policy
+        :param str name: Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
         """
         pulumi.set(__self__, "name", name)
         if actions is not None:
@@ -134,7 +134,7 @@ class PolicyRule(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of the Policy
+        Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
         """
         return pulumi.get(self, "name")
 
@@ -260,7 +260,6 @@ class PolicyRuleAction(dict):
         """
         :param bool forward: This action will affect forwarding.
         :param str pool: This action will direct the stream to this pool.
-        :param str tm_name: If Rule is used then you need to provide the tm_name it can be any value
         """
         if app_service is not None:
             pulumi.set(__self__, "app_service", app_service)
@@ -941,9 +940,6 @@ class PolicyRuleAction(dict):
     @property
     @pulumi.getter(name="tmName")
     def tm_name(self) -> Optional[str]:
-        """
-        If Rule is used then you need to provide the tm_name it can be any value
-        """
         return pulumi.get(self, "tm_name")
 
     @property
@@ -1083,9 +1079,6 @@ class PolicyRuleCondition(dict):
                  version: Optional[bool] = None,
                  vlan: Optional[bool] = None,
                  vlan_id: Optional[bool] = None):
-        """
-        :param str tm_name: If Rule is used then you need to provide the tm_name it can be any value
-        """
         if address is not None:
             pulumi.set(__self__, "address", address)
         if all is not None:
@@ -1675,9 +1668,6 @@ class PolicyRuleCondition(dict):
     @property
     @pulumi.getter(name="tmName")
     def tm_name(self) -> Optional[str]:
-        """
-        If Rule is used then you need to provide the tm_name it can be any value
-        """
         return pulumi.get(self, "tm_name")
 
     @property

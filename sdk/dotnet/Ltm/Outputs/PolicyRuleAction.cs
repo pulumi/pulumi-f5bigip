@@ -112,9 +112,6 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
         public readonly bool? TcpNagle;
         public readonly string? Text;
         public readonly int? Timeout;
-        /// <summary>
-        /// If Rule is used then you need to provide the tm_name it can be any value
-        /// </summary>
         public readonly string? TmName;
         public readonly bool? Uie;
         public readonly bool? Universal;
