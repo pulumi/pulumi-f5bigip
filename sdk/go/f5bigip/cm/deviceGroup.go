@@ -76,6 +76,7 @@ func NewDeviceGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &DeviceGroupArgs{}
 	}
+
 	var resource DeviceGroup
 	err := ctx.RegisterResource("f5bigip:cm/deviceGroup:DeviceGroup", name, args, &resource, opts...)
 	if err != nil {

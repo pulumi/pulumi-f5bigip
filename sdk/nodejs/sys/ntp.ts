@@ -79,7 +79,7 @@ export class Ntp extends pulumi.CustomResource {
             inputs["timezone"] = state ? state.timezone : undefined;
         } else {
             const args = argsOrState as NtpArgs | undefined;
-            if (!args || args.description === undefined) {
+            if ((!args || args.description === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'description'");
             }
             inputs["description"] = args ? args.description : undefined;

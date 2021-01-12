@@ -81,7 +81,7 @@ export class Do extends pulumi.CustomResource {
             inputs["timeout"] = state ? state.timeout : undefined;
         } else {
             const args = argsOrState as DoArgs | undefined;
-            if (!args || args.doJson === undefined) {
+            if ((!args || args.doJson === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'doJson'");
             }
             inputs["doJson"] = args ? args.doJson : undefined;

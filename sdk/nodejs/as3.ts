@@ -95,7 +95,7 @@ export class As3 extends pulumi.CustomResource {
             inputs["tenantName"] = state ? state.tenantName : undefined;
         } else {
             const args = argsOrState as As3Args | undefined;
-            if (!args || args.as3Json === undefined) {
+            if ((!args || args.as3Json === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'as3Json'");
             }
             inputs["applicationList"] = args ? args.applicationList : undefined;

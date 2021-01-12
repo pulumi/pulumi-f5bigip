@@ -198,10 +198,10 @@ export class PersistenceProfileCookie extends pulumi.CustomResource {
             inputs["timeout"] = state ? state.timeout : undefined;
         } else {
             const args = argsOrState as PersistenceProfileCookieArgs | undefined;
-            if (!args || args.defaultsFrom === undefined) {
+            if ((!args || args.defaultsFrom === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'defaultsFrom'");
             }
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["alwaysSend"] = args ? args.alwaysSend : undefined;

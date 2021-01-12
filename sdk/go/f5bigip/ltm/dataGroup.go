@@ -62,14 +62,15 @@ type DataGroup struct {
 // NewDataGroup registers a new resource with the given unique name, arguments, and options.
 func NewDataGroup(ctx *pulumi.Context,
 	name string, args *DataGroupArgs, opts ...pulumi.ResourceOption) (*DataGroup, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.Type == nil {
-		return nil, errors.New("missing required argument 'Type'")
-	}
 	if args == nil {
-		args = &DataGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.Type == nil {
+		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	var resource DataGroup
 	err := ctx.RegisterResource("f5bigip:ltm/dataGroup:DataGroup", name, args, &resource, opts...)

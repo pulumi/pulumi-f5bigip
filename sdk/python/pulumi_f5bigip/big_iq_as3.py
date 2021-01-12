@@ -56,19 +56,19 @@ class BigIqAs3(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if as3_json is None:
+            if as3_json is None and not opts.urn:
                 raise TypeError("Missing required property 'as3_json'")
             __props__['as3_json'] = as3_json
-            if bigiq_address is None:
+            if bigiq_address is None and not opts.urn:
                 raise TypeError("Missing required property 'bigiq_address'")
             __props__['bigiq_address'] = bigiq_address
             __props__['bigiq_login_ref'] = bigiq_login_ref
-            if bigiq_password is None:
+            if bigiq_password is None and not opts.urn:
                 raise TypeError("Missing required property 'bigiq_password'")
             __props__['bigiq_password'] = bigiq_password
             __props__['bigiq_port'] = bigiq_port
             __props__['bigiq_token_auth'] = bigiq_token_auth
-            if bigiq_user is None:
+            if bigiq_user is None and not opts.urn:
                 raise TypeError("Missing required property 'bigiq_user'")
             __props__['bigiq_user'] = bigiq_user
             __props__['tenant_list'] = tenant_list

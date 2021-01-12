@@ -121,7 +121,7 @@ export class ProfileOneConnect extends pulumi.CustomResource {
             inputs["sourceMask"] = state ? state.sourceMask : undefined;
         } else {
             const args = argsOrState as ProfileOneConnectArgs | undefined;
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["defaultsFrom"] = args ? args.defaultsFrom : undefined;

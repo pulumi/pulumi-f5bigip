@@ -52,11 +52,12 @@ type Command struct {
 // NewCommand registers a new resource with the given unique name, arguments, and options.
 func NewCommand(ctx *pulumi.Context,
 	name string, args *CommandArgs, opts ...pulumi.ResourceOption) (*Command, error) {
-	if args == nil || args.Commands == nil {
-		return nil, errors.New("missing required argument 'Commands'")
-	}
 	if args == nil {
-		args = &CommandArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Commands == nil {
+		return nil, errors.New("invalid value for required argument 'Commands'")
 	}
 	var resource Command
 	err := ctx.RegisterResource("f5bigip:index/command:Command", name, args, &resource, opts...)

@@ -58,11 +58,12 @@ type Dns struct {
 // NewDns registers a new resource with the given unique name, arguments, and options.
 func NewDns(ctx *pulumi.Context,
 	name string, args *DnsArgs, opts ...pulumi.ResourceOption) (*Dns, error) {
-	if args == nil || args.Description == nil {
-		return nil, errors.New("missing required argument 'Description'")
-	}
 	if args == nil {
-		args = &DnsArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Description == nil {
+		return nil, errors.New("invalid value for required argument 'Description'")
 	}
 	var resource Dns
 	err := ctx.RegisterResource("f5bigip:sys/dns:Dns", name, args, &resource, opts...)

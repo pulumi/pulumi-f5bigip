@@ -120,7 +120,7 @@ export class Pool extends pulumi.CustomResource {
             inputs["slowRampTime"] = state ? state.slowRampTime : undefined;
         } else {
             const args = argsOrState as PoolArgs | undefined;
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["allowNat"] = args ? args.allowNat : undefined;

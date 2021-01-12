@@ -59,11 +59,12 @@ type Provision struct {
 // NewProvision registers a new resource with the given unique name, arguments, and options.
 func NewProvision(ctx *pulumi.Context,
 	name string, args *ProvisionArgs, opts ...pulumi.ResourceOption) (*Provision, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil {
-		args = &ProvisionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource Provision
 	err := ctx.RegisterResource("f5bigip:sys/provision:Provision", name, args, &resource, opts...)

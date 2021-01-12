@@ -74,14 +74,15 @@ type Node struct {
 // NewNode registers a new resource with the given unique name, arguments, and options.
 func NewNode(ctx *pulumi.Context,
 	name string, args *NodeArgs, opts ...pulumi.ResourceOption) (*Node, error) {
-	if args == nil || args.Address == nil {
-		return nil, errors.New("missing required argument 'Address'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil {
-		args = &NodeArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Address == nil {
+		return nil, errors.New("invalid value for required argument 'Address'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource Node
 	err := ctx.RegisterResource("f5bigip:ltm/node:Node", name, args, &resource, opts...)

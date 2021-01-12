@@ -84,6 +84,7 @@ func NewIApp(ctx *pulumi.Context,
 	if args == nil {
 		args = &IAppArgs{}
 	}
+
 	var resource IApp
 	err := ctx.RegisterResource("f5bigip:sys/iApp:IApp", name, args, &resource, opts...)
 	if err != nil {

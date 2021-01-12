@@ -85,10 +85,10 @@ export class Device extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as DeviceArgs | undefined;
-            if (!args || args.configsyncIp === undefined) {
+            if ((!args || args.configsyncIp === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'configsyncIp'");
             }
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["configsyncIp"] = args ? args.configsyncIp : undefined;

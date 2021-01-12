@@ -84,7 +84,7 @@ export class Vlan extends pulumi.CustomResource {
             inputs["tag"] = state ? state.tag : undefined;
         } else {
             const args = argsOrState as VlanArgs | undefined;
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["interfaces"] = args ? args.interfaces : undefined;

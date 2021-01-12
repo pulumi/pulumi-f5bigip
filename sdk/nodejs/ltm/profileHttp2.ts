@@ -143,7 +143,7 @@ export class ProfileHttp2 extends pulumi.CustomResource {
             inputs["writeSize"] = state ? state.writeSize : undefined;
         } else {
             const args = argsOrState as ProfileHttp2Args | undefined;
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["activationModes"] = args ? args.activationModes : undefined;

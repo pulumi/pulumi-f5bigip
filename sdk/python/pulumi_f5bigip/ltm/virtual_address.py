@@ -76,7 +76,7 @@ class VirtualAddress(pulumi.CustomResource):
             __props__['conn_limit'] = conn_limit
             __props__['enabled'] = enabled
             __props__['icmp_echo'] = icmp_echo
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['traffic_group'] = traffic_group

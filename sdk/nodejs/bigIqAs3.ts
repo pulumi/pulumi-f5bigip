@@ -87,16 +87,16 @@ export class BigIqAs3 extends pulumi.CustomResource {
             inputs["tenantList"] = state ? state.tenantList : undefined;
         } else {
             const args = argsOrState as BigIqAs3Args | undefined;
-            if (!args || args.as3Json === undefined) {
+            if ((!args || args.as3Json === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'as3Json'");
             }
-            if (!args || args.bigiqAddress === undefined) {
+            if ((!args || args.bigiqAddress === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'bigiqAddress'");
             }
-            if (!args || args.bigiqPassword === undefined) {
+            if ((!args || args.bigiqPassword === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'bigiqPassword'");
             }
-            if (!args || args.bigiqUser === undefined) {
+            if ((!args || args.bigiqUser === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'bigiqUser'");
             }
             inputs["as3Json"] = args ? args.as3Json : undefined;

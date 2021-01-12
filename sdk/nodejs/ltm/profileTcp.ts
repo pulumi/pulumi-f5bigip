@@ -120,7 +120,7 @@ export class ProfileTcp extends pulumi.CustomResource {
             inputs["partition"] = state ? state.partition : undefined;
         } else {
             const args = argsOrState as ProfileTcpArgs | undefined;
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["closeWaitTimeout"] = args ? args.closeWaitTimeout : undefined;

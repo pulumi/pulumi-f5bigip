@@ -54,6 +54,7 @@ func NewSnmp(ctx *pulumi.Context,
 	if args == nil {
 		args = &SnmpArgs{}
 	}
+
 	var resource Snmp
 	err := ctx.RegisterResource("f5bigip:sys/snmp:Snmp", name, args, &resource, opts...)
 	if err != nil {

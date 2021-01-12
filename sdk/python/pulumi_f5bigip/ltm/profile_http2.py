@@ -103,7 +103,7 @@ class ProfileHttp2(pulumi.CustomResource):
             __props__['include_content_length'] = include_content_length
             __props__['insert_header'] = insert_header
             __props__['insert_header_name'] = insert_header_name
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['receive_window'] = receive_window

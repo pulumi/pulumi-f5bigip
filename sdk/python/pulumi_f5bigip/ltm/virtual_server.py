@@ -127,20 +127,20 @@ class VirtualServer(pulumi.CustomResource):
             __props__['client_profiles'] = client_profiles
             __props__['default_persistence_profile'] = default_persistence_profile
             __props__['description'] = description
-            if destination is None:
+            if destination is None and not opts.urn:
                 raise TypeError("Missing required property 'destination'")
             __props__['destination'] = destination
             __props__['fallback_persistence_profile'] = fallback_persistence_profile
             __props__['ip_protocol'] = ip_protocol
             __props__['irules'] = irules
             __props__['mask'] = mask
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['persistence_profiles'] = persistence_profiles
             __props__['policies'] = policies
             __props__['pool'] = pool
-            if port is None:
+            if port is None and not opts.urn:
                 raise TypeError("Missing required property 'port'")
             __props__['port'] = port
             __props__['profiles'] = profiles

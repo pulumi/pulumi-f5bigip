@@ -104,7 +104,7 @@ export class VirtualAddress extends pulumi.CustomResource {
             inputs["trafficGroup"] = state ? state.trafficGroup : undefined;
         } else {
             const args = argsOrState as VirtualAddressArgs | undefined;
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["advertizeRoute"] = args ? args.advertizeRoute : undefined;

@@ -201,13 +201,13 @@ export class VirtualServer extends pulumi.CustomResource {
             inputs["vlansEnabled"] = state ? state.vlansEnabled : undefined;
         } else {
             const args = argsOrState as VirtualServerArgs | undefined;
-            if (!args || args.destination === undefined) {
+            if ((!args || args.destination === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'destination'");
             }
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.port === undefined) {
+            if ((!args || args.port === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'port'");
             }
             inputs["clientProfiles"] = args ? args.clientProfiles : undefined;

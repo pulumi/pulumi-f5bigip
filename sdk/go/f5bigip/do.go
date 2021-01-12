@@ -30,11 +30,12 @@ type Do struct {
 // NewDo registers a new resource with the given unique name, arguments, and options.
 func NewDo(ctx *pulumi.Context,
 	name string, args *DoArgs, opts ...pulumi.ResourceOption) (*Do, error) {
-	if args == nil || args.DoJson == nil {
-		return nil, errors.New("missing required argument 'DoJson'")
-	}
 	if args == nil {
-		args = &DoArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DoJson == nil {
+		return nil, errors.New("invalid value for required argument 'DoJson'")
 	}
 	var resource Do
 	err := ctx.RegisterResource("f5bigip:index/do:Do", name, args, &resource, opts...)

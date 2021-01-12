@@ -22,3 +22,56 @@ from . import (
     ssl,
     sys,
 )
+
+def _register_module():
+    import pulumi
+    from . import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "f5bigip:index/as3:As3":
+                return As3(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "f5bigip:index/bigIqAs3:BigIqAs3":
+                return BigIqAs3(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "f5bigip:index/command:Command":
+                return Command(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "f5bigip:index/commonLicenseManageBigIq:CommonLicenseManageBigIq":
+                return CommonLicenseManageBigIq(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "f5bigip:index/do:Do":
+                return Do(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "f5bigip:index/eventServiceDiscovery:EventServiceDiscovery":
+                return EventServiceDiscovery(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("f5bigip", "index/as3", _module_instance)
+    pulumi.runtime.register_resource_module("f5bigip", "index/bigIqAs3", _module_instance)
+    pulumi.runtime.register_resource_module("f5bigip", "index/command", _module_instance)
+    pulumi.runtime.register_resource_module("f5bigip", "index/commonLicenseManageBigIq", _module_instance)
+    pulumi.runtime.register_resource_module("f5bigip", "index/do", _module_instance)
+    pulumi.runtime.register_resource_module("f5bigip", "index/eventServiceDiscovery", _module_instance)
+
+
+    class Package(pulumi.runtime.ResourcePackage):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Package._version
+
+        def construct_provider(self, name: str, typ: str, urn: str) -> pulumi.ProviderResource:
+            if typ != "pulumi:providers:f5bigip":
+                raise Exception(f"unknown provider type {typ}")
+            return Provider(name, pulumi.ResourceOptions(urn=urn))
+
+
+    pulumi.runtime.register_resource_package("f5bigip", Package())
+
+_register_module()

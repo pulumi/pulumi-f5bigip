@@ -95,7 +95,7 @@ class ProfileFastHttp(pulumi.CustomResource):
             __props__['forcehttp10response'] = forcehttp10response
             __props__['idle_timeout'] = idle_timeout
             __props__['maxheader_size'] = maxheader_size
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
         super(ProfileFastHttp, __self__).__init__(

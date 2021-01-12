@@ -88,7 +88,7 @@ class ProfileTcp(pulumi.CustomResource):
             __props__['finwait_timeout'] = finwait_timeout
             __props__['idle_timeout'] = idle_timeout
             __props__['keepalive_interval'] = keepalive_interval
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['partition'] = partition

@@ -62,10 +62,10 @@ export class IRule extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as IRuleArgs | undefined;
-            if (!args || args.irule === undefined) {
+            if ((!args || args.irule === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'irule'");
             }
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["irule"] = args ? args.irule : undefined;

@@ -33,3 +33,95 @@ from .virtual_address import *
 from .virtual_server import *
 from ._inputs import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "f5bigip:ltm/dataGroup:DataGroup":
+                return DataGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "f5bigip:ltm/iRule:IRule":
+                return IRule(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "f5bigip:ltm/monitor:Monitor":
+                return Monitor(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "f5bigip:ltm/node:Node":
+                return Node(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "f5bigip:ltm/persistenceProfileCookie:PersistenceProfileCookie":
+                return PersistenceProfileCookie(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "f5bigip:ltm/persistenceProfileDstAddr:PersistenceProfileDstAddr":
+                return PersistenceProfileDstAddr(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "f5bigip:ltm/persistenceProfileSrcAddr:PersistenceProfileSrcAddr":
+                return PersistenceProfileSrcAddr(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "f5bigip:ltm/persistenceProfileSsl:PersistenceProfileSsl":
+                return PersistenceProfileSsl(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "f5bigip:ltm/policy:Policy":
+                return Policy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "f5bigip:ltm/pool:Pool":
+                return Pool(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "f5bigip:ltm/poolAttachment:PoolAttachment":
+                return PoolAttachment(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "f5bigip:ltm/profileClientSsl:ProfileClientSsl":
+                return ProfileClientSsl(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "f5bigip:ltm/profileFastHttp:ProfileFastHttp":
+                return ProfileFastHttp(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "f5bigip:ltm/profileFastL4:ProfileFastL4":
+                return ProfileFastL4(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "f5bigip:ltm/profileHttp2:ProfileHttp2":
+                return ProfileHttp2(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "f5bigip:ltm/profileHttp:ProfileHttp":
+                return ProfileHttp(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "f5bigip:ltm/profileHttpCompress:ProfileHttpCompress":
+                return ProfileHttpCompress(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "f5bigip:ltm/profileOneConnect:ProfileOneConnect":
+                return ProfileOneConnect(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "f5bigip:ltm/profileServerSsl:ProfileServerSsl":
+                return ProfileServerSsl(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "f5bigip:ltm/profileTcp:ProfileTcp":
+                return ProfileTcp(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "f5bigip:ltm/snat:Snat":
+                return Snat(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "f5bigip:ltm/snatPool:SnatPool":
+                return SnatPool(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "f5bigip:ltm/virtualAddress:VirtualAddress":
+                return VirtualAddress(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "f5bigip:ltm/virtualServer:VirtualServer":
+                return VirtualServer(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("f5bigip", "ltm/dataGroup", _module_instance)
+    pulumi.runtime.register_resource_module("f5bigip", "ltm/iRule", _module_instance)
+    pulumi.runtime.register_resource_module("f5bigip", "ltm/monitor", _module_instance)
+    pulumi.runtime.register_resource_module("f5bigip", "ltm/node", _module_instance)
+    pulumi.runtime.register_resource_module("f5bigip", "ltm/persistenceProfileCookie", _module_instance)
+    pulumi.runtime.register_resource_module("f5bigip", "ltm/persistenceProfileDstAddr", _module_instance)
+    pulumi.runtime.register_resource_module("f5bigip", "ltm/persistenceProfileSrcAddr", _module_instance)
+    pulumi.runtime.register_resource_module("f5bigip", "ltm/persistenceProfileSsl", _module_instance)
+    pulumi.runtime.register_resource_module("f5bigip", "ltm/policy", _module_instance)
+    pulumi.runtime.register_resource_module("f5bigip", "ltm/pool", _module_instance)
+    pulumi.runtime.register_resource_module("f5bigip", "ltm/poolAttachment", _module_instance)
+    pulumi.runtime.register_resource_module("f5bigip", "ltm/profileClientSsl", _module_instance)
+    pulumi.runtime.register_resource_module("f5bigip", "ltm/profileFastHttp", _module_instance)
+    pulumi.runtime.register_resource_module("f5bigip", "ltm/profileFastL4", _module_instance)
+    pulumi.runtime.register_resource_module("f5bigip", "ltm/profileHttp", _module_instance)
+    pulumi.runtime.register_resource_module("f5bigip", "ltm/profileHttp2", _module_instance)
+    pulumi.runtime.register_resource_module("f5bigip", "ltm/profileHttpCompress", _module_instance)
+    pulumi.runtime.register_resource_module("f5bigip", "ltm/profileOneConnect", _module_instance)
+    pulumi.runtime.register_resource_module("f5bigip", "ltm/profileServerSsl", _module_instance)
+    pulumi.runtime.register_resource_module("f5bigip", "ltm/profileTcp", _module_instance)
+    pulumi.runtime.register_resource_module("f5bigip", "ltm/snat", _module_instance)
+    pulumi.runtime.register_resource_module("f5bigip", "ltm/snatPool", _module_instance)
+    pulumi.runtime.register_resource_module("f5bigip", "ltm/virtualAddress", _module_instance)
+    pulumi.runtime.register_resource_module("f5bigip", "ltm/virtualServer", _module_instance)
+
+_register_module()

@@ -47,10 +47,10 @@ class IRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if irule is None:
+            if irule is None and not opts.urn:
                 raise TypeError("Missing required property 'irule'")
             __props__['irule'] = irule
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
         super(IRule, __self__).__init__(

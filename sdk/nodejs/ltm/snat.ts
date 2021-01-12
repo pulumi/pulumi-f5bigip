@@ -133,10 +133,10 @@ export class Snat extends pulumi.CustomResource {
             inputs["vlansdisabled"] = state ? state.vlansdisabled : undefined;
         } else {
             const args = argsOrState as SnatArgs | undefined;
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.origins === undefined) {
+            if ((!args || args.origins === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'origins'");
             }
             inputs["autolasthop"] = args ? args.autolasthop : undefined;

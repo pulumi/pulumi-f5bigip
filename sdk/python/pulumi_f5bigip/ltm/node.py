@@ -84,7 +84,7 @@ class Node(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if address is None:
+            if address is None and not opts.urn:
                 raise TypeError("Missing required property 'address'")
             __props__['address'] = address
             __props__['connection_limit'] = connection_limit
@@ -92,7 +92,7 @@ class Node(pulumi.CustomResource):
             __props__['dynamic_ratio'] = dynamic_ratio
             __props__['fqdn'] = fqdn
             __props__['monitor'] = monitor
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['rate_limit'] = rate_limit

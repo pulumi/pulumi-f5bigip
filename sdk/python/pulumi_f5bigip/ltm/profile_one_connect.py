@@ -86,7 +86,7 @@ class ProfileOneConnect(pulumi.CustomResource):
             __props__['max_age'] = max_age
             __props__['max_reuse'] = max_reuse
             __props__['max_size'] = max_size
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['partition'] = partition

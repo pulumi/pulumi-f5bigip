@@ -86,14 +86,15 @@ type PersistenceProfileSsl struct {
 // NewPersistenceProfileSsl registers a new resource with the given unique name, arguments, and options.
 func NewPersistenceProfileSsl(ctx *pulumi.Context,
 	name string, args *PersistenceProfileSslArgs, opts ...pulumi.ResourceOption) (*PersistenceProfileSsl, error) {
-	if args == nil || args.DefaultsFrom == nil {
-		return nil, errors.New("missing required argument 'DefaultsFrom'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil {
-		args = &PersistenceProfileSslArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DefaultsFrom == nil {
+		return nil, errors.New("invalid value for required argument 'DefaultsFrom'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource PersistenceProfileSsl
 	err := ctx.RegisterResource("f5bigip:ltm/persistenceProfileSsl:PersistenceProfileSsl", name, args, &resource, opts...)

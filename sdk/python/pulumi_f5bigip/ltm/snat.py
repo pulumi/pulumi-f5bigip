@@ -94,10 +94,10 @@ class Snat(pulumi.CustomResource):
             __props__['autolasthop'] = autolasthop
             __props__['full_path'] = full_path
             __props__['mirror'] = mirror
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if origins is None:
+            if origins is None and not opts.urn:
                 raise TypeError("Missing required property 'origins'")
             __props__['origins'] = origins
             __props__['partition'] = partition

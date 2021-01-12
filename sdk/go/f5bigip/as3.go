@@ -34,11 +34,12 @@ type As3 struct {
 // NewAs3 registers a new resource with the given unique name, arguments, and options.
 func NewAs3(ctx *pulumi.Context,
 	name string, args *As3Args, opts ...pulumi.ResourceOption) (*As3, error) {
-	if args == nil || args.As3Json == nil {
-		return nil, errors.New("missing required argument 'As3Json'")
-	}
 	if args == nil {
-		args = &As3Args{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.As3Json == nil {
+		return nil, errors.New("invalid value for required argument 'As3Json'")
 	}
 	var resource As3
 	err := ctx.RegisterResource("f5bigip:index/as3:As3", name, args, &resource, opts...)

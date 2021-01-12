@@ -23,14 +23,15 @@ type BigIpLicense struct {
 // NewBigIpLicense registers a new resource with the given unique name, arguments, and options.
 func NewBigIpLicense(ctx *pulumi.Context,
 	name string, args *BigIpLicenseArgs, opts ...pulumi.ResourceOption) (*BigIpLicense, error) {
-	if args == nil || args.Command == nil {
-		return nil, errors.New("missing required argument 'Command'")
-	}
-	if args == nil || args.RegistrationKey == nil {
-		return nil, errors.New("missing required argument 'RegistrationKey'")
-	}
 	if args == nil {
-		args = &BigIpLicenseArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Command == nil {
+		return nil, errors.New("invalid value for required argument 'Command'")
+	}
+	if args.RegistrationKey == nil {
+		return nil, errors.New("invalid value for required argument 'RegistrationKey'")
 	}
 	var resource BigIpLicense
 	err := ctx.RegisterResource("f5bigip:sys/bigIpLicense:BigIpLicense", name, args, &resource, opts...)

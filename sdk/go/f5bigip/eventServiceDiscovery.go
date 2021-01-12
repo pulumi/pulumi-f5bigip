@@ -22,11 +22,12 @@ type EventServiceDiscovery struct {
 // NewEventServiceDiscovery registers a new resource with the given unique name, arguments, and options.
 func NewEventServiceDiscovery(ctx *pulumi.Context,
 	name string, args *EventServiceDiscoveryArgs, opts ...pulumi.ResourceOption) (*EventServiceDiscovery, error) {
-	if args == nil || args.Taskid == nil {
-		return nil, errors.New("missing required argument 'Taskid'")
-	}
 	if args == nil {
-		args = &EventServiceDiscoveryArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Taskid == nil {
+		return nil, errors.New("invalid value for required argument 'Taskid'")
 	}
 	var resource EventServiceDiscovery
 	err := ctx.RegisterResource("f5bigip:index/eventServiceDiscovery:EventServiceDiscovery", name, args, &resource, opts...)
