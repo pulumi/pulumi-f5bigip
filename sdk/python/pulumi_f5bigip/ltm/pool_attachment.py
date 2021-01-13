@@ -89,10 +89,10 @@ class PoolAttachment(pulumi.CustomResource):
             __props__['connection_rate_limit'] = connection_rate_limit
             __props__['dynamic_ratio'] = dynamic_ratio
             __props__['fqdn_autopopulate'] = fqdn_autopopulate
-            if node is None:
+            if node is None and not opts.urn:
                 raise TypeError("Missing required property 'node'")
             __props__['node'] = node
-            if pool is None:
+            if pool is None and not opts.urn:
                 raise TypeError("Missing required property 'pool'")
             __props__['pool'] = pool
             __props__['priority_group'] = priority_group

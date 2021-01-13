@@ -84,7 +84,7 @@ export class Dns extends pulumi.CustomResource {
             inputs["searches"] = state ? state.searches : undefined;
         } else {
             const args = argsOrState as DnsArgs | undefined;
-            if (!args || args.description === undefined) {
+            if ((!args || args.description === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'description'");
             }
             inputs["description"] = args ? args.description : undefined;

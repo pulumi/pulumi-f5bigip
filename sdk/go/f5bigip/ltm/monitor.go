@@ -117,14 +117,15 @@ type Monitor struct {
 // NewMonitor registers a new resource with the given unique name, arguments, and options.
 func NewMonitor(ctx *pulumi.Context,
 	name string, args *MonitorArgs, opts ...pulumi.ResourceOption) (*Monitor, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.Parent == nil {
-		return nil, errors.New("missing required argument 'Parent'")
-	}
 	if args == nil {
-		args = &MonitorArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.Parent == nil {
+		return nil, errors.New("invalid value for required argument 'Parent'")
 	}
 	var resource Monitor
 	err := ctx.RegisterResource("f5bigip:ltm/monitor:Monitor", name, args, &resource, opts...)

@@ -58,17 +58,17 @@ class Provider(pulumi.ProviderResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if address is None:
+            if address is None and not opts.urn:
                 raise TypeError("Missing required property 'address'")
             __props__['address'] = address
             __props__['login_ref'] = login_ref
-            if password is None:
+            if password is None and not opts.urn:
                 raise TypeError("Missing required property 'password'")
             __props__['password'] = password
             __props__['port'] = port
             __props__['teem_disable'] = pulumi.Output.from_input(teem_disable).apply(pulumi.runtime.to_json) if teem_disable is not None else None
             __props__['token_auth'] = pulumi.Output.from_input(token_auth).apply(pulumi.runtime.to_json) if token_auth is not None else None
-            if username is None:
+            if username is None and not opts.urn:
                 raise TypeError("Missing required property 'username'")
             __props__['username'] = username
         super(Provider, __self__).__init__(

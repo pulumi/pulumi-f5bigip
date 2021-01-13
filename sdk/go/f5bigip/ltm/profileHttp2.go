@@ -90,11 +90,12 @@ type ProfileHttp2 struct {
 // NewProfileHttp2 registers a new resource with the given unique name, arguments, and options.
 func NewProfileHttp2(ctx *pulumi.Context,
 	name string, args *ProfileHttp2Args, opts ...pulumi.ResourceOption) (*ProfileHttp2, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil {
-		args = &ProfileHttp2Args{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource ProfileHttp2
 	err := ctx.RegisterResource("f5bigip:ltm/profileHttp2:ProfileHttp2", name, args, &resource, opts...)

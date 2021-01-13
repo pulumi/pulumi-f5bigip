@@ -62,11 +62,12 @@ type VirtualAddress struct {
 // NewVirtualAddress registers a new resource with the given unique name, arguments, and options.
 func NewVirtualAddress(ctx *pulumi.Context,
 	name string, args *VirtualAddressArgs, opts ...pulumi.ResourceOption) (*VirtualAddress, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil {
-		args = &VirtualAddressArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource VirtualAddress
 	err := ctx.RegisterResource("f5bigip:ltm/virtualAddress:VirtualAddress", name, args, &resource, opts...)

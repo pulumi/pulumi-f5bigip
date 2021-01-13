@@ -128,10 +128,10 @@ class Monitor(pulumi.CustomResource):
             __props__['ip_dscp'] = ip_dscp
             __props__['manual_resume'] = manual_resume
             __props__['mode'] = mode
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
-            if parent is None:
+            if parent is None and not opts.urn:
                 raise TypeError("Missing required property 'parent'")
             __props__['parent'] = parent
             __props__['password'] = password

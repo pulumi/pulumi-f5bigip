@@ -38,7 +38,7 @@ class SelfIp(pulumi.CustomResource):
             ip="11.1.1.1/24",
             vlan="/Common/internal",
             traffic_group="traffic-group-1",
-            opts=ResourceOptions(depends_on=[bigip_net_vlan["vlan1"]]))
+            opts=pulumi.ResourceOptions(depends_on=[bigip_net_vlan["vlan1"]]))
         ```
 
         :param str resource_name: The name of the resource.
@@ -65,14 +65,14 @@ class SelfIp(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if ip is None:
+            if ip is None and not opts.urn:
                 raise TypeError("Missing required property 'ip'")
             __props__['ip'] = ip
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['traffic_group'] = traffic_group
-            if vlan is None:
+            if vlan is None and not opts.urn:
                 raise TypeError("Missing required property 'vlan'")
             __props__['vlan'] = vlan
         super(SelfIp, __self__).__init__(

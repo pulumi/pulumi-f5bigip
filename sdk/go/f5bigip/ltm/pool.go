@@ -77,11 +77,12 @@ type Pool struct {
 // NewPool registers a new resource with the given unique name, arguments, and options.
 func NewPool(ctx *pulumi.Context,
 	name string, args *PoolArgs, opts ...pulumi.ResourceOption) (*Pool, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil {
-		args = &PoolArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource Pool
 	err := ctx.RegisterResource("f5bigip:ltm/pool:Pool", name, args, &resource, opts...)

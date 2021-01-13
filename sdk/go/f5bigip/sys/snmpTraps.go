@@ -76,6 +76,7 @@ func NewSnmpTraps(ctx *pulumi.Context,
 	if args == nil {
 		args = &SnmpTrapsArgs{}
 	}
+
 	var resource SnmpTraps
 	err := ctx.RegisterResource("f5bigip:sys/snmpTraps:SnmpTraps", name, args, &resource, opts...)
 	if err != nil {

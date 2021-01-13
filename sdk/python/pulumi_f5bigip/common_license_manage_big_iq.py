@@ -127,25 +127,25 @@ class CommonLicenseManageBigIq(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if assignment_type is None:
+            if assignment_type is None and not opts.urn:
                 raise TypeError("Missing required property 'assignment_type'")
             __props__['assignment_type'] = assignment_type
-            if bigiq_address is None:
+            if bigiq_address is None and not opts.urn:
                 raise TypeError("Missing required property 'bigiq_address'")
             __props__['bigiq_address'] = bigiq_address
             __props__['bigiq_login_ref'] = bigiq_login_ref
-            if bigiq_password is None:
+            if bigiq_password is None and not opts.urn:
                 raise TypeError("Missing required property 'bigiq_password'")
             __props__['bigiq_password'] = bigiq_password
             __props__['bigiq_port'] = bigiq_port
             __props__['bigiq_token_auth'] = bigiq_token_auth
-            if bigiq_user is None:
+            if bigiq_user is None and not opts.urn:
                 raise TypeError("Missing required property 'bigiq_user'")
             __props__['bigiq_user'] = bigiq_user
             __props__['device_license_status'] = device_license_status
             __props__['hypervisor'] = hypervisor
             __props__['key'] = key
-            if license_poolname is None:
+            if license_poolname is None and not opts.urn:
                 raise TypeError("Missing required property 'license_poolname'")
             __props__['license_poolname'] = license_poolname
             __props__['mac_address'] = mac_address

@@ -55,14 +55,15 @@ type Device struct {
 // NewDevice registers a new resource with the given unique name, arguments, and options.
 func NewDevice(ctx *pulumi.Context,
 	name string, args *DeviceArgs, opts ...pulumi.ResourceOption) (*Device, error) {
-	if args == nil || args.ConfigsyncIp == nil {
-		return nil, errors.New("missing required argument 'ConfigsyncIp'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil {
-		args = &DeviceArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ConfigsyncIp == nil {
+		return nil, errors.New("invalid value for required argument 'ConfigsyncIp'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource Device
 	err := ctx.RegisterResource("f5bigip:cm/device:Device", name, args, &resource, opts...)

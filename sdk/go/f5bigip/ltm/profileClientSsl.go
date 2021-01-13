@@ -151,11 +151,12 @@ type ProfileClientSsl struct {
 // NewProfileClientSsl registers a new resource with the given unique name, arguments, and options.
 func NewProfileClientSsl(ctx *pulumi.Context,
 	name string, args *ProfileClientSslArgs, opts ...pulumi.ResourceOption) (*ProfileClientSsl, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil {
-		args = &ProfileClientSslArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource ProfileClientSsl
 	err := ctx.RegisterResource("f5bigip:ltm/profileClientSsl:ProfileClientSsl", name, args, &resource, opts...)

@@ -60,7 +60,7 @@ class Command(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['command_results'] = command_results
-            if commands is None:
+            if commands is None and not opts.urn:
                 raise TypeError("Missing required property 'commands'")
             __props__['commands'] = commands
             __props__['when'] = when

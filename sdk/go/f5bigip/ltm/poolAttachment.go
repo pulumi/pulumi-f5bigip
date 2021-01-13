@@ -87,14 +87,15 @@ type PoolAttachment struct {
 // NewPoolAttachment registers a new resource with the given unique name, arguments, and options.
 func NewPoolAttachment(ctx *pulumi.Context,
 	name string, args *PoolAttachmentArgs, opts ...pulumi.ResourceOption) (*PoolAttachment, error) {
-	if args == nil || args.Node == nil {
-		return nil, errors.New("missing required argument 'Node'")
-	}
-	if args == nil || args.Pool == nil {
-		return nil, errors.New("missing required argument 'Pool'")
-	}
 	if args == nil {
-		args = &PoolAttachmentArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Node == nil {
+		return nil, errors.New("invalid value for required argument 'Node'")
+	}
+	if args.Pool == nil {
+		return nil, errors.New("invalid value for required argument 'Pool'")
 	}
 	var resource PoolAttachment
 	err := ctx.RegisterResource("f5bigip:ltm/poolAttachment:PoolAttachment", name, args, &resource, opts...)

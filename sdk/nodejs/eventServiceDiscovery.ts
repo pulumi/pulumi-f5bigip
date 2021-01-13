@@ -55,7 +55,7 @@ export class EventServiceDiscovery extends pulumi.CustomResource {
             inputs["taskid"] = state ? state.taskid : undefined;
         } else {
             const args = argsOrState as EventServiceDiscoveryArgs | undefined;
-            if (!args || args.taskid === undefined) {
+            if ((!args || args.taskid === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'taskid'");
             }
             inputs["nodes"] = args ? args.nodes : undefined;

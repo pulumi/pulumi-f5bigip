@@ -68,12 +68,12 @@ class As3(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['application_list'] = application_list
-            if as3_json is None:
+            if as3_json is None and not opts.urn:
                 raise TypeError("Missing required property 'as3_json'")
             __props__['as3_json'] = as3_json
             __props__['tenant_filter'] = tenant_filter
             __props__['tenant_list'] = tenant_list
-            if tenant_name is not None:
+            if tenant_name is not None and not opts.urn:
                 warnings.warn("""this attribute is no longer in use""", DeprecationWarning)
                 pulumi.log.warn("tenant_name is deprecated: this attribute is no longer in use")
             __props__['tenant_name'] = tenant_name

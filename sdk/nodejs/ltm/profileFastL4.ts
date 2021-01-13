@@ -129,7 +129,7 @@ export class ProfileFastL4 extends pulumi.CustomResource {
             inputs["partition"] = state ? state.partition : undefined;
         } else {
             const args = argsOrState as ProfileFastL4Args | undefined;
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["clientTimeout"] = args ? args.clientTimeout : undefined;

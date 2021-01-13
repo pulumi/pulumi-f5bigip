@@ -102,7 +102,7 @@ class PersistenceProfileDstAddr(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['app_service'] = app_service
-            if defaults_from is None:
+            if defaults_from is None and not opts.urn:
                 raise TypeError("Missing required property 'defaults_from'")
             __props__['defaults_from'] = defaults_from
             __props__['hash_algorithm'] = hash_algorithm
@@ -111,7 +111,7 @@ class PersistenceProfileDstAddr(pulumi.CustomResource):
             __props__['match_across_services'] = match_across_services
             __props__['match_across_virtuals'] = match_across_virtuals
             __props__['mirror'] = mirror
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['override_conn_limit'] = override_conn_limit

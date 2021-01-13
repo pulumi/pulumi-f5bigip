@@ -211,7 +211,7 @@ export class ProfileHttp extends pulumi.CustomResource {
             inputs["xffAlternativeNames"] = state ? state.xffAlternativeNames : undefined;
         } else {
             const args = argsOrState as ProfileHttpArgs | undefined;
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["acceptXff"] = args ? args.acceptXff : undefined;

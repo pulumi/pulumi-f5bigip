@@ -101,7 +101,7 @@ export class ProfileHttpCompress extends pulumi.CustomResource {
             inputs["uriIncludes"] = state ? state.uriIncludes : undefined;
         } else {
             const args = argsOrState as ProfileHttpCompressArgs | undefined;
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["contentTypeExcludes"] = args ? args.contentTypeExcludes : undefined;

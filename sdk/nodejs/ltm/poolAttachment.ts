@@ -121,10 +121,10 @@ export class PoolAttachment extends pulumi.CustomResource {
             inputs["ratio"] = state ? state.ratio : undefined;
         } else {
             const args = argsOrState as PoolAttachmentArgs | undefined;
-            if (!args || args.node === undefined) {
+            if ((!args || args.node === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'node'");
             }
-            if (!args || args.pool === undefined) {
+            if ((!args || args.pool === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'pool'");
             }
             inputs["connectionLimit"] = args ? args.connectionLimit : undefined;

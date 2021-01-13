@@ -26,14 +26,15 @@ type IRule struct {
 // NewIRule registers a new resource with the given unique name, arguments, and options.
 func NewIRule(ctx *pulumi.Context,
 	name string, args *IRuleArgs, opts ...pulumi.ResourceOption) (*IRule, error) {
-	if args == nil || args.Irule == nil {
-		return nil, errors.New("missing required argument 'Irule'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil {
-		args = &IRuleArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Irule == nil {
+		return nil, errors.New("invalid value for required argument 'Irule'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource IRule
 	err := ctx.RegisterResource("f5bigip:ltm/iRule:IRule", name, args, &resource, opts...)

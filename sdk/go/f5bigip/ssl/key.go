@@ -27,14 +27,15 @@ type Key struct {
 // NewKey registers a new resource with the given unique name, arguments, and options.
 func NewKey(ctx *pulumi.Context,
 	name string, args *KeyArgs, opts ...pulumi.ResourceOption) (*Key, error) {
-	if args == nil || args.Content == nil {
-		return nil, errors.New("missing required argument 'Content'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil {
-		args = &KeyArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Content == nil {
+		return nil, errors.New("invalid value for required argument 'Content'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource Key
 	err := ctx.RegisterResource("f5bigip:ssl/key:Key", name, args, &resource, opts...)

@@ -85,7 +85,7 @@ class Pool(pulumi.CustomResource):
             __props__['load_balancing_mode'] = load_balancing_mode
             __props__['minimum_active_members'] = minimum_active_members
             __props__['monitors'] = monitors
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['reselect_tries'] = reselect_tries

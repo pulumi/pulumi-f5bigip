@@ -72,11 +72,12 @@ type ProfileTcp struct {
 // NewProfileTcp registers a new resource with the given unique name, arguments, and options.
 func NewProfileTcp(ctx *pulumi.Context,
 	name string, args *ProfileTcpArgs, opts ...pulumi.ResourceOption) (*ProfileTcp, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil {
-		args = &ProfileTcpArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource ProfileTcp
 	err := ctx.RegisterResource("f5bigip:ltm/profileTcp:ProfileTcp", name, args, &resource, opts...)

@@ -128,7 +128,7 @@ export class ProfileFastHttp extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as ProfileFastHttpArgs | undefined;
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["connpoolMaxreuse"] = args ? args.connpoolMaxreuse : undefined;

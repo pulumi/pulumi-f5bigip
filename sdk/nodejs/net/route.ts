@@ -80,10 +80,10 @@ export class Route extends pulumi.CustomResource {
             inputs["network"] = state ? state.network : undefined;
         } else {
             const args = argsOrState as RouteArgs | undefined;
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.network === undefined) {
+            if ((!args || args.network === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'network'");
             }
             inputs["gw"] = args ? args.gw : undefined;

@@ -126,17 +126,18 @@ type VirtualServer struct {
 // NewVirtualServer registers a new resource with the given unique name, arguments, and options.
 func NewVirtualServer(ctx *pulumi.Context,
 	name string, args *VirtualServerArgs, opts ...pulumi.ResourceOption) (*VirtualServer, error) {
-	if args == nil || args.Destination == nil {
-		return nil, errors.New("missing required argument 'Destination'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.Port == nil {
-		return nil, errors.New("missing required argument 'Port'")
-	}
 	if args == nil {
-		args = &VirtualServerArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Destination == nil {
+		return nil, errors.New("invalid value for required argument 'Destination'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.Port == nil {
+		return nil, errors.New("invalid value for required argument 'Port'")
 	}
 	var resource VirtualServer
 	err := ctx.RegisterResource("f5bigip:ltm/virtualServer:VirtualServer", name, args, &resource, opts...)

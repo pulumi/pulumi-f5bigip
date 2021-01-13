@@ -67,7 +67,7 @@ class Vlan(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['interfaces'] = interfaces
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['tag'] = tag

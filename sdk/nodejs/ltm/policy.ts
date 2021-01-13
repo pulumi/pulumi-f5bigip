@@ -112,7 +112,7 @@ export class Policy extends pulumi.CustomResource {
             inputs["strategy"] = state ? state.strategy : undefined;
         } else {
             const args = argsOrState as PolicyArgs | undefined;
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["controls"] = args ? args.controls : undefined;

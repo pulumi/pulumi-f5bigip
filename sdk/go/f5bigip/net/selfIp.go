@@ -58,17 +58,18 @@ type SelfIp struct {
 // NewSelfIp registers a new resource with the given unique name, arguments, and options.
 func NewSelfIp(ctx *pulumi.Context,
 	name string, args *SelfIpArgs, opts ...pulumi.ResourceOption) (*SelfIp, error) {
-	if args == nil || args.Ip == nil {
-		return nil, errors.New("missing required argument 'Ip'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
-	if args == nil || args.Vlan == nil {
-		return nil, errors.New("missing required argument 'Vlan'")
-	}
 	if args == nil {
-		args = &SelfIpArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Ip == nil {
+		return nil, errors.New("invalid value for required argument 'Ip'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
+	if args.Vlan == nil {
+		return nil, errors.New("invalid value for required argument 'Vlan'")
 	}
 	var resource SelfIp
 	err := ctx.RegisterResource("f5bigip:net/selfIp:SelfIp", name, args, &resource, opts...)

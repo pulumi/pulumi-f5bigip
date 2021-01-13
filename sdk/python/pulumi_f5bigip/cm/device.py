@@ -63,12 +63,12 @@ class Device(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if configsync_ip is None:
+            if configsync_ip is None and not opts.urn:
                 raise TypeError("Missing required property 'configsync_ip'")
             __props__['configsync_ip'] = configsync_ip
             __props__['mirror_ip'] = mirror_ip
             __props__['mirror_secondary_ip'] = mirror_secondary_ip
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
         super(Device, __self__).__init__(

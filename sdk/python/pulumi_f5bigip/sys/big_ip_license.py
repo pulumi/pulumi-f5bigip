@@ -44,10 +44,10 @@ class BigIpLicense(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if command is None:
+            if command is None and not opts.urn:
                 raise TypeError("Missing required property 'command'")
             __props__['command'] = command
-            if registration_key is None:
+            if registration_key is None and not opts.urn:
                 raise TypeError("Missing required property 'registration_key'")
             __props__['registration_key'] = registration_key
         super(BigIpLicense, __self__).__init__(

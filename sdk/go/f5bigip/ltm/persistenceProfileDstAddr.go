@@ -93,14 +93,15 @@ type PersistenceProfileDstAddr struct {
 // NewPersistenceProfileDstAddr registers a new resource with the given unique name, arguments, and options.
 func NewPersistenceProfileDstAddr(ctx *pulumi.Context,
 	name string, args *PersistenceProfileDstAddrArgs, opts ...pulumi.ResourceOption) (*PersistenceProfileDstAddr, error) {
-	if args == nil || args.DefaultsFrom == nil {
-		return nil, errors.New("missing required argument 'DefaultsFrom'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil {
-		args = &PersistenceProfileDstAddrArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DefaultsFrom == nil {
+		return nil, errors.New("invalid value for required argument 'DefaultsFrom'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource PersistenceProfileDstAddr
 	err := ctx.RegisterResource("f5bigip:ltm/persistenceProfileDstAddr:PersistenceProfileDstAddr", name, args, &resource, opts...)

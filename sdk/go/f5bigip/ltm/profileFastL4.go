@@ -81,11 +81,12 @@ type ProfileFastL4 struct {
 // NewProfileFastL4 registers a new resource with the given unique name, arguments, and options.
 func NewProfileFastL4(ctx *pulumi.Context,
 	name string, args *ProfileFastL4Args, opts ...pulumi.ResourceOption) (*ProfileFastL4, error) {
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil {
-		args = &ProfileFastL4Args{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource ProfileFastL4
 	err := ctx.RegisterResource("f5bigip:ltm/profileFastL4:ProfileFastL4", name, args, &resource, opts...)

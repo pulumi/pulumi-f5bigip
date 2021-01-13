@@ -57,10 +57,10 @@ export class BigIpLicense extends pulumi.CustomResource {
             inputs["registrationKey"] = state ? state.registrationKey : undefined;
         } else {
             const args = argsOrState as BigIpLicenseArgs | undefined;
-            if (!args || args.command === undefined) {
+            if ((!args || args.command === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'command'");
             }
-            if (!args || args.registrationKey === undefined) {
+            if ((!args || args.registrationKey === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'registrationKey'");
             }
             inputs["command"] = args ? args.command : undefined;

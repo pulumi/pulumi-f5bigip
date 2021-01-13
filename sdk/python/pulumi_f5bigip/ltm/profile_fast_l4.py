@@ -97,7 +97,7 @@ class ProfileFastL4(pulumi.CustomResource):
             __props__['iptos_toclient'] = iptos_toclient
             __props__['iptos_toserver'] = iptos_toserver
             __props__['keepalive_interval'] = keepalive_interval
-            if name is None:
+            if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__['name'] = name
             __props__['partition'] = partition

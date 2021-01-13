@@ -53,14 +53,15 @@ type SnatPool struct {
 // NewSnatPool registers a new resource with the given unique name, arguments, and options.
 func NewSnatPool(ctx *pulumi.Context,
 	name string, args *SnatPoolArgs, opts ...pulumi.ResourceOption) (*SnatPool, error) {
-	if args == nil || args.Members == nil {
-		return nil, errors.New("missing required argument 'Members'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil {
-		args = &SnatPoolArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Members == nil {
+		return nil, errors.New("invalid value for required argument 'Members'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource SnatPool
 	err := ctx.RegisterResource("f5bigip:ltm/snatPool:SnatPool", name, args, &resource, opts...)

@@ -54,11 +54,12 @@ type Ntp struct {
 // NewNtp registers a new resource with the given unique name, arguments, and options.
 func NewNtp(ctx *pulumi.Context,
 	name string, args *NtpArgs, opts ...pulumi.ResourceOption) (*Ntp, error) {
-	if args == nil || args.Description == nil {
-		return nil, errors.New("missing required argument 'Description'")
-	}
 	if args == nil {
-		args = &NtpArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Description == nil {
+		return nil, errors.New("invalid value for required argument 'Description'")
 	}
 	var resource Ntp
 	err := ctx.RegisterResource("f5bigip:sys/ntp:Ntp", name, args, &resource, opts...)

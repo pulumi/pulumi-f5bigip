@@ -88,13 +88,13 @@ export class SelfIp extends pulumi.CustomResource {
             inputs["vlan"] = state ? state.vlan : undefined;
         } else {
             const args = argsOrState as SelfIpArgs | undefined;
-            if (!args || args.ip === undefined) {
+            if ((!args || args.ip === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'ip'");
             }
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
-            if (!args || args.vlan === undefined) {
+            if ((!args || args.vlan === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'vlan'");
             }
             inputs["ip"] = args ? args.ip : undefined;

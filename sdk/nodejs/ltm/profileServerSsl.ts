@@ -275,7 +275,7 @@ export class ProfileServerSsl extends pulumi.CustomResource {
             inputs["untrustedCertResponseControl"] = state ? state.untrustedCertResponseControl : undefined;
         } else {
             const args = argsOrState as ProfileServerSslArgs | undefined;
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["alertTimeout"] = args ? args.alertTimeout : undefined;

@@ -36,13 +36,13 @@ export class Provider extends pulumi.ProviderResource {
     constructor(name: string, args: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let inputs: pulumi.Inputs = {};
         {
-            if (!args || args.address === undefined) {
+            if ((!args || args.address === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'address'");
             }
-            if (!args || args.password === undefined) {
+            if ((!args || args.password === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'password'");
             }
-            if (!args || args.username === undefined) {
+            if ((!args || args.username === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'username'");
             }
             inputs["address"] = args ? args.address : undefined;

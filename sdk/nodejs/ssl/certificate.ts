@@ -80,10 +80,10 @@ export class Certificate extends pulumi.CustomResource {
             inputs["partition"] = state ? state.partition : undefined;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
-            if (!args || args.content === undefined) {
+            if ((!args || args.content === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'content'");
             }
-            if (!args || args.name === undefined) {
+            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["content"] = args ? args.content : undefined;

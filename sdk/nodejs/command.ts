@@ -76,7 +76,7 @@ export class Command extends pulumi.CustomResource {
             inputs["when"] = state ? state.when : undefined;
         } else {
             const args = argsOrState as CommandArgs | undefined;
-            if (!args || args.commands === undefined) {
+            if ((!args || args.commands === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'commands'");
             }
             inputs["commandResults"] = args ? args.commandResults : undefined;

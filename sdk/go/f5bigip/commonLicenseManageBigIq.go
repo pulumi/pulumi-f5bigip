@@ -133,23 +133,24 @@ type CommonLicenseManageBigIq struct {
 // NewCommonLicenseManageBigIq registers a new resource with the given unique name, arguments, and options.
 func NewCommonLicenseManageBigIq(ctx *pulumi.Context,
 	name string, args *CommonLicenseManageBigIqArgs, opts ...pulumi.ResourceOption) (*CommonLicenseManageBigIq, error) {
-	if args == nil || args.AssignmentType == nil {
-		return nil, errors.New("missing required argument 'AssignmentType'")
-	}
-	if args == nil || args.BigiqAddress == nil {
-		return nil, errors.New("missing required argument 'BigiqAddress'")
-	}
-	if args == nil || args.BigiqPassword == nil {
-		return nil, errors.New("missing required argument 'BigiqPassword'")
-	}
-	if args == nil || args.BigiqUser == nil {
-		return nil, errors.New("missing required argument 'BigiqUser'")
-	}
-	if args == nil || args.LicensePoolname == nil {
-		return nil, errors.New("missing required argument 'LicensePoolname'")
-	}
 	if args == nil {
-		args = &CommonLicenseManageBigIqArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AssignmentType == nil {
+		return nil, errors.New("invalid value for required argument 'AssignmentType'")
+	}
+	if args.BigiqAddress == nil {
+		return nil, errors.New("invalid value for required argument 'BigiqAddress'")
+	}
+	if args.BigiqPassword == nil {
+		return nil, errors.New("invalid value for required argument 'BigiqPassword'")
+	}
+	if args.BigiqUser == nil {
+		return nil, errors.New("invalid value for required argument 'BigiqUser'")
+	}
+	if args.LicensePoolname == nil {
+		return nil, errors.New("invalid value for required argument 'LicensePoolname'")
 	}
 	var resource CommonLicenseManageBigIq
 	err := ctx.RegisterResource("f5bigip:index/commonLicenseManageBigIq:CommonLicenseManageBigIq", name, args, &resource, opts...)

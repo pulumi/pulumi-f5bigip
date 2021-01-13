@@ -128,14 +128,15 @@ type PersistenceProfileCookie struct {
 // NewPersistenceProfileCookie registers a new resource with the given unique name, arguments, and options.
 func NewPersistenceProfileCookie(ctx *pulumi.Context,
 	name string, args *PersistenceProfileCookieArgs, opts ...pulumi.ResourceOption) (*PersistenceProfileCookie, error) {
-	if args == nil || args.DefaultsFrom == nil {
-		return nil, errors.New("missing required argument 'DefaultsFrom'")
-	}
-	if args == nil || args.Name == nil {
-		return nil, errors.New("missing required argument 'Name'")
-	}
 	if args == nil {
-		args = &PersistenceProfileCookieArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DefaultsFrom == nil {
+		return nil, errors.New("invalid value for required argument 'DefaultsFrom'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
 	}
 	var resource PersistenceProfileCookie
 	err := ctx.RegisterResource("f5bigip:ltm/persistenceProfileCookie:PersistenceProfileCookie", name, args, &resource, opts...)

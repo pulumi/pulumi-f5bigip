@@ -35,20 +35,21 @@ type BigIqAs3 struct {
 // NewBigIqAs3 registers a new resource with the given unique name, arguments, and options.
 func NewBigIqAs3(ctx *pulumi.Context,
 	name string, args *BigIqAs3Args, opts ...pulumi.ResourceOption) (*BigIqAs3, error) {
-	if args == nil || args.As3Json == nil {
-		return nil, errors.New("missing required argument 'As3Json'")
-	}
-	if args == nil || args.BigiqAddress == nil {
-		return nil, errors.New("missing required argument 'BigiqAddress'")
-	}
-	if args == nil || args.BigiqPassword == nil {
-		return nil, errors.New("missing required argument 'BigiqPassword'")
-	}
-	if args == nil || args.BigiqUser == nil {
-		return nil, errors.New("missing required argument 'BigiqUser'")
-	}
 	if args == nil {
-		args = &BigIqAs3Args{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.As3Json == nil {
+		return nil, errors.New("invalid value for required argument 'As3Json'")
+	}
+	if args.BigiqAddress == nil {
+		return nil, errors.New("invalid value for required argument 'BigiqAddress'")
+	}
+	if args.BigiqPassword == nil {
+		return nil, errors.New("invalid value for required argument 'BigiqPassword'")
+	}
+	if args.BigiqUser == nil {
+		return nil, errors.New("invalid value for required argument 'BigiqUser'")
 	}
 	var resource BigIqAs3
 	err := ctx.RegisterResource("f5bigip:index/bigIqAs3:BigIqAs3", name, args, &resource, opts...)
