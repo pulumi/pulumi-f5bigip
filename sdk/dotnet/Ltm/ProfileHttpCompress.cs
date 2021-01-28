@@ -51,6 +51,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// }
     /// ```
     /// </summary>
+    [F5BigIPResourceType("f5bigip:ltm/profileHttpCompress:ProfileHttpCompress")]
     public partial class ProfileHttpCompress : Pulumi.CustomResource
     {
         /// <summary>

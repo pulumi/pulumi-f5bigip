@@ -40,6 +40,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// }
     /// ```
     /// </summary>
+    [F5BigIPResourceType("f5bigip:ltm/profileTcp:ProfileTcp")]
     public partial class ProfileTcp : Pulumi.CustomResource
     {
         /// <summary>

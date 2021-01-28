@@ -163,15 +163,15 @@ type ProvisionInput interface {
 	ToProvisionOutputWithContext(ctx context.Context) ProvisionOutput
 }
 
-func (Provision) ElementType() reflect.Type {
-	return reflect.TypeOf((*Provision)(nil)).Elem()
+func (*Provision) ElementType() reflect.Type {
+	return reflect.TypeOf((*Provision)(nil))
 }
 
-func (i Provision) ToProvisionOutput() ProvisionOutput {
+func (i *Provision) ToProvisionOutput() ProvisionOutput {
 	return i.ToProvisionOutputWithContext(context.Background())
 }
 
-func (i Provision) ToProvisionOutputWithContext(ctx context.Context) ProvisionOutput {
+func (i *Provision) ToProvisionOutputWithContext(ctx context.Context) ProvisionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProvisionOutput)
 }
 
@@ -180,7 +180,7 @@ type ProvisionOutput struct {
 }
 
 func (ProvisionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProvisionOutput)(nil)).Elem()
+	return reflect.TypeOf((*Provision)(nil))
 }
 
 func (o ProvisionOutput) ToProvisionOutput() ProvisionOutput {

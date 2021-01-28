@@ -238,15 +238,15 @@ type SnmpTrapsInput interface {
 	ToSnmpTrapsOutputWithContext(ctx context.Context) SnmpTrapsOutput
 }
 
-func (SnmpTraps) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnmpTraps)(nil)).Elem()
+func (*SnmpTraps) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnmpTraps)(nil))
 }
 
-func (i SnmpTraps) ToSnmpTrapsOutput() SnmpTrapsOutput {
+func (i *SnmpTraps) ToSnmpTrapsOutput() SnmpTrapsOutput {
 	return i.ToSnmpTrapsOutputWithContext(context.Background())
 }
 
-func (i SnmpTraps) ToSnmpTrapsOutputWithContext(ctx context.Context) SnmpTrapsOutput {
+func (i *SnmpTraps) ToSnmpTrapsOutputWithContext(ctx context.Context) SnmpTrapsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SnmpTrapsOutput)
 }
 
@@ -255,7 +255,7 @@ type SnmpTrapsOutput struct {
 }
 
 func (SnmpTrapsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnmpTrapsOutput)(nil)).Elem()
+	return reflect.TypeOf((*SnmpTraps)(nil))
 }
 
 func (o SnmpTrapsOutput) ToSnmpTrapsOutput() SnmpTrapsOutput {

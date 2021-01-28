@@ -41,6 +41,7 @@ namespace Pulumi.F5BigIP
     /// }
     /// ```
     /// </summary>
+    [F5BigIPResourceType("f5bigip:index/as3:As3")]
     public partial class As3 : Pulumi.CustomResource
     {
         /// <summary>

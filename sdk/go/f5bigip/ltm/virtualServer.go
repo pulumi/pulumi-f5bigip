@@ -364,15 +364,15 @@ type VirtualServerInput interface {
 	ToVirtualServerOutputWithContext(ctx context.Context) VirtualServerOutput
 }
 
-func (VirtualServer) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualServer)(nil)).Elem()
+func (*VirtualServer) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualServer)(nil))
 }
 
-func (i VirtualServer) ToVirtualServerOutput() VirtualServerOutput {
+func (i *VirtualServer) ToVirtualServerOutput() VirtualServerOutput {
 	return i.ToVirtualServerOutputWithContext(context.Background())
 }
 
-func (i VirtualServer) ToVirtualServerOutputWithContext(ctx context.Context) VirtualServerOutput {
+func (i *VirtualServer) ToVirtualServerOutputWithContext(ctx context.Context) VirtualServerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualServerOutput)
 }
 
@@ -381,7 +381,7 @@ type VirtualServerOutput struct {
 }
 
 func (VirtualServerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualServerOutput)(nil)).Elem()
+	return reflect.TypeOf((*VirtualServer)(nil))
 }
 
 func (o VirtualServerOutput) ToVirtualServerOutput() VirtualServerOutput {

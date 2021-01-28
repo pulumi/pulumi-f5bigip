@@ -65,6 +65,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// `map_proxies` (Optional) (enabled or disabled) Directs all to the same single pool member
     /// </summary>
+    [F5BigIPResourceType("f5bigip:ltm/persistenceProfileSrcAddr:PersistenceProfileSrcAddr")]
     public partial class PersistenceProfileSrcAddr : Pulumi.CustomResource
     {
         [Output("appService")]

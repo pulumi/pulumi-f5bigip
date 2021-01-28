@@ -41,6 +41,7 @@ namespace Pulumi.F5BigIP.Ltm
     ///  $ pulumi import f5bigip:ltm/profileOneConnect:ProfileOneConnect test-oneconnect /Common/test-oneconnect
     /// ```
     /// </summary>
+    [F5BigIPResourceType("f5bigip:ltm/profileOneConnect:ProfileOneConnect")]
     public partial class ProfileOneConnect : Pulumi.CustomResource
     {
         /// <summary>

@@ -34,6 +34,7 @@ namespace Pulumi.F5BigIP.Sys
     /// }
     /// ```
     /// </summary>
+    [F5BigIPResourceType("f5bigip:sys/snmpTraps:SnmpTraps")]
     public partial class SnmpTraps : Pulumi.CustomResource
     {
         /// <summary>

@@ -34,6 +34,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// }
     /// ```
     /// </summary>
+    [F5BigIPResourceType("f5bigip:ltm/virtualAddress:VirtualAddress")]
     public partial class VirtualAddress : Pulumi.CustomResource
     {
         /// <summary>

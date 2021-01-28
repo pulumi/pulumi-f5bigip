@@ -42,6 +42,7 @@ namespace Pulumi.F5BigIP.Net
     /// }
     /// ```
     /// </summary>
+    [F5BigIPResourceType("f5bigip:net/vlan:Vlan")]
     public partial class Vlan : Pulumi.CustomResource
     {
         /// <summary>

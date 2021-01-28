@@ -35,6 +35,7 @@ namespace Pulumi.F5BigIP.Ssl
     /// }
     /// ```
     /// </summary>
+    [F5BigIPResourceType("f5bigip:ssl/key:Key")]
     public partial class Key : Pulumi.CustomResource
     {
         /// <summary>

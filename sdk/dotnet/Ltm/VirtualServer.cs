@@ -71,6 +71,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// }
     /// ```
     /// </summary>
+    [F5BigIPResourceType("f5bigip:ltm/virtualServer:VirtualServer")]
     public partial class VirtualServer : Pulumi.CustomResource
     {
         /// <summary>

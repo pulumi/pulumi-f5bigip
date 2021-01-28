@@ -57,6 +57,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// }
     /// ```
     /// </summary>
+    [F5BigIPResourceType("f5bigip:ltm/poolAttachment:PoolAttachment")]
     public partial class PoolAttachment : Pulumi.CustomResource
     {
         /// <summary>

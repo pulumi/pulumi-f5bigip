@@ -164,15 +164,15 @@ type BigIqAs3Input interface {
 	ToBigIqAs3OutputWithContext(ctx context.Context) BigIqAs3Output
 }
 
-func (BigIqAs3) ElementType() reflect.Type {
-	return reflect.TypeOf((*BigIqAs3)(nil)).Elem()
+func (*BigIqAs3) ElementType() reflect.Type {
+	return reflect.TypeOf((*BigIqAs3)(nil))
 }
 
-func (i BigIqAs3) ToBigIqAs3Output() BigIqAs3Output {
+func (i *BigIqAs3) ToBigIqAs3Output() BigIqAs3Output {
 	return i.ToBigIqAs3OutputWithContext(context.Background())
 }
 
-func (i BigIqAs3) ToBigIqAs3OutputWithContext(ctx context.Context) BigIqAs3Output {
+func (i *BigIqAs3) ToBigIqAs3OutputWithContext(ctx context.Context) BigIqAs3Output {
 	return pulumi.ToOutputWithContext(ctx, i).(BigIqAs3Output)
 }
 
@@ -181,7 +181,7 @@ type BigIqAs3Output struct {
 }
 
 func (BigIqAs3Output) ElementType() reflect.Type {
-	return reflect.TypeOf((*BigIqAs3Output)(nil)).Elem()
+	return reflect.TypeOf((*BigIqAs3)(nil))
 }
 
 func (o BigIqAs3Output) ToBigIqAs3Output() BigIqAs3Output {

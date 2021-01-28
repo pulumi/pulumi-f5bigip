@@ -34,6 +34,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// }
     /// ```
     /// </summary>
+    [F5BigIPResourceType("f5bigip:ltm/profileClientSsl:ProfileClientSsl")]
     public partial class ProfileClientSsl : Pulumi.CustomResource
     {
         /// <summary>

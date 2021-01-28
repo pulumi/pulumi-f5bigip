@@ -15,6 +15,7 @@ namespace Pulumi.F5BigIP
     /// construction to achieve fine-grained programmatic control over provider settings. See the
     /// [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
     /// </summary>
+    [F5BigIPResourceType("pulumi:providers:f5bigip")]
     public partial class Provider : Pulumi.ProviderResource
     {
         /// <summary>

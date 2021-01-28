@@ -70,6 +70,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// }
     /// ```
     /// </summary>
+    [F5BigIPResourceType("f5bigip:ltm/policy:Policy")]
     public partial class Policy : Pulumi.CustomResource
     {
         /// <summary>

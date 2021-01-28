@@ -5,8 +5,8 @@ go 1.14
 require (
 	github.com/F5Networks/terraform-provider-bigip v1.3.3
 	github.com/hashicorp/terraform-plugin-sdk v1.7.0
-	github.com/pulumi/pulumi-terraform-bridge/v2 v2.17.0
-	github.com/pulumi/pulumi/sdk/v2 v2.17.0
+	github.com/pulumi/pulumi-terraform-bridge/v2 v2.18.1
+	github.com/pulumi/pulumi/sdk/v2 v2.18.0
 )
 
 replace (

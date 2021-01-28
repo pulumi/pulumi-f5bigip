@@ -331,15 +331,15 @@ type PersistenceProfileCookieInput interface {
 	ToPersistenceProfileCookieOutputWithContext(ctx context.Context) PersistenceProfileCookieOutput
 }
 
-func (PersistenceProfileCookie) ElementType() reflect.Type {
-	return reflect.TypeOf((*PersistenceProfileCookie)(nil)).Elem()
+func (*PersistenceProfileCookie) ElementType() reflect.Type {
+	return reflect.TypeOf((*PersistenceProfileCookie)(nil))
 }
 
-func (i PersistenceProfileCookie) ToPersistenceProfileCookieOutput() PersistenceProfileCookieOutput {
+func (i *PersistenceProfileCookie) ToPersistenceProfileCookieOutput() PersistenceProfileCookieOutput {
 	return i.ToPersistenceProfileCookieOutputWithContext(context.Background())
 }
 
-func (i PersistenceProfileCookie) ToPersistenceProfileCookieOutputWithContext(ctx context.Context) PersistenceProfileCookieOutput {
+func (i *PersistenceProfileCookie) ToPersistenceProfileCookieOutputWithContext(ctx context.Context) PersistenceProfileCookieOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PersistenceProfileCookieOutput)
 }
 
@@ -348,7 +348,7 @@ type PersistenceProfileCookieOutput struct {
 }
 
 func (PersistenceProfileCookieOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PersistenceProfileCookieOutput)(nil)).Elem()
+	return reflect.TypeOf((*PersistenceProfileCookie)(nil))
 }
 
 func (o PersistenceProfileCookieOutput) ToPersistenceProfileCookieOutput() PersistenceProfileCookieOutput {

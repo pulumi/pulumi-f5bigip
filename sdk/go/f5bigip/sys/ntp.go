@@ -134,15 +134,15 @@ type NtpInput interface {
 	ToNtpOutputWithContext(ctx context.Context) NtpOutput
 }
 
-func (Ntp) ElementType() reflect.Type {
-	return reflect.TypeOf((*Ntp)(nil)).Elem()
+func (*Ntp) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ntp)(nil))
 }
 
-func (i Ntp) ToNtpOutput() NtpOutput {
+func (i *Ntp) ToNtpOutput() NtpOutput {
 	return i.ToNtpOutputWithContext(context.Background())
 }
 
-func (i Ntp) ToNtpOutputWithContext(ctx context.Context) NtpOutput {
+func (i *Ntp) ToNtpOutputWithContext(ctx context.Context) NtpOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NtpOutput)
 }
 
@@ -151,7 +151,7 @@ type NtpOutput struct {
 }
 
 func (NtpOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NtpOutput)(nil)).Elem()
+	return reflect.TypeOf((*Ntp)(nil))
 }
 
 func (o NtpOutput) ToNtpOutput() NtpOutput {

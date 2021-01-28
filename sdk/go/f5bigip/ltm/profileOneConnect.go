@@ -209,15 +209,15 @@ type ProfileOneConnectInput interface {
 	ToProfileOneConnectOutputWithContext(ctx context.Context) ProfileOneConnectOutput
 }
 
-func (ProfileOneConnect) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileOneConnect)(nil)).Elem()
+func (*ProfileOneConnect) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileOneConnect)(nil))
 }
 
-func (i ProfileOneConnect) ToProfileOneConnectOutput() ProfileOneConnectOutput {
+func (i *ProfileOneConnect) ToProfileOneConnectOutput() ProfileOneConnectOutput {
 	return i.ToProfileOneConnectOutputWithContext(context.Background())
 }
 
-func (i ProfileOneConnect) ToProfileOneConnectOutputWithContext(ctx context.Context) ProfileOneConnectOutput {
+func (i *ProfileOneConnect) ToProfileOneConnectOutputWithContext(ctx context.Context) ProfileOneConnectOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileOneConnectOutput)
 }
 
@@ -226,7 +226,7 @@ type ProfileOneConnectOutput struct {
 }
 
 func (ProfileOneConnectOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileOneConnectOutput)(nil)).Elem()
+	return reflect.TypeOf((*ProfileOneConnect)(nil))
 }
 
 func (o ProfileOneConnectOutput) ToProfileOneConnectOutput() ProfileOneConnectOutput {

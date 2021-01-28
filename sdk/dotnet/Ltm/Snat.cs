@@ -50,6 +50,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// }
     /// ```
     /// </summary>
+    [F5BigIPResourceType("f5bigip:ltm/snat:Snat")]
     public partial class Snat : Pulumi.CustomResource
     {
         /// <summary>

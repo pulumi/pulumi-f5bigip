@@ -217,15 +217,15 @@ type ProfileFastL4Input interface {
 	ToProfileFastL4OutputWithContext(ctx context.Context) ProfileFastL4Output
 }
 
-func (ProfileFastL4) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileFastL4)(nil)).Elem()
+func (*ProfileFastL4) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileFastL4)(nil))
 }
 
-func (i ProfileFastL4) ToProfileFastL4Output() ProfileFastL4Output {
+func (i *ProfileFastL4) ToProfileFastL4Output() ProfileFastL4Output {
 	return i.ToProfileFastL4OutputWithContext(context.Background())
 }
 
-func (i ProfileFastL4) ToProfileFastL4OutputWithContext(ctx context.Context) ProfileFastL4Output {
+func (i *ProfileFastL4) ToProfileFastL4OutputWithContext(ctx context.Context) ProfileFastL4Output {
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileFastL4Output)
 }
 
@@ -234,7 +234,7 @@ type ProfileFastL4Output struct {
 }
 
 func (ProfileFastL4Output) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileFastL4Output)(nil)).Elem()
+	return reflect.TypeOf((*ProfileFastL4)(nil))
 }
 
 func (o ProfileFastL4Output) ToProfileFastL4Output() ProfileFastL4Output {

@@ -80,6 +80,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// `httponly` (Optional) (enabled or disabled) Sending only over http
     /// </summary>
+    [F5BigIPResourceType("f5bigip:ltm/persistenceProfileCookie:PersistenceProfileCookie")]
     public partial class PersistenceProfileCookie : Pulumi.CustomResource
     {
         /// <summary>

@@ -35,6 +35,7 @@ namespace Pulumi.F5BigIP.CM
     /// }
     /// ```
     /// </summary>
+    [F5BigIPResourceType("f5bigip:cm/device:Device")]
     public partial class Device : Pulumi.CustomResource
     {
         /// <summary>

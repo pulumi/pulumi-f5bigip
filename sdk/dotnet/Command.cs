@@ -37,6 +37,7 @@ namespace Pulumi.F5BigIP
     /// }
     /// ```
     /// </summary>
+    [F5BigIPResourceType("f5bigip:index/command:Command")]
     public partial class Command : Pulumi.CustomResource
     {
         /// <summary>

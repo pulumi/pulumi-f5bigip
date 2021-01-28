@@ -61,6 +61,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// }
     /// ```
     /// </summary>
+    [F5BigIPResourceType("f5bigip:ltm/monitor:Monitor")]
     public partial class Monitor : Pulumi.CustomResource
     {
         /// <summary>

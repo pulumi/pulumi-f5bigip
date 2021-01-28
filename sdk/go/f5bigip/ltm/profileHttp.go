@@ -387,15 +387,15 @@ type ProfileHttpInput interface {
 	ToProfileHttpOutputWithContext(ctx context.Context) ProfileHttpOutput
 }
 
-func (ProfileHttp) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileHttp)(nil)).Elem()
+func (*ProfileHttp) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileHttp)(nil))
 }
 
-func (i ProfileHttp) ToProfileHttpOutput() ProfileHttpOutput {
+func (i *ProfileHttp) ToProfileHttpOutput() ProfileHttpOutput {
 	return i.ToProfileHttpOutputWithContext(context.Background())
 }
 
-func (i ProfileHttp) ToProfileHttpOutputWithContext(ctx context.Context) ProfileHttpOutput {
+func (i *ProfileHttp) ToProfileHttpOutputWithContext(ctx context.Context) ProfileHttpOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileHttpOutput)
 }
 
@@ -404,7 +404,7 @@ type ProfileHttpOutput struct {
 }
 
 func (ProfileHttpOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileHttpOutput)(nil)).Elem()
+	return reflect.TypeOf((*ProfileHttp)(nil))
 }
 
 func (o ProfileHttpOutput) ToProfileHttpOutput() ProfileHttpOutput {

@@ -627,15 +627,15 @@ type ProfileClientSslInput interface {
 	ToProfileClientSslOutputWithContext(ctx context.Context) ProfileClientSslOutput
 }
 
-func (ProfileClientSsl) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileClientSsl)(nil)).Elem()
+func (*ProfileClientSsl) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileClientSsl)(nil))
 }
 
-func (i ProfileClientSsl) ToProfileClientSslOutput() ProfileClientSslOutput {
+func (i *ProfileClientSsl) ToProfileClientSslOutput() ProfileClientSslOutput {
 	return i.ToProfileClientSslOutputWithContext(context.Background())
 }
 
-func (i ProfileClientSsl) ToProfileClientSslOutputWithContext(ctx context.Context) ProfileClientSslOutput {
+func (i *ProfileClientSsl) ToProfileClientSslOutputWithContext(ctx context.Context) ProfileClientSslOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileClientSslOutput)
 }
 
@@ -644,7 +644,7 @@ type ProfileClientSslOutput struct {
 }
 
 func (ProfileClientSslOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileClientSslOutput)(nil)).Elem()
+	return reflect.TypeOf((*ProfileClientSsl)(nil))
 }
 
 func (o ProfileClientSslOutput) ToProfileClientSslOutput() ProfileClientSslOutput {

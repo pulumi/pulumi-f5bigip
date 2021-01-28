@@ -14,6 +14,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
     /// </summary>
+    [F5BigIPResourceType("f5bigip:ltm/iRule:IRule")]
     public partial class IRule : Pulumi.CustomResource
     {
         /// <summary>

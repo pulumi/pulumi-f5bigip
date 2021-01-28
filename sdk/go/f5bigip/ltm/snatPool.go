@@ -128,15 +128,15 @@ type SnatPoolInput interface {
 	ToSnatPoolOutputWithContext(ctx context.Context) SnatPoolOutput
 }
 
-func (SnatPool) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnatPool)(nil)).Elem()
+func (*SnatPool) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnatPool)(nil))
 }
 
-func (i SnatPool) ToSnatPoolOutput() SnatPoolOutput {
+func (i *SnatPool) ToSnatPoolOutput() SnatPoolOutput {
 	return i.ToSnatPoolOutputWithContext(context.Background())
 }
 
-func (i SnatPool) ToSnatPoolOutputWithContext(ctx context.Context) SnatPoolOutput {
+func (i *SnatPool) ToSnatPoolOutputWithContext(ctx context.Context) SnatPoolOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SnatPoolOutput)
 }
 
@@ -145,7 +145,7 @@ type SnatPoolOutput struct {
 }
 
 func (SnatPoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnatPoolOutput)(nil)).Elem()
+	return reflect.TypeOf((*SnatPool)(nil))
 }
 
 func (o SnatPoolOutput) ToSnatPoolOutput() SnatPoolOutput {

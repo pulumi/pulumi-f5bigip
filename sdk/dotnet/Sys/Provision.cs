@@ -35,6 +35,7 @@ namespace Pulumi.F5BigIP.Sys
     /// }
     /// ```
     /// </summary>
+    [F5BigIPResourceType("f5bigip:sys/provision:Provision")]
     public partial class Provision : Pulumi.CustomResource
     {
         /// <summary>

@@ -77,4 +77,11 @@ namespace Pulumi.F5BigIP
             }
         }
     }
+
+    internal sealed class F5BigIPResourceTypeAttribute : Pulumi.ResourceTypeAttribute
+    {
+        public F5BigIPResourceTypeAttribute(string type) : base(type, Utilities.Version)
+        {
+        }
+    }
 }

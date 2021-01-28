@@ -254,15 +254,15 @@ type IAppInput interface {
 	ToIAppOutputWithContext(ctx context.Context) IAppOutput
 }
 
-func (IApp) ElementType() reflect.Type {
-	return reflect.TypeOf((*IApp)(nil)).Elem()
+func (*IApp) ElementType() reflect.Type {
+	return reflect.TypeOf((*IApp)(nil))
 }
 
-func (i IApp) ToIAppOutput() IAppOutput {
+func (i *IApp) ToIAppOutput() IAppOutput {
 	return i.ToIAppOutputWithContext(context.Background())
 }
 
-func (i IApp) ToIAppOutputWithContext(ctx context.Context) IAppOutput {
+func (i *IApp) ToIAppOutputWithContext(ctx context.Context) IAppOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IAppOutput)
 }
 
@@ -271,7 +271,7 @@ type IAppOutput struct {
 }
 
 func (IAppOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IAppOutput)(nil)).Elem()
+	return reflect.TypeOf((*IApp)(nil))
 }
 
 func (o IAppOutput) ToIAppOutput() IAppOutput {

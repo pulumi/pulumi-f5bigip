@@ -37,6 +37,7 @@ namespace Pulumi.F5BigIP.Sys
     /// }
     /// ```
     /// </summary>
+    [F5BigIPResourceType("f5bigip:sys/ntp:Ntp")]
     public partial class Ntp : Pulumi.CustomResource
     {
         /// <summary>
