@@ -90,15 +90,15 @@ type EventServiceDiscoveryInput interface {
 	ToEventServiceDiscoveryOutputWithContext(ctx context.Context) EventServiceDiscoveryOutput
 }
 
-func (EventServiceDiscovery) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventServiceDiscovery)(nil)).Elem()
+func (*EventServiceDiscovery) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventServiceDiscovery)(nil))
 }
 
-func (i EventServiceDiscovery) ToEventServiceDiscoveryOutput() EventServiceDiscoveryOutput {
+func (i *EventServiceDiscovery) ToEventServiceDiscoveryOutput() EventServiceDiscoveryOutput {
 	return i.ToEventServiceDiscoveryOutputWithContext(context.Background())
 }
 
-func (i EventServiceDiscovery) ToEventServiceDiscoveryOutputWithContext(ctx context.Context) EventServiceDiscoveryOutput {
+func (i *EventServiceDiscovery) ToEventServiceDiscoveryOutputWithContext(ctx context.Context) EventServiceDiscoveryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventServiceDiscoveryOutput)
 }
 
@@ -107,7 +107,7 @@ type EventServiceDiscoveryOutput struct {
 }
 
 func (EventServiceDiscoveryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventServiceDiscoveryOutput)(nil)).Elem()
+	return reflect.TypeOf((*EventServiceDiscovery)(nil))
 }
 
 func (o EventServiceDiscoveryOutput) ToEventServiceDiscoveryOutput() EventServiceDiscoveryOutput {

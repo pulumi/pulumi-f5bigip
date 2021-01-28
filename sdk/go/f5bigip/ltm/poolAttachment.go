@@ -210,15 +210,15 @@ type PoolAttachmentInput interface {
 	ToPoolAttachmentOutputWithContext(ctx context.Context) PoolAttachmentOutput
 }
 
-func (PoolAttachment) ElementType() reflect.Type {
-	return reflect.TypeOf((*PoolAttachment)(nil)).Elem()
+func (*PoolAttachment) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolAttachment)(nil))
 }
 
-func (i PoolAttachment) ToPoolAttachmentOutput() PoolAttachmentOutput {
+func (i *PoolAttachment) ToPoolAttachmentOutput() PoolAttachmentOutput {
 	return i.ToPoolAttachmentOutputWithContext(context.Background())
 }
 
-func (i PoolAttachment) ToPoolAttachmentOutputWithContext(ctx context.Context) PoolAttachmentOutput {
+func (i *PoolAttachment) ToPoolAttachmentOutputWithContext(ctx context.Context) PoolAttachmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PoolAttachmentOutput)
 }
 
@@ -227,7 +227,7 @@ type PoolAttachmentOutput struct {
 }
 
 func (PoolAttachmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PoolAttachmentOutput)(nil)).Elem()
+	return reflect.TypeOf((*PoolAttachment)(nil))
 }
 
 func (o PoolAttachmentOutput) ToPoolAttachmentOutput() PoolAttachmentOutput {

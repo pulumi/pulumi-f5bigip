@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.F5BigIP
 {
+    [F5BigIPResourceType("f5bigip:index/eventServiceDiscovery:EventServiceDiscovery")]
     public partial class EventServiceDiscovery : Pulumi.CustomResource
     {
         [Output("nodes")]

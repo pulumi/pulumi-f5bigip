@@ -85,6 +85,7 @@ namespace Pulumi.F5BigIP
     /// }
     /// ```
     /// </summary>
+    [F5BigIPResourceType("f5bigip:index/commonLicenseManageBigIq:CommonLicenseManageBigIq")]
     public partial class CommonLicenseManageBigIq : Pulumi.CustomResource
     {
         /// <summary>

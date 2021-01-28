@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.F5BigIP
 {
+    [F5BigIPResourceType("f5bigip:index/bigIqAs3:BigIqAs3")]
     public partial class BigIqAs3 : Pulumi.CustomResource
     {
         /// <summary>

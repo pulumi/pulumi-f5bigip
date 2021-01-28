@@ -182,15 +182,15 @@ type VirtualAddressInput interface {
 	ToVirtualAddressOutputWithContext(ctx context.Context) VirtualAddressOutput
 }
 
-func (VirtualAddress) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualAddress)(nil)).Elem()
+func (*VirtualAddress) ElementType() reflect.Type {
+	return reflect.TypeOf((*VirtualAddress)(nil))
 }
 
-func (i VirtualAddress) ToVirtualAddressOutput() VirtualAddressOutput {
+func (i *VirtualAddress) ToVirtualAddressOutput() VirtualAddressOutput {
 	return i.ToVirtualAddressOutputWithContext(context.Background())
 }
 
-func (i VirtualAddress) ToVirtualAddressOutputWithContext(ctx context.Context) VirtualAddressOutput {
+func (i *VirtualAddress) ToVirtualAddressOutputWithContext(ctx context.Context) VirtualAddressOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualAddressOutput)
 }
 
@@ -199,7 +199,7 @@ type VirtualAddressOutput struct {
 }
 
 func (VirtualAddressOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualAddressOutput)(nil)).Elem()
+	return reflect.TypeOf((*VirtualAddress)(nil))
 }
 
 func (o VirtualAddressOutput) ToVirtualAddressOutput() VirtualAddressOutput {

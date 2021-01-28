@@ -101,15 +101,15 @@ type IRuleInput interface {
 	ToIRuleOutputWithContext(ctx context.Context) IRuleOutput
 }
 
-func (IRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*IRule)(nil)).Elem()
+func (*IRule) ElementType() reflect.Type {
+	return reflect.TypeOf((*IRule)(nil))
 }
 
-func (i IRule) ToIRuleOutput() IRuleOutput {
+func (i *IRule) ToIRuleOutput() IRuleOutput {
 	return i.ToIRuleOutputWithContext(context.Background())
 }
 
-func (i IRule) ToIRuleOutputWithContext(ctx context.Context) IRuleOutput {
+func (i *IRule) ToIRuleOutputWithContext(ctx context.Context) IRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IRuleOutput)
 }
 
@@ -118,7 +118,7 @@ type IRuleOutput struct {
 }
 
 func (IRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IRuleOutput)(nil)).Elem()
+	return reflect.TypeOf((*IRule)(nil))
 }
 
 func (o IRuleOutput) ToIRuleOutput() IRuleOutput {

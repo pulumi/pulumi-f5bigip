@@ -15,11 +15,14 @@
 package f5bigip
 
 import (
+	"fmt"
+	"path/filepath"
 	"strings"
 	"unicode"
 
 	"github.com/F5Networks/terraform-provider-bigip/bigip"
 	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
+	"github.com/pulumi/pulumi-f5bigip/provider/v2/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfbridge"
 	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfshim/sdk-v1"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/tokens"
@@ -141,6 +144,15 @@ func Provider() tfbridge.ProviderInfo {
 			Requires: map[string]string{
 				"pulumi": ">=2.15.0,<3.0.0",
 			},
+		},
+		Golang: &tfbridge.GolangInfo{
+			ImportBasePath: filepath.Join(
+				fmt.Sprintf("github.com/pulumi/pulumi-%[1]s/sdk/", f5BigIPPkg),
+				tfbridge.GetModuleMajorVersion(version.Version),
+				"go",
+				f5BigIPPkg,
+			),
+			GenerateResourceContainerTypes: true,
 		},
 		CSharp: &tfbridge.CSharpInfo{
 			PackageReferences: map[string]string{

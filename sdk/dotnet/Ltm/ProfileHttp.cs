@@ -50,6 +50,7 @@ namespace Pulumi.F5BigIP.Ltm
     ///  $ pulumi import f5bigip:ltm/profileHttp:ProfileHttp test-http /Common/test-http
     /// ```
     /// </summary>
+    [F5BigIPResourceType("f5bigip:ltm/profileHttp:ProfileHttp")]
     public partial class ProfileHttp : Pulumi.CustomResource
     {
         /// <summary>

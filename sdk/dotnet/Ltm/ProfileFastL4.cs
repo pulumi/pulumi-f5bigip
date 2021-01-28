@@ -49,6 +49,7 @@ namespace Pulumi.F5BigIP.Ltm
     ///  $ pulumi import f5bigip:ltm/profileFastL4:ProfileFastL4 test-fastl4 /Common/test-fastl4
     /// ```
     /// </summary>
+    [F5BigIPResourceType("f5bigip:ltm/profileFastL4:ProfileFastL4")]
     public partial class ProfileFastL4 : Pulumi.CustomResource
     {
         /// <summary>

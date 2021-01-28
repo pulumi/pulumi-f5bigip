@@ -152,15 +152,15 @@ type SelfIpInput interface {
 	ToSelfIpOutputWithContext(ctx context.Context) SelfIpOutput
 }
 
-func (SelfIp) ElementType() reflect.Type {
-	return reflect.TypeOf((*SelfIp)(nil)).Elem()
+func (*SelfIp) ElementType() reflect.Type {
+	return reflect.TypeOf((*SelfIp)(nil))
 }
 
-func (i SelfIp) ToSelfIpOutput() SelfIpOutput {
+func (i *SelfIp) ToSelfIpOutput() SelfIpOutput {
 	return i.ToSelfIpOutputWithContext(context.Background())
 }
 
-func (i SelfIp) ToSelfIpOutputWithContext(ctx context.Context) SelfIpOutput {
+func (i *SelfIp) ToSelfIpOutputWithContext(ctx context.Context) SelfIpOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SelfIpOutput)
 }
 
@@ -169,7 +169,7 @@ type SelfIpOutput struct {
 }
 
 func (SelfIpOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SelfIpOutput)(nil)).Elem()
+	return reflect.TypeOf((*SelfIp)(nil))
 }
 
 func (o SelfIpOutput) ToSelfIpOutput() SelfIpOutput {

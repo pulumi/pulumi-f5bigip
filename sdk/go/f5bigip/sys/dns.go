@@ -146,15 +146,15 @@ type DnsInput interface {
 	ToDnsOutputWithContext(ctx context.Context) DnsOutput
 }
 
-func (Dns) ElementType() reflect.Type {
-	return reflect.TypeOf((*Dns)(nil)).Elem()
+func (*Dns) ElementType() reflect.Type {
+	return reflect.TypeOf((*Dns)(nil))
 }
 
-func (i Dns) ToDnsOutput() DnsOutput {
+func (i *Dns) ToDnsOutput() DnsOutput {
 	return i.ToDnsOutputWithContext(context.Background())
 }
 
-func (i Dns) ToDnsOutputWithContext(ctx context.Context) DnsOutput {
+func (i *Dns) ToDnsOutputWithContext(ctx context.Context) DnsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DnsOutput)
 }
 
@@ -163,7 +163,7 @@ type DnsOutput struct {
 }
 
 func (DnsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DnsOutput)(nil)).Elem()
+	return reflect.TypeOf((*Dns)(nil))
 }
 
 func (o DnsOutput) ToDnsOutput() DnsOutput {

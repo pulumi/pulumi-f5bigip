@@ -44,6 +44,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// }
     /// ```
     /// </summary>
+    [F5BigIPResourceType("f5bigip:ltm/pool:Pool")]
     public partial class Pool : Pulumi.CustomResource
     {
         /// <summary>

@@ -44,6 +44,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// }
     /// ```
     /// </summary>
+    [F5BigIPResourceType("f5bigip:ltm/node:Node")]
     public partial class Node : Pulumi.CustomResource
     {
         /// <summary>

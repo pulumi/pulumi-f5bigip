@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip"
+// 	"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -329,15 +329,15 @@ type CommonLicenseManageBigIqInput interface {
 	ToCommonLicenseManageBigIqOutputWithContext(ctx context.Context) CommonLicenseManageBigIqOutput
 }
 
-func (CommonLicenseManageBigIq) ElementType() reflect.Type {
-	return reflect.TypeOf((*CommonLicenseManageBigIq)(nil)).Elem()
+func (*CommonLicenseManageBigIq) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommonLicenseManageBigIq)(nil))
 }
 
-func (i CommonLicenseManageBigIq) ToCommonLicenseManageBigIqOutput() CommonLicenseManageBigIqOutput {
+func (i *CommonLicenseManageBigIq) ToCommonLicenseManageBigIqOutput() CommonLicenseManageBigIqOutput {
 	return i.ToCommonLicenseManageBigIqOutputWithContext(context.Background())
 }
 
-func (i CommonLicenseManageBigIq) ToCommonLicenseManageBigIqOutputWithContext(ctx context.Context) CommonLicenseManageBigIqOutput {
+func (i *CommonLicenseManageBigIq) ToCommonLicenseManageBigIqOutputWithContext(ctx context.Context) CommonLicenseManageBigIqOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CommonLicenseManageBigIqOutput)
 }
 
@@ -346,7 +346,7 @@ type CommonLicenseManageBigIqOutput struct {
 }
 
 func (CommonLicenseManageBigIqOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CommonLicenseManageBigIqOutput)(nil)).Elem()
+	return reflect.TypeOf((*CommonLicenseManageBigIq)(nil))
 }
 
 func (o CommonLicenseManageBigIqOutput) ToCommonLicenseManageBigIqOutput() CommonLicenseManageBigIqOutput {

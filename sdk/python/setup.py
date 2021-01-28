@@ -48,7 +48,7 @@ setup(name='pulumi_f5bigip',
       packages=find_packages(),
       package_data={
           'pulumi_f5bigip': [
-              'py.typed'
+              'py.typed',
           ]
       },
       install_requires=[

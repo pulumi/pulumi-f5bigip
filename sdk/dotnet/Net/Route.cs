@@ -35,6 +35,7 @@ namespace Pulumi.F5BigIP.Net
     /// }
     /// ```
     /// </summary>
+    [F5BigIPResourceType("f5bigip:net/route:Route")]
     public partial class Route : Pulumi.CustomResource
     {
         /// <summary>

@@ -42,6 +42,7 @@ namespace Pulumi.F5BigIP.Net
     /// }
     /// ```
     /// </summary>
+    [F5BigIPResourceType("f5bigip:net/selfIp:SelfIp")]
     public partial class SelfIp : Pulumi.CustomResource
     {
         /// <summary>

@@ -145,15 +145,15 @@ type DataGroupInput interface {
 	ToDataGroupOutputWithContext(ctx context.Context) DataGroupOutput
 }
 
-func (DataGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataGroup)(nil)).Elem()
+func (*DataGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataGroup)(nil))
 }
 
-func (i DataGroup) ToDataGroupOutput() DataGroupOutput {
+func (i *DataGroup) ToDataGroupOutput() DataGroupOutput {
 	return i.ToDataGroupOutputWithContext(context.Background())
 }
 
-func (i DataGroup) ToDataGroupOutputWithContext(ctx context.Context) DataGroupOutput {
+func (i *DataGroup) ToDataGroupOutputWithContext(ctx context.Context) DataGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataGroupOutput)
 }
 
@@ -162,7 +162,7 @@ type DataGroupOutput struct {
 }
 
 func (DataGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*DataGroup)(nil))
 }
 
 func (o DataGroupOutput) ToDataGroupOutput() DataGroupOutput {

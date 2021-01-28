@@ -52,6 +52,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// }
     /// ```
     /// </summary>
+    [F5BigIPResourceType("f5bigip:ltm/profileHttp2:ProfileHttp2")]
     public partial class ProfileHttp2 : Pulumi.CustomResource
     {
         /// <summary>

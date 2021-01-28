@@ -244,15 +244,15 @@ type PersistenceProfileDstAddrInput interface {
 	ToPersistenceProfileDstAddrOutputWithContext(ctx context.Context) PersistenceProfileDstAddrOutput
 }
 
-func (PersistenceProfileDstAddr) ElementType() reflect.Type {
-	return reflect.TypeOf((*PersistenceProfileDstAddr)(nil)).Elem()
+func (*PersistenceProfileDstAddr) ElementType() reflect.Type {
+	return reflect.TypeOf((*PersistenceProfileDstAddr)(nil))
 }
 
-func (i PersistenceProfileDstAddr) ToPersistenceProfileDstAddrOutput() PersistenceProfileDstAddrOutput {
+func (i *PersistenceProfileDstAddr) ToPersistenceProfileDstAddrOutput() PersistenceProfileDstAddrOutput {
 	return i.ToPersistenceProfileDstAddrOutputWithContext(context.Background())
 }
 
-func (i PersistenceProfileDstAddr) ToPersistenceProfileDstAddrOutputWithContext(ctx context.Context) PersistenceProfileDstAddrOutput {
+func (i *PersistenceProfileDstAddr) ToPersistenceProfileDstAddrOutputWithContext(ctx context.Context) PersistenceProfileDstAddrOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PersistenceProfileDstAddrOutput)
 }
 
@@ -261,7 +261,7 @@ type PersistenceProfileDstAddrOutput struct {
 }
 
 func (PersistenceProfileDstAddrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PersistenceProfileDstAddrOutput)(nil)).Elem()
+	return reflect.TypeOf((*PersistenceProfileDstAddr)(nil))
 }
 
 func (o PersistenceProfileDstAddrOutput) ToPersistenceProfileDstAddrOutput() PersistenceProfileDstAddrOutput {

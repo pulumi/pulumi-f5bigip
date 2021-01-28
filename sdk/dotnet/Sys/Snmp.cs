@@ -35,6 +35,7 @@ namespace Pulumi.F5BigIP.Sys
     /// }
     /// ```
     /// </summary>
+    [F5BigIPResourceType("f5bigip:sys/snmp:Snmp")]
     public partial class Snmp : Pulumi.CustomResource
     {
         /// <summary>

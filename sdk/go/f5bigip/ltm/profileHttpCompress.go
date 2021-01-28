@@ -175,15 +175,15 @@ type ProfileHttpCompressInput interface {
 	ToProfileHttpCompressOutputWithContext(ctx context.Context) ProfileHttpCompressOutput
 }
 
-func (ProfileHttpCompress) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileHttpCompress)(nil)).Elem()
+func (*ProfileHttpCompress) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileHttpCompress)(nil))
 }
 
-func (i ProfileHttpCompress) ToProfileHttpCompressOutput() ProfileHttpCompressOutput {
+func (i *ProfileHttpCompress) ToProfileHttpCompressOutput() ProfileHttpCompressOutput {
 	return i.ToProfileHttpCompressOutputWithContext(context.Background())
 }
 
-func (i ProfileHttpCompress) ToProfileHttpCompressOutputWithContext(ctx context.Context) ProfileHttpCompressOutput {
+func (i *ProfileHttpCompress) ToProfileHttpCompressOutputWithContext(ctx context.Context) ProfileHttpCompressOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileHttpCompressOutput)
 }
 
@@ -192,7 +192,7 @@ type ProfileHttpCompressOutput struct {
 }
 
 func (ProfileHttpCompressOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileHttpCompressOutput)(nil)).Elem()
+	return reflect.TypeOf((*ProfileHttpCompress)(nil))
 }
 
 func (o ProfileHttpCompressOutput) ToProfileHttpCompressOutput() ProfileHttpCompressOutput {

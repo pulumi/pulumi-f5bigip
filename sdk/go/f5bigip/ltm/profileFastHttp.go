@@ -221,15 +221,15 @@ type ProfileFastHttpInput interface {
 	ToProfileFastHttpOutputWithContext(ctx context.Context) ProfileFastHttpOutput
 }
 
-func (ProfileFastHttp) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileFastHttp)(nil)).Elem()
+func (*ProfileFastHttp) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileFastHttp)(nil))
 }
 
-func (i ProfileFastHttp) ToProfileFastHttpOutput() ProfileFastHttpOutput {
+func (i *ProfileFastHttp) ToProfileFastHttpOutput() ProfileFastHttpOutput {
 	return i.ToProfileFastHttpOutputWithContext(context.Background())
 }
 
-func (i ProfileFastHttp) ToProfileFastHttpOutputWithContext(ctx context.Context) ProfileFastHttpOutput {
+func (i *ProfileFastHttp) ToProfileFastHttpOutputWithContext(ctx context.Context) ProfileFastHttpOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileFastHttpOutput)
 }
 
@@ -238,7 +238,7 @@ type ProfileFastHttpOutput struct {
 }
 
 func (ProfileFastHttpOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileFastHttpOutput)(nil)).Elem()
+	return reflect.TypeOf((*ProfileFastHttp)(nil))
 }
 
 func (o ProfileFastHttpOutput) ToProfileFastHttpOutput() ProfileFastHttpOutput {

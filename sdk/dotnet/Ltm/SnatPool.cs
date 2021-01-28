@@ -38,6 +38,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// }
     /// ```
     /// </summary>
+    [F5BigIPResourceType("f5bigip:ltm/snatPool:SnatPool")]
     public partial class SnatPool : Pulumi.CustomResource
     {
         /// <summary>

@@ -118,15 +118,15 @@ type DoInput interface {
 	ToDoOutputWithContext(ctx context.Context) DoOutput
 }
 
-func (Do) ElementType() reflect.Type {
-	return reflect.TypeOf((*Do)(nil)).Elem()
+func (*Do) ElementType() reflect.Type {
+	return reflect.TypeOf((*Do)(nil))
 }
 
-func (i Do) ToDoOutput() DoOutput {
+func (i *Do) ToDoOutput() DoOutput {
 	return i.ToDoOutputWithContext(context.Background())
 }
 
-func (i Do) ToDoOutputWithContext(ctx context.Context) DoOutput {
+func (i *Do) ToDoOutputWithContext(ctx context.Context) DoOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DoOutput)
 }
 
@@ -135,7 +135,7 @@ type DoOutput struct {
 }
 
 func (DoOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DoOutput)(nil)).Elem()
+	return reflect.TypeOf((*Do)(nil))
 }
 
 func (o DoOutput) ToDoOutput() DoOutput {

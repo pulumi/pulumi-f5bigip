@@ -208,15 +208,15 @@ type ProfileTcpInput interface {
 	ToProfileTcpOutputWithContext(ctx context.Context) ProfileTcpOutput
 }
 
-func (ProfileTcp) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileTcp)(nil)).Elem()
+func (*ProfileTcp) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileTcp)(nil))
 }
 
-func (i ProfileTcp) ToProfileTcpOutput() ProfileTcpOutput {
+func (i *ProfileTcp) ToProfileTcpOutput() ProfileTcpOutput {
 	return i.ToProfileTcpOutputWithContext(context.Background())
 }
 
-func (i ProfileTcp) ToProfileTcpOutputWithContext(ctx context.Context) ProfileTcpOutput {
+func (i *ProfileTcp) ToProfileTcpOutputWithContext(ctx context.Context) ProfileTcpOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileTcpOutput)
 }
 
@@ -225,7 +225,7 @@ type ProfileTcpOutput struct {
 }
 
 func (ProfileTcpOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileTcpOutput)(nil)).Elem()
+	return reflect.TypeOf((*ProfileTcp)(nil))
 }
 
 func (o ProfileTcpOutput) ToProfileTcpOutput() ProfileTcpOutput {

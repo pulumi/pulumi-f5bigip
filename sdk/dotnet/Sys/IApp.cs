@@ -61,6 +61,7 @@ namespace Pulumi.F5BigIP.Sys
     ///  * `tables` - Values provided like pool name, nodes etc.
     ///  * `variables` - Name, values, encrypted or not
     /// </summary>
+    [F5BigIPResourceType("f5bigip:sys/iApp:IApp")]
     public partial class IApp : Pulumi.CustomResource
     {
         /// <summary>

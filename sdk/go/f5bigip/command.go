@@ -20,7 +20,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip"
+// 	"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -128,15 +128,15 @@ type CommandInput interface {
 	ToCommandOutputWithContext(ctx context.Context) CommandOutput
 }
 
-func (Command) ElementType() reflect.Type {
-	return reflect.TypeOf((*Command)(nil)).Elem()
+func (*Command) ElementType() reflect.Type {
+	return reflect.TypeOf((*Command)(nil))
 }
 
-func (i Command) ToCommandOutput() CommandOutput {
+func (i *Command) ToCommandOutput() CommandOutput {
 	return i.ToCommandOutputWithContext(context.Background())
 }
 
-func (i Command) ToCommandOutputWithContext(ctx context.Context) CommandOutput {
+func (i *Command) ToCommandOutputWithContext(ctx context.Context) CommandOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CommandOutput)
 }
 
@@ -145,7 +145,7 @@ type CommandOutput struct {
 }
 
 func (CommandOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CommandOutput)(nil)).Elem()
+	return reflect.TypeOf((*Command)(nil))
 }
 
 func (o CommandOutput) ToCommandOutput() CommandOutput {

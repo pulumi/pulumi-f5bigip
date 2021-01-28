@@ -206,15 +206,15 @@ type DeviceGroupInput interface {
 	ToDeviceGroupOutputWithContext(ctx context.Context) DeviceGroupOutput
 }
 
-func (DeviceGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeviceGroup)(nil)).Elem()
+func (*DeviceGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeviceGroup)(nil))
 }
 
-func (i DeviceGroup) ToDeviceGroupOutput() DeviceGroupOutput {
+func (i *DeviceGroup) ToDeviceGroupOutput() DeviceGroupOutput {
 	return i.ToDeviceGroupOutputWithContext(context.Background())
 }
 
-func (i DeviceGroup) ToDeviceGroupOutputWithContext(ctx context.Context) DeviceGroupOutput {
+func (i *DeviceGroup) ToDeviceGroupOutputWithContext(ctx context.Context) DeviceGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceGroupOutput)
 }
 
@@ -223,7 +223,7 @@ type DeviceGroupOutput struct {
 }
 
 func (DeviceGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeviceGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*DeviceGroup)(nil))
 }
 
 func (o DeviceGroupOutput) ToDeviceGroupOutput() DeviceGroupOutput {

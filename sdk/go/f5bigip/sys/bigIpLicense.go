@@ -98,15 +98,15 @@ type BigIpLicenseInput interface {
 	ToBigIpLicenseOutputWithContext(ctx context.Context) BigIpLicenseOutput
 }
 
-func (BigIpLicense) ElementType() reflect.Type {
-	return reflect.TypeOf((*BigIpLicense)(nil)).Elem()
+func (*BigIpLicense) ElementType() reflect.Type {
+	return reflect.TypeOf((*BigIpLicense)(nil))
 }
 
-func (i BigIpLicense) ToBigIpLicenseOutput() BigIpLicenseOutput {
+func (i *BigIpLicense) ToBigIpLicenseOutput() BigIpLicenseOutput {
 	return i.ToBigIpLicenseOutputWithContext(context.Background())
 }
 
-func (i BigIpLicense) ToBigIpLicenseOutputWithContext(ctx context.Context) BigIpLicenseOutput {
+func (i *BigIpLicense) ToBigIpLicenseOutputWithContext(ctx context.Context) BigIpLicenseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BigIpLicenseOutput)
 }
 
@@ -115,7 +115,7 @@ type BigIpLicenseOutput struct {
 }
 
 func (BigIpLicenseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BigIpLicenseOutput)(nil)).Elem()
+	return reflect.TypeOf((*BigIpLicense)(nil))
 }
 
 func (o BigIpLicenseOutput) ToBigIpLicenseOutput() BigIpLicenseOutput {

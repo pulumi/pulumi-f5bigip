@@ -47,6 +47,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// }
     /// ```
     /// </summary>
+    [F5BigIPResourceType("f5bigip:ltm/dataGroup:DataGroup")]
     public partial class DataGroup : Pulumi.CustomResource
     {
         /// <summary>

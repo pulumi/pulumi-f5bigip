@@ -40,6 +40,7 @@ namespace Pulumi.F5BigIP.Sys
     /// }
     /// ```
     /// </summary>
+    [F5BigIPResourceType("f5bigip:sys/dns:Dns")]
     public partial class Dns : Pulumi.CustomResource
     {
         /// <summary>

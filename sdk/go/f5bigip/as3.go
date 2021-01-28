@@ -138,15 +138,15 @@ type As3Input interface {
 	ToAs3OutputWithContext(ctx context.Context) As3Output
 }
 
-func (As3) ElementType() reflect.Type {
-	return reflect.TypeOf((*As3)(nil)).Elem()
+func (*As3) ElementType() reflect.Type {
+	return reflect.TypeOf((*As3)(nil))
 }
 
-func (i As3) ToAs3Output() As3Output {
+func (i *As3) ToAs3Output() As3Output {
 	return i.ToAs3OutputWithContext(context.Background())
 }
 
-func (i As3) ToAs3OutputWithContext(ctx context.Context) As3Output {
+func (i *As3) ToAs3OutputWithContext(ctx context.Context) As3Output {
 	return pulumi.ToOutputWithContext(ctx, i).(As3Output)
 }
 
@@ -155,7 +155,7 @@ type As3Output struct {
 }
 
 func (As3Output) ElementType() reflect.Type {
-	return reflect.TypeOf((*As3Output)(nil)).Elem()
+	return reflect.TypeOf((*As3)(nil))
 }
 
 func (o As3Output) ToAs3Output() As3Output {

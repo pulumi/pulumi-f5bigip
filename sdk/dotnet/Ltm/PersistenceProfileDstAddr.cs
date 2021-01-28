@@ -58,6 +58,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// `override_conn_limit` (Optional) (enabled or disabled) Enable or dissable pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
     /// </summary>
+    [F5BigIPResourceType("f5bigip:ltm/persistenceProfileDstAddr:PersistenceProfileDstAddr")]
     public partial class PersistenceProfileDstAddr : Pulumi.CustomResource
     {
         [Output("appService")]

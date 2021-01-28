@@ -45,6 +45,7 @@ namespace Pulumi.F5BigIP.CM
     /// }
     /// ```
     /// </summary>
+    [F5BigIPResourceType("f5bigip:cm/deviceGroup:DeviceGroup")]
     public partial class DeviceGroup : Pulumi.CustomResource
     {
         /// <summary>

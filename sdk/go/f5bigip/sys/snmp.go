@@ -128,15 +128,15 @@ type SnmpInput interface {
 	ToSnmpOutputWithContext(ctx context.Context) SnmpOutput
 }
 
-func (Snmp) ElementType() reflect.Type {
-	return reflect.TypeOf((*Snmp)(nil)).Elem()
+func (*Snmp) ElementType() reflect.Type {
+	return reflect.TypeOf((*Snmp)(nil))
 }
 
-func (i Snmp) ToSnmpOutput() SnmpOutput {
+func (i *Snmp) ToSnmpOutput() SnmpOutput {
 	return i.ToSnmpOutputWithContext(context.Background())
 }
 
-func (i Snmp) ToSnmpOutputWithContext(ctx context.Context) SnmpOutput {
+func (i *Snmp) ToSnmpOutputWithContext(ctx context.Context) SnmpOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SnmpOutput)
 }
 
@@ -145,7 +145,7 @@ type SnmpOutput struct {
 }
 
 func (SnmpOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnmpOutput)(nil)).Elem()
+	return reflect.TypeOf((*Snmp)(nil))
 }
 
 func (o SnmpOutput) ToSnmpOutput() SnmpOutput {

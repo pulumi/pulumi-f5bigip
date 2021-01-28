@@ -228,15 +228,15 @@ type SnatInput interface {
 	ToSnatOutputWithContext(ctx context.Context) SnatOutput
 }
 
-func (Snat) ElementType() reflect.Type {
-	return reflect.TypeOf((*Snat)(nil)).Elem()
+func (*Snat) ElementType() reflect.Type {
+	return reflect.TypeOf((*Snat)(nil))
 }
 
-func (i Snat) ToSnatOutput() SnatOutput {
+func (i *Snat) ToSnatOutput() SnatOutput {
 	return i.ToSnatOutputWithContext(context.Background())
 }
 
-func (i Snat) ToSnatOutputWithContext(ctx context.Context) SnatOutput {
+func (i *Snat) ToSnatOutputWithContext(ctx context.Context) SnatOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SnatOutput)
 }
 
@@ -245,7 +245,7 @@ type SnatOutput struct {
 }
 
 func (SnatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnatOutput)(nil)).Elem()
+	return reflect.TypeOf((*Snat)(nil))
 }
 
 func (o SnatOutput) ToSnatOutput() SnatOutput {
