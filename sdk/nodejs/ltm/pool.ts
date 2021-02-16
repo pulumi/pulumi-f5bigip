@@ -106,7 +106,8 @@ export class Pool extends pulumi.CustomResource {
     constructor(name: string, args: PoolArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PoolArgs | PoolState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PoolState | undefined;
             inputs["allowNat"] = state ? state.allowNat : undefined;
             inputs["allowSnat"] = state ? state.allowSnat : undefined;
@@ -120,7 +121,7 @@ export class Pool extends pulumi.CustomResource {
             inputs["slowRampTime"] = state ? state.slowRampTime : undefined;
         } else {
             const args = argsOrState as PoolArgs | undefined;
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["allowNat"] = args ? args.allowNat : undefined;
@@ -134,12 +135,8 @@ export class Pool extends pulumi.CustomResource {
             inputs["serviceDownAction"] = args ? args.serviceDownAction : undefined;
             inputs["slowRampTime"] = args ? args.slowRampTime : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Pool.__pulumiType, name, inputs, opts);
     }

@@ -194,6 +194,85 @@ func (i *VirtualAddress) ToVirtualAddressOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualAddressOutput)
 }
 
+func (i *VirtualAddress) ToVirtualAddressPtrOutput() VirtualAddressPtrOutput {
+	return i.ToVirtualAddressPtrOutputWithContext(context.Background())
+}
+
+func (i *VirtualAddress) ToVirtualAddressPtrOutputWithContext(ctx context.Context) VirtualAddressPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualAddressPtrOutput)
+}
+
+type VirtualAddressPtrInput interface {
+	pulumi.Input
+
+	ToVirtualAddressPtrOutput() VirtualAddressPtrOutput
+	ToVirtualAddressPtrOutputWithContext(ctx context.Context) VirtualAddressPtrOutput
+}
+
+type virtualAddressPtrType VirtualAddressArgs
+
+func (*virtualAddressPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualAddress)(nil))
+}
+
+func (i *virtualAddressPtrType) ToVirtualAddressPtrOutput() VirtualAddressPtrOutput {
+	return i.ToVirtualAddressPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualAddressPtrType) ToVirtualAddressPtrOutputWithContext(ctx context.Context) VirtualAddressPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualAddressPtrOutput)
+}
+
+// VirtualAddressArrayInput is an input type that accepts VirtualAddressArray and VirtualAddressArrayOutput values.
+// You can construct a concrete instance of `VirtualAddressArrayInput` via:
+//
+//          VirtualAddressArray{ VirtualAddressArgs{...} }
+type VirtualAddressArrayInput interface {
+	pulumi.Input
+
+	ToVirtualAddressArrayOutput() VirtualAddressArrayOutput
+	ToVirtualAddressArrayOutputWithContext(context.Context) VirtualAddressArrayOutput
+}
+
+type VirtualAddressArray []VirtualAddressInput
+
+func (VirtualAddressArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*VirtualAddress)(nil))
+}
+
+func (i VirtualAddressArray) ToVirtualAddressArrayOutput() VirtualAddressArrayOutput {
+	return i.ToVirtualAddressArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualAddressArray) ToVirtualAddressArrayOutputWithContext(ctx context.Context) VirtualAddressArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualAddressArrayOutput)
+}
+
+// VirtualAddressMapInput is an input type that accepts VirtualAddressMap and VirtualAddressMapOutput values.
+// You can construct a concrete instance of `VirtualAddressMapInput` via:
+//
+//          VirtualAddressMap{ "key": VirtualAddressArgs{...} }
+type VirtualAddressMapInput interface {
+	pulumi.Input
+
+	ToVirtualAddressMapOutput() VirtualAddressMapOutput
+	ToVirtualAddressMapOutputWithContext(context.Context) VirtualAddressMapOutput
+}
+
+type VirtualAddressMap map[string]VirtualAddressInput
+
+func (VirtualAddressMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*VirtualAddress)(nil))
+}
+
+func (i VirtualAddressMap) ToVirtualAddressMapOutput() VirtualAddressMapOutput {
+	return i.ToVirtualAddressMapOutputWithContext(context.Background())
+}
+
+func (i VirtualAddressMap) ToVirtualAddressMapOutputWithContext(ctx context.Context) VirtualAddressMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualAddressMapOutput)
+}
+
 type VirtualAddressOutput struct {
 	*pulumi.OutputState
 }
@@ -210,6 +289,75 @@ func (o VirtualAddressOutput) ToVirtualAddressOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o VirtualAddressOutput) ToVirtualAddressPtrOutput() VirtualAddressPtrOutput {
+	return o.ToVirtualAddressPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualAddressOutput) ToVirtualAddressPtrOutputWithContext(ctx context.Context) VirtualAddressPtrOutput {
+	return o.ApplyT(func(v VirtualAddress) *VirtualAddress {
+		return &v
+	}).(VirtualAddressPtrOutput)
+}
+
+type VirtualAddressPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualAddressPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualAddress)(nil))
+}
+
+func (o VirtualAddressPtrOutput) ToVirtualAddressPtrOutput() VirtualAddressPtrOutput {
+	return o
+}
+
+func (o VirtualAddressPtrOutput) ToVirtualAddressPtrOutputWithContext(ctx context.Context) VirtualAddressPtrOutput {
+	return o
+}
+
+type VirtualAddressArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualAddressArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualAddress)(nil))
+}
+
+func (o VirtualAddressArrayOutput) ToVirtualAddressArrayOutput() VirtualAddressArrayOutput {
+	return o
+}
+
+func (o VirtualAddressArrayOutput) ToVirtualAddressArrayOutputWithContext(ctx context.Context) VirtualAddressArrayOutput {
+	return o
+}
+
+func (o VirtualAddressArrayOutput) Index(i pulumi.IntInput) VirtualAddressOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualAddress {
+		return vs[0].([]VirtualAddress)[vs[1].(int)]
+	}).(VirtualAddressOutput)
+}
+
+type VirtualAddressMapOutput struct{ *pulumi.OutputState }
+
+func (VirtualAddressMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]VirtualAddress)(nil))
+}
+
+func (o VirtualAddressMapOutput) ToVirtualAddressMapOutput() VirtualAddressMapOutput {
+	return o
+}
+
+func (o VirtualAddressMapOutput) ToVirtualAddressMapOutputWithContext(ctx context.Context) VirtualAddressMapOutput {
+	return o
+}
+
+func (o VirtualAddressMapOutput) MapIndex(k pulumi.StringInput) VirtualAddressOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VirtualAddress {
+		return vs[0].(map[string]VirtualAddress)[vs[1].(string)]
+	}).(VirtualAddressOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualAddressOutput{})
+	pulumi.RegisterOutputType(VirtualAddressPtrOutput{})
+	pulumi.RegisterOutputType(VirtualAddressArrayOutput{})
+	pulumi.RegisterOutputType(VirtualAddressMapOutput{})
 }

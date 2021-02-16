@@ -83,29 +83,26 @@ export class DataGroup extends pulumi.CustomResource {
     constructor(name: string, args: DataGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DataGroupArgs | DataGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DataGroupState | undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["records"] = state ? state.records : undefined;
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as DataGroupArgs | undefined;
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.type === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
             inputs["name"] = args ? args.name : undefined;
             inputs["records"] = args ? args.records : undefined;
             inputs["type"] = args ? args.type : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DataGroup.__pulumiType, name, inputs, opts);
     }

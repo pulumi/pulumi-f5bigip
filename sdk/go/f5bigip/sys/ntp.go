@@ -146,6 +146,85 @@ func (i *Ntp) ToNtpOutputWithContext(ctx context.Context) NtpOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NtpOutput)
 }
 
+func (i *Ntp) ToNtpPtrOutput() NtpPtrOutput {
+	return i.ToNtpPtrOutputWithContext(context.Background())
+}
+
+func (i *Ntp) ToNtpPtrOutputWithContext(ctx context.Context) NtpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NtpPtrOutput)
+}
+
+type NtpPtrInput interface {
+	pulumi.Input
+
+	ToNtpPtrOutput() NtpPtrOutput
+	ToNtpPtrOutputWithContext(ctx context.Context) NtpPtrOutput
+}
+
+type ntpPtrType NtpArgs
+
+func (*ntpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ntp)(nil))
+}
+
+func (i *ntpPtrType) ToNtpPtrOutput() NtpPtrOutput {
+	return i.ToNtpPtrOutputWithContext(context.Background())
+}
+
+func (i *ntpPtrType) ToNtpPtrOutputWithContext(ctx context.Context) NtpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NtpPtrOutput)
+}
+
+// NtpArrayInput is an input type that accepts NtpArray and NtpArrayOutput values.
+// You can construct a concrete instance of `NtpArrayInput` via:
+//
+//          NtpArray{ NtpArgs{...} }
+type NtpArrayInput interface {
+	pulumi.Input
+
+	ToNtpArrayOutput() NtpArrayOutput
+	ToNtpArrayOutputWithContext(context.Context) NtpArrayOutput
+}
+
+type NtpArray []NtpInput
+
+func (NtpArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Ntp)(nil))
+}
+
+func (i NtpArray) ToNtpArrayOutput() NtpArrayOutput {
+	return i.ToNtpArrayOutputWithContext(context.Background())
+}
+
+func (i NtpArray) ToNtpArrayOutputWithContext(ctx context.Context) NtpArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NtpArrayOutput)
+}
+
+// NtpMapInput is an input type that accepts NtpMap and NtpMapOutput values.
+// You can construct a concrete instance of `NtpMapInput` via:
+//
+//          NtpMap{ "key": NtpArgs{...} }
+type NtpMapInput interface {
+	pulumi.Input
+
+	ToNtpMapOutput() NtpMapOutput
+	ToNtpMapOutputWithContext(context.Context) NtpMapOutput
+}
+
+type NtpMap map[string]NtpInput
+
+func (NtpMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Ntp)(nil))
+}
+
+func (i NtpMap) ToNtpMapOutput() NtpMapOutput {
+	return i.ToNtpMapOutputWithContext(context.Background())
+}
+
+func (i NtpMap) ToNtpMapOutputWithContext(ctx context.Context) NtpMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NtpMapOutput)
+}
+
 type NtpOutput struct {
 	*pulumi.OutputState
 }
@@ -162,6 +241,75 @@ func (o NtpOutput) ToNtpOutputWithContext(ctx context.Context) NtpOutput {
 	return o
 }
 
+func (o NtpOutput) ToNtpPtrOutput() NtpPtrOutput {
+	return o.ToNtpPtrOutputWithContext(context.Background())
+}
+
+func (o NtpOutput) ToNtpPtrOutputWithContext(ctx context.Context) NtpPtrOutput {
+	return o.ApplyT(func(v Ntp) *Ntp {
+		return &v
+	}).(NtpPtrOutput)
+}
+
+type NtpPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (NtpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ntp)(nil))
+}
+
+func (o NtpPtrOutput) ToNtpPtrOutput() NtpPtrOutput {
+	return o
+}
+
+func (o NtpPtrOutput) ToNtpPtrOutputWithContext(ctx context.Context) NtpPtrOutput {
+	return o
+}
+
+type NtpArrayOutput struct{ *pulumi.OutputState }
+
+func (NtpArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Ntp)(nil))
+}
+
+func (o NtpArrayOutput) ToNtpArrayOutput() NtpArrayOutput {
+	return o
+}
+
+func (o NtpArrayOutput) ToNtpArrayOutputWithContext(ctx context.Context) NtpArrayOutput {
+	return o
+}
+
+func (o NtpArrayOutput) Index(i pulumi.IntInput) NtpOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Ntp {
+		return vs[0].([]Ntp)[vs[1].(int)]
+	}).(NtpOutput)
+}
+
+type NtpMapOutput struct{ *pulumi.OutputState }
+
+func (NtpMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Ntp)(nil))
+}
+
+func (o NtpMapOutput) ToNtpMapOutput() NtpMapOutput {
+	return o
+}
+
+func (o NtpMapOutput) ToNtpMapOutputWithContext(ctx context.Context) NtpMapOutput {
+	return o
+}
+
+func (o NtpMapOutput) MapIndex(k pulumi.StringInput) NtpOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Ntp {
+		return vs[0].(map[string]Ntp)[vs[1].(string)]
+	}).(NtpOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(NtpOutput{})
+	pulumi.RegisterOutputType(NtpPtrOutput{})
+	pulumi.RegisterOutputType(NtpArrayOutput{})
+	pulumi.RegisterOutputType(NtpMapOutput{})
 }

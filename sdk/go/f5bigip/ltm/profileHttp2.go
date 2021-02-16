@@ -262,6 +262,85 @@ func (i *ProfileHttp2) ToProfileHttp2OutputWithContext(ctx context.Context) Prof
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileHttp2Output)
 }
 
+func (i *ProfileHttp2) ToProfileHttp2PtrOutput() ProfileHttp2PtrOutput {
+	return i.ToProfileHttp2PtrOutputWithContext(context.Background())
+}
+
+func (i *ProfileHttp2) ToProfileHttp2PtrOutputWithContext(ctx context.Context) ProfileHttp2PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileHttp2PtrOutput)
+}
+
+type ProfileHttp2PtrInput interface {
+	pulumi.Input
+
+	ToProfileHttp2PtrOutput() ProfileHttp2PtrOutput
+	ToProfileHttp2PtrOutputWithContext(ctx context.Context) ProfileHttp2PtrOutput
+}
+
+type profileHttp2PtrType ProfileHttp2Args
+
+func (*profileHttp2PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProfileHttp2)(nil))
+}
+
+func (i *profileHttp2PtrType) ToProfileHttp2PtrOutput() ProfileHttp2PtrOutput {
+	return i.ToProfileHttp2PtrOutputWithContext(context.Background())
+}
+
+func (i *profileHttp2PtrType) ToProfileHttp2PtrOutputWithContext(ctx context.Context) ProfileHttp2PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileHttp2PtrOutput)
+}
+
+// ProfileHttp2ArrayInput is an input type that accepts ProfileHttp2Array and ProfileHttp2ArrayOutput values.
+// You can construct a concrete instance of `ProfileHttp2ArrayInput` via:
+//
+//          ProfileHttp2Array{ ProfileHttp2Args{...} }
+type ProfileHttp2ArrayInput interface {
+	pulumi.Input
+
+	ToProfileHttp2ArrayOutput() ProfileHttp2ArrayOutput
+	ToProfileHttp2ArrayOutputWithContext(context.Context) ProfileHttp2ArrayOutput
+}
+
+type ProfileHttp2Array []ProfileHttp2Input
+
+func (ProfileHttp2Array) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ProfileHttp2)(nil))
+}
+
+func (i ProfileHttp2Array) ToProfileHttp2ArrayOutput() ProfileHttp2ArrayOutput {
+	return i.ToProfileHttp2ArrayOutputWithContext(context.Background())
+}
+
+func (i ProfileHttp2Array) ToProfileHttp2ArrayOutputWithContext(ctx context.Context) ProfileHttp2ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileHttp2ArrayOutput)
+}
+
+// ProfileHttp2MapInput is an input type that accepts ProfileHttp2Map and ProfileHttp2MapOutput values.
+// You can construct a concrete instance of `ProfileHttp2MapInput` via:
+//
+//          ProfileHttp2Map{ "key": ProfileHttp2Args{...} }
+type ProfileHttp2MapInput interface {
+	pulumi.Input
+
+	ToProfileHttp2MapOutput() ProfileHttp2MapOutput
+	ToProfileHttp2MapOutputWithContext(context.Context) ProfileHttp2MapOutput
+}
+
+type ProfileHttp2Map map[string]ProfileHttp2Input
+
+func (ProfileHttp2Map) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ProfileHttp2)(nil))
+}
+
+func (i ProfileHttp2Map) ToProfileHttp2MapOutput() ProfileHttp2MapOutput {
+	return i.ToProfileHttp2MapOutputWithContext(context.Background())
+}
+
+func (i ProfileHttp2Map) ToProfileHttp2MapOutputWithContext(ctx context.Context) ProfileHttp2MapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileHttp2MapOutput)
+}
+
 type ProfileHttp2Output struct {
 	*pulumi.OutputState
 }
@@ -278,6 +357,75 @@ func (o ProfileHttp2Output) ToProfileHttp2OutputWithContext(ctx context.Context)
 	return o
 }
 
+func (o ProfileHttp2Output) ToProfileHttp2PtrOutput() ProfileHttp2PtrOutput {
+	return o.ToProfileHttp2PtrOutputWithContext(context.Background())
+}
+
+func (o ProfileHttp2Output) ToProfileHttp2PtrOutputWithContext(ctx context.Context) ProfileHttp2PtrOutput {
+	return o.ApplyT(func(v ProfileHttp2) *ProfileHttp2 {
+		return &v
+	}).(ProfileHttp2PtrOutput)
+}
+
+type ProfileHttp2PtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProfileHttp2PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProfileHttp2)(nil))
+}
+
+func (o ProfileHttp2PtrOutput) ToProfileHttp2PtrOutput() ProfileHttp2PtrOutput {
+	return o
+}
+
+func (o ProfileHttp2PtrOutput) ToProfileHttp2PtrOutputWithContext(ctx context.Context) ProfileHttp2PtrOutput {
+	return o
+}
+
+type ProfileHttp2ArrayOutput struct{ *pulumi.OutputState }
+
+func (ProfileHttp2ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProfileHttp2)(nil))
+}
+
+func (o ProfileHttp2ArrayOutput) ToProfileHttp2ArrayOutput() ProfileHttp2ArrayOutput {
+	return o
+}
+
+func (o ProfileHttp2ArrayOutput) ToProfileHttp2ArrayOutputWithContext(ctx context.Context) ProfileHttp2ArrayOutput {
+	return o
+}
+
+func (o ProfileHttp2ArrayOutput) Index(i pulumi.IntInput) ProfileHttp2Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProfileHttp2 {
+		return vs[0].([]ProfileHttp2)[vs[1].(int)]
+	}).(ProfileHttp2Output)
+}
+
+type ProfileHttp2MapOutput struct{ *pulumi.OutputState }
+
+func (ProfileHttp2MapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ProfileHttp2)(nil))
+}
+
+func (o ProfileHttp2MapOutput) ToProfileHttp2MapOutput() ProfileHttp2MapOutput {
+	return o
+}
+
+func (o ProfileHttp2MapOutput) ToProfileHttp2MapOutputWithContext(ctx context.Context) ProfileHttp2MapOutput {
+	return o
+}
+
+func (o ProfileHttp2MapOutput) MapIndex(k pulumi.StringInput) ProfileHttp2Output {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ProfileHttp2 {
+		return vs[0].(map[string]ProfileHttp2)[vs[1].(string)]
+	}).(ProfileHttp2Output)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProfileHttp2Output{})
+	pulumi.RegisterOutputType(ProfileHttp2PtrOutput{})
+	pulumi.RegisterOutputType(ProfileHttp2ArrayOutput{})
+	pulumi.RegisterOutputType(ProfileHttp2MapOutput{})
 }

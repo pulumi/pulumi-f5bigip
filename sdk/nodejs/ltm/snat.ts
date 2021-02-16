@@ -118,7 +118,8 @@ export class Snat extends pulumi.CustomResource {
     constructor(name: string, args: SnatArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SnatArgs | SnatState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SnatState | undefined;
             inputs["autolasthop"] = state ? state.autolasthop : undefined;
             inputs["fullPath"] = state ? state.fullPath : undefined;
@@ -133,10 +134,10 @@ export class Snat extends pulumi.CustomResource {
             inputs["vlansdisabled"] = state ? state.vlansdisabled : undefined;
         } else {
             const args = argsOrState as SnatArgs | undefined;
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.origins === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.origins === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'origins'");
             }
             inputs["autolasthop"] = args ? args.autolasthop : undefined;
@@ -151,12 +152,8 @@ export class Snat extends pulumi.CustomResource {
             inputs["vlans"] = args ? args.vlans : undefined;
             inputs["vlansdisabled"] = args ? args.vlansdisabled : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Snat.__pulumiType, name, inputs, opts);
     }

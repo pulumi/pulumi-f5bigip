@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/"
+// 	"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -341,6 +341,85 @@ func (i *CommonLicenseManageBigIq) ToCommonLicenseManageBigIqOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(CommonLicenseManageBigIqOutput)
 }
 
+func (i *CommonLicenseManageBigIq) ToCommonLicenseManageBigIqPtrOutput() CommonLicenseManageBigIqPtrOutput {
+	return i.ToCommonLicenseManageBigIqPtrOutputWithContext(context.Background())
+}
+
+func (i *CommonLicenseManageBigIq) ToCommonLicenseManageBigIqPtrOutputWithContext(ctx context.Context) CommonLicenseManageBigIqPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommonLicenseManageBigIqPtrOutput)
+}
+
+type CommonLicenseManageBigIqPtrInput interface {
+	pulumi.Input
+
+	ToCommonLicenseManageBigIqPtrOutput() CommonLicenseManageBigIqPtrOutput
+	ToCommonLicenseManageBigIqPtrOutputWithContext(ctx context.Context) CommonLicenseManageBigIqPtrOutput
+}
+
+type commonLicenseManageBigIqPtrType CommonLicenseManageBigIqArgs
+
+func (*commonLicenseManageBigIqPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CommonLicenseManageBigIq)(nil))
+}
+
+func (i *commonLicenseManageBigIqPtrType) ToCommonLicenseManageBigIqPtrOutput() CommonLicenseManageBigIqPtrOutput {
+	return i.ToCommonLicenseManageBigIqPtrOutputWithContext(context.Background())
+}
+
+func (i *commonLicenseManageBigIqPtrType) ToCommonLicenseManageBigIqPtrOutputWithContext(ctx context.Context) CommonLicenseManageBigIqPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommonLicenseManageBigIqPtrOutput)
+}
+
+// CommonLicenseManageBigIqArrayInput is an input type that accepts CommonLicenseManageBigIqArray and CommonLicenseManageBigIqArrayOutput values.
+// You can construct a concrete instance of `CommonLicenseManageBigIqArrayInput` via:
+//
+//          CommonLicenseManageBigIqArray{ CommonLicenseManageBigIqArgs{...} }
+type CommonLicenseManageBigIqArrayInput interface {
+	pulumi.Input
+
+	ToCommonLicenseManageBigIqArrayOutput() CommonLicenseManageBigIqArrayOutput
+	ToCommonLicenseManageBigIqArrayOutputWithContext(context.Context) CommonLicenseManageBigIqArrayOutput
+}
+
+type CommonLicenseManageBigIqArray []CommonLicenseManageBigIqInput
+
+func (CommonLicenseManageBigIqArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*CommonLicenseManageBigIq)(nil))
+}
+
+func (i CommonLicenseManageBigIqArray) ToCommonLicenseManageBigIqArrayOutput() CommonLicenseManageBigIqArrayOutput {
+	return i.ToCommonLicenseManageBigIqArrayOutputWithContext(context.Background())
+}
+
+func (i CommonLicenseManageBigIqArray) ToCommonLicenseManageBigIqArrayOutputWithContext(ctx context.Context) CommonLicenseManageBigIqArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommonLicenseManageBigIqArrayOutput)
+}
+
+// CommonLicenseManageBigIqMapInput is an input type that accepts CommonLicenseManageBigIqMap and CommonLicenseManageBigIqMapOutput values.
+// You can construct a concrete instance of `CommonLicenseManageBigIqMapInput` via:
+//
+//          CommonLicenseManageBigIqMap{ "key": CommonLicenseManageBigIqArgs{...} }
+type CommonLicenseManageBigIqMapInput interface {
+	pulumi.Input
+
+	ToCommonLicenseManageBigIqMapOutput() CommonLicenseManageBigIqMapOutput
+	ToCommonLicenseManageBigIqMapOutputWithContext(context.Context) CommonLicenseManageBigIqMapOutput
+}
+
+type CommonLicenseManageBigIqMap map[string]CommonLicenseManageBigIqInput
+
+func (CommonLicenseManageBigIqMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*CommonLicenseManageBigIq)(nil))
+}
+
+func (i CommonLicenseManageBigIqMap) ToCommonLicenseManageBigIqMapOutput() CommonLicenseManageBigIqMapOutput {
+	return i.ToCommonLicenseManageBigIqMapOutputWithContext(context.Background())
+}
+
+func (i CommonLicenseManageBigIqMap) ToCommonLicenseManageBigIqMapOutputWithContext(ctx context.Context) CommonLicenseManageBigIqMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommonLicenseManageBigIqMapOutput)
+}
+
 type CommonLicenseManageBigIqOutput struct {
 	*pulumi.OutputState
 }
@@ -357,6 +436,75 @@ func (o CommonLicenseManageBigIqOutput) ToCommonLicenseManageBigIqOutputWithCont
 	return o
 }
 
+func (o CommonLicenseManageBigIqOutput) ToCommonLicenseManageBigIqPtrOutput() CommonLicenseManageBigIqPtrOutput {
+	return o.ToCommonLicenseManageBigIqPtrOutputWithContext(context.Background())
+}
+
+func (o CommonLicenseManageBigIqOutput) ToCommonLicenseManageBigIqPtrOutputWithContext(ctx context.Context) CommonLicenseManageBigIqPtrOutput {
+	return o.ApplyT(func(v CommonLicenseManageBigIq) *CommonLicenseManageBigIq {
+		return &v
+	}).(CommonLicenseManageBigIqPtrOutput)
+}
+
+type CommonLicenseManageBigIqPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (CommonLicenseManageBigIqPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CommonLicenseManageBigIq)(nil))
+}
+
+func (o CommonLicenseManageBigIqPtrOutput) ToCommonLicenseManageBigIqPtrOutput() CommonLicenseManageBigIqPtrOutput {
+	return o
+}
+
+func (o CommonLicenseManageBigIqPtrOutput) ToCommonLicenseManageBigIqPtrOutputWithContext(ctx context.Context) CommonLicenseManageBigIqPtrOutput {
+	return o
+}
+
+type CommonLicenseManageBigIqArrayOutput struct{ *pulumi.OutputState }
+
+func (CommonLicenseManageBigIqArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CommonLicenseManageBigIq)(nil))
+}
+
+func (o CommonLicenseManageBigIqArrayOutput) ToCommonLicenseManageBigIqArrayOutput() CommonLicenseManageBigIqArrayOutput {
+	return o
+}
+
+func (o CommonLicenseManageBigIqArrayOutput) ToCommonLicenseManageBigIqArrayOutputWithContext(ctx context.Context) CommonLicenseManageBigIqArrayOutput {
+	return o
+}
+
+func (o CommonLicenseManageBigIqArrayOutput) Index(i pulumi.IntInput) CommonLicenseManageBigIqOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CommonLicenseManageBigIq {
+		return vs[0].([]CommonLicenseManageBigIq)[vs[1].(int)]
+	}).(CommonLicenseManageBigIqOutput)
+}
+
+type CommonLicenseManageBigIqMapOutput struct{ *pulumi.OutputState }
+
+func (CommonLicenseManageBigIqMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]CommonLicenseManageBigIq)(nil))
+}
+
+func (o CommonLicenseManageBigIqMapOutput) ToCommonLicenseManageBigIqMapOutput() CommonLicenseManageBigIqMapOutput {
+	return o
+}
+
+func (o CommonLicenseManageBigIqMapOutput) ToCommonLicenseManageBigIqMapOutputWithContext(ctx context.Context) CommonLicenseManageBigIqMapOutput {
+	return o
+}
+
+func (o CommonLicenseManageBigIqMapOutput) MapIndex(k pulumi.StringInput) CommonLicenseManageBigIqOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CommonLicenseManageBigIq {
+		return vs[0].(map[string]CommonLicenseManageBigIq)[vs[1].(string)]
+	}).(CommonLicenseManageBigIqOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CommonLicenseManageBigIqOutput{})
+	pulumi.RegisterOutputType(CommonLicenseManageBigIqPtrOutput{})
+	pulumi.RegisterOutputType(CommonLicenseManageBigIqArrayOutput{})
+	pulumi.RegisterOutputType(CommonLicenseManageBigIqMapOutput{})
 }

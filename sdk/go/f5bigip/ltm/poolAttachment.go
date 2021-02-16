@@ -222,6 +222,85 @@ func (i *PoolAttachment) ToPoolAttachmentOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(PoolAttachmentOutput)
 }
 
+func (i *PoolAttachment) ToPoolAttachmentPtrOutput() PoolAttachmentPtrOutput {
+	return i.ToPoolAttachmentPtrOutputWithContext(context.Background())
+}
+
+func (i *PoolAttachment) ToPoolAttachmentPtrOutputWithContext(ctx context.Context) PoolAttachmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolAttachmentPtrOutput)
+}
+
+type PoolAttachmentPtrInput interface {
+	pulumi.Input
+
+	ToPoolAttachmentPtrOutput() PoolAttachmentPtrOutput
+	ToPoolAttachmentPtrOutputWithContext(ctx context.Context) PoolAttachmentPtrOutput
+}
+
+type poolAttachmentPtrType PoolAttachmentArgs
+
+func (*poolAttachmentPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PoolAttachment)(nil))
+}
+
+func (i *poolAttachmentPtrType) ToPoolAttachmentPtrOutput() PoolAttachmentPtrOutput {
+	return i.ToPoolAttachmentPtrOutputWithContext(context.Background())
+}
+
+func (i *poolAttachmentPtrType) ToPoolAttachmentPtrOutputWithContext(ctx context.Context) PoolAttachmentPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolAttachmentPtrOutput)
+}
+
+// PoolAttachmentArrayInput is an input type that accepts PoolAttachmentArray and PoolAttachmentArrayOutput values.
+// You can construct a concrete instance of `PoolAttachmentArrayInput` via:
+//
+//          PoolAttachmentArray{ PoolAttachmentArgs{...} }
+type PoolAttachmentArrayInput interface {
+	pulumi.Input
+
+	ToPoolAttachmentArrayOutput() PoolAttachmentArrayOutput
+	ToPoolAttachmentArrayOutputWithContext(context.Context) PoolAttachmentArrayOutput
+}
+
+type PoolAttachmentArray []PoolAttachmentInput
+
+func (PoolAttachmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*PoolAttachment)(nil))
+}
+
+func (i PoolAttachmentArray) ToPoolAttachmentArrayOutput() PoolAttachmentArrayOutput {
+	return i.ToPoolAttachmentArrayOutputWithContext(context.Background())
+}
+
+func (i PoolAttachmentArray) ToPoolAttachmentArrayOutputWithContext(ctx context.Context) PoolAttachmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolAttachmentArrayOutput)
+}
+
+// PoolAttachmentMapInput is an input type that accepts PoolAttachmentMap and PoolAttachmentMapOutput values.
+// You can construct a concrete instance of `PoolAttachmentMapInput` via:
+//
+//          PoolAttachmentMap{ "key": PoolAttachmentArgs{...} }
+type PoolAttachmentMapInput interface {
+	pulumi.Input
+
+	ToPoolAttachmentMapOutput() PoolAttachmentMapOutput
+	ToPoolAttachmentMapOutputWithContext(context.Context) PoolAttachmentMapOutput
+}
+
+type PoolAttachmentMap map[string]PoolAttachmentInput
+
+func (PoolAttachmentMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*PoolAttachment)(nil))
+}
+
+func (i PoolAttachmentMap) ToPoolAttachmentMapOutput() PoolAttachmentMapOutput {
+	return i.ToPoolAttachmentMapOutputWithContext(context.Background())
+}
+
+func (i PoolAttachmentMap) ToPoolAttachmentMapOutputWithContext(ctx context.Context) PoolAttachmentMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolAttachmentMapOutput)
+}
+
 type PoolAttachmentOutput struct {
 	*pulumi.OutputState
 }
@@ -238,6 +317,75 @@ func (o PoolAttachmentOutput) ToPoolAttachmentOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o PoolAttachmentOutput) ToPoolAttachmentPtrOutput() PoolAttachmentPtrOutput {
+	return o.ToPoolAttachmentPtrOutputWithContext(context.Background())
+}
+
+func (o PoolAttachmentOutput) ToPoolAttachmentPtrOutputWithContext(ctx context.Context) PoolAttachmentPtrOutput {
+	return o.ApplyT(func(v PoolAttachment) *PoolAttachment {
+		return &v
+	}).(PoolAttachmentPtrOutput)
+}
+
+type PoolAttachmentPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (PoolAttachmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PoolAttachment)(nil))
+}
+
+func (o PoolAttachmentPtrOutput) ToPoolAttachmentPtrOutput() PoolAttachmentPtrOutput {
+	return o
+}
+
+func (o PoolAttachmentPtrOutput) ToPoolAttachmentPtrOutputWithContext(ctx context.Context) PoolAttachmentPtrOutput {
+	return o
+}
+
+type PoolAttachmentArrayOutput struct{ *pulumi.OutputState }
+
+func (PoolAttachmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PoolAttachment)(nil))
+}
+
+func (o PoolAttachmentArrayOutput) ToPoolAttachmentArrayOutput() PoolAttachmentArrayOutput {
+	return o
+}
+
+func (o PoolAttachmentArrayOutput) ToPoolAttachmentArrayOutputWithContext(ctx context.Context) PoolAttachmentArrayOutput {
+	return o
+}
+
+func (o PoolAttachmentArrayOutput) Index(i pulumi.IntInput) PoolAttachmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PoolAttachment {
+		return vs[0].([]PoolAttachment)[vs[1].(int)]
+	}).(PoolAttachmentOutput)
+}
+
+type PoolAttachmentMapOutput struct{ *pulumi.OutputState }
+
+func (PoolAttachmentMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]PoolAttachment)(nil))
+}
+
+func (o PoolAttachmentMapOutput) ToPoolAttachmentMapOutput() PoolAttachmentMapOutput {
+	return o
+}
+
+func (o PoolAttachmentMapOutput) ToPoolAttachmentMapOutputWithContext(ctx context.Context) PoolAttachmentMapOutput {
+	return o
+}
+
+func (o PoolAttachmentMapOutput) MapIndex(k pulumi.StringInput) PoolAttachmentOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PoolAttachment {
+		return vs[0].(map[string]PoolAttachment)[vs[1].(string)]
+	}).(PoolAttachmentOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PoolAttachmentOutput{})
+	pulumi.RegisterOutputType(PoolAttachmentPtrOutput{})
+	pulumi.RegisterOutputType(PoolAttachmentArrayOutput{})
+	pulumi.RegisterOutputType(PoolAttachmentMapOutput{})
 }

@@ -102,6 +102,85 @@ func (i *EventServiceDiscovery) ToEventServiceDiscoveryOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(EventServiceDiscoveryOutput)
 }
 
+func (i *EventServiceDiscovery) ToEventServiceDiscoveryPtrOutput() EventServiceDiscoveryPtrOutput {
+	return i.ToEventServiceDiscoveryPtrOutputWithContext(context.Background())
+}
+
+func (i *EventServiceDiscovery) ToEventServiceDiscoveryPtrOutputWithContext(ctx context.Context) EventServiceDiscoveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventServiceDiscoveryPtrOutput)
+}
+
+type EventServiceDiscoveryPtrInput interface {
+	pulumi.Input
+
+	ToEventServiceDiscoveryPtrOutput() EventServiceDiscoveryPtrOutput
+	ToEventServiceDiscoveryPtrOutputWithContext(ctx context.Context) EventServiceDiscoveryPtrOutput
+}
+
+type eventServiceDiscoveryPtrType EventServiceDiscoveryArgs
+
+func (*eventServiceDiscoveryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventServiceDiscovery)(nil))
+}
+
+func (i *eventServiceDiscoveryPtrType) ToEventServiceDiscoveryPtrOutput() EventServiceDiscoveryPtrOutput {
+	return i.ToEventServiceDiscoveryPtrOutputWithContext(context.Background())
+}
+
+func (i *eventServiceDiscoveryPtrType) ToEventServiceDiscoveryPtrOutputWithContext(ctx context.Context) EventServiceDiscoveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventServiceDiscoveryPtrOutput)
+}
+
+// EventServiceDiscoveryArrayInput is an input type that accepts EventServiceDiscoveryArray and EventServiceDiscoveryArrayOutput values.
+// You can construct a concrete instance of `EventServiceDiscoveryArrayInput` via:
+//
+//          EventServiceDiscoveryArray{ EventServiceDiscoveryArgs{...} }
+type EventServiceDiscoveryArrayInput interface {
+	pulumi.Input
+
+	ToEventServiceDiscoveryArrayOutput() EventServiceDiscoveryArrayOutput
+	ToEventServiceDiscoveryArrayOutputWithContext(context.Context) EventServiceDiscoveryArrayOutput
+}
+
+type EventServiceDiscoveryArray []EventServiceDiscoveryInput
+
+func (EventServiceDiscoveryArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*EventServiceDiscovery)(nil))
+}
+
+func (i EventServiceDiscoveryArray) ToEventServiceDiscoveryArrayOutput() EventServiceDiscoveryArrayOutput {
+	return i.ToEventServiceDiscoveryArrayOutputWithContext(context.Background())
+}
+
+func (i EventServiceDiscoveryArray) ToEventServiceDiscoveryArrayOutputWithContext(ctx context.Context) EventServiceDiscoveryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventServiceDiscoveryArrayOutput)
+}
+
+// EventServiceDiscoveryMapInput is an input type that accepts EventServiceDiscoveryMap and EventServiceDiscoveryMapOutput values.
+// You can construct a concrete instance of `EventServiceDiscoveryMapInput` via:
+//
+//          EventServiceDiscoveryMap{ "key": EventServiceDiscoveryArgs{...} }
+type EventServiceDiscoveryMapInput interface {
+	pulumi.Input
+
+	ToEventServiceDiscoveryMapOutput() EventServiceDiscoveryMapOutput
+	ToEventServiceDiscoveryMapOutputWithContext(context.Context) EventServiceDiscoveryMapOutput
+}
+
+type EventServiceDiscoveryMap map[string]EventServiceDiscoveryInput
+
+func (EventServiceDiscoveryMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*EventServiceDiscovery)(nil))
+}
+
+func (i EventServiceDiscoveryMap) ToEventServiceDiscoveryMapOutput() EventServiceDiscoveryMapOutput {
+	return i.ToEventServiceDiscoveryMapOutputWithContext(context.Background())
+}
+
+func (i EventServiceDiscoveryMap) ToEventServiceDiscoveryMapOutputWithContext(ctx context.Context) EventServiceDiscoveryMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventServiceDiscoveryMapOutput)
+}
+
 type EventServiceDiscoveryOutput struct {
 	*pulumi.OutputState
 }
@@ -118,6 +197,75 @@ func (o EventServiceDiscoveryOutput) ToEventServiceDiscoveryOutputWithContext(ct
 	return o
 }
 
+func (o EventServiceDiscoveryOutput) ToEventServiceDiscoveryPtrOutput() EventServiceDiscoveryPtrOutput {
+	return o.ToEventServiceDiscoveryPtrOutputWithContext(context.Background())
+}
+
+func (o EventServiceDiscoveryOutput) ToEventServiceDiscoveryPtrOutputWithContext(ctx context.Context) EventServiceDiscoveryPtrOutput {
+	return o.ApplyT(func(v EventServiceDiscovery) *EventServiceDiscovery {
+		return &v
+	}).(EventServiceDiscoveryPtrOutput)
+}
+
+type EventServiceDiscoveryPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (EventServiceDiscoveryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventServiceDiscovery)(nil))
+}
+
+func (o EventServiceDiscoveryPtrOutput) ToEventServiceDiscoveryPtrOutput() EventServiceDiscoveryPtrOutput {
+	return o
+}
+
+func (o EventServiceDiscoveryPtrOutput) ToEventServiceDiscoveryPtrOutputWithContext(ctx context.Context) EventServiceDiscoveryPtrOutput {
+	return o
+}
+
+type EventServiceDiscoveryArrayOutput struct{ *pulumi.OutputState }
+
+func (EventServiceDiscoveryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventServiceDiscovery)(nil))
+}
+
+func (o EventServiceDiscoveryArrayOutput) ToEventServiceDiscoveryArrayOutput() EventServiceDiscoveryArrayOutput {
+	return o
+}
+
+func (o EventServiceDiscoveryArrayOutput) ToEventServiceDiscoveryArrayOutputWithContext(ctx context.Context) EventServiceDiscoveryArrayOutput {
+	return o
+}
+
+func (o EventServiceDiscoveryArrayOutput) Index(i pulumi.IntInput) EventServiceDiscoveryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventServiceDiscovery {
+		return vs[0].([]EventServiceDiscovery)[vs[1].(int)]
+	}).(EventServiceDiscoveryOutput)
+}
+
+type EventServiceDiscoveryMapOutput struct{ *pulumi.OutputState }
+
+func (EventServiceDiscoveryMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]EventServiceDiscovery)(nil))
+}
+
+func (o EventServiceDiscoveryMapOutput) ToEventServiceDiscoveryMapOutput() EventServiceDiscoveryMapOutput {
+	return o
+}
+
+func (o EventServiceDiscoveryMapOutput) ToEventServiceDiscoveryMapOutputWithContext(ctx context.Context) EventServiceDiscoveryMapOutput {
+	return o
+}
+
+func (o EventServiceDiscoveryMapOutput) MapIndex(k pulumi.StringInput) EventServiceDiscoveryOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EventServiceDiscovery {
+		return vs[0].(map[string]EventServiceDiscovery)[vs[1].(string)]
+	}).(EventServiceDiscoveryOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(EventServiceDiscoveryOutput{})
+	pulumi.RegisterOutputType(EventServiceDiscoveryPtrOutput{})
+	pulumi.RegisterOutputType(EventServiceDiscoveryArrayOutput{})
+	pulumi.RegisterOutputType(EventServiceDiscoveryMapOutput{})
 }

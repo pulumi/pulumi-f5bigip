@@ -176,7 +176,8 @@ export class PersistenceProfileCookie extends pulumi.CustomResource {
     constructor(name: string, args: PersistenceProfileCookieArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PersistenceProfileCookieArgs | PersistenceProfileCookieState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PersistenceProfileCookieState | undefined;
             inputs["alwaysSend"] = state ? state.alwaysSend : undefined;
             inputs["appService"] = state ? state.appService : undefined;
@@ -198,10 +199,10 @@ export class PersistenceProfileCookie extends pulumi.CustomResource {
             inputs["timeout"] = state ? state.timeout : undefined;
         } else {
             const args = argsOrState as PersistenceProfileCookieArgs | undefined;
-            if ((!args || args.defaultsFrom === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.defaultsFrom === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'defaultsFrom'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["alwaysSend"] = args ? args.alwaysSend : undefined;
@@ -223,12 +224,8 @@ export class PersistenceProfileCookie extends pulumi.CustomResource {
             inputs["overrideConnLimit"] = args ? args.overrideConnLimit : undefined;
             inputs["timeout"] = args ? args.timeout : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(PersistenceProfileCookie.__pulumiType, name, inputs, opts);
     }

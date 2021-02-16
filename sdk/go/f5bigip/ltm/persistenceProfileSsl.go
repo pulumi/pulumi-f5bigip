@@ -229,6 +229,85 @@ func (i *PersistenceProfileSsl) ToPersistenceProfileSslOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(PersistenceProfileSslOutput)
 }
 
+func (i *PersistenceProfileSsl) ToPersistenceProfileSslPtrOutput() PersistenceProfileSslPtrOutput {
+	return i.ToPersistenceProfileSslPtrOutputWithContext(context.Background())
+}
+
+func (i *PersistenceProfileSsl) ToPersistenceProfileSslPtrOutputWithContext(ctx context.Context) PersistenceProfileSslPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PersistenceProfileSslPtrOutput)
+}
+
+type PersistenceProfileSslPtrInput interface {
+	pulumi.Input
+
+	ToPersistenceProfileSslPtrOutput() PersistenceProfileSslPtrOutput
+	ToPersistenceProfileSslPtrOutputWithContext(ctx context.Context) PersistenceProfileSslPtrOutput
+}
+
+type persistenceProfileSslPtrType PersistenceProfileSslArgs
+
+func (*persistenceProfileSslPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PersistenceProfileSsl)(nil))
+}
+
+func (i *persistenceProfileSslPtrType) ToPersistenceProfileSslPtrOutput() PersistenceProfileSslPtrOutput {
+	return i.ToPersistenceProfileSslPtrOutputWithContext(context.Background())
+}
+
+func (i *persistenceProfileSslPtrType) ToPersistenceProfileSslPtrOutputWithContext(ctx context.Context) PersistenceProfileSslPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PersistenceProfileSslPtrOutput)
+}
+
+// PersistenceProfileSslArrayInput is an input type that accepts PersistenceProfileSslArray and PersistenceProfileSslArrayOutput values.
+// You can construct a concrete instance of `PersistenceProfileSslArrayInput` via:
+//
+//          PersistenceProfileSslArray{ PersistenceProfileSslArgs{...} }
+type PersistenceProfileSslArrayInput interface {
+	pulumi.Input
+
+	ToPersistenceProfileSslArrayOutput() PersistenceProfileSslArrayOutput
+	ToPersistenceProfileSslArrayOutputWithContext(context.Context) PersistenceProfileSslArrayOutput
+}
+
+type PersistenceProfileSslArray []PersistenceProfileSslInput
+
+func (PersistenceProfileSslArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*PersistenceProfileSsl)(nil))
+}
+
+func (i PersistenceProfileSslArray) ToPersistenceProfileSslArrayOutput() PersistenceProfileSslArrayOutput {
+	return i.ToPersistenceProfileSslArrayOutputWithContext(context.Background())
+}
+
+func (i PersistenceProfileSslArray) ToPersistenceProfileSslArrayOutputWithContext(ctx context.Context) PersistenceProfileSslArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PersistenceProfileSslArrayOutput)
+}
+
+// PersistenceProfileSslMapInput is an input type that accepts PersistenceProfileSslMap and PersistenceProfileSslMapOutput values.
+// You can construct a concrete instance of `PersistenceProfileSslMapInput` via:
+//
+//          PersistenceProfileSslMap{ "key": PersistenceProfileSslArgs{...} }
+type PersistenceProfileSslMapInput interface {
+	pulumi.Input
+
+	ToPersistenceProfileSslMapOutput() PersistenceProfileSslMapOutput
+	ToPersistenceProfileSslMapOutputWithContext(context.Context) PersistenceProfileSslMapOutput
+}
+
+type PersistenceProfileSslMap map[string]PersistenceProfileSslInput
+
+func (PersistenceProfileSslMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*PersistenceProfileSsl)(nil))
+}
+
+func (i PersistenceProfileSslMap) ToPersistenceProfileSslMapOutput() PersistenceProfileSslMapOutput {
+	return i.ToPersistenceProfileSslMapOutputWithContext(context.Background())
+}
+
+func (i PersistenceProfileSslMap) ToPersistenceProfileSslMapOutputWithContext(ctx context.Context) PersistenceProfileSslMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PersistenceProfileSslMapOutput)
+}
+
 type PersistenceProfileSslOutput struct {
 	*pulumi.OutputState
 }
@@ -245,6 +324,75 @@ func (o PersistenceProfileSslOutput) ToPersistenceProfileSslOutputWithContext(ct
 	return o
 }
 
+func (o PersistenceProfileSslOutput) ToPersistenceProfileSslPtrOutput() PersistenceProfileSslPtrOutput {
+	return o.ToPersistenceProfileSslPtrOutputWithContext(context.Background())
+}
+
+func (o PersistenceProfileSslOutput) ToPersistenceProfileSslPtrOutputWithContext(ctx context.Context) PersistenceProfileSslPtrOutput {
+	return o.ApplyT(func(v PersistenceProfileSsl) *PersistenceProfileSsl {
+		return &v
+	}).(PersistenceProfileSslPtrOutput)
+}
+
+type PersistenceProfileSslPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (PersistenceProfileSslPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PersistenceProfileSsl)(nil))
+}
+
+func (o PersistenceProfileSslPtrOutput) ToPersistenceProfileSslPtrOutput() PersistenceProfileSslPtrOutput {
+	return o
+}
+
+func (o PersistenceProfileSslPtrOutput) ToPersistenceProfileSslPtrOutputWithContext(ctx context.Context) PersistenceProfileSslPtrOutput {
+	return o
+}
+
+type PersistenceProfileSslArrayOutput struct{ *pulumi.OutputState }
+
+func (PersistenceProfileSslArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PersistenceProfileSsl)(nil))
+}
+
+func (o PersistenceProfileSslArrayOutput) ToPersistenceProfileSslArrayOutput() PersistenceProfileSslArrayOutput {
+	return o
+}
+
+func (o PersistenceProfileSslArrayOutput) ToPersistenceProfileSslArrayOutputWithContext(ctx context.Context) PersistenceProfileSslArrayOutput {
+	return o
+}
+
+func (o PersistenceProfileSslArrayOutput) Index(i pulumi.IntInput) PersistenceProfileSslOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PersistenceProfileSsl {
+		return vs[0].([]PersistenceProfileSsl)[vs[1].(int)]
+	}).(PersistenceProfileSslOutput)
+}
+
+type PersistenceProfileSslMapOutput struct{ *pulumi.OutputState }
+
+func (PersistenceProfileSslMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]PersistenceProfileSsl)(nil))
+}
+
+func (o PersistenceProfileSslMapOutput) ToPersistenceProfileSslMapOutput() PersistenceProfileSslMapOutput {
+	return o
+}
+
+func (o PersistenceProfileSslMapOutput) ToPersistenceProfileSslMapOutputWithContext(ctx context.Context) PersistenceProfileSslMapOutput {
+	return o
+}
+
+func (o PersistenceProfileSslMapOutput) MapIndex(k pulumi.StringInput) PersistenceProfileSslOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PersistenceProfileSsl {
+		return vs[0].(map[string]PersistenceProfileSsl)[vs[1].(string)]
+	}).(PersistenceProfileSslOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PersistenceProfileSslOutput{})
+	pulumi.RegisterOutputType(PersistenceProfileSslPtrOutput{})
+	pulumi.RegisterOutputType(PersistenceProfileSslArrayOutput{})
+	pulumi.RegisterOutputType(PersistenceProfileSslMapOutput{})
 }

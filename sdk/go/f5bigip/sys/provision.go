@@ -175,6 +175,85 @@ func (i *Provision) ToProvisionOutputWithContext(ctx context.Context) ProvisionO
 	return pulumi.ToOutputWithContext(ctx, i).(ProvisionOutput)
 }
 
+func (i *Provision) ToProvisionPtrOutput() ProvisionPtrOutput {
+	return i.ToProvisionPtrOutputWithContext(context.Background())
+}
+
+func (i *Provision) ToProvisionPtrOutputWithContext(ctx context.Context) ProvisionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProvisionPtrOutput)
+}
+
+type ProvisionPtrInput interface {
+	pulumi.Input
+
+	ToProvisionPtrOutput() ProvisionPtrOutput
+	ToProvisionPtrOutputWithContext(ctx context.Context) ProvisionPtrOutput
+}
+
+type provisionPtrType ProvisionArgs
+
+func (*provisionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Provision)(nil))
+}
+
+func (i *provisionPtrType) ToProvisionPtrOutput() ProvisionPtrOutput {
+	return i.ToProvisionPtrOutputWithContext(context.Background())
+}
+
+func (i *provisionPtrType) ToProvisionPtrOutputWithContext(ctx context.Context) ProvisionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProvisionPtrOutput)
+}
+
+// ProvisionArrayInput is an input type that accepts ProvisionArray and ProvisionArrayOutput values.
+// You can construct a concrete instance of `ProvisionArrayInput` via:
+//
+//          ProvisionArray{ ProvisionArgs{...} }
+type ProvisionArrayInput interface {
+	pulumi.Input
+
+	ToProvisionArrayOutput() ProvisionArrayOutput
+	ToProvisionArrayOutputWithContext(context.Context) ProvisionArrayOutput
+}
+
+type ProvisionArray []ProvisionInput
+
+func (ProvisionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Provision)(nil))
+}
+
+func (i ProvisionArray) ToProvisionArrayOutput() ProvisionArrayOutput {
+	return i.ToProvisionArrayOutputWithContext(context.Background())
+}
+
+func (i ProvisionArray) ToProvisionArrayOutputWithContext(ctx context.Context) ProvisionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProvisionArrayOutput)
+}
+
+// ProvisionMapInput is an input type that accepts ProvisionMap and ProvisionMapOutput values.
+// You can construct a concrete instance of `ProvisionMapInput` via:
+//
+//          ProvisionMap{ "key": ProvisionArgs{...} }
+type ProvisionMapInput interface {
+	pulumi.Input
+
+	ToProvisionMapOutput() ProvisionMapOutput
+	ToProvisionMapOutputWithContext(context.Context) ProvisionMapOutput
+}
+
+type ProvisionMap map[string]ProvisionInput
+
+func (ProvisionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Provision)(nil))
+}
+
+func (i ProvisionMap) ToProvisionMapOutput() ProvisionMapOutput {
+	return i.ToProvisionMapOutputWithContext(context.Background())
+}
+
+func (i ProvisionMap) ToProvisionMapOutputWithContext(ctx context.Context) ProvisionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProvisionMapOutput)
+}
+
 type ProvisionOutput struct {
 	*pulumi.OutputState
 }
@@ -191,6 +270,75 @@ func (o ProvisionOutput) ToProvisionOutputWithContext(ctx context.Context) Provi
 	return o
 }
 
+func (o ProvisionOutput) ToProvisionPtrOutput() ProvisionPtrOutput {
+	return o.ToProvisionPtrOutputWithContext(context.Background())
+}
+
+func (o ProvisionOutput) ToProvisionPtrOutputWithContext(ctx context.Context) ProvisionPtrOutput {
+	return o.ApplyT(func(v Provision) *Provision {
+		return &v
+	}).(ProvisionPtrOutput)
+}
+
+type ProvisionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProvisionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Provision)(nil))
+}
+
+func (o ProvisionPtrOutput) ToProvisionPtrOutput() ProvisionPtrOutput {
+	return o
+}
+
+func (o ProvisionPtrOutput) ToProvisionPtrOutputWithContext(ctx context.Context) ProvisionPtrOutput {
+	return o
+}
+
+type ProvisionArrayOutput struct{ *pulumi.OutputState }
+
+func (ProvisionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Provision)(nil))
+}
+
+func (o ProvisionArrayOutput) ToProvisionArrayOutput() ProvisionArrayOutput {
+	return o
+}
+
+func (o ProvisionArrayOutput) ToProvisionArrayOutputWithContext(ctx context.Context) ProvisionArrayOutput {
+	return o
+}
+
+func (o ProvisionArrayOutput) Index(i pulumi.IntInput) ProvisionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Provision {
+		return vs[0].([]Provision)[vs[1].(int)]
+	}).(ProvisionOutput)
+}
+
+type ProvisionMapOutput struct{ *pulumi.OutputState }
+
+func (ProvisionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Provision)(nil))
+}
+
+func (o ProvisionMapOutput) ToProvisionMapOutput() ProvisionMapOutput {
+	return o
+}
+
+func (o ProvisionMapOutput) ToProvisionMapOutputWithContext(ctx context.Context) ProvisionMapOutput {
+	return o
+}
+
+func (o ProvisionMapOutput) MapIndex(k pulumi.StringInput) ProvisionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Provision {
+		return vs[0].(map[string]Provision)[vs[1].(string)]
+	}).(ProvisionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProvisionOutput{})
+	pulumi.RegisterOutputType(ProvisionPtrOutput{})
+	pulumi.RegisterOutputType(ProvisionArrayOutput{})
+	pulumi.RegisterOutputType(ProvisionMapOutput{})
 }

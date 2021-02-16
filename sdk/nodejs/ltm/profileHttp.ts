@@ -181,7 +181,8 @@ export class ProfileHttp extends pulumi.CustomResource {
     constructor(name: string, args: ProfileHttpArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProfileHttpArgs | ProfileHttpState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ProfileHttpState | undefined;
             inputs["acceptXff"] = state ? state.acceptXff : undefined;
             inputs["appService"] = state ? state.appService : undefined;
@@ -211,7 +212,7 @@ export class ProfileHttp extends pulumi.CustomResource {
             inputs["xffAlternativeNames"] = state ? state.xffAlternativeNames : undefined;
         } else {
             const args = argsOrState as ProfileHttpArgs | undefined;
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["acceptXff"] = args ? args.acceptXff : undefined;
@@ -241,12 +242,8 @@ export class ProfileHttp extends pulumi.CustomResource {
             inputs["viaResponse"] = args ? args.viaResponse : undefined;
             inputs["xffAlternativeNames"] = args ? args.xffAlternativeNames : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ProfileHttp.__pulumiType, name, inputs, opts);
     }

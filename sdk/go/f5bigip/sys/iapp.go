@@ -266,6 +266,85 @@ func (i *IApp) ToIAppOutputWithContext(ctx context.Context) IAppOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IAppOutput)
 }
 
+func (i *IApp) ToIAppPtrOutput() IAppPtrOutput {
+	return i.ToIAppPtrOutputWithContext(context.Background())
+}
+
+func (i *IApp) ToIAppPtrOutputWithContext(ctx context.Context) IAppPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IAppPtrOutput)
+}
+
+type IAppPtrInput interface {
+	pulumi.Input
+
+	ToIAppPtrOutput() IAppPtrOutput
+	ToIAppPtrOutputWithContext(ctx context.Context) IAppPtrOutput
+}
+
+type iappPtrType IAppArgs
+
+func (*iappPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IApp)(nil))
+}
+
+func (i *iappPtrType) ToIAppPtrOutput() IAppPtrOutput {
+	return i.ToIAppPtrOutputWithContext(context.Background())
+}
+
+func (i *iappPtrType) ToIAppPtrOutputWithContext(ctx context.Context) IAppPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IAppPtrOutput)
+}
+
+// IAppArrayInput is an input type that accepts IAppArray and IAppArrayOutput values.
+// You can construct a concrete instance of `IAppArrayInput` via:
+//
+//          IAppArray{ IAppArgs{...} }
+type IAppArrayInput interface {
+	pulumi.Input
+
+	ToIAppArrayOutput() IAppArrayOutput
+	ToIAppArrayOutputWithContext(context.Context) IAppArrayOutput
+}
+
+type IAppArray []IAppInput
+
+func (IAppArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*IApp)(nil))
+}
+
+func (i IAppArray) ToIAppArrayOutput() IAppArrayOutput {
+	return i.ToIAppArrayOutputWithContext(context.Background())
+}
+
+func (i IAppArray) ToIAppArrayOutputWithContext(ctx context.Context) IAppArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IAppArrayOutput)
+}
+
+// IAppMapInput is an input type that accepts IAppMap and IAppMapOutput values.
+// You can construct a concrete instance of `IAppMapInput` via:
+//
+//          IAppMap{ "key": IAppArgs{...} }
+type IAppMapInput interface {
+	pulumi.Input
+
+	ToIAppMapOutput() IAppMapOutput
+	ToIAppMapOutputWithContext(context.Context) IAppMapOutput
+}
+
+type IAppMap map[string]IAppInput
+
+func (IAppMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*IApp)(nil))
+}
+
+func (i IAppMap) ToIAppMapOutput() IAppMapOutput {
+	return i.ToIAppMapOutputWithContext(context.Background())
+}
+
+func (i IAppMap) ToIAppMapOutputWithContext(ctx context.Context) IAppMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IAppMapOutput)
+}
+
 type IAppOutput struct {
 	*pulumi.OutputState
 }
@@ -282,6 +361,75 @@ func (o IAppOutput) ToIAppOutputWithContext(ctx context.Context) IAppOutput {
 	return o
 }
 
+func (o IAppOutput) ToIAppPtrOutput() IAppPtrOutput {
+	return o.ToIAppPtrOutputWithContext(context.Background())
+}
+
+func (o IAppOutput) ToIAppPtrOutputWithContext(ctx context.Context) IAppPtrOutput {
+	return o.ApplyT(func(v IApp) *IApp {
+		return &v
+	}).(IAppPtrOutput)
+}
+
+type IAppPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (IAppPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IApp)(nil))
+}
+
+func (o IAppPtrOutput) ToIAppPtrOutput() IAppPtrOutput {
+	return o
+}
+
+func (o IAppPtrOutput) ToIAppPtrOutputWithContext(ctx context.Context) IAppPtrOutput {
+	return o
+}
+
+type IAppArrayOutput struct{ *pulumi.OutputState }
+
+func (IAppArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IApp)(nil))
+}
+
+func (o IAppArrayOutput) ToIAppArrayOutput() IAppArrayOutput {
+	return o
+}
+
+func (o IAppArrayOutput) ToIAppArrayOutputWithContext(ctx context.Context) IAppArrayOutput {
+	return o
+}
+
+func (o IAppArrayOutput) Index(i pulumi.IntInput) IAppOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IApp {
+		return vs[0].([]IApp)[vs[1].(int)]
+	}).(IAppOutput)
+}
+
+type IAppMapOutput struct{ *pulumi.OutputState }
+
+func (IAppMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IApp)(nil))
+}
+
+func (o IAppMapOutput) ToIAppMapOutput() IAppMapOutput {
+	return o
+}
+
+func (o IAppMapOutput) ToIAppMapOutputWithContext(ctx context.Context) IAppMapOutput {
+	return o
+}
+
+func (o IAppMapOutput) MapIndex(k pulumi.StringInput) IAppOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IApp {
+		return vs[0].(map[string]IApp)[vs[1].(string)]
+	}).(IAppOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IAppOutput{})
+	pulumi.RegisterOutputType(IAppPtrOutput{})
+	pulumi.RegisterOutputType(IAppArrayOutput{})
+	pulumi.RegisterOutputType(IAppMapOutput{})
 }

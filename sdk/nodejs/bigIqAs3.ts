@@ -75,7 +75,8 @@ export class BigIqAs3 extends pulumi.CustomResource {
     constructor(name: string, args: BigIqAs3Args, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BigIqAs3Args | BigIqAs3State, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as BigIqAs3State | undefined;
             inputs["as3Json"] = state ? state.as3Json : undefined;
             inputs["bigiqAddress"] = state ? state.bigiqAddress : undefined;
@@ -87,16 +88,16 @@ export class BigIqAs3 extends pulumi.CustomResource {
             inputs["tenantList"] = state ? state.tenantList : undefined;
         } else {
             const args = argsOrState as BigIqAs3Args | undefined;
-            if ((!args || args.as3Json === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.as3Json === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'as3Json'");
             }
-            if ((!args || args.bigiqAddress === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.bigiqAddress === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bigiqAddress'");
             }
-            if ((!args || args.bigiqPassword === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.bigiqPassword === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bigiqPassword'");
             }
-            if ((!args || args.bigiqUser === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.bigiqUser === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bigiqUser'");
             }
             inputs["as3Json"] = args ? args.as3Json : undefined;
@@ -108,12 +109,8 @@ export class BigIqAs3 extends pulumi.CustomResource {
             inputs["bigiqUser"] = args ? args.bigiqUser : undefined;
             inputs["tenantList"] = args ? args.tenantList : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(BigIqAs3.__pulumiType, name, inputs, opts);
     }

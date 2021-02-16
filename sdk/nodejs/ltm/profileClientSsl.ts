@@ -264,7 +264,8 @@ export class ProfileClientSsl extends pulumi.CustomResource {
     constructor(name: string, args: ProfileClientSslArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProfileClientSslArgs | ProfileClientSslState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ProfileClientSslState | undefined;
             inputs["alertTimeout"] = state ? state.alertTimeout : undefined;
             inputs["allowNonSsl"] = state ? state.allowNonSsl : undefined;
@@ -319,7 +320,7 @@ export class ProfileClientSsl extends pulumi.CustomResource {
             inputs["uncleanShutdown"] = state ? state.uncleanShutdown : undefined;
         } else {
             const args = argsOrState as ProfileClientSslArgs | undefined;
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["alertTimeout"] = args ? args.alertTimeout : undefined;
@@ -374,12 +375,8 @@ export class ProfileClientSsl extends pulumi.CustomResource {
             inputs["tmOptions"] = args ? args.tmOptions : undefined;
             inputs["uncleanShutdown"] = args ? args.uncleanShutdown : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ProfileClientSsl.__pulumiType, name, inputs, opts);
     }

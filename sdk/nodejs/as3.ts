@@ -86,7 +86,8 @@ export class As3 extends pulumi.CustomResource {
     constructor(name: string, args: As3Args, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: As3Args | As3State, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as As3State | undefined;
             inputs["applicationList"] = state ? state.applicationList : undefined;
             inputs["as3Json"] = state ? state.as3Json : undefined;
@@ -95,7 +96,7 @@ export class As3 extends pulumi.CustomResource {
             inputs["tenantName"] = state ? state.tenantName : undefined;
         } else {
             const args = argsOrState as As3Args | undefined;
-            if ((!args || args.as3Json === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.as3Json === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'as3Json'");
             }
             inputs["applicationList"] = args ? args.applicationList : undefined;
@@ -104,12 +105,8 @@ export class As3 extends pulumi.CustomResource {
             inputs["tenantList"] = args ? args.tenantList : undefined;
             inputs["tenantName"] = args ? args.tenantName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(As3.__pulumiType, name, inputs, opts);
     }

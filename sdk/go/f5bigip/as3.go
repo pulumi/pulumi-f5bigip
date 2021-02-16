@@ -150,6 +150,85 @@ func (i *As3) ToAs3OutputWithContext(ctx context.Context) As3Output {
 	return pulumi.ToOutputWithContext(ctx, i).(As3Output)
 }
 
+func (i *As3) ToAs3PtrOutput() As3PtrOutput {
+	return i.ToAs3PtrOutputWithContext(context.Background())
+}
+
+func (i *As3) ToAs3PtrOutputWithContext(ctx context.Context) As3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(As3PtrOutput)
+}
+
+type As3PtrInput interface {
+	pulumi.Input
+
+	ToAs3PtrOutput() As3PtrOutput
+	ToAs3PtrOutputWithContext(ctx context.Context) As3PtrOutput
+}
+
+type as3PtrType As3Args
+
+func (*as3PtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**As3)(nil))
+}
+
+func (i *as3PtrType) ToAs3PtrOutput() As3PtrOutput {
+	return i.ToAs3PtrOutputWithContext(context.Background())
+}
+
+func (i *as3PtrType) ToAs3PtrOutputWithContext(ctx context.Context) As3PtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(As3PtrOutput)
+}
+
+// As3ArrayInput is an input type that accepts As3Array and As3ArrayOutput values.
+// You can construct a concrete instance of `As3ArrayInput` via:
+//
+//          As3Array{ As3Args{...} }
+type As3ArrayInput interface {
+	pulumi.Input
+
+	ToAs3ArrayOutput() As3ArrayOutput
+	ToAs3ArrayOutputWithContext(context.Context) As3ArrayOutput
+}
+
+type As3Array []As3Input
+
+func (As3Array) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*As3)(nil))
+}
+
+func (i As3Array) ToAs3ArrayOutput() As3ArrayOutput {
+	return i.ToAs3ArrayOutputWithContext(context.Background())
+}
+
+func (i As3Array) ToAs3ArrayOutputWithContext(ctx context.Context) As3ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(As3ArrayOutput)
+}
+
+// As3MapInput is an input type that accepts As3Map and As3MapOutput values.
+// You can construct a concrete instance of `As3MapInput` via:
+//
+//          As3Map{ "key": As3Args{...} }
+type As3MapInput interface {
+	pulumi.Input
+
+	ToAs3MapOutput() As3MapOutput
+	ToAs3MapOutputWithContext(context.Context) As3MapOutput
+}
+
+type As3Map map[string]As3Input
+
+func (As3Map) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*As3)(nil))
+}
+
+func (i As3Map) ToAs3MapOutput() As3MapOutput {
+	return i.ToAs3MapOutputWithContext(context.Background())
+}
+
+func (i As3Map) ToAs3MapOutputWithContext(ctx context.Context) As3MapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(As3MapOutput)
+}
+
 type As3Output struct {
 	*pulumi.OutputState
 }
@@ -166,6 +245,75 @@ func (o As3Output) ToAs3OutputWithContext(ctx context.Context) As3Output {
 	return o
 }
 
+func (o As3Output) ToAs3PtrOutput() As3PtrOutput {
+	return o.ToAs3PtrOutputWithContext(context.Background())
+}
+
+func (o As3Output) ToAs3PtrOutputWithContext(ctx context.Context) As3PtrOutput {
+	return o.ApplyT(func(v As3) *As3 {
+		return &v
+	}).(As3PtrOutput)
+}
+
+type As3PtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (As3PtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**As3)(nil))
+}
+
+func (o As3PtrOutput) ToAs3PtrOutput() As3PtrOutput {
+	return o
+}
+
+func (o As3PtrOutput) ToAs3PtrOutputWithContext(ctx context.Context) As3PtrOutput {
+	return o
+}
+
+type As3ArrayOutput struct{ *pulumi.OutputState }
+
+func (As3ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]As3)(nil))
+}
+
+func (o As3ArrayOutput) ToAs3ArrayOutput() As3ArrayOutput {
+	return o
+}
+
+func (o As3ArrayOutput) ToAs3ArrayOutputWithContext(ctx context.Context) As3ArrayOutput {
+	return o
+}
+
+func (o As3ArrayOutput) Index(i pulumi.IntInput) As3Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) As3 {
+		return vs[0].([]As3)[vs[1].(int)]
+	}).(As3Output)
+}
+
+type As3MapOutput struct{ *pulumi.OutputState }
+
+func (As3MapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]As3)(nil))
+}
+
+func (o As3MapOutput) ToAs3MapOutput() As3MapOutput {
+	return o
+}
+
+func (o As3MapOutput) ToAs3MapOutputWithContext(ctx context.Context) As3MapOutput {
+	return o
+}
+
+func (o As3MapOutput) MapIndex(k pulumi.StringInput) As3Output {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) As3 {
+		return vs[0].(map[string]As3)[vs[1].(string)]
+	}).(As3Output)
+}
+
 func init() {
 	pulumi.RegisterOutputType(As3Output{})
+	pulumi.RegisterOutputType(As3PtrOutput{})
+	pulumi.RegisterOutputType(As3ArrayOutput{})
+	pulumi.RegisterOutputType(As3MapOutput{})
 }

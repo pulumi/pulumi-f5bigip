@@ -74,26 +74,23 @@ export class Do extends pulumi.CustomResource {
     constructor(name: string, args: DoArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DoArgs | DoState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DoState | undefined;
             inputs["doJson"] = state ? state.doJson : undefined;
             inputs["tenantName"] = state ? state.tenantName : undefined;
             inputs["timeout"] = state ? state.timeout : undefined;
         } else {
             const args = argsOrState as DoArgs | undefined;
-            if ((!args || args.doJson === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.doJson === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'doJson'");
             }
             inputs["doJson"] = args ? args.doJson : undefined;
             inputs["tenantName"] = args ? args.tenantName : undefined;
             inputs["timeout"] = args ? args.timeout : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Do.__pulumiType, name, inputs, opts);
     }

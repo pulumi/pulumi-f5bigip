@@ -70,7 +70,8 @@ export class Snmp extends pulumi.CustomResource {
     constructor(name: string, args?: SnmpArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SnmpArgs | SnmpState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SnmpState | undefined;
             inputs["allowedaddresses"] = state ? state.allowedaddresses : undefined;
             inputs["sysContact"] = state ? state.sysContact : undefined;
@@ -81,12 +82,8 @@ export class Snmp extends pulumi.CustomResource {
             inputs["sysContact"] = args ? args.sysContact : undefined;
             inputs["sysLocation"] = args ? args.sysLocation : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Snmp.__pulumiType, name, inputs, opts);
     }

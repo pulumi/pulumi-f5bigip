@@ -85,7 +85,8 @@ export class Provision extends pulumi.CustomResource {
     constructor(name: string, args: ProvisionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProvisionArgs | ProvisionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ProvisionState | undefined;
             inputs["cpuRatio"] = state ? state.cpuRatio : undefined;
             inputs["diskRatio"] = state ? state.diskRatio : undefined;
@@ -95,7 +96,7 @@ export class Provision extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as ProvisionArgs | undefined;
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["cpuRatio"] = args ? args.cpuRatio : undefined;
@@ -105,12 +106,8 @@ export class Provision extends pulumi.CustomResource {
             inputs["memoryRatio"] = args ? args.memoryRatio : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Provision.__pulumiType, name, inputs, opts);
     }

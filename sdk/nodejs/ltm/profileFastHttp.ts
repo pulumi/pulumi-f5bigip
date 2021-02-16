@@ -113,7 +113,8 @@ export class ProfileFastHttp extends pulumi.CustomResource {
     constructor(name: string, args: ProfileFastHttpArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProfileFastHttpArgs | ProfileFastHttpState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ProfileFastHttpState | undefined;
             inputs["connpoolMaxreuse"] = state ? state.connpoolMaxreuse : undefined;
             inputs["connpoolMaxsize"] = state ? state.connpoolMaxsize : undefined;
@@ -128,7 +129,7 @@ export class ProfileFastHttp extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as ProfileFastHttpArgs | undefined;
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["connpoolMaxreuse"] = args ? args.connpoolMaxreuse : undefined;
@@ -143,12 +144,8 @@ export class ProfileFastHttp extends pulumi.CustomResource {
             inputs["maxheaderSize"] = args ? args.maxheaderSize : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ProfileFastHttp.__pulumiType, name, inputs, opts);
     }

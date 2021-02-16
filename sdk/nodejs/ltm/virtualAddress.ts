@@ -92,7 +92,8 @@ export class VirtualAddress extends pulumi.CustomResource {
     constructor(name: string, args: VirtualAddressArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VirtualAddressArgs | VirtualAddressState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as VirtualAddressState | undefined;
             inputs["advertizeRoute"] = state ? state.advertizeRoute : undefined;
             inputs["arp"] = state ? state.arp : undefined;
@@ -104,7 +105,7 @@ export class VirtualAddress extends pulumi.CustomResource {
             inputs["trafficGroup"] = state ? state.trafficGroup : undefined;
         } else {
             const args = argsOrState as VirtualAddressArgs | undefined;
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["advertizeRoute"] = args ? args.advertizeRoute : undefined;
@@ -116,12 +117,8 @@ export class VirtualAddress extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["trafficGroup"] = args ? args.trafficGroup : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(VirtualAddress.__pulumiType, name, inputs, opts);
     }

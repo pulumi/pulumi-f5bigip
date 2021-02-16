@@ -136,7 +136,8 @@ export class IApp extends pulumi.CustomResource {
     constructor(name: string, args?: IAppArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IAppArgs | IAppState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as IAppState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["devicegroup"] = state ? state.devicegroup : undefined;
@@ -175,12 +176,8 @@ export class IApp extends pulumi.CustomResource {
             inputs["trafficGroup"] = args ? args.trafficGroup : undefined;
             inputs["variables"] = args ? args.variables : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(IApp.__pulumiType, name, inputs, opts);
     }

@@ -107,7 +107,8 @@ export class ProfileOneConnect extends pulumi.CustomResource {
     constructor(name: string, args: ProfileOneConnectArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProfileOneConnectArgs | ProfileOneConnectState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ProfileOneConnectState | undefined;
             inputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
             inputs["idleTimeoutOverride"] = state ? state.idleTimeoutOverride : undefined;
@@ -121,7 +122,7 @@ export class ProfileOneConnect extends pulumi.CustomResource {
             inputs["sourceMask"] = state ? state.sourceMask : undefined;
         } else {
             const args = argsOrState as ProfileOneConnectArgs | undefined;
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["defaultsFrom"] = args ? args.defaultsFrom : undefined;
@@ -135,12 +136,8 @@ export class ProfileOneConnect extends pulumi.CustomResource {
             inputs["sharePools"] = args ? args.sharePools : undefined;
             inputs["sourceMask"] = args ? args.sourceMask : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ProfileOneConnect.__pulumiType, name, inputs, opts);
     }

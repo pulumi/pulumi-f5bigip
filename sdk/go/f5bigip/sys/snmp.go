@@ -140,6 +140,85 @@ func (i *Snmp) ToSnmpOutputWithContext(ctx context.Context) SnmpOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SnmpOutput)
 }
 
+func (i *Snmp) ToSnmpPtrOutput() SnmpPtrOutput {
+	return i.ToSnmpPtrOutputWithContext(context.Background())
+}
+
+func (i *Snmp) ToSnmpPtrOutputWithContext(ctx context.Context) SnmpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnmpPtrOutput)
+}
+
+type SnmpPtrInput interface {
+	pulumi.Input
+
+	ToSnmpPtrOutput() SnmpPtrOutput
+	ToSnmpPtrOutputWithContext(ctx context.Context) SnmpPtrOutput
+}
+
+type snmpPtrType SnmpArgs
+
+func (*snmpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Snmp)(nil))
+}
+
+func (i *snmpPtrType) ToSnmpPtrOutput() SnmpPtrOutput {
+	return i.ToSnmpPtrOutputWithContext(context.Background())
+}
+
+func (i *snmpPtrType) ToSnmpPtrOutputWithContext(ctx context.Context) SnmpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnmpPtrOutput)
+}
+
+// SnmpArrayInput is an input type that accepts SnmpArray and SnmpArrayOutput values.
+// You can construct a concrete instance of `SnmpArrayInput` via:
+//
+//          SnmpArray{ SnmpArgs{...} }
+type SnmpArrayInput interface {
+	pulumi.Input
+
+	ToSnmpArrayOutput() SnmpArrayOutput
+	ToSnmpArrayOutputWithContext(context.Context) SnmpArrayOutput
+}
+
+type SnmpArray []SnmpInput
+
+func (SnmpArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*Snmp)(nil))
+}
+
+func (i SnmpArray) ToSnmpArrayOutput() SnmpArrayOutput {
+	return i.ToSnmpArrayOutputWithContext(context.Background())
+}
+
+func (i SnmpArray) ToSnmpArrayOutputWithContext(ctx context.Context) SnmpArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnmpArrayOutput)
+}
+
+// SnmpMapInput is an input type that accepts SnmpMap and SnmpMapOutput values.
+// You can construct a concrete instance of `SnmpMapInput` via:
+//
+//          SnmpMap{ "key": SnmpArgs{...} }
+type SnmpMapInput interface {
+	pulumi.Input
+
+	ToSnmpMapOutput() SnmpMapOutput
+	ToSnmpMapOutputWithContext(context.Context) SnmpMapOutput
+}
+
+type SnmpMap map[string]SnmpInput
+
+func (SnmpMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*Snmp)(nil))
+}
+
+func (i SnmpMap) ToSnmpMapOutput() SnmpMapOutput {
+	return i.ToSnmpMapOutputWithContext(context.Background())
+}
+
+func (i SnmpMap) ToSnmpMapOutputWithContext(ctx context.Context) SnmpMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnmpMapOutput)
+}
+
 type SnmpOutput struct {
 	*pulumi.OutputState
 }
@@ -156,6 +235,75 @@ func (o SnmpOutput) ToSnmpOutputWithContext(ctx context.Context) SnmpOutput {
 	return o
 }
 
+func (o SnmpOutput) ToSnmpPtrOutput() SnmpPtrOutput {
+	return o.ToSnmpPtrOutputWithContext(context.Background())
+}
+
+func (o SnmpOutput) ToSnmpPtrOutputWithContext(ctx context.Context) SnmpPtrOutput {
+	return o.ApplyT(func(v Snmp) *Snmp {
+		return &v
+	}).(SnmpPtrOutput)
+}
+
+type SnmpPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SnmpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Snmp)(nil))
+}
+
+func (o SnmpPtrOutput) ToSnmpPtrOutput() SnmpPtrOutput {
+	return o
+}
+
+func (o SnmpPtrOutput) ToSnmpPtrOutputWithContext(ctx context.Context) SnmpPtrOutput {
+	return o
+}
+
+type SnmpArrayOutput struct{ *pulumi.OutputState }
+
+func (SnmpArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Snmp)(nil))
+}
+
+func (o SnmpArrayOutput) ToSnmpArrayOutput() SnmpArrayOutput {
+	return o
+}
+
+func (o SnmpArrayOutput) ToSnmpArrayOutputWithContext(ctx context.Context) SnmpArrayOutput {
+	return o
+}
+
+func (o SnmpArrayOutput) Index(i pulumi.IntInput) SnmpOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Snmp {
+		return vs[0].([]Snmp)[vs[1].(int)]
+	}).(SnmpOutput)
+}
+
+type SnmpMapOutput struct{ *pulumi.OutputState }
+
+func (SnmpMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]Snmp)(nil))
+}
+
+func (o SnmpMapOutput) ToSnmpMapOutput() SnmpMapOutput {
+	return o
+}
+
+func (o SnmpMapOutput) ToSnmpMapOutputWithContext(ctx context.Context) SnmpMapOutput {
+	return o
+}
+
+func (o SnmpMapOutput) MapIndex(k pulumi.StringInput) SnmpOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Snmp {
+		return vs[0].(map[string]Snmp)[vs[1].(string)]
+	}).(SnmpOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SnmpOutput{})
+	pulumi.RegisterOutputType(SnmpPtrOutput{})
+	pulumi.RegisterOutputType(SnmpArrayOutput{})
+	pulumi.RegisterOutputType(SnmpMapOutput{})
 }

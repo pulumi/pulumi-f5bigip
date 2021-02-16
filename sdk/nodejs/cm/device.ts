@@ -77,7 +77,8 @@ export class Device extends pulumi.CustomResource {
     constructor(name: string, args: DeviceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DeviceArgs | DeviceState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DeviceState | undefined;
             inputs["configsyncIp"] = state ? state.configsyncIp : undefined;
             inputs["mirrorIp"] = state ? state.mirrorIp : undefined;
@@ -85,10 +86,10 @@ export class Device extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as DeviceArgs | undefined;
-            if ((!args || args.configsyncIp === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.configsyncIp === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'configsyncIp'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["configsyncIp"] = args ? args.configsyncIp : undefined;
@@ -96,12 +97,8 @@ export class Device extends pulumi.CustomResource {
             inputs["mirrorSecondaryIp"] = args ? args.mirrorSecondaryIp : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Device.__pulumiType, name, inputs, opts);
     }

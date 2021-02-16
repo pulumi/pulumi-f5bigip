@@ -116,7 +116,8 @@ export class SnmpTraps extends pulumi.CustomResource {
     constructor(name: string, args?: SnmpTrapsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SnmpTrapsArgs | SnmpTrapsState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SnmpTrapsState | undefined;
             inputs["authPasswordencrypted"] = state ? state.authPasswordencrypted : undefined;
             inputs["authProtocol"] = state ? state.authProtocol : undefined;
@@ -149,12 +150,8 @@ export class SnmpTraps extends pulumi.CustomResource {
             inputs["securityName"] = args ? args.securityName : undefined;
             inputs["version"] = args ? args.version : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SnmpTraps.__pulumiType, name, inputs, opts);
     }

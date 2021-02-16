@@ -116,7 +116,8 @@ export class PersistenceProfileSsl extends pulumi.CustomResource {
     constructor(name: string, args: PersistenceProfileSslArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PersistenceProfileSslArgs | PersistenceProfileSslState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PersistenceProfileSslState | undefined;
             inputs["appService"] = state ? state.appService : undefined;
             inputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
@@ -129,10 +130,10 @@ export class PersistenceProfileSsl extends pulumi.CustomResource {
             inputs["timeout"] = state ? state.timeout : undefined;
         } else {
             const args = argsOrState as PersistenceProfileSslArgs | undefined;
-            if ((!args || args.defaultsFrom === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.defaultsFrom === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'defaultsFrom'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["appService"] = args ? args.appService : undefined;
@@ -145,12 +146,8 @@ export class PersistenceProfileSsl extends pulumi.CustomResource {
             inputs["overrideConnLimit"] = args ? args.overrideConnLimit : undefined;
             inputs["timeout"] = args ? args.timeout : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(PersistenceProfileSsl.__pulumiType, name, inputs, opts);
     }

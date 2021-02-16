@@ -106,7 +106,8 @@ export class ProfileTcp extends pulumi.CustomResource {
     constructor(name: string, args: ProfileTcpArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProfileTcpArgs | ProfileTcpState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ProfileTcpState | undefined;
             inputs["closeWaitTimeout"] = state ? state.closeWaitTimeout : undefined;
             inputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
@@ -120,7 +121,7 @@ export class ProfileTcp extends pulumi.CustomResource {
             inputs["partition"] = state ? state.partition : undefined;
         } else {
             const args = argsOrState as ProfileTcpArgs | undefined;
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["closeWaitTimeout"] = args ? args.closeWaitTimeout : undefined;
@@ -134,12 +135,8 @@ export class ProfileTcp extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["partition"] = args ? args.partition : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ProfileTcp.__pulumiType, name, inputs, opts);
     }
