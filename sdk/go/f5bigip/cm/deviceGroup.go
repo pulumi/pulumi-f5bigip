@@ -218,6 +218,85 @@ func (i *DeviceGroup) ToDeviceGroupOutputWithContext(ctx context.Context) Device
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceGroupOutput)
 }
 
+func (i *DeviceGroup) ToDeviceGroupPtrOutput() DeviceGroupPtrOutput {
+	return i.ToDeviceGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *DeviceGroup) ToDeviceGroupPtrOutputWithContext(ctx context.Context) DeviceGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceGroupPtrOutput)
+}
+
+type DeviceGroupPtrInput interface {
+	pulumi.Input
+
+	ToDeviceGroupPtrOutput() DeviceGroupPtrOutput
+	ToDeviceGroupPtrOutputWithContext(ctx context.Context) DeviceGroupPtrOutput
+}
+
+type deviceGroupPtrType DeviceGroupArgs
+
+func (*deviceGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeviceGroup)(nil))
+}
+
+func (i *deviceGroupPtrType) ToDeviceGroupPtrOutput() DeviceGroupPtrOutput {
+	return i.ToDeviceGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *deviceGroupPtrType) ToDeviceGroupPtrOutputWithContext(ctx context.Context) DeviceGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceGroupPtrOutput)
+}
+
+// DeviceGroupArrayInput is an input type that accepts DeviceGroupArray and DeviceGroupArrayOutput values.
+// You can construct a concrete instance of `DeviceGroupArrayInput` via:
+//
+//          DeviceGroupArray{ DeviceGroupArgs{...} }
+type DeviceGroupArrayInput interface {
+	pulumi.Input
+
+	ToDeviceGroupArrayOutput() DeviceGroupArrayOutput
+	ToDeviceGroupArrayOutputWithContext(context.Context) DeviceGroupArrayOutput
+}
+
+type DeviceGroupArray []DeviceGroupInput
+
+func (DeviceGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*DeviceGroup)(nil))
+}
+
+func (i DeviceGroupArray) ToDeviceGroupArrayOutput() DeviceGroupArrayOutput {
+	return i.ToDeviceGroupArrayOutputWithContext(context.Background())
+}
+
+func (i DeviceGroupArray) ToDeviceGroupArrayOutputWithContext(ctx context.Context) DeviceGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceGroupArrayOutput)
+}
+
+// DeviceGroupMapInput is an input type that accepts DeviceGroupMap and DeviceGroupMapOutput values.
+// You can construct a concrete instance of `DeviceGroupMapInput` via:
+//
+//          DeviceGroupMap{ "key": DeviceGroupArgs{...} }
+type DeviceGroupMapInput interface {
+	pulumi.Input
+
+	ToDeviceGroupMapOutput() DeviceGroupMapOutput
+	ToDeviceGroupMapOutputWithContext(context.Context) DeviceGroupMapOutput
+}
+
+type DeviceGroupMap map[string]DeviceGroupInput
+
+func (DeviceGroupMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*DeviceGroup)(nil))
+}
+
+func (i DeviceGroupMap) ToDeviceGroupMapOutput() DeviceGroupMapOutput {
+	return i.ToDeviceGroupMapOutputWithContext(context.Background())
+}
+
+func (i DeviceGroupMap) ToDeviceGroupMapOutputWithContext(ctx context.Context) DeviceGroupMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeviceGroupMapOutput)
+}
+
 type DeviceGroupOutput struct {
 	*pulumi.OutputState
 }
@@ -234,6 +313,75 @@ func (o DeviceGroupOutput) ToDeviceGroupOutputWithContext(ctx context.Context) D
 	return o
 }
 
+func (o DeviceGroupOutput) ToDeviceGroupPtrOutput() DeviceGroupPtrOutput {
+	return o.ToDeviceGroupPtrOutputWithContext(context.Background())
+}
+
+func (o DeviceGroupOutput) ToDeviceGroupPtrOutputWithContext(ctx context.Context) DeviceGroupPtrOutput {
+	return o.ApplyT(func(v DeviceGroup) *DeviceGroup {
+		return &v
+	}).(DeviceGroupPtrOutput)
+}
+
+type DeviceGroupPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (DeviceGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DeviceGroup)(nil))
+}
+
+func (o DeviceGroupPtrOutput) ToDeviceGroupPtrOutput() DeviceGroupPtrOutput {
+	return o
+}
+
+func (o DeviceGroupPtrOutput) ToDeviceGroupPtrOutputWithContext(ctx context.Context) DeviceGroupPtrOutput {
+	return o
+}
+
+type DeviceGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (DeviceGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeviceGroup)(nil))
+}
+
+func (o DeviceGroupArrayOutput) ToDeviceGroupArrayOutput() DeviceGroupArrayOutput {
+	return o
+}
+
+func (o DeviceGroupArrayOutput) ToDeviceGroupArrayOutputWithContext(ctx context.Context) DeviceGroupArrayOutput {
+	return o
+}
+
+func (o DeviceGroupArrayOutput) Index(i pulumi.IntInput) DeviceGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeviceGroup {
+		return vs[0].([]DeviceGroup)[vs[1].(int)]
+	}).(DeviceGroupOutput)
+}
+
+type DeviceGroupMapOutput struct{ *pulumi.OutputState }
+
+func (DeviceGroupMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DeviceGroup)(nil))
+}
+
+func (o DeviceGroupMapOutput) ToDeviceGroupMapOutput() DeviceGroupMapOutput {
+	return o
+}
+
+func (o DeviceGroupMapOutput) ToDeviceGroupMapOutputWithContext(ctx context.Context) DeviceGroupMapOutput {
+	return o
+}
+
+func (o DeviceGroupMapOutput) MapIndex(k pulumi.StringInput) DeviceGroupOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DeviceGroup {
+		return vs[0].(map[string]DeviceGroup)[vs[1].(string)]
+	}).(DeviceGroupOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DeviceGroupOutput{})
+	pulumi.RegisterOutputType(DeviceGroupPtrOutput{})
+	pulumi.RegisterOutputType(DeviceGroupArrayOutput{})
+	pulumi.RegisterOutputType(DeviceGroupMapOutput{})
 }

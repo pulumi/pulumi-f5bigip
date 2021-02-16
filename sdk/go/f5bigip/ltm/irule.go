@@ -113,6 +113,85 @@ func (i *IRule) ToIRuleOutputWithContext(ctx context.Context) IRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IRuleOutput)
 }
 
+func (i *IRule) ToIRulePtrOutput() IRulePtrOutput {
+	return i.ToIRulePtrOutputWithContext(context.Background())
+}
+
+func (i *IRule) ToIRulePtrOutputWithContext(ctx context.Context) IRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IRulePtrOutput)
+}
+
+type IRulePtrInput interface {
+	pulumi.Input
+
+	ToIRulePtrOutput() IRulePtrOutput
+	ToIRulePtrOutputWithContext(ctx context.Context) IRulePtrOutput
+}
+
+type irulePtrType IRuleArgs
+
+func (*irulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IRule)(nil))
+}
+
+func (i *irulePtrType) ToIRulePtrOutput() IRulePtrOutput {
+	return i.ToIRulePtrOutputWithContext(context.Background())
+}
+
+func (i *irulePtrType) ToIRulePtrOutputWithContext(ctx context.Context) IRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IRulePtrOutput)
+}
+
+// IRuleArrayInput is an input type that accepts IRuleArray and IRuleArrayOutput values.
+// You can construct a concrete instance of `IRuleArrayInput` via:
+//
+//          IRuleArray{ IRuleArgs{...} }
+type IRuleArrayInput interface {
+	pulumi.Input
+
+	ToIRuleArrayOutput() IRuleArrayOutput
+	ToIRuleArrayOutputWithContext(context.Context) IRuleArrayOutput
+}
+
+type IRuleArray []IRuleInput
+
+func (IRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*IRule)(nil))
+}
+
+func (i IRuleArray) ToIRuleArrayOutput() IRuleArrayOutput {
+	return i.ToIRuleArrayOutputWithContext(context.Background())
+}
+
+func (i IRuleArray) ToIRuleArrayOutputWithContext(ctx context.Context) IRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IRuleArrayOutput)
+}
+
+// IRuleMapInput is an input type that accepts IRuleMap and IRuleMapOutput values.
+// You can construct a concrete instance of `IRuleMapInput` via:
+//
+//          IRuleMap{ "key": IRuleArgs{...} }
+type IRuleMapInput interface {
+	pulumi.Input
+
+	ToIRuleMapOutput() IRuleMapOutput
+	ToIRuleMapOutputWithContext(context.Context) IRuleMapOutput
+}
+
+type IRuleMap map[string]IRuleInput
+
+func (IRuleMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*IRule)(nil))
+}
+
+func (i IRuleMap) ToIRuleMapOutput() IRuleMapOutput {
+	return i.ToIRuleMapOutputWithContext(context.Background())
+}
+
+func (i IRuleMap) ToIRuleMapOutputWithContext(ctx context.Context) IRuleMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IRuleMapOutput)
+}
+
 type IRuleOutput struct {
 	*pulumi.OutputState
 }
@@ -129,6 +208,75 @@ func (o IRuleOutput) ToIRuleOutputWithContext(ctx context.Context) IRuleOutput {
 	return o
 }
 
+func (o IRuleOutput) ToIRulePtrOutput() IRulePtrOutput {
+	return o.ToIRulePtrOutputWithContext(context.Background())
+}
+
+func (o IRuleOutput) ToIRulePtrOutputWithContext(ctx context.Context) IRulePtrOutput {
+	return o.ApplyT(func(v IRule) *IRule {
+		return &v
+	}).(IRulePtrOutput)
+}
+
+type IRulePtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (IRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IRule)(nil))
+}
+
+func (o IRulePtrOutput) ToIRulePtrOutput() IRulePtrOutput {
+	return o
+}
+
+func (o IRulePtrOutput) ToIRulePtrOutputWithContext(ctx context.Context) IRulePtrOutput {
+	return o
+}
+
+type IRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (IRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IRule)(nil))
+}
+
+func (o IRuleArrayOutput) ToIRuleArrayOutput() IRuleArrayOutput {
+	return o
+}
+
+func (o IRuleArrayOutput) ToIRuleArrayOutputWithContext(ctx context.Context) IRuleArrayOutput {
+	return o
+}
+
+func (o IRuleArrayOutput) Index(i pulumi.IntInput) IRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IRule {
+		return vs[0].([]IRule)[vs[1].(int)]
+	}).(IRuleOutput)
+}
+
+type IRuleMapOutput struct{ *pulumi.OutputState }
+
+func (IRuleMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]IRule)(nil))
+}
+
+func (o IRuleMapOutput) ToIRuleMapOutput() IRuleMapOutput {
+	return o
+}
+
+func (o IRuleMapOutput) ToIRuleMapOutputWithContext(ctx context.Context) IRuleMapOutput {
+	return o
+}
+
+func (o IRuleMapOutput) MapIndex(k pulumi.StringInput) IRuleOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IRule {
+		return vs[0].(map[string]IRule)[vs[1].(string)]
+	}).(IRuleOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(IRuleOutput{})
+	pulumi.RegisterOutputType(IRulePtrOutput{})
+	pulumi.RegisterOutputType(IRuleArrayOutput{})
+	pulumi.RegisterOutputType(IRuleMapOutput{})
 }

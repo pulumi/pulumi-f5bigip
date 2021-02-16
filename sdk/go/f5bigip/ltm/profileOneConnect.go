@@ -221,6 +221,85 @@ func (i *ProfileOneConnect) ToProfileOneConnectOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileOneConnectOutput)
 }
 
+func (i *ProfileOneConnect) ToProfileOneConnectPtrOutput() ProfileOneConnectPtrOutput {
+	return i.ToProfileOneConnectPtrOutputWithContext(context.Background())
+}
+
+func (i *ProfileOneConnect) ToProfileOneConnectPtrOutputWithContext(ctx context.Context) ProfileOneConnectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileOneConnectPtrOutput)
+}
+
+type ProfileOneConnectPtrInput interface {
+	pulumi.Input
+
+	ToProfileOneConnectPtrOutput() ProfileOneConnectPtrOutput
+	ToProfileOneConnectPtrOutputWithContext(ctx context.Context) ProfileOneConnectPtrOutput
+}
+
+type profileOneConnectPtrType ProfileOneConnectArgs
+
+func (*profileOneConnectPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProfileOneConnect)(nil))
+}
+
+func (i *profileOneConnectPtrType) ToProfileOneConnectPtrOutput() ProfileOneConnectPtrOutput {
+	return i.ToProfileOneConnectPtrOutputWithContext(context.Background())
+}
+
+func (i *profileOneConnectPtrType) ToProfileOneConnectPtrOutputWithContext(ctx context.Context) ProfileOneConnectPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileOneConnectPtrOutput)
+}
+
+// ProfileOneConnectArrayInput is an input type that accepts ProfileOneConnectArray and ProfileOneConnectArrayOutput values.
+// You can construct a concrete instance of `ProfileOneConnectArrayInput` via:
+//
+//          ProfileOneConnectArray{ ProfileOneConnectArgs{...} }
+type ProfileOneConnectArrayInput interface {
+	pulumi.Input
+
+	ToProfileOneConnectArrayOutput() ProfileOneConnectArrayOutput
+	ToProfileOneConnectArrayOutputWithContext(context.Context) ProfileOneConnectArrayOutput
+}
+
+type ProfileOneConnectArray []ProfileOneConnectInput
+
+func (ProfileOneConnectArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ProfileOneConnect)(nil))
+}
+
+func (i ProfileOneConnectArray) ToProfileOneConnectArrayOutput() ProfileOneConnectArrayOutput {
+	return i.ToProfileOneConnectArrayOutputWithContext(context.Background())
+}
+
+func (i ProfileOneConnectArray) ToProfileOneConnectArrayOutputWithContext(ctx context.Context) ProfileOneConnectArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileOneConnectArrayOutput)
+}
+
+// ProfileOneConnectMapInput is an input type that accepts ProfileOneConnectMap and ProfileOneConnectMapOutput values.
+// You can construct a concrete instance of `ProfileOneConnectMapInput` via:
+//
+//          ProfileOneConnectMap{ "key": ProfileOneConnectArgs{...} }
+type ProfileOneConnectMapInput interface {
+	pulumi.Input
+
+	ToProfileOneConnectMapOutput() ProfileOneConnectMapOutput
+	ToProfileOneConnectMapOutputWithContext(context.Context) ProfileOneConnectMapOutput
+}
+
+type ProfileOneConnectMap map[string]ProfileOneConnectInput
+
+func (ProfileOneConnectMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ProfileOneConnect)(nil))
+}
+
+func (i ProfileOneConnectMap) ToProfileOneConnectMapOutput() ProfileOneConnectMapOutput {
+	return i.ToProfileOneConnectMapOutputWithContext(context.Background())
+}
+
+func (i ProfileOneConnectMap) ToProfileOneConnectMapOutputWithContext(ctx context.Context) ProfileOneConnectMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileOneConnectMapOutput)
+}
+
 type ProfileOneConnectOutput struct {
 	*pulumi.OutputState
 }
@@ -237,6 +316,75 @@ func (o ProfileOneConnectOutput) ToProfileOneConnectOutputWithContext(ctx contex
 	return o
 }
 
+func (o ProfileOneConnectOutput) ToProfileOneConnectPtrOutput() ProfileOneConnectPtrOutput {
+	return o.ToProfileOneConnectPtrOutputWithContext(context.Background())
+}
+
+func (o ProfileOneConnectOutput) ToProfileOneConnectPtrOutputWithContext(ctx context.Context) ProfileOneConnectPtrOutput {
+	return o.ApplyT(func(v ProfileOneConnect) *ProfileOneConnect {
+		return &v
+	}).(ProfileOneConnectPtrOutput)
+}
+
+type ProfileOneConnectPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProfileOneConnectPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProfileOneConnect)(nil))
+}
+
+func (o ProfileOneConnectPtrOutput) ToProfileOneConnectPtrOutput() ProfileOneConnectPtrOutput {
+	return o
+}
+
+func (o ProfileOneConnectPtrOutput) ToProfileOneConnectPtrOutputWithContext(ctx context.Context) ProfileOneConnectPtrOutput {
+	return o
+}
+
+type ProfileOneConnectArrayOutput struct{ *pulumi.OutputState }
+
+func (ProfileOneConnectArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProfileOneConnect)(nil))
+}
+
+func (o ProfileOneConnectArrayOutput) ToProfileOneConnectArrayOutput() ProfileOneConnectArrayOutput {
+	return o
+}
+
+func (o ProfileOneConnectArrayOutput) ToProfileOneConnectArrayOutputWithContext(ctx context.Context) ProfileOneConnectArrayOutput {
+	return o
+}
+
+func (o ProfileOneConnectArrayOutput) Index(i pulumi.IntInput) ProfileOneConnectOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProfileOneConnect {
+		return vs[0].([]ProfileOneConnect)[vs[1].(int)]
+	}).(ProfileOneConnectOutput)
+}
+
+type ProfileOneConnectMapOutput struct{ *pulumi.OutputState }
+
+func (ProfileOneConnectMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ProfileOneConnect)(nil))
+}
+
+func (o ProfileOneConnectMapOutput) ToProfileOneConnectMapOutput() ProfileOneConnectMapOutput {
+	return o
+}
+
+func (o ProfileOneConnectMapOutput) ToProfileOneConnectMapOutputWithContext(ctx context.Context) ProfileOneConnectMapOutput {
+	return o
+}
+
+func (o ProfileOneConnectMapOutput) MapIndex(k pulumi.StringInput) ProfileOneConnectOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ProfileOneConnect {
+		return vs[0].(map[string]ProfileOneConnect)[vs[1].(string)]
+	}).(ProfileOneConnectOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProfileOneConnectOutput{})
+	pulumi.RegisterOutputType(ProfileOneConnectPtrOutput{})
+	pulumi.RegisterOutputType(ProfileOneConnectArrayOutput{})
+	pulumi.RegisterOutputType(ProfileOneConnectMapOutput{})
 }

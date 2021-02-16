@@ -126,7 +126,8 @@ export class ProfileHttp2 extends pulumi.CustomResource {
     constructor(name: string, args: ProfileHttp2Args, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProfileHttp2Args | ProfileHttp2State, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ProfileHttp2State | undefined;
             inputs["activationModes"] = state ? state.activationModes : undefined;
             inputs["concurrentStreamsPerConnection"] = state ? state.concurrentStreamsPerConnection : undefined;
@@ -143,7 +144,7 @@ export class ProfileHttp2 extends pulumi.CustomResource {
             inputs["writeSize"] = state ? state.writeSize : undefined;
         } else {
             const args = argsOrState as ProfileHttp2Args | undefined;
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["activationModes"] = args ? args.activationModes : undefined;
@@ -160,12 +161,8 @@ export class ProfileHttp2 extends pulumi.CustomResource {
             inputs["receiveWindow"] = args ? args.receiveWindow : undefined;
             inputs["writeSize"] = args ? args.writeSize : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ProfileHttp2.__pulumiType, name, inputs, opts);
     }

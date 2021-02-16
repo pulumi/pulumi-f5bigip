@@ -140,6 +140,85 @@ func (i *SnatPool) ToSnatPoolOutputWithContext(ctx context.Context) SnatPoolOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SnatPoolOutput)
 }
 
+func (i *SnatPool) ToSnatPoolPtrOutput() SnatPoolPtrOutput {
+	return i.ToSnatPoolPtrOutputWithContext(context.Background())
+}
+
+func (i *SnatPool) ToSnatPoolPtrOutputWithContext(ctx context.Context) SnatPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnatPoolPtrOutput)
+}
+
+type SnatPoolPtrInput interface {
+	pulumi.Input
+
+	ToSnatPoolPtrOutput() SnatPoolPtrOutput
+	ToSnatPoolPtrOutputWithContext(ctx context.Context) SnatPoolPtrOutput
+}
+
+type snatPoolPtrType SnatPoolArgs
+
+func (*snatPoolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnatPool)(nil))
+}
+
+func (i *snatPoolPtrType) ToSnatPoolPtrOutput() SnatPoolPtrOutput {
+	return i.ToSnatPoolPtrOutputWithContext(context.Background())
+}
+
+func (i *snatPoolPtrType) ToSnatPoolPtrOutputWithContext(ctx context.Context) SnatPoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnatPoolPtrOutput)
+}
+
+// SnatPoolArrayInput is an input type that accepts SnatPoolArray and SnatPoolArrayOutput values.
+// You can construct a concrete instance of `SnatPoolArrayInput` via:
+//
+//          SnatPoolArray{ SnatPoolArgs{...} }
+type SnatPoolArrayInput interface {
+	pulumi.Input
+
+	ToSnatPoolArrayOutput() SnatPoolArrayOutput
+	ToSnatPoolArrayOutputWithContext(context.Context) SnatPoolArrayOutput
+}
+
+type SnatPoolArray []SnatPoolInput
+
+func (SnatPoolArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SnatPool)(nil))
+}
+
+func (i SnatPoolArray) ToSnatPoolArrayOutput() SnatPoolArrayOutput {
+	return i.ToSnatPoolArrayOutputWithContext(context.Background())
+}
+
+func (i SnatPoolArray) ToSnatPoolArrayOutputWithContext(ctx context.Context) SnatPoolArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnatPoolArrayOutput)
+}
+
+// SnatPoolMapInput is an input type that accepts SnatPoolMap and SnatPoolMapOutput values.
+// You can construct a concrete instance of `SnatPoolMapInput` via:
+//
+//          SnatPoolMap{ "key": SnatPoolArgs{...} }
+type SnatPoolMapInput interface {
+	pulumi.Input
+
+	ToSnatPoolMapOutput() SnatPoolMapOutput
+	ToSnatPoolMapOutputWithContext(context.Context) SnatPoolMapOutput
+}
+
+type SnatPoolMap map[string]SnatPoolInput
+
+func (SnatPoolMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SnatPool)(nil))
+}
+
+func (i SnatPoolMap) ToSnatPoolMapOutput() SnatPoolMapOutput {
+	return i.ToSnatPoolMapOutputWithContext(context.Background())
+}
+
+func (i SnatPoolMap) ToSnatPoolMapOutputWithContext(ctx context.Context) SnatPoolMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnatPoolMapOutput)
+}
+
 type SnatPoolOutput struct {
 	*pulumi.OutputState
 }
@@ -156,6 +235,75 @@ func (o SnatPoolOutput) ToSnatPoolOutputWithContext(ctx context.Context) SnatPoo
 	return o
 }
 
+func (o SnatPoolOutput) ToSnatPoolPtrOutput() SnatPoolPtrOutput {
+	return o.ToSnatPoolPtrOutputWithContext(context.Background())
+}
+
+func (o SnatPoolOutput) ToSnatPoolPtrOutputWithContext(ctx context.Context) SnatPoolPtrOutput {
+	return o.ApplyT(func(v SnatPool) *SnatPool {
+		return &v
+	}).(SnatPoolPtrOutput)
+}
+
+type SnatPoolPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SnatPoolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnatPool)(nil))
+}
+
+func (o SnatPoolPtrOutput) ToSnatPoolPtrOutput() SnatPoolPtrOutput {
+	return o
+}
+
+func (o SnatPoolPtrOutput) ToSnatPoolPtrOutputWithContext(ctx context.Context) SnatPoolPtrOutput {
+	return o
+}
+
+type SnatPoolArrayOutput struct{ *pulumi.OutputState }
+
+func (SnatPoolArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SnatPool)(nil))
+}
+
+func (o SnatPoolArrayOutput) ToSnatPoolArrayOutput() SnatPoolArrayOutput {
+	return o
+}
+
+func (o SnatPoolArrayOutput) ToSnatPoolArrayOutputWithContext(ctx context.Context) SnatPoolArrayOutput {
+	return o
+}
+
+func (o SnatPoolArrayOutput) Index(i pulumi.IntInput) SnatPoolOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SnatPool {
+		return vs[0].([]SnatPool)[vs[1].(int)]
+	}).(SnatPoolOutput)
+}
+
+type SnatPoolMapOutput struct{ *pulumi.OutputState }
+
+func (SnatPoolMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SnatPool)(nil))
+}
+
+func (o SnatPoolMapOutput) ToSnatPoolMapOutput() SnatPoolMapOutput {
+	return o
+}
+
+func (o SnatPoolMapOutput) ToSnatPoolMapOutputWithContext(ctx context.Context) SnatPoolMapOutput {
+	return o
+}
+
+func (o SnatPoolMapOutput) MapIndex(k pulumi.StringInput) SnatPoolOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SnatPool {
+		return vs[0].(map[string]SnatPool)[vs[1].(string)]
+	}).(SnatPoolOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SnatPoolOutput{})
+	pulumi.RegisterOutputType(SnatPoolPtrOutput{})
+	pulumi.RegisterOutputType(SnatPoolArrayOutput{})
+	pulumi.RegisterOutputType(SnatPoolMapOutput{})
 }

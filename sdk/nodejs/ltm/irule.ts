@@ -56,27 +56,24 @@ export class IRule extends pulumi.CustomResource {
     constructor(name: string, args: IRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IRuleArgs | IRuleState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as IRuleState | undefined;
             inputs["irule"] = state ? state.irule : undefined;
             inputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as IRuleArgs | undefined;
-            if ((!args || args.irule === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.irule === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'irule'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["irule"] = args ? args.irule : undefined;
             inputs["name"] = args ? args.name : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(IRule.__pulumiType, name, inputs, opts);
     }

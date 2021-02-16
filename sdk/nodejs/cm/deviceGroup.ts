@@ -109,7 +109,8 @@ export class DeviceGroup extends pulumi.CustomResource {
     constructor(name: string, args?: DeviceGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DeviceGroupArgs | DeviceGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DeviceGroupState | undefined;
             inputs["autoSync"] = state ? state.autoSync : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -134,12 +135,8 @@ export class DeviceGroup extends pulumi.CustomResource {
             inputs["saveOnAutoSync"] = args ? args.saveOnAutoSync : undefined;
             inputs["type"] = args ? args.type : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(DeviceGroup.__pulumiType, name, inputs, opts);
     }

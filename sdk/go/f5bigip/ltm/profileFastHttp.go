@@ -233,6 +233,85 @@ func (i *ProfileFastHttp) ToProfileFastHttpOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileFastHttpOutput)
 }
 
+func (i *ProfileFastHttp) ToProfileFastHttpPtrOutput() ProfileFastHttpPtrOutput {
+	return i.ToProfileFastHttpPtrOutputWithContext(context.Background())
+}
+
+func (i *ProfileFastHttp) ToProfileFastHttpPtrOutputWithContext(ctx context.Context) ProfileFastHttpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileFastHttpPtrOutput)
+}
+
+type ProfileFastHttpPtrInput interface {
+	pulumi.Input
+
+	ToProfileFastHttpPtrOutput() ProfileFastHttpPtrOutput
+	ToProfileFastHttpPtrOutputWithContext(ctx context.Context) ProfileFastHttpPtrOutput
+}
+
+type profileFastHttpPtrType ProfileFastHttpArgs
+
+func (*profileFastHttpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProfileFastHttp)(nil))
+}
+
+func (i *profileFastHttpPtrType) ToProfileFastHttpPtrOutput() ProfileFastHttpPtrOutput {
+	return i.ToProfileFastHttpPtrOutputWithContext(context.Background())
+}
+
+func (i *profileFastHttpPtrType) ToProfileFastHttpPtrOutputWithContext(ctx context.Context) ProfileFastHttpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileFastHttpPtrOutput)
+}
+
+// ProfileFastHttpArrayInput is an input type that accepts ProfileFastHttpArray and ProfileFastHttpArrayOutput values.
+// You can construct a concrete instance of `ProfileFastHttpArrayInput` via:
+//
+//          ProfileFastHttpArray{ ProfileFastHttpArgs{...} }
+type ProfileFastHttpArrayInput interface {
+	pulumi.Input
+
+	ToProfileFastHttpArrayOutput() ProfileFastHttpArrayOutput
+	ToProfileFastHttpArrayOutputWithContext(context.Context) ProfileFastHttpArrayOutput
+}
+
+type ProfileFastHttpArray []ProfileFastHttpInput
+
+func (ProfileFastHttpArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ProfileFastHttp)(nil))
+}
+
+func (i ProfileFastHttpArray) ToProfileFastHttpArrayOutput() ProfileFastHttpArrayOutput {
+	return i.ToProfileFastHttpArrayOutputWithContext(context.Background())
+}
+
+func (i ProfileFastHttpArray) ToProfileFastHttpArrayOutputWithContext(ctx context.Context) ProfileFastHttpArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileFastHttpArrayOutput)
+}
+
+// ProfileFastHttpMapInput is an input type that accepts ProfileFastHttpMap and ProfileFastHttpMapOutput values.
+// You can construct a concrete instance of `ProfileFastHttpMapInput` via:
+//
+//          ProfileFastHttpMap{ "key": ProfileFastHttpArgs{...} }
+type ProfileFastHttpMapInput interface {
+	pulumi.Input
+
+	ToProfileFastHttpMapOutput() ProfileFastHttpMapOutput
+	ToProfileFastHttpMapOutputWithContext(context.Context) ProfileFastHttpMapOutput
+}
+
+type ProfileFastHttpMap map[string]ProfileFastHttpInput
+
+func (ProfileFastHttpMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ProfileFastHttp)(nil))
+}
+
+func (i ProfileFastHttpMap) ToProfileFastHttpMapOutput() ProfileFastHttpMapOutput {
+	return i.ToProfileFastHttpMapOutputWithContext(context.Background())
+}
+
+func (i ProfileFastHttpMap) ToProfileFastHttpMapOutputWithContext(ctx context.Context) ProfileFastHttpMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileFastHttpMapOutput)
+}
+
 type ProfileFastHttpOutput struct {
 	*pulumi.OutputState
 }
@@ -249,6 +328,75 @@ func (o ProfileFastHttpOutput) ToProfileFastHttpOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o ProfileFastHttpOutput) ToProfileFastHttpPtrOutput() ProfileFastHttpPtrOutput {
+	return o.ToProfileFastHttpPtrOutputWithContext(context.Background())
+}
+
+func (o ProfileFastHttpOutput) ToProfileFastHttpPtrOutputWithContext(ctx context.Context) ProfileFastHttpPtrOutput {
+	return o.ApplyT(func(v ProfileFastHttp) *ProfileFastHttp {
+		return &v
+	}).(ProfileFastHttpPtrOutput)
+}
+
+type ProfileFastHttpPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProfileFastHttpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProfileFastHttp)(nil))
+}
+
+func (o ProfileFastHttpPtrOutput) ToProfileFastHttpPtrOutput() ProfileFastHttpPtrOutput {
+	return o
+}
+
+func (o ProfileFastHttpPtrOutput) ToProfileFastHttpPtrOutputWithContext(ctx context.Context) ProfileFastHttpPtrOutput {
+	return o
+}
+
+type ProfileFastHttpArrayOutput struct{ *pulumi.OutputState }
+
+func (ProfileFastHttpArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProfileFastHttp)(nil))
+}
+
+func (o ProfileFastHttpArrayOutput) ToProfileFastHttpArrayOutput() ProfileFastHttpArrayOutput {
+	return o
+}
+
+func (o ProfileFastHttpArrayOutput) ToProfileFastHttpArrayOutputWithContext(ctx context.Context) ProfileFastHttpArrayOutput {
+	return o
+}
+
+func (o ProfileFastHttpArrayOutput) Index(i pulumi.IntInput) ProfileFastHttpOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProfileFastHttp {
+		return vs[0].([]ProfileFastHttp)[vs[1].(int)]
+	}).(ProfileFastHttpOutput)
+}
+
+type ProfileFastHttpMapOutput struct{ *pulumi.OutputState }
+
+func (ProfileFastHttpMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ProfileFastHttp)(nil))
+}
+
+func (o ProfileFastHttpMapOutput) ToProfileFastHttpMapOutput() ProfileFastHttpMapOutput {
+	return o
+}
+
+func (o ProfileFastHttpMapOutput) ToProfileFastHttpMapOutputWithContext(ctx context.Context) ProfileFastHttpMapOutput {
+	return o
+}
+
+func (o ProfileFastHttpMapOutput) MapIndex(k pulumi.StringInput) ProfileFastHttpOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ProfileFastHttp {
+		return vs[0].(map[string]ProfileFastHttp)[vs[1].(string)]
+	}).(ProfileFastHttpOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProfileFastHttpOutput{})
+	pulumi.RegisterOutputType(ProfileFastHttpPtrOutput{})
+	pulumi.RegisterOutputType(ProfileFastHttpArrayOutput{})
+	pulumi.RegisterOutputType(ProfileFastHttpMapOutput{})
 }

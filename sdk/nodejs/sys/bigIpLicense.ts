@@ -51,27 +51,24 @@ export class BigIpLicense extends pulumi.CustomResource {
     constructor(name: string, args: BigIpLicenseArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BigIpLicenseArgs | BigIpLicenseState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as BigIpLicenseState | undefined;
             inputs["command"] = state ? state.command : undefined;
             inputs["registrationKey"] = state ? state.registrationKey : undefined;
         } else {
             const args = argsOrState as BigIpLicenseArgs | undefined;
-            if ((!args || args.command === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.command === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'command'");
             }
-            if ((!args || args.registrationKey === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.registrationKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'registrationKey'");
             }
             inputs["command"] = args ? args.command : undefined;
             inputs["registrationKey"] = args ? args.registrationKey : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(BigIpLicense.__pulumiType, name, inputs, opts);
     }

@@ -256,6 +256,85 @@ func (i *PersistenceProfileDstAddr) ToPersistenceProfileDstAddrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(PersistenceProfileDstAddrOutput)
 }
 
+func (i *PersistenceProfileDstAddr) ToPersistenceProfileDstAddrPtrOutput() PersistenceProfileDstAddrPtrOutput {
+	return i.ToPersistenceProfileDstAddrPtrOutputWithContext(context.Background())
+}
+
+func (i *PersistenceProfileDstAddr) ToPersistenceProfileDstAddrPtrOutputWithContext(ctx context.Context) PersistenceProfileDstAddrPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PersistenceProfileDstAddrPtrOutput)
+}
+
+type PersistenceProfileDstAddrPtrInput interface {
+	pulumi.Input
+
+	ToPersistenceProfileDstAddrPtrOutput() PersistenceProfileDstAddrPtrOutput
+	ToPersistenceProfileDstAddrPtrOutputWithContext(ctx context.Context) PersistenceProfileDstAddrPtrOutput
+}
+
+type persistenceProfileDstAddrPtrType PersistenceProfileDstAddrArgs
+
+func (*persistenceProfileDstAddrPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PersistenceProfileDstAddr)(nil))
+}
+
+func (i *persistenceProfileDstAddrPtrType) ToPersistenceProfileDstAddrPtrOutput() PersistenceProfileDstAddrPtrOutput {
+	return i.ToPersistenceProfileDstAddrPtrOutputWithContext(context.Background())
+}
+
+func (i *persistenceProfileDstAddrPtrType) ToPersistenceProfileDstAddrPtrOutputWithContext(ctx context.Context) PersistenceProfileDstAddrPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PersistenceProfileDstAddrPtrOutput)
+}
+
+// PersistenceProfileDstAddrArrayInput is an input type that accepts PersistenceProfileDstAddrArray and PersistenceProfileDstAddrArrayOutput values.
+// You can construct a concrete instance of `PersistenceProfileDstAddrArrayInput` via:
+//
+//          PersistenceProfileDstAddrArray{ PersistenceProfileDstAddrArgs{...} }
+type PersistenceProfileDstAddrArrayInput interface {
+	pulumi.Input
+
+	ToPersistenceProfileDstAddrArrayOutput() PersistenceProfileDstAddrArrayOutput
+	ToPersistenceProfileDstAddrArrayOutputWithContext(context.Context) PersistenceProfileDstAddrArrayOutput
+}
+
+type PersistenceProfileDstAddrArray []PersistenceProfileDstAddrInput
+
+func (PersistenceProfileDstAddrArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*PersistenceProfileDstAddr)(nil))
+}
+
+func (i PersistenceProfileDstAddrArray) ToPersistenceProfileDstAddrArrayOutput() PersistenceProfileDstAddrArrayOutput {
+	return i.ToPersistenceProfileDstAddrArrayOutputWithContext(context.Background())
+}
+
+func (i PersistenceProfileDstAddrArray) ToPersistenceProfileDstAddrArrayOutputWithContext(ctx context.Context) PersistenceProfileDstAddrArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PersistenceProfileDstAddrArrayOutput)
+}
+
+// PersistenceProfileDstAddrMapInput is an input type that accepts PersistenceProfileDstAddrMap and PersistenceProfileDstAddrMapOutput values.
+// You can construct a concrete instance of `PersistenceProfileDstAddrMapInput` via:
+//
+//          PersistenceProfileDstAddrMap{ "key": PersistenceProfileDstAddrArgs{...} }
+type PersistenceProfileDstAddrMapInput interface {
+	pulumi.Input
+
+	ToPersistenceProfileDstAddrMapOutput() PersistenceProfileDstAddrMapOutput
+	ToPersistenceProfileDstAddrMapOutputWithContext(context.Context) PersistenceProfileDstAddrMapOutput
+}
+
+type PersistenceProfileDstAddrMap map[string]PersistenceProfileDstAddrInput
+
+func (PersistenceProfileDstAddrMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*PersistenceProfileDstAddr)(nil))
+}
+
+func (i PersistenceProfileDstAddrMap) ToPersistenceProfileDstAddrMapOutput() PersistenceProfileDstAddrMapOutput {
+	return i.ToPersistenceProfileDstAddrMapOutputWithContext(context.Background())
+}
+
+func (i PersistenceProfileDstAddrMap) ToPersistenceProfileDstAddrMapOutputWithContext(ctx context.Context) PersistenceProfileDstAddrMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PersistenceProfileDstAddrMapOutput)
+}
+
 type PersistenceProfileDstAddrOutput struct {
 	*pulumi.OutputState
 }
@@ -272,6 +351,75 @@ func (o PersistenceProfileDstAddrOutput) ToPersistenceProfileDstAddrOutputWithCo
 	return o
 }
 
+func (o PersistenceProfileDstAddrOutput) ToPersistenceProfileDstAddrPtrOutput() PersistenceProfileDstAddrPtrOutput {
+	return o.ToPersistenceProfileDstAddrPtrOutputWithContext(context.Background())
+}
+
+func (o PersistenceProfileDstAddrOutput) ToPersistenceProfileDstAddrPtrOutputWithContext(ctx context.Context) PersistenceProfileDstAddrPtrOutput {
+	return o.ApplyT(func(v PersistenceProfileDstAddr) *PersistenceProfileDstAddr {
+		return &v
+	}).(PersistenceProfileDstAddrPtrOutput)
+}
+
+type PersistenceProfileDstAddrPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (PersistenceProfileDstAddrPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PersistenceProfileDstAddr)(nil))
+}
+
+func (o PersistenceProfileDstAddrPtrOutput) ToPersistenceProfileDstAddrPtrOutput() PersistenceProfileDstAddrPtrOutput {
+	return o
+}
+
+func (o PersistenceProfileDstAddrPtrOutput) ToPersistenceProfileDstAddrPtrOutputWithContext(ctx context.Context) PersistenceProfileDstAddrPtrOutput {
+	return o
+}
+
+type PersistenceProfileDstAddrArrayOutput struct{ *pulumi.OutputState }
+
+func (PersistenceProfileDstAddrArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PersistenceProfileDstAddr)(nil))
+}
+
+func (o PersistenceProfileDstAddrArrayOutput) ToPersistenceProfileDstAddrArrayOutput() PersistenceProfileDstAddrArrayOutput {
+	return o
+}
+
+func (o PersistenceProfileDstAddrArrayOutput) ToPersistenceProfileDstAddrArrayOutputWithContext(ctx context.Context) PersistenceProfileDstAddrArrayOutput {
+	return o
+}
+
+func (o PersistenceProfileDstAddrArrayOutput) Index(i pulumi.IntInput) PersistenceProfileDstAddrOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PersistenceProfileDstAddr {
+		return vs[0].([]PersistenceProfileDstAddr)[vs[1].(int)]
+	}).(PersistenceProfileDstAddrOutput)
+}
+
+type PersistenceProfileDstAddrMapOutput struct{ *pulumi.OutputState }
+
+func (PersistenceProfileDstAddrMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]PersistenceProfileDstAddr)(nil))
+}
+
+func (o PersistenceProfileDstAddrMapOutput) ToPersistenceProfileDstAddrMapOutput() PersistenceProfileDstAddrMapOutput {
+	return o
+}
+
+func (o PersistenceProfileDstAddrMapOutput) ToPersistenceProfileDstAddrMapOutputWithContext(ctx context.Context) PersistenceProfileDstAddrMapOutput {
+	return o
+}
+
+func (o PersistenceProfileDstAddrMapOutput) MapIndex(k pulumi.StringInput) PersistenceProfileDstAddrOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PersistenceProfileDstAddr {
+		return vs[0].(map[string]PersistenceProfileDstAddr)[vs[1].(string)]
+	}).(PersistenceProfileDstAddrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(PersistenceProfileDstAddrOutput{})
+	pulumi.RegisterOutputType(PersistenceProfileDstAddrPtrOutput{})
+	pulumi.RegisterOutputType(PersistenceProfileDstAddrArrayOutput{})
+	pulumi.RegisterOutputType(PersistenceProfileDstAddrMapOutput{})
 }

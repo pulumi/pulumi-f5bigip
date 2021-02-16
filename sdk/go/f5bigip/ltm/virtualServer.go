@@ -376,6 +376,85 @@ func (i *VirtualServer) ToVirtualServerOutputWithContext(ctx context.Context) Vi
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualServerOutput)
 }
 
+func (i *VirtualServer) ToVirtualServerPtrOutput() VirtualServerPtrOutput {
+	return i.ToVirtualServerPtrOutputWithContext(context.Background())
+}
+
+func (i *VirtualServer) ToVirtualServerPtrOutputWithContext(ctx context.Context) VirtualServerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualServerPtrOutput)
+}
+
+type VirtualServerPtrInput interface {
+	pulumi.Input
+
+	ToVirtualServerPtrOutput() VirtualServerPtrOutput
+	ToVirtualServerPtrOutputWithContext(ctx context.Context) VirtualServerPtrOutput
+}
+
+type virtualServerPtrType VirtualServerArgs
+
+func (*virtualServerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualServer)(nil))
+}
+
+func (i *virtualServerPtrType) ToVirtualServerPtrOutput() VirtualServerPtrOutput {
+	return i.ToVirtualServerPtrOutputWithContext(context.Background())
+}
+
+func (i *virtualServerPtrType) ToVirtualServerPtrOutputWithContext(ctx context.Context) VirtualServerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualServerPtrOutput)
+}
+
+// VirtualServerArrayInput is an input type that accepts VirtualServerArray and VirtualServerArrayOutput values.
+// You can construct a concrete instance of `VirtualServerArrayInput` via:
+//
+//          VirtualServerArray{ VirtualServerArgs{...} }
+type VirtualServerArrayInput interface {
+	pulumi.Input
+
+	ToVirtualServerArrayOutput() VirtualServerArrayOutput
+	ToVirtualServerArrayOutputWithContext(context.Context) VirtualServerArrayOutput
+}
+
+type VirtualServerArray []VirtualServerInput
+
+func (VirtualServerArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*VirtualServer)(nil))
+}
+
+func (i VirtualServerArray) ToVirtualServerArrayOutput() VirtualServerArrayOutput {
+	return i.ToVirtualServerArrayOutputWithContext(context.Background())
+}
+
+func (i VirtualServerArray) ToVirtualServerArrayOutputWithContext(ctx context.Context) VirtualServerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualServerArrayOutput)
+}
+
+// VirtualServerMapInput is an input type that accepts VirtualServerMap and VirtualServerMapOutput values.
+// You can construct a concrete instance of `VirtualServerMapInput` via:
+//
+//          VirtualServerMap{ "key": VirtualServerArgs{...} }
+type VirtualServerMapInput interface {
+	pulumi.Input
+
+	ToVirtualServerMapOutput() VirtualServerMapOutput
+	ToVirtualServerMapOutputWithContext(context.Context) VirtualServerMapOutput
+}
+
+type VirtualServerMap map[string]VirtualServerInput
+
+func (VirtualServerMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*VirtualServer)(nil))
+}
+
+func (i VirtualServerMap) ToVirtualServerMapOutput() VirtualServerMapOutput {
+	return i.ToVirtualServerMapOutputWithContext(context.Background())
+}
+
+func (i VirtualServerMap) ToVirtualServerMapOutputWithContext(ctx context.Context) VirtualServerMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VirtualServerMapOutput)
+}
+
 type VirtualServerOutput struct {
 	*pulumi.OutputState
 }
@@ -392,6 +471,75 @@ func (o VirtualServerOutput) ToVirtualServerOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o VirtualServerOutput) ToVirtualServerPtrOutput() VirtualServerPtrOutput {
+	return o.ToVirtualServerPtrOutputWithContext(context.Background())
+}
+
+func (o VirtualServerOutput) ToVirtualServerPtrOutputWithContext(ctx context.Context) VirtualServerPtrOutput {
+	return o.ApplyT(func(v VirtualServer) *VirtualServer {
+		return &v
+	}).(VirtualServerPtrOutput)
+}
+
+type VirtualServerPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (VirtualServerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VirtualServer)(nil))
+}
+
+func (o VirtualServerPtrOutput) ToVirtualServerPtrOutput() VirtualServerPtrOutput {
+	return o
+}
+
+func (o VirtualServerPtrOutput) ToVirtualServerPtrOutputWithContext(ctx context.Context) VirtualServerPtrOutput {
+	return o
+}
+
+type VirtualServerArrayOutput struct{ *pulumi.OutputState }
+
+func (VirtualServerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VirtualServer)(nil))
+}
+
+func (o VirtualServerArrayOutput) ToVirtualServerArrayOutput() VirtualServerArrayOutput {
+	return o
+}
+
+func (o VirtualServerArrayOutput) ToVirtualServerArrayOutputWithContext(ctx context.Context) VirtualServerArrayOutput {
+	return o
+}
+
+func (o VirtualServerArrayOutput) Index(i pulumi.IntInput) VirtualServerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualServer {
+		return vs[0].([]VirtualServer)[vs[1].(int)]
+	}).(VirtualServerOutput)
+}
+
+type VirtualServerMapOutput struct{ *pulumi.OutputState }
+
+func (VirtualServerMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]VirtualServer)(nil))
+}
+
+func (o VirtualServerMapOutput) ToVirtualServerMapOutput() VirtualServerMapOutput {
+	return o
+}
+
+func (o VirtualServerMapOutput) ToVirtualServerMapOutputWithContext(ctx context.Context) VirtualServerMapOutput {
+	return o
+}
+
+func (o VirtualServerMapOutput) MapIndex(k pulumi.StringInput) VirtualServerOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VirtualServer {
+		return vs[0].(map[string]VirtualServer)[vs[1].(string)]
+	}).(VirtualServerOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VirtualServerOutput{})
+	pulumi.RegisterOutputType(VirtualServerPtrOutput{})
+	pulumi.RegisterOutputType(VirtualServerArrayOutput{})
+	pulumi.RegisterOutputType(VirtualServerMapOutput{})
 }

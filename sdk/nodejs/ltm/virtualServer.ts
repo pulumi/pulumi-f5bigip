@@ -174,7 +174,8 @@ export class VirtualServer extends pulumi.CustomResource {
     constructor(name: string, args: VirtualServerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VirtualServerArgs | VirtualServerState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as VirtualServerState | undefined;
             inputs["clientProfiles"] = state ? state.clientProfiles : undefined;
             inputs["defaultPersistenceProfile"] = state ? state.defaultPersistenceProfile : undefined;
@@ -201,13 +202,13 @@ export class VirtualServer extends pulumi.CustomResource {
             inputs["vlansEnabled"] = state ? state.vlansEnabled : undefined;
         } else {
             const args = argsOrState as VirtualServerArgs | undefined;
-            if ((!args || args.destination === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.destination === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'destination'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.port === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.port === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'port'");
             }
             inputs["clientProfiles"] = args ? args.clientProfiles : undefined;
@@ -234,12 +235,8 @@ export class VirtualServer extends pulumi.CustomResource {
             inputs["vlans"] = args ? args.vlans : undefined;
             inputs["vlansEnabled"] = args ? args.vlansEnabled : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(VirtualServer.__pulumiType, name, inputs, opts);
     }

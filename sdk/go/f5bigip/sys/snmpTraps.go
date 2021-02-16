@@ -250,6 +250,85 @@ func (i *SnmpTraps) ToSnmpTrapsOutputWithContext(ctx context.Context) SnmpTrapsO
 	return pulumi.ToOutputWithContext(ctx, i).(SnmpTrapsOutput)
 }
 
+func (i *SnmpTraps) ToSnmpTrapsPtrOutput() SnmpTrapsPtrOutput {
+	return i.ToSnmpTrapsPtrOutputWithContext(context.Background())
+}
+
+func (i *SnmpTraps) ToSnmpTrapsPtrOutputWithContext(ctx context.Context) SnmpTrapsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnmpTrapsPtrOutput)
+}
+
+type SnmpTrapsPtrInput interface {
+	pulumi.Input
+
+	ToSnmpTrapsPtrOutput() SnmpTrapsPtrOutput
+	ToSnmpTrapsPtrOutputWithContext(ctx context.Context) SnmpTrapsPtrOutput
+}
+
+type snmpTrapsPtrType SnmpTrapsArgs
+
+func (*snmpTrapsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnmpTraps)(nil))
+}
+
+func (i *snmpTrapsPtrType) ToSnmpTrapsPtrOutput() SnmpTrapsPtrOutput {
+	return i.ToSnmpTrapsPtrOutputWithContext(context.Background())
+}
+
+func (i *snmpTrapsPtrType) ToSnmpTrapsPtrOutputWithContext(ctx context.Context) SnmpTrapsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnmpTrapsPtrOutput)
+}
+
+// SnmpTrapsArrayInput is an input type that accepts SnmpTrapsArray and SnmpTrapsArrayOutput values.
+// You can construct a concrete instance of `SnmpTrapsArrayInput` via:
+//
+//          SnmpTrapsArray{ SnmpTrapsArgs{...} }
+type SnmpTrapsArrayInput interface {
+	pulumi.Input
+
+	ToSnmpTrapsArrayOutput() SnmpTrapsArrayOutput
+	ToSnmpTrapsArrayOutputWithContext(context.Context) SnmpTrapsArrayOutput
+}
+
+type SnmpTrapsArray []SnmpTrapsInput
+
+func (SnmpTrapsArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*SnmpTraps)(nil))
+}
+
+func (i SnmpTrapsArray) ToSnmpTrapsArrayOutput() SnmpTrapsArrayOutput {
+	return i.ToSnmpTrapsArrayOutputWithContext(context.Background())
+}
+
+func (i SnmpTrapsArray) ToSnmpTrapsArrayOutputWithContext(ctx context.Context) SnmpTrapsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnmpTrapsArrayOutput)
+}
+
+// SnmpTrapsMapInput is an input type that accepts SnmpTrapsMap and SnmpTrapsMapOutput values.
+// You can construct a concrete instance of `SnmpTrapsMapInput` via:
+//
+//          SnmpTrapsMap{ "key": SnmpTrapsArgs{...} }
+type SnmpTrapsMapInput interface {
+	pulumi.Input
+
+	ToSnmpTrapsMapOutput() SnmpTrapsMapOutput
+	ToSnmpTrapsMapOutputWithContext(context.Context) SnmpTrapsMapOutput
+}
+
+type SnmpTrapsMap map[string]SnmpTrapsInput
+
+func (SnmpTrapsMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*SnmpTraps)(nil))
+}
+
+func (i SnmpTrapsMap) ToSnmpTrapsMapOutput() SnmpTrapsMapOutput {
+	return i.ToSnmpTrapsMapOutputWithContext(context.Background())
+}
+
+func (i SnmpTrapsMap) ToSnmpTrapsMapOutputWithContext(ctx context.Context) SnmpTrapsMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SnmpTrapsMapOutput)
+}
+
 type SnmpTrapsOutput struct {
 	*pulumi.OutputState
 }
@@ -266,6 +345,75 @@ func (o SnmpTrapsOutput) ToSnmpTrapsOutputWithContext(ctx context.Context) SnmpT
 	return o
 }
 
+func (o SnmpTrapsOutput) ToSnmpTrapsPtrOutput() SnmpTrapsPtrOutput {
+	return o.ToSnmpTrapsPtrOutputWithContext(context.Background())
+}
+
+func (o SnmpTrapsOutput) ToSnmpTrapsPtrOutputWithContext(ctx context.Context) SnmpTrapsPtrOutput {
+	return o.ApplyT(func(v SnmpTraps) *SnmpTraps {
+		return &v
+	}).(SnmpTrapsPtrOutput)
+}
+
+type SnmpTrapsPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (SnmpTrapsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnmpTraps)(nil))
+}
+
+func (o SnmpTrapsPtrOutput) ToSnmpTrapsPtrOutput() SnmpTrapsPtrOutput {
+	return o
+}
+
+func (o SnmpTrapsPtrOutput) ToSnmpTrapsPtrOutputWithContext(ctx context.Context) SnmpTrapsPtrOutput {
+	return o
+}
+
+type SnmpTrapsArrayOutput struct{ *pulumi.OutputState }
+
+func (SnmpTrapsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SnmpTraps)(nil))
+}
+
+func (o SnmpTrapsArrayOutput) ToSnmpTrapsArrayOutput() SnmpTrapsArrayOutput {
+	return o
+}
+
+func (o SnmpTrapsArrayOutput) ToSnmpTrapsArrayOutputWithContext(ctx context.Context) SnmpTrapsArrayOutput {
+	return o
+}
+
+func (o SnmpTrapsArrayOutput) Index(i pulumi.IntInput) SnmpTrapsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SnmpTraps {
+		return vs[0].([]SnmpTraps)[vs[1].(int)]
+	}).(SnmpTrapsOutput)
+}
+
+type SnmpTrapsMapOutput struct{ *pulumi.OutputState }
+
+func (SnmpTrapsMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]SnmpTraps)(nil))
+}
+
+func (o SnmpTrapsMapOutput) ToSnmpTrapsMapOutput() SnmpTrapsMapOutput {
+	return o
+}
+
+func (o SnmpTrapsMapOutput) ToSnmpTrapsMapOutputWithContext(ctx context.Context) SnmpTrapsMapOutput {
+	return o
+}
+
+func (o SnmpTrapsMapOutput) MapIndex(k pulumi.StringInput) SnmpTrapsOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SnmpTraps {
+		return vs[0].(map[string]SnmpTraps)[vs[1].(string)]
+	}).(SnmpTrapsOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(SnmpTrapsOutput{})
+	pulumi.RegisterOutputType(SnmpTrapsPtrOutput{})
+	pulumi.RegisterOutputType(SnmpTrapsArrayOutput{})
+	pulumi.RegisterOutputType(SnmpTrapsMapOutput{})
 }

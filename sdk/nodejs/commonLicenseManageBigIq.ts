@@ -170,7 +170,8 @@ export class CommonLicenseManageBigIq extends pulumi.CustomResource {
     constructor(name: string, args: CommonLicenseManageBigIqArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CommonLicenseManageBigIqArgs | CommonLicenseManageBigIqState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as CommonLicenseManageBigIqState | undefined;
             inputs["assignmentType"] = state ? state.assignmentType : undefined;
             inputs["bigiqAddress"] = state ? state.bigiqAddress : undefined;
@@ -190,19 +191,19 @@ export class CommonLicenseManageBigIq extends pulumi.CustomResource {
             inputs["unitOfMeasure"] = state ? state.unitOfMeasure : undefined;
         } else {
             const args = argsOrState as CommonLicenseManageBigIqArgs | undefined;
-            if ((!args || args.assignmentType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.assignmentType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'assignmentType'");
             }
-            if ((!args || args.bigiqAddress === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.bigiqAddress === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bigiqAddress'");
             }
-            if ((!args || args.bigiqPassword === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.bigiqPassword === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bigiqPassword'");
             }
-            if ((!args || args.bigiqUser === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.bigiqUser === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bigiqUser'");
             }
-            if ((!args || args.licensePoolname === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.licensePoolname === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'licensePoolname'");
             }
             inputs["assignmentType"] = args ? args.assignmentType : undefined;
@@ -222,12 +223,8 @@ export class CommonLicenseManageBigIq extends pulumi.CustomResource {
             inputs["tenant"] = args ? args.tenant : undefined;
             inputs["unitOfMeasure"] = args ? args.unitOfMeasure : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(CommonLicenseManageBigIq.__pulumiType, name, inputs, opts);
     }

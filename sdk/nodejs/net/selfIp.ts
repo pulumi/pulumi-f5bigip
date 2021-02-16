@@ -80,7 +80,8 @@ export class SelfIp extends pulumi.CustomResource {
     constructor(name: string, args: SelfIpArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SelfIpArgs | SelfIpState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as SelfIpState | undefined;
             inputs["ip"] = state ? state.ip : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -88,13 +89,13 @@ export class SelfIp extends pulumi.CustomResource {
             inputs["vlan"] = state ? state.vlan : undefined;
         } else {
             const args = argsOrState as SelfIpArgs | undefined;
-            if ((!args || args.ip === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.ip === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ip'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.vlan === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.vlan === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vlan'");
             }
             inputs["ip"] = args ? args.ip : undefined;
@@ -102,12 +103,8 @@ export class SelfIp extends pulumi.CustomResource {
             inputs["trafficGroup"] = args ? args.trafficGroup : undefined;
             inputs["vlan"] = args ? args.vlan : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(SelfIp.__pulumiType, name, inputs, opts);
     }

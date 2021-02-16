@@ -399,6 +399,85 @@ func (i *ProfileHttp) ToProfileHttpOutputWithContext(ctx context.Context) Profil
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileHttpOutput)
 }
 
+func (i *ProfileHttp) ToProfileHttpPtrOutput() ProfileHttpPtrOutput {
+	return i.ToProfileHttpPtrOutputWithContext(context.Background())
+}
+
+func (i *ProfileHttp) ToProfileHttpPtrOutputWithContext(ctx context.Context) ProfileHttpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileHttpPtrOutput)
+}
+
+type ProfileHttpPtrInput interface {
+	pulumi.Input
+
+	ToProfileHttpPtrOutput() ProfileHttpPtrOutput
+	ToProfileHttpPtrOutputWithContext(ctx context.Context) ProfileHttpPtrOutput
+}
+
+type profileHttpPtrType ProfileHttpArgs
+
+func (*profileHttpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProfileHttp)(nil))
+}
+
+func (i *profileHttpPtrType) ToProfileHttpPtrOutput() ProfileHttpPtrOutput {
+	return i.ToProfileHttpPtrOutputWithContext(context.Background())
+}
+
+func (i *profileHttpPtrType) ToProfileHttpPtrOutputWithContext(ctx context.Context) ProfileHttpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileHttpPtrOutput)
+}
+
+// ProfileHttpArrayInput is an input type that accepts ProfileHttpArray and ProfileHttpArrayOutput values.
+// You can construct a concrete instance of `ProfileHttpArrayInput` via:
+//
+//          ProfileHttpArray{ ProfileHttpArgs{...} }
+type ProfileHttpArrayInput interface {
+	pulumi.Input
+
+	ToProfileHttpArrayOutput() ProfileHttpArrayOutput
+	ToProfileHttpArrayOutputWithContext(context.Context) ProfileHttpArrayOutput
+}
+
+type ProfileHttpArray []ProfileHttpInput
+
+func (ProfileHttpArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ProfileHttp)(nil))
+}
+
+func (i ProfileHttpArray) ToProfileHttpArrayOutput() ProfileHttpArrayOutput {
+	return i.ToProfileHttpArrayOutputWithContext(context.Background())
+}
+
+func (i ProfileHttpArray) ToProfileHttpArrayOutputWithContext(ctx context.Context) ProfileHttpArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileHttpArrayOutput)
+}
+
+// ProfileHttpMapInput is an input type that accepts ProfileHttpMap and ProfileHttpMapOutput values.
+// You can construct a concrete instance of `ProfileHttpMapInput` via:
+//
+//          ProfileHttpMap{ "key": ProfileHttpArgs{...} }
+type ProfileHttpMapInput interface {
+	pulumi.Input
+
+	ToProfileHttpMapOutput() ProfileHttpMapOutput
+	ToProfileHttpMapOutputWithContext(context.Context) ProfileHttpMapOutput
+}
+
+type ProfileHttpMap map[string]ProfileHttpInput
+
+func (ProfileHttpMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ProfileHttp)(nil))
+}
+
+func (i ProfileHttpMap) ToProfileHttpMapOutput() ProfileHttpMapOutput {
+	return i.ToProfileHttpMapOutputWithContext(context.Background())
+}
+
+func (i ProfileHttpMap) ToProfileHttpMapOutputWithContext(ctx context.Context) ProfileHttpMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileHttpMapOutput)
+}
+
 type ProfileHttpOutput struct {
 	*pulumi.OutputState
 }
@@ -415,6 +494,75 @@ func (o ProfileHttpOutput) ToProfileHttpOutputWithContext(ctx context.Context) P
 	return o
 }
 
+func (o ProfileHttpOutput) ToProfileHttpPtrOutput() ProfileHttpPtrOutput {
+	return o.ToProfileHttpPtrOutputWithContext(context.Background())
+}
+
+func (o ProfileHttpOutput) ToProfileHttpPtrOutputWithContext(ctx context.Context) ProfileHttpPtrOutput {
+	return o.ApplyT(func(v ProfileHttp) *ProfileHttp {
+		return &v
+	}).(ProfileHttpPtrOutput)
+}
+
+type ProfileHttpPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProfileHttpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProfileHttp)(nil))
+}
+
+func (o ProfileHttpPtrOutput) ToProfileHttpPtrOutput() ProfileHttpPtrOutput {
+	return o
+}
+
+func (o ProfileHttpPtrOutput) ToProfileHttpPtrOutputWithContext(ctx context.Context) ProfileHttpPtrOutput {
+	return o
+}
+
+type ProfileHttpArrayOutput struct{ *pulumi.OutputState }
+
+func (ProfileHttpArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProfileHttp)(nil))
+}
+
+func (o ProfileHttpArrayOutput) ToProfileHttpArrayOutput() ProfileHttpArrayOutput {
+	return o
+}
+
+func (o ProfileHttpArrayOutput) ToProfileHttpArrayOutputWithContext(ctx context.Context) ProfileHttpArrayOutput {
+	return o
+}
+
+func (o ProfileHttpArrayOutput) Index(i pulumi.IntInput) ProfileHttpOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProfileHttp {
+		return vs[0].([]ProfileHttp)[vs[1].(int)]
+	}).(ProfileHttpOutput)
+}
+
+type ProfileHttpMapOutput struct{ *pulumi.OutputState }
+
+func (ProfileHttpMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ProfileHttp)(nil))
+}
+
+func (o ProfileHttpMapOutput) ToProfileHttpMapOutput() ProfileHttpMapOutput {
+	return o
+}
+
+func (o ProfileHttpMapOutput) ToProfileHttpMapOutputWithContext(ctx context.Context) ProfileHttpMapOutput {
+	return o
+}
+
+func (o ProfileHttpMapOutput) MapIndex(k pulumi.StringInput) ProfileHttpOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ProfileHttp {
+		return vs[0].(map[string]ProfileHttp)[vs[1].(string)]
+	}).(ProfileHttpOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProfileHttpOutput{})
+	pulumi.RegisterOutputType(ProfileHttpPtrOutput{})
+	pulumi.RegisterOutputType(ProfileHttpArrayOutput{})
+	pulumi.RegisterOutputType(ProfileHttpMapOutput{})
 }

@@ -76,7 +76,8 @@ export class Dns extends pulumi.CustomResource {
     constructor(name: string, args: DnsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DnsArgs | DnsState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as DnsState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["nameServers"] = state ? state.nameServers : undefined;
@@ -84,7 +85,7 @@ export class Dns extends pulumi.CustomResource {
             inputs["searches"] = state ? state.searches : undefined;
         } else {
             const args = argsOrState as DnsArgs | undefined;
-            if ((!args || args.description === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.description === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
             inputs["description"] = args ? args.description : undefined;
@@ -92,12 +93,8 @@ export class Dns extends pulumi.CustomResource {
             inputs["numberOfDots"] = args ? args.numberOfDots : undefined;
             inputs["searches"] = args ? args.searches : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Dns.__pulumiType, name, inputs, opts);
     }

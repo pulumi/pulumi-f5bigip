@@ -549,6 +549,85 @@ func (i *ProfileServerSsl) ToProfileServerSslOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileServerSslOutput)
 }
 
+func (i *ProfileServerSsl) ToProfileServerSslPtrOutput() ProfileServerSslPtrOutput {
+	return i.ToProfileServerSslPtrOutputWithContext(context.Background())
+}
+
+func (i *ProfileServerSsl) ToProfileServerSslPtrOutputWithContext(ctx context.Context) ProfileServerSslPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileServerSslPtrOutput)
+}
+
+type ProfileServerSslPtrInput interface {
+	pulumi.Input
+
+	ToProfileServerSslPtrOutput() ProfileServerSslPtrOutput
+	ToProfileServerSslPtrOutputWithContext(ctx context.Context) ProfileServerSslPtrOutput
+}
+
+type profileServerSslPtrType ProfileServerSslArgs
+
+func (*profileServerSslPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProfileServerSsl)(nil))
+}
+
+func (i *profileServerSslPtrType) ToProfileServerSslPtrOutput() ProfileServerSslPtrOutput {
+	return i.ToProfileServerSslPtrOutputWithContext(context.Background())
+}
+
+func (i *profileServerSslPtrType) ToProfileServerSslPtrOutputWithContext(ctx context.Context) ProfileServerSslPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileServerSslPtrOutput)
+}
+
+// ProfileServerSslArrayInput is an input type that accepts ProfileServerSslArray and ProfileServerSslArrayOutput values.
+// You can construct a concrete instance of `ProfileServerSslArrayInput` via:
+//
+//          ProfileServerSslArray{ ProfileServerSslArgs{...} }
+type ProfileServerSslArrayInput interface {
+	pulumi.Input
+
+	ToProfileServerSslArrayOutput() ProfileServerSslArrayOutput
+	ToProfileServerSslArrayOutputWithContext(context.Context) ProfileServerSslArrayOutput
+}
+
+type ProfileServerSslArray []ProfileServerSslInput
+
+func (ProfileServerSslArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ProfileServerSsl)(nil))
+}
+
+func (i ProfileServerSslArray) ToProfileServerSslArrayOutput() ProfileServerSslArrayOutput {
+	return i.ToProfileServerSslArrayOutputWithContext(context.Background())
+}
+
+func (i ProfileServerSslArray) ToProfileServerSslArrayOutputWithContext(ctx context.Context) ProfileServerSslArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileServerSslArrayOutput)
+}
+
+// ProfileServerSslMapInput is an input type that accepts ProfileServerSslMap and ProfileServerSslMapOutput values.
+// You can construct a concrete instance of `ProfileServerSslMapInput` via:
+//
+//          ProfileServerSslMap{ "key": ProfileServerSslArgs{...} }
+type ProfileServerSslMapInput interface {
+	pulumi.Input
+
+	ToProfileServerSslMapOutput() ProfileServerSslMapOutput
+	ToProfileServerSslMapOutputWithContext(context.Context) ProfileServerSslMapOutput
+}
+
+type ProfileServerSslMap map[string]ProfileServerSslInput
+
+func (ProfileServerSslMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ProfileServerSsl)(nil))
+}
+
+func (i ProfileServerSslMap) ToProfileServerSslMapOutput() ProfileServerSslMapOutput {
+	return i.ToProfileServerSslMapOutputWithContext(context.Background())
+}
+
+func (i ProfileServerSslMap) ToProfileServerSslMapOutputWithContext(ctx context.Context) ProfileServerSslMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileServerSslMapOutput)
+}
+
 type ProfileServerSslOutput struct {
 	*pulumi.OutputState
 }
@@ -565,6 +644,75 @@ func (o ProfileServerSslOutput) ToProfileServerSslOutputWithContext(ctx context.
 	return o
 }
 
+func (o ProfileServerSslOutput) ToProfileServerSslPtrOutput() ProfileServerSslPtrOutput {
+	return o.ToProfileServerSslPtrOutputWithContext(context.Background())
+}
+
+func (o ProfileServerSslOutput) ToProfileServerSslPtrOutputWithContext(ctx context.Context) ProfileServerSslPtrOutput {
+	return o.ApplyT(func(v ProfileServerSsl) *ProfileServerSsl {
+		return &v
+	}).(ProfileServerSslPtrOutput)
+}
+
+type ProfileServerSslPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProfileServerSslPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProfileServerSsl)(nil))
+}
+
+func (o ProfileServerSslPtrOutput) ToProfileServerSslPtrOutput() ProfileServerSslPtrOutput {
+	return o
+}
+
+func (o ProfileServerSslPtrOutput) ToProfileServerSslPtrOutputWithContext(ctx context.Context) ProfileServerSslPtrOutput {
+	return o
+}
+
+type ProfileServerSslArrayOutput struct{ *pulumi.OutputState }
+
+func (ProfileServerSslArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProfileServerSsl)(nil))
+}
+
+func (o ProfileServerSslArrayOutput) ToProfileServerSslArrayOutput() ProfileServerSslArrayOutput {
+	return o
+}
+
+func (o ProfileServerSslArrayOutput) ToProfileServerSslArrayOutputWithContext(ctx context.Context) ProfileServerSslArrayOutput {
+	return o
+}
+
+func (o ProfileServerSslArrayOutput) Index(i pulumi.IntInput) ProfileServerSslOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProfileServerSsl {
+		return vs[0].([]ProfileServerSsl)[vs[1].(int)]
+	}).(ProfileServerSslOutput)
+}
+
+type ProfileServerSslMapOutput struct{ *pulumi.OutputState }
+
+func (ProfileServerSslMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ProfileServerSsl)(nil))
+}
+
+func (o ProfileServerSslMapOutput) ToProfileServerSslMapOutput() ProfileServerSslMapOutput {
+	return o
+}
+
+func (o ProfileServerSslMapOutput) ToProfileServerSslMapOutputWithContext(ctx context.Context) ProfileServerSslMapOutput {
+	return o
+}
+
+func (o ProfileServerSslMapOutput) MapIndex(k pulumi.StringInput) ProfileServerSslOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ProfileServerSsl {
+		return vs[0].(map[string]ProfileServerSsl)[vs[1].(string)]
+	}).(ProfileServerSslOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProfileServerSslOutput{})
+	pulumi.RegisterOutputType(ProfileServerSslPtrOutput{})
+	pulumi.RegisterOutputType(ProfileServerSslArrayOutput{})
+	pulumi.RegisterOutputType(ProfileServerSslMapOutput{})
 }

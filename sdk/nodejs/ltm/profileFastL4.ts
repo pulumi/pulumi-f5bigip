@@ -115,7 +115,8 @@ export class ProfileFastL4 extends pulumi.CustomResource {
     constructor(name: string, args: ProfileFastL4Args, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProfileFastL4Args | ProfileFastL4State, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ProfileFastL4State | undefined;
             inputs["clientTimeout"] = state ? state.clientTimeout : undefined;
             inputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
@@ -129,7 +130,7 @@ export class ProfileFastL4 extends pulumi.CustomResource {
             inputs["partition"] = state ? state.partition : undefined;
         } else {
             const args = argsOrState as ProfileFastL4Args | undefined;
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["clientTimeout"] = args ? args.clientTimeout : undefined;
@@ -143,12 +144,8 @@ export class ProfileFastL4 extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["partition"] = args ? args.partition : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ProfileFastL4.__pulumiType, name, inputs, opts);
     }

@@ -109,7 +109,8 @@ export class PoolAttachment extends pulumi.CustomResource {
     constructor(name: string, args: PoolAttachmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PoolAttachmentArgs | PoolAttachmentState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PoolAttachmentState | undefined;
             inputs["connectionLimit"] = state ? state.connectionLimit : undefined;
             inputs["connectionRateLimit"] = state ? state.connectionRateLimit : undefined;
@@ -121,10 +122,10 @@ export class PoolAttachment extends pulumi.CustomResource {
             inputs["ratio"] = state ? state.ratio : undefined;
         } else {
             const args = argsOrState as PoolAttachmentArgs | undefined;
-            if ((!args || args.node === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.node === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'node'");
             }
-            if ((!args || args.pool === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.pool === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'pool'");
             }
             inputs["connectionLimit"] = args ? args.connectionLimit : undefined;
@@ -136,12 +137,8 @@ export class PoolAttachment extends pulumi.CustomResource {
             inputs["priorityGroup"] = args ? args.priorityGroup : undefined;
             inputs["ratio"] = args ? args.ratio : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(PoolAttachment.__pulumiType, name, inputs, opts);
     }

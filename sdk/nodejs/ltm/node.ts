@@ -107,7 +107,8 @@ export class Node extends pulumi.CustomResource {
     constructor(name: string, args: NodeArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NodeArgs | NodeState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as NodeState | undefined;
             inputs["address"] = state ? state.address : undefined;
             inputs["connectionLimit"] = state ? state.connectionLimit : undefined;
@@ -121,10 +122,10 @@ export class Node extends pulumi.CustomResource {
             inputs["state"] = state ? state.state : undefined;
         } else {
             const args = argsOrState as NodeArgs | undefined;
-            if ((!args || args.address === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.address === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'address'");
             }
-            if ((!args || args.name === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
             inputs["address"] = args ? args.address : undefined;
@@ -138,12 +139,8 @@ export class Node extends pulumi.CustomResource {
             inputs["ratio"] = args ? args.ratio : undefined;
             inputs["state"] = args ? args.state : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Node.__pulumiType, name, inputs, opts);
     }
