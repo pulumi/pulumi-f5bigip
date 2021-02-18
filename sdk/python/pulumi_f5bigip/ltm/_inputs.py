@@ -17,6 +17,7 @@ __all__ = [
     'ProfileClientSslCertKeyChainArgs',
     'SnatOriginArgs',
     'GetDataGroupRecordArgs',
+    'GetNodeFqdnArgs',
 ]
 
 @pulumi.input_type
@@ -2650,5 +2651,67 @@ class GetDataGroupRecordArgs:
     @data.setter
     def data(self, value: Optional[str]):
         pulumi.set(self, "data", value)
+
+
+@pulumi.input_type
+class GetNodeFqdnArgs:
+    def __init__(__self__, *,
+                 autopopulate: str,
+                 downinterval: int,
+                 interval: str,
+                 address_family: Optional[str] = None,
+                 name: Optional[str] = None):
+        pulumi.set(__self__, "autopopulate", autopopulate)
+        pulumi.set(__self__, "downinterval", downinterval)
+        pulumi.set(__self__, "interval", interval)
+        if address_family is not None:
+            pulumi.set(__self__, "address_family", address_family)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def autopopulate(self) -> str:
+        return pulumi.get(self, "autopopulate")
+
+    @autopopulate.setter
+    def autopopulate(self, value: str):
+        pulumi.set(self, "autopopulate", value)
+
+    @property
+    @pulumi.getter
+    def downinterval(self) -> int:
+        return pulumi.get(self, "downinterval")
+
+    @downinterval.setter
+    def downinterval(self, value: int):
+        pulumi.set(self, "downinterval", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> str:
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: str):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter(name="addressFamily")
+    def address_family(self) -> Optional[str]:
+        return pulumi.get(self, "address_family")
+
+    @address_family.setter
+    def address_family(self, value: Optional[str]):
+        pulumi.set(self, "address_family", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[str]):
+        pulumi.set(self, "name", value)
 
 

@@ -2091,6 +2091,79 @@ func (o GetDataGroupRecordArrayOutput) Index(i pulumi.IntInput) GetDataGroupReco
 	}).(GetDataGroupRecordOutput)
 }
 
+type GetNodeFqdn struct {
+	AddressFamily *string `pulumi:"addressFamily"`
+	Autopopulate  string  `pulumi:"autopopulate"`
+	Downinterval  int     `pulumi:"downinterval"`
+	Interval      string  `pulumi:"interval"`
+	Name          *string `pulumi:"name"`
+}
+
+// GetNodeFqdnInput is an input type that accepts GetNodeFqdnArgs and GetNodeFqdnOutput values.
+// You can construct a concrete instance of `GetNodeFqdnInput` via:
+//
+//          GetNodeFqdnArgs{...}
+type GetNodeFqdnInput interface {
+	pulumi.Input
+
+	ToGetNodeFqdnOutput() GetNodeFqdnOutput
+	ToGetNodeFqdnOutputWithContext(context.Context) GetNodeFqdnOutput
+}
+
+type GetNodeFqdnArgs struct {
+	AddressFamily pulumi.StringPtrInput `pulumi:"addressFamily"`
+	Autopopulate  pulumi.StringInput    `pulumi:"autopopulate"`
+	Downinterval  pulumi.IntInput       `pulumi:"downinterval"`
+	Interval      pulumi.StringInput    `pulumi:"interval"`
+	Name          pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (GetNodeFqdnArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNodeFqdn)(nil)).Elem()
+}
+
+func (i GetNodeFqdnArgs) ToGetNodeFqdnOutput() GetNodeFqdnOutput {
+	return i.ToGetNodeFqdnOutputWithContext(context.Background())
+}
+
+func (i GetNodeFqdnArgs) ToGetNodeFqdnOutputWithContext(ctx context.Context) GetNodeFqdnOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNodeFqdnOutput)
+}
+
+type GetNodeFqdnOutput struct{ *pulumi.OutputState }
+
+func (GetNodeFqdnOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNodeFqdn)(nil)).Elem()
+}
+
+func (o GetNodeFqdnOutput) ToGetNodeFqdnOutput() GetNodeFqdnOutput {
+	return o
+}
+
+func (o GetNodeFqdnOutput) ToGetNodeFqdnOutputWithContext(ctx context.Context) GetNodeFqdnOutput {
+	return o
+}
+
+func (o GetNodeFqdnOutput) AddressFamily() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetNodeFqdn) *string { return v.AddressFamily }).(pulumi.StringPtrOutput)
+}
+
+func (o GetNodeFqdnOutput) Autopopulate() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNodeFqdn) string { return v.Autopopulate }).(pulumi.StringOutput)
+}
+
+func (o GetNodeFqdnOutput) Downinterval() pulumi.IntOutput {
+	return o.ApplyT(func(v GetNodeFqdn) int { return v.Downinterval }).(pulumi.IntOutput)
+}
+
+func (o GetNodeFqdnOutput) Interval() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNodeFqdn) string { return v.Interval }).(pulumi.StringOutput)
+}
+
+func (o GetNodeFqdnOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetNodeFqdn) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DataGroupRecordOutput{})
 	pulumi.RegisterOutputType(DataGroupRecordArrayOutput{})
@@ -2108,4 +2181,5 @@ func init() {
 	pulumi.RegisterOutputType(SnatOriginArrayOutput{})
 	pulumi.RegisterOutputType(GetDataGroupRecordOutput{})
 	pulumi.RegisterOutputType(GetDataGroupRecordArrayOutput{})
+	pulumi.RegisterOutputType(GetNodeFqdnOutput{})
 }

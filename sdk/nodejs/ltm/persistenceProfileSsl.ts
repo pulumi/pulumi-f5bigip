@@ -79,19 +79,19 @@ export class PersistenceProfileSsl extends pulumi.CustomResource {
     /**
      * To enable _ disable match across pools with given persistence record
      */
-    public readonly matchAcrossPools!: pulumi.Output<string | undefined>;
+    public readonly matchAcrossPools!: pulumi.Output<string>;
     /**
      * To enable _ disable match across services with given persistence record
      */
-    public readonly matchAcrossServices!: pulumi.Output<string | undefined>;
+    public readonly matchAcrossServices!: pulumi.Output<string>;
     /**
      * To enable _ disable match across services with given persistence record
      */
-    public readonly matchAcrossVirtuals!: pulumi.Output<string | undefined>;
+    public readonly matchAcrossVirtuals!: pulumi.Output<string>;
     /**
      * To enable _ disable
      */
-    public readonly mirror!: pulumi.Output<string | undefined>;
+    public readonly mirror!: pulumi.Output<string>;
     /**
      * Name of the persistence profile
      */
@@ -100,7 +100,7 @@ export class PersistenceProfileSsl extends pulumi.CustomResource {
      * To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
      * limits remain hard limits and are not overridden.
      */
-    public readonly overrideConnLimit!: pulumi.Output<string | undefined>;
+    public readonly overrideConnLimit!: pulumi.Output<string>;
     /**
      * Timeout for persistence of the session
      */

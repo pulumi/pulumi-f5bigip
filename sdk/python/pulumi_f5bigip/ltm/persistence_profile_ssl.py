@@ -173,7 +173,7 @@ class PersistenceProfileSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="matchAcrossPools")
-    def match_across_pools(self) -> pulumi.Output[Optional[str]]:
+    def match_across_pools(self) -> pulumi.Output[str]:
         """
         To enable _ disable match across pools with given persistence record
         """
@@ -181,7 +181,7 @@ class PersistenceProfileSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="matchAcrossServices")
-    def match_across_services(self) -> pulumi.Output[Optional[str]]:
+    def match_across_services(self) -> pulumi.Output[str]:
         """
         To enable _ disable match across services with given persistence record
         """
@@ -189,7 +189,7 @@ class PersistenceProfileSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="matchAcrossVirtuals")
-    def match_across_virtuals(self) -> pulumi.Output[Optional[str]]:
+    def match_across_virtuals(self) -> pulumi.Output[str]:
         """
         To enable _ disable match across services with given persistence record
         """
@@ -197,7 +197,7 @@ class PersistenceProfileSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def mirror(self) -> pulumi.Output[Optional[str]]:
+    def mirror(self) -> pulumi.Output[str]:
         """
         To enable _ disable
         """
@@ -213,7 +213,7 @@ class PersistenceProfileSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="overrideConnLimit")
-    def override_conn_limit(self) -> pulumi.Output[Optional[str]]:
+    def override_conn_limit(self) -> pulumi.Output[str]:
         """
         To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
         limits remain hard limits and are not overridden.

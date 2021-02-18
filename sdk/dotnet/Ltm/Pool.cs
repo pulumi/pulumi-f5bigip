@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Ltm
 {
     /// <summary>
-    /// `f5bigip.ltm.Pool` Manages a pool configuration.
+    /// `f5bigip.ltm.Pool` Manages F5 BIG-IP LTM pools via iControl REST API.
     /// 
     /// Resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
     /// 

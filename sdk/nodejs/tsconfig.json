@@ -29,6 +29,7 @@
         "ltm/getDataGroup.ts",
         "ltm/getIrule.ts",
         "ltm/getMonitor.ts",
+        "ltm/getNode.ts",
         "ltm/getPool.ts",
         "ltm/index.ts",
         "ltm/irule.ts",
