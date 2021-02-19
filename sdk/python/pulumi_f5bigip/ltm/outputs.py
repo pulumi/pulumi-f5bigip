@@ -18,6 +18,7 @@ __all__ = [
     'ProfileClientSslCertKeyChain',
     'SnatOrigin',
     'GetDataGroupRecordResult',
+    'GetNodeFqdnResult',
 ]
 
 @pulumi.output_type
@@ -1828,5 +1829,47 @@ class GetDataGroupRecordResult(dict):
     @pulumi.getter
     def data(self) -> Optional[str]:
         return pulumi.get(self, "data")
+
+
+@pulumi.output_type
+class GetNodeFqdnResult(dict):
+    def __init__(__self__, *,
+                 autopopulate: str,
+                 downinterval: int,
+                 interval: str,
+                 address_family: Optional[str] = None,
+                 name: Optional[str] = None):
+        pulumi.set(__self__, "autopopulate", autopopulate)
+        pulumi.set(__self__, "downinterval", downinterval)
+        pulumi.set(__self__, "interval", interval)
+        if address_family is not None:
+            pulumi.set(__self__, "address_family", address_family)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def autopopulate(self) -> str:
+        return pulumi.get(self, "autopopulate")
+
+    @property
+    @pulumi.getter
+    def downinterval(self) -> int:
+        return pulumi.get(self, "downinterval")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> str:
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter(name="addressFamily")
+    def address_family(self) -> Optional[str]:
+        return pulumi.get(self, "address_family")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
 
 

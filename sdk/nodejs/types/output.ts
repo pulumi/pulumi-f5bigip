@@ -36,6 +36,14 @@ export namespace ltm {
         name: string;
     }
 
+    export interface GetNodeFqdn {
+        addressFamily?: string;
+        autopopulate: string;
+        downinterval: number;
+        interval: string;
+        name?: string;
+    }
+
     export interface NodeFqdn {
         /**
          * Specifies the node's address family. The default is 'unspecified', or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).

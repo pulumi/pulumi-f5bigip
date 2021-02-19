@@ -72,25 +72,25 @@ namespace Pulumi.F5BigIP.Ltm
         /// To enable _ disable match across pools with given persistence record
         /// </summary>
         [Output("matchAcrossPools")]
-        public Output<string?> MatchAcrossPools { get; private set; } = null!;
+        public Output<string> MatchAcrossPools { get; private set; } = null!;
 
         /// <summary>
         /// To enable _ disable match across services with given persistence record
         /// </summary>
         [Output("matchAcrossServices")]
-        public Output<string?> MatchAcrossServices { get; private set; } = null!;
+        public Output<string> MatchAcrossServices { get; private set; } = null!;
 
         /// <summary>
         /// To enable _ disable match across services with given persistence record
         /// </summary>
         [Output("matchAcrossVirtuals")]
-        public Output<string?> MatchAcrossVirtuals { get; private set; } = null!;
+        public Output<string> MatchAcrossVirtuals { get; private set; } = null!;
 
         /// <summary>
         /// To enable _ disable
         /// </summary>
         [Output("mirror")]
-        public Output<string?> Mirror { get; private set; } = null!;
+        public Output<string> Mirror { get; private set; } = null!;
 
         /// <summary>
         /// Name of the persistence profile
@@ -103,7 +103,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// limits remain hard limits and are not overridden.
         /// </summary>
         [Output("overrideConnLimit")]
-        public Output<string?> OverrideConnLimit { get; private set; } = null!;
+        public Output<string> OverrideConnLimit { get; private set; } = null!;
 
         /// <summary>
         /// Timeout for persistence of the session

@@ -9,6 +9,7 @@ export * from "./dataGroup";
 export * from "./getDataGroup";
 export * from "./getIrule";
 export * from "./getMonitor";
+export * from "./getNode";
 export * from "./getPool";
 export * from "./irule";
 export * from "./monitor";

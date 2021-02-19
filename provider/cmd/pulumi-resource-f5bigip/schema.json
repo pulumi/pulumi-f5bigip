@@ -2072,6 +2072,61 @@
                 "name"
             ]
         },
+        "f5bigip:ltm/getNodeFqdn:getNodeFqdn": {
+            "properties": {
+                "addressFamily": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "autopopulate": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "downinterval": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "interval": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "autopopulate",
+                "downinterval",
+                "interval"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "f5bigip:net/VlanInterface:VlanInterface": {
             "properties": {
                 "tagged": {
@@ -4231,7 +4286,12 @@
             },
             "required": [
                 "defaultsFrom",
-                "name"
+                "matchAcrossPools",
+                "matchAcrossServices",
+                "matchAcrossVirtuals",
+                "mirror",
+                "name",
+                "overrideConnLimit"
             ],
             "inputProperties": {
                 "appService": {
@@ -4435,7 +4495,7 @@
             }
         },
         "f5bigip:ltm/pool:Pool": {
-            "description": "`f5bigip.ltm.Pool` Manages a pool configuration.\n\nResources should be named with their \"full path\". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst monitor = new f5bigip.ltm.Monitor(\"monitor\", {\n    name: \"/Common/terraform_monitor\",\n    parent: \"/Common/http\",\n});\nconst pool = new f5bigip.ltm.Pool(\"pool\", {\n    name: \"/Common/Axiom_Environment_APP1_Pool\",\n    loadBalancingMode: \"round-robin\",\n    minimumActiveMembers: 1,\n    monitors: [monitor.name],\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nmonitor = f5bigip.ltm.Monitor(\"monitor\",\n    name=\"/Common/terraform_monitor\",\n    parent=\"/Common/http\")\npool = f5bigip.ltm.Pool(\"pool\",\n    name=\"/Common/Axiom_Environment_APP1_Pool\",\n    load_balancing_mode=\"round-robin\",\n    minimum_active_members=1,\n    monitors=[monitor.name])\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var monitor = new F5BigIP.Ltm.Monitor(\"monitor\", new F5BigIP.Ltm.MonitorArgs\n        {\n            Name = \"/Common/terraform_monitor\",\n            Parent = \"/Common/http\",\n        });\n        var pool = new F5BigIP.Ltm.Pool(\"pool\", new F5BigIP.Ltm.PoolArgs\n        {\n            Name = \"/Common/Axiom_Environment_APP1_Pool\",\n            LoadBalancingMode = \"round-robin\",\n            MinimumActiveMembers = 1,\n            Monitors = \n            {\n                monitor.Name,\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmonitor, err := ltm.NewMonitor(ctx, \"monitor\", \u0026ltm.MonitorArgs{\n\t\t\tName:   pulumi.String(\"/Common/terraform_monitor\"),\n\t\t\tParent: pulumi.String(\"/Common/http\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewPool(ctx, \"pool\", \u0026ltm.PoolArgs{\n\t\t\tName:                 pulumi.String(\"/Common/Axiom_Environment_APP1_Pool\"),\n\t\t\tLoadBalancingMode:    pulumi.String(\"round-robin\"),\n\t\t\tMinimumActiveMembers: pulumi.Int(1),\n\t\t\tMonitors: pulumi.StringArray{\n\t\t\t\tmonitor.Name,\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "`f5bigip.ltm.Pool` Manages F5 BIG-IP LTM pools via iControl REST API.\n\nResources should be named with their \"full path\". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst monitor = new f5bigip.ltm.Monitor(\"monitor\", {\n    name: \"/Common/terraform_monitor\",\n    parent: \"/Common/http\",\n});\nconst pool = new f5bigip.ltm.Pool(\"pool\", {\n    name: \"/Common/Axiom_Environment_APP1_Pool\",\n    loadBalancingMode: \"round-robin\",\n    minimumActiveMembers: 1,\n    monitors: [monitor.name],\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nmonitor = f5bigip.ltm.Monitor(\"monitor\",\n    name=\"/Common/terraform_monitor\",\n    parent=\"/Common/http\")\npool = f5bigip.ltm.Pool(\"pool\",\n    name=\"/Common/Axiom_Environment_APP1_Pool\",\n    load_balancing_mode=\"round-robin\",\n    minimum_active_members=1,\n    monitors=[monitor.name])\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var monitor = new F5BigIP.Ltm.Monitor(\"monitor\", new F5BigIP.Ltm.MonitorArgs\n        {\n            Name = \"/Common/terraform_monitor\",\n            Parent = \"/Common/http\",\n        });\n        var pool = new F5BigIP.Ltm.Pool(\"pool\", new F5BigIP.Ltm.PoolArgs\n        {\n            Name = \"/Common/Axiom_Environment_APP1_Pool\",\n            LoadBalancingMode = \"round-robin\",\n            MinimumActiveMembers = 1,\n            Monitors = \n            {\n                monitor.Name,\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmonitor, err := ltm.NewMonitor(ctx, \"monitor\", \u0026ltm.MonitorArgs{\n\t\t\tName:   pulumi.String(\"/Common/terraform_monitor\"),\n\t\t\tParent: pulumi.String(\"/Common/http\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewPool(ctx, \"pool\", \u0026ltm.PoolArgs{\n\t\t\tName:                 pulumi.String(\"/Common/Axiom_Environment_APP1_Pool\"),\n\t\t\tLoadBalancingMode:    pulumi.String(\"round-robin\"),\n\t\t\tMinimumActiveMembers: pulumi.Int(1),\n\t\t\tMonitors: pulumi.StringArray{\n\t\t\t\tmonitor.Name,\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "allowNat": {
                     "type": "string",
@@ -5462,6 +5522,15 @@
                 }
             },
             "required": [
+                "connpoolMaxreuse",
+                "connpoolMaxsize",
+                "connpoolMinsize",
+                "connpoolReplenish",
+                "connpoolStep",
+                "connpoolidleTimeoutoverride",
+                "forcehttp10response",
+                "idleTimeout",
+                "maxheaderSize",
                 "name"
             ],
             "inputProperties": {
@@ -9273,6 +9342,88 @@
                     "timeout",
                     "transparent",
                     "username",
+                    "id"
+                ]
+            }
+        },
+        "f5bigip:ltm/getNode:getNode": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getNode.\n",
+                "properties": {
+                    "address": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "fqdn": {
+                        "$ref": "#/types/f5bigip:ltm/getNodeFqdn:getNodeFqdn"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "partition": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name",
+                    "partition"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getNode.\n",
+                "properties": {
+                    "address": {
+                        "type": "string"
+                    },
+                    "connectionLimit": {
+                        "type": "integer"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "dynamicRatio": {
+                        "type": "integer"
+                    },
+                    "fqdn": {
+                        "$ref": "#/types/f5bigip:ltm/getNodeFqdn:getNodeFqdn"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "monitor": {
+                        "type": "string"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "partition": {
+                        "type": "string"
+                    },
+                    "rateLimit": {
+                        "type": "string"
+                    },
+                    "ratio": {
+                        "type": "integer"
+                    },
+                    "state": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "connectionLimit",
+                    "dynamicRatio",
+                    "fqdn",
+                    "monitor",
+                    "name",
+                    "partition",
+                    "rateLimit",
+                    "ratio",
+                    "state",
                     "id"
                 ]
             }

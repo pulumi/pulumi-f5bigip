@@ -67,18 +67,18 @@ type PersistenceProfileSsl struct {
 	// Inherit defaults from parent profile
 	DefaultsFrom pulumi.StringOutput `pulumi:"defaultsFrom"`
 	// To enable _ disable match across pools with given persistence record
-	MatchAcrossPools pulumi.StringPtrOutput `pulumi:"matchAcrossPools"`
+	MatchAcrossPools pulumi.StringOutput `pulumi:"matchAcrossPools"`
 	// To enable _ disable match across services with given persistence record
-	MatchAcrossServices pulumi.StringPtrOutput `pulumi:"matchAcrossServices"`
+	MatchAcrossServices pulumi.StringOutput `pulumi:"matchAcrossServices"`
 	// To enable _ disable match across services with given persistence record
-	MatchAcrossVirtuals pulumi.StringPtrOutput `pulumi:"matchAcrossVirtuals"`
+	MatchAcrossVirtuals pulumi.StringOutput `pulumi:"matchAcrossVirtuals"`
 	// To enable _ disable
-	Mirror pulumi.StringPtrOutput `pulumi:"mirror"`
+	Mirror pulumi.StringOutput `pulumi:"mirror"`
 	// Name of the persistence profile
 	Name pulumi.StringOutput `pulumi:"name"`
 	// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
 	// limits remain hard limits and are not overridden.
-	OverrideConnLimit pulumi.StringPtrOutput `pulumi:"overrideConnLimit"`
+	OverrideConnLimit pulumi.StringOutput `pulumi:"overrideConnLimit"`
 	// Timeout for persistence of the session
 	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
 }
