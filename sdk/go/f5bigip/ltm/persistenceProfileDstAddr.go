@@ -65,29 +65,29 @@ import (
 type PersistenceProfileDstAddr struct {
 	pulumi.CustomResourceState
 
-	AppService pulumi.StringPtrOutput `pulumi:"appService"`
+	AppService pulumi.StringOutput `pulumi:"appService"`
 	// Inherit defaults from parent profile
 	DefaultsFrom pulumi.StringOutput `pulumi:"defaultsFrom"`
 	// Specify the hash algorithm
-	HashAlgorithm pulumi.StringPtrOutput `pulumi:"hashAlgorithm"`
+	HashAlgorithm pulumi.StringOutput `pulumi:"hashAlgorithm"`
 	// Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
 	// when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
-	Mask pulumi.StringPtrOutput `pulumi:"mask"`
+	Mask pulumi.StringOutput `pulumi:"mask"`
 	// To enable _ disable match across pools with given persistence record
-	MatchAcrossPools pulumi.StringPtrOutput `pulumi:"matchAcrossPools"`
+	MatchAcrossPools pulumi.StringOutput `pulumi:"matchAcrossPools"`
 	// To enable _ disable match across services with given persistence record
-	MatchAcrossServices pulumi.StringPtrOutput `pulumi:"matchAcrossServices"`
+	MatchAcrossServices pulumi.StringOutput `pulumi:"matchAcrossServices"`
 	// To enable _ disable match across services with given persistence record
-	MatchAcrossVirtuals pulumi.StringPtrOutput `pulumi:"matchAcrossVirtuals"`
+	MatchAcrossVirtuals pulumi.StringOutput `pulumi:"matchAcrossVirtuals"`
 	// To enable _ disable
-	Mirror pulumi.StringPtrOutput `pulumi:"mirror"`
+	Mirror pulumi.StringOutput `pulumi:"mirror"`
 	// Name of the persistence profile
 	Name pulumi.StringOutput `pulumi:"name"`
 	// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
 	// limits remain hard limits and are not overridden.
-	OverrideConnLimit pulumi.StringPtrOutput `pulumi:"overrideConnLimit"`
+	OverrideConnLimit pulumi.StringOutput `pulumi:"overrideConnLimit"`
 	// Timeout for persistence of the session
-	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
+	Timeout pulumi.IntOutput `pulumi:"timeout"`
 }
 
 // NewPersistenceProfileDstAddr registers a new resource with the given unique name, arguments, and options.

@@ -57,6 +57,12 @@ namespace Pulumi.F5BigIP
         public Output<string> As3Json { get; private set; } = null!;
 
         /// <summary>
+        /// Set True if you want to ignore metadata changes during update. By default it is set to false
+        /// </summary>
+        [Output("ignoreMetadata")]
+        public Output<bool?> IgnoreMetadata { get; private set; } = null!;
+
+        /// <summary>
         /// If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified
         /// </summary>
         [Output("tenantFilter")]
@@ -133,6 +139,12 @@ namespace Pulumi.F5BigIP
         public Input<string> As3Json { get; set; } = null!;
 
         /// <summary>
+        /// Set True if you want to ignore metadata changes during update. By default it is set to false
+        /// </summary>
+        [Input("ignoreMetadata")]
+        public Input<bool>? IgnoreMetadata { get; set; }
+
+        /// <summary>
         /// If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified
         /// </summary>
         [Input("tenantFilter")]
@@ -168,6 +180,12 @@ namespace Pulumi.F5BigIP
         /// </summary>
         [Input("as3Json")]
         public Input<string>? As3Json { get; set; }
+
+        /// <summary>
+        /// Set True if you want to ignore metadata changes during update. By default it is set to false
+        /// </summary>
+        [Input("ignoreMetadata")]
+        public Input<bool>? IgnoreMetadata { get; set; }
 
         /// <summary>
         /// If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified

@@ -17,6 +17,7 @@ class As3(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_list: Optional[pulumi.Input[str]] = None,
                  as3_json: Optional[pulumi.Input[str]] = None,
+                 ignore_metadata: Optional[pulumi.Input[bool]] = None,
                  tenant_filter: Optional[pulumi.Input[str]] = None,
                  tenant_list: Optional[pulumi.Input[str]] = None,
                  tenant_name: Optional[pulumi.Input[str]] = None,
@@ -46,6 +47,7 @@ class As3(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_list: Name of Application
         :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to false
         :param pulumi.Input[str] tenant_filter: If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified
         :param pulumi.Input[str] tenant_list: Name of Tenant
         :param pulumi.Input[str] tenant_name: Name of Tenant
@@ -71,6 +73,7 @@ class As3(pulumi.CustomResource):
             if as3_json is None and not opts.urn:
                 raise TypeError("Missing required property 'as3_json'")
             __props__['as3_json'] = as3_json
+            __props__['ignore_metadata'] = ignore_metadata
             __props__['tenant_filter'] = tenant_filter
             __props__['tenant_list'] = tenant_list
             if tenant_name is not None and not opts.urn:
@@ -89,6 +92,7 @@ class As3(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             application_list: Optional[pulumi.Input[str]] = None,
             as3_json: Optional[pulumi.Input[str]] = None,
+            ignore_metadata: Optional[pulumi.Input[bool]] = None,
             tenant_filter: Optional[pulumi.Input[str]] = None,
             tenant_list: Optional[pulumi.Input[str]] = None,
             tenant_name: Optional[pulumi.Input[str]] = None) -> 'As3':
@@ -101,6 +105,7 @@ class As3(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_list: Name of Application
         :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to false
         :param pulumi.Input[str] tenant_filter: If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified
         :param pulumi.Input[str] tenant_list: Name of Tenant
         :param pulumi.Input[str] tenant_name: Name of Tenant
@@ -111,6 +116,7 @@ class As3(pulumi.CustomResource):
 
         __props__["application_list"] = application_list
         __props__["as3_json"] = as3_json
+        __props__["ignore_metadata"] = ignore_metadata
         __props__["tenant_filter"] = tenant_filter
         __props__["tenant_list"] = tenant_list
         __props__["tenant_name"] = tenant_name
@@ -131,6 +137,14 @@ class As3(pulumi.CustomResource):
         Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         """
         return pulumi.get(self, "as3_json")
+
+    @property
+    @pulumi.getter(name="ignoreMetadata")
+    def ignore_metadata(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Set True if you want to ignore metadata changes during update. By default it is set to false
+        """
+        return pulumi.get(self, "ignore_metadata")
 
     @property
     @pulumi.getter(name="tenantFilter")

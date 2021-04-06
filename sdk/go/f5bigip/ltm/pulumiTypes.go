@@ -1765,7 +1765,7 @@ type ProfileClientSslCertKeyChain struct {
 	Chain *string `pulumi:"chain"`
 	// Contains a key name
 	Key *string `pulumi:"key"`
-	// Specifies the name of the profile. (type `string`)
+	// Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
 	Name       *string `pulumi:"name"`
 	Passphrase *string `pulumi:"passphrase"`
 }
@@ -1788,7 +1788,7 @@ type ProfileClientSslCertKeyChainArgs struct {
 	Chain pulumi.StringPtrInput `pulumi:"chain"`
 	// Contains a key name
 	Key pulumi.StringPtrInput `pulumi:"key"`
-	// Specifies the name of the profile. (type `string`)
+	// Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
 	Name       pulumi.StringPtrInput `pulumi:"name"`
 	Passphrase pulumi.StringPtrInput `pulumi:"passphrase"`
 }
@@ -1859,7 +1859,7 @@ func (o ProfileClientSslCertKeyChainOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileClientSslCertKeyChain) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the profile. (type `string`)
+// Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
 func (o ProfileClientSslCertKeyChainOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProfileClientSslCertKeyChain) *string { return v.Name }).(pulumi.StringPtrOutput)
 }

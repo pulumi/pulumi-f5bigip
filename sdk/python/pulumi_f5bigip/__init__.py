@@ -9,7 +9,10 @@ from .command import *
 from .common_license_manage_big_iq import *
 from .do import *
 from .event_service_discovery import *
+from .ipsec_policy import *
+from .net_tunnel import *
 from .provider import *
+from .traffic_selector import *
 from ._inputs import *
 from . import outputs
 
@@ -47,6 +50,12 @@ def _register_module():
                 return Do(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "f5bigip:index/eventServiceDiscovery:EventServiceDiscovery":
                 return EventServiceDiscovery(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "f5bigip:index/ipsecPolicy:IpsecPolicy":
+                return IpsecPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "f5bigip:index/netTunnel:NetTunnel":
+                return NetTunnel(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "f5bigip:index/trafficSelector:TrafficSelector":
+                return TrafficSelector(name, pulumi.ResourceOptions(urn=urn))
             else:
                 raise Exception(f"unknown resource type {typ}")
 
@@ -58,6 +67,9 @@ def _register_module():
     pulumi.runtime.register_resource_module("f5bigip", "index/commonLicenseManageBigIq", _module_instance)
     pulumi.runtime.register_resource_module("f5bigip", "index/do", _module_instance)
     pulumi.runtime.register_resource_module("f5bigip", "index/eventServiceDiscovery", _module_instance)
+    pulumi.runtime.register_resource_module("f5bigip", "index/ipsecPolicy", _module_instance)
+    pulumi.runtime.register_resource_module("f5bigip", "index/netTunnel", _module_instance)
+    pulumi.runtime.register_resource_module("f5bigip", "index/trafficSelector", _module_instance)
 
 
     class Package(pulumi.runtime.ResourcePackage):

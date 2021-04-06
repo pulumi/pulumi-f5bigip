@@ -68,6 +68,18 @@ export class ProfileClientSsl extends pulumi.CustomResource {
      */
     public readonly authenticateDepth!: pulumi.Output<number>;
     /**
+     * Specifies the client certificate to use in SSL client certificate constrained delegation. This certificate will be used if client does not provide a cert during the SSL handshake. The default value is none.
+     */
+    public readonly c3dClientFallbackCert!: pulumi.Output<string>;
+    /**
+     * Specifies the BIG-IP action when the OCSP responder returns unknown status. The default value is drop, which causes the onnection to be dropped. Conversely, you can specify ignore, which causes the connection to ignore the unknown status and continue.
+     */
+    public readonly c3dDropUnknownOcspStatus!: pulumi.Output<string>;
+    /**
+     * Specifies the SSL client certificate constrained delegation OCSP object that the BIG-IP SSL should use to connect to the OCSP responder and check the client certificate status.
+     */
+    public readonly c3dOcsp!: pulumi.Output<string>;
+    /**
      * Client certificate file path. Default None.
      */
     public readonly caFile!: pulumi.Output<string>;
@@ -113,7 +125,7 @@ export class ProfileClientSsl extends pulumi.CustomResource {
      */
     public readonly crlFile!: pulumi.Output<string>;
     /**
-     * The parent template of this monitor template. Once this value has been set, it cannot be changed. By default, this value is the `clientssl` parent on the `Common` partition.
+     * Parent profile for this clientssl profile.Once this value has been set, it cannot be changed. Default value is `/Common/clientssl`. It Should Full path `/partition/profile_name`
      */
     public readonly defaultsFrom!: pulumi.Output<string | undefined>;
     /**
@@ -153,11 +165,11 @@ export class ProfileClientSsl extends pulumi.CustomResource {
      */
     public readonly mode!: pulumi.Output<string>;
     /**
-     * Specifies the name of the profile. (type `string`)
+     * Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Device partition to manage resources on.
+     * name of partition
      */
     public readonly partition!: pulumi.Output<string>;
     /**
@@ -233,6 +245,10 @@ export class ProfileClientSsl extends pulumi.CustomResource {
      */
     public readonly sniRequire!: pulumi.Output<string>;
     /**
+     * Enables or disables SSL client certificate constrained delegation. The default option is disabled. Conversely, you can specify enabled to use the SSL client certificate constrained delegation.
+     */
+    public readonly sslC3d!: pulumi.Output<string>;
+    /**
      * Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
      */
     public readonly sslForwardProxy!: pulumi.Output<string>;
@@ -248,6 +264,10 @@ export class ProfileClientSsl extends pulumi.CustomResource {
      * Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
      */
     public readonly strictResume!: pulumi.Output<string>;
+    /**
+     * List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
+     * Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tmOptions    = ["dont-insert-empty-fragments","no-tlsv1.3"]
+     */
     public readonly tmOptions!: pulumi.Output<string[]>;
     /**
      * Unclean Shutdown (enabled / disabled)
@@ -271,6 +291,9 @@ export class ProfileClientSsl extends pulumi.CustomResource {
             inputs["allowNonSsl"] = state ? state.allowNonSsl : undefined;
             inputs["authenticate"] = state ? state.authenticate : undefined;
             inputs["authenticateDepth"] = state ? state.authenticateDepth : undefined;
+            inputs["c3dClientFallbackCert"] = state ? state.c3dClientFallbackCert : undefined;
+            inputs["c3dDropUnknownOcspStatus"] = state ? state.c3dDropUnknownOcspStatus : undefined;
+            inputs["c3dOcsp"] = state ? state.c3dOcsp : undefined;
             inputs["caFile"] = state ? state.caFile : undefined;
             inputs["cacheSize"] = state ? state.cacheSize : undefined;
             inputs["cacheTimeout"] = state ? state.cacheTimeout : undefined;
@@ -312,6 +335,7 @@ export class ProfileClientSsl extends pulumi.CustomResource {
             inputs["sessionTicket"] = state ? state.sessionTicket : undefined;
             inputs["sniDefault"] = state ? state.sniDefault : undefined;
             inputs["sniRequire"] = state ? state.sniRequire : undefined;
+            inputs["sslC3d"] = state ? state.sslC3d : undefined;
             inputs["sslForwardProxy"] = state ? state.sslForwardProxy : undefined;
             inputs["sslForwardProxyBypass"] = state ? state.sslForwardProxyBypass : undefined;
             inputs["sslSignHash"] = state ? state.sslSignHash : undefined;
@@ -327,6 +351,9 @@ export class ProfileClientSsl extends pulumi.CustomResource {
             inputs["allowNonSsl"] = args ? args.allowNonSsl : undefined;
             inputs["authenticate"] = args ? args.authenticate : undefined;
             inputs["authenticateDepth"] = args ? args.authenticateDepth : undefined;
+            inputs["c3dClientFallbackCert"] = args ? args.c3dClientFallbackCert : undefined;
+            inputs["c3dDropUnknownOcspStatus"] = args ? args.c3dDropUnknownOcspStatus : undefined;
+            inputs["c3dOcsp"] = args ? args.c3dOcsp : undefined;
             inputs["caFile"] = args ? args.caFile : undefined;
             inputs["cacheSize"] = args ? args.cacheSize : undefined;
             inputs["cacheTimeout"] = args ? args.cacheTimeout : undefined;
@@ -368,6 +395,7 @@ export class ProfileClientSsl extends pulumi.CustomResource {
             inputs["sessionTicket"] = args ? args.sessionTicket : undefined;
             inputs["sniDefault"] = args ? args.sniDefault : undefined;
             inputs["sniRequire"] = args ? args.sniRequire : undefined;
+            inputs["sslC3d"] = args ? args.sslC3d : undefined;
             inputs["sslForwardProxy"] = args ? args.sslForwardProxy : undefined;
             inputs["sslForwardProxyBypass"] = args ? args.sslForwardProxyBypass : undefined;
             inputs["sslSignHash"] = args ? args.sslSignHash : undefined;
@@ -404,6 +432,18 @@ export interface ProfileClientSslState {
      */
     readonly authenticateDepth?: pulumi.Input<number>;
     /**
+     * Specifies the client certificate to use in SSL client certificate constrained delegation. This certificate will be used if client does not provide a cert during the SSL handshake. The default value is none.
+     */
+    readonly c3dClientFallbackCert?: pulumi.Input<string>;
+    /**
+     * Specifies the BIG-IP action when the OCSP responder returns unknown status. The default value is drop, which causes the onnection to be dropped. Conversely, you can specify ignore, which causes the connection to ignore the unknown status and continue.
+     */
+    readonly c3dDropUnknownOcspStatus?: pulumi.Input<string>;
+    /**
+     * Specifies the SSL client certificate constrained delegation OCSP object that the BIG-IP SSL should use to connect to the OCSP responder and check the client certificate status.
+     */
+    readonly c3dOcsp?: pulumi.Input<string>;
+    /**
      * Client certificate file path. Default None.
      */
     readonly caFile?: pulumi.Input<string>;
@@ -449,7 +489,7 @@ export interface ProfileClientSslState {
      */
     readonly crlFile?: pulumi.Input<string>;
     /**
-     * The parent template of this monitor template. Once this value has been set, it cannot be changed. By default, this value is the `clientssl` parent on the `Common` partition.
+     * Parent profile for this clientssl profile.Once this value has been set, it cannot be changed. Default value is `/Common/clientssl`. It Should Full path `/partition/profile_name`
      */
     readonly defaultsFrom?: pulumi.Input<string>;
     /**
@@ -489,11 +529,11 @@ export interface ProfileClientSslState {
      */
     readonly mode?: pulumi.Input<string>;
     /**
-     * Specifies the name of the profile. (type `string`)
+     * Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Device partition to manage resources on.
+     * name of partition
      */
     readonly partition?: pulumi.Input<string>;
     /**
@@ -569,6 +609,10 @@ export interface ProfileClientSslState {
      */
     readonly sniRequire?: pulumi.Input<string>;
     /**
+     * Enables or disables SSL client certificate constrained delegation. The default option is disabled. Conversely, you can specify enabled to use the SSL client certificate constrained delegation.
+     */
+    readonly sslC3d?: pulumi.Input<string>;
+    /**
      * Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
      */
     readonly sslForwardProxy?: pulumi.Input<string>;
@@ -584,6 +628,10 @@ export interface ProfileClientSslState {
      * Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
      */
     readonly strictResume?: pulumi.Input<string>;
+    /**
+     * List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
+     * Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tmOptions    = ["dont-insert-empty-fragments","no-tlsv1.3"]
+     */
     readonly tmOptions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Unclean Shutdown (enabled / disabled)
@@ -613,6 +661,18 @@ export interface ProfileClientSslArgs {
      */
     readonly authenticateDepth?: pulumi.Input<number>;
     /**
+     * Specifies the client certificate to use in SSL client certificate constrained delegation. This certificate will be used if client does not provide a cert during the SSL handshake. The default value is none.
+     */
+    readonly c3dClientFallbackCert?: pulumi.Input<string>;
+    /**
+     * Specifies the BIG-IP action when the OCSP responder returns unknown status. The default value is drop, which causes the onnection to be dropped. Conversely, you can specify ignore, which causes the connection to ignore the unknown status and continue.
+     */
+    readonly c3dDropUnknownOcspStatus?: pulumi.Input<string>;
+    /**
+     * Specifies the SSL client certificate constrained delegation OCSP object that the BIG-IP SSL should use to connect to the OCSP responder and check the client certificate status.
+     */
+    readonly c3dOcsp?: pulumi.Input<string>;
+    /**
      * Client certificate file path. Default None.
      */
     readonly caFile?: pulumi.Input<string>;
@@ -658,7 +718,7 @@ export interface ProfileClientSslArgs {
      */
     readonly crlFile?: pulumi.Input<string>;
     /**
-     * The parent template of this monitor template. Once this value has been set, it cannot be changed. By default, this value is the `clientssl` parent on the `Common` partition.
+     * Parent profile for this clientssl profile.Once this value has been set, it cannot be changed. Default value is `/Common/clientssl`. It Should Full path `/partition/profile_name`
      */
     readonly defaultsFrom?: pulumi.Input<string>;
     /**
@@ -698,11 +758,11 @@ export interface ProfileClientSslArgs {
      */
     readonly mode?: pulumi.Input<string>;
     /**
-     * Specifies the name of the profile. (type `string`)
+     * Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Device partition to manage resources on.
+     * name of partition
      */
     readonly partition?: pulumi.Input<string>;
     /**
@@ -778,6 +838,10 @@ export interface ProfileClientSslArgs {
      */
     readonly sniRequire?: pulumi.Input<string>;
     /**
+     * Enables or disables SSL client certificate constrained delegation. The default option is disabled. Conversely, you can specify enabled to use the SSL client certificate constrained delegation.
+     */
+    readonly sslC3d?: pulumi.Input<string>;
+    /**
      * Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
      */
     readonly sslForwardProxy?: pulumi.Input<string>;
@@ -793,6 +857,10 @@ export interface ProfileClientSslArgs {
      * Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
      */
     readonly strictResume?: pulumi.Input<string>;
+    /**
+     * List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
+     * Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tmOptions    = ["dont-insert-empty-fragments","no-tlsv1.3"]
+     */
     readonly tmOptions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Unclean Shutdown (enabled / disabled)

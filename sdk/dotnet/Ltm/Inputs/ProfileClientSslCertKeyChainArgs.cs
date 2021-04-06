@@ -31,7 +31,7 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
         public Input<string>? Key { get; set; }
 
         /// <summary>
-        /// Specifies the name of the profile. (type `string`)
+        /// Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

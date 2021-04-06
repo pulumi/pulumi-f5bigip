@@ -73,7 +73,7 @@ export class PersistenceProfileDstAddr extends pulumi.CustomResource {
         return obj['__pulumiType'] === PersistenceProfileDstAddr.__pulumiType;
     }
 
-    public readonly appService!: pulumi.Output<string | undefined>;
+    public readonly appService!: pulumi.Output<string>;
     /**
      * Inherit defaults from parent profile
      */
@@ -81,28 +81,28 @@ export class PersistenceProfileDstAddr extends pulumi.CustomResource {
     /**
      * Specify the hash algorithm
      */
-    public readonly hashAlgorithm!: pulumi.Output<string | undefined>;
+    public readonly hashAlgorithm!: pulumi.Output<string>;
     /**
      * Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
      * when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
      */
-    public readonly mask!: pulumi.Output<string | undefined>;
+    public readonly mask!: pulumi.Output<string>;
     /**
      * To enable _ disable match across pools with given persistence record
      */
-    public readonly matchAcrossPools!: pulumi.Output<string | undefined>;
+    public readonly matchAcrossPools!: pulumi.Output<string>;
     /**
      * To enable _ disable match across services with given persistence record
      */
-    public readonly matchAcrossServices!: pulumi.Output<string | undefined>;
+    public readonly matchAcrossServices!: pulumi.Output<string>;
     /**
      * To enable _ disable match across services with given persistence record
      */
-    public readonly matchAcrossVirtuals!: pulumi.Output<string | undefined>;
+    public readonly matchAcrossVirtuals!: pulumi.Output<string>;
     /**
      * To enable _ disable
      */
-    public readonly mirror!: pulumi.Output<string | undefined>;
+    public readonly mirror!: pulumi.Output<string>;
     /**
      * Name of the persistence profile
      */
@@ -111,11 +111,11 @@ export class PersistenceProfileDstAddr extends pulumi.CustomResource {
      * To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
      * limits remain hard limits and are not overridden.
      */
-    public readonly overrideConnLimit!: pulumi.Output<string | undefined>;
+    public readonly overrideConnLimit!: pulumi.Output<string>;
     /**
      * Timeout for persistence of the session
      */
-    public readonly timeout!: pulumi.Output<number | undefined>;
+    public readonly timeout!: pulumi.Output<number>;
 
     /**
      * Create a PersistenceProfileDstAddr resource with the given unique name, arguments, and options.

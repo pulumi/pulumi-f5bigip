@@ -20,7 +20,7 @@ class VirtualAddress(pulumi.CustomResource):
                  auto_delete: Optional[pulumi.Input[bool]] = None,
                  conn_limit: Optional[pulumi.Input[int]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
-                 icmp_echo: Optional[pulumi.Input[bool]] = None,
+                 icmp_echo: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  traffic_group: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -49,7 +49,7 @@ class VirtualAddress(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_delete: Automatically delete the virtual address with the virtual server
         :param pulumi.Input[int] conn_limit: Max number of connections for virtual address
         :param pulumi.Input[bool] enabled: Enable or disable the virtual address
-        :param pulumi.Input[bool] icmp_echo: Enable/Disable ICMP response to the virtual address
+        :param pulumi.Input[str] icmp_echo: Enable/Disable ICMP response to the virtual address
         :param pulumi.Input[str] name: Name of the virtual address
         :param pulumi.Input[str] traffic_group: Specify the partition and traffic group
         """
@@ -95,7 +95,7 @@ class VirtualAddress(pulumi.CustomResource):
             auto_delete: Optional[pulumi.Input[bool]] = None,
             conn_limit: Optional[pulumi.Input[int]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
-            icmp_echo: Optional[pulumi.Input[bool]] = None,
+            icmp_echo: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             traffic_group: Optional[pulumi.Input[str]] = None) -> 'VirtualAddress':
         """
@@ -110,7 +110,7 @@ class VirtualAddress(pulumi.CustomResource):
         :param pulumi.Input[bool] auto_delete: Automatically delete the virtual address with the virtual server
         :param pulumi.Input[int] conn_limit: Max number of connections for virtual address
         :param pulumi.Input[bool] enabled: Enable or disable the virtual address
-        :param pulumi.Input[bool] icmp_echo: Enable/Disable ICMP response to the virtual address
+        :param pulumi.Input[str] icmp_echo: Enable/Disable ICMP response to the virtual address
         :param pulumi.Input[str] name: Name of the virtual address
         :param pulumi.Input[str] traffic_group: Specify the partition and traffic group
         """
@@ -170,7 +170,7 @@ class VirtualAddress(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="icmpEcho")
-    def icmp_echo(self) -> pulumi.Output[Optional[bool]]:
+    def icmp_echo(self) -> pulumi.Output[Optional[str]]:
         """
         Enable/Disable ICMP response to the virtual address
         """

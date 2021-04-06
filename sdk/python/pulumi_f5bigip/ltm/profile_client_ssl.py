@@ -21,6 +21,9 @@ class ProfileClientSsl(pulumi.CustomResource):
                  allow_non_ssl: Optional[pulumi.Input[str]] = None,
                  authenticate: Optional[pulumi.Input[str]] = None,
                  authenticate_depth: Optional[pulumi.Input[int]] = None,
+                 c3d_client_fallback_cert: Optional[pulumi.Input[str]] = None,
+                 c3d_drop_unknown_ocsp_status: Optional[pulumi.Input[str]] = None,
+                 c3d_ocsp: Optional[pulumi.Input[str]] = None,
                  ca_file: Optional[pulumi.Input[str]] = None,
                  cache_size: Optional[pulumi.Input[int]] = None,
                  cache_timeout: Optional[pulumi.Input[int]] = None,
@@ -62,6 +65,7 @@ class ProfileClientSsl(pulumi.CustomResource):
                  session_ticket: Optional[pulumi.Input[str]] = None,
                  sni_default: Optional[pulumi.Input[str]] = None,
                  sni_require: Optional[pulumi.Input[str]] = None,
+                 ssl_c3d: Optional[pulumi.Input[str]] = None,
                  ssl_forward_proxy: Optional[pulumi.Input[str]] = None,
                  ssl_forward_proxy_bypass: Optional[pulumi.Input[str]] = None,
                  ssl_sign_hash: Optional[pulumi.Input[str]] = None,
@@ -94,6 +98,9 @@ class ProfileClientSsl(pulumi.CustomResource):
         :param pulumi.Input[str] authenticate: Specifies the frequency of client authentication for an SSL session.When `once`,specifies that the system authenticates the client once for an SSL session.
                When `always`, specifies that the system authenticates the client once for an SSL session and also upon reuse of that session.
         :param pulumi.Input[int] authenticate_depth: Specifies the maximum number of certificates to be traversed in a client certificate chain
+        :param pulumi.Input[str] c3d_client_fallback_cert: Specifies the client certificate to use in SSL client certificate constrained delegation. This certificate will be used if client does not provide a cert during the SSL handshake. The default value is none.
+        :param pulumi.Input[str] c3d_drop_unknown_ocsp_status: Specifies the BIG-IP action when the OCSP responder returns unknown status. The default value is drop, which causes the onnection to be dropped. Conversely, you can specify ignore, which causes the connection to ignore the unknown status and continue.
+        :param pulumi.Input[str] c3d_ocsp: Specifies the SSL client certificate constrained delegation OCSP object that the BIG-IP SSL should use to connect to the OCSP responder and check the client certificate status.
         :param pulumi.Input[str] ca_file: Client certificate file path. Default None.
         :param pulumi.Input[int] cache_size: Cache size (sessions).
         :param pulumi.Input[int] cache_timeout: Cache time out
@@ -105,7 +112,7 @@ class ProfileClientSsl(pulumi.CustomResource):
         :param pulumi.Input[str] ciphers: Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
         :param pulumi.Input[str] client_cert_ca: client certificate name
         :param pulumi.Input[str] crl_file: Certificate revocation file name
-        :param pulumi.Input[str] defaults_from: The parent template of this monitor template. Once this value has been set, it cannot be changed. By default, this value is the `clientssl` parent on the `Common` partition.
+        :param pulumi.Input[str] defaults_from: Parent profile for this clientssl profile.Once this value has been set, it cannot be changed. Default value is `/Common/clientssl`. It Should Full path `/partition/profile_name`
         :param pulumi.Input[str] forward_proxy_bypass_default_action: Forward proxy bypass default action. (enabled / disabled)
         :param pulumi.Input[str] full_path: full path of the profile
         :param pulumi.Input[int] generation: generation
@@ -115,8 +122,8 @@ class ProfileClientSsl(pulumi.CustomResource):
         :param pulumi.Input[str] key: Contains a key name
         :param pulumi.Input[str] mod_ssl_methods: ModSSL Methods enabled / disabled. Default is disabled.
         :param pulumi.Input[str] mode: ModSSL Methods enabled / disabled. Default is disabled.
-        :param pulumi.Input[str] name: Specifies the name of the profile. (type `string`)
-        :param pulumi.Input[str] partition: Device partition to manage resources on.
+        :param pulumi.Input[str] name: Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
+        :param pulumi.Input[str] partition: name of partition
         :param pulumi.Input[str] passphrase: Client Certificate Constrained Delegation CA passphrase
         :param pulumi.Input[str] peer_cert_mode: Specifies the way the system handles client certificates.When ignore, specifies that the system ignores certificates from client systems.When require, specifies that the system requires a client to present a valid certificate.When request, specifies that the system requests a valid certificate from a client but always authenticate the client.
         :param pulumi.Input[str] proxy_ca_cert: Proxy CA Cert
@@ -138,10 +145,13 @@ class ProfileClientSsl(pulumi.CustomResource):
         :param pulumi.Input[str] sni_default: Indicates that the system uses this profile as the default SSL profile when there is no match to the server name, or when the client provides no SNI extension support.When creating a new profile, the setting is provided by the parent profile.
                There can be only one SSL profile with this setting enabled.
         :param pulumi.Input[str] sni_require: Requires that the network peers also provide SNI support, this setting only takes effect when `sni_default` is set to `true`.When creating a new profile, the setting is provided by the parent profile
+        :param pulumi.Input[str] ssl_c3d: Enables or disables SSL client certificate constrained delegation. The default option is disabled. Conversely, you can specify enabled to use the SSL client certificate constrained delegation.
         :param pulumi.Input[str] ssl_forward_proxy: Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
         :param pulumi.Input[str] ssl_forward_proxy_bypass: Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
         :param pulumi.Input[str] ssl_sign_hash: SSL sign hash (any, sha1, sha256, sha384)
         :param pulumi.Input[str] strict_resume: Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tm_options: List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
+               Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = ["dont-insert-empty-fragments","no-tlsv1.3"]
         :param pulumi.Input[str] unclean_shutdown: Unclean Shutdown (enabled / disabled)
         """
         if __name__ is not None:
@@ -165,6 +175,9 @@ class ProfileClientSsl(pulumi.CustomResource):
             __props__['allow_non_ssl'] = allow_non_ssl
             __props__['authenticate'] = authenticate
             __props__['authenticate_depth'] = authenticate_depth
+            __props__['c3d_client_fallback_cert'] = c3d_client_fallback_cert
+            __props__['c3d_drop_unknown_ocsp_status'] = c3d_drop_unknown_ocsp_status
+            __props__['c3d_ocsp'] = c3d_ocsp
             __props__['ca_file'] = ca_file
             __props__['cache_size'] = cache_size
             __props__['cache_timeout'] = cache_timeout
@@ -208,6 +221,7 @@ class ProfileClientSsl(pulumi.CustomResource):
             __props__['session_ticket'] = session_ticket
             __props__['sni_default'] = sni_default
             __props__['sni_require'] = sni_require
+            __props__['ssl_c3d'] = ssl_c3d
             __props__['ssl_forward_proxy'] = ssl_forward_proxy
             __props__['ssl_forward_proxy_bypass'] = ssl_forward_proxy_bypass
             __props__['ssl_sign_hash'] = ssl_sign_hash
@@ -228,6 +242,9 @@ class ProfileClientSsl(pulumi.CustomResource):
             allow_non_ssl: Optional[pulumi.Input[str]] = None,
             authenticate: Optional[pulumi.Input[str]] = None,
             authenticate_depth: Optional[pulumi.Input[int]] = None,
+            c3d_client_fallback_cert: Optional[pulumi.Input[str]] = None,
+            c3d_drop_unknown_ocsp_status: Optional[pulumi.Input[str]] = None,
+            c3d_ocsp: Optional[pulumi.Input[str]] = None,
             ca_file: Optional[pulumi.Input[str]] = None,
             cache_size: Optional[pulumi.Input[int]] = None,
             cache_timeout: Optional[pulumi.Input[int]] = None,
@@ -269,6 +286,7 @@ class ProfileClientSsl(pulumi.CustomResource):
             session_ticket: Optional[pulumi.Input[str]] = None,
             sni_default: Optional[pulumi.Input[str]] = None,
             sni_require: Optional[pulumi.Input[str]] = None,
+            ssl_c3d: Optional[pulumi.Input[str]] = None,
             ssl_forward_proxy: Optional[pulumi.Input[str]] = None,
             ssl_forward_proxy_bypass: Optional[pulumi.Input[str]] = None,
             ssl_sign_hash: Optional[pulumi.Input[str]] = None,
@@ -287,6 +305,9 @@ class ProfileClientSsl(pulumi.CustomResource):
         :param pulumi.Input[str] authenticate: Specifies the frequency of client authentication for an SSL session.When `once`,specifies that the system authenticates the client once for an SSL session.
                When `always`, specifies that the system authenticates the client once for an SSL session and also upon reuse of that session.
         :param pulumi.Input[int] authenticate_depth: Specifies the maximum number of certificates to be traversed in a client certificate chain
+        :param pulumi.Input[str] c3d_client_fallback_cert: Specifies the client certificate to use in SSL client certificate constrained delegation. This certificate will be used if client does not provide a cert during the SSL handshake. The default value is none.
+        :param pulumi.Input[str] c3d_drop_unknown_ocsp_status: Specifies the BIG-IP action when the OCSP responder returns unknown status. The default value is drop, which causes the onnection to be dropped. Conversely, you can specify ignore, which causes the connection to ignore the unknown status and continue.
+        :param pulumi.Input[str] c3d_ocsp: Specifies the SSL client certificate constrained delegation OCSP object that the BIG-IP SSL should use to connect to the OCSP responder and check the client certificate status.
         :param pulumi.Input[str] ca_file: Client certificate file path. Default None.
         :param pulumi.Input[int] cache_size: Cache size (sessions).
         :param pulumi.Input[int] cache_timeout: Cache time out
@@ -298,7 +319,7 @@ class ProfileClientSsl(pulumi.CustomResource):
         :param pulumi.Input[str] ciphers: Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
         :param pulumi.Input[str] client_cert_ca: client certificate name
         :param pulumi.Input[str] crl_file: Certificate revocation file name
-        :param pulumi.Input[str] defaults_from: The parent template of this monitor template. Once this value has been set, it cannot be changed. By default, this value is the `clientssl` parent on the `Common` partition.
+        :param pulumi.Input[str] defaults_from: Parent profile for this clientssl profile.Once this value has been set, it cannot be changed. Default value is `/Common/clientssl`. It Should Full path `/partition/profile_name`
         :param pulumi.Input[str] forward_proxy_bypass_default_action: Forward proxy bypass default action. (enabled / disabled)
         :param pulumi.Input[str] full_path: full path of the profile
         :param pulumi.Input[int] generation: generation
@@ -308,8 +329,8 @@ class ProfileClientSsl(pulumi.CustomResource):
         :param pulumi.Input[str] key: Contains a key name
         :param pulumi.Input[str] mod_ssl_methods: ModSSL Methods enabled / disabled. Default is disabled.
         :param pulumi.Input[str] mode: ModSSL Methods enabled / disabled. Default is disabled.
-        :param pulumi.Input[str] name: Specifies the name of the profile. (type `string`)
-        :param pulumi.Input[str] partition: Device partition to manage resources on.
+        :param pulumi.Input[str] name: Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
+        :param pulumi.Input[str] partition: name of partition
         :param pulumi.Input[str] passphrase: Client Certificate Constrained Delegation CA passphrase
         :param pulumi.Input[str] peer_cert_mode: Specifies the way the system handles client certificates.When ignore, specifies that the system ignores certificates from client systems.When require, specifies that the system requires a client to present a valid certificate.When request, specifies that the system requests a valid certificate from a client but always authenticate the client.
         :param pulumi.Input[str] proxy_ca_cert: Proxy CA Cert
@@ -331,10 +352,13 @@ class ProfileClientSsl(pulumi.CustomResource):
         :param pulumi.Input[str] sni_default: Indicates that the system uses this profile as the default SSL profile when there is no match to the server name, or when the client provides no SNI extension support.When creating a new profile, the setting is provided by the parent profile.
                There can be only one SSL profile with this setting enabled.
         :param pulumi.Input[str] sni_require: Requires that the network peers also provide SNI support, this setting only takes effect when `sni_default` is set to `true`.When creating a new profile, the setting is provided by the parent profile
+        :param pulumi.Input[str] ssl_c3d: Enables or disables SSL client certificate constrained delegation. The default option is disabled. Conversely, you can specify enabled to use the SSL client certificate constrained delegation.
         :param pulumi.Input[str] ssl_forward_proxy: Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
         :param pulumi.Input[str] ssl_forward_proxy_bypass: Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
         :param pulumi.Input[str] ssl_sign_hash: SSL sign hash (any, sha1, sha256, sha384)
         :param pulumi.Input[str] strict_resume: Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tm_options: List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
+               Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = ["dont-insert-empty-fragments","no-tlsv1.3"]
         :param pulumi.Input[str] unclean_shutdown: Unclean Shutdown (enabled / disabled)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -345,6 +369,9 @@ class ProfileClientSsl(pulumi.CustomResource):
         __props__["allow_non_ssl"] = allow_non_ssl
         __props__["authenticate"] = authenticate
         __props__["authenticate_depth"] = authenticate_depth
+        __props__["c3d_client_fallback_cert"] = c3d_client_fallback_cert
+        __props__["c3d_drop_unknown_ocsp_status"] = c3d_drop_unknown_ocsp_status
+        __props__["c3d_ocsp"] = c3d_ocsp
         __props__["ca_file"] = ca_file
         __props__["cache_size"] = cache_size
         __props__["cache_timeout"] = cache_timeout
@@ -386,6 +413,7 @@ class ProfileClientSsl(pulumi.CustomResource):
         __props__["session_ticket"] = session_ticket
         __props__["sni_default"] = sni_default
         __props__["sni_require"] = sni_require
+        __props__["ssl_c3d"] = ssl_c3d
         __props__["ssl_forward_proxy"] = ssl_forward_proxy
         __props__["ssl_forward_proxy_bypass"] = ssl_forward_proxy_bypass
         __props__["ssl_sign_hash"] = ssl_sign_hash
@@ -426,6 +454,30 @@ class ProfileClientSsl(pulumi.CustomResource):
         Specifies the maximum number of certificates to be traversed in a client certificate chain
         """
         return pulumi.get(self, "authenticate_depth")
+
+    @property
+    @pulumi.getter(name="c3dClientFallbackCert")
+    def c3d_client_fallback_cert(self) -> pulumi.Output[str]:
+        """
+        Specifies the client certificate to use in SSL client certificate constrained delegation. This certificate will be used if client does not provide a cert during the SSL handshake. The default value is none.
+        """
+        return pulumi.get(self, "c3d_client_fallback_cert")
+
+    @property
+    @pulumi.getter(name="c3dDropUnknownOcspStatus")
+    def c3d_drop_unknown_ocsp_status(self) -> pulumi.Output[str]:
+        """
+        Specifies the BIG-IP action when the OCSP responder returns unknown status. The default value is drop, which causes the onnection to be dropped. Conversely, you can specify ignore, which causes the connection to ignore the unknown status and continue.
+        """
+        return pulumi.get(self, "c3d_drop_unknown_ocsp_status")
+
+    @property
+    @pulumi.getter(name="c3dOcsp")
+    def c3d_ocsp(self) -> pulumi.Output[str]:
+        """
+        Specifies the SSL client certificate constrained delegation OCSP object that the BIG-IP SSL should use to connect to the OCSP responder and check the client certificate status.
+        """
+        return pulumi.get(self, "c3d_ocsp")
 
     @property
     @pulumi.getter(name="caFile")
@@ -524,7 +576,7 @@ class ProfileClientSsl(pulumi.CustomResource):
     @pulumi.getter(name="defaultsFrom")
     def defaults_from(self) -> pulumi.Output[Optional[str]]:
         """
-        The parent template of this monitor template. Once this value has been set, it cannot be changed. By default, this value is the `clientssl` parent on the `Common` partition.
+        Parent profile for this clientssl profile.Once this value has been set, it cannot be changed. Default value is `/Common/clientssl`. It Should Full path `/partition/profile_name`
         """
         return pulumi.get(self, "defaults_from")
 
@@ -604,7 +656,7 @@ class ProfileClientSsl(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the profile. (type `string`)
+        Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
         """
         return pulumi.get(self, "name")
 
@@ -612,7 +664,7 @@ class ProfileClientSsl(pulumi.CustomResource):
     @pulumi.getter
     def partition(self) -> pulumi.Output[str]:
         """
-        Device partition to manage resources on.
+        name of partition
         """
         return pulumi.get(self, "partition")
 
@@ -757,6 +809,14 @@ class ProfileClientSsl(pulumi.CustomResource):
         return pulumi.get(self, "sni_require")
 
     @property
+    @pulumi.getter(name="sslC3d")
+    def ssl_c3d(self) -> pulumi.Output[str]:
+        """
+        Enables or disables SSL client certificate constrained delegation. The default option is disabled. Conversely, you can specify enabled to use the SSL client certificate constrained delegation.
+        """
+        return pulumi.get(self, "ssl_c3d")
+
+    @property
     @pulumi.getter(name="sslForwardProxy")
     def ssl_forward_proxy(self) -> pulumi.Output[str]:
         """
@@ -791,6 +851,10 @@ class ProfileClientSsl(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tmOptions")
     def tm_options(self) -> pulumi.Output[Sequence[str]]:
+        """
+        List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
+        Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = ["dont-insert-empty-fragments","no-tlsv1.3"]
+        """
         return pulumi.get(self, "tm_options")
 
     @property

@@ -52,7 +52,7 @@ type VirtualAddress struct {
 	// Enable or disable the virtual address
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Enable/Disable ICMP response to the virtual address
-	IcmpEcho pulumi.BoolPtrOutput `pulumi:"icmpEcho"`
+	IcmpEcho pulumi.StringPtrOutput `pulumi:"icmpEcho"`
 	// Name of the virtual address
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specify the partition and traffic group
@@ -102,7 +102,7 @@ type virtualAddressState struct {
 	// Enable or disable the virtual address
 	Enabled *bool `pulumi:"enabled"`
 	// Enable/Disable ICMP response to the virtual address
-	IcmpEcho *bool `pulumi:"icmpEcho"`
+	IcmpEcho *string `pulumi:"icmpEcho"`
 	// Name of the virtual address
 	Name *string `pulumi:"name"`
 	// Specify the partition and traffic group
@@ -121,7 +121,7 @@ type VirtualAddressState struct {
 	// Enable or disable the virtual address
 	Enabled pulumi.BoolPtrInput
 	// Enable/Disable ICMP response to the virtual address
-	IcmpEcho pulumi.BoolPtrInput
+	IcmpEcho pulumi.StringPtrInput
 	// Name of the virtual address
 	Name pulumi.StringPtrInput
 	// Specify the partition and traffic group
@@ -144,7 +144,7 @@ type virtualAddressArgs struct {
 	// Enable or disable the virtual address
 	Enabled *bool `pulumi:"enabled"`
 	// Enable/Disable ICMP response to the virtual address
-	IcmpEcho *bool `pulumi:"icmpEcho"`
+	IcmpEcho *string `pulumi:"icmpEcho"`
 	// Name of the virtual address
 	Name string `pulumi:"name"`
 	// Specify the partition and traffic group
@@ -164,7 +164,7 @@ type VirtualAddressArgs struct {
 	// Enable or disable the virtual address
 	Enabled pulumi.BoolPtrInput
 	// Enable/Disable ICMP response to the virtual address
-	IcmpEcho pulumi.BoolPtrInput
+	IcmpEcho pulumi.StringPtrInput
 	// Name of the virtual address
 	Name pulumi.StringInput
 	// Specify the partition and traffic group

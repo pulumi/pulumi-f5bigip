@@ -124,6 +124,9 @@ func Provider() tfbridge.ProviderInfo {
 			"bigip_command":                         {Tok: makeResource(mainMod, "Command")},
 			"bigip_common_license_manage_bigiq":     {Tok: makeResource(mainMod, "CommonLicenseManageBigIq")},
 			"bigip_event_service_discovery":         {Tok: makeResource(mainMod, "EventServiceDiscovery")},
+			"bigip_ipsec_policy":                    {Tok: makeResource(mainMod, "IpsecPolicy")},
+			"bigip_net_tunnel":                      {Tok: makeResource(mainMod, "NetTunnel")},
+			"bigip_traffic_selector":                {Tok: makeResource(mainMod, "TrafficSelector")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"bigip_ltm_datagroup":   {Tok: makeDataSource(ltmMod, "getDataGroup")},

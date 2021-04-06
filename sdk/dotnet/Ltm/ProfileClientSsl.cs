@@ -63,6 +63,24 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<int> AuthenticateDepth { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the client certificate to use in SSL client certificate constrained delegation. This certificate will be used if client does not provide a cert during the SSL handshake. The default value is none.
+        /// </summary>
+        [Output("c3dClientFallbackCert")]
+        public Output<string> C3dClientFallbackCert { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the BIG-IP action when the OCSP responder returns unknown status. The default value is drop, which causes the onnection to be dropped. Conversely, you can specify ignore, which causes the connection to ignore the unknown status and continue.
+        /// </summary>
+        [Output("c3dDropUnknownOcspStatus")]
+        public Output<string> C3dDropUnknownOcspStatus { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the SSL client certificate constrained delegation OCSP object that the BIG-IP SSL should use to connect to the OCSP responder and check the client certificate status.
+        /// </summary>
+        [Output("c3dOcsp")]
+        public Output<string> C3dOcsp { get; private set; } = null!;
+
+        /// <summary>
         /// Client certificate file path. Default None.
         /// </summary>
         [Output("caFile")]
@@ -132,7 +150,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> CrlFile { get; private set; } = null!;
 
         /// <summary>
-        /// The parent template of this monitor template. Once this value has been set, it cannot be changed. By default, this value is the `clientssl` parent on the `Common` partition.
+        /// Parent profile for this clientssl profile.Once this value has been set, it cannot be changed. Default value is `/Common/clientssl`. It Should Full path `/partition/profile_name`
         /// </summary>
         [Output("defaultsFrom")]
         public Output<string?> DefaultsFrom { get; private set; } = null!;
@@ -192,13 +210,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> Mode { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the profile. (type `string`)
+        /// Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Device partition to manage resources on.
+        /// name of partition
         /// </summary>
         [Output("partition")]
         public Output<string> Partition { get; private set; } = null!;
@@ -310,6 +328,12 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> SniRequire { get; private set; } = null!;
 
         /// <summary>
+        /// Enables or disables SSL client certificate constrained delegation. The default option is disabled. Conversely, you can specify enabled to use the SSL client certificate constrained delegation.
+        /// </summary>
+        [Output("sslC3d")]
+        public Output<string> SslC3d { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
         /// </summary>
         [Output("sslForwardProxy")]
@@ -333,6 +357,10 @@ namespace Pulumi.F5BigIP.Ltm
         [Output("strictResume")]
         public Output<string> StrictResume { get; private set; } = null!;
 
+        /// <summary>
+        /// List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
+        /// Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = ["dont-insert-empty-fragments","no-tlsv1.3"]
+        /// </summary>
         [Output("tmOptions")]
         public Output<ImmutableArray<string>> TmOptions { get; private set; } = null!;
 
@@ -412,6 +440,24 @@ namespace Pulumi.F5BigIP.Ltm
         /// </summary>
         [Input("authenticateDepth")]
         public Input<int>? AuthenticateDepth { get; set; }
+
+        /// <summary>
+        /// Specifies the client certificate to use in SSL client certificate constrained delegation. This certificate will be used if client does not provide a cert during the SSL handshake. The default value is none.
+        /// </summary>
+        [Input("c3dClientFallbackCert")]
+        public Input<string>? C3dClientFallbackCert { get; set; }
+
+        /// <summary>
+        /// Specifies the BIG-IP action when the OCSP responder returns unknown status. The default value is drop, which causes the onnection to be dropped. Conversely, you can specify ignore, which causes the connection to ignore the unknown status and continue.
+        /// </summary>
+        [Input("c3dDropUnknownOcspStatus")]
+        public Input<string>? C3dDropUnknownOcspStatus { get; set; }
+
+        /// <summary>
+        /// Specifies the SSL client certificate constrained delegation OCSP object that the BIG-IP SSL should use to connect to the OCSP responder and check the client certificate status.
+        /// </summary>
+        [Input("c3dOcsp")]
+        public Input<string>? C3dOcsp { get; set; }
 
         /// <summary>
         /// Client certificate file path. Default None.
@@ -494,7 +540,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? CrlFile { get; set; }
 
         /// <summary>
-        /// The parent template of this monitor template. Once this value has been set, it cannot be changed. By default, this value is the `clientssl` parent on the `Common` partition.
+        /// Parent profile for this clientssl profile.Once this value has been set, it cannot be changed. Default value is `/Common/clientssl`. It Should Full path `/partition/profile_name`
         /// </summary>
         [Input("defaultsFrom")]
         public Input<string>? DefaultsFrom { get; set; }
@@ -554,13 +600,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Mode { get; set; }
 
         /// <summary>
-        /// Specifies the name of the profile. (type `string`)
+        /// Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Device partition to manage resources on.
+        /// name of partition
         /// </summary>
         [Input("partition")]
         public Input<string>? Partition { get; set; }
@@ -672,6 +718,12 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? SniRequire { get; set; }
 
         /// <summary>
+        /// Enables or disables SSL client certificate constrained delegation. The default option is disabled. Conversely, you can specify enabled to use the SSL client certificate constrained delegation.
+        /// </summary>
+        [Input("sslC3d")]
+        public Input<string>? SslC3d { get; set; }
+
+        /// <summary>
         /// Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
         /// </summary>
         [Input("sslForwardProxy")]
@@ -697,6 +749,11 @@ namespace Pulumi.F5BigIP.Ltm
 
         [Input("tmOptions")]
         private InputList<string>? _tmOptions;
+
+        /// <summary>
+        /// List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
+        /// Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = ["dont-insert-empty-fragments","no-tlsv1.3"]
+        /// </summary>
         public InputList<string> TmOptions
         {
             get => _tmOptions ?? (_tmOptions = new InputList<string>());
@@ -740,6 +797,24 @@ namespace Pulumi.F5BigIP.Ltm
         /// </summary>
         [Input("authenticateDepth")]
         public Input<int>? AuthenticateDepth { get; set; }
+
+        /// <summary>
+        /// Specifies the client certificate to use in SSL client certificate constrained delegation. This certificate will be used if client does not provide a cert during the SSL handshake. The default value is none.
+        /// </summary>
+        [Input("c3dClientFallbackCert")]
+        public Input<string>? C3dClientFallbackCert { get; set; }
+
+        /// <summary>
+        /// Specifies the BIG-IP action when the OCSP responder returns unknown status. The default value is drop, which causes the onnection to be dropped. Conversely, you can specify ignore, which causes the connection to ignore the unknown status and continue.
+        /// </summary>
+        [Input("c3dDropUnknownOcspStatus")]
+        public Input<string>? C3dDropUnknownOcspStatus { get; set; }
+
+        /// <summary>
+        /// Specifies the SSL client certificate constrained delegation OCSP object that the BIG-IP SSL should use to connect to the OCSP responder and check the client certificate status.
+        /// </summary>
+        [Input("c3dOcsp")]
+        public Input<string>? C3dOcsp { get; set; }
 
         /// <summary>
         /// Client certificate file path. Default None.
@@ -822,7 +897,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? CrlFile { get; set; }
 
         /// <summary>
-        /// The parent template of this monitor template. Once this value has been set, it cannot be changed. By default, this value is the `clientssl` parent on the `Common` partition.
+        /// Parent profile for this clientssl profile.Once this value has been set, it cannot be changed. Default value is `/Common/clientssl`. It Should Full path `/partition/profile_name`
         /// </summary>
         [Input("defaultsFrom")]
         public Input<string>? DefaultsFrom { get; set; }
@@ -882,13 +957,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Mode { get; set; }
 
         /// <summary>
-        /// Specifies the name of the profile. (type `string`)
+        /// Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Device partition to manage resources on.
+        /// name of partition
         /// </summary>
         [Input("partition")]
         public Input<string>? Partition { get; set; }
@@ -1000,6 +1075,12 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? SniRequire { get; set; }
 
         /// <summary>
+        /// Enables or disables SSL client certificate constrained delegation. The default option is disabled. Conversely, you can specify enabled to use the SSL client certificate constrained delegation.
+        /// </summary>
+        [Input("sslC3d")]
+        public Input<string>? SslC3d { get; set; }
+
+        /// <summary>
         /// Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
         /// </summary>
         [Input("sslForwardProxy")]
@@ -1025,6 +1106,11 @@ namespace Pulumi.F5BigIP.Ltm
 
         [Input("tmOptions")]
         private InputList<string>? _tmOptions;
+
+        /// <summary>
+        /// List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
+        /// Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = ["dont-insert-empty-fragments","no-tlsv1.3"]
+        /// </summary>
         public InputList<string> TmOptions
         {
             get => _tmOptions ?? (_tmOptions = new InputList<string>());

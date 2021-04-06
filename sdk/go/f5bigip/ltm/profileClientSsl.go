@@ -50,6 +50,12 @@ type ProfileClientSsl struct {
 	Authenticate pulumi.StringOutput `pulumi:"authenticate"`
 	// Specifies the maximum number of certificates to be traversed in a client certificate chain
 	AuthenticateDepth pulumi.IntOutput `pulumi:"authenticateDepth"`
+	// Specifies the client certificate to use in SSL client certificate constrained delegation. This certificate will be used if client does not provide a cert during the SSL handshake. The default value is none.
+	C3dClientFallbackCert pulumi.StringOutput `pulumi:"c3dClientFallbackCert"`
+	// Specifies the BIG-IP action when the OCSP responder returns unknown status. The default value is drop, which causes the onnection to be dropped. Conversely, you can specify ignore, which causes the connection to ignore the unknown status and continue.
+	C3dDropUnknownOcspStatus pulumi.StringOutput `pulumi:"c3dDropUnknownOcspStatus"`
+	// Specifies the SSL client certificate constrained delegation OCSP object that the BIG-IP SSL should use to connect to the OCSP responder and check the client certificate status.
+	C3dOcsp pulumi.StringOutput `pulumi:"c3dOcsp"`
 	// Client certificate file path. Default None.
 	CaFile pulumi.StringOutput `pulumi:"caFile"`
 	// Cache size (sessions).
@@ -73,7 +79,7 @@ type ProfileClientSsl struct {
 	ClientCertCa pulumi.StringOutput `pulumi:"clientCertCa"`
 	// Certificate revocation file name
 	CrlFile pulumi.StringOutput `pulumi:"crlFile"`
-	// The parent template of this monitor template. Once this value has been set, it cannot be changed. By default, this value is the `clientssl` parent on the `Common` partition.
+	// Parent profile for this clientssl profile.Once this value has been set, it cannot be changed. Default value is `/Common/clientssl`. It Should Full path `/partition/profile_name`
 	DefaultsFrom pulumi.StringPtrOutput `pulumi:"defaultsFrom"`
 	// Forward proxy bypass default action. (enabled / disabled)
 	ForwardProxyBypassDefaultAction pulumi.StringOutput `pulumi:"forwardProxyBypassDefaultAction"`
@@ -93,9 +99,9 @@ type ProfileClientSsl struct {
 	ModSslMethods pulumi.StringOutput `pulumi:"modSslMethods"`
 	// ModSSL Methods enabled / disabled. Default is disabled.
 	Mode pulumi.StringOutput `pulumi:"mode"`
-	// Specifies the name of the profile. (type `string`)
+	// Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Device partition to manage resources on.
+	// name of partition
 	Partition pulumi.StringOutput `pulumi:"partition"`
 	// Client Certificate Constrained Delegation CA passphrase
 	Passphrase pulumi.StringOutput `pulumi:"passphrase"`
@@ -135,6 +141,8 @@ type ProfileClientSsl struct {
 	SniDefault pulumi.StringOutput `pulumi:"sniDefault"`
 	// Requires that the network peers also provide SNI support, this setting only takes effect when `sniDefault` is set to `true`.When creating a new profile, the setting is provided by the parent profile
 	SniRequire pulumi.StringOutput `pulumi:"sniRequire"`
+	// Enables or disables SSL client certificate constrained delegation. The default option is disabled. Conversely, you can specify enabled to use the SSL client certificate constrained delegation.
+	SslC3d pulumi.StringOutput `pulumi:"sslC3d"`
 	// Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
 	SslForwardProxy pulumi.StringOutput `pulumi:"sslForwardProxy"`
 	// Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
@@ -142,8 +150,10 @@ type ProfileClientSsl struct {
 	// SSL sign hash (any, sha1, sha256, sha384)
 	SslSignHash pulumi.StringOutput `pulumi:"sslSignHash"`
 	// Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
-	StrictResume pulumi.StringOutput      `pulumi:"strictResume"`
-	TmOptions    pulumi.StringArrayOutput `pulumi:"tmOptions"`
+	StrictResume pulumi.StringOutput `pulumi:"strictResume"`
+	// List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
+	// Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tmOptions    = ["dont-insert-empty-fragments","no-tlsv1.3"]
+	TmOptions pulumi.StringArrayOutput `pulumi:"tmOptions"`
 	// Unclean Shutdown (enabled / disabled)
 	UncleanShutdown pulumi.StringOutput `pulumi:"uncleanShutdown"`
 }
@@ -189,6 +199,12 @@ type profileClientSslState struct {
 	Authenticate *string `pulumi:"authenticate"`
 	// Specifies the maximum number of certificates to be traversed in a client certificate chain
 	AuthenticateDepth *int `pulumi:"authenticateDepth"`
+	// Specifies the client certificate to use in SSL client certificate constrained delegation. This certificate will be used if client does not provide a cert during the SSL handshake. The default value is none.
+	C3dClientFallbackCert *string `pulumi:"c3dClientFallbackCert"`
+	// Specifies the BIG-IP action when the OCSP responder returns unknown status. The default value is drop, which causes the onnection to be dropped. Conversely, you can specify ignore, which causes the connection to ignore the unknown status and continue.
+	C3dDropUnknownOcspStatus *string `pulumi:"c3dDropUnknownOcspStatus"`
+	// Specifies the SSL client certificate constrained delegation OCSP object that the BIG-IP SSL should use to connect to the OCSP responder and check the client certificate status.
+	C3dOcsp *string `pulumi:"c3dOcsp"`
 	// Client certificate file path. Default None.
 	CaFile *string `pulumi:"caFile"`
 	// Cache size (sessions).
@@ -212,7 +228,7 @@ type profileClientSslState struct {
 	ClientCertCa *string `pulumi:"clientCertCa"`
 	// Certificate revocation file name
 	CrlFile *string `pulumi:"crlFile"`
-	// The parent template of this monitor template. Once this value has been set, it cannot be changed. By default, this value is the `clientssl` parent on the `Common` partition.
+	// Parent profile for this clientssl profile.Once this value has been set, it cannot be changed. Default value is `/Common/clientssl`. It Should Full path `/partition/profile_name`
 	DefaultsFrom *string `pulumi:"defaultsFrom"`
 	// Forward proxy bypass default action. (enabled / disabled)
 	ForwardProxyBypassDefaultAction *string `pulumi:"forwardProxyBypassDefaultAction"`
@@ -232,9 +248,9 @@ type profileClientSslState struct {
 	ModSslMethods *string `pulumi:"modSslMethods"`
 	// ModSSL Methods enabled / disabled. Default is disabled.
 	Mode *string `pulumi:"mode"`
-	// Specifies the name of the profile. (type `string`)
+	// Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
 	Name *string `pulumi:"name"`
-	// Device partition to manage resources on.
+	// name of partition
 	Partition *string `pulumi:"partition"`
 	// Client Certificate Constrained Delegation CA passphrase
 	Passphrase *string `pulumi:"passphrase"`
@@ -274,6 +290,8 @@ type profileClientSslState struct {
 	SniDefault *string `pulumi:"sniDefault"`
 	// Requires that the network peers also provide SNI support, this setting only takes effect when `sniDefault` is set to `true`.When creating a new profile, the setting is provided by the parent profile
 	SniRequire *string `pulumi:"sniRequire"`
+	// Enables or disables SSL client certificate constrained delegation. The default option is disabled. Conversely, you can specify enabled to use the SSL client certificate constrained delegation.
+	SslC3d *string `pulumi:"sslC3d"`
 	// Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
 	SslForwardProxy *string `pulumi:"sslForwardProxy"`
 	// Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
@@ -281,8 +299,10 @@ type profileClientSslState struct {
 	// SSL sign hash (any, sha1, sha256, sha384)
 	SslSignHash *string `pulumi:"sslSignHash"`
 	// Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
-	StrictResume *string  `pulumi:"strictResume"`
-	TmOptions    []string `pulumi:"tmOptions"`
+	StrictResume *string `pulumi:"strictResume"`
+	// List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
+	// Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tmOptions    = ["dont-insert-empty-fragments","no-tlsv1.3"]
+	TmOptions []string `pulumi:"tmOptions"`
 	// Unclean Shutdown (enabled / disabled)
 	UncleanShutdown *string `pulumi:"uncleanShutdown"`
 }
@@ -297,6 +317,12 @@ type ProfileClientSslState struct {
 	Authenticate pulumi.StringPtrInput
 	// Specifies the maximum number of certificates to be traversed in a client certificate chain
 	AuthenticateDepth pulumi.IntPtrInput
+	// Specifies the client certificate to use in SSL client certificate constrained delegation. This certificate will be used if client does not provide a cert during the SSL handshake. The default value is none.
+	C3dClientFallbackCert pulumi.StringPtrInput
+	// Specifies the BIG-IP action when the OCSP responder returns unknown status. The default value is drop, which causes the onnection to be dropped. Conversely, you can specify ignore, which causes the connection to ignore the unknown status and continue.
+	C3dDropUnknownOcspStatus pulumi.StringPtrInput
+	// Specifies the SSL client certificate constrained delegation OCSP object that the BIG-IP SSL should use to connect to the OCSP responder and check the client certificate status.
+	C3dOcsp pulumi.StringPtrInput
 	// Client certificate file path. Default None.
 	CaFile pulumi.StringPtrInput
 	// Cache size (sessions).
@@ -320,7 +346,7 @@ type ProfileClientSslState struct {
 	ClientCertCa pulumi.StringPtrInput
 	// Certificate revocation file name
 	CrlFile pulumi.StringPtrInput
-	// The parent template of this monitor template. Once this value has been set, it cannot be changed. By default, this value is the `clientssl` parent on the `Common` partition.
+	// Parent profile for this clientssl profile.Once this value has been set, it cannot be changed. Default value is `/Common/clientssl`. It Should Full path `/partition/profile_name`
 	DefaultsFrom pulumi.StringPtrInput
 	// Forward proxy bypass default action. (enabled / disabled)
 	ForwardProxyBypassDefaultAction pulumi.StringPtrInput
@@ -340,9 +366,9 @@ type ProfileClientSslState struct {
 	ModSslMethods pulumi.StringPtrInput
 	// ModSSL Methods enabled / disabled. Default is disabled.
 	Mode pulumi.StringPtrInput
-	// Specifies the name of the profile. (type `string`)
+	// Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
 	Name pulumi.StringPtrInput
-	// Device partition to manage resources on.
+	// name of partition
 	Partition pulumi.StringPtrInput
 	// Client Certificate Constrained Delegation CA passphrase
 	Passphrase pulumi.StringPtrInput
@@ -382,6 +408,8 @@ type ProfileClientSslState struct {
 	SniDefault pulumi.StringPtrInput
 	// Requires that the network peers also provide SNI support, this setting only takes effect when `sniDefault` is set to `true`.When creating a new profile, the setting is provided by the parent profile
 	SniRequire pulumi.StringPtrInput
+	// Enables or disables SSL client certificate constrained delegation. The default option is disabled. Conversely, you can specify enabled to use the SSL client certificate constrained delegation.
+	SslC3d pulumi.StringPtrInput
 	// Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
 	SslForwardProxy pulumi.StringPtrInput
 	// Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
@@ -390,7 +418,9 @@ type ProfileClientSslState struct {
 	SslSignHash pulumi.StringPtrInput
 	// Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
 	StrictResume pulumi.StringPtrInput
-	TmOptions    pulumi.StringArrayInput
+	// List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
+	// Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tmOptions    = ["dont-insert-empty-fragments","no-tlsv1.3"]
+	TmOptions pulumi.StringArrayInput
 	// Unclean Shutdown (enabled / disabled)
 	UncleanShutdown pulumi.StringPtrInput
 }
@@ -409,6 +439,12 @@ type profileClientSslArgs struct {
 	Authenticate *string `pulumi:"authenticate"`
 	// Specifies the maximum number of certificates to be traversed in a client certificate chain
 	AuthenticateDepth *int `pulumi:"authenticateDepth"`
+	// Specifies the client certificate to use in SSL client certificate constrained delegation. This certificate will be used if client does not provide a cert during the SSL handshake. The default value is none.
+	C3dClientFallbackCert *string `pulumi:"c3dClientFallbackCert"`
+	// Specifies the BIG-IP action when the OCSP responder returns unknown status. The default value is drop, which causes the onnection to be dropped. Conversely, you can specify ignore, which causes the connection to ignore the unknown status and continue.
+	C3dDropUnknownOcspStatus *string `pulumi:"c3dDropUnknownOcspStatus"`
+	// Specifies the SSL client certificate constrained delegation OCSP object that the BIG-IP SSL should use to connect to the OCSP responder and check the client certificate status.
+	C3dOcsp *string `pulumi:"c3dOcsp"`
 	// Client certificate file path. Default None.
 	CaFile *string `pulumi:"caFile"`
 	// Cache size (sessions).
@@ -432,7 +468,7 @@ type profileClientSslArgs struct {
 	ClientCertCa *string `pulumi:"clientCertCa"`
 	// Certificate revocation file name
 	CrlFile *string `pulumi:"crlFile"`
-	// The parent template of this monitor template. Once this value has been set, it cannot be changed. By default, this value is the `clientssl` parent on the `Common` partition.
+	// Parent profile for this clientssl profile.Once this value has been set, it cannot be changed. Default value is `/Common/clientssl`. It Should Full path `/partition/profile_name`
 	DefaultsFrom *string `pulumi:"defaultsFrom"`
 	// Forward proxy bypass default action. (enabled / disabled)
 	ForwardProxyBypassDefaultAction *string `pulumi:"forwardProxyBypassDefaultAction"`
@@ -452,9 +488,9 @@ type profileClientSslArgs struct {
 	ModSslMethods *string `pulumi:"modSslMethods"`
 	// ModSSL Methods enabled / disabled. Default is disabled.
 	Mode *string `pulumi:"mode"`
-	// Specifies the name of the profile. (type `string`)
+	// Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
 	Name string `pulumi:"name"`
-	// Device partition to manage resources on.
+	// name of partition
 	Partition *string `pulumi:"partition"`
 	// Client Certificate Constrained Delegation CA passphrase
 	Passphrase *string `pulumi:"passphrase"`
@@ -494,6 +530,8 @@ type profileClientSslArgs struct {
 	SniDefault *string `pulumi:"sniDefault"`
 	// Requires that the network peers also provide SNI support, this setting only takes effect when `sniDefault` is set to `true`.When creating a new profile, the setting is provided by the parent profile
 	SniRequire *string `pulumi:"sniRequire"`
+	// Enables or disables SSL client certificate constrained delegation. The default option is disabled. Conversely, you can specify enabled to use the SSL client certificate constrained delegation.
+	SslC3d *string `pulumi:"sslC3d"`
 	// Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
 	SslForwardProxy *string `pulumi:"sslForwardProxy"`
 	// Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
@@ -501,8 +539,10 @@ type profileClientSslArgs struct {
 	// SSL sign hash (any, sha1, sha256, sha384)
 	SslSignHash *string `pulumi:"sslSignHash"`
 	// Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
-	StrictResume *string  `pulumi:"strictResume"`
-	TmOptions    []string `pulumi:"tmOptions"`
+	StrictResume *string `pulumi:"strictResume"`
+	// List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
+	// Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tmOptions    = ["dont-insert-empty-fragments","no-tlsv1.3"]
+	TmOptions []string `pulumi:"tmOptions"`
 	// Unclean Shutdown (enabled / disabled)
 	UncleanShutdown *string `pulumi:"uncleanShutdown"`
 }
@@ -518,6 +558,12 @@ type ProfileClientSslArgs struct {
 	Authenticate pulumi.StringPtrInput
 	// Specifies the maximum number of certificates to be traversed in a client certificate chain
 	AuthenticateDepth pulumi.IntPtrInput
+	// Specifies the client certificate to use in SSL client certificate constrained delegation. This certificate will be used if client does not provide a cert during the SSL handshake. The default value is none.
+	C3dClientFallbackCert pulumi.StringPtrInput
+	// Specifies the BIG-IP action when the OCSP responder returns unknown status. The default value is drop, which causes the onnection to be dropped. Conversely, you can specify ignore, which causes the connection to ignore the unknown status and continue.
+	C3dDropUnknownOcspStatus pulumi.StringPtrInput
+	// Specifies the SSL client certificate constrained delegation OCSP object that the BIG-IP SSL should use to connect to the OCSP responder and check the client certificate status.
+	C3dOcsp pulumi.StringPtrInput
 	// Client certificate file path. Default None.
 	CaFile pulumi.StringPtrInput
 	// Cache size (sessions).
@@ -541,7 +587,7 @@ type ProfileClientSslArgs struct {
 	ClientCertCa pulumi.StringPtrInput
 	// Certificate revocation file name
 	CrlFile pulumi.StringPtrInput
-	// The parent template of this monitor template. Once this value has been set, it cannot be changed. By default, this value is the `clientssl` parent on the `Common` partition.
+	// Parent profile for this clientssl profile.Once this value has been set, it cannot be changed. Default value is `/Common/clientssl`. It Should Full path `/partition/profile_name`
 	DefaultsFrom pulumi.StringPtrInput
 	// Forward proxy bypass default action. (enabled / disabled)
 	ForwardProxyBypassDefaultAction pulumi.StringPtrInput
@@ -561,9 +607,9 @@ type ProfileClientSslArgs struct {
 	ModSslMethods pulumi.StringPtrInput
 	// ModSSL Methods enabled / disabled. Default is disabled.
 	Mode pulumi.StringPtrInput
-	// Specifies the name of the profile. (type `string`)
+	// Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
 	Name pulumi.StringInput
-	// Device partition to manage resources on.
+	// name of partition
 	Partition pulumi.StringPtrInput
 	// Client Certificate Constrained Delegation CA passphrase
 	Passphrase pulumi.StringPtrInput
@@ -603,6 +649,8 @@ type ProfileClientSslArgs struct {
 	SniDefault pulumi.StringPtrInput
 	// Requires that the network peers also provide SNI support, this setting only takes effect when `sniDefault` is set to `true`.When creating a new profile, the setting is provided by the parent profile
 	SniRequire pulumi.StringPtrInput
+	// Enables or disables SSL client certificate constrained delegation. The default option is disabled. Conversely, you can specify enabled to use the SSL client certificate constrained delegation.
+	SslC3d pulumi.StringPtrInput
 	// Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
 	SslForwardProxy pulumi.StringPtrInput
 	// Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
@@ -611,7 +659,9 @@ type ProfileClientSslArgs struct {
 	SslSignHash pulumi.StringPtrInput
 	// Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
 	StrictResume pulumi.StringPtrInput
-	TmOptions    pulumi.StringArrayInput
+	// List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
+	// Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tmOptions    = ["dont-insert-empty-fragments","no-tlsv1.3"]
+	TmOptions pulumi.StringArrayInput
 	// Unclean Shutdown (enabled / disabled)
 	UncleanShutdown pulumi.StringPtrInput
 }

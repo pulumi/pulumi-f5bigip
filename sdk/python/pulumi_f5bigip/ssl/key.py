@@ -41,7 +41,7 @@ class Key(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content: Content of SSL certificate key present on local Disk
         :param pulumi.Input[str] name: Name of the SSL Certificate key to be Imported on to BIGIP
-        :param pulumi.Input[str] partition: Partition on to SSL Certificate key to be imported
+        :param pulumi.Input[str] partition: Partition of ssl certificate key
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -89,7 +89,7 @@ class Key(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content: Content of SSL certificate key present on local Disk
         :param pulumi.Input[str] name: Name of the SSL Certificate key to be Imported on to BIGIP
-        :param pulumi.Input[str] partition: Partition on to SSL Certificate key to be imported
+        :param pulumi.Input[str] partition: Partition of ssl certificate key
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -120,7 +120,7 @@ class Key(pulumi.CustomResource):
     @pulumi.getter
     def partition(self) -> pulumi.Output[Optional[str]]:
         """
-        Partition on to SSL Certificate key to be imported
+        Partition of ssl certificate key
         """
         return pulumi.get(self, "partition")
 
