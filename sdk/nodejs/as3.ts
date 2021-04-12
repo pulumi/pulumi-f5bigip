@@ -62,6 +62,10 @@ export class As3 extends pulumi.CustomResource {
      */
     public readonly as3Json!: pulumi.Output<string>;
     /**
+     * Set True if you want to ignore metadata changes during update. By default it is set to false
+     */
+    public readonly ignoreMetadata!: pulumi.Output<boolean | undefined>;
+    /**
      * If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified
      */
     public readonly tenantFilter!: pulumi.Output<string | undefined>;
@@ -91,6 +95,7 @@ export class As3 extends pulumi.CustomResource {
             const state = argsOrState as As3State | undefined;
             inputs["applicationList"] = state ? state.applicationList : undefined;
             inputs["as3Json"] = state ? state.as3Json : undefined;
+            inputs["ignoreMetadata"] = state ? state.ignoreMetadata : undefined;
             inputs["tenantFilter"] = state ? state.tenantFilter : undefined;
             inputs["tenantList"] = state ? state.tenantList : undefined;
             inputs["tenantName"] = state ? state.tenantName : undefined;
@@ -101,6 +106,7 @@ export class As3 extends pulumi.CustomResource {
             }
             inputs["applicationList"] = args ? args.applicationList : undefined;
             inputs["as3Json"] = args ? args.as3Json : undefined;
+            inputs["ignoreMetadata"] = args ? args.ignoreMetadata : undefined;
             inputs["tenantFilter"] = args ? args.tenantFilter : undefined;
             inputs["tenantList"] = args ? args.tenantList : undefined;
             inputs["tenantName"] = args ? args.tenantName : undefined;
@@ -124,6 +130,10 @@ export interface As3State {
      * Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
      */
     readonly as3Json?: pulumi.Input<string>;
+    /**
+     * Set True if you want to ignore metadata changes during update. By default it is set to false
+     */
+    readonly ignoreMetadata?: pulumi.Input<boolean>;
     /**
      * If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified
      */
@@ -152,6 +162,10 @@ export interface As3Args {
      * Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
      */
     readonly as3Json: pulumi.Input<string>;
+    /**
+     * Set True if you want to ignore metadata changes during update. By default it is set to false
+     */
+    readonly ignoreMetadata?: pulumi.Input<boolean>;
     /**
      * If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified
      */

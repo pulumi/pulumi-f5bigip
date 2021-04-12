@@ -288,7 +288,7 @@ export namespace ltm {
          */
         key?: pulumi.Input<string>;
         /**
-         * Specifies the name of the profile. (type `string`)
+         * Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
          */
         name?: pulumi.Input<string>;
         passphrase?: pulumi.Input<string>;

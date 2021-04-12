@@ -71,7 +71,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// Enable/Disable ICMP response to the virtual address
         /// </summary>
         [Output("icmpEcho")]
-        public Output<bool?> IcmpEcho { get; private set; } = null!;
+        public Output<string?> IcmpEcho { get; private set; } = null!;
 
         /// <summary>
         /// Name of the virtual address
@@ -165,7 +165,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// Enable/Disable ICMP response to the virtual address
         /// </summary>
         [Input("icmpEcho")]
-        public Input<bool>? IcmpEcho { get; set; }
+        public Input<string>? IcmpEcho { get; set; }
 
         /// <summary>
         /// Name of the virtual address
@@ -220,7 +220,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// Enable/Disable ICMP response to the virtual address
         /// </summary>
         [Input("icmpEcho")]
-        public Input<bool>? IcmpEcho { get; set; }
+        public Input<string>? IcmpEcho { get; set; }
 
         /// <summary>
         /// Name of the virtual address

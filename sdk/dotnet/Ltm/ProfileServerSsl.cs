@@ -44,7 +44,8 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> AlertTimeout { get; private set; } = null!;
 
         /// <summary>
-        /// Server authentication once / always (default is once).
+        /// Specifies the frequency of server authentication for an SSL session.When `once`,specifies that the system authenticates the server once for an SSL session.
+        /// When `always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.
         /// </summary>
         [Output("authenticate")]
         public Output<string> Authenticate { get; private set; } = null!;
@@ -54,6 +55,48 @@ namespace Pulumi.F5BigIP.Ltm
         /// </summary>
         [Output("authenticateDepth")]
         public Output<int> AuthenticateDepth { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the name of the certificate file that is used as the certification authority certificate when SSL client certificate constrained delegation is enabled. The certificate should be generated and installed by you on the system. When selecting this option, type a certificate file name.
+        /// </summary>
+        [Output("c3dCaCert")]
+        public Output<string?> C3dCaCert { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.
+        /// </summary>
+        [Output("c3dCaKey")]
+        public Output<string?> C3dCaKey { get; private set; } = null!;
+
+        /// <summary>
+        /// CA Passphrase. Default
+        /// </summary>
+        [Output("c3dCaPassphrase")]
+        public Output<string> C3dCaPassphrase { get; private set; } = null!;
+
+        /// <summary>
+        /// Certificate Extensions List. Default
+        /// </summary>
+        [Output("c3dCertExtensionCustomOids")]
+        public Output<ImmutableArray<string>> C3dCertExtensionCustomOids { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:
+        /// </summary>
+        [Output("c3dCertExtensionIncludes")]
+        public Output<ImmutableArray<string>> C3dCertExtensionIncludes { get; private set; } = null!;
+
+        /// <summary>
+        /// Certificate Lifespan. Default
+        /// </summary>
+        [Output("c3dCertLifespan")]
+        public Output<int> C3dCertLifespan { get; private set; } = null!;
+
+        /// <summary>
+        /// CA Passphrase. Default enabled
+        /// </summary>
+        [Output("c3dCertificateExtensions")]
+        public Output<string> C3dCertificateExtensions { get; private set; } = null!;
 
         /// <summary>
         /// Client certificate file path. Default None.
@@ -146,13 +189,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> Mode { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the profile. (type `string`)
+        /// Specifies the name of the profile.Name of Profile should be full path,full path is the combination of the `partition + profile name`. For example `/Common/test-serverssl-profile`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Device partition to manage resources on.
+        /// name of partition
         /// </summary>
         [Output("partition")]
         public Output<string> Partition { get; private set; } = null!;
@@ -252,6 +295,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> SniRequire { get; private set; } = null!;
 
         /// <summary>
+        /// Enables or disables SSL forward proxy bypass on receiving
+        /// handshake_failure, protocol_version or unsupported_extension alert message during the serverside SSL handshake. When enabled and there is an SSL handshake_failure, protocol_version or unsupported_extension alert during the serverside SSL handshake, SSL traffic bypasses the BIG-IP system untouched, without decryption/encryption. The default value is disabled. Conversely, you can specify enabled to use this feature.
+        /// </summary>
+        [Output("sslC3d")]
+        public Output<string?> SslC3d { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
         /// </summary>
         [Output("sslForwardProxy")]
@@ -275,6 +325,10 @@ namespace Pulumi.F5BigIP.Ltm
         [Output("strictResume")]
         public Output<string> StrictResume { get; private set; } = null!;
 
+        /// <summary>
+        /// List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
+        /// Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = ["dont-insert-empty-fragments","no-tlsv1.3"]
+        /// </summary>
         [Output("tmOptions")]
         public Output<ImmutableArray<string>> TmOptions { get; private set; } = null!;
 
@@ -343,7 +397,8 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? AlertTimeout { get; set; }
 
         /// <summary>
-        /// Server authentication once / always (default is once).
+        /// Specifies the frequency of server authentication for an SSL session.When `once`,specifies that the system authenticates the server once for an SSL session.
+        /// When `always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.
         /// </summary>
         [Input("authenticate")]
         public Input<string>? Authenticate { get; set; }
@@ -353,6 +408,60 @@ namespace Pulumi.F5BigIP.Ltm
         /// </summary>
         [Input("authenticateDepth")]
         public Input<int>? AuthenticateDepth { get; set; }
+
+        /// <summary>
+        /// Specifies the name of the certificate file that is used as the certification authority certificate when SSL client certificate constrained delegation is enabled. The certificate should be generated and installed by you on the system. When selecting this option, type a certificate file name.
+        /// </summary>
+        [Input("c3dCaCert")]
+        public Input<string>? C3dCaCert { get; set; }
+
+        /// <summary>
+        /// Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.
+        /// </summary>
+        [Input("c3dCaKey")]
+        public Input<string>? C3dCaKey { get; set; }
+
+        /// <summary>
+        /// CA Passphrase. Default
+        /// </summary>
+        [Input("c3dCaPassphrase")]
+        public Input<string>? C3dCaPassphrase { get; set; }
+
+        [Input("c3dCertExtensionCustomOids")]
+        private InputList<string>? _c3dCertExtensionCustomOids;
+
+        /// <summary>
+        /// Certificate Extensions List. Default
+        /// </summary>
+        public InputList<string> C3dCertExtensionCustomOids
+        {
+            get => _c3dCertExtensionCustomOids ?? (_c3dCertExtensionCustomOids = new InputList<string>());
+            set => _c3dCertExtensionCustomOids = value;
+        }
+
+        [Input("c3dCertExtensionIncludes")]
+        private InputList<string>? _c3dCertExtensionIncludes;
+
+        /// <summary>
+        /// Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:
+        /// </summary>
+        public InputList<string> C3dCertExtensionIncludes
+        {
+            get => _c3dCertExtensionIncludes ?? (_c3dCertExtensionIncludes = new InputList<string>());
+            set => _c3dCertExtensionIncludes = value;
+        }
+
+        /// <summary>
+        /// Certificate Lifespan. Default
+        /// </summary>
+        [Input("c3dCertLifespan")]
+        public Input<int>? C3dCertLifespan { get; set; }
+
+        /// <summary>
+        /// CA Passphrase. Default enabled
+        /// </summary>
+        [Input("c3dCertificateExtensions")]
+        public Input<string>? C3dCertificateExtensions { get; set; }
 
         /// <summary>
         /// Client certificate file path. Default None.
@@ -445,13 +554,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Mode { get; set; }
 
         /// <summary>
-        /// Specifies the name of the profile. (type `string`)
+        /// Specifies the name of the profile.Name of Profile should be full path,full path is the combination of the `partition + profile name`. For example `/Common/test-serverssl-profile`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Device partition to manage resources on.
+        /// name of partition
         /// </summary>
         [Input("partition")]
         public Input<string>? Partition { get; set; }
@@ -551,6 +660,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? SniRequire { get; set; }
 
         /// <summary>
+        /// Enables or disables SSL forward proxy bypass on receiving
+        /// handshake_failure, protocol_version or unsupported_extension alert message during the serverside SSL handshake. When enabled and there is an SSL handshake_failure, protocol_version or unsupported_extension alert during the serverside SSL handshake, SSL traffic bypasses the BIG-IP system untouched, without decryption/encryption. The default value is disabled. Conversely, you can specify enabled to use this feature.
+        /// </summary>
+        [Input("sslC3d")]
+        public Input<string>? SslC3d { get; set; }
+
+        /// <summary>
         /// Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
         /// </summary>
         [Input("sslForwardProxy")]
@@ -576,6 +692,11 @@ namespace Pulumi.F5BigIP.Ltm
 
         [Input("tmOptions")]
         private InputList<string>? _tmOptions;
+
+        /// <summary>
+        /// List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
+        /// Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = ["dont-insert-empty-fragments","no-tlsv1.3"]
+        /// </summary>
         public InputList<string> TmOptions
         {
             get => _tmOptions ?? (_tmOptions = new InputList<string>());
@@ -608,7 +729,8 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? AlertTimeout { get; set; }
 
         /// <summary>
-        /// Server authentication once / always (default is once).
+        /// Specifies the frequency of server authentication for an SSL session.When `once`,specifies that the system authenticates the server once for an SSL session.
+        /// When `always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.
         /// </summary>
         [Input("authenticate")]
         public Input<string>? Authenticate { get; set; }
@@ -618,6 +740,60 @@ namespace Pulumi.F5BigIP.Ltm
         /// </summary>
         [Input("authenticateDepth")]
         public Input<int>? AuthenticateDepth { get; set; }
+
+        /// <summary>
+        /// Specifies the name of the certificate file that is used as the certification authority certificate when SSL client certificate constrained delegation is enabled. The certificate should be generated and installed by you on the system. When selecting this option, type a certificate file name.
+        /// </summary>
+        [Input("c3dCaCert")]
+        public Input<string>? C3dCaCert { get; set; }
+
+        /// <summary>
+        /// Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.
+        /// </summary>
+        [Input("c3dCaKey")]
+        public Input<string>? C3dCaKey { get; set; }
+
+        /// <summary>
+        /// CA Passphrase. Default
+        /// </summary>
+        [Input("c3dCaPassphrase")]
+        public Input<string>? C3dCaPassphrase { get; set; }
+
+        [Input("c3dCertExtensionCustomOids")]
+        private InputList<string>? _c3dCertExtensionCustomOids;
+
+        /// <summary>
+        /// Certificate Extensions List. Default
+        /// </summary>
+        public InputList<string> C3dCertExtensionCustomOids
+        {
+            get => _c3dCertExtensionCustomOids ?? (_c3dCertExtensionCustomOids = new InputList<string>());
+            set => _c3dCertExtensionCustomOids = value;
+        }
+
+        [Input("c3dCertExtensionIncludes")]
+        private InputList<string>? _c3dCertExtensionIncludes;
+
+        /// <summary>
+        /// Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:
+        /// </summary>
+        public InputList<string> C3dCertExtensionIncludes
+        {
+            get => _c3dCertExtensionIncludes ?? (_c3dCertExtensionIncludes = new InputList<string>());
+            set => _c3dCertExtensionIncludes = value;
+        }
+
+        /// <summary>
+        /// Certificate Lifespan. Default
+        /// </summary>
+        [Input("c3dCertLifespan")]
+        public Input<int>? C3dCertLifespan { get; set; }
+
+        /// <summary>
+        /// CA Passphrase. Default enabled
+        /// </summary>
+        [Input("c3dCertificateExtensions")]
+        public Input<string>? C3dCertificateExtensions { get; set; }
 
         /// <summary>
         /// Client certificate file path. Default None.
@@ -710,13 +886,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Mode { get; set; }
 
         /// <summary>
-        /// Specifies the name of the profile. (type `string`)
+        /// Specifies the name of the profile.Name of Profile should be full path,full path is the combination of the `partition + profile name`. For example `/Common/test-serverssl-profile`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Device partition to manage resources on.
+        /// name of partition
         /// </summary>
         [Input("partition")]
         public Input<string>? Partition { get; set; }
@@ -816,6 +992,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? SniRequire { get; set; }
 
         /// <summary>
+        /// Enables or disables SSL forward proxy bypass on receiving
+        /// handshake_failure, protocol_version or unsupported_extension alert message during the serverside SSL handshake. When enabled and there is an SSL handshake_failure, protocol_version or unsupported_extension alert during the serverside SSL handshake, SSL traffic bypasses the BIG-IP system untouched, without decryption/encryption. The default value is disabled. Conversely, you can specify enabled to use this feature.
+        /// </summary>
+        [Input("sslC3d")]
+        public Input<string>? SslC3d { get; set; }
+
+        /// <summary>
         /// Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
         /// </summary>
         [Input("sslForwardProxy")]
@@ -841,6 +1024,11 @@ namespace Pulumi.F5BigIP.Ltm
 
         [Input("tmOptions")]
         private InputList<string>? _tmOptions;
+
+        /// <summary>
+        /// List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
+        /// Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = ["dont-insert-empty-fragments","no-tlsv1.3"]
+        /// </summary>
         public InputList<string> TmOptions
         {
             get => _tmOptions ?? (_tmOptions = new InputList<string>());

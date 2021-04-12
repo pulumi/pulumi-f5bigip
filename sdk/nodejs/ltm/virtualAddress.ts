@@ -72,7 +72,7 @@ export class VirtualAddress extends pulumi.CustomResource {
     /**
      * Enable/Disable ICMP response to the virtual address
      */
-    public readonly icmpEcho!: pulumi.Output<boolean | undefined>;
+    public readonly icmpEcho!: pulumi.Output<string | undefined>;
     /**
      * Name of the virtual address
      */
@@ -151,7 +151,7 @@ export interface VirtualAddressState {
     /**
      * Enable/Disable ICMP response to the virtual address
      */
-    readonly icmpEcho?: pulumi.Input<boolean>;
+    readonly icmpEcho?: pulumi.Input<string>;
     /**
      * Name of the virtual address
      */
@@ -189,7 +189,7 @@ export interface VirtualAddressArgs {
     /**
      * Enable/Disable ICMP response to the virtual address
      */
-    readonly icmpEcho?: pulumi.Input<boolean>;
+    readonly icmpEcho?: pulumi.Input<string>;
     /**
      * Name of the virtual address
      */

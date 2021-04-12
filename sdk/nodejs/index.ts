@@ -11,7 +11,10 @@ export * from "./command";
 export * from "./commonLicenseManageBigIq";
 export * from "./do";
 export * from "./eventServiceDiscovery";
+export * from "./ipsecPolicy";
+export * from "./netTunnel";
 export * from "./provider";
+export * from "./trafficSelector";
 
 // Export sub-modules:
 import * as cm from "./cm";
@@ -39,6 +42,9 @@ import { Command } from "./command";
 import { CommonLicenseManageBigIq } from "./commonLicenseManageBigIq";
 import { Do } from "./do";
 import { EventServiceDiscovery } from "./eventServiceDiscovery";
+import { IpsecPolicy } from "./ipsecPolicy";
+import { NetTunnel } from "./netTunnel";
+import { TrafficSelector } from "./trafficSelector";
 
 const _module = {
     version: utilities.getVersion(),
@@ -56,6 +62,12 @@ const _module = {
                 return new Do(name, <any>undefined, { urn })
             case "f5bigip:index/eventServiceDiscovery:EventServiceDiscovery":
                 return new EventServiceDiscovery(name, <any>undefined, { urn })
+            case "f5bigip:index/ipsecPolicy:IpsecPolicy":
+                return new IpsecPolicy(name, <any>undefined, { urn })
+            case "f5bigip:index/netTunnel:NetTunnel":
+                return new NetTunnel(name, <any>undefined, { urn })
+            case "f5bigip:index/trafficSelector:TrafficSelector":
+                return new TrafficSelector(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -67,6 +79,9 @@ pulumi.runtime.registerResourceModule("f5bigip", "index/command", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/commonLicenseManageBigIq", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/do", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/eventServiceDiscovery", _module)
+pulumi.runtime.registerResourceModule("f5bigip", "index/ipsecPolicy", _module)
+pulumi.runtime.registerResourceModule("f5bigip", "index/netTunnel", _module)
+pulumi.runtime.registerResourceModule("f5bigip", "index/trafficSelector", _module)
 
 import { Provider } from "./provider";
 

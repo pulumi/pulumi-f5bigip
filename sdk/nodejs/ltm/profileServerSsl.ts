@@ -54,13 +54,42 @@ export class ProfileServerSsl extends pulumi.CustomResource {
      */
     public readonly alertTimeout!: pulumi.Output<string>;
     /**
-     * Server authentication once / always (default is once).
+     * Specifies the frequency of server authentication for an SSL session.When `once`,specifies that the system authenticates the server once for an SSL session.
+     * When `always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.
      */
     public readonly authenticate!: pulumi.Output<string>;
     /**
      * Client certificate chain traversal depth. Default 9.
      */
     public readonly authenticateDepth!: pulumi.Output<number>;
+    /**
+     * Specifies the name of the certificate file that is used as the certification authority certificate when SSL client certificate constrained delegation is enabled. The certificate should be generated and installed by you on the system. When selecting this option, type a certificate file name.
+     */
+    public readonly c3dCaCert!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.
+     */
+    public readonly c3dCaKey!: pulumi.Output<string | undefined>;
+    /**
+     * CA Passphrase. Default
+     */
+    public readonly c3dCaPassphrase!: pulumi.Output<string>;
+    /**
+     * Certificate Extensions List. Default
+     */
+    public readonly c3dCertExtensionCustomOids!: pulumi.Output<string[] | undefined>;
+    /**
+     * Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:
+     */
+    public readonly c3dCertExtensionIncludes!: pulumi.Output<string[] | undefined>;
+    /**
+     * Certificate Lifespan. Default
+     */
+    public readonly c3dCertLifespan!: pulumi.Output<number>;
+    /**
+     * CA Passphrase. Default enabled
+     */
+    public readonly c3dCertificateExtensions!: pulumi.Output<string>;
     /**
      * Client certificate file path. Default None.
      */
@@ -122,11 +151,11 @@ export class ProfileServerSsl extends pulumi.CustomResource {
      */
     public readonly mode!: pulumi.Output<string>;
     /**
-     * Specifies the name of the profile. (type `string`)
+     * Specifies the name of the profile.Name of Profile should be full path,full path is the combination of the `partition + profile name`. For example `/Common/test-serverssl-profile`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Device partition to manage resources on.
+     * name of partition
      */
     public readonly partition!: pulumi.Output<string>;
     /**
@@ -194,6 +223,11 @@ export class ProfileServerSsl extends pulumi.CustomResource {
      */
     public readonly sniRequire!: pulumi.Output<string>;
     /**
+     * Enables or disables SSL forward proxy bypass on receiving
+     * handshake_failure, protocolVersion or unsupportedExtension alert message during the serverside SSL handshake. When enabled and there is an SSL handshake_failure, protocolVersion or unsupportedExtension alert during the serverside SSL handshake, SSL traffic bypasses the BIG-IP system untouched, without decryption/encryption. The default value is disabled. Conversely, you can specify enabled to use this feature.
+     */
+    public readonly sslC3d!: pulumi.Output<string | undefined>;
+    /**
      * Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
      */
     public readonly sslForwardProxy!: pulumi.Output<string>;
@@ -209,6 +243,10 @@ export class ProfileServerSsl extends pulumi.CustomResource {
      * Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
      */
     public readonly strictResume!: pulumi.Output<string>;
+    /**
+     * List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
+     * Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tmOptions    = ["dont-insert-empty-fragments","no-tlsv1.3"]
+     */
     public readonly tmOptions!: pulumi.Output<string[]>;
     /**
      * Unclean Shutdown (enabled / disabled)
@@ -235,6 +273,13 @@ export class ProfileServerSsl extends pulumi.CustomResource {
             inputs["alertTimeout"] = state ? state.alertTimeout : undefined;
             inputs["authenticate"] = state ? state.authenticate : undefined;
             inputs["authenticateDepth"] = state ? state.authenticateDepth : undefined;
+            inputs["c3dCaCert"] = state ? state.c3dCaCert : undefined;
+            inputs["c3dCaKey"] = state ? state.c3dCaKey : undefined;
+            inputs["c3dCaPassphrase"] = state ? state.c3dCaPassphrase : undefined;
+            inputs["c3dCertExtensionCustomOids"] = state ? state.c3dCertExtensionCustomOids : undefined;
+            inputs["c3dCertExtensionIncludes"] = state ? state.c3dCertExtensionIncludes : undefined;
+            inputs["c3dCertLifespan"] = state ? state.c3dCertLifespan : undefined;
+            inputs["c3dCertificateExtensions"] = state ? state.c3dCertificateExtensions : undefined;
             inputs["caFile"] = state ? state.caFile : undefined;
             inputs["cacheSize"] = state ? state.cacheSize : undefined;
             inputs["cacheTimeout"] = state ? state.cacheTimeout : undefined;
@@ -267,6 +312,7 @@ export class ProfileServerSsl extends pulumi.CustomResource {
             inputs["sessionTicket"] = state ? state.sessionTicket : undefined;
             inputs["sniDefault"] = state ? state.sniDefault : undefined;
             inputs["sniRequire"] = state ? state.sniRequire : undefined;
+            inputs["sslC3d"] = state ? state.sslC3d : undefined;
             inputs["sslForwardProxy"] = state ? state.sslForwardProxy : undefined;
             inputs["sslForwardProxyBypass"] = state ? state.sslForwardProxyBypass : undefined;
             inputs["sslSignHash"] = state ? state.sslSignHash : undefined;
@@ -282,6 +328,13 @@ export class ProfileServerSsl extends pulumi.CustomResource {
             inputs["alertTimeout"] = args ? args.alertTimeout : undefined;
             inputs["authenticate"] = args ? args.authenticate : undefined;
             inputs["authenticateDepth"] = args ? args.authenticateDepth : undefined;
+            inputs["c3dCaCert"] = args ? args.c3dCaCert : undefined;
+            inputs["c3dCaKey"] = args ? args.c3dCaKey : undefined;
+            inputs["c3dCaPassphrase"] = args ? args.c3dCaPassphrase : undefined;
+            inputs["c3dCertExtensionCustomOids"] = args ? args.c3dCertExtensionCustomOids : undefined;
+            inputs["c3dCertExtensionIncludes"] = args ? args.c3dCertExtensionIncludes : undefined;
+            inputs["c3dCertLifespan"] = args ? args.c3dCertLifespan : undefined;
+            inputs["c3dCertificateExtensions"] = args ? args.c3dCertificateExtensions : undefined;
             inputs["caFile"] = args ? args.caFile : undefined;
             inputs["cacheSize"] = args ? args.cacheSize : undefined;
             inputs["cacheTimeout"] = args ? args.cacheTimeout : undefined;
@@ -314,6 +367,7 @@ export class ProfileServerSsl extends pulumi.CustomResource {
             inputs["sessionTicket"] = args ? args.sessionTicket : undefined;
             inputs["sniDefault"] = args ? args.sniDefault : undefined;
             inputs["sniRequire"] = args ? args.sniRequire : undefined;
+            inputs["sslC3d"] = args ? args.sslC3d : undefined;
             inputs["sslForwardProxy"] = args ? args.sslForwardProxy : undefined;
             inputs["sslForwardProxyBypass"] = args ? args.sslForwardProxyBypass : undefined;
             inputs["sslSignHash"] = args ? args.sslSignHash : undefined;
@@ -338,13 +392,42 @@ export interface ProfileServerSslState {
      */
     readonly alertTimeout?: pulumi.Input<string>;
     /**
-     * Server authentication once / always (default is once).
+     * Specifies the frequency of server authentication for an SSL session.When `once`,specifies that the system authenticates the server once for an SSL session.
+     * When `always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.
      */
     readonly authenticate?: pulumi.Input<string>;
     /**
      * Client certificate chain traversal depth. Default 9.
      */
     readonly authenticateDepth?: pulumi.Input<number>;
+    /**
+     * Specifies the name of the certificate file that is used as the certification authority certificate when SSL client certificate constrained delegation is enabled. The certificate should be generated and installed by you on the system. When selecting this option, type a certificate file name.
+     */
+    readonly c3dCaCert?: pulumi.Input<string>;
+    /**
+     * Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.
+     */
+    readonly c3dCaKey?: pulumi.Input<string>;
+    /**
+     * CA Passphrase. Default
+     */
+    readonly c3dCaPassphrase?: pulumi.Input<string>;
+    /**
+     * Certificate Extensions List. Default
+     */
+    readonly c3dCertExtensionCustomOids?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:
+     */
+    readonly c3dCertExtensionIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Certificate Lifespan. Default
+     */
+    readonly c3dCertLifespan?: pulumi.Input<number>;
+    /**
+     * CA Passphrase. Default enabled
+     */
+    readonly c3dCertificateExtensions?: pulumi.Input<string>;
     /**
      * Client certificate file path. Default None.
      */
@@ -406,11 +489,11 @@ export interface ProfileServerSslState {
      */
     readonly mode?: pulumi.Input<string>;
     /**
-     * Specifies the name of the profile. (type `string`)
+     * Specifies the name of the profile.Name of Profile should be full path,full path is the combination of the `partition + profile name`. For example `/Common/test-serverssl-profile`.
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Device partition to manage resources on.
+     * name of partition
      */
     readonly partition?: pulumi.Input<string>;
     /**
@@ -478,6 +561,11 @@ export interface ProfileServerSslState {
      */
     readonly sniRequire?: pulumi.Input<string>;
     /**
+     * Enables or disables SSL forward proxy bypass on receiving
+     * handshake_failure, protocolVersion or unsupportedExtension alert message during the serverside SSL handshake. When enabled and there is an SSL handshake_failure, protocolVersion or unsupportedExtension alert during the serverside SSL handshake, SSL traffic bypasses the BIG-IP system untouched, without decryption/encryption. The default value is disabled. Conversely, you can specify enabled to use this feature.
+     */
+    readonly sslC3d?: pulumi.Input<string>;
+    /**
      * Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
      */
     readonly sslForwardProxy?: pulumi.Input<string>;
@@ -493,6 +581,10 @@ export interface ProfileServerSslState {
      * Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
      */
     readonly strictResume?: pulumi.Input<string>;
+    /**
+     * List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
+     * Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tmOptions    = ["dont-insert-empty-fragments","no-tlsv1.3"]
+     */
     readonly tmOptions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Unclean Shutdown (enabled / disabled)
@@ -513,13 +605,42 @@ export interface ProfileServerSslArgs {
      */
     readonly alertTimeout?: pulumi.Input<string>;
     /**
-     * Server authentication once / always (default is once).
+     * Specifies the frequency of server authentication for an SSL session.When `once`,specifies that the system authenticates the server once for an SSL session.
+     * When `always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.
      */
     readonly authenticate?: pulumi.Input<string>;
     /**
      * Client certificate chain traversal depth. Default 9.
      */
     readonly authenticateDepth?: pulumi.Input<number>;
+    /**
+     * Specifies the name of the certificate file that is used as the certification authority certificate when SSL client certificate constrained delegation is enabled. The certificate should be generated and installed by you on the system. When selecting this option, type a certificate file name.
+     */
+    readonly c3dCaCert?: pulumi.Input<string>;
+    /**
+     * Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.
+     */
+    readonly c3dCaKey?: pulumi.Input<string>;
+    /**
+     * CA Passphrase. Default
+     */
+    readonly c3dCaPassphrase?: pulumi.Input<string>;
+    /**
+     * Certificate Extensions List. Default
+     */
+    readonly c3dCertExtensionCustomOids?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:
+     */
+    readonly c3dCertExtensionIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Certificate Lifespan. Default
+     */
+    readonly c3dCertLifespan?: pulumi.Input<number>;
+    /**
+     * CA Passphrase. Default enabled
+     */
+    readonly c3dCertificateExtensions?: pulumi.Input<string>;
     /**
      * Client certificate file path. Default None.
      */
@@ -581,11 +702,11 @@ export interface ProfileServerSslArgs {
      */
     readonly mode?: pulumi.Input<string>;
     /**
-     * Specifies the name of the profile. (type `string`)
+     * Specifies the name of the profile.Name of Profile should be full path,full path is the combination of the `partition + profile name`. For example `/Common/test-serverssl-profile`.
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Device partition to manage resources on.
+     * name of partition
      */
     readonly partition?: pulumi.Input<string>;
     /**
@@ -653,6 +774,11 @@ export interface ProfileServerSslArgs {
      */
     readonly sniRequire?: pulumi.Input<string>;
     /**
+     * Enables or disables SSL forward proxy bypass on receiving
+     * handshake_failure, protocolVersion or unsupportedExtension alert message during the serverside SSL handshake. When enabled and there is an SSL handshake_failure, protocolVersion or unsupportedExtension alert during the serverside SSL handshake, SSL traffic bypasses the BIG-IP system untouched, without decryption/encryption. The default value is disabled. Conversely, you can specify enabled to use this feature.
+     */
+    readonly sslC3d?: pulumi.Input<string>;
+    /**
      * Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
      */
     readonly sslForwardProxy?: pulumi.Input<string>;
@@ -668,6 +794,10 @@ export interface ProfileServerSslArgs {
      * Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
      */
     readonly strictResume?: pulumi.Input<string>;
+    /**
+     * List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
+     * Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tmOptions    = ["dont-insert-empty-fragments","no-tlsv1.3"]
+     */
     readonly tmOptions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Unclean Shutdown (enabled / disabled)

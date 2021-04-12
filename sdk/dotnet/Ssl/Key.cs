@@ -51,7 +51,7 @@ namespace Pulumi.F5BigIP.Ssl
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Partition on to SSL Certificate key to be imported
+        /// Partition of ssl certificate key
         /// </summary>
         [Output("partition")]
         public Output<string?> Partition { get; private set; } = null!;
@@ -115,7 +115,7 @@ namespace Pulumi.F5BigIP.Ssl
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Partition on to SSL Certificate key to be imported
+        /// Partition of ssl certificate key
         /// </summary>
         [Input("partition")]
         public Input<string>? Partition { get; set; }
@@ -140,7 +140,7 @@ namespace Pulumi.F5BigIP.Ssl
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Partition on to SSL Certificate key to be imported
+        /// Partition of ssl certificate key
         /// </summary>
         [Input("partition")]
         public Input<string>? Partition { get; set; }

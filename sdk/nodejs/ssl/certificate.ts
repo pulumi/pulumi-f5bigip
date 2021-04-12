@@ -59,7 +59,7 @@ export class Certificate extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Partition on to SSL Certificate to be imported
+     * Partition of ssl certificate
      */
     public readonly partition!: pulumi.Output<string | undefined>;
 
@@ -111,7 +111,7 @@ export interface CertificateState {
      */
     readonly name?: pulumi.Input<string>;
     /**
-     * Partition on to SSL Certificate to be imported
+     * Partition of ssl certificate
      */
     readonly partition?: pulumi.Input<string>;
 }
@@ -129,7 +129,7 @@ export interface CertificateArgs {
      */
     readonly name: pulumi.Input<string>;
     /**
-     * Partition on to SSL Certificate to be imported
+     * Partition of ssl certificate
      */
     readonly partition?: pulumi.Input<string>;
 }

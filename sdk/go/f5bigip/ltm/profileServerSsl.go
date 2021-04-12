@@ -43,10 +43,25 @@ type ProfileServerSsl struct {
 
 	// Alert time out
 	AlertTimeout pulumi.StringOutput `pulumi:"alertTimeout"`
-	// Server authentication once / always (default is once).
+	// Specifies the frequency of server authentication for an SSL session.When `once`,specifies that the system authenticates the server once for an SSL session.
+	// When `always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.
 	Authenticate pulumi.StringOutput `pulumi:"authenticate"`
 	// Client certificate chain traversal depth. Default 9.
 	AuthenticateDepth pulumi.IntOutput `pulumi:"authenticateDepth"`
+	// Specifies the name of the certificate file that is used as the certification authority certificate when SSL client certificate constrained delegation is enabled. The certificate should be generated and installed by you on the system. When selecting this option, type a certificate file name.
+	C3dCaCert pulumi.StringPtrOutput `pulumi:"c3dCaCert"`
+	// Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.
+	C3dCaKey pulumi.StringPtrOutput `pulumi:"c3dCaKey"`
+	// CA Passphrase. Default
+	C3dCaPassphrase pulumi.StringOutput `pulumi:"c3dCaPassphrase"`
+	// Certificate Extensions List. Default
+	C3dCertExtensionCustomOids pulumi.StringArrayOutput `pulumi:"c3dCertExtensionCustomOids"`
+	// Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:
+	C3dCertExtensionIncludes pulumi.StringArrayOutput `pulumi:"c3dCertExtensionIncludes"`
+	// Certificate Lifespan. Default
+	C3dCertLifespan pulumi.IntOutput `pulumi:"c3dCertLifespan"`
+	// CA Passphrase. Default enabled
+	C3dCertificateExtensions pulumi.StringOutput `pulumi:"c3dCertificateExtensions"`
 	// Client certificate file path. Default None.
 	CaFile pulumi.StringOutput `pulumi:"caFile"`
 	// Cache size (sessions).
@@ -77,9 +92,9 @@ type ProfileServerSsl struct {
 	ModSslMethods pulumi.StringOutput `pulumi:"modSslMethods"`
 	// ModSSL Methods enabled / disabled. Default is disabled.
 	Mode pulumi.StringOutput `pulumi:"mode"`
-	// Specifies the name of the profile. (type `string`)
+	// Specifies the name of the profile.Name of Profile should be full path,full path is the combination of the `partition + profile name`. For example `/Common/test-serverssl-profile`.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Device partition to manage resources on.
+	// name of partition
 	Partition pulumi.StringOutput `pulumi:"partition"`
 	// Client Certificate Constrained Delegation CA passphrase
 	Passphrase pulumi.StringOutput `pulumi:"passphrase"`
@@ -115,6 +130,9 @@ type ProfileServerSsl struct {
 	SniDefault pulumi.StringOutput `pulumi:"sniDefault"`
 	// Requires that the network peers also provide SNI support, this setting only takes effect when `sniDefault` is set to `true`.When creating a new profile, the setting is provided by the parent profile
 	SniRequire pulumi.StringOutput `pulumi:"sniRequire"`
+	// Enables or disables SSL forward proxy bypass on receiving
+	// handshake_failure, protocolVersion or unsupportedExtension alert message during the serverside SSL handshake. When enabled and there is an SSL handshake_failure, protocolVersion or unsupportedExtension alert during the serverside SSL handshake, SSL traffic bypasses the BIG-IP system untouched, without decryption/encryption. The default value is disabled. Conversely, you can specify enabled to use this feature.
+	SslC3d pulumi.StringPtrOutput `pulumi:"sslC3d"`
 	// Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
 	SslForwardProxy pulumi.StringOutput `pulumi:"sslForwardProxy"`
 	// Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
@@ -122,8 +140,10 @@ type ProfileServerSsl struct {
 	// SSL sign hash (any, sha1, sha256, sha384)
 	SslSignHash pulumi.StringOutput `pulumi:"sslSignHash"`
 	// Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
-	StrictResume pulumi.StringOutput      `pulumi:"strictResume"`
-	TmOptions    pulumi.StringArrayOutput `pulumi:"tmOptions"`
+	StrictResume pulumi.StringOutput `pulumi:"strictResume"`
+	// List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
+	// Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tmOptions    = ["dont-insert-empty-fragments","no-tlsv1.3"]
+	TmOptions pulumi.StringArrayOutput `pulumi:"tmOptions"`
 	// Unclean Shutdown (enabled / disabled)
 	UncleanShutdown pulumi.StringOutput `pulumi:"uncleanShutdown"`
 	// Unclean Shutdown (drop / ignore)
@@ -164,10 +184,25 @@ func GetProfileServerSsl(ctx *pulumi.Context,
 type profileServerSslState struct {
 	// Alert time out
 	AlertTimeout *string `pulumi:"alertTimeout"`
-	// Server authentication once / always (default is once).
+	// Specifies the frequency of server authentication for an SSL session.When `once`,specifies that the system authenticates the server once for an SSL session.
+	// When `always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.
 	Authenticate *string `pulumi:"authenticate"`
 	// Client certificate chain traversal depth. Default 9.
 	AuthenticateDepth *int `pulumi:"authenticateDepth"`
+	// Specifies the name of the certificate file that is used as the certification authority certificate when SSL client certificate constrained delegation is enabled. The certificate should be generated and installed by you on the system. When selecting this option, type a certificate file name.
+	C3dCaCert *string `pulumi:"c3dCaCert"`
+	// Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.
+	C3dCaKey *string `pulumi:"c3dCaKey"`
+	// CA Passphrase. Default
+	C3dCaPassphrase *string `pulumi:"c3dCaPassphrase"`
+	// Certificate Extensions List. Default
+	C3dCertExtensionCustomOids []string `pulumi:"c3dCertExtensionCustomOids"`
+	// Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:
+	C3dCertExtensionIncludes []string `pulumi:"c3dCertExtensionIncludes"`
+	// Certificate Lifespan. Default
+	C3dCertLifespan *int `pulumi:"c3dCertLifespan"`
+	// CA Passphrase. Default enabled
+	C3dCertificateExtensions *string `pulumi:"c3dCertificateExtensions"`
 	// Client certificate file path. Default None.
 	CaFile *string `pulumi:"caFile"`
 	// Cache size (sessions).
@@ -198,9 +233,9 @@ type profileServerSslState struct {
 	ModSslMethods *string `pulumi:"modSslMethods"`
 	// ModSSL Methods enabled / disabled. Default is disabled.
 	Mode *string `pulumi:"mode"`
-	// Specifies the name of the profile. (type `string`)
+	// Specifies the name of the profile.Name of Profile should be full path,full path is the combination of the `partition + profile name`. For example `/Common/test-serverssl-profile`.
 	Name *string `pulumi:"name"`
-	// Device partition to manage resources on.
+	// name of partition
 	Partition *string `pulumi:"partition"`
 	// Client Certificate Constrained Delegation CA passphrase
 	Passphrase *string `pulumi:"passphrase"`
@@ -236,6 +271,9 @@ type profileServerSslState struct {
 	SniDefault *string `pulumi:"sniDefault"`
 	// Requires that the network peers also provide SNI support, this setting only takes effect when `sniDefault` is set to `true`.When creating a new profile, the setting is provided by the parent profile
 	SniRequire *string `pulumi:"sniRequire"`
+	// Enables or disables SSL forward proxy bypass on receiving
+	// handshake_failure, protocolVersion or unsupportedExtension alert message during the serverside SSL handshake. When enabled and there is an SSL handshake_failure, protocolVersion or unsupportedExtension alert during the serverside SSL handshake, SSL traffic bypasses the BIG-IP system untouched, without decryption/encryption. The default value is disabled. Conversely, you can specify enabled to use this feature.
+	SslC3d *string `pulumi:"sslC3d"`
 	// Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
 	SslForwardProxy *string `pulumi:"sslForwardProxy"`
 	// Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
@@ -243,8 +281,10 @@ type profileServerSslState struct {
 	// SSL sign hash (any, sha1, sha256, sha384)
 	SslSignHash *string `pulumi:"sslSignHash"`
 	// Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
-	StrictResume *string  `pulumi:"strictResume"`
-	TmOptions    []string `pulumi:"tmOptions"`
+	StrictResume *string `pulumi:"strictResume"`
+	// List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
+	// Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tmOptions    = ["dont-insert-empty-fragments","no-tlsv1.3"]
+	TmOptions []string `pulumi:"tmOptions"`
 	// Unclean Shutdown (enabled / disabled)
 	UncleanShutdown *string `pulumi:"uncleanShutdown"`
 	// Unclean Shutdown (drop / ignore)
@@ -254,10 +294,25 @@ type profileServerSslState struct {
 type ProfileServerSslState struct {
 	// Alert time out
 	AlertTimeout pulumi.StringPtrInput
-	// Server authentication once / always (default is once).
+	// Specifies the frequency of server authentication for an SSL session.When `once`,specifies that the system authenticates the server once for an SSL session.
+	// When `always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.
 	Authenticate pulumi.StringPtrInput
 	// Client certificate chain traversal depth. Default 9.
 	AuthenticateDepth pulumi.IntPtrInput
+	// Specifies the name of the certificate file that is used as the certification authority certificate when SSL client certificate constrained delegation is enabled. The certificate should be generated and installed by you on the system. When selecting this option, type a certificate file name.
+	C3dCaCert pulumi.StringPtrInput
+	// Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.
+	C3dCaKey pulumi.StringPtrInput
+	// CA Passphrase. Default
+	C3dCaPassphrase pulumi.StringPtrInput
+	// Certificate Extensions List. Default
+	C3dCertExtensionCustomOids pulumi.StringArrayInput
+	// Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:
+	C3dCertExtensionIncludes pulumi.StringArrayInput
+	// Certificate Lifespan. Default
+	C3dCertLifespan pulumi.IntPtrInput
+	// CA Passphrase. Default enabled
+	C3dCertificateExtensions pulumi.StringPtrInput
 	// Client certificate file path. Default None.
 	CaFile pulumi.StringPtrInput
 	// Cache size (sessions).
@@ -288,9 +343,9 @@ type ProfileServerSslState struct {
 	ModSslMethods pulumi.StringPtrInput
 	// ModSSL Methods enabled / disabled. Default is disabled.
 	Mode pulumi.StringPtrInput
-	// Specifies the name of the profile. (type `string`)
+	// Specifies the name of the profile.Name of Profile should be full path,full path is the combination of the `partition + profile name`. For example `/Common/test-serverssl-profile`.
 	Name pulumi.StringPtrInput
-	// Device partition to manage resources on.
+	// name of partition
 	Partition pulumi.StringPtrInput
 	// Client Certificate Constrained Delegation CA passphrase
 	Passphrase pulumi.StringPtrInput
@@ -326,6 +381,9 @@ type ProfileServerSslState struct {
 	SniDefault pulumi.StringPtrInput
 	// Requires that the network peers also provide SNI support, this setting only takes effect when `sniDefault` is set to `true`.When creating a new profile, the setting is provided by the parent profile
 	SniRequire pulumi.StringPtrInput
+	// Enables or disables SSL forward proxy bypass on receiving
+	// handshake_failure, protocolVersion or unsupportedExtension alert message during the serverside SSL handshake. When enabled and there is an SSL handshake_failure, protocolVersion or unsupportedExtension alert during the serverside SSL handshake, SSL traffic bypasses the BIG-IP system untouched, without decryption/encryption. The default value is disabled. Conversely, you can specify enabled to use this feature.
+	SslC3d pulumi.StringPtrInput
 	// Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
 	SslForwardProxy pulumi.StringPtrInput
 	// Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
@@ -334,7 +392,9 @@ type ProfileServerSslState struct {
 	SslSignHash pulumi.StringPtrInput
 	// Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
 	StrictResume pulumi.StringPtrInput
-	TmOptions    pulumi.StringArrayInput
+	// List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
+	// Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tmOptions    = ["dont-insert-empty-fragments","no-tlsv1.3"]
+	TmOptions pulumi.StringArrayInput
 	// Unclean Shutdown (enabled / disabled)
 	UncleanShutdown pulumi.StringPtrInput
 	// Unclean Shutdown (drop / ignore)
@@ -348,10 +408,25 @@ func (ProfileServerSslState) ElementType() reflect.Type {
 type profileServerSslArgs struct {
 	// Alert time out
 	AlertTimeout *string `pulumi:"alertTimeout"`
-	// Server authentication once / always (default is once).
+	// Specifies the frequency of server authentication for an SSL session.When `once`,specifies that the system authenticates the server once for an SSL session.
+	// When `always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.
 	Authenticate *string `pulumi:"authenticate"`
 	// Client certificate chain traversal depth. Default 9.
 	AuthenticateDepth *int `pulumi:"authenticateDepth"`
+	// Specifies the name of the certificate file that is used as the certification authority certificate when SSL client certificate constrained delegation is enabled. The certificate should be generated and installed by you on the system. When selecting this option, type a certificate file name.
+	C3dCaCert *string `pulumi:"c3dCaCert"`
+	// Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.
+	C3dCaKey *string `pulumi:"c3dCaKey"`
+	// CA Passphrase. Default
+	C3dCaPassphrase *string `pulumi:"c3dCaPassphrase"`
+	// Certificate Extensions List. Default
+	C3dCertExtensionCustomOids []string `pulumi:"c3dCertExtensionCustomOids"`
+	// Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:
+	C3dCertExtensionIncludes []string `pulumi:"c3dCertExtensionIncludes"`
+	// Certificate Lifespan. Default
+	C3dCertLifespan *int `pulumi:"c3dCertLifespan"`
+	// CA Passphrase. Default enabled
+	C3dCertificateExtensions *string `pulumi:"c3dCertificateExtensions"`
 	// Client certificate file path. Default None.
 	CaFile *string `pulumi:"caFile"`
 	// Cache size (sessions).
@@ -382,9 +457,9 @@ type profileServerSslArgs struct {
 	ModSslMethods *string `pulumi:"modSslMethods"`
 	// ModSSL Methods enabled / disabled. Default is disabled.
 	Mode *string `pulumi:"mode"`
-	// Specifies the name of the profile. (type `string`)
+	// Specifies the name of the profile.Name of Profile should be full path,full path is the combination of the `partition + profile name`. For example `/Common/test-serverssl-profile`.
 	Name string `pulumi:"name"`
-	// Device partition to manage resources on.
+	// name of partition
 	Partition *string `pulumi:"partition"`
 	// Client Certificate Constrained Delegation CA passphrase
 	Passphrase *string `pulumi:"passphrase"`
@@ -420,6 +495,9 @@ type profileServerSslArgs struct {
 	SniDefault *string `pulumi:"sniDefault"`
 	// Requires that the network peers also provide SNI support, this setting only takes effect when `sniDefault` is set to `true`.When creating a new profile, the setting is provided by the parent profile
 	SniRequire *string `pulumi:"sniRequire"`
+	// Enables or disables SSL forward proxy bypass on receiving
+	// handshake_failure, protocolVersion or unsupportedExtension alert message during the serverside SSL handshake. When enabled and there is an SSL handshake_failure, protocolVersion or unsupportedExtension alert during the serverside SSL handshake, SSL traffic bypasses the BIG-IP system untouched, without decryption/encryption. The default value is disabled. Conversely, you can specify enabled to use this feature.
+	SslC3d *string `pulumi:"sslC3d"`
 	// Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
 	SslForwardProxy *string `pulumi:"sslForwardProxy"`
 	// Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
@@ -427,8 +505,10 @@ type profileServerSslArgs struct {
 	// SSL sign hash (any, sha1, sha256, sha384)
 	SslSignHash *string `pulumi:"sslSignHash"`
 	// Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
-	StrictResume *string  `pulumi:"strictResume"`
-	TmOptions    []string `pulumi:"tmOptions"`
+	StrictResume *string `pulumi:"strictResume"`
+	// List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
+	// Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tmOptions    = ["dont-insert-empty-fragments","no-tlsv1.3"]
+	TmOptions []string `pulumi:"tmOptions"`
 	// Unclean Shutdown (enabled / disabled)
 	UncleanShutdown *string `pulumi:"uncleanShutdown"`
 	// Unclean Shutdown (drop / ignore)
@@ -439,10 +519,25 @@ type profileServerSslArgs struct {
 type ProfileServerSslArgs struct {
 	// Alert time out
 	AlertTimeout pulumi.StringPtrInput
-	// Server authentication once / always (default is once).
+	// Specifies the frequency of server authentication for an SSL session.When `once`,specifies that the system authenticates the server once for an SSL session.
+	// When `always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.
 	Authenticate pulumi.StringPtrInput
 	// Client certificate chain traversal depth. Default 9.
 	AuthenticateDepth pulumi.IntPtrInput
+	// Specifies the name of the certificate file that is used as the certification authority certificate when SSL client certificate constrained delegation is enabled. The certificate should be generated and installed by you on the system. When selecting this option, type a certificate file name.
+	C3dCaCert pulumi.StringPtrInput
+	// Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.
+	C3dCaKey pulumi.StringPtrInput
+	// CA Passphrase. Default
+	C3dCaPassphrase pulumi.StringPtrInput
+	// Certificate Extensions List. Default
+	C3dCertExtensionCustomOids pulumi.StringArrayInput
+	// Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:
+	C3dCertExtensionIncludes pulumi.StringArrayInput
+	// Certificate Lifespan. Default
+	C3dCertLifespan pulumi.IntPtrInput
+	// CA Passphrase. Default enabled
+	C3dCertificateExtensions pulumi.StringPtrInput
 	// Client certificate file path. Default None.
 	CaFile pulumi.StringPtrInput
 	// Cache size (sessions).
@@ -473,9 +568,9 @@ type ProfileServerSslArgs struct {
 	ModSslMethods pulumi.StringPtrInput
 	// ModSSL Methods enabled / disabled. Default is disabled.
 	Mode pulumi.StringPtrInput
-	// Specifies the name of the profile. (type `string`)
+	// Specifies the name of the profile.Name of Profile should be full path,full path is the combination of the `partition + profile name`. For example `/Common/test-serverssl-profile`.
 	Name pulumi.StringInput
-	// Device partition to manage resources on.
+	// name of partition
 	Partition pulumi.StringPtrInput
 	// Client Certificate Constrained Delegation CA passphrase
 	Passphrase pulumi.StringPtrInput
@@ -511,6 +606,9 @@ type ProfileServerSslArgs struct {
 	SniDefault pulumi.StringPtrInput
 	// Requires that the network peers also provide SNI support, this setting only takes effect when `sniDefault` is set to `true`.When creating a new profile, the setting is provided by the parent profile
 	SniRequire pulumi.StringPtrInput
+	// Enables or disables SSL forward proxy bypass on receiving
+	// handshake_failure, protocolVersion or unsupportedExtension alert message during the serverside SSL handshake. When enabled and there is an SSL handshake_failure, protocolVersion or unsupportedExtension alert during the serverside SSL handshake, SSL traffic bypasses the BIG-IP system untouched, without decryption/encryption. The default value is disabled. Conversely, you can specify enabled to use this feature.
+	SslC3d pulumi.StringPtrInput
 	// Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
 	SslForwardProxy pulumi.StringPtrInput
 	// Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
@@ -519,7 +617,9 @@ type ProfileServerSslArgs struct {
 	SslSignHash pulumi.StringPtrInput
 	// Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
 	StrictResume pulumi.StringPtrInput
-	TmOptions    pulumi.StringArrayInput
+	// List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
+	// Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tmOptions    = ["dont-insert-empty-fragments","no-tlsv1.3"]
+	TmOptions pulumi.StringArrayInput
 	// Unclean Shutdown (enabled / disabled)
 	UncleanShutdown pulumi.StringPtrInput
 	// Unclean Shutdown (drop / ignore)

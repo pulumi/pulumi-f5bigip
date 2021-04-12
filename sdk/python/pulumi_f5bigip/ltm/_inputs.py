@@ -2519,7 +2519,7 @@ class ProfileClientSslCertKeyChainArgs:
         :param pulumi.Input[str] cert: Specifies a cert name for use.
         :param pulumi.Input[str] chain: Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
         :param pulumi.Input[str] key: Contains a key name
-        :param pulumi.Input[str] name: Specifies the name of the profile. (type `string`)
+        :param pulumi.Input[str] name: Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
         """
         if cert is not None:
             pulumi.set(__self__, "cert", cert)
@@ -2572,7 +2572,7 @@ class ProfileClientSslCertKeyChainArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the profile. (type `string`)
+        Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
         """
         return pulumi.get(self, "name")
 

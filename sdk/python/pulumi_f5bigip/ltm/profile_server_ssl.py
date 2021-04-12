@@ -18,6 +18,13 @@ class ProfileServerSsl(pulumi.CustomResource):
                  alert_timeout: Optional[pulumi.Input[str]] = None,
                  authenticate: Optional[pulumi.Input[str]] = None,
                  authenticate_depth: Optional[pulumi.Input[int]] = None,
+                 c3d_ca_cert: Optional[pulumi.Input[str]] = None,
+                 c3d_ca_key: Optional[pulumi.Input[str]] = None,
+                 c3d_ca_passphrase: Optional[pulumi.Input[str]] = None,
+                 c3d_cert_extension_custom_oids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 c3d_cert_extension_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 c3d_cert_lifespan: Optional[pulumi.Input[int]] = None,
+                 c3d_certificate_extensions: Optional[pulumi.Input[str]] = None,
                  ca_file: Optional[pulumi.Input[str]] = None,
                  cache_size: Optional[pulumi.Input[int]] = None,
                  cache_timeout: Optional[pulumi.Input[int]] = None,
@@ -50,6 +57,7 @@ class ProfileServerSsl(pulumi.CustomResource):
                  session_ticket: Optional[pulumi.Input[str]] = None,
                  sni_default: Optional[pulumi.Input[str]] = None,
                  sni_require: Optional[pulumi.Input[str]] = None,
+                 ssl_c3d: Optional[pulumi.Input[str]] = None,
                  ssl_forward_proxy: Optional[pulumi.Input[str]] = None,
                  ssl_forward_proxy_bypass: Optional[pulumi.Input[str]] = None,
                  ssl_sign_hash: Optional[pulumi.Input[str]] = None,
@@ -79,8 +87,16 @@ class ProfileServerSsl(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alert_timeout: Alert time out
-        :param pulumi.Input[str] authenticate: Server authentication once / always (default is once).
+        :param pulumi.Input[str] authenticate: Specifies the frequency of server authentication for an SSL session.When `once`,specifies that the system authenticates the server once for an SSL session.
+               When `always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.
         :param pulumi.Input[int] authenticate_depth: Client certificate chain traversal depth. Default 9.
+        :param pulumi.Input[str] c3d_ca_cert: Specifies the name of the certificate file that is used as the certification authority certificate when SSL client certificate constrained delegation is enabled. The certificate should be generated and installed by you on the system. When selecting this option, type a certificate file name.
+        :param pulumi.Input[str] c3d_ca_key: Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.
+        :param pulumi.Input[str] c3d_ca_passphrase: CA Passphrase. Default
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] c3d_cert_extension_custom_oids: Certificate Extensions List. Default
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] c3d_cert_extension_includes: Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:
+        :param pulumi.Input[int] c3d_cert_lifespan: Certificate Lifespan. Default
+        :param pulumi.Input[str] c3d_certificate_extensions: CA Passphrase. Default enabled
         :param pulumi.Input[str] ca_file: Client certificate file path. Default None.
         :param pulumi.Input[int] cache_size: Cache size (sessions).
         :param pulumi.Input[int] cache_timeout: Cache time out
@@ -96,8 +112,8 @@ class ProfileServerSsl(pulumi.CustomResource):
         :param pulumi.Input[str] key: Specifies the file name of the SSL key.
         :param pulumi.Input[str] mod_ssl_methods: ModSSL Methods enabled / disabled. Default is disabled.
         :param pulumi.Input[str] mode: ModSSL Methods enabled / disabled. Default is disabled.
-        :param pulumi.Input[str] name: Specifies the name of the profile. (type `string`)
-        :param pulumi.Input[str] partition: Device partition to manage resources on.
+        :param pulumi.Input[str] name: Specifies the name of the profile.Name of Profile should be full path,full path is the combination of the `partition + profile name`. For example `/Common/test-serverssl-profile`.
+        :param pulumi.Input[str] partition: name of partition
         :param pulumi.Input[str] passphrase: Client Certificate Constrained Delegation CA passphrase
         :param pulumi.Input[str] peer_cert_mode: Specifies the way the system handles client certificates.When ignore, specifies that the system ignores certificates from client systems.When require, specifies that the system requires a client to present a valid certificate.When request, specifies that the system requests a valid certificate from a client but always authenticate the client.
         :param pulumi.Input[str] proxy_ca_cert: Proxy CA Cert
@@ -117,10 +133,14 @@ class ProfileServerSsl(pulumi.CustomResource):
         :param pulumi.Input[str] sni_default: Indicates that the system uses this profile as the default SSL profile when there is no match to the server name, or when the client provides no SNI extension support.When creating a new profile, the setting is provided by the parent profile.
                There can be only one SSL profile with this setting enabled.
         :param pulumi.Input[str] sni_require: Requires that the network peers also provide SNI support, this setting only takes effect when `sni_default` is set to `true`.When creating a new profile, the setting is provided by the parent profile
+        :param pulumi.Input[str] ssl_c3d: Enables or disables SSL forward proxy bypass on receiving
+               handshake_failure, protocol_version or unsupported_extension alert message during the serverside SSL handshake. When enabled and there is an SSL handshake_failure, protocol_version or unsupported_extension alert during the serverside SSL handshake, SSL traffic bypasses the BIG-IP system untouched, without decryption/encryption. The default value is disabled. Conversely, you can specify enabled to use this feature.
         :param pulumi.Input[str] ssl_forward_proxy: Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
         :param pulumi.Input[str] ssl_forward_proxy_bypass: Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
         :param pulumi.Input[str] ssl_sign_hash: SSL sign hash (any, sha1, sha256, sha384)
         :param pulumi.Input[str] strict_resume: Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tm_options: List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
+               Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = ["dont-insert-empty-fragments","no-tlsv1.3"]
         :param pulumi.Input[str] unclean_shutdown: Unclean Shutdown (enabled / disabled)
         :param pulumi.Input[str] untrusted_cert_response_control: Unclean Shutdown (drop / ignore)
         """
@@ -144,6 +164,13 @@ class ProfileServerSsl(pulumi.CustomResource):
             __props__['alert_timeout'] = alert_timeout
             __props__['authenticate'] = authenticate
             __props__['authenticate_depth'] = authenticate_depth
+            __props__['c3d_ca_cert'] = c3d_ca_cert
+            __props__['c3d_ca_key'] = c3d_ca_key
+            __props__['c3d_ca_passphrase'] = c3d_ca_passphrase
+            __props__['c3d_cert_extension_custom_oids'] = c3d_cert_extension_custom_oids
+            __props__['c3d_cert_extension_includes'] = c3d_cert_extension_includes
+            __props__['c3d_cert_lifespan'] = c3d_cert_lifespan
+            __props__['c3d_certificate_extensions'] = c3d_certificate_extensions
             __props__['ca_file'] = ca_file
             __props__['cache_size'] = cache_size
             __props__['cache_timeout'] = cache_timeout
@@ -178,6 +205,7 @@ class ProfileServerSsl(pulumi.CustomResource):
             __props__['session_ticket'] = session_ticket
             __props__['sni_default'] = sni_default
             __props__['sni_require'] = sni_require
+            __props__['ssl_c3d'] = ssl_c3d
             __props__['ssl_forward_proxy'] = ssl_forward_proxy
             __props__['ssl_forward_proxy_bypass'] = ssl_forward_proxy_bypass
             __props__['ssl_sign_hash'] = ssl_sign_hash
@@ -198,6 +226,13 @@ class ProfileServerSsl(pulumi.CustomResource):
             alert_timeout: Optional[pulumi.Input[str]] = None,
             authenticate: Optional[pulumi.Input[str]] = None,
             authenticate_depth: Optional[pulumi.Input[int]] = None,
+            c3d_ca_cert: Optional[pulumi.Input[str]] = None,
+            c3d_ca_key: Optional[pulumi.Input[str]] = None,
+            c3d_ca_passphrase: Optional[pulumi.Input[str]] = None,
+            c3d_cert_extension_custom_oids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            c3d_cert_extension_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            c3d_cert_lifespan: Optional[pulumi.Input[int]] = None,
+            c3d_certificate_extensions: Optional[pulumi.Input[str]] = None,
             ca_file: Optional[pulumi.Input[str]] = None,
             cache_size: Optional[pulumi.Input[int]] = None,
             cache_timeout: Optional[pulumi.Input[int]] = None,
@@ -230,6 +265,7 @@ class ProfileServerSsl(pulumi.CustomResource):
             session_ticket: Optional[pulumi.Input[str]] = None,
             sni_default: Optional[pulumi.Input[str]] = None,
             sni_require: Optional[pulumi.Input[str]] = None,
+            ssl_c3d: Optional[pulumi.Input[str]] = None,
             ssl_forward_proxy: Optional[pulumi.Input[str]] = None,
             ssl_forward_proxy_bypass: Optional[pulumi.Input[str]] = None,
             ssl_sign_hash: Optional[pulumi.Input[str]] = None,
@@ -245,8 +281,16 @@ class ProfileServerSsl(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alert_timeout: Alert time out
-        :param pulumi.Input[str] authenticate: Server authentication once / always (default is once).
+        :param pulumi.Input[str] authenticate: Specifies the frequency of server authentication for an SSL session.When `once`,specifies that the system authenticates the server once for an SSL session.
+               When `always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.
         :param pulumi.Input[int] authenticate_depth: Client certificate chain traversal depth. Default 9.
+        :param pulumi.Input[str] c3d_ca_cert: Specifies the name of the certificate file that is used as the certification authority certificate when SSL client certificate constrained delegation is enabled. The certificate should be generated and installed by you on the system. When selecting this option, type a certificate file name.
+        :param pulumi.Input[str] c3d_ca_key: Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.
+        :param pulumi.Input[str] c3d_ca_passphrase: CA Passphrase. Default
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] c3d_cert_extension_custom_oids: Certificate Extensions List. Default
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] c3d_cert_extension_includes: Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:
+        :param pulumi.Input[int] c3d_cert_lifespan: Certificate Lifespan. Default
+        :param pulumi.Input[str] c3d_certificate_extensions: CA Passphrase. Default enabled
         :param pulumi.Input[str] ca_file: Client certificate file path. Default None.
         :param pulumi.Input[int] cache_size: Cache size (sessions).
         :param pulumi.Input[int] cache_timeout: Cache time out
@@ -262,8 +306,8 @@ class ProfileServerSsl(pulumi.CustomResource):
         :param pulumi.Input[str] key: Specifies the file name of the SSL key.
         :param pulumi.Input[str] mod_ssl_methods: ModSSL Methods enabled / disabled. Default is disabled.
         :param pulumi.Input[str] mode: ModSSL Methods enabled / disabled. Default is disabled.
-        :param pulumi.Input[str] name: Specifies the name of the profile. (type `string`)
-        :param pulumi.Input[str] partition: Device partition to manage resources on.
+        :param pulumi.Input[str] name: Specifies the name of the profile.Name of Profile should be full path,full path is the combination of the `partition + profile name`. For example `/Common/test-serverssl-profile`.
+        :param pulumi.Input[str] partition: name of partition
         :param pulumi.Input[str] passphrase: Client Certificate Constrained Delegation CA passphrase
         :param pulumi.Input[str] peer_cert_mode: Specifies the way the system handles client certificates.When ignore, specifies that the system ignores certificates from client systems.When require, specifies that the system requires a client to present a valid certificate.When request, specifies that the system requests a valid certificate from a client but always authenticate the client.
         :param pulumi.Input[str] proxy_ca_cert: Proxy CA Cert
@@ -283,10 +327,14 @@ class ProfileServerSsl(pulumi.CustomResource):
         :param pulumi.Input[str] sni_default: Indicates that the system uses this profile as the default SSL profile when there is no match to the server name, or when the client provides no SNI extension support.When creating a new profile, the setting is provided by the parent profile.
                There can be only one SSL profile with this setting enabled.
         :param pulumi.Input[str] sni_require: Requires that the network peers also provide SNI support, this setting only takes effect when `sni_default` is set to `true`.When creating a new profile, the setting is provided by the parent profile
+        :param pulumi.Input[str] ssl_c3d: Enables or disables SSL forward proxy bypass on receiving
+               handshake_failure, protocol_version or unsupported_extension alert message during the serverside SSL handshake. When enabled and there is an SSL handshake_failure, protocol_version or unsupported_extension alert during the serverside SSL handshake, SSL traffic bypasses the BIG-IP system untouched, without decryption/encryption. The default value is disabled. Conversely, you can specify enabled to use this feature.
         :param pulumi.Input[str] ssl_forward_proxy: Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
         :param pulumi.Input[str] ssl_forward_proxy_bypass: Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
         :param pulumi.Input[str] ssl_sign_hash: SSL sign hash (any, sha1, sha256, sha384)
         :param pulumi.Input[str] strict_resume: Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] tm_options: List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
+               Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = ["dont-insert-empty-fragments","no-tlsv1.3"]
         :param pulumi.Input[str] unclean_shutdown: Unclean Shutdown (enabled / disabled)
         :param pulumi.Input[str] untrusted_cert_response_control: Unclean Shutdown (drop / ignore)
         """
@@ -297,6 +345,13 @@ class ProfileServerSsl(pulumi.CustomResource):
         __props__["alert_timeout"] = alert_timeout
         __props__["authenticate"] = authenticate
         __props__["authenticate_depth"] = authenticate_depth
+        __props__["c3d_ca_cert"] = c3d_ca_cert
+        __props__["c3d_ca_key"] = c3d_ca_key
+        __props__["c3d_ca_passphrase"] = c3d_ca_passphrase
+        __props__["c3d_cert_extension_custom_oids"] = c3d_cert_extension_custom_oids
+        __props__["c3d_cert_extension_includes"] = c3d_cert_extension_includes
+        __props__["c3d_cert_lifespan"] = c3d_cert_lifespan
+        __props__["c3d_certificate_extensions"] = c3d_certificate_extensions
         __props__["ca_file"] = ca_file
         __props__["cache_size"] = cache_size
         __props__["cache_timeout"] = cache_timeout
@@ -329,6 +384,7 @@ class ProfileServerSsl(pulumi.CustomResource):
         __props__["session_ticket"] = session_ticket
         __props__["sni_default"] = sni_default
         __props__["sni_require"] = sni_require
+        __props__["ssl_c3d"] = ssl_c3d
         __props__["ssl_forward_proxy"] = ssl_forward_proxy
         __props__["ssl_forward_proxy_bypass"] = ssl_forward_proxy_bypass
         __props__["ssl_sign_hash"] = ssl_sign_hash
@@ -350,7 +406,8 @@ class ProfileServerSsl(pulumi.CustomResource):
     @pulumi.getter
     def authenticate(self) -> pulumi.Output[str]:
         """
-        Server authentication once / always (default is once).
+        Specifies the frequency of server authentication for an SSL session.When `once`,specifies that the system authenticates the server once for an SSL session.
+        When `always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.
         """
         return pulumi.get(self, "authenticate")
 
@@ -361,6 +418,62 @@ class ProfileServerSsl(pulumi.CustomResource):
         Client certificate chain traversal depth. Default 9.
         """
         return pulumi.get(self, "authenticate_depth")
+
+    @property
+    @pulumi.getter(name="c3dCaCert")
+    def c3d_ca_cert(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the name of the certificate file that is used as the certification authority certificate when SSL client certificate constrained delegation is enabled. The certificate should be generated and installed by you on the system. When selecting this option, type a certificate file name.
+        """
+        return pulumi.get(self, "c3d_ca_cert")
+
+    @property
+    @pulumi.getter(name="c3dCaKey")
+    def c3d_ca_key(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.
+        """
+        return pulumi.get(self, "c3d_ca_key")
+
+    @property
+    @pulumi.getter(name="c3dCaPassphrase")
+    def c3d_ca_passphrase(self) -> pulumi.Output[str]:
+        """
+        CA Passphrase. Default
+        """
+        return pulumi.get(self, "c3d_ca_passphrase")
+
+    @property
+    @pulumi.getter(name="c3dCertExtensionCustomOids")
+    def c3d_cert_extension_custom_oids(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Certificate Extensions List. Default
+        """
+        return pulumi.get(self, "c3d_cert_extension_custom_oids")
+
+    @property
+    @pulumi.getter(name="c3dCertExtensionIncludes")
+    def c3d_cert_extension_includes(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:
+        """
+        return pulumi.get(self, "c3d_cert_extension_includes")
+
+    @property
+    @pulumi.getter(name="c3dCertLifespan")
+    def c3d_cert_lifespan(self) -> pulumi.Output[int]:
+        """
+        Certificate Lifespan. Default
+        """
+        return pulumi.get(self, "c3d_cert_lifespan")
+
+    @property
+    @pulumi.getter(name="c3dCertificateExtensions")
+    def c3d_certificate_extensions(self) -> pulumi.Output[str]:
+        """
+        CA Passphrase. Default enabled
+        """
+        return pulumi.get(self, "c3d_certificate_extensions")
 
     @property
     @pulumi.getter(name="caFile")
@@ -486,7 +599,7 @@ class ProfileServerSsl(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the profile. (type `string`)
+        Specifies the name of the profile.Name of Profile should be full path,full path is the combination of the `partition + profile name`. For example `/Common/test-serverssl-profile`.
         """
         return pulumi.get(self, "name")
 
@@ -494,7 +607,7 @@ class ProfileServerSsl(pulumi.CustomResource):
     @pulumi.getter
     def partition(self) -> pulumi.Output[str]:
         """
-        Device partition to manage resources on.
+        name of partition
         """
         return pulumi.get(self, "partition")
 
@@ -623,6 +736,15 @@ class ProfileServerSsl(pulumi.CustomResource):
         return pulumi.get(self, "sni_require")
 
     @property
+    @pulumi.getter(name="sslC3d")
+    def ssl_c3d(self) -> pulumi.Output[Optional[str]]:
+        """
+        Enables or disables SSL forward proxy bypass on receiving
+        handshake_failure, protocol_version or unsupported_extension alert message during the serverside SSL handshake. When enabled and there is an SSL handshake_failure, protocol_version or unsupported_extension alert during the serverside SSL handshake, SSL traffic bypasses the BIG-IP system untouched, without decryption/encryption. The default value is disabled. Conversely, you can specify enabled to use this feature.
+        """
+        return pulumi.get(self, "ssl_c3d")
+
+    @property
     @pulumi.getter(name="sslForwardProxy")
     def ssl_forward_proxy(self) -> pulumi.Output[str]:
         """
@@ -657,6 +779,10 @@ class ProfileServerSsl(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tmOptions")
     def tm_options(self) -> pulumi.Output[Sequence[str]]:
+        """
+        List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
+        Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = ["dont-insert-empty-fragments","no-tlsv1.3"]
+        """
         return pulumi.get(self, "tm_options")
 
     @property

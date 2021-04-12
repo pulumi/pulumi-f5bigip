@@ -20,7 +20,7 @@ type Certificate struct {
 	Content pulumi.StringOutput `pulumi:"content"`
 	// Name of the SSL Certificate to be Imported on to BIGIP
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Partition on to SSL Certificate to be imported
+	// Partition of ssl certificate
 	Partition pulumi.StringPtrOutput `pulumi:"partition"`
 }
 
@@ -63,7 +63,7 @@ type certificateState struct {
 	Content *string `pulumi:"content"`
 	// Name of the SSL Certificate to be Imported on to BIGIP
 	Name *string `pulumi:"name"`
-	// Partition on to SSL Certificate to be imported
+	// Partition of ssl certificate
 	Partition *string `pulumi:"partition"`
 }
 
@@ -72,7 +72,7 @@ type CertificateState struct {
 	Content pulumi.StringPtrInput
 	// Name of the SSL Certificate to be Imported on to BIGIP
 	Name pulumi.StringPtrInput
-	// Partition on to SSL Certificate to be imported
+	// Partition of ssl certificate
 	Partition pulumi.StringPtrInput
 }
 
@@ -85,7 +85,7 @@ type certificateArgs struct {
 	Content string `pulumi:"content"`
 	// Name of the SSL Certificate to be Imported on to BIGIP
 	Name string `pulumi:"name"`
-	// Partition on to SSL Certificate to be imported
+	// Partition of ssl certificate
 	Partition *string `pulumi:"partition"`
 }
 
@@ -95,7 +95,7 @@ type CertificateArgs struct {
 	Content pulumi.StringInput
 	// Name of the SSL Certificate to be Imported on to BIGIP
 	Name pulumi.StringInput
-	// Partition on to SSL Certificate to be imported
+	// Partition of ssl certificate
 	Partition pulumi.StringPtrInput
 }
 

@@ -21,6 +21,8 @@ type As3 struct {
 	ApplicationList pulumi.StringOutput `pulumi:"applicationList"`
 	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
 	As3Json pulumi.StringOutput `pulumi:"as3Json"`
+	// Set True if you want to ignore metadata changes during update. By default it is set to false
+	IgnoreMetadata pulumi.BoolPtrOutput `pulumi:"ignoreMetadata"`
 	// If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified
 	TenantFilter pulumi.StringPtrOutput `pulumi:"tenantFilter"`
 	// Name of Tenant
@@ -67,6 +69,8 @@ type as3State struct {
 	ApplicationList *string `pulumi:"applicationList"`
 	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
 	As3Json *string `pulumi:"as3Json"`
+	// Set True if you want to ignore metadata changes during update. By default it is set to false
+	IgnoreMetadata *bool `pulumi:"ignoreMetadata"`
 	// If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified
 	TenantFilter *string `pulumi:"tenantFilter"`
 	// Name of Tenant
@@ -82,6 +86,8 @@ type As3State struct {
 	ApplicationList pulumi.StringPtrInput
 	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
 	As3Json pulumi.StringPtrInput
+	// Set True if you want to ignore metadata changes during update. By default it is set to false
+	IgnoreMetadata pulumi.BoolPtrInput
 	// If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified
 	TenantFilter pulumi.StringPtrInput
 	// Name of Tenant
@@ -101,6 +107,8 @@ type as3Args struct {
 	ApplicationList *string `pulumi:"applicationList"`
 	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
 	As3Json string `pulumi:"as3Json"`
+	// Set True if you want to ignore metadata changes during update. By default it is set to false
+	IgnoreMetadata *bool `pulumi:"ignoreMetadata"`
 	// If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified
 	TenantFilter *string `pulumi:"tenantFilter"`
 	// Name of Tenant
@@ -117,6 +125,8 @@ type As3Args struct {
 	ApplicationList pulumi.StringPtrInput
 	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
 	As3Json pulumi.StringInput
+	// Set True if you want to ignore metadata changes during update. By default it is set to false
+	IgnoreMetadata pulumi.BoolPtrInput
 	// If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified
 	TenantFilter pulumi.StringPtrInput
 	// Name of Tenant

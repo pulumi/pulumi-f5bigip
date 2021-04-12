@@ -32,6 +32,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewDo(ctx, name, nil, pulumi.URN_(urn))
 	case "f5bigip:index/eventServiceDiscovery:EventServiceDiscovery":
 		r, err = NewEventServiceDiscovery(ctx, name, nil, pulumi.URN_(urn))
+	case "f5bigip:index/ipsecPolicy:IpsecPolicy":
+		r, err = NewIpsecPolicy(ctx, name, nil, pulumi.URN_(urn))
+	case "f5bigip:index/netTunnel:NetTunnel":
+		r, err = NewNetTunnel(ctx, name, nil, pulumi.URN_(urn))
+	case "f5bigip:index/trafficSelector:TrafficSelector":
+		r, err = NewTrafficSelector(ctx, name, nil, pulumi.URN_(urn))
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -88,6 +94,21 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"f5bigip",
 		"index/eventServiceDiscovery",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"f5bigip",
+		"index/ipsecPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"f5bigip",
+		"index/netTunnel",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"f5bigip",
+		"index/trafficSelector",
 		&module{version},
 	)
 	pulumi.RegisterResourcePackage(

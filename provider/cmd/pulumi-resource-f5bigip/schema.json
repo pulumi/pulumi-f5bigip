@@ -2008,7 +2008,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Specifies the name of the profile. (type `string`)\n",
+                    "description": "Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2544,6 +2544,10 @@
                     "type": "string",
                     "description": "Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function\n"
                 },
+                "ignoreMetadata": {
+                    "type": "boolean",
+                    "description": "Set True if you want to ignore metadata changes during update. By default it is set to false\n"
+                },
                 "tenantFilter": {
                     "type": "string",
                     "description": "If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified\n"
@@ -2572,6 +2576,10 @@
                     "type": "string",
                     "description": "Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function\n"
                 },
+                "ignoreMetadata": {
+                    "type": "boolean",
+                    "description": "Set True if you want to ignore metadata changes during update. By default it is set to false\n"
+                },
                 "tenantFilter": {
                     "type": "string",
                     "description": "If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified\n"
@@ -2599,6 +2607,10 @@
                     "as3Json": {
                         "type": "string",
                         "description": "Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function\n"
+                    },
+                    "ignoreMetadata": {
+                        "type": "boolean",
+                        "description": "Set True if you want to ignore metadata changes during update. By default it is set to false\n"
                     },
                     "tenantFilter": {
                         "type": "string",
@@ -3130,6 +3142,557 @@
                     "taskid": {
                         "type": "string",
                         "description": "Name of the partition/tenant\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "f5bigip:index/ipsecPolicy:IpsecPolicy": {
+            "description": "`f5bigip.IpsecPolicy` Manage IPSec policies on a BIG-IP\n\nResources should be named with their \"full path\". The full path is the combination of the partition + name (example: /Common/test-policy)\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst test_policy = new f5bigip.IpsecPolicy(\"test-policy\", {\n    authAlgorithm: \"sha1\",\n    description: \"created by terraform provider\",\n    encryptAlgorithm: \"3des\",\n    ipcomp: \"deflate\",\n    lifetime: 3,\n    mode: \"tunnel\",\n    name: \"/Common/test-policy\",\n    protocol: \"esp\",\n    tunnelLocalAddress: \"192.168.1.1\",\n    tunnelRemoteAddress: \"10.10.1.1\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ntest_policy = f5bigip.IpsecPolicy(\"test-policy\",\n    auth_algorithm=\"sha1\",\n    description=\"created by terraform provider\",\n    encrypt_algorithm=\"3des\",\n    ipcomp=\"deflate\",\n    lifetime=3,\n    mode=\"tunnel\",\n    name=\"/Common/test-policy\",\n    protocol=\"esp\",\n    tunnel_local_address=\"192.168.1.1\",\n    tunnel_remote_address=\"10.10.1.1\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test_policy = new F5BigIP.IpsecPolicy(\"test-policy\", new F5BigIP.IpsecPolicyArgs\n        {\n            AuthAlgorithm = \"sha1\",\n            Description = \"created by terraform provider\",\n            EncryptAlgorithm = \"3des\",\n            Ipcomp = \"deflate\",\n            Lifetime = 3,\n            Mode = \"tunnel\",\n            Name = \"/Common/test-policy\",\n            Protocol = \"esp\",\n            TunnelLocalAddress = \"192.168.1.1\",\n            TunnelRemoteAddress = \"10.10.1.1\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := f5bigip.NewIpsecPolicy(ctx, \"test_policy\", \u0026f5bigip.IpsecPolicyArgs{\n\t\t\tAuthAlgorithm:       pulumi.String(\"sha1\"),\n\t\t\tDescription:         pulumi.String(\"created by terraform provider\"),\n\t\t\tEncryptAlgorithm:    pulumi.String(\"3des\"),\n\t\t\tIpcomp:              pulumi.String(\"deflate\"),\n\t\t\tLifetime:            pulumi.Int(3),\n\t\t\tMode:                pulumi.String(\"tunnel\"),\n\t\t\tName:                pulumi.String(\"/Common/test-policy\"),\n\t\t\tProtocol:            pulumi.String(\"esp\"),\n\t\t\tTunnelLocalAddress:  pulumi.String(\"192.168.1.1\"),\n\t\t\tTunnelRemoteAddress: pulumi.String(\"10.10.1.1\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "authAlgorithm": {
+                    "type": "string",
+                    "description": "Specifies the algorithm to use for IKE authentication. Valid choices are: `sha1, sha256, sha384, sha512, aes-gcm128,\naes-gcm192, aes-gcm256, aes-gmac128, aes-gmac192, aes-gmac256`\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of the IPSec policy.\n"
+                },
+                "encryptAlgorithm": {
+                    "type": "string",
+                    "description": "Specifies the algorithm to use for IKE encryption. Valid choices are: `null, 3des, aes128, aes192, aes256, aes-gmac256,\naes-gmac192, aes-gmac128, aes-gcm256, aes-gcm192, aes-gcm256, aes-gcm128`\n"
+                },
+                "ipcomp": {
+                    "type": "string",
+                    "description": "Specifies whether to use IPComp encapsulation. Valid choices are: `none\", null\", deflate`\n"
+                },
+                "kbLifetime": {
+                    "type": "integer",
+                    "description": "Specifies the length of time before the IKE security association expires, in kilobytes.\n"
+                },
+                "lifetime": {
+                    "type": "integer",
+                    "description": "Specifies the length of time before the IKE security association expires, in minutes.\n"
+                },
+                "mode": {
+                    "type": "string",
+                    "description": "Specifies the processing mode. Valid choices are: `transport, interface, isession, tunnel`\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the IPSec policy,it should be \"full path\".The full path is the combination of the partition + name of the IPSec policy.(For example `/Common/test-policy`)\n"
+                },
+                "perfectForwardSecrecy": {
+                    "type": "string",
+                    "description": "Specifies the Diffie-Hellman group to use for IKE Phase 2 negotiation. Valid choices are: `none, modp768, modp1024, modp1536, modp2048, modp3072,\nmodp4096, modp6144, modp8192`\n"
+                },
+                "protocol": {
+                    "type": "string",
+                    "description": "Specifies the IPsec protocol. Valid choices are: `ah, esp`\n"
+                },
+                "tunnelLocalAddress": {
+                    "type": "string",
+                    "description": "Specifies the local endpoint IP address of the IPsec tunnel. This parameter is only valid when mode is tunnel.\n"
+                },
+                "tunnelRemoteAddress": {
+                    "type": "string",
+                    "description": "Specifies the remote endpoint IP address of the IPsec tunnel. This parameter is only valid when mode is tunnel.\n"
+                }
+            },
+            "required": [
+                "authAlgorithm",
+                "description",
+                "encryptAlgorithm",
+                "ipcomp",
+                "kbLifetime",
+                "lifetime",
+                "mode",
+                "name",
+                "perfectForwardSecrecy",
+                "protocol",
+                "tunnelLocalAddress",
+                "tunnelRemoteAddress"
+            ],
+            "inputProperties": {
+                "authAlgorithm": {
+                    "type": "string",
+                    "description": "Specifies the algorithm to use for IKE authentication. Valid choices are: `sha1, sha256, sha384, sha512, aes-gcm128,\naes-gcm192, aes-gcm256, aes-gmac128, aes-gmac192, aes-gmac256`\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of the IPSec policy.\n"
+                },
+                "encryptAlgorithm": {
+                    "type": "string",
+                    "description": "Specifies the algorithm to use for IKE encryption. Valid choices are: `null, 3des, aes128, aes192, aes256, aes-gmac256,\naes-gmac192, aes-gmac128, aes-gcm256, aes-gcm192, aes-gcm256, aes-gcm128`\n"
+                },
+                "ipcomp": {
+                    "type": "string",
+                    "description": "Specifies whether to use IPComp encapsulation. Valid choices are: `none\", null\", deflate`\n"
+                },
+                "kbLifetime": {
+                    "type": "integer",
+                    "description": "Specifies the length of time before the IKE security association expires, in kilobytes.\n"
+                },
+                "lifetime": {
+                    "type": "integer",
+                    "description": "Specifies the length of time before the IKE security association expires, in minutes.\n"
+                },
+                "mode": {
+                    "type": "string",
+                    "description": "Specifies the processing mode. Valid choices are: `transport, interface, isession, tunnel`\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the IPSec policy,it should be \"full path\".The full path is the combination of the partition + name of the IPSec policy.(For example `/Common/test-policy`)\n"
+                },
+                "perfectForwardSecrecy": {
+                    "type": "string",
+                    "description": "Specifies the Diffie-Hellman group to use for IKE Phase 2 negotiation. Valid choices are: `none, modp768, modp1024, modp1536, modp2048, modp3072,\nmodp4096, modp6144, modp8192`\n"
+                },
+                "protocol": {
+                    "type": "string",
+                    "description": "Specifies the IPsec protocol. Valid choices are: `ah, esp`\n"
+                },
+                "tunnelLocalAddress": {
+                    "type": "string",
+                    "description": "Specifies the local endpoint IP address of the IPsec tunnel. This parameter is only valid when mode is tunnel.\n"
+                },
+                "tunnelRemoteAddress": {
+                    "type": "string",
+                    "description": "Specifies the remote endpoint IP address of the IPsec tunnel. This parameter is only valid when mode is tunnel.\n"
+                }
+            },
+            "requiredInputs": [
+                "name"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering IpsecPolicy resources.\n",
+                "properties": {
+                    "authAlgorithm": {
+                        "type": "string",
+                        "description": "Specifies the algorithm to use for IKE authentication. Valid choices are: `sha1, sha256, sha384, sha512, aes-gcm128,\naes-gcm192, aes-gcm256, aes-gmac128, aes-gmac192, aes-gmac256`\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Description of the IPSec policy.\n"
+                    },
+                    "encryptAlgorithm": {
+                        "type": "string",
+                        "description": "Specifies the algorithm to use for IKE encryption. Valid choices are: `null, 3des, aes128, aes192, aes256, aes-gmac256,\naes-gmac192, aes-gmac128, aes-gcm256, aes-gcm192, aes-gcm256, aes-gcm128`\n"
+                    },
+                    "ipcomp": {
+                        "type": "string",
+                        "description": "Specifies whether to use IPComp encapsulation. Valid choices are: `none\", null\", deflate`\n"
+                    },
+                    "kbLifetime": {
+                        "type": "integer",
+                        "description": "Specifies the length of time before the IKE security association expires, in kilobytes.\n"
+                    },
+                    "lifetime": {
+                        "type": "integer",
+                        "description": "Specifies the length of time before the IKE security association expires, in minutes.\n"
+                    },
+                    "mode": {
+                        "type": "string",
+                        "description": "Specifies the processing mode. Valid choices are: `transport, interface, isession, tunnel`\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the IPSec policy,it should be \"full path\".The full path is the combination of the partition + name of the IPSec policy.(For example `/Common/test-policy`)\n"
+                    },
+                    "perfectForwardSecrecy": {
+                        "type": "string",
+                        "description": "Specifies the Diffie-Hellman group to use for IKE Phase 2 negotiation. Valid choices are: `none, modp768, modp1024, modp1536, modp2048, modp3072,\nmodp4096, modp6144, modp8192`\n"
+                    },
+                    "protocol": {
+                        "type": "string",
+                        "description": "Specifies the IPsec protocol. Valid choices are: `ah, esp`\n"
+                    },
+                    "tunnelLocalAddress": {
+                        "type": "string",
+                        "description": "Specifies the local endpoint IP address of the IPsec tunnel. This parameter is only valid when mode is tunnel.\n"
+                    },
+                    "tunnelRemoteAddress": {
+                        "type": "string",
+                        "description": "Specifies the remote endpoint IP address of the IPsec tunnel. This parameter is only valid when mode is tunnel.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "f5bigip:index/netTunnel:NetTunnel": {
+            "description": "`f5bigip.NetTunnel` Manages a tunnel configuration\n\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst example1 = new f5bigip.NetTunnel(\"example1\", {\n    localAddress: \"192.16.81.240\",\n    name: \"example1\",\n    profile: \"/Common/dslite\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nexample1 = f5bigip.NetTunnel(\"example1\",\n    local_address=\"192.16.81.240\",\n    name=\"example1\",\n    profile=\"/Common/dslite\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var example1 = new F5BigIP.NetTunnel(\"example1\", new F5BigIP.NetTunnelArgs\n        {\n            LocalAddress = \"192.16.81.240\",\n            Name = \"example1\",\n            Profile = \"/Common/dslite\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := f5bigip.NewNetTunnel(ctx, \"example1\", \u0026f5bigip.NetTunnelArgs{\n\t\t\tLocalAddress: pulumi.String(\"192.16.81.240\"),\n\t\t\tName:         pulumi.String(\"example1\"),\n\t\t\tProfile:      pulumi.String(\"/Common/dslite\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "appService": {
+                    "type": "string",
+                    "description": "The application service that the object belongs to\n"
+                },
+                "autoLastHop": {
+                    "type": "string",
+                    "description": "Specifies whether auto lasthop is enabled or not\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "User defined description\n"
+                },
+                "idleTimeout": {
+                    "type": "integer",
+                    "description": "Specifies an idle timeout for wildcard tunnels in seconds\n"
+                },
+                "key": {
+                    "type": "integer",
+                    "description": "The key field may represent different values depending on the type of the tunnel\n"
+                },
+                "localAddress": {
+                    "type": "string",
+                    "description": "Specifies a local IP address. This option is required\n"
+                },
+                "mode": {
+                    "type": "string",
+                    "description": "Specifies how the tunnel carries traffic\n"
+                },
+                "mtu": {
+                    "type": "integer",
+                    "description": "Specifies the maximum transmission unit (MTU) of the tunnel\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the tunnel\n"
+                },
+                "partition": {
+                    "type": "string",
+                    "description": "Displays the admin-partition within which this component resides\n"
+                },
+                "profile": {
+                    "type": "string",
+                    "description": "Specifies the profile that you want to associate with the tunnel\n"
+                },
+                "remoteAddress": {
+                    "type": "string",
+                    "description": "Specifies a remote IP address\n"
+                },
+                "secondaryAddress": {
+                    "type": "string",
+                    "description": "Specifies a secondary non-floating IP address when the local-address is set to a floating address\n"
+                },
+                "tos": {
+                    "type": "string",
+                    "description": "Specifies a value for insertion into the Type of Service (ToS) octet within the IP header of the encapsulating header of transmitted packets\n"
+                },
+                "trafficGroup": {
+                    "type": "string",
+                    "description": "Specifies a traffic-group for use with the tunnel\n"
+                },
+                "transparent": {
+                    "type": "string",
+                    "description": "Enables or disables the tunnel to be transparent\n"
+                },
+                "usePmtu": {
+                    "type": "string",
+                    "description": "Enables or disables the tunnel to use the PMTU (Path MTU) information provided by ICMP NeedFrag error messages\n"
+                }
+            },
+            "required": [
+                "localAddress",
+                "name",
+                "profile"
+            ],
+            "inputProperties": {
+                "appService": {
+                    "type": "string",
+                    "description": "The application service that the object belongs to\n"
+                },
+                "autoLastHop": {
+                    "type": "string",
+                    "description": "Specifies whether auto lasthop is enabled or not\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "User defined description\n"
+                },
+                "idleTimeout": {
+                    "type": "integer",
+                    "description": "Specifies an idle timeout for wildcard tunnels in seconds\n"
+                },
+                "key": {
+                    "type": "integer",
+                    "description": "The key field may represent different values depending on the type of the tunnel\n"
+                },
+                "localAddress": {
+                    "type": "string",
+                    "description": "Specifies a local IP address. This option is required\n"
+                },
+                "mode": {
+                    "type": "string",
+                    "description": "Specifies how the tunnel carries traffic\n"
+                },
+                "mtu": {
+                    "type": "integer",
+                    "description": "Specifies the maximum transmission unit (MTU) of the tunnel\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the tunnel\n"
+                },
+                "partition": {
+                    "type": "string",
+                    "description": "Displays the admin-partition within which this component resides\n"
+                },
+                "profile": {
+                    "type": "string",
+                    "description": "Specifies the profile that you want to associate with the tunnel\n"
+                },
+                "remoteAddress": {
+                    "type": "string",
+                    "description": "Specifies a remote IP address\n"
+                },
+                "secondaryAddress": {
+                    "type": "string",
+                    "description": "Specifies a secondary non-floating IP address when the local-address is set to a floating address\n"
+                },
+                "tos": {
+                    "type": "string",
+                    "description": "Specifies a value for insertion into the Type of Service (ToS) octet within the IP header of the encapsulating header of transmitted packets\n"
+                },
+                "trafficGroup": {
+                    "type": "string",
+                    "description": "Specifies a traffic-group for use with the tunnel\n"
+                },
+                "transparent": {
+                    "type": "string",
+                    "description": "Enables or disables the tunnel to be transparent\n"
+                },
+                "usePmtu": {
+                    "type": "string",
+                    "description": "Enables or disables the tunnel to use the PMTU (Path MTU) information provided by ICMP NeedFrag error messages\n"
+                }
+            },
+            "requiredInputs": [
+                "localAddress",
+                "name",
+                "profile"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering NetTunnel resources.\n",
+                "properties": {
+                    "appService": {
+                        "type": "string",
+                        "description": "The application service that the object belongs to\n"
+                    },
+                    "autoLastHop": {
+                        "type": "string",
+                        "description": "Specifies whether auto lasthop is enabled or not\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "User defined description\n"
+                    },
+                    "idleTimeout": {
+                        "type": "integer",
+                        "description": "Specifies an idle timeout for wildcard tunnels in seconds\n"
+                    },
+                    "key": {
+                        "type": "integer",
+                        "description": "The key field may represent different values depending on the type of the tunnel\n"
+                    },
+                    "localAddress": {
+                        "type": "string",
+                        "description": "Specifies a local IP address. This option is required\n"
+                    },
+                    "mode": {
+                        "type": "string",
+                        "description": "Specifies how the tunnel carries traffic\n"
+                    },
+                    "mtu": {
+                        "type": "integer",
+                        "description": "Specifies the maximum transmission unit (MTU) of the tunnel\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the tunnel\n"
+                    },
+                    "partition": {
+                        "type": "string",
+                        "description": "Displays the admin-partition within which this component resides\n"
+                    },
+                    "profile": {
+                        "type": "string",
+                        "description": "Specifies the profile that you want to associate with the tunnel\n"
+                    },
+                    "remoteAddress": {
+                        "type": "string",
+                        "description": "Specifies a remote IP address\n"
+                    },
+                    "secondaryAddress": {
+                        "type": "string",
+                        "description": "Specifies a secondary non-floating IP address when the local-address is set to a floating address\n"
+                    },
+                    "tos": {
+                        "type": "string",
+                        "description": "Specifies a value for insertion into the Type of Service (ToS) octet within the IP header of the encapsulating header of transmitted packets\n"
+                    },
+                    "trafficGroup": {
+                        "type": "string",
+                        "description": "Specifies a traffic-group for use with the tunnel\n"
+                    },
+                    "transparent": {
+                        "type": "string",
+                        "description": "Enables or disables the tunnel to be transparent\n"
+                    },
+                    "usePmtu": {
+                        "type": "string",
+                        "description": "Enables or disables the tunnel to use the PMTU (Path MTU) information provided by ICMP NeedFrag error messages\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "f5bigip:index/trafficSelector:TrafficSelector": {
+            "description": "`f5bigip.TrafficSelector` Manage IPSec Traffic Selectors on BIG-IP\n\nResources should be named with their \"full path\". The full path is the combination of the partition + name (example: /Common/test-selector)\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst test_selector = new f5bigip.TrafficSelector(\"test-selector\", {\n    destinationAddress: \"3.10.11.2/32\",\n    name: \"/Common/test-selector\",\n    sourceAddress: \"2.10.11.12/32\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ntest_selector = f5bigip.TrafficSelector(\"test-selector\",\n    destination_address=\"3.10.11.2/32\",\n    name=\"/Common/test-selector\",\n    source_address=\"2.10.11.12/32\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test_selector = new F5BigIP.TrafficSelector(\"test-selector\", new F5BigIP.TrafficSelectorArgs\n        {\n            DestinationAddress = \"3.10.11.2/32\",\n            Name = \"/Common/test-selector\",\n            SourceAddress = \"2.10.11.12/32\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := f5bigip.NewTrafficSelector(ctx, \"test_selector\", \u0026f5bigip.TrafficSelectorArgs{\n\t\t\tDestinationAddress: pulumi.String(\"3.10.11.2/32\"),\n\t\t\tName:               pulumi.String(\"/Common/test-selector\"),\n\t\t\tSourceAddress:      pulumi.String(\"2.10.11.12/32\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "Description of the traffic selector.\n"
+                },
+                "destinationAddress": {
+                    "type": "string",
+                    "description": "Specifies the host or network IP address to which the application traffic is destined.When creating a new traffic selector, this parameter is required.\n"
+                },
+                "destinationPort": {
+                    "type": "integer",
+                    "description": "Specifies the IP port used by the application. The default value is `All Ports (0)`\n"
+                },
+                "direction": {
+                    "type": "string",
+                    "description": "Specifies whether the traffic selector applies to inbound or outbound traffic, or both. The default value is `Both`.\n"
+                },
+                "ipProtocol": {
+                    "type": "integer",
+                    "description": "Specifies the network protocol to use for this traffic. The default value is `All Protocols (255)`\n"
+                },
+                "ipsecPolicy": {
+                    "type": "string",
+                    "description": "Specifies the IPsec policy that tells the BIG-IP system how to handle the packets.When creating a new traffic selector, if this parameter is not specified, the default is `default-ipsec-policy`.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the IPSec traffic-selector,it should be \"full path\".The full path is the combination of the partition + name of the IPSec traffic-selector.(For example `/Common/test-selector`)\n"
+                },
+                "order": {
+                    "type": "integer",
+                    "description": "Specifies the order in which traffic is matched, if traffic can be matched to multiple traffic selectors.Traffic is matched to the traffic selector with the highest priority (lowest order number).\nWhen creating a new traffic selector, if this parameter is not specified, the default is `last`\n"
+                },
+                "sourceAddress": {
+                    "type": "string",
+                    "description": "Specifies the host or network IP address from which the application traffic originates.When creating a new traffic selector, this parameter is required.\n"
+                },
+                "sourcePort": {
+                    "type": "integer",
+                    "description": "Specifies the IP port used by the application. The default value is `All Ports (0)`.\n"
+                }
+            },
+            "required": [
+                "description",
+                "destinationAddress",
+                "destinationPort",
+                "direction",
+                "ipProtocol",
+                "ipsecPolicy",
+                "name",
+                "order",
+                "sourceAddress",
+                "sourcePort"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "Description of the traffic selector.\n"
+                },
+                "destinationAddress": {
+                    "type": "string",
+                    "description": "Specifies the host or network IP address to which the application traffic is destined.When creating a new traffic selector, this parameter is required.\n"
+                },
+                "destinationPort": {
+                    "type": "integer",
+                    "description": "Specifies the IP port used by the application. The default value is `All Ports (0)`\n"
+                },
+                "direction": {
+                    "type": "string",
+                    "description": "Specifies whether the traffic selector applies to inbound or outbound traffic, or both. The default value is `Both`.\n"
+                },
+                "ipProtocol": {
+                    "type": "integer",
+                    "description": "Specifies the network protocol to use for this traffic. The default value is `All Protocols (255)`\n"
+                },
+                "ipsecPolicy": {
+                    "type": "string",
+                    "description": "Specifies the IPsec policy that tells the BIG-IP system how to handle the packets.When creating a new traffic selector, if this parameter is not specified, the default is `default-ipsec-policy`.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the IPSec traffic-selector,it should be \"full path\".The full path is the combination of the partition + name of the IPSec traffic-selector.(For example `/Common/test-selector`)\n"
+                },
+                "order": {
+                    "type": "integer",
+                    "description": "Specifies the order in which traffic is matched, if traffic can be matched to multiple traffic selectors.Traffic is matched to the traffic selector with the highest priority (lowest order number).\nWhen creating a new traffic selector, if this parameter is not specified, the default is `last`\n"
+                },
+                "sourceAddress": {
+                    "type": "string",
+                    "description": "Specifies the host or network IP address from which the application traffic originates.When creating a new traffic selector, this parameter is required.\n"
+                },
+                "sourcePort": {
+                    "type": "integer",
+                    "description": "Specifies the IP port used by the application. The default value is `All Ports (0)`.\n"
+                }
+            },
+            "requiredInputs": [
+                "destinationAddress",
+                "name",
+                "sourceAddress"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering TrafficSelector resources.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "Description of the traffic selector.\n"
+                    },
+                    "destinationAddress": {
+                        "type": "string",
+                        "description": "Specifies the host or network IP address to which the application traffic is destined.When creating a new traffic selector, this parameter is required.\n"
+                    },
+                    "destinationPort": {
+                        "type": "integer",
+                        "description": "Specifies the IP port used by the application. The default value is `All Ports (0)`\n"
+                    },
+                    "direction": {
+                        "type": "string",
+                        "description": "Specifies whether the traffic selector applies to inbound or outbound traffic, or both. The default value is `Both`.\n"
+                    },
+                    "ipProtocol": {
+                        "type": "integer",
+                        "description": "Specifies the network protocol to use for this traffic. The default value is `All Protocols (255)`\n"
+                    },
+                    "ipsecPolicy": {
+                        "type": "string",
+                        "description": "Specifies the IPsec policy that tells the BIG-IP system how to handle the packets.When creating a new traffic selector, if this parameter is not specified, the default is `default-ipsec-policy`.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the IPSec traffic-selector,it should be \"full path\".The full path is the combination of the partition + name of the IPSec traffic-selector.(For example `/Common/test-selector`)\n"
+                    },
+                    "order": {
+                        "type": "integer",
+                        "description": "Specifies the order in which traffic is matched, if traffic can be matched to multiple traffic selectors.Traffic is matched to the traffic selector with the highest priority (lowest order number).\nWhen creating a new traffic selector, if this parameter is not specified, the default is `last`\n"
+                    },
+                    "sourceAddress": {
+                        "type": "string",
+                        "description": "Specifies the host or network IP address from which the application traffic originates.When creating a new traffic selector, this parameter is required.\n"
+                    },
+                    "sourcePort": {
+                        "type": "integer",
+                        "description": "Specifies the IP port used by the application. The default value is `All Ports (0)`.\n"
                     }
                 },
                 "type": "object"
@@ -3971,8 +4534,17 @@
                 }
             },
             "required": [
+                "appService",
                 "defaultsFrom",
-                "name"
+                "hashAlgorithm",
+                "mask",
+                "matchAcrossPools",
+                "matchAcrossServices",
+                "matchAcrossVirtuals",
+                "mirror",
+                "name",
+                "overrideConnLimit",
+                "timeout"
             ],
             "inputProperties": {
                 "appService": {
@@ -4773,7 +5345,7 @@
             }
         },
         "f5bigip:ltm/profileClientSsl:ProfileClientSsl": {
-            "description": "`f5bigip.ltm.ProfileClientSsl` Manages client SSL profiles on a BIG-IP\n\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst test_ClientSsl = new f5bigip.ltm.ProfileClientSsl(\"test-ClientSsl\", {\n    authenticate: \"always\",\n    ciphers: \"DEFAULT\",\n    defaultsFrom: \"/Common/clientssl\",\n    name: \"/Common/test-ClientSsl\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ntest__client_ssl = f5bigip.ltm.ProfileClientSsl(\"test-ClientSsl\",\n    authenticate=\"always\",\n    ciphers=\"DEFAULT\",\n    defaults_from=\"/Common/clientssl\",\n    name=\"/Common/test-ClientSsl\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test_ClientSsl = new F5BigIP.Ltm.ProfileClientSsl(\"test-ClientSsl\", new F5BigIP.Ltm.ProfileClientSslArgs\n        {\n            Authenticate = \"always\",\n            Ciphers = \"DEFAULT\",\n            DefaultsFrom = \"/Common/clientssl\",\n            Name = \"/Common/test-ClientSsl\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewProfileClientSsl(ctx, \"test_ClientSsl\", \u0026ltm.ProfileClientSslArgs{\n\t\t\tAuthenticate: pulumi.String(\"always\"),\n\t\t\tCiphers:      pulumi.String(\"DEFAULT\"),\n\t\t\tDefaultsFrom: pulumi.String(\"/Common/clientssl\"),\n\t\t\tName:         pulumi.String(\"/Common/test-ClientSsl\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "`f5bigip.ltm.ProfileClientSsl` Manages client SSL profiles on a BIG-IP\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst test_ClientSsl = new f5bigip.ltm.ProfileClientSsl(\"test-ClientSsl\", {\n    authenticate: \"always\",\n    ciphers: \"DEFAULT\",\n    defaultsFrom: \"/Common/clientssl\",\n    name: \"/Common/test-ClientSsl\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ntest__client_ssl = f5bigip.ltm.ProfileClientSsl(\"test-ClientSsl\",\n    authenticate=\"always\",\n    ciphers=\"DEFAULT\",\n    defaults_from=\"/Common/clientssl\",\n    name=\"/Common/test-ClientSsl\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test_ClientSsl = new F5BigIP.Ltm.ProfileClientSsl(\"test-ClientSsl\", new F5BigIP.Ltm.ProfileClientSslArgs\n        {\n            Authenticate = \"always\",\n            Ciphers = \"DEFAULT\",\n            DefaultsFrom = \"/Common/clientssl\",\n            Name = \"/Common/test-ClientSsl\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewProfileClientSsl(ctx, \"test_ClientSsl\", \u0026ltm.ProfileClientSslArgs{\n\t\t\tAuthenticate: pulumi.String(\"always\"),\n\t\t\tCiphers:      pulumi.String(\"DEFAULT\"),\n\t\t\tDefaultsFrom: pulumi.String(\"/Common/clientssl\"),\n\t\t\tName:         pulumi.String(\"/Common/test-ClientSsl\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "alertTimeout": {
                     "type": "string",
@@ -4790,6 +5362,18 @@
                 "authenticateDepth": {
                     "type": "integer",
                     "description": "Specifies the maximum number of certificates to be traversed in a client certificate chain\n"
+                },
+                "c3dClientFallbackCert": {
+                    "type": "string",
+                    "description": "Specifies the client certificate to use in SSL client certificate constrained delegation. This certificate will be used if client does not provide a cert during the SSL handshake. The default value is none.\n"
+                },
+                "c3dDropUnknownOcspStatus": {
+                    "type": "string",
+                    "description": "Specifies the BIG-IP action when the OCSP responder returns unknown status. The default value is drop, which causes the onnection to be dropped. Conversely, you can specify ignore, which causes the connection to ignore the unknown status and continue.\n"
+                },
+                "c3dOcsp": {
+                    "type": "string",
+                    "description": "Specifies the SSL client certificate constrained delegation OCSP object that the BIG-IP SSL should use to connect to the OCSP responder and check the client certificate status.\n"
                 },
                 "caFile": {
                     "type": "string",
@@ -4846,7 +5430,7 @@
                 },
                 "defaultsFrom": {
                     "type": "string",
-                    "description": "The parent template of this monitor template. Once this value has been set, it cannot be changed. By default, this value is the `clientssl` parent on the `Common` partition.\n"
+                    "description": "Parent profile for this clientssl profile.Once this value has been set, it cannot be changed. Default value is `/Common/clientssl`. It Should Full path `/partition/profile_name`\n"
                 },
                 "forwardProxyBypassDefaultAction": {
                     "type": "string",
@@ -4886,11 +5470,11 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Specifies the name of the profile. (type `string`)\n"
+                    "description": "Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.\n"
                 },
                 "partition": {
                     "type": "string",
-                    "description": "Device partition to manage resources on.\n"
+                    "description": "name of partition\n"
                 },
                 "passphrase": {
                     "type": "string",
@@ -4960,6 +5544,10 @@
                     "type": "string",
                     "description": "Requires that the network peers also provide SNI support, this setting only takes effect when `sni_default` is set to `true`.When creating a new profile, the setting is provided by the parent profile\n"
                 },
+                "sslC3d": {
+                    "type": "string",
+                    "description": "Enables or disables SSL client certificate constrained delegation. The default option is disabled. Conversely, you can specify enabled to use the SSL client certificate constrained delegation.\n"
+                },
                 "sslForwardProxy": {
                     "type": "string",
                     "description": "Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.\n"
@@ -4980,7 +5568,8 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "List of Enabled selection from a set of industry standard options for handling SSL processing.By default,\nDon't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = [\"dont-insert-empty-fragments\",\"no-tlsv1.3\"]\n"
                 },
                 "uncleanShutdown": {
                     "type": "string",
@@ -4992,6 +5581,9 @@
                 "allowNonSsl",
                 "authenticate",
                 "authenticateDepth",
+                "c3dClientFallbackCert",
+                "c3dDropUnknownOcspStatus",
+                "c3dOcsp",
                 "caFile",
                 "cacheSize",
                 "cacheTimeout",
@@ -5032,6 +5624,7 @@
                 "sessionTicket",
                 "sniDefault",
                 "sniRequire",
+                "sslC3d",
                 "sslForwardProxy",
                 "sslForwardProxyBypass",
                 "sslSignHash",
@@ -5055,6 +5648,18 @@
                 "authenticateDepth": {
                     "type": "integer",
                     "description": "Specifies the maximum number of certificates to be traversed in a client certificate chain\n"
+                },
+                "c3dClientFallbackCert": {
+                    "type": "string",
+                    "description": "Specifies the client certificate to use in SSL client certificate constrained delegation. This certificate will be used if client does not provide a cert during the SSL handshake. The default value is none.\n"
+                },
+                "c3dDropUnknownOcspStatus": {
+                    "type": "string",
+                    "description": "Specifies the BIG-IP action when the OCSP responder returns unknown status. The default value is drop, which causes the onnection to be dropped. Conversely, you can specify ignore, which causes the connection to ignore the unknown status and continue.\n"
+                },
+                "c3dOcsp": {
+                    "type": "string",
+                    "description": "Specifies the SSL client certificate constrained delegation OCSP object that the BIG-IP SSL should use to connect to the OCSP responder and check the client certificate status.\n"
                 },
                 "caFile": {
                     "type": "string",
@@ -5111,7 +5716,7 @@
                 },
                 "defaultsFrom": {
                     "type": "string",
-                    "description": "The parent template of this monitor template. Once this value has been set, it cannot be changed. By default, this value is the `clientssl` parent on the `Common` partition.\n"
+                    "description": "Parent profile for this clientssl profile.Once this value has been set, it cannot be changed. Default value is `/Common/clientssl`. It Should Full path `/partition/profile_name`\n"
                 },
                 "forwardProxyBypassDefaultAction": {
                     "type": "string",
@@ -5151,11 +5756,11 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Specifies the name of the profile. (type `string`)\n"
+                    "description": "Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.\n"
                 },
                 "partition": {
                     "type": "string",
-                    "description": "Device partition to manage resources on.\n"
+                    "description": "name of partition\n"
                 },
                 "passphrase": {
                     "type": "string",
@@ -5225,6 +5830,10 @@
                     "type": "string",
                     "description": "Requires that the network peers also provide SNI support, this setting only takes effect when `sni_default` is set to `true`.When creating a new profile, the setting is provided by the parent profile\n"
                 },
+                "sslC3d": {
+                    "type": "string",
+                    "description": "Enables or disables SSL client certificate constrained delegation. The default option is disabled. Conversely, you can specify enabled to use the SSL client certificate constrained delegation.\n"
+                },
                 "sslForwardProxy": {
                     "type": "string",
                     "description": "Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.\n"
@@ -5245,7 +5854,8 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "List of Enabled selection from a set of industry standard options for handling SSL processing.By default,\nDon't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = [\"dont-insert-empty-fragments\",\"no-tlsv1.3\"]\n"
                 },
                 "uncleanShutdown": {
                     "type": "string",
@@ -5273,6 +5883,18 @@
                     "authenticateDepth": {
                         "type": "integer",
                         "description": "Specifies the maximum number of certificates to be traversed in a client certificate chain\n"
+                    },
+                    "c3dClientFallbackCert": {
+                        "type": "string",
+                        "description": "Specifies the client certificate to use in SSL client certificate constrained delegation. This certificate will be used if client does not provide a cert during the SSL handshake. The default value is none.\n"
+                    },
+                    "c3dDropUnknownOcspStatus": {
+                        "type": "string",
+                        "description": "Specifies the BIG-IP action when the OCSP responder returns unknown status. The default value is drop, which causes the onnection to be dropped. Conversely, you can specify ignore, which causes the connection to ignore the unknown status and continue.\n"
+                    },
+                    "c3dOcsp": {
+                        "type": "string",
+                        "description": "Specifies the SSL client certificate constrained delegation OCSP object that the BIG-IP SSL should use to connect to the OCSP responder and check the client certificate status.\n"
                     },
                     "caFile": {
                         "type": "string",
@@ -5329,7 +5951,7 @@
                     },
                     "defaultsFrom": {
                         "type": "string",
-                        "description": "The parent template of this monitor template. Once this value has been set, it cannot be changed. By default, this value is the `clientssl` parent on the `Common` partition.\n"
+                        "description": "Parent profile for this clientssl profile.Once this value has been set, it cannot be changed. Default value is `/Common/clientssl`. It Should Full path `/partition/profile_name`\n"
                     },
                     "forwardProxyBypassDefaultAction": {
                         "type": "string",
@@ -5369,11 +5991,11 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "Specifies the name of the profile. (type `string`)\n"
+                        "description": "Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.\n"
                     },
                     "partition": {
                         "type": "string",
-                        "description": "Device partition to manage resources on.\n"
+                        "description": "name of partition\n"
                     },
                     "passphrase": {
                         "type": "string",
@@ -5443,6 +6065,10 @@
                         "type": "string",
                         "description": "Requires that the network peers also provide SNI support, this setting only takes effect when `sni_default` is set to `true`.When creating a new profile, the setting is provided by the parent profile\n"
                     },
+                    "sslC3d": {
+                        "type": "string",
+                        "description": "Enables or disables SSL client certificate constrained delegation. The default option is disabled. Conversely, you can specify enabled to use the SSL client certificate constrained delegation.\n"
+                    },
                     "sslForwardProxy": {
                         "type": "string",
                         "description": "Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.\n"
@@ -5463,7 +6089,8 @@
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "List of Enabled selection from a set of industry standard options for handling SSL processing.By default,\nDon't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = [\"dont-insert-empty-fragments\",\"no-tlsv1.3\"]\n"
                     },
                     "uncleanShutdown": {
                         "type": "string",
@@ -6653,11 +7280,45 @@
                 },
                 "authenticate": {
                     "type": "string",
-                    "description": "Server authentication once / always (default is once).\n"
+                    "description": "Specifies the frequency of server authentication for an SSL session.When `once`,specifies that the system authenticates the server once for an SSL session.\nWhen `always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.\n"
                 },
                 "authenticateDepth": {
                     "type": "integer",
                     "description": "Client certificate chain traversal depth. Default 9.\n"
+                },
+                "c3dCaCert": {
+                    "type": "string",
+                    "description": "Specifies the name of the certificate file that is used as the certification authority certificate when SSL client certificate constrained delegation is enabled. The certificate should be generated and installed by you on the system. When selecting this option, type a certificate file name.\n"
+                },
+                "c3dCaKey": {
+                    "type": "string",
+                    "description": "Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.\n"
+                },
+                "c3dCaPassphrase": {
+                    "type": "string",
+                    "description": "CA Passphrase. Default\n"
+                },
+                "c3dCertExtensionCustomOids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Certificate Extensions List. Default\n"
+                },
+                "c3dCertExtensionIncludes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:\n"
+                },
+                "c3dCertLifespan": {
+                    "type": "integer",
+                    "description": "Certificate Lifespan. Default\n"
+                },
+                "c3dCertificateExtensions": {
+                    "type": "string",
+                    "description": "CA Passphrase. Default enabled\n"
                 },
                 "caFile": {
                     "type": "string",
@@ -6721,11 +7382,11 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Specifies the name of the profile. (type `string`)\n"
+                    "description": "Specifies the name of the profile.Name of Profile should be full path,full path is the combination of the `partition + profile name`. For example `/Common/test-serverssl-profile`.\n"
                 },
                 "partition": {
                     "type": "string",
-                    "description": "Device partition to manage resources on.\n"
+                    "description": "name of partition\n"
                 },
                 "passphrase": {
                     "type": "string",
@@ -6787,6 +7448,10 @@
                     "type": "string",
                     "description": "Requires that the network peers also provide SNI support, this setting only takes effect when `sni_default` is set to `true`.When creating a new profile, the setting is provided by the parent profile\n"
                 },
+                "sslC3d": {
+                    "type": "string",
+                    "description": "Enables or disables SSL forward proxy bypass on receiving\nhandshake_failure, protocol_version or unsupported_extension alert message during the serverside SSL handshake. When enabled and there is an SSL handshake_failure, protocol_version or unsupported_extension alert during the serverside SSL handshake, SSL traffic bypasses the BIG-IP system untouched, without decryption/encryption. The default value is disabled. Conversely, you can specify enabled to use this feature.\n"
+                },
                 "sslForwardProxy": {
                     "type": "string",
                     "description": "Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.\n"
@@ -6807,7 +7472,8 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "List of Enabled selection from a set of industry standard options for handling SSL processing.By default,\nDon't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = [\"dont-insert-empty-fragments\",\"no-tlsv1.3\"]\n"
                 },
                 "uncleanShutdown": {
                     "type": "string",
@@ -6822,6 +7488,9 @@
                 "alertTimeout",
                 "authenticate",
                 "authenticateDepth",
+                "c3dCaPassphrase",
+                "c3dCertLifespan",
+                "c3dCertificateExtensions",
                 "caFile",
                 "cacheSize",
                 "cacheTimeout",
@@ -6868,11 +7537,45 @@
                 },
                 "authenticate": {
                     "type": "string",
-                    "description": "Server authentication once / always (default is once).\n"
+                    "description": "Specifies the frequency of server authentication for an SSL session.When `once`,specifies that the system authenticates the server once for an SSL session.\nWhen `always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.\n"
                 },
                 "authenticateDepth": {
                     "type": "integer",
                     "description": "Client certificate chain traversal depth. Default 9.\n"
+                },
+                "c3dCaCert": {
+                    "type": "string",
+                    "description": "Specifies the name of the certificate file that is used as the certification authority certificate when SSL client certificate constrained delegation is enabled. The certificate should be generated and installed by you on the system. When selecting this option, type a certificate file name.\n"
+                },
+                "c3dCaKey": {
+                    "type": "string",
+                    "description": "Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.\n"
+                },
+                "c3dCaPassphrase": {
+                    "type": "string",
+                    "description": "CA Passphrase. Default\n"
+                },
+                "c3dCertExtensionCustomOids": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Certificate Extensions List. Default\n"
+                },
+                "c3dCertExtensionIncludes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:\n"
+                },
+                "c3dCertLifespan": {
+                    "type": "integer",
+                    "description": "Certificate Lifespan. Default\n"
+                },
+                "c3dCertificateExtensions": {
+                    "type": "string",
+                    "description": "CA Passphrase. Default enabled\n"
                 },
                 "caFile": {
                     "type": "string",
@@ -6936,11 +7639,11 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Specifies the name of the profile. (type `string`)\n"
+                    "description": "Specifies the name of the profile.Name of Profile should be full path,full path is the combination of the `partition + profile name`. For example `/Common/test-serverssl-profile`.\n"
                 },
                 "partition": {
                     "type": "string",
-                    "description": "Device partition to manage resources on.\n"
+                    "description": "name of partition\n"
                 },
                 "passphrase": {
                     "type": "string",
@@ -7002,6 +7705,10 @@
                     "type": "string",
                     "description": "Requires that the network peers also provide SNI support, this setting only takes effect when `sni_default` is set to `true`.When creating a new profile, the setting is provided by the parent profile\n"
                 },
+                "sslC3d": {
+                    "type": "string",
+                    "description": "Enables or disables SSL forward proxy bypass on receiving\nhandshake_failure, protocol_version or unsupported_extension alert message during the serverside SSL handshake. When enabled and there is an SSL handshake_failure, protocol_version or unsupported_extension alert during the serverside SSL handshake, SSL traffic bypasses the BIG-IP system untouched, without decryption/encryption. The default value is disabled. Conversely, you can specify enabled to use this feature.\n"
+                },
                 "sslForwardProxy": {
                     "type": "string",
                     "description": "Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.\n"
@@ -7022,7 +7729,8 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "List of Enabled selection from a set of industry standard options for handling SSL processing.By default,\nDon't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = [\"dont-insert-empty-fragments\",\"no-tlsv1.3\"]\n"
                 },
                 "uncleanShutdown": {
                     "type": "string",
@@ -7045,11 +7753,45 @@
                     },
                     "authenticate": {
                         "type": "string",
-                        "description": "Server authentication once / always (default is once).\n"
+                        "description": "Specifies the frequency of server authentication for an SSL session.When `once`,specifies that the system authenticates the server once for an SSL session.\nWhen `always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.\n"
                     },
                     "authenticateDepth": {
                         "type": "integer",
                         "description": "Client certificate chain traversal depth. Default 9.\n"
+                    },
+                    "c3dCaCert": {
+                        "type": "string",
+                        "description": "Specifies the name of the certificate file that is used as the certification authority certificate when SSL client certificate constrained delegation is enabled. The certificate should be generated and installed by you on the system. When selecting this option, type a certificate file name.\n"
+                    },
+                    "c3dCaKey": {
+                        "type": "string",
+                        "description": "Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.\n"
+                    },
+                    "c3dCaPassphrase": {
+                        "type": "string",
+                        "description": "CA Passphrase. Default\n"
+                    },
+                    "c3dCertExtensionCustomOids": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Certificate Extensions List. Default\n"
+                    },
+                    "c3dCertExtensionIncludes": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:\n"
+                    },
+                    "c3dCertLifespan": {
+                        "type": "integer",
+                        "description": "Certificate Lifespan. Default\n"
+                    },
+                    "c3dCertificateExtensions": {
+                        "type": "string",
+                        "description": "CA Passphrase. Default enabled\n"
                     },
                     "caFile": {
                         "type": "string",
@@ -7113,11 +7855,11 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "Specifies the name of the profile. (type `string`)\n"
+                        "description": "Specifies the name of the profile.Name of Profile should be full path,full path is the combination of the `partition + profile name`. For example `/Common/test-serverssl-profile`.\n"
                     },
                     "partition": {
                         "type": "string",
-                        "description": "Device partition to manage resources on.\n"
+                        "description": "name of partition\n"
                     },
                     "passphrase": {
                         "type": "string",
@@ -7179,6 +7921,10 @@
                         "type": "string",
                         "description": "Requires that the network peers also provide SNI support, this setting only takes effect when `sni_default` is set to `true`.When creating a new profile, the setting is provided by the parent profile\n"
                     },
+                    "sslC3d": {
+                        "type": "string",
+                        "description": "Enables or disables SSL forward proxy bypass on receiving\nhandshake_failure, protocol_version or unsupported_extension alert message during the serverside SSL handshake. When enabled and there is an SSL handshake_failure, protocol_version or unsupported_extension alert during the serverside SSL handshake, SSL traffic bypasses the BIG-IP system untouched, without decryption/encryption. The default value is disabled. Conversely, you can specify enabled to use this feature.\n"
+                    },
                     "sslForwardProxy": {
                         "type": "string",
                         "description": "Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.\n"
@@ -7199,7 +7945,8 @@
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "List of Enabled selection from a set of industry standard options for handling SSL processing.By default,\nDon't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = [\"dont-insert-empty-fragments\",\"no-tlsv1.3\"]\n"
                     },
                     "uncleanShutdown": {
                         "type": "string",
@@ -7609,7 +8356,7 @@
                     "description": "Enable or disable the virtual address\n"
                 },
                 "icmpEcho": {
-                    "type": "boolean",
+                    "type": "string",
                     "description": "Enable/Disable ICMP response to the virtual address\n"
                 },
                 "name": {
@@ -7646,7 +8393,7 @@
                     "description": "Enable or disable the virtual address\n"
                 },
                 "icmpEcho": {
-                    "type": "boolean",
+                    "type": "string",
                     "description": "Enable/Disable ICMP response to the virtual address\n"
                 },
                 "name": {
@@ -7685,7 +8432,7 @@
                         "description": "Enable or disable the virtual address\n"
                     },
                     "icmpEcho": {
-                        "type": "boolean",
+                        "type": "string",
                         "description": "Enable/Disable ICMP response to the virtual address\n"
                     },
                     "name": {
@@ -8273,7 +9020,7 @@
                 },
                 "partition": {
                     "type": "string",
-                    "description": "Partition on to SSL Certificate to be imported\n"
+                    "description": "Partition of ssl certificate\n"
                 }
             },
             "required": [
@@ -8291,7 +9038,7 @@
                 },
                 "partition": {
                     "type": "string",
-                    "description": "Partition on to SSL Certificate to be imported\n"
+                    "description": "Partition of ssl certificate\n"
                 }
             },
             "requiredInputs": [
@@ -8311,7 +9058,7 @@
                     },
                     "partition": {
                         "type": "string",
-                        "description": "Partition on to SSL Certificate to be imported\n"
+                        "description": "Partition of ssl certificate\n"
                     }
                 },
                 "type": "object"
@@ -8330,7 +9077,7 @@
                 },
                 "partition": {
                     "type": "string",
-                    "description": "Partition on to SSL Certificate key to be imported\n"
+                    "description": "Partition of ssl certificate key\n"
                 }
             },
             "required": [
@@ -8348,7 +9095,7 @@
                 },
                 "partition": {
                     "type": "string",
-                    "description": "Partition on to SSL Certificate key to be imported\n"
+                    "description": "Partition of ssl certificate key\n"
                 }
             },
             "requiredInputs": [
@@ -8368,7 +9115,7 @@
                     },
                     "partition": {
                         "type": "string",
-                        "description": "Partition on to SSL Certificate key to be imported\n"
+                        "description": "Partition of ssl certificate key\n"
                     }
                 },
                 "type": "object"
