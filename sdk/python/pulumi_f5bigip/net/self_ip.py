@@ -5,13 +5,82 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['SelfIp']
+__all__ = ['SelfIpArgs', 'SelfIp']
+
+@pulumi.input_type
+class SelfIpArgs:
+    def __init__(__self__, *,
+                 ip: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 vlan: pulumi.Input[str],
+                 traffic_group: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a SelfIp resource.
+        :param pulumi.Input[str] ip: The Self IP's address and netmask.
+        :param pulumi.Input[str] name: Name of the selfip
+        :param pulumi.Input[str] vlan: Specifies the VLAN for which you are setting a self IP address. This setting must be provided when a self IP is created.
+        :param pulumi.Input[str] traffic_group: Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
+        """
+        pulumi.set(__self__, "ip", ip)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "vlan", vlan)
+        if traffic_group is not None:
+            pulumi.set(__self__, "traffic_group", traffic_group)
+
+    @property
+    @pulumi.getter
+    def ip(self) -> pulumi.Input[str]:
+        """
+        The Self IP's address and netmask.
+        """
+        return pulumi.get(self, "ip")
+
+    @ip.setter
+    def ip(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ip", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the selfip
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def vlan(self) -> pulumi.Input[str]:
+        """
+        Specifies the VLAN for which you are setting a self IP address. This setting must be provided when a self IP is created.
+        """
+        return pulumi.get(self, "vlan")
+
+    @vlan.setter
+    def vlan(self, value: pulumi.Input[str]):
+        pulumi.set(self, "vlan", value)
+
+    @property
+    @pulumi.getter(name="trafficGroup")
+    def traffic_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
+        """
+        return pulumi.get(self, "traffic_group")
+
+    @traffic_group.setter
+    def traffic_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "traffic_group", value)
 
 
 class SelfIp(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -48,6 +117,53 @@ class SelfIp(pulumi.CustomResource):
         :param pulumi.Input[str] traffic_group: Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
         :param pulumi.Input[str] vlan: Specifies the VLAN for which you are setting a self IP address. This setting must be provided when a self IP is created.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SelfIpArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        `net.SelfIp` Manages a selfip configuration
+
+        Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-selfip.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        selfip1 = f5bigip.net.SelfIp("selfip1",
+            name="/Common/internalselfIP",
+            ip="11.1.1.1/24",
+            vlan="/Common/internal",
+            traffic_group="traffic-group-1",
+            opts=pulumi.ResourceOptions(depends_on=[bigip_net_vlan["vlan1"]]))
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param SelfIpArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SelfIpArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 ip: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 traffic_group: Optional[pulumi.Input[str]] = None,
+                 vlan: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

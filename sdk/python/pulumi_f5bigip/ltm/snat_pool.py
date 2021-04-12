@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['SnatPool']
+__all__ = ['SnatPoolArgs', 'SnatPool']
+
+@pulumi.input_type
+class SnatPoolArgs:
+    def __init__(__self__, *,
+                 members: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 name: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a SnatPool resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] members: Specifies a translation address to add to or delete from a SNAT pool (at least one address is required)
+        :param pulumi.Input[str] name: Name of the snatpool
+        """
+        pulumi.set(__self__, "members", members)
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def members(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specifies a translation address to add to or delete from a SNAT pool (at least one address is required)
+        """
+        return pulumi.get(self, "members")
+
+    @members.setter
+    def members(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "members", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the snatpool
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
 
 class SnatPool(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +82,51 @@ class SnatPool(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] members: Specifies a translation address to add to or delete from a SNAT pool (at least one address is required)
         :param pulumi.Input[str] name: Name of the snatpool
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: SnatPoolArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        `ltm.SnatPool` Collections of SNAT translation addresses
+
+        Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-snatpool.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        snatpool_sanjose = f5bigip.ltm.SnatPool("snatpoolSanjose",
+            members=[
+                "191.1.1.1",
+                "194.2.2.2",
+            ],
+            name="/Common/snatpool_sanjose")
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param SnatPoolArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SnatPoolArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,13 +5,67 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Key']
+__all__ = ['KeyArgs', 'Key']
+
+@pulumi.input_type
+class KeyArgs:
+    def __init__(__self__, *,
+                 content: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 partition: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Key resource.
+        :param pulumi.Input[str] content: Content of SSL certificate key present on local Disk
+        :param pulumi.Input[str] name: Name of the SSL Certificate key to be Imported on to BIGIP
+        :param pulumi.Input[str] partition: Partition of ssl certificate key
+        """
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "name", name)
+        if partition is not None:
+            pulumi.set(__self__, "partition", partition)
+
+    @property
+    @pulumi.getter
+    def content(self) -> pulumi.Input[str]:
+        """
+        Content of SSL certificate key present on local Disk
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: pulumi.Input[str]):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the SSL Certificate key to be Imported on to BIGIP
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def partition(self) -> Optional[pulumi.Input[str]]:
+        """
+        Partition of ssl certificate key
+        """
+        return pulumi.get(self, "partition")
+
+    @partition.setter
+    def partition(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "partition", value)
 
 
 class Key(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -43,6 +97,49 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the SSL Certificate key to be Imported on to BIGIP
         :param pulumi.Input[str] partition: Partition of ssl certificate key
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: KeyArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        `ssl.Key` This resource will import SSL certificate key on BIG-IP LTM.
+        Certificate key can be imported from certificate key files on the local disk, in PEM format
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        test_key = f5bigip.ssl.Key("test-key",
+            name="serverkey.key",
+            content=(lambda path: open(path).read())("serverkey.key"),
+            partition="Common")
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param KeyArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(KeyArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 content: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 partition: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

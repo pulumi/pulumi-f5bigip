@@ -5,13 +5,83 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Device']
+__all__ = ['DeviceArgs', 'Device']
+
+@pulumi.input_type
+class DeviceArgs:
+    def __init__(__self__, *,
+                 configsync_ip: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 mirror_ip: Optional[pulumi.Input[str]] = None,
+                 mirror_secondary_ip: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Device resource.
+        :param pulumi.Input[str] configsync_ip: IP address used for config sync
+        :param pulumi.Input[str] name: Address of the Device which needs to be Deviceensed
+        :param pulumi.Input[str] mirror_ip: IP address used for state mirroring
+        :param pulumi.Input[str] mirror_secondary_ip: Secondary IP address used for state mirroring
+        """
+        pulumi.set(__self__, "configsync_ip", configsync_ip)
+        pulumi.set(__self__, "name", name)
+        if mirror_ip is not None:
+            pulumi.set(__self__, "mirror_ip", mirror_ip)
+        if mirror_secondary_ip is not None:
+            pulumi.set(__self__, "mirror_secondary_ip", mirror_secondary_ip)
+
+    @property
+    @pulumi.getter(name="configsyncIp")
+    def configsync_ip(self) -> pulumi.Input[str]:
+        """
+        IP address used for config sync
+        """
+        return pulumi.get(self, "configsync_ip")
+
+    @configsync_ip.setter
+    def configsync_ip(self, value: pulumi.Input[str]):
+        pulumi.set(self, "configsync_ip", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Address of the Device which needs to be Deviceensed
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="mirrorIp")
+    def mirror_ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        IP address used for state mirroring
+        """
+        return pulumi.get(self, "mirror_ip")
+
+    @mirror_ip.setter
+    def mirror_ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mirror_ip", value)
+
+    @property
+    @pulumi.getter(name="mirrorSecondaryIp")
+    def mirror_secondary_ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        Secondary IP address used for state mirroring
+        """
+        return pulumi.get(self, "mirror_secondary_ip")
+
+    @mirror_secondary_ip.setter
+    def mirror_secondary_ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mirror_secondary_ip", value)
 
 
 class Device(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -46,6 +116,51 @@ class Device(pulumi.CustomResource):
         :param pulumi.Input[str] mirror_secondary_ip: Secondary IP address used for state mirroring
         :param pulumi.Input[str] name: Address of the Device which needs to be Deviceensed
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DeviceArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        `cm.Device` provides details about a specific bigip
+
+        This resource is helpful when configuring the BIG-IP device in cluster or in HA mode.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        my_new_device = f5bigip.cm.Device("myNewDevice",
+            configsync_ip="2.2.2.2",
+            mirror_ip="10.10.10.10",
+            mirror_secondary_ip="11.11.11.11",
+            name="bigip300.f5.com")
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param DeviceArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DeviceArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 configsync_ip: Optional[pulumi.Input[str]] = None,
+                 mirror_ip: Optional[pulumi.Input[str]] = None,
+                 mirror_secondary_ip: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

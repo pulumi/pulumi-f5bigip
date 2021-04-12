@@ -5,13 +5,130 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['Provider']
+__all__ = ['ProviderArgs', 'Provider']
+
+@pulumi.input_type
+class ProviderArgs:
+    def __init__(__self__, *,
+                 address: pulumi.Input[str],
+                 password: pulumi.Input[str],
+                 username: pulumi.Input[str],
+                 login_ref: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[str]] = None,
+                 teem_disable: Optional[pulumi.Input[bool]] = None,
+                 token_auth: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a Provider resource.
+        :param pulumi.Input[str] address: Domain name/IP of the BigIP
+        :param pulumi.Input[str] password: The user's password
+        :param pulumi.Input[str] username: Username with API access to the BigIP
+        :param pulumi.Input[str] login_ref: Login reference for token authentication (see BIG-IP REST docs for details)
+        :param pulumi.Input[str] port: Management Port to connect to Bigip
+        :param pulumi.Input[bool] teem_disable: If this flag set to true,sending telemetry data to TEEM will be disabled
+        :param pulumi.Input[bool] token_auth: Enable to use an external authentication source (LDAP, TACACS, etc)
+        """
+        pulumi.set(__self__, "address", address)
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
+        if login_ref is not None:
+            pulumi.set(__self__, "login_ref", login_ref)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if teem_disable is not None:
+            pulumi.set(__self__, "teem_disable", teem_disable)
+        if token_auth is not None:
+            pulumi.set(__self__, "token_auth", token_auth)
+
+    @property
+    @pulumi.getter
+    def address(self) -> pulumi.Input[str]:
+        """
+        Domain name/IP of the BigIP
+        """
+        return pulumi.get(self, "address")
+
+    @address.setter
+    def address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "address", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[str]:
+        """
+        The user's password
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[str]:
+        """
+        Username with API access to the BigIP
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[str]):
+        pulumi.set(self, "username", value)
+
+    @property
+    @pulumi.getter(name="loginRef")
+    def login_ref(self) -> Optional[pulumi.Input[str]]:
+        """
+        Login reference for token authentication (see BIG-IP REST docs for details)
+        """
+        return pulumi.get(self, "login_ref")
+
+    @login_ref.setter
+    def login_ref(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "login_ref", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[str]]:
+        """
+        Management Port to connect to Bigip
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="teemDisable")
+    def teem_disable(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If this flag set to true,sending telemetry data to TEEM will be disabled
+        """
+        return pulumi.get(self, "teem_disable")
+
+    @teem_disable.setter
+    def teem_disable(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "teem_disable", value)
+
+    @property
+    @pulumi.getter(name="tokenAuth")
+    def token_auth(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable to use an external authentication source (LDAP, TACACS, etc)
+        """
+        return pulumi.get(self, "token_auth")
+
+    @token_auth.setter
+    def token_auth(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "token_auth", value)
 
 
 class Provider(pulumi.ProviderResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -41,6 +158,43 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[bool] token_auth: Enable to use an external authentication source (LDAP, TACACS, etc)
         :param pulumi.Input[str] username: Username with API access to the BigIP
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ProviderArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The provider type for the bigip package. By default, resources use package-wide configuration
+        settings, however an explicit `Provider` instance may be created and passed during resource
+        construction to achieve fine-grained programmatic control over provider settings. See the
+        [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
+
+        :param str resource_name: The name of the resource.
+        :param ProviderArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ProviderArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 address: Optional[pulumi.Input[str]] = None,
+                 login_ref: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[str]] = None,
+                 teem_disable: Optional[pulumi.Input[bool]] = None,
+                 token_auth: Optional[pulumi.Input[bool]] = None,
+                 username: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

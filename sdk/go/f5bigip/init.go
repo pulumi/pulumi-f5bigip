@@ -21,27 +21,28 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "f5bigip:index/as3:As3":
-		r, err = NewAs3(ctx, name, nil, pulumi.URN_(urn))
+		r = &As3{}
 	case "f5bigip:index/bigIqAs3:BigIqAs3":
-		r, err = NewBigIqAs3(ctx, name, nil, pulumi.URN_(urn))
+		r = &BigIqAs3{}
 	case "f5bigip:index/command:Command":
-		r, err = NewCommand(ctx, name, nil, pulumi.URN_(urn))
+		r = &Command{}
 	case "f5bigip:index/commonLicenseManageBigIq:CommonLicenseManageBigIq":
-		r, err = NewCommonLicenseManageBigIq(ctx, name, nil, pulumi.URN_(urn))
+		r = &CommonLicenseManageBigIq{}
 	case "f5bigip:index/do:Do":
-		r, err = NewDo(ctx, name, nil, pulumi.URN_(urn))
+		r = &Do{}
 	case "f5bigip:index/eventServiceDiscovery:EventServiceDiscovery":
-		r, err = NewEventServiceDiscovery(ctx, name, nil, pulumi.URN_(urn))
+		r = &EventServiceDiscovery{}
 	case "f5bigip:index/ipsecPolicy:IpsecPolicy":
-		r, err = NewIpsecPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &IpsecPolicy{}
 	case "f5bigip:index/netTunnel:NetTunnel":
-		r, err = NewNetTunnel(ctx, name, nil, pulumi.URN_(urn))
+		r = &NetTunnel{}
 	case "f5bigip:index/trafficSelector:TrafficSelector":
-		r, err = NewTrafficSelector(ctx, name, nil, pulumi.URN_(urn))
+		r = &TrafficSelector{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 
@@ -58,7 +59,9 @@ func (p *pkg) ConstructProvider(ctx *pulumi.Context, name, typ, urn string) (pul
 		return nil, fmt.Errorf("unknown provider type: %s", typ)
 	}
 
-	return NewProvider(ctx, name, nil, pulumi.URN_(urn))
+	r := &Provider{}
+	err := ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
+	return r, err
 }
 
 func init() {

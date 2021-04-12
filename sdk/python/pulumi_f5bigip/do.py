@@ -5,13 +5,71 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['Do']
+__all__ = ['DoArgs', 'Do']
+
+@pulumi.input_type
+class DoArgs:
+    def __init__(__self__, *,
+                 do_json: pulumi.Input[str],
+                 tenant_name: Optional[pulumi.Input[str]] = None,
+                 timeout: Optional[pulumi.Input[int]] = None):
+        """
+        The set of arguments for constructing a Do resource.
+        :param pulumi.Input[str] do_json: Name of the of the Declarative DO JSON file
+        :param pulumi.Input[str] tenant_name: unique identifier for DO resource
+        :param pulumi.Input[int] timeout: DO json
+        """
+        pulumi.set(__self__, "do_json", do_json)
+        if tenant_name is not None:
+            warnings.warn("""this attribute is no longer in use""", DeprecationWarning)
+            pulumi.log.warn("""tenant_name is deprecated: this attribute is no longer in use""")
+        if tenant_name is not None:
+            pulumi.set(__self__, "tenant_name", tenant_name)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @property
+    @pulumi.getter(name="doJson")
+    def do_json(self) -> pulumi.Input[str]:
+        """
+        Name of the of the Declarative DO JSON file
+        """
+        return pulumi.get(self, "do_json")
+
+    @do_json.setter
+    def do_json(self, value: pulumi.Input[str]):
+        pulumi.set(self, "do_json", value)
+
+    @property
+    @pulumi.getter(name="tenantName")
+    def tenant_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        unique identifier for DO resource
+        """
+        return pulumi.get(self, "tenant_name")
+
+    @tenant_name.setter
+    def tenant_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_name", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        DO json
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout", value)
 
 
 class Do(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,6 +100,48 @@ class Do(pulumi.CustomResource):
         :param pulumi.Input[str] tenant_name: unique identifier for DO resource
         :param pulumi.Input[int] timeout: DO json
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DoArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        `Do` provides details about bigip do resource
+
+        This resource is helpful to configure do declarative JSON on BIG-IP.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        do_example = f5bigip.Do("do-example",
+            do_json=(lambda path: open(path).read())("example.json"),
+            timeout=15)
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param DoArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DoArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 do_json: Optional[pulumi.Input[str]] = None,
+                 tenant_name: Optional[pulumi.Input[str]] = None,
+                 timeout: Optional[pulumi.Input[int]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

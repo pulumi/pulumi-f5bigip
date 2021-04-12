@@ -5,15 +5,70 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Vlan']
+__all__ = ['VlanArgs', 'Vlan']
+
+@pulumi.input_type
+class VlanArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['VlanInterfaceArgs']]]] = None,
+                 tag: Optional[pulumi.Input[int]] = None):
+        """
+        The set of arguments for constructing a Vlan resource.
+        :param pulumi.Input[str] name: Name of the vlan
+        :param pulumi.Input[Sequence[pulumi.Input['VlanInterfaceArgs']]] interfaces: Specifies which interfaces you want this VLAN to use for traffic management.
+        :param pulumi.Input[int] tag: Specifies a number that the system adds into the header of any frame passing through the VLAN.
+        """
+        pulumi.set(__self__, "name", name)
+        if interfaces is not None:
+            pulumi.set(__self__, "interfaces", interfaces)
+        if tag is not None:
+            pulumi.set(__self__, "tag", tag)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the vlan
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VlanInterfaceArgs']]]]:
+        """
+        Specifies which interfaces you want this VLAN to use for traffic management.
+        """
+        return pulumi.get(self, "interfaces")
+
+    @interfaces.setter
+    def interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VlanInterfaceArgs']]]]):
+        pulumi.set(self, "interfaces", value)
+
+    @property
+    @pulumi.getter
+    def tag(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies a number that the system adds into the header of any frame passing through the VLAN.
+        """
+        return pulumi.get(self, "tag")
+
+    @tag.setter
+    def tag(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "tag", value)
 
 
 class Vlan(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -49,6 +104,53 @@ class Vlan(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the vlan
         :param pulumi.Input[int] tag: Specifies a number that the system adds into the header of any frame passing through the VLAN.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: VlanArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        `net.Vlan` Manages a vlan configuration
+
+        For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        vlan1 = f5bigip.net.Vlan("vlan1",
+            interfaces=[f5bigip.net.VlanInterfaceArgs(
+                tagged=False,
+                vlanport="1.2",
+            )],
+            name="/Common/Internal",
+            tag=101)
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param VlanArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(VlanArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VlanInterfaceArgs']]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tag: Optional[pulumi.Input[int]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

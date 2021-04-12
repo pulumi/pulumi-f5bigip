@@ -5,13 +5,116 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Provision']
+__all__ = ['ProvisionArgs', 'Provision']
+
+@pulumi.input_type
+class ProvisionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 cpu_ratio: Optional[pulumi.Input[int]] = None,
+                 disk_ratio: Optional[pulumi.Input[int]] = None,
+                 full_path: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 memory_ratio: Optional[pulumi.Input[int]] = None):
+        """
+        The set of arguments for constructing a Provision resource.
+        :param pulumi.Input[str] name: Name of the module to be provisioned
+        :param pulumi.Input[int] cpu_ratio: cpu Ratio
+        :param pulumi.Input[int] disk_ratio: disk Ratio
+        :param pulumi.Input[str] full_path: path
+        :param pulumi.Input[str] level: what level nominal or dedicated
+        :param pulumi.Input[int] memory_ratio: memory Ratio
+        """
+        pulumi.set(__self__, "name", name)
+        if cpu_ratio is not None:
+            pulumi.set(__self__, "cpu_ratio", cpu_ratio)
+        if disk_ratio is not None:
+            pulumi.set(__self__, "disk_ratio", disk_ratio)
+        if full_path is not None:
+            pulumi.set(__self__, "full_path", full_path)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if memory_ratio is not None:
+            pulumi.set(__self__, "memory_ratio", memory_ratio)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the module to be provisioned
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="cpuRatio")
+    def cpu_ratio(self) -> Optional[pulumi.Input[int]]:
+        """
+        cpu Ratio
+        """
+        return pulumi.get(self, "cpu_ratio")
+
+    @cpu_ratio.setter
+    def cpu_ratio(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "cpu_ratio", value)
+
+    @property
+    @pulumi.getter(name="diskRatio")
+    def disk_ratio(self) -> Optional[pulumi.Input[int]]:
+        """
+        disk Ratio
+        """
+        return pulumi.get(self, "disk_ratio")
+
+    @disk_ratio.setter
+    def disk_ratio(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "disk_ratio", value)
+
+    @property
+    @pulumi.getter(name="fullPath")
+    def full_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        path
+        """
+        return pulumi.get(self, "full_path")
+
+    @full_path.setter
+    def full_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "full_path", value)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[str]]:
+        """
+        what level nominal or dedicated
+        """
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter(name="memoryRatio")
+    def memory_ratio(self) -> Optional[pulumi.Input[int]]:
+        """
+        memory Ratio
+        """
+        return pulumi.get(self, "memory_ratio")
+
+    @memory_ratio.setter
+    def memory_ratio(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "memory_ratio", value)
 
 
 class Provision(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -50,6 +153,53 @@ class Provision(pulumi.CustomResource):
         :param pulumi.Input[int] memory_ratio: memory Ratio
         :param pulumi.Input[str] name: Name of the module to be provisioned
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ProvisionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        `sys.Provision` provides details bout how to enable "ilx", "asm" "apm" resource on BIG-IP
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        test_provision = f5bigip.sys.Provision("test-provision",
+            cpu_ratio=0,
+            disk_ratio=0,
+            full_path="asm",
+            level="none",
+            memory_ratio=0,
+            name="TEST_ASM_PROVISION_NAME")
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ProvisionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ProvisionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 cpu_ratio: Optional[pulumi.Input[int]] = None,
+                 disk_ratio: Optional[pulumi.Input[int]] = None,
+                 full_path: Optional[pulumi.Input[str]] = None,
+                 level: Optional[pulumi.Input[str]] = None,
+                 memory_ratio: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

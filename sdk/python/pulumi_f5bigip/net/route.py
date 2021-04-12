@@ -5,13 +5,67 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Route']
+__all__ = ['RouteArgs', 'Route']
+
+@pulumi.input_type
+class RouteArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 network: pulumi.Input[str],
+                 gw: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Route resource.
+        :param pulumi.Input[str] name: Name of the route
+        :param pulumi.Input[str] network: The destination subnet and netmask for the route.
+        :param pulumi.Input[str] gw: Specifies a gateway address for the route.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "network", network)
+        if gw is not None:
+            pulumi.set(__self__, "gw", gw)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the route
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def network(self) -> pulumi.Input[str]:
+        """
+        The destination subnet and netmask for the route.
+        """
+        return pulumi.get(self, "network")
+
+    @network.setter
+    def network(self, value: pulumi.Input[str]):
+        pulumi.set(self, "network", value)
+
+    @property
+    @pulumi.getter
+    def gw(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a gateway address for the route.
+        """
+        return pulumi.get(self, "gw")
+
+    @gw.setter
+    def gw(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "gw", value)
 
 
 class Route(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -44,6 +98,50 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the route
         :param pulumi.Input[str] network: The destination subnet and netmask for the route.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: RouteArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        `net.Route` Manages a route configuration
+
+        For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        route2 = f5bigip.net.Route("route2",
+            gw="1.1.1.2",
+            name="external-route",
+            network="10.10.10.0/24")
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param RouteArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(RouteArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 gw: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
