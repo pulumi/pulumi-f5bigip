@@ -22,23 +22,24 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "f5bigip:sys/bigIpLicense:BigIpLicense":
-		r, err = NewBigIpLicense(ctx, name, nil, pulumi.URN_(urn))
+		r = &BigIpLicense{}
 	case "f5bigip:sys/dns:Dns":
-		r, err = NewDns(ctx, name, nil, pulumi.URN_(urn))
+		r = &Dns{}
 	case "f5bigip:sys/iApp:IApp":
-		r, err = NewIApp(ctx, name, nil, pulumi.URN_(urn))
+		r = &IApp{}
 	case "f5bigip:sys/ntp:Ntp":
-		r, err = NewNtp(ctx, name, nil, pulumi.URN_(urn))
+		r = &Ntp{}
 	case "f5bigip:sys/provision:Provision":
-		r, err = NewProvision(ctx, name, nil, pulumi.URN_(urn))
+		r = &Provision{}
 	case "f5bigip:sys/snmp:Snmp":
-		r, err = NewSnmp(ctx, name, nil, pulumi.URN_(urn))
+		r = &Snmp{}
 	case "f5bigip:sys/snmpTraps:SnmpTraps":
-		r, err = NewSnmpTraps(ctx, name, nil, pulumi.URN_(urn))
+		r = &SnmpTraps{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

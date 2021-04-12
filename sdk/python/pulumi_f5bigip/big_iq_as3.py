@@ -5,13 +5,145 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['BigIqAs3']
+__all__ = ['BigIqAs3Args', 'BigIqAs3']
+
+@pulumi.input_type
+class BigIqAs3Args:
+    def __init__(__self__, *,
+                 as3_json: pulumi.Input[str],
+                 bigiq_address: pulumi.Input[str],
+                 bigiq_password: pulumi.Input[str],
+                 bigiq_user: pulumi.Input[str],
+                 bigiq_login_ref: Optional[pulumi.Input[str]] = None,
+                 bigiq_port: Optional[pulumi.Input[str]] = None,
+                 bigiq_token_auth: Optional[pulumi.Input[bool]] = None,
+                 tenant_list: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a BigIqAs3 resource.
+        :param pulumi.Input[str] as3_json: AS3 json
+        :param pulumi.Input[str] bigiq_address: The registration key pool to use
+        :param pulumi.Input[str] bigiq_password: The registration key pool to use
+        :param pulumi.Input[str] bigiq_user: The registration key pool to use
+        :param pulumi.Input[str] bigiq_login_ref: Login reference for token authentication (see BIG-IQ REST docs for details)
+        :param pulumi.Input[str] bigiq_port: The registration key pool to use
+        :param pulumi.Input[bool] bigiq_token_auth: Enable to use an external authentication source (LDAP, TACACS, etc)
+        :param pulumi.Input[str] tenant_list: Name of Tenant
+        """
+        pulumi.set(__self__, "as3_json", as3_json)
+        pulumi.set(__self__, "bigiq_address", bigiq_address)
+        pulumi.set(__self__, "bigiq_password", bigiq_password)
+        pulumi.set(__self__, "bigiq_user", bigiq_user)
+        if bigiq_login_ref is not None:
+            pulumi.set(__self__, "bigiq_login_ref", bigiq_login_ref)
+        if bigiq_port is not None:
+            pulumi.set(__self__, "bigiq_port", bigiq_port)
+        if bigiq_token_auth is not None:
+            pulumi.set(__self__, "bigiq_token_auth", bigiq_token_auth)
+        if tenant_list is not None:
+            pulumi.set(__self__, "tenant_list", tenant_list)
+
+    @property
+    @pulumi.getter(name="as3Json")
+    def as3_json(self) -> pulumi.Input[str]:
+        """
+        AS3 json
+        """
+        return pulumi.get(self, "as3_json")
+
+    @as3_json.setter
+    def as3_json(self, value: pulumi.Input[str]):
+        pulumi.set(self, "as3_json", value)
+
+    @property
+    @pulumi.getter(name="bigiqAddress")
+    def bigiq_address(self) -> pulumi.Input[str]:
+        """
+        The registration key pool to use
+        """
+        return pulumi.get(self, "bigiq_address")
+
+    @bigiq_address.setter
+    def bigiq_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bigiq_address", value)
+
+    @property
+    @pulumi.getter(name="bigiqPassword")
+    def bigiq_password(self) -> pulumi.Input[str]:
+        """
+        The registration key pool to use
+        """
+        return pulumi.get(self, "bigiq_password")
+
+    @bigiq_password.setter
+    def bigiq_password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bigiq_password", value)
+
+    @property
+    @pulumi.getter(name="bigiqUser")
+    def bigiq_user(self) -> pulumi.Input[str]:
+        """
+        The registration key pool to use
+        """
+        return pulumi.get(self, "bigiq_user")
+
+    @bigiq_user.setter
+    def bigiq_user(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bigiq_user", value)
+
+    @property
+    @pulumi.getter(name="bigiqLoginRef")
+    def bigiq_login_ref(self) -> Optional[pulumi.Input[str]]:
+        """
+        Login reference for token authentication (see BIG-IQ REST docs for details)
+        """
+        return pulumi.get(self, "bigiq_login_ref")
+
+    @bigiq_login_ref.setter
+    def bigiq_login_ref(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bigiq_login_ref", value)
+
+    @property
+    @pulumi.getter(name="bigiqPort")
+    def bigiq_port(self) -> Optional[pulumi.Input[str]]:
+        """
+        The registration key pool to use
+        """
+        return pulumi.get(self, "bigiq_port")
+
+    @bigiq_port.setter
+    def bigiq_port(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bigiq_port", value)
+
+    @property
+    @pulumi.getter(name="bigiqTokenAuth")
+    def bigiq_token_auth(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable to use an external authentication source (LDAP, TACACS, etc)
+        """
+        return pulumi.get(self, "bigiq_token_auth")
+
+    @bigiq_token_auth.setter
+    def bigiq_token_auth(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "bigiq_token_auth", value)
+
+    @property
+    @pulumi.getter(name="tenantList")
+    def tenant_list(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of Tenant
+        """
+        return pulumi.get(self, "tenant_list")
+
+    @tenant_list.setter
+    def tenant_list(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_list", value)
 
 
 class BigIqAs3(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -39,6 +171,40 @@ class BigIqAs3(pulumi.CustomResource):
         :param pulumi.Input[str] bigiq_user: The registration key pool to use
         :param pulumi.Input[str] tenant_list: Name of Tenant
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: BigIqAs3Args,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Create a BigIqAs3 resource with the given unique name, props, and options.
+        :param str resource_name: The name of the resource.
+        :param BigIqAs3Args args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(BigIqAs3Args, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 as3_json: Optional[pulumi.Input[str]] = None,
+                 bigiq_address: Optional[pulumi.Input[str]] = None,
+                 bigiq_login_ref: Optional[pulumi.Input[str]] = None,
+                 bigiq_password: Optional[pulumi.Input[str]] = None,
+                 bigiq_port: Optional[pulumi.Input[str]] = None,
+                 bigiq_token_auth: Optional[pulumi.Input[bool]] = None,
+                 bigiq_user: Optional[pulumi.Input[str]] = None,
+                 tenant_list: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,13 +5,64 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['Command']
+__all__ = ['CommandArgs', 'Command']
+
+@pulumi.input_type
+class CommandArgs:
+    def __init__(__self__, *,
+                 commands: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 command_results: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 when: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Command resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] command_results: The resulting output from the `commands` executed
+        """
+        pulumi.set(__self__, "commands", commands)
+        if command_results is not None:
+            pulumi.set(__self__, "command_results", command_results)
+        if when is not None:
+            pulumi.set(__self__, "when", when)
+
+    @property
+    @pulumi.getter
+    def commands(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`
+        """
+        return pulumi.get(self, "commands")
+
+    @commands.setter
+    def commands(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "commands", value)
+
+    @property
+    @pulumi.getter(name="commandResults")
+    def command_results(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The resulting output from the `commands` executed
+        """
+        return pulumi.get(self, "command_results")
+
+    @command_results.setter
+    def command_results(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "command_results", value)
+
+    @property
+    @pulumi.getter
+    def when(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "when")
+
+    @when.setter
+    def when(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "when", value)
 
 
 class Command(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -42,6 +93,49 @@ class Command(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] command_results: The resulting output from the `commands` executed
         :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: CommandArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        `Command` Run TMSH commands on F5 devices
+
+        This resource is helpful to send TMSH command to an BIG-IP node and returns the results read from the device
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        #create ltm node
+        test_command = f5bigip.Command("test-command",
+            commands=["delete ltm node 10.10.10.70"],
+            when="destroy")
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param CommandArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(CommandArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 command_results: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 commands: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 when: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

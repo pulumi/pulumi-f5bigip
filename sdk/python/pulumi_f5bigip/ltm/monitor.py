@@ -5,13 +5,355 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Monitor']
+__all__ = ['MonitorArgs', 'Monitor']
+
+@pulumi.input_type
+class MonitorArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 parent: pulumi.Input[str],
+                 adaptive: Optional[pulumi.Input[str]] = None,
+                 adaptive_limit: Optional[pulumi.Input[int]] = None,
+                 compatibility: Optional[pulumi.Input[str]] = None,
+                 database: Optional[pulumi.Input[str]] = None,
+                 defaults_from: Optional[pulumi.Input[str]] = None,
+                 destination: Optional[pulumi.Input[str]] = None,
+                 filename: Optional[pulumi.Input[str]] = None,
+                 interval: Optional[pulumi.Input[int]] = None,
+                 ip_dscp: Optional[pulumi.Input[int]] = None,
+                 manual_resume: Optional[pulumi.Input[str]] = None,
+                 mode: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 receive: Optional[pulumi.Input[str]] = None,
+                 receive_disable: Optional[pulumi.Input[str]] = None,
+                 reverse: Optional[pulumi.Input[str]] = None,
+                 send: Optional[pulumi.Input[str]] = None,
+                 time_until_up: Optional[pulumi.Input[int]] = None,
+                 timeout: Optional[pulumi.Input[int]] = None,
+                 transparent: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Monitor resource.
+        :param pulumi.Input[str] name: Name of the monitor
+        :param pulumi.Input[str] parent: Existing LTM monitor to inherit from
+        :param pulumi.Input[str] adaptive: ftp adaptive
+        :param pulumi.Input[int] adaptive_limit: Integer value
+        :param pulumi.Input[str] compatibility: Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
+        :param pulumi.Input[str] database: Specifies the database in which the user is created
+        :param pulumi.Input[str] defaults_from: Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
+        :param pulumi.Input[str] destination: Specify an alias address for monitoring
+        :param pulumi.Input[str] filename: Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
+        :param pulumi.Input[int] interval: Check interval in seconds
+        :param pulumi.Input[str] mode: Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
+        :param pulumi.Input[str] password: Specifies the password if the monitored target requires authentication
+        :param pulumi.Input[str] receive: Expected response string
+        :param pulumi.Input[str] receive_disable: Expected response string.
+        :param pulumi.Input[str] send: Request string to send
+        :param pulumi.Input[int] time_until_up: Time in seconds
+        :param pulumi.Input[int] timeout: Timeout in seconds
+        :param pulumi.Input[str] username: Specifies the user name if the monitored target requires authentication
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "parent", parent)
+        if adaptive is not None:
+            pulumi.set(__self__, "adaptive", adaptive)
+        if adaptive_limit is not None:
+            pulumi.set(__self__, "adaptive_limit", adaptive_limit)
+        if compatibility is not None:
+            pulumi.set(__self__, "compatibility", compatibility)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if defaults_from is not None:
+            pulumi.set(__self__, "defaults_from", defaults_from)
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if filename is not None:
+            pulumi.set(__self__, "filename", filename)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if ip_dscp is not None:
+            pulumi.set(__self__, "ip_dscp", ip_dscp)
+        if manual_resume is not None:
+            pulumi.set(__self__, "manual_resume", manual_resume)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if receive is not None:
+            pulumi.set(__self__, "receive", receive)
+        if receive_disable is not None:
+            pulumi.set(__self__, "receive_disable", receive_disable)
+        if reverse is not None:
+            pulumi.set(__self__, "reverse", reverse)
+        if send is not None:
+            pulumi.set(__self__, "send", send)
+        if time_until_up is not None:
+            pulumi.set(__self__, "time_until_up", time_until_up)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+        if transparent is not None:
+            pulumi.set(__self__, "transparent", transparent)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the monitor
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def parent(self) -> pulumi.Input[str]:
+        """
+        Existing LTM monitor to inherit from
+        """
+        return pulumi.get(self, "parent")
+
+    @parent.setter
+    def parent(self, value: pulumi.Input[str]):
+        pulumi.set(self, "parent", value)
+
+    @property
+    @pulumi.getter
+    def adaptive(self) -> Optional[pulumi.Input[str]]:
+        """
+        ftp adaptive
+        """
+        return pulumi.get(self, "adaptive")
+
+    @adaptive.setter
+    def adaptive(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "adaptive", value)
+
+    @property
+    @pulumi.getter(name="adaptiveLimit")
+    def adaptive_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        Integer value
+        """
+        return pulumi.get(self, "adaptive_limit")
+
+    @adaptive_limit.setter
+    def adaptive_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "adaptive_limit", value)
+
+    @property
+    @pulumi.getter
+    def compatibility(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
+        """
+        return pulumi.get(self, "compatibility")
+
+    @compatibility.setter
+    def compatibility(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "compatibility", value)
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the database in which the user is created
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter(name="defaultsFrom")
+    def defaults_from(self) -> Optional[pulumi.Input[str]]:
+        """
+        Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
+        """
+        return pulumi.get(self, "defaults_from")
+
+    @defaults_from.setter
+    def defaults_from(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "defaults_from", value)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify an alias address for monitoring
+        """
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination", value)
+
+    @property
+    @pulumi.getter
+    def filename(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
+        """
+        return pulumi.get(self, "filename")
+
+    @filename.setter
+    def filename(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "filename", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        Check interval in seconds
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter(name="ipDscp")
+    def ip_dscp(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "ip_dscp")
+
+    @ip_dscp.setter
+    def ip_dscp(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ip_dscp", value)
+
+    @property
+    @pulumi.getter(name="manualResume")
+    def manual_resume(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "manual_resume")
+
+    @manual_resume.setter
+    def manual_resume(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "manual_resume", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the password if the monitored target requires authentication
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def receive(self) -> Optional[pulumi.Input[str]]:
+        """
+        Expected response string
+        """
+        return pulumi.get(self, "receive")
+
+    @receive.setter
+    def receive(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "receive", value)
+
+    @property
+    @pulumi.getter(name="receiveDisable")
+    def receive_disable(self) -> Optional[pulumi.Input[str]]:
+        """
+        Expected response string.
+        """
+        return pulumi.get(self, "receive_disable")
+
+    @receive_disable.setter
+    def receive_disable(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "receive_disable", value)
+
+    @property
+    @pulumi.getter
+    def reverse(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "reverse")
+
+    @reverse.setter
+    def reverse(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "reverse", value)
+
+    @property
+    @pulumi.getter
+    def send(self) -> Optional[pulumi.Input[str]]:
+        """
+        Request string to send
+        """
+        return pulumi.get(self, "send")
+
+    @send.setter
+    def send(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "send", value)
+
+    @property
+    @pulumi.getter(name="timeUntilUp")
+    def time_until_up(self) -> Optional[pulumi.Input[int]]:
+        """
+        Time in seconds
+        """
+        return pulumi.get(self, "time_until_up")
+
+    @time_until_up.setter
+    def time_until_up(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "time_until_up", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        Timeout in seconds
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout", value)
+
+    @property
+    @pulumi.getter
+    def transparent(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "transparent")
+
+    @transparent.setter
+    def transparent(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "transparent", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the user name if the monitored target requires authentication
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
 
 
 class Monitor(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -100,6 +442,91 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[int] timeout: Timeout in seconds
         :param pulumi.Input[str] username: Specifies the user name if the monitored target requires authentication
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: MonitorArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        `ltm.Monitor` Configures a custom monitor for use by health checks.
+
+        For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        monitor = f5bigip.ltm.Monitor("monitor",
+            destination="1.2.3.4:1234",
+            interval=999,
+            name="/Common/terraform_monitor",
+            parent="/Common/http",
+            send=\"\"\"GET /some/path
+
+        \"\"\",
+            timeout=999)
+        test_ftp_monitor = f5bigip.ltm.Monitor("test-ftp-monitor",
+            destination="*:8008",
+            filename="somefile",
+            interval=5,
+            name="/Common/ftp-test",
+            parent="/Common/ftp",
+            time_until_up=0,
+            timeout=16)
+        test_postgresql_monitor = f5bigip.ltm.Monitor("test-postgresql-monitor",
+            interval=5,
+            name="/Common/test-postgresql-monitor",
+            parent="/Common/postgresql",
+            password="abcd1234",
+            receive="Test",
+            send="SELECT 'Test';",
+            timeout=16,
+            username="abcd")
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param MonitorArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(MonitorArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 adaptive: Optional[pulumi.Input[str]] = None,
+                 adaptive_limit: Optional[pulumi.Input[int]] = None,
+                 compatibility: Optional[pulumi.Input[str]] = None,
+                 database: Optional[pulumi.Input[str]] = None,
+                 defaults_from: Optional[pulumi.Input[str]] = None,
+                 destination: Optional[pulumi.Input[str]] = None,
+                 filename: Optional[pulumi.Input[str]] = None,
+                 interval: Optional[pulumi.Input[int]] = None,
+                 ip_dscp: Optional[pulumi.Input[int]] = None,
+                 manual_resume: Optional[pulumi.Input[str]] = None,
+                 mode: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parent: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 receive: Optional[pulumi.Input[str]] = None,
+                 receive_disable: Optional[pulumi.Input[str]] = None,
+                 reverse: Optional[pulumi.Input[str]] = None,
+                 send: Optional[pulumi.Input[str]] = None,
+                 time_until_up: Optional[pulumi.Input[int]] = None,
+                 timeout: Optional[pulumi.Input[int]] = None,
+                 transparent: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

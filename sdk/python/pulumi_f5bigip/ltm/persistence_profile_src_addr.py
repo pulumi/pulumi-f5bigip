@@ -5,13 +5,211 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['PersistenceProfileSrcAddr']
+__all__ = ['PersistenceProfileSrcAddrArgs', 'PersistenceProfileSrcAddr']
+
+@pulumi.input_type
+class PersistenceProfileSrcAddrArgs:
+    def __init__(__self__, *,
+                 defaults_from: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 app_service: Optional[pulumi.Input[str]] = None,
+                 hash_algorithm: Optional[pulumi.Input[str]] = None,
+                 map_proxies: Optional[pulumi.Input[str]] = None,
+                 mask: Optional[pulumi.Input[str]] = None,
+                 match_across_pools: Optional[pulumi.Input[str]] = None,
+                 match_across_services: Optional[pulumi.Input[str]] = None,
+                 match_across_virtuals: Optional[pulumi.Input[str]] = None,
+                 mirror: Optional[pulumi.Input[str]] = None,
+                 override_conn_limit: Optional[pulumi.Input[str]] = None,
+                 timeout: Optional[pulumi.Input[int]] = None):
+        """
+        The set of arguments for constructing a PersistenceProfileSrcAddr resource.
+        :param pulumi.Input[str] defaults_from: Inherit defaults from parent profile
+        :param pulumi.Input[str] name: Name of the persistence profile
+        :param pulumi.Input[str] hash_algorithm: Specify the hash algorithm
+        :param pulumi.Input[str] map_proxies: To enable _ disable directs all to the same single pool member
+        :param pulumi.Input[str] mask: Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
+               when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
+        :param pulumi.Input[str] match_across_pools: To enable _ disable match across pools with given persistence record
+        :param pulumi.Input[str] match_across_services: To enable _ disable match across services with given persistence record
+        :param pulumi.Input[str] match_across_virtuals: To enable _ disable match across services with given persistence record
+        :param pulumi.Input[str] mirror: To enable _ disable
+        :param pulumi.Input[str] override_conn_limit: To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
+               limits remain hard limits and are not overridden.
+        :param pulumi.Input[int] timeout: Timeout for persistence of the session
+        """
+        pulumi.set(__self__, "defaults_from", defaults_from)
+        pulumi.set(__self__, "name", name)
+        if app_service is not None:
+            pulumi.set(__self__, "app_service", app_service)
+        if hash_algorithm is not None:
+            pulumi.set(__self__, "hash_algorithm", hash_algorithm)
+        if map_proxies is not None:
+            pulumi.set(__self__, "map_proxies", map_proxies)
+        if mask is not None:
+            pulumi.set(__self__, "mask", mask)
+        if match_across_pools is not None:
+            pulumi.set(__self__, "match_across_pools", match_across_pools)
+        if match_across_services is not None:
+            pulumi.set(__self__, "match_across_services", match_across_services)
+        if match_across_virtuals is not None:
+            pulumi.set(__self__, "match_across_virtuals", match_across_virtuals)
+        if mirror is not None:
+            pulumi.set(__self__, "mirror", mirror)
+        if override_conn_limit is not None:
+            pulumi.set(__self__, "override_conn_limit", override_conn_limit)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @property
+    @pulumi.getter(name="defaultsFrom")
+    def defaults_from(self) -> pulumi.Input[str]:
+        """
+        Inherit defaults from parent profile
+        """
+        return pulumi.get(self, "defaults_from")
+
+    @defaults_from.setter
+    def defaults_from(self, value: pulumi.Input[str]):
+        pulumi.set(self, "defaults_from", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the persistence profile
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="appService")
+    def app_service(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "app_service")
+
+    @app_service.setter
+    def app_service(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_service", value)
+
+    @property
+    @pulumi.getter(name="hashAlgorithm")
+    def hash_algorithm(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify the hash algorithm
+        """
+        return pulumi.get(self, "hash_algorithm")
+
+    @hash_algorithm.setter
+    def hash_algorithm(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hash_algorithm", value)
+
+    @property
+    @pulumi.getter(name="mapProxies")
+    def map_proxies(self) -> Optional[pulumi.Input[str]]:
+        """
+        To enable _ disable directs all to the same single pool member
+        """
+        return pulumi.get(self, "map_proxies")
+
+    @map_proxies.setter
+    def map_proxies(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "map_proxies", value)
+
+    @property
+    @pulumi.getter
+    def mask(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
+        when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
+        """
+        return pulumi.get(self, "mask")
+
+    @mask.setter
+    def mask(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mask", value)
+
+    @property
+    @pulumi.getter(name="matchAcrossPools")
+    def match_across_pools(self) -> Optional[pulumi.Input[str]]:
+        """
+        To enable _ disable match across pools with given persistence record
+        """
+        return pulumi.get(self, "match_across_pools")
+
+    @match_across_pools.setter
+    def match_across_pools(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "match_across_pools", value)
+
+    @property
+    @pulumi.getter(name="matchAcrossServices")
+    def match_across_services(self) -> Optional[pulumi.Input[str]]:
+        """
+        To enable _ disable match across services with given persistence record
+        """
+        return pulumi.get(self, "match_across_services")
+
+    @match_across_services.setter
+    def match_across_services(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "match_across_services", value)
+
+    @property
+    @pulumi.getter(name="matchAcrossVirtuals")
+    def match_across_virtuals(self) -> Optional[pulumi.Input[str]]:
+        """
+        To enable _ disable match across services with given persistence record
+        """
+        return pulumi.get(self, "match_across_virtuals")
+
+    @match_across_virtuals.setter
+    def match_across_virtuals(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "match_across_virtuals", value)
+
+    @property
+    @pulumi.getter
+    def mirror(self) -> Optional[pulumi.Input[str]]:
+        """
+        To enable _ disable
+        """
+        return pulumi.get(self, "mirror")
+
+    @mirror.setter
+    def mirror(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mirror", value)
+
+    @property
+    @pulumi.getter(name="overrideConnLimit")
+    def override_conn_limit(self) -> Optional[pulumi.Input[str]]:
+        """
+        To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
+        limits remain hard limits and are not overridden.
+        """
+        return pulumi.get(self, "override_conn_limit")
+
+    @override_conn_limit.setter
+    def override_conn_limit(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "override_conn_limit", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        Timeout for persistence of the session
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout", value)
 
 
 class PersistenceProfileSrcAddr(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -93,6 +291,89 @@ class PersistenceProfileSrcAddr(pulumi.CustomResource):
                limits remain hard limits and are not overridden.
         :param pulumi.Input[int] timeout: Timeout for persistence of the session
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: PersistenceProfileSrcAddrArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Configures a source address persistence profile
+
+        ## Example
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        srcaddr = f5bigip.ltm.PersistenceProfileSrcAddr("srcaddr",
+            defaults_from="/Common/source_addr",
+            hash_algorithm="carp",
+            map_proxies="enabled",
+            mask="255.255.255.255",
+            match_across_pools="enabled",
+            match_across_services="enabled",
+            match_across_virtuals="enabled",
+            mirror="enabled",
+            name="/Common/terraform_srcaddr",
+            override_conn_limit="enabled",
+            timeout=3600)
+        ```
+
+        ## Reference
+
+        `name` - (Required) Name of the virtual address
+
+        `defaults_from` - (Required) Parent cookie persistence profile
+
+        `match_across_pools` (Optional) (enabled or disabled) match across pools with given persistence record
+
+        `match_across_services` (Optional) (enabled or disabled) match across services with given persistence record
+
+        `match_across_virtuals` (Optional) (enabled or disabled) match across virtual servers with given persistence record
+
+        `mirror` (Optional) (enabled or disabled) mirror persistence record
+
+        `timeout` (Optional) (enabled or disabled) Timeout for persistence of the session in seconds
+
+        `override_conn_limit` (Optional) (enabled or disabled) Enable or dissable pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
+
+        `hash_algorithm` (Optional) Specify the hash algorithm
+
+        `mask` (Optional) Identify a range of source IP addresses to manage together as a single source address affinity persistent connection when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
+
+        `map_proxies` (Optional) (enabled or disabled) Directs all to the same single pool member
+
+        :param str resource_name: The name of the resource.
+        :param PersistenceProfileSrcAddrArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(PersistenceProfileSrcAddrArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 app_service: Optional[pulumi.Input[str]] = None,
+                 defaults_from: Optional[pulumi.Input[str]] = None,
+                 hash_algorithm: Optional[pulumi.Input[str]] = None,
+                 map_proxies: Optional[pulumi.Input[str]] = None,
+                 mask: Optional[pulumi.Input[str]] = None,
+                 match_across_pools: Optional[pulumi.Input[str]] = None,
+                 match_across_services: Optional[pulumi.Input[str]] = None,
+                 match_across_virtuals: Optional[pulumi.Input[str]] = None,
+                 mirror: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 override_conn_limit: Optional[pulumi.Input[str]] = None,
+                 timeout: Optional[pulumi.Input[int]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

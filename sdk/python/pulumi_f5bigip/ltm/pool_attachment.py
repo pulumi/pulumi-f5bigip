@@ -5,13 +5,147 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['PoolAttachment']
+__all__ = ['PoolAttachmentArgs', 'PoolAttachment']
+
+@pulumi.input_type
+class PoolAttachmentArgs:
+    def __init__(__self__, *,
+                 node: pulumi.Input[str],
+                 pool: pulumi.Input[str],
+                 connection_limit: Optional[pulumi.Input[int]] = None,
+                 connection_rate_limit: Optional[pulumi.Input[str]] = None,
+                 dynamic_ratio: Optional[pulumi.Input[int]] = None,
+                 fqdn_autopopulate: Optional[pulumi.Input[str]] = None,
+                 priority_group: Optional[pulumi.Input[int]] = None,
+                 ratio: Optional[pulumi.Input[int]] = None):
+        """
+        The set of arguments for constructing a PoolAttachment resource.
+        :param pulumi.Input[str] node: Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
+        :param pulumi.Input[str] pool: Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
+        :param pulumi.Input[int] connection_limit: Specifies a maximum established connection limit for a pool member or node.The default is 0, meaning that there is no limit to the number of connections.
+        :param pulumi.Input[str] connection_rate_limit: Specifies the maximum number of connections-per-second allowed for a pool member,The default is 0.
+        :param pulumi.Input[int] dynamic_ratio: Specifies the fixed ratio value used for a node during ratio load balancing.
+        :param pulumi.Input[str] fqdn_autopopulate: Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled
+        :param pulumi.Input[int] priority_group: Specifies a number representing the priority group for the pool member. The default is 0, meaning that the member has no priority
+        :param pulumi.Input[int] ratio: "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
+        """
+        pulumi.set(__self__, "node", node)
+        pulumi.set(__self__, "pool", pool)
+        if connection_limit is not None:
+            pulumi.set(__self__, "connection_limit", connection_limit)
+        if connection_rate_limit is not None:
+            pulumi.set(__self__, "connection_rate_limit", connection_rate_limit)
+        if dynamic_ratio is not None:
+            pulumi.set(__self__, "dynamic_ratio", dynamic_ratio)
+        if fqdn_autopopulate is not None:
+            pulumi.set(__self__, "fqdn_autopopulate", fqdn_autopopulate)
+        if priority_group is not None:
+            pulumi.set(__self__, "priority_group", priority_group)
+        if ratio is not None:
+            pulumi.set(__self__, "ratio", ratio)
+
+    @property
+    @pulumi.getter
+    def node(self) -> pulumi.Input[str]:
+        """
+        Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
+        """
+        return pulumi.get(self, "node")
+
+    @node.setter
+    def node(self, value: pulumi.Input[str]):
+        pulumi.set(self, "node", value)
+
+    @property
+    @pulumi.getter
+    def pool(self) -> pulumi.Input[str]:
+        """
+        Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
+        """
+        return pulumi.get(self, "pool")
+
+    @pool.setter
+    def pool(self, value: pulumi.Input[str]):
+        pulumi.set(self, "pool", value)
+
+    @property
+    @pulumi.getter(name="connectionLimit")
+    def connection_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies a maximum established connection limit for a pool member or node.The default is 0, meaning that there is no limit to the number of connections.
+        """
+        return pulumi.get(self, "connection_limit")
+
+    @connection_limit.setter
+    def connection_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "connection_limit", value)
+
+    @property
+    @pulumi.getter(name="connectionRateLimit")
+    def connection_rate_limit(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the maximum number of connections-per-second allowed for a pool member,The default is 0.
+        """
+        return pulumi.get(self, "connection_rate_limit")
+
+    @connection_rate_limit.setter
+    def connection_rate_limit(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_rate_limit", value)
+
+    @property
+    @pulumi.getter(name="dynamicRatio")
+    def dynamic_ratio(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the fixed ratio value used for a node during ratio load balancing.
+        """
+        return pulumi.get(self, "dynamic_ratio")
+
+    @dynamic_ratio.setter
+    def dynamic_ratio(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "dynamic_ratio", value)
+
+    @property
+    @pulumi.getter(name="fqdnAutopopulate")
+    def fqdn_autopopulate(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled
+        """
+        return pulumi.get(self, "fqdn_autopopulate")
+
+    @fqdn_autopopulate.setter
+    def fqdn_autopopulate(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fqdn_autopopulate", value)
+
+    @property
+    @pulumi.getter(name="priorityGroup")
+    def priority_group(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies a number representing the priority group for the pool member. The default is 0, meaning that the member has no priority
+        """
+        return pulumi.get(self, "priority_group")
+
+    @priority_group.setter
+    def priority_group(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority_group", value)
+
+    @property
+    @pulumi.getter
+    def ratio(self) -> Optional[pulumi.Input[int]]:
+        """
+        "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
+        """
+        return pulumi.get(self, "ratio")
+
+    @ratio.setter
+    def ratio(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ratio", value)
 
 
 class PoolAttachment(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -68,6 +202,69 @@ class PoolAttachment(pulumi.CustomResource):
         :param pulumi.Input[int] priority_group: Specifies a number representing the priority group for the pool member. The default is 0, meaning that the member has no priority
         :param pulumi.Input[int] ratio: "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: PoolAttachmentArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        `ltm.PoolAttachment` Manages nodes membership in pools
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        monitor = f5bigip.ltm.Monitor("monitor",
+            name="/Common/terraform_monitor",
+            parent="/Common/http",
+            send="GET /some/path\n",
+            timeout=999,
+            interval=998)
+        pool = f5bigip.ltm.Pool("pool",
+            name="/Common/terraform-pool",
+            load_balancing_mode="round-robin",
+            monitors=[monitor.name],
+            allow_snat="yes",
+            allow_nat="yes")
+        attach_node = f5bigip.ltm.PoolAttachment("attachNode",
+            pool=pool.name,
+            node="1.1.1.1:80",
+            ratio=2,
+            connection_limit=2,
+            connection_rate_limit="2",
+            priority_group=2,
+            dynamic_ratio=3)
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param PoolAttachmentArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(PoolAttachmentArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 connection_limit: Optional[pulumi.Input[int]] = None,
+                 connection_rate_limit: Optional[pulumi.Input[str]] = None,
+                 dynamic_ratio: Optional[pulumi.Input[int]] = None,
+                 fqdn_autopopulate: Optional[pulumi.Input[str]] = None,
+                 node: Optional[pulumi.Input[str]] = None,
+                 pool: Optional[pulumi.Input[str]] = None,
+                 priority_group: Optional[pulumi.Input[int]] = None,
+                 ratio: Optional[pulumi.Input[int]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

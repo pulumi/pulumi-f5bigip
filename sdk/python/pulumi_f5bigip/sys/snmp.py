@@ -5,13 +5,69 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Snmp']
+__all__ = ['SnmpArgs', 'Snmp']
+
+@pulumi.input_type
+class SnmpArgs:
+    def __init__(__self__, *,
+                 allowedaddresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 sys_contact: Optional[pulumi.Input[str]] = None,
+                 sys_location: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Snmp resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowedaddresses: Configures hosts or networks from which snmpd can accept traffic. Entries go directly into hosts.allow.
+        :param pulumi.Input[str] sys_contact: Specifies the contact information for the system administrator.
+        :param pulumi.Input[str] sys_location: Describes the system's physical location.
+        """
+        if allowedaddresses is not None:
+            pulumi.set(__self__, "allowedaddresses", allowedaddresses)
+        if sys_contact is not None:
+            pulumi.set(__self__, "sys_contact", sys_contact)
+        if sys_location is not None:
+            pulumi.set(__self__, "sys_location", sys_location)
+
+    @property
+    @pulumi.getter
+    def allowedaddresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Configures hosts or networks from which snmpd can accept traffic. Entries go directly into hosts.allow.
+        """
+        return pulumi.get(self, "allowedaddresses")
+
+    @allowedaddresses.setter
+    def allowedaddresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowedaddresses", value)
+
+    @property
+    @pulumi.getter(name="sysContact")
+    def sys_contact(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the contact information for the system administrator.
+        """
+        return pulumi.get(self, "sys_contact")
+
+    @sys_contact.setter
+    def sys_contact(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sys_contact", value)
+
+    @property
+    @pulumi.getter(name="sysLocation")
+    def sys_location(self) -> Optional[pulumi.Input[str]]:
+        """
+        Describes the system's physical location.
+        """
+        return pulumi.get(self, "sys_location")
+
+    @sys_location.setter
+    def sys_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sys_location", value)
 
 
 class Snmp(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -41,6 +97,47 @@ class Snmp(pulumi.CustomResource):
         :param pulumi.Input[str] sys_contact: Specifies the contact information for the system administrator.
         :param pulumi.Input[str] sys_location: Describes the system's physical location.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[SnmpArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        `sys.Snmp` provides details bout how to enable "ilx", "asm" "apm" resource on BIG-IP
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        snmp = f5bigip.sys.Snmp("snmp",
+            allowedaddresses=["202.10.10.2"],
+            sys_contact=" NetOPsAdmin s.shitole@f5.com",
+            sys_location="SeattleHQ")
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param SnmpArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(SnmpArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 allowedaddresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 sys_contact: Optional[pulumi.Input[str]] = None,
+                 sys_location: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,13 +5,68 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Ntp']
+__all__ = ['NtpArgs', 'Ntp']
+
+@pulumi.input_type
+class NtpArgs:
+    def __init__(__self__, *,
+                 description: pulumi.Input[str],
+                 servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 timezone: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Ntp resource.
+        :param pulumi.Input[str] description: Name of the ntp Servers
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] servers: Adds NTP servers to or deletes NTP servers from the BIG-IP system.
+        :param pulumi.Input[str] timezone: Specifies the time zone that you want to use for the system time.
+        """
+        pulumi.set(__self__, "description", description)
+        if servers is not None:
+            pulumi.set(__self__, "servers", servers)
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
+
+    @property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[str]:
+        """
+        Name of the ntp Servers
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[str]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Adds NTP servers to or deletes NTP servers from the BIG-IP system.
+        """
+        return pulumi.get(self, "servers")
+
+    @servers.setter
+    def servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "servers", value)
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the time zone that you want to use for the system time.
+        """
+        return pulumi.get(self, "timezone")
+
+    @timezone.setter
+    def timezone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "timezone", value)
 
 
 class Ntp(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -43,6 +98,49 @@ class Ntp(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] servers: Adds NTP servers to or deletes NTP servers from the BIG-IP system.
         :param pulumi.Input[str] timezone: Specifies the time zone that you want to use for the system time.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: NtpArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        `sys.Ntp` provides details about a specific bigip
+
+        This resource is helpful when configuring NTP server on the BIG-IP.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        ntp1 = f5bigip.sys.Ntp("ntp1",
+            description="/Common/NTP1",
+            servers=["time.facebook.com"],
+            timezone="America/Los_Angeles")
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param NtpArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(NtpArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 timezone: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

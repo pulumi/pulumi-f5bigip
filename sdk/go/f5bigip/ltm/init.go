@@ -22,57 +22,58 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "f5bigip:ltm/dataGroup:DataGroup":
-		r, err = NewDataGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &DataGroup{}
 	case "f5bigip:ltm/iRule:IRule":
-		r, err = NewIRule(ctx, name, nil, pulumi.URN_(urn))
+		r = &IRule{}
 	case "f5bigip:ltm/monitor:Monitor":
-		r, err = NewMonitor(ctx, name, nil, pulumi.URN_(urn))
+		r = &Monitor{}
 	case "f5bigip:ltm/node:Node":
-		r, err = NewNode(ctx, name, nil, pulumi.URN_(urn))
+		r = &Node{}
 	case "f5bigip:ltm/persistenceProfileCookie:PersistenceProfileCookie":
-		r, err = NewPersistenceProfileCookie(ctx, name, nil, pulumi.URN_(urn))
+		r = &PersistenceProfileCookie{}
 	case "f5bigip:ltm/persistenceProfileDstAddr:PersistenceProfileDstAddr":
-		r, err = NewPersistenceProfileDstAddr(ctx, name, nil, pulumi.URN_(urn))
+		r = &PersistenceProfileDstAddr{}
 	case "f5bigip:ltm/persistenceProfileSrcAddr:PersistenceProfileSrcAddr":
-		r, err = NewPersistenceProfileSrcAddr(ctx, name, nil, pulumi.URN_(urn))
+		r = &PersistenceProfileSrcAddr{}
 	case "f5bigip:ltm/persistenceProfileSsl:PersistenceProfileSsl":
-		r, err = NewPersistenceProfileSsl(ctx, name, nil, pulumi.URN_(urn))
+		r = &PersistenceProfileSsl{}
 	case "f5bigip:ltm/policy:Policy":
-		r, err = NewPolicy(ctx, name, nil, pulumi.URN_(urn))
+		r = &Policy{}
 	case "f5bigip:ltm/pool:Pool":
-		r, err = NewPool(ctx, name, nil, pulumi.URN_(urn))
+		r = &Pool{}
 	case "f5bigip:ltm/poolAttachment:PoolAttachment":
-		r, err = NewPoolAttachment(ctx, name, nil, pulumi.URN_(urn))
+		r = &PoolAttachment{}
 	case "f5bigip:ltm/profileClientSsl:ProfileClientSsl":
-		r, err = NewProfileClientSsl(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProfileClientSsl{}
 	case "f5bigip:ltm/profileFastHttp:ProfileFastHttp":
-		r, err = NewProfileFastHttp(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProfileFastHttp{}
 	case "f5bigip:ltm/profileFastL4:ProfileFastL4":
-		r, err = NewProfileFastL4(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProfileFastL4{}
 	case "f5bigip:ltm/profileHttp2:ProfileHttp2":
-		r, err = NewProfileHttp2(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProfileHttp2{}
 	case "f5bigip:ltm/profileHttp:ProfileHttp":
-		r, err = NewProfileHttp(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProfileHttp{}
 	case "f5bigip:ltm/profileHttpCompress:ProfileHttpCompress":
-		r, err = NewProfileHttpCompress(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProfileHttpCompress{}
 	case "f5bigip:ltm/profileOneConnect:ProfileOneConnect":
-		r, err = NewProfileOneConnect(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProfileOneConnect{}
 	case "f5bigip:ltm/profileServerSsl:ProfileServerSsl":
-		r, err = NewProfileServerSsl(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProfileServerSsl{}
 	case "f5bigip:ltm/profileTcp:ProfileTcp":
-		r, err = NewProfileTcp(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProfileTcp{}
 	case "f5bigip:ltm/snat:Snat":
-		r, err = NewSnat(ctx, name, nil, pulumi.URN_(urn))
+		r = &Snat{}
 	case "f5bigip:ltm/snatPool:SnatPool":
-		r, err = NewSnatPool(ctx, name, nil, pulumi.URN_(urn))
+		r = &SnatPool{}
 	case "f5bigip:ltm/virtualAddress:VirtualAddress":
-		r, err = NewVirtualAddress(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualAddress{}
 	case "f5bigip:ltm/virtualServer:VirtualServer":
-		r, err = NewVirtualServer(ctx, name, nil, pulumi.URN_(urn))
+		r = &VirtualServer{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 
