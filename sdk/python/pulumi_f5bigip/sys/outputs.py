@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -37,9 +37,6 @@ class IAppList(dict):
     def value(self) -> Optional[str]:
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IAppMetadata(dict):
@@ -61,12 +58,28 @@ class IAppMetadata(dict):
     def value(self) -> Optional[str]:
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IAppTable(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnNames":
+            suggest = "column_names"
+        elif key == "encryptedColumns":
+            suggest = "encrypted_columns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IAppTable. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IAppTable.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IAppTable.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  column_names: Optional[Sequence[str]] = None,
                  encrypted_columns: Optional[str] = None,
@@ -107,9 +120,6 @@ class IAppTable(dict):
     def rows(self) -> Optional[Sequence['outputs.IAppTableRow']]:
         return pulumi.get(self, "rows")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class IAppTableRow(dict):
@@ -122,9 +132,6 @@ class IAppTableRow(dict):
     @pulumi.getter
     def rows(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "rows")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -160,8 +167,5 @@ class IAppVariable(dict):
     @pulumi.getter
     def value(self) -> Optional[str]:
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

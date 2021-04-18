@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['As3Args', 'As3']
 
@@ -66,6 +66,113 @@ class As3Args:
     @application_list.setter
     def application_list(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "application_list", value)
+
+    @property
+    @pulumi.getter(name="ignoreMetadata")
+    def ignore_metadata(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set True if you want to ignore metadata changes during update. By default it is set to false
+        """
+        return pulumi.get(self, "ignore_metadata")
+
+    @ignore_metadata.setter
+    def ignore_metadata(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_metadata", value)
+
+    @property
+    @pulumi.getter(name="tenantFilter")
+    def tenant_filter(self) -> Optional[pulumi.Input[str]]:
+        """
+        If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified
+        """
+        return pulumi.get(self, "tenant_filter")
+
+    @tenant_filter.setter
+    def tenant_filter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_filter", value)
+
+    @property
+    @pulumi.getter(name="tenantList")
+    def tenant_list(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of Tenant
+        """
+        return pulumi.get(self, "tenant_list")
+
+    @tenant_list.setter
+    def tenant_list(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_list", value)
+
+    @property
+    @pulumi.getter(name="tenantName")
+    def tenant_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of Tenant
+        """
+        return pulumi.get(self, "tenant_name")
+
+    @tenant_name.setter
+    def tenant_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_name", value)
+
+
+@pulumi.input_type
+class _As3State:
+    def __init__(__self__, *,
+                 application_list: Optional[pulumi.Input[str]] = None,
+                 as3_json: Optional[pulumi.Input[str]] = None,
+                 ignore_metadata: Optional[pulumi.Input[bool]] = None,
+                 tenant_filter: Optional[pulumi.Input[str]] = None,
+                 tenant_list: Optional[pulumi.Input[str]] = None,
+                 tenant_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering As3 resources.
+        :param pulumi.Input[str] application_list: Name of Application
+        :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to false
+        :param pulumi.Input[str] tenant_filter: If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified
+        :param pulumi.Input[str] tenant_list: Name of Tenant
+        :param pulumi.Input[str] tenant_name: Name of Tenant
+        """
+        if application_list is not None:
+            pulumi.set(__self__, "application_list", application_list)
+        if as3_json is not None:
+            pulumi.set(__self__, "as3_json", as3_json)
+        if ignore_metadata is not None:
+            pulumi.set(__self__, "ignore_metadata", ignore_metadata)
+        if tenant_filter is not None:
+            pulumi.set(__self__, "tenant_filter", tenant_filter)
+        if tenant_list is not None:
+            pulumi.set(__self__, "tenant_list", tenant_list)
+        if tenant_name is not None:
+            warnings.warn("""this attribute is no longer in use""", DeprecationWarning)
+            pulumi.log.warn("""tenant_name is deprecated: this attribute is no longer in use""")
+        if tenant_name is not None:
+            pulumi.set(__self__, "tenant_name", tenant_name)
+
+    @property
+    @pulumi.getter(name="applicationList")
+    def application_list(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of Application
+        """
+        return pulumi.get(self, "application_list")
+
+    @application_list.setter
+    def application_list(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_list", value)
+
+    @property
+    @pulumi.getter(name="as3Json")
+    def as3_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        """
+        return pulumi.get(self, "as3_json")
+
+    @as3_json.setter
+    def as3_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "as3_json", value)
 
     @property
     @pulumi.getter(name="ignoreMetadata")
@@ -222,19 +329,19 @@ class As3(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = As3Args.__new__(As3Args)
 
-            __props__['application_list'] = application_list
+            __props__.__dict__["application_list"] = application_list
             if as3_json is None and not opts.urn:
                 raise TypeError("Missing required property 'as3_json'")
-            __props__['as3_json'] = as3_json
-            __props__['ignore_metadata'] = ignore_metadata
-            __props__['tenant_filter'] = tenant_filter
-            __props__['tenant_list'] = tenant_list
+            __props__.__dict__["as3_json"] = as3_json
+            __props__.__dict__["ignore_metadata"] = ignore_metadata
+            __props__.__dict__["tenant_filter"] = tenant_filter
+            __props__.__dict__["tenant_list"] = tenant_list
             if tenant_name is not None and not opts.urn:
                 warnings.warn("""this attribute is no longer in use""", DeprecationWarning)
                 pulumi.log.warn("""tenant_name is deprecated: this attribute is no longer in use""")
-            __props__['tenant_name'] = tenant_name
+            __props__.__dict__["tenant_name"] = tenant_name
         super(As3, __self__).__init__(
             'f5bigip:index/as3:As3',
             resource_name,
@@ -267,14 +374,14 @@ class As3(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _As3State.__new__(_As3State)
 
-        __props__["application_list"] = application_list
-        __props__["as3_json"] = as3_json
-        __props__["ignore_metadata"] = ignore_metadata
-        __props__["tenant_filter"] = tenant_filter
-        __props__["tenant_list"] = tenant_list
-        __props__["tenant_name"] = tenant_name
+        __props__.__dict__["application_list"] = application_list
+        __props__.__dict__["as3_json"] = as3_json
+        __props__.__dict__["ignore_metadata"] = ignore_metadata
+        __props__.__dict__["tenant_filter"] = tenant_filter
+        __props__.__dict__["tenant_list"] = tenant_list
+        __props__.__dict__["tenant_name"] = tenant_name
         return As3(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -324,10 +431,4 @@ class As3(pulumi.CustomResource):
         Name of Tenant
         """
         return pulumi.get(self, "tenant_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

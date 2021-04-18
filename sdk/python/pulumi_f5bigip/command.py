@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['CommandArgs', 'Command']
 
@@ -50,6 +50,58 @@ class CommandArgs:
     @command_results.setter
     def command_results(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "command_results", value)
+
+    @property
+    @pulumi.getter
+    def when(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "when")
+
+    @when.setter
+    def when(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "when", value)
+
+
+@pulumi.input_type
+class _CommandState:
+    def __init__(__self__, *,
+                 command_results: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 commands: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 when: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Command resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] command_results: The resulting output from the `commands` executed
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`
+        """
+        if command_results is not None:
+            pulumi.set(__self__, "command_results", command_results)
+        if commands is not None:
+            pulumi.set(__self__, "commands", commands)
+        if when is not None:
+            pulumi.set(__self__, "when", when)
+
+    @property
+    @pulumi.getter(name="commandResults")
+    def command_results(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The resulting output from the `commands` executed
+        """
+        return pulumi.get(self, "command_results")
+
+    @command_results.setter
+    def command_results(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "command_results", value)
+
+    @property
+    @pulumi.getter
+    def commands(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`
+        """
+        return pulumi.get(self, "commands")
+
+    @commands.setter
+    def commands(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "commands", value)
 
     @property
     @pulumi.getter
@@ -151,13 +203,13 @@ class Command(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = CommandArgs.__new__(CommandArgs)
 
-            __props__['command_results'] = command_results
+            __props__.__dict__["command_results"] = command_results
             if commands is None and not opts.urn:
                 raise TypeError("Missing required property 'commands'")
-            __props__['commands'] = commands
-            __props__['when'] = when
+            __props__.__dict__["commands"] = commands
+            __props__.__dict__["when"] = when
         super(Command, __self__).__init__(
             'f5bigip:index/command:Command',
             resource_name,
@@ -183,11 +235,11 @@ class Command(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _CommandState.__new__(_CommandState)
 
-        __props__["command_results"] = command_results
-        __props__["commands"] = commands
-        __props__["when"] = when
+        __props__.__dict__["command_results"] = command_results
+        __props__.__dict__["commands"] = commands
+        __props__.__dict__["when"] = when
         return Command(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -210,10 +262,4 @@ class Command(pulumi.CustomResource):
     @pulumi.getter
     def when(self) -> pulumi.Output[Optional[str]]:
         return pulumi.get(self, "when")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

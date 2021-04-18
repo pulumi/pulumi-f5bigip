@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ProfileFastL4Args', 'ProfileFastL4']
 
@@ -177,6 +177,174 @@ class ProfileFastL4Args:
         pulumi.set(self, "partition", value)
 
 
+@pulumi.input_type
+class _ProfileFastL4State:
+    def __init__(__self__, *,
+                 client_timeout: Optional[pulumi.Input[int]] = None,
+                 defaults_from: Optional[pulumi.Input[str]] = None,
+                 explicitflow_migration: Optional[pulumi.Input[str]] = None,
+                 hardware_syncookie: Optional[pulumi.Input[str]] = None,
+                 idle_timeout: Optional[pulumi.Input[str]] = None,
+                 iptos_toclient: Optional[pulumi.Input[str]] = None,
+                 iptos_toserver: Optional[pulumi.Input[str]] = None,
+                 keepalive_interval: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 partition: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ProfileFastL4 resources.
+        :param pulumi.Input[int] client_timeout: Specifies late binding client timeout in seconds. This setting specifies the number of seconds allowed for a client to transmit enough data to select a server when late binding is enabled. If it expires timeout-recovery mode will dictate what action to take.
+        :param pulumi.Input[str] defaults_from: Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
+        :param pulumi.Input[str] explicitflow_migration: Enables or disables late binding explicit flow migration that allows iRules to control when flows move from software to hardware. Explicit flow migration is disabled by default hence BIG-IP automatically migrates flows from software to hardware.
+        :param pulumi.Input[str] hardware_syncookie: Enables or disables hardware SYN cookie support when PVA10 is present on the system. Note that when you set the hardware syncookie option to enabled, you may also want to set the following bigdb database variables using the "/sys modify db" command, based on your requirements: pva.SynCookies.Full.ConnectionThreshold (default: 500000), pva.SynCookies.Assist.ConnectionThreshold (default: 500000) pva.SynCookies.ClientWindow (default: 0). The default value is disabled.
+        :param pulumi.Input[str] idle_timeout: Specifies an idle timeout in seconds. This setting specifies the number of seconds that a connection is idle before the connection is eligible for deletion.When you specify an idle timeout for the Fast L4 profile, the value must be greater than the bigdb database variable Pva.Scrub time in msec for it to work properly.The default value is 300 seconds.
+        :param pulumi.Input[str] iptos_toclient: Specifies an IP ToS number for the client side. This option specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to clients. The default value is 65535 (pass-through), which indicates, do not modify.
+        :param pulumi.Input[str] iptos_toserver: Specifies an IP ToS number for the server side. This setting specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to servers. The default value is 65535 (pass-through), which indicates, do not modify.
+        :param pulumi.Input[str] keepalive_interval: Specifies the keep alive probe interval, in seconds. The default value is disabled (0 seconds).
+        :param pulumi.Input[str] name: Name of the profile_fastl4
+        :param pulumi.Input[str] partition: Displays the administrative partition within which this profile resides
+        """
+        if client_timeout is not None:
+            pulumi.set(__self__, "client_timeout", client_timeout)
+        if defaults_from is not None:
+            pulumi.set(__self__, "defaults_from", defaults_from)
+        if explicitflow_migration is not None:
+            pulumi.set(__self__, "explicitflow_migration", explicitflow_migration)
+        if hardware_syncookie is not None:
+            pulumi.set(__self__, "hardware_syncookie", hardware_syncookie)
+        if idle_timeout is not None:
+            pulumi.set(__self__, "idle_timeout", idle_timeout)
+        if iptos_toclient is not None:
+            pulumi.set(__self__, "iptos_toclient", iptos_toclient)
+        if iptos_toserver is not None:
+            pulumi.set(__self__, "iptos_toserver", iptos_toserver)
+        if keepalive_interval is not None:
+            pulumi.set(__self__, "keepalive_interval", keepalive_interval)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if partition is not None:
+            pulumi.set(__self__, "partition", partition)
+
+    @property
+    @pulumi.getter(name="clientTimeout")
+    def client_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies late binding client timeout in seconds. This setting specifies the number of seconds allowed for a client to transmit enough data to select a server when late binding is enabled. If it expires timeout-recovery mode will dictate what action to take.
+        """
+        return pulumi.get(self, "client_timeout")
+
+    @client_timeout.setter
+    def client_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "client_timeout", value)
+
+    @property
+    @pulumi.getter(name="defaultsFrom")
+    def defaults_from(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
+        """
+        return pulumi.get(self, "defaults_from")
+
+    @defaults_from.setter
+    def defaults_from(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "defaults_from", value)
+
+    @property
+    @pulumi.getter(name="explicitflowMigration")
+    def explicitflow_migration(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enables or disables late binding explicit flow migration that allows iRules to control when flows move from software to hardware. Explicit flow migration is disabled by default hence BIG-IP automatically migrates flows from software to hardware.
+        """
+        return pulumi.get(self, "explicitflow_migration")
+
+    @explicitflow_migration.setter
+    def explicitflow_migration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "explicitflow_migration", value)
+
+    @property
+    @pulumi.getter(name="hardwareSyncookie")
+    def hardware_syncookie(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enables or disables hardware SYN cookie support when PVA10 is present on the system. Note that when you set the hardware syncookie option to enabled, you may also want to set the following bigdb database variables using the "/sys modify db" command, based on your requirements: pva.SynCookies.Full.ConnectionThreshold (default: 500000), pva.SynCookies.Assist.ConnectionThreshold (default: 500000) pva.SynCookies.ClientWindow (default: 0). The default value is disabled.
+        """
+        return pulumi.get(self, "hardware_syncookie")
+
+    @hardware_syncookie.setter
+    def hardware_syncookie(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "hardware_syncookie", value)
+
+    @property
+    @pulumi.getter(name="idleTimeout")
+    def idle_timeout(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies an idle timeout in seconds. This setting specifies the number of seconds that a connection is idle before the connection is eligible for deletion.When you specify an idle timeout for the Fast L4 profile, the value must be greater than the bigdb database variable Pva.Scrub time in msec for it to work properly.The default value is 300 seconds.
+        """
+        return pulumi.get(self, "idle_timeout")
+
+    @idle_timeout.setter
+    def idle_timeout(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "idle_timeout", value)
+
+    @property
+    @pulumi.getter(name="iptosToclient")
+    def iptos_toclient(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies an IP ToS number for the client side. This option specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to clients. The default value is 65535 (pass-through), which indicates, do not modify.
+        """
+        return pulumi.get(self, "iptos_toclient")
+
+    @iptos_toclient.setter
+    def iptos_toclient(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "iptos_toclient", value)
+
+    @property
+    @pulumi.getter(name="iptosToserver")
+    def iptos_toserver(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies an IP ToS number for the server side. This setting specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to servers. The default value is 65535 (pass-through), which indicates, do not modify.
+        """
+        return pulumi.get(self, "iptos_toserver")
+
+    @iptos_toserver.setter
+    def iptos_toserver(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "iptos_toserver", value)
+
+    @property
+    @pulumi.getter(name="keepaliveInterval")
+    def keepalive_interval(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the keep alive probe interval, in seconds. The default value is disabled (0 seconds).
+        """
+        return pulumi.get(self, "keepalive_interval")
+
+    @keepalive_interval.setter
+    def keepalive_interval(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "keepalive_interval", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the profile_fastl4
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def partition(self) -> Optional[pulumi.Input[str]]:
+        """
+        Displays the administrative partition within which this profile resides
+        """
+        return pulumi.get(self, "partition")
+
+    @partition.setter
+    def partition(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "partition", value)
+
+
 class ProfileFastL4(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -319,20 +487,20 @@ class ProfileFastL4(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ProfileFastL4Args.__new__(ProfileFastL4Args)
 
-            __props__['client_timeout'] = client_timeout
-            __props__['defaults_from'] = defaults_from
-            __props__['explicitflow_migration'] = explicitflow_migration
-            __props__['hardware_syncookie'] = hardware_syncookie
-            __props__['idle_timeout'] = idle_timeout
-            __props__['iptos_toclient'] = iptos_toclient
-            __props__['iptos_toserver'] = iptos_toserver
-            __props__['keepalive_interval'] = keepalive_interval
+            __props__.__dict__["client_timeout"] = client_timeout
+            __props__.__dict__["defaults_from"] = defaults_from
+            __props__.__dict__["explicitflow_migration"] = explicitflow_migration
+            __props__.__dict__["hardware_syncookie"] = hardware_syncookie
+            __props__.__dict__["idle_timeout"] = idle_timeout
+            __props__.__dict__["iptos_toclient"] = iptos_toclient
+            __props__.__dict__["iptos_toserver"] = iptos_toserver
+            __props__.__dict__["keepalive_interval"] = keepalive_interval
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
-            __props__['partition'] = partition
+            __props__.__dict__["name"] = name
+            __props__.__dict__["partition"] = partition
         super(ProfileFastL4, __self__).__init__(
             'f5bigip:ltm/profileFastL4:ProfileFastL4',
             resource_name,
@@ -373,18 +541,18 @@ class ProfileFastL4(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ProfileFastL4State.__new__(_ProfileFastL4State)
 
-        __props__["client_timeout"] = client_timeout
-        __props__["defaults_from"] = defaults_from
-        __props__["explicitflow_migration"] = explicitflow_migration
-        __props__["hardware_syncookie"] = hardware_syncookie
-        __props__["idle_timeout"] = idle_timeout
-        __props__["iptos_toclient"] = iptos_toclient
-        __props__["iptos_toserver"] = iptos_toserver
-        __props__["keepalive_interval"] = keepalive_interval
-        __props__["name"] = name
-        __props__["partition"] = partition
+        __props__.__dict__["client_timeout"] = client_timeout
+        __props__.__dict__["defaults_from"] = defaults_from
+        __props__.__dict__["explicitflow_migration"] = explicitflow_migration
+        __props__.__dict__["hardware_syncookie"] = hardware_syncookie
+        __props__.__dict__["idle_timeout"] = idle_timeout
+        __props__.__dict__["iptos_toclient"] = iptos_toclient
+        __props__.__dict__["iptos_toserver"] = iptos_toserver
+        __props__.__dict__["keepalive_interval"] = keepalive_interval
+        __props__.__dict__["name"] = name
+        __props__.__dict__["partition"] = partition
         return ProfileFastL4(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -466,10 +634,4 @@ class ProfileFastL4(pulumi.CustomResource):
         Displays the administrative partition within which this profile resides
         """
         return pulumi.get(self, "partition")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

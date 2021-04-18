@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['SelfIpArgs', 'SelfIp']
 
@@ -77,6 +77,78 @@ class SelfIpArgs:
     @traffic_group.setter
     def traffic_group(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "traffic_group", value)
+
+
+@pulumi.input_type
+class _SelfIpState:
+    def __init__(__self__, *,
+                 ip: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 traffic_group: Optional[pulumi.Input[str]] = None,
+                 vlan: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering SelfIp resources.
+        :param pulumi.Input[str] ip: The Self IP's address and netmask.
+        :param pulumi.Input[str] name: Name of the selfip
+        :param pulumi.Input[str] traffic_group: Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
+        :param pulumi.Input[str] vlan: Specifies the VLAN for which you are setting a self IP address. This setting must be provided when a self IP is created.
+        """
+        if ip is not None:
+            pulumi.set(__self__, "ip", ip)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if traffic_group is not None:
+            pulumi.set(__self__, "traffic_group", traffic_group)
+        if vlan is not None:
+            pulumi.set(__self__, "vlan", vlan)
+
+    @property
+    @pulumi.getter
+    def ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Self IP's address and netmask.
+        """
+        return pulumi.get(self, "ip")
+
+    @ip.setter
+    def ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the selfip
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="trafficGroup")
+    def traffic_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
+        """
+        return pulumi.get(self, "traffic_group")
+
+    @traffic_group.setter
+    def traffic_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "traffic_group", value)
+
+    @property
+    @pulumi.getter
+    def vlan(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the VLAN for which you are setting a self IP address. This setting must be provided when a self IP is created.
+        """
+        return pulumi.get(self, "vlan")
+
+    @vlan.setter
+    def vlan(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vlan", value)
 
 
 class SelfIp(pulumi.CustomResource):
@@ -179,18 +251,18 @@ class SelfIp(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SelfIpArgs.__new__(SelfIpArgs)
 
             if ip is None and not opts.urn:
                 raise TypeError("Missing required property 'ip'")
-            __props__['ip'] = ip
+            __props__.__dict__["ip"] = ip
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
-            __props__['traffic_group'] = traffic_group
+            __props__.__dict__["name"] = name
+            __props__.__dict__["traffic_group"] = traffic_group
             if vlan is None and not opts.urn:
                 raise TypeError("Missing required property 'vlan'")
-            __props__['vlan'] = vlan
+            __props__.__dict__["vlan"] = vlan
         super(SelfIp, __self__).__init__(
             'f5bigip:net/selfIp:SelfIp',
             resource_name,
@@ -219,12 +291,12 @@ class SelfIp(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _SelfIpState.__new__(_SelfIpState)
 
-        __props__["ip"] = ip
-        __props__["name"] = name
-        __props__["traffic_group"] = traffic_group
-        __props__["vlan"] = vlan
+        __props__.__dict__["ip"] = ip
+        __props__.__dict__["name"] = name
+        __props__.__dict__["traffic_group"] = traffic_group
+        __props__.__dict__["vlan"] = vlan
         return SelfIp(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -258,10 +330,4 @@ class SelfIp(pulumi.CustomResource):
         Specifies the VLAN for which you are setting a self IP address. This setting must be provided when a self IP is created.
         """
         return pulumi.get(self, "vlan")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['PoolAttachmentArgs', 'PoolAttachment']
 
@@ -118,6 +118,142 @@ class PoolAttachmentArgs:
     @fqdn_autopopulate.setter
     def fqdn_autopopulate(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "fqdn_autopopulate", value)
+
+    @property
+    @pulumi.getter(name="priorityGroup")
+    def priority_group(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies a number representing the priority group for the pool member. The default is 0, meaning that the member has no priority
+        """
+        return pulumi.get(self, "priority_group")
+
+    @priority_group.setter
+    def priority_group(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority_group", value)
+
+    @property
+    @pulumi.getter
+    def ratio(self) -> Optional[pulumi.Input[int]]:
+        """
+        "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
+        """
+        return pulumi.get(self, "ratio")
+
+    @ratio.setter
+    def ratio(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ratio", value)
+
+
+@pulumi.input_type
+class _PoolAttachmentState:
+    def __init__(__self__, *,
+                 connection_limit: Optional[pulumi.Input[int]] = None,
+                 connection_rate_limit: Optional[pulumi.Input[str]] = None,
+                 dynamic_ratio: Optional[pulumi.Input[int]] = None,
+                 fqdn_autopopulate: Optional[pulumi.Input[str]] = None,
+                 node: Optional[pulumi.Input[str]] = None,
+                 pool: Optional[pulumi.Input[str]] = None,
+                 priority_group: Optional[pulumi.Input[int]] = None,
+                 ratio: Optional[pulumi.Input[int]] = None):
+        """
+        Input properties used for looking up and filtering PoolAttachment resources.
+        :param pulumi.Input[int] connection_limit: Specifies a maximum established connection limit for a pool member or node.The default is 0, meaning that there is no limit to the number of connections.
+        :param pulumi.Input[str] connection_rate_limit: Specifies the maximum number of connections-per-second allowed for a pool member,The default is 0.
+        :param pulumi.Input[int] dynamic_ratio: Specifies the fixed ratio value used for a node during ratio load balancing.
+        :param pulumi.Input[str] fqdn_autopopulate: Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled
+        :param pulumi.Input[str] node: Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
+        :param pulumi.Input[str] pool: Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
+        :param pulumi.Input[int] priority_group: Specifies a number representing the priority group for the pool member. The default is 0, meaning that the member has no priority
+        :param pulumi.Input[int] ratio: "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
+        """
+        if connection_limit is not None:
+            pulumi.set(__self__, "connection_limit", connection_limit)
+        if connection_rate_limit is not None:
+            pulumi.set(__self__, "connection_rate_limit", connection_rate_limit)
+        if dynamic_ratio is not None:
+            pulumi.set(__self__, "dynamic_ratio", dynamic_ratio)
+        if fqdn_autopopulate is not None:
+            pulumi.set(__self__, "fqdn_autopopulate", fqdn_autopopulate)
+        if node is not None:
+            pulumi.set(__self__, "node", node)
+        if pool is not None:
+            pulumi.set(__self__, "pool", pool)
+        if priority_group is not None:
+            pulumi.set(__self__, "priority_group", priority_group)
+        if ratio is not None:
+            pulumi.set(__self__, "ratio", ratio)
+
+    @property
+    @pulumi.getter(name="connectionLimit")
+    def connection_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies a maximum established connection limit for a pool member or node.The default is 0, meaning that there is no limit to the number of connections.
+        """
+        return pulumi.get(self, "connection_limit")
+
+    @connection_limit.setter
+    def connection_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "connection_limit", value)
+
+    @property
+    @pulumi.getter(name="connectionRateLimit")
+    def connection_rate_limit(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the maximum number of connections-per-second allowed for a pool member,The default is 0.
+        """
+        return pulumi.get(self, "connection_rate_limit")
+
+    @connection_rate_limit.setter
+    def connection_rate_limit(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_rate_limit", value)
+
+    @property
+    @pulumi.getter(name="dynamicRatio")
+    def dynamic_ratio(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the fixed ratio value used for a node during ratio load balancing.
+        """
+        return pulumi.get(self, "dynamic_ratio")
+
+    @dynamic_ratio.setter
+    def dynamic_ratio(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "dynamic_ratio", value)
+
+    @property
+    @pulumi.getter(name="fqdnAutopopulate")
+    def fqdn_autopopulate(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled
+        """
+        return pulumi.get(self, "fqdn_autopopulate")
+
+    @fqdn_autopopulate.setter
+    def fqdn_autopopulate(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fqdn_autopopulate", value)
+
+    @property
+    @pulumi.getter
+    def node(self) -> Optional[pulumi.Input[str]]:
+        """
+        Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
+        """
+        return pulumi.get(self, "node")
+
+    @node.setter
+    def node(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "node", value)
+
+    @property
+    @pulumi.getter
+    def pool(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
+        """
+        return pulumi.get(self, "pool")
+
+    @pool.setter
+    def pool(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pool", value)
 
     @property
     @pulumi.getter(name="priorityGroup")
@@ -280,20 +416,20 @@ class PoolAttachment(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PoolAttachmentArgs.__new__(PoolAttachmentArgs)
 
-            __props__['connection_limit'] = connection_limit
-            __props__['connection_rate_limit'] = connection_rate_limit
-            __props__['dynamic_ratio'] = dynamic_ratio
-            __props__['fqdn_autopopulate'] = fqdn_autopopulate
+            __props__.__dict__["connection_limit"] = connection_limit
+            __props__.__dict__["connection_rate_limit"] = connection_rate_limit
+            __props__.__dict__["dynamic_ratio"] = dynamic_ratio
+            __props__.__dict__["fqdn_autopopulate"] = fqdn_autopopulate
             if node is None and not opts.urn:
                 raise TypeError("Missing required property 'node'")
-            __props__['node'] = node
+            __props__.__dict__["node"] = node
             if pool is None and not opts.urn:
                 raise TypeError("Missing required property 'pool'")
-            __props__['pool'] = pool
-            __props__['priority_group'] = priority_group
-            __props__['ratio'] = ratio
+            __props__.__dict__["pool"] = pool
+            __props__.__dict__["priority_group"] = priority_group
+            __props__.__dict__["ratio"] = ratio
         super(PoolAttachment, __self__).__init__(
             'f5bigip:ltm/poolAttachment:PoolAttachment',
             resource_name,
@@ -330,16 +466,16 @@ class PoolAttachment(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _PoolAttachmentState.__new__(_PoolAttachmentState)
 
-        __props__["connection_limit"] = connection_limit
-        __props__["connection_rate_limit"] = connection_rate_limit
-        __props__["dynamic_ratio"] = dynamic_ratio
-        __props__["fqdn_autopopulate"] = fqdn_autopopulate
-        __props__["node"] = node
-        __props__["pool"] = pool
-        __props__["priority_group"] = priority_group
-        __props__["ratio"] = ratio
+        __props__.__dict__["connection_limit"] = connection_limit
+        __props__.__dict__["connection_rate_limit"] = connection_rate_limit
+        __props__.__dict__["dynamic_ratio"] = dynamic_ratio
+        __props__.__dict__["fqdn_autopopulate"] = fqdn_autopopulate
+        __props__.__dict__["node"] = node
+        __props__.__dict__["pool"] = pool
+        __props__.__dict__["priority_group"] = priority_group
+        __props__.__dict__["ratio"] = ratio
         return PoolAttachment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -405,10 +541,4 @@ class PoolAttachment(pulumi.CustomResource):
         "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
         """
         return pulumi.get(self, "ratio")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -50,12 +50,26 @@ class DataGroupRecord(dict):
         """
         return pulumi.get(self, "data")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class NodeFqdn(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addressFamily":
+            suggest = "address_family"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NodeFqdn. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NodeFqdn.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NodeFqdn.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  address_family: Optional[str] = None,
                  autopopulate: Optional[str] = None,
@@ -112,9 +126,6 @@ class NodeFqdn(dict):
         """
         return pulumi.get(self, "name")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PolicyRule(dict):
@@ -149,12 +160,90 @@ class PolicyRule(dict):
     def conditions(self) -> Optional[Sequence['outputs.PolicyRuleCondition']]:
         return pulumi.get(self, "conditions")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PolicyRuleAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appService":
+            suggest = "app_service"
+        elif key == "clonePool":
+            suggest = "clone_pool"
+        elif key == "cookieHash":
+            suggest = "cookie_hash"
+        elif key == "cookieInsert":
+            suggest = "cookie_insert"
+        elif key == "cookiePassive":
+            suggest = "cookie_passive"
+        elif key == "cookieRewrite":
+            suggest = "cookie_rewrite"
+        elif key == "destinationAddress":
+            suggest = "destination_address"
+        elif key == "expirySecs":
+            suggest = "expiry_secs"
+        elif key == "fromProfile":
+            suggest = "from_profile"
+        elif key == "httpBasicAuth":
+            suggest = "http_basic_auth"
+        elif key == "httpCookie":
+            suggest = "http_cookie"
+        elif key == "httpHeader":
+            suggest = "http_header"
+        elif key == "httpHost":
+            suggest = "http_host"
+        elif key == "httpReferer":
+            suggest = "http_referer"
+        elif key == "httpReply":
+            suggest = "http_reply"
+        elif key == "httpSetCookie":
+            suggest = "http_set_cookie"
+        elif key == "httpUri":
+            suggest = "http_uri"
+        elif key == "internalVirtual":
+            suggest = "internal_virtual"
+        elif key == "ipAddress":
+            suggest = "ip_address"
+        elif key == "ltmPolicy":
+            suggest = "ltm_policy"
+        elif key == "queryString":
+            suggest = "query_string"
+        elif key == "requestAdapt":
+            suggest = "request_adapt"
+        elif key == "responseAdapt":
+            suggest = "response_adapt"
+        elif key == "serverSsl":
+            suggest = "server_ssl"
+        elif key == "setVariable":
+            suggest = "set_variable"
+        elif key == "sourceAddress":
+            suggest = "source_address"
+        elif key == "sslClientHello":
+            suggest = "ssl_client_hello"
+        elif key == "sslServerHandshake":
+            suggest = "ssl_server_handshake"
+        elif key == "sslServerHello":
+            suggest = "ssl_server_hello"
+        elif key == "sslSessionId":
+            suggest = "ssl_session_id"
+        elif key == "tcpNagle":
+            suggest = "tcp_nagle"
+        elif key == "tmName":
+            suggest = "tm_name"
+        elif key == "vlanId":
+            suggest = "vlan_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyRuleAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyRuleAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyRuleAction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  app_service: Optional[str] = None,
                  application: Optional[str] = None,
@@ -983,12 +1072,114 @@ class PolicyRuleAction(dict):
     def write(self) -> Optional[bool]:
         return pulumi.get(self, "write")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class PolicyRuleCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appService":
+            suggest = "app_service"
+        elif key == "browserType":
+            suggest = "browser_type"
+        elif key == "browserVersion":
+            suggest = "browser_version"
+        elif key == "caseInsensitive":
+            suggest = "case_insensitive"
+        elif key == "caseSensitive":
+            suggest = "case_sensitive"
+        elif key == "cipherBits":
+            suggest = "cipher_bits"
+        elif key == "clientSsl":
+            suggest = "client_ssl"
+        elif key == "commonName":
+            suggest = "common_name"
+        elif key == "countryCode":
+            suggest = "country_code"
+        elif key == "countryName":
+            suggest = "country_name"
+        elif key == "cpuUsage":
+            suggest = "cpu_usage"
+        elif key == "deviceMake":
+            suggest = "device_make"
+        elif key == "deviceModel":
+            suggest = "device_model"
+        elif key == "endsWith":
+            suggest = "ends_with"
+        elif key == "greaterOrEqual":
+            suggest = "greater_or_equal"
+        elif key == "httpBasicAuth":
+            suggest = "http_basic_auth"
+        elif key == "httpCookie":
+            suggest = "http_cookie"
+        elif key == "httpHeader":
+            suggest = "http_header"
+        elif key == "httpHost":
+            suggest = "http_host"
+        elif key == "httpMethod":
+            suggest = "http_method"
+        elif key == "httpReferer":
+            suggest = "http_referer"
+        elif key == "httpSetCookie":
+            suggest = "http_set_cookie"
+        elif key == "httpStatus":
+            suggest = "http_status"
+        elif key == "httpUri":
+            suggest = "http_uri"
+        elif key == "httpUserAgent":
+            suggest = "http_user_agent"
+        elif key == "httpVersion":
+            suggest = "http_version"
+        elif key == "lessOrEqual":
+            suggest = "less_or_equal"
+        elif key == "not":
+            suggest = "not_"
+        elif key == "pathSegment":
+            suggest = "path_segment"
+        elif key == "queryParameter":
+            suggest = "query_parameter"
+        elif key == "queryString":
+            suggest = "query_string"
+        elif key == "regionCode":
+            suggest = "region_code"
+        elif key == "regionName":
+            suggest = "region_name"
+        elif key == "routeDomain":
+            suggest = "route_domain"
+        elif key == "serverName":
+            suggest = "server_name"
+        elif key == "sslCert":
+            suggest = "ssl_cert"
+        elif key == "sslClientHello":
+            suggest = "ssl_client_hello"
+        elif key == "sslExtension":
+            suggest = "ssl_extension"
+        elif key == "sslServerHandshake":
+            suggest = "ssl_server_handshake"
+        elif key == "sslServerHello":
+            suggest = "ssl_server_hello"
+        elif key == "startsWith":
+            suggest = "starts_with"
+        elif key == "tmName":
+            suggest = "tm_name"
+        elif key == "unnamedQueryParameter":
+            suggest = "unnamed_query_parameter"
+        elif key == "userAgentToken":
+            suggest = "user_agent_token"
+        elif key == "vlanId":
+            suggest = "vlan_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyRuleCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyRuleCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyRuleCondition.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  address: Optional[bool] = None,
                  all: Optional[bool] = None,
@@ -1711,9 +1902,6 @@ class PolicyRuleCondition(dict):
     def vlan_id(self) -> Optional[bool]:
         return pulumi.get(self, "vlan_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ProfileClientSslCertKeyChain(dict):
@@ -1777,12 +1965,26 @@ class ProfileClientSslCertKeyChain(dict):
     def passphrase(self) -> Optional[str]:
         return pulumi.get(self, "passphrase")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class SnatOrigin(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appService":
+            suggest = "app_service"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SnatOrigin. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SnatOrigin.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SnatOrigin.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  app_service: Optional[str] = None,
                  name: Optional[str] = None):
@@ -1806,9 +2008,6 @@ class SnatOrigin(dict):
         Name of the snat
         """
         return pulumi.get(self, "name")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -120,6 +120,190 @@ class SnatArgs:
     @mirror.setter
     def mirror(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "mirror", value)
+
+    @property
+    @pulumi.getter
+    def partition(self) -> Optional[pulumi.Input[str]]:
+        """
+        Displays the administrative partition within which this profile resides
+        """
+        return pulumi.get(self, "partition")
+
+    @partition.setter
+    def partition(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "partition", value)
+
+    @property
+    @pulumi.getter
+    def snatpool(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of a SNAT pool. You can only use this option when automap and translation are not used.
+        """
+        return pulumi.get(self, "snatpool")
+
+    @snatpool.setter
+    def snatpool(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "snatpool", value)
+
+    @property
+    @pulumi.getter
+    def sourceport(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the system preserves the source port of the connection. The default is preserve. Use of the preserve-strict setting should be restricted to UDP only under very special circumstances such as nPath or transparent (that is, no translation of any other L3/L4 field), where there is a 1:1 relationship between virtual IP addresses and node addresses, or when clustered multi-processing (CMP) is disabled. The change setting is useful for obfuscating internal network addresses.
+        """
+        return pulumi.get(self, "sourceport")
+
+    @sourceport.setter
+    def sourceport(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sourceport", value)
+
+    @property
+    @pulumi.getter
+    def translation(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of a translated IP address. Note that translated addresses are outside the traffic management system. You can only use this option when automap and snatpool are not used.
+        """
+        return pulumi.get(self, "translation")
+
+    @translation.setter
+    def translation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "translation", value)
+
+    @property
+    @pulumi.getter
+    def vlans(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the name of the VLAN to which you want to assign the SNAT. The default is vlans-enabled.
+        """
+        return pulumi.get(self, "vlans")
+
+    @vlans.setter
+    def vlans(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "vlans", value)
+
+    @property
+    @pulumi.getter
+    def vlansdisabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Disables the SNAT on all VLANs.
+        """
+        return pulumi.get(self, "vlansdisabled")
+
+    @vlansdisabled.setter
+    def vlansdisabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "vlansdisabled", value)
+
+
+@pulumi.input_type
+class _SnatState:
+    def __init__(__self__, *,
+                 autolasthop: Optional[pulumi.Input[str]] = None,
+                 full_path: Optional[pulumi.Input[str]] = None,
+                 mirror: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 origins: Optional[pulumi.Input[Sequence[pulumi.Input['SnatOriginArgs']]]] = None,
+                 partition: Optional[pulumi.Input[str]] = None,
+                 snatpool: Optional[pulumi.Input[str]] = None,
+                 sourceport: Optional[pulumi.Input[str]] = None,
+                 translation: Optional[pulumi.Input[str]] = None,
+                 vlans: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 vlansdisabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Input properties used for looking up and filtering Snat resources.
+        :param pulumi.Input[str] autolasthop: -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
+        :param pulumi.Input[str] full_path: Fullpath
+        :param pulumi.Input[str] mirror: Enables or disables mirroring of SNAT connections.
+        :param pulumi.Input[str] name: Name of the snat
+        :param pulumi.Input[Sequence[pulumi.Input['SnatOriginArgs']]] origins: IP or hostname of the snat
+        :param pulumi.Input[str] partition: Displays the administrative partition within which this profile resides
+        :param pulumi.Input[str] snatpool: Specifies the name of a SNAT pool. You can only use this option when automap and translation are not used.
+        :param pulumi.Input[str] sourceport: Specifies whether the system preserves the source port of the connection. The default is preserve. Use of the preserve-strict setting should be restricted to UDP only under very special circumstances such as nPath or transparent (that is, no translation of any other L3/L4 field), where there is a 1:1 relationship between virtual IP addresses and node addresses, or when clustered multi-processing (CMP) is disabled. The change setting is useful for obfuscating internal network addresses.
+        :param pulumi.Input[str] translation: Specifies the name of a translated IP address. Note that translated addresses are outside the traffic management system. You can only use this option when automap and snatpool are not used.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans: Specifies the name of the VLAN to which you want to assign the SNAT. The default is vlans-enabled.
+        :param pulumi.Input[bool] vlansdisabled: Disables the SNAT on all VLANs.
+        """
+        if autolasthop is not None:
+            pulumi.set(__self__, "autolasthop", autolasthop)
+        if full_path is not None:
+            pulumi.set(__self__, "full_path", full_path)
+        if mirror is not None:
+            pulumi.set(__self__, "mirror", mirror)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if origins is not None:
+            pulumi.set(__self__, "origins", origins)
+        if partition is not None:
+            pulumi.set(__self__, "partition", partition)
+        if snatpool is not None:
+            pulumi.set(__self__, "snatpool", snatpool)
+        if sourceport is not None:
+            pulumi.set(__self__, "sourceport", sourceport)
+        if translation is not None:
+            pulumi.set(__self__, "translation", translation)
+        if vlans is not None:
+            pulumi.set(__self__, "vlans", vlans)
+        if vlansdisabled is not None:
+            pulumi.set(__self__, "vlansdisabled", vlansdisabled)
+
+    @property
+    @pulumi.getter
+    def autolasthop(self) -> Optional[pulumi.Input[str]]:
+        """
+        -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
+        """
+        return pulumi.get(self, "autolasthop")
+
+    @autolasthop.setter
+    def autolasthop(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "autolasthop", value)
+
+    @property
+    @pulumi.getter(name="fullPath")
+    def full_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fullpath
+        """
+        return pulumi.get(self, "full_path")
+
+    @full_path.setter
+    def full_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "full_path", value)
+
+    @property
+    @pulumi.getter
+    def mirror(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enables or disables mirroring of SNAT connections.
+        """
+        return pulumi.get(self, "mirror")
+
+    @mirror.setter
+    def mirror(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mirror", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the snat
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SnatOriginArgs']]]]:
+        """
+        IP or hostname of the snat
+        """
+        return pulumi.get(self, "origins")
+
+    @origins.setter
+    def origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SnatOriginArgs']]]]):
+        pulumi.set(self, "origins", value)
 
     @property
     @pulumi.getter
@@ -335,23 +519,23 @@ class Snat(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = SnatArgs.__new__(SnatArgs)
 
-            __props__['autolasthop'] = autolasthop
-            __props__['full_path'] = full_path
-            __props__['mirror'] = mirror
+            __props__.__dict__["autolasthop"] = autolasthop
+            __props__.__dict__["full_path"] = full_path
+            __props__.__dict__["mirror"] = mirror
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if origins is None and not opts.urn:
                 raise TypeError("Missing required property 'origins'")
-            __props__['origins'] = origins
-            __props__['partition'] = partition
-            __props__['snatpool'] = snatpool
-            __props__['sourceport'] = sourceport
-            __props__['translation'] = translation
-            __props__['vlans'] = vlans
-            __props__['vlansdisabled'] = vlansdisabled
+            __props__.__dict__["origins"] = origins
+            __props__.__dict__["partition"] = partition
+            __props__.__dict__["snatpool"] = snatpool
+            __props__.__dict__["sourceport"] = sourceport
+            __props__.__dict__["translation"] = translation
+            __props__.__dict__["vlans"] = vlans
+            __props__.__dict__["vlansdisabled"] = vlansdisabled
         super(Snat, __self__).__init__(
             'f5bigip:ltm/snat:Snat',
             resource_name,
@@ -394,19 +578,19 @@ class Snat(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _SnatState.__new__(_SnatState)
 
-        __props__["autolasthop"] = autolasthop
-        __props__["full_path"] = full_path
-        __props__["mirror"] = mirror
-        __props__["name"] = name
-        __props__["origins"] = origins
-        __props__["partition"] = partition
-        __props__["snatpool"] = snatpool
-        __props__["sourceport"] = sourceport
-        __props__["translation"] = translation
-        __props__["vlans"] = vlans
-        __props__["vlansdisabled"] = vlansdisabled
+        __props__.__dict__["autolasthop"] = autolasthop
+        __props__.__dict__["full_path"] = full_path
+        __props__.__dict__["mirror"] = mirror
+        __props__.__dict__["name"] = name
+        __props__.__dict__["origins"] = origins
+        __props__.__dict__["partition"] = partition
+        __props__.__dict__["snatpool"] = snatpool
+        __props__.__dict__["sourceport"] = sourceport
+        __props__.__dict__["translation"] = translation
+        __props__.__dict__["vlans"] = vlans
+        __props__.__dict__["vlansdisabled"] = vlansdisabled
         return Snat(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -496,10 +680,4 @@ class Snat(pulumi.CustomResource):
         Disables the SNAT on all VLANs.
         """
         return pulumi.get(self, "vlansdisabled")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

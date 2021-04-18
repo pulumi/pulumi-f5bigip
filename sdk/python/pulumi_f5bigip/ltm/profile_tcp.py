@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ProfileTcpArgs', 'ProfileTcp']
 
@@ -177,6 +177,174 @@ class ProfileTcpArgs:
         pulumi.set(self, "partition", value)
 
 
+@pulumi.input_type
+class _ProfileTcpState:
+    def __init__(__self__, *,
+                 close_wait_timeout: Optional[pulumi.Input[int]] = None,
+                 defaults_from: Optional[pulumi.Input[str]] = None,
+                 deferred_accept: Optional[pulumi.Input[str]] = None,
+                 fast_open: Optional[pulumi.Input[str]] = None,
+                 finwait2timeout: Optional[pulumi.Input[int]] = None,
+                 finwait_timeout: Optional[pulumi.Input[int]] = None,
+                 idle_timeout: Optional[pulumi.Input[int]] = None,
+                 keepalive_interval: Optional[pulumi.Input[int]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 partition: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ProfileTcp resources.
+        :param pulumi.Input[int] close_wait_timeout: Specifies the number of seconds that a connection remains in a LAST-ACK state before quitting. A value of 0 represents a term of forever (or until the maxrtx of the FIN state). The default value is 5 seconds.
+        :param pulumi.Input[str] defaults_from: Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
+        :param pulumi.Input[str] deferred_accept: Specifies, when enabled, that the system defers allocation of the connection chain context until the client response is received. This option is useful for dealing with 3-way handshake DOS attacks. The default value is disabled.
+        :param pulumi.Input[str] fast_open: When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet.
+        :param pulumi.Input[int] finwait2timeout: Specifies the number of seconds that a connection is in the FIN-WAIT-2 state before quitting. The default value is 300 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state).
+        :param pulumi.Input[int] finwait_timeout: Specifies the number of seconds that a connection is in the FIN-WAIT-1 or closing state before quitting. The default value is 5 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state). You can also specify immediate or indefinite.
+        :param pulumi.Input[int] idle_timeout: Specifies the number of seconds that a connection is idle before the connection is eligible for deletion. The default value is 300 seconds.
+        :param pulumi.Input[int] keepalive_interval: Specifies the keep alive probe interval, in seconds. The default value is 1800 seconds.
+        :param pulumi.Input[str] name: Name of the profile_tcp
+        :param pulumi.Input[str] partition: Displays the administrative partition within which this profile resides
+        """
+        if close_wait_timeout is not None:
+            pulumi.set(__self__, "close_wait_timeout", close_wait_timeout)
+        if defaults_from is not None:
+            pulumi.set(__self__, "defaults_from", defaults_from)
+        if deferred_accept is not None:
+            pulumi.set(__self__, "deferred_accept", deferred_accept)
+        if fast_open is not None:
+            pulumi.set(__self__, "fast_open", fast_open)
+        if finwait2timeout is not None:
+            pulumi.set(__self__, "finwait2timeout", finwait2timeout)
+        if finwait_timeout is not None:
+            pulumi.set(__self__, "finwait_timeout", finwait_timeout)
+        if idle_timeout is not None:
+            pulumi.set(__self__, "idle_timeout", idle_timeout)
+        if keepalive_interval is not None:
+            pulumi.set(__self__, "keepalive_interval", keepalive_interval)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if partition is not None:
+            pulumi.set(__self__, "partition", partition)
+
+    @property
+    @pulumi.getter(name="closeWaitTimeout")
+    def close_wait_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the number of seconds that a connection remains in a LAST-ACK state before quitting. A value of 0 represents a term of forever (or until the maxrtx of the FIN state). The default value is 5 seconds.
+        """
+        return pulumi.get(self, "close_wait_timeout")
+
+    @close_wait_timeout.setter
+    def close_wait_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "close_wait_timeout", value)
+
+    @property
+    @pulumi.getter(name="defaultsFrom")
+    def defaults_from(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
+        """
+        return pulumi.get(self, "defaults_from")
+
+    @defaults_from.setter
+    def defaults_from(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "defaults_from", value)
+
+    @property
+    @pulumi.getter(name="deferredAccept")
+    def deferred_accept(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies, when enabled, that the system defers allocation of the connection chain context until the client response is received. This option is useful for dealing with 3-way handshake DOS attacks. The default value is disabled.
+        """
+        return pulumi.get(self, "deferred_accept")
+
+    @deferred_accept.setter
+    def deferred_accept(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "deferred_accept", value)
+
+    @property
+    @pulumi.getter(name="fastOpen")
+    def fast_open(self) -> Optional[pulumi.Input[str]]:
+        """
+        When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet.
+        """
+        return pulumi.get(self, "fast_open")
+
+    @fast_open.setter
+    def fast_open(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fast_open", value)
+
+    @property
+    @pulumi.getter
+    def finwait2timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the number of seconds that a connection is in the FIN-WAIT-2 state before quitting. The default value is 300 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state).
+        """
+        return pulumi.get(self, "finwait2timeout")
+
+    @finwait2timeout.setter
+    def finwait2timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "finwait2timeout", value)
+
+    @property
+    @pulumi.getter(name="finwaitTimeout")
+    def finwait_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the number of seconds that a connection is in the FIN-WAIT-1 or closing state before quitting. The default value is 5 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state). You can also specify immediate or indefinite.
+        """
+        return pulumi.get(self, "finwait_timeout")
+
+    @finwait_timeout.setter
+    def finwait_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "finwait_timeout", value)
+
+    @property
+    @pulumi.getter(name="idleTimeout")
+    def idle_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the number of seconds that a connection is idle before the connection is eligible for deletion. The default value is 300 seconds.
+        """
+        return pulumi.get(self, "idle_timeout")
+
+    @idle_timeout.setter
+    def idle_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "idle_timeout", value)
+
+    @property
+    @pulumi.getter(name="keepaliveInterval")
+    def keepalive_interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the keep alive probe interval, in seconds. The default value is 1800 seconds.
+        """
+        return pulumi.get(self, "keepalive_interval")
+
+    @keepalive_interval.setter
+    def keepalive_interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "keepalive_interval", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the profile_tcp
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def partition(self) -> Optional[pulumi.Input[str]]:
+        """
+        Displays the administrative partition within which this profile resides
+        """
+        return pulumi.get(self, "partition")
+
+    @partition.setter
+    def partition(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "partition", value)
+
+
 class ProfileTcp(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -301,20 +469,20 @@ class ProfileTcp(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ProfileTcpArgs.__new__(ProfileTcpArgs)
 
-            __props__['close_wait_timeout'] = close_wait_timeout
-            __props__['defaults_from'] = defaults_from
-            __props__['deferred_accept'] = deferred_accept
-            __props__['fast_open'] = fast_open
-            __props__['finwait2timeout'] = finwait2timeout
-            __props__['finwait_timeout'] = finwait_timeout
-            __props__['idle_timeout'] = idle_timeout
-            __props__['keepalive_interval'] = keepalive_interval
+            __props__.__dict__["close_wait_timeout"] = close_wait_timeout
+            __props__.__dict__["defaults_from"] = defaults_from
+            __props__.__dict__["deferred_accept"] = deferred_accept
+            __props__.__dict__["fast_open"] = fast_open
+            __props__.__dict__["finwait2timeout"] = finwait2timeout
+            __props__.__dict__["finwait_timeout"] = finwait_timeout
+            __props__.__dict__["idle_timeout"] = idle_timeout
+            __props__.__dict__["keepalive_interval"] = keepalive_interval
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
-            __props__['partition'] = partition
+            __props__.__dict__["name"] = name
+            __props__.__dict__["partition"] = partition
         super(ProfileTcp, __self__).__init__(
             'f5bigip:ltm/profileTcp:ProfileTcp',
             resource_name,
@@ -355,18 +523,18 @@ class ProfileTcp(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ProfileTcpState.__new__(_ProfileTcpState)
 
-        __props__["close_wait_timeout"] = close_wait_timeout
-        __props__["defaults_from"] = defaults_from
-        __props__["deferred_accept"] = deferred_accept
-        __props__["fast_open"] = fast_open
-        __props__["finwait2timeout"] = finwait2timeout
-        __props__["finwait_timeout"] = finwait_timeout
-        __props__["idle_timeout"] = idle_timeout
-        __props__["keepalive_interval"] = keepalive_interval
-        __props__["name"] = name
-        __props__["partition"] = partition
+        __props__.__dict__["close_wait_timeout"] = close_wait_timeout
+        __props__.__dict__["defaults_from"] = defaults_from
+        __props__.__dict__["deferred_accept"] = deferred_accept
+        __props__.__dict__["fast_open"] = fast_open
+        __props__.__dict__["finwait2timeout"] = finwait2timeout
+        __props__.__dict__["finwait_timeout"] = finwait_timeout
+        __props__.__dict__["idle_timeout"] = idle_timeout
+        __props__.__dict__["keepalive_interval"] = keepalive_interval
+        __props__.__dict__["name"] = name
+        __props__.__dict__["partition"] = partition
         return ProfileTcp(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -448,10 +616,4 @@ class ProfileTcp(pulumi.CustomResource):
         Displays the administrative partition within which this profile resides
         """
         return pulumi.get(self, "partition")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

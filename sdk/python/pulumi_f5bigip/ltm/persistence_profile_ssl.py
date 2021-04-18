@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['PersistenceProfileSslArgs', 'PersistenceProfileSsl']
 
@@ -131,6 +131,156 @@ class PersistenceProfileSslArgs:
     @mirror.setter
     def mirror(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "mirror", value)
+
+    @property
+    @pulumi.getter(name="overrideConnLimit")
+    def override_conn_limit(self) -> Optional[pulumi.Input[str]]:
+        """
+        To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
+        limits remain hard limits and are not overridden.
+        """
+        return pulumi.get(self, "override_conn_limit")
+
+    @override_conn_limit.setter
+    def override_conn_limit(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "override_conn_limit", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        Timeout for persistence of the session
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout", value)
+
+
+@pulumi.input_type
+class _PersistenceProfileSslState:
+    def __init__(__self__, *,
+                 app_service: Optional[pulumi.Input[str]] = None,
+                 defaults_from: Optional[pulumi.Input[str]] = None,
+                 match_across_pools: Optional[pulumi.Input[str]] = None,
+                 match_across_services: Optional[pulumi.Input[str]] = None,
+                 match_across_virtuals: Optional[pulumi.Input[str]] = None,
+                 mirror: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 override_conn_limit: Optional[pulumi.Input[str]] = None,
+                 timeout: Optional[pulumi.Input[int]] = None):
+        """
+        Input properties used for looking up and filtering PersistenceProfileSsl resources.
+        :param pulumi.Input[str] defaults_from: Inherit defaults from parent profile
+        :param pulumi.Input[str] match_across_pools: To enable _ disable match across pools with given persistence record
+        :param pulumi.Input[str] match_across_services: To enable _ disable match across services with given persistence record
+        :param pulumi.Input[str] match_across_virtuals: To enable _ disable match across services with given persistence record
+        :param pulumi.Input[str] mirror: To enable _ disable
+        :param pulumi.Input[str] name: Name of the persistence profile
+        :param pulumi.Input[str] override_conn_limit: To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
+               limits remain hard limits and are not overridden.
+        :param pulumi.Input[int] timeout: Timeout for persistence of the session
+        """
+        if app_service is not None:
+            pulumi.set(__self__, "app_service", app_service)
+        if defaults_from is not None:
+            pulumi.set(__self__, "defaults_from", defaults_from)
+        if match_across_pools is not None:
+            pulumi.set(__self__, "match_across_pools", match_across_pools)
+        if match_across_services is not None:
+            pulumi.set(__self__, "match_across_services", match_across_services)
+        if match_across_virtuals is not None:
+            pulumi.set(__self__, "match_across_virtuals", match_across_virtuals)
+        if mirror is not None:
+            pulumi.set(__self__, "mirror", mirror)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if override_conn_limit is not None:
+            pulumi.set(__self__, "override_conn_limit", override_conn_limit)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @property
+    @pulumi.getter(name="appService")
+    def app_service(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "app_service")
+
+    @app_service.setter
+    def app_service(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_service", value)
+
+    @property
+    @pulumi.getter(name="defaultsFrom")
+    def defaults_from(self) -> Optional[pulumi.Input[str]]:
+        """
+        Inherit defaults from parent profile
+        """
+        return pulumi.get(self, "defaults_from")
+
+    @defaults_from.setter
+    def defaults_from(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "defaults_from", value)
+
+    @property
+    @pulumi.getter(name="matchAcrossPools")
+    def match_across_pools(self) -> Optional[pulumi.Input[str]]:
+        """
+        To enable _ disable match across pools with given persistence record
+        """
+        return pulumi.get(self, "match_across_pools")
+
+    @match_across_pools.setter
+    def match_across_pools(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "match_across_pools", value)
+
+    @property
+    @pulumi.getter(name="matchAcrossServices")
+    def match_across_services(self) -> Optional[pulumi.Input[str]]:
+        """
+        To enable _ disable match across services with given persistence record
+        """
+        return pulumi.get(self, "match_across_services")
+
+    @match_across_services.setter
+    def match_across_services(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "match_across_services", value)
+
+    @property
+    @pulumi.getter(name="matchAcrossVirtuals")
+    def match_across_virtuals(self) -> Optional[pulumi.Input[str]]:
+        """
+        To enable _ disable match across services with given persistence record
+        """
+        return pulumi.get(self, "match_across_virtuals")
+
+    @match_across_virtuals.setter
+    def match_across_virtuals(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "match_across_virtuals", value)
+
+    @property
+    @pulumi.getter
+    def mirror(self) -> Optional[pulumi.Input[str]]:
+        """
+        To enable _ disable
+        """
+        return pulumi.get(self, "mirror")
+
+    @mirror.setter
+    def mirror(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mirror", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the persistence profile
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="overrideConnLimit")
@@ -311,21 +461,21 @@ class PersistenceProfileSsl(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PersistenceProfileSslArgs.__new__(PersistenceProfileSslArgs)
 
-            __props__['app_service'] = app_service
+            __props__.__dict__["app_service"] = app_service
             if defaults_from is None and not opts.urn:
                 raise TypeError("Missing required property 'defaults_from'")
-            __props__['defaults_from'] = defaults_from
-            __props__['match_across_pools'] = match_across_pools
-            __props__['match_across_services'] = match_across_services
-            __props__['match_across_virtuals'] = match_across_virtuals
-            __props__['mirror'] = mirror
+            __props__.__dict__["defaults_from"] = defaults_from
+            __props__.__dict__["match_across_pools"] = match_across_pools
+            __props__.__dict__["match_across_services"] = match_across_services
+            __props__.__dict__["match_across_virtuals"] = match_across_virtuals
+            __props__.__dict__["mirror"] = mirror
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
-            __props__['override_conn_limit'] = override_conn_limit
-            __props__['timeout'] = timeout
+            __props__.__dict__["name"] = name
+            __props__.__dict__["override_conn_limit"] = override_conn_limit
+            __props__.__dict__["timeout"] = timeout
         super(PersistenceProfileSsl, __self__).__init__(
             'f5bigip:ltm/persistenceProfileSsl:PersistenceProfileSsl',
             resource_name,
@@ -364,17 +514,17 @@ class PersistenceProfileSsl(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _PersistenceProfileSslState.__new__(_PersistenceProfileSslState)
 
-        __props__["app_service"] = app_service
-        __props__["defaults_from"] = defaults_from
-        __props__["match_across_pools"] = match_across_pools
-        __props__["match_across_services"] = match_across_services
-        __props__["match_across_virtuals"] = match_across_virtuals
-        __props__["mirror"] = mirror
-        __props__["name"] = name
-        __props__["override_conn_limit"] = override_conn_limit
-        __props__["timeout"] = timeout
+        __props__.__dict__["app_service"] = app_service
+        __props__.__dict__["defaults_from"] = defaults_from
+        __props__.__dict__["match_across_pools"] = match_across_pools
+        __props__.__dict__["match_across_services"] = match_across_services
+        __props__.__dict__["match_across_virtuals"] = match_across_virtuals
+        __props__.__dict__["mirror"] = mirror
+        __props__.__dict__["name"] = name
+        __props__.__dict__["override_conn_limit"] = override_conn_limit
+        __props__.__dict__["timeout"] = timeout
         return PersistenceProfileSsl(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -446,10 +596,4 @@ class PersistenceProfileSsl(pulumi.CustomResource):
         Timeout for persistence of the session
         """
         return pulumi.get(self, "timeout")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

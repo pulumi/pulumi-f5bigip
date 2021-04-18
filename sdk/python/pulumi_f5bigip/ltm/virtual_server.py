@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['VirtualServerArgs', 'VirtualServer']
 
@@ -375,6 +375,374 @@ class VirtualServerArgs:
         pulumi.set(self, "vlans_enabled", value)
 
 
+@pulumi.input_type
+class _VirtualServerState:
+    def __init__(__self__, *,
+                 client_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 default_persistence_profile: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 destination: Optional[pulumi.Input[str]] = None,
+                 fallback_persistence_profile: Optional[pulumi.Input[str]] = None,
+                 ip_protocol: Optional[pulumi.Input[str]] = None,
+                 irules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 mask: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 persistence_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 pool: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
+                 profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 server_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 snatpool: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input[str]] = None,
+                 source_address_translation: Optional[pulumi.Input[str]] = None,
+                 state: Optional[pulumi.Input[str]] = None,
+                 translate_address: Optional[pulumi.Input[str]] = None,
+                 translate_port: Optional[pulumi.Input[str]] = None,
+                 vlans: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 vlans_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        Input properties used for looking up and filtering VirtualServer resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] client_profiles: List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
+        :param pulumi.Input[str] description: Description of Virtual server
+        :param pulumi.Input[str] destination: Destination IP
+        :param pulumi.Input[str] fallback_persistence_profile: Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
+        :param pulumi.Input[str] ip_protocol: Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] irules: The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
+        :param pulumi.Input[str] mask: Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
+        :param pulumi.Input[str] name: Name of the virtual server
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] persistence_profiles: List of persistence profiles associated with the Virtual Server.
+        :param pulumi.Input[str] pool: Default pool name
+        :param pulumi.Input[int] port: Listen port for the virtual server
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] profiles: List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] server_profiles: List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
+        :param pulumi.Input[str] snatpool: Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
+        :param pulumi.Input[str] source: Specifies an IP address or network from which the virtual server will accept traffic.
+        :param pulumi.Input[str] source_address_translation: Can be either omitted for none or the values automap or snat
+        :param pulumi.Input[str] state: Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
+        :param pulumi.Input[str] translate_address: Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
+        :param pulumi.Input[str] translate_port: Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans: The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.
+        :param pulumi.Input[bool] vlans_enabled: Enables the virtual server on the VLANs specified by the VLANs option.
+        """
+        if client_profiles is not None:
+            pulumi.set(__self__, "client_profiles", client_profiles)
+        if default_persistence_profile is not None:
+            pulumi.set(__self__, "default_persistence_profile", default_persistence_profile)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if fallback_persistence_profile is not None:
+            pulumi.set(__self__, "fallback_persistence_profile", fallback_persistence_profile)
+        if ip_protocol is not None:
+            pulumi.set(__self__, "ip_protocol", ip_protocol)
+        if irules is not None:
+            pulumi.set(__self__, "irules", irules)
+        if mask is not None:
+            pulumi.set(__self__, "mask", mask)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if persistence_profiles is not None:
+            pulumi.set(__self__, "persistence_profiles", persistence_profiles)
+        if policies is not None:
+            pulumi.set(__self__, "policies", policies)
+        if pool is not None:
+            pulumi.set(__self__, "pool", pool)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if profiles is not None:
+            pulumi.set(__self__, "profiles", profiles)
+        if server_profiles is not None:
+            pulumi.set(__self__, "server_profiles", server_profiles)
+        if snatpool is not None:
+            pulumi.set(__self__, "snatpool", snatpool)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+        if source_address_translation is not None:
+            pulumi.set(__self__, "source_address_translation", source_address_translation)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if translate_address is not None:
+            pulumi.set(__self__, "translate_address", translate_address)
+        if translate_port is not None:
+            pulumi.set(__self__, "translate_port", translate_port)
+        if vlans is not None:
+            pulumi.set(__self__, "vlans", vlans)
+        if vlans_enabled is not None:
+            pulumi.set(__self__, "vlans_enabled", vlans_enabled)
+
+    @property
+    @pulumi.getter(name="clientProfiles")
+    def client_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
+        """
+        return pulumi.get(self, "client_profiles")
+
+    @client_profiles.setter
+    def client_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "client_profiles", value)
+
+    @property
+    @pulumi.getter(name="defaultPersistenceProfile")
+    def default_persistence_profile(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "default_persistence_profile")
+
+    @default_persistence_profile.setter
+    def default_persistence_profile(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_persistence_profile", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Description of Virtual server
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional[pulumi.Input[str]]:
+        """
+        Destination IP
+        """
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination", value)
+
+    @property
+    @pulumi.getter(name="fallbackPersistenceProfile")
+    def fallback_persistence_profile(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
+        """
+        return pulumi.get(self, "fallback_persistence_profile")
+
+    @fallback_persistence_profile.setter
+    def fallback_persistence_profile(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fallback_persistence_profile", value)
+
+    @property
+    @pulumi.getter(name="ipProtocol")
+    def ip_protocol(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
+        """
+        return pulumi.get(self, "ip_protocol")
+
+    @ip_protocol.setter
+    def ip_protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ip_protocol", value)
+
+    @property
+    @pulumi.getter
+    def irules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
+        """
+        return pulumi.get(self, "irules")
+
+    @irules.setter
+    def irules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "irules", value)
+
+    @property
+    @pulumi.getter
+    def mask(self) -> Optional[pulumi.Input[str]]:
+        """
+        Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
+        """
+        return pulumi.get(self, "mask")
+
+    @mask.setter
+    def mask(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mask", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the virtual server
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="persistenceProfiles")
+    def persistence_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of persistence profiles associated with the Virtual Server.
+        """
+        return pulumi.get(self, "persistence_profiles")
+
+    @persistence_profiles.setter
+    def persistence_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "persistence_profiles", value)
+
+    @property
+    @pulumi.getter
+    def policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "policies")
+
+    @policies.setter
+    def policies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "policies", value)
+
+    @property
+    @pulumi.getter
+    def pool(self) -> Optional[pulumi.Input[str]]:
+        """
+        Default pool name
+        """
+        return pulumi.get(self, "pool")
+
+    @pool.setter
+    def pool(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pool", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        Listen port for the virtual server
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
+        """
+        return pulumi.get(self, "profiles")
+
+    @profiles.setter
+    def profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "profiles", value)
+
+    @property
+    @pulumi.getter(name="serverProfiles")
+    def server_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
+        """
+        return pulumi.get(self, "server_profiles")
+
+    @server_profiles.setter
+    def server_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "server_profiles", value)
+
+    @property
+    @pulumi.getter
+    def snatpool(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
+        """
+        return pulumi.get(self, "snatpool")
+
+    @snatpool.setter
+    def snatpool(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "snatpool", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies an IP address or network from which the virtual server will accept traffic.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter(name="sourceAddressTranslation")
+    def source_address_translation(self) -> Optional[pulumi.Input[str]]:
+        """
+        Can be either omitted for none or the values automap or snat
+        """
+        return pulumi.get(self, "source_address_translation")
+
+    @source_address_translation.setter
+    def source_address_translation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_address_translation", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "state", value)
+
+    @property
+    @pulumi.getter(name="translateAddress")
+    def translate_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
+        """
+        return pulumi.get(self, "translate_address")
+
+    @translate_address.setter
+    def translate_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "translate_address", value)
+
+    @property
+    @pulumi.getter(name="translatePort")
+    def translate_port(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
+        """
+        return pulumi.get(self, "translate_port")
+
+    @translate_port.setter
+    def translate_port(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "translate_port", value)
+
+    @property
+    @pulumi.getter
+    def vlans(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.
+        """
+        return pulumi.get(self, "vlans")
+
+    @vlans.setter
+    def vlans(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "vlans", value)
+
+    @property
+    @pulumi.getter(name="vlansEnabled")
+    def vlans_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables the virtual server on the VLANs specified by the VLANs option.
+        """
+        return pulumi.get(self, "vlans_enabled")
+
+    @vlans_enabled.setter
+    def vlans_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "vlans_enabled", value)
+
+
 class VirtualServer(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -576,37 +944,37 @@ class VirtualServer(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VirtualServerArgs.__new__(VirtualServerArgs)
 
-            __props__['client_profiles'] = client_profiles
-            __props__['default_persistence_profile'] = default_persistence_profile
-            __props__['description'] = description
+            __props__.__dict__["client_profiles"] = client_profiles
+            __props__.__dict__["default_persistence_profile"] = default_persistence_profile
+            __props__.__dict__["description"] = description
             if destination is None and not opts.urn:
                 raise TypeError("Missing required property 'destination'")
-            __props__['destination'] = destination
-            __props__['fallback_persistence_profile'] = fallback_persistence_profile
-            __props__['ip_protocol'] = ip_protocol
-            __props__['irules'] = irules
-            __props__['mask'] = mask
+            __props__.__dict__["destination"] = destination
+            __props__.__dict__["fallback_persistence_profile"] = fallback_persistence_profile
+            __props__.__dict__["ip_protocol"] = ip_protocol
+            __props__.__dict__["irules"] = irules
+            __props__.__dict__["mask"] = mask
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
-            __props__['persistence_profiles'] = persistence_profiles
-            __props__['policies'] = policies
-            __props__['pool'] = pool
+            __props__.__dict__["name"] = name
+            __props__.__dict__["persistence_profiles"] = persistence_profiles
+            __props__.__dict__["policies"] = policies
+            __props__.__dict__["pool"] = pool
             if port is None and not opts.urn:
                 raise TypeError("Missing required property 'port'")
-            __props__['port'] = port
-            __props__['profiles'] = profiles
-            __props__['server_profiles'] = server_profiles
-            __props__['snatpool'] = snatpool
-            __props__['source'] = source
-            __props__['source_address_translation'] = source_address_translation
-            __props__['state'] = state
-            __props__['translate_address'] = translate_address
-            __props__['translate_port'] = translate_port
-            __props__['vlans'] = vlans
-            __props__['vlans_enabled'] = vlans_enabled
+            __props__.__dict__["port"] = port
+            __props__.__dict__["profiles"] = profiles
+            __props__.__dict__["server_profiles"] = server_profiles
+            __props__.__dict__["snatpool"] = snatpool
+            __props__.__dict__["source"] = source
+            __props__.__dict__["source_address_translation"] = source_address_translation
+            __props__.__dict__["state"] = state
+            __props__.__dict__["translate_address"] = translate_address
+            __props__.__dict__["translate_port"] = translate_port
+            __props__.__dict__["vlans"] = vlans
+            __props__.__dict__["vlans_enabled"] = vlans_enabled
         super(VirtualServer, __self__).__init__(
             'f5bigip:ltm/virtualServer:VirtualServer',
             resource_name,
@@ -671,31 +1039,31 @@ class VirtualServer(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _VirtualServerState.__new__(_VirtualServerState)
 
-        __props__["client_profiles"] = client_profiles
-        __props__["default_persistence_profile"] = default_persistence_profile
-        __props__["description"] = description
-        __props__["destination"] = destination
-        __props__["fallback_persistence_profile"] = fallback_persistence_profile
-        __props__["ip_protocol"] = ip_protocol
-        __props__["irules"] = irules
-        __props__["mask"] = mask
-        __props__["name"] = name
-        __props__["persistence_profiles"] = persistence_profiles
-        __props__["policies"] = policies
-        __props__["pool"] = pool
-        __props__["port"] = port
-        __props__["profiles"] = profiles
-        __props__["server_profiles"] = server_profiles
-        __props__["snatpool"] = snatpool
-        __props__["source"] = source
-        __props__["source_address_translation"] = source_address_translation
-        __props__["state"] = state
-        __props__["translate_address"] = translate_address
-        __props__["translate_port"] = translate_port
-        __props__["vlans"] = vlans
-        __props__["vlans_enabled"] = vlans_enabled
+        __props__.__dict__["client_profiles"] = client_profiles
+        __props__.__dict__["default_persistence_profile"] = default_persistence_profile
+        __props__.__dict__["description"] = description
+        __props__.__dict__["destination"] = destination
+        __props__.__dict__["fallback_persistence_profile"] = fallback_persistence_profile
+        __props__.__dict__["ip_protocol"] = ip_protocol
+        __props__.__dict__["irules"] = irules
+        __props__.__dict__["mask"] = mask
+        __props__.__dict__["name"] = name
+        __props__.__dict__["persistence_profiles"] = persistence_profiles
+        __props__.__dict__["policies"] = policies
+        __props__.__dict__["pool"] = pool
+        __props__.__dict__["port"] = port
+        __props__.__dict__["profiles"] = profiles
+        __props__.__dict__["server_profiles"] = server_profiles
+        __props__.__dict__["snatpool"] = snatpool
+        __props__.__dict__["source"] = source
+        __props__.__dict__["source_address_translation"] = source_address_translation
+        __props__.__dict__["state"] = state
+        __props__.__dict__["translate_address"] = translate_address
+        __props__.__dict__["translate_port"] = translate_port
+        __props__.__dict__["vlans"] = vlans
+        __props__.__dict__["vlans_enabled"] = vlans_enabled
         return VirtualServer(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -875,10 +1243,4 @@ class VirtualServer(pulumi.CustomResource):
         Enables the virtual server on the VLANs specified by the VLANs option.
         """
         return pulumi.get(self, "vlans_enabled")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 
