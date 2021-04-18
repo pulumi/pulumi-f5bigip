@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // `ltm.ProfileHttp` Configures a custom profileHttp for use by health checks.
@@ -21,8 +21,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/ltm"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {

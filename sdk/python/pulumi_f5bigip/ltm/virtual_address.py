@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['VirtualAddressArgs', 'VirtualAddress']
 
@@ -145,6 +145,142 @@ class VirtualAddressArgs:
         pulumi.set(self, "traffic_group", value)
 
 
+@pulumi.input_type
+class _VirtualAddressState:
+    def __init__(__self__, *,
+                 advertize_route: Optional[pulumi.Input[str]] = None,
+                 arp: Optional[pulumi.Input[bool]] = None,
+                 auto_delete: Optional[pulumi.Input[bool]] = None,
+                 conn_limit: Optional[pulumi.Input[int]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 icmp_echo: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 traffic_group: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering VirtualAddress resources.
+        :param pulumi.Input[str] advertize_route: Enabled dynamic routing of the address
+        :param pulumi.Input[bool] arp: Enable or disable ARP for the virtual address
+        :param pulumi.Input[bool] auto_delete: Automatically delete the virtual address with the virtual server
+        :param pulumi.Input[int] conn_limit: Max number of connections for virtual address
+        :param pulumi.Input[bool] enabled: Enable or disable the virtual address
+        :param pulumi.Input[str] icmp_echo: Enable/Disable ICMP response to the virtual address
+        :param pulumi.Input[str] name: Name of the virtual address
+        :param pulumi.Input[str] traffic_group: Specify the partition and traffic group
+        """
+        if advertize_route is not None:
+            pulumi.set(__self__, "advertize_route", advertize_route)
+        if arp is not None:
+            pulumi.set(__self__, "arp", arp)
+        if auto_delete is not None:
+            pulumi.set(__self__, "auto_delete", auto_delete)
+        if conn_limit is not None:
+            pulumi.set(__self__, "conn_limit", conn_limit)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if icmp_echo is not None:
+            pulumi.set(__self__, "icmp_echo", icmp_echo)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if traffic_group is not None:
+            pulumi.set(__self__, "traffic_group", traffic_group)
+
+    @property
+    @pulumi.getter(name="advertizeRoute")
+    def advertize_route(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enabled dynamic routing of the address
+        """
+        return pulumi.get(self, "advertize_route")
+
+    @advertize_route.setter
+    def advertize_route(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "advertize_route", value)
+
+    @property
+    @pulumi.getter
+    def arp(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable or disable ARP for the virtual address
+        """
+        return pulumi.get(self, "arp")
+
+    @arp.setter
+    def arp(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "arp", value)
+
+    @property
+    @pulumi.getter(name="autoDelete")
+    def auto_delete(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Automatically delete the virtual address with the virtual server
+        """
+        return pulumi.get(self, "auto_delete")
+
+    @auto_delete.setter
+    def auto_delete(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_delete", value)
+
+    @property
+    @pulumi.getter(name="connLimit")
+    def conn_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        Max number of connections for virtual address
+        """
+        return pulumi.get(self, "conn_limit")
+
+    @conn_limit.setter
+    def conn_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "conn_limit", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable or disable the virtual address
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="icmpEcho")
+    def icmp_echo(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enable/Disable ICMP response to the virtual address
+        """
+        return pulumi.get(self, "icmp_echo")
+
+    @icmp_echo.setter
+    def icmp_echo(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "icmp_echo", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the virtual address
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="trafficGroup")
+    def traffic_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specify the partition and traffic group
+        """
+        return pulumi.get(self, "traffic_group")
+
+    @traffic_group.setter
+    def traffic_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "traffic_group", value)
+
+
 class VirtualAddress(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -251,18 +387,18 @@ class VirtualAddress(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VirtualAddressArgs.__new__(VirtualAddressArgs)
 
-            __props__['advertize_route'] = advertize_route
-            __props__['arp'] = arp
-            __props__['auto_delete'] = auto_delete
-            __props__['conn_limit'] = conn_limit
-            __props__['enabled'] = enabled
-            __props__['icmp_echo'] = icmp_echo
+            __props__.__dict__["advertize_route"] = advertize_route
+            __props__.__dict__["arp"] = arp
+            __props__.__dict__["auto_delete"] = auto_delete
+            __props__.__dict__["conn_limit"] = conn_limit
+            __props__.__dict__["enabled"] = enabled
+            __props__.__dict__["icmp_echo"] = icmp_echo
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
-            __props__['traffic_group'] = traffic_group
+            __props__.__dict__["name"] = name
+            __props__.__dict__["traffic_group"] = traffic_group
         super(VirtualAddress, __self__).__init__(
             'f5bigip:ltm/virtualAddress:VirtualAddress',
             resource_name,
@@ -299,16 +435,16 @@ class VirtualAddress(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _VirtualAddressState.__new__(_VirtualAddressState)
 
-        __props__["advertize_route"] = advertize_route
-        __props__["arp"] = arp
-        __props__["auto_delete"] = auto_delete
-        __props__["conn_limit"] = conn_limit
-        __props__["enabled"] = enabled
-        __props__["icmp_echo"] = icmp_echo
-        __props__["name"] = name
-        __props__["traffic_group"] = traffic_group
+        __props__.__dict__["advertize_route"] = advertize_route
+        __props__.__dict__["arp"] = arp
+        __props__.__dict__["auto_delete"] = auto_delete
+        __props__.__dict__["conn_limit"] = conn_limit
+        __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["icmp_echo"] = icmp_echo
+        __props__.__dict__["name"] = name
+        __props__.__dict__["traffic_group"] = traffic_group
         return VirtualAddress(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -374,10 +510,4 @@ class VirtualAddress(pulumi.CustomResource):
         Specify the partition and traffic group
         """
         return pulumi.get(self, "traffic_group")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

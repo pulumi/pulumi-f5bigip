@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['BigIqAs3Args', 'BigIqAs3']
 
@@ -142,6 +142,142 @@ class BigIqAs3Args:
         pulumi.set(self, "tenant_list", value)
 
 
+@pulumi.input_type
+class _BigIqAs3State:
+    def __init__(__self__, *,
+                 as3_json: Optional[pulumi.Input[str]] = None,
+                 bigiq_address: Optional[pulumi.Input[str]] = None,
+                 bigiq_login_ref: Optional[pulumi.Input[str]] = None,
+                 bigiq_password: Optional[pulumi.Input[str]] = None,
+                 bigiq_port: Optional[pulumi.Input[str]] = None,
+                 bigiq_token_auth: Optional[pulumi.Input[bool]] = None,
+                 bigiq_user: Optional[pulumi.Input[str]] = None,
+                 tenant_list: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering BigIqAs3 resources.
+        :param pulumi.Input[str] as3_json: AS3 json
+        :param pulumi.Input[str] bigiq_address: The registration key pool to use
+        :param pulumi.Input[str] bigiq_login_ref: Login reference for token authentication (see BIG-IQ REST docs for details)
+        :param pulumi.Input[str] bigiq_password: The registration key pool to use
+        :param pulumi.Input[str] bigiq_port: The registration key pool to use
+        :param pulumi.Input[bool] bigiq_token_auth: Enable to use an external authentication source (LDAP, TACACS, etc)
+        :param pulumi.Input[str] bigiq_user: The registration key pool to use
+        :param pulumi.Input[str] tenant_list: Name of Tenant
+        """
+        if as3_json is not None:
+            pulumi.set(__self__, "as3_json", as3_json)
+        if bigiq_address is not None:
+            pulumi.set(__self__, "bigiq_address", bigiq_address)
+        if bigiq_login_ref is not None:
+            pulumi.set(__self__, "bigiq_login_ref", bigiq_login_ref)
+        if bigiq_password is not None:
+            pulumi.set(__self__, "bigiq_password", bigiq_password)
+        if bigiq_port is not None:
+            pulumi.set(__self__, "bigiq_port", bigiq_port)
+        if bigiq_token_auth is not None:
+            pulumi.set(__self__, "bigiq_token_auth", bigiq_token_auth)
+        if bigiq_user is not None:
+            pulumi.set(__self__, "bigiq_user", bigiq_user)
+        if tenant_list is not None:
+            pulumi.set(__self__, "tenant_list", tenant_list)
+
+    @property
+    @pulumi.getter(name="as3Json")
+    def as3_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        AS3 json
+        """
+        return pulumi.get(self, "as3_json")
+
+    @as3_json.setter
+    def as3_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "as3_json", value)
+
+    @property
+    @pulumi.getter(name="bigiqAddress")
+    def bigiq_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The registration key pool to use
+        """
+        return pulumi.get(self, "bigiq_address")
+
+    @bigiq_address.setter
+    def bigiq_address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bigiq_address", value)
+
+    @property
+    @pulumi.getter(name="bigiqLoginRef")
+    def bigiq_login_ref(self) -> Optional[pulumi.Input[str]]:
+        """
+        Login reference for token authentication (see BIG-IQ REST docs for details)
+        """
+        return pulumi.get(self, "bigiq_login_ref")
+
+    @bigiq_login_ref.setter
+    def bigiq_login_ref(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bigiq_login_ref", value)
+
+    @property
+    @pulumi.getter(name="bigiqPassword")
+    def bigiq_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The registration key pool to use
+        """
+        return pulumi.get(self, "bigiq_password")
+
+    @bigiq_password.setter
+    def bigiq_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bigiq_password", value)
+
+    @property
+    @pulumi.getter(name="bigiqPort")
+    def bigiq_port(self) -> Optional[pulumi.Input[str]]:
+        """
+        The registration key pool to use
+        """
+        return pulumi.get(self, "bigiq_port")
+
+    @bigiq_port.setter
+    def bigiq_port(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bigiq_port", value)
+
+    @property
+    @pulumi.getter(name="bigiqTokenAuth")
+    def bigiq_token_auth(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enable to use an external authentication source (LDAP, TACACS, etc)
+        """
+        return pulumi.get(self, "bigiq_token_auth")
+
+    @bigiq_token_auth.setter
+    def bigiq_token_auth(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "bigiq_token_auth", value)
+
+    @property
+    @pulumi.getter(name="bigiqUser")
+    def bigiq_user(self) -> Optional[pulumi.Input[str]]:
+        """
+        The registration key pool to use
+        """
+        return pulumi.get(self, "bigiq_user")
+
+    @bigiq_user.setter
+    def bigiq_user(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bigiq_user", value)
+
+    @property
+    @pulumi.getter(name="tenantList")
+    def tenant_list(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of Tenant
+        """
+        return pulumi.get(self, "tenant_list")
+
+    @tenant_list.setter
+    def tenant_list(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_list", value)
+
+
 class BigIqAs3(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -220,24 +356,24 @@ class BigIqAs3(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = BigIqAs3Args.__new__(BigIqAs3Args)
 
             if as3_json is None and not opts.urn:
                 raise TypeError("Missing required property 'as3_json'")
-            __props__['as3_json'] = as3_json
+            __props__.__dict__["as3_json"] = as3_json
             if bigiq_address is None and not opts.urn:
                 raise TypeError("Missing required property 'bigiq_address'")
-            __props__['bigiq_address'] = bigiq_address
-            __props__['bigiq_login_ref'] = bigiq_login_ref
+            __props__.__dict__["bigiq_address"] = bigiq_address
+            __props__.__dict__["bigiq_login_ref"] = bigiq_login_ref
             if bigiq_password is None and not opts.urn:
                 raise TypeError("Missing required property 'bigiq_password'")
-            __props__['bigiq_password'] = bigiq_password
-            __props__['bigiq_port'] = bigiq_port
-            __props__['bigiq_token_auth'] = bigiq_token_auth
+            __props__.__dict__["bigiq_password"] = bigiq_password
+            __props__.__dict__["bigiq_port"] = bigiq_port
+            __props__.__dict__["bigiq_token_auth"] = bigiq_token_auth
             if bigiq_user is None and not opts.urn:
                 raise TypeError("Missing required property 'bigiq_user'")
-            __props__['bigiq_user'] = bigiq_user
-            __props__['tenant_list'] = tenant_list
+            __props__.__dict__["bigiq_user"] = bigiq_user
+            __props__.__dict__["tenant_list"] = tenant_list
         super(BigIqAs3, __self__).__init__(
             'f5bigip:index/bigIqAs3:BigIqAs3',
             resource_name,
@@ -274,16 +410,16 @@ class BigIqAs3(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _BigIqAs3State.__new__(_BigIqAs3State)
 
-        __props__["as3_json"] = as3_json
-        __props__["bigiq_address"] = bigiq_address
-        __props__["bigiq_login_ref"] = bigiq_login_ref
-        __props__["bigiq_password"] = bigiq_password
-        __props__["bigiq_port"] = bigiq_port
-        __props__["bigiq_token_auth"] = bigiq_token_auth
-        __props__["bigiq_user"] = bigiq_user
-        __props__["tenant_list"] = tenant_list
+        __props__.__dict__["as3_json"] = as3_json
+        __props__.__dict__["bigiq_address"] = bigiq_address
+        __props__.__dict__["bigiq_login_ref"] = bigiq_login_ref
+        __props__.__dict__["bigiq_password"] = bigiq_password
+        __props__.__dict__["bigiq_port"] = bigiq_port
+        __props__.__dict__["bigiq_token_auth"] = bigiq_token_auth
+        __props__.__dict__["bigiq_user"] = bigiq_user
+        __props__.__dict__["tenant_list"] = tenant_list
         return BigIqAs3(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -349,10 +485,4 @@ class BigIqAs3(pulumi.CustomResource):
         Name of Tenant
         """
         return pulumi.get(self, "tenant_list")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

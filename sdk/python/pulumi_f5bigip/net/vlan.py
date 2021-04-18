@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -53,6 +53,62 @@ class VlanArgs:
     @interfaces.setter
     def interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VlanInterfaceArgs']]]]):
         pulumi.set(self, "interfaces", value)
+
+    @property
+    @pulumi.getter
+    def tag(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies a number that the system adds into the header of any frame passing through the VLAN.
+        """
+        return pulumi.get(self, "tag")
+
+    @tag.setter
+    def tag(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "tag", value)
+
+
+@pulumi.input_type
+class _VlanState:
+    def __init__(__self__, *,
+                 interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['VlanInterfaceArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 tag: Optional[pulumi.Input[int]] = None):
+        """
+        Input properties used for looking up and filtering Vlan resources.
+        :param pulumi.Input[Sequence[pulumi.Input['VlanInterfaceArgs']]] interfaces: Specifies which interfaces you want this VLAN to use for traffic management.
+        :param pulumi.Input[str] name: Name of the vlan
+        :param pulumi.Input[int] tag: Specifies a number that the system adds into the header of any frame passing through the VLAN.
+        """
+        if interfaces is not None:
+            pulumi.set(__self__, "interfaces", interfaces)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tag is not None:
+            pulumi.set(__self__, "tag", tag)
+
+    @property
+    @pulumi.getter
+    def interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VlanInterfaceArgs']]]]:
+        """
+        Specifies which interfaces you want this VLAN to use for traffic management.
+        """
+        return pulumi.get(self, "interfaces")
+
+    @interfaces.setter
+    def interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VlanInterfaceArgs']]]]):
+        pulumi.set(self, "interfaces", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the vlan
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -166,13 +222,13 @@ class Vlan(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = VlanArgs.__new__(VlanArgs)
 
-            __props__['interfaces'] = interfaces
+            __props__.__dict__["interfaces"] = interfaces
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
-            __props__['tag'] = tag
+            __props__.__dict__["name"] = name
+            __props__.__dict__["tag"] = tag
         super(Vlan, __self__).__init__(
             'f5bigip:net/vlan:Vlan',
             resource_name,
@@ -199,11 +255,11 @@ class Vlan(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _VlanState.__new__(_VlanState)
 
-        __props__["interfaces"] = interfaces
-        __props__["name"] = name
-        __props__["tag"] = tag
+        __props__.__dict__["interfaces"] = interfaces
+        __props__.__dict__["name"] = name
+        __props__.__dict__["tag"] = tag
         return Vlan(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -229,10 +285,4 @@ class Vlan(pulumi.CustomResource):
         Specifies a number that the system adds into the header of any frame passing through the VLAN.
         """
         return pulumi.get(self, "tag")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

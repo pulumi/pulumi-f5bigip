@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['RouteArgs', 'Route']
 
@@ -62,6 +62,62 @@ class RouteArgs:
     @gw.setter
     def gw(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "gw", value)
+
+
+@pulumi.input_type
+class _RouteState:
+    def __init__(__self__, *,
+                 gw: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 network: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Route resources.
+        :param pulumi.Input[str] gw: Specifies a gateway address for the route.
+        :param pulumi.Input[str] name: Name of the route
+        :param pulumi.Input[str] network: The destination subnet and netmask for the route.
+        """
+        if gw is not None:
+            pulumi.set(__self__, "gw", gw)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if network is not None:
+            pulumi.set(__self__, "network", network)
+
+    @property
+    @pulumi.getter
+    def gw(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies a gateway address for the route.
+        """
+        return pulumi.get(self, "gw")
+
+    @gw.setter
+    def gw(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "gw", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the route
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def network(self) -> Optional[pulumi.Input[str]]:
+        """
+        The destination subnet and netmask for the route.
+        """
+        return pulumi.get(self, "network")
+
+    @network.setter
+    def network(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "network", value)
 
 
 class Route(pulumi.CustomResource):
@@ -157,15 +213,15 @@ class Route(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = RouteArgs.__new__(RouteArgs)
 
-            __props__['gw'] = gw
+            __props__.__dict__["gw"] = gw
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
             if network is None and not opts.urn:
                 raise TypeError("Missing required property 'network'")
-            __props__['network'] = network
+            __props__.__dict__["network"] = network
         super(Route, __self__).__init__(
             'f5bigip:net/route:Route',
             resource_name,
@@ -192,11 +248,11 @@ class Route(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _RouteState.__new__(_RouteState)
 
-        __props__["gw"] = gw
-        __props__["name"] = name
-        __props__["network"] = network
+        __props__.__dict__["gw"] = gw
+        __props__.__dict__["name"] = name
+        __props__.__dict__["network"] = network
         return Route(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -222,10 +278,4 @@ class Route(pulumi.CustomResource):
         The destination subnet and netmask for the route.
         """
         return pulumi.get(self, "network")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

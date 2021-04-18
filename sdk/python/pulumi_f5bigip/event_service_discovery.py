@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -45,6 +45,42 @@ class EventServiceDiscoveryArgs:
     @nodes.setter
     def nodes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventServiceDiscoveryNodeArgs']]]]):
         pulumi.set(self, "nodes", value)
+
+
+@pulumi.input_type
+class _EventServiceDiscoveryState:
+    def __init__(__self__, *,
+                 nodes: Optional[pulumi.Input[Sequence[pulumi.Input['EventServiceDiscoveryNodeArgs']]]] = None,
+                 taskid: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering EventServiceDiscovery resources.
+        :param pulumi.Input[str] taskid: Name of the partition/tenant
+        """
+        if nodes is not None:
+            pulumi.set(__self__, "nodes", nodes)
+        if taskid is not None:
+            pulumi.set(__self__, "taskid", taskid)
+
+    @property
+    @pulumi.getter
+    def nodes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventServiceDiscoveryNodeArgs']]]]:
+        return pulumi.get(self, "nodes")
+
+    @nodes.setter
+    def nodes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventServiceDiscoveryNodeArgs']]]]):
+        pulumi.set(self, "nodes", value)
+
+    @property
+    @pulumi.getter
+    def taskid(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the partition/tenant
+        """
+        return pulumi.get(self, "taskid")
+
+    @taskid.setter
+    def taskid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "taskid", value)
 
 
 class EventServiceDiscovery(pulumi.CustomResource):
@@ -106,12 +142,12 @@ class EventServiceDiscovery(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = EventServiceDiscoveryArgs.__new__(EventServiceDiscoveryArgs)
 
-            __props__['nodes'] = nodes
+            __props__.__dict__["nodes"] = nodes
             if taskid is None and not opts.urn:
                 raise TypeError("Missing required property 'taskid'")
-            __props__['taskid'] = taskid
+            __props__.__dict__["taskid"] = taskid
         super(EventServiceDiscovery, __self__).__init__(
             'f5bigip:index/eventServiceDiscovery:EventServiceDiscovery',
             resource_name,
@@ -135,10 +171,10 @@ class EventServiceDiscovery(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _EventServiceDiscoveryState.__new__(_EventServiceDiscoveryState)
 
-        __props__["nodes"] = nodes
-        __props__["taskid"] = taskid
+        __props__.__dict__["nodes"] = nodes
+        __props__.__dict__["taskid"] = taskid
         return EventServiceDiscovery(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -153,10 +189,4 @@ class EventServiceDiscovery(pulumi.CustomResource):
         Name of the partition/tenant
         """
         return pulumi.get(self, "taskid")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

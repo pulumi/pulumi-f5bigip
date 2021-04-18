@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['DeviceArgs', 'Device']
 
@@ -78,6 +78,78 @@ class DeviceArgs:
     @mirror_secondary_ip.setter
     def mirror_secondary_ip(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "mirror_secondary_ip", value)
+
+
+@pulumi.input_type
+class _DeviceState:
+    def __init__(__self__, *,
+                 configsync_ip: Optional[pulumi.Input[str]] = None,
+                 mirror_ip: Optional[pulumi.Input[str]] = None,
+                 mirror_secondary_ip: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Device resources.
+        :param pulumi.Input[str] configsync_ip: IP address used for config sync
+        :param pulumi.Input[str] mirror_ip: IP address used for state mirroring
+        :param pulumi.Input[str] mirror_secondary_ip: Secondary IP address used for state mirroring
+        :param pulumi.Input[str] name: Address of the Device which needs to be Deviceensed
+        """
+        if configsync_ip is not None:
+            pulumi.set(__self__, "configsync_ip", configsync_ip)
+        if mirror_ip is not None:
+            pulumi.set(__self__, "mirror_ip", mirror_ip)
+        if mirror_secondary_ip is not None:
+            pulumi.set(__self__, "mirror_secondary_ip", mirror_secondary_ip)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="configsyncIp")
+    def configsync_ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        IP address used for config sync
+        """
+        return pulumi.get(self, "configsync_ip")
+
+    @configsync_ip.setter
+    def configsync_ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "configsync_ip", value)
+
+    @property
+    @pulumi.getter(name="mirrorIp")
+    def mirror_ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        IP address used for state mirroring
+        """
+        return pulumi.get(self, "mirror_ip")
+
+    @mirror_ip.setter
+    def mirror_ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mirror_ip", value)
+
+    @property
+    @pulumi.getter(name="mirrorSecondaryIp")
+    def mirror_secondary_ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        Secondary IP address used for state mirroring
+        """
+        return pulumi.get(self, "mirror_secondary_ip")
+
+    @mirror_secondary_ip.setter
+    def mirror_secondary_ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mirror_secondary_ip", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Address of the Device which needs to be Deviceensed
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
 
 class Device(pulumi.CustomResource):
@@ -176,16 +248,16 @@ class Device(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DeviceArgs.__new__(DeviceArgs)
 
             if configsync_ip is None and not opts.urn:
                 raise TypeError("Missing required property 'configsync_ip'")
-            __props__['configsync_ip'] = configsync_ip
-            __props__['mirror_ip'] = mirror_ip
-            __props__['mirror_secondary_ip'] = mirror_secondary_ip
+            __props__.__dict__["configsync_ip"] = configsync_ip
+            __props__.__dict__["mirror_ip"] = mirror_ip
+            __props__.__dict__["mirror_secondary_ip"] = mirror_secondary_ip
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
+            __props__.__dict__["name"] = name
         super(Device, __self__).__init__(
             'f5bigip:cm/device:Device',
             resource_name,
@@ -214,12 +286,12 @@ class Device(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _DeviceState.__new__(_DeviceState)
 
-        __props__["configsync_ip"] = configsync_ip
-        __props__["mirror_ip"] = mirror_ip
-        __props__["mirror_secondary_ip"] = mirror_secondary_ip
-        __props__["name"] = name
+        __props__.__dict__["configsync_ip"] = configsync_ip
+        __props__.__dict__["mirror_ip"] = mirror_ip
+        __props__.__dict__["mirror_secondary_ip"] = mirror_secondary_ip
+        __props__.__dict__["name"] = name
         return Device(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -253,10 +325,4 @@ class Device(pulumi.CustomResource):
         Address of the Device which needs to be Deviceensed
         """
         return pulumi.get(self, "name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

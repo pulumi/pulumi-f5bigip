@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -174,6 +174,170 @@ class NodeArgs:
         pulumi.set(self, "state", value)
 
 
+@pulumi.input_type
+class _NodeState:
+    def __init__(__self__, *,
+                 address: Optional[pulumi.Input[str]] = None,
+                 connection_limit: Optional[pulumi.Input[int]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 dynamic_ratio: Optional[pulumi.Input[int]] = None,
+                 fqdn: Optional[pulumi.Input['NodeFqdnArgs']] = None,
+                 monitor: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 rate_limit: Optional[pulumi.Input[str]] = None,
+                 ratio: Optional[pulumi.Input[int]] = None,
+                 state: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Node resources.
+        :param pulumi.Input[str] address: IP or hostname of the node
+        :param pulumi.Input[int] connection_limit: Specifies the maximum number of connections allowed for the node or node address.
+        :param pulumi.Input[str] description: User-defined description give ltm_node
+        :param pulumi.Input[int] dynamic_ratio: Specifies the fixed ratio value used for a node during ratio load balancing.
+        :param pulumi.Input[str] monitor: specifies the name of the monitor or monitor rule that you want to associate with the node.
+        :param pulumi.Input[str] name: Name of the node
+        :param pulumi.Input[str] rate_limit: Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
+        :param pulumi.Input[int] ratio: Sets the ratio number for the node.
+        :param pulumi.Input[str] state: Default is "user-up" you can set to "user-down" if you want to disable
+        """
+        if address is not None:
+            pulumi.set(__self__, "address", address)
+        if connection_limit is not None:
+            pulumi.set(__self__, "connection_limit", connection_limit)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if dynamic_ratio is not None:
+            pulumi.set(__self__, "dynamic_ratio", dynamic_ratio)
+        if fqdn is not None:
+            pulumi.set(__self__, "fqdn", fqdn)
+        if monitor is not None:
+            pulumi.set(__self__, "monitor", monitor)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if rate_limit is not None:
+            pulumi.set(__self__, "rate_limit", rate_limit)
+        if ratio is not None:
+            pulumi.set(__self__, "ratio", ratio)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+
+    @property
+    @pulumi.getter
+    def address(self) -> Optional[pulumi.Input[str]]:
+        """
+        IP or hostname of the node
+        """
+        return pulumi.get(self, "address")
+
+    @address.setter
+    def address(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "address", value)
+
+    @property
+    @pulumi.getter(name="connectionLimit")
+    def connection_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the maximum number of connections allowed for the node or node address.
+        """
+        return pulumi.get(self, "connection_limit")
+
+    @connection_limit.setter
+    def connection_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "connection_limit", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        User-defined description give ltm_node
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="dynamicRatio")
+    def dynamic_ratio(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the fixed ratio value used for a node during ratio load balancing.
+        """
+        return pulumi.get(self, "dynamic_ratio")
+
+    @dynamic_ratio.setter
+    def dynamic_ratio(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "dynamic_ratio", value)
+
+    @property
+    @pulumi.getter
+    def fqdn(self) -> Optional[pulumi.Input['NodeFqdnArgs']]:
+        return pulumi.get(self, "fqdn")
+
+    @fqdn.setter
+    def fqdn(self, value: Optional[pulumi.Input['NodeFqdnArgs']]):
+        pulumi.set(self, "fqdn", value)
+
+    @property
+    @pulumi.getter
+    def monitor(self) -> Optional[pulumi.Input[str]]:
+        """
+        specifies the name of the monitor or monitor rule that you want to associate with the node.
+        """
+        return pulumi.get(self, "monitor")
+
+    @monitor.setter
+    def monitor(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "monitor", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the node
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="rateLimit")
+    def rate_limit(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
+        """
+        return pulumi.get(self, "rate_limit")
+
+    @rate_limit.setter
+    def rate_limit(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "rate_limit", value)
+
+    @property
+    @pulumi.getter
+    def ratio(self) -> Optional[pulumi.Input[int]]:
+        """
+        Sets the ratio number for the node.
+        """
+        return pulumi.get(self, "ratio")
+
+    @ratio.setter
+    def ratio(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ratio", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[str]]:
+        """
+        Default is "user-up" you can set to "user-down" if you want to disable
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "state", value)
+
+
 class Node(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -303,22 +467,22 @@ class Node(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = NodeArgs.__new__(NodeArgs)
 
             if address is None and not opts.urn:
                 raise TypeError("Missing required property 'address'")
-            __props__['address'] = address
-            __props__['connection_limit'] = connection_limit
-            __props__['description'] = description
-            __props__['dynamic_ratio'] = dynamic_ratio
-            __props__['fqdn'] = fqdn
-            __props__['monitor'] = monitor
+            __props__.__dict__["address"] = address
+            __props__.__dict__["connection_limit"] = connection_limit
+            __props__.__dict__["description"] = description
+            __props__.__dict__["dynamic_ratio"] = dynamic_ratio
+            __props__.__dict__["fqdn"] = fqdn
+            __props__.__dict__["monitor"] = monitor
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
-            __props__['rate_limit'] = rate_limit
-            __props__['ratio'] = ratio
-            __props__['state'] = state
+            __props__.__dict__["name"] = name
+            __props__.__dict__["rate_limit"] = rate_limit
+            __props__.__dict__["ratio"] = ratio
+            __props__.__dict__["state"] = state
         super(Node, __self__).__init__(
             'f5bigip:ltm/node:Node',
             resource_name,
@@ -358,18 +522,18 @@ class Node(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _NodeState.__new__(_NodeState)
 
-        __props__["address"] = address
-        __props__["connection_limit"] = connection_limit
-        __props__["description"] = description
-        __props__["dynamic_ratio"] = dynamic_ratio
-        __props__["fqdn"] = fqdn
-        __props__["monitor"] = monitor
-        __props__["name"] = name
-        __props__["rate_limit"] = rate_limit
-        __props__["ratio"] = ratio
-        __props__["state"] = state
+        __props__.__dict__["address"] = address
+        __props__.__dict__["connection_limit"] = connection_limit
+        __props__.__dict__["description"] = description
+        __props__.__dict__["dynamic_ratio"] = dynamic_ratio
+        __props__.__dict__["fqdn"] = fqdn
+        __props__.__dict__["monitor"] = monitor
+        __props__.__dict__["name"] = name
+        __props__.__dict__["rate_limit"] = rate_limit
+        __props__.__dict__["ratio"] = ratio
+        __props__.__dict__["state"] = state
         return Node(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -448,10 +612,4 @@ class Node(pulumi.CustomResource):
         Default is "user-up" you can set to "user-down" if you want to disable
         """
         return pulumi.get(self, "state")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

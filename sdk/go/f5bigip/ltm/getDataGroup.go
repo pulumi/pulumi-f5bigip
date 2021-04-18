@@ -4,7 +4,7 @@
 package ltm
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func LookupDataGroup(ctx *pulumi.Context, args *LookupDataGroupArgs, opts ...pulumi.InvokeOption) (*LookupDataGroupResult, error) {

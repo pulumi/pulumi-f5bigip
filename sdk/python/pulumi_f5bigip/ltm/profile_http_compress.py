@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ProfileHttpCompressArgs', 'ProfileHttpCompress']
 
@@ -87,6 +87,110 @@ class ProfileHttpCompressArgs:
     @defaults_from.setter
     def defaults_from(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "defaults_from", value)
+
+    @property
+    @pulumi.getter(name="uriExcludes")
+    def uri_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Disables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you do not want to compress.
+        """
+        return pulumi.get(self, "uri_excludes")
+
+    @uri_excludes.setter
+    def uri_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "uri_excludes", value)
+
+    @property
+    @pulumi.getter(name="uriIncludes")
+    def uri_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Enables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you want to compress.
+        """
+        return pulumi.get(self, "uri_includes")
+
+    @uri_includes.setter
+    def uri_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "uri_includes", value)
+
+
+@pulumi.input_type
+class _ProfileHttpCompressState:
+    def __init__(__self__, *,
+                 content_type_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 content_type_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 defaults_from: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 uri_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 uri_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Input properties used for looking up and filtering ProfileHttpCompress resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] content_type_excludes: Excludes a specified list of content types from compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] content_type_includes: Specifies a list of content types for compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
+        :param pulumi.Input[str] defaults_from: Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
+        :param pulumi.Input[str] name: Name of the profile_httpcompress
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] uri_excludes: Disables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you do not want to compress.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] uri_includes: Enables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you want to compress.
+        """
+        if content_type_excludes is not None:
+            pulumi.set(__self__, "content_type_excludes", content_type_excludes)
+        if content_type_includes is not None:
+            pulumi.set(__self__, "content_type_includes", content_type_includes)
+        if defaults_from is not None:
+            pulumi.set(__self__, "defaults_from", defaults_from)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if uri_excludes is not None:
+            pulumi.set(__self__, "uri_excludes", uri_excludes)
+        if uri_includes is not None:
+            pulumi.set(__self__, "uri_includes", uri_includes)
+
+    @property
+    @pulumi.getter(name="contentTypeExcludes")
+    def content_type_excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Excludes a specified list of content types from compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
+        """
+        return pulumi.get(self, "content_type_excludes")
+
+    @content_type_excludes.setter
+    def content_type_excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "content_type_excludes", value)
+
+    @property
+    @pulumi.getter(name="contentTypeIncludes")
+    def content_type_includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of content types for compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
+        """
+        return pulumi.get(self, "content_type_includes")
+
+    @content_type_includes.setter
+    def content_type_includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "content_type_includes", value)
+
+    @property
+    @pulumi.getter(name="defaultsFrom")
+    def defaults_from(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
+        """
+        return pulumi.get(self, "defaults_from")
+
+    @defaults_from.setter
+    def defaults_from(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "defaults_from", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the profile_httpcompress
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="uriExcludes")
@@ -227,16 +331,16 @@ class ProfileHttpCompress(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ProfileHttpCompressArgs.__new__(ProfileHttpCompressArgs)
 
-            __props__['content_type_excludes'] = content_type_excludes
-            __props__['content_type_includes'] = content_type_includes
-            __props__['defaults_from'] = defaults_from
+            __props__.__dict__["content_type_excludes"] = content_type_excludes
+            __props__.__dict__["content_type_includes"] = content_type_includes
+            __props__.__dict__["defaults_from"] = defaults_from
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
-            __props__['uri_excludes'] = uri_excludes
-            __props__['uri_includes'] = uri_includes
+            __props__.__dict__["name"] = name
+            __props__.__dict__["uri_excludes"] = uri_excludes
+            __props__.__dict__["uri_includes"] = uri_includes
         super(ProfileHttpCompress, __self__).__init__(
             'f5bigip:ltm/profileHttpCompress:ProfileHttpCompress',
             resource_name,
@@ -269,14 +373,14 @@ class ProfileHttpCompress(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ProfileHttpCompressState.__new__(_ProfileHttpCompressState)
 
-        __props__["content_type_excludes"] = content_type_excludes
-        __props__["content_type_includes"] = content_type_includes
-        __props__["defaults_from"] = defaults_from
-        __props__["name"] = name
-        __props__["uri_excludes"] = uri_excludes
-        __props__["uri_includes"] = uri_includes
+        __props__.__dict__["content_type_excludes"] = content_type_excludes
+        __props__.__dict__["content_type_includes"] = content_type_includes
+        __props__.__dict__["defaults_from"] = defaults_from
+        __props__.__dict__["name"] = name
+        __props__.__dict__["uri_excludes"] = uri_excludes
+        __props__.__dict__["uri_includes"] = uri_includes
         return ProfileHttpCompress(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -326,10 +430,4 @@ class ProfileHttpCompress(pulumi.CustomResource):
         Enables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you want to compress.
         """
         return pulumi.get(self, "uri_includes")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

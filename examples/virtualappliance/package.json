@@ -4,11 +4,10 @@
         "@types/node": "latest"
     },
     "dependencies": {
-        "@pulumi/aws": "^2.0.0",
-        "@pulumi/pulumi": "^2.0.0",
-        "@pulumi/random": "^2.0.0",
+        "@pulumi/aws": "^4.0.0-alpha.0",
+        "@pulumi/pulumi": "^3.0.0-alpha.0",
+        "@pulumi/random": "^4.0.0-alpha.0",
         "@types/node-fetch": "^2.1.4",
-        "node-fetch": "^2.3.0",
-        "@pulumi/f5bigip": "latest"
+        "node-fetch": "^2.3.0"
     }
 }

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -34,6 +34,270 @@ class IAppArgs:
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input['IAppVariableArgs']]]] = None):
         """
         The set of arguments for constructing a IApp resource.
+        :param pulumi.Input[str] description: Address of the Iapp which needs to be Iappensed
+        :param pulumi.Input[str] devicegroup: BIG-IP password
+        :param pulumi.Input[str] execute_action: BIG-IP password
+        :param pulumi.Input[str] inherited_devicegroup: BIG-IP password
+        :param pulumi.Input[str] inherited_traffic_group: BIG-IP password
+        :param pulumi.Input[str] jsonfile: Refer to the Json file which will be deployed on F5 BIG-IP.
+        :param pulumi.Input[str] name: Name of the iApp.
+        :param pulumi.Input[str] partition: Address of the Iapp which needs to be Iappensed
+        :param pulumi.Input[str] strict_updates: BIG-IP password
+        :param pulumi.Input[str] template: BIG-IP password
+        :param pulumi.Input[str] template_modified: BIG-IP password
+        :param pulumi.Input[str] template_prerequisite_errors: BIG-IP password
+        :param pulumi.Input[str] traffic_group: BIG-IP password
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if devicegroup is not None:
+            pulumi.set(__self__, "devicegroup", devicegroup)
+        if execute_action is not None:
+            pulumi.set(__self__, "execute_action", execute_action)
+        if inherited_devicegroup is not None:
+            pulumi.set(__self__, "inherited_devicegroup", inherited_devicegroup)
+        if inherited_traffic_group is not None:
+            pulumi.set(__self__, "inherited_traffic_group", inherited_traffic_group)
+        if jsonfile is not None:
+            pulumi.set(__self__, "jsonfile", jsonfile)
+        if lists is not None:
+            pulumi.set(__self__, "lists", lists)
+        if metadatas is not None:
+            pulumi.set(__self__, "metadatas", metadatas)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if partition is not None:
+            pulumi.set(__self__, "partition", partition)
+        if strict_updates is not None:
+            pulumi.set(__self__, "strict_updates", strict_updates)
+        if tables is not None:
+            pulumi.set(__self__, "tables", tables)
+        if template is not None:
+            pulumi.set(__self__, "template", template)
+        if template_modified is not None:
+            pulumi.set(__self__, "template_modified", template_modified)
+        if template_prerequisite_errors is not None:
+            pulumi.set(__self__, "template_prerequisite_errors", template_prerequisite_errors)
+        if traffic_group is not None:
+            pulumi.set(__self__, "traffic_group", traffic_group)
+        if variables is not None:
+            pulumi.set(__self__, "variables", variables)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Address of the Iapp which needs to be Iappensed
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def devicegroup(self) -> Optional[pulumi.Input[str]]:
+        """
+        BIG-IP password
+        """
+        return pulumi.get(self, "devicegroup")
+
+    @devicegroup.setter
+    def devicegroup(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "devicegroup", value)
+
+    @property
+    @pulumi.getter(name="executeAction")
+    def execute_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        BIG-IP password
+        """
+        return pulumi.get(self, "execute_action")
+
+    @execute_action.setter
+    def execute_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "execute_action", value)
+
+    @property
+    @pulumi.getter(name="inheritedDevicegroup")
+    def inherited_devicegroup(self) -> Optional[pulumi.Input[str]]:
+        """
+        BIG-IP password
+        """
+        return pulumi.get(self, "inherited_devicegroup")
+
+    @inherited_devicegroup.setter
+    def inherited_devicegroup(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "inherited_devicegroup", value)
+
+    @property
+    @pulumi.getter(name="inheritedTrafficGroup")
+    def inherited_traffic_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        BIG-IP password
+        """
+        return pulumi.get(self, "inherited_traffic_group")
+
+    @inherited_traffic_group.setter
+    def inherited_traffic_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "inherited_traffic_group", value)
+
+    @property
+    @pulumi.getter
+    def jsonfile(self) -> Optional[pulumi.Input[str]]:
+        """
+        Refer to the Json file which will be deployed on F5 BIG-IP.
+        """
+        return pulumi.get(self, "jsonfile")
+
+    @jsonfile.setter
+    def jsonfile(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "jsonfile", value)
+
+    @property
+    @pulumi.getter
+    def lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IAppListArgs']]]]:
+        return pulumi.get(self, "lists")
+
+    @lists.setter
+    def lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IAppListArgs']]]]):
+        pulumi.set(self, "lists", value)
+
+    @property
+    @pulumi.getter
+    def metadatas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IAppMetadataArgs']]]]:
+        return pulumi.get(self, "metadatas")
+
+    @metadatas.setter
+    def metadatas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IAppMetadataArgs']]]]):
+        pulumi.set(self, "metadatas", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the iApp.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def partition(self) -> Optional[pulumi.Input[str]]:
+        """
+        Address of the Iapp which needs to be Iappensed
+        """
+        return pulumi.get(self, "partition")
+
+    @partition.setter
+    def partition(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "partition", value)
+
+    @property
+    @pulumi.getter(name="strictUpdates")
+    def strict_updates(self) -> Optional[pulumi.Input[str]]:
+        """
+        BIG-IP password
+        """
+        return pulumi.get(self, "strict_updates")
+
+    @strict_updates.setter
+    def strict_updates(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "strict_updates", value)
+
+    @property
+    @pulumi.getter
+    def tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IAppTableArgs']]]]:
+        return pulumi.get(self, "tables")
+
+    @tables.setter
+    def tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IAppTableArgs']]]]):
+        pulumi.set(self, "tables", value)
+
+    @property
+    @pulumi.getter
+    def template(self) -> Optional[pulumi.Input[str]]:
+        """
+        BIG-IP password
+        """
+        return pulumi.get(self, "template")
+
+    @template.setter
+    def template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "template", value)
+
+    @property
+    @pulumi.getter(name="templateModified")
+    def template_modified(self) -> Optional[pulumi.Input[str]]:
+        """
+        BIG-IP password
+        """
+        return pulumi.get(self, "template_modified")
+
+    @template_modified.setter
+    def template_modified(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "template_modified", value)
+
+    @property
+    @pulumi.getter(name="templatePrerequisiteErrors")
+    def template_prerequisite_errors(self) -> Optional[pulumi.Input[str]]:
+        """
+        BIG-IP password
+        """
+        return pulumi.get(self, "template_prerequisite_errors")
+
+    @template_prerequisite_errors.setter
+    def template_prerequisite_errors(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "template_prerequisite_errors", value)
+
+    @property
+    @pulumi.getter(name="trafficGroup")
+    def traffic_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        BIG-IP password
+        """
+        return pulumi.get(self, "traffic_group")
+
+    @traffic_group.setter
+    def traffic_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "traffic_group", value)
+
+    @property
+    @pulumi.getter
+    def variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IAppVariableArgs']]]]:
+        return pulumi.get(self, "variables")
+
+    @variables.setter
+    def variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['IAppVariableArgs']]]]):
+        pulumi.set(self, "variables", value)
+
+
+@pulumi.input_type
+class _IAppState:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 devicegroup: Optional[pulumi.Input[str]] = None,
+                 execute_action: Optional[pulumi.Input[str]] = None,
+                 inherited_devicegroup: Optional[pulumi.Input[str]] = None,
+                 inherited_traffic_group: Optional[pulumi.Input[str]] = None,
+                 jsonfile: Optional[pulumi.Input[str]] = None,
+                 lists: Optional[pulumi.Input[Sequence[pulumi.Input['IAppListArgs']]]] = None,
+                 metadatas: Optional[pulumi.Input[Sequence[pulumi.Input['IAppMetadataArgs']]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 partition: Optional[pulumi.Input[str]] = None,
+                 strict_updates: Optional[pulumi.Input[str]] = None,
+                 tables: Optional[pulumi.Input[Sequence[pulumi.Input['IAppTableArgs']]]] = None,
+                 template: Optional[pulumi.Input[str]] = None,
+                 template_modified: Optional[pulumi.Input[str]] = None,
+                 template_prerequisite_errors: Optional[pulumi.Input[str]] = None,
+                 traffic_group: Optional[pulumi.Input[str]] = None,
+                 variables: Optional[pulumi.Input[Sequence[pulumi.Input['IAppVariableArgs']]]] = None):
+        """
+        Input properties used for looking up and filtering IApp resources.
         :param pulumi.Input[str] description: Address of the Iapp which needs to be Iappensed
         :param pulumi.Input[str] devicegroup: BIG-IP password
         :param pulumi.Input[str] execute_action: BIG-IP password
@@ -441,25 +705,25 @@ class IApp(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = IAppArgs.__new__(IAppArgs)
 
-            __props__['description'] = description
-            __props__['devicegroup'] = devicegroup
-            __props__['execute_action'] = execute_action
-            __props__['inherited_devicegroup'] = inherited_devicegroup
-            __props__['inherited_traffic_group'] = inherited_traffic_group
-            __props__['jsonfile'] = jsonfile
-            __props__['lists'] = lists
-            __props__['metadatas'] = metadatas
-            __props__['name'] = name
-            __props__['partition'] = partition
-            __props__['strict_updates'] = strict_updates
-            __props__['tables'] = tables
-            __props__['template'] = template
-            __props__['template_modified'] = template_modified
-            __props__['template_prerequisite_errors'] = template_prerequisite_errors
-            __props__['traffic_group'] = traffic_group
-            __props__['variables'] = variables
+            __props__.__dict__["description"] = description
+            __props__.__dict__["devicegroup"] = devicegroup
+            __props__.__dict__["execute_action"] = execute_action
+            __props__.__dict__["inherited_devicegroup"] = inherited_devicegroup
+            __props__.__dict__["inherited_traffic_group"] = inherited_traffic_group
+            __props__.__dict__["jsonfile"] = jsonfile
+            __props__.__dict__["lists"] = lists
+            __props__.__dict__["metadatas"] = metadatas
+            __props__.__dict__["name"] = name
+            __props__.__dict__["partition"] = partition
+            __props__.__dict__["strict_updates"] = strict_updates
+            __props__.__dict__["tables"] = tables
+            __props__.__dict__["template"] = template
+            __props__.__dict__["template_modified"] = template_modified
+            __props__.__dict__["template_prerequisite_errors"] = template_prerequisite_errors
+            __props__.__dict__["traffic_group"] = traffic_group
+            __props__.__dict__["variables"] = variables
         super(IApp, __self__).__init__(
             'f5bigip:sys/iApp:IApp',
             resource_name,
@@ -510,25 +774,25 @@ class IApp(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _IAppState.__new__(_IAppState)
 
-        __props__["description"] = description
-        __props__["devicegroup"] = devicegroup
-        __props__["execute_action"] = execute_action
-        __props__["inherited_devicegroup"] = inherited_devicegroup
-        __props__["inherited_traffic_group"] = inherited_traffic_group
-        __props__["jsonfile"] = jsonfile
-        __props__["lists"] = lists
-        __props__["metadatas"] = metadatas
-        __props__["name"] = name
-        __props__["partition"] = partition
-        __props__["strict_updates"] = strict_updates
-        __props__["tables"] = tables
-        __props__["template"] = template
-        __props__["template_modified"] = template_modified
-        __props__["template_prerequisite_errors"] = template_prerequisite_errors
-        __props__["traffic_group"] = traffic_group
-        __props__["variables"] = variables
+        __props__.__dict__["description"] = description
+        __props__.__dict__["devicegroup"] = devicegroup
+        __props__.__dict__["execute_action"] = execute_action
+        __props__.__dict__["inherited_devicegroup"] = inherited_devicegroup
+        __props__.__dict__["inherited_traffic_group"] = inherited_traffic_group
+        __props__.__dict__["jsonfile"] = jsonfile
+        __props__.__dict__["lists"] = lists
+        __props__.__dict__["metadatas"] = metadatas
+        __props__.__dict__["name"] = name
+        __props__.__dict__["partition"] = partition
+        __props__.__dict__["strict_updates"] = strict_updates
+        __props__.__dict__["tables"] = tables
+        __props__.__dict__["template"] = template
+        __props__.__dict__["template_modified"] = template_modified
+        __props__.__dict__["template_prerequisite_errors"] = template_prerequisite_errors
+        __props__.__dict__["traffic_group"] = traffic_group
+        __props__.__dict__["variables"] = variables
         return IApp(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -654,10 +918,4 @@ class IApp(pulumi.CustomResource):
     @pulumi.getter
     def variables(self) -> pulumi.Output[Optional[Sequence['outputs.IAppVariable']]]:
         return pulumi.get(self, "variables")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

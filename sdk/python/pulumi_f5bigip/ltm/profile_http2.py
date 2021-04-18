@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['ProfileHttp2Args', 'ProfileHttp2']
 
@@ -225,6 +225,222 @@ class ProfileHttp2Args:
         pulumi.set(self, "write_size", value)
 
 
+@pulumi.input_type
+class _ProfileHttp2State:
+    def __init__(__self__, *,
+                 activation_modes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 concurrent_streams_per_connection: Optional[pulumi.Input[int]] = None,
+                 connection_idle_timeout: Optional[pulumi.Input[int]] = None,
+                 defaults_from: Optional[pulumi.Input[str]] = None,
+                 enforce_tls_requirements: Optional[pulumi.Input[str]] = None,
+                 frame_size: Optional[pulumi.Input[int]] = None,
+                 header_table_size: Optional[pulumi.Input[int]] = None,
+                 include_content_length: Optional[pulumi.Input[str]] = None,
+                 insert_header: Optional[pulumi.Input[str]] = None,
+                 insert_header_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 receive_window: Optional[pulumi.Input[int]] = None,
+                 write_size: Optional[pulumi.Input[int]] = None):
+        """
+        Input properties used for looking up and filtering ProfileHttp2 resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] activation_modes: This setting specifies the condition that will cause the BIG-IP system to handle an incoming connection as an HTTP/2 connection, Allowed values : `[“alpn”]` (or) `[“always”]`.
+        :param pulumi.Input[int] concurrent_streams_per_connection: Specifies how many concurrent requests are allowed to be outstanding on a single HTTP/2 connection.
+        :param pulumi.Input[int] connection_idle_timeout: Specifies the number of seconds that a connection is idle before the connection is eligible for deletion.
+        :param pulumi.Input[str] defaults_from: Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
+        :param pulumi.Input[str] enforce_tls_requirements: Enable or disable enforcement of TLS requirements,Allowed Values : `"enabled"/"disabled"` [Default:`"enabled"`].
+        :param pulumi.Input[int] frame_size: The size of the data frames, in bytes, that the HTTP/2 protocol sends to the client. `Default: 2048`.
+        :param pulumi.Input[int] header_table_size: The size of the header table, in KB, for the HTTP headers that the HTTP/2 protocol compresses to save bandwidth.
+        :param pulumi.Input[str] include_content_length: Enable to include content-length in HTTP/2 headers,Default : disabled
+        :param pulumi.Input[str] insert_header: This setting specifies whether the BIG-IP system should add an HTTP header to the HTTP request to show that the request was received over HTTP/2, Allowed Values : `"enabled"/"disabled"` [ Default: `"disabled"`].
+        :param pulumi.Input[str] insert_header_name: This setting specifies the name of the header that the BIG-IP system will add to the HTTP request when the Insert Header is enabled.
+        :param pulumi.Input[str] name: Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-http2-profile`.
+        :param pulumi.Input[int] receive_window: The flow-control size for upload streams, in KB. `Default: 32`.
+        :param pulumi.Input[int] write_size: The total size of combined data frames, in bytes, that the HTTP/2 protocol sends in a single write function. `Default: 16384`".
+        """
+        if activation_modes is not None:
+            pulumi.set(__self__, "activation_modes", activation_modes)
+        if concurrent_streams_per_connection is not None:
+            pulumi.set(__self__, "concurrent_streams_per_connection", concurrent_streams_per_connection)
+        if connection_idle_timeout is not None:
+            pulumi.set(__self__, "connection_idle_timeout", connection_idle_timeout)
+        if defaults_from is not None:
+            pulumi.set(__self__, "defaults_from", defaults_from)
+        if enforce_tls_requirements is not None:
+            pulumi.set(__self__, "enforce_tls_requirements", enforce_tls_requirements)
+        if frame_size is not None:
+            pulumi.set(__self__, "frame_size", frame_size)
+        if header_table_size is not None:
+            pulumi.set(__self__, "header_table_size", header_table_size)
+        if include_content_length is not None:
+            pulumi.set(__self__, "include_content_length", include_content_length)
+        if insert_header is not None:
+            pulumi.set(__self__, "insert_header", insert_header)
+        if insert_header_name is not None:
+            pulumi.set(__self__, "insert_header_name", insert_header_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if receive_window is not None:
+            pulumi.set(__self__, "receive_window", receive_window)
+        if write_size is not None:
+            pulumi.set(__self__, "write_size", write_size)
+
+    @property
+    @pulumi.getter(name="activationModes")
+    def activation_modes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        This setting specifies the condition that will cause the BIG-IP system to handle an incoming connection as an HTTP/2 connection, Allowed values : `[“alpn”]` (or) `[“always”]`.
+        """
+        return pulumi.get(self, "activation_modes")
+
+    @activation_modes.setter
+    def activation_modes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "activation_modes", value)
+
+    @property
+    @pulumi.getter(name="concurrentStreamsPerConnection")
+    def concurrent_streams_per_connection(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies how many concurrent requests are allowed to be outstanding on a single HTTP/2 connection.
+        """
+        return pulumi.get(self, "concurrent_streams_per_connection")
+
+    @concurrent_streams_per_connection.setter
+    def concurrent_streams_per_connection(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "concurrent_streams_per_connection", value)
+
+    @property
+    @pulumi.getter(name="connectionIdleTimeout")
+    def connection_idle_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the number of seconds that a connection is idle before the connection is eligible for deletion.
+        """
+        return pulumi.get(self, "connection_idle_timeout")
+
+    @connection_idle_timeout.setter
+    def connection_idle_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "connection_idle_timeout", value)
+
+    @property
+    @pulumi.getter(name="defaultsFrom")
+    def defaults_from(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
+        """
+        return pulumi.get(self, "defaults_from")
+
+    @defaults_from.setter
+    def defaults_from(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "defaults_from", value)
+
+    @property
+    @pulumi.getter(name="enforceTlsRequirements")
+    def enforce_tls_requirements(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enable or disable enforcement of TLS requirements,Allowed Values : `"enabled"/"disabled"` [Default:`"enabled"`].
+        """
+        return pulumi.get(self, "enforce_tls_requirements")
+
+    @enforce_tls_requirements.setter
+    def enforce_tls_requirements(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "enforce_tls_requirements", value)
+
+    @property
+    @pulumi.getter(name="frameSize")
+    def frame_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        The size of the data frames, in bytes, that the HTTP/2 protocol sends to the client. `Default: 2048`.
+        """
+        return pulumi.get(self, "frame_size")
+
+    @frame_size.setter
+    def frame_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "frame_size", value)
+
+    @property
+    @pulumi.getter(name="headerTableSize")
+    def header_table_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        The size of the header table, in KB, for the HTTP headers that the HTTP/2 protocol compresses to save bandwidth.
+        """
+        return pulumi.get(self, "header_table_size")
+
+    @header_table_size.setter
+    def header_table_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "header_table_size", value)
+
+    @property
+    @pulumi.getter(name="includeContentLength")
+    def include_content_length(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enable to include content-length in HTTP/2 headers,Default : disabled
+        """
+        return pulumi.get(self, "include_content_length")
+
+    @include_content_length.setter
+    def include_content_length(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "include_content_length", value)
+
+    @property
+    @pulumi.getter(name="insertHeader")
+    def insert_header(self) -> Optional[pulumi.Input[str]]:
+        """
+        This setting specifies whether the BIG-IP system should add an HTTP header to the HTTP request to show that the request was received over HTTP/2, Allowed Values : `"enabled"/"disabled"` [ Default: `"disabled"`].
+        """
+        return pulumi.get(self, "insert_header")
+
+    @insert_header.setter
+    def insert_header(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "insert_header", value)
+
+    @property
+    @pulumi.getter(name="insertHeaderName")
+    def insert_header_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        This setting specifies the name of the header that the BIG-IP system will add to the HTTP request when the Insert Header is enabled.
+        """
+        return pulumi.get(self, "insert_header_name")
+
+    @insert_header_name.setter
+    def insert_header_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "insert_header_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-http2-profile`.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="receiveWindow")
+    def receive_window(self) -> Optional[pulumi.Input[int]]:
+        """
+        The flow-control size for upload streams, in KB. `Default: 32`.
+        """
+        return pulumi.get(self, "receive_window")
+
+    @receive_window.setter
+    def receive_window(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "receive_window", value)
+
+    @property
+    @pulumi.getter(name="writeSize")
+    def write_size(self) -> Optional[pulumi.Input[int]]:
+        """
+        The total size of combined data frames, in bytes, that the HTTP/2 protocol sends in a single write function. `Default: 16384`".
+        """
+        return pulumi.get(self, "write_size")
+
+    @write_size.setter
+    def write_size(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "write_size", value)
+
+
 class ProfileHttp2(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -372,23 +588,23 @@ class ProfileHttp2(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ProfileHttp2Args.__new__(ProfileHttp2Args)
 
-            __props__['activation_modes'] = activation_modes
-            __props__['concurrent_streams_per_connection'] = concurrent_streams_per_connection
-            __props__['connection_idle_timeout'] = connection_idle_timeout
-            __props__['defaults_from'] = defaults_from
-            __props__['enforce_tls_requirements'] = enforce_tls_requirements
-            __props__['frame_size'] = frame_size
-            __props__['header_table_size'] = header_table_size
-            __props__['include_content_length'] = include_content_length
-            __props__['insert_header'] = insert_header
-            __props__['insert_header_name'] = insert_header_name
+            __props__.__dict__["activation_modes"] = activation_modes
+            __props__.__dict__["concurrent_streams_per_connection"] = concurrent_streams_per_connection
+            __props__.__dict__["connection_idle_timeout"] = connection_idle_timeout
+            __props__.__dict__["defaults_from"] = defaults_from
+            __props__.__dict__["enforce_tls_requirements"] = enforce_tls_requirements
+            __props__.__dict__["frame_size"] = frame_size
+            __props__.__dict__["header_table_size"] = header_table_size
+            __props__.__dict__["include_content_length"] = include_content_length
+            __props__.__dict__["insert_header"] = insert_header
+            __props__.__dict__["insert_header_name"] = insert_header_name
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
-            __props__['receive_window'] = receive_window
-            __props__['write_size'] = write_size
+            __props__.__dict__["name"] = name
+            __props__.__dict__["receive_window"] = receive_window
+            __props__.__dict__["write_size"] = write_size
         super(ProfileHttp2, __self__).__init__(
             'f5bigip:ltm/profileHttp2:ProfileHttp2',
             resource_name,
@@ -435,21 +651,21 @@ class ProfileHttp2(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ProfileHttp2State.__new__(_ProfileHttp2State)
 
-        __props__["activation_modes"] = activation_modes
-        __props__["concurrent_streams_per_connection"] = concurrent_streams_per_connection
-        __props__["connection_idle_timeout"] = connection_idle_timeout
-        __props__["defaults_from"] = defaults_from
-        __props__["enforce_tls_requirements"] = enforce_tls_requirements
-        __props__["frame_size"] = frame_size
-        __props__["header_table_size"] = header_table_size
-        __props__["include_content_length"] = include_content_length
-        __props__["insert_header"] = insert_header
-        __props__["insert_header_name"] = insert_header_name
-        __props__["name"] = name
-        __props__["receive_window"] = receive_window
-        __props__["write_size"] = write_size
+        __props__.__dict__["activation_modes"] = activation_modes
+        __props__.__dict__["concurrent_streams_per_connection"] = concurrent_streams_per_connection
+        __props__.__dict__["connection_idle_timeout"] = connection_idle_timeout
+        __props__.__dict__["defaults_from"] = defaults_from
+        __props__.__dict__["enforce_tls_requirements"] = enforce_tls_requirements
+        __props__.__dict__["frame_size"] = frame_size
+        __props__.__dict__["header_table_size"] = header_table_size
+        __props__.__dict__["include_content_length"] = include_content_length
+        __props__.__dict__["insert_header"] = insert_header
+        __props__.__dict__["insert_header_name"] = insert_header_name
+        __props__.__dict__["name"] = name
+        __props__.__dict__["receive_window"] = receive_window
+        __props__.__dict__["write_size"] = write_size
         return ProfileHttp2(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -555,10 +771,4 @@ class ProfileHttp2(pulumi.CustomResource):
         The total size of combined data frames, in bytes, that the HTTP/2 protocol sends in a single write function. `Default: 16384`".
         """
         return pulumi.get(self, "write_size")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

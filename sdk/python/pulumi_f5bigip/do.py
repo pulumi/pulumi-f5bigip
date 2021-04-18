@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['DoArgs', 'Do']
 
@@ -41,6 +41,65 @@ class DoArgs:
 
     @do_json.setter
     def do_json(self, value: pulumi.Input[str]):
+        pulumi.set(self, "do_json", value)
+
+    @property
+    @pulumi.getter(name="tenantName")
+    def tenant_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        unique identifier for DO resource
+        """
+        return pulumi.get(self, "tenant_name")
+
+    @tenant_name.setter
+    def tenant_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_name", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        DO json
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout", value)
+
+
+@pulumi.input_type
+class _DoState:
+    def __init__(__self__, *,
+                 do_json: Optional[pulumi.Input[str]] = None,
+                 tenant_name: Optional[pulumi.Input[str]] = None,
+                 timeout: Optional[pulumi.Input[int]] = None):
+        """
+        Input properties used for looking up and filtering Do resources.
+        :param pulumi.Input[str] do_json: Name of the of the Declarative DO JSON file
+        :param pulumi.Input[str] tenant_name: unique identifier for DO resource
+        :param pulumi.Input[int] timeout: DO json
+        """
+        if do_json is not None:
+            pulumi.set(__self__, "do_json", do_json)
+        if tenant_name is not None:
+            warnings.warn("""this attribute is no longer in use""", DeprecationWarning)
+            pulumi.log.warn("""tenant_name is deprecated: this attribute is no longer in use""")
+        if tenant_name is not None:
+            pulumi.set(__self__, "tenant_name", tenant_name)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @property
+    @pulumi.getter(name="doJson")
+    def do_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the of the Declarative DO JSON file
+        """
+        return pulumi.get(self, "do_json")
+
+    @do_json.setter
+    def do_json(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "do_json", value)
 
     @property
@@ -157,16 +216,16 @@ class Do(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = DoArgs.__new__(DoArgs)
 
             if do_json is None and not opts.urn:
                 raise TypeError("Missing required property 'do_json'")
-            __props__['do_json'] = do_json
+            __props__.__dict__["do_json"] = do_json
             if tenant_name is not None and not opts.urn:
                 warnings.warn("""this attribute is no longer in use""", DeprecationWarning)
                 pulumi.log.warn("""tenant_name is deprecated: this attribute is no longer in use""")
-            __props__['tenant_name'] = tenant_name
-            __props__['timeout'] = timeout
+            __props__.__dict__["tenant_name"] = tenant_name
+            __props__.__dict__["timeout"] = timeout
         super(Do, __self__).__init__(
             'f5bigip:index/do:Do',
             resource_name,
@@ -193,11 +252,11 @@ class Do(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _DoState.__new__(_DoState)
 
-        __props__["do_json"] = do_json
-        __props__["tenant_name"] = tenant_name
-        __props__["timeout"] = timeout
+        __props__.__dict__["do_json"] = do_json
+        __props__.__dict__["tenant_name"] = tenant_name
+        __props__.__dict__["timeout"] = timeout
         return Do(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -223,10 +282,4 @@ class Do(pulumi.CustomResource):
         DO json
         """
         return pulumi.get(self, "timeout")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

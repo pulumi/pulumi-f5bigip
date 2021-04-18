@@ -4,7 +4,7 @@
 package ltm
 
 import (
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func GetIrule(ctx *pulumi.Context, args *GetIruleArgs, opts ...pulumi.InvokeOption) (*GetIruleResult, error) {

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -65,6 +65,110 @@ class PolicyArgs:
     @controls.setter
     def controls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "controls", value)
+
+    @property
+    @pulumi.getter(name="publishedCopy")
+    def published_copy(self) -> Optional[pulumi.Input[str]]:
+        """
+        If you want to publish the policy else it will be deployed in Drafts mode.
+        """
+        return pulumi.get(self, "published_copy")
+
+    @published_copy.setter
+    def published_copy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "published_copy", value)
+
+    @property
+    @pulumi.getter
+    def requires(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the protocol
+        """
+        return pulumi.get(self, "requires")
+
+    @requires.setter
+    def requires(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "requires", value)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleArgs']]]]:
+        """
+        Rules can be applied using the policy
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleArgs']]]]):
+        pulumi.set(self, "rules", value)
+
+    @property
+    @pulumi.getter
+    def strategy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the match strategy
+        """
+        return pulumi.get(self, "strategy")
+
+    @strategy.setter
+    def strategy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "strategy", value)
+
+
+@pulumi.input_type
+class _PolicyState:
+    def __init__(__self__, *,
+                 controls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 published_copy: Optional[pulumi.Input[str]] = None,
+                 requires: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleArgs']]]] = None,
+                 strategy: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Policy resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] controls: Specifies the controls
+        :param pulumi.Input[str] name: Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+        :param pulumi.Input[str] published_copy: If you want to publish the policy else it will be deployed in Drafts mode.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] requires: Specifies the protocol
+        :param pulumi.Input[Sequence[pulumi.Input['PolicyRuleArgs']]] rules: Rules can be applied using the policy
+        :param pulumi.Input[str] strategy: Specifies the match strategy
+        """
+        if controls is not None:
+            pulumi.set(__self__, "controls", controls)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if published_copy is not None:
+            pulumi.set(__self__, "published_copy", published_copy)
+        if requires is not None:
+            pulumi.set(__self__, "requires", requires)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+        if strategy is not None:
+            pulumi.set(__self__, "strategy", strategy)
+
+    @property
+    @pulumi.getter
+    def controls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the controls
+        """
+        return pulumi.get(self, "controls")
+
+    @controls.setter
+    def controls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "controls", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="publishedCopy")
@@ -245,16 +349,16 @@ class Policy(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PolicyArgs.__new__(PolicyArgs)
 
-            __props__['controls'] = controls
+            __props__.__dict__["controls"] = controls
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
-            __props__['published_copy'] = published_copy
-            __props__['requires'] = requires
-            __props__['rules'] = rules
-            __props__['strategy'] = strategy
+            __props__.__dict__["name"] = name
+            __props__.__dict__["published_copy"] = published_copy
+            __props__.__dict__["requires"] = requires
+            __props__.__dict__["rules"] = rules
+            __props__.__dict__["strategy"] = strategy
         super(Policy, __self__).__init__(
             'f5bigip:ltm/policy:Policy',
             resource_name,
@@ -287,14 +391,14 @@ class Policy(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _PolicyState.__new__(_PolicyState)
 
-        __props__["controls"] = controls
-        __props__["name"] = name
-        __props__["published_copy"] = published_copy
-        __props__["requires"] = requires
-        __props__["rules"] = rules
-        __props__["strategy"] = strategy
+        __props__.__dict__["controls"] = controls
+        __props__.__dict__["name"] = name
+        __props__.__dict__["published_copy"] = published_copy
+        __props__.__dict__["requires"] = requires
+        __props__.__dict__["rules"] = rules
+        __props__.__dict__["strategy"] = strategy
         return Policy(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -344,10 +448,4 @@ class Policy(pulumi.CustomResource):
         Specifies the match strategy
         """
         return pulumi.get(self, "strategy")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

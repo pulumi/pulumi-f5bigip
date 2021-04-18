@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // `sys.Dns` Configures DNS server on F5 BIG-IP
@@ -19,8 +19,8 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v2/go/f5bigip/sys"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/sys"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
 //
 // func main() {

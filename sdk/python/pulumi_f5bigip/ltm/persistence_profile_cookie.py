@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['PersistenceProfileCookieArgs', 'PersistenceProfileCookie']
 
@@ -302,6 +302,300 @@ class PersistenceProfileCookieArgs:
         pulumi.set(self, "timeout", value)
 
 
+@pulumi.input_type
+class _PersistenceProfileCookieState:
+    def __init__(__self__, *,
+                 always_send: Optional[pulumi.Input[str]] = None,
+                 app_service: Optional[pulumi.Input[str]] = None,
+                 cookie_encryption: Optional[pulumi.Input[str]] = None,
+                 cookie_encryption_passphrase: Optional[pulumi.Input[str]] = None,
+                 cookie_name: Optional[pulumi.Input[str]] = None,
+                 defaults_from: Optional[pulumi.Input[str]] = None,
+                 expiration: Optional[pulumi.Input[str]] = None,
+                 hash_length: Optional[pulumi.Input[int]] = None,
+                 hash_offset: Optional[pulumi.Input[int]] = None,
+                 httponly: Optional[pulumi.Input[str]] = None,
+                 match_across_pools: Optional[pulumi.Input[str]] = None,
+                 match_across_services: Optional[pulumi.Input[str]] = None,
+                 match_across_virtuals: Optional[pulumi.Input[str]] = None,
+                 method: Optional[pulumi.Input[str]] = None,
+                 mirror: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 override_conn_limit: Optional[pulumi.Input[str]] = None,
+                 timeout: Optional[pulumi.Input[int]] = None):
+        """
+        Input properties used for looking up and filtering PersistenceProfileCookie resources.
+        :param pulumi.Input[str] always_send: To enable _ disable always sending cookies
+        :param pulumi.Input[str] cookie_encryption: To required, preferred, or disabled policy for cookie encryption
+        :param pulumi.Input[str] cookie_encryption_passphrase: Passphrase for encrypted cookies
+        :param pulumi.Input[str] cookie_name: Name of the cookie to track persistence
+        :param pulumi.Input[str] defaults_from: Inherit defaults from parent profile
+        :param pulumi.Input[str] expiration: Expiration TTL for cookie specified in D:H:M:S or in seconds
+        :param pulumi.Input[int] hash_length: Length of hash to apply to cookie
+        :param pulumi.Input[int] hash_offset: Number of characters to skip in the cookie for the hash
+        :param pulumi.Input[str] httponly: To enable _ disable sending only over http
+        :param pulumi.Input[str] match_across_pools: To enable _ disable match across pools with given persistence record
+        :param pulumi.Input[str] match_across_services: To enable _ disable match across services with given persistence record
+        :param pulumi.Input[str] match_across_virtuals: To enable _ disable match across virtual servers with given persistence record
+        :param pulumi.Input[str] method: Specifies the type of cookie processing that the system uses
+        :param pulumi.Input[str] mirror: To enable _ disable
+        :param pulumi.Input[str] name: Name of the persistence profile
+        :param pulumi.Input[str] override_conn_limit: To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
+               limits remain hard limits and are not overridden.
+        :param pulumi.Input[int] timeout: Timeout for persistence of the session
+        """
+        if always_send is not None:
+            pulumi.set(__self__, "always_send", always_send)
+        if app_service is not None:
+            pulumi.set(__self__, "app_service", app_service)
+        if cookie_encryption is not None:
+            pulumi.set(__self__, "cookie_encryption", cookie_encryption)
+        if cookie_encryption_passphrase is not None:
+            pulumi.set(__self__, "cookie_encryption_passphrase", cookie_encryption_passphrase)
+        if cookie_name is not None:
+            pulumi.set(__self__, "cookie_name", cookie_name)
+        if defaults_from is not None:
+            pulumi.set(__self__, "defaults_from", defaults_from)
+        if expiration is not None:
+            pulumi.set(__self__, "expiration", expiration)
+        if hash_length is not None:
+            pulumi.set(__self__, "hash_length", hash_length)
+        if hash_offset is not None:
+            pulumi.set(__self__, "hash_offset", hash_offset)
+        if httponly is not None:
+            pulumi.set(__self__, "httponly", httponly)
+        if match_across_pools is not None:
+            pulumi.set(__self__, "match_across_pools", match_across_pools)
+        if match_across_services is not None:
+            pulumi.set(__self__, "match_across_services", match_across_services)
+        if match_across_virtuals is not None:
+            pulumi.set(__self__, "match_across_virtuals", match_across_virtuals)
+        if method is not None:
+            pulumi.set(__self__, "method", method)
+        if mirror is not None:
+            pulumi.set(__self__, "mirror", mirror)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if override_conn_limit is not None:
+            pulumi.set(__self__, "override_conn_limit", override_conn_limit)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
+
+    @property
+    @pulumi.getter(name="alwaysSend")
+    def always_send(self) -> Optional[pulumi.Input[str]]:
+        """
+        To enable _ disable always sending cookies
+        """
+        return pulumi.get(self, "always_send")
+
+    @always_send.setter
+    def always_send(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "always_send", value)
+
+    @property
+    @pulumi.getter(name="appService")
+    def app_service(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "app_service")
+
+    @app_service.setter
+    def app_service(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_service", value)
+
+    @property
+    @pulumi.getter(name="cookieEncryption")
+    def cookie_encryption(self) -> Optional[pulumi.Input[str]]:
+        """
+        To required, preferred, or disabled policy for cookie encryption
+        """
+        return pulumi.get(self, "cookie_encryption")
+
+    @cookie_encryption.setter
+    def cookie_encryption(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cookie_encryption", value)
+
+    @property
+    @pulumi.getter(name="cookieEncryptionPassphrase")
+    def cookie_encryption_passphrase(self) -> Optional[pulumi.Input[str]]:
+        """
+        Passphrase for encrypted cookies
+        """
+        return pulumi.get(self, "cookie_encryption_passphrase")
+
+    @cookie_encryption_passphrase.setter
+    def cookie_encryption_passphrase(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cookie_encryption_passphrase", value)
+
+    @property
+    @pulumi.getter(name="cookieName")
+    def cookie_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the cookie to track persistence
+        """
+        return pulumi.get(self, "cookie_name")
+
+    @cookie_name.setter
+    def cookie_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cookie_name", value)
+
+    @property
+    @pulumi.getter(name="defaultsFrom")
+    def defaults_from(self) -> Optional[pulumi.Input[str]]:
+        """
+        Inherit defaults from parent profile
+        """
+        return pulumi.get(self, "defaults_from")
+
+    @defaults_from.setter
+    def defaults_from(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "defaults_from", value)
+
+    @property
+    @pulumi.getter
+    def expiration(self) -> Optional[pulumi.Input[str]]:
+        """
+        Expiration TTL for cookie specified in D:H:M:S or in seconds
+        """
+        return pulumi.get(self, "expiration")
+
+    @expiration.setter
+    def expiration(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expiration", value)
+
+    @property
+    @pulumi.getter(name="hashLength")
+    def hash_length(self) -> Optional[pulumi.Input[int]]:
+        """
+        Length of hash to apply to cookie
+        """
+        return pulumi.get(self, "hash_length")
+
+    @hash_length.setter
+    def hash_length(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "hash_length", value)
+
+    @property
+    @pulumi.getter(name="hashOffset")
+    def hash_offset(self) -> Optional[pulumi.Input[int]]:
+        """
+        Number of characters to skip in the cookie for the hash
+        """
+        return pulumi.get(self, "hash_offset")
+
+    @hash_offset.setter
+    def hash_offset(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "hash_offset", value)
+
+    @property
+    @pulumi.getter
+    def httponly(self) -> Optional[pulumi.Input[str]]:
+        """
+        To enable _ disable sending only over http
+        """
+        return pulumi.get(self, "httponly")
+
+    @httponly.setter
+    def httponly(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "httponly", value)
+
+    @property
+    @pulumi.getter(name="matchAcrossPools")
+    def match_across_pools(self) -> Optional[pulumi.Input[str]]:
+        """
+        To enable _ disable match across pools with given persistence record
+        """
+        return pulumi.get(self, "match_across_pools")
+
+    @match_across_pools.setter
+    def match_across_pools(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "match_across_pools", value)
+
+    @property
+    @pulumi.getter(name="matchAcrossServices")
+    def match_across_services(self) -> Optional[pulumi.Input[str]]:
+        """
+        To enable _ disable match across services with given persistence record
+        """
+        return pulumi.get(self, "match_across_services")
+
+    @match_across_services.setter
+    def match_across_services(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "match_across_services", value)
+
+    @property
+    @pulumi.getter(name="matchAcrossVirtuals")
+    def match_across_virtuals(self) -> Optional[pulumi.Input[str]]:
+        """
+        To enable _ disable match across virtual servers with given persistence record
+        """
+        return pulumi.get(self, "match_across_virtuals")
+
+    @match_across_virtuals.setter
+    def match_across_virtuals(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "match_across_virtuals", value)
+
+    @property
+    @pulumi.getter
+    def method(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the type of cookie processing that the system uses
+        """
+        return pulumi.get(self, "method")
+
+    @method.setter
+    def method(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "method", value)
+
+    @property
+    @pulumi.getter
+    def mirror(self) -> Optional[pulumi.Input[str]]:
+        """
+        To enable _ disable
+        """
+        return pulumi.get(self, "mirror")
+
+    @mirror.setter
+    def mirror(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mirror", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the persistence profile
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="overrideConnLimit")
+    def override_conn_limit(self) -> Optional[pulumi.Input[str]]:
+        """
+        To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
+        limits remain hard limits and are not overridden.
+        """
+        return pulumi.get(self, "override_conn_limit")
+
+    @override_conn_limit.setter
+    def override_conn_limit(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "override_conn_limit", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        Timeout for persistence of the session
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout", value)
+
+
 class PersistenceProfileCookie(pulumi.CustomResource):
     @overload
     def __init__(__self__,
@@ -530,30 +824,30 @@ class PersistenceProfileCookie(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = PersistenceProfileCookieArgs.__new__(PersistenceProfileCookieArgs)
 
-            __props__['always_send'] = always_send
-            __props__['app_service'] = app_service
-            __props__['cookie_encryption'] = cookie_encryption
-            __props__['cookie_encryption_passphrase'] = cookie_encryption_passphrase
-            __props__['cookie_name'] = cookie_name
+            __props__.__dict__["always_send"] = always_send
+            __props__.__dict__["app_service"] = app_service
+            __props__.__dict__["cookie_encryption"] = cookie_encryption
+            __props__.__dict__["cookie_encryption_passphrase"] = cookie_encryption_passphrase
+            __props__.__dict__["cookie_name"] = cookie_name
             if defaults_from is None and not opts.urn:
                 raise TypeError("Missing required property 'defaults_from'")
-            __props__['defaults_from'] = defaults_from
-            __props__['expiration'] = expiration
-            __props__['hash_length'] = hash_length
-            __props__['hash_offset'] = hash_offset
-            __props__['httponly'] = httponly
-            __props__['match_across_pools'] = match_across_pools
-            __props__['match_across_services'] = match_across_services
-            __props__['match_across_virtuals'] = match_across_virtuals
-            __props__['method'] = method
-            __props__['mirror'] = mirror
+            __props__.__dict__["defaults_from"] = defaults_from
+            __props__.__dict__["expiration"] = expiration
+            __props__.__dict__["hash_length"] = hash_length
+            __props__.__dict__["hash_offset"] = hash_offset
+            __props__.__dict__["httponly"] = httponly
+            __props__.__dict__["match_across_pools"] = match_across_pools
+            __props__.__dict__["match_across_services"] = match_across_services
+            __props__.__dict__["match_across_virtuals"] = match_across_virtuals
+            __props__.__dict__["method"] = method
+            __props__.__dict__["mirror"] = mirror
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
-            __props__['name'] = name
-            __props__['override_conn_limit'] = override_conn_limit
-            __props__['timeout'] = timeout
+            __props__.__dict__["name"] = name
+            __props__.__dict__["override_conn_limit"] = override_conn_limit
+            __props__.__dict__["timeout"] = timeout
         super(PersistenceProfileCookie, __self__).__init__(
             'f5bigip:ltm/persistenceProfileCookie:PersistenceProfileCookie',
             resource_name,
@@ -610,26 +904,26 @@ class PersistenceProfileCookie(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _PersistenceProfileCookieState.__new__(_PersistenceProfileCookieState)
 
-        __props__["always_send"] = always_send
-        __props__["app_service"] = app_service
-        __props__["cookie_encryption"] = cookie_encryption
-        __props__["cookie_encryption_passphrase"] = cookie_encryption_passphrase
-        __props__["cookie_name"] = cookie_name
-        __props__["defaults_from"] = defaults_from
-        __props__["expiration"] = expiration
-        __props__["hash_length"] = hash_length
-        __props__["hash_offset"] = hash_offset
-        __props__["httponly"] = httponly
-        __props__["match_across_pools"] = match_across_pools
-        __props__["match_across_services"] = match_across_services
-        __props__["match_across_virtuals"] = match_across_virtuals
-        __props__["method"] = method
-        __props__["mirror"] = mirror
-        __props__["name"] = name
-        __props__["override_conn_limit"] = override_conn_limit
-        __props__["timeout"] = timeout
+        __props__.__dict__["always_send"] = always_send
+        __props__.__dict__["app_service"] = app_service
+        __props__.__dict__["cookie_encryption"] = cookie_encryption
+        __props__.__dict__["cookie_encryption_passphrase"] = cookie_encryption_passphrase
+        __props__.__dict__["cookie_name"] = cookie_name
+        __props__.__dict__["defaults_from"] = defaults_from
+        __props__.__dict__["expiration"] = expiration
+        __props__.__dict__["hash_length"] = hash_length
+        __props__.__dict__["hash_offset"] = hash_offset
+        __props__.__dict__["httponly"] = httponly
+        __props__.__dict__["match_across_pools"] = match_across_pools
+        __props__.__dict__["match_across_services"] = match_across_services
+        __props__.__dict__["match_across_virtuals"] = match_across_virtuals
+        __props__.__dict__["method"] = method
+        __props__.__dict__["mirror"] = mirror
+        __props__.__dict__["name"] = name
+        __props__.__dict__["override_conn_limit"] = override_conn_limit
+        __props__.__dict__["timeout"] = timeout
         return PersistenceProfileCookie(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -773,10 +1067,4 @@ class PersistenceProfileCookie(pulumi.CustomResource):
         Timeout for persistence of the session
         """
         return pulumi.get(self, "timeout")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 
