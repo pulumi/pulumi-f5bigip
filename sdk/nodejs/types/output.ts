@@ -82,6 +82,7 @@ export namespace ltm {
         clonePool: string;
         code: number;
         compress: boolean;
+        connection: boolean;
         content: string;
         cookieHash: boolean;
         cookieInsert: boolean;
@@ -158,6 +159,7 @@ export namespace ltm {
         select: boolean;
         serverSsl: boolean;
         setVariable: boolean;
+        shutdown: boolean;
         snat: string;
         snatpool: string;
         sourceAddress: boolean;

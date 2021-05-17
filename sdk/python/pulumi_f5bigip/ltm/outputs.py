@@ -256,6 +256,7 @@ class PolicyRuleAction(dict):
                  clone_pool: Optional[str] = None,
                  code: Optional[int] = None,
                  compress: Optional[bool] = None,
+                 connection: Optional[bool] = None,
                  content: Optional[str] = None,
                  cookie_hash: Optional[bool] = None,
                  cookie_insert: Optional[bool] = None,
@@ -326,6 +327,7 @@ class PolicyRuleAction(dict):
                  select: Optional[bool] = None,
                  server_ssl: Optional[bool] = None,
                  set_variable: Optional[bool] = None,
+                 shutdown: Optional[bool] = None,
                  snat: Optional[str] = None,
                  snatpool: Optional[str] = None,
                  source_address: Optional[bool] = None,
@@ -373,6 +375,8 @@ class PolicyRuleAction(dict):
             pulumi.set(__self__, "code", code)
         if compress is not None:
             pulumi.set(__self__, "compress", compress)
+        if connection is not None:
+            pulumi.set(__self__, "connection", connection)
         if content is not None:
             pulumi.set(__self__, "content", content)
         if cookie_hash is not None:
@@ -513,6 +517,8 @@ class PolicyRuleAction(dict):
             pulumi.set(__self__, "server_ssl", server_ssl)
         if set_variable is not None:
             pulumi.set(__self__, "set_variable", set_variable)
+        if shutdown is not None:
+            pulumi.set(__self__, "shutdown", shutdown)
         if snat is not None:
             pulumi.set(__self__, "snat", snat)
         if snatpool is not None:
@@ -610,6 +616,11 @@ class PolicyRuleAction(dict):
     @pulumi.getter
     def compress(self) -> Optional[bool]:
         return pulumi.get(self, "compress")
+
+    @property
+    @pulumi.getter
+    def connection(self) -> Optional[bool]:
+        return pulumi.get(self, "connection")
 
     @property
     @pulumi.getter
@@ -966,6 +977,11 @@ class PolicyRuleAction(dict):
     @pulumi.getter(name="setVariable")
     def set_variable(self) -> Optional[bool]:
         return pulumi.get(self, "set_variable")
+
+    @property
+    @pulumi.getter
+    def shutdown(self) -> Optional[bool]:
+        return pulumi.get(self, "shutdown")
 
     @property
     @pulumi.getter

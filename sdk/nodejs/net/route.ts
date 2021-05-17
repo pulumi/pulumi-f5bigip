@@ -62,6 +62,14 @@ export class Route extends pulumi.CustomResource {
      * The destination subnet and netmask for the route.
      */
     public readonly network!: pulumi.Output<string>;
+    /**
+     * reject route
+     */
+    public readonly reject!: pulumi.Output<boolean | undefined>;
+    /**
+     * tunnel_ref to route traffic
+     */
+    public readonly tunnelRef!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Route resource with the given unique name, arguments, and options.
@@ -79,6 +87,8 @@ export class Route extends pulumi.CustomResource {
             inputs["gw"] = state ? state.gw : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["network"] = state ? state.network : undefined;
+            inputs["reject"] = state ? state.reject : undefined;
+            inputs["tunnelRef"] = state ? state.tunnelRef : undefined;
         } else {
             const args = argsOrState as RouteArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -90,6 +100,8 @@ export class Route extends pulumi.CustomResource {
             inputs["gw"] = args ? args.gw : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["network"] = args ? args.network : undefined;
+            inputs["reject"] = args ? args.reject : undefined;
+            inputs["tunnelRef"] = args ? args.tunnelRef : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -114,6 +126,14 @@ export interface RouteState {
      * The destination subnet and netmask for the route.
      */
     readonly network?: pulumi.Input<string>;
+    /**
+     * reject route
+     */
+    readonly reject?: pulumi.Input<boolean>;
+    /**
+     * tunnel_ref to route traffic
+     */
+    readonly tunnelRef?: pulumi.Input<string>;
 }
 
 /**
@@ -132,4 +152,12 @@ export interface RouteArgs {
      * The destination subnet and netmask for the route.
      */
     readonly network: pulumi.Input<string>;
+    /**
+     * reject route
+     */
+    readonly reject?: pulumi.Input<boolean>;
+    /**
+     * tunnel_ref to route traffic
+     */
+    readonly tunnelRef?: pulumi.Input<string>;
 }

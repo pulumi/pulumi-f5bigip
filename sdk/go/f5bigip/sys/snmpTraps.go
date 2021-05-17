@@ -63,11 +63,11 @@ type SnmpTraps struct {
 	// Specifies the protocol used to encrypt traffic.
 	PrivacyProtocol pulumi.StringPtrOutput `pulumi:"privacyProtocol"`
 	// Specifies whether or not traffic is encrypted and whether or not authentication is required.
-	SecurityLevel pulumi.StringPtrOutput `pulumi:"securityLevel"`
+	SecurityLevel pulumi.StringOutput `pulumi:"securityLevel"`
 	// Security name used in conjunction with SNMPv3.
 	SecurityName pulumi.StringPtrOutput `pulumi:"securityName"`
 	// SNMP version used for sending the trap.
-	Version pulumi.StringPtrOutput `pulumi:"version"`
+	Version pulumi.StringOutput `pulumi:"version"`
 }
 
 // NewSnmpTraps registers a new resource with the given unique name, arguments, and options.

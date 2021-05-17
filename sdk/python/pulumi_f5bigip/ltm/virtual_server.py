@@ -1058,7 +1058,7 @@ class VirtualServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="clientProfiles")
-    def client_profiles(self) -> pulumi.Output[Sequence[str]]:
+    def client_profiles(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
         """
@@ -1164,7 +1164,7 @@ class VirtualServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serverProfiles")
-    def server_profiles(self) -> pulumi.Output[Sequence[str]]:
+    def server_profiles(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
         """

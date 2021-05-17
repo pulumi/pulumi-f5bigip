@@ -436,6 +436,7 @@ type PolicyRuleAction struct {
 	ClonePool          *string `pulumi:"clonePool"`
 	Code               *int    `pulumi:"code"`
 	Compress           *bool   `pulumi:"compress"`
+	Connection         *bool   `pulumi:"connection"`
 	Content            *string `pulumi:"content"`
 	CookieHash         *bool   `pulumi:"cookieHash"`
 	CookieInsert       *bool   `pulumi:"cookieInsert"`
@@ -508,6 +509,7 @@ type PolicyRuleAction struct {
 	Select             *bool   `pulumi:"select"`
 	ServerSsl          *bool   `pulumi:"serverSsl"`
 	SetVariable        *bool   `pulumi:"setVariable"`
+	Shutdown           *bool   `pulumi:"shutdown"`
 	Snat               *string `pulumi:"snat"`
 	Snatpool           *string `pulumi:"snatpool"`
 	SourceAddress      *bool   `pulumi:"sourceAddress"`
@@ -554,6 +556,7 @@ type PolicyRuleActionArgs struct {
 	ClonePool          pulumi.StringPtrInput `pulumi:"clonePool"`
 	Code               pulumi.IntPtrInput    `pulumi:"code"`
 	Compress           pulumi.BoolPtrInput   `pulumi:"compress"`
+	Connection         pulumi.BoolPtrInput   `pulumi:"connection"`
 	Content            pulumi.StringPtrInput `pulumi:"content"`
 	CookieHash         pulumi.BoolPtrInput   `pulumi:"cookieHash"`
 	CookieInsert       pulumi.BoolPtrInput   `pulumi:"cookieInsert"`
@@ -626,6 +629,7 @@ type PolicyRuleActionArgs struct {
 	Select             pulumi.BoolPtrInput   `pulumi:"select"`
 	ServerSsl          pulumi.BoolPtrInput   `pulumi:"serverSsl"`
 	SetVariable        pulumi.BoolPtrInput   `pulumi:"setVariable"`
+	Shutdown           pulumi.BoolPtrInput   `pulumi:"shutdown"`
 	Snat               pulumi.StringPtrInput `pulumi:"snat"`
 	Snatpool           pulumi.StringPtrInput `pulumi:"snatpool"`
 	SourceAddress      pulumi.BoolPtrInput   `pulumi:"sourceAddress"`
@@ -742,6 +746,10 @@ func (o PolicyRuleActionOutput) Code() pulumi.IntPtrOutput {
 
 func (o PolicyRuleActionOutput) Compress() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Compress }).(pulumi.BoolPtrOutput)
+}
+
+func (o PolicyRuleActionOutput) Connection() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Connection }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Content() pulumi.StringPtrOutput {
@@ -1024,6 +1032,10 @@ func (o PolicyRuleActionOutput) ServerSsl() pulumi.BoolPtrOutput {
 
 func (o PolicyRuleActionOutput) SetVariable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.SetVariable }).(pulumi.BoolPtrOutput)
+}
+
+func (o PolicyRuleActionOutput) Shutdown() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Shutdown }).(pulumi.BoolPtrOutput)
 }
 
 func (o PolicyRuleActionOutput) Snat() pulumi.StringPtrOutput {

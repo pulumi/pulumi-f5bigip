@@ -197,6 +197,7 @@ class PolicyRuleActionArgs:
                  clone_pool: Optional[pulumi.Input[str]] = None,
                  code: Optional[pulumi.Input[int]] = None,
                  compress: Optional[pulumi.Input[bool]] = None,
+                 connection: Optional[pulumi.Input[bool]] = None,
                  content: Optional[pulumi.Input[str]] = None,
                  cookie_hash: Optional[pulumi.Input[bool]] = None,
                  cookie_insert: Optional[pulumi.Input[bool]] = None,
@@ -267,6 +268,7 @@ class PolicyRuleActionArgs:
                  select: Optional[pulumi.Input[bool]] = None,
                  server_ssl: Optional[pulumi.Input[bool]] = None,
                  set_variable: Optional[pulumi.Input[bool]] = None,
+                 shutdown: Optional[pulumi.Input[bool]] = None,
                  snat: Optional[pulumi.Input[str]] = None,
                  snatpool: Optional[pulumi.Input[str]] = None,
                  source_address: Optional[pulumi.Input[bool]] = None,
@@ -314,6 +316,8 @@ class PolicyRuleActionArgs:
             pulumi.set(__self__, "code", code)
         if compress is not None:
             pulumi.set(__self__, "compress", compress)
+        if connection is not None:
+            pulumi.set(__self__, "connection", connection)
         if content is not None:
             pulumi.set(__self__, "content", content)
         if cookie_hash is not None:
@@ -454,6 +458,8 @@ class PolicyRuleActionArgs:
             pulumi.set(__self__, "server_ssl", server_ssl)
         if set_variable is not None:
             pulumi.set(__self__, "set_variable", set_variable)
+        if shutdown is not None:
+            pulumi.set(__self__, "shutdown", shutdown)
         if snat is not None:
             pulumi.set(__self__, "snat", snat)
         if snatpool is not None:
@@ -595,6 +601,15 @@ class PolicyRuleActionArgs:
     @compress.setter
     def compress(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "compress", value)
+
+    @property
+    @pulumi.getter
+    def connection(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "connection")
+
+    @connection.setter
+    def connection(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "connection", value)
 
     @property
     @pulumi.getter
@@ -1231,6 +1246,15 @@ class PolicyRuleActionArgs:
     @set_variable.setter
     def set_variable(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "set_variable", value)
+
+    @property
+    @pulumi.getter
+    def shutdown(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "shutdown")
+
+    @shutdown.setter
+    def shutdown(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "shutdown", value)
 
     @property
     @pulumi.getter

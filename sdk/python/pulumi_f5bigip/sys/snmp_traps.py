@@ -760,7 +760,7 @@ class SnmpTraps(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="securityLevel")
-    def security_level(self) -> pulumi.Output[Optional[str]]:
+    def security_level(self) -> pulumi.Output[str]:
         """
         Specifies whether or not traffic is encrypted and whether or not authentication is required.
         """
@@ -776,7 +776,7 @@ class SnmpTraps(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def version(self) -> pulumi.Output[Optional[str]]:
+    def version(self) -> pulumi.Output[str]:
         """
         SNMP version used for sending the trap.
         """

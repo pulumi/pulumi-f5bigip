@@ -11,7 +11,10 @@ export * from "./command";
 export * from "./commonLicenseManageBigIq";
 export * from "./do";
 export * from "./eventServiceDiscovery";
+export * from "./fastApplication";
+export * from "./fastTemplate";
 export * from "./ipsecPolicy";
+export * from "./netIkePeer";
 export * from "./netTunnel";
 export * from "./provider";
 export * from "./trafficSelector";
@@ -42,7 +45,10 @@ import { Command } from "./command";
 import { CommonLicenseManageBigIq } from "./commonLicenseManageBigIq";
 import { Do } from "./do";
 import { EventServiceDiscovery } from "./eventServiceDiscovery";
+import { FastApplication } from "./fastApplication";
+import { FastTemplate } from "./fastTemplate";
 import { IpsecPolicy } from "./ipsecPolicy";
+import { NetIkePeer } from "./netIkePeer";
 import { NetTunnel } from "./netTunnel";
 import { TrafficSelector } from "./trafficSelector";
 
@@ -62,8 +68,14 @@ const _module = {
                 return new Do(name, <any>undefined, { urn })
             case "f5bigip:index/eventServiceDiscovery:EventServiceDiscovery":
                 return new EventServiceDiscovery(name, <any>undefined, { urn })
+            case "f5bigip:index/fastApplication:FastApplication":
+                return new FastApplication(name, <any>undefined, { urn })
+            case "f5bigip:index/fastTemplate:FastTemplate":
+                return new FastTemplate(name, <any>undefined, { urn })
             case "f5bigip:index/ipsecPolicy:IpsecPolicy":
                 return new IpsecPolicy(name, <any>undefined, { urn })
+            case "f5bigip:index/netIkePeer:NetIkePeer":
+                return new NetIkePeer(name, <any>undefined, { urn })
             case "f5bigip:index/netTunnel:NetTunnel":
                 return new NetTunnel(name, <any>undefined, { urn })
             case "f5bigip:index/trafficSelector:TrafficSelector":
@@ -79,7 +91,10 @@ pulumi.runtime.registerResourceModule("f5bigip", "index/command", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/commonLicenseManageBigIq", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/do", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/eventServiceDiscovery", _module)
+pulumi.runtime.registerResourceModule("f5bigip", "index/fastApplication", _module)
+pulumi.runtime.registerResourceModule("f5bigip", "index/fastTemplate", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/ipsecPolicy", _module)
+pulumi.runtime.registerResourceModule("f5bigip", "index/netIkePeer", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/netTunnel", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/trafficSelector", _module)
 

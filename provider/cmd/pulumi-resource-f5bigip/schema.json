@@ -314,6 +314,14 @@
                         }
                     }
                 },
+                "connection": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "content": {
                     "type": "string",
                     "language": {
@@ -876,6 +884,14 @@
                         }
                     }
                 },
+                "shutdown": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "snat": {
                     "type": "string",
                     "language": {
@@ -1060,6 +1076,7 @@
                         "clonePool",
                         "code",
                         "compress",
+                        "connection",
                         "content",
                         "cookieHash",
                         "cookieInsert",
@@ -1128,6 +1145,7 @@
                         "select",
                         "serverSsl",
                         "setVariable",
+                        "shutdown",
                         "snat",
                         "snatpool",
                         "sourceAddress",
@@ -3147,6 +3165,110 @@
                 "type": "object"
             }
         },
+        "f5bigip:index/fastApplication:FastApplication": {
+            "description": "`f5bigip.FastApplication` This resource will create and manage FAST applications on BIG-IP from provided JSON declaration. \n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\nimport * as fs from \"fs\";\n\nconst foo_app = new f5bigip.FastApplication(\"foo-app\", {\n    fastJson: fs.readFileSync(\"new_fast_app.json\", \"utf-8\"),\n    template: \"examples/simple_http\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nfoo_app = f5bigip.FastApplication(\"foo-app\",\n    fast_json=(lambda path: open(path).read())(\"new_fast_app.json\"),\n    template=\"examples/simple_http\")\n```\n```csharp\nusing System.IO;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var foo_app = new F5BigIP.FastApplication(\"foo-app\", new F5BigIP.FastApplicationArgs\n        {\n            FastJson = File.ReadAllText(\"new_fast_app.json\"),\n            Template = \"examples/simple_http\",\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "application": {
+                    "type": "string",
+                    "description": "A FAST application name.\n"
+                },
+                "fastJson": {
+                    "type": "string",
+                    "description": "Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function\n"
+                },
+                "template": {
+                    "type": "string",
+                    "description": "Name of installed FAST template used to create FAST application. This parameter is required when creating new resource.\n"
+                },
+                "tenant": {
+                    "type": "string",
+                    "description": "A FAST tenant name on which you want to manage application.\n"
+                }
+            },
+            "required": [
+                "application",
+                "fastJson",
+                "tenant"
+            ],
+            "inputProperties": {
+                "fastJson": {
+                    "type": "string",
+                    "description": "Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function\n"
+                },
+                "template": {
+                    "type": "string",
+                    "description": "Name of installed FAST template used to create FAST application. This parameter is required when creating new resource.\n"
+                }
+            },
+            "requiredInputs": [
+                "fastJson"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering FastApplication resources.\n",
+                "properties": {
+                    "application": {
+                        "type": "string",
+                        "description": "A FAST application name.\n"
+                    },
+                    "fastJson": {
+                        "type": "string",
+                        "description": "Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function\n"
+                    },
+                    "template": {
+                        "type": "string",
+                        "description": "Name of installed FAST template used to create FAST application. This parameter is required when creating new resource.\n"
+                    },
+                    "tenant": {
+                        "type": "string",
+                        "description": "A FAST tenant name on which you want to manage application.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "f5bigip:index/fastTemplate:FastTemplate": {
+            "description": "`f5bigip.FastTemplate` This resource will import and create FAST template sets on BIG-IP LTM. \nTemplate set can be imported from zip archive files on the local disk.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst foo_template = new f5bigip.FastTemplate(\"foo-template\", {\n    name: \"foo_template\",\n    source: \"foo_template.zip\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nfoo_template = f5bigip.FastTemplate(\"foo-template\",\n    name=\"foo_template\",\n    source=\"foo_template.zip\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var foo_template = new F5BigIP.FastTemplate(\"foo-template\", new F5BigIP.FastTemplateArgs\n        {\n            Name = \"foo_template\",\n            Source = \"foo_template.zip\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := f5bigip.NewFastTemplate(ctx, \"foo_template\", \u0026f5bigip.FastTemplateArgs{\n\t\t\tName:   pulumi.String(\"foo_template\"),\n\t\t\tSource: pulumi.String(\"foo_template.zip\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of the FAST template set to be created on to BIGIP\n"
+                },
+                "source": {
+                    "type": "string",
+                    "description": "Path to the zip archive file containing FAST template set on Local Disk\n"
+                }
+            },
+            "required": [
+                "source"
+            ],
+            "inputProperties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of the FAST template set to be created on to BIGIP\n"
+                },
+                "source": {
+                    "type": "string",
+                    "description": "Path to the zip archive file containing FAST template set on Local Disk\n"
+                }
+            },
+            "requiredInputs": [
+                "source"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering FastTemplate resources.\n",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the FAST template set to be created on to BIGIP\n"
+                    },
+                    "source": {
+                        "type": "string",
+                        "description": "Path to the zip archive file containing FAST template set on Local Disk\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "f5bigip:index/ipsecPolicy:IpsecPolicy": {
             "description": "`f5bigip.IpsecPolicy` Manage IPSec policies on a BIG-IP\n\nResources should be named with their \"full path\". The full path is the combination of the partition + name (example: /Common/test-policy)\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst test_policy = new f5bigip.IpsecPolicy(\"test-policy\", {\n    authAlgorithm: \"sha1\",\n    description: \"created by terraform provider\",\n    encryptAlgorithm: \"3des\",\n    ipcomp: \"deflate\",\n    lifetime: 3,\n    mode: \"tunnel\",\n    name: \"/Common/test-policy\",\n    protocol: \"esp\",\n    tunnelLocalAddress: \"192.168.1.1\",\n    tunnelRemoteAddress: \"10.10.1.1\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ntest_policy = f5bigip.IpsecPolicy(\"test-policy\",\n    auth_algorithm=\"sha1\",\n    description=\"created by terraform provider\",\n    encrypt_algorithm=\"3des\",\n    ipcomp=\"deflate\",\n    lifetime=3,\n    mode=\"tunnel\",\n    name=\"/Common/test-policy\",\n    protocol=\"esp\",\n    tunnel_local_address=\"192.168.1.1\",\n    tunnel_remote_address=\"10.10.1.1\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test_policy = new F5BigIP.IpsecPolicy(\"test-policy\", new F5BigIP.IpsecPolicyArgs\n        {\n            AuthAlgorithm = \"sha1\",\n            Description = \"created by terraform provider\",\n            EncryptAlgorithm = \"3des\",\n            Ipcomp = \"deflate\",\n            Lifetime = 3,\n            Mode = \"tunnel\",\n            Name = \"/Common/test-policy\",\n            Protocol = \"esp\",\n            TunnelLocalAddress = \"192.168.1.1\",\n            TunnelRemoteAddress = \"10.10.1.1\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := f5bigip.NewIpsecPolicy(ctx, \"test_policy\", \u0026f5bigip.IpsecPolicyArgs{\n\t\t\tAuthAlgorithm:       pulumi.String(\"sha1\"),\n\t\t\tDescription:         pulumi.String(\"created by terraform provider\"),\n\t\t\tEncryptAlgorithm:    pulumi.String(\"3des\"),\n\t\t\tIpcomp:              pulumi.String(\"deflate\"),\n\t\t\tLifetime:            pulumi.Int(3),\n\t\t\tMode:                pulumi.String(\"tunnel\"),\n\t\t\tName:                pulumi.String(\"/Common/test-policy\"),\n\t\t\tProtocol:            pulumi.String(\"esp\"),\n\t\t\tTunnelLocalAddress:  pulumi.String(\"192.168.1.1\"),\n\t\t\tTunnelRemoteAddress: pulumi.String(\"10.10.1.1\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
@@ -3316,6 +3438,483 @@
                     "tunnelRemoteAddress": {
                         "type": "string",
                         "description": "Specifies the remote endpoint IP address of the IPsec tunnel. This parameter is only valid when mode is tunnel.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "f5bigip:index/netIkePeer:NetIkePeer": {
+            "description": "`f5bigip.NetIkePeer` Manages a ike_peer configuration\n\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst example1 = new f5bigip.NetIkePeer(\"example1\", {\n    localAddress: \"192.16.81.240\",\n    name: \"example1\",\n    profile: \"/Common/dslite\",\n});\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "appService": {
+                    "type": "string",
+                    "description": "The application service that the object belongs to\n"
+                },
+                "caCertFile": {
+                    "type": "string",
+                    "description": "the trusted root and intermediate certificate authorities\n"
+                },
+                "crlFile": {
+                    "type": "string",
+                    "description": "Specifies the file name of the Certificate Revocation List. Only supported in IKEv1\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "User defined description\n"
+                },
+                "dpdDelay": {
+                    "type": "integer",
+                    "description": "Specifies the number of seconds between Dead Peer Detection messages\n"
+                },
+                "generatePolicy": {
+                    "type": "string",
+                    "description": "Enable or disable the generation of Security Policy Database entries(SPD) when the device is the responder of the IKE remote node\n"
+                },
+                "lifetime": {
+                    "type": "integer",
+                    "description": "Defines the lifetime in minutes of an IKE SA which will be proposed in the phase 1 negotiations\n"
+                },
+                "mode": {
+                    "type": "string",
+                    "description": "Defines the exchange mode for phase 1 when racoon is the initiator, or the acceptable exchange mode when racoon is the responder\n"
+                },
+                "myCertFile": {
+                    "type": "string",
+                    "description": "Specifies the name of the certificate file object\n"
+                },
+                "myCertKeyFile": {
+                    "type": "string",
+                    "description": "Specifies the name of the certificate key file object\n"
+                },
+                "myCertKeyPassphrase": {
+                    "type": "string",
+                    "description": "Specifies the passphrase of the key used for my-cert-key-file\n"
+                },
+                "myIdType": {
+                    "type": "string",
+                    "description": "Specifies the identifier type sent to the remote host to use in the phase 1 negotiation\n"
+                },
+                "myIdValue": {
+                    "type": "string",
+                    "description": "Specifies the identifier value sent to the remote host in the phase 1 negotiation\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the ike_peer\n"
+                },
+                "natTraversal": {
+                    "type": "string",
+                    "description": "Enables use of the NAT-Traversal IPsec extension\n"
+                },
+                "passive": {
+                    "type": "string",
+                    "description": "Specifies whether the local IKE agent can be the initiator of the IKE negotiation with this ike-peer\n"
+                },
+                "peersCertFile": {
+                    "type": "string",
+                    "description": "Specifies the peer’s certificate for authentication\n"
+                },
+                "peersCertType": {
+                    "type": "string",
+                    "description": "Specifies that the only peers-cert-type supported is certfile\n"
+                },
+                "peersIdType": {
+                    "type": "string",
+                    "description": "Specifies which of address, fqdn, asn1dn, user-fqdn or keyid-tag types to use as peers-id-type\n"
+                },
+                "peersIdValue": {
+                    "type": "string",
+                    "description": "Specifies the peer’s identifier to be received\n"
+                },
+                "phase1AuthMethod": {
+                    "type": "string",
+                    "description": "Specifies the authentication method used for phase 1 negotiation\n"
+                },
+                "phase1EncryptAlgorithm": {
+                    "type": "string",
+                    "description": "Specifies the encryption algorithm used for the isakmp phase 1 negotiation\n"
+                },
+                "phase1HashAlgorithm": {
+                    "type": "string",
+                    "description": "Defines the hash algorithm used for the isakmp phase 1 negotiation\n"
+                },
+                "phase1PerfectForwardSecrecy": {
+                    "type": "string",
+                    "description": "Defines the Diffie-Hellman group for key exchange to provide perfect forward secrecy\n"
+                },
+                "presharedKey": {
+                    "type": "string",
+                    "description": "Specifies the preshared key for ISAKMP SAs\n"
+                },
+                "presharedKeyEncrypted": {
+                    "type": "string",
+                    "description": "Display the encrypted preshared-key for the IKE remote node\n"
+                },
+                "prf": {
+                    "type": "string",
+                    "description": "Specifies the pseudo-random function used to derive keying material for all cryptographic operations\n"
+                },
+                "proxySupport": {
+                    "type": "string",
+                    "description": "If this value is enabled, both values of ID payloads in the phase 2 exchange are used as the addresses of end-point of IPsec-SAs\n"
+                },
+                "remoteAddress": {
+                    "type": "string",
+                    "description": "Specifies the IP address of the IKE remote node\n"
+                },
+                "replayWindowSize": {
+                    "type": "integer",
+                    "description": "Specifies the replay window size of the IPsec SAs negotiated with the IKE remote node\n"
+                },
+                "state": {
+                    "type": "string",
+                    "description": "Enables or disables this IKE remote node\n"
+                },
+                "trafficSelectors": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies the names of the traffic-selector objects associated with this ike-peer\n"
+                },
+                "verifyCert": {
+                    "type": "string",
+                    "description": "Specifies whether to verify the certificate chain of the remote peer based on the trusted certificates in ca-cert-file\n"
+                },
+                "versions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies which version of IKE to be used\n"
+                }
+            },
+            "required": [
+                "caCertFile",
+                "crlFile",
+                "description",
+                "dpdDelay",
+                "generatePolicy",
+                "lifetime",
+                "mode",
+                "myCertFile",
+                "myCertKeyFile",
+                "myCertKeyPassphrase",
+                "myIdType",
+                "myIdValue",
+                "name",
+                "natTraversal",
+                "passive",
+                "peersCertFile",
+                "peersCertType",
+                "peersIdType",
+                "peersIdValue",
+                "phase1AuthMethod",
+                "phase1EncryptAlgorithm",
+                "phase1HashAlgorithm",
+                "phase1PerfectForwardSecrecy",
+                "presharedKeyEncrypted",
+                "prf",
+                "proxySupport",
+                "remoteAddress",
+                "replayWindowSize",
+                "state",
+                "trafficSelectors",
+                "verifyCert",
+                "versions"
+            ],
+            "inputProperties": {
+                "appService": {
+                    "type": "string",
+                    "description": "The application service that the object belongs to\n"
+                },
+                "caCertFile": {
+                    "type": "string",
+                    "description": "the trusted root and intermediate certificate authorities\n"
+                },
+                "crlFile": {
+                    "type": "string",
+                    "description": "Specifies the file name of the Certificate Revocation List. Only supported in IKEv1\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "User defined description\n"
+                },
+                "dpdDelay": {
+                    "type": "integer",
+                    "description": "Specifies the number of seconds between Dead Peer Detection messages\n"
+                },
+                "generatePolicy": {
+                    "type": "string",
+                    "description": "Enable or disable the generation of Security Policy Database entries(SPD) when the device is the responder of the IKE remote node\n"
+                },
+                "lifetime": {
+                    "type": "integer",
+                    "description": "Defines the lifetime in minutes of an IKE SA which will be proposed in the phase 1 negotiations\n"
+                },
+                "mode": {
+                    "type": "string",
+                    "description": "Defines the exchange mode for phase 1 when racoon is the initiator, or the acceptable exchange mode when racoon is the responder\n"
+                },
+                "myCertFile": {
+                    "type": "string",
+                    "description": "Specifies the name of the certificate file object\n"
+                },
+                "myCertKeyFile": {
+                    "type": "string",
+                    "description": "Specifies the name of the certificate key file object\n"
+                },
+                "myCertKeyPassphrase": {
+                    "type": "string",
+                    "description": "Specifies the passphrase of the key used for my-cert-key-file\n"
+                },
+                "myIdType": {
+                    "type": "string",
+                    "description": "Specifies the identifier type sent to the remote host to use in the phase 1 negotiation\n"
+                },
+                "myIdValue": {
+                    "type": "string",
+                    "description": "Specifies the identifier value sent to the remote host in the phase 1 negotiation\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the ike_peer\n"
+                },
+                "natTraversal": {
+                    "type": "string",
+                    "description": "Enables use of the NAT-Traversal IPsec extension\n"
+                },
+                "passive": {
+                    "type": "string",
+                    "description": "Specifies whether the local IKE agent can be the initiator of the IKE negotiation with this ike-peer\n"
+                },
+                "peersCertFile": {
+                    "type": "string",
+                    "description": "Specifies the peer’s certificate for authentication\n"
+                },
+                "peersCertType": {
+                    "type": "string",
+                    "description": "Specifies that the only peers-cert-type supported is certfile\n"
+                },
+                "peersIdType": {
+                    "type": "string",
+                    "description": "Specifies which of address, fqdn, asn1dn, user-fqdn or keyid-tag types to use as peers-id-type\n"
+                },
+                "peersIdValue": {
+                    "type": "string",
+                    "description": "Specifies the peer’s identifier to be received\n"
+                },
+                "phase1AuthMethod": {
+                    "type": "string",
+                    "description": "Specifies the authentication method used for phase 1 negotiation\n"
+                },
+                "phase1EncryptAlgorithm": {
+                    "type": "string",
+                    "description": "Specifies the encryption algorithm used for the isakmp phase 1 negotiation\n"
+                },
+                "phase1HashAlgorithm": {
+                    "type": "string",
+                    "description": "Defines the hash algorithm used for the isakmp phase 1 negotiation\n"
+                },
+                "phase1PerfectForwardSecrecy": {
+                    "type": "string",
+                    "description": "Defines the Diffie-Hellman group for key exchange to provide perfect forward secrecy\n"
+                },
+                "presharedKey": {
+                    "type": "string",
+                    "description": "Specifies the preshared key for ISAKMP SAs\n"
+                },
+                "presharedKeyEncrypted": {
+                    "type": "string",
+                    "description": "Display the encrypted preshared-key for the IKE remote node\n"
+                },
+                "prf": {
+                    "type": "string",
+                    "description": "Specifies the pseudo-random function used to derive keying material for all cryptographic operations\n"
+                },
+                "proxySupport": {
+                    "type": "string",
+                    "description": "If this value is enabled, both values of ID payloads in the phase 2 exchange are used as the addresses of end-point of IPsec-SAs\n"
+                },
+                "remoteAddress": {
+                    "type": "string",
+                    "description": "Specifies the IP address of the IKE remote node\n"
+                },
+                "replayWindowSize": {
+                    "type": "integer",
+                    "description": "Specifies the replay window size of the IPsec SAs negotiated with the IKE remote node\n"
+                },
+                "state": {
+                    "type": "string",
+                    "description": "Enables or disables this IKE remote node\n"
+                },
+                "trafficSelectors": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies the names of the traffic-selector objects associated with this ike-peer\n"
+                },
+                "verifyCert": {
+                    "type": "string",
+                    "description": "Specifies whether to verify the certificate chain of the remote peer based on the trusted certificates in ca-cert-file\n"
+                },
+                "versions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies which version of IKE to be used\n"
+                }
+            },
+            "requiredInputs": [
+                "name",
+                "remoteAddress"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering NetIkePeer resources.\n",
+                "properties": {
+                    "appService": {
+                        "type": "string",
+                        "description": "The application service that the object belongs to\n"
+                    },
+                    "caCertFile": {
+                        "type": "string",
+                        "description": "the trusted root and intermediate certificate authorities\n"
+                    },
+                    "crlFile": {
+                        "type": "string",
+                        "description": "Specifies the file name of the Certificate Revocation List. Only supported in IKEv1\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "User defined description\n"
+                    },
+                    "dpdDelay": {
+                        "type": "integer",
+                        "description": "Specifies the number of seconds between Dead Peer Detection messages\n"
+                    },
+                    "generatePolicy": {
+                        "type": "string",
+                        "description": "Enable or disable the generation of Security Policy Database entries(SPD) when the device is the responder of the IKE remote node\n"
+                    },
+                    "lifetime": {
+                        "type": "integer",
+                        "description": "Defines the lifetime in minutes of an IKE SA which will be proposed in the phase 1 negotiations\n"
+                    },
+                    "mode": {
+                        "type": "string",
+                        "description": "Defines the exchange mode for phase 1 when racoon is the initiator, or the acceptable exchange mode when racoon is the responder\n"
+                    },
+                    "myCertFile": {
+                        "type": "string",
+                        "description": "Specifies the name of the certificate file object\n"
+                    },
+                    "myCertKeyFile": {
+                        "type": "string",
+                        "description": "Specifies the name of the certificate key file object\n"
+                    },
+                    "myCertKeyPassphrase": {
+                        "type": "string",
+                        "description": "Specifies the passphrase of the key used for my-cert-key-file\n"
+                    },
+                    "myIdType": {
+                        "type": "string",
+                        "description": "Specifies the identifier type sent to the remote host to use in the phase 1 negotiation\n"
+                    },
+                    "myIdValue": {
+                        "type": "string",
+                        "description": "Specifies the identifier value sent to the remote host in the phase 1 negotiation\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the ike_peer\n"
+                    },
+                    "natTraversal": {
+                        "type": "string",
+                        "description": "Enables use of the NAT-Traversal IPsec extension\n"
+                    },
+                    "passive": {
+                        "type": "string",
+                        "description": "Specifies whether the local IKE agent can be the initiator of the IKE negotiation with this ike-peer\n"
+                    },
+                    "peersCertFile": {
+                        "type": "string",
+                        "description": "Specifies the peer’s certificate for authentication\n"
+                    },
+                    "peersCertType": {
+                        "type": "string",
+                        "description": "Specifies that the only peers-cert-type supported is certfile\n"
+                    },
+                    "peersIdType": {
+                        "type": "string",
+                        "description": "Specifies which of address, fqdn, asn1dn, user-fqdn or keyid-tag types to use as peers-id-type\n"
+                    },
+                    "peersIdValue": {
+                        "type": "string",
+                        "description": "Specifies the peer’s identifier to be received\n"
+                    },
+                    "phase1AuthMethod": {
+                        "type": "string",
+                        "description": "Specifies the authentication method used for phase 1 negotiation\n"
+                    },
+                    "phase1EncryptAlgorithm": {
+                        "type": "string",
+                        "description": "Specifies the encryption algorithm used for the isakmp phase 1 negotiation\n"
+                    },
+                    "phase1HashAlgorithm": {
+                        "type": "string",
+                        "description": "Defines the hash algorithm used for the isakmp phase 1 negotiation\n"
+                    },
+                    "phase1PerfectForwardSecrecy": {
+                        "type": "string",
+                        "description": "Defines the Diffie-Hellman group for key exchange to provide perfect forward secrecy\n"
+                    },
+                    "presharedKey": {
+                        "type": "string",
+                        "description": "Specifies the preshared key for ISAKMP SAs\n"
+                    },
+                    "presharedKeyEncrypted": {
+                        "type": "string",
+                        "description": "Display the encrypted preshared-key for the IKE remote node\n"
+                    },
+                    "prf": {
+                        "type": "string",
+                        "description": "Specifies the pseudo-random function used to derive keying material for all cryptographic operations\n"
+                    },
+                    "proxySupport": {
+                        "type": "string",
+                        "description": "If this value is enabled, both values of ID payloads in the phase 2 exchange are used as the addresses of end-point of IPsec-SAs\n"
+                    },
+                    "remoteAddress": {
+                        "type": "string",
+                        "description": "Specifies the IP address of the IKE remote node\n"
+                    },
+                    "replayWindowSize": {
+                        "type": "integer",
+                        "description": "Specifies the replay window size of the IPsec SAs negotiated with the IKE remote node\n"
+                    },
+                    "state": {
+                        "type": "string",
+                        "description": "Enables or disables this IKE remote node\n"
+                    },
+                    "trafficSelectors": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Specifies the names of the traffic-selector objects associated with this ike-peer\n"
+                    },
+                    "verifyCert": {
+                        "type": "string",
+                        "description": "Specifies whether to verify the certificate chain of the remote peer based on the trusted certificates in ca-cert-file\n"
+                    },
+                    "versions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Specifies which version of IKE to be used\n"
                     }
                 },
                 "type": "object"
@@ -5345,7 +5944,7 @@
             }
         },
         "f5bigip:ltm/profileClientSsl:ProfileClientSsl": {
-            "description": "`f5bigip.ltm.ProfileClientSsl` Manages client SSL profiles on a BIG-IP\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst test_ClientSsl = new f5bigip.ltm.ProfileClientSsl(\"test-ClientSsl\", {\n    authenticate: \"always\",\n    ciphers: \"DEFAULT\",\n    defaultsFrom: \"/Common/clientssl\",\n    name: \"/Common/test-ClientSsl\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ntest__client_ssl = f5bigip.ltm.ProfileClientSsl(\"test-ClientSsl\",\n    authenticate=\"always\",\n    ciphers=\"DEFAULT\",\n    defaults_from=\"/Common/clientssl\",\n    name=\"/Common/test-ClientSsl\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test_ClientSsl = new F5BigIP.Ltm.ProfileClientSsl(\"test-ClientSsl\", new F5BigIP.Ltm.ProfileClientSslArgs\n        {\n            Authenticate = \"always\",\n            Ciphers = \"DEFAULT\",\n            DefaultsFrom = \"/Common/clientssl\",\n            Name = \"/Common/test-ClientSsl\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewProfileClientSsl(ctx, \"test_ClientSsl\", \u0026ltm.ProfileClientSslArgs{\n\t\t\tAuthenticate: pulumi.String(\"always\"),\n\t\t\tCiphers:      pulumi.String(\"DEFAULT\"),\n\t\t\tDefaultsFrom: pulumi.String(\"/Common/clientssl\"),\n\t\t\tName:         pulumi.String(\"/Common/test-ClientSsl\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "`f5bigip.ltm.ProfileClientSsl` Manages client SSL profiles on a BIG-IP\n\nResources should be named with their \"full path\". The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst test_ClientSsl = new f5bigip.ltm.ProfileClientSsl(\"test-ClientSsl\", {\n    authenticate: \"always\",\n    ciphers: \"DEFAULT\",\n    defaultsFrom: \"/Common/clientssl\",\n    name: \"/Common/test-ClientSsl\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ntest__client_ssl = f5bigip.ltm.ProfileClientSsl(\"test-ClientSsl\",\n    authenticate=\"always\",\n    ciphers=\"DEFAULT\",\n    defaults_from=\"/Common/clientssl\",\n    name=\"/Common/test-ClientSsl\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test_ClientSsl = new F5BigIP.Ltm.ProfileClientSsl(\"test-ClientSsl\", new F5BigIP.Ltm.ProfileClientSslArgs\n        {\n            Authenticate = \"always\",\n            Ciphers = \"DEFAULT\",\n            DefaultsFrom = \"/Common/clientssl\",\n            Name = \"/Common/test-ClientSsl\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewProfileClientSsl(ctx, \"test_ClientSsl\", \u0026ltm.ProfileClientSslArgs{\n\t\t\tAuthenticate: pulumi.String(\"always\"),\n\t\t\tCiphers:      pulumi.String(\"DEFAULT\"),\n\t\t\tDefaultsFrom: pulumi.String(\"/Common/clientssl\"),\n\t\t\tName:         pulumi.String(\"/Common/test-ClientSsl\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "alertTimeout": {
                     "type": "string",
@@ -7272,7 +7871,7 @@
             }
         },
         "f5bigip:ltm/profileServerSsl:ProfileServerSsl": {
-            "description": "`f5bigip.ltm.ProfileServerSsl` Manages server SSL profiles on a BIG-IP\n\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst test_ServerSsl = new f5bigip.ltm.ProfileServerSsl(\"test-ServerSsl\", {\n    authenticate: \"always\",\n    ciphers: \"DEFAULT\",\n    defaultsFrom: \"/Common/serverssl\",\n    name: \"/Common/test-ServerSsl\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ntest__server_ssl = f5bigip.ltm.ProfileServerSsl(\"test-ServerSsl\",\n    authenticate=\"always\",\n    ciphers=\"DEFAULT\",\n    defaults_from=\"/Common/serverssl\",\n    name=\"/Common/test-ServerSsl\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test_ServerSsl = new F5BigIP.Ltm.ProfileServerSsl(\"test-ServerSsl\", new F5BigIP.Ltm.ProfileServerSslArgs\n        {\n            Authenticate = \"always\",\n            Ciphers = \"DEFAULT\",\n            DefaultsFrom = \"/Common/serverssl\",\n            Name = \"/Common/test-ServerSsl\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewProfileServerSsl(ctx, \"test_ServerSsl\", \u0026ltm.ProfileServerSslArgs{\n\t\t\tAuthenticate: pulumi.String(\"always\"),\n\t\t\tCiphers:      pulumi.String(\"DEFAULT\"),\n\t\t\tDefaultsFrom: pulumi.String(\"/Common/serverssl\"),\n\t\t\tName:         pulumi.String(\"/Common/test-ServerSsl\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "`f5bigip.ltm.ProfileServerSsl` Manages server SSL profiles on a BIG-IP\n\nResources should be named with their \"full path\". The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst test_ServerSsl = new f5bigip.ltm.ProfileServerSsl(\"test-ServerSsl\", {\n    authenticate: \"always\",\n    ciphers: \"DEFAULT\",\n    defaultsFrom: \"/Common/serverssl\",\n    name: \"/Common/test-ServerSsl\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ntest__server_ssl = f5bigip.ltm.ProfileServerSsl(\"test-ServerSsl\",\n    authenticate=\"always\",\n    ciphers=\"DEFAULT\",\n    defaults_from=\"/Common/serverssl\",\n    name=\"/Common/test-ServerSsl\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test_ServerSsl = new F5BigIP.Ltm.ProfileServerSsl(\"test-ServerSsl\", new F5BigIP.Ltm.ProfileServerSslArgs\n        {\n            Authenticate = \"always\",\n            Ciphers = \"DEFAULT\",\n            DefaultsFrom = \"/Common/serverssl\",\n            Name = \"/Common/test-ServerSsl\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewProfileServerSsl(ctx, \"test_ServerSsl\", \u0026ltm.ProfileServerSslArgs{\n\t\t\tAuthenticate: pulumi.String(\"always\"),\n\t\t\tCiphers:      pulumi.String(\"DEFAULT\"),\n\t\t\tDefaultsFrom: pulumi.String(\"/Common/serverssl\"),\n\t\t\tName:         pulumi.String(\"/Common/test-ServerSsl\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "alertTimeout": {
                     "type": "string",
@@ -8563,7 +9162,6 @@
                 }
             },
             "required": [
-                "clientProfiles",
                 "destination",
                 "fallbackPersistenceProfile",
                 "ipProtocol",
@@ -8571,7 +9169,6 @@
                 "name",
                 "port",
                 "profiles",
-                "serverProfiles",
                 "snatpool",
                 "source",
                 "sourceAddressTranslation",
@@ -8829,6 +9426,14 @@
                 "network": {
                     "type": "string",
                     "description": "The destination subnet and netmask for the route.\n"
+                },
+                "reject": {
+                    "type": "boolean",
+                    "description": "reject route\n"
+                },
+                "tunnelRef": {
+                    "type": "string",
+                    "description": "tunnel_ref to route traffic\n"
                 }
             },
             "required": [
@@ -8847,6 +9452,14 @@
                 "network": {
                     "type": "string",
                     "description": "The destination subnet and netmask for the route.\n"
+                },
+                "reject": {
+                    "type": "boolean",
+                    "description": "reject route\n"
+                },
+                "tunnelRef": {
+                    "type": "string",
+                    "description": "tunnel_ref to route traffic\n"
                 }
             },
             "requiredInputs": [
@@ -8867,6 +9480,14 @@
                     "network": {
                         "type": "string",
                         "description": "The destination subnet and netmask for the route.\n"
+                    },
+                    "reject": {
+                        "type": "boolean",
+                        "description": "reject route\n"
+                    },
+                    "tunnelRef": {
+                        "type": "string",
+                        "description": "tunnel_ref to route traffic\n"
                     }
                 },
                 "type": "object"
@@ -9765,6 +10386,10 @@
                     "description": "SNMP version used for sending the trap.\n"
                 }
             },
+            "required": [
+                "securityLevel",
+                "version"
+            ],
             "inputProperties": {
                 "authPasswordencrypted": {
                     "type": "string",
@@ -10260,6 +10885,79 @@
                     "id"
                 ]
             }
+        },
+        "f5bigip:ssl/getVWanConfig:getVWanConfig": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getVWanConfig.\n",
+                "properties": {
+                    "azureVwanName": {
+                        "type": "string"
+                    },
+                    "azureVwanResourcegroup": {
+                        "type": "string"
+                    },
+                    "azureVwanVpnsite": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "azureVwanName",
+                    "azureVwanResourcegroup",
+                    "azureVwanVpnsite"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getVWanConfig.\n",
+                "properties": {
+                    "azureVwanName": {
+                        "type": "string"
+                    },
+                    "azureVwanResourcegroup": {
+                        "type": "string"
+                    },
+                    "azureVwanVpnsite": {
+                        "type": "string"
+                    },
+                    "bigipGwIp": {
+                        "type": "string"
+                    },
+                    "hubAddressSpace": {
+                        "type": "string"
+                    },
+                    "hubConnectedSubnets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "presharedKey": {
+                        "type": "string"
+                    },
+                    "vwanGwAddresses": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "azureVwanName",
+                    "azureVwanResourcegroup",
+                    "azureVwanVpnsite",
+                    "bigipGwIp",
+                    "hubAddressSpace",
+                    "hubConnectedSubnets",
+                    "presharedKey",
+                    "vwanGwAddresses",
+                    "id"
+                ]
+            }
         }
     },
     "language": {
@@ -10275,7 +10973,7 @@
                 "sys": "Sys"
             },
             "packageReferences": {
-                "Pulumi": "3.*-*",
+                "Pulumi": "3.*",
                 "System.Collections.Immutable": "1.6.0"
             }
         },
@@ -10286,7 +10984,7 @@
         "nodejs": {
             "compatibility": "tfbridge20",
             "dependencies": {
-                "@pulumi/pulumi": "^3.0.0-alpha.0"
+                "@pulumi/pulumi": "^3.0.0"
             },
             "devDependencies": {
                 "@types/node": "^10.0.0"
@@ -10301,7 +10999,7 @@
             "compatibility": "tfbridge20",
             "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/F5Networks/terraform-provider-bigip)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-f5bigip` repo](https://github.com/pulumi/pulumi-f5bigip/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`F5Networks/terraform-provider-bigip` repo](https://github.com/F5Networks/terraform-provider-bigip/issues).",
             "requires": {
-                "pulumi": "\u003e=3.0.0a1,\u003c4.0.0"
+                "pulumi": "\u003e=3.0.0,\u003c4.0.0"
             }
         }
     }

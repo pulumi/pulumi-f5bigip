@@ -9,7 +9,10 @@ from .command import *
 from .common_license_manage_big_iq import *
 from .do import *
 from .event_service_discovery import *
+from .fast_application import *
+from .fast_template import *
 from .ipsec_policy import *
+from .net_ike_peer import *
 from .net_tunnel import *
 from .provider import *
 from .traffic_selector import *
@@ -50,8 +53,14 @@ def _register_module():
                 return Do(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "f5bigip:index/eventServiceDiscovery:EventServiceDiscovery":
                 return EventServiceDiscovery(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "f5bigip:index/fastApplication:FastApplication":
+                return FastApplication(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "f5bigip:index/fastTemplate:FastTemplate":
+                return FastTemplate(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "f5bigip:index/ipsecPolicy:IpsecPolicy":
                 return IpsecPolicy(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "f5bigip:index/netIkePeer:NetIkePeer":
+                return NetIkePeer(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "f5bigip:index/netTunnel:NetTunnel":
                 return NetTunnel(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "f5bigip:index/trafficSelector:TrafficSelector":
@@ -67,7 +76,10 @@ def _register_module():
     pulumi.runtime.register_resource_module("f5bigip", "index/commonLicenseManageBigIq", _module_instance)
     pulumi.runtime.register_resource_module("f5bigip", "index/do", _module_instance)
     pulumi.runtime.register_resource_module("f5bigip", "index/eventServiceDiscovery", _module_instance)
+    pulumi.runtime.register_resource_module("f5bigip", "index/fastApplication", _module_instance)
+    pulumi.runtime.register_resource_module("f5bigip", "index/fastTemplate", _module_instance)
     pulumi.runtime.register_resource_module("f5bigip", "index/ipsecPolicy", _module_instance)
+    pulumi.runtime.register_resource_module("f5bigip", "index/netIkePeer", _module_instance)
     pulumi.runtime.register_resource_module("f5bigip", "index/netTunnel", _module_instance)
     pulumi.runtime.register_resource_module("f5bigip", "index/trafficSelector", _module_instance)
 

@@ -96,7 +96,7 @@ export class SnmpTraps extends pulumi.CustomResource {
     /**
      * Specifies whether or not traffic is encrypted and whether or not authentication is required.
      */
-    public readonly securityLevel!: pulumi.Output<string | undefined>;
+    public readonly securityLevel!: pulumi.Output<string>;
     /**
      * Security name used in conjunction with SNMPv3.
      */
@@ -104,7 +104,7 @@ export class SnmpTraps extends pulumi.CustomResource {
     /**
      * SNMP version used for sending the trap.
      */
-    public readonly version!: pulumi.Output<string | undefined>;
+    public readonly version!: pulumi.Output<string>;
 
     /**
      * Create a SnmpTraps resource with the given unique name, arguments, and options.

@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./certificate";
 export * from "./getCertificate";
+export * from "./getVWanConfig";
 export * from "./key";
 
 // Import resources to register:

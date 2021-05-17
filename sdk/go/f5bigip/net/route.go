@@ -48,6 +48,10 @@ type Route struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The destination subnet and netmask for the route.
 	Network pulumi.StringOutput `pulumi:"network"`
+	// reject route
+	Reject pulumi.BoolPtrOutput `pulumi:"reject"`
+	// tunnel_ref to route traffic
+	TunnelRef pulumi.StringPtrOutput `pulumi:"tunnelRef"`
 }
 
 // NewRoute registers a new resource with the given unique name, arguments, and options.
@@ -91,6 +95,10 @@ type routeState struct {
 	Name *string `pulumi:"name"`
 	// The destination subnet and netmask for the route.
 	Network *string `pulumi:"network"`
+	// reject route
+	Reject *bool `pulumi:"reject"`
+	// tunnel_ref to route traffic
+	TunnelRef *string `pulumi:"tunnelRef"`
 }
 
 type RouteState struct {
@@ -100,6 +108,10 @@ type RouteState struct {
 	Name pulumi.StringPtrInput
 	// The destination subnet and netmask for the route.
 	Network pulumi.StringPtrInput
+	// reject route
+	Reject pulumi.BoolPtrInput
+	// tunnel_ref to route traffic
+	TunnelRef pulumi.StringPtrInput
 }
 
 func (RouteState) ElementType() reflect.Type {
@@ -113,6 +125,10 @@ type routeArgs struct {
 	Name string `pulumi:"name"`
 	// The destination subnet and netmask for the route.
 	Network string `pulumi:"network"`
+	// reject route
+	Reject *bool `pulumi:"reject"`
+	// tunnel_ref to route traffic
+	TunnelRef *string `pulumi:"tunnelRef"`
 }
 
 // The set of arguments for constructing a Route resource.
@@ -123,6 +139,10 @@ type RouteArgs struct {
 	Name pulumi.StringInput
 	// The destination subnet and netmask for the route.
 	Network pulumi.StringInput
+	// reject route
+	Reject pulumi.BoolPtrInput
+	// tunnel_ref to route traffic
+	TunnelRef pulumi.StringPtrInput
 }
 
 func (RouteArgs) ElementType() reflect.Type {

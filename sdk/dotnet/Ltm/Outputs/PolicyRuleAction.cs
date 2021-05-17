@@ -24,6 +24,7 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
         public readonly string? ClonePool;
         public readonly int? Code;
         public readonly bool? Compress;
+        public readonly bool? Connection;
         public readonly string? Content;
         public readonly bool? CookieHash;
         public readonly bool? CookieInsert;
@@ -100,6 +101,7 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
         public readonly bool? Select;
         public readonly bool? ServerSsl;
         public readonly bool? SetVariable;
+        public readonly bool? Shutdown;
         public readonly string? Snat;
         public readonly string? Snatpool;
         public readonly bool? SourceAddress;
@@ -145,6 +147,8 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
             int? code,
 
             bool? compress,
+
+            bool? connection,
 
             string? content,
 
@@ -286,6 +290,8 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
 
             bool? setVariable,
 
+            bool? shutdown,
+
             string? snat,
 
             string? snatpool,
@@ -339,6 +345,7 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
             ClonePool = clonePool;
             Code = code;
             Compress = compress;
+            Connection = connection;
             Content = content;
             CookieHash = cookieHash;
             CookieInsert = cookieInsert;
@@ -409,6 +416,7 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
             Select = select;
             ServerSsl = serverSsl;
             SetVariable = setVariable;
+            Shutdown = shutdown;
             Snat = snat;
             Snatpool = snatpool;
             SourceAddress = sourceAddress;
