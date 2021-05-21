@@ -56,6 +56,18 @@ namespace Pulumi.F5BigIP.Net
         [Output("network")]
         public Output<string> Network { get; private set; } = null!;
 
+        /// <summary>
+        /// reject route
+        /// </summary>
+        [Output("reject")]
+        public Output<bool?> Reject { get; private set; } = null!;
+
+        /// <summary>
+        /// tunnel_ref to route traffic
+        /// </summary>
+        [Output("tunnelRef")]
+        public Output<string?> TunnelRef { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Route resource with the given unique name, arguments, and options.
@@ -120,6 +132,18 @@ namespace Pulumi.F5BigIP.Net
         [Input("network", required: true)]
         public Input<string> Network { get; set; } = null!;
 
+        /// <summary>
+        /// reject route
+        /// </summary>
+        [Input("reject")]
+        public Input<bool>? Reject { get; set; }
+
+        /// <summary>
+        /// tunnel_ref to route traffic
+        /// </summary>
+        [Input("tunnelRef")]
+        public Input<string>? TunnelRef { get; set; }
+
         public RouteArgs()
         {
         }
@@ -144,6 +168,18 @@ namespace Pulumi.F5BigIP.Net
         /// </summary>
         [Input("network")]
         public Input<string>? Network { get; set; }
+
+        /// <summary>
+        /// reject route
+        /// </summary>
+        [Input("reject")]
+        public Input<bool>? Reject { get; set; }
+
+        /// <summary>
+        /// tunnel_ref to route traffic
+        /// </summary>
+        [Input("tunnelRef")]
+        public Input<string>? TunnelRef { get; set; }
 
         public RouteState()
         {

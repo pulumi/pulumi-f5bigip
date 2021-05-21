@@ -107,7 +107,7 @@ namespace Pulumi.F5BigIP.Sys
         /// Specifies whether or not traffic is encrypted and whether or not authentication is required.
         /// </summary>
         [Output("securityLevel")]
-        public Output<string?> SecurityLevel { get; private set; } = null!;
+        public Output<string> SecurityLevel { get; private set; } = null!;
 
         /// <summary>
         /// Security name used in conjunction with SNMPv3.
@@ -119,7 +119,7 @@ namespace Pulumi.F5BigIP.Sys
         /// SNMP version used for sending the trap.
         /// </summary>
         [Output("version")]
-        public Output<string?> Version { get; private set; } = null!;
+        public Output<string> Version { get; private set; } = null!;
 
 
         /// <summary>

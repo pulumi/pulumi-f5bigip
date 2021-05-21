@@ -1867,6 +1867,8 @@ class ProfileClientSsl(pulumi.CustomResource):
         """
         `ltm.ProfileClientSsl` Manages client SSL profiles on a BIG-IP
 
+        Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )
+
         ## Example Usage
 
         ```python
@@ -1951,6 +1953,8 @@ class ProfileClientSsl(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         `ltm.ProfileClientSsl` Manages client SSL profiles on a BIG-IP
+
+        Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )
 
         ## Example Usage
 

@@ -5,6 +5,7 @@
 # Export this package's modules as members:
 from .certificate import *
 from .get_certificate import *
+from .get_v_wan_config import *
 from .key import *
 
 def _register_module():

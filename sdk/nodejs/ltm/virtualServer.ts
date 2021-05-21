@@ -80,7 +80,7 @@ export class VirtualServer extends pulumi.CustomResource {
     /**
      * List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
      */
-    public readonly clientProfiles!: pulumi.Output<string[]>;
+    public readonly clientProfiles!: pulumi.Output<string[] | undefined>;
     public readonly defaultPersistenceProfile!: pulumi.Output<string | undefined>;
     /**
      * Description of Virtual server
@@ -130,7 +130,7 @@ export class VirtualServer extends pulumi.CustomResource {
     /**
      * List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
      */
-    public readonly serverProfiles!: pulumi.Output<string[]>;
+    public readonly serverProfiles!: pulumi.Output<string[] | undefined>;
     /**
      * Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
      */

@@ -82,6 +82,7 @@ export namespace ltm {
         clonePool?: pulumi.Input<string>;
         code?: pulumi.Input<number>;
         compress?: pulumi.Input<boolean>;
+        connection?: pulumi.Input<boolean>;
         content?: pulumi.Input<string>;
         cookieHash?: pulumi.Input<boolean>;
         cookieInsert?: pulumi.Input<boolean>;
@@ -158,6 +159,7 @@ export namespace ltm {
         select?: pulumi.Input<boolean>;
         serverSsl?: pulumi.Input<boolean>;
         setVariable?: pulumi.Input<boolean>;
+        shutdown?: pulumi.Input<boolean>;
         snat?: pulumi.Input<string>;
         snatpool?: pulumi.Input<string>;
         sourceAddress?: pulumi.Input<boolean>;

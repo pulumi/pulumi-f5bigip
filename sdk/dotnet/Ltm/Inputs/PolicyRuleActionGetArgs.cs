@@ -45,6 +45,9 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
         [Input("compress")]
         public Input<bool>? Compress { get; set; }
 
+        [Input("connection")]
+        public Input<bool>? Connection { get; set; }
+
         [Input("content")]
         public Input<string>? Content { get; set; }
 
@@ -260,6 +263,9 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
 
         [Input("setVariable")]
         public Input<bool>? SetVariable { get; set; }
+
+        [Input("shutdown")]
+        public Input<bool>? Shutdown { get; set; }
 
         [Input("snat")]
         public Input<string>? Snat { get; set; }

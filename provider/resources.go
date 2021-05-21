@@ -126,7 +126,10 @@ func Provider() tfbridge.ProviderInfo {
 			"bigip_event_service_discovery":         {Tok: makeResource(mainMod, "EventServiceDiscovery")},
 			"bigip_ipsec_policy":                    {Tok: makeResource(mainMod, "IpsecPolicy")},
 			"bigip_net_tunnel":                      {Tok: makeResource(mainMod, "NetTunnel")},
+			"bigip_net_ike_peer":                    {Tok: makeResource(mainMod, "NetIkePeer")},
 			"bigip_traffic_selector":                {Tok: makeResource(mainMod, "TrafficSelector")},
+			"bigip_fast_template":                   {Tok: makeResource(mainMod, "FastTemplate")},
+			"bigip_fast_application":                {Tok: makeResource(mainMod, "FastApplication")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"bigip_ltm_datagroup":   {Tok: makeDataSource(ltmMod, "getDataGroup")},
@@ -135,10 +138,11 @@ func Provider() tfbridge.ProviderInfo {
 			"bigip_ltm_pool":        {Tok: makeDataSource(ltmMod, "getPool")},
 			"bigip_ltm_node":        {Tok: makeDataSource(ltmMod, "getNode")},
 			"bigip_ssl_certificate": {Tok: makeDataSource(sslMod, "getCertificate")},
+			"bigip_vwan_config":     {Tok: makeDataSource(sslMod, "getVWanConfig")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
-				"@pulumi/pulumi": "^3.0.0-alpha.0",
+				"@pulumi/pulumi": "^3.0.0",
 			},
 			DevDependencies: map[string]string{
 				"@types/node": "^10.0.0", // so we can access strongly typed node definitions.
@@ -146,7 +150,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		Python: &tfbridge.PythonInfo{
 			Requires: map[string]string{
-				"pulumi": ">=3.0.0a1,<4.0.0",
+				"pulumi": ">=3.0.0,<4.0.0",
 			},
 		},
 		Golang: &tfbridge.GolangInfo{
@@ -160,7 +164,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		CSharp: &tfbridge.CSharpInfo{
 			PackageReferences: map[string]string{
-				"Pulumi":                       "3.*-*",
+				"Pulumi":                       "3.*",
 				"System.Collections.Immutable": "1.6.0",
 			},
 			Namespaces: namespaceMap,
