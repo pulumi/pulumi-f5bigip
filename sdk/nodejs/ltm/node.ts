@@ -153,40 +153,40 @@ export interface NodeState {
     /**
      * IP or hostname of the node
      */
-    readonly address?: pulumi.Input<string>;
+    address?: pulumi.Input<string>;
     /**
      * Specifies the maximum number of connections allowed for the node or node address.
      */
-    readonly connectionLimit?: pulumi.Input<number>;
+    connectionLimit?: pulumi.Input<number>;
     /**
      * User-defined description give ltm_node
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Specifies the fixed ratio value used for a node during ratio load balancing.
      */
-    readonly dynamicRatio?: pulumi.Input<number>;
-    readonly fqdn?: pulumi.Input<inputs.ltm.NodeFqdn>;
+    dynamicRatio?: pulumi.Input<number>;
+    fqdn?: pulumi.Input<inputs.ltm.NodeFqdn>;
     /**
      * specifies the name of the monitor or monitor rule that you want to associate with the node.
      */
-    readonly monitor?: pulumi.Input<string>;
+    monitor?: pulumi.Input<string>;
     /**
      * Name of the node
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
      */
-    readonly rateLimit?: pulumi.Input<string>;
+    rateLimit?: pulumi.Input<string>;
     /**
      * Sets the ratio number for the node.
      */
-    readonly ratio?: pulumi.Input<number>;
+    ratio?: pulumi.Input<number>;
     /**
      * Default is "user-up" you can set to "user-down" if you want to disable
      */
-    readonly state?: pulumi.Input<string>;
+    state?: pulumi.Input<string>;
 }
 
 /**
@@ -196,38 +196,38 @@ export interface NodeArgs {
     /**
      * IP or hostname of the node
      */
-    readonly address: pulumi.Input<string>;
+    address: pulumi.Input<string>;
     /**
      * Specifies the maximum number of connections allowed for the node or node address.
      */
-    readonly connectionLimit?: pulumi.Input<number>;
+    connectionLimit?: pulumi.Input<number>;
     /**
      * User-defined description give ltm_node
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Specifies the fixed ratio value used for a node during ratio load balancing.
      */
-    readonly dynamicRatio?: pulumi.Input<number>;
-    readonly fqdn?: pulumi.Input<inputs.ltm.NodeFqdn>;
+    dynamicRatio?: pulumi.Input<number>;
+    fqdn?: pulumi.Input<inputs.ltm.NodeFqdn>;
     /**
      * specifies the name of the monitor or monitor rule that you want to associate with the node.
      */
-    readonly monitor?: pulumi.Input<string>;
+    monitor?: pulumi.Input<string>;
     /**
      * Name of the node
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
      */
-    readonly rateLimit?: pulumi.Input<string>;
+    rateLimit?: pulumi.Input<string>;
     /**
      * Sets the ratio number for the node.
      */
-    readonly ratio?: pulumi.Input<number>;
+    ratio?: pulumi.Input<number>;
     /**
      * Default is "user-up" you can set to "user-down" if you want to disable
      */
-    readonly state?: pulumi.Input<string>;
+    state?: pulumi.Input<string>;
 }

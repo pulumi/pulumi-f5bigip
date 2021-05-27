@@ -96,15 +96,15 @@ export interface SnmpState {
     /**
      * Configures hosts or networks from which snmpd can accept traffic. Entries go directly into hosts.allow.
      */
-    readonly allowedaddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedaddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the contact information for the system administrator.
      */
-    readonly sysContact?: pulumi.Input<string>;
+    sysContact?: pulumi.Input<string>;
     /**
      * Describes the system's physical location.
      */
-    readonly sysLocation?: pulumi.Input<string>;
+    sysLocation?: pulumi.Input<string>;
 }
 
 /**
@@ -114,13 +114,13 @@ export interface SnmpArgs {
     /**
      * Configures hosts or networks from which snmpd can accept traffic. Entries go directly into hosts.allow.
      */
-    readonly allowedaddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedaddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the contact information for the system administrator.
      */
-    readonly sysContact?: pulumi.Input<string>;
+    sysContact?: pulumi.Input<string>;
     /**
      * Describes the system's physical location.
      */
-    readonly sysLocation?: pulumi.Input<string>;
+    sysLocation?: pulumi.Input<string>;
 }

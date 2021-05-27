@@ -151,44 +151,44 @@ export interface TrafficSelectorState {
     /**
      * Description of the traffic selector.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Specifies the host or network IP address to which the application traffic is destined.When creating a new traffic selector, this parameter is required.
      */
-    readonly destinationAddress?: pulumi.Input<string>;
+    destinationAddress?: pulumi.Input<string>;
     /**
      * Specifies the IP port used by the application. The default value is `All Ports (0)`
      */
-    readonly destinationPort?: pulumi.Input<number>;
+    destinationPort?: pulumi.Input<number>;
     /**
      * Specifies whether the traffic selector applies to inbound or outbound traffic, or both. The default value is `Both`.
      */
-    readonly direction?: pulumi.Input<string>;
+    direction?: pulumi.Input<string>;
     /**
      * Specifies the network protocol to use for this traffic. The default value is `All Protocols (255)`
      */
-    readonly ipProtocol?: pulumi.Input<number>;
+    ipProtocol?: pulumi.Input<number>;
     /**
      * Specifies the IPsec policy that tells the BIG-IP system how to handle the packets.When creating a new traffic selector, if this parameter is not specified, the default is `default-ipsec-policy`.
      */
-    readonly ipsecPolicy?: pulumi.Input<string>;
+    ipsecPolicy?: pulumi.Input<string>;
     /**
      * Name of the IPSec traffic-selector,it should be "full path".The full path is the combination of the partition + name of the IPSec traffic-selector.(For example `/Common/test-selector`)
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the order in which traffic is matched, if traffic can be matched to multiple traffic selectors.Traffic is matched to the traffic selector with the highest priority (lowest order number).
      * When creating a new traffic selector, if this parameter is not specified, the default is `last`
      */
-    readonly order?: pulumi.Input<number>;
+    order?: pulumi.Input<number>;
     /**
      * Specifies the host or network IP address from which the application traffic originates.When creating a new traffic selector, this parameter is required.
      */
-    readonly sourceAddress?: pulumi.Input<string>;
+    sourceAddress?: pulumi.Input<string>;
     /**
      * Specifies the IP port used by the application. The default value is `All Ports (0)`.
      */
-    readonly sourcePort?: pulumi.Input<number>;
+    sourcePort?: pulumi.Input<number>;
 }
 
 /**
@@ -198,42 +198,42 @@ export interface TrafficSelectorArgs {
     /**
      * Description of the traffic selector.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Specifies the host or network IP address to which the application traffic is destined.When creating a new traffic selector, this parameter is required.
      */
-    readonly destinationAddress: pulumi.Input<string>;
+    destinationAddress: pulumi.Input<string>;
     /**
      * Specifies the IP port used by the application. The default value is `All Ports (0)`
      */
-    readonly destinationPort?: pulumi.Input<number>;
+    destinationPort?: pulumi.Input<number>;
     /**
      * Specifies whether the traffic selector applies to inbound or outbound traffic, or both. The default value is `Both`.
      */
-    readonly direction?: pulumi.Input<string>;
+    direction?: pulumi.Input<string>;
     /**
      * Specifies the network protocol to use for this traffic. The default value is `All Protocols (255)`
      */
-    readonly ipProtocol?: pulumi.Input<number>;
+    ipProtocol?: pulumi.Input<number>;
     /**
      * Specifies the IPsec policy that tells the BIG-IP system how to handle the packets.When creating a new traffic selector, if this parameter is not specified, the default is `default-ipsec-policy`.
      */
-    readonly ipsecPolicy?: pulumi.Input<string>;
+    ipsecPolicy?: pulumi.Input<string>;
     /**
      * Name of the IPSec traffic-selector,it should be "full path".The full path is the combination of the partition + name of the IPSec traffic-selector.(For example `/Common/test-selector`)
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Specifies the order in which traffic is matched, if traffic can be matched to multiple traffic selectors.Traffic is matched to the traffic selector with the highest priority (lowest order number).
      * When creating a new traffic selector, if this parameter is not specified, the default is `last`
      */
-    readonly order?: pulumi.Input<number>;
+    order?: pulumi.Input<number>;
     /**
      * Specifies the host or network IP address from which the application traffic originates.When creating a new traffic selector, this parameter is required.
      */
-    readonly sourceAddress: pulumi.Input<string>;
+    sourceAddress: pulumi.Input<string>;
     /**
      * Specifies the IP port used by the application. The default value is `All Ports (0)`.
      */
-    readonly sourcePort?: pulumi.Input<number>;
+    sourcePort?: pulumi.Input<number>;
 }

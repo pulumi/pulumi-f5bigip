@@ -23,8 +23,8 @@ export function getMonitor(args: GetMonitorArgs, opts?: pulumi.InvokeOptions): P
  * A collection of arguments for invoking getMonitor.
  */
 export interface GetMonitorArgs {
-    readonly name: string;
-    readonly partition: string;
+    name: string;
+    partition: string;
 }
 
 /**

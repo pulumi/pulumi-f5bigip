@@ -105,15 +105,15 @@ export interface KeyState {
     /**
      * Content of SSL certificate key present on local Disk
      */
-    readonly content?: pulumi.Input<string>;
+    content?: pulumi.Input<string>;
     /**
      * Name of the SSL Certificate key to be Imported on to BIGIP
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Partition of ssl certificate key
      */
-    readonly partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string>;
 }
 
 /**
@@ -123,13 +123,13 @@ export interface KeyArgs {
     /**
      * Content of SSL certificate key present on local Disk
      */
-    readonly content: pulumi.Input<string>;
+    content: pulumi.Input<string>;
     /**
      * Name of the SSL Certificate key to be Imported on to BIGIP
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Partition of ssl certificate key
      */
-    readonly partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string>;
 }

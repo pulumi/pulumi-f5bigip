@@ -73,20 +73,20 @@ export class EventServiceDiscovery extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EventServiceDiscovery resources.
  */
 export interface EventServiceDiscoveryState {
-    readonly nodes?: pulumi.Input<pulumi.Input<inputs.EventServiceDiscoveryNode>[]>;
+    nodes?: pulumi.Input<pulumi.Input<inputs.EventServiceDiscoveryNode>[]>;
     /**
      * Name of the partition/tenant
      */
-    readonly taskid?: pulumi.Input<string>;
+    taskid?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a EventServiceDiscovery resource.
  */
 export interface EventServiceDiscoveryArgs {
-    readonly nodes?: pulumi.Input<pulumi.Input<inputs.EventServiceDiscoveryNode>[]>;
+    nodes?: pulumi.Input<pulumi.Input<inputs.EventServiceDiscoveryNode>[]>;
     /**
      * Name of the partition/tenant
      */
-    readonly taskid: pulumi.Input<string>;
+    taskid: pulumi.Input<string>;
 }

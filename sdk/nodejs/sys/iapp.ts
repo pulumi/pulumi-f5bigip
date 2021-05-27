@@ -190,59 +190,59 @@ export interface IAppState {
     /**
      * Address of the Iapp which needs to be Iappensed
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * BIG-IP password
      */
-    readonly devicegroup?: pulumi.Input<string>;
+    devicegroup?: pulumi.Input<string>;
     /**
      * BIG-IP password
      */
-    readonly executeAction?: pulumi.Input<string>;
+    executeAction?: pulumi.Input<string>;
     /**
      * BIG-IP password
      */
-    readonly inheritedDevicegroup?: pulumi.Input<string>;
+    inheritedDevicegroup?: pulumi.Input<string>;
     /**
      * BIG-IP password
      */
-    readonly inheritedTrafficGroup?: pulumi.Input<string>;
+    inheritedTrafficGroup?: pulumi.Input<string>;
     /**
      * Refer to the Json file which will be deployed on F5 BIG-IP.
      */
-    readonly jsonfile?: pulumi.Input<string>;
-    readonly lists?: pulumi.Input<pulumi.Input<inputs.sys.IAppList>[]>;
-    readonly metadatas?: pulumi.Input<pulumi.Input<inputs.sys.IAppMetadata>[]>;
+    jsonfile?: pulumi.Input<string>;
+    lists?: pulumi.Input<pulumi.Input<inputs.sys.IAppList>[]>;
+    metadatas?: pulumi.Input<pulumi.Input<inputs.sys.IAppMetadata>[]>;
     /**
      * Name of the iApp.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Address of the Iapp which needs to be Iappensed
      */
-    readonly partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string>;
     /**
      * BIG-IP password
      */
-    readonly strictUpdates?: pulumi.Input<string>;
-    readonly tables?: pulumi.Input<pulumi.Input<inputs.sys.IAppTable>[]>;
+    strictUpdates?: pulumi.Input<string>;
+    tables?: pulumi.Input<pulumi.Input<inputs.sys.IAppTable>[]>;
     /**
      * BIG-IP password
      */
-    readonly template?: pulumi.Input<string>;
+    template?: pulumi.Input<string>;
     /**
      * BIG-IP password
      */
-    readonly templateModified?: pulumi.Input<string>;
+    templateModified?: pulumi.Input<string>;
     /**
      * BIG-IP password
      */
-    readonly templatePrerequisiteErrors?: pulumi.Input<string>;
+    templatePrerequisiteErrors?: pulumi.Input<string>;
     /**
      * BIG-IP password
      */
-    readonly trafficGroup?: pulumi.Input<string>;
-    readonly variables?: pulumi.Input<pulumi.Input<inputs.sys.IAppVariable>[]>;
+    trafficGroup?: pulumi.Input<string>;
+    variables?: pulumi.Input<pulumi.Input<inputs.sys.IAppVariable>[]>;
 }
 
 /**
@@ -252,57 +252,57 @@ export interface IAppArgs {
     /**
      * Address of the Iapp which needs to be Iappensed
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * BIG-IP password
      */
-    readonly devicegroup?: pulumi.Input<string>;
+    devicegroup?: pulumi.Input<string>;
     /**
      * BIG-IP password
      */
-    readonly executeAction?: pulumi.Input<string>;
+    executeAction?: pulumi.Input<string>;
     /**
      * BIG-IP password
      */
-    readonly inheritedDevicegroup?: pulumi.Input<string>;
+    inheritedDevicegroup?: pulumi.Input<string>;
     /**
      * BIG-IP password
      */
-    readonly inheritedTrafficGroup?: pulumi.Input<string>;
+    inheritedTrafficGroup?: pulumi.Input<string>;
     /**
      * Refer to the Json file which will be deployed on F5 BIG-IP.
      */
-    readonly jsonfile?: pulumi.Input<string>;
-    readonly lists?: pulumi.Input<pulumi.Input<inputs.sys.IAppList>[]>;
-    readonly metadatas?: pulumi.Input<pulumi.Input<inputs.sys.IAppMetadata>[]>;
+    jsonfile?: pulumi.Input<string>;
+    lists?: pulumi.Input<pulumi.Input<inputs.sys.IAppList>[]>;
+    metadatas?: pulumi.Input<pulumi.Input<inputs.sys.IAppMetadata>[]>;
     /**
      * Name of the iApp.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Address of the Iapp which needs to be Iappensed
      */
-    readonly partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string>;
     /**
      * BIG-IP password
      */
-    readonly strictUpdates?: pulumi.Input<string>;
-    readonly tables?: pulumi.Input<pulumi.Input<inputs.sys.IAppTable>[]>;
+    strictUpdates?: pulumi.Input<string>;
+    tables?: pulumi.Input<pulumi.Input<inputs.sys.IAppTable>[]>;
     /**
      * BIG-IP password
      */
-    readonly template?: pulumi.Input<string>;
+    template?: pulumi.Input<string>;
     /**
      * BIG-IP password
      */
-    readonly templateModified?: pulumi.Input<string>;
+    templateModified?: pulumi.Input<string>;
     /**
      * BIG-IP password
      */
-    readonly templatePrerequisiteErrors?: pulumi.Input<string>;
+    templatePrerequisiteErrors?: pulumi.Input<string>;
     /**
      * BIG-IP password
      */
-    readonly trafficGroup?: pulumi.Input<string>;
-    readonly variables?: pulumi.Input<pulumi.Input<inputs.sys.IAppVariable>[]>;
+    trafficGroup?: pulumi.Input<string>;
+    variables?: pulumi.Input<pulumi.Input<inputs.sys.IAppVariable>[]>;
 }

@@ -98,12 +98,12 @@ export interface CommandState {
     /**
      * The resulting output from the `commands` executed
      */
-    readonly commandResults?: pulumi.Input<pulumi.Input<string>[]>;
+    commandResults?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `commandResult`
      */
-    readonly commands?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly when?: pulumi.Input<string>;
+    commands?: pulumi.Input<pulumi.Input<string>[]>;
+    when?: pulumi.Input<string>;
 }
 
 /**
@@ -113,10 +113,10 @@ export interface CommandArgs {
     /**
      * The resulting output from the `commands` executed
      */
-    readonly commandResults?: pulumi.Input<pulumi.Input<string>[]>;
+    commandResults?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `commandResult`
      */
-    readonly commands: pulumi.Input<pulumi.Input<string>[]>;
-    readonly when?: pulumi.Input<string>;
+    commands: pulumi.Input<pulumi.Input<string>[]>;
+    when?: pulumi.Input<string>;
 }

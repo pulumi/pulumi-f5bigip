@@ -249,89 +249,89 @@ export interface VirtualServerState {
     /**
      * List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
      */
-    readonly clientProfiles?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly defaultPersistenceProfile?: pulumi.Input<string>;
+    clientProfiles?: pulumi.Input<pulumi.Input<string>[]>;
+    defaultPersistenceProfile?: pulumi.Input<string>;
     /**
      * Description of Virtual server
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Destination IP
      */
-    readonly destination?: pulumi.Input<string>;
+    destination?: pulumi.Input<string>;
     /**
      * Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
      */
-    readonly fallbackPersistenceProfile?: pulumi.Input<string>;
+    fallbackPersistenceProfile?: pulumi.Input<string>;
     /**
      * Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
      */
-    readonly ipProtocol?: pulumi.Input<string>;
+    ipProtocol?: pulumi.Input<string>;
     /**
      * The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
      */
-    readonly irules?: pulumi.Input<pulumi.Input<string>[]>;
+    irules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
      */
-    readonly mask?: pulumi.Input<string>;
+    mask?: pulumi.Input<string>;
     /**
      * Name of the virtual server
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * List of persistence profiles associated with the Virtual Server.
      */
-    readonly persistenceProfiles?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly policies?: pulumi.Input<pulumi.Input<string>[]>;
+    persistenceProfiles?: pulumi.Input<pulumi.Input<string>[]>;
+    policies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Default pool name
      */
-    readonly pool?: pulumi.Input<string>;
+    pool?: pulumi.Input<string>;
     /**
      * Listen port for the virtual server
      */
-    readonly port?: pulumi.Input<number>;
+    port?: pulumi.Input<number>;
     /**
      * List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
      */
-    readonly profiles?: pulumi.Input<pulumi.Input<string>[]>;
+    profiles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
      */
-    readonly serverProfiles?: pulumi.Input<pulumi.Input<string>[]>;
+    serverProfiles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
      */
-    readonly snatpool?: pulumi.Input<string>;
+    snatpool?: pulumi.Input<string>;
     /**
      * Specifies an IP address or network from which the virtual server will accept traffic.
      */
-    readonly source?: pulumi.Input<string>;
+    source?: pulumi.Input<string>;
     /**
      * Can be either omitted for none or the values automap or snat
      */
-    readonly sourceAddressTranslation?: pulumi.Input<string>;
+    sourceAddressTranslation?: pulumi.Input<string>;
     /**
      * Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
      */
-    readonly state?: pulumi.Input<string>;
+    state?: pulumi.Input<string>;
     /**
      * Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
      */
-    readonly translateAddress?: pulumi.Input<string>;
+    translateAddress?: pulumi.Input<string>;
     /**
      * Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
      */
-    readonly translatePort?: pulumi.Input<string>;
+    translatePort?: pulumi.Input<string>;
     /**
      * The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.
      */
-    readonly vlans?: pulumi.Input<pulumi.Input<string>[]>;
+    vlans?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Enables the virtual server on the VLANs specified by the VLANs option.
      */
-    readonly vlansEnabled?: pulumi.Input<boolean>;
+    vlansEnabled?: pulumi.Input<boolean>;
 }
 
 /**
@@ -341,87 +341,87 @@ export interface VirtualServerArgs {
     /**
      * List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
      */
-    readonly clientProfiles?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly defaultPersistenceProfile?: pulumi.Input<string>;
+    clientProfiles?: pulumi.Input<pulumi.Input<string>[]>;
+    defaultPersistenceProfile?: pulumi.Input<string>;
     /**
      * Description of Virtual server
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Destination IP
      */
-    readonly destination: pulumi.Input<string>;
+    destination: pulumi.Input<string>;
     /**
      * Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
      */
-    readonly fallbackPersistenceProfile?: pulumi.Input<string>;
+    fallbackPersistenceProfile?: pulumi.Input<string>;
     /**
      * Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
      */
-    readonly ipProtocol?: pulumi.Input<string>;
+    ipProtocol?: pulumi.Input<string>;
     /**
      * The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
      */
-    readonly irules?: pulumi.Input<pulumi.Input<string>[]>;
+    irules?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
      */
-    readonly mask?: pulumi.Input<string>;
+    mask?: pulumi.Input<string>;
     /**
      * Name of the virtual server
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * List of persistence profiles associated with the Virtual Server.
      */
-    readonly persistenceProfiles?: pulumi.Input<pulumi.Input<string>[]>;
-    readonly policies?: pulumi.Input<pulumi.Input<string>[]>;
+    persistenceProfiles?: pulumi.Input<pulumi.Input<string>[]>;
+    policies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Default pool name
      */
-    readonly pool?: pulumi.Input<string>;
+    pool?: pulumi.Input<string>;
     /**
      * Listen port for the virtual server
      */
-    readonly port: pulumi.Input<number>;
+    port: pulumi.Input<number>;
     /**
      * List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
      */
-    readonly profiles?: pulumi.Input<pulumi.Input<string>[]>;
+    profiles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
      */
-    readonly serverProfiles?: pulumi.Input<pulumi.Input<string>[]>;
+    serverProfiles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
      */
-    readonly snatpool?: pulumi.Input<string>;
+    snatpool?: pulumi.Input<string>;
     /**
      * Specifies an IP address or network from which the virtual server will accept traffic.
      */
-    readonly source?: pulumi.Input<string>;
+    source?: pulumi.Input<string>;
     /**
      * Can be either omitted for none or the values automap or snat
      */
-    readonly sourceAddressTranslation?: pulumi.Input<string>;
+    sourceAddressTranslation?: pulumi.Input<string>;
     /**
      * Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
      */
-    readonly state?: pulumi.Input<string>;
+    state?: pulumi.Input<string>;
     /**
      * Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
      */
-    readonly translateAddress?: pulumi.Input<string>;
+    translateAddress?: pulumi.Input<string>;
     /**
      * Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
      */
-    readonly translatePort?: pulumi.Input<string>;
+    translatePort?: pulumi.Input<string>;
     /**
      * The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.
      */
-    readonly vlans?: pulumi.Input<pulumi.Input<string>[]>;
+    vlans?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Enables the virtual server on the VLANs specified by the VLANs option.
      */
-    readonly vlansEnabled?: pulumi.Input<boolean>;
+    vlansEnabled?: pulumi.Input<boolean>;
 }

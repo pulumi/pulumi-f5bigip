@@ -151,35 +151,35 @@ export interface PoolAttachmentState {
     /**
      * Specifies a maximum established connection limit for a pool member or node.The default is 0, meaning that there is no limit to the number of connections.
      */
-    readonly connectionLimit?: pulumi.Input<number>;
+    connectionLimit?: pulumi.Input<number>;
     /**
      * Specifies the maximum number of connections-per-second allowed for a pool member,The default is 0.
      */
-    readonly connectionRateLimit?: pulumi.Input<string>;
+    connectionRateLimit?: pulumi.Input<string>;
     /**
      * Specifies the fixed ratio value used for a node during ratio load balancing.
      */
-    readonly dynamicRatio?: pulumi.Input<number>;
+    dynamicRatio?: pulumi.Input<number>;
     /**
      * Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled
      */
-    readonly fqdnAutopopulate?: pulumi.Input<string>;
+    fqdnAutopopulate?: pulumi.Input<string>;
     /**
      * Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
      */
-    readonly node?: pulumi.Input<string>;
+    node?: pulumi.Input<string>;
     /**
      * Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
      */
-    readonly pool?: pulumi.Input<string>;
+    pool?: pulumi.Input<string>;
     /**
      * Specifies a number representing the priority group for the pool member. The default is 0, meaning that the member has no priority
      */
-    readonly priorityGroup?: pulumi.Input<number>;
+    priorityGroup?: pulumi.Input<number>;
     /**
      * "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
      */
-    readonly ratio?: pulumi.Input<number>;
+    ratio?: pulumi.Input<number>;
 }
 
 /**
@@ -189,33 +189,33 @@ export interface PoolAttachmentArgs {
     /**
      * Specifies a maximum established connection limit for a pool member or node.The default is 0, meaning that there is no limit to the number of connections.
      */
-    readonly connectionLimit?: pulumi.Input<number>;
+    connectionLimit?: pulumi.Input<number>;
     /**
      * Specifies the maximum number of connections-per-second allowed for a pool member,The default is 0.
      */
-    readonly connectionRateLimit?: pulumi.Input<string>;
+    connectionRateLimit?: pulumi.Input<string>;
     /**
      * Specifies the fixed ratio value used for a node during ratio load balancing.
      */
-    readonly dynamicRatio?: pulumi.Input<number>;
+    dynamicRatio?: pulumi.Input<number>;
     /**
      * Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled
      */
-    readonly fqdnAutopopulate?: pulumi.Input<string>;
+    fqdnAutopopulate?: pulumi.Input<string>;
     /**
      * Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
      */
-    readonly node: pulumi.Input<string>;
+    node: pulumi.Input<string>;
     /**
      * Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
      */
-    readonly pool: pulumi.Input<string>;
+    pool: pulumi.Input<string>;
     /**
      * Specifies a number representing the priority group for the pool member. The default is 0, meaning that the member has no priority
      */
-    readonly priorityGroup?: pulumi.Input<number>;
+    priorityGroup?: pulumi.Input<number>;
     /**
      * "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
      */
-    readonly ratio?: pulumi.Input<number>;
+    ratio?: pulumi.Input<number>;
 }

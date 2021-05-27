@@ -103,17 +103,17 @@ export interface DoState {
     /**
      * Name of the of the Declarative DO JSON file
      */
-    readonly doJson?: pulumi.Input<string>;
+    doJson?: pulumi.Input<string>;
     /**
      * unique identifier for DO resource
      *
      * @deprecated this attribute is no longer in use
      */
-    readonly tenantName?: pulumi.Input<string>;
+    tenantName?: pulumi.Input<string>;
     /**
      * DO json
      */
-    readonly timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number>;
 }
 
 /**
@@ -123,15 +123,15 @@ export interface DoArgs {
     /**
      * Name of the of the Declarative DO JSON file
      */
-    readonly doJson: pulumi.Input<string>;
+    doJson: pulumi.Input<string>;
     /**
      * unique identifier for DO resource
      *
      * @deprecated this attribute is no longer in use
      */
-    readonly tenantName?: pulumi.Input<string>;
+    tenantName?: pulumi.Input<string>;
     /**
      * DO json
      */
-    readonly timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number>;
 }

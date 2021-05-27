@@ -2303,6 +2303,41 @@
     },
     "provider": {
         "description": "The provider type for the bigip package. By default, resources use package-wide configuration\nsettings, however an explicit `Provider` instance may be created and passed during resource\nconstruction to achieve fine-grained programmatic control over provider settings. See the\n[documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.\n",
+        "properties": {
+            "address": {
+                "type": "string",
+                "description": "Domain name/IP of the BigIP\n"
+            },
+            "loginRef": {
+                "type": "string",
+                "description": "Login reference for token authentication (see BIG-IP REST docs for details)\n"
+            },
+            "password": {
+                "type": "string",
+                "description": "The user's password\n"
+            },
+            "port": {
+                "type": "string",
+                "description": "Management Port to connect to Bigip\n"
+            },
+            "teemDisable": {
+                "type": "boolean",
+                "description": "If this flag set to true,sending telemetry data to TEEM will be disabled\n"
+            },
+            "tokenAuth": {
+                "type": "boolean",
+                "description": "Enable to use an external authentication source (LDAP, TACACS, etc)\n"
+            },
+            "username": {
+                "type": "string",
+                "description": "Username with API access to the BigIP\n"
+            }
+        },
+        "required": [
+            "address",
+            "password",
+            "username"
+        ],
         "inputProperties": {
             "address": {
                 "type": "string",

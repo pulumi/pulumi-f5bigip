@@ -117,23 +117,23 @@ export interface RouteState {
     /**
      * Specifies a gateway address for the route.
      */
-    readonly gw?: pulumi.Input<string>;
+    gw?: pulumi.Input<string>;
     /**
      * Name of the route
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The destination subnet and netmask for the route.
      */
-    readonly network?: pulumi.Input<string>;
+    network?: pulumi.Input<string>;
     /**
      * reject route
      */
-    readonly reject?: pulumi.Input<boolean>;
+    reject?: pulumi.Input<boolean>;
     /**
      * tunnel_ref to route traffic
      */
-    readonly tunnelRef?: pulumi.Input<string>;
+    tunnelRef?: pulumi.Input<string>;
 }
 
 /**
@@ -143,21 +143,21 @@ export interface RouteArgs {
     /**
      * Specifies a gateway address for the route.
      */
-    readonly gw?: pulumi.Input<string>;
+    gw?: pulumi.Input<string>;
     /**
      * Name of the route
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * The destination subnet and netmask for the route.
      */
-    readonly network: pulumi.Input<string>;
+    network: pulumi.Input<string>;
     /**
      * reject route
      */
-    readonly reject?: pulumi.Input<boolean>;
+    reject?: pulumi.Input<boolean>;
     /**
      * tunnel_ref to route traffic
      */
-    readonly tunnelRef?: pulumi.Input<string>;
+    tunnelRef?: pulumi.Input<string>;
 }

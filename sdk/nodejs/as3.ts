@@ -125,29 +125,29 @@ export interface As3State {
     /**
      * Name of Application
      */
-    readonly applicationList?: pulumi.Input<string>;
+    applicationList?: pulumi.Input<string>;
     /**
      * Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
      */
-    readonly as3Json?: pulumi.Input<string>;
+    as3Json?: pulumi.Input<string>;
     /**
      * Set True if you want to ignore metadata changes during update. By default it is set to false
      */
-    readonly ignoreMetadata?: pulumi.Input<boolean>;
+    ignoreMetadata?: pulumi.Input<boolean>;
     /**
      * If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified
      */
-    readonly tenantFilter?: pulumi.Input<string>;
+    tenantFilter?: pulumi.Input<string>;
     /**
      * Name of Tenant
      */
-    readonly tenantList?: pulumi.Input<string>;
+    tenantList?: pulumi.Input<string>;
     /**
      * Name of Tenant
      *
      * @deprecated this attribute is no longer in use
      */
-    readonly tenantName?: pulumi.Input<string>;
+    tenantName?: pulumi.Input<string>;
 }
 
 /**
@@ -157,27 +157,27 @@ export interface As3Args {
     /**
      * Name of Application
      */
-    readonly applicationList?: pulumi.Input<string>;
+    applicationList?: pulumi.Input<string>;
     /**
      * Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
      */
-    readonly as3Json: pulumi.Input<string>;
+    as3Json: pulumi.Input<string>;
     /**
      * Set True if you want to ignore metadata changes during update. By default it is set to false
      */
-    readonly ignoreMetadata?: pulumi.Input<boolean>;
+    ignoreMetadata?: pulumi.Input<boolean>;
     /**
      * If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified
      */
-    readonly tenantFilter?: pulumi.Input<string>;
+    tenantFilter?: pulumi.Input<string>;
     /**
      * Name of Tenant
      */
-    readonly tenantList?: pulumi.Input<string>;
+    tenantList?: pulumi.Input<string>;
     /**
      * Name of Tenant
      *
      * @deprecated this attribute is no longer in use
      */
-    readonly tenantName?: pulumi.Input<string>;
+    tenantName?: pulumi.Input<string>;
 }

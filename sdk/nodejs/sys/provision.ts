@@ -120,27 +120,27 @@ export interface ProvisionState {
     /**
      * cpu Ratio
      */
-    readonly cpuRatio?: pulumi.Input<number>;
+    cpuRatio?: pulumi.Input<number>;
     /**
      * disk Ratio
      */
-    readonly diskRatio?: pulumi.Input<number>;
+    diskRatio?: pulumi.Input<number>;
     /**
      * path
      */
-    readonly fullPath?: pulumi.Input<string>;
+    fullPath?: pulumi.Input<string>;
     /**
      * what level nominal or dedicated
      */
-    readonly level?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
     /**
      * memory Ratio
      */
-    readonly memoryRatio?: pulumi.Input<number>;
+    memoryRatio?: pulumi.Input<number>;
     /**
      * Name of the module to be provisioned
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }
 
 /**
@@ -150,25 +150,25 @@ export interface ProvisionArgs {
     /**
      * cpu Ratio
      */
-    readonly cpuRatio?: pulumi.Input<number>;
+    cpuRatio?: pulumi.Input<number>;
     /**
      * disk Ratio
      */
-    readonly diskRatio?: pulumi.Input<number>;
+    diskRatio?: pulumi.Input<number>;
     /**
      * path
      */
-    readonly fullPath?: pulumi.Input<string>;
+    fullPath?: pulumi.Input<string>;
     /**
      * what level nominal or dedicated
      */
-    readonly level?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
     /**
      * memory Ratio
      */
-    readonly memoryRatio?: pulumi.Input<number>;
+    memoryRatio?: pulumi.Input<number>;
     /**
      * Name of the module to be provisioned
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

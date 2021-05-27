@@ -17,6 +17,17 @@ import (
 // [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
 type Provider struct {
 	pulumi.ProviderResourceState
+
+	// Domain name/IP of the BigIP
+	Address pulumi.StringOutput `pulumi:"address"`
+	// Login reference for token authentication (see BIG-IP REST docs for details)
+	LoginRef pulumi.StringPtrOutput `pulumi:"loginRef"`
+	// The user's password
+	Password pulumi.StringOutput `pulumi:"password"`
+	// Management Port to connect to Bigip
+	Port pulumi.StringPtrOutput `pulumi:"port"`
+	// Username with API access to the BigIP
+	Username pulumi.StringOutput `pulumi:"username"`
 }
 
 // NewProvider registers a new resource with the given unique name, arguments, and options.

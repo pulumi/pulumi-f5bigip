@@ -123,35 +123,35 @@ export interface BigIqAs3State {
     /**
      * AS3 json
      */
-    readonly as3Json?: pulumi.Input<string>;
+    as3Json?: pulumi.Input<string>;
     /**
      * The registration key pool to use
      */
-    readonly bigiqAddress?: pulumi.Input<string>;
+    bigiqAddress?: pulumi.Input<string>;
     /**
      * Login reference for token authentication (see BIG-IQ REST docs for details)
      */
-    readonly bigiqLoginRef?: pulumi.Input<string>;
+    bigiqLoginRef?: pulumi.Input<string>;
     /**
      * The registration key pool to use
      */
-    readonly bigiqPassword?: pulumi.Input<string>;
+    bigiqPassword?: pulumi.Input<string>;
     /**
      * The registration key pool to use
      */
-    readonly bigiqPort?: pulumi.Input<string>;
+    bigiqPort?: pulumi.Input<string>;
     /**
      * Enable to use an external authentication source (LDAP, TACACS, etc)
      */
-    readonly bigiqTokenAuth?: pulumi.Input<boolean>;
+    bigiqTokenAuth?: pulumi.Input<boolean>;
     /**
      * The registration key pool to use
      */
-    readonly bigiqUser?: pulumi.Input<string>;
+    bigiqUser?: pulumi.Input<string>;
     /**
      * Name of Tenant
      */
-    readonly tenantList?: pulumi.Input<string>;
+    tenantList?: pulumi.Input<string>;
 }
 
 /**
@@ -161,33 +161,33 @@ export interface BigIqAs3Args {
     /**
      * AS3 json
      */
-    readonly as3Json: pulumi.Input<string>;
+    as3Json: pulumi.Input<string>;
     /**
      * The registration key pool to use
      */
-    readonly bigiqAddress: pulumi.Input<string>;
+    bigiqAddress: pulumi.Input<string>;
     /**
      * Login reference for token authentication (see BIG-IQ REST docs for details)
      */
-    readonly bigiqLoginRef?: pulumi.Input<string>;
+    bigiqLoginRef?: pulumi.Input<string>;
     /**
      * The registration key pool to use
      */
-    readonly bigiqPassword: pulumi.Input<string>;
+    bigiqPassword: pulumi.Input<string>;
     /**
      * The registration key pool to use
      */
-    readonly bigiqPort?: pulumi.Input<string>;
+    bigiqPort?: pulumi.Input<string>;
     /**
      * Enable to use an external authentication source (LDAP, TACACS, etc)
      */
-    readonly bigiqTokenAuth?: pulumi.Input<boolean>;
+    bigiqTokenAuth?: pulumi.Input<boolean>;
     /**
      * The registration key pool to use
      */
-    readonly bigiqUser: pulumi.Input<string>;
+    bigiqUser: pulumi.Input<string>;
     /**
      * Name of Tenant
      */
-    readonly tenantList?: pulumi.Input<string>;
+    tenantList?: pulumi.Input<string>;
 }

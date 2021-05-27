@@ -26,11 +26,11 @@ export function getNode(args: GetNodeArgs, opts?: pulumi.InvokeOptions): Promise
  * A collection of arguments for invoking getNode.
  */
 export interface GetNodeArgs {
-    readonly address?: string;
-    readonly description?: string;
-    readonly fqdn?: inputs.ltm.GetNodeFqdn;
-    readonly name: string;
-    readonly partition: string;
+    address?: string;
+    description?: string;
+    fqdn?: inputs.ltm.GetNodeFqdn;
+    name: string;
+    partition: string;
 }
 
 /**

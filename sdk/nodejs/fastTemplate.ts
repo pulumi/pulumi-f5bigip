@@ -94,11 +94,11 @@ export interface FastTemplateState {
     /**
      * Name of the FAST template set to be created on to BIGIP
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Path to the zip archive file containing FAST template set on Local Disk
      */
-    readonly source?: pulumi.Input<string>;
+    source?: pulumi.Input<string>;
 }
 
 /**
@@ -108,9 +108,9 @@ export interface FastTemplateArgs {
     /**
      * Name of the FAST template set to be created on to BIGIP
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Path to the zip archive file containing FAST template set on Local Disk
      */
-    readonly source: pulumi.Input<string>;
+    source: pulumi.Input<string>;
 }
