@@ -101,11 +101,11 @@ export interface SnatPoolState {
     /**
      * Specifies a translation address to add to or delete from a SNAT pool (at least one address is required)
      */
-    readonly members?: pulumi.Input<pulumi.Input<string>[]>;
+    members?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of the snatpool
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }
 
 /**
@@ -115,9 +115,9 @@ export interface SnatPoolArgs {
     /**
      * Specifies a translation address to add to or delete from a SNAT pool (at least one address is required)
      */
-    readonly members: pulumi.Input<pulumi.Input<string>[]>;
+    members: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of the snatpool
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

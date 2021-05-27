@@ -24,9 +24,9 @@ export function getVWanConfig(args: GetVWanConfigArgs, opts?: pulumi.InvokeOptio
  * A collection of arguments for invoking getVWanConfig.
  */
 export interface GetVWanConfigArgs {
-    readonly azureVwanName: string;
-    readonly azureVwanResourcegroup: string;
-    readonly azureVwanVpnsite: string;
+    azureVwanName: string;
+    azureVwanResourcegroup: string;
+    azureVwanVpnsite: string;
 }
 
 /**

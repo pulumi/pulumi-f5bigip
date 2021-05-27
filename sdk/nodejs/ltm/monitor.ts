@@ -229,79 +229,79 @@ export interface MonitorState {
     /**
      * ftp adaptive
      */
-    readonly adaptive?: pulumi.Input<string>;
+    adaptive?: pulumi.Input<string>;
     /**
      * Integer value
      */
-    readonly adaptiveLimit?: pulumi.Input<number>;
+    adaptiveLimit?: pulumi.Input<number>;
     /**
      * Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
      */
-    readonly compatibility?: pulumi.Input<string>;
+    compatibility?: pulumi.Input<string>;
     /**
      * Specifies the database in which the user is created
      */
-    readonly database?: pulumi.Input<string>;
+    database?: pulumi.Input<string>;
     /**
      * Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
      */
-    readonly defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string>;
     /**
      * Specify an alias address for monitoring
      */
-    readonly destination?: pulumi.Input<string>;
+    destination?: pulumi.Input<string>;
     /**
      * Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
      */
-    readonly filename?: pulumi.Input<string>;
+    filename?: pulumi.Input<string>;
     /**
      * Check interval in seconds
      */
-    readonly interval?: pulumi.Input<number>;
-    readonly ipDscp?: pulumi.Input<number>;
-    readonly manualResume?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+    ipDscp?: pulumi.Input<number>;
+    manualResume?: pulumi.Input<string>;
     /**
      * Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
      */
-    readonly mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string>;
     /**
      * Name of the monitor
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Existing LTM monitor to inherit from
      */
-    readonly parent?: pulumi.Input<string>;
+    parent?: pulumi.Input<string>;
     /**
      * Specifies the password if the monitored target requires authentication
      */
-    readonly password?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * Expected response string
      */
-    readonly receive?: pulumi.Input<string>;
+    receive?: pulumi.Input<string>;
     /**
      * Expected response string.
      */
-    readonly receiveDisable?: pulumi.Input<string>;
-    readonly reverse?: pulumi.Input<string>;
+    receiveDisable?: pulumi.Input<string>;
+    reverse?: pulumi.Input<string>;
     /**
      * Request string to send
      */
-    readonly send?: pulumi.Input<string>;
+    send?: pulumi.Input<string>;
     /**
      * Time in seconds
      */
-    readonly timeUntilUp?: pulumi.Input<number>;
+    timeUntilUp?: pulumi.Input<number>;
     /**
      * Timeout in seconds
      */
-    readonly timeout?: pulumi.Input<number>;
-    readonly transparent?: pulumi.Input<string>;
+    timeout?: pulumi.Input<number>;
+    transparent?: pulumi.Input<string>;
     /**
      * Specifies the user name if the monitored target requires authentication
      */
-    readonly username?: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
 }
 
 /**
@@ -311,77 +311,77 @@ export interface MonitorArgs {
     /**
      * ftp adaptive
      */
-    readonly adaptive?: pulumi.Input<string>;
+    adaptive?: pulumi.Input<string>;
     /**
      * Integer value
      */
-    readonly adaptiveLimit?: pulumi.Input<number>;
+    adaptiveLimit?: pulumi.Input<number>;
     /**
      * Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
      */
-    readonly compatibility?: pulumi.Input<string>;
+    compatibility?: pulumi.Input<string>;
     /**
      * Specifies the database in which the user is created
      */
-    readonly database?: pulumi.Input<string>;
+    database?: pulumi.Input<string>;
     /**
      * Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
      */
-    readonly defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string>;
     /**
      * Specify an alias address for monitoring
      */
-    readonly destination?: pulumi.Input<string>;
+    destination?: pulumi.Input<string>;
     /**
      * Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
      */
-    readonly filename?: pulumi.Input<string>;
+    filename?: pulumi.Input<string>;
     /**
      * Check interval in seconds
      */
-    readonly interval?: pulumi.Input<number>;
-    readonly ipDscp?: pulumi.Input<number>;
-    readonly manualResume?: pulumi.Input<string>;
+    interval?: pulumi.Input<number>;
+    ipDscp?: pulumi.Input<number>;
+    manualResume?: pulumi.Input<string>;
     /**
      * Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
      */
-    readonly mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string>;
     /**
      * Name of the monitor
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Existing LTM monitor to inherit from
      */
-    readonly parent: pulumi.Input<string>;
+    parent: pulumi.Input<string>;
     /**
      * Specifies the password if the monitored target requires authentication
      */
-    readonly password?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * Expected response string
      */
-    readonly receive?: pulumi.Input<string>;
+    receive?: pulumi.Input<string>;
     /**
      * Expected response string.
      */
-    readonly receiveDisable?: pulumi.Input<string>;
-    readonly reverse?: pulumi.Input<string>;
+    receiveDisable?: pulumi.Input<string>;
+    reverse?: pulumi.Input<string>;
     /**
      * Request string to send
      */
-    readonly send?: pulumi.Input<string>;
+    send?: pulumi.Input<string>;
     /**
      * Time in seconds
      */
-    readonly timeUntilUp?: pulumi.Input<number>;
+    timeUntilUp?: pulumi.Input<number>;
     /**
      * Timeout in seconds
      */
-    readonly timeout?: pulumi.Input<number>;
-    readonly transparent?: pulumi.Input<string>;
+    timeout?: pulumi.Input<number>;
+    transparent?: pulumi.Input<string>;
     /**
      * Specifies the user name if the monitored target requires authentication
      */
-    readonly username?: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
 }

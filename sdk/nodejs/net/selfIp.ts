@@ -117,19 +117,19 @@ export interface SelfIpState {
     /**
      * The Self IP's address and netmask.
      */
-    readonly ip?: pulumi.Input<string>;
+    ip?: pulumi.Input<string>;
     /**
      * Name of the selfip
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
      */
-    readonly trafficGroup?: pulumi.Input<string>;
+    trafficGroup?: pulumi.Input<string>;
     /**
      * Specifies the VLAN for which you are setting a self IP address. This setting must be provided when a self IP is created.
      */
-    readonly vlan?: pulumi.Input<string>;
+    vlan?: pulumi.Input<string>;
 }
 
 /**
@@ -139,17 +139,17 @@ export interface SelfIpArgs {
     /**
      * The Self IP's address and netmask.
      */
-    readonly ip: pulumi.Input<string>;
+    ip: pulumi.Input<string>;
     /**
      * Name of the selfip
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
      */
-    readonly trafficGroup?: pulumi.Input<string>;
+    trafficGroup?: pulumi.Input<string>;
     /**
      * Specifies the VLAN for which you are setting a self IP address. This setting must be provided when a self IP is created.
      */
-    readonly vlan: pulumi.Input<string>;
+    vlan: pulumi.Input<string>;
 }

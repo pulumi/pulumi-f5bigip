@@ -106,15 +106,15 @@ export interface VlanState {
     /**
      * Specifies which interfaces you want this VLAN to use for traffic management.
      */
-    readonly interfaces?: pulumi.Input<pulumi.Input<inputs.net.VlanInterface>[]>;
+    interfaces?: pulumi.Input<pulumi.Input<inputs.net.VlanInterface>[]>;
     /**
      * Name of the vlan
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies a number that the system adds into the header of any frame passing through the VLAN.
      */
-    readonly tag?: pulumi.Input<number>;
+    tag?: pulumi.Input<number>;
 }
 
 /**
@@ -124,13 +124,13 @@ export interface VlanArgs {
     /**
      * Specifies which interfaces you want this VLAN to use for traffic management.
      */
-    readonly interfaces?: pulumi.Input<pulumi.Input<inputs.net.VlanInterface>[]>;
+    interfaces?: pulumi.Input<pulumi.Input<inputs.net.VlanInterface>[]>;
     /**
      * Name of the vlan
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Specifies a number that the system adds into the header of any frame passing through the VLAN.
      */
-    readonly tag?: pulumi.Input<number>;
+    tag?: pulumi.Input<number>;
 }

@@ -23,8 +23,8 @@ export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise
  * A collection of arguments for invoking getPool.
  */
 export interface GetPoolArgs {
-    readonly name: string;
-    readonly partition: string;
+    name: string;
+    partition: string;
 }
 
 /**

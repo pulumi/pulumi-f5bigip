@@ -131,35 +131,35 @@ export interface VirtualAddressState {
     /**
      * Enabled dynamic routing of the address
      */
-    readonly advertizeRoute?: pulumi.Input<string>;
+    advertizeRoute?: pulumi.Input<string>;
     /**
      * Enable or disable ARP for the virtual address
      */
-    readonly arp?: pulumi.Input<boolean>;
+    arp?: pulumi.Input<boolean>;
     /**
      * Automatically delete the virtual address with the virtual server
      */
-    readonly autoDelete?: pulumi.Input<boolean>;
+    autoDelete?: pulumi.Input<boolean>;
     /**
      * Max number of connections for virtual address
      */
-    readonly connLimit?: pulumi.Input<number>;
+    connLimit?: pulumi.Input<number>;
     /**
      * Enable or disable the virtual address
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Enable/Disable ICMP response to the virtual address
      */
-    readonly icmpEcho?: pulumi.Input<string>;
+    icmpEcho?: pulumi.Input<string>;
     /**
      * Name of the virtual address
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specify the partition and traffic group
      */
-    readonly trafficGroup?: pulumi.Input<string>;
+    trafficGroup?: pulumi.Input<string>;
 }
 
 /**
@@ -169,33 +169,33 @@ export interface VirtualAddressArgs {
     /**
      * Enabled dynamic routing of the address
      */
-    readonly advertizeRoute?: pulumi.Input<string>;
+    advertizeRoute?: pulumi.Input<string>;
     /**
      * Enable or disable ARP for the virtual address
      */
-    readonly arp?: pulumi.Input<boolean>;
+    arp?: pulumi.Input<boolean>;
     /**
      * Automatically delete the virtual address with the virtual server
      */
-    readonly autoDelete?: pulumi.Input<boolean>;
+    autoDelete?: pulumi.Input<boolean>;
     /**
      * Max number of connections for virtual address
      */
-    readonly connLimit?: pulumi.Input<number>;
+    connLimit?: pulumi.Input<number>;
     /**
      * Enable or disable the virtual address
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Enable/Disable ICMP response to the virtual address
      */
-    readonly icmpEcho?: pulumi.Input<string>;
+    icmpEcho?: pulumi.Input<string>;
     /**
      * Name of the virtual address
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Specify the partition and traffic group
      */
-    readonly trafficGroup?: pulumi.Input<string>;
+    trafficGroup?: pulumi.Input<string>;
 }

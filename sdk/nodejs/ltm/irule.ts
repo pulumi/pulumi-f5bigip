@@ -86,11 +86,11 @@ export interface IRuleState {
     /**
      * Body of the iRule
      */
-    readonly irule?: pulumi.Input<string>;
+    irule?: pulumi.Input<string>;
     /**
      * Name of the iRule
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
 }
 
 /**
@@ -100,9 +100,9 @@ export interface IRuleArgs {
     /**
      * Body of the iRule
      */
-    readonly irule: pulumi.Input<string>;
+    irule: pulumi.Input<string>;
     /**
      * Name of the iRule
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
 }

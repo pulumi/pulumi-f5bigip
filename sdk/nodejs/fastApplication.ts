@@ -106,19 +106,19 @@ export interface FastApplicationState {
     /**
      * A FAST application name.
      */
-    readonly application?: pulumi.Input<string>;
+    application?: pulumi.Input<string>;
     /**
      * Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
      */
-    readonly fastJson?: pulumi.Input<string>;
+    fastJson?: pulumi.Input<string>;
     /**
      * Name of installed FAST template used to create FAST application. This parameter is required when creating new resource.
      */
-    readonly template?: pulumi.Input<string>;
+    template?: pulumi.Input<string>;
     /**
      * A FAST tenant name on which you want to manage application.
      */
-    readonly tenant?: pulumi.Input<string>;
+    tenant?: pulumi.Input<string>;
 }
 
 /**
@@ -128,9 +128,9 @@ export interface FastApplicationArgs {
     /**
      * Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
      */
-    readonly fastJson: pulumi.Input<string>;
+    fastJson: pulumi.Input<string>;
     /**
      * Name of installed FAST template used to create FAST application. This parameter is required when creating new resource.
      */
-    readonly template?: pulumi.Input<string>;
+    template?: pulumi.Input<string>;
 }

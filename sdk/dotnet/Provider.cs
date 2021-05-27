@@ -19,6 +19,37 @@ namespace Pulumi.F5BigIP
     public partial class Provider : Pulumi.ProviderResource
     {
         /// <summary>
+        /// Domain name/IP of the BigIP
+        /// </summary>
+        [Output("address")]
+        public Output<string> Address { get; private set; } = null!;
+
+        /// <summary>
+        /// Login reference for token authentication (see BIG-IP REST docs for details)
+        /// </summary>
+        [Output("loginRef")]
+        public Output<string?> LoginRef { get; private set; } = null!;
+
+        /// <summary>
+        /// The user's password
+        /// </summary>
+        [Output("password")]
+        public Output<string> Password { get; private set; } = null!;
+
+        /// <summary>
+        /// Management Port to connect to Bigip
+        /// </summary>
+        [Output("port")]
+        public Output<string?> Port { get; private set; } = null!;
+
+        /// <summary>
+        /// Username with API access to the BigIP
+        /// </summary>
+        [Output("username")]
+        public Output<string> Username { get; private set; } = null!;
+
+
+        /// <summary>
         /// Create a Provider resource with the given unique name, arguments, and options.
         /// </summary>
         ///

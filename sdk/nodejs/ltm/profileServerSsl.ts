@@ -392,210 +392,210 @@ export interface ProfileServerSslState {
     /**
      * Alert time out
      */
-    readonly alertTimeout?: pulumi.Input<string>;
+    alertTimeout?: pulumi.Input<string>;
     /**
      * Specifies the frequency of server authentication for an SSL session.When `once`,specifies that the system authenticates the server once for an SSL session.
      * When `always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.
      */
-    readonly authenticate?: pulumi.Input<string>;
+    authenticate?: pulumi.Input<string>;
     /**
      * Client certificate chain traversal depth. Default 9.
      */
-    readonly authenticateDepth?: pulumi.Input<number>;
+    authenticateDepth?: pulumi.Input<number>;
     /**
      * Specifies the name of the certificate file that is used as the certification authority certificate when SSL client certificate constrained delegation is enabled. The certificate should be generated and installed by you on the system. When selecting this option, type a certificate file name.
      */
-    readonly c3dCaCert?: pulumi.Input<string>;
+    c3dCaCert?: pulumi.Input<string>;
     /**
      * Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.
      */
-    readonly c3dCaKey?: pulumi.Input<string>;
+    c3dCaKey?: pulumi.Input<string>;
     /**
      * CA Passphrase. Default
      */
-    readonly c3dCaPassphrase?: pulumi.Input<string>;
+    c3dCaPassphrase?: pulumi.Input<string>;
     /**
      * Certificate Extensions List. Default
      */
-    readonly c3dCertExtensionCustomOids?: pulumi.Input<pulumi.Input<string>[]>;
+    c3dCertExtensionCustomOids?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:
      */
-    readonly c3dCertExtensionIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    c3dCertExtensionIncludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Certificate Lifespan. Default
      */
-    readonly c3dCertLifespan?: pulumi.Input<number>;
+    c3dCertLifespan?: pulumi.Input<number>;
     /**
      * CA Passphrase. Default enabled
      */
-    readonly c3dCertificateExtensions?: pulumi.Input<string>;
+    c3dCertificateExtensions?: pulumi.Input<string>;
     /**
      * Client certificate file path. Default None.
      */
-    readonly caFile?: pulumi.Input<string>;
+    caFile?: pulumi.Input<string>;
     /**
      * Cache size (sessions).
      */
-    readonly cacheSize?: pulumi.Input<number>;
+    cacheSize?: pulumi.Input<number>;
     /**
      * Cache time out
      */
-    readonly cacheTimeout?: pulumi.Input<number>;
+    cacheTimeout?: pulumi.Input<number>;
     /**
      * Specifies the name of the certificate that the system uses for server-side SSL processing.
      */
-    readonly cert?: pulumi.Input<string>;
+    cert?: pulumi.Input<string>;
     /**
      * Specifies the certificates-key chain to associate with the SSL profile
      */
-    readonly chain?: pulumi.Input<string>;
+    chain?: pulumi.Input<string>;
     /**
      * Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
      */
-    readonly ciphers?: pulumi.Input<string>;
+    ciphers?: pulumi.Input<string>;
     /**
      * The parent template of this monitor template. Once this value has been set, it cannot be changed. By default, this value is `/Common/serverssl`.
      */
-    readonly defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string>;
     /**
      * Response if the cert is expired (drop / ignore).
      */
-    readonly expireCertResponseControl?: pulumi.Input<string>;
+    expireCertResponseControl?: pulumi.Input<string>;
     /**
      * full path of the profile
      */
-    readonly fullPath?: pulumi.Input<string>;
+    fullPath?: pulumi.Input<string>;
     /**
      * generation
      */
-    readonly generation?: pulumi.Input<number>;
+    generation?: pulumi.Input<number>;
     /**
      * Generic alerts enabled / disabled.
      */
-    readonly genericAlert?: pulumi.Input<string>;
+    genericAlert?: pulumi.Input<string>;
     /**
      * Handshake time out (seconds)
      */
-    readonly handshakeTimeout?: pulumi.Input<string>;
+    handshakeTimeout?: pulumi.Input<string>;
     /**
      * Specifies the file name of the SSL key.
      */
-    readonly key?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
     /**
      * ModSSL Methods enabled / disabled. Default is disabled.
      */
-    readonly modSslMethods?: pulumi.Input<string>;
+    modSslMethods?: pulumi.Input<string>;
     /**
      * ModSSL Methods enabled / disabled. Default is disabled.
      */
-    readonly mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string>;
     /**
      * Specifies the name of the profile.Name of Profile should be full path,full path is the combination of the `partition + profile name`. For example `/Common/test-serverssl-profile`.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * name of partition
      */
-    readonly partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string>;
     /**
      * Client Certificate Constrained Delegation CA passphrase
      */
-    readonly passphrase?: pulumi.Input<string>;
+    passphrase?: pulumi.Input<string>;
     /**
      * Specifies the way the system handles client certificates.When ignore, specifies that the system ignores certificates from client systems.When require, specifies that the system requires a client to present a valid certificate.When request, specifies that the system requests a valid certificate from a client but always authenticate the client.
      */
-    readonly peerCertMode?: pulumi.Input<string>;
+    peerCertMode?: pulumi.Input<string>;
     /**
      * Proxy CA Cert
      */
-    readonly proxyCaCert?: pulumi.Input<string>;
+    proxyCaCert?: pulumi.Input<string>;
     /**
      * Proxy CA Key
      */
-    readonly proxyCaKey?: pulumi.Input<string>;
+    proxyCaKey?: pulumi.Input<string>;
     /**
      * Proxy SSL enabled / disabled. Default is disabled.
      */
-    readonly proxySsl?: pulumi.Input<string>;
+    proxySsl?: pulumi.Input<string>;
     /**
      * Renogotiate Period (seconds)
      */
-    readonly renegotiatePeriod?: pulumi.Input<string>;
+    renegotiatePeriod?: pulumi.Input<string>;
     /**
      * Renogotiate Size
      */
-    readonly renegotiateSize?: pulumi.Input<string>;
+    renegotiateSize?: pulumi.Input<string>;
     /**
      * Enables or disables SSL renegotiation.When creating a new profile, the setting is provided by the parent profile
      */
-    readonly renegotiation?: pulumi.Input<string>;
+    renegotiation?: pulumi.Input<string>;
     /**
      * When `true`, client certificate is retained in SSL session.
      */
-    readonly retainCertificate?: pulumi.Input<string>;
+    retainCertificate?: pulumi.Input<string>;
     /**
      * Specifies the method of secure renegotiations for SSL connections. When creating a new profile, the setting is provided by the parent profile.
      * When `request` is set the system request secure renegotation of SSL connections.
      * `require` is a default setting and when set the system permits initial SSL handshakes from clients but terminates renegotiations from unpatched clients.
      * The `require-strict` setting the system requires strict renegotiation of SSL connections. In this mode the system refuses connections to insecure servers, and terminates existing SSL connections to insecure servers
      */
-    readonly secureRenegotiation?: pulumi.Input<string>;
+    secureRenegotiation?: pulumi.Input<string>;
     /**
      * Specifies the fully qualified DNS hostname of the server used in Server Name Indication communications. When creating a new profile, the setting is provided by the parent profile.The server name can also be a wildcard string containing the asterisk `*` character.
      */
-    readonly serverName?: pulumi.Input<string>;
+    serverName?: pulumi.Input<string>;
     /**
      * Session Mirroring (enabled / disabled)
      */
-    readonly sessionMirroring?: pulumi.Input<string>;
+    sessionMirroring?: pulumi.Input<string>;
     /**
      * Session Ticket (enabled / disabled)
      */
-    readonly sessionTicket?: pulumi.Input<string>;
+    sessionTicket?: pulumi.Input<string>;
     /**
      * Indicates that the system uses this profile as the default SSL profile when there is no match to the server name, or when the client provides no SNI extension support.When creating a new profile, the setting is provided by the parent profile.
      * There can be only one SSL profile with this setting enabled.
      */
-    readonly sniDefault?: pulumi.Input<string>;
+    sniDefault?: pulumi.Input<string>;
     /**
      * Requires that the network peers also provide SNI support, this setting only takes effect when `sniDefault` is set to `true`.When creating a new profile, the setting is provided by the parent profile
      */
-    readonly sniRequire?: pulumi.Input<string>;
+    sniRequire?: pulumi.Input<string>;
     /**
      * Enables or disables SSL forward proxy bypass on receiving
      * handshake_failure, protocolVersion or unsupportedExtension alert message during the serverside SSL handshake. When enabled and there is an SSL handshake_failure, protocolVersion or unsupportedExtension alert during the serverside SSL handshake, SSL traffic bypasses the BIG-IP system untouched, without decryption/encryption. The default value is disabled. Conversely, you can specify enabled to use this feature.
      */
-    readonly sslC3d?: pulumi.Input<string>;
+    sslC3d?: pulumi.Input<string>;
     /**
      * Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
      */
-    readonly sslForwardProxy?: pulumi.Input<string>;
+    sslForwardProxy?: pulumi.Input<string>;
     /**
      * Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
      */
-    readonly sslForwardProxyBypass?: pulumi.Input<string>;
+    sslForwardProxyBypass?: pulumi.Input<string>;
     /**
      * SSL sign hash (any, sha1, sha256, sha384)
      */
-    readonly sslSignHash?: pulumi.Input<string>;
+    sslSignHash?: pulumi.Input<string>;
     /**
      * Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
      */
-    readonly strictResume?: pulumi.Input<string>;
+    strictResume?: pulumi.Input<string>;
     /**
      * List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
      * Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tmOptions    = ["dont-insert-empty-fragments","no-tlsv1.3"]
      */
-    readonly tmOptions?: pulumi.Input<pulumi.Input<string>[]>;
+    tmOptions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Unclean Shutdown (enabled / disabled)
      */
-    readonly uncleanShutdown?: pulumi.Input<string>;
+    uncleanShutdown?: pulumi.Input<string>;
     /**
      * Unclean Shutdown (drop / ignore)
      */
-    readonly untrustedCertResponseControl?: pulumi.Input<string>;
+    untrustedCertResponseControl?: pulumi.Input<string>;
 }
 
 /**
@@ -605,208 +605,208 @@ export interface ProfileServerSslArgs {
     /**
      * Alert time out
      */
-    readonly alertTimeout?: pulumi.Input<string>;
+    alertTimeout?: pulumi.Input<string>;
     /**
      * Specifies the frequency of server authentication for an SSL session.When `once`,specifies that the system authenticates the server once for an SSL session.
      * When `always`, specifies that the system authenticates the server once for an SSL session and also upon reuse of that session.
      */
-    readonly authenticate?: pulumi.Input<string>;
+    authenticate?: pulumi.Input<string>;
     /**
      * Client certificate chain traversal depth. Default 9.
      */
-    readonly authenticateDepth?: pulumi.Input<number>;
+    authenticateDepth?: pulumi.Input<number>;
     /**
      * Specifies the name of the certificate file that is used as the certification authority certificate when SSL client certificate constrained delegation is enabled. The certificate should be generated and installed by you on the system. When selecting this option, type a certificate file name.
      */
-    readonly c3dCaCert?: pulumi.Input<string>;
+    c3dCaCert?: pulumi.Input<string>;
     /**
      * Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.
      */
-    readonly c3dCaKey?: pulumi.Input<string>;
+    c3dCaKey?: pulumi.Input<string>;
     /**
      * CA Passphrase. Default
      */
-    readonly c3dCaPassphrase?: pulumi.Input<string>;
+    c3dCaPassphrase?: pulumi.Input<string>;
     /**
      * Certificate Extensions List. Default
      */
-    readonly c3dCertExtensionCustomOids?: pulumi.Input<pulumi.Input<string>[]>;
+    c3dCertExtensionCustomOids?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:
      */
-    readonly c3dCertExtensionIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    c3dCertExtensionIncludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Certificate Lifespan. Default
      */
-    readonly c3dCertLifespan?: pulumi.Input<number>;
+    c3dCertLifespan?: pulumi.Input<number>;
     /**
      * CA Passphrase. Default enabled
      */
-    readonly c3dCertificateExtensions?: pulumi.Input<string>;
+    c3dCertificateExtensions?: pulumi.Input<string>;
     /**
      * Client certificate file path. Default None.
      */
-    readonly caFile?: pulumi.Input<string>;
+    caFile?: pulumi.Input<string>;
     /**
      * Cache size (sessions).
      */
-    readonly cacheSize?: pulumi.Input<number>;
+    cacheSize?: pulumi.Input<number>;
     /**
      * Cache time out
      */
-    readonly cacheTimeout?: pulumi.Input<number>;
+    cacheTimeout?: pulumi.Input<number>;
     /**
      * Specifies the name of the certificate that the system uses for server-side SSL processing.
      */
-    readonly cert?: pulumi.Input<string>;
+    cert?: pulumi.Input<string>;
     /**
      * Specifies the certificates-key chain to associate with the SSL profile
      */
-    readonly chain?: pulumi.Input<string>;
+    chain?: pulumi.Input<string>;
     /**
      * Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
      */
-    readonly ciphers?: pulumi.Input<string>;
+    ciphers?: pulumi.Input<string>;
     /**
      * The parent template of this monitor template. Once this value has been set, it cannot be changed. By default, this value is `/Common/serverssl`.
      */
-    readonly defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string>;
     /**
      * Response if the cert is expired (drop / ignore).
      */
-    readonly expireCertResponseControl?: pulumi.Input<string>;
+    expireCertResponseControl?: pulumi.Input<string>;
     /**
      * full path of the profile
      */
-    readonly fullPath?: pulumi.Input<string>;
+    fullPath?: pulumi.Input<string>;
     /**
      * generation
      */
-    readonly generation?: pulumi.Input<number>;
+    generation?: pulumi.Input<number>;
     /**
      * Generic alerts enabled / disabled.
      */
-    readonly genericAlert?: pulumi.Input<string>;
+    genericAlert?: pulumi.Input<string>;
     /**
      * Handshake time out (seconds)
      */
-    readonly handshakeTimeout?: pulumi.Input<string>;
+    handshakeTimeout?: pulumi.Input<string>;
     /**
      * Specifies the file name of the SSL key.
      */
-    readonly key?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
     /**
      * ModSSL Methods enabled / disabled. Default is disabled.
      */
-    readonly modSslMethods?: pulumi.Input<string>;
+    modSslMethods?: pulumi.Input<string>;
     /**
      * ModSSL Methods enabled / disabled. Default is disabled.
      */
-    readonly mode?: pulumi.Input<string>;
+    mode?: pulumi.Input<string>;
     /**
      * Specifies the name of the profile.Name of Profile should be full path,full path is the combination of the `partition + profile name`. For example `/Common/test-serverssl-profile`.
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * name of partition
      */
-    readonly partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string>;
     /**
      * Client Certificate Constrained Delegation CA passphrase
      */
-    readonly passphrase?: pulumi.Input<string>;
+    passphrase?: pulumi.Input<string>;
     /**
      * Specifies the way the system handles client certificates.When ignore, specifies that the system ignores certificates from client systems.When require, specifies that the system requires a client to present a valid certificate.When request, specifies that the system requests a valid certificate from a client but always authenticate the client.
      */
-    readonly peerCertMode?: pulumi.Input<string>;
+    peerCertMode?: pulumi.Input<string>;
     /**
      * Proxy CA Cert
      */
-    readonly proxyCaCert?: pulumi.Input<string>;
+    proxyCaCert?: pulumi.Input<string>;
     /**
      * Proxy CA Key
      */
-    readonly proxyCaKey?: pulumi.Input<string>;
+    proxyCaKey?: pulumi.Input<string>;
     /**
      * Proxy SSL enabled / disabled. Default is disabled.
      */
-    readonly proxySsl?: pulumi.Input<string>;
+    proxySsl?: pulumi.Input<string>;
     /**
      * Renogotiate Period (seconds)
      */
-    readonly renegotiatePeriod?: pulumi.Input<string>;
+    renegotiatePeriod?: pulumi.Input<string>;
     /**
      * Renogotiate Size
      */
-    readonly renegotiateSize?: pulumi.Input<string>;
+    renegotiateSize?: pulumi.Input<string>;
     /**
      * Enables or disables SSL renegotiation.When creating a new profile, the setting is provided by the parent profile
      */
-    readonly renegotiation?: pulumi.Input<string>;
+    renegotiation?: pulumi.Input<string>;
     /**
      * When `true`, client certificate is retained in SSL session.
      */
-    readonly retainCertificate?: pulumi.Input<string>;
+    retainCertificate?: pulumi.Input<string>;
     /**
      * Specifies the method of secure renegotiations for SSL connections. When creating a new profile, the setting is provided by the parent profile.
      * When `request` is set the system request secure renegotation of SSL connections.
      * `require` is a default setting and when set the system permits initial SSL handshakes from clients but terminates renegotiations from unpatched clients.
      * The `require-strict` setting the system requires strict renegotiation of SSL connections. In this mode the system refuses connections to insecure servers, and terminates existing SSL connections to insecure servers
      */
-    readonly secureRenegotiation?: pulumi.Input<string>;
+    secureRenegotiation?: pulumi.Input<string>;
     /**
      * Specifies the fully qualified DNS hostname of the server used in Server Name Indication communications. When creating a new profile, the setting is provided by the parent profile.The server name can also be a wildcard string containing the asterisk `*` character.
      */
-    readonly serverName?: pulumi.Input<string>;
+    serverName?: pulumi.Input<string>;
     /**
      * Session Mirroring (enabled / disabled)
      */
-    readonly sessionMirroring?: pulumi.Input<string>;
+    sessionMirroring?: pulumi.Input<string>;
     /**
      * Session Ticket (enabled / disabled)
      */
-    readonly sessionTicket?: pulumi.Input<string>;
+    sessionTicket?: pulumi.Input<string>;
     /**
      * Indicates that the system uses this profile as the default SSL profile when there is no match to the server name, or when the client provides no SNI extension support.When creating a new profile, the setting is provided by the parent profile.
      * There can be only one SSL profile with this setting enabled.
      */
-    readonly sniDefault?: pulumi.Input<string>;
+    sniDefault?: pulumi.Input<string>;
     /**
      * Requires that the network peers also provide SNI support, this setting only takes effect when `sniDefault` is set to `true`.When creating a new profile, the setting is provided by the parent profile
      */
-    readonly sniRequire?: pulumi.Input<string>;
+    sniRequire?: pulumi.Input<string>;
     /**
      * Enables or disables SSL forward proxy bypass on receiving
      * handshake_failure, protocolVersion or unsupportedExtension alert message during the serverside SSL handshake. When enabled and there is an SSL handshake_failure, protocolVersion or unsupportedExtension alert during the serverside SSL handshake, SSL traffic bypasses the BIG-IP system untouched, without decryption/encryption. The default value is disabled. Conversely, you can specify enabled to use this feature.
      */
-    readonly sslC3d?: pulumi.Input<string>;
+    sslC3d?: pulumi.Input<string>;
     /**
      * Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
      */
-    readonly sslForwardProxy?: pulumi.Input<string>;
+    sslForwardProxy?: pulumi.Input<string>;
     /**
      * Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
      */
-    readonly sslForwardProxyBypass?: pulumi.Input<string>;
+    sslForwardProxyBypass?: pulumi.Input<string>;
     /**
      * SSL sign hash (any, sha1, sha256, sha384)
      */
-    readonly sslSignHash?: pulumi.Input<string>;
+    sslSignHash?: pulumi.Input<string>;
     /**
      * Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
      */
-    readonly strictResume?: pulumi.Input<string>;
+    strictResume?: pulumi.Input<string>;
     /**
      * List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
      * Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tmOptions    = ["dont-insert-empty-fragments","no-tlsv1.3"]
      */
-    readonly tmOptions?: pulumi.Input<pulumi.Input<string>[]>;
+    tmOptions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Unclean Shutdown (enabled / disabled)
      */
-    readonly uncleanShutdown?: pulumi.Input<string>;
+    uncleanShutdown?: pulumi.Input<string>;
     /**
      * Unclean Shutdown (drop / ignore)
      */
-    readonly untrustedCertResponseControl?: pulumi.Input<string>;
+    untrustedCertResponseControl?: pulumi.Input<string>;
 }

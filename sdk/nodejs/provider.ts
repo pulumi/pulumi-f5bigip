@@ -25,6 +25,26 @@ export class Provider extends pulumi.ProviderResource {
         return obj['__pulumiType'] === Provider.__pulumiType;
     }
 
+    /**
+     * Domain name/IP of the BigIP
+     */
+    public readonly address!: pulumi.Output<string>;
+    /**
+     * Login reference for token authentication (see BIG-IP REST docs for details)
+     */
+    public readonly loginRef!: pulumi.Output<string | undefined>;
+    /**
+     * The user's password
+     */
+    public readonly password!: pulumi.Output<string>;
+    /**
+     * Management Port to connect to Bigip
+     */
+    public readonly port!: pulumi.Output<string | undefined>;
+    /**
+     * Username with API access to the BigIP
+     */
+    public readonly username!: pulumi.Output<string>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -68,29 +88,29 @@ export interface ProviderArgs {
     /**
      * Domain name/IP of the BigIP
      */
-    readonly address: pulumi.Input<string>;
+    address: pulumi.Input<string>;
     /**
      * Login reference for token authentication (see BIG-IP REST docs for details)
      */
-    readonly loginRef?: pulumi.Input<string>;
+    loginRef?: pulumi.Input<string>;
     /**
      * The user's password
      */
-    readonly password: pulumi.Input<string>;
+    password: pulumi.Input<string>;
     /**
      * Management Port to connect to Bigip
      */
-    readonly port?: pulumi.Input<string>;
+    port?: pulumi.Input<string>;
     /**
      * If this flag set to true,sending telemetry data to TEEM will be disabled
      */
-    readonly teemDisable?: pulumi.Input<boolean>;
+    teemDisable?: pulumi.Input<boolean>;
     /**
      * Enable to use an external authentication source (LDAP, TACACS, etc)
      */
-    readonly tokenAuth?: pulumi.Input<boolean>;
+    tokenAuth?: pulumi.Input<boolean>;
     /**
      * Username with API access to the BigIP
      */
-    readonly username: pulumi.Input<string>;
+    username: pulumi.Input<string>;
 }

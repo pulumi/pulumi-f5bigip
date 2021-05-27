@@ -115,15 +115,15 @@ export interface DataGroupState {
     /**
      * , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
      */
-    readonly records?: pulumi.Input<pulumi.Input<inputs.ltm.DataGroupRecord>[]>;
+    records?: pulumi.Input<pulumi.Input<inputs.ltm.DataGroupRecord>[]>;
     /**
      * datagroup type (applies to the `name` field of the record), supports: `string`, `ip` or `integer`
      */
-    readonly type?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
 }
 
 /**
@@ -133,13 +133,13 @@ export interface DataGroupArgs {
     /**
      * , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
      */
-    readonly records?: pulumi.Input<pulumi.Input<inputs.ltm.DataGroupRecord>[]>;
+    records?: pulumi.Input<pulumi.Input<inputs.ltm.DataGroupRecord>[]>;
     /**
      * datagroup type (applies to the `name` field of the record), supports: `string`, `ip` or `integer`
      */
-    readonly type: pulumi.Input<string>;
+    type: pulumi.Input<string>;
 }

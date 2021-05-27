@@ -221,3 +221,43 @@ class Provider(pulumi.ProviderResource):
             __props__,
             opts)
 
+    @property
+    @pulumi.getter
+    def address(self) -> pulumi.Output[str]:
+        """
+        Domain name/IP of the BigIP
+        """
+        return pulumi.get(self, "address")
+
+    @property
+    @pulumi.getter(name="loginRef")
+    def login_ref(self) -> pulumi.Output[Optional[str]]:
+        """
+        Login reference for token authentication (see BIG-IP REST docs for details)
+        """
+        return pulumi.get(self, "login_ref")
+
+    @property
+    @pulumi.getter
+    def password(self) -> pulumi.Output[str]:
+        """
+        The user's password
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Output[Optional[str]]:
+        """
+        Management Port to connect to Bigip
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def username(self) -> pulumi.Output[str]:
+        """
+        Username with API access to the BigIP
+        """
+        return pulumi.get(self, "username")
+

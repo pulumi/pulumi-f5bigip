@@ -126,27 +126,27 @@ export interface ProfileHttpCompressState {
     /**
      * Excludes a specified list of content types from compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
      */
-    readonly contentTypeExcludes?: pulumi.Input<pulumi.Input<string>[]>;
+    contentTypeExcludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies a list of content types for compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
      */
-    readonly contentTypeIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    contentTypeIncludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      */
-    readonly defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string>;
     /**
      * Name of the profile_httpcompress
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Disables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you do not want to compress.
      */
-    readonly uriExcludes?: pulumi.Input<pulumi.Input<string>[]>;
+    uriExcludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Enables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you want to compress.
      */
-    readonly uriIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    uriIncludes?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -156,25 +156,25 @@ export interface ProfileHttpCompressArgs {
     /**
      * Excludes a specified list of content types from compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
      */
-    readonly contentTypeExcludes?: pulumi.Input<pulumi.Input<string>[]>;
+    contentTypeExcludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies a list of content types for compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
      */
-    readonly contentTypeIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    contentTypeIncludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      */
-    readonly defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string>;
     /**
      * Name of the profile_httpcompress
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Disables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you do not want to compress.
      */
-    readonly uriExcludes?: pulumi.Input<pulumi.Input<string>[]>;
+    uriExcludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Enables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you want to compress.
      */
-    readonly uriIncludes?: pulumi.Input<pulumi.Input<string>[]>;
+    uriIncludes?: pulumi.Input<pulumi.Input<string>[]>;
 }

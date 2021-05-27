@@ -105,15 +105,15 @@ export interface CertificateState {
     /**
      * Content of certificate on Disk
      */
-    readonly content?: pulumi.Input<string>;
+    content?: pulumi.Input<string>;
     /**
      * Name of the SSL Certificate to be Imported on to BIGIP
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Partition of ssl certificate
      */
-    readonly partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string>;
 }
 
 /**
@@ -123,13 +123,13 @@ export interface CertificateArgs {
     /**
      * Content of certificate on Disk
      */
-    readonly content: pulumi.Input<string>;
+    content: pulumi.Input<string>;
     /**
      * Name of the SSL Certificate to be Imported on to BIGIP
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Partition of ssl certificate
      */
-    readonly partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string>;
 }

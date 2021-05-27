@@ -164,59 +164,59 @@ export interface SnmpTrapsState {
     /**
      * Encrypted password
      */
-    readonly authPasswordencrypted?: pulumi.Input<string>;
+    authPasswordencrypted?: pulumi.Input<string>;
     /**
      * Specifies the protocol used to authenticate the user.
      */
-    readonly authProtocol?: pulumi.Input<string>;
+    authProtocol?: pulumi.Input<string>;
     /**
      * Specifies the community string used for this trap.
      */
-    readonly community?: pulumi.Input<string>;
+    community?: pulumi.Input<string>;
     /**
      * The port that the trap will be sent to.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Specifies the authoritative security engine for SNMPv3.
      */
-    readonly engineId?: pulumi.Input<string>;
+    engineId?: pulumi.Input<string>;
     /**
      * The host the trap will be sent to.
      */
-    readonly host?: pulumi.Input<string>;
+    host?: pulumi.Input<string>;
     /**
      * Name of the snmp trap.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * User defined description.
      */
-    readonly port?: pulumi.Input<number>;
+    port?: pulumi.Input<number>;
     /**
      * Specifies the clear text password used to encrypt traffic. This field will not be displayed.
      */
-    readonly privacyPassword?: pulumi.Input<string>;
+    privacyPassword?: pulumi.Input<string>;
     /**
      * Specifies the encrypted password used to encrypt traffic.
      */
-    readonly privacyPasswordEncrypted?: pulumi.Input<string>;
+    privacyPasswordEncrypted?: pulumi.Input<string>;
     /**
      * Specifies the protocol used to encrypt traffic.
      */
-    readonly privacyProtocol?: pulumi.Input<string>;
+    privacyProtocol?: pulumi.Input<string>;
     /**
      * Specifies whether or not traffic is encrypted and whether or not authentication is required.
      */
-    readonly securityLevel?: pulumi.Input<string>;
+    securityLevel?: pulumi.Input<string>;
     /**
      * Security name used in conjunction with SNMPv3.
      */
-    readonly securityName?: pulumi.Input<string>;
+    securityName?: pulumi.Input<string>;
     /**
      * SNMP version used for sending the trap.
      */
-    readonly version?: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
 }
 
 /**
@@ -226,57 +226,57 @@ export interface SnmpTrapsArgs {
     /**
      * Encrypted password
      */
-    readonly authPasswordencrypted?: pulumi.Input<string>;
+    authPasswordencrypted?: pulumi.Input<string>;
     /**
      * Specifies the protocol used to authenticate the user.
      */
-    readonly authProtocol?: pulumi.Input<string>;
+    authProtocol?: pulumi.Input<string>;
     /**
      * Specifies the community string used for this trap.
      */
-    readonly community?: pulumi.Input<string>;
+    community?: pulumi.Input<string>;
     /**
      * The port that the trap will be sent to.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Specifies the authoritative security engine for SNMPv3.
      */
-    readonly engineId?: pulumi.Input<string>;
+    engineId?: pulumi.Input<string>;
     /**
      * The host the trap will be sent to.
      */
-    readonly host?: pulumi.Input<string>;
+    host?: pulumi.Input<string>;
     /**
      * Name of the snmp trap.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * User defined description.
      */
-    readonly port?: pulumi.Input<number>;
+    port?: pulumi.Input<number>;
     /**
      * Specifies the clear text password used to encrypt traffic. This field will not be displayed.
      */
-    readonly privacyPassword?: pulumi.Input<string>;
+    privacyPassword?: pulumi.Input<string>;
     /**
      * Specifies the encrypted password used to encrypt traffic.
      */
-    readonly privacyPasswordEncrypted?: pulumi.Input<string>;
+    privacyPasswordEncrypted?: pulumi.Input<string>;
     /**
      * Specifies the protocol used to encrypt traffic.
      */
-    readonly privacyProtocol?: pulumi.Input<string>;
+    privacyProtocol?: pulumi.Input<string>;
     /**
      * Specifies whether or not traffic is encrypted and whether or not authentication is required.
      */
-    readonly securityLevel?: pulumi.Input<string>;
+    securityLevel?: pulumi.Input<string>;
     /**
      * Security name used in conjunction with SNMPv3.
      */
-    readonly securityName?: pulumi.Input<string>;
+    securityName?: pulumi.Input<string>;
     /**
      * SNMP version used for sending the trap.
      */
-    readonly version?: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
 }

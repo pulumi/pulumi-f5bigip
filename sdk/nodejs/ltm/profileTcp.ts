@@ -149,43 +149,43 @@ export interface ProfileTcpState {
     /**
      * Specifies the number of seconds that a connection remains in a LAST-ACK state before quitting. A value of 0 represents a term of forever (or until the maxrtx of the FIN state). The default value is 5 seconds.
      */
-    readonly closeWaitTimeout?: pulumi.Input<number>;
+    closeWaitTimeout?: pulumi.Input<number>;
     /**
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      */
-    readonly defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string>;
     /**
      * Specifies, when enabled, that the system defers allocation of the connection chain context until the client response is received. This option is useful for dealing with 3-way handshake DOS attacks. The default value is disabled.
      */
-    readonly deferredAccept?: pulumi.Input<string>;
+    deferredAccept?: pulumi.Input<string>;
     /**
      * When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet.
      */
-    readonly fastOpen?: pulumi.Input<string>;
+    fastOpen?: pulumi.Input<string>;
     /**
      * Specifies the number of seconds that a connection is in the FIN-WAIT-2 state before quitting. The default value is 300 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state).
      */
-    readonly finwait2timeout?: pulumi.Input<number>;
+    finwait2timeout?: pulumi.Input<number>;
     /**
      * Specifies the number of seconds that a connection is in the FIN-WAIT-1 or closing state before quitting. The default value is 5 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state). You can also specify immediate or indefinite.
      */
-    readonly finwaitTimeout?: pulumi.Input<number>;
+    finwaitTimeout?: pulumi.Input<number>;
     /**
      * Specifies the number of seconds that a connection is idle before the connection is eligible for deletion. The default value is 300 seconds.
      */
-    readonly idleTimeout?: pulumi.Input<number>;
+    idleTimeout?: pulumi.Input<number>;
     /**
      * Specifies the keep alive probe interval, in seconds. The default value is 1800 seconds.
      */
-    readonly keepaliveInterval?: pulumi.Input<number>;
+    keepaliveInterval?: pulumi.Input<number>;
     /**
      * Name of the profile_tcp
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Displays the administrative partition within which this profile resides
      */
-    readonly partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string>;
 }
 
 /**
@@ -195,41 +195,41 @@ export interface ProfileTcpArgs {
     /**
      * Specifies the number of seconds that a connection remains in a LAST-ACK state before quitting. A value of 0 represents a term of forever (or until the maxrtx of the FIN state). The default value is 5 seconds.
      */
-    readonly closeWaitTimeout?: pulumi.Input<number>;
+    closeWaitTimeout?: pulumi.Input<number>;
     /**
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      */
-    readonly defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string>;
     /**
      * Specifies, when enabled, that the system defers allocation of the connection chain context until the client response is received. This option is useful for dealing with 3-way handshake DOS attacks. The default value is disabled.
      */
-    readonly deferredAccept?: pulumi.Input<string>;
+    deferredAccept?: pulumi.Input<string>;
     /**
      * When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet.
      */
-    readonly fastOpen?: pulumi.Input<string>;
+    fastOpen?: pulumi.Input<string>;
     /**
      * Specifies the number of seconds that a connection is in the FIN-WAIT-2 state before quitting. The default value is 300 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state).
      */
-    readonly finwait2timeout?: pulumi.Input<number>;
+    finwait2timeout?: pulumi.Input<number>;
     /**
      * Specifies the number of seconds that a connection is in the FIN-WAIT-1 or closing state before quitting. The default value is 5 seconds. A value of 0 (zero) represents a term of forever (or until the maxrtx of the FIN state). You can also specify immediate or indefinite.
      */
-    readonly finwaitTimeout?: pulumi.Input<number>;
+    finwaitTimeout?: pulumi.Input<number>;
     /**
      * Specifies the number of seconds that a connection is idle before the connection is eligible for deletion. The default value is 300 seconds.
      */
-    readonly idleTimeout?: pulumi.Input<number>;
+    idleTimeout?: pulumi.Input<number>;
     /**
      * Specifies the keep alive probe interval, in seconds. The default value is 1800 seconds.
      */
-    readonly keepaliveInterval?: pulumi.Input<number>;
+    keepaliveInterval?: pulumi.Input<number>;
     /**
      * Name of the profile_tcp
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * Displays the administrative partition within which this profile resides
      */
-    readonly partition?: pulumi.Input<string>;
+    partition?: pulumi.Input<string>;
 }

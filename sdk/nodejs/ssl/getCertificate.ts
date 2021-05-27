@@ -23,8 +23,8 @@ export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getCertificate.
  */
 export interface GetCertificateArgs {
-    readonly name: string;
-    readonly partition: string;
+    name: string;
+    partition: string;
 }
 
 /**

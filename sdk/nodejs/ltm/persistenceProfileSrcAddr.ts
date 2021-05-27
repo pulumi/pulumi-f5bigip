@@ -185,104 +185,104 @@ export class PersistenceProfileSrcAddr extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PersistenceProfileSrcAddr resources.
  */
 export interface PersistenceProfileSrcAddrState {
-    readonly appService?: pulumi.Input<string>;
+    appService?: pulumi.Input<string>;
     /**
      * Inherit defaults from parent profile
      */
-    readonly defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string>;
     /**
      * Specify the hash algorithm
      */
-    readonly hashAlgorithm?: pulumi.Input<string>;
+    hashAlgorithm?: pulumi.Input<string>;
     /**
      * To enable _ disable directs all to the same single pool member
      */
-    readonly mapProxies?: pulumi.Input<string>;
+    mapProxies?: pulumi.Input<string>;
     /**
      * Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
      * when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
      */
-    readonly mask?: pulumi.Input<string>;
+    mask?: pulumi.Input<string>;
     /**
      * To enable _ disable match across pools with given persistence record
      */
-    readonly matchAcrossPools?: pulumi.Input<string>;
+    matchAcrossPools?: pulumi.Input<string>;
     /**
      * To enable _ disable match across services with given persistence record
      */
-    readonly matchAcrossServices?: pulumi.Input<string>;
+    matchAcrossServices?: pulumi.Input<string>;
     /**
      * To enable _ disable match across services with given persistence record
      */
-    readonly matchAcrossVirtuals?: pulumi.Input<string>;
+    matchAcrossVirtuals?: pulumi.Input<string>;
     /**
      * To enable _ disable
      */
-    readonly mirror?: pulumi.Input<string>;
+    mirror?: pulumi.Input<string>;
     /**
      * Name of the persistence profile
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
      * limits remain hard limits and are not overridden.
      */
-    readonly overrideConnLimit?: pulumi.Input<string>;
+    overrideConnLimit?: pulumi.Input<string>;
     /**
      * Timeout for persistence of the session
      */
-    readonly timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number>;
 }
 
 /**
  * The set of arguments for constructing a PersistenceProfileSrcAddr resource.
  */
 export interface PersistenceProfileSrcAddrArgs {
-    readonly appService?: pulumi.Input<string>;
+    appService?: pulumi.Input<string>;
     /**
      * Inherit defaults from parent profile
      */
-    readonly defaultsFrom: pulumi.Input<string>;
+    defaultsFrom: pulumi.Input<string>;
     /**
      * Specify the hash algorithm
      */
-    readonly hashAlgorithm?: pulumi.Input<string>;
+    hashAlgorithm?: pulumi.Input<string>;
     /**
      * To enable _ disable directs all to the same single pool member
      */
-    readonly mapProxies?: pulumi.Input<string>;
+    mapProxies?: pulumi.Input<string>;
     /**
      * Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
      * when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
      */
-    readonly mask?: pulumi.Input<string>;
+    mask?: pulumi.Input<string>;
     /**
      * To enable _ disable match across pools with given persistence record
      */
-    readonly matchAcrossPools?: pulumi.Input<string>;
+    matchAcrossPools?: pulumi.Input<string>;
     /**
      * To enable _ disable match across services with given persistence record
      */
-    readonly matchAcrossServices?: pulumi.Input<string>;
+    matchAcrossServices?: pulumi.Input<string>;
     /**
      * To enable _ disable match across services with given persistence record
      */
-    readonly matchAcrossVirtuals?: pulumi.Input<string>;
+    matchAcrossVirtuals?: pulumi.Input<string>;
     /**
      * To enable _ disable
      */
-    readonly mirror?: pulumi.Input<string>;
+    mirror?: pulumi.Input<string>;
     /**
      * Name of the persistence profile
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
      * limits remain hard limits and are not overridden.
      */
-    readonly overrideConnLimit?: pulumi.Input<string>;
+    overrideConnLimit?: pulumi.Input<string>;
     /**
      * Timeout for persistence of the session
      */
-    readonly timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number>;
 }

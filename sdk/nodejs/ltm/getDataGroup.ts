@@ -25,10 +25,10 @@ export function getDataGroup(args: GetDataGroupArgs, opts?: pulumi.InvokeOptions
  * A collection of arguments for invoking getDataGroup.
  */
 export interface GetDataGroupArgs {
-    readonly name: string;
-    readonly partition: string;
-    readonly records?: inputs.ltm.GetDataGroupRecord[];
-    readonly type?: string;
+    name: string;
+    partition: string;
+    records?: inputs.ltm.GetDataGroupRecord[];
+    type?: string;
 }
 
 /**

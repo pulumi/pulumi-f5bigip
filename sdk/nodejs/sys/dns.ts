@@ -107,19 +107,19 @@ export interface DnsState {
     /**
      * Provide description for your DNS server
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Name or IP address of the DNS server
      */
-    readonly nameServers?: pulumi.Input<pulumi.Input<string>[]>;
+    nameServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Configures the number of dots needed in a name before an initial absolute query will be made.
      */
-    readonly numberOfDots?: pulumi.Input<number>;
+    numberOfDots?: pulumi.Input<number>;
     /**
      * Specify what domains you want to search
      */
-    readonly searches?: pulumi.Input<pulumi.Input<string>[]>;
+    searches?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -129,17 +129,17 @@ export interface DnsArgs {
     /**
      * Provide description for your DNS server
      */
-    readonly description: pulumi.Input<string>;
+    description: pulumi.Input<string>;
     /**
      * Name or IP address of the DNS server
      */
-    readonly nameServers?: pulumi.Input<pulumi.Input<string>[]>;
+    nameServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Configures the number of dots needed in a name before an initial absolute query will be made.
      */
-    readonly numberOfDots?: pulumi.Input<number>;
+    numberOfDots?: pulumi.Input<number>;
     /**
      * Specify what domains you want to search
      */
-    readonly searches?: pulumi.Input<pulumi.Input<string>[]>;
+    searches?: pulumi.Input<pulumi.Input<string>[]>;
 }

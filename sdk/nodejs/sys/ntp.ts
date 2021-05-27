@@ -101,15 +101,15 @@ export interface NtpState {
     /**
      * Name of the ntp Servers
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Adds NTP servers to or deletes NTP servers from the BIG-IP system.
      */
-    readonly servers?: pulumi.Input<pulumi.Input<string>[]>;
+    servers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the time zone that you want to use for the system time.
      */
-    readonly timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string>;
 }
 
 /**
@@ -119,13 +119,13 @@ export interface NtpArgs {
     /**
      * Name of the ntp Servers
      */
-    readonly description: pulumi.Input<string>;
+    description: pulumi.Input<string>;
     /**
      * Adds NTP servers to or deletes NTP servers from the BIG-IP system.
      */
-    readonly servers?: pulumi.Input<pulumi.Input<string>[]>;
+    servers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the time zone that you want to use for the system time.
      */
-    readonly timezone?: pulumi.Input<string>;
+    timezone?: pulumi.Input<string>;
 }

@@ -157,78 +157,78 @@ export class PersistenceProfileSsl extends pulumi.CustomResource {
  * Input properties used for looking up and filtering PersistenceProfileSsl resources.
  */
 export interface PersistenceProfileSslState {
-    readonly appService?: pulumi.Input<string>;
+    appService?: pulumi.Input<string>;
     /**
      * Inherit defaults from parent profile
      */
-    readonly defaultsFrom?: pulumi.Input<string>;
+    defaultsFrom?: pulumi.Input<string>;
     /**
      * To enable _ disable match across pools with given persistence record
      */
-    readonly matchAcrossPools?: pulumi.Input<string>;
+    matchAcrossPools?: pulumi.Input<string>;
     /**
      * To enable _ disable match across services with given persistence record
      */
-    readonly matchAcrossServices?: pulumi.Input<string>;
+    matchAcrossServices?: pulumi.Input<string>;
     /**
      * To enable _ disable match across services with given persistence record
      */
-    readonly matchAcrossVirtuals?: pulumi.Input<string>;
+    matchAcrossVirtuals?: pulumi.Input<string>;
     /**
      * To enable _ disable
      */
-    readonly mirror?: pulumi.Input<string>;
+    mirror?: pulumi.Input<string>;
     /**
      * Name of the persistence profile
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
      * limits remain hard limits and are not overridden.
      */
-    readonly overrideConnLimit?: pulumi.Input<string>;
+    overrideConnLimit?: pulumi.Input<string>;
     /**
      * Timeout for persistence of the session
      */
-    readonly timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number>;
 }
 
 /**
  * The set of arguments for constructing a PersistenceProfileSsl resource.
  */
 export interface PersistenceProfileSslArgs {
-    readonly appService?: pulumi.Input<string>;
+    appService?: pulumi.Input<string>;
     /**
      * Inherit defaults from parent profile
      */
-    readonly defaultsFrom: pulumi.Input<string>;
+    defaultsFrom: pulumi.Input<string>;
     /**
      * To enable _ disable match across pools with given persistence record
      */
-    readonly matchAcrossPools?: pulumi.Input<string>;
+    matchAcrossPools?: pulumi.Input<string>;
     /**
      * To enable _ disable match across services with given persistence record
      */
-    readonly matchAcrossServices?: pulumi.Input<string>;
+    matchAcrossServices?: pulumi.Input<string>;
     /**
      * To enable _ disable match across services with given persistence record
      */
-    readonly matchAcrossVirtuals?: pulumi.Input<string>;
+    matchAcrossVirtuals?: pulumi.Input<string>;
     /**
      * To enable _ disable
      */
-    readonly mirror?: pulumi.Input<string>;
+    mirror?: pulumi.Input<string>;
     /**
      * Name of the persistence profile
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
      * limits remain hard limits and are not overridden.
      */
-    readonly overrideConnLimit?: pulumi.Input<string>;
+    overrideConnLimit?: pulumi.Input<string>;
     /**
      * Timeout for persistence of the session
      */
-    readonly timeout?: pulumi.Input<number>;
+    timeout?: pulumi.Input<number>;
 }

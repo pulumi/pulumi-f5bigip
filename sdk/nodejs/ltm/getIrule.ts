@@ -23,8 +23,8 @@ export function getIrule(args: GetIruleArgs, opts?: pulumi.InvokeOptions): Promi
  * A collection of arguments for invoking getIrule.
  */
 export interface GetIruleArgs {
-    readonly name: string;
-    readonly partition: string;
+    name: string;
+    partition: string;
 }
 
 /**

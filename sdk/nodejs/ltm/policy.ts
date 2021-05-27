@@ -137,27 +137,27 @@ export interface PolicyState {
     /**
      * Specifies the controls
      */
-    readonly controls?: pulumi.Input<pulumi.Input<string>[]>;
+    controls?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * If you want to publish the policy else it will be deployed in Drafts mode.
      */
-    readonly publishedCopy?: pulumi.Input<string>;
+    publishedCopy?: pulumi.Input<string>;
     /**
      * Specifies the protocol
      */
-    readonly requires?: pulumi.Input<pulumi.Input<string>[]>;
+    requires?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Rules can be applied using the policy
      */
-    readonly rules?: pulumi.Input<pulumi.Input<inputs.ltm.PolicyRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.ltm.PolicyRule>[]>;
     /**
      * Specifies the match strategy
      */
-    readonly strategy?: pulumi.Input<string>;
+    strategy?: pulumi.Input<string>;
 }
 
 /**
@@ -167,25 +167,25 @@ export interface PolicyArgs {
     /**
      * Specifies the controls
      */
-    readonly controls?: pulumi.Input<pulumi.Input<string>[]>;
+    controls?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
      */
-    readonly name: pulumi.Input<string>;
+    name: pulumi.Input<string>;
     /**
      * If you want to publish the policy else it will be deployed in Drafts mode.
      */
-    readonly publishedCopy?: pulumi.Input<string>;
+    publishedCopy?: pulumi.Input<string>;
     /**
      * Specifies the protocol
      */
-    readonly requires?: pulumi.Input<pulumi.Input<string>[]>;
+    requires?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Rules can be applied using the policy
      */
-    readonly rules?: pulumi.Input<pulumi.Input<inputs.ltm.PolicyRule>[]>;
+    rules?: pulumi.Input<pulumi.Input<inputs.ltm.PolicyRule>[]>;
     /**
      * Specifies the match strategy
      */
-    readonly strategy?: pulumi.Input<string>;
+    strategy?: pulumi.Input<string>;
 }
