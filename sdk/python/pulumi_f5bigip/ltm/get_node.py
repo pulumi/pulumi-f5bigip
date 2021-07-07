@@ -21,7 +21,7 @@ class GetNodeResult:
     """
     A collection of values returned by getNode.
     """
-    def __init__(__self__, address=None, connection_limit=None, description=None, dynamic_ratio=None, fqdn=None, id=None, monitor=None, name=None, partition=None, rate_limit=None, ratio=None, state=None):
+    def __init__(__self__, address=None, connection_limit=None, description=None, dynamic_ratio=None, fqdn=None, id=None, monitor=None, name=None, partition=None, rate_limit=None, ratio=None, session=None, state=None):
         if address and not isinstance(address, str):
             raise TypeError("Expected argument 'address' to be a str")
         pulumi.set(__self__, "address", address)
@@ -55,6 +55,9 @@ class GetNodeResult:
         if ratio and not isinstance(ratio, int):
             raise TypeError("Expected argument 'ratio' to be a int")
         pulumi.set(__self__, "ratio", ratio)
+        if session and not isinstance(session, str):
+            raise TypeError("Expected argument 'session' to be a str")
+        pulumi.set(__self__, "session", session)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -119,6 +122,11 @@ class GetNodeResult:
 
     @property
     @pulumi.getter
+    def session(self) -> str:
+        return pulumi.get(self, "session")
+
+    @property
+    @pulumi.getter
     def state(self) -> str:
         return pulumi.get(self, "state")
 
@@ -140,6 +148,7 @@ class AwaitableGetNodeResult(GetNodeResult):
             partition=self.partition,
             rate_limit=self.rate_limit,
             ratio=self.ratio,
+            session=self.session,
             state=self.state)
 
 
@@ -176,4 +185,5 @@ def get_node(address: Optional[str] = None,
         partition=__ret__.partition,
         rate_limit=__ret__.rate_limit,
         ratio=__ret__.ratio,
+        session=__ret__.session,
         state=__ret__.state)

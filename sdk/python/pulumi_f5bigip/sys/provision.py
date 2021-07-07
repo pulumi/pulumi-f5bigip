@@ -24,8 +24,8 @@ class ProvisionArgs:
         :param pulumi.Input[str] name: Name of the module to be provisioned
         :param pulumi.Input[int] cpu_ratio: cpu Ratio
         :param pulumi.Input[int] disk_ratio: disk Ratio
-        :param pulumi.Input[str] full_path: path
-        :param pulumi.Input[str] level: what level nominal or dedicated
+        :param pulumi.Input[str] full_path: Specifies the module being enabled. It can be one among the list [afm, am, apm, asm, avr, cgnat, fps, gtm, ilx, lc, ltm, pem, swg, urldb, sslo, vcmp]
+        :param pulumi.Input[str] level: Specifies the level of resources that you want to provision for a module. The list of allowed values are [minimum, nominal, dedicated, custom, none]
         :param pulumi.Input[int] memory_ratio: memory Ratio
         """
         pulumi.set(__self__, "name", name)
@@ -80,7 +80,7 @@ class ProvisionArgs:
     @pulumi.getter(name="fullPath")
     def full_path(self) -> Optional[pulumi.Input[str]]:
         """
-        path
+        Specifies the module being enabled. It can be one among the list [afm, am, apm, asm, avr, cgnat, fps, gtm, ilx, lc, ltm, pem, swg, urldb, sslo, vcmp]
         """
         return pulumi.get(self, "full_path")
 
@@ -92,7 +92,7 @@ class ProvisionArgs:
     @pulumi.getter
     def level(self) -> Optional[pulumi.Input[str]]:
         """
-        what level nominal or dedicated
+        Specifies the level of resources that you want to provision for a module. The list of allowed values are [minimum, nominal, dedicated, custom, none]
         """
         return pulumi.get(self, "level")
 
@@ -126,8 +126,8 @@ class _ProvisionState:
         Input properties used for looking up and filtering Provision resources.
         :param pulumi.Input[int] cpu_ratio: cpu Ratio
         :param pulumi.Input[int] disk_ratio: disk Ratio
-        :param pulumi.Input[str] full_path: path
-        :param pulumi.Input[str] level: what level nominal or dedicated
+        :param pulumi.Input[str] full_path: Specifies the module being enabled. It can be one among the list [afm, am, apm, asm, avr, cgnat, fps, gtm, ilx, lc, ltm, pem, swg, urldb, sslo, vcmp]
+        :param pulumi.Input[str] level: Specifies the level of resources that you want to provision for a module. The list of allowed values are [minimum, nominal, dedicated, custom, none]
         :param pulumi.Input[int] memory_ratio: memory Ratio
         :param pulumi.Input[str] name: Name of the module to be provisioned
         """
@@ -172,7 +172,7 @@ class _ProvisionState:
     @pulumi.getter(name="fullPath")
     def full_path(self) -> Optional[pulumi.Input[str]]:
         """
-        path
+        Specifies the module being enabled. It can be one among the list [afm, am, apm, asm, avr, cgnat, fps, gtm, ilx, lc, ltm, pem, swg, urldb, sslo, vcmp]
         """
         return pulumi.get(self, "full_path")
 
@@ -184,7 +184,7 @@ class _ProvisionState:
     @pulumi.getter
     def level(self) -> Optional[pulumi.Input[str]]:
         """
-        what level nominal or dedicated
+        Specifies the level of resources that you want to provision for a module. The list of allowed values are [minimum, nominal, dedicated, custom, none]
         """
         return pulumi.get(self, "level")
 
@@ -250,8 +250,8 @@ class Provision(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] cpu_ratio: cpu Ratio
         :param pulumi.Input[int] disk_ratio: disk Ratio
-        :param pulumi.Input[str] full_path: path
-        :param pulumi.Input[str] level: what level nominal or dedicated
+        :param pulumi.Input[str] full_path: Specifies the module being enabled. It can be one among the list [afm, am, apm, asm, avr, cgnat, fps, gtm, ilx, lc, ltm, pem, swg, urldb, sslo, vcmp]
+        :param pulumi.Input[str] level: Specifies the level of resources that you want to provision for a module. The list of allowed values are [minimum, nominal, dedicated, custom, none]
         :param pulumi.Input[int] memory_ratio: memory Ratio
         :param pulumi.Input[str] name: Name of the module to be provisioned
         """
@@ -344,8 +344,8 @@ class Provision(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] cpu_ratio: cpu Ratio
         :param pulumi.Input[int] disk_ratio: disk Ratio
-        :param pulumi.Input[str] full_path: path
-        :param pulumi.Input[str] level: what level nominal or dedicated
+        :param pulumi.Input[str] full_path: Specifies the module being enabled. It can be one among the list [afm, am, apm, asm, avr, cgnat, fps, gtm, ilx, lc, ltm, pem, swg, urldb, sslo, vcmp]
+        :param pulumi.Input[str] level: Specifies the level of resources that you want to provision for a module. The list of allowed values are [minimum, nominal, dedicated, custom, none]
         :param pulumi.Input[int] memory_ratio: memory Ratio
         :param pulumi.Input[str] name: Name of the module to be provisioned
         """
@@ -381,7 +381,7 @@ class Provision(pulumi.CustomResource):
     @pulumi.getter(name="fullPath")
     def full_path(self) -> pulumi.Output[str]:
         """
-        path
+        Specifies the module being enabled. It can be one among the list [afm, am, apm, asm, avr, cgnat, fps, gtm, ilx, lc, ltm, pem, swg, urldb, sslo, vcmp]
         """
         return pulumi.get(self, "full_path")
 
@@ -389,7 +389,7 @@ class Provision(pulumi.CustomResource):
     @pulumi.getter
     def level(self) -> pulumi.Output[Optional[str]]:
         """
-        what level nominal or dedicated
+        Specifies the level of resources that you want to provision for a module. The list of allowed values are [minimum, nominal, dedicated, custom, none]
         """
         return pulumi.get(self, "level")
 

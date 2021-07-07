@@ -110,6 +110,7 @@ export class VirtualServer extends pulumi.CustomResource {
      * Name of the virtual server
      */
     public readonly name!: pulumi.Output<string>;
+    public readonly perFlowRequestAccessPolicy!: pulumi.Output<string>;
     /**
      * List of persistence profiles associated with the Virtual Server.
      */
@@ -127,6 +128,7 @@ export class VirtualServer extends pulumi.CustomResource {
      * List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
      */
     public readonly profiles!: pulumi.Output<string[]>;
+    public readonly securityLogProfiles!: pulumi.Output<string[] | undefined>;
     /**
      * List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
      */
@@ -186,11 +188,13 @@ export class VirtualServer extends pulumi.CustomResource {
             inputs["irules"] = state ? state.irules : undefined;
             inputs["mask"] = state ? state.mask : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["perFlowRequestAccessPolicy"] = state ? state.perFlowRequestAccessPolicy : undefined;
             inputs["persistenceProfiles"] = state ? state.persistenceProfiles : undefined;
             inputs["policies"] = state ? state.policies : undefined;
             inputs["pool"] = state ? state.pool : undefined;
             inputs["port"] = state ? state.port : undefined;
             inputs["profiles"] = state ? state.profiles : undefined;
+            inputs["securityLogProfiles"] = state ? state.securityLogProfiles : undefined;
             inputs["serverProfiles"] = state ? state.serverProfiles : undefined;
             inputs["snatpool"] = state ? state.snatpool : undefined;
             inputs["source"] = state ? state.source : undefined;
@@ -220,11 +224,13 @@ export class VirtualServer extends pulumi.CustomResource {
             inputs["irules"] = args ? args.irules : undefined;
             inputs["mask"] = args ? args.mask : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["perFlowRequestAccessPolicy"] = args ? args.perFlowRequestAccessPolicy : undefined;
             inputs["persistenceProfiles"] = args ? args.persistenceProfiles : undefined;
             inputs["policies"] = args ? args.policies : undefined;
             inputs["pool"] = args ? args.pool : undefined;
             inputs["port"] = args ? args.port : undefined;
             inputs["profiles"] = args ? args.profiles : undefined;
+            inputs["securityLogProfiles"] = args ? args.securityLogProfiles : undefined;
             inputs["serverProfiles"] = args ? args.serverProfiles : undefined;
             inputs["snatpool"] = args ? args.snatpool : undefined;
             inputs["source"] = args ? args.source : undefined;
@@ -279,6 +285,7 @@ export interface VirtualServerState {
      * Name of the virtual server
      */
     name?: pulumi.Input<string>;
+    perFlowRequestAccessPolicy?: pulumi.Input<string>;
     /**
      * List of persistence profiles associated with the Virtual Server.
      */
@@ -296,6 +303,7 @@ export interface VirtualServerState {
      * List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
      */
     profiles?: pulumi.Input<pulumi.Input<string>[]>;
+    securityLogProfiles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
      */
@@ -371,6 +379,7 @@ export interface VirtualServerArgs {
      * Name of the virtual server
      */
     name: pulumi.Input<string>;
+    perFlowRequestAccessPolicy?: pulumi.Input<string>;
     /**
      * List of persistence profiles associated with the Virtual Server.
      */
@@ -388,6 +397,7 @@ export interface VirtualServerArgs {
      * List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
      */
     profiles?: pulumi.Input<pulumi.Input<string>[]>;
+    securityLogProfiles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
      */

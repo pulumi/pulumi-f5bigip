@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *
  * const route2 = new f5bigip.net.Route("route2", {
  *     gw: "1.1.1.2",
- *     name: "external-route",
+ *     name: "/Common/external-route",
  *     network: "10.10.10.0/24",
  * });
  * ```
@@ -55,7 +55,7 @@ export class Route extends pulumi.CustomResource {
      */
     public readonly gw!: pulumi.Output<string | undefined>;
     /**
-     * Name of the route
+     * Name of the route.Name of Route should be full path,full path is the combination of the `partition + route name`,For ex: `/Common/test-net-route`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -119,7 +119,7 @@ export interface RouteState {
      */
     gw?: pulumi.Input<string>;
     /**
-     * Name of the route
+     * Name of the route.Name of Route should be full path,full path is the combination of the `partition + route name`,For ex: `/Common/test-net-route`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -145,7 +145,7 @@ export interface RouteArgs {
      */
     gw?: pulumi.Input<string>;
     /**
-     * Name of the route
+     * Name of the route.Name of Route should be full path,full path is the combination of the `partition + route name`,For ex: `/Common/test-net-route`.
      */
     name: pulumi.Input<string>;
     /**

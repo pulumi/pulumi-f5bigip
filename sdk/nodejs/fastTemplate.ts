@@ -7,18 +7,6 @@ import * as utilities from "./utilities";
 /**
  * `f5bigip.FastTemplate` This resource will import and create FAST template sets on BIG-IP LTM.
  * Template set can be imported from zip archive files on the local disk.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- *
- * const foo_template = new f5bigip.FastTemplate("foo-template", {
- *     name: "foo_template",
- *     source: "foo_template.zip",
- * });
- * ```
  */
 export class FastTemplate extends pulumi.CustomResource {
     /**
@@ -49,6 +37,10 @@ export class FastTemplate extends pulumi.CustomResource {
     }
 
     /**
+     * MD5 hash of the zip archive file containing FAST template
+     */
+    public readonly md5Hash!: pulumi.Output<string>;
+    /**
      * Name of the FAST template set to be created on to BIGIP
      */
     public readonly name!: pulumi.Output<string | undefined>;
@@ -70,13 +62,18 @@ export class FastTemplate extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FastTemplateState | undefined;
+            inputs["md5Hash"] = state ? state.md5Hash : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["source"] = state ? state.source : undefined;
         } else {
             const args = argsOrState as FastTemplateArgs | undefined;
+            if ((!args || args.md5Hash === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'md5Hash'");
+            }
             if ((!args || args.source === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
+            inputs["md5Hash"] = args ? args.md5Hash : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["source"] = args ? args.source : undefined;
         }
@@ -92,6 +89,10 @@ export class FastTemplate extends pulumi.CustomResource {
  */
 export interface FastTemplateState {
     /**
+     * MD5 hash of the zip archive file containing FAST template
+     */
+    md5Hash?: pulumi.Input<string>;
+    /**
      * Name of the FAST template set to be created on to BIGIP
      */
     name?: pulumi.Input<string>;
@@ -105,6 +106,10 @@ export interface FastTemplateState {
  * The set of arguments for constructing a FastTemplate resource.
  */
 export interface FastTemplateArgs {
+    /**
+     * MD5 hash of the zip archive file containing FAST template
+     */
+    md5Hash: pulumi.Input<string>;
     /**
      * Name of the FAST template set to be created on to BIGIP
      */

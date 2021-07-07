@@ -13,33 +13,11 @@ import (
 
 // `FastTemplate` This resource will import and create FAST template sets on BIG-IP LTM.
 // Template set can be imported from zip archive files on the local disk.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := f5bigip.NewFastTemplate(ctx, "foo_template", &f5bigip.FastTemplateArgs{
-// 			Name:   pulumi.String("foo_template"),
-// 			Source: pulumi.String("foo_template.zip"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
 type FastTemplate struct {
 	pulumi.CustomResourceState
 
+	// MD5 hash of the zip archive file containing FAST template
+	Md5Hash pulumi.StringOutput `pulumi:"md5Hash"`
 	// Name of the FAST template set to be created on to BIGIP
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Path to the zip archive file containing FAST template set on Local Disk
@@ -53,6 +31,9 @@ func NewFastTemplate(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Md5Hash == nil {
+		return nil, errors.New("invalid value for required argument 'Md5Hash'")
+	}
 	if args.Source == nil {
 		return nil, errors.New("invalid value for required argument 'Source'")
 	}
@@ -78,6 +59,8 @@ func GetFastTemplate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FastTemplate resources.
 type fastTemplateState struct {
+	// MD5 hash of the zip archive file containing FAST template
+	Md5Hash *string `pulumi:"md5Hash"`
 	// Name of the FAST template set to be created on to BIGIP
 	Name *string `pulumi:"name"`
 	// Path to the zip archive file containing FAST template set on Local Disk
@@ -85,6 +68,8 @@ type fastTemplateState struct {
 }
 
 type FastTemplateState struct {
+	// MD5 hash of the zip archive file containing FAST template
+	Md5Hash pulumi.StringPtrInput
 	// Name of the FAST template set to be created on to BIGIP
 	Name pulumi.StringPtrInput
 	// Path to the zip archive file containing FAST template set on Local Disk
@@ -96,6 +81,8 @@ func (FastTemplateState) ElementType() reflect.Type {
 }
 
 type fastTemplateArgs struct {
+	// MD5 hash of the zip archive file containing FAST template
+	Md5Hash string `pulumi:"md5Hash"`
 	// Name of the FAST template set to be created on to BIGIP
 	Name *string `pulumi:"name"`
 	// Path to the zip archive file containing FAST template set on Local Disk
@@ -104,6 +91,8 @@ type fastTemplateArgs struct {
 
 // The set of arguments for constructing a FastTemplate resource.
 type FastTemplateArgs struct {
+	// MD5 hash of the zip archive file containing FAST template
+	Md5Hash pulumi.StringInput
 	// Name of the FAST template set to be created on to BIGIP
 	Name pulumi.StringPtrInput
 	// Path to the zip archive file containing FAST template set on Local Disk

@@ -20,7 +20,7 @@ class RouteArgs:
                  tunnel_ref: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Route resource.
-        :param pulumi.Input[str] name: Name of the route
+        :param pulumi.Input[str] name: Name of the route.Name of Route should be full path,full path is the combination of the `partition + route name`,For ex: `/Common/test-net-route`.
         :param pulumi.Input[str] network: The destination subnet and netmask for the route.
         :param pulumi.Input[str] gw: Specifies a gateway address for the route.
         :param pulumi.Input[bool] reject: reject route
@@ -39,7 +39,7 @@ class RouteArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Name of the route
+        Name of the route.Name of Route should be full path,full path is the combination of the `partition + route name`,For ex: `/Common/test-net-route`.
         """
         return pulumi.get(self, "name")
 
@@ -107,7 +107,7 @@ class _RouteState:
         """
         Input properties used for looking up and filtering Route resources.
         :param pulumi.Input[str] gw: Specifies a gateway address for the route.
-        :param pulumi.Input[str] name: Name of the route
+        :param pulumi.Input[str] name: Name of the route.Name of Route should be full path,full path is the combination of the `partition + route name`,For ex: `/Common/test-net-route`.
         :param pulumi.Input[str] network: The destination subnet and netmask for the route.
         :param pulumi.Input[bool] reject: reject route
         :param pulumi.Input[str] tunnel_ref: tunnel_ref to route traffic
@@ -139,7 +139,7 @@ class _RouteState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the route
+        Name of the route.Name of Route should be full path,full path is the combination of the `partition + route name`,For ex: `/Common/test-net-route`.
         """
         return pulumi.get(self, "name")
 
@@ -208,14 +208,14 @@ class Route(pulumi.CustomResource):
 
         route2 = f5bigip.net.Route("route2",
             gw="1.1.1.2",
-            name="external-route",
+            name="/Common/external-route",
             network="10.10.10.0/24")
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] gw: Specifies a gateway address for the route.
-        :param pulumi.Input[str] name: Name of the route
+        :param pulumi.Input[str] name: Name of the route.Name of Route should be full path,full path is the combination of the `partition + route name`,For ex: `/Common/test-net-route`.
         :param pulumi.Input[str] network: The destination subnet and netmask for the route.
         :param pulumi.Input[bool] reject: reject route
         :param pulumi.Input[str] tunnel_ref: tunnel_ref to route traffic
@@ -239,7 +239,7 @@ class Route(pulumi.CustomResource):
 
         route2 = f5bigip.net.Route("route2",
             gw="1.1.1.2",
-            name="external-route",
+            name="/Common/external-route",
             network="10.10.10.0/24")
         ```
 
@@ -307,7 +307,7 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] gw: Specifies a gateway address for the route.
-        :param pulumi.Input[str] name: Name of the route
+        :param pulumi.Input[str] name: Name of the route.Name of Route should be full path,full path is the combination of the `partition + route name`,For ex: `/Common/test-net-route`.
         :param pulumi.Input[str] network: The destination subnet and netmask for the route.
         :param pulumi.Input[bool] reject: reject route
         :param pulumi.Input[str] tunnel_ref: tunnel_ref to route traffic
@@ -335,7 +335,7 @@ class Route(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the route
+        Name of the route.Name of Route should be full path,full path is the combination of the `partition + route name`,For ex: `/Common/test-net-route`.
         """
         return pulumi.get(self, "name")
 

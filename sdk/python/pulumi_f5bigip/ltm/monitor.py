@@ -19,7 +19,6 @@ class MonitorArgs:
                  adaptive_limit: Optional[pulumi.Input[int]] = None,
                  compatibility: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
-                 defaults_from: Optional[pulumi.Input[str]] = None,
                  destination: Optional[pulumi.Input[str]] = None,
                  filename: Optional[pulumi.Input[str]] = None,
                  interval: Optional[pulumi.Input[int]] = None,
@@ -34,26 +33,31 @@ class MonitorArgs:
                  time_until_up: Optional[pulumi.Input[int]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  transparent: Optional[pulumi.Input[str]] = None,
+                 up_interval: Optional[pulumi.Input[int]] = None,
                  username: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Monitor resource.
-        :param pulumi.Input[str] name: Name of the monitor
-        :param pulumi.Input[str] parent: Existing LTM monitor to inherit from
-        :param pulumi.Input[str] adaptive: ftp adaptive
-        :param pulumi.Input[int] adaptive_limit: Integer value
+        :param pulumi.Input[str] name: Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
+        :param pulumi.Input[str] parent: Parent monitor for the system to use for setting initial values for the new monitor.
+        :param pulumi.Input[str] adaptive: Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
+        :param pulumi.Input[int] adaptive_limit: Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.
         :param pulumi.Input[str] compatibility: Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
         :param pulumi.Input[str] database: Specifies the database in which the user is created
-        :param pulumi.Input[str] defaults_from: Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
         :param pulumi.Input[str] destination: Specify an alias address for monitoring
         :param pulumi.Input[str] filename: Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
-        :param pulumi.Input[int] interval: Check interval in seconds
+        :param pulumi.Input[int] interval: Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown. The default is `5`
+        :param pulumi.Input[int] ip_dscp: Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
+        :param pulumi.Input[str] manual_resume: Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
         :param pulumi.Input[str] mode: Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
         :param pulumi.Input[str] password: Specifies the password if the monitored target requires authentication
-        :param pulumi.Input[str] receive: Expected response string
-        :param pulumi.Input[str] receive_disable: Expected response string.
-        :param pulumi.Input[str] send: Request string to send
-        :param pulumi.Input[int] time_until_up: Time in seconds
-        :param pulumi.Input[int] timeout: Timeout in seconds
+        :param pulumi.Input[str] receive: Specifies the regular expression representing the text string that the monitor looks for in the returned resource.
+        :param pulumi.Input[str] receive_disable: The system marks the node or pool member disabled when its response matches Receive Disable String but not Receive String.
+        :param pulumi.Input[str] reverse: Instructs the system to mark the target resource down when the test is successful.
+        :param pulumi.Input[str] send: Specifies the text string that the monitor sends to the target object.
+        :param pulumi.Input[int] time_until_up: Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
+        :param pulumi.Input[int] timeout: Specifies the number of seconds the target has in which to respond to the monitor request. The default is `16` seconds
+        :param pulumi.Input[str] transparent: Specifies whether the monitor operates in transparent mode.
+        :param pulumi.Input[int] up_interval: Specifies the interval for the system to use to perform the health check when a resource is up. The default is `0(Disabled)`
         :param pulumi.Input[str] username: Specifies the user name if the monitored target requires authentication
         """
         pulumi.set(__self__, "name", name)
@@ -66,8 +70,6 @@ class MonitorArgs:
             pulumi.set(__self__, "compatibility", compatibility)
         if database is not None:
             pulumi.set(__self__, "database", database)
-        if defaults_from is not None:
-            pulumi.set(__self__, "defaults_from", defaults_from)
         if destination is not None:
             pulumi.set(__self__, "destination", destination)
         if filename is not None:
@@ -96,6 +98,8 @@ class MonitorArgs:
             pulumi.set(__self__, "timeout", timeout)
         if transparent is not None:
             pulumi.set(__self__, "transparent", transparent)
+        if up_interval is not None:
+            pulumi.set(__self__, "up_interval", up_interval)
         if username is not None:
             pulumi.set(__self__, "username", username)
 
@@ -103,7 +107,7 @@ class MonitorArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Name of the monitor
+        Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
         """
         return pulumi.get(self, "name")
 
@@ -115,7 +119,7 @@ class MonitorArgs:
     @pulumi.getter
     def parent(self) -> pulumi.Input[str]:
         """
-        Existing LTM monitor to inherit from
+        Parent monitor for the system to use for setting initial values for the new monitor.
         """
         return pulumi.get(self, "parent")
 
@@ -127,7 +131,7 @@ class MonitorArgs:
     @pulumi.getter
     def adaptive(self) -> Optional[pulumi.Input[str]]:
         """
-        ftp adaptive
+        Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
         """
         return pulumi.get(self, "adaptive")
 
@@ -139,7 +143,7 @@ class MonitorArgs:
     @pulumi.getter(name="adaptiveLimit")
     def adaptive_limit(self) -> Optional[pulumi.Input[int]]:
         """
-        Integer value
+        Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.
         """
         return pulumi.get(self, "adaptive_limit")
 
@@ -172,18 +176,6 @@ class MonitorArgs:
         pulumi.set(self, "database", value)
 
     @property
-    @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> Optional[pulumi.Input[str]]:
-        """
-        Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
-        """
-        return pulumi.get(self, "defaults_from")
-
-    @defaults_from.setter
-    def defaults_from(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "defaults_from", value)
-
-    @property
     @pulumi.getter
     def destination(self) -> Optional[pulumi.Input[str]]:
         """
@@ -211,7 +203,7 @@ class MonitorArgs:
     @pulumi.getter
     def interval(self) -> Optional[pulumi.Input[int]]:
         """
-        Check interval in seconds
+        Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown. The default is `5`
         """
         return pulumi.get(self, "interval")
 
@@ -222,6 +214,9 @@ class MonitorArgs:
     @property
     @pulumi.getter(name="ipDscp")
     def ip_dscp(self) -> Optional[pulumi.Input[int]]:
+        """
+        Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
+        """
         return pulumi.get(self, "ip_dscp")
 
     @ip_dscp.setter
@@ -231,6 +226,9 @@ class MonitorArgs:
     @property
     @pulumi.getter(name="manualResume")
     def manual_resume(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
+        """
         return pulumi.get(self, "manual_resume")
 
     @manual_resume.setter
@@ -265,7 +263,7 @@ class MonitorArgs:
     @pulumi.getter
     def receive(self) -> Optional[pulumi.Input[str]]:
         """
-        Expected response string
+        Specifies the regular expression representing the text string that the monitor looks for in the returned resource.
         """
         return pulumi.get(self, "receive")
 
@@ -277,7 +275,7 @@ class MonitorArgs:
     @pulumi.getter(name="receiveDisable")
     def receive_disable(self) -> Optional[pulumi.Input[str]]:
         """
-        Expected response string.
+        The system marks the node or pool member disabled when its response matches Receive Disable String but not Receive String.
         """
         return pulumi.get(self, "receive_disable")
 
@@ -288,6 +286,9 @@ class MonitorArgs:
     @property
     @pulumi.getter
     def reverse(self) -> Optional[pulumi.Input[str]]:
+        """
+        Instructs the system to mark the target resource down when the test is successful.
+        """
         return pulumi.get(self, "reverse")
 
     @reverse.setter
@@ -298,7 +299,7 @@ class MonitorArgs:
     @pulumi.getter
     def send(self) -> Optional[pulumi.Input[str]]:
         """
-        Request string to send
+        Specifies the text string that the monitor sends to the target object.
         """
         return pulumi.get(self, "send")
 
@@ -310,7 +311,7 @@ class MonitorArgs:
     @pulumi.getter(name="timeUntilUp")
     def time_until_up(self) -> Optional[pulumi.Input[int]]:
         """
-        Time in seconds
+        Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
         """
         return pulumi.get(self, "time_until_up")
 
@@ -322,7 +323,7 @@ class MonitorArgs:
     @pulumi.getter
     def timeout(self) -> Optional[pulumi.Input[int]]:
         """
-        Timeout in seconds
+        Specifies the number of seconds the target has in which to respond to the monitor request. The default is `16` seconds
         """
         return pulumi.get(self, "timeout")
 
@@ -333,11 +334,26 @@ class MonitorArgs:
     @property
     @pulumi.getter
     def transparent(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the monitor operates in transparent mode.
+        """
         return pulumi.get(self, "transparent")
 
     @transparent.setter
     def transparent(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "transparent", value)
+
+    @property
+    @pulumi.getter(name="upInterval")
+    def up_interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the interval for the system to use to perform the health check when a resource is up. The default is `0(Disabled)`
+        """
+        return pulumi.get(self, "up_interval")
+
+    @up_interval.setter
+    def up_interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "up_interval", value)
 
     @property
     @pulumi.getter
@@ -359,7 +375,6 @@ class _MonitorState:
                  adaptive_limit: Optional[pulumi.Input[int]] = None,
                  compatibility: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
-                 defaults_from: Optional[pulumi.Input[str]] = None,
                  destination: Optional[pulumi.Input[str]] = None,
                  filename: Optional[pulumi.Input[str]] = None,
                  interval: Optional[pulumi.Input[int]] = None,
@@ -376,26 +391,31 @@ class _MonitorState:
                  time_until_up: Optional[pulumi.Input[int]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  transparent: Optional[pulumi.Input[str]] = None,
+                 up_interval: Optional[pulumi.Input[int]] = None,
                  username: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Monitor resources.
-        :param pulumi.Input[str] adaptive: ftp adaptive
-        :param pulumi.Input[int] adaptive_limit: Integer value
+        :param pulumi.Input[str] adaptive: Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
+        :param pulumi.Input[int] adaptive_limit: Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.
         :param pulumi.Input[str] compatibility: Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
         :param pulumi.Input[str] database: Specifies the database in which the user is created
-        :param pulumi.Input[str] defaults_from: Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
         :param pulumi.Input[str] destination: Specify an alias address for monitoring
         :param pulumi.Input[str] filename: Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
-        :param pulumi.Input[int] interval: Check interval in seconds
+        :param pulumi.Input[int] interval: Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown. The default is `5`
+        :param pulumi.Input[int] ip_dscp: Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
+        :param pulumi.Input[str] manual_resume: Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
         :param pulumi.Input[str] mode: Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
-        :param pulumi.Input[str] name: Name of the monitor
-        :param pulumi.Input[str] parent: Existing LTM monitor to inherit from
+        :param pulumi.Input[str] name: Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
+        :param pulumi.Input[str] parent: Parent monitor for the system to use for setting initial values for the new monitor.
         :param pulumi.Input[str] password: Specifies the password if the monitored target requires authentication
-        :param pulumi.Input[str] receive: Expected response string
-        :param pulumi.Input[str] receive_disable: Expected response string.
-        :param pulumi.Input[str] send: Request string to send
-        :param pulumi.Input[int] time_until_up: Time in seconds
-        :param pulumi.Input[int] timeout: Timeout in seconds
+        :param pulumi.Input[str] receive: Specifies the regular expression representing the text string that the monitor looks for in the returned resource.
+        :param pulumi.Input[str] receive_disable: The system marks the node or pool member disabled when its response matches Receive Disable String but not Receive String.
+        :param pulumi.Input[str] reverse: Instructs the system to mark the target resource down when the test is successful.
+        :param pulumi.Input[str] send: Specifies the text string that the monitor sends to the target object.
+        :param pulumi.Input[int] time_until_up: Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
+        :param pulumi.Input[int] timeout: Specifies the number of seconds the target has in which to respond to the monitor request. The default is `16` seconds
+        :param pulumi.Input[str] transparent: Specifies whether the monitor operates in transparent mode.
+        :param pulumi.Input[int] up_interval: Specifies the interval for the system to use to perform the health check when a resource is up. The default is `0(Disabled)`
         :param pulumi.Input[str] username: Specifies the user name if the monitored target requires authentication
         """
         if adaptive is not None:
@@ -406,8 +426,6 @@ class _MonitorState:
             pulumi.set(__self__, "compatibility", compatibility)
         if database is not None:
             pulumi.set(__self__, "database", database)
-        if defaults_from is not None:
-            pulumi.set(__self__, "defaults_from", defaults_from)
         if destination is not None:
             pulumi.set(__self__, "destination", destination)
         if filename is not None:
@@ -440,6 +458,8 @@ class _MonitorState:
             pulumi.set(__self__, "timeout", timeout)
         if transparent is not None:
             pulumi.set(__self__, "transparent", transparent)
+        if up_interval is not None:
+            pulumi.set(__self__, "up_interval", up_interval)
         if username is not None:
             pulumi.set(__self__, "username", username)
 
@@ -447,7 +467,7 @@ class _MonitorState:
     @pulumi.getter
     def adaptive(self) -> Optional[pulumi.Input[str]]:
         """
-        ftp adaptive
+        Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
         """
         return pulumi.get(self, "adaptive")
 
@@ -459,7 +479,7 @@ class _MonitorState:
     @pulumi.getter(name="adaptiveLimit")
     def adaptive_limit(self) -> Optional[pulumi.Input[int]]:
         """
-        Integer value
+        Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.
         """
         return pulumi.get(self, "adaptive_limit")
 
@@ -492,18 +512,6 @@ class _MonitorState:
         pulumi.set(self, "database", value)
 
     @property
-    @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> Optional[pulumi.Input[str]]:
-        """
-        Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
-        """
-        return pulumi.get(self, "defaults_from")
-
-    @defaults_from.setter
-    def defaults_from(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "defaults_from", value)
-
-    @property
     @pulumi.getter
     def destination(self) -> Optional[pulumi.Input[str]]:
         """
@@ -531,7 +539,7 @@ class _MonitorState:
     @pulumi.getter
     def interval(self) -> Optional[pulumi.Input[int]]:
         """
-        Check interval in seconds
+        Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown. The default is `5`
         """
         return pulumi.get(self, "interval")
 
@@ -542,6 +550,9 @@ class _MonitorState:
     @property
     @pulumi.getter(name="ipDscp")
     def ip_dscp(self) -> Optional[pulumi.Input[int]]:
+        """
+        Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
+        """
         return pulumi.get(self, "ip_dscp")
 
     @ip_dscp.setter
@@ -551,6 +562,9 @@ class _MonitorState:
     @property
     @pulumi.getter(name="manualResume")
     def manual_resume(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
+        """
         return pulumi.get(self, "manual_resume")
 
     @manual_resume.setter
@@ -573,7 +587,7 @@ class _MonitorState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the monitor
+        Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
         """
         return pulumi.get(self, "name")
 
@@ -585,7 +599,7 @@ class _MonitorState:
     @pulumi.getter
     def parent(self) -> Optional[pulumi.Input[str]]:
         """
-        Existing LTM monitor to inherit from
+        Parent monitor for the system to use for setting initial values for the new monitor.
         """
         return pulumi.get(self, "parent")
 
@@ -609,7 +623,7 @@ class _MonitorState:
     @pulumi.getter
     def receive(self) -> Optional[pulumi.Input[str]]:
         """
-        Expected response string
+        Specifies the regular expression representing the text string that the monitor looks for in the returned resource.
         """
         return pulumi.get(self, "receive")
 
@@ -621,7 +635,7 @@ class _MonitorState:
     @pulumi.getter(name="receiveDisable")
     def receive_disable(self) -> Optional[pulumi.Input[str]]:
         """
-        Expected response string.
+        The system marks the node or pool member disabled when its response matches Receive Disable String but not Receive String.
         """
         return pulumi.get(self, "receive_disable")
 
@@ -632,6 +646,9 @@ class _MonitorState:
     @property
     @pulumi.getter
     def reverse(self) -> Optional[pulumi.Input[str]]:
+        """
+        Instructs the system to mark the target resource down when the test is successful.
+        """
         return pulumi.get(self, "reverse")
 
     @reverse.setter
@@ -642,7 +659,7 @@ class _MonitorState:
     @pulumi.getter
     def send(self) -> Optional[pulumi.Input[str]]:
         """
-        Request string to send
+        Specifies the text string that the monitor sends to the target object.
         """
         return pulumi.get(self, "send")
 
@@ -654,7 +671,7 @@ class _MonitorState:
     @pulumi.getter(name="timeUntilUp")
     def time_until_up(self) -> Optional[pulumi.Input[int]]:
         """
-        Time in seconds
+        Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
         """
         return pulumi.get(self, "time_until_up")
 
@@ -666,7 +683,7 @@ class _MonitorState:
     @pulumi.getter
     def timeout(self) -> Optional[pulumi.Input[int]]:
         """
-        Timeout in seconds
+        Specifies the number of seconds the target has in which to respond to the monitor request. The default is `16` seconds
         """
         return pulumi.get(self, "timeout")
 
@@ -677,11 +694,26 @@ class _MonitorState:
     @property
     @pulumi.getter
     def transparent(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the monitor operates in transparent mode.
+        """
         return pulumi.get(self, "transparent")
 
     @transparent.setter
     def transparent(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "transparent", value)
+
+    @property
+    @pulumi.getter(name="upInterval")
+    def up_interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the interval for the system to use to perform the health check when a resource is up. The default is `0(Disabled)`
+        """
+        return pulumi.get(self, "up_interval")
+
+    @up_interval.setter
+    def up_interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "up_interval", value)
 
     @property
     @pulumi.getter
@@ -705,7 +737,6 @@ class Monitor(pulumi.CustomResource):
                  adaptive_limit: Optional[pulumi.Input[int]] = None,
                  compatibility: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
-                 defaults_from: Optional[pulumi.Input[str]] = None,
                  destination: Optional[pulumi.Input[str]] = None,
                  filename: Optional[pulumi.Input[str]] = None,
                  interval: Optional[pulumi.Input[int]] = None,
@@ -722,6 +753,7 @@ class Monitor(pulumi.CustomResource):
                  time_until_up: Optional[pulumi.Input[int]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  transparent: Optional[pulumi.Input[str]] = None,
+                 up_interval: Optional[pulumi.Input[int]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -765,23 +797,27 @@ class Monitor(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] adaptive: ftp adaptive
-        :param pulumi.Input[int] adaptive_limit: Integer value
+        :param pulumi.Input[str] adaptive: Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
+        :param pulumi.Input[int] adaptive_limit: Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.
         :param pulumi.Input[str] compatibility: Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
         :param pulumi.Input[str] database: Specifies the database in which the user is created
-        :param pulumi.Input[str] defaults_from: Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
         :param pulumi.Input[str] destination: Specify an alias address for monitoring
         :param pulumi.Input[str] filename: Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
-        :param pulumi.Input[int] interval: Check interval in seconds
+        :param pulumi.Input[int] interval: Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown. The default is `5`
+        :param pulumi.Input[int] ip_dscp: Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
+        :param pulumi.Input[str] manual_resume: Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
         :param pulumi.Input[str] mode: Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
-        :param pulumi.Input[str] name: Name of the monitor
-        :param pulumi.Input[str] parent: Existing LTM monitor to inherit from
+        :param pulumi.Input[str] name: Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
+        :param pulumi.Input[str] parent: Parent monitor for the system to use for setting initial values for the new monitor.
         :param pulumi.Input[str] password: Specifies the password if the monitored target requires authentication
-        :param pulumi.Input[str] receive: Expected response string
-        :param pulumi.Input[str] receive_disable: Expected response string.
-        :param pulumi.Input[str] send: Request string to send
-        :param pulumi.Input[int] time_until_up: Time in seconds
-        :param pulumi.Input[int] timeout: Timeout in seconds
+        :param pulumi.Input[str] receive: Specifies the regular expression representing the text string that the monitor looks for in the returned resource.
+        :param pulumi.Input[str] receive_disable: The system marks the node or pool member disabled when its response matches Receive Disable String but not Receive String.
+        :param pulumi.Input[str] reverse: Instructs the system to mark the target resource down when the test is successful.
+        :param pulumi.Input[str] send: Specifies the text string that the monitor sends to the target object.
+        :param pulumi.Input[int] time_until_up: Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
+        :param pulumi.Input[int] timeout: Specifies the number of seconds the target has in which to respond to the monitor request. The default is `16` seconds
+        :param pulumi.Input[str] transparent: Specifies whether the monitor operates in transparent mode.
+        :param pulumi.Input[int] up_interval: Specifies the interval for the system to use to perform the health check when a resource is up. The default is `0(Disabled)`
         :param pulumi.Input[str] username: Specifies the user name if the monitored target requires authentication
         """
         ...
@@ -848,7 +884,6 @@ class Monitor(pulumi.CustomResource):
                  adaptive_limit: Optional[pulumi.Input[int]] = None,
                  compatibility: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
-                 defaults_from: Optional[pulumi.Input[str]] = None,
                  destination: Optional[pulumi.Input[str]] = None,
                  filename: Optional[pulumi.Input[str]] = None,
                  interval: Optional[pulumi.Input[int]] = None,
@@ -865,6 +900,7 @@ class Monitor(pulumi.CustomResource):
                  time_until_up: Optional[pulumi.Input[int]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  transparent: Optional[pulumi.Input[str]] = None,
+                 up_interval: Optional[pulumi.Input[int]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -882,7 +918,6 @@ class Monitor(pulumi.CustomResource):
             __props__.__dict__["adaptive_limit"] = adaptive_limit
             __props__.__dict__["compatibility"] = compatibility
             __props__.__dict__["database"] = database
-            __props__.__dict__["defaults_from"] = defaults_from
             __props__.__dict__["destination"] = destination
             __props__.__dict__["filename"] = filename
             __props__.__dict__["interval"] = interval
@@ -903,6 +938,7 @@ class Monitor(pulumi.CustomResource):
             __props__.__dict__["time_until_up"] = time_until_up
             __props__.__dict__["timeout"] = timeout
             __props__.__dict__["transparent"] = transparent
+            __props__.__dict__["up_interval"] = up_interval
             __props__.__dict__["username"] = username
         super(Monitor, __self__).__init__(
             'f5bigip:ltm/monitor:Monitor',
@@ -918,7 +954,6 @@ class Monitor(pulumi.CustomResource):
             adaptive_limit: Optional[pulumi.Input[int]] = None,
             compatibility: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
-            defaults_from: Optional[pulumi.Input[str]] = None,
             destination: Optional[pulumi.Input[str]] = None,
             filename: Optional[pulumi.Input[str]] = None,
             interval: Optional[pulumi.Input[int]] = None,
@@ -935,6 +970,7 @@ class Monitor(pulumi.CustomResource):
             time_until_up: Optional[pulumi.Input[int]] = None,
             timeout: Optional[pulumi.Input[int]] = None,
             transparent: Optional[pulumi.Input[str]] = None,
+            up_interval: Optional[pulumi.Input[int]] = None,
             username: Optional[pulumi.Input[str]] = None) -> 'Monitor':
         """
         Get an existing Monitor resource's state with the given name, id, and optional extra
@@ -943,23 +979,27 @@ class Monitor(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] adaptive: ftp adaptive
-        :param pulumi.Input[int] adaptive_limit: Integer value
+        :param pulumi.Input[str] adaptive: Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
+        :param pulumi.Input[int] adaptive_limit: Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.
         :param pulumi.Input[str] compatibility: Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
         :param pulumi.Input[str] database: Specifies the database in which the user is created
-        :param pulumi.Input[str] defaults_from: Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
         :param pulumi.Input[str] destination: Specify an alias address for monitoring
         :param pulumi.Input[str] filename: Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
-        :param pulumi.Input[int] interval: Check interval in seconds
+        :param pulumi.Input[int] interval: Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown. The default is `5`
+        :param pulumi.Input[int] ip_dscp: Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
+        :param pulumi.Input[str] manual_resume: Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
         :param pulumi.Input[str] mode: Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
-        :param pulumi.Input[str] name: Name of the monitor
-        :param pulumi.Input[str] parent: Existing LTM monitor to inherit from
+        :param pulumi.Input[str] name: Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
+        :param pulumi.Input[str] parent: Parent monitor for the system to use for setting initial values for the new monitor.
         :param pulumi.Input[str] password: Specifies the password if the monitored target requires authentication
-        :param pulumi.Input[str] receive: Expected response string
-        :param pulumi.Input[str] receive_disable: Expected response string.
-        :param pulumi.Input[str] send: Request string to send
-        :param pulumi.Input[int] time_until_up: Time in seconds
-        :param pulumi.Input[int] timeout: Timeout in seconds
+        :param pulumi.Input[str] receive: Specifies the regular expression representing the text string that the monitor looks for in the returned resource.
+        :param pulumi.Input[str] receive_disable: The system marks the node or pool member disabled when its response matches Receive Disable String but not Receive String.
+        :param pulumi.Input[str] reverse: Instructs the system to mark the target resource down when the test is successful.
+        :param pulumi.Input[str] send: Specifies the text string that the monitor sends to the target object.
+        :param pulumi.Input[int] time_until_up: Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
+        :param pulumi.Input[int] timeout: Specifies the number of seconds the target has in which to respond to the monitor request. The default is `16` seconds
+        :param pulumi.Input[str] transparent: Specifies whether the monitor operates in transparent mode.
+        :param pulumi.Input[int] up_interval: Specifies the interval for the system to use to perform the health check when a resource is up. The default is `0(Disabled)`
         :param pulumi.Input[str] username: Specifies the user name if the monitored target requires authentication
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -970,7 +1010,6 @@ class Monitor(pulumi.CustomResource):
         __props__.__dict__["adaptive_limit"] = adaptive_limit
         __props__.__dict__["compatibility"] = compatibility
         __props__.__dict__["database"] = database
-        __props__.__dict__["defaults_from"] = defaults_from
         __props__.__dict__["destination"] = destination
         __props__.__dict__["filename"] = filename
         __props__.__dict__["interval"] = interval
@@ -987,6 +1026,7 @@ class Monitor(pulumi.CustomResource):
         __props__.__dict__["time_until_up"] = time_until_up
         __props__.__dict__["timeout"] = timeout
         __props__.__dict__["transparent"] = transparent
+        __props__.__dict__["up_interval"] = up_interval
         __props__.__dict__["username"] = username
         return Monitor(resource_name, opts=opts, __props__=__props__)
 
@@ -994,7 +1034,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter
     def adaptive(self) -> pulumi.Output[str]:
         """
-        ftp adaptive
+        Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
         """
         return pulumi.get(self, "adaptive")
 
@@ -1002,7 +1042,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="adaptiveLimit")
     def adaptive_limit(self) -> pulumi.Output[int]:
         """
-        Integer value
+        Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.
         """
         return pulumi.get(self, "adaptive_limit")
 
@@ -1021,14 +1061,6 @@ class Monitor(pulumi.CustomResource):
         Specifies the database in which the user is created
         """
         return pulumi.get(self, "database")
-
-    @property
-    @pulumi.getter(name="defaultsFrom")
-    def defaults_from(self) -> pulumi.Output[Optional[str]]:
-        """
-        Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
-        """
-        return pulumi.get(self, "defaults_from")
 
     @property
     @pulumi.getter
@@ -1050,18 +1082,24 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter
     def interval(self) -> pulumi.Output[int]:
         """
-        Check interval in seconds
+        Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown. The default is `5`
         """
         return pulumi.get(self, "interval")
 
     @property
     @pulumi.getter(name="ipDscp")
     def ip_dscp(self) -> pulumi.Output[int]:
+        """
+        Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
+        """
         return pulumi.get(self, "ip_dscp")
 
     @property
     @pulumi.getter(name="manualResume")
     def manual_resume(self) -> pulumi.Output[str]:
+        """
+        Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
+        """
         return pulumi.get(self, "manual_resume")
 
     @property
@@ -1076,7 +1114,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the monitor
+        Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
         """
         return pulumi.get(self, "name")
 
@@ -1084,7 +1122,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter
     def parent(self) -> pulumi.Output[str]:
         """
-        Existing LTM monitor to inherit from
+        Parent monitor for the system to use for setting initial values for the new monitor.
         """
         return pulumi.get(self, "parent")
 
@@ -1100,7 +1138,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter
     def receive(self) -> pulumi.Output[Optional[str]]:
         """
-        Expected response string
+        Specifies the regular expression representing the text string that the monitor looks for in the returned resource.
         """
         return pulumi.get(self, "receive")
 
@@ -1108,20 +1146,23 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="receiveDisable")
     def receive_disable(self) -> pulumi.Output[Optional[str]]:
         """
-        Expected response string.
+        The system marks the node or pool member disabled when its response matches Receive Disable String but not Receive String.
         """
         return pulumi.get(self, "receive_disable")
 
     @property
     @pulumi.getter
     def reverse(self) -> pulumi.Output[str]:
+        """
+        Instructs the system to mark the target resource down when the test is successful.
+        """
         return pulumi.get(self, "reverse")
 
     @property
     @pulumi.getter
     def send(self) -> pulumi.Output[str]:
         """
-        Request string to send
+        Specifies the text string that the monitor sends to the target object.
         """
         return pulumi.get(self, "send")
 
@@ -1129,7 +1170,7 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter(name="timeUntilUp")
     def time_until_up(self) -> pulumi.Output[int]:
         """
-        Time in seconds
+        Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
         """
         return pulumi.get(self, "time_until_up")
 
@@ -1137,14 +1178,25 @@ class Monitor(pulumi.CustomResource):
     @pulumi.getter
     def timeout(self) -> pulumi.Output[int]:
         """
-        Timeout in seconds
+        Specifies the number of seconds the target has in which to respond to the monitor request. The default is `16` seconds
         """
         return pulumi.get(self, "timeout")
 
     @property
     @pulumi.getter
     def transparent(self) -> pulumi.Output[str]:
+        """
+        Specifies whether the monitor operates in transparent mode.
+        """
         return pulumi.get(self, "transparent")
+
+    @property
+    @pulumi.getter(name="upInterval")
+    def up_interval(self) -> pulumi.Output[int]:
+        """
+        Specifies the interval for the system to use to perform the health check when a resource is up. The default is `0(Disabled)`
+        """
+        return pulumi.get(self, "up_interval")
 
     @property
     @pulumi.getter

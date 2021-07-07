@@ -22,10 +22,12 @@ type Provider struct {
 	Address pulumi.StringOutput `pulumi:"address"`
 	// Login reference for token authentication (see BIG-IP REST docs for details)
 	LoginRef pulumi.StringPtrOutput `pulumi:"loginRef"`
-	// The user's password
+	// The user's password. Leave empty if using token_value
 	Password pulumi.StringOutput `pulumi:"password"`
 	// Management Port to connect to Bigip
 	Port pulumi.StringPtrOutput `pulumi:"port"`
+	// A token generated outside the provider, in place of password
+	TokenValue pulumi.StringPtrOutput `pulumi:"tokenValue"`
 	// Username with API access to the BigIP
 	Username pulumi.StringOutput `pulumi:"username"`
 }
@@ -59,7 +61,7 @@ type providerArgs struct {
 	Address string `pulumi:"address"`
 	// Login reference for token authentication (see BIG-IP REST docs for details)
 	LoginRef *string `pulumi:"loginRef"`
-	// The user's password
+	// The user's password. Leave empty if using token_value
 	Password string `pulumi:"password"`
 	// Management Port to connect to Bigip
 	Port *string `pulumi:"port"`
@@ -67,6 +69,8 @@ type providerArgs struct {
 	TeemDisable *bool `pulumi:"teemDisable"`
 	// Enable to use an external authentication source (LDAP, TACACS, etc)
 	TokenAuth *bool `pulumi:"tokenAuth"`
+	// A token generated outside the provider, in place of password
+	TokenValue *string `pulumi:"tokenValue"`
 	// Username with API access to the BigIP
 	Username string `pulumi:"username"`
 }
@@ -77,7 +81,7 @@ type ProviderArgs struct {
 	Address pulumi.StringInput
 	// Login reference for token authentication (see BIG-IP REST docs for details)
 	LoginRef pulumi.StringPtrInput
-	// The user's password
+	// The user's password. Leave empty if using token_value
 	Password pulumi.StringInput
 	// Management Port to connect to Bigip
 	Port pulumi.StringPtrInput
@@ -85,6 +89,8 @@ type ProviderArgs struct {
 	TeemDisable pulumi.BoolPtrInput
 	// Enable to use an external authentication source (LDAP, TACACS, etc)
 	TokenAuth pulumi.BoolPtrInput
+	// A token generated outside the provider, in place of password
+	TokenValue pulumi.StringPtrInput
 	// Username with API access to the BigIP
 	Username pulumi.StringInput
 }

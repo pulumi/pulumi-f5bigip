@@ -23,10 +23,12 @@ class VirtualServerArgs:
                  ip_protocol: Optional[pulumi.Input[str]] = None,
                  irules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  mask: Optional[pulumi.Input[str]] = None,
+                 per_flow_request_access_policy: Optional[pulumi.Input[str]] = None,
                  persistence_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  pool: Optional[pulumi.Input[str]] = None,
                  profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 security_log_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  server_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  snatpool: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[str]] = None,
@@ -77,6 +79,8 @@ class VirtualServerArgs:
             pulumi.set(__self__, "irules", irules)
         if mask is not None:
             pulumi.set(__self__, "mask", mask)
+        if per_flow_request_access_policy is not None:
+            pulumi.set(__self__, "per_flow_request_access_policy", per_flow_request_access_policy)
         if persistence_profiles is not None:
             pulumi.set(__self__, "persistence_profiles", persistence_profiles)
         if policies is not None:
@@ -85,6 +89,8 @@ class VirtualServerArgs:
             pulumi.set(__self__, "pool", pool)
         if profiles is not None:
             pulumi.set(__self__, "profiles", profiles)
+        if security_log_profiles is not None:
+            pulumi.set(__self__, "security_log_profiles", security_log_profiles)
         if server_profiles is not None:
             pulumi.set(__self__, "server_profiles", server_profiles)
         if snatpool is not None:
@@ -222,6 +228,15 @@ class VirtualServerArgs:
         pulumi.set(self, "mask", value)
 
     @property
+    @pulumi.getter(name="perFlowRequestAccessPolicy")
+    def per_flow_request_access_policy(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "per_flow_request_access_policy")
+
+    @per_flow_request_access_policy.setter
+    def per_flow_request_access_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "per_flow_request_access_policy", value)
+
+    @property
     @pulumi.getter(name="persistenceProfiles")
     def persistence_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -265,6 +280,15 @@ class VirtualServerArgs:
     @profiles.setter
     def profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "profiles", value)
+
+    @property
+    @pulumi.getter(name="securityLogProfiles")
+    def security_log_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "security_log_profiles")
+
+    @security_log_profiles.setter
+    def security_log_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "security_log_profiles", value)
 
     @property
     @pulumi.getter(name="serverProfiles")
@@ -387,11 +411,13 @@ class _VirtualServerState:
                  irules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  mask: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 per_flow_request_access_policy: Optional[pulumi.Input[str]] = None,
                  persistence_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  pool: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 security_log_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  server_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  snatpool: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[str]] = None,
@@ -443,6 +469,8 @@ class _VirtualServerState:
             pulumi.set(__self__, "mask", mask)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if per_flow_request_access_policy is not None:
+            pulumi.set(__self__, "per_flow_request_access_policy", per_flow_request_access_policy)
         if persistence_profiles is not None:
             pulumi.set(__self__, "persistence_profiles", persistence_profiles)
         if policies is not None:
@@ -453,6 +481,8 @@ class _VirtualServerState:
             pulumi.set(__self__, "port", port)
         if profiles is not None:
             pulumi.set(__self__, "profiles", profiles)
+        if security_log_profiles is not None:
+            pulumi.set(__self__, "security_log_profiles", security_log_profiles)
         if server_profiles is not None:
             pulumi.set(__self__, "server_profiles", server_profiles)
         if snatpool is not None:
@@ -578,6 +608,15 @@ class _VirtualServerState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="perFlowRequestAccessPolicy")
+    def per_flow_request_access_policy(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "per_flow_request_access_policy")
+
+    @per_flow_request_access_policy.setter
+    def per_flow_request_access_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "per_flow_request_access_policy", value)
+
+    @property
     @pulumi.getter(name="persistenceProfiles")
     def persistence_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -633,6 +672,15 @@ class _VirtualServerState:
     @profiles.setter
     def profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "profiles", value)
+
+    @property
+    @pulumi.getter(name="securityLogProfiles")
+    def security_log_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "security_log_profiles")
+
+    @security_log_profiles.setter
+    def security_log_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "security_log_profiles", value)
 
     @property
     @pulumi.getter(name="serverProfiles")
@@ -757,11 +805,13 @@ class VirtualServer(pulumi.CustomResource):
                  irules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  mask: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 per_flow_request_access_policy: Optional[pulumi.Input[str]] = None,
                  persistence_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  pool: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 security_log_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  server_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  snatpool: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[str]] = None,
@@ -910,11 +960,13 @@ class VirtualServer(pulumi.CustomResource):
                  irules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  mask: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 per_flow_request_access_policy: Optional[pulumi.Input[str]] = None,
                  persistence_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  pool: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 security_log_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  server_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  snatpool: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[str]] = None,
@@ -949,6 +1001,7 @@ class VirtualServer(pulumi.CustomResource):
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
+            __props__.__dict__["per_flow_request_access_policy"] = per_flow_request_access_policy
             __props__.__dict__["persistence_profiles"] = persistence_profiles
             __props__.__dict__["policies"] = policies
             __props__.__dict__["pool"] = pool
@@ -956,6 +1009,7 @@ class VirtualServer(pulumi.CustomResource):
                 raise TypeError("Missing required property 'port'")
             __props__.__dict__["port"] = port
             __props__.__dict__["profiles"] = profiles
+            __props__.__dict__["security_log_profiles"] = security_log_profiles
             __props__.__dict__["server_profiles"] = server_profiles
             __props__.__dict__["snatpool"] = snatpool
             __props__.__dict__["source"] = source
@@ -984,11 +1038,13 @@ class VirtualServer(pulumi.CustomResource):
             irules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             mask: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            per_flow_request_access_policy: Optional[pulumi.Input[str]] = None,
             persistence_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             pool: Optional[pulumi.Input[str]] = None,
             port: Optional[pulumi.Input[int]] = None,
             profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            security_log_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             server_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             snatpool: Optional[pulumi.Input[str]] = None,
             source: Optional[pulumi.Input[str]] = None,
@@ -1040,11 +1096,13 @@ class VirtualServer(pulumi.CustomResource):
         __props__.__dict__["irules"] = irules
         __props__.__dict__["mask"] = mask
         __props__.__dict__["name"] = name
+        __props__.__dict__["per_flow_request_access_policy"] = per_flow_request_access_policy
         __props__.__dict__["persistence_profiles"] = persistence_profiles
         __props__.__dict__["policies"] = policies
         __props__.__dict__["pool"] = pool
         __props__.__dict__["port"] = port
         __props__.__dict__["profiles"] = profiles
+        __props__.__dict__["security_log_profiles"] = security_log_profiles
         __props__.__dict__["server_profiles"] = server_profiles
         __props__.__dict__["snatpool"] = snatpool
         __props__.__dict__["source"] = source
@@ -1126,6 +1184,11 @@ class VirtualServer(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="perFlowRequestAccessPolicy")
+    def per_flow_request_access_policy(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "per_flow_request_access_policy")
+
+    @property
     @pulumi.getter(name="persistenceProfiles")
     def persistence_profiles(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
@@ -1161,6 +1224,11 @@ class VirtualServer(pulumi.CustomResource):
         List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
         """
         return pulumi.get(self, "profiles")
+
+    @property
+    @pulumi.getter(name="securityLogProfiles")
+    def security_log_profiles(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        return pulumi.get(self, "security_log_profiles")
 
     @property
     @pulumi.getter(name="serverProfiles")

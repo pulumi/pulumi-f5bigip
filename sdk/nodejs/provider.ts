@@ -34,13 +34,17 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly loginRef!: pulumi.Output<string | undefined>;
     /**
-     * The user's password
+     * The user's password. Leave empty if using token_value
      */
     public readonly password!: pulumi.Output<string>;
     /**
      * Management Port to connect to Bigip
      */
     public readonly port!: pulumi.Output<string | undefined>;
+    /**
+     * A token generated outside the provider, in place of password
+     */
+    public readonly tokenValue!: pulumi.Output<string | undefined>;
     /**
      * Username with API access to the BigIP
      */
@@ -72,6 +76,7 @@ export class Provider extends pulumi.ProviderResource {
             inputs["port"] = args ? args.port : undefined;
             inputs["teemDisable"] = pulumi.output(args ? args.teemDisable : undefined).apply(JSON.stringify);
             inputs["tokenAuth"] = pulumi.output(args ? args.tokenAuth : undefined).apply(JSON.stringify);
+            inputs["tokenValue"] = args ? args.tokenValue : undefined;
             inputs["username"] = args ? args.username : undefined;
         }
         if (!opts.version) {
@@ -94,7 +99,7 @@ export interface ProviderArgs {
      */
     loginRef?: pulumi.Input<string>;
     /**
-     * The user's password
+     * The user's password. Leave empty if using token_value
      */
     password: pulumi.Input<string>;
     /**
@@ -109,6 +114,10 @@ export interface ProviderArgs {
      * Enable to use an external authentication source (LDAP, TACACS, etc)
      */
     tokenAuth?: pulumi.Input<boolean>;
+    /**
+     * A token generated outside the provider, in place of password
+     */
+    tokenValue?: pulumi.Input<string>;
     /**
      * Username with API access to the BigIP
      */

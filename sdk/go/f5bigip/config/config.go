@@ -18,7 +18,7 @@ func GetLoginRef(ctx *pulumi.Context) string {
 	return config.Get(ctx, "f5bigip:loginRef")
 }
 
-// The user's password
+// The user's password. Leave empty if using token_value
 func GetPassword(ctx *pulumi.Context) string {
 	return config.Get(ctx, "f5bigip:password")
 }
@@ -36,6 +36,11 @@ func GetTeemDisable(ctx *pulumi.Context) bool {
 // Enable to use an external authentication source (LDAP, TACACS, etc)
 func GetTokenAuth(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "f5bigip:tokenAuth")
+}
+
+// A token generated outside the provider, in place of password
+func GetTokenValue(ctx *pulumi.Context) string {
+	return config.Get(ctx, "f5bigip:tokenValue")
 }
 
 // Username with API access to the BigIP

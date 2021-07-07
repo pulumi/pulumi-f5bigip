@@ -93,7 +93,8 @@ type VirtualServer struct {
 	// Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
 	Mask pulumi.StringOutput `pulumi:"mask"`
 	// Name of the virtual server
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name                       pulumi.StringOutput `pulumi:"name"`
+	PerFlowRequestAccessPolicy pulumi.StringOutput `pulumi:"perFlowRequestAccessPolicy"`
 	// List of persistence profiles associated with the Virtual Server.
 	PersistenceProfiles pulumi.StringArrayOutput `pulumi:"persistenceProfiles"`
 	Policies            pulumi.StringArrayOutput `pulumi:"policies"`
@@ -102,7 +103,8 @@ type VirtualServer struct {
 	// Listen port for the virtual server
 	Port pulumi.IntOutput `pulumi:"port"`
 	// List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
-	Profiles pulumi.StringArrayOutput `pulumi:"profiles"`
+	Profiles            pulumi.StringArrayOutput `pulumi:"profiles"`
+	SecurityLogProfiles pulumi.StringArrayOutput `pulumi:"securityLogProfiles"`
 	// List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
 	ServerProfiles pulumi.StringArrayOutput `pulumi:"serverProfiles"`
 	// Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
@@ -177,7 +179,8 @@ type virtualServerState struct {
 	// Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
 	Mask *string `pulumi:"mask"`
 	// Name of the virtual server
-	Name *string `pulumi:"name"`
+	Name                       *string `pulumi:"name"`
+	PerFlowRequestAccessPolicy *string `pulumi:"perFlowRequestAccessPolicy"`
 	// List of persistence profiles associated with the Virtual Server.
 	PersistenceProfiles []string `pulumi:"persistenceProfiles"`
 	Policies            []string `pulumi:"policies"`
@@ -186,7 +189,8 @@ type virtualServerState struct {
 	// Listen port for the virtual server
 	Port *int `pulumi:"port"`
 	// List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
-	Profiles []string `pulumi:"profiles"`
+	Profiles            []string `pulumi:"profiles"`
+	SecurityLogProfiles []string `pulumi:"securityLogProfiles"`
 	// List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
 	ServerProfiles []string `pulumi:"serverProfiles"`
 	// Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
@@ -224,7 +228,8 @@ type VirtualServerState struct {
 	// Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
 	Mask pulumi.StringPtrInput
 	// Name of the virtual server
-	Name pulumi.StringPtrInput
+	Name                       pulumi.StringPtrInput
+	PerFlowRequestAccessPolicy pulumi.StringPtrInput
 	// List of persistence profiles associated with the Virtual Server.
 	PersistenceProfiles pulumi.StringArrayInput
 	Policies            pulumi.StringArrayInput
@@ -233,7 +238,8 @@ type VirtualServerState struct {
 	// Listen port for the virtual server
 	Port pulumi.IntPtrInput
 	// List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
-	Profiles pulumi.StringArrayInput
+	Profiles            pulumi.StringArrayInput
+	SecurityLogProfiles pulumi.StringArrayInput
 	// List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
 	ServerProfiles pulumi.StringArrayInput
 	// Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
@@ -275,7 +281,8 @@ type virtualServerArgs struct {
 	// Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
 	Mask *string `pulumi:"mask"`
 	// Name of the virtual server
-	Name string `pulumi:"name"`
+	Name                       string  `pulumi:"name"`
+	PerFlowRequestAccessPolicy *string `pulumi:"perFlowRequestAccessPolicy"`
 	// List of persistence profiles associated with the Virtual Server.
 	PersistenceProfiles []string `pulumi:"persistenceProfiles"`
 	Policies            []string `pulumi:"policies"`
@@ -284,7 +291,8 @@ type virtualServerArgs struct {
 	// Listen port for the virtual server
 	Port int `pulumi:"port"`
 	// List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
-	Profiles []string `pulumi:"profiles"`
+	Profiles            []string `pulumi:"profiles"`
+	SecurityLogProfiles []string `pulumi:"securityLogProfiles"`
 	// List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
 	ServerProfiles []string `pulumi:"serverProfiles"`
 	// Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
@@ -323,7 +331,8 @@ type VirtualServerArgs struct {
 	// Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
 	Mask pulumi.StringPtrInput
 	// Name of the virtual server
-	Name pulumi.StringInput
+	Name                       pulumi.StringInput
+	PerFlowRequestAccessPolicy pulumi.StringPtrInput
 	// List of persistence profiles associated with the Virtual Server.
 	PersistenceProfiles pulumi.StringArrayInput
 	Policies            pulumi.StringArrayInput
@@ -332,7 +341,8 @@ type VirtualServerArgs struct {
 	// Listen port for the virtual server
 	Port pulumi.IntInput
 	// List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
-	Profiles pulumi.StringArrayInput
+	Profiles            pulumi.StringArrayInput
+	SecurityLogProfiles pulumi.StringArrayInput
 	// List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
 	ServerProfiles pulumi.StringArrayInput
 	// Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation

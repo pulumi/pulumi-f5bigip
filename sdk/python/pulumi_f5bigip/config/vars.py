@@ -15,6 +15,7 @@ __all__ = [
     'port',
     'teem_disable',
     'token_auth',
+    'token_value',
     'username',
 ]
 
@@ -32,7 +33,7 @@ Login reference for token authentication (see BIG-IP REST docs for details)
 
 password = __config__.get('password')
 """
-The user's password
+The user's password. Leave empty if using token_value
 """
 
 port = __config__.get('port')
@@ -48,6 +49,11 @@ If this flag set to true,sending telemetry data to TEEM will be disabled
 token_auth = __config__.get('tokenAuth')
 """
 Enable to use an external authentication source (LDAP, TACACS, etc)
+"""
+
+token_value = __config__.get('tokenValue')
+"""
+A token generated outside the provider, in place of password
 """
 
 username = __config__.get('username')

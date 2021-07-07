@@ -24,6 +24,7 @@ class NodeArgs:
                  monitor: Optional[pulumi.Input[str]] = None,
                  rate_limit: Optional[pulumi.Input[str]] = None,
                  ratio: Optional[pulumi.Input[int]] = None,
+                 session: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Node resource.
@@ -35,6 +36,7 @@ class NodeArgs:
         :param pulumi.Input[str] monitor: specifies the name of the monitor or monitor rule that you want to associate with the node.
         :param pulumi.Input[str] rate_limit: Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
         :param pulumi.Input[int] ratio: Sets the ratio number for the node.
+        :param pulumi.Input[str] session: Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
         :param pulumi.Input[str] state: Default is "user-up" you can set to "user-down" if you want to disable
         """
         pulumi.set(__self__, "address", address)
@@ -53,6 +55,8 @@ class NodeArgs:
             pulumi.set(__self__, "rate_limit", rate_limit)
         if ratio is not None:
             pulumi.set(__self__, "ratio", ratio)
+        if session is not None:
+            pulumi.set(__self__, "session", session)
         if state is not None:
             pulumi.set(__self__, "state", state)
 
@@ -163,6 +167,18 @@ class NodeArgs:
 
     @property
     @pulumi.getter
+    def session(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
+        """
+        return pulumi.get(self, "session")
+
+    @session.setter
+    def session(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "session", value)
+
+    @property
+    @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
         """
         Default is "user-up" you can set to "user-down" if you want to disable
@@ -186,6 +202,7 @@ class _NodeState:
                  name: Optional[pulumi.Input[str]] = None,
                  rate_limit: Optional[pulumi.Input[str]] = None,
                  ratio: Optional[pulumi.Input[int]] = None,
+                 session: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Node resources.
@@ -197,6 +214,7 @@ class _NodeState:
         :param pulumi.Input[str] name: Name of the node
         :param pulumi.Input[str] rate_limit: Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
         :param pulumi.Input[int] ratio: Sets the ratio number for the node.
+        :param pulumi.Input[str] session: Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
         :param pulumi.Input[str] state: Default is "user-up" you can set to "user-down" if you want to disable
         """
         if address is not None:
@@ -217,6 +235,8 @@ class _NodeState:
             pulumi.set(__self__, "rate_limit", rate_limit)
         if ratio is not None:
             pulumi.set(__self__, "ratio", ratio)
+        if session is not None:
+            pulumi.set(__self__, "session", session)
         if state is not None:
             pulumi.set(__self__, "state", state)
 
@@ -327,6 +347,18 @@ class _NodeState:
 
     @property
     @pulumi.getter
+    def session(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
+        """
+        return pulumi.get(self, "session")
+
+    @session.setter
+    def session(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "session", value)
+
+    @property
+    @pulumi.getter
     def state(self) -> Optional[pulumi.Input[str]]:
         """
         Default is "user-up" you can set to "user-down" if you want to disable
@@ -352,6 +384,7 @@ class Node(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  rate_limit: Optional[pulumi.Input[str]] = None,
                  ratio: Optional[pulumi.Input[int]] = None,
+                 session: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -389,6 +422,7 @@ class Node(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the node
         :param pulumi.Input[str] rate_limit: Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
         :param pulumi.Input[int] ratio: Sets the ratio number for the node.
+        :param pulumi.Input[str] session: Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
         :param pulumi.Input[str] state: Default is "user-up" you can set to "user-down" if you want to disable
         """
         ...
@@ -446,6 +480,7 @@ class Node(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  rate_limit: Optional[pulumi.Input[str]] = None,
                  ratio: Optional[pulumi.Input[int]] = None,
+                 session: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -472,6 +507,7 @@ class Node(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["rate_limit"] = rate_limit
             __props__.__dict__["ratio"] = ratio
+            __props__.__dict__["session"] = session
             __props__.__dict__["state"] = state
         super(Node, __self__).__init__(
             'f5bigip:ltm/node:Node',
@@ -492,6 +528,7 @@ class Node(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             rate_limit: Optional[pulumi.Input[str]] = None,
             ratio: Optional[pulumi.Input[int]] = None,
+            session: Optional[pulumi.Input[str]] = None,
             state: Optional[pulumi.Input[str]] = None) -> 'Node':
         """
         Get an existing Node resource's state with the given name, id, and optional extra
@@ -508,6 +545,7 @@ class Node(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the node
         :param pulumi.Input[str] rate_limit: Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
         :param pulumi.Input[int] ratio: Sets the ratio number for the node.
+        :param pulumi.Input[str] session: Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
         :param pulumi.Input[str] state: Default is "user-up" you can set to "user-down" if you want to disable
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -523,6 +561,7 @@ class Node(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["rate_limit"] = rate_limit
         __props__.__dict__["ratio"] = ratio
+        __props__.__dict__["session"] = session
         __props__.__dict__["state"] = state
         return Node(resource_name, opts=opts, __props__=__props__)
 
@@ -594,6 +633,14 @@ class Node(pulumi.CustomResource):
         Sets the ratio number for the node.
         """
         return pulumi.get(self, "ratio")
+
+    @property
+    @pulumi.getter
+    def session(self) -> pulumi.Output[str]:
+        """
+        Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
+        """
+        return pulumi.get(self, "session")
 
     @property
     @pulumi.getter

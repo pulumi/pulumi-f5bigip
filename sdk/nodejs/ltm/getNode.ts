@@ -51,5 +51,6 @@ export interface GetNodeResult {
     readonly partition: string;
     readonly rateLimit: string;
     readonly ratio: number;
+    readonly session: string;
     readonly state: string;
 }
