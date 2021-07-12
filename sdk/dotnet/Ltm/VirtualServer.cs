@@ -125,6 +125,9 @@ namespace Pulumi.F5BigIP.Ltm
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("perFlowRequestAccessPolicy")]
+        public Output<string> PerFlowRequestAccessPolicy { get; private set; } = null!;
+
         /// <summary>
         /// List of persistence profiles associated with the Virtual Server.
         /// </summary>
@@ -151,6 +154,9 @@ namespace Pulumi.F5BigIP.Ltm
         /// </summary>
         [Output("profiles")]
         public Output<ImmutableArray<string>> Profiles { get; private set; } = null!;
+
+        [Output("securityLogProfiles")]
+        public Output<ImmutableArray<string>> SecurityLogProfiles { get; private set; } = null!;
 
         /// <summary>
         /// List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
@@ -315,6 +321,9 @@ namespace Pulumi.F5BigIP.Ltm
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("perFlowRequestAccessPolicy")]
+        public Input<string>? PerFlowRequestAccessPolicy { get; set; }
+
         [Input("persistenceProfiles")]
         private InputList<string>? _persistenceProfiles;
 
@@ -357,6 +366,14 @@ namespace Pulumi.F5BigIP.Ltm
         {
             get => _profiles ?? (_profiles = new InputList<string>());
             set => _profiles = value;
+        }
+
+        [Input("securityLogProfiles")]
+        private InputList<string>? _securityLogProfiles;
+        public InputList<string> SecurityLogProfiles
+        {
+            get => _securityLogProfiles ?? (_securityLogProfiles = new InputList<string>());
+            set => _securityLogProfiles = value;
         }
 
         [Input("serverProfiles")]
@@ -495,6 +512,9 @@ namespace Pulumi.F5BigIP.Ltm
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("perFlowRequestAccessPolicy")]
+        public Input<string>? PerFlowRequestAccessPolicy { get; set; }
+
         [Input("persistenceProfiles")]
         private InputList<string>? _persistenceProfiles;
 
@@ -537,6 +557,14 @@ namespace Pulumi.F5BigIP.Ltm
         {
             get => _profiles ?? (_profiles = new InputList<string>());
             set => _profiles = value;
+        }
+
+        [Input("securityLogProfiles")]
+        private InputList<string>? _securityLogProfiles;
+        public InputList<string> SecurityLogProfiles
+        {
+            get => _securityLogProfiles ?? (_securityLogProfiles = new InputList<string>());
+            set => _securityLogProfiles = value;
         }
 
         [Input("serverProfiles")]

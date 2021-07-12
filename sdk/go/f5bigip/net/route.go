@@ -29,7 +29,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := net.NewRoute(ctx, "route2", &net.RouteArgs{
 // 			Gw:      pulumi.String("1.1.1.2"),
-// 			Name:    pulumi.String("external-route"),
+// 			Name:    pulumi.String("/Common/external-route"),
 // 			Network: pulumi.String("10.10.10.0/24"),
 // 		})
 // 		if err != nil {
@@ -44,7 +44,7 @@ type Route struct {
 
 	// Specifies a gateway address for the route.
 	Gw pulumi.StringPtrOutput `pulumi:"gw"`
-	// Name of the route
+	// Name of the route.Name of Route should be full path,full path is the combination of the `partition + route name`,For ex: `/Common/test-net-route`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The destination subnet and netmask for the route.
 	Network pulumi.StringOutput `pulumi:"network"`
@@ -91,7 +91,7 @@ func GetRoute(ctx *pulumi.Context,
 type routeState struct {
 	// Specifies a gateway address for the route.
 	Gw *string `pulumi:"gw"`
-	// Name of the route
+	// Name of the route.Name of Route should be full path,full path is the combination of the `partition + route name`,For ex: `/Common/test-net-route`.
 	Name *string `pulumi:"name"`
 	// The destination subnet and netmask for the route.
 	Network *string `pulumi:"network"`
@@ -104,7 +104,7 @@ type routeState struct {
 type RouteState struct {
 	// Specifies a gateway address for the route.
 	Gw pulumi.StringPtrInput
-	// Name of the route
+	// Name of the route.Name of Route should be full path,full path is the combination of the `partition + route name`,For ex: `/Common/test-net-route`.
 	Name pulumi.StringPtrInput
 	// The destination subnet and netmask for the route.
 	Network pulumi.StringPtrInput
@@ -121,7 +121,7 @@ func (RouteState) ElementType() reflect.Type {
 type routeArgs struct {
 	// Specifies a gateway address for the route.
 	Gw *string `pulumi:"gw"`
-	// Name of the route
+	// Name of the route.Name of Route should be full path,full path is the combination of the `partition + route name`,For ex: `/Common/test-net-route`.
 	Name string `pulumi:"name"`
 	// The destination subnet and netmask for the route.
 	Network string `pulumi:"network"`
@@ -135,7 +135,7 @@ type routeArgs struct {
 type RouteArgs struct {
 	// Specifies a gateway address for the route.
 	Gw pulumi.StringPtrInput
-	// Name of the route
+	// Name of the route.Name of Route should be full path,full path is the combination of the `partition + route name`,For ex: `/Common/test-net-route`.
 	Name pulumi.StringInput
 	// The destination subnet and netmask for the route.
 	Network pulumi.StringInput

@@ -27,7 +27,7 @@ namespace Pulumi.F5BigIP.Net
     ///         var route2 = new F5BigIP.Net.Route("route2", new F5BigIP.Net.RouteArgs
     ///         {
     ///             Gw = "1.1.1.2",
-    ///             Name = "external-route",
+    ///             Name = "/Common/external-route",
     ///             Network = "10.10.10.0/24",
     ///         });
     ///     }
@@ -45,7 +45,7 @@ namespace Pulumi.F5BigIP.Net
         public Output<string?> Gw { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the route
+        /// Name of the route.Name of Route should be full path,full path is the combination of the `partition + route name`,For ex: `/Common/test-net-route`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -121,7 +121,7 @@ namespace Pulumi.F5BigIP.Net
         public Input<string>? Gw { get; set; }
 
         /// <summary>
-        /// Name of the route
+        /// Name of the route.Name of Route should be full path,full path is the combination of the `partition + route name`,For ex: `/Common/test-net-route`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.F5BigIP.Net
         public Input<string>? Gw { get; set; }
 
         /// <summary>
-        /// Name of the route
+        /// Name of the route.Name of Route should be full path,full path is the combination of the `partition + route name`,For ex: `/Common/test-net-route`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

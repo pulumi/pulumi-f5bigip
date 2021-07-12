@@ -65,13 +65,13 @@ namespace Pulumi.F5BigIP.Ltm
     public partial class Monitor : Pulumi.CustomResource
     {
         /// <summary>
-        /// ftp adaptive
+        /// Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
         /// </summary>
         [Output("adaptive")]
         public Output<string> Adaptive { get; private set; } = null!;
 
         /// <summary>
-        /// Integer value
+        /// Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.
         /// </summary>
         [Output("adaptiveLimit")]
         public Output<int> AdaptiveLimit { get; private set; } = null!;
@@ -89,12 +89,6 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string?> Database { get; private set; } = null!;
 
         /// <summary>
-        /// Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
-        /// </summary>
-        [Output("defaultsFrom")]
-        public Output<string?> DefaultsFrom { get; private set; } = null!;
-
-        /// <summary>
         /// Specify an alias address for monitoring
         /// </summary>
         [Output("destination")]
@@ -107,14 +101,20 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string?> Filename { get; private set; } = null!;
 
         /// <summary>
-        /// Check interval in seconds
+        /// Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown. The default is `5`
         /// </summary>
         [Output("interval")]
         public Output<int> Interval { get; private set; } = null!;
 
+        /// <summary>
+        /// Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
+        /// </summary>
         [Output("ipDscp")]
         public Output<int> IpDscp { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
+        /// </summary>
         [Output("manualResume")]
         public Output<string> ManualResume { get; private set; } = null!;
 
@@ -125,13 +125,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> Mode { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the monitor
+        /// Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Existing LTM monitor to inherit from
+        /// Parent monitor for the system to use for setting initial values for the new monitor.
         /// </summary>
         [Output("parent")]
         public Output<string> Parent { get; private set; } = null!;
@@ -143,40 +143,52 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string?> Password { get; private set; } = null!;
 
         /// <summary>
-        /// Expected response string
+        /// Specifies the regular expression representing the text string that the monitor looks for in the returned resource.
         /// </summary>
         [Output("receive")]
         public Output<string?> Receive { get; private set; } = null!;
 
         /// <summary>
-        /// Expected response string.
+        /// The system marks the node or pool member disabled when its response matches Receive Disable String but not Receive String.
         /// </summary>
         [Output("receiveDisable")]
         public Output<string?> ReceiveDisable { get; private set; } = null!;
 
+        /// <summary>
+        /// Instructs the system to mark the target resource down when the test is successful.
+        /// </summary>
         [Output("reverse")]
         public Output<string> Reverse { get; private set; } = null!;
 
         /// <summary>
-        /// Request string to send
+        /// Specifies the text string that the monitor sends to the target object.
         /// </summary>
         [Output("send")]
         public Output<string> Send { get; private set; } = null!;
 
         /// <summary>
-        /// Time in seconds
+        /// Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
         /// </summary>
         [Output("timeUntilUp")]
         public Output<int> TimeUntilUp { get; private set; } = null!;
 
         /// <summary>
-        /// Timeout in seconds
+        /// Specifies the number of seconds the target has in which to respond to the monitor request. The default is `16` seconds
         /// </summary>
         [Output("timeout")]
         public Output<int> Timeout { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies whether the monitor operates in transparent mode.
+        /// </summary>
         [Output("transparent")]
         public Output<string> Transparent { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the interval for the system to use to perform the health check when a resource is up. The default is `0(Disabled)`
+        /// </summary>
+        [Output("upInterval")]
+        public Output<int> UpInterval { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the user name if the monitored target requires authentication
@@ -231,13 +243,13 @@ namespace Pulumi.F5BigIP.Ltm
     public sealed class MonitorArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ftp adaptive
+        /// Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
         /// </summary>
         [Input("adaptive")]
         public Input<string>? Adaptive { get; set; }
 
         /// <summary>
-        /// Integer value
+        /// Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.
         /// </summary>
         [Input("adaptiveLimit")]
         public Input<int>? AdaptiveLimit { get; set; }
@@ -255,12 +267,6 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Database { get; set; }
 
         /// <summary>
-        /// Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
-        /// </summary>
-        [Input("defaultsFrom")]
-        public Input<string>? DefaultsFrom { get; set; }
-
-        /// <summary>
         /// Specify an alias address for monitoring
         /// </summary>
         [Input("destination")]
@@ -273,14 +279,20 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Filename { get; set; }
 
         /// <summary>
-        /// Check interval in seconds
+        /// Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown. The default is `5`
         /// </summary>
         [Input("interval")]
         public Input<int>? Interval { get; set; }
 
+        /// <summary>
+        /// Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
+        /// </summary>
         [Input("ipDscp")]
         public Input<int>? IpDscp { get; set; }
 
+        /// <summary>
+        /// Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
+        /// </summary>
         [Input("manualResume")]
         public Input<string>? ManualResume { get; set; }
 
@@ -291,13 +303,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Mode { get; set; }
 
         /// <summary>
-        /// Name of the monitor
+        /// Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Existing LTM monitor to inherit from
+        /// Parent monitor for the system to use for setting initial values for the new monitor.
         /// </summary>
         [Input("parent", required: true)]
         public Input<string> Parent { get; set; } = null!;
@@ -309,40 +321,52 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Password { get; set; }
 
         /// <summary>
-        /// Expected response string
+        /// Specifies the regular expression representing the text string that the monitor looks for in the returned resource.
         /// </summary>
         [Input("receive")]
         public Input<string>? Receive { get; set; }
 
         /// <summary>
-        /// Expected response string.
+        /// The system marks the node or pool member disabled when its response matches Receive Disable String but not Receive String.
         /// </summary>
         [Input("receiveDisable")]
         public Input<string>? ReceiveDisable { get; set; }
 
+        /// <summary>
+        /// Instructs the system to mark the target resource down when the test is successful.
+        /// </summary>
         [Input("reverse")]
         public Input<string>? Reverse { get; set; }
 
         /// <summary>
-        /// Request string to send
+        /// Specifies the text string that the monitor sends to the target object.
         /// </summary>
         [Input("send")]
         public Input<string>? Send { get; set; }
 
         /// <summary>
-        /// Time in seconds
+        /// Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
         /// </summary>
         [Input("timeUntilUp")]
         public Input<int>? TimeUntilUp { get; set; }
 
         /// <summary>
-        /// Timeout in seconds
+        /// Specifies the number of seconds the target has in which to respond to the monitor request. The default is `16` seconds
         /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }
 
+        /// <summary>
+        /// Specifies whether the monitor operates in transparent mode.
+        /// </summary>
         [Input("transparent")]
         public Input<string>? Transparent { get; set; }
+
+        /// <summary>
+        /// Specifies the interval for the system to use to perform the health check when a resource is up. The default is `0(Disabled)`
+        /// </summary>
+        [Input("upInterval")]
+        public Input<int>? UpInterval { get; set; }
 
         /// <summary>
         /// Specifies the user name if the monitored target requires authentication
@@ -358,13 +382,13 @@ namespace Pulumi.F5BigIP.Ltm
     public sealed class MonitorState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// ftp adaptive
+        /// Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
         /// </summary>
         [Input("adaptive")]
         public Input<string>? Adaptive { get; set; }
 
         /// <summary>
-        /// Integer value
+        /// Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.
         /// </summary>
         [Input("adaptiveLimit")]
         public Input<int>? AdaptiveLimit { get; set; }
@@ -382,12 +406,6 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Database { get; set; }
 
         /// <summary>
-        /// Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
-        /// </summary>
-        [Input("defaultsFrom")]
-        public Input<string>? DefaultsFrom { get; set; }
-
-        /// <summary>
         /// Specify an alias address for monitoring
         /// </summary>
         [Input("destination")]
@@ -400,14 +418,20 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Filename { get; set; }
 
         /// <summary>
-        /// Check interval in seconds
+        /// Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown. The default is `5`
         /// </summary>
         [Input("interval")]
         public Input<int>? Interval { get; set; }
 
+        /// <summary>
+        /// Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
+        /// </summary>
         [Input("ipDscp")]
         public Input<int>? IpDscp { get; set; }
 
+        /// <summary>
+        /// Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
+        /// </summary>
         [Input("manualResume")]
         public Input<string>? ManualResume { get; set; }
 
@@ -418,13 +442,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Mode { get; set; }
 
         /// <summary>
-        /// Name of the monitor
+        /// Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Existing LTM monitor to inherit from
+        /// Parent monitor for the system to use for setting initial values for the new monitor.
         /// </summary>
         [Input("parent")]
         public Input<string>? Parent { get; set; }
@@ -436,40 +460,52 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Password { get; set; }
 
         /// <summary>
-        /// Expected response string
+        /// Specifies the regular expression representing the text string that the monitor looks for in the returned resource.
         /// </summary>
         [Input("receive")]
         public Input<string>? Receive { get; set; }
 
         /// <summary>
-        /// Expected response string.
+        /// The system marks the node or pool member disabled when its response matches Receive Disable String but not Receive String.
         /// </summary>
         [Input("receiveDisable")]
         public Input<string>? ReceiveDisable { get; set; }
 
+        /// <summary>
+        /// Instructs the system to mark the target resource down when the test is successful.
+        /// </summary>
         [Input("reverse")]
         public Input<string>? Reverse { get; set; }
 
         /// <summary>
-        /// Request string to send
+        /// Specifies the text string that the monitor sends to the target object.
         /// </summary>
         [Input("send")]
         public Input<string>? Send { get; set; }
 
         /// <summary>
-        /// Time in seconds
+        /// Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
         /// </summary>
         [Input("timeUntilUp")]
         public Input<int>? TimeUntilUp { get; set; }
 
         /// <summary>
-        /// Timeout in seconds
+        /// Specifies the number of seconds the target has in which to respond to the monitor request. The default is `16` seconds
         /// </summary>
         [Input("timeout")]
         public Input<int>? Timeout { get; set; }
 
+        /// <summary>
+        /// Specifies whether the monitor operates in transparent mode.
+        /// </summary>
         [Input("transparent")]
         public Input<string>? Transparent { get; set; }
+
+        /// <summary>
+        /// Specifies the interval for the system to use to perform the health check when a resource is up. The default is `0(Disabled)`
+        /// </summary>
+        [Input("upInterval")]
+        public Input<int>? UpInterval { get; set; }
 
         /// <summary>
         /// Specifies the user name if the monitored target requires authentication

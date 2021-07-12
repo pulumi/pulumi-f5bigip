@@ -25,7 +25,7 @@
             },
             "password": {
                 "type": "string",
-                "description": "The user's password\n"
+                "description": "The user's password. Leave empty if using token_value\n"
             },
             "port": {
                 "type": "string",
@@ -38,6 +38,10 @@
             "tokenAuth": {
                 "type": "boolean",
                 "description": "Enable to use an external authentication source (LDAP, TACACS, etc)\n"
+            },
+            "tokenValue": {
+                "type": "string",
+                "description": "A token generated outside the provider, in place of password\n"
             },
             "username": {
                 "type": "string",
@@ -2314,7 +2318,7 @@
             },
             "password": {
                 "type": "string",
-                "description": "The user's password\n"
+                "description": "The user's password. Leave empty if using token_value\n"
             },
             "port": {
                 "type": "string",
@@ -2327,6 +2331,10 @@
             "tokenAuth": {
                 "type": "boolean",
                 "description": "Enable to use an external authentication source (LDAP, TACACS, etc)\n"
+            },
+            "tokenValue": {
+                "type": "string",
+                "description": "A token generated outside the provider, in place of password\n"
             },
             "username": {
                 "type": "string",
@@ -2349,7 +2357,7 @@
             },
             "password": {
                 "type": "string",
-                "description": "The user's password\n"
+                "description": "The user's password. Leave empty if using token_value\n"
             },
             "port": {
                 "type": "string",
@@ -2362,6 +2370,10 @@
             "tokenAuth": {
                 "type": "boolean",
                 "description": "Enable to use an external authentication source (LDAP, TACACS, etc)\n"
+            },
+            "tokenValue": {
+                "type": "string",
+                "description": "A token generated outside the provider, in place of password\n"
             },
             "username": {
                 "type": "string",
@@ -3262,8 +3274,12 @@
             }
         },
         "f5bigip:index/fastTemplate:FastTemplate": {
-            "description": "`f5bigip.FastTemplate` This resource will import and create FAST template sets on BIG-IP LTM. \nTemplate set can be imported from zip archive files on the local disk.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst foo_template = new f5bigip.FastTemplate(\"foo-template\", {\n    name: \"foo_template\",\n    source: \"foo_template.zip\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nfoo_template = f5bigip.FastTemplate(\"foo-template\",\n    name=\"foo_template\",\n    source=\"foo_template.zip\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var foo_template = new F5BigIP.FastTemplate(\"foo-template\", new F5BigIP.FastTemplateArgs\n        {\n            Name = \"foo_template\",\n            Source = \"foo_template.zip\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := f5bigip.NewFastTemplate(ctx, \"foo_template\", \u0026f5bigip.FastTemplateArgs{\n\t\t\tName:   pulumi.String(\"foo_template\"),\n\t\t\tSource: pulumi.String(\"foo_template.zip\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "`f5bigip.FastTemplate` This resource will import and create FAST template sets on BIG-IP LTM. \nTemplate set can be imported from zip archive files on the local disk.\n\n",
             "properties": {
+                "md5Hash": {
+                    "type": "string",
+                    "description": "MD5 hash of the zip archive file containing FAST template\n"
+                },
                 "name": {
                     "type": "string",
                     "description": "Name of the FAST template set to be created on to BIGIP\n"
@@ -3274,9 +3290,14 @@
                 }
             },
             "required": [
+                "md5Hash",
                 "source"
             ],
             "inputProperties": {
+                "md5Hash": {
+                    "type": "string",
+                    "description": "MD5 hash of the zip archive file containing FAST template\n"
+                },
                 "name": {
                     "type": "string",
                     "description": "Name of the FAST template set to be created on to BIGIP\n"
@@ -3287,11 +3308,16 @@
                 }
             },
             "requiredInputs": [
+                "md5Hash",
                 "source"
             ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering FastTemplate resources.\n",
                 "properties": {
+                    "md5Hash": {
+                        "type": "string",
+                        "description": "MD5 hash of the zip archive file containing FAST template\n"
+                    },
                     "name": {
                         "type": "string",
                         "description": "Name of the FAST template set to be created on to BIGIP\n"
@@ -4448,11 +4474,11 @@
             "properties": {
                 "adaptive": {
                     "type": "string",
-                    "description": "ftp adaptive\n"
+                    "description": "Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.\n"
                 },
                 "adaptiveLimit": {
                     "type": "integer",
-                    "description": "Integer value\n"
+                    "description": "Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.\n"
                 },
                 "compatibility": {
                     "type": "string",
@@ -4461,10 +4487,6 @@
                 "database": {
                     "type": "string",
                     "description": "Specifies the database in which the user is created\n"
-                },
-                "defaultsFrom": {
-                    "type": "string",
-                    "description": "Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.\n"
                 },
                 "destination": {
                     "type": "string",
@@ -4476,13 +4498,15 @@
                 },
                 "interval": {
                     "type": "integer",
-                    "description": "Check interval in seconds\n"
+                    "description": "Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown. The default is `5`\n"
                 },
                 "ipDscp": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "Displays the differentiated services code point (DSCP).The default is `0 (zero)`.\n"
                 },
                 "manualResume": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.\n"
                 },
                 "mode": {
                     "type": "string",
@@ -4490,11 +4514,11 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of the monitor\n"
+                    "description": "Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.\n"
                 },
                 "parent": {
                     "type": "string",
-                    "description": "Existing LTM monitor to inherit from\n"
+                    "description": "Parent monitor for the system to use for setting initial values for the new monitor.\n"
                 },
                 "password": {
                     "type": "string",
@@ -4502,29 +4526,35 @@
                 },
                 "receive": {
                     "type": "string",
-                    "description": "Expected response string\n"
+                    "description": "Specifies the regular expression representing the text string that the monitor looks for in the returned resource.\n"
                 },
                 "receiveDisable": {
                     "type": "string",
-                    "description": "Expected response string.\n"
+                    "description": "The system marks the node or pool member disabled when its response matches Receive Disable String but not Receive String.\n"
                 },
                 "reverse": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Instructs the system to mark the target resource down when the test is successful.\n"
                 },
                 "send": {
                     "type": "string",
-                    "description": "Request string to send\n"
+                    "description": "Specifies the text string that the monitor sends to the target object.\n"
                 },
                 "timeUntilUp": {
                     "type": "integer",
-                    "description": "Time in seconds\n"
+                    "description": "Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.\n"
                 },
                 "timeout": {
                     "type": "integer",
-                    "description": "Timeout in seconds\n"
+                    "description": "Specifies the number of seconds the target has in which to respond to the monitor request. The default is `16` seconds\n"
                 },
                 "transparent": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Specifies whether the monitor operates in transparent mode.\n"
+                },
+                "upInterval": {
+                    "type": "integer",
+                    "description": "Specifies the interval for the system to use to perform the health check when a resource is up. The default is `0(Disabled)`\n"
                 },
                 "username": {
                     "type": "string",
@@ -4545,16 +4575,17 @@
                 "send",
                 "timeUntilUp",
                 "timeout",
-                "transparent"
+                "transparent",
+                "upInterval"
             ],
             "inputProperties": {
                 "adaptive": {
                     "type": "string",
-                    "description": "ftp adaptive\n"
+                    "description": "Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.\n"
                 },
                 "adaptiveLimit": {
                     "type": "integer",
-                    "description": "Integer value\n"
+                    "description": "Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.\n"
                 },
                 "compatibility": {
                     "type": "string",
@@ -4563,10 +4594,6 @@
                 "database": {
                     "type": "string",
                     "description": "Specifies the database in which the user is created\n"
-                },
-                "defaultsFrom": {
-                    "type": "string",
-                    "description": "Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.\n"
                 },
                 "destination": {
                     "type": "string",
@@ -4578,13 +4605,15 @@
                 },
                 "interval": {
                     "type": "integer",
-                    "description": "Check interval in seconds\n"
+                    "description": "Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown. The default is `5`\n"
                 },
                 "ipDscp": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "Displays the differentiated services code point (DSCP).The default is `0 (zero)`.\n"
                 },
                 "manualResume": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.\n"
                 },
                 "mode": {
                     "type": "string",
@@ -4592,11 +4621,11 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of the monitor\n"
+                    "description": "Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.\n"
                 },
                 "parent": {
                     "type": "string",
-                    "description": "Existing LTM monitor to inherit from\n"
+                    "description": "Parent monitor for the system to use for setting initial values for the new monitor.\n"
                 },
                 "password": {
                     "type": "string",
@@ -4604,29 +4633,35 @@
                 },
                 "receive": {
                     "type": "string",
-                    "description": "Expected response string\n"
+                    "description": "Specifies the regular expression representing the text string that the monitor looks for in the returned resource.\n"
                 },
                 "receiveDisable": {
                     "type": "string",
-                    "description": "Expected response string.\n"
+                    "description": "The system marks the node or pool member disabled when its response matches Receive Disable String but not Receive String.\n"
                 },
                 "reverse": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Instructs the system to mark the target resource down when the test is successful.\n"
                 },
                 "send": {
                     "type": "string",
-                    "description": "Request string to send\n"
+                    "description": "Specifies the text string that the monitor sends to the target object.\n"
                 },
                 "timeUntilUp": {
                     "type": "integer",
-                    "description": "Time in seconds\n"
+                    "description": "Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.\n"
                 },
                 "timeout": {
                     "type": "integer",
-                    "description": "Timeout in seconds\n"
+                    "description": "Specifies the number of seconds the target has in which to respond to the monitor request. The default is `16` seconds\n"
                 },
                 "transparent": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Specifies whether the monitor operates in transparent mode.\n"
+                },
+                "upInterval": {
+                    "type": "integer",
+                    "description": "Specifies the interval for the system to use to perform the health check when a resource is up. The default is `0(Disabled)`\n"
                 },
                 "username": {
                     "type": "string",
@@ -4642,11 +4677,11 @@
                 "properties": {
                     "adaptive": {
                         "type": "string",
-                        "description": "ftp adaptive\n"
+                        "description": "Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.\n"
                     },
                     "adaptiveLimit": {
                         "type": "integer",
-                        "description": "Integer value\n"
+                        "description": "Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.\n"
                     },
                     "compatibility": {
                         "type": "string",
@@ -4655,10 +4690,6 @@
                     "database": {
                         "type": "string",
                         "description": "Specifies the database in which the user is created\n"
-                    },
-                    "defaultsFrom": {
-                        "type": "string",
-                        "description": "Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.\n"
                     },
                     "destination": {
                         "type": "string",
@@ -4670,13 +4701,15 @@
                     },
                     "interval": {
                         "type": "integer",
-                        "description": "Check interval in seconds\n"
+                        "description": "Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown. The default is `5`\n"
                     },
                     "ipDscp": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "Displays the differentiated services code point (DSCP).The default is `0 (zero)`.\n"
                     },
                     "manualResume": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.\n"
                     },
                     "mode": {
                         "type": "string",
@@ -4684,11 +4717,11 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "Name of the monitor\n"
+                        "description": "Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.\n"
                     },
                     "parent": {
                         "type": "string",
-                        "description": "Existing LTM monitor to inherit from\n"
+                        "description": "Parent monitor for the system to use for setting initial values for the new monitor.\n"
                     },
                     "password": {
                         "type": "string",
@@ -4696,29 +4729,35 @@
                     },
                     "receive": {
                         "type": "string",
-                        "description": "Expected response string\n"
+                        "description": "Specifies the regular expression representing the text string that the monitor looks for in the returned resource.\n"
                     },
                     "receiveDisable": {
                         "type": "string",
-                        "description": "Expected response string.\n"
+                        "description": "The system marks the node or pool member disabled when its response matches Receive Disable String but not Receive String.\n"
                     },
                     "reverse": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Instructs the system to mark the target resource down when the test is successful.\n"
                     },
                     "send": {
                         "type": "string",
-                        "description": "Request string to send\n"
+                        "description": "Specifies the text string that the monitor sends to the target object.\n"
                     },
                     "timeUntilUp": {
                         "type": "integer",
-                        "description": "Time in seconds\n"
+                        "description": "Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.\n"
                     },
                     "timeout": {
                         "type": "integer",
-                        "description": "Timeout in seconds\n"
+                        "description": "Specifies the number of seconds the target has in which to respond to the monitor request. The default is `16` seconds\n"
                     },
                     "transparent": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Specifies whether the monitor operates in transparent mode.\n"
+                    },
+                    "upInterval": {
+                        "type": "integer",
+                        "description": "Specifies the interval for the system to use to perform the health check when a resource is up. The default is `0(Disabled)`\n"
                     },
                     "username": {
                         "type": "string",
@@ -4766,6 +4805,10 @@
                     "type": "integer",
                     "description": "Sets the ratio number for the node.\n"
                 },
+                "session": {
+                    "type": "string",
+                    "description": "Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).\n"
+                },
                 "state": {
                     "type": "string",
                     "description": "Default is \"user-up\" you can set to \"user-down\" if you want to disable\n"
@@ -4777,7 +4820,8 @@
                 "dynamicRatio",
                 "name",
                 "rateLimit",
-                "ratio"
+                "ratio",
+                "session"
             ],
             "inputProperties": {
                 "address": {
@@ -4814,6 +4858,10 @@
                 "ratio": {
                     "type": "integer",
                     "description": "Sets the ratio number for the node.\n"
+                },
+                "session": {
+                    "type": "string",
+                    "description": "Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).\n"
                 },
                 "state": {
                     "type": "string",
@@ -4861,6 +4909,10 @@
                     "ratio": {
                         "type": "integer",
                         "description": "Sets the ratio number for the node.\n"
+                    },
+                    "session": {
+                        "type": "string",
+                        "description": "Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).\n"
                     },
                     "state": {
                         "type": "string",
@@ -9125,6 +9177,9 @@
                     "type": "string",
                     "description": "Name of the virtual server\n"
                 },
+                "perFlowRequestAccessPolicy": {
+                    "type": "string"
+                },
                 "persistenceProfiles": {
                     "type": "array",
                     "items": {
@@ -9152,6 +9207,12 @@
                         "type": "string"
                     },
                     "description": "List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.\n"
+                },
+                "securityLogProfiles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 },
                 "serverProfiles": {
                     "type": "array",
@@ -9202,6 +9263,7 @@
                 "ipProtocol",
                 "mask",
                 "name",
+                "perFlowRequestAccessPolicy",
                 "port",
                 "profiles",
                 "snatpool",
@@ -9253,6 +9315,9 @@
                     "type": "string",
                     "description": "Name of the virtual server\n"
                 },
+                "perFlowRequestAccessPolicy": {
+                    "type": "string"
+                },
                 "persistenceProfiles": {
                     "type": "array",
                     "items": {
@@ -9280,6 +9345,12 @@
                         "type": "string"
                     },
                     "description": "List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.\n"
+                },
+                "securityLogProfiles": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
                 },
                 "serverProfiles": {
                     "type": "array",
@@ -9373,6 +9444,9 @@
                         "type": "string",
                         "description": "Name of the virtual server\n"
                     },
+                    "perFlowRequestAccessPolicy": {
+                        "type": "string"
+                    },
                     "persistenceProfiles": {
                         "type": "array",
                         "items": {
@@ -9400,6 +9474,12 @@
                             "type": "string"
                         },
                         "description": "List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.\n"
+                    },
+                    "securityLogProfiles": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
                     },
                     "serverProfiles": {
                         "type": "array",
@@ -9448,7 +9528,7 @@
             }
         },
         "f5bigip:net/route:Route": {
-            "description": "`f5bigip.net.Route` Manages a route configuration\n\nFor resources should be named with their \"full path\". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst route2 = new f5bigip.net.Route(\"route2\", {\n    gw: \"1.1.1.2\",\n    name: \"external-route\",\n    network: \"10.10.10.0/24\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nroute2 = f5bigip.net.Route(\"route2\",\n    gw=\"1.1.1.2\",\n    name=\"external-route\",\n    network=\"10.10.10.0/24\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var route2 = new F5BigIP.Net.Route(\"route2\", new F5BigIP.Net.RouteArgs\n        {\n            Gw = \"1.1.1.2\",\n            Name = \"external-route\",\n            Network = \"10.10.10.0/24\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/net\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := net.NewRoute(ctx, \"route2\", \u0026net.RouteArgs{\n\t\t\tGw:      pulumi.String(\"1.1.1.2\"),\n\t\t\tName:    pulumi.String(\"external-route\"),\n\t\t\tNetwork: pulumi.String(\"10.10.10.0/24\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "`f5bigip.net.Route` Manages a route configuration\n\nFor resources should be named with their \"full path\". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst route2 = new f5bigip.net.Route(\"route2\", {\n    gw: \"1.1.1.2\",\n    name: \"/Common/external-route\",\n    network: \"10.10.10.0/24\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nroute2 = f5bigip.net.Route(\"route2\",\n    gw=\"1.1.1.2\",\n    name=\"/Common/external-route\",\n    network=\"10.10.10.0/24\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var route2 = new F5BigIP.Net.Route(\"route2\", new F5BigIP.Net.RouteArgs\n        {\n            Gw = \"1.1.1.2\",\n            Name = \"/Common/external-route\",\n            Network = \"10.10.10.0/24\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/net\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := net.NewRoute(ctx, \"route2\", \u0026net.RouteArgs{\n\t\t\tGw:      pulumi.String(\"1.1.1.2\"),\n\t\t\tName:    pulumi.String(\"/Common/external-route\"),\n\t\t\tNetwork: pulumi.String(\"10.10.10.0/24\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "gw": {
                     "type": "string",
@@ -9456,7 +9536,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of the route\n"
+                    "description": "Name of the route.Name of Route should be full path,full path is the combination of the `partition + route name`,For ex: `/Common/test-net-route`.\n"
                 },
                 "network": {
                     "type": "string",
@@ -9482,7 +9562,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of the route\n"
+                    "description": "Name of the route.Name of Route should be full path,full path is the combination of the `partition + route name`,For ex: `/Common/test-net-route`.\n"
                 },
                 "network": {
                     "type": "string",
@@ -9510,7 +9590,7 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "Name of the route\n"
+                        "description": "Name of the route.Name of Route should be full path,full path is the combination of the `partition + route name`,For ex: `/Common/test-net-route`.\n"
                     },
                     "network": {
                         "type": "string",
@@ -10224,11 +10304,11 @@
                 },
                 "fullPath": {
                     "type": "string",
-                    "description": "path\n"
+                    "description": "Specifies the module being enabled. It can be one among the list [afm, am, apm, asm, avr, cgnat, fps, gtm, ilx, lc, ltm, pem, swg, urldb, sslo, vcmp]\n"
                 },
                 "level": {
                     "type": "string",
-                    "description": "what level nominal or dedicated\n"
+                    "description": "Specifies the level of resources that you want to provision for a module. The list of allowed values are [minimum, nominal, dedicated, custom, none]\n"
                 },
                 "memoryRatio": {
                     "type": "integer",
@@ -10254,11 +10334,11 @@
                 },
                 "fullPath": {
                     "type": "string",
-                    "description": "path\n"
+                    "description": "Specifies the module being enabled. It can be one among the list [afm, am, apm, asm, avr, cgnat, fps, gtm, ilx, lc, ltm, pem, swg, urldb, sslo, vcmp]\n"
                 },
                 "level": {
                     "type": "string",
-                    "description": "what level nominal or dedicated\n"
+                    "description": "Specifies the level of resources that you want to provision for a module. The list of allowed values are [minimum, nominal, dedicated, custom, none]\n"
                 },
                 "memoryRatio": {
                     "type": "integer",
@@ -10285,11 +10365,11 @@
                     },
                     "fullPath": {
                         "type": "string",
-                        "description": "path\n"
+                        "description": "Specifies the module being enabled. It can be one among the list [afm, am, apm, asm, avr, cgnat, fps, gtm, ilx, lc, ltm, pem, swg, urldb, sslo, vcmp]\n"
                     },
                     "level": {
                         "type": "string",
-                        "description": "what level nominal or dedicated\n"
+                        "description": "Specifies the level of resources that you want to provision for a module. The list of allowed values are [minimum, nominal, dedicated, custom, none]\n"
                     },
                     "memoryRatio": {
                         "type": "integer",
@@ -10816,6 +10896,9 @@
                     "ratio": {
                         "type": "integer"
                     },
+                    "session": {
+                        "type": "string"
+                    },
                     "state": {
                         "type": "string"
                     }
@@ -10830,6 +10913,7 @@
                     "partition",
                     "rateLimit",
                     "ratio",
+                    "session",
                     "state",
                     "id"
                 ]
@@ -11008,8 +11092,7 @@
                 "sys": "Sys"
             },
             "packageReferences": {
-                "Pulumi": "3.*",
-                "System.Collections.Immutable": "1.6.0"
+                "Pulumi": "3.*"
             }
         },
         "go": {

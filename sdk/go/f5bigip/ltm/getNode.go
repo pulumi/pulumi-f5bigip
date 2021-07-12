@@ -39,5 +39,6 @@ type LookupNodeResult struct {
 	Partition string `pulumi:"partition"`
 	RateLimit string `pulumi:"rateLimit"`
 	Ratio     int    `pulumi:"ratio"`
+	Session   string `pulumi:"session"`
 	State     string `pulumi:"state"`
 }

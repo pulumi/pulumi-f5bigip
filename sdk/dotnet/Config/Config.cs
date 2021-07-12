@@ -19,7 +19,7 @@ namespace Pulumi.F5BigIP
         public static string? LoginRef { get; set; } = __config.Get("loginRef");
 
         /// <summary>
-        /// The user's password
+        /// The user's password. Leave empty if using token_value
         /// </summary>
         public static string? Password { get; set; } = __config.Get("password");
 
@@ -37,6 +37,11 @@ namespace Pulumi.F5BigIP
         /// Enable to use an external authentication source (LDAP, TACACS, etc)
         /// </summary>
         public static bool? TokenAuth { get; set; } = __config.GetBoolean("tokenAuth");
+
+        /// <summary>
+        /// A token generated outside the provider, in place of password
+        /// </summary>
+        public static string? TokenValue { get; set; } = __config.Get("tokenValue");
 
         /// <summary>
         /// Username with API access to the BigIP

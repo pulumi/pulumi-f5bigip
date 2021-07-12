@@ -56,6 +56,7 @@ namespace Pulumi.F5BigIP.Ltm
         public readonly string Partition;
         public readonly string RateLimit;
         public readonly int Ratio;
+        public readonly string Session;
         public readonly string State;
 
         [OutputConstructor]
@@ -82,6 +83,8 @@ namespace Pulumi.F5BigIP.Ltm
 
             int ratio,
 
+            string session,
+
             string state)
         {
             Address = address;
@@ -95,6 +98,7 @@ namespace Pulumi.F5BigIP.Ltm
             Partition = partition;
             RateLimit = rateLimit;
             Ratio = ratio;
+            Session = session;
             State = state;
         }
     }

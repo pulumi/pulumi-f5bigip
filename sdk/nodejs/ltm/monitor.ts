@@ -73,11 +73,11 @@ export class Monitor extends pulumi.CustomResource {
     }
 
     /**
-     * ftp adaptive
+     * Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
      */
     public readonly adaptive!: pulumi.Output<string>;
     /**
-     * Integer value
+     * Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.
      */
     public readonly adaptiveLimit!: pulumi.Output<number>;
     /**
@@ -89,10 +89,6 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly database!: pulumi.Output<string | undefined>;
     /**
-     * Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
-     */
-    public readonly defaultsFrom!: pulumi.Output<string | undefined>;
-    /**
      * Specify an alias address for monitoring
      */
     public readonly destination!: pulumi.Output<string>;
@@ -101,21 +97,27 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly filename!: pulumi.Output<string | undefined>;
     /**
-     * Check interval in seconds
+     * Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown. The default is `5`
      */
     public readonly interval!: pulumi.Output<number>;
+    /**
+     * Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
+     */
     public readonly ipDscp!: pulumi.Output<number>;
+    /**
+     * Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
+     */
     public readonly manualResume!: pulumi.Output<string>;
     /**
      * Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
      */
     public readonly mode!: pulumi.Output<string>;
     /**
-     * Name of the monitor
+     * Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Existing LTM monitor to inherit from
+     * Parent monitor for the system to use for setting initial values for the new monitor.
      */
     public readonly parent!: pulumi.Output<string>;
     /**
@@ -123,27 +125,37 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly password!: pulumi.Output<string | undefined>;
     /**
-     * Expected response string
+     * Specifies the regular expression representing the text string that the monitor looks for in the returned resource.
      */
     public readonly receive!: pulumi.Output<string | undefined>;
     /**
-     * Expected response string.
+     * The system marks the node or pool member disabled when its response matches Receive Disable String but not Receive String.
      */
     public readonly receiveDisable!: pulumi.Output<string | undefined>;
+    /**
+     * Instructs the system to mark the target resource down when the test is successful.
+     */
     public readonly reverse!: pulumi.Output<string>;
     /**
-     * Request string to send
+     * Specifies the text string that the monitor sends to the target object.
      */
     public readonly send!: pulumi.Output<string>;
     /**
-     * Time in seconds
+     * Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
      */
     public readonly timeUntilUp!: pulumi.Output<number>;
     /**
-     * Timeout in seconds
+     * Specifies the number of seconds the target has in which to respond to the monitor request. The default is `16` seconds
      */
     public readonly timeout!: pulumi.Output<number>;
+    /**
+     * Specifies whether the monitor operates in transparent mode.
+     */
     public readonly transparent!: pulumi.Output<string>;
+    /**
+     * Specifies the interval for the system to use to perform the health check when a resource is up. The default is `0(Disabled)`
+     */
+    public readonly upInterval!: pulumi.Output<number>;
     /**
      * Specifies the user name if the monitored target requires authentication
      */
@@ -166,7 +178,6 @@ export class Monitor extends pulumi.CustomResource {
             inputs["adaptiveLimit"] = state ? state.adaptiveLimit : undefined;
             inputs["compatibility"] = state ? state.compatibility : undefined;
             inputs["database"] = state ? state.database : undefined;
-            inputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
             inputs["destination"] = state ? state.destination : undefined;
             inputs["filename"] = state ? state.filename : undefined;
             inputs["interval"] = state ? state.interval : undefined;
@@ -183,6 +194,7 @@ export class Monitor extends pulumi.CustomResource {
             inputs["timeUntilUp"] = state ? state.timeUntilUp : undefined;
             inputs["timeout"] = state ? state.timeout : undefined;
             inputs["transparent"] = state ? state.transparent : undefined;
+            inputs["upInterval"] = state ? state.upInterval : undefined;
             inputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as MonitorArgs | undefined;
@@ -196,7 +208,6 @@ export class Monitor extends pulumi.CustomResource {
             inputs["adaptiveLimit"] = args ? args.adaptiveLimit : undefined;
             inputs["compatibility"] = args ? args.compatibility : undefined;
             inputs["database"] = args ? args.database : undefined;
-            inputs["defaultsFrom"] = args ? args.defaultsFrom : undefined;
             inputs["destination"] = args ? args.destination : undefined;
             inputs["filename"] = args ? args.filename : undefined;
             inputs["interval"] = args ? args.interval : undefined;
@@ -213,6 +224,7 @@ export class Monitor extends pulumi.CustomResource {
             inputs["timeUntilUp"] = args ? args.timeUntilUp : undefined;
             inputs["timeout"] = args ? args.timeout : undefined;
             inputs["transparent"] = args ? args.transparent : undefined;
+            inputs["upInterval"] = args ? args.upInterval : undefined;
             inputs["username"] = args ? args.username : undefined;
         }
         if (!opts.version) {
@@ -227,11 +239,11 @@ export class Monitor extends pulumi.CustomResource {
  */
 export interface MonitorState {
     /**
-     * ftp adaptive
+     * Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
      */
     adaptive?: pulumi.Input<string>;
     /**
-     * Integer value
+     * Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.
      */
     adaptiveLimit?: pulumi.Input<number>;
     /**
@@ -243,10 +255,6 @@ export interface MonitorState {
      */
     database?: pulumi.Input<string>;
     /**
-     * Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
-     */
-    defaultsFrom?: pulumi.Input<string>;
-    /**
      * Specify an alias address for monitoring
      */
     destination?: pulumi.Input<string>;
@@ -255,21 +263,27 @@ export interface MonitorState {
      */
     filename?: pulumi.Input<string>;
     /**
-     * Check interval in seconds
+     * Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown. The default is `5`
      */
     interval?: pulumi.Input<number>;
+    /**
+     * Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
+     */
     ipDscp?: pulumi.Input<number>;
+    /**
+     * Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
+     */
     manualResume?: pulumi.Input<string>;
     /**
      * Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
      */
     mode?: pulumi.Input<string>;
     /**
-     * Name of the monitor
+     * Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
      */
     name?: pulumi.Input<string>;
     /**
-     * Existing LTM monitor to inherit from
+     * Parent monitor for the system to use for setting initial values for the new monitor.
      */
     parent?: pulumi.Input<string>;
     /**
@@ -277,27 +291,37 @@ export interface MonitorState {
      */
     password?: pulumi.Input<string>;
     /**
-     * Expected response string
+     * Specifies the regular expression representing the text string that the monitor looks for in the returned resource.
      */
     receive?: pulumi.Input<string>;
     /**
-     * Expected response string.
+     * The system marks the node or pool member disabled when its response matches Receive Disable String but not Receive String.
      */
     receiveDisable?: pulumi.Input<string>;
+    /**
+     * Instructs the system to mark the target resource down when the test is successful.
+     */
     reverse?: pulumi.Input<string>;
     /**
-     * Request string to send
+     * Specifies the text string that the monitor sends to the target object.
      */
     send?: pulumi.Input<string>;
     /**
-     * Time in seconds
+     * Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
      */
     timeUntilUp?: pulumi.Input<number>;
     /**
-     * Timeout in seconds
+     * Specifies the number of seconds the target has in which to respond to the monitor request. The default is `16` seconds
      */
     timeout?: pulumi.Input<number>;
+    /**
+     * Specifies whether the monitor operates in transparent mode.
+     */
     transparent?: pulumi.Input<string>;
+    /**
+     * Specifies the interval for the system to use to perform the health check when a resource is up. The default is `0(Disabled)`
+     */
+    upInterval?: pulumi.Input<number>;
     /**
      * Specifies the user name if the monitored target requires authentication
      */
@@ -309,11 +333,11 @@ export interface MonitorState {
  */
 export interface MonitorArgs {
     /**
-     * ftp adaptive
+     * Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
      */
     adaptive?: pulumi.Input<string>;
     /**
-     * Integer value
+     * Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.
      */
     adaptiveLimit?: pulumi.Input<number>;
     /**
@@ -325,10 +349,6 @@ export interface MonitorArgs {
      */
     database?: pulumi.Input<string>;
     /**
-     * Existing monitor to inherit from. Must be one of /Common/http, /Common/https, /Common/icmp or /Common/gateway-icmp.
-     */
-    defaultsFrom?: pulumi.Input<string>;
-    /**
      * Specify an alias address for monitoring
      */
     destination?: pulumi.Input<string>;
@@ -337,21 +357,27 @@ export interface MonitorArgs {
      */
     filename?: pulumi.Input<string>;
     /**
-     * Check interval in seconds
+     * Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown. The default is `5`
      */
     interval?: pulumi.Input<number>;
+    /**
+     * Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
+     */
     ipDscp?: pulumi.Input<number>;
+    /**
+     * Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
+     */
     manualResume?: pulumi.Input<string>;
     /**
      * Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
      */
     mode?: pulumi.Input<string>;
     /**
-     * Name of the monitor
+     * Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
      */
     name: pulumi.Input<string>;
     /**
-     * Existing LTM monitor to inherit from
+     * Parent monitor for the system to use for setting initial values for the new monitor.
      */
     parent: pulumi.Input<string>;
     /**
@@ -359,27 +385,37 @@ export interface MonitorArgs {
      */
     password?: pulumi.Input<string>;
     /**
-     * Expected response string
+     * Specifies the regular expression representing the text string that the monitor looks for in the returned resource.
      */
     receive?: pulumi.Input<string>;
     /**
-     * Expected response string.
+     * The system marks the node or pool member disabled when its response matches Receive Disable String but not Receive String.
      */
     receiveDisable?: pulumi.Input<string>;
+    /**
+     * Instructs the system to mark the target resource down when the test is successful.
+     */
     reverse?: pulumi.Input<string>;
     /**
-     * Request string to send
+     * Specifies the text string that the monitor sends to the target object.
      */
     send?: pulumi.Input<string>;
     /**
-     * Time in seconds
+     * Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
      */
     timeUntilUp?: pulumi.Input<number>;
     /**
-     * Timeout in seconds
+     * Specifies the number of seconds the target has in which to respond to the monitor request. The default is `16` seconds
      */
     timeout?: pulumi.Input<number>;
+    /**
+     * Specifies whether the monitor operates in transparent mode.
+     */
     transparent?: pulumi.Input<string>;
+    /**
+     * Specifies the interval for the system to use to perform the health check when a resource is up. The default is `0(Disabled)`
+     */
+    upInterval?: pulumi.Input<number>;
     /**
      * Specifies the user name if the monitored target requires authentication
      */

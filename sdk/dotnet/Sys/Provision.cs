@@ -51,13 +51,13 @@ namespace Pulumi.F5BigIP.Sys
         public Output<int?> DiskRatio { get; private set; } = null!;
 
         /// <summary>
-        /// path
+        /// Specifies the module being enabled. It can be one among the list [afm, am, apm, asm, avr, cgnat, fps, gtm, ilx, lc, ltm, pem, swg, urldb, sslo, vcmp]
         /// </summary>
         [Output("fullPath")]
         public Output<string> FullPath { get; private set; } = null!;
 
         /// <summary>
-        /// what level nominal or dedicated
+        /// Specifies the level of resources that you want to provision for a module. The list of allowed values are [minimum, nominal, dedicated, custom, none]
         /// </summary>
         [Output("level")]
         public Output<string?> Level { get; private set; } = null!;
@@ -133,13 +133,13 @@ namespace Pulumi.F5BigIP.Sys
         public Input<int>? DiskRatio { get; set; }
 
         /// <summary>
-        /// path
+        /// Specifies the module being enabled. It can be one among the list [afm, am, apm, asm, avr, cgnat, fps, gtm, ilx, lc, ltm, pem, swg, urldb, sslo, vcmp]
         /// </summary>
         [Input("fullPath")]
         public Input<string>? FullPath { get; set; }
 
         /// <summary>
-        /// what level nominal or dedicated
+        /// Specifies the level of resources that you want to provision for a module. The list of allowed values are [minimum, nominal, dedicated, custom, none]
         /// </summary>
         [Input("level")]
         public Input<string>? Level { get; set; }
@@ -176,13 +176,13 @@ namespace Pulumi.F5BigIP.Sys
         public Input<int>? DiskRatio { get; set; }
 
         /// <summary>
-        /// path
+        /// Specifies the module being enabled. It can be one among the list [afm, am, apm, asm, avr, cgnat, fps, gtm, ilx, lc, ltm, pem, swg, urldb, sslo, vcmp]
         /// </summary>
         [Input("fullPath")]
         public Input<string>? FullPath { get; set; }
 
         /// <summary>
-        /// what level nominal or dedicated
+        /// Specifies the level of resources that you want to provision for a module. The list of allowed values are [minimum, nominal, dedicated, custom, none]
         /// </summary>
         [Input("level")]
         public Input<string>? Level { get; set; }

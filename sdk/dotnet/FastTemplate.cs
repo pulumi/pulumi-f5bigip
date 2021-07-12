@@ -12,30 +12,16 @@ namespace Pulumi.F5BigIP
     /// <summary>
     /// `f5bigip.FastTemplate` This resource will import and create FAST template sets on BIG-IP LTM.
     /// Template set can be imported from zip archive files on the local disk.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using F5BigIP = Pulumi.F5BigIP;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var foo_template = new F5BigIP.FastTemplate("foo-template", new F5BigIP.FastTemplateArgs
-    ///         {
-    ///             Name = "foo_template",
-    ///             Source = "foo_template.zip",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:index/fastTemplate:FastTemplate")]
     public partial class FastTemplate : Pulumi.CustomResource
     {
+        /// <summary>
+        /// MD5 hash of the zip archive file containing FAST template
+        /// </summary>
+        [Output("md5Hash")]
+        public Output<string> Md5Hash { get; private set; } = null!;
+
         /// <summary>
         /// Name of the FAST template set to be created on to BIGIP
         /// </summary>
@@ -95,6 +81,12 @@ namespace Pulumi.F5BigIP
     public sealed class FastTemplateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// MD5 hash of the zip archive file containing FAST template
+        /// </summary>
+        [Input("md5Hash", required: true)]
+        public Input<string> Md5Hash { get; set; } = null!;
+
+        /// <summary>
         /// Name of the FAST template set to be created on to BIGIP
         /// </summary>
         [Input("name")]
@@ -113,6 +105,12 @@ namespace Pulumi.F5BigIP
 
     public sealed class FastTemplateState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// MD5 hash of the zip archive file containing FAST template
+        /// </summary>
+        [Input("md5Hash")]
+        public Input<string>? Md5Hash { get; set; }
+
         /// <summary>
         /// Name of the FAST template set to be created on to BIGIP
         /// </summary>

@@ -93,6 +93,10 @@ export class Node extends pulumi.CustomResource {
      */
     public readonly ratio!: pulumi.Output<number>;
     /**
+     * Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
+     */
+    public readonly session!: pulumi.Output<string>;
+    /**
      * Default is "user-up" you can set to "user-down" if you want to disable
      */
     public readonly state!: pulumi.Output<string | undefined>;
@@ -119,6 +123,7 @@ export class Node extends pulumi.CustomResource {
             inputs["name"] = state ? state.name : undefined;
             inputs["rateLimit"] = state ? state.rateLimit : undefined;
             inputs["ratio"] = state ? state.ratio : undefined;
+            inputs["session"] = state ? state.session : undefined;
             inputs["state"] = state ? state.state : undefined;
         } else {
             const args = argsOrState as NodeArgs | undefined;
@@ -137,6 +142,7 @@ export class Node extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["rateLimit"] = args ? args.rateLimit : undefined;
             inputs["ratio"] = args ? args.ratio : undefined;
+            inputs["session"] = args ? args.session : undefined;
             inputs["state"] = args ? args.state : undefined;
         }
         if (!opts.version) {
@@ -184,6 +190,10 @@ export interface NodeState {
      */
     ratio?: pulumi.Input<number>;
     /**
+     * Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
+     */
+    session?: pulumi.Input<string>;
+    /**
      * Default is "user-up" you can set to "user-down" if you want to disable
      */
     state?: pulumi.Input<string>;
@@ -226,6 +236,10 @@ export interface NodeArgs {
      * Sets the ratio number for the node.
      */
     ratio?: pulumi.Input<number>;
+    /**
+     * Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
+     */
+    session?: pulumi.Input<string>;
     /**
      * Default is "user-up" you can set to "user-down" if you want to disable
      */

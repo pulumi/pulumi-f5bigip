@@ -31,7 +31,7 @@ namespace Pulumi.F5BigIP
         public Output<string?> LoginRef { get; private set; } = null!;
 
         /// <summary>
-        /// The user's password
+        /// The user's password. Leave empty if using token_value
         /// </summary>
         [Output("password")]
         public Output<string> Password { get; private set; } = null!;
@@ -41,6 +41,12 @@ namespace Pulumi.F5BigIP
         /// </summary>
         [Output("port")]
         public Output<string?> Port { get; private set; } = null!;
+
+        /// <summary>
+        /// A token generated outside the provider, in place of password
+        /// </summary>
+        [Output("tokenValue")]
+        public Output<string?> TokenValue { get; private set; } = null!;
 
         /// <summary>
         /// Username with API access to the BigIP
@@ -89,7 +95,7 @@ namespace Pulumi.F5BigIP
         public Input<string>? LoginRef { get; set; }
 
         /// <summary>
-        /// The user's password
+        /// The user's password. Leave empty if using token_value
         /// </summary>
         [Input("password", required: true)]
         public Input<string> Password { get; set; } = null!;
@@ -111,6 +117,12 @@ namespace Pulumi.F5BigIP
         /// </summary>
         [Input("tokenAuth", json: true)]
         public Input<bool>? TokenAuth { get; set; }
+
+        /// <summary>
+        /// A token generated outside the provider, in place of password
+        /// </summary>
+        [Input("tokenValue")]
+        public Input<string>? TokenValue { get; set; }
 
         /// <summary>
         /// Username with API access to the BigIP

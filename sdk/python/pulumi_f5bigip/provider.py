@@ -19,16 +19,18 @@ class ProviderArgs:
                  login_ref: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[str]] = None,
                  teem_disable: Optional[pulumi.Input[bool]] = None,
-                 token_auth: Optional[pulumi.Input[bool]] = None):
+                 token_auth: Optional[pulumi.Input[bool]] = None,
+                 token_value: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Provider resource.
         :param pulumi.Input[str] address: Domain name/IP of the BigIP
-        :param pulumi.Input[str] password: The user's password
+        :param pulumi.Input[str] password: The user's password. Leave empty if using token_value
         :param pulumi.Input[str] username: Username with API access to the BigIP
         :param pulumi.Input[str] login_ref: Login reference for token authentication (see BIG-IP REST docs for details)
         :param pulumi.Input[str] port: Management Port to connect to Bigip
         :param pulumi.Input[bool] teem_disable: If this flag set to true,sending telemetry data to TEEM will be disabled
         :param pulumi.Input[bool] token_auth: Enable to use an external authentication source (LDAP, TACACS, etc)
+        :param pulumi.Input[str] token_value: A token generated outside the provider, in place of password
         """
         pulumi.set(__self__, "address", address)
         pulumi.set(__self__, "password", password)
@@ -41,6 +43,8 @@ class ProviderArgs:
             pulumi.set(__self__, "teem_disable", teem_disable)
         if token_auth is not None:
             pulumi.set(__self__, "token_auth", token_auth)
+        if token_value is not None:
+            pulumi.set(__self__, "token_value", token_value)
 
     @property
     @pulumi.getter
@@ -58,7 +62,7 @@ class ProviderArgs:
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        The user's password
+        The user's password. Leave empty if using token_value
         """
         return pulumi.get(self, "password")
 
@@ -126,6 +130,18 @@ class ProviderArgs:
     def token_auth(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "token_auth", value)
 
+    @property
+    @pulumi.getter(name="tokenValue")
+    def token_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        A token generated outside the provider, in place of password
+        """
+        return pulumi.get(self, "token_value")
+
+    @token_value.setter
+    def token_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "token_value", value)
+
 
 class Provider(pulumi.ProviderResource):
     @overload
@@ -138,6 +154,7 @@ class Provider(pulumi.ProviderResource):
                  port: Optional[pulumi.Input[str]] = None,
                  teem_disable: Optional[pulumi.Input[bool]] = None,
                  token_auth: Optional[pulumi.Input[bool]] = None,
+                 token_value: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -150,10 +167,11 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address: Domain name/IP of the BigIP
         :param pulumi.Input[str] login_ref: Login reference for token authentication (see BIG-IP REST docs for details)
-        :param pulumi.Input[str] password: The user's password
+        :param pulumi.Input[str] password: The user's password. Leave empty if using token_value
         :param pulumi.Input[str] port: Management Port to connect to Bigip
         :param pulumi.Input[bool] teem_disable: If this flag set to true,sending telemetry data to TEEM will be disabled
         :param pulumi.Input[bool] token_auth: Enable to use an external authentication source (LDAP, TACACS, etc)
+        :param pulumi.Input[str] token_value: A token generated outside the provider, in place of password
         :param pulumi.Input[str] username: Username with API access to the BigIP
         """
         ...
@@ -189,6 +207,7 @@ class Provider(pulumi.ProviderResource):
                  port: Optional[pulumi.Input[str]] = None,
                  teem_disable: Optional[pulumi.Input[bool]] = None,
                  token_auth: Optional[pulumi.Input[bool]] = None,
+                 token_value: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -212,6 +231,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["port"] = port
             __props__.__dict__["teem_disable"] = pulumi.Output.from_input(teem_disable).apply(pulumi.runtime.to_json) if teem_disable is not None else None
             __props__.__dict__["token_auth"] = pulumi.Output.from_input(token_auth).apply(pulumi.runtime.to_json) if token_auth is not None else None
+            __props__.__dict__["token_value"] = token_value
             if username is None and not opts.urn:
                 raise TypeError("Missing required property 'username'")
             __props__.__dict__["username"] = username
@@ -241,7 +261,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter
     def password(self) -> pulumi.Output[str]:
         """
-        The user's password
+        The user's password. Leave empty if using token_value
         """
         return pulumi.get(self, "password")
 
@@ -252,6 +272,14 @@ class Provider(pulumi.ProviderResource):
         Management Port to connect to Bigip
         """
         return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="tokenValue")
+    def token_value(self) -> pulumi.Output[Optional[str]]:
+        """
+        A token generated outside the provider, in place of password
+        """
+        return pulumi.get(self, "token_value")
 
     @property
     @pulumi.getter
