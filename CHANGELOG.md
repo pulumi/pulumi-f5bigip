@@ -2,9 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v1.10.0 of the BigIP Terraform Provider
+_(none)_
 
 ---
+
+## 3.3.0 (2021-07-12)
+* Upgrade to v1.10.0 of the BigIP Terraform Provider
+  **Please Note:** This includes a breaking change to remove `defaultsFrom` from `f5bigip.ltm.Monitor`.
 
 ## 3.2.0 (2021-05-27)
 * Upgrade to v3.2.1 of the pulumi-terraform-bridge
