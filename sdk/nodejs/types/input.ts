@@ -33,14 +33,32 @@ export namespace ltm {
 
     export interface GetDataGroupRecord {
         data?: string;
+        /**
+         * Name of the datagroup
+         */
         name: string;
     }
 
     export interface GetNodeFqdn {
+        /**
+         * The FQDN node's address family.
+         */
         addressFamily?: string;
+        /**
+         * Specifies if the node should scale to the IP address set returned by DNS.
+         */
         autopopulate?: string;
+        /**
+         * The number of attempts to resolve a domain name.
+         */
         downinterval?: number;
+        /**
+         * The amount of time before sending the next DNS query.
+         */
         interval?: string;
+        /**
+         * Name of the node.
+         */
         name?: string;
     }
 

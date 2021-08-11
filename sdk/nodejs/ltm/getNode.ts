@@ -5,6 +5,23 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Use this data source (`f5bigip.ltm.Node`) to get the ltm node details available on BIG-IP
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const test = pulumi.output(f5bigip.ltm.getNode({
+ *     name: "terraform_node",
+ *     partition: "Common",
+ * }));
+ *
+ * export const bigipNode = test.address!;
+ * ```
+ */
 export function getNode(args: GetNodeArgs, opts?: pulumi.InvokeOptions): Promise<GetNodeResult> {
     if (!opts) {
         opts = {}
@@ -17,6 +34,7 @@ export function getNode(args: GetNodeArgs, opts?: pulumi.InvokeOptions): Promise
         "address": args.address,
         "description": args.description,
         "fqdn": args.fqdn,
+        "fullPath": args.fullPath,
         "name": args.name,
         "partition": args.partition,
     }, opts);
@@ -26,10 +44,26 @@ export function getNode(args: GetNodeArgs, opts?: pulumi.InvokeOptions): Promise
  * A collection of arguments for invoking getNode.
  */
 export interface GetNodeArgs {
+    /**
+     * The address of the node.
+     */
     address?: string;
+    /**
+     * User defined description of the node.
+     */
     description?: string;
     fqdn?: inputs.ltm.GetNodeFqdn;
+    /**
+     * Full path of the node (partition and name)
+     */
+    fullPath?: string;
+    /**
+     * Name of the node.
+     */
     name: string;
+    /**
+     * partition of the node.
+     */
     partition: string;
 }
 
@@ -37,20 +71,48 @@ export interface GetNodeArgs {
  * A collection of values returned by getNode.
  */
 export interface GetNodeResult {
+    /**
+     * The address of the node.
+     */
     readonly address?: string;
+    /**
+     * Node connection limit.
+     */
     readonly connectionLimit: number;
+    /**
+     * User defined description of the node.
+     */
     readonly description?: string;
+    /**
+     * The dynamic ratio number for the node.
+     */
     readonly dynamicRatio: number;
     readonly fqdn: outputs.ltm.GetNodeFqdn;
+    /**
+     * Full path of the node (partition and name)
+     */
+    readonly fullPath?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Specifies the health monitors the system currently uses to monitor this node.
+     */
     readonly monitor: string;
     readonly name: string;
     readonly partition: string;
+    /**
+     * Node rate limit.
+     */
     readonly rateLimit: string;
+    /**
+     * Node ratio weight.
+     */
     readonly ratio: number;
     readonly session: string;
+    /**
+     * The current state of the node.
+     */
     readonly state: string;
 }

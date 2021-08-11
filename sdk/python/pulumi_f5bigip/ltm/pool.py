@@ -364,7 +364,7 @@ class Pool(pulumi.CustomResource):
         """
         `ltm.Pool` Manages F5 BIG-IP LTM pools via iControl REST API.
 
-        Resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+        Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )
 
         ## Example Usage
 
@@ -404,7 +404,7 @@ class Pool(pulumi.CustomResource):
         """
         `ltm.Pool` Manages F5 BIG-IP LTM pools via iControl REST API.
 
-        Resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+        Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )
 
         ## Example Usage
 

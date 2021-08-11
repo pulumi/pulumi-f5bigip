@@ -7,6 +7,45 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source (`ssl.getVWanConfig`) to get the vWAN site config from Azure VWAN Site
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ssl"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ssl.GetVWanConfig(ctx, &ssl.GetVWanConfigArgs{
+// 			AzureVwanName:          "azurevwan-bigip-vwan-9c8d",
+// 			AzureVwanResourcegroup: "azurevwan-bigip-rg-9c8d",
+// 			AzureVwanVpnsite:       "azurevwan-bigip-vsite-9c8d",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ## Pre-required Environment Settings:
+//
+// * `AZURE_CLIENT_ID` - (Required) Set this environment variable with the Azure app client ID to use.
+//
+// * `AZURE_CLIENT_SECRET` - (Required) Set this environment variable with the Azure app secret to use.
+//
+// * `AZURE_SUBSCRIPTION_ID` - (Required) Set this environment variable with the Azure subscription ID to use.
+//
+// * `AZURE_TENANT_ID` - (Required) Set this environment variable with the Tenant ID to which to authenticate.
+//
+// * `STORAGE_ACCOUNT_NAME` - (Required) Set this environment variable with the storage account for download config.
+//
+// * `STORAGE_ACCOUNT_KEY` - (Required) Specifies the storage account key to authenticate,set this Environment variable with account key value.
 func GetVWanConfig(ctx *pulumi.Context, args *GetVWanConfigArgs, opts ...pulumi.InvokeOption) (*GetVWanConfigResult, error) {
 	var rv GetVWanConfigResult
 	err := ctx.Invoke("f5bigip:ssl/getVWanConfig:getVWanConfig", args, &rv, opts...)
@@ -18,21 +57,29 @@ func GetVWanConfig(ctx *pulumi.Context, args *GetVWanConfigArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getVWanConfig.
 type GetVWanConfigArgs struct {
-	AzureVwanName          string `pulumi:"azureVwanName"`
+	// Name of the Azure vWAN Name
+	AzureVwanName string `pulumi:"azureVwanName"`
+	// Name of the Azure vWAN resource group
 	AzureVwanResourcegroup string `pulumi:"azureVwanResourcegroup"`
-	AzureVwanVpnsite       string `pulumi:"azureVwanVpnsite"`
+	// Name of the Azure vWAN VPN site from which configuration to be download
+	AzureVwanVpnsite string `pulumi:"azureVwanVpnsite"`
 }
 
 // A collection of values returned by getVWanConfig.
 type GetVWanConfigResult struct {
-	AzureVwanName          string   `pulumi:"azureVwanName"`
-	AzureVwanResourcegroup string   `pulumi:"azureVwanResourcegroup"`
-	AzureVwanVpnsite       string   `pulumi:"azureVwanVpnsite"`
-	BigipGwIp              string   `pulumi:"bigipGwIp"`
-	HubAddressSpace        string   `pulumi:"hubAddressSpace"`
-	HubConnectedSubnets    []string `pulumi:"hubConnectedSubnets"`
+	AzureVwanName          string `pulumi:"azureVwanName"`
+	AzureVwanResourcegroup string `pulumi:"azureVwanResourcegroup"`
+	AzureVwanVpnsite       string `pulumi:"azureVwanVpnsite"`
+	// (type `string`) provides IP address of BIGIP G/W for IPSec Endpoint.
+	BigipGwIp string `pulumi:"bigipGwIp"`
+	// (type `string`) Provides IP Address space used on vWAN Hub.
+	HubAddressSpace string `pulumi:"hubAddressSpace"`
+	// (type `list`) Provides Subnets connected to vWAN Hub.
+	HubConnectedSubnets []string `pulumi:"hubConnectedSubnets"`
 	// The provider-assigned unique ID for this managed resource.
-	Id              string   `pulumi:"id"`
-	PresharedKey    string   `pulumi:"presharedKey"`
+	Id string `pulumi:"id"`
+	// (type `string`) provides pre-shared-key used for IPSec Tunnel creation.
+	PresharedKey string `pulumi:"presharedKey"`
+	// (type `list`) Provides vWAN Gateway Address for IPSec End point
 	VwanGwAddresses []string `pulumi:"vwanGwAddresses"`
 }

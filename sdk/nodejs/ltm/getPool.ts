@@ -5,6 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Use this data source (`f5bigip.ltm.Pool`) to get the ltm monitor details available on BIG-IP
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const pool_Example = pulumi.output(f5bigip.ltm.getPool({
+ *     name: "example-pool",
+ *     partition: "Common",
+ * }));
+ * ```
+ */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
     if (!opts) {
         opts = {}
@@ -23,7 +38,13 @@ export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise
  * A collection of arguments for invoking getPool.
  */
 export interface GetPoolArgs {
+    /**
+     * Name of the ltm monitor
+     */
     name: string;
+    /**
+     * partition of the ltm monitor
+     */
     partition: string;
 }
 
@@ -31,6 +52,9 @@ export interface GetPoolArgs {
  * A collection of values returned by getPool.
  */
 export interface GetPoolResult {
+    /**
+     * Full path to the pool.
+     */
     readonly fullPath: string;
     /**
      * The provider-assigned unique ID for this managed resource.

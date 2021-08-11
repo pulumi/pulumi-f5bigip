@@ -59,11 +59,11 @@ export class Provision extends pulumi.CustomResource {
      */
     public readonly diskRatio!: pulumi.Output<number | undefined>;
     /**
-     * Specifies the module being enabled. It can be one among the list [afm, am, apm, asm, avr, cgnat, fps, gtm, ilx, lc, ltm, pem, swg, urldb, sslo, vcmp]
+     * path
      */
     public readonly fullPath!: pulumi.Output<string>;
     /**
-     * Specifies the level of resources that you want to provision for a module. The list of allowed values are [minimum, nominal, dedicated, custom, none]
+     * what level nominal or dedicated
      */
     public readonly level!: pulumi.Output<string | undefined>;
     /**
@@ -126,11 +126,11 @@ export interface ProvisionState {
      */
     diskRatio?: pulumi.Input<number>;
     /**
-     * Specifies the module being enabled. It can be one among the list [afm, am, apm, asm, avr, cgnat, fps, gtm, ilx, lc, ltm, pem, swg, urldb, sslo, vcmp]
+     * path
      */
     fullPath?: pulumi.Input<string>;
     /**
-     * Specifies the level of resources that you want to provision for a module. The list of allowed values are [minimum, nominal, dedicated, custom, none]
+     * what level nominal or dedicated
      */
     level?: pulumi.Input<string>;
     /**
@@ -156,11 +156,11 @@ export interface ProvisionArgs {
      */
     diskRatio?: pulumi.Input<number>;
     /**
-     * Specifies the module being enabled. It can be one among the list [afm, am, apm, asm, avr, cgnat, fps, gtm, ilx, lc, ltm, pem, swg, urldb, sslo, vcmp]
+     * path
      */
     fullPath?: pulumi.Input<string>;
     /**
-     * Specifies the level of resources that you want to provision for a module. The list of allowed values are [minimum, nominal, dedicated, custom, none]
+     * what level nominal or dedicated
      */
     level?: pulumi.Input<string>;
     /**

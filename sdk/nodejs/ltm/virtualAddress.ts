@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * `f5bigip.ltm.VirtualAddress` Configures Virtual Server
  *
- * For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+ * For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/virtual_server.
  *
  * ## Example Usage
  *
@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
  * const vsVa = new f5bigip.ltm.VirtualAddress("vs_va", {
- *     advertizeRoute: "true",
- *     name: "/Common/vs_va",
+ *     advertizeRoute: "enabled",
+ *     name: "/Common/xxxxx",
  * });
  * ```
  */
@@ -50,7 +50,7 @@ export class VirtualAddress extends pulumi.CustomResource {
     }
 
     /**
-     * Enabled dynamic routing of the address
+     * Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )
      */
     public readonly advertizeRoute!: pulumi.Output<string | undefined>;
     /**
@@ -70,7 +70,7 @@ export class VirtualAddress extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Enable/Disable ICMP response to the virtual address
+     * Specifies how the system sends responses to ICMP echo requests on a per-virtual address basis.
      */
     public readonly icmpEcho!: pulumi.Output<string | undefined>;
     /**
@@ -129,7 +129,7 @@ export class VirtualAddress extends pulumi.CustomResource {
  */
 export interface VirtualAddressState {
     /**
-     * Enabled dynamic routing of the address
+     * Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )
      */
     advertizeRoute?: pulumi.Input<string>;
     /**
@@ -149,7 +149,7 @@ export interface VirtualAddressState {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * Enable/Disable ICMP response to the virtual address
+     * Specifies how the system sends responses to ICMP echo requests on a per-virtual address basis.
      */
     icmpEcho?: pulumi.Input<string>;
     /**
@@ -167,7 +167,7 @@ export interface VirtualAddressState {
  */
 export interface VirtualAddressArgs {
     /**
-     * Enabled dynamic routing of the address
+     * Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )
      */
     advertizeRoute?: pulumi.Input<string>;
     /**
@@ -187,7 +187,7 @@ export interface VirtualAddressArgs {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * Enable/Disable ICMP response to the virtual address
+     * Specifies how the system sends responses to ICMP echo requests on a per-virtual address basis.
      */
     icmpEcho?: pulumi.Input<string>;
     /**

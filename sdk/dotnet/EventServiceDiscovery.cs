@@ -12,11 +12,14 @@ namespace Pulumi.F5BigIP
     [F5BigIPResourceType("f5bigip:index/eventServiceDiscovery:EventServiceDiscovery")]
     public partial class EventServiceDiscovery : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
+        /// </summary>
         [Output("nodes")]
         public Output<ImmutableArray<Outputs.EventServiceDiscoveryNode>> Nodes { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the partition/tenant
+        /// servicediscovery endpoint ( Below example shows how to create endpoing using AS3 )
         /// </summary>
         [Output("taskid")]
         public Output<string> Taskid { get; private set; } = null!;
@@ -69,6 +72,10 @@ namespace Pulumi.F5BigIP
     {
         [Input("nodes")]
         private InputList<Inputs.EventServiceDiscoveryNodeArgs>? _nodes;
+
+        /// <summary>
+        /// Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
+        /// </summary>
         public InputList<Inputs.EventServiceDiscoveryNodeArgs> Nodes
         {
             get => _nodes ?? (_nodes = new InputList<Inputs.EventServiceDiscoveryNodeArgs>());
@@ -76,7 +83,7 @@ namespace Pulumi.F5BigIP
         }
 
         /// <summary>
-        /// Name of the partition/tenant
+        /// servicediscovery endpoint ( Below example shows how to create endpoing using AS3 )
         /// </summary>
         [Input("taskid", required: true)]
         public Input<string> Taskid { get; set; } = null!;
@@ -90,6 +97,10 @@ namespace Pulumi.F5BigIP
     {
         [Input("nodes")]
         private InputList<Inputs.EventServiceDiscoveryNodeGetArgs>? _nodes;
+
+        /// <summary>
+        /// Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
+        /// </summary>
         public InputList<Inputs.EventServiceDiscoveryNodeGetArgs> Nodes
         {
             get => _nodes ?? (_nodes = new InputList<Inputs.EventServiceDiscoveryNodeGetArgs>());
@@ -97,7 +108,7 @@ namespace Pulumi.F5BigIP
         }
 
         /// <summary>
-        /// Name of the partition/tenant
+        /// servicediscovery endpoint ( Below example shows how to create endpoing using AS3 )
         /// </summary>
         [Input("taskid")]
         public Input<string>? Taskid { get; set; }

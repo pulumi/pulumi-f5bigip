@@ -14,6 +14,10 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// ## Example Usage
     /// 
+    /// There are two ways to use ltm_pool_attachment resource, where we can take node reference from ltm_node or we can specify node directly with ip:port/fqdn:port which will also create node and atach to pool.
+    /// 
+    /// Pool attachment with node directly taking ip:port/fqdn:port
+    /// 
     /// ```csharp
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
@@ -46,11 +50,51 @@ namespace Pulumi.F5BigIP.Ltm
     ///         {
     ///             Pool = pool.Name,
     ///             Node = "1.1.1.1:80",
-    ///             Ratio = 2,
-    ///             ConnectionLimit = 2,
-    ///             ConnectionRateLimit = "2",
-    ///             PriorityGroup = 2,
-    ///             DynamicRatio = 3,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// Pool attachment with node reference from ltm_node
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var monitor = new F5BigIP.Ltm.Monitor("monitor", new F5BigIP.Ltm.MonitorArgs
+    ///         {
+    ///             Name = "/Common/terraform_monitor",
+    ///             Parent = "/Common/http",
+    ///             Send = @"GET /some/path
+    /// ",
+    ///             Timeout = 999,
+    ///             Interval = 998,
+    ///         });
+    ///         var pool = new F5BigIP.Ltm.Pool("pool", new F5BigIP.Ltm.PoolArgs
+    ///         {
+    ///             Name = "/Common/terraform-pool",
+    ///             LoadBalancingMode = "round-robin",
+    ///             Monitors = 
+    ///             {
+    ///                 monitor.Name,
+    ///             },
+    ///             AllowSnat = "yes",
+    ///             AllowNat = "yes",
+    ///         });
+    ///         var node = new F5BigIP.Ltm.Node("node", new F5BigIP.Ltm.NodeArgs
+    ///         {
+    ///             Name = "/Common/terraform_node",
+    ///             Address = "192.168.30.2",
+    ///         });
+    ///         var attachNode = new F5BigIP.Ltm.PoolAttachment("attachNode", new F5BigIP.Ltm.PoolAttachmentArgs
+    ///         {
+    ///             Pool = pool.Name,
+    ///             Node = node.Name.Apply(name =&gt; $"{name}:80"),
     ///         });
     ///     }
     /// 
@@ -91,7 +135,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> Node { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
+        /// Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`) or partition + directory + name of the pool (For example `/Common/test/my-pool`).When including directory in fullpath we have to make sure it is created in the given partition before using it.
         /// </summary>
         [Output("pool")]
         public Output<string> Pool { get; private set; } = null!;
@@ -185,7 +229,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string> Node { get; set; } = null!;
 
         /// <summary>
-        /// Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
+        /// Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`) or partition + directory + name of the pool (For example `/Common/test/my-pool`).When including directory in fullpath we have to make sure it is created in the given partition before using it.
         /// </summary>
         [Input("pool", required: true)]
         public Input<string> Pool { get; set; } = null!;
@@ -240,7 +284,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Node { get; set; }
 
         /// <summary>
-        /// Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
+        /// Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`) or partition + directory + name of the pool (For example `/Common/test/my-pool`).When including directory in fullpath we have to make sure it is created in the given partition before using it.
         /// </summary>
         [Input("pool")]
         public Input<string>? Pool { get; set; }

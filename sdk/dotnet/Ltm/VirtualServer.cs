@@ -12,7 +12,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// <summary>
     /// `f5bigip.ltm.VirtualServer` Configures Virtual Server
     /// 
-    /// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+    /// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource (example: /Common/my-pool ) or partition + directory + name of the resource (example: /Common/test/my-pool ).When including directory in fullpath we have to make sure it is created in the given partition before using it.
     /// 
     /// ## Example Usage
     /// 
@@ -63,6 +63,10 @@ namespace Pulumi.F5BigIP.Ltm
     ///             ServerProfiles = 
     ///             {
     ///                 "/Common/serverssl",
+    ///             },
+    ///             SecurityLogProfiles = 
+    ///             {
+    ///                 "/Common/global-network",
     ///             },
     ///             SourceAddressTranslation = "automap",
     ///         });
@@ -155,6 +159,9 @@ namespace Pulumi.F5BigIP.Ltm
         [Output("profiles")]
         public Output<ImmutableArray<string>> Profiles { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the log profile applied to the virtual server.
+        /// </summary>
         [Output("securityLogProfiles")]
         public Output<ImmutableArray<string>> SecurityLogProfiles { get; private set; } = null!;
 
@@ -370,6 +377,10 @@ namespace Pulumi.F5BigIP.Ltm
 
         [Input("securityLogProfiles")]
         private InputList<string>? _securityLogProfiles;
+
+        /// <summary>
+        /// Specifies the log profile applied to the virtual server.
+        /// </summary>
         public InputList<string> SecurityLogProfiles
         {
             get => _securityLogProfiles ?? (_securityLogProfiles = new InputList<string>());
@@ -561,6 +572,10 @@ namespace Pulumi.F5BigIP.Ltm
 
         [Input("securityLogProfiles")]
         private InputList<string>? _securityLogProfiles;
+
+        /// <summary>
+        /// Specifies the log profile applied to the virtual server.
+        /// </summary>
         public InputList<string> SecurityLogProfiles
         {
             get => _securityLogProfiles ?? (_securityLogProfiles = new InputList<string>());

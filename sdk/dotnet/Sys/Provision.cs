@@ -51,13 +51,13 @@ namespace Pulumi.F5BigIP.Sys
         public Output<int?> DiskRatio { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the module being enabled. It can be one among the list [afm, am, apm, asm, avr, cgnat, fps, gtm, ilx, lc, ltm, pem, swg, urldb, sslo, vcmp]
+        /// path
         /// </summary>
         [Output("fullPath")]
         public Output<string> FullPath { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the level of resources that you want to provision for a module. The list of allowed values are [minimum, nominal, dedicated, custom, none]
+        /// what level nominal or dedicated
         /// </summary>
         [Output("level")]
         public Output<string?> Level { get; private set; } = null!;
@@ -133,13 +133,13 @@ namespace Pulumi.F5BigIP.Sys
         public Input<int>? DiskRatio { get; set; }
 
         /// <summary>
-        /// Specifies the module being enabled. It can be one among the list [afm, am, apm, asm, avr, cgnat, fps, gtm, ilx, lc, ltm, pem, swg, urldb, sslo, vcmp]
+        /// path
         /// </summary>
         [Input("fullPath")]
         public Input<string>? FullPath { get; set; }
 
         /// <summary>
-        /// Specifies the level of resources that you want to provision for a module. The list of allowed values are [minimum, nominal, dedicated, custom, none]
+        /// what level nominal or dedicated
         /// </summary>
         [Input("level")]
         public Input<string>? Level { get; set; }
@@ -176,13 +176,13 @@ namespace Pulumi.F5BigIP.Sys
         public Input<int>? DiskRatio { get; set; }
 
         /// <summary>
-        /// Specifies the module being enabled. It can be one among the list [afm, am, apm, asm, avr, cgnat, fps, gtm, ilx, lc, ltm, pem, swg, urldb, sslo, vcmp]
+        /// path
         /// </summary>
         [Input("fullPath")]
         public Input<string>? FullPath { get; set; }
 
         /// <summary>
-        /// Specifies the level of resources that you want to provision for a module. The list of allowed values are [minimum, nominal, dedicated, custom, none]
+        /// what level nominal or dedicated
         /// </summary>
         [Input("level")]
         public Input<string>? Level { get; set; }

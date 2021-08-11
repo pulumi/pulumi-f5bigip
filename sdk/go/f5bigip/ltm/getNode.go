@@ -7,6 +7,32 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source (`ltm.Node`) to get the ltm node details available on BIG-IP
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		test, err := ltm.LookupNode(ctx, &ltm.LookupNodeArgs{
+// 			Name:      "terraform_node",
+// 			Partition: "Common",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("bigipNode", test.Address)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupNode(ctx *pulumi.Context, args *LookupNodeArgs, opts ...pulumi.InvokeOption) (*LookupNodeResult, error) {
 	var rv LookupNodeResult
 	err := ctx.Invoke("f5bigip:ltm/getNode:getNode", args, &rv, opts...)
@@ -18,27 +44,43 @@ func LookupNode(ctx *pulumi.Context, args *LookupNodeArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getNode.
 type LookupNodeArgs struct {
-	Address     *string      `pulumi:"address"`
+	// The address of the node.
+	Address *string `pulumi:"address"`
+	// User defined description of the node.
 	Description *string      `pulumi:"description"`
 	Fqdn        *GetNodeFqdn `pulumi:"fqdn"`
-	Name        string       `pulumi:"name"`
-	Partition   string       `pulumi:"partition"`
+	// Full path of the node (partition and name)
+	FullPath *string `pulumi:"fullPath"`
+	// Name of the node.
+	Name string `pulumi:"name"`
+	// partition of the node.
+	Partition string `pulumi:"partition"`
 }
 
 // A collection of values returned by getNode.
 type LookupNodeResult struct {
-	Address         *string     `pulumi:"address"`
-	ConnectionLimit int         `pulumi:"connectionLimit"`
-	Description     *string     `pulumi:"description"`
-	DynamicRatio    int         `pulumi:"dynamicRatio"`
-	Fqdn            GetNodeFqdn `pulumi:"fqdn"`
+	// The address of the node.
+	Address *string `pulumi:"address"`
+	// Node connection limit.
+	ConnectionLimit int `pulumi:"connectionLimit"`
+	// User defined description of the node.
+	Description *string `pulumi:"description"`
+	// The dynamic ratio number for the node.
+	DynamicRatio int         `pulumi:"dynamicRatio"`
+	Fqdn         GetNodeFqdn `pulumi:"fqdn"`
+	// Full path of the node (partition and name)
+	FullPath *string `pulumi:"fullPath"`
 	// The provider-assigned unique ID for this managed resource.
-	Id        string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// Specifies the health monitors the system currently uses to monitor this node.
 	Monitor   string `pulumi:"monitor"`
 	Name      string `pulumi:"name"`
 	Partition string `pulumi:"partition"`
+	// Node rate limit.
 	RateLimit string `pulumi:"rateLimit"`
-	Ratio     int    `pulumi:"ratio"`
-	Session   string `pulumi:"session"`
-	State     string `pulumi:"state"`
+	// Node ratio weight.
+	Ratio   int    `pulumi:"ratio"`
+	Session string `pulumi:"session"`
+	// The current state of the node.
+	State string `pulumi:"state"`
 }

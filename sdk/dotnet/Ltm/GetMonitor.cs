@@ -11,6 +11,34 @@ namespace Pulumi.F5BigIP.Ltm
 {
     public static class GetMonitor
     {
+        /// <summary>
+        /// Use this data source (`f5bigip.ltm.Monitor`) to get the ltm monitor details available on BIG-IP
+        ///  
+        ///  
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using F5BigIP = Pulumi.F5BigIP;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var monitor_TC1 = Output.Create(F5BigIP.Ltm.GetMonitor.InvokeAsync(new F5BigIP.Ltm.GetMonitorArgs
+        ///         {
+        ///             Name = "test-monitor",
+        ///             Partition = "Common",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetMonitorResult> InvokeAsync(GetMonitorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMonitorResult>("f5bigip:ltm/getMonitor:getMonitor", args ?? new GetMonitorArgs(), options.WithVersion());
     }
@@ -18,9 +46,15 @@ namespace Pulumi.F5BigIP.Ltm
 
     public sealed class GetMonitorArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the ltm monitor
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// partition of the ltm monitor
+        /// </summary>
         [Input("partition", required: true)]
         public string Partition { get; set; } = null!;
 
@@ -33,26 +67,50 @@ namespace Pulumi.F5BigIP.Ltm
     [OutputType]
     public sealed class GetMonitorResult
     {
+        /// <summary>
+        /// Displays whether adaptive response time monitoring is enabled for this monitor.
+        /// </summary>
         public readonly string Adaptive;
+        /// <summary>
+        /// Displays whether adaptive response time monitoring is enabled for this monitor.
+        /// </summary>
         public readonly int AdaptiveLimit;
         public readonly string Database;
         public readonly string DefaultsFrom;
+        /// <summary>
+        /// id will be full path name of ltm monitor.
+        /// </summary>
         public readonly string Destination;
         public readonly string Filename;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown.
+        /// </summary>
         public readonly int Interval;
+        /// <summary>
+        /// Displays the differentiated services code point (DSCP). DSCP is a 6-bit value in the Differentiated Services (DS) field of the IP header.
+        /// </summary>
         public readonly int IpDscp;
+        /// <summary>
+        /// Displays whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
+        /// </summary>
         public readonly string ManualResume;
         public readonly string Mode;
         public readonly string Name;
         public readonly string Partition;
         public readonly string ReceiveDisable;
+        /// <summary>
+        /// Instructs the system to mark the target resource down when the test is successful.
+        /// </summary>
         public readonly string Reverse;
         public readonly int TimeUntilUp;
         public readonly int Timeout;
+        /// <summary>
+        /// Displays whether the monitor operates in transparent mode.
+        /// </summary>
         public readonly string Transparent;
         public readonly string Username;
 

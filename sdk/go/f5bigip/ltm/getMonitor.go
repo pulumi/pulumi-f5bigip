@@ -7,6 +7,31 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source (`ltm.Monitor`) to get the ltm monitor details available on BIG-IP
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ltm.LookupMonitor(ctx, &ltm.LookupMonitorArgs{
+// 			Name:      "test-monitor",
+// 			Partition: "Common",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupMonitor(ctx *pulumi.Context, args *LookupMonitorArgs, opts ...pulumi.InvokeOption) (*LookupMonitorResult, error) {
 	var rv LookupMonitorResult
 	err := ctx.Invoke("f5bigip:ltm/getMonitor:getMonitor", args, &rv, opts...)
@@ -18,30 +43,40 @@ func LookupMonitor(ctx *pulumi.Context, args *LookupMonitorArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getMonitor.
 type LookupMonitorArgs struct {
-	Name      string `pulumi:"name"`
+	// Name of the ltm monitor
+	Name string `pulumi:"name"`
+	// partition of the ltm monitor
 	Partition string `pulumi:"partition"`
 }
 
 // A collection of values returned by getMonitor.
 type LookupMonitorResult struct {
-	Adaptive      string `pulumi:"adaptive"`
+	// Displays whether adaptive response time monitoring is enabled for this monitor.
+	Adaptive string `pulumi:"adaptive"`
+	// Displays whether adaptive response time monitoring is enabled for this monitor.
 	AdaptiveLimit int    `pulumi:"adaptiveLimit"`
 	Database      string `pulumi:"database"`
 	DefaultsFrom  string `pulumi:"defaultsFrom"`
-	Destination   string `pulumi:"destination"`
-	Filename      string `pulumi:"filename"`
+	// id will be full path name of ltm monitor.
+	Destination string `pulumi:"destination"`
+	Filename    string `pulumi:"filename"`
 	// The provider-assigned unique ID for this managed resource.
-	Id             string `pulumi:"id"`
-	Interval       int    `pulumi:"interval"`
-	IpDscp         int    `pulumi:"ipDscp"`
+	Id string `pulumi:"id"`
+	// Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown.
+	Interval int `pulumi:"interval"`
+	// Displays the differentiated services code point (DSCP). DSCP is a 6-bit value in the Differentiated Services (DS) field of the IP header.
+	IpDscp int `pulumi:"ipDscp"`
+	// Displays whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
 	ManualResume   string `pulumi:"manualResume"`
 	Mode           string `pulumi:"mode"`
 	Name           string `pulumi:"name"`
 	Partition      string `pulumi:"partition"`
 	ReceiveDisable string `pulumi:"receiveDisable"`
-	Reverse        string `pulumi:"reverse"`
-	TimeUntilUp    int    `pulumi:"timeUntilUp"`
-	Timeout        int    `pulumi:"timeout"`
-	Transparent    string `pulumi:"transparent"`
-	Username       string `pulumi:"username"`
+	// Instructs the system to mark the target resource down when the test is successful.
+	Reverse     string `pulumi:"reverse"`
+	TimeUntilUp int    `pulumi:"timeUntilUp"`
+	Timeout     int    `pulumi:"timeout"`
+	// Displays whether the monitor operates in transparent mode.
+	Transparent string `pulumi:"transparent"`
+	Username    string `pulumi:"username"`
 }

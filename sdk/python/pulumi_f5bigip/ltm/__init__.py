@@ -24,6 +24,7 @@ from .pool_attachment import *
 from .profile_client_ssl import *
 from .profile_fast_http import *
 from .profile_fast_l4 import *
+from .profile_ftp import *
 from .profile_http import *
 from .profile_http2 import *
 from .profile_http_compress import *

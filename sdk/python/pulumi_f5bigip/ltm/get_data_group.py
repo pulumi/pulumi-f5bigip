@@ -59,11 +59,17 @@ class GetDataGroupResult:
     @property
     @pulumi.getter
     def records(self) -> Sequence['outputs.GetDataGroupRecordResult']:
+        """
+        Specifies record of type (string/ip/integer)
+        """
         return pulumi.get(self, "records")
 
     @property
     @pulumi.getter
     def type(self) -> str:
+        """
+        The Data Group type (string, ip, integer)"
+        """
         return pulumi.get(self, "type")
 
 
@@ -86,7 +92,23 @@ def get_data_group(name: Optional[str] = None,
                    type: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataGroupResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source (`ltm.DataGroup`) to get the data group details available on BIG-IP
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_f5bigip as f5bigip
+
+    d_g__tc3 = f5bigip.ltm.get_data_group(name="test-dg",
+        partition="Common")
+    ```
+
+
+    :param str name: Name of the datagroup
+    :param str partition: partition of the datagroup
+    :param Sequence[pulumi.InputType['GetDataGroupRecordArgs']] records: Specifies record of type (string/ip/integer)
+    :param str type: The Data Group type (string, ip, integer)"
     """
     __args__ = dict()
     __args__['name'] = name

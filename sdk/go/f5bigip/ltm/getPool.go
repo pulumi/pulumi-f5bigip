@@ -7,6 +7,31 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source (`ltm.Pool`) to get the ltm monitor details available on BIG-IP
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ltm.LookupPool(ctx, &ltm.LookupPoolArgs{
+// 			Name:      "example-pool",
+// 			Partition: "Common",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupPool(ctx *pulumi.Context, args *LookupPoolArgs, opts ...pulumi.InvokeOption) (*LookupPoolResult, error) {
 	var rv LookupPoolResult
 	err := ctx.Invoke("f5bigip:ltm/getPool:getPool", args, &rv, opts...)
@@ -18,12 +43,15 @@ func LookupPool(ctx *pulumi.Context, args *LookupPoolArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getPool.
 type LookupPoolArgs struct {
-	Name      string `pulumi:"name"`
+	// Name of the ltm monitor
+	Name string `pulumi:"name"`
+	// partition of the ltm monitor
 	Partition string `pulumi:"partition"`
 }
 
 // A collection of values returned by getPool.
 type LookupPoolResult struct {
+	// Full path to the pool.
 	FullPath string `pulumi:"fullPath"`
 	// The provider-assigned unique ID for this managed resource.
 	Id        string `pulumi:"id"`

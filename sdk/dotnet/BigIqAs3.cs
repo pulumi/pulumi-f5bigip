@@ -9,17 +9,46 @@ using Pulumi.Serialization;
 
 namespace Pulumi.F5BigIP
 {
+    /// <summary>
+    /// `f5bigip.BigIqAs3` provides details about bigiq as3 resource
+    /// 
+    /// This resource is helpful to configure as3 declarative JSON on BIG-IP through BIG-IQ.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.IO;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // Example Usage for json file
+    ///         var exampletask = new F5BigIP.BigIqAs3("exampletask", new F5BigIP.BigIqAs3Args
+    ///         {
+    ///             As3Json = File.ReadAllText("bigiq_example.json"),
+    ///             BigiqAddress = "xx.xx.xxx.xx",
+    ///             BigiqPassword = "xxxxxxxxx",
+    ///             BigiqUser = "xxxxx",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// </summary>
     [F5BigIPResourceType("f5bigip:index/bigIqAs3:BigIqAs3")]
     public partial class BigIqAs3 : Pulumi.CustomResource
     {
         /// <summary>
-        /// AS3 json
+        /// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         /// </summary>
         [Output("as3Json")]
         public Output<string> As3Json { get; private set; } = null!;
 
         /// <summary>
-        /// The registration key pool to use
+        /// Address of the BIG-IQ to which your targer BIG-IP is attached
         /// </summary>
         [Output("bigiqAddress")]
         public Output<string> BigiqAddress { get; private set; } = null!;
@@ -31,7 +60,7 @@ namespace Pulumi.F5BigIP
         public Output<string?> BigiqLoginRef { get; private set; } = null!;
 
         /// <summary>
-        /// The registration key pool to use
+        /// Password of the BIG-IQ to which your targer BIG-IP is attached
         /// </summary>
         [Output("bigiqPassword")]
         public Output<string> BigiqPassword { get; private set; } = null!;
@@ -49,7 +78,7 @@ namespace Pulumi.F5BigIP
         public Output<bool?> BigiqTokenAuth { get; private set; } = null!;
 
         /// <summary>
-        /// The registration key pool to use
+        /// User name  of the BIG-IQ to which your targer BIG-IP is attached
         /// </summary>
         [Output("bigiqUser")]
         public Output<string> BigiqUser { get; private set; } = null!;
@@ -107,13 +136,13 @@ namespace Pulumi.F5BigIP
     public sealed class BigIqAs3Args : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// AS3 json
+        /// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         /// </summary>
         [Input("as3Json", required: true)]
         public Input<string> As3Json { get; set; } = null!;
 
         /// <summary>
-        /// The registration key pool to use
+        /// Address of the BIG-IQ to which your targer BIG-IP is attached
         /// </summary>
         [Input("bigiqAddress", required: true)]
         public Input<string> BigiqAddress { get; set; } = null!;
@@ -125,7 +154,7 @@ namespace Pulumi.F5BigIP
         public Input<string>? BigiqLoginRef { get; set; }
 
         /// <summary>
-        /// The registration key pool to use
+        /// Password of the BIG-IQ to which your targer BIG-IP is attached
         /// </summary>
         [Input("bigiqPassword", required: true)]
         public Input<string> BigiqPassword { get; set; } = null!;
@@ -143,7 +172,7 @@ namespace Pulumi.F5BigIP
         public Input<bool>? BigiqTokenAuth { get; set; }
 
         /// <summary>
-        /// The registration key pool to use
+        /// User name  of the BIG-IQ to which your targer BIG-IP is attached
         /// </summary>
         [Input("bigiqUser", required: true)]
         public Input<string> BigiqUser { get; set; } = null!;
@@ -162,13 +191,13 @@ namespace Pulumi.F5BigIP
     public sealed class BigIqAs3State : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// AS3 json
+        /// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         /// </summary>
         [Input("as3Json")]
         public Input<string>? As3Json { get; set; }
 
         /// <summary>
-        /// The registration key pool to use
+        /// Address of the BIG-IQ to which your targer BIG-IP is attached
         /// </summary>
         [Input("bigiqAddress")]
         public Input<string>? BigiqAddress { get; set; }
@@ -180,7 +209,7 @@ namespace Pulumi.F5BigIP
         public Input<string>? BigiqLoginRef { get; set; }
 
         /// <summary>
-        /// The registration key pool to use
+        /// Password of the BIG-IQ to which your targer BIG-IP is attached
         /// </summary>
         [Input("bigiqPassword")]
         public Input<string>? BigiqPassword { get; set; }
@@ -198,7 +227,7 @@ namespace Pulumi.F5BigIP
         public Input<bool>? BigiqTokenAuth { get; set; }
 
         /// <summary>
-        /// The registration key pool to use
+        /// User name  of the BIG-IQ to which your targer BIG-IP is attached
         /// </summary>
         [Input("bigiqUser")]
         public Input<string>? BigiqUser { get; set; }

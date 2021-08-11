@@ -14,8 +14,9 @@ import (
 type EventServiceDiscovery struct {
 	pulumi.CustomResourceState
 
+	// Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
 	Nodes EventServiceDiscoveryNodeArrayOutput `pulumi:"nodes"`
-	// Name of the partition/tenant
+	// servicediscovery endpoint ( Below example shows how to create endpoing using AS3 )
 	Taskid pulumi.StringOutput `pulumi:"taskid"`
 }
 
@@ -51,14 +52,16 @@ func GetEventServiceDiscovery(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EventServiceDiscovery resources.
 type eventServiceDiscoveryState struct {
+	// Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
 	Nodes []EventServiceDiscoveryNode `pulumi:"nodes"`
-	// Name of the partition/tenant
+	// servicediscovery endpoint ( Below example shows how to create endpoing using AS3 )
 	Taskid *string `pulumi:"taskid"`
 }
 
 type EventServiceDiscoveryState struct {
+	// Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
 	Nodes EventServiceDiscoveryNodeArrayInput
-	// Name of the partition/tenant
+	// servicediscovery endpoint ( Below example shows how to create endpoing using AS3 )
 	Taskid pulumi.StringPtrInput
 }
 
@@ -67,15 +70,17 @@ func (EventServiceDiscoveryState) ElementType() reflect.Type {
 }
 
 type eventServiceDiscoveryArgs struct {
+	// Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
 	Nodes []EventServiceDiscoveryNode `pulumi:"nodes"`
-	// Name of the partition/tenant
+	// servicediscovery endpoint ( Below example shows how to create endpoing using AS3 )
 	Taskid string `pulumi:"taskid"`
 }
 
 // The set of arguments for constructing a EventServiceDiscovery resource.
 type EventServiceDiscoveryArgs struct {
+	// Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
 	Nodes EventServiceDiscoveryNodeArrayInput
-	// Name of the partition/tenant
+	// servicediscovery endpoint ( Below example shows how to create endpoing using AS3 )
 	Taskid pulumi.StringInput
 }
 

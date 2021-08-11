@@ -27,7 +27,6 @@ namespace Pulumi.F5BigIP.Ltm
     ///         var sanjose_http = new F5BigIP.Ltm.ProfileHttp("sanjose-http", new F5BigIP.Ltm.ProfileHttpArgs
     ///         {
     ///             DefaultsFrom = "/Common/http",
-    ///             Description = "some http",
     ///             FallbackHost = "titanic",
     ///             FallbackStatusCodes = 
     ///             {
@@ -44,7 +43,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// ## Import
     /// 
-    /// BIG-IP LTM http profiles can be imported using the `name`, e.g.
+    /// BIG-IP LTM http profiles can be imported using the `name`, e.g. bash
     /// 
     /// ```sh
     ///  $ pulumi import f5bigip:ltm/profileHttp:ProfileHttp test-http /Common/test-http
@@ -54,8 +53,7 @@ namespace Pulumi.F5BigIP.Ltm
     public partial class ProfileHttp : Pulumi.CustomResource
     {
         /// <summary>
-        /// Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's
-        /// XFF (X-forwarded-for) headers, if they exist.
+        /// Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's XFF (X-forwarded-for) headers, if they exist.
         /// </summary>
         [Output("acceptXff")]
         public Output<string> AcceptXff { get; private set; } = null!;
@@ -67,7 +65,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string?> AppService { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is none
+        /// Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is `none`
         /// </summary>
         [Output("basicAuthRealm")]
         public Output<string> BasicAuthRealm { get; private set; } = null!;
@@ -79,19 +77,19 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> DefaultsFrom { get; private set; } = null!;
 
         /// <summary>
-        /// User defined description
+        /// Specifies user-defined description.
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a passphrase for the cookie encryption
+        /// Type a passphrase for cookie encryption.
         /// </summary>
         [Output("encryptCookieSecret")]
         public Output<string?> EncryptCookieSecret { get; private set; } = null!;
 
         /// <summary>
-        /// Encrypts specified cookies that the BIG-IP system sends to a client system
+        /// Type the cookie names for the system to encrypt.
         /// </summary>
         [Output("encryptCookies")]
         public Output<ImmutableArray<string>> EncryptCookies { get; private set; } = null!;
@@ -103,37 +101,44 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> FallbackHost { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies one or more three-digit status codes that can be returned by an HTTP server.
+        /// Specifies one or more three-digit status codes that can be returned by an HTTP server,that should trigger a redirection to the fallback host.
         /// </summary>
         [Output("fallbackStatusCodes")]
         public Output<ImmutableArray<string>> FallbackStatusCodes { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the header string that you want to erase from an HTTP request. You can also specify none
+        /// Specifies the header string that you want to erase from an HTTP request. Default is `none`.
         /// </summary>
         [Output("headErase")]
         public Output<string> HeadErase { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a quoted header string that you want to insert into an HTTP request
+        /// Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
         /// </summary>
         [Output("headInsert")]
         public Output<string> HeadInsert { get; private set; } = null!;
 
         /// <summary>
-        /// When using connection pooling, which allows clients to make use of other client requests' server-side connections, you can insert the X-Forwarded-For header and specify a client IP address
+        /// Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
         /// </summary>
         [Output("insertXforwardedFor")]
         public Output<string> InsertXforwardedFor { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a quoted header string that you want to insert into an HTTP request. You can also specify none.
+        /// Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
+        /// specify in the LWS Maximum Columns setting.
         /// </summary>
         [Output("lwsSeparator")]
         public Output<string> LwsSeparator { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the profile_http
+        /// Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
+        /// </summary>
+        [Output("lwsWidth")]
+        public Output<int> LwsWidth { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the name of the http profile,name of Profile should be full path. Full path is the combination of the `partition + profile name`,For example `/Common/test-http-profile`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -145,31 +150,31 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> OneconnectTransformations { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the type of HTTP proxy.
+        /// Specifies the proxy mode for this profile: reverse, explicit, or transparent. The default is `reverse`.
         /// </summary>
         [Output("proxyType")]
         public Output<string> ProxyType { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies which of the application HTTP redirects the system rewrites to HTTPS.
+        /// Specifies whether the system rewrites the URIs that are part of HTTP redirect (3XX) responses. The default is `none`.
         /// </summary>
         [Output("redirectRewrite")]
         public Output<string> RedirectRewrite { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies how to handle chunked and unchunked requests.
+        /// Specifies how the system handles HTTP content that is chunked by a client. The default is `preserve`.
         /// </summary>
         [Output("requestChunking")]
         public Output<string> RequestChunking { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies how to handle chunked and unchunked responses.
+        /// Specifies how the system handles HTTP content that is chunked by a server. The default is `selective`.
         /// </summary>
         [Output("responseChunking")]
         public Output<string> ResponseChunking { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies headers that the BIG-IP system allows in an HTTP response.
+        /// Specifies headers that the BIG-IP system allows in an HTTP response.If you are specifying more than one header, separate the headers with a blank space.
         /// </summary>
         [Output("responseHeadersPermitteds")]
         public Output<ImmutableArray<string>> ResponseHeadersPermitteds { get; private set; } = null!;
@@ -206,7 +211,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> ViaResponse { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies alternative XFF headers instead of the default X-forwarded-for header
+        /// Specifies alternative XFF headers instead of the default X-forwarded-for header.
         /// </summary>
         [Output("xffAlternativeNames")]
         public Output<ImmutableArray<string>> XffAlternativeNames { get; private set; } = null!;
@@ -258,8 +263,7 @@ namespace Pulumi.F5BigIP.Ltm
     public sealed class ProfileHttpArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's
-        /// XFF (X-forwarded-for) headers, if they exist.
+        /// Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's XFF (X-forwarded-for) headers, if they exist.
         /// </summary>
         [Input("acceptXff")]
         public Input<string>? AcceptXff { get; set; }
@@ -271,7 +275,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? AppService { get; set; }
 
         /// <summary>
-        /// Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is none
+        /// Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is `none`
         /// </summary>
         [Input("basicAuthRealm")]
         public Input<string>? BasicAuthRealm { get; set; }
@@ -283,13 +287,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? DefaultsFrom { get; set; }
 
         /// <summary>
-        /// User defined description
+        /// Specifies user-defined description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies a passphrase for the cookie encryption
+        /// Type a passphrase for cookie encryption.
         /// </summary>
         [Input("encryptCookieSecret")]
         public Input<string>? EncryptCookieSecret { get; set; }
@@ -298,7 +302,7 @@ namespace Pulumi.F5BigIP.Ltm
         private InputList<string>? _encryptCookies;
 
         /// <summary>
-        /// Encrypts specified cookies that the BIG-IP system sends to a client system
+        /// Type the cookie names for the system to encrypt.
         /// </summary>
         public InputList<string> EncryptCookies
         {
@@ -316,7 +320,7 @@ namespace Pulumi.F5BigIP.Ltm
         private InputList<string>? _fallbackStatusCodes;
 
         /// <summary>
-        /// Specifies one or more three-digit status codes that can be returned by an HTTP server.
+        /// Specifies one or more three-digit status codes that can be returned by an HTTP server,that should trigger a redirection to the fallback host.
         /// </summary>
         public InputList<string> FallbackStatusCodes
         {
@@ -325,31 +329,38 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Specifies the header string that you want to erase from an HTTP request. You can also specify none
+        /// Specifies the header string that you want to erase from an HTTP request. Default is `none`.
         /// </summary>
         [Input("headErase")]
         public Input<string>? HeadErase { get; set; }
 
         /// <summary>
-        /// Specifies a quoted header string that you want to insert into an HTTP request
+        /// Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
         /// </summary>
         [Input("headInsert")]
         public Input<string>? HeadInsert { get; set; }
 
         /// <summary>
-        /// When using connection pooling, which allows clients to make use of other client requests' server-side connections, you can insert the X-Forwarded-For header and specify a client IP address
+        /// Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
         /// </summary>
         [Input("insertXforwardedFor")]
         public Input<string>? InsertXforwardedFor { get; set; }
 
         /// <summary>
-        /// Specifies a quoted header string that you want to insert into an HTTP request. You can also specify none.
+        /// Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
+        /// specify in the LWS Maximum Columns setting.
         /// </summary>
         [Input("lwsSeparator")]
         public Input<string>? LwsSeparator { get; set; }
 
         /// <summary>
-        /// Name of the profile_http
+        /// Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
+        /// </summary>
+        [Input("lwsWidth")]
+        public Input<int>? LwsWidth { get; set; }
+
+        /// <summary>
+        /// Specifies the name of the http profile,name of Profile should be full path. Full path is the combination of the `partition + profile name`,For example `/Common/test-http-profile`.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -361,25 +372,25 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? OneconnectTransformations { get; set; }
 
         /// <summary>
-        /// Specifies the type of HTTP proxy.
+        /// Specifies the proxy mode for this profile: reverse, explicit, or transparent. The default is `reverse`.
         /// </summary>
         [Input("proxyType")]
         public Input<string>? ProxyType { get; set; }
 
         /// <summary>
-        /// Specifies which of the application HTTP redirects the system rewrites to HTTPS.
+        /// Specifies whether the system rewrites the URIs that are part of HTTP redirect (3XX) responses. The default is `none`.
         /// </summary>
         [Input("redirectRewrite")]
         public Input<string>? RedirectRewrite { get; set; }
 
         /// <summary>
-        /// Specifies how to handle chunked and unchunked requests.
+        /// Specifies how the system handles HTTP content that is chunked by a client. The default is `preserve`.
         /// </summary>
         [Input("requestChunking")]
         public Input<string>? RequestChunking { get; set; }
 
         /// <summary>
-        /// Specifies how to handle chunked and unchunked responses.
+        /// Specifies how the system handles HTTP content that is chunked by a server. The default is `selective`.
         /// </summary>
         [Input("responseChunking")]
         public Input<string>? ResponseChunking { get; set; }
@@ -388,7 +399,7 @@ namespace Pulumi.F5BigIP.Ltm
         private InputList<string>? _responseHeadersPermitteds;
 
         /// <summary>
-        /// Specifies headers that the BIG-IP system allows in an HTTP response.
+        /// Specifies headers that the BIG-IP system allows in an HTTP response.If you are specifying more than one header, separate the headers with a blank space.
         /// </summary>
         public InputList<string> ResponseHeadersPermitteds
         {
@@ -431,7 +442,7 @@ namespace Pulumi.F5BigIP.Ltm
         private InputList<string>? _xffAlternativeNames;
 
         /// <summary>
-        /// Specifies alternative XFF headers instead of the default X-forwarded-for header
+        /// Specifies alternative XFF headers instead of the default X-forwarded-for header.
         /// </summary>
         public InputList<string> XffAlternativeNames
         {
@@ -447,8 +458,7 @@ namespace Pulumi.F5BigIP.Ltm
     public sealed class ProfileHttpState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's
-        /// XFF (X-forwarded-for) headers, if they exist.
+        /// Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's XFF (X-forwarded-for) headers, if they exist.
         /// </summary>
         [Input("acceptXff")]
         public Input<string>? AcceptXff { get; set; }
@@ -460,7 +470,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? AppService { get; set; }
 
         /// <summary>
-        /// Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is none
+        /// Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is `none`
         /// </summary>
         [Input("basicAuthRealm")]
         public Input<string>? BasicAuthRealm { get; set; }
@@ -472,13 +482,13 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? DefaultsFrom { get; set; }
 
         /// <summary>
-        /// User defined description
+        /// Specifies user-defined description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Specifies a passphrase for the cookie encryption
+        /// Type a passphrase for cookie encryption.
         /// </summary>
         [Input("encryptCookieSecret")]
         public Input<string>? EncryptCookieSecret { get; set; }
@@ -487,7 +497,7 @@ namespace Pulumi.F5BigIP.Ltm
         private InputList<string>? _encryptCookies;
 
         /// <summary>
-        /// Encrypts specified cookies that the BIG-IP system sends to a client system
+        /// Type the cookie names for the system to encrypt.
         /// </summary>
         public InputList<string> EncryptCookies
         {
@@ -505,7 +515,7 @@ namespace Pulumi.F5BigIP.Ltm
         private InputList<string>? _fallbackStatusCodes;
 
         /// <summary>
-        /// Specifies one or more three-digit status codes that can be returned by an HTTP server.
+        /// Specifies one or more three-digit status codes that can be returned by an HTTP server,that should trigger a redirection to the fallback host.
         /// </summary>
         public InputList<string> FallbackStatusCodes
         {
@@ -514,31 +524,38 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Specifies the header string that you want to erase from an HTTP request. You can also specify none
+        /// Specifies the header string that you want to erase from an HTTP request. Default is `none`.
         /// </summary>
         [Input("headErase")]
         public Input<string>? HeadErase { get; set; }
 
         /// <summary>
-        /// Specifies a quoted header string that you want to insert into an HTTP request
+        /// Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
         /// </summary>
         [Input("headInsert")]
         public Input<string>? HeadInsert { get; set; }
 
         /// <summary>
-        /// When using connection pooling, which allows clients to make use of other client requests' server-side connections, you can insert the X-Forwarded-For header and specify a client IP address
+        /// Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
         /// </summary>
         [Input("insertXforwardedFor")]
         public Input<string>? InsertXforwardedFor { get; set; }
 
         /// <summary>
-        /// Specifies a quoted header string that you want to insert into an HTTP request. You can also specify none.
+        /// Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
+        /// specify in the LWS Maximum Columns setting.
         /// </summary>
         [Input("lwsSeparator")]
         public Input<string>? LwsSeparator { get; set; }
 
         /// <summary>
-        /// Name of the profile_http
+        /// Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
+        /// </summary>
+        [Input("lwsWidth")]
+        public Input<int>? LwsWidth { get; set; }
+
+        /// <summary>
+        /// Specifies the name of the http profile,name of Profile should be full path. Full path is the combination of the `partition + profile name`,For example `/Common/test-http-profile`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -550,25 +567,25 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? OneconnectTransformations { get; set; }
 
         /// <summary>
-        /// Specifies the type of HTTP proxy.
+        /// Specifies the proxy mode for this profile: reverse, explicit, or transparent. The default is `reverse`.
         /// </summary>
         [Input("proxyType")]
         public Input<string>? ProxyType { get; set; }
 
         /// <summary>
-        /// Specifies which of the application HTTP redirects the system rewrites to HTTPS.
+        /// Specifies whether the system rewrites the URIs that are part of HTTP redirect (3XX) responses. The default is `none`.
         /// </summary>
         [Input("redirectRewrite")]
         public Input<string>? RedirectRewrite { get; set; }
 
         /// <summary>
-        /// Specifies how to handle chunked and unchunked requests.
+        /// Specifies how the system handles HTTP content that is chunked by a client. The default is `preserve`.
         /// </summary>
         [Input("requestChunking")]
         public Input<string>? RequestChunking { get; set; }
 
         /// <summary>
-        /// Specifies how to handle chunked and unchunked responses.
+        /// Specifies how the system handles HTTP content that is chunked by a server. The default is `selective`.
         /// </summary>
         [Input("responseChunking")]
         public Input<string>? ResponseChunking { get; set; }
@@ -577,7 +594,7 @@ namespace Pulumi.F5BigIP.Ltm
         private InputList<string>? _responseHeadersPermitteds;
 
         /// <summary>
-        /// Specifies headers that the BIG-IP system allows in an HTTP response.
+        /// Specifies headers that the BIG-IP system allows in an HTTP response.If you are specifying more than one header, separate the headers with a blank space.
         /// </summary>
         public InputList<string> ResponseHeadersPermitteds
         {
@@ -620,7 +637,7 @@ namespace Pulumi.F5BigIP.Ltm
         private InputList<string>? _xffAlternativeNames;
 
         /// <summary>
-        /// Specifies alternative XFF headers instead of the default X-forwarded-for header
+        /// Specifies alternative XFF headers instead of the default X-forwarded-for header.
         /// </summary>
         public InputList<string> XffAlternativeNames
         {

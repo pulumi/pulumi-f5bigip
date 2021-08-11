@@ -15,6 +15,10 @@ import (
 //
 // ## Example Usage
 //
+// There are two ways to use ltmPoolAttachment resource, where we can take node reference from ltmNode or we can specify node directly with ip:port/fqdn:port which will also create node and atach to pool.
+//
+// Pool attachment with node directly taking ip:port/fqdn:port
+//
 // ```go
 // package main
 //
@@ -48,13 +52,65 @@ import (
 // 			return err
 // 		}
 // 		_, err = ltm.NewPoolAttachment(ctx, "attachNode", &ltm.PoolAttachmentArgs{
-// 			Pool:                pool.Name,
-// 			Node:                pulumi.String("1.1.1.1:80"),
-// 			Ratio:               pulumi.Int(2),
-// 			ConnectionLimit:     pulumi.Int(2),
-// 			ConnectionRateLimit: pulumi.String("2"),
-// 			PriorityGroup:       pulumi.Int(2),
-// 			DynamicRatio:        pulumi.Int(3),
+// 			Pool: pool.Name,
+// 			Node: pulumi.String("1.1.1.1:80"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// Pool attachment with node reference from ltmNode
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		monitor, err := ltm.NewMonitor(ctx, "monitor", &ltm.MonitorArgs{
+// 			Name:   pulumi.String("/Common/terraform_monitor"),
+// 			Parent: pulumi.String("/Common/http"),
+// 			Send: pulumi.String("GET /some/path\n"),
+// 			Timeout:  pulumi.Int(999),
+// 			Interval: pulumi.Int(998),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		pool, err := ltm.NewPool(ctx, "pool", &ltm.PoolArgs{
+// 			Name:              pulumi.String("/Common/terraform-pool"),
+// 			LoadBalancingMode: pulumi.String("round-robin"),
+// 			Monitors: pulumi.StringArray{
+// 				monitor.Name,
+// 			},
+// 			AllowSnat: pulumi.String("yes"),
+// 			AllowNat:  pulumi.String("yes"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		node, err := ltm.NewNode(ctx, "node", &ltm.NodeArgs{
+// 			Name:    pulumi.String("/Common/terraform_node"),
+// 			Address: pulumi.String("192.168.30.2"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ltm.NewPoolAttachment(ctx, "attachNode", &ltm.PoolAttachmentArgs{
+// 			Pool: pool.Name,
+// 			Node: node.Name.ApplyT(func(name string) (string, error) {
+// 				return fmt.Sprintf("%v%v", name, ":80"), nil
+// 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -76,7 +132,7 @@ type PoolAttachment struct {
 	FqdnAutopopulate pulumi.StringPtrOutput `pulumi:"fqdnAutopopulate"`
 	// Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
 	Node pulumi.StringOutput `pulumi:"node"`
-	// Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
+	// Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`) or partition + directory + name of the pool (For example `/Common/test/my-pool`).When including directory in fullpath we have to make sure it is created in the given partition before using it.
 	Pool pulumi.StringOutput `pulumi:"pool"`
 	// Specifies a number representing the priority group for the pool member. The default is 0, meaning that the member has no priority
 	PriorityGroup pulumi.IntOutput `pulumi:"priorityGroup"`
@@ -129,7 +185,7 @@ type poolAttachmentState struct {
 	FqdnAutopopulate *string `pulumi:"fqdnAutopopulate"`
 	// Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
 	Node *string `pulumi:"node"`
-	// Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
+	// Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`) or partition + directory + name of the pool (For example `/Common/test/my-pool`).When including directory in fullpath we have to make sure it is created in the given partition before using it.
 	Pool *string `pulumi:"pool"`
 	// Specifies a number representing the priority group for the pool member. The default is 0, meaning that the member has no priority
 	PriorityGroup *int `pulumi:"priorityGroup"`
@@ -148,7 +204,7 @@ type PoolAttachmentState struct {
 	FqdnAutopopulate pulumi.StringPtrInput
 	// Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
 	Node pulumi.StringPtrInput
-	// Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
+	// Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`) or partition + directory + name of the pool (For example `/Common/test/my-pool`).When including directory in fullpath we have to make sure it is created in the given partition before using it.
 	Pool pulumi.StringPtrInput
 	// Specifies a number representing the priority group for the pool member. The default is 0, meaning that the member has no priority
 	PriorityGroup pulumi.IntPtrInput
@@ -171,7 +227,7 @@ type poolAttachmentArgs struct {
 	FqdnAutopopulate *string `pulumi:"fqdnAutopopulate"`
 	// Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
 	Node string `pulumi:"node"`
-	// Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
+	// Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`) or partition + directory + name of the pool (For example `/Common/test/my-pool`).When including directory in fullpath we have to make sure it is created in the given partition before using it.
 	Pool string `pulumi:"pool"`
 	// Specifies a number representing the priority group for the pool member. The default is 0, meaning that the member has no priority
 	PriorityGroup *int `pulumi:"priorityGroup"`
@@ -191,7 +247,7 @@ type PoolAttachmentArgs struct {
 	FqdnAutopopulate pulumi.StringPtrInput
 	// Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
 	Node pulumi.StringInput
-	// Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
+	// Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`) or partition + directory + name of the pool (For example `/Common/test/my-pool`).When including directory in fullpath we have to make sure it is created in the given partition before using it.
 	Pool pulumi.StringInput
 	// Specifies a number representing the priority group for the pool member. The default is 0, meaning that the member has no priority
 	PriorityGroup pulumi.IntPtrInput

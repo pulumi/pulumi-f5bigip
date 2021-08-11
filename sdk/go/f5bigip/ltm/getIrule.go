@@ -7,6 +7,32 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source (`ltm.IRule`) to get the ltm irule details available on BIG-IP
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		test, err := ltm.GetIrule(ctx, &ltm.GetIruleArgs{
+// 			Name:      "terraform_irule",
+// 			Partition: "Common",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("bigipIrule", test.Irule)
+// 		return nil
+// 	})
+// }
+// ```
 func GetIrule(ctx *pulumi.Context, args *GetIruleArgs, opts ...pulumi.InvokeOption) (*GetIruleResult, error) {
 	var rv GetIruleResult
 	err := ctx.Invoke("f5bigip:ltm/getIrule:getIrule", args, &rv, opts...)
@@ -18,15 +44,20 @@ func GetIrule(ctx *pulumi.Context, args *GetIruleArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getIrule.
 type GetIruleArgs struct {
-	Name      string `pulumi:"name"`
+	// Name of the irule
+	Name string `pulumi:"name"`
+	// partition of the ltm irule
 	Partition string `pulumi:"partition"`
 }
 
 // A collection of values returned by getIrule.
 type GetIruleResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id        string `pulumi:"id"`
-	Irule     string `pulumi:"irule"`
-	Name      string `pulumi:"name"`
+	Id string `pulumi:"id"`
+	// Irule configured on bigip
+	Irule string `pulumi:"irule"`
+	// Name of irule configured on bigip with full path
+	Name string `pulumi:"name"`
+	// Bigip partition in which rule is configured
 	Partition string `pulumi:"partition"`
 }

@@ -5,6 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Use this data source (`f5bigip.ltm.Monitor`) to get the ltm monitor details available on BIG-IP
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const monitor_TC1 = pulumi.output(f5bigip.ltm.getMonitor({
+ *     name: "test-monitor",
+ *     partition: "Common",
+ * }));
+ * ```
+ */
 export function getMonitor(args: GetMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorResult> {
     if (!opts) {
         opts = {}
@@ -23,7 +38,13 @@ export function getMonitor(args: GetMonitorArgs, opts?: pulumi.InvokeOptions): P
  * A collection of arguments for invoking getMonitor.
  */
 export interface GetMonitorArgs {
+    /**
+     * Name of the ltm monitor
+     */
     name: string;
+    /**
+     * partition of the ltm monitor
+     */
     partition: string;
 }
 
@@ -31,26 +52,50 @@ export interface GetMonitorArgs {
  * A collection of values returned by getMonitor.
  */
 export interface GetMonitorResult {
+    /**
+     * Displays whether adaptive response time monitoring is enabled for this monitor.
+     */
     readonly adaptive: string;
+    /**
+     * Displays whether adaptive response time monitoring is enabled for this monitor.
+     */
     readonly adaptiveLimit: number;
     readonly database: string;
     readonly defaultsFrom: string;
+    /**
+     * id will be full path name of ltm monitor.
+     */
     readonly destination: string;
     readonly filename: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown.
+     */
     readonly interval: number;
+    /**
+     * Displays the differentiated services code point (DSCP). DSCP is a 6-bit value in the Differentiated Services (DS) field of the IP header.
+     */
     readonly ipDscp: number;
+    /**
+     * Displays whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
+     */
     readonly manualResume: string;
     readonly mode: string;
     readonly name: string;
     readonly partition: string;
     readonly receiveDisable: string;
+    /**
+     * Instructs the system to mark the target resource down when the test is successful.
+     */
     readonly reverse: string;
     readonly timeUntilUp: number;
     readonly timeout: number;
+    /**
+     * Displays whether the monitor operates in transparent mode.
+     */
     readonly transparent: string;
     readonly username: string;
 }

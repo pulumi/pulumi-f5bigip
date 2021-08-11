@@ -36,6 +36,9 @@ class GetPoolResult:
     @property
     @pulumi.getter(name="fullPath")
     def full_path(self) -> str:
+        """
+        Full path to the pool.
+        """
         return pulumi.get(self, "full_path")
 
     @property
@@ -73,7 +76,21 @@ def get_pool(name: Optional[str] = None,
              partition: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPoolResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source (`ltm.Pool`) to get the ltm monitor details available on BIG-IP
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_f5bigip as f5bigip
+
+    pool__example = f5bigip.ltm.get_pool(name="example-pool",
+        partition="Common")
+    ```
+
+
+    :param str name: Name of the ltm monitor
+    :param str partition: partition of the ltm monitor
     """
     __args__ = dict()
     __args__['name'] = name

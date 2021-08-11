@@ -2031,6 +2031,9 @@ class GetDataGroupRecordResult(dict):
     def __init__(__self__, *,
                  name: str,
                  data: Optional[str] = None):
+        """
+        :param str name: Name of the datagroup
+        """
         pulumi.set(__self__, "name", name)
         if data is not None:
             pulumi.set(__self__, "data", data)
@@ -2038,6 +2041,9 @@ class GetDataGroupRecordResult(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of the datagroup
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -2054,6 +2060,13 @@ class GetNodeFqdnResult(dict):
                  interval: str,
                  address_family: Optional[str] = None,
                  name: Optional[str] = None):
+        """
+        :param str autopopulate: Specifies if the node should scale to the IP address set returned by DNS.
+        :param int downinterval: The number of attempts to resolve a domain name.
+        :param str interval: The amount of time before sending the next DNS query.
+        :param str address_family: The FQDN node's address family.
+        :param str name: Name of the node.
+        """
         pulumi.set(__self__, "autopopulate", autopopulate)
         pulumi.set(__self__, "downinterval", downinterval)
         pulumi.set(__self__, "interval", interval)
@@ -2065,26 +2078,41 @@ class GetNodeFqdnResult(dict):
     @property
     @pulumi.getter
     def autopopulate(self) -> str:
+        """
+        Specifies if the node should scale to the IP address set returned by DNS.
+        """
         return pulumi.get(self, "autopopulate")
 
     @property
     @pulumi.getter
     def downinterval(self) -> int:
+        """
+        The number of attempts to resolve a domain name.
+        """
         return pulumi.get(self, "downinterval")
 
     @property
     @pulumi.getter
     def interval(self) -> str:
+        """
+        The amount of time before sending the next DNS query.
+        """
         return pulumi.get(self, "interval")
 
     @property
     @pulumi.getter(name="addressFamily")
     def address_family(self) -> Optional[str]:
+        """
+        The FQDN node's address family.
+        """
         return pulumi.get(self, "address_family")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        Name of the node.
+        """
         return pulumi.get(self, "name")
 
 

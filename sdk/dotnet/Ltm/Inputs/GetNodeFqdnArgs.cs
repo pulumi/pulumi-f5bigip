@@ -12,18 +12,33 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
 
     public sealed class GetNodeFqdnArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The FQDN node's address family.
+        /// </summary>
         [Input("addressFamily")]
         public string? AddressFamily { get; set; }
 
+        /// <summary>
+        /// Specifies if the node should scale to the IP address set returned by DNS.
+        /// </summary>
         [Input("autopopulate", required: true)]
         public string Autopopulate { get; set; } = null!;
 
+        /// <summary>
+        /// The number of attempts to resolve a domain name.
+        /// </summary>
         [Input("downinterval", required: true)]
         public int Downinterval { get; set; }
 
+        /// <summary>
+        /// The amount of time before sending the next DNS query.
+        /// </summary>
         [Input("interval", required: true)]
         public string Interval { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the node.
+        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 

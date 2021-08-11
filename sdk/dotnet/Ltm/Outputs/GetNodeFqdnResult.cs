@@ -13,10 +13,25 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
     [OutputType]
     public sealed class GetNodeFqdnResult
     {
+        /// <summary>
+        /// The FQDN node's address family.
+        /// </summary>
         public readonly string? AddressFamily;
+        /// <summary>
+        /// Specifies if the node should scale to the IP address set returned by DNS.
+        /// </summary>
         public readonly string Autopopulate;
+        /// <summary>
+        /// The number of attempts to resolve a domain name.
+        /// </summary>
         public readonly int Downinterval;
+        /// <summary>
+        /// The amount of time before sending the next DNS query.
+        /// </summary>
         public readonly string Interval;
+        /// <summary>
+        /// Name of the node.
+        /// </summary>
         public readonly string? Name;
 
         [OutputConstructor]

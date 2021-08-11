@@ -15,15 +15,19 @@ class KeyArgs:
     def __init__(__self__, *,
                  content: pulumi.Input[str],
                  name: pulumi.Input[str],
+                 full_path: Optional[pulumi.Input[str]] = None,
                  partition: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Key resource.
         :param pulumi.Input[str] content: Content of SSL certificate key present on local Disk
         :param pulumi.Input[str] name: Name of the SSL Certificate key to be Imported on to BIGIP
+        :param pulumi.Input[str] full_path: Full Path Name of ssl key
         :param pulumi.Input[str] partition: Partition of ssl certificate key
         """
         pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "name", name)
+        if full_path is not None:
+            pulumi.set(__self__, "full_path", full_path)
         if partition is not None:
             pulumi.set(__self__, "partition", partition)
 
@@ -52,6 +56,18 @@ class KeyArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="fullPath")
+    def full_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Full Path Name of ssl key
+        """
+        return pulumi.get(self, "full_path")
+
+    @full_path.setter
+    def full_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "full_path", value)
+
+    @property
     @pulumi.getter
     def partition(self) -> Optional[pulumi.Input[str]]:
         """
@@ -68,16 +84,20 @@ class KeyArgs:
 class _KeyState:
     def __init__(__self__, *,
                  content: Optional[pulumi.Input[str]] = None,
+                 full_path: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  partition: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Key resources.
         :param pulumi.Input[str] content: Content of SSL certificate key present on local Disk
+        :param pulumi.Input[str] full_path: Full Path Name of ssl key
         :param pulumi.Input[str] name: Name of the SSL Certificate key to be Imported on to BIGIP
         :param pulumi.Input[str] partition: Partition of ssl certificate key
         """
         if content is not None:
             pulumi.set(__self__, "content", content)
+        if full_path is not None:
+            pulumi.set(__self__, "full_path", full_path)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if partition is not None:
@@ -94,6 +114,18 @@ class _KeyState:
     @content.setter
     def content(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter(name="fullPath")
+    def full_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Full Path Name of ssl key
+        """
+        return pulumi.get(self, "full_path")
+
+    @full_path.setter
+    def full_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "full_path", value)
 
     @property
     @pulumi.getter
@@ -126,6 +158,7 @@ class Key(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content: Optional[pulumi.Input[str]] = None,
+                 full_path: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  partition: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -148,6 +181,7 @@ class Key(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content: Content of SSL certificate key present on local Disk
+        :param pulumi.Input[str] full_path: Full Path Name of ssl key
         :param pulumi.Input[str] name: Name of the SSL Certificate key to be Imported on to BIGIP
         :param pulumi.Input[str] partition: Partition of ssl certificate key
         """
@@ -189,6 +223,7 @@ class Key(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content: Optional[pulumi.Input[str]] = None,
+                 full_path: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  partition: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -206,6 +241,7 @@ class Key(pulumi.CustomResource):
             if content is None and not opts.urn:
                 raise TypeError("Missing required property 'content'")
             __props__.__dict__["content"] = content
+            __props__.__dict__["full_path"] = full_path
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
@@ -221,6 +257,7 @@ class Key(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             content: Optional[pulumi.Input[str]] = None,
+            full_path: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             partition: Optional[pulumi.Input[str]] = None) -> 'Key':
         """
@@ -231,6 +268,7 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content: Content of SSL certificate key present on local Disk
+        :param pulumi.Input[str] full_path: Full Path Name of ssl key
         :param pulumi.Input[str] name: Name of the SSL Certificate key to be Imported on to BIGIP
         :param pulumi.Input[str] partition: Partition of ssl certificate key
         """
@@ -239,6 +277,7 @@ class Key(pulumi.CustomResource):
         __props__ = _KeyState.__new__(_KeyState)
 
         __props__.__dict__["content"] = content
+        __props__.__dict__["full_path"] = full_path
         __props__.__dict__["name"] = name
         __props__.__dict__["partition"] = partition
         return Key(resource_name, opts=opts, __props__=__props__)
@@ -250,6 +289,14 @@ class Key(pulumi.CustomResource):
         Content of SSL certificate key present on local Disk
         """
         return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter(name="fullPath")
+    def full_path(self) -> pulumi.Output[str]:
+        """
+        Full Path Name of ssl key
+        """
+        return pulumi.get(self, "full_path")
 
     @property
     @pulumi.getter

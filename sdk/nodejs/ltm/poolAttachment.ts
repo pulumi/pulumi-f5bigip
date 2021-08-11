@@ -9,6 +9,10 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * There are two ways to use ltmPoolAttachment resource, where we can take node reference from ltmNode or we can specify node directly with ip:port/fqdn:port which will also create node and atach to pool.
+ *
+ * Pool attachment with node directly taking ip:port/fqdn:port
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
@@ -30,11 +34,36 @@ import * as utilities from "../utilities";
  * const attachNode = new f5bigip.ltm.PoolAttachment("attachNode", {
  *     pool: pool.name,
  *     node: "1.1.1.1:80",
- *     ratio: 2,
- *     connectionLimit: 2,
- *     connectionRateLimit: 2,
- *     priorityGroup: 2,
- *     dynamicRatio: 3,
+ * });
+ * ```
+ *
+ * Pool attachment with node reference from ltmNode
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const monitor = new f5bigip.ltm.Monitor("monitor", {
+ *     name: "/Common/terraform_monitor",
+ *     parent: "/Common/http",
+ *     send: "GET /some/path\n",
+ *     timeout: "999",
+ *     interval: "998",
+ * });
+ * const pool = new f5bigip.ltm.Pool("pool", {
+ *     name: "/Common/terraform-pool",
+ *     loadBalancingMode: "round-robin",
+ *     monitors: [monitor.name],
+ *     allowSnat: "yes",
+ *     allowNat: "yes",
+ * });
+ * const node = new f5bigip.ltm.Node("node", {
+ *     name: "/Common/terraform_node",
+ *     address: "192.168.30.2",
+ * });
+ * const attachNode = new f5bigip.ltm.PoolAttachment("attachNode", {
+ *     pool: pool.name,
+ *     node: pulumi.interpolate`${node.name}:80`,
  * });
  * ```
  */
@@ -87,7 +116,7 @@ export class PoolAttachment extends pulumi.CustomResource {
      */
     public readonly node!: pulumi.Output<string>;
     /**
-     * Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
+     * Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`) or partition + directory + name of the pool (For example `/Common/test/my-pool`).When including directory in fullpath we have to make sure it is created in the given partition before using it.
      */
     public readonly pool!: pulumi.Output<string>;
     /**
@@ -169,7 +198,7 @@ export interface PoolAttachmentState {
      */
     node?: pulumi.Input<string>;
     /**
-     * Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
+     * Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`) or partition + directory + name of the pool (For example `/Common/test/my-pool`).When including directory in fullpath we have to make sure it is created in the given partition before using it.
      */
     pool?: pulumi.Input<string>;
     /**
@@ -207,7 +236,7 @@ export interface PoolAttachmentArgs {
      */
     node: pulumi.Input<string>;
     /**
-     * Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
+     * Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`) or partition + directory + name of the pool (For example `/Common/test/my-pool`).When including directory in fullpath we have to make sure it is created in the given partition before using it.
      */
     pool: pulumi.Input<string>;
     /**

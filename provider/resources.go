@@ -109,6 +109,7 @@ func Provider() tfbridge.ProviderInfo {
 			"bigip_ltm_virtual_server":              {Tok: makeResource(ltmMod, "VirtualServer")},
 			"bigip_ltm_profile_client_ssl":          {Tok: makeResource(ltmMod, "ProfileClientSsl")},
 			"bigip_ltm_profile_server_ssl":          {Tok: makeResource(ltmMod, "ProfileServerSsl")},
+			"bigip_ltm_profile_ftp":                 {Tok: makeResource(ltmMod, "ProfileFtp")},
 			"bigip_sys_dns":                         {Tok: makeResource(sysMod, "Dns")},
 			"bigip_sys_iapp":                        {Tok: makeResource(sysMod, "IApp")},
 			"bigip_sys_ntp":                         {Tok: makeResource(sysMod, "Ntp")},

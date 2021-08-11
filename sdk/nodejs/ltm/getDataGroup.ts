@@ -5,6 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Use this data source (`f5bigip.ltm.DataGroup`) to get the data group details available on BIG-IP
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const dG_TC3 = pulumi.output(f5bigip.ltm.getDataGroup({
+ *     name: "test-dg",
+ *     partition: "Common",
+ * }));
+ * ```
+ */
 export function getDataGroup(args: GetDataGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDataGroupResult> {
     if (!opts) {
         opts = {}
@@ -25,9 +40,21 @@ export function getDataGroup(args: GetDataGroupArgs, opts?: pulumi.InvokeOptions
  * A collection of arguments for invoking getDataGroup.
  */
 export interface GetDataGroupArgs {
+    /**
+     * Name of the datagroup
+     */
     name: string;
+    /**
+     * partition of the datagroup
+     */
     partition: string;
+    /**
+     * Specifies record of type (string/ip/integer)
+     */
     records?: inputs.ltm.GetDataGroupRecord[];
+    /**
+     * The Data Group type (string, ip, integer)"
+     */
     type?: string;
 }
 
@@ -41,6 +68,12 @@ export interface GetDataGroupResult {
     readonly id: string;
     readonly name: string;
     readonly partition: string;
+    /**
+     * Specifies record of type (string/ip/integer)
+     */
     readonly records: outputs.ltm.GetDataGroupRecord[];
+    /**
+     * The Data Group type (string, ip, integer)"
+     */
     readonly type: string;
 }

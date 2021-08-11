@@ -49,11 +49,17 @@ class GetCertificateResult:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of ssl_certificate configured on bigip with full path
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def partition(self) -> str:
+        """
+        Bigip partition in which ssl-certificate is configured
+        """
         return pulumi.get(self, "partition")
 
 
@@ -73,7 +79,22 @@ def get_certificate(name: Optional[str] = None,
                     partition: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCertificateResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source (`ssl.Certificate`) to get the ssl-certificate details available on BIG-IP
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_f5bigip as f5bigip
+
+    test = f5bigip.ssl.get_certificate(name="terraform_ssl_certificate",
+        partition="Common")
+    pulumi.export("bigipSslCertificateName", test.name)
+    ```
+
+
+    :param str name: Name of the ssl_certificate
+    :param str partition: partition of the ltm ssl_certificate
     """
     __args__ = dict()
     __args__['name'] = name

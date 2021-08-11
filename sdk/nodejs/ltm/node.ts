@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
 /**
  * `f5bigip.ltm.Node` Manages a node configuration
  *
- * For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+ * For resources should be named with their "full path".The full path is the combination of the partition + name of the resource( example: /Common/my-node ) or partition + Direcroty + nameof the resource ( example: /Common/test/my-node ).When including directory in fullpath we have to make sure it is created in the given partition before using it.
  *
  * ## Example Usage
  *
@@ -93,7 +93,7 @@ export class Node extends pulumi.CustomResource {
      */
     public readonly ratio!: pulumi.Output<number>;
     /**
-     * Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
+     * Enables or disables the node for new sessions. The default value is user-enabled.
      */
     public readonly session!: pulumi.Output<string>;
     /**
@@ -190,7 +190,7 @@ export interface NodeState {
      */
     ratio?: pulumi.Input<number>;
     /**
-     * Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
+     * Enables or disables the node for new sessions. The default value is user-enabled.
      */
     session?: pulumi.Input<string>;
     /**
@@ -237,7 +237,7 @@ export interface NodeArgs {
      */
     ratio?: pulumi.Input<number>;
     /**
-     * Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
+     * Enables or disables the node for new sessions. The default value is user-enabled.
      */
     session?: pulumi.Input<string>;
     /**

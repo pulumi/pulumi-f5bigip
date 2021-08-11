@@ -23,10 +23,10 @@ class BigIqAs3Args:
                  tenant_list: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BigIqAs3 resource.
-        :param pulumi.Input[str] as3_json: AS3 json
-        :param pulumi.Input[str] bigiq_address: The registration key pool to use
-        :param pulumi.Input[str] bigiq_password: The registration key pool to use
-        :param pulumi.Input[str] bigiq_user: The registration key pool to use
+        :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        :param pulumi.Input[str] bigiq_address: Address of the BIG-IQ to which your targer BIG-IP is attached
+        :param pulumi.Input[str] bigiq_password: Password of the BIG-IQ to which your targer BIG-IP is attached
+        :param pulumi.Input[str] bigiq_user: User name  of the BIG-IQ to which your targer BIG-IP is attached
         :param pulumi.Input[str] bigiq_login_ref: Login reference for token authentication (see BIG-IQ REST docs for details)
         :param pulumi.Input[str] bigiq_port: The registration key pool to use
         :param pulumi.Input[bool] bigiq_token_auth: Enable to use an external authentication source (LDAP, TACACS, etc)
@@ -49,7 +49,7 @@ class BigIqAs3Args:
     @pulumi.getter(name="as3Json")
     def as3_json(self) -> pulumi.Input[str]:
         """
-        AS3 json
+        Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         """
         return pulumi.get(self, "as3_json")
 
@@ -61,7 +61,7 @@ class BigIqAs3Args:
     @pulumi.getter(name="bigiqAddress")
     def bigiq_address(self) -> pulumi.Input[str]:
         """
-        The registration key pool to use
+        Address of the BIG-IQ to which your targer BIG-IP is attached
         """
         return pulumi.get(self, "bigiq_address")
 
@@ -73,7 +73,7 @@ class BigIqAs3Args:
     @pulumi.getter(name="bigiqPassword")
     def bigiq_password(self) -> pulumi.Input[str]:
         """
-        The registration key pool to use
+        Password of the BIG-IQ to which your targer BIG-IP is attached
         """
         return pulumi.get(self, "bigiq_password")
 
@@ -85,7 +85,7 @@ class BigIqAs3Args:
     @pulumi.getter(name="bigiqUser")
     def bigiq_user(self) -> pulumi.Input[str]:
         """
-        The registration key pool to use
+        User name  of the BIG-IQ to which your targer BIG-IP is attached
         """
         return pulumi.get(self, "bigiq_user")
 
@@ -155,13 +155,13 @@ class _BigIqAs3State:
                  tenant_list: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering BigIqAs3 resources.
-        :param pulumi.Input[str] as3_json: AS3 json
-        :param pulumi.Input[str] bigiq_address: The registration key pool to use
+        :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        :param pulumi.Input[str] bigiq_address: Address of the BIG-IQ to which your targer BIG-IP is attached
         :param pulumi.Input[str] bigiq_login_ref: Login reference for token authentication (see BIG-IQ REST docs for details)
-        :param pulumi.Input[str] bigiq_password: The registration key pool to use
+        :param pulumi.Input[str] bigiq_password: Password of the BIG-IQ to which your targer BIG-IP is attached
         :param pulumi.Input[str] bigiq_port: The registration key pool to use
         :param pulumi.Input[bool] bigiq_token_auth: Enable to use an external authentication source (LDAP, TACACS, etc)
-        :param pulumi.Input[str] bigiq_user: The registration key pool to use
+        :param pulumi.Input[str] bigiq_user: User name  of the BIG-IQ to which your targer BIG-IP is attached
         :param pulumi.Input[str] tenant_list: Name of Tenant
         """
         if as3_json is not None:
@@ -185,7 +185,7 @@ class _BigIqAs3State:
     @pulumi.getter(name="as3Json")
     def as3_json(self) -> Optional[pulumi.Input[str]]:
         """
-        AS3 json
+        Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         """
         return pulumi.get(self, "as3_json")
 
@@ -197,7 +197,7 @@ class _BigIqAs3State:
     @pulumi.getter(name="bigiqAddress")
     def bigiq_address(self) -> Optional[pulumi.Input[str]]:
         """
-        The registration key pool to use
+        Address of the BIG-IQ to which your targer BIG-IP is attached
         """
         return pulumi.get(self, "bigiq_address")
 
@@ -221,7 +221,7 @@ class _BigIqAs3State:
     @pulumi.getter(name="bigiqPassword")
     def bigiq_password(self) -> Optional[pulumi.Input[str]]:
         """
-        The registration key pool to use
+        Password of the BIG-IQ to which your targer BIG-IP is attached
         """
         return pulumi.get(self, "bigiq_password")
 
@@ -257,7 +257,7 @@ class _BigIqAs3State:
     @pulumi.getter(name="bigiqUser")
     def bigiq_user(self) -> Optional[pulumi.Input[str]]:
         """
-        The registration key pool to use
+        User name  of the BIG-IQ to which your targer BIG-IP is attached
         """
         return pulumi.get(self, "bigiq_user")
 
@@ -293,16 +293,33 @@ class BigIqAs3(pulumi.CustomResource):
                  tenant_list: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a BigIqAs3 resource with the given unique name, props, and options.
+        `BigIqAs3` provides details about bigiq as3 resource
+
+        This resource is helpful to configure as3 declarative JSON on BIG-IP through BIG-IQ.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        # Example Usage for json file
+        exampletask = f5bigip.BigIqAs3("exampletask",
+            as3_json=(lambda path: open(path).read())("bigiq_example.json"),
+            bigiq_address="xx.xx.xxx.xx",
+            bigiq_password="xxxxxxxxx",
+            bigiq_user="xxxxx")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] as3_json: AS3 json
-        :param pulumi.Input[str] bigiq_address: The registration key pool to use
+        :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        :param pulumi.Input[str] bigiq_address: Address of the BIG-IQ to which your targer BIG-IP is attached
         :param pulumi.Input[str] bigiq_login_ref: Login reference for token authentication (see BIG-IQ REST docs for details)
-        :param pulumi.Input[str] bigiq_password: The registration key pool to use
+        :param pulumi.Input[str] bigiq_password: Password of the BIG-IQ to which your targer BIG-IP is attached
         :param pulumi.Input[str] bigiq_port: The registration key pool to use
         :param pulumi.Input[bool] bigiq_token_auth: Enable to use an external authentication source (LDAP, TACACS, etc)
-        :param pulumi.Input[str] bigiq_user: The registration key pool to use
+        :param pulumi.Input[str] bigiq_user: User name  of the BIG-IQ to which your targer BIG-IP is attached
         :param pulumi.Input[str] tenant_list: Name of Tenant
         """
         ...
@@ -312,7 +329,24 @@ class BigIqAs3(pulumi.CustomResource):
                  args: BigIqAs3Args,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a BigIqAs3 resource with the given unique name, props, and options.
+        `BigIqAs3` provides details about bigiq as3 resource
+
+        This resource is helpful to configure as3 declarative JSON on BIG-IP through BIG-IQ.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        # Example Usage for json file
+        exampletask = f5bigip.BigIqAs3("exampletask",
+            as3_json=(lambda path: open(path).read())("bigiq_example.json"),
+            bigiq_address="xx.xx.xxx.xx",
+            bigiq_password="xxxxxxxxx",
+            bigiq_user="xxxxx")
+        ```
+
         :param str resource_name: The name of the resource.
         :param BigIqAs3Args args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -389,13 +423,13 @@ class BigIqAs3(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] as3_json: AS3 json
-        :param pulumi.Input[str] bigiq_address: The registration key pool to use
+        :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        :param pulumi.Input[str] bigiq_address: Address of the BIG-IQ to which your targer BIG-IP is attached
         :param pulumi.Input[str] bigiq_login_ref: Login reference for token authentication (see BIG-IQ REST docs for details)
-        :param pulumi.Input[str] bigiq_password: The registration key pool to use
+        :param pulumi.Input[str] bigiq_password: Password of the BIG-IQ to which your targer BIG-IP is attached
         :param pulumi.Input[str] bigiq_port: The registration key pool to use
         :param pulumi.Input[bool] bigiq_token_auth: Enable to use an external authentication source (LDAP, TACACS, etc)
-        :param pulumi.Input[str] bigiq_user: The registration key pool to use
+        :param pulumi.Input[str] bigiq_user: User name  of the BIG-IQ to which your targer BIG-IP is attached
         :param pulumi.Input[str] tenant_list: Name of Tenant
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -416,7 +450,7 @@ class BigIqAs3(pulumi.CustomResource):
     @pulumi.getter(name="as3Json")
     def as3_json(self) -> pulumi.Output[str]:
         """
-        AS3 json
+        Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         """
         return pulumi.get(self, "as3_json")
 
@@ -424,7 +458,7 @@ class BigIqAs3(pulumi.CustomResource):
     @pulumi.getter(name="bigiqAddress")
     def bigiq_address(self) -> pulumi.Output[str]:
         """
-        The registration key pool to use
+        Address of the BIG-IQ to which your targer BIG-IP is attached
         """
         return pulumi.get(self, "bigiq_address")
 
@@ -440,7 +474,7 @@ class BigIqAs3(pulumi.CustomResource):
     @pulumi.getter(name="bigiqPassword")
     def bigiq_password(self) -> pulumi.Output[str]:
         """
-        The registration key pool to use
+        Password of the BIG-IQ to which your targer BIG-IP is attached
         """
         return pulumi.get(self, "bigiq_password")
 
@@ -464,7 +498,7 @@ class BigIqAs3(pulumi.CustomResource):
     @pulumi.getter(name="bigiqUser")
     def bigiq_user(self) -> pulumi.Output[str]:
         """
-        The registration key pool to use
+        User name  of the BIG-IQ to which your targer BIG-IP is attached
         """
         return pulumi.get(self, "bigiq_user")
 

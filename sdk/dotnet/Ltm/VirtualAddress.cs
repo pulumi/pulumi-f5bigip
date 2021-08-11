@@ -12,7 +12,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// <summary>
     /// `f5bigip.ltm.VirtualAddress` Configures Virtual Server
     /// 
-    /// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+    /// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/virtual_server.
     /// 
     /// ## Example Usage
     /// 
@@ -26,8 +26,8 @@ namespace Pulumi.F5BigIP.Ltm
     ///     {
     ///         var vsVa = new F5BigIP.Ltm.VirtualAddress("vsVa", new F5BigIP.Ltm.VirtualAddressArgs
     ///         {
-    ///             AdvertizeRoute = "true",
-    ///             Name = "/Common/vs_va",
+    ///             AdvertizeRoute = "enabled",
+    ///             Name = "/Common/xxxxx",
     ///         });
     ///     }
     /// 
@@ -38,7 +38,7 @@ namespace Pulumi.F5BigIP.Ltm
     public partial class VirtualAddress : Pulumi.CustomResource
     {
         /// <summary>
-        /// Enabled dynamic routing of the address
+        /// Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )
         /// </summary>
         [Output("advertizeRoute")]
         public Output<string?> AdvertizeRoute { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Enable/Disable ICMP response to the virtual address
+        /// Specifies how the system sends responses to ICMP echo requests on a per-virtual address basis.
         /// </summary>
         [Output("icmpEcho")]
         public Output<string?> IcmpEcho { get; private set; } = null!;
@@ -132,7 +132,7 @@ namespace Pulumi.F5BigIP.Ltm
     public sealed class VirtualAddressArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enabled dynamic routing of the address
+        /// Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )
         /// </summary>
         [Input("advertizeRoute")]
         public Input<string>? AdvertizeRoute { get; set; }
@@ -162,7 +162,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Enable/Disable ICMP response to the virtual address
+        /// Specifies how the system sends responses to ICMP echo requests on a per-virtual address basis.
         /// </summary>
         [Input("icmpEcho")]
         public Input<string>? IcmpEcho { get; set; }
@@ -187,7 +187,7 @@ namespace Pulumi.F5BigIP.Ltm
     public sealed class VirtualAddressState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Enabled dynamic routing of the address
+        /// Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )
         /// </summary>
         [Input("advertizeRoute")]
         public Input<string>? AdvertizeRoute { get; set; }
@@ -217,7 +217,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Enable/Disable ICMP response to the virtual address
+        /// Specifies how the system sends responses to ICMP echo requests on a per-virtual address basis.
         /// </summary>
         [Input("icmpEcho")]
         public Input<string>? IcmpEcho { get; set; }

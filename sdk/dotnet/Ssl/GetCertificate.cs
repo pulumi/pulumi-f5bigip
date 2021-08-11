@@ -11,6 +11,37 @@ namespace Pulumi.F5BigIP.Ssl
 {
     public static class GetCertificate
     {
+        /// <summary>
+        /// Use this data source (`f5bigip.ssl.Certificate`) to get the ssl-certificate details available on BIG-IP
+        ///  
+        ///  
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using F5BigIP = Pulumi.F5BigIP;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(F5BigIP.Ssl.GetCertificate.InvokeAsync(new F5BigIP.Ssl.GetCertificateArgs
+        ///         {
+        ///             Name = "terraform_ssl_certificate",
+        ///             Partition = "Common",
+        ///         }));
+        ///         this.BigipSslCertificateName = test.Apply(test =&gt; test.Name);
+        ///     }
+        /// 
+        ///     [Output("bigipSslCertificateName")]
+        ///     public Output&lt;string&gt; BigipSslCertificateName { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("f5bigip:ssl/getCertificate:getCertificate", args ?? new GetCertificateArgs(), options.WithVersion());
     }
@@ -18,9 +49,15 @@ namespace Pulumi.F5BigIP.Ssl
 
     public sealed class GetCertificateArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the ssl_certificate
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// partition of the ltm ssl_certificate
+        /// </summary>
         [Input("partition", required: true)]
         public string Partition { get; set; } = null!;
 
@@ -38,7 +75,13 @@ namespace Pulumi.F5BigIP.Ssl
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Name of ssl_certificate configured on bigip with full path
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Bigip partition in which ssl-certificate is configured
+        /// </summary>
         public readonly string Partition;
 
         [OutputConstructor]

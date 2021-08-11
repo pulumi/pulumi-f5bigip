@@ -266,6 +266,14 @@ _utilities.register(
  },
  {
   "pkg": "f5bigip",
+  "mod": "ltm/profileFtp",
+  "fqn": "pulumi_f5bigip.ltm",
+  "classes": {
+   "f5bigip:ltm/profileFtp:ProfileFtp": "ProfileFtp"
+  }
+ },
+ {
+  "pkg": "f5bigip",
   "mod": "ltm/profileHttp",
   "fqn": "pulumi_f5bigip.ltm",
   "classes": {
