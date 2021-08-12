@@ -13,7 +13,7 @@ import (
 
 // `ltm.VirtualAddress` Configures Virtual Server
 //
-// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/virtual_server.
 //
 // ## Example Usage
 //
@@ -28,8 +28,8 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := ltm.NewVirtualAddress(ctx, "vsVa", &ltm.VirtualAddressArgs{
-// 			AdvertizeRoute: pulumi.String("true"),
-// 			Name:           pulumi.String("/Common/vs_va"),
+// 			AdvertizeRoute: pulumi.String("enabled"),
+// 			Name:           pulumi.String("/Common/xxxxx"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -41,7 +41,7 @@ import (
 type VirtualAddress struct {
 	pulumi.CustomResourceState
 
-	// Enabled dynamic routing of the address
+	// Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )
 	AdvertizeRoute pulumi.StringPtrOutput `pulumi:"advertizeRoute"`
 	// Enable or disable ARP for the virtual address
 	Arp pulumi.BoolPtrOutput `pulumi:"arp"`
@@ -51,7 +51,7 @@ type VirtualAddress struct {
 	ConnLimit pulumi.IntPtrOutput `pulumi:"connLimit"`
 	// Enable or disable the virtual address
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// Enable/Disable ICMP response to the virtual address
+	// Specifies how the system sends responses to ICMP echo requests on a per-virtual address basis.
 	IcmpEcho pulumi.StringPtrOutput `pulumi:"icmpEcho"`
 	// Name of the virtual address
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -91,7 +91,7 @@ func GetVirtualAddress(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualAddress resources.
 type virtualAddressState struct {
-	// Enabled dynamic routing of the address
+	// Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )
 	AdvertizeRoute *string `pulumi:"advertizeRoute"`
 	// Enable or disable ARP for the virtual address
 	Arp *bool `pulumi:"arp"`
@@ -101,7 +101,7 @@ type virtualAddressState struct {
 	ConnLimit *int `pulumi:"connLimit"`
 	// Enable or disable the virtual address
 	Enabled *bool `pulumi:"enabled"`
-	// Enable/Disable ICMP response to the virtual address
+	// Specifies how the system sends responses to ICMP echo requests on a per-virtual address basis.
 	IcmpEcho *string `pulumi:"icmpEcho"`
 	// Name of the virtual address
 	Name *string `pulumi:"name"`
@@ -110,7 +110,7 @@ type virtualAddressState struct {
 }
 
 type VirtualAddressState struct {
-	// Enabled dynamic routing of the address
+	// Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )
 	AdvertizeRoute pulumi.StringPtrInput
 	// Enable or disable ARP for the virtual address
 	Arp pulumi.BoolPtrInput
@@ -120,7 +120,7 @@ type VirtualAddressState struct {
 	ConnLimit pulumi.IntPtrInput
 	// Enable or disable the virtual address
 	Enabled pulumi.BoolPtrInput
-	// Enable/Disable ICMP response to the virtual address
+	// Specifies how the system sends responses to ICMP echo requests on a per-virtual address basis.
 	IcmpEcho pulumi.StringPtrInput
 	// Name of the virtual address
 	Name pulumi.StringPtrInput
@@ -133,7 +133,7 @@ func (VirtualAddressState) ElementType() reflect.Type {
 }
 
 type virtualAddressArgs struct {
-	// Enabled dynamic routing of the address
+	// Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )
 	AdvertizeRoute *string `pulumi:"advertizeRoute"`
 	// Enable or disable ARP for the virtual address
 	Arp *bool `pulumi:"arp"`
@@ -143,7 +143,7 @@ type virtualAddressArgs struct {
 	ConnLimit *int `pulumi:"connLimit"`
 	// Enable or disable the virtual address
 	Enabled *bool `pulumi:"enabled"`
-	// Enable/Disable ICMP response to the virtual address
+	// Specifies how the system sends responses to ICMP echo requests on a per-virtual address basis.
 	IcmpEcho *string `pulumi:"icmpEcho"`
 	// Name of the virtual address
 	Name string `pulumi:"name"`
@@ -153,7 +153,7 @@ type virtualAddressArgs struct {
 
 // The set of arguments for constructing a VirtualAddress resource.
 type VirtualAddressArgs struct {
-	// Enabled dynamic routing of the address
+	// Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )
 	AdvertizeRoute pulumi.StringPtrInput
 	// Enable or disable ARP for the virtual address
 	Arp pulumi.BoolPtrInput
@@ -163,7 +163,7 @@ type VirtualAddressArgs struct {
 	ConnLimit pulumi.IntPtrInput
 	// Enable or disable the virtual address
 	Enabled pulumi.BoolPtrInput
-	// Enable/Disable ICMP response to the virtual address
+	// Specifies how the system sends responses to ICMP echo requests on a per-virtual address basis.
 	IcmpEcho pulumi.StringPtrInput
 	// Name of the virtual address
 	Name pulumi.StringInput

@@ -5,6 +5,23 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Use this data source (`f5bigip.ltm.IRule`) to get the ltm irule details available on BIG-IP
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const test = pulumi.output(f5bigip.ltm.getIrule({
+ *     name: "terraform_irule",
+ *     partition: "Common",
+ * }));
+ *
+ * export const bigipIrule = test.irule;
+ * ```
+ */
 export function getIrule(args: GetIruleArgs, opts?: pulumi.InvokeOptions): Promise<GetIruleResult> {
     if (!opts) {
         opts = {}
@@ -23,7 +40,13 @@ export function getIrule(args: GetIruleArgs, opts?: pulumi.InvokeOptions): Promi
  * A collection of arguments for invoking getIrule.
  */
 export interface GetIruleArgs {
+    /**
+     * Name of the irule
+     */
     name: string;
+    /**
+     * partition of the ltm irule
+     */
     partition: string;
 }
 
@@ -35,7 +58,16 @@ export interface GetIruleResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Irule configured on bigip
+     */
     readonly irule: string;
+    /**
+     * Name of irule configured on bigip with full path
+     */
     readonly name: string;
+    /**
+     * Bigip partition in which rule is configured
+     */
     readonly partition: string;
 }

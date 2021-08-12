@@ -11,22 +11,25 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// `BigIqAs3` provides details about bigiq as3 resource
+//
+// This resource is helpful to configure as3 declarative JSON on BIG-IP through BIG-IQ.
 type BigIqAs3 struct {
 	pulumi.CustomResourceState
 
-	// AS3 json
+	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
 	As3Json pulumi.StringOutput `pulumi:"as3Json"`
-	// The registration key pool to use
+	// Address of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqAddress pulumi.StringOutput `pulumi:"bigiqAddress"`
 	// Login reference for token authentication (see BIG-IQ REST docs for details)
 	BigiqLoginRef pulumi.StringPtrOutput `pulumi:"bigiqLoginRef"`
-	// The registration key pool to use
+	// Password of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqPassword pulumi.StringOutput `pulumi:"bigiqPassword"`
 	// The registration key pool to use
 	BigiqPort pulumi.StringPtrOutput `pulumi:"bigiqPort"`
 	// Enable to use an external authentication source (LDAP, TACACS, etc)
 	BigiqTokenAuth pulumi.BoolPtrOutput `pulumi:"bigiqTokenAuth"`
-	// The registration key pool to use
+	// User name  of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqUser pulumi.StringOutput `pulumi:"bigiqUser"`
 	// Name of Tenant
 	TenantList pulumi.StringOutput `pulumi:"tenantList"`
@@ -73,38 +76,38 @@ func GetBigIqAs3(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BigIqAs3 resources.
 type bigIqAs3State struct {
-	// AS3 json
+	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
 	As3Json *string `pulumi:"as3Json"`
-	// The registration key pool to use
+	// Address of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqAddress *string `pulumi:"bigiqAddress"`
 	// Login reference for token authentication (see BIG-IQ REST docs for details)
 	BigiqLoginRef *string `pulumi:"bigiqLoginRef"`
-	// The registration key pool to use
+	// Password of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqPassword *string `pulumi:"bigiqPassword"`
 	// The registration key pool to use
 	BigiqPort *string `pulumi:"bigiqPort"`
 	// Enable to use an external authentication source (LDAP, TACACS, etc)
 	BigiqTokenAuth *bool `pulumi:"bigiqTokenAuth"`
-	// The registration key pool to use
+	// User name  of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqUser *string `pulumi:"bigiqUser"`
 	// Name of Tenant
 	TenantList *string `pulumi:"tenantList"`
 }
 
 type BigIqAs3State struct {
-	// AS3 json
+	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
 	As3Json pulumi.StringPtrInput
-	// The registration key pool to use
+	// Address of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqAddress pulumi.StringPtrInput
 	// Login reference for token authentication (see BIG-IQ REST docs for details)
 	BigiqLoginRef pulumi.StringPtrInput
-	// The registration key pool to use
+	// Password of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqPassword pulumi.StringPtrInput
 	// The registration key pool to use
 	BigiqPort pulumi.StringPtrInput
 	// Enable to use an external authentication source (LDAP, TACACS, etc)
 	BigiqTokenAuth pulumi.BoolPtrInput
-	// The registration key pool to use
+	// User name  of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqUser pulumi.StringPtrInput
 	// Name of Tenant
 	TenantList pulumi.StringPtrInput
@@ -115,19 +118,19 @@ func (BigIqAs3State) ElementType() reflect.Type {
 }
 
 type bigIqAs3Args struct {
-	// AS3 json
+	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
 	As3Json string `pulumi:"as3Json"`
-	// The registration key pool to use
+	// Address of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqAddress string `pulumi:"bigiqAddress"`
 	// Login reference for token authentication (see BIG-IQ REST docs for details)
 	BigiqLoginRef *string `pulumi:"bigiqLoginRef"`
-	// The registration key pool to use
+	// Password of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqPassword string `pulumi:"bigiqPassword"`
 	// The registration key pool to use
 	BigiqPort *string `pulumi:"bigiqPort"`
 	// Enable to use an external authentication source (LDAP, TACACS, etc)
 	BigiqTokenAuth *bool `pulumi:"bigiqTokenAuth"`
-	// The registration key pool to use
+	// User name  of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqUser string `pulumi:"bigiqUser"`
 	// Name of Tenant
 	TenantList *string `pulumi:"tenantList"`
@@ -135,19 +138,19 @@ type bigIqAs3Args struct {
 
 // The set of arguments for constructing a BigIqAs3 resource.
 type BigIqAs3Args struct {
-	// AS3 json
+	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
 	As3Json pulumi.StringInput
-	// The registration key pool to use
+	// Address of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqAddress pulumi.StringInput
 	// Login reference for token authentication (see BIG-IQ REST docs for details)
 	BigiqLoginRef pulumi.StringPtrInput
-	// The registration key pool to use
+	// Password of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqPassword pulumi.StringInput
 	// The registration key pool to use
 	BigiqPort pulumi.StringPtrInput
 	// Enable to use an external authentication source (LDAP, TACACS, etc)
 	BigiqTokenAuth pulumi.BoolPtrInput
-	// The registration key pool to use
+	// User name  of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqUser pulumi.StringInput
 	// Name of Tenant
 	TenantList pulumi.StringPtrInput

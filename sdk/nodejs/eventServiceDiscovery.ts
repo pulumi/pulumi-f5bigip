@@ -33,9 +33,12 @@ export class EventServiceDiscovery extends pulumi.CustomResource {
         return obj['__pulumiType'] === EventServiceDiscovery.__pulumiType;
     }
 
+    /**
+     * Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
+     */
     public readonly nodes!: pulumi.Output<outputs.EventServiceDiscoveryNode[] | undefined>;
     /**
-     * Name of the partition/tenant
+     * servicediscovery endpoint ( Below example shows how to create endpoing using AS3 )
      */
     public readonly taskid!: pulumi.Output<string>;
 
@@ -73,9 +76,12 @@ export class EventServiceDiscovery extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EventServiceDiscovery resources.
  */
 export interface EventServiceDiscoveryState {
+    /**
+     * Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
+     */
     nodes?: pulumi.Input<pulumi.Input<inputs.EventServiceDiscoveryNode>[]>;
     /**
-     * Name of the partition/tenant
+     * servicediscovery endpoint ( Below example shows how to create endpoing using AS3 )
      */
     taskid?: pulumi.Input<string>;
 }
@@ -84,9 +90,12 @@ export interface EventServiceDiscoveryState {
  * The set of arguments for constructing a EventServiceDiscovery resource.
  */
 export interface EventServiceDiscoveryArgs {
+    /**
+     * Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
+     */
     nodes?: pulumi.Input<pulumi.Input<inputs.EventServiceDiscoveryNode>[]>;
     /**
-     * Name of the partition/tenant
+     * servicediscovery endpoint ( Below example shows how to create endpoing using AS3 )
      */
     taskid: pulumi.Input<string>;
 }

@@ -52,6 +52,7 @@ class VirtualServerArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] persistence_profiles: List of persistence profiles associated with the Virtual Server.
         :param pulumi.Input[str] pool: Default pool name
         :param pulumi.Input[Sequence[pulumi.Input[str]]] profiles: List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_log_profiles: Specifies the log profile applied to the virtual server.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] server_profiles: List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
         :param pulumi.Input[str] snatpool: Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
         :param pulumi.Input[str] source: Specifies an IP address or network from which the virtual server will accept traffic.
@@ -284,6 +285,9 @@ class VirtualServerArgs:
     @property
     @pulumi.getter(name="securityLogProfiles")
     def security_log_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the log profile applied to the virtual server.
+        """
         return pulumi.get(self, "security_log_profiles")
 
     @security_log_profiles.setter
@@ -441,6 +445,7 @@ class _VirtualServerState:
         :param pulumi.Input[str] pool: Default pool name
         :param pulumi.Input[int] port: Listen port for the virtual server
         :param pulumi.Input[Sequence[pulumi.Input[str]]] profiles: List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_log_profiles: Specifies the log profile applied to the virtual server.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] server_profiles: List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
         :param pulumi.Input[str] snatpool: Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
         :param pulumi.Input[str] source: Specifies an IP address or network from which the virtual server will accept traffic.
@@ -676,6 +681,9 @@ class _VirtualServerState:
     @property
     @pulumi.getter(name="securityLogProfiles")
     def security_log_profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the log profile applied to the virtual server.
+        """
         return pulumi.get(self, "security_log_profiles")
 
     @security_log_profiles.setter
@@ -825,7 +833,7 @@ class VirtualServer(pulumi.CustomResource):
         """
         `ltm.VirtualServer` Configures Virtual Server
 
-        For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+        For resources should be named with their "full path". The full path is the combination of the partition + name of the resource (example: /Common/my-pool ) or partition + directory + name of the resource (example: /Common/test/my-pool ).When including directory in fullpath we have to make sure it is created in the given partition before using it.
 
         ## Example Usage
 
@@ -861,6 +869,7 @@ class VirtualServer(pulumi.CustomResource):
             port=443,
             client_profiles=["/Common/clientssl"],
             server_profiles=["/Common/serverssl"],
+            security_log_profiles=["/Common/global-network"],
             source_address_translation="automap")
         ```
 
@@ -878,6 +887,7 @@ class VirtualServer(pulumi.CustomResource):
         :param pulumi.Input[str] pool: Default pool name
         :param pulumi.Input[int] port: Listen port for the virtual server
         :param pulumi.Input[Sequence[pulumi.Input[str]]] profiles: List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_log_profiles: Specifies the log profile applied to the virtual server.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] server_profiles: List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
         :param pulumi.Input[str] snatpool: Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
         :param pulumi.Input[str] source: Specifies an IP address or network from which the virtual server will accept traffic.
@@ -897,7 +907,7 @@ class VirtualServer(pulumi.CustomResource):
         """
         `ltm.VirtualServer` Configures Virtual Server
 
-        For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+        For resources should be named with their "full path". The full path is the combination of the partition + name of the resource (example: /Common/my-pool ) or partition + directory + name of the resource (example: /Common/test/my-pool ).When including directory in fullpath we have to make sure it is created in the given partition before using it.
 
         ## Example Usage
 
@@ -933,6 +943,7 @@ class VirtualServer(pulumi.CustomResource):
             port=443,
             client_profiles=["/Common/clientssl"],
             server_profiles=["/Common/serverssl"],
+            security_log_profiles=["/Common/global-network"],
             source_address_translation="automap")
         ```
 
@@ -1073,6 +1084,7 @@ class VirtualServer(pulumi.CustomResource):
         :param pulumi.Input[str] pool: Default pool name
         :param pulumi.Input[int] port: Listen port for the virtual server
         :param pulumi.Input[Sequence[pulumi.Input[str]]] profiles: List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_log_profiles: Specifies the log profile applied to the virtual server.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] server_profiles: List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
         :param pulumi.Input[str] snatpool: Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
         :param pulumi.Input[str] source: Specifies an IP address or network from which the virtual server will accept traffic.
@@ -1228,6 +1240,9 @@ class VirtualServer(pulumi.CustomResource):
     @property
     @pulumi.getter(name="securityLogProfiles")
     def security_log_profiles(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        Specifies the log profile applied to the virtual server.
+        """
         return pulumi.get(self, "security_log_profiles")
 
     @property

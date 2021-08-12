@@ -11,6 +11,37 @@ namespace Pulumi.F5BigIP.Ltm
 {
     public static class GetIrule
     {
+        /// <summary>
+        /// Use this data source (`f5bigip.ltm.IRule`) to get the ltm irule details available on BIG-IP
+        ///  
+        ///  
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using F5BigIP = Pulumi.F5BigIP;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(F5BigIP.Ltm.GetIrule.InvokeAsync(new F5BigIP.Ltm.GetIruleArgs
+        ///         {
+        ///             Name = "terraform_irule",
+        ///             Partition = "Common",
+        ///         }));
+        ///         this.BigipIrule = test.Apply(test =&gt; test.Irule);
+        ///     }
+        /// 
+        ///     [Output("bigipIrule")]
+        ///     public Output&lt;string&gt; BigipIrule { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetIruleResult> InvokeAsync(GetIruleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIruleResult>("f5bigip:ltm/getIrule:getIrule", args ?? new GetIruleArgs(), options.WithVersion());
     }
@@ -18,9 +49,15 @@ namespace Pulumi.F5BigIP.Ltm
 
     public sealed class GetIruleArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the irule
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// partition of the ltm irule
+        /// </summary>
         [Input("partition", required: true)]
         public string Partition { get; set; } = null!;
 
@@ -37,8 +74,17 @@ namespace Pulumi.F5BigIP.Ltm
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Irule configured on bigip
+        /// </summary>
         public readonly string Irule;
+        /// <summary>
+        /// Name of irule configured on bigip with full path
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Bigip partition in which rule is configured
+        /// </summary>
         public readonly string Partition;
 
         [OutputConstructor]

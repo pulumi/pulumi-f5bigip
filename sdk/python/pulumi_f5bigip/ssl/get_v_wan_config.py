@@ -66,16 +66,25 @@ class GetVWanConfigResult:
     @property
     @pulumi.getter(name="bigipGwIp")
     def bigip_gw_ip(self) -> str:
+        """
+        (type `string`) provides IP address of BIGIP G/W for IPSec Endpoint.
+        """
         return pulumi.get(self, "bigip_gw_ip")
 
     @property
     @pulumi.getter(name="hubAddressSpace")
     def hub_address_space(self) -> str:
+        """
+        (type `string`) Provides IP Address space used on vWAN Hub.
+        """
         return pulumi.get(self, "hub_address_space")
 
     @property
     @pulumi.getter(name="hubConnectedSubnets")
     def hub_connected_subnets(self) -> Sequence[str]:
+        """
+        (type `list`) Provides Subnets connected to vWAN Hub.
+        """
         return pulumi.get(self, "hub_connected_subnets")
 
     @property
@@ -89,11 +98,17 @@ class GetVWanConfigResult:
     @property
     @pulumi.getter(name="presharedKey")
     def preshared_key(self) -> str:
+        """
+        (type `string`) provides pre-shared-key used for IPSec Tunnel creation.
+        """
         return pulumi.get(self, "preshared_key")
 
     @property
     @pulumi.getter(name="vwanGwAddresses")
     def vwan_gw_addresses(self) -> Sequence[str]:
+        """
+        (type `list`) Provides vWAN Gateway Address for IPSec End point
+        """
         return pulumi.get(self, "vwan_gw_addresses")
 
 
@@ -119,7 +134,36 @@ def get_v_wan_config(azure_vwan_name: Optional[str] = None,
                      azure_vwan_vpnsite: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVWanConfigResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source (`ssl.getVWanConfig`) to get the vWAN site config from Azure VWAN Site
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_f5bigip as f5bigip
+
+    vwanconfig = f5bigip.ssl.get_v_wan_config(azure_vwan_name="azurevwan-bigip-vwan-9c8d",
+        azure_vwan_resourcegroup="azurevwan-bigip-rg-9c8d",
+        azure_vwan_vpnsite="azurevwan-bigip-vsite-9c8d")
+    ```
+    ## Pre-required Environment Settings:
+
+    * `AZURE_CLIENT_ID` - (Required) Set this environment variable with the Azure app client ID to use.
+
+    * `AZURE_CLIENT_SECRET` - (Required) Set this environment variable with the Azure app secret to use.
+
+    * `AZURE_SUBSCRIPTION_ID` - (Required) Set this environment variable with the Azure subscription ID to use.
+
+    * `AZURE_TENANT_ID` - (Required) Set this environment variable with the Tenant ID to which to authenticate.
+
+    * `STORAGE_ACCOUNT_NAME` - (Required) Set this environment variable with the storage account for download config.
+
+    * `STORAGE_ACCOUNT_KEY` - (Required) Specifies the storage account key to authenticate,set this Environment variable with account key value.
+
+
+    :param str azure_vwan_name: Name of the Azure vWAN Name
+    :param str azure_vwan_resourcegroup: Name of the Azure vWAN resource group
+    :param str azure_vwan_vpnsite: Name of the Azure vWAN VPN site from which configuration to be download
     """
     __args__ = dict()
     __args__['azureVwanName'] = azure_vwan_name

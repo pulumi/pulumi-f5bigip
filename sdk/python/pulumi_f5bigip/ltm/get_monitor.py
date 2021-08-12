@@ -81,11 +81,17 @@ class GetMonitorResult:
     @property
     @pulumi.getter
     def adaptive(self) -> str:
+        """
+        Displays whether adaptive response time monitoring is enabled for this monitor.
+        """
         return pulumi.get(self, "adaptive")
 
     @property
     @pulumi.getter(name="adaptiveLimit")
     def adaptive_limit(self) -> int:
+        """
+        Displays whether adaptive response time monitoring is enabled for this monitor.
+        """
         return pulumi.get(self, "adaptive_limit")
 
     @property
@@ -101,6 +107,9 @@ class GetMonitorResult:
     @property
     @pulumi.getter
     def destination(self) -> str:
+        """
+        id will be full path name of ltm monitor.
+        """
         return pulumi.get(self, "destination")
 
     @property
@@ -119,16 +128,25 @@ class GetMonitorResult:
     @property
     @pulumi.getter
     def interval(self) -> int:
+        """
+        Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown.
+        """
         return pulumi.get(self, "interval")
 
     @property
     @pulumi.getter(name="ipDscp")
     def ip_dscp(self) -> int:
+        """
+        Displays the differentiated services code point (DSCP). DSCP is a 6-bit value in the Differentiated Services (DS) field of the IP header.
+        """
         return pulumi.get(self, "ip_dscp")
 
     @property
     @pulumi.getter(name="manualResume")
     def manual_resume(self) -> str:
+        """
+        Displays whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
+        """
         return pulumi.get(self, "manual_resume")
 
     @property
@@ -154,6 +172,9 @@ class GetMonitorResult:
     @property
     @pulumi.getter
     def reverse(self) -> str:
+        """
+        Instructs the system to mark the target resource down when the test is successful.
+        """
         return pulumi.get(self, "reverse")
 
     @property
@@ -169,6 +190,9 @@ class GetMonitorResult:
     @property
     @pulumi.getter
     def transparent(self) -> str:
+        """
+        Displays whether the monitor operates in transparent mode.
+        """
         return pulumi.get(self, "transparent")
 
     @property
@@ -208,7 +232,21 @@ def get_monitor(name: Optional[str] = None,
                 partition: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMonitorResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source (`ltm.Monitor`) to get the ltm monitor details available on BIG-IP
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_f5bigip as f5bigip
+
+    monitor__tc1 = f5bigip.ltm.get_monitor(name="test-monitor",
+        partition="Common")
+    ```
+
+
+    :param str name: Name of the ltm monitor
+    :param str partition: partition of the ltm monitor
     """
     __args__ = dict()
     __args__['name'] = name

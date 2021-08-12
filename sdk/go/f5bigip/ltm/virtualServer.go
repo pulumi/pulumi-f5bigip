@@ -13,7 +13,7 @@ import (
 
 // `ltm.VirtualServer` Configures Virtual Server
 //
-// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource (example: /Common/my-pool ) or partition + directory + name of the resource (example: /Common/test/my-pool ).When including directory in fullpath we have to make sure it is created in the given partition before using it.
 //
 // ## Example Usage
 //
@@ -65,6 +65,9 @@ import (
 // 			ServerProfiles: pulumi.StringArray{
 // 				pulumi.String("/Common/serverssl"),
 // 			},
+// 			SecurityLogProfiles: pulumi.StringArray{
+// 				pulumi.String("/Common/global-network"),
+// 			},
 // 			SourceAddressTranslation: pulumi.String("automap"),
 // 		})
 // 		if err != nil {
@@ -103,7 +106,8 @@ type VirtualServer struct {
 	// Listen port for the virtual server
 	Port pulumi.IntOutput `pulumi:"port"`
 	// List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
-	Profiles            pulumi.StringArrayOutput `pulumi:"profiles"`
+	Profiles pulumi.StringArrayOutput `pulumi:"profiles"`
+	// Specifies the log profile applied to the virtual server.
 	SecurityLogProfiles pulumi.StringArrayOutput `pulumi:"securityLogProfiles"`
 	// List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
 	ServerProfiles pulumi.StringArrayOutput `pulumi:"serverProfiles"`
@@ -189,7 +193,8 @@ type virtualServerState struct {
 	// Listen port for the virtual server
 	Port *int `pulumi:"port"`
 	// List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
-	Profiles            []string `pulumi:"profiles"`
+	Profiles []string `pulumi:"profiles"`
+	// Specifies the log profile applied to the virtual server.
 	SecurityLogProfiles []string `pulumi:"securityLogProfiles"`
 	// List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
 	ServerProfiles []string `pulumi:"serverProfiles"`
@@ -238,7 +243,8 @@ type VirtualServerState struct {
 	// Listen port for the virtual server
 	Port pulumi.IntPtrInput
 	// List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
-	Profiles            pulumi.StringArrayInput
+	Profiles pulumi.StringArrayInput
+	// Specifies the log profile applied to the virtual server.
 	SecurityLogProfiles pulumi.StringArrayInput
 	// List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
 	ServerProfiles pulumi.StringArrayInput
@@ -291,7 +297,8 @@ type virtualServerArgs struct {
 	// Listen port for the virtual server
 	Port int `pulumi:"port"`
 	// List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
-	Profiles            []string `pulumi:"profiles"`
+	Profiles []string `pulumi:"profiles"`
+	// Specifies the log profile applied to the virtual server.
 	SecurityLogProfiles []string `pulumi:"securityLogProfiles"`
 	// List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
 	ServerProfiles []string `pulumi:"serverProfiles"`
@@ -341,7 +348,8 @@ type VirtualServerArgs struct {
 	// Listen port for the virtual server
 	Port pulumi.IntInput
 	// List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
-	Profiles            pulumi.StringArrayInput
+	Profiles pulumi.StringArrayInput
+	// Specifies the log profile applied to the virtual server.
 	SecurityLogProfiles pulumi.StringArrayInput
 	// List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
 	ServerProfiles pulumi.StringArrayInput

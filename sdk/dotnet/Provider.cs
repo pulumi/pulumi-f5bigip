@@ -22,7 +22,7 @@ namespace Pulumi.F5BigIP
         /// Domain name/IP of the BigIP
         /// </summary>
         [Output("address")]
-        public Output<string> Address { get; private set; } = null!;
+        public Output<string?> Address { get; private set; } = null!;
 
         /// <summary>
         /// Login reference for token authentication (see BIG-IP REST docs for details)
@@ -34,7 +34,7 @@ namespace Pulumi.F5BigIP
         /// The user's password. Leave empty if using token_value
         /// </summary>
         [Output("password")]
-        public Output<string> Password { get; private set; } = null!;
+        public Output<string?> Password { get; private set; } = null!;
 
         /// <summary>
         /// Management Port to connect to Bigip
@@ -52,7 +52,7 @@ namespace Pulumi.F5BigIP
         /// Username with API access to the BigIP
         /// </summary>
         [Output("username")]
-        public Output<string> Username { get; private set; } = null!;
+        public Output<string?> Username { get; private set; } = null!;
 
 
         /// <summary>
@@ -62,7 +62,7 @@ namespace Pulumi.F5BigIP
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Provider(string name, ProviderArgs args, CustomResourceOptions? options = null)
+        public Provider(string name, ProviderArgs? args = null, CustomResourceOptions? options = null)
             : base("f5bigip", name, args ?? new ProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -85,8 +85,8 @@ namespace Pulumi.F5BigIP
         /// <summary>
         /// Domain name/IP of the BigIP
         /// </summary>
-        [Input("address", required: true)]
-        public Input<string> Address { get; set; } = null!;
+        [Input("address")]
+        public Input<string>? Address { get; set; }
 
         /// <summary>
         /// Login reference for token authentication (see BIG-IP REST docs for details)
@@ -97,8 +97,8 @@ namespace Pulumi.F5BigIP
         /// <summary>
         /// The user's password. Leave empty if using token_value
         /// </summary>
-        [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
+        [Input("password")]
+        public Input<string>? Password { get; set; }
 
         /// <summary>
         /// Management Port to connect to Bigip
@@ -127,8 +127,8 @@ namespace Pulumi.F5BigIP
         /// <summary>
         /// Username with API access to the BigIP
         /// </summary>
-        [Input("username", required: true)]
-        public Input<string> Username { get; set; } = null!;
+        [Input("username")]
+        public Input<string>? Username { get; set; }
 
         public ProviderArgs()
         {

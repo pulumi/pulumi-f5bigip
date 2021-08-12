@@ -49,6 +49,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ProfileFastHttp{}
 	case "f5bigip:ltm/profileFastL4:ProfileFastL4":
 		r = &ProfileFastL4{}
+	case "f5bigip:ltm/profileFtp:ProfileFtp":
+		r = &ProfileFtp{}
 	case "f5bigip:ltm/profileHttp2:ProfileHttp2":
 		r = &ProfileHttp2{}
 	case "f5bigip:ltm/profileHttp:ProfileHttp":
@@ -150,6 +152,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"f5bigip",
 		"ltm/profileFastL4",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"f5bigip",
+		"ltm/profileFtp",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

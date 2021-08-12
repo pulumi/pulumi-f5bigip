@@ -45,6 +45,12 @@ namespace Pulumi.F5BigIP.Ssl
         public Output<string> Content { get; private set; } = null!;
 
         /// <summary>
+        /// Full Path Name of ssl certificate
+        /// </summary>
+        [Output("fullPath")]
+        public Output<string> FullPath { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the SSL Certificate to be Imported on to BIGIP
         /// </summary>
         [Output("name")]
@@ -109,6 +115,12 @@ namespace Pulumi.F5BigIP.Ssl
         public Input<string> Content { get; set; } = null!;
 
         /// <summary>
+        /// Full Path Name of ssl certificate
+        /// </summary>
+        [Input("fullPath")]
+        public Input<string>? FullPath { get; set; }
+
+        /// <summary>
         /// Name of the SSL Certificate to be Imported on to BIGIP
         /// </summary>
         [Input("name", required: true)]
@@ -132,6 +144,12 @@ namespace Pulumi.F5BigIP.Ssl
         /// </summary>
         [Input("content")]
         public Input<string>? Content { get; set; }
+
+        /// <summary>
+        /// Full Path Name of ssl certificate
+        /// </summary>
+        [Input("fullPath")]
+        public Input<string>? FullPath { get; set; }
 
         /// <summary>
         /// Name of the SSL Certificate to be Imported on to BIGIP

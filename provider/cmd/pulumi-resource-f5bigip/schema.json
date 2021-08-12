@@ -47,12 +47,7 @@
                 "type": "string",
                 "description": "Username with API access to the BigIP\n"
             }
-        },
-        "defaults": [
-            "address",
-            "password",
-            "username"
-        ]
+        }
     },
     "types": {
         "f5bigip:cm/DeviceGroupDevice:DeviceGroupDevice": {
@@ -2082,6 +2077,7 @@
                 },
                 "name": {
                     "type": "string",
+                    "description": "Name of the datagroup\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2098,6 +2094,7 @@
             "properties": {
                 "addressFamily": {
                     "type": "string",
+                    "description": "The FQDN node's address family.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2106,6 +2103,7 @@
                 },
                 "autopopulate": {
                     "type": "string",
+                    "description": "Specifies if the node should scale to the IP address set returned by DNS.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2114,6 +2112,7 @@
                 },
                 "downinterval": {
                     "type": "integer",
+                    "description": "The number of attempts to resolve a domain name.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2122,6 +2121,7 @@
                 },
                 "interval": {
                     "type": "string",
+                    "description": "The amount of time before sending the next DNS query.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2130,6 +2130,7 @@
                 },
                 "name": {
                     "type": "string",
+                    "description": "Name of the node.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2341,11 +2342,6 @@
                 "description": "Username with API access to the BigIP\n"
             }
         },
-        "required": [
-            "address",
-            "password",
-            "username"
-        ],
         "inputProperties": {
             "address": {
                 "type": "string",
@@ -2379,12 +2375,7 @@
                 "type": "string",
                 "description": "Username with API access to the BigIP\n"
             }
-        },
-        "requiredInputs": [
-            "address",
-            "password",
-            "username"
-        ]
+        }
     },
     "resources": {
         "f5bigip:cm/device:Device": {
@@ -2599,7 +2590,7 @@
             }
         },
         "f5bigip:index/as3:As3": {
-            "description": "`f5bigip.As3` provides details about bigip as3 resource\n\nThis resource is helpful to configure as3 declarative JSON on BIG-IP.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\nimport * from \"fs\";\n\n// Example Usage for json file\nconst as3_example1As3 = new f5bigip.As3(\"as3-example1As3\", {as3Json: fs.readFileSync(\"example1.json\")});\n// Example Usage for json file with tenant filter\nconst as3_example1Index_as3As3 = new f5bigip.As3(\"as3-example1Index/as3As3\", {\n    as3Json: fs.readFileSync(\"example2.json\"),\n    tenantFilter: \"Sample_03\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\n# Example Usage for json file\nas3_example1_as3 = f5bigip.As3(\"as3-example1As3\", as3_json=(lambda path: open(path).read())(\"example1.json\"))\n# Example Usage for json file with tenant filter\nas3_example1_index_as3_as3 = f5bigip.As3(\"as3-example1Index/as3As3\",\n    as3_json=(lambda path: open(path).read())(\"example2.json\"),\n    tenant_filter=\"Sample_03\")\n```\n```csharp\nusing System.IO;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Example Usage for json file\n        var as3_example1As3 = new F5BigIP.As3(\"as3-example1As3\", new F5BigIP.As3Args\n        {\n            As3Json = File.ReadAllText(\"example1.json\"),\n        });\n        // Example Usage for json file with tenant filter\n        var as3_example1Index_as3As3 = new F5BigIP.As3(\"as3-example1Index/as3As3\", new F5BigIP.As3Args\n        {\n            As3Json = File.ReadAllText(\"example2.json\"),\n            TenantFilter = \"Sample_03\",\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "`f5bigip.As3` provides details about bigip as3 resource\n\nThis resource is helpful to configure as3 declarative JSON on BIG-IP.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\nimport * from \"fs\";\n\n// Example Usage for json file\nconst as3_example1As3 = new f5bigip.As3(\"as3-example1As3\", {as3Json: fs.readFileSync(\"example1.json\")});\n// Example Usage for json file with tenant filter\nconst as3_example1Index_as3As3 = new f5bigip.As3(\"as3-example1Index/as3As3\", {\n    as3Json: fs.readFileSync(\"example2.json\"),\n    tenantFilter: \"Sample_03\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\n# Example Usage for json file\nas3_example1_as3 = f5bigip.As3(\"as3-example1As3\", as3_json=(lambda path: open(path).read())(\"example1.json\"))\n# Example Usage for json file with tenant filter\nas3_example1_index_as3_as3 = f5bigip.As3(\"as3-example1Index/as3As3\",\n    as3_json=(lambda path: open(path).read())(\"example2.json\"),\n    tenant_filter=\"Sample_03\")\n```\n```csharp\nusing System.IO;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Example Usage for json file\n        var as3_example1As3 = new F5BigIP.As3(\"as3-example1As3\", new F5BigIP.As3Args\n        {\n            As3Json = File.ReadAllText(\"example1.json\"),\n        });\n        // Example Usage for json file with tenant filter\n        var as3_example1Index_as3As3 = new F5BigIP.As3(\"as3-example1Index/as3As3\", new F5BigIP.As3Args\n        {\n            As3Json = File.ReadAllText(\"example2.json\"),\n            TenantFilter = \"Sample_03\",\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nAs3 resources can be imported using the partition name, e.g., ( use comma separated partition names if there are multiple partitions in as3 deployments )\n\n```sh\n $ pulumi import f5bigip:index/as3:As3 bigip_as3.test Sample_http_01\n```\n\n\n\n```sh\n $ pulumi import f5bigip:index/as3:As3 bigip_as3.test Sample_http_01,Sample_non_http_01\n```\n\n #### Import examples ( single and multiple partitions )\n\n```sh\n $ pulumi import f5bigip:index/as3:As3 test Sample_http_01\n```\n\n bigip_as3.testImporting from ID \"Sample_http_01\"... bigip_as3.testImport prepared!\n\n Prepared bigip_as3 for import bigip_as3.testRefreshing state... [id=Sample_http_01] Import successful! The resources that were imported are shown above. These resources are now in your Terraform state and will henceforth be managed by Terraform. $ terraform show # bigip_as3.testresource \"bigip_as3\" \"test\" {\n\n\n\n as3_json\n\n\n\n\n\n= jsonencode(\n\n\n\n\n\n\n\n {\n\n\n\n\n\n\n\n\n\n\n\n action\n\n\n\n\n\n= \"deploy\"\n\n\n\n\n\n\n\n\n\n\n\n class\n\n\n\n\n\n = \"AS3\"\n\n\n\n\n\n\n\n\n\n\n\n declaration = {\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n Sample_http_01 = {\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n A1\n\n\n\n= {\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n class\n\n\n\n\n\n= \"Application\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n jsessionid = {\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n class\n\n\n\n\n\n\n\n\n\n\n\n = \"Persist\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n cookieMethod\n\n\n\n\n\n= \"hash\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n cookieName\n\n\n\n\n\n\n\n= \"JSESSIONID\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n persistenceMethod = \"cookie\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n }\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n service\n\n\n\n= {\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n class\n\n\n\n\n\n\n\n\n\n\n\n\n\n= \"Service_HTTP\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n persistenceMethods = [\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n {\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n use = \"jsessionid\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n },\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n ]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n pool\n\n\n\n\n\n\n\n\n\n\n\n\n\n = \"web_pool\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n virtualAddresses\n\n = [\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \"10.0.2.10\",\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n ]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n }\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n web_pool\n\n = {\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n class\n\n\n\n= \"Pool\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n members\n\n= [\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n {\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n serverAddresses = [\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \"192.0.2.10\",\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \"192.0.2.11\",\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n ]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n servicePort\n\n\n\n = 80\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n },\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n ]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n monitors = [\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \"http\",\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n ]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n }\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n }\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n class = \"Tenant\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n }\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n class\n\n\n\n\n\n\n\n\n\n= \"ADC\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n id\n\n\n\n\n\n\n\n\n\n\n\n = \"UDP_DNS_Sample\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n label\n\n\n\n\n\n\n\n\n\n= \"UDP_DNS_Sample\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n remark\n\n\n\n\n\n\n\n = \"Sample of a UDP DNS Load Balancer Service\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n schemaVersion\n\n= \"3.0.0\"\n\n\n\n\n\n\n\n\n\n\n\n }\n\n\n\n\n\n\n\n\n\n\n\n persist\n\n\n\n = true\n\n\n\n\n\n\n\n }\n\n\n\n )\n\n\n\n id\n\n\n\n\n\n\n\n\n\n\n\n= \"Sample_http_01\"\n\n\n\n tenant_filter = \"Sample_http_01\"\n\n\n\n tenant_list\n\n = \"Sample_http_01\" }\n\n```sh\n $ pulumi import f5bigip:index/as3:As3 test Sample_http_01,Sample_non_http_01\n```\n\n bigip_as3.testImporting from ID \"Sample_http_01,Sample_non_http_01\"... bigip_as3.testImport prepared!\n\n Prepared bigip_as3 for import bigip_as3.testRefreshing state... [id=Sample_http_01,Sample_non_http_01] Import successful! The resources that were imported are shown above. These resources are now in your Terraform state and will henceforth be managed by Terraform. $ terraform show # bigip_as3.testresource \"bigip_as3\" \"test\" {\n\n\n\n as3_json\n\n\n\n\n\n= jsonencode(\n\n\n\n\n\n\n\n {\n\n\n\n\n\n\n\n\n\n\n\n action\n\n\n\n\n\n= \"deploy\"\n\n\n\n\n\n\n\n\n\n\n\n class\n\n\n\n\n\n = \"AS3\"\n\n\n\n\n\n\n\n\n\n\n\n declaration = {\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n Sample_http_01\n\n\n\n = {\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n A1\n\n\n\n= {\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n class\n\n\n\n\n\n= \"Application\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n jsessionid = {\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n class\n\n\n\n\n\n\n\n\n\n\n\n = \"Persist\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n cookieMethod\n\n\n\n\n\n= \"hash\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n cookieName\n\n\n\n\n\n\n\n= \"JSESSIONID\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n persistenceMethod = \"cookie\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n }\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n service\n\n\n\n= {\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n class\n\n\n\n\n\n\n\n\n\n\n\n\n\n= \"Service_HTTP\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n persistenceMethods = [\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n {\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n use = \"jsessionid\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n },\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n ]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n pool\n\n\n\n\n\n\n\n\n\n\n\n\n\n = \"web_pool\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n virtualAddresses\n\n = [\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \"10.0.2.10\",\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n ]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n }\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n web_pool\n\n = {\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n class\n\n\n\n= \"Pool\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n members\n\n= [\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n {\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n serverAddresses = [\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \"192.0.2.10\",\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \"192.0.2.11\",\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n ]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n servicePort\n\n\n\n = 80\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n },\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n ]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n monitors = [\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \"http\",\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n ]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n }\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n }\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n class = \"Tenant\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n }\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n Sample_non_http_01 = {\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n DNS_Service = {\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n Pool1\n\n = {\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n class\n\n\n\n= \"Pool\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n members\n\n= [\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n {\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n serverAddresses = [\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \"10.1.10.100\",\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n ]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n servicePort\n\n\n\n = 53\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n },\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n {\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n serverAddresses = [\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \"10.1.10.101\",\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n ]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n servicePort\n\n\n\n = 53\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n },\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n ]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n monitors = [\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \"icmp\",\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n ]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n }\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n class\n\n = \"Application\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n service = {\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n class\n\n\n\n\n\n\n\n\n\n\n\n= \"Service_UDP\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n pool\n\n\n\n\n\n\n\n\n\n\n\n = \"Pool1\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n virtualAddresses = [\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n \"10.1.20.121\",\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n ]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n virtualPort\n\n\n\n\n\n= 53\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n }\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n }\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n class\n\n\n\n\n\n = \"Tenant\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n }\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n class\n\n\n\n\n\n\n\n\n\n\n\n\n\n= \"ADC\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n id\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n = \"UDP_DNS_Sample\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n label\n\n\n\n\n\n\n\n\n\n\n\n\n\n= \"UDP_DNS_Sample\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n remark\n\n\n\n\n\n\n\n\n\n\n\n = \"Sample of a UDP DNS Load Balancer Service\"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n schemaVersion\n\n\n\n\n\n= \"3.0.0\"\n\n\n\n\n\n\n\n\n\n\n\n }\n\n\n\n\n\n\n\n\n\n\n\n persist\n\n\n\n = true\n\n\n\n\n\n\n\n }\n\n\n\n )\n\n\n\n id\n\n\n\n\n\n\n\n\n\n\n\n= \"Sample_http_01,Sample_non_http_01\"\n\n\n\n tenant_filter = \"Sample_http_01,Sample_non_http_01\"\n\n\n\n tenant_list\n\n = \"Sample_http_01,Sample_non_http_01\" } * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/composing-a-declaration.html ",
             "properties": {
                 "applicationList": {
                     "type": "string",
@@ -2615,7 +2606,7 @@
                 },
                 "tenantFilter": {
                     "type": "string",
-                    "description": "If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified\n"
+                    "description": "If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.\n"
                 },
                 "tenantList": {
                     "type": "string",
@@ -2647,7 +2638,7 @@
                 },
                 "tenantFilter": {
                     "type": "string",
-                    "description": "If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified\n"
+                    "description": "If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.\n"
                 },
                 "tenantList": {
                     "type": "string",
@@ -2679,7 +2670,7 @@
                     },
                     "tenantFilter": {
                         "type": "string",
-                        "description": "If there are muntiple tenants in a json this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified\n"
+                        "description": "If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.\n"
                     },
                     "tenantList": {
                         "type": "string",
@@ -2695,14 +2686,15 @@
             }
         },
         "f5bigip:index/bigIqAs3:BigIqAs3": {
+            "description": "`f5bigip.BigIqAs3` provides details about bigiq as3 resource\n\nThis resource is helpful to configure as3 declarative JSON on BIG-IP through BIG-IQ.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\nimport * as fs from \"fs\";\n\n// Example Usage for json file\nconst exampletask = new f5bigip.BigIqAs3(\"exampletask\", {\n    as3Json: fs.readFileSync(\"bigiq_example.json\", \"utf-8\"),\n    bigiqAddress: \"xx.xx.xxx.xx\",\n    bigiqPassword: \"xxxxxxxxx\",\n    bigiqUser: \"xxxxx\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\n# Example Usage for json file\nexampletask = f5bigip.BigIqAs3(\"exampletask\",\n    as3_json=(lambda path: open(path).read())(\"bigiq_example.json\"),\n    bigiq_address=\"xx.xx.xxx.xx\",\n    bigiq_password=\"xxxxxxxxx\",\n    bigiq_user=\"xxxxx\")\n```\n```csharp\nusing System.IO;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        // Example Usage for json file\n        var exampletask = new F5BigIP.BigIqAs3(\"exampletask\", new F5BigIP.BigIqAs3Args\n        {\n            As3Json = File.ReadAllText(\"bigiq_example.json\"),\n            BigiqAddress = \"xx.xx.xxx.xx\",\n            BigiqPassword = \"xxxxxxxxx\",\n            BigiqUser = \"xxxxx\",\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "as3Json": {
                     "type": "string",
-                    "description": "AS3 json\n"
+                    "description": "Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function\n"
                 },
                 "bigiqAddress": {
                     "type": "string",
-                    "description": "The registration key pool to use\n"
+                    "description": "Address of the BIG-IQ to which your targer BIG-IP is attached\n"
                 },
                 "bigiqLoginRef": {
                     "type": "string",
@@ -2710,7 +2702,7 @@
                 },
                 "bigiqPassword": {
                     "type": "string",
-                    "description": "The registration key pool to use\n"
+                    "description": "Password of the BIG-IQ to which your targer BIG-IP is attached\n"
                 },
                 "bigiqPort": {
                     "type": "string",
@@ -2722,7 +2714,7 @@
                 },
                 "bigiqUser": {
                     "type": "string",
-                    "description": "The registration key pool to use\n"
+                    "description": "User name  of the BIG-IQ to which your targer BIG-IP is attached\n"
                 },
                 "tenantList": {
                     "type": "string",
@@ -2739,11 +2731,11 @@
             "inputProperties": {
                 "as3Json": {
                     "type": "string",
-                    "description": "AS3 json\n"
+                    "description": "Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function\n"
                 },
                 "bigiqAddress": {
                     "type": "string",
-                    "description": "The registration key pool to use\n"
+                    "description": "Address of the BIG-IQ to which your targer BIG-IP is attached\n"
                 },
                 "bigiqLoginRef": {
                     "type": "string",
@@ -2751,7 +2743,7 @@
                 },
                 "bigiqPassword": {
                     "type": "string",
-                    "description": "The registration key pool to use\n"
+                    "description": "Password of the BIG-IQ to which your targer BIG-IP is attached\n"
                 },
                 "bigiqPort": {
                     "type": "string",
@@ -2763,7 +2755,7 @@
                 },
                 "bigiqUser": {
                     "type": "string",
-                    "description": "The registration key pool to use\n"
+                    "description": "User name  of the BIG-IQ to which your targer BIG-IP is attached\n"
                 },
                 "tenantList": {
                     "type": "string",
@@ -2781,11 +2773,11 @@
                 "properties": {
                     "as3Json": {
                         "type": "string",
-                        "description": "AS3 json\n"
+                        "description": "Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function\n"
                     },
                     "bigiqAddress": {
                         "type": "string",
-                        "description": "The registration key pool to use\n"
+                        "description": "Address of the BIG-IQ to which your targer BIG-IP is attached\n"
                     },
                     "bigiqLoginRef": {
                         "type": "string",
@@ -2793,7 +2785,7 @@
                     },
                     "bigiqPassword": {
                         "type": "string",
-                        "description": "The registration key pool to use\n"
+                        "description": "Password of the BIG-IQ to which your targer BIG-IP is attached\n"
                     },
                     "bigiqPort": {
                         "type": "string",
@@ -2805,7 +2797,7 @@
                     },
                     "bigiqUser": {
                         "type": "string",
-                        "description": "The registration key pool to use\n"
+                        "description": "User name  of the BIG-IQ to which your targer BIG-IP is attached\n"
                     },
                     "tenantList": {
                         "type": "string",
@@ -3170,11 +3162,12 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/f5bigip:index/EventServiceDiscoveryNode:EventServiceDiscoveryNode"
-                    }
+                    },
+                    "description": "Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)\n"
                 },
                 "taskid": {
                     "type": "string",
-                    "description": "Name of the partition/tenant\n"
+                    "description": "servicediscovery endpoint ( Below example shows how to create endpoing using AS3 )\n"
                 }
             },
             "required": [
@@ -3185,11 +3178,12 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/f5bigip:index/EventServiceDiscoveryNode:EventServiceDiscoveryNode"
-                    }
+                    },
+                    "description": "Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)\n"
                 },
                 "taskid": {
                     "type": "string",
-                    "description": "Name of the partition/tenant\n"
+                    "description": "servicediscovery endpoint ( Below example shows how to create endpoing using AS3 )\n"
                 }
             },
             "requiredInputs": [
@@ -3202,11 +3196,12 @@
                         "type": "array",
                         "items": {
                             "$ref": "#/types/f5bigip:index/EventServiceDiscoveryNode:EventServiceDiscoveryNode"
-                        }
+                        },
+                        "description": "Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)\n"
                     },
                     "taskid": {
                         "type": "string",
-                        "description": "Name of the partition/tenant\n"
+                        "description": "servicediscovery endpoint ( Below example shows how to create endpoing using AS3 )\n"
                     }
                 },
                 "type": "object"
@@ -3274,7 +3269,7 @@
             }
         },
         "f5bigip:index/fastTemplate:FastTemplate": {
-            "description": "`f5bigip.FastTemplate` This resource will import and create FAST template sets on BIG-IP LTM. \nTemplate set can be imported from zip archive files on the local disk.\n\n",
+            "description": "`f5bigip.FastTemplate` This resource will import and create FAST template sets on BIG-IP LTM.\nTemplate set can be imported from zip archive files on the local disk.\n\n",
             "properties": {
                 "md5Hash": {
                     "type": "string",
@@ -4768,7 +4763,7 @@
             }
         },
         "f5bigip:ltm/node:Node": {
-            "description": "`f5bigip.ltm.Node` Manages a node configuration\n\nFor resources should be named with their \"full path\". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst node = new f5bigip.ltm.Node(\"node\", {\n    address: \"192.168.30.1\",\n    connectionLimit: 0,\n    description: \"Test-Node\",\n    dynamicRatio: 1,\n    fqdn: {\n        addressFamily: \"ipv4\",\n        interval: \"3000\",\n    },\n    monitor: \"/Common/icmp\",\n    name: \"/Common/terraform_node1\",\n    rateLimit: \"disabled\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nnode = f5bigip.ltm.Node(\"node\",\n    address=\"192.168.30.1\",\n    connection_limit=0,\n    description=\"Test-Node\",\n    dynamic_ratio=1,\n    fqdn=f5bigip.ltm.NodeFqdnArgs(\n        address_family=\"ipv4\",\n        interval=\"3000\",\n    ),\n    monitor=\"/Common/icmp\",\n    name=\"/Common/terraform_node1\",\n    rate_limit=\"disabled\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var node = new F5BigIP.Ltm.Node(\"node\", new F5BigIP.Ltm.NodeArgs\n        {\n            Address = \"192.168.30.1\",\n            ConnectionLimit = 0,\n            Description = \"Test-Node\",\n            DynamicRatio = 1,\n            Fqdn = new F5BigIP.Ltm.Inputs.NodeFqdnArgs\n            {\n                AddressFamily = \"ipv4\",\n                Interval = \"3000\",\n            },\n            Monitor = \"/Common/icmp\",\n            Name = \"/Common/terraform_node1\",\n            RateLimit = \"disabled\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewNode(ctx, \"node\", \u0026ltm.NodeArgs{\n\t\t\tAddress:         pulumi.String(\"192.168.30.1\"),\n\t\t\tConnectionLimit: pulumi.Int(0),\n\t\t\tDescription:     pulumi.String(\"Test-Node\"),\n\t\t\tDynamicRatio:    pulumi.Int(1),\n\t\t\tFqdn: \u0026ltm.NodeFqdnArgs{\n\t\t\t\tAddressFamily: pulumi.String(\"ipv4\"),\n\t\t\t\tInterval:      pulumi.String(\"3000\"),\n\t\t\t},\n\t\t\tMonitor:   pulumi.String(\"/Common/icmp\"),\n\t\t\tName:      pulumi.String(\"/Common/terraform_node1\"),\n\t\t\tRateLimit: pulumi.String(\"disabled\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "`f5bigip.ltm.Node` Manages a node configuration\n\nFor resources should be named with their \"full path\".The full path is the combination of the partition + name of the resource( example: /Common/my-node ) or partition + Direcroty + nameof the resource ( example: /Common/test/my-node ).When including directory in fullpath we have to make sure it is created in the given partition before using it.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst node = new f5bigip.ltm.Node(\"node\", {\n    address: \"192.168.30.1\",\n    connectionLimit: 0,\n    description: \"Test-Node\",\n    dynamicRatio: 1,\n    fqdn: {\n        addressFamily: \"ipv4\",\n        interval: \"3000\",\n    },\n    monitor: \"/Common/icmp\",\n    name: \"/Common/terraform_node1\",\n    rateLimit: \"disabled\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nnode = f5bigip.ltm.Node(\"node\",\n    address=\"192.168.30.1\",\n    connection_limit=0,\n    description=\"Test-Node\",\n    dynamic_ratio=1,\n    fqdn=f5bigip.ltm.NodeFqdnArgs(\n        address_family=\"ipv4\",\n        interval=\"3000\",\n    ),\n    monitor=\"/Common/icmp\",\n    name=\"/Common/terraform_node1\",\n    rate_limit=\"disabled\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var node = new F5BigIP.Ltm.Node(\"node\", new F5BigIP.Ltm.NodeArgs\n        {\n            Address = \"192.168.30.1\",\n            ConnectionLimit = 0,\n            Description = \"Test-Node\",\n            DynamicRatio = 1,\n            Fqdn = new F5BigIP.Ltm.Inputs.NodeFqdnArgs\n            {\n                AddressFamily = \"ipv4\",\n                Interval = \"3000\",\n            },\n            Monitor = \"/Common/icmp\",\n            Name = \"/Common/terraform_node1\",\n            RateLimit = \"disabled\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewNode(ctx, \"node\", \u0026ltm.NodeArgs{\n\t\t\tAddress:         pulumi.String(\"192.168.30.1\"),\n\t\t\tConnectionLimit: pulumi.Int(0),\n\t\t\tDescription:     pulumi.String(\"Test-Node\"),\n\t\t\tDynamicRatio:    pulumi.Int(1),\n\t\t\tFqdn: \u0026ltm.NodeFqdnArgs{\n\t\t\t\tAddressFamily: pulumi.String(\"ipv4\"),\n\t\t\t\tInterval:      pulumi.String(\"3000\"),\n\t\t\t},\n\t\t\tMonitor:   pulumi.String(\"/Common/icmp\"),\n\t\t\tName:      pulumi.String(\"/Common/terraform_node1\"),\n\t\t\tRateLimit: pulumi.String(\"disabled\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "address": {
                     "type": "string",
@@ -4807,7 +4802,7 @@
                 },
                 "session": {
                     "type": "string",
-                    "description": "Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).\n"
+                    "description": "Enables or disables the node for new sessions. The default value is user-enabled.\n"
                 },
                 "state": {
                     "type": "string",
@@ -4861,7 +4856,7 @@
                 },
                 "session": {
                     "type": "string",
-                    "description": "Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).\n"
+                    "description": "Enables or disables the node for new sessions. The default value is user-enabled.\n"
                 },
                 "state": {
                     "type": "string",
@@ -4912,7 +4907,7 @@
                     },
                     "session": {
                         "type": "string",
-                        "description": "Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).\n"
+                        "description": "Enables or disables the node for new sessions. The default value is user-enabled.\n"
                     },
                     "state": {
                         "type": "string",
@@ -5753,7 +5748,7 @@
             }
         },
         "f5bigip:ltm/pool:Pool": {
-            "description": "`f5bigip.ltm.Pool` Manages F5 BIG-IP LTM pools via iControl REST API.\n\nResources should be named with their \"full path\". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst monitor = new f5bigip.ltm.Monitor(\"monitor\", {\n    name: \"/Common/terraform_monitor\",\n    parent: \"/Common/http\",\n});\nconst pool = new f5bigip.ltm.Pool(\"pool\", {\n    name: \"/Common/Axiom_Environment_APP1_Pool\",\n    loadBalancingMode: \"round-robin\",\n    minimumActiveMembers: 1,\n    monitors: [monitor.name],\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nmonitor = f5bigip.ltm.Monitor(\"monitor\",\n    name=\"/Common/terraform_monitor\",\n    parent=\"/Common/http\")\npool = f5bigip.ltm.Pool(\"pool\",\n    name=\"/Common/Axiom_Environment_APP1_Pool\",\n    load_balancing_mode=\"round-robin\",\n    minimum_active_members=1,\n    monitors=[monitor.name])\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var monitor = new F5BigIP.Ltm.Monitor(\"monitor\", new F5BigIP.Ltm.MonitorArgs\n        {\n            Name = \"/Common/terraform_monitor\",\n            Parent = \"/Common/http\",\n        });\n        var pool = new F5BigIP.Ltm.Pool(\"pool\", new F5BigIP.Ltm.PoolArgs\n        {\n            Name = \"/Common/Axiom_Environment_APP1_Pool\",\n            LoadBalancingMode = \"round-robin\",\n            MinimumActiveMembers = 1,\n            Monitors = \n            {\n                monitor.Name,\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmonitor, err := ltm.NewMonitor(ctx, \"monitor\", \u0026ltm.MonitorArgs{\n\t\t\tName:   pulumi.String(\"/Common/terraform_monitor\"),\n\t\t\tParent: pulumi.String(\"/Common/http\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewPool(ctx, \"pool\", \u0026ltm.PoolArgs{\n\t\t\tName:                 pulumi.String(\"/Common/Axiom_Environment_APP1_Pool\"),\n\t\t\tLoadBalancingMode:    pulumi.String(\"round-robin\"),\n\t\t\tMinimumActiveMembers: pulumi.Int(1),\n\t\t\tMonitors: pulumi.StringArray{\n\t\t\t\tmonitor.Name,\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "`f5bigip.ltm.Pool` Manages F5 BIG-IP LTM pools via iControl REST API.\n\nResources should be named with their \"full path\". The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst monitor = new f5bigip.ltm.Monitor(\"monitor\", {\n    name: \"/Common/terraform_monitor\",\n    parent: \"/Common/http\",\n});\nconst pool = new f5bigip.ltm.Pool(\"pool\", {\n    name: \"/Common/Axiom_Environment_APP1_Pool\",\n    loadBalancingMode: \"round-robin\",\n    minimumActiveMembers: 1,\n    monitors: [monitor.name],\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nmonitor = f5bigip.ltm.Monitor(\"monitor\",\n    name=\"/Common/terraform_monitor\",\n    parent=\"/Common/http\")\npool = f5bigip.ltm.Pool(\"pool\",\n    name=\"/Common/Axiom_Environment_APP1_Pool\",\n    load_balancing_mode=\"round-robin\",\n    minimum_active_members=1,\n    monitors=[monitor.name])\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var monitor = new F5BigIP.Ltm.Monitor(\"monitor\", new F5BigIP.Ltm.MonitorArgs\n        {\n            Name = \"/Common/terraform_monitor\",\n            Parent = \"/Common/http\",\n        });\n        var pool = new F5BigIP.Ltm.Pool(\"pool\", new F5BigIP.Ltm.PoolArgs\n        {\n            Name = \"/Common/Axiom_Environment_APP1_Pool\",\n            LoadBalancingMode = \"round-robin\",\n            MinimumActiveMembers = 1,\n            Monitors = \n            {\n                monitor.Name,\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmonitor, err := ltm.NewMonitor(ctx, \"monitor\", \u0026ltm.MonitorArgs{\n\t\t\tName:   pulumi.String(\"/Common/terraform_monitor\"),\n\t\t\tParent: pulumi.String(\"/Common/http\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewPool(ctx, \"pool\", \u0026ltm.PoolArgs{\n\t\t\tName:                 pulumi.String(\"/Common/Axiom_Environment_APP1_Pool\"),\n\t\t\tLoadBalancingMode:    pulumi.String(\"round-robin\"),\n\t\t\tMinimumActiveMembers: pulumi.Int(1),\n\t\t\tMonitors: pulumi.StringArray{\n\t\t\t\tmonitor.Name,\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "allowNat": {
                     "type": "string",
@@ -5909,7 +5904,7 @@
             }
         },
         "f5bigip:ltm/poolAttachment:PoolAttachment": {
-            "description": "`f5bigip.ltm.PoolAttachment` Manages nodes membership in pools\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst monitor = new f5bigip.ltm.Monitor(\"monitor\", {\n    name: \"/Common/terraform_monitor\",\n    parent: \"/Common/http\",\n    send: \"GET /some/path\r\\n\",\n    timeout: \"999\",\n    interval: \"998\",\n});\nconst pool = new f5bigip.ltm.Pool(\"pool\", {\n    name: \"/Common/terraform-pool\",\n    loadBalancingMode: \"round-robin\",\n    monitors: [monitor.name],\n    allowSnat: \"yes\",\n    allowNat: \"yes\",\n});\nconst attachNode = new f5bigip.ltm.PoolAttachment(\"attachNode\", {\n    pool: pool.name,\n    node: \"1.1.1.1:80\",\n    ratio: 2,\n    connectionLimit: 2,\n    connectionRateLimit: 2,\n    priorityGroup: 2,\n    dynamicRatio: 3,\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nmonitor = f5bigip.ltm.Monitor(\"monitor\",\n    name=\"/Common/terraform_monitor\",\n    parent=\"/Common/http\",\n    send=\"GET /some/path\r\\n\",\n    timeout=999,\n    interval=998)\npool = f5bigip.ltm.Pool(\"pool\",\n    name=\"/Common/terraform-pool\",\n    load_balancing_mode=\"round-robin\",\n    monitors=[monitor.name],\n    allow_snat=\"yes\",\n    allow_nat=\"yes\")\nattach_node = f5bigip.ltm.PoolAttachment(\"attachNode\",\n    pool=pool.name,\n    node=\"1.1.1.1:80\",\n    ratio=2,\n    connection_limit=2,\n    connection_rate_limit=\"2\",\n    priority_group=2,\n    dynamic_ratio=3)\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var monitor = new F5BigIP.Ltm.Monitor(\"monitor\", new F5BigIP.Ltm.MonitorArgs\n        {\n            Name = \"/Common/terraform_monitor\",\n            Parent = \"/Common/http\",\n            Send = @\"GET /some/path\r\n\",\n            Timeout = 999,\n            Interval = 998,\n        });\n        var pool = new F5BigIP.Ltm.Pool(\"pool\", new F5BigIP.Ltm.PoolArgs\n        {\n            Name = \"/Common/terraform-pool\",\n            LoadBalancingMode = \"round-robin\",\n            Monitors = \n            {\n                monitor.Name,\n            },\n            AllowSnat = \"yes\",\n            AllowNat = \"yes\",\n        });\n        var attachNode = new F5BigIP.Ltm.PoolAttachment(\"attachNode\", new F5BigIP.Ltm.PoolAttachmentArgs\n        {\n            Pool = pool.Name,\n            Node = \"1.1.1.1:80\",\n            Ratio = 2,\n            ConnectionLimit = 2,\n            ConnectionRateLimit = \"2\",\n            PriorityGroup = 2,\n            DynamicRatio = 3,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmonitor, err := ltm.NewMonitor(ctx, \"monitor\", \u0026ltm.MonitorArgs{\n\t\t\tName:   pulumi.String(\"/Common/terraform_monitor\"),\n\t\t\tParent: pulumi.String(\"/Common/http\"),\n\t\t\tSend: pulumi.String(\"GET /some/path\r\\n\"),\n\t\t\tTimeout:  pulumi.Int(999),\n\t\t\tInterval: pulumi.Int(998),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tpool, err := ltm.NewPool(ctx, \"pool\", \u0026ltm.PoolArgs{\n\t\t\tName:              pulumi.String(\"/Common/terraform-pool\"),\n\t\t\tLoadBalancingMode: pulumi.String(\"round-robin\"),\n\t\t\tMonitors: pulumi.StringArray{\n\t\t\t\tmonitor.Name,\n\t\t\t},\n\t\t\tAllowSnat: pulumi.String(\"yes\"),\n\t\t\tAllowNat:  pulumi.String(\"yes\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewPoolAttachment(ctx, \"attachNode\", \u0026ltm.PoolAttachmentArgs{\n\t\t\tPool:                pool.Name,\n\t\t\tNode:                pulumi.String(\"1.1.1.1:80\"),\n\t\t\tRatio:               pulumi.Int(2),\n\t\t\tConnectionLimit:     pulumi.Int(2),\n\t\t\tConnectionRateLimit: pulumi.String(\"2\"),\n\t\t\tPriorityGroup:       pulumi.Int(2),\n\t\t\tDynamicRatio:        pulumi.Int(3),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "`f5bigip.ltm.PoolAttachment` Manages nodes membership in pools\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\nThere are two ways to use ltm_pool_attachment resource, where we can take node reference from ltm_node or we can specify node directly with ip:port/fqdn:port which will also create node and atach to pool.\n\n\nPool attachment with node directly taking ip:port/fqdn:port\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst monitor = new f5bigip.ltm.Monitor(\"monitor\", {\n    name: \"/Common/terraform_monitor\",\n    parent: \"/Common/http\",\n    send: \"GET /some/path\r\\n\",\n    timeout: \"999\",\n    interval: \"998\",\n});\nconst pool = new f5bigip.ltm.Pool(\"pool\", {\n    name: \"/Common/terraform-pool\",\n    loadBalancingMode: \"round-robin\",\n    monitors: [monitor.name],\n    allowSnat: \"yes\",\n    allowNat: \"yes\",\n});\nconst attachNode = new f5bigip.ltm.PoolAttachment(\"attachNode\", {\n    pool: pool.name,\n    node: \"1.1.1.1:80\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nmonitor = f5bigip.ltm.Monitor(\"monitor\",\n    name=\"/Common/terraform_monitor\",\n    parent=\"/Common/http\",\n    send=\"GET /some/path\r\\n\",\n    timeout=999,\n    interval=998)\npool = f5bigip.ltm.Pool(\"pool\",\n    name=\"/Common/terraform-pool\",\n    load_balancing_mode=\"round-robin\",\n    monitors=[monitor.name],\n    allow_snat=\"yes\",\n    allow_nat=\"yes\")\nattach_node = f5bigip.ltm.PoolAttachment(\"attachNode\",\n    pool=pool.name,\n    node=\"1.1.1.1:80\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var monitor = new F5BigIP.Ltm.Monitor(\"monitor\", new F5BigIP.Ltm.MonitorArgs\n        {\n            Name = \"/Common/terraform_monitor\",\n            Parent = \"/Common/http\",\n            Send = @\"GET /some/path\r\n\",\n            Timeout = 999,\n            Interval = 998,\n        });\n        var pool = new F5BigIP.Ltm.Pool(\"pool\", new F5BigIP.Ltm.PoolArgs\n        {\n            Name = \"/Common/terraform-pool\",\n            LoadBalancingMode = \"round-robin\",\n            Monitors = \n            {\n                monitor.Name,\n            },\n            AllowSnat = \"yes\",\n            AllowNat = \"yes\",\n        });\n        var attachNode = new F5BigIP.Ltm.PoolAttachment(\"attachNode\", new F5BigIP.Ltm.PoolAttachmentArgs\n        {\n            Pool = pool.Name,\n            Node = \"1.1.1.1:80\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmonitor, err := ltm.NewMonitor(ctx, \"monitor\", \u0026ltm.MonitorArgs{\n\t\t\tName:   pulumi.String(\"/Common/terraform_monitor\"),\n\t\t\tParent: pulumi.String(\"/Common/http\"),\n\t\t\tSend: pulumi.String(\"GET /some/path\r\\n\"),\n\t\t\tTimeout:  pulumi.Int(999),\n\t\t\tInterval: pulumi.Int(998),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tpool, err := ltm.NewPool(ctx, \"pool\", \u0026ltm.PoolArgs{\n\t\t\tName:              pulumi.String(\"/Common/terraform-pool\"),\n\t\t\tLoadBalancingMode: pulumi.String(\"round-robin\"),\n\t\t\tMonitors: pulumi.StringArray{\n\t\t\t\tmonitor.Name,\n\t\t\t},\n\t\t\tAllowSnat: pulumi.String(\"yes\"),\n\t\t\tAllowNat:  pulumi.String(\"yes\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewPoolAttachment(ctx, \"attachNode\", \u0026ltm.PoolAttachmentArgs{\n\t\t\tPool: pool.Name,\n\t\t\tNode: pulumi.String(\"1.1.1.1:80\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\nPool attachment with node reference from ltm_node\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst monitor = new f5bigip.ltm.Monitor(\"monitor\", {\n    name: \"/Common/terraform_monitor\",\n    parent: \"/Common/http\",\n    send: \"GET /some/path\r\\n\",\n    timeout: \"999\",\n    interval: \"998\",\n});\nconst pool = new f5bigip.ltm.Pool(\"pool\", {\n    name: \"/Common/terraform-pool\",\n    loadBalancingMode: \"round-robin\",\n    monitors: [monitor.name],\n    allowSnat: \"yes\",\n    allowNat: \"yes\",\n});\nconst node = new f5bigip.ltm.Node(\"node\", {\n    name: \"/Common/terraform_node\",\n    address: \"192.168.30.2\",\n});\nconst attachNode = new f5bigip.ltm.PoolAttachment(\"attachNode\", {\n    pool: pool.name,\n    node: pulumi.interpolate`${node.name}:80`,\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nmonitor = f5bigip.ltm.Monitor(\"monitor\",\n    name=\"/Common/terraform_monitor\",\n    parent=\"/Common/http\",\n    send=\"GET /some/path\r\\n\",\n    timeout=999,\n    interval=998)\npool = f5bigip.ltm.Pool(\"pool\",\n    name=\"/Common/terraform-pool\",\n    load_balancing_mode=\"round-robin\",\n    monitors=[monitor.name],\n    allow_snat=\"yes\",\n    allow_nat=\"yes\")\nnode = f5bigip.ltm.Node(\"node\",\n    name=\"/Common/terraform_node\",\n    address=\"192.168.30.2\")\nattach_node = f5bigip.ltm.PoolAttachment(\"attachNode\",\n    pool=pool.name,\n    node=node.name.apply(lambda name: f\"{name}:80\"))\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var monitor = new F5BigIP.Ltm.Monitor(\"monitor\", new F5BigIP.Ltm.MonitorArgs\n        {\n            Name = \"/Common/terraform_monitor\",\n            Parent = \"/Common/http\",\n            Send = @\"GET /some/path\r\n\",\n            Timeout = 999,\n            Interval = 998,\n        });\n        var pool = new F5BigIP.Ltm.Pool(\"pool\", new F5BigIP.Ltm.PoolArgs\n        {\n            Name = \"/Common/terraform-pool\",\n            LoadBalancingMode = \"round-robin\",\n            Monitors = \n            {\n                monitor.Name,\n            },\n            AllowSnat = \"yes\",\n            AllowNat = \"yes\",\n        });\n        var node = new F5BigIP.Ltm.Node(\"node\", new F5BigIP.Ltm.NodeArgs\n        {\n            Name = \"/Common/terraform_node\",\n            Address = \"192.168.30.2\",\n        });\n        var attachNode = new F5BigIP.Ltm.PoolAttachment(\"attachNode\", new F5BigIP.Ltm.PoolAttachmentArgs\n        {\n            Pool = pool.Name,\n            Node = node.Name.Apply(name =\u003e $\"{name}:80\"),\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmonitor, err := ltm.NewMonitor(ctx, \"monitor\", \u0026ltm.MonitorArgs{\n\t\t\tName:   pulumi.String(\"/Common/terraform_monitor\"),\n\t\t\tParent: pulumi.String(\"/Common/http\"),\n\t\t\tSend: pulumi.String(\"GET /some/path\r\\n\"),\n\t\t\tTimeout:  pulumi.Int(999),\n\t\t\tInterval: pulumi.Int(998),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tpool, err := ltm.NewPool(ctx, \"pool\", \u0026ltm.PoolArgs{\n\t\t\tName:              pulumi.String(\"/Common/terraform-pool\"),\n\t\t\tLoadBalancingMode: pulumi.String(\"round-robin\"),\n\t\t\tMonitors: pulumi.StringArray{\n\t\t\t\tmonitor.Name,\n\t\t\t},\n\t\t\tAllowSnat: pulumi.String(\"yes\"),\n\t\t\tAllowNat:  pulumi.String(\"yes\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tnode, err := ltm.NewNode(ctx, \"node\", \u0026ltm.NodeArgs{\n\t\t\tName:    pulumi.String(\"/Common/terraform_node\"),\n\t\t\tAddress: pulumi.String(\"192.168.30.2\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewPoolAttachment(ctx, \"attachNode\", \u0026ltm.PoolAttachmentArgs{\n\t\t\tPool: pool.Name,\n\t\t\tNode: node.Name.ApplyT(func(name string) (string, error) {\n\t\t\t\treturn fmt.Sprintf(\"%v%v\", name, \":80\"), nil\n\t\t\t}).(pulumi.StringOutput),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "connectionLimit": {
                     "type": "integer",
@@ -5933,7 +5928,7 @@
                 },
                 "pool": {
                     "type": "string",
-                    "description": "Name of the pool to which members should be attached,it should be \"full path\".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)\n"
+                    "description": "Name of the pool to which members should be attached,it should be \"full path\".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`) or partition + directory + name of the pool (For example `/Common/test/my-pool`).When including directory in fullpath we have to make sure it is created in the given partition before using it.\n"
                 },
                 "priorityGroup": {
                     "type": "integer",
@@ -5976,7 +5971,7 @@
                 },
                 "pool": {
                     "type": "string",
-                    "description": "Name of the pool to which members should be attached,it should be \"full path\".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)\n"
+                    "description": "Name of the pool to which members should be attached,it should be \"full path\".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`) or partition + directory + name of the pool (For example `/Common/test/my-pool`).When including directory in fullpath we have to make sure it is created in the given partition before using it.\n"
                 },
                 "priorityGroup": {
                     "type": "integer",
@@ -6016,7 +6011,7 @@
                     },
                     "pool": {
                         "type": "string",
-                        "description": "Name of the pool to which members should be attached,it should be \"full path\".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)\n"
+                        "description": "Name of the pool to which members should be attached,it should be \"full path\".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`) or partition + directory + name of the pool (For example `/Common/test/my-pool`).When including directory in fullpath we have to make sure it is created in the given partition before using it.\n"
                     },
                     "priorityGroup": {
                         "type": "integer",
@@ -7094,6 +7089,222 @@
                 "type": "object"
             }
         },
+        "f5bigip:ltm/profileFtp:ProfileFtp": {
+            "description": "`f5bigip.ltm.ProfileFtp` Configures a custom profile_ftp.\n\nResources should be named with their \"full path\". The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### For Bigip versions (14.x - 16.x)\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst sanjose_ftp_profile = new f5bigip.ltm.ProfileFtp(\"sanjose-ftp-profile\", {\n    allowActiveMode: \"enabled\",\n    defaultsFrom: \"/Common/ftp\",\n    description: \"test-tftp-profile\",\n    enforceTlssessionReuse: \"enabled\",\n    ftpsMode: \"allow\",\n    name: \"/Common/sanjose-ftp-profile\",\n    port: 2020,\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nsanjose_ftp_profile = f5bigip.ltm.ProfileFtp(\"sanjose-ftp-profile\",\n    allow_active_mode=\"enabled\",\n    defaults_from=\"/Common/ftp\",\n    description=\"test-tftp-profile\",\n    enforce_tlssession_reuse=\"enabled\",\n    ftps_mode=\"allow\",\n    name=\"/Common/sanjose-ftp-profile\",\n    port=2020)\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var sanjose_ftp_profile = new F5BigIP.Ltm.ProfileFtp(\"sanjose-ftp-profile\", new F5BigIP.Ltm.ProfileFtpArgs\n        {\n            AllowActiveMode = \"enabled\",\n            DefaultsFrom = \"/Common/ftp\",\n            Description = \"test-tftp-profile\",\n            EnforceTlssessionReuse = \"enabled\",\n            FtpsMode = \"allow\",\n            Name = \"/Common/sanjose-ftp-profile\",\n            Port = 2020,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewProfileFtp(ctx, \"sanjose_ftp_profile\", \u0026ltm.ProfileFtpArgs{\n\t\t\tAllowActiveMode:        pulumi.String(\"enabled\"),\n\t\t\tDefaultsFrom:           pulumi.String(\"/Common/ftp\"),\n\t\t\tDescription:            pulumi.String(\"test-tftp-profile\"),\n\t\t\tEnforceTlssessionReuse: pulumi.String(\"enabled\"),\n\t\t\tFtpsMode:               pulumi.String(\"allow\"),\n\t\t\tName:                   pulumi.String(\"/Common/sanjose-ftp-profile\"),\n\t\t\tPort:                   pulumi.Int(2020),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% example %}}\n### For Bigip versions (12.x - 13.x)\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst sanjose_ftp_profile = new f5bigip.ltm.ProfileFtp(\"sanjose-ftp-profile\", {\n    allowFtps: \"enabled\",\n    defaultsFrom: \"/Common/ftp\",\n    description: \"test-tftp-profile\",\n    name: \"/Common/sanjose-ftp-profile\",\n    port: 2020,\n    translateExtended: \"enabled\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nsanjose_ftp_profile = f5bigip.ltm.ProfileFtp(\"sanjose-ftp-profile\",\n    allow_ftps=\"enabled\",\n    defaults_from=\"/Common/ftp\",\n    description=\"test-tftp-profile\",\n    name=\"/Common/sanjose-ftp-profile\",\n    port=2020,\n    translate_extended=\"enabled\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var sanjose_ftp_profile = new F5BigIP.Ltm.ProfileFtp(\"sanjose-ftp-profile\", new F5BigIP.Ltm.ProfileFtpArgs\n        {\n            AllowFtps = \"enabled\",\n            DefaultsFrom = \"/Common/ftp\",\n            Description = \"test-tftp-profile\",\n            Name = \"/Common/sanjose-ftp-profile\",\n            Port = 2020,\n            TranslateExtended = \"enabled\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewProfileFtp(ctx, \"sanjose_ftp_profile\", \u0026ltm.ProfileFtpArgs{\n\t\t\tAllowFtps:         pulumi.String(\"enabled\"),\n\t\t\tDefaultsFrom:      pulumi.String(\"/Common/ftp\"),\n\t\t\tDescription:       pulumi.String(\"test-tftp-profile\"),\n\t\t\tName:              pulumi.String(\"/Common/sanjose-ftp-profile\"),\n\t\t\tPort:              pulumi.Int(2020),\n\t\t\tTranslateExtended: pulumi.String(\"enabled\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\n{{% /example %}}\n{{% /examples %}}\n## Common Arguments for all versions\n\n* `security` - (Optional)Specifies, when checked (enabled), that the system inspects FTP traffic for security vulnerabilities using an FTP security profile. This option is available only on systems licensed for BIG-IP ASM.\n\n* `port` - (Optional)Allows you to configure the FTP service to run on an alternate port. The default is 20.\n\n* `log_profile` - (Optional)Configures the ALG log profile that controls logging\n\n* `log_publisher` - (Optional)Configures the log publisher that handles events logging for this profile\n\n*  `inherit_parent_profile` - (Optional)Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses FastL4 only.\n\n* `description` - (Optional)User defined description for FTP profile\n",
+            "properties": {
+                "allowActiveMode": {
+                    "type": "string",
+                    "description": "Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled\n"
+                },
+                "allowFtps": {
+                    "type": "string",
+                    "description": "Allow explicit FTPS negotiation. The default is disabled.When enabled (selected), that the system allows explicit FTPS negotiation for SSL or TLS.\n"
+                },
+                "appService": {
+                    "type": "string",
+                    "description": "The application service to which the object belongs.\n"
+                },
+                "defaultsFrom": {
+                    "type": "string",
+                    "description": "Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "User defined description\n"
+                },
+                "enforceTlssessionReuse": {
+                    "type": "string",
+                    "description": "Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled)\n"
+                },
+                "ftpsMode": {
+                    "type": "string",
+                    "description": "Specifies if you want to Disallow, Allow, or Require FTPS mode. The default is Disallow\n"
+                },
+                "inheritParentProfile": {
+                    "type": "string",
+                    "description": "Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses\nFastL4 only.\n"
+                },
+                "inheritVlanList": {
+                    "type": "string",
+                    "description": "inherent vlan list\n"
+                },
+                "logProfile": {
+                    "type": "string",
+                    "description": "Configures the ALG log profile that controls logging\n"
+                },
+                "logPublisher": {
+                    "type": "string",
+                    "description": "Configures the log publisher that handles events logging for this profile\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the profile_ftp\n"
+                },
+                "partition": {
+                    "type": "string",
+                    "description": "Displays the administrative partition within which this profile resides\n"
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "Specifies a service for the data channel port used for this FTP profile. The default port is ftp-data.\n"
+                },
+                "security": {
+                    "type": "string",
+                    "description": "Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the\nsystem is licensed for the BIG-IP Application Security Manager. The default value is disabled.\n"
+                },
+                "translateExtended": {
+                    "type": "string",
+                    "description": "Specifies, when selected (enabled), that the system uses ensures compatibility between IP version 4 and IP version 6 clients and servers when using the FTP protocol. The default is selected (enabled).\n"
+                }
+            },
+            "required": [
+                "defaultsFrom",
+                "logProfile",
+                "logPublisher",
+                "name",
+                "partition",
+                "security"
+            ],
+            "inputProperties": {
+                "allowActiveMode": {
+                    "type": "string",
+                    "description": "Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled\n"
+                },
+                "allowFtps": {
+                    "type": "string",
+                    "description": "Allow explicit FTPS negotiation. The default is disabled.When enabled (selected), that the system allows explicit FTPS negotiation for SSL or TLS.\n"
+                },
+                "appService": {
+                    "type": "string",
+                    "description": "The application service to which the object belongs.\n"
+                },
+                "defaultsFrom": {
+                    "type": "string",
+                    "description": "Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "User defined description\n"
+                },
+                "enforceTlssessionReuse": {
+                    "type": "string",
+                    "description": "Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled)\n"
+                },
+                "ftpsMode": {
+                    "type": "string",
+                    "description": "Specifies if you want to Disallow, Allow, or Require FTPS mode. The default is Disallow\n"
+                },
+                "inheritParentProfile": {
+                    "type": "string",
+                    "description": "Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses\nFastL4 only.\n"
+                },
+                "inheritVlanList": {
+                    "type": "string",
+                    "description": "inherent vlan list\n"
+                },
+                "logProfile": {
+                    "type": "string",
+                    "description": "Configures the ALG log profile that controls logging\n"
+                },
+                "logPublisher": {
+                    "type": "string",
+                    "description": "Configures the log publisher that handles events logging for this profile\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the profile_ftp\n"
+                },
+                "partition": {
+                    "type": "string",
+                    "description": "Displays the administrative partition within which this profile resides\n"
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "Specifies a service for the data channel port used for this FTP profile. The default port is ftp-data.\n"
+                },
+                "security": {
+                    "type": "string",
+                    "description": "Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the\nsystem is licensed for the BIG-IP Application Security Manager. The default value is disabled.\n"
+                },
+                "translateExtended": {
+                    "type": "string",
+                    "description": "Specifies, when selected (enabled), that the system uses ensures compatibility between IP version 4 and IP version 6 clients and servers when using the FTP protocol. The default is selected (enabled).\n"
+                }
+            },
+            "requiredInputs": [
+                "name"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ProfileFtp resources.\n",
+                "properties": {
+                    "allowActiveMode": {
+                        "type": "string",
+                        "description": "Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled\n"
+                    },
+                    "allowFtps": {
+                        "type": "string",
+                        "description": "Allow explicit FTPS negotiation. The default is disabled.When enabled (selected), that the system allows explicit FTPS negotiation for SSL or TLS.\n"
+                    },
+                    "appService": {
+                        "type": "string",
+                        "description": "The application service to which the object belongs.\n"
+                    },
+                    "defaultsFrom": {
+                        "type": "string",
+                        "description": "Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "User defined description\n"
+                    },
+                    "enforceTlssessionReuse": {
+                        "type": "string",
+                        "description": "Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled)\n"
+                    },
+                    "ftpsMode": {
+                        "type": "string",
+                        "description": "Specifies if you want to Disallow, Allow, or Require FTPS mode. The default is Disallow\n"
+                    },
+                    "inheritParentProfile": {
+                        "type": "string",
+                        "description": "Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses\nFastL4 only.\n"
+                    },
+                    "inheritVlanList": {
+                        "type": "string",
+                        "description": "inherent vlan list\n"
+                    },
+                    "logProfile": {
+                        "type": "string",
+                        "description": "Configures the ALG log profile that controls logging\n"
+                    },
+                    "logPublisher": {
+                        "type": "string",
+                        "description": "Configures the log publisher that handles events logging for this profile\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the profile_ftp\n"
+                    },
+                    "partition": {
+                        "type": "string",
+                        "description": "Displays the administrative partition within which this profile resides\n"
+                    },
+                    "port": {
+                        "type": "integer",
+                        "description": "Specifies a service for the data channel port used for this FTP profile. The default port is ftp-data.\n"
+                    },
+                    "security": {
+                        "type": "string",
+                        "description": "Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the\nsystem is licensed for the BIG-IP Application Security Manager. The default value is disabled.\n"
+                    },
+                    "translateExtended": {
+                        "type": "string",
+                        "description": "Specifies, when selected (enabled), that the system uses ensures compatibility between IP version 4 and IP version 6 clients and servers when using the FTP protocol. The default is selected (enabled).\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "f5bigip:ltm/profileHttp2:ProfileHttp2": {
             "description": "`f5bigip.ltm.ProfileHttp2` Configures a custom profile_http2 for use by health checks.\n\nFor resources should be named with their \"full path\". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst nyhttp2 = new f5bigip.ltm.ProfileHttp2(\"nyhttp2\", {\n    name: \"/Common/test-profile-http2\",\n    frameSize: 2021,\n    receiveWindow: 31,\n    writeSize: 16380,\n    headerTableSize: 4092,\n    includeContentLength: \"enabled\",\n    enforceTlsRequirements: \"enabled\",\n    insertHeader: \"disabled\",\n    concurrentStreamsPerConnection: 30,\n    connectionIdleTimeout: 100,\n    activationModes: [\"always\"],\n});\n//Child Profile which inherits parent http2 profile\nconst nyhttp2_child = new f5bigip.ltm.ProfileHttp2(\"nyhttp2-child\", {\n    name: \"/Common/test-profile-http2-child\",\n    defaultsFrom: nyhttp2.name,\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nnyhttp2 = f5bigip.ltm.ProfileHttp2(\"nyhttp2\",\n    name=\"/Common/test-profile-http2\",\n    frame_size=2021,\n    receive_window=31,\n    write_size=16380,\n    header_table_size=4092,\n    include_content_length=\"enabled\",\n    enforce_tls_requirements=\"enabled\",\n    insert_header=\"disabled\",\n    concurrent_streams_per_connection=30,\n    connection_idle_timeout=100,\n    activation_modes=[\"always\"])\n#Child Profile which inherits parent http2 profile\nnyhttp2_child = f5bigip.ltm.ProfileHttp2(\"nyhttp2-child\",\n    name=\"/Common/test-profile-http2-child\",\n    defaults_from=nyhttp2.name)\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var nyhttp2 = new F5BigIP.Ltm.ProfileHttp2(\"nyhttp2\", new F5BigIP.Ltm.ProfileHttp2Args\n        {\n            Name = \"/Common/test-profile-http2\",\n            FrameSize = 2021,\n            ReceiveWindow = 31,\n            WriteSize = 16380,\n            HeaderTableSize = 4092,\n            IncludeContentLength = \"enabled\",\n            EnforceTlsRequirements = \"enabled\",\n            InsertHeader = \"disabled\",\n            ConcurrentStreamsPerConnection = 30,\n            ConnectionIdleTimeout = 100,\n            ActivationModes = \n            {\n                \"always\",\n            },\n        });\n        //Child Profile which inherits parent http2 profile\n        var nyhttp2_child = new F5BigIP.Ltm.ProfileHttp2(\"nyhttp2-child\", new F5BigIP.Ltm.ProfileHttp2Args\n        {\n            Name = \"/Common/test-profile-http2-child\",\n            DefaultsFrom = nyhttp2.Name,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tnyhttp2, err := ltm.NewProfileHttp2(ctx, \"nyhttp2\", \u0026ltm.ProfileHttp2Args{\n\t\t\tName:                           pulumi.String(\"/Common/test-profile-http2\"),\n\t\t\tFrameSize:                      pulumi.Int(2021),\n\t\t\tReceiveWindow:                  pulumi.Int(31),\n\t\t\tWriteSize:                      pulumi.Int(16380),\n\t\t\tHeaderTableSize:                pulumi.Int(4092),\n\t\t\tIncludeContentLength:           pulumi.String(\"enabled\"),\n\t\t\tEnforceTlsRequirements:         pulumi.String(\"enabled\"),\n\t\t\tInsertHeader:                   pulumi.String(\"disabled\"),\n\t\t\tConcurrentStreamsPerConnection: pulumi.Int(30),\n\t\t\tConnectionIdleTimeout:          pulumi.Int(100),\n\t\t\tActivationModes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"always\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewProfileHttp2(ctx, \"nyhttp2_child\", \u0026ltm.ProfileHttp2Args{\n\t\t\tName:         pulumi.String(\"/Common/test-profile-http2-child\"),\n\t\t\tDefaultsFrom: nyhttp2.Name,\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
@@ -7291,11 +7502,11 @@
             }
         },
         "f5bigip:ltm/profileHttp:ProfileHttp": {
-            "description": "`f5bigip.ltm.ProfileHttp` Configures a custom profile_http for use by health checks.\n\nFor resources should be named with their \"full path\". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst sanjose_http = new f5bigip.ltm.ProfileHttp(\"sanjose-http\", {\n    defaultsFrom: \"/Common/http\",\n    description: \"some http\",\n    fallbackHost: \"titanic\",\n    fallbackStatusCodes: [\n        \"400\",\n        \"500\",\n        \"300\",\n    ],\n    name: \"/Common/sanjose-http\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nsanjose_http = f5bigip.ltm.ProfileHttp(\"sanjose-http\",\n    defaults_from=\"/Common/http\",\n    description=\"some http\",\n    fallback_host=\"titanic\",\n    fallback_status_codes=[\n        \"400\",\n        \"500\",\n        \"300\",\n    ],\n    name=\"/Common/sanjose-http\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var sanjose_http = new F5BigIP.Ltm.ProfileHttp(\"sanjose-http\", new F5BigIP.Ltm.ProfileHttpArgs\n        {\n            DefaultsFrom = \"/Common/http\",\n            Description = \"some http\",\n            FallbackHost = \"titanic\",\n            FallbackStatusCodes = \n            {\n                \"400\",\n                \"500\",\n                \"300\",\n            },\n            Name = \"/Common/sanjose-http\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewProfileHttp(ctx, \"sanjose_http\", \u0026ltm.ProfileHttpArgs{\n\t\t\tDefaultsFrom: pulumi.String(\"/Common/http\"),\n\t\t\tDescription:  pulumi.String(\"some http\"),\n\t\t\tFallbackHost: pulumi.String(\"titanic\"),\n\t\t\tFallbackStatusCodes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"400\"),\n\t\t\t\tpulumi.String(\"500\"),\n\t\t\t\tpulumi.String(\"300\"),\n\t\t\t},\n\t\t\tName: pulumi.String(\"/Common/sanjose-http\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nBIG-IP LTM http profiles can be imported using the `name`, e.g.\n\n```sh\n $ pulumi import f5bigip:ltm/profileHttp:ProfileHttp test-http /Common/test-http\n```\n\n ",
+            "description": "`f5bigip.ltm.ProfileHttp` Configures a custom profile_http for use by health checks.\n\nFor resources should be named with their \"full path\". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst sanjose_http = new f5bigip.ltm.ProfileHttp(\"sanjose-http\", {\n    defaultsFrom: \"/Common/http\",\n    fallbackHost: \"titanic\",\n    fallbackStatusCodes: [\n        \"400\",\n        \"500\",\n        \"300\",\n    ],\n    name: \"/Common/sanjose-http\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nsanjose_http = f5bigip.ltm.ProfileHttp(\"sanjose-http\",\n    defaults_from=\"/Common/http\",\n    fallback_host=\"titanic\",\n    fallback_status_codes=[\n        \"400\",\n        \"500\",\n        \"300\",\n    ],\n    name=\"/Common/sanjose-http\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var sanjose_http = new F5BigIP.Ltm.ProfileHttp(\"sanjose-http\", new F5BigIP.Ltm.ProfileHttpArgs\n        {\n            DefaultsFrom = \"/Common/http\",\n            FallbackHost = \"titanic\",\n            FallbackStatusCodes = \n            {\n                \"400\",\n                \"500\",\n                \"300\",\n            },\n            Name = \"/Common/sanjose-http\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewProfileHttp(ctx, \"sanjose_http\", \u0026ltm.ProfileHttpArgs{\n\t\t\tDefaultsFrom: pulumi.String(\"/Common/http\"),\n\t\t\tFallbackHost: pulumi.String(\"titanic\"),\n\t\t\tFallbackStatusCodes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"400\"),\n\t\t\t\tpulumi.String(\"500\"),\n\t\t\t\tpulumi.String(\"300\"),\n\t\t\t},\n\t\t\tName: pulumi.String(\"/Common/sanjose-http\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nBIG-IP LTM http profiles can be imported using the `name`, e.g. bash\n\n```sh\n $ pulumi import f5bigip:ltm/profileHttp:ProfileHttp test-http /Common/test-http\n```\n\n ",
             "properties": {
                 "acceptXff": {
                     "type": "string",
-                    "description": "Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's\nXFF (X-forwarded-for) headers, if they exist.\n"
+                    "description": "Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's XFF (X-forwarded-for) headers, if they exist.\n"
                 },
                 "appService": {
                     "type": "string",
@@ -7303,7 +7514,7 @@
                 },
                 "basicAuthRealm": {
                     "type": "string",
-                    "description": "Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is none\n"
+                    "description": "Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is `none`\n"
                 },
                 "defaultsFrom": {
                     "type": "string",
@@ -7311,18 +7522,18 @@
                 },
                 "description": {
                     "type": "string",
-                    "description": "User defined description\n"
+                    "description": "Specifies user-defined description.\n"
                 },
                 "encryptCookieSecret": {
                     "type": "string",
-                    "description": "Specifies a passphrase for the cookie encryption\n"
+                    "description": "Type a passphrase for cookie encryption.\n"
                 },
                 "encryptCookies": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Encrypts specified cookies that the BIG-IP system sends to a client system\n"
+                    "description": "Type the cookie names for the system to encrypt.\n"
                 },
                 "fallbackHost": {
                     "type": "string",
@@ -7333,27 +7544,31 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies one or more three-digit status codes that can be returned by an HTTP server.\n"
+                    "description": "Specifies one or more three-digit status codes that can be returned by an HTTP server,that should trigger a redirection to the fallback host.\n"
                 },
                 "headErase": {
                     "type": "string",
-                    "description": "Specifies the header string that you want to erase from an HTTP request. You can also specify none\n"
+                    "description": "Specifies the header string that you want to erase from an HTTP request. Default is `none`.\n"
                 },
                 "headInsert": {
                     "type": "string",
-                    "description": "Specifies a quoted header string that you want to insert into an HTTP request\n"
+                    "description": "Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.\n"
                 },
                 "insertXforwardedFor": {
                     "type": "string",
-                    "description": "When using connection pooling, which allows clients to make use of other client requests' server-side connections, you can insert the X-Forwarded-For header and specify a client IP address\n"
+                    "description": "Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.\n"
                 },
                 "lwsSeparator": {
                     "type": "string",
-                    "description": "Specifies a quoted header string that you want to insert into an HTTP request. You can also specify none.\n"
+                    "description": "Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you\nspecify in the LWS Maximum Columns setting.\n"
+                },
+                "lwsWidth": {
+                    "type": "integer",
+                    "description": "Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of the profile_http\n"
+                    "description": "Specifies the name of the http profile,name of Profile should be full path. Full path is the combination of the `partition + profile name`,For example `/Common/test-http-profile`.\n"
                 },
                 "oneconnectTransformations": {
                     "type": "string",
@@ -7361,26 +7576,26 @@
                 },
                 "proxyType": {
                     "type": "string",
-                    "description": "Specifies the type of HTTP proxy.\n"
+                    "description": "Specifies the proxy mode for this profile: reverse, explicit, or transparent. The default is `reverse`.\n"
                 },
                 "redirectRewrite": {
                     "type": "string",
-                    "description": "Specifies which of the application HTTP redirects the system rewrites to HTTPS.\n"
+                    "description": "Specifies whether the system rewrites the URIs that are part of HTTP redirect (3XX) responses. The default is `none`.\n"
                 },
                 "requestChunking": {
                     "type": "string",
-                    "description": "Specifies how to handle chunked and unchunked requests.\n"
+                    "description": "Specifies how the system handles HTTP content that is chunked by a client. The default is `preserve`.\n"
                 },
                 "responseChunking": {
                     "type": "string",
-                    "description": "Specifies how to handle chunked and unchunked responses.\n"
+                    "description": "Specifies how the system handles HTTP content that is chunked by a server. The default is `selective`.\n"
                 },
                 "responseHeadersPermitteds": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies headers that the BIG-IP system allows in an HTTP response.\n"
+                    "description": "Specifies headers that the BIG-IP system allows in an HTTP response.If you are specifying more than one header, separate the headers with a blank space.\n"
                 },
                 "serverAgentName": {
                     "type": "string",
@@ -7407,7 +7622,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies alternative XFF headers instead of the default X-forwarded-for header\n"
+                    "description": "Specifies alternative XFF headers instead of the default X-forwarded-for header.\n"
                 }
             },
             "required": [
@@ -7420,6 +7635,7 @@
                 "headInsert",
                 "insertXforwardedFor",
                 "lwsSeparator",
+                "lwsWidth",
                 "name",
                 "oneconnectTransformations",
                 "proxyType",
@@ -7436,7 +7652,7 @@
             "inputProperties": {
                 "acceptXff": {
                     "type": "string",
-                    "description": "Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's\nXFF (X-forwarded-for) headers, if they exist.\n"
+                    "description": "Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's XFF (X-forwarded-for) headers, if they exist.\n"
                 },
                 "appService": {
                     "type": "string",
@@ -7444,7 +7660,7 @@
                 },
                 "basicAuthRealm": {
                     "type": "string",
-                    "description": "Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is none\n"
+                    "description": "Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is `none`\n"
                 },
                 "defaultsFrom": {
                     "type": "string",
@@ -7452,18 +7668,18 @@
                 },
                 "description": {
                     "type": "string",
-                    "description": "User defined description\n"
+                    "description": "Specifies user-defined description.\n"
                 },
                 "encryptCookieSecret": {
                     "type": "string",
-                    "description": "Specifies a passphrase for the cookie encryption\n"
+                    "description": "Type a passphrase for cookie encryption.\n"
                 },
                 "encryptCookies": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Encrypts specified cookies that the BIG-IP system sends to a client system\n"
+                    "description": "Type the cookie names for the system to encrypt.\n"
                 },
                 "fallbackHost": {
                     "type": "string",
@@ -7474,27 +7690,31 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies one or more three-digit status codes that can be returned by an HTTP server.\n"
+                    "description": "Specifies one or more three-digit status codes that can be returned by an HTTP server,that should trigger a redirection to the fallback host.\n"
                 },
                 "headErase": {
                     "type": "string",
-                    "description": "Specifies the header string that you want to erase from an HTTP request. You can also specify none\n"
+                    "description": "Specifies the header string that you want to erase from an HTTP request. Default is `none`.\n"
                 },
                 "headInsert": {
                     "type": "string",
-                    "description": "Specifies a quoted header string that you want to insert into an HTTP request\n"
+                    "description": "Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.\n"
                 },
                 "insertXforwardedFor": {
                     "type": "string",
-                    "description": "When using connection pooling, which allows clients to make use of other client requests' server-side connections, you can insert the X-Forwarded-For header and specify a client IP address\n"
+                    "description": "Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.\n"
                 },
                 "lwsSeparator": {
                     "type": "string",
-                    "description": "Specifies a quoted header string that you want to insert into an HTTP request. You can also specify none.\n"
+                    "description": "Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you\nspecify in the LWS Maximum Columns setting.\n"
+                },
+                "lwsWidth": {
+                    "type": "integer",
+                    "description": "Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of the profile_http\n"
+                    "description": "Specifies the name of the http profile,name of Profile should be full path. Full path is the combination of the `partition + profile name`,For example `/Common/test-http-profile`.\n"
                 },
                 "oneconnectTransformations": {
                     "type": "string",
@@ -7502,26 +7722,26 @@
                 },
                 "proxyType": {
                     "type": "string",
-                    "description": "Specifies the type of HTTP proxy.\n"
+                    "description": "Specifies the proxy mode for this profile: reverse, explicit, or transparent. The default is `reverse`.\n"
                 },
                 "redirectRewrite": {
                     "type": "string",
-                    "description": "Specifies which of the application HTTP redirects the system rewrites to HTTPS.\n"
+                    "description": "Specifies whether the system rewrites the URIs that are part of HTTP redirect (3XX) responses. The default is `none`.\n"
                 },
                 "requestChunking": {
                     "type": "string",
-                    "description": "Specifies how to handle chunked and unchunked requests.\n"
+                    "description": "Specifies how the system handles HTTP content that is chunked by a client. The default is `preserve`.\n"
                 },
                 "responseChunking": {
                     "type": "string",
-                    "description": "Specifies how to handle chunked and unchunked responses.\n"
+                    "description": "Specifies how the system handles HTTP content that is chunked by a server. The default is `selective`.\n"
                 },
                 "responseHeadersPermitteds": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies headers that the BIG-IP system allows in an HTTP response.\n"
+                    "description": "Specifies headers that the BIG-IP system allows in an HTTP response.If you are specifying more than one header, separate the headers with a blank space.\n"
                 },
                 "serverAgentName": {
                     "type": "string",
@@ -7548,7 +7768,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies alternative XFF headers instead of the default X-forwarded-for header\n"
+                    "description": "Specifies alternative XFF headers instead of the default X-forwarded-for header.\n"
                 }
             },
             "requiredInputs": [
@@ -7559,7 +7779,7 @@
                 "properties": {
                     "acceptXff": {
                         "type": "string",
-                        "description": "Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's\nXFF (X-forwarded-for) headers, if they exist.\n"
+                        "description": "Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's XFF (X-forwarded-for) headers, if they exist.\n"
                     },
                     "appService": {
                         "type": "string",
@@ -7567,7 +7787,7 @@
                     },
                     "basicAuthRealm": {
                         "type": "string",
-                        "description": "Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is none\n"
+                        "description": "Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is `none`\n"
                     },
                     "defaultsFrom": {
                         "type": "string",
@@ -7575,18 +7795,18 @@
                     },
                     "description": {
                         "type": "string",
-                        "description": "User defined description\n"
+                        "description": "Specifies user-defined description.\n"
                     },
                     "encryptCookieSecret": {
                         "type": "string",
-                        "description": "Specifies a passphrase for the cookie encryption\n"
+                        "description": "Type a passphrase for cookie encryption.\n"
                     },
                     "encryptCookies": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "Encrypts specified cookies that the BIG-IP system sends to a client system\n"
+                        "description": "Type the cookie names for the system to encrypt.\n"
                     },
                     "fallbackHost": {
                         "type": "string",
@@ -7597,27 +7817,31 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "Specifies one or more three-digit status codes that can be returned by an HTTP server.\n"
+                        "description": "Specifies one or more three-digit status codes that can be returned by an HTTP server,that should trigger a redirection to the fallback host.\n"
                     },
                     "headErase": {
                         "type": "string",
-                        "description": "Specifies the header string that you want to erase from an HTTP request. You can also specify none\n"
+                        "description": "Specifies the header string that you want to erase from an HTTP request. Default is `none`.\n"
                     },
                     "headInsert": {
                         "type": "string",
-                        "description": "Specifies a quoted header string that you want to insert into an HTTP request\n"
+                        "description": "Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.\n"
                     },
                     "insertXforwardedFor": {
                         "type": "string",
-                        "description": "When using connection pooling, which allows clients to make use of other client requests' server-side connections, you can insert the X-Forwarded-For header and specify a client IP address\n"
+                        "description": "Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.\n"
                     },
                     "lwsSeparator": {
                         "type": "string",
-                        "description": "Specifies a quoted header string that you want to insert into an HTTP request. You can also specify none.\n"
+                        "description": "Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you\nspecify in the LWS Maximum Columns setting.\n"
+                    },
+                    "lwsWidth": {
+                        "type": "integer",
+                        "description": "Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.\n"
                     },
                     "name": {
                         "type": "string",
-                        "description": "Name of the profile_http\n"
+                        "description": "Specifies the name of the http profile,name of Profile should be full path. Full path is the combination of the `partition + profile name`,For example `/Common/test-http-profile`.\n"
                     },
                     "oneconnectTransformations": {
                         "type": "string",
@@ -7625,26 +7849,26 @@
                     },
                     "proxyType": {
                         "type": "string",
-                        "description": "Specifies the type of HTTP proxy.\n"
+                        "description": "Specifies the proxy mode for this profile: reverse, explicit, or transparent. The default is `reverse`.\n"
                     },
                     "redirectRewrite": {
                         "type": "string",
-                        "description": "Specifies which of the application HTTP redirects the system rewrites to HTTPS.\n"
+                        "description": "Specifies whether the system rewrites the URIs that are part of HTTP redirect (3XX) responses. The default is `none`.\n"
                     },
                     "requestChunking": {
                         "type": "string",
-                        "description": "Specifies how to handle chunked and unchunked requests.\n"
+                        "description": "Specifies how the system handles HTTP content that is chunked by a client. The default is `preserve`.\n"
                     },
                     "responseChunking": {
                         "type": "string",
-                        "description": "Specifies how to handle chunked and unchunked responses.\n"
+                        "description": "Specifies how the system handles HTTP content that is chunked by a server. The default is `selective`.\n"
                     },
                     "responseHeadersPermitteds": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "Specifies headers that the BIG-IP system allows in an HTTP response.\n"
+                        "description": "Specifies headers that the BIG-IP system allows in an HTTP response.If you are specifying more than one header, separate the headers with a blank space.\n"
                     },
                     "serverAgentName": {
                         "type": "string",
@@ -7671,14 +7895,14 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "Specifies alternative XFF headers instead of the default X-forwarded-for header\n"
+                        "description": "Specifies alternative XFF headers instead of the default X-forwarded-for header.\n"
                     }
                 },
                 "type": "object"
             }
         },
         "f5bigip:ltm/profileHttpCompress:ProfileHttpCompress": {
-            "description": "`f5bigip.ltm.ProfileHttpCompress`  Virtual server HTTP compression profile configuration\n\n\nFor resources should be named with their \"full path\". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst sjhttpcompression = new f5bigip.ltm.ProfileHttpCompress(\"sjhttpcompression\", {\n    contentTypeExcludes: [\"nicecontentexclude.com\"],\n    contentTypeIncludes: [\"nicecontent.com\"],\n    defaultsFrom: \"/Common/httpcompression\",\n    name: \"/Common/sjhttpcompression2\",\n    uriExcludes: [\n        \"www.abc.f5.com\",\n        \"www.abc2.f5.com\",\n    ],\n    uriIncludes: [\"www.xyzbc.cisco.com\"],\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nsjhttpcompression = f5bigip.ltm.ProfileHttpCompress(\"sjhttpcompression\",\n    content_type_excludes=[\"nicecontentexclude.com\"],\n    content_type_includes=[\"nicecontent.com\"],\n    defaults_from=\"/Common/httpcompression\",\n    name=\"/Common/sjhttpcompression2\",\n    uri_excludes=[\n        \"www.abc.f5.com\",\n        \"www.abc2.f5.com\",\n    ],\n    uri_includes=[\"www.xyzbc.cisco.com\"])\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var sjhttpcompression = new F5BigIP.Ltm.ProfileHttpCompress(\"sjhttpcompression\", new F5BigIP.Ltm.ProfileHttpCompressArgs\n        {\n            ContentTypeExcludes = \n            {\n                \"nicecontentexclude.com\",\n            },\n            ContentTypeIncludes = \n            {\n                \"nicecontent.com\",\n            },\n            DefaultsFrom = \"/Common/httpcompression\",\n            Name = \"/Common/sjhttpcompression2\",\n            UriExcludes = \n            {\n                \"www.abc.f5.com\",\n                \"www.abc2.f5.com\",\n            },\n            UriIncludes = \n            {\n                \"www.xyzbc.cisco.com\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewProfileHttpCompress(ctx, \"sjhttpcompression\", \u0026ltm.ProfileHttpCompressArgs{\n\t\t\tContentTypeExcludes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"nicecontentexclude.com\"),\n\t\t\t},\n\t\t\tContentTypeIncludes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"nicecontent.com\"),\n\t\t\t},\n\t\t\tDefaultsFrom: pulumi.String(\"/Common/httpcompression\"),\n\t\t\tName:         pulumi.String(\"/Common/sjhttpcompression2\"),\n\t\t\tUriExcludes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"www.abc.f5.com\"),\n\t\t\t\tpulumi.String(\"www.abc2.f5.com\"),\n\t\t\t},\n\t\t\tUriIncludes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"www.xyzbc.cisco.com\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "`f5bigip.ltm.ProfileHttpCompress`  Virtual server HTTP compression profile configuration\n\nResources should be named with their \"full path\". The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst sjhttpcompression = new f5bigip.ltm.ProfileHttpCompress(\"sjhttpcompression\", {\n    contentTypeExcludes: [\"nicecontentexclude.com\"],\n    contentTypeIncludes: [\"nicecontent.com\"],\n    defaultsFrom: \"/Common/httpcompression\",\n    name: \"/Common/sjhttpcompression2\",\n    uriExcludes: [\n        \"www.abc.f5.com\",\n        \"www.abc2.f5.com\",\n    ],\n    uriIncludes: [\"www.xyzbc.cisco.com\"],\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nsjhttpcompression = f5bigip.ltm.ProfileHttpCompress(\"sjhttpcompression\",\n    content_type_excludes=[\"nicecontentexclude.com\"],\n    content_type_includes=[\"nicecontent.com\"],\n    defaults_from=\"/Common/httpcompression\",\n    name=\"/Common/sjhttpcompression2\",\n    uri_excludes=[\n        \"www.abc.f5.com\",\n        \"www.abc2.f5.com\",\n    ],\n    uri_includes=[\"www.xyzbc.cisco.com\"])\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var sjhttpcompression = new F5BigIP.Ltm.ProfileHttpCompress(\"sjhttpcompression\", new F5BigIP.Ltm.ProfileHttpCompressArgs\n        {\n            ContentTypeExcludes = \n            {\n                \"nicecontentexclude.com\",\n            },\n            ContentTypeIncludes = \n            {\n                \"nicecontent.com\",\n            },\n            DefaultsFrom = \"/Common/httpcompression\",\n            Name = \"/Common/sjhttpcompression2\",\n            UriExcludes = \n            {\n                \"www.abc.f5.com\",\n                \"www.abc2.f5.com\",\n            },\n            UriIncludes = \n            {\n                \"www.xyzbc.cisco.com\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewProfileHttpCompress(ctx, \"sjhttpcompression\", \u0026ltm.ProfileHttpCompressArgs{\n\t\t\tContentTypeExcludes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"nicecontentexclude.com\"),\n\t\t\t},\n\t\t\tContentTypeIncludes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"nicecontent.com\"),\n\t\t\t},\n\t\t\tDefaultsFrom: pulumi.String(\"/Common/httpcompression\"),\n\t\t\tName:         pulumi.String(\"/Common/sjhttpcompression2\"),\n\t\t\tUriExcludes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"www.abc.f5.com\"),\n\t\t\t\tpulumi.String(\"www.abc2.f5.com\"),\n\t\t\t},\n\t\t\tUriIncludes: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"www.xyzbc.cisco.com\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "contentTypeExcludes": {
                     "type": "array",
@@ -7810,7 +8034,7 @@
             }
         },
         "f5bigip:ltm/profileOneConnect:ProfileOneConnect": {
-            "description": "`f5bigip.ltm.ProfileOneConnect` Configures a custom profile_oneconnect for use by health checks.\n\nFor resources should be named with their \"full path\". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst test_oneconnect = new f5bigip.ltm.ProfileOneConnect(\"test-oneconnect\", {\n    name: \"/Common/test-oneconnect\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ntest_oneconnect = f5bigip.ltm.ProfileOneConnect(\"test-oneconnect\", name=\"/Common/test-oneconnect\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test_oneconnect = new F5BigIP.Ltm.ProfileOneConnect(\"test-oneconnect\", new F5BigIP.Ltm.ProfileOneConnectArgs\n        {\n            Name = \"/Common/test-oneconnect\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewProfileOneConnect(ctx, \"test_oneconnect\", \u0026ltm.ProfileOneConnectArgs{\n\t\t\tName: pulumi.String(\"/Common/test-oneconnect\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nBIG-IP LTM oneconnect profiles can be imported using the `name` , e.g.\n\n```sh\n $ pulumi import f5bigip:ltm/profileOneConnect:ProfileOneConnect test-oneconnect /Common/test-oneconnect\n```\n\n ",
+            "description": "`f5bigip.ltm.ProfileOneConnect` Configures a custom profile_oneconnect for use by health checks.\n\nResources should be named with their \"full path\". The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst test_oneconnect = new f5bigip.ltm.ProfileOneConnect(\"test-oneconnect\", {\n    name: \"/Common/test-oneconnect\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ntest_oneconnect = f5bigip.ltm.ProfileOneConnect(\"test-oneconnect\", name=\"/Common/test-oneconnect\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test_oneconnect = new F5BigIP.Ltm.ProfileOneConnect(\"test-oneconnect\", new F5BigIP.Ltm.ProfileOneConnectArgs\n        {\n            Name = \"/Common/test-oneconnect\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewProfileOneConnect(ctx, \"test_oneconnect\", \u0026ltm.ProfileOneConnectArgs{\n\t\t\tName: pulumi.String(\"/Common/test-oneconnect\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nBIG-IP LTM oneconnect profiles can be imported using the `name` , e.g.\n\n```sh\n $ pulumi import f5bigip:ltm/profileOneConnect:ProfileOneConnect test-oneconnect /Common/test-oneconnect\n```\n\n ",
             "properties": {
                 "defaultsFrom": {
                     "type": "string",
@@ -8647,7 +8871,7 @@
             }
         },
         "f5bigip:ltm/profileTcp:ProfileTcp": {
-            "description": "`f5bigip.ltm.ProfileTcp` Configures a custom profile_tcp for use by health checks.\n\nFor resources should be named with their \"full path\". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst sanjose_tcp_lan_profile = new f5bigip.ltm.ProfileTcp(\"sanjose-tcp-lan-profile\", {\n    closeWaitTimeout: 5,\n    deferredAccept: \"enabled\",\n    fastOpen: \"enabled\",\n    finwait2timeout: 5,\n    finwaitTimeout: 300,\n    idleTimeout: 200,\n    keepaliveInterval: 1700,\n    name: \"/Common/sanjose-tcp-lan-profile\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nsanjose_tcp_lan_profile = f5bigip.ltm.ProfileTcp(\"sanjose-tcp-lan-profile\",\n    close_wait_timeout=5,\n    deferred_accept=\"enabled\",\n    fast_open=\"enabled\",\n    finwait2timeout=5,\n    finwait_timeout=300,\n    idle_timeout=200,\n    keepalive_interval=1700,\n    name=\"/Common/sanjose-tcp-lan-profile\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var sanjose_tcp_lan_profile = new F5BigIP.Ltm.ProfileTcp(\"sanjose-tcp-lan-profile\", new F5BigIP.Ltm.ProfileTcpArgs\n        {\n            CloseWaitTimeout = 5,\n            DeferredAccept = \"enabled\",\n            FastOpen = \"enabled\",\n            Finwait2timeout = 5,\n            FinwaitTimeout = 300,\n            IdleTimeout = 200,\n            KeepaliveInterval = 1700,\n            Name = \"/Common/sanjose-tcp-lan-profile\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewProfileTcp(ctx, \"sanjose_tcp_lan_profile\", \u0026ltm.ProfileTcpArgs{\n\t\t\tCloseWaitTimeout:  pulumi.Int(5),\n\t\t\tDeferredAccept:    pulumi.String(\"enabled\"),\n\t\t\tFastOpen:          pulumi.String(\"enabled\"),\n\t\t\tFinwait2timeout:   pulumi.Int(5),\n\t\t\tFinwaitTimeout:    pulumi.Int(300),\n\t\t\tIdleTimeout:       pulumi.Int(200),\n\t\t\tKeepaliveInterval: pulumi.Int(1700),\n\t\t\tName:              pulumi.String(\"/Common/sanjose-tcp-lan-profile\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "`f5bigip.ltm.ProfileTcp` Configures a custom profile_tcp for use by health checks.\n\nResources should be named with their \"full path\". The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst sanjose_tcp_lan_profile = new f5bigip.ltm.ProfileTcp(\"sanjose-tcp-lan-profile\", {\n    closeWaitTimeout: 5,\n    deferredAccept: \"enabled\",\n    fastOpen: \"enabled\",\n    finwait2timeout: 5,\n    finwaitTimeout: 300,\n    idleTimeout: 200,\n    keepaliveInterval: 1700,\n    name: \"/Common/sanjose-tcp-lan-profile\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nsanjose_tcp_lan_profile = f5bigip.ltm.ProfileTcp(\"sanjose-tcp-lan-profile\",\n    close_wait_timeout=5,\n    deferred_accept=\"enabled\",\n    fast_open=\"enabled\",\n    finwait2timeout=5,\n    finwait_timeout=300,\n    idle_timeout=200,\n    keepalive_interval=1700,\n    name=\"/Common/sanjose-tcp-lan-profile\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var sanjose_tcp_lan_profile = new F5BigIP.Ltm.ProfileTcp(\"sanjose-tcp-lan-profile\", new F5BigIP.Ltm.ProfileTcpArgs\n        {\n            CloseWaitTimeout = 5,\n            DeferredAccept = \"enabled\",\n            FastOpen = \"enabled\",\n            Finwait2timeout = 5,\n            FinwaitTimeout = 300,\n            IdleTimeout = 200,\n            KeepaliveInterval = 1700,\n            Name = \"/Common/sanjose-tcp-lan-profile\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewProfileTcp(ctx, \"sanjose_tcp_lan_profile\", \u0026ltm.ProfileTcpArgs{\n\t\t\tCloseWaitTimeout:  pulumi.Int(5),\n\t\t\tDeferredAccept:    pulumi.String(\"enabled\"),\n\t\t\tFastOpen:          pulumi.String(\"enabled\"),\n\t\t\tFinwait2timeout:   pulumi.Int(5),\n\t\t\tFinwaitTimeout:    pulumi.Int(300),\n\t\t\tIdleTimeout:       pulumi.Int(200),\n\t\t\tKeepaliveInterval: pulumi.Int(1700),\n\t\t\tName:              pulumi.String(\"/Common/sanjose-tcp-lan-profile\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "closeWaitTimeout": {
                     "type": "integer",
@@ -9019,11 +9243,11 @@
             }
         },
         "f5bigip:ltm/virtualAddress:VirtualAddress": {
-            "description": "`f5bigip.ltm.VirtualAddress` Configures Virtual Server\n\nFor resources should be named with their \"full path\". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst vsVa = new f5bigip.ltm.VirtualAddress(\"vs_va\", {\n    advertizeRoute: \"true\",\n    name: \"/Common/vs_va\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nvs_va = f5bigip.ltm.VirtualAddress(\"vsVa\",\n    advertize_route=\"true\",\n    name=\"/Common/vs_va\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var vsVa = new F5BigIP.Ltm.VirtualAddress(\"vsVa\", new F5BigIP.Ltm.VirtualAddressArgs\n        {\n            AdvertizeRoute = \"true\",\n            Name = \"/Common/vs_va\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewVirtualAddress(ctx, \"vsVa\", \u0026ltm.VirtualAddressArgs{\n\t\t\tAdvertizeRoute: pulumi.String(\"true\"),\n\t\t\tName:           pulumi.String(\"/Common/vs_va\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "`f5bigip.ltm.VirtualAddress` Configures Virtual Server\n\nFor resources should be named with their \"full path\". The full path is the combination of the partition + name of the resource. For example /Common/virtual_server.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst vsVa = new f5bigip.ltm.VirtualAddress(\"vs_va\", {\n    advertizeRoute: \"enabled\",\n    name: \"/Common/xxxxx\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nvs_va = f5bigip.ltm.VirtualAddress(\"vsVa\",\n    advertize_route=\"enabled\",\n    name=\"/Common/xxxxx\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var vsVa = new F5BigIP.Ltm.VirtualAddress(\"vsVa\", new F5BigIP.Ltm.VirtualAddressArgs\n        {\n            AdvertizeRoute = \"enabled\",\n            Name = \"/Common/xxxxx\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewVirtualAddress(ctx, \"vsVa\", \u0026ltm.VirtualAddressArgs{\n\t\t\tAdvertizeRoute: pulumi.String(\"enabled\"),\n\t\t\tName:           pulumi.String(\"/Common/xxxxx\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "advertizeRoute": {
                     "type": "string",
-                    "description": "Enabled dynamic routing of the address\n"
+                    "description": "Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )\n"
                 },
                 "arp": {
                     "type": "boolean",
@@ -9043,7 +9267,7 @@
                 },
                 "icmpEcho": {
                     "type": "string",
-                    "description": "Enable/Disable ICMP response to the virtual address\n"
+                    "description": "Specifies how the system sends responses to ICMP echo requests on a per-virtual address basis.\n"
                 },
                 "name": {
                     "type": "string",
@@ -9060,7 +9284,7 @@
             "inputProperties": {
                 "advertizeRoute": {
                     "type": "string",
-                    "description": "Enabled dynamic routing of the address\n"
+                    "description": "Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )\n"
                 },
                 "arp": {
                     "type": "boolean",
@@ -9080,7 +9304,7 @@
                 },
                 "icmpEcho": {
                     "type": "string",
-                    "description": "Enable/Disable ICMP response to the virtual address\n"
+                    "description": "Specifies how the system sends responses to ICMP echo requests on a per-virtual address basis.\n"
                 },
                 "name": {
                     "type": "string",
@@ -9099,7 +9323,7 @@
                 "properties": {
                     "advertizeRoute": {
                         "type": "string",
-                        "description": "Enabled dynamic routing of the address\n"
+                        "description": "Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )\n"
                     },
                     "arp": {
                         "type": "boolean",
@@ -9119,7 +9343,7 @@
                     },
                     "icmpEcho": {
                         "type": "string",
-                        "description": "Enable/Disable ICMP response to the virtual address\n"
+                        "description": "Specifies how the system sends responses to ICMP echo requests on a per-virtual address basis.\n"
                     },
                     "name": {
                         "type": "string",
@@ -9134,7 +9358,7 @@
             }
         },
         "f5bigip:ltm/virtualServer:VirtualServer": {
-            "description": "`f5bigip.ltm.VirtualServer` Configures Virtual Server\n\nFor resources should be named with their \"full path\". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst http = new f5bigip.ltm.VirtualServer(\"http\", {\n    name: \"/Common/terraform_vs_http\",\n    destination: \"10.12.12.12\",\n    port: 80,\n    pool: \"/Common/the-default-pool\",\n});\n// A Virtual server with SSL enabled\nconst httpsVirtualServer = new f5bigip.ltm.VirtualServer(\"httpsVirtualServer\", {\n    name: \"/Common/terraform_vs_https\",\n    destination: _var.vip_ip,\n    description: \"VirtualServer-test\",\n    port: 443,\n    pool: _var.pool,\n    profiles: [\n        \"/Common/tcp\",\n        \"/Common/my-awesome-ssl-cert\",\n        \"/Common/http\",\n    ],\n    sourceAddressTranslation: \"automap\",\n    translateAddress: \"enabled\",\n    translatePort: \"enabled\",\n});\n// A Virtual server with separate client and server profiles\nconst httpsLtm_virtualServerVirtualServer = new f5bigip.ltm.VirtualServer(\"httpsLtm/virtualServerVirtualServer\", {\n    name: \"/Common/terraform_vs_https\",\n    destination: \"10.255.255.254\",\n    description: \"VirtualServer-test\",\n    port: 443,\n    clientProfiles: [\"/Common/clientssl\"],\n    serverProfiles: [\"/Common/serverssl\"],\n    sourceAddressTranslation: \"automap\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nhttp = f5bigip.ltm.VirtualServer(\"http\",\n    name=\"/Common/terraform_vs_http\",\n    destination=\"10.12.12.12\",\n    port=80,\n    pool=\"/Common/the-default-pool\")\n# A Virtual server with SSL enabled\nhttps_virtual_server = f5bigip.ltm.VirtualServer(\"httpsVirtualServer\",\n    name=\"/Common/terraform_vs_https\",\n    destination=var[\"vip_ip\"],\n    description=\"VirtualServer-test\",\n    port=443,\n    pool=var[\"pool\"],\n    profiles=[\n        \"/Common/tcp\",\n        \"/Common/my-awesome-ssl-cert\",\n        \"/Common/http\",\n    ],\n    source_address_translation=\"automap\",\n    translate_address=\"enabled\",\n    translate_port=\"enabled\")\n# A Virtual server with separate client and server profiles\nhttps_ltm_virtual_server_virtual_server = f5bigip.ltm.VirtualServer(\"httpsLtm/virtualServerVirtualServer\",\n    name=\"/Common/terraform_vs_https\",\n    destination=\"10.255.255.254\",\n    description=\"VirtualServer-test\",\n    port=443,\n    client_profiles=[\"/Common/clientssl\"],\n    server_profiles=[\"/Common/serverssl\"],\n    source_address_translation=\"automap\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var http = new F5BigIP.Ltm.VirtualServer(\"http\", new F5BigIP.Ltm.VirtualServerArgs\n        {\n            Name = \"/Common/terraform_vs_http\",\n            Destination = \"10.12.12.12\",\n            Port = 80,\n            Pool = \"/Common/the-default-pool\",\n        });\n        // A Virtual server with SSL enabled\n        var httpsVirtualServer = new F5BigIP.Ltm.VirtualServer(\"httpsVirtualServer\", new F5BigIP.Ltm.VirtualServerArgs\n        {\n            Name = \"/Common/terraform_vs_https\",\n            Destination = @var.Vip_ip,\n            Description = \"VirtualServer-test\",\n            Port = 443,\n            Pool = @var.Pool,\n            Profiles = \n            {\n                \"/Common/tcp\",\n                \"/Common/my-awesome-ssl-cert\",\n                \"/Common/http\",\n            },\n            SourceAddressTranslation = \"automap\",\n            TranslateAddress = \"enabled\",\n            TranslatePort = \"enabled\",\n        });\n        // A Virtual server with separate client and server profiles\n        var httpsLtm_virtualServerVirtualServer = new F5BigIP.Ltm.VirtualServer(\"httpsLtm/virtualServerVirtualServer\", new F5BigIP.Ltm.VirtualServerArgs\n        {\n            Name = \"/Common/terraform_vs_https\",\n            Destination = \"10.255.255.254\",\n            Description = \"VirtualServer-test\",\n            Port = 443,\n            ClientProfiles = \n            {\n                \"/Common/clientssl\",\n            },\n            ServerProfiles = \n            {\n                \"/Common/serverssl\",\n            },\n            SourceAddressTranslation = \"automap\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewVirtualServer(ctx, \"http\", \u0026ltm.VirtualServerArgs{\n\t\t\tName:        pulumi.String(\"/Common/terraform_vs_http\"),\n\t\t\tDestination: pulumi.String(\"10.12.12.12\"),\n\t\t\tPort:        pulumi.Int(80),\n\t\t\tPool:        pulumi.String(\"/Common/the-default-pool\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewVirtualServer(ctx, \"httpsVirtualServer\", \u0026ltm.VirtualServerArgs{\n\t\t\tName:        pulumi.String(\"/Common/terraform_vs_https\"),\n\t\t\tDestination: pulumi.Any(_var.Vip_ip),\n\t\t\tDescription: pulumi.String(\"VirtualServer-test\"),\n\t\t\tPort:        pulumi.Int(443),\n\t\t\tPool:        pulumi.Any(_var.Pool),\n\t\t\tProfiles: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"/Common/tcp\"),\n\t\t\t\tpulumi.String(\"/Common/my-awesome-ssl-cert\"),\n\t\t\t\tpulumi.String(\"/Common/http\"),\n\t\t\t},\n\t\t\tSourceAddressTranslation: pulumi.String(\"automap\"),\n\t\t\tTranslateAddress:         pulumi.String(\"enabled\"),\n\t\t\tTranslatePort:            pulumi.String(\"enabled\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewVirtualServer(ctx, \"httpsLtm_virtualServerVirtualServer\", \u0026ltm.VirtualServerArgs{\n\t\t\tName:        pulumi.String(\"/Common/terraform_vs_https\"),\n\t\t\tDestination: pulumi.String(\"10.255.255.254\"),\n\t\t\tDescription: pulumi.String(\"VirtualServer-test\"),\n\t\t\tPort:        pulumi.Int(443),\n\t\t\tClientProfiles: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"/Common/clientssl\"),\n\t\t\t},\n\t\t\tServerProfiles: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"/Common/serverssl\"),\n\t\t\t},\n\t\t\tSourceAddressTranslation: pulumi.String(\"automap\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "`f5bigip.ltm.VirtualServer` Configures Virtual Server\n\nFor resources should be named with their \"full path\". The full path is the combination of the partition + name of the resource (example: /Common/my-pool ) or partition + directory + name of the resource (example: /Common/test/my-pool ).When including directory in fullpath we have to make sure it is created in the given partition before using it.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst http = new f5bigip.ltm.VirtualServer(\"http\", {\n    name: \"/Common/terraform_vs_http\",\n    destination: \"10.12.12.12\",\n    port: 80,\n    pool: \"/Common/the-default-pool\",\n});\n// A Virtual server with SSL enabled\nconst httpsVirtualServer = new f5bigip.ltm.VirtualServer(\"httpsVirtualServer\", {\n    name: \"/Common/terraform_vs_https\",\n    destination: _var.vip_ip,\n    description: \"VirtualServer-test\",\n    port: 443,\n    pool: _var.pool,\n    profiles: [\n        \"/Common/tcp\",\n        \"/Common/my-awesome-ssl-cert\",\n        \"/Common/http\",\n    ],\n    sourceAddressTranslation: \"automap\",\n    translateAddress: \"enabled\",\n    translatePort: \"enabled\",\n});\n// A Virtual server with separate client and server profiles\nconst httpsLtm_virtualServerVirtualServer = new f5bigip.ltm.VirtualServer(\"httpsLtm/virtualServerVirtualServer\", {\n    name: \"/Common/terraform_vs_https\",\n    destination: \"10.255.255.254\",\n    description: \"VirtualServer-test\",\n    port: 443,\n    clientProfiles: [\"/Common/clientssl\"],\n    serverProfiles: [\"/Common/serverssl\"],\n    securityLogProfiles: [\"/Common/global-network\"],\n    sourceAddressTranslation: \"automap\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nhttp = f5bigip.ltm.VirtualServer(\"http\",\n    name=\"/Common/terraform_vs_http\",\n    destination=\"10.12.12.12\",\n    port=80,\n    pool=\"/Common/the-default-pool\")\n# A Virtual server with SSL enabled\nhttps_virtual_server = f5bigip.ltm.VirtualServer(\"httpsVirtualServer\",\n    name=\"/Common/terraform_vs_https\",\n    destination=var[\"vip_ip\"],\n    description=\"VirtualServer-test\",\n    port=443,\n    pool=var[\"pool\"],\n    profiles=[\n        \"/Common/tcp\",\n        \"/Common/my-awesome-ssl-cert\",\n        \"/Common/http\",\n    ],\n    source_address_translation=\"automap\",\n    translate_address=\"enabled\",\n    translate_port=\"enabled\")\n# A Virtual server with separate client and server profiles\nhttps_ltm_virtual_server_virtual_server = f5bigip.ltm.VirtualServer(\"httpsLtm/virtualServerVirtualServer\",\n    name=\"/Common/terraform_vs_https\",\n    destination=\"10.255.255.254\",\n    description=\"VirtualServer-test\",\n    port=443,\n    client_profiles=[\"/Common/clientssl\"],\n    server_profiles=[\"/Common/serverssl\"],\n    security_log_profiles=[\"/Common/global-network\"],\n    source_address_translation=\"automap\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var http = new F5BigIP.Ltm.VirtualServer(\"http\", new F5BigIP.Ltm.VirtualServerArgs\n        {\n            Name = \"/Common/terraform_vs_http\",\n            Destination = \"10.12.12.12\",\n            Port = 80,\n            Pool = \"/Common/the-default-pool\",\n        });\n        // A Virtual server with SSL enabled\n        var httpsVirtualServer = new F5BigIP.Ltm.VirtualServer(\"httpsVirtualServer\", new F5BigIP.Ltm.VirtualServerArgs\n        {\n            Name = \"/Common/terraform_vs_https\",\n            Destination = @var.Vip_ip,\n            Description = \"VirtualServer-test\",\n            Port = 443,\n            Pool = @var.Pool,\n            Profiles = \n            {\n                \"/Common/tcp\",\n                \"/Common/my-awesome-ssl-cert\",\n                \"/Common/http\",\n            },\n            SourceAddressTranslation = \"automap\",\n            TranslateAddress = \"enabled\",\n            TranslatePort = \"enabled\",\n        });\n        // A Virtual server with separate client and server profiles\n        var httpsLtm_virtualServerVirtualServer = new F5BigIP.Ltm.VirtualServer(\"httpsLtm/virtualServerVirtualServer\", new F5BigIP.Ltm.VirtualServerArgs\n        {\n            Name = \"/Common/terraform_vs_https\",\n            Destination = \"10.255.255.254\",\n            Description = \"VirtualServer-test\",\n            Port = 443,\n            ClientProfiles = \n            {\n                \"/Common/clientssl\",\n            },\n            ServerProfiles = \n            {\n                \"/Common/serverssl\",\n            },\n            SecurityLogProfiles = \n            {\n                \"/Common/global-network\",\n            },\n            SourceAddressTranslation = \"automap\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewVirtualServer(ctx, \"http\", \u0026ltm.VirtualServerArgs{\n\t\t\tName:        pulumi.String(\"/Common/terraform_vs_http\"),\n\t\t\tDestination: pulumi.String(\"10.12.12.12\"),\n\t\t\tPort:        pulumi.Int(80),\n\t\t\tPool:        pulumi.String(\"/Common/the-default-pool\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewVirtualServer(ctx, \"httpsVirtualServer\", \u0026ltm.VirtualServerArgs{\n\t\t\tName:        pulumi.String(\"/Common/terraform_vs_https\"),\n\t\t\tDestination: pulumi.Any(_var.Vip_ip),\n\t\t\tDescription: pulumi.String(\"VirtualServer-test\"),\n\t\t\tPort:        pulumi.Int(443),\n\t\t\tPool:        pulumi.Any(_var.Pool),\n\t\t\tProfiles: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"/Common/tcp\"),\n\t\t\t\tpulumi.String(\"/Common/my-awesome-ssl-cert\"),\n\t\t\t\tpulumi.String(\"/Common/http\"),\n\t\t\t},\n\t\t\tSourceAddressTranslation: pulumi.String(\"automap\"),\n\t\t\tTranslateAddress:         pulumi.String(\"enabled\"),\n\t\t\tTranslatePort:            pulumi.String(\"enabled\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewVirtualServer(ctx, \"httpsLtm_virtualServerVirtualServer\", \u0026ltm.VirtualServerArgs{\n\t\t\tName:        pulumi.String(\"/Common/terraform_vs_https\"),\n\t\t\tDestination: pulumi.String(\"10.255.255.254\"),\n\t\t\tDescription: pulumi.String(\"VirtualServer-test\"),\n\t\t\tPort:        pulumi.Int(443),\n\t\t\tClientProfiles: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"/Common/clientssl\"),\n\t\t\t},\n\t\t\tServerProfiles: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"/Common/serverssl\"),\n\t\t\t},\n\t\t\tSecurityLogProfiles: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"/Common/global-network\"),\n\t\t\t},\n\t\t\tSourceAddressTranslation: pulumi.String(\"automap\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "clientProfiles": {
                     "type": "array",
@@ -9212,7 +9436,8 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "Specifies the log profile applied to the virtual server.\n"
                 },
                 "serverProfiles": {
                     "type": "array",
@@ -9350,7 +9575,8 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "Specifies the log profile applied to the virtual server.\n"
                 },
                 "serverProfiles": {
                     "type": "array",
@@ -9479,7 +9705,8 @@
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "Specifies the log profile applied to the virtual server.\n"
                     },
                     "serverProfiles": {
                         "type": "array",
@@ -9750,6 +9977,10 @@
                     "type": "string",
                     "description": "Content of certificate on Disk\n"
                 },
+                "fullPath": {
+                    "type": "string",
+                    "description": "Full Path Name of ssl certificate\n"
+                },
                 "name": {
                     "type": "string",
                     "description": "Name of the SSL Certificate to be Imported on to BIGIP\n"
@@ -9761,12 +9992,17 @@
             },
             "required": [
                 "content",
+                "fullPath",
                 "name"
             ],
             "inputProperties": {
                 "content": {
                     "type": "string",
                     "description": "Content of certificate on Disk\n"
+                },
+                "fullPath": {
+                    "type": "string",
+                    "description": "Full Path Name of ssl certificate\n"
                 },
                 "name": {
                     "type": "string",
@@ -9788,6 +10024,10 @@
                         "type": "string",
                         "description": "Content of certificate on Disk\n"
                     },
+                    "fullPath": {
+                        "type": "string",
+                        "description": "Full Path Name of ssl certificate\n"
+                    },
                     "name": {
                         "type": "string",
                         "description": "Name of the SSL Certificate to be Imported on to BIGIP\n"
@@ -9807,6 +10047,10 @@
                     "type": "string",
                     "description": "Content of SSL certificate key present on local Disk\n"
                 },
+                "fullPath": {
+                    "type": "string",
+                    "description": "Full Path Name of ssl key\n"
+                },
                 "name": {
                     "type": "string",
                     "description": "Name of the SSL Certificate key to be Imported on to BIGIP\n"
@@ -9818,12 +10062,17 @@
             },
             "required": [
                 "content",
+                "fullPath",
                 "name"
             ],
             "inputProperties": {
                 "content": {
                     "type": "string",
                     "description": "Content of SSL certificate key present on local Disk\n"
+                },
+                "fullPath": {
+                    "type": "string",
+                    "description": "Full Path Name of ssl key\n"
                 },
                 "name": {
                     "type": "string",
@@ -9844,6 +10093,10 @@
                     "content": {
                         "type": "string",
                         "description": "Content of SSL certificate key present on local Disk\n"
+                    },
+                    "fullPath": {
+                        "type": "string",
+                        "description": "Full Path Name of ssl key\n"
                     },
                     "name": {
                         "type": "string",
@@ -10304,11 +10557,11 @@
                 },
                 "fullPath": {
                     "type": "string",
-                    "description": "Specifies the module being enabled. It can be one among the list [afm, am, apm, asm, avr, cgnat, fps, gtm, ilx, lc, ltm, pem, swg, urldb, sslo, vcmp]\n"
+                    "description": "path\n"
                 },
                 "level": {
                     "type": "string",
-                    "description": "Specifies the level of resources that you want to provision for a module. The list of allowed values are [minimum, nominal, dedicated, custom, none]\n"
+                    "description": "what level nominal or dedicated\n"
                 },
                 "memoryRatio": {
                     "type": "integer",
@@ -10334,11 +10587,11 @@
                 },
                 "fullPath": {
                     "type": "string",
-                    "description": "Specifies the module being enabled. It can be one among the list [afm, am, apm, asm, avr, cgnat, fps, gtm, ilx, lc, ltm, pem, swg, urldb, sslo, vcmp]\n"
+                    "description": "path\n"
                 },
                 "level": {
                     "type": "string",
-                    "description": "Specifies the level of resources that you want to provision for a module. The list of allowed values are [minimum, nominal, dedicated, custom, none]\n"
+                    "description": "what level nominal or dedicated\n"
                 },
                 "memoryRatio": {
                     "type": "integer",
@@ -10365,11 +10618,11 @@
                     },
                     "fullPath": {
                         "type": "string",
-                        "description": "Specifies the module being enabled. It can be one among the list [afm, am, apm, asm, avr, cgnat, fps, gtm, ilx, lc, ltm, pem, swg, urldb, sslo, vcmp]\n"
+                        "description": "path\n"
                     },
                     "level": {
                         "type": "string",
-                        "description": "Specifies the level of resources that you want to provision for a module. The list of allowed values are [minimum, nominal, dedicated, custom, none]\n"
+                        "description": "what level nominal or dedicated\n"
                     },
                     "memoryRatio": {
                         "type": "integer",
@@ -10629,23 +10882,28 @@
     },
     "functions": {
         "f5bigip:ltm/getDataGroup:getDataGroup": {
+            "description": "Use this data source (`f5bigip.ltm.DataGroup`) to get the data group details available on BIG-IP\n \n \n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst dG_TC3 = pulumi.output(f5bigip.ltm.getDataGroup({\n    name: \"test-dg\",\n    partition: \"Common\",\n}));\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nd_g__tc3 = f5bigip.ltm.get_data_group(name=\"test-dg\",\n    partition=\"Common\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var dG_TC3 = Output.Create(F5BigIP.Ltm.GetDataGroup.InvokeAsync(new F5BigIP.Ltm.GetDataGroupArgs\n        {\n            Name = \"test-dg\",\n            Partition = \"Common\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.LookupDataGroup(ctx, \u0026ltm.LookupDataGroupArgs{\n\t\t\tName:      \"test-dg\",\n\t\t\tPartition: \"Common\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getDataGroup.\n",
                 "properties": {
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the datagroup\n"
                     },
                     "partition": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "partition of the datagroup\n"
                     },
                     "records": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/f5bigip:ltm/getDataGroupRecord:getDataGroupRecord"
-                        }
+                        },
+                        "description": "Specifies record of type (string/ip/integer)\n"
                     },
                     "type": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The Data Group type (string, ip, integer)\"\n"
                     }
                 },
                 "type": "object",
@@ -10671,10 +10929,12 @@
                         "type": "array",
                         "items": {
                             "$ref": "#/types/f5bigip:ltm/getDataGroupRecord:getDataGroupRecord"
-                        }
+                        },
+                        "description": "Specifies record of type (string/ip/integer)\n"
                     },
                     "type": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The Data Group type (string, ip, integer)\"\n"
                     }
                 },
                 "type": "object",
@@ -10688,14 +10948,17 @@
             }
         },
         "f5bigip:ltm/getIrule:getIrule": {
+            "description": "Use this data source (`f5bigip.ltm.IRule`) to get the ltm irule details available on BIG-IP\n \n \n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst test = pulumi.output(f5bigip.ltm.getIrule({\n    name: \"terraform_irule\",\n    partition: \"Common\",\n}));\n\nexport const bigipIrule = test.irule;\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ntest = f5bigip.ltm.get_irule(name=\"terraform_irule\",\n    partition=\"Common\")\npulumi.export(\"bigipIrule\", test.irule)\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test = Output.Create(F5BigIP.Ltm.GetIrule.InvokeAsync(new F5BigIP.Ltm.GetIruleArgs\n        {\n            Name = \"terraform_irule\",\n            Partition = \"Common\",\n        }));\n        this.BigipIrule = test.Apply(test =\u003e test.Irule);\n    }\n\n    [Output(\"bigipIrule\")]\n    public Output\u003cstring\u003e BigipIrule { get; set; }\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttest, err := ltm.GetIrule(ctx, \u0026ltm.GetIruleArgs{\n\t\t\tName:      \"terraform_irule\",\n\t\t\tPartition: \"Common\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"bigipIrule\", test.Irule)\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getIrule.\n",
                 "properties": {
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the irule\n"
                     },
                     "partition": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "partition of the ltm irule\n"
                     }
                 },
                 "type": "object",
@@ -10712,13 +10975,16 @@
                         "description": "The provider-assigned unique ID for this managed resource.\n"
                     },
                     "irule": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Irule configured on bigip\n"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of irule configured on bigip with full path\n"
                     },
                     "partition": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Bigip partition in which rule is configured\n"
                     }
                 },
                 "type": "object",
@@ -10731,14 +10997,17 @@
             }
         },
         "f5bigip:ltm/getMonitor:getMonitor": {
+            "description": "Use this data source (`f5bigip.ltm.Monitor`) to get the ltm monitor details available on BIG-IP\n \n \n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst monitor_TC1 = pulumi.output(f5bigip.ltm.getMonitor({\n    name: \"test-monitor\",\n    partition: \"Common\",\n}));\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nmonitor__tc1 = f5bigip.ltm.get_monitor(name=\"test-monitor\",\n    partition=\"Common\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var monitor_TC1 = Output.Create(F5BigIP.Ltm.GetMonitor.InvokeAsync(new F5BigIP.Ltm.GetMonitorArgs\n        {\n            Name = \"test-monitor\",\n            Partition = \"Common\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.LookupMonitor(ctx, \u0026ltm.LookupMonitorArgs{\n\t\t\tName:      \"test-monitor\",\n\t\t\tPartition: \"Common\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getMonitor.\n",
                 "properties": {
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the ltm monitor\n"
                     },
                     "partition": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "partition of the ltm monitor\n"
                     }
                 },
                 "type": "object",
@@ -10751,10 +11020,12 @@
                 "description": "A collection of values returned by getMonitor.\n",
                 "properties": {
                     "adaptive": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Displays whether adaptive response time monitoring is enabled for this monitor.\n"
                     },
                     "adaptiveLimit": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "Displays whether adaptive response time monitoring is enabled for this monitor.\n"
                     },
                     "database": {
                         "type": "string"
@@ -10763,7 +11034,8 @@
                         "type": "string"
                     },
                     "destination": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "id will be full path name of ltm monitor.\n"
                     },
                     "filename": {
                         "type": "string"
@@ -10773,13 +11045,16 @@
                         "description": "The provider-assigned unique ID for this managed resource.\n"
                     },
                     "interval": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown.\n"
                     },
                     "ipDscp": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "Displays the differentiated services code point (DSCP). DSCP is a 6-bit value in the Differentiated Services (DS) field of the IP header.\n"
                     },
                     "manualResume": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Displays whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.\n"
                     },
                     "mode": {
                         "type": "string"
@@ -10794,7 +11069,8 @@
                         "type": "string"
                     },
                     "reverse": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Instructs the system to mark the target resource down when the test is successful.\n"
                     },
                     "timeUntilUp": {
                         "type": "integer"
@@ -10803,7 +11079,8 @@
                         "type": "integer"
                     },
                     "transparent": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Displays whether the monitor operates in transparent mode.\n"
                     },
                     "username": {
                         "type": "string"
@@ -10834,23 +11111,32 @@
             }
         },
         "f5bigip:ltm/getNode:getNode": {
+            "description": "Use this data source (`f5bigip.ltm.Node`) to get the ltm node details available on BIG-IP\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst test = pulumi.output(f5bigip.ltm.getNode({\n    name: \"terraform_node\",\n    partition: \"Common\",\n}));\n\nexport const bigipNode = test.address!;\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ntest = f5bigip.ltm.get_node(name=\"terraform_node\",\n    partition=\"Common\")\npulumi.export(\"bigipNode\", test.address)\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test = Output.Create(F5BigIP.Ltm.GetNode.InvokeAsync(new F5BigIP.Ltm.GetNodeArgs\n        {\n            Name = \"terraform_node\",\n            Partition = \"Common\",\n        }));\n        this.BigipNode = test.Apply(test =\u003e test.Address);\n    }\n\n    [Output(\"bigipNode\")]\n    public Output\u003cstring\u003e BigipNode { get; set; }\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttest, err := ltm.LookupNode(ctx, \u0026ltm.LookupNodeArgs{\n\t\t\tName:      \"terraform_node\",\n\t\t\tPartition: \"Common\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"bigipNode\", test.Address)\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getNode.\n",
                 "properties": {
                     "address": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The address of the node.\n"
                     },
                     "description": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "User defined description of the node.\n"
                     },
                     "fqdn": {
                         "$ref": "#/types/f5bigip:ltm/getNodeFqdn:getNodeFqdn"
                     },
+                    "fullPath": {
+                        "type": "string",
+                        "description": "Full path of the node (partition and name)\n"
+                    },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the node.\n"
                     },
                     "partition": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "partition of the node.\n"
                     }
                 },
                 "type": "object",
@@ -10863,26 +11149,35 @@
                 "description": "A collection of values returned by getNode.\n",
                 "properties": {
                     "address": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The address of the node.\n"
                     },
                     "connectionLimit": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "Node connection limit.\n"
                     },
                     "description": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "User defined description of the node.\n"
                     },
                     "dynamicRatio": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "The dynamic ratio number for the node.\n"
                     },
                     "fqdn": {
                         "$ref": "#/types/f5bigip:ltm/getNodeFqdn:getNodeFqdn"
+                    },
+                    "fullPath": {
+                        "type": "string",
+                        "description": "Full path of the node (partition and name)\n"
                     },
                     "id": {
                         "type": "string",
                         "description": "The provider-assigned unique ID for this managed resource.\n"
                     },
                     "monitor": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Specifies the health monitors the system currently uses to monitor this node.\n"
                     },
                     "name": {
                         "type": "string"
@@ -10891,16 +11186,19 @@
                         "type": "string"
                     },
                     "rateLimit": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Node rate limit.\n"
                     },
                     "ratio": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "Node ratio weight.\n"
                     },
                     "session": {
                         "type": "string"
                     },
                     "state": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The current state of the node.\n"
                     }
                 },
                 "type": "object",
@@ -10920,14 +11218,17 @@
             }
         },
         "f5bigip:ltm/getPool:getPool": {
+            "description": "Use this data source (`f5bigip.ltm.Pool`) to get the ltm monitor details available on BIG-IP\n \n \n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst pool_Example = pulumi.output(f5bigip.ltm.getPool({\n    name: \"example-pool\",\n    partition: \"Common\",\n}));\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\npool__example = f5bigip.ltm.get_pool(name=\"example-pool\",\n    partition=\"Common\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var pool_Example = Output.Create(F5BigIP.Ltm.GetPool.InvokeAsync(new F5BigIP.Ltm.GetPoolArgs\n        {\n            Name = \"example-pool\",\n            Partition = \"Common\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.LookupPool(ctx, \u0026ltm.LookupPoolArgs{\n\t\t\tName:      \"example-pool\",\n\t\t\tPartition: \"Common\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getPool.\n",
                 "properties": {
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the ltm monitor\n"
                     },
                     "partition": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "partition of the ltm monitor\n"
                     }
                 },
                 "type": "object",
@@ -10940,7 +11241,8 @@
                 "description": "A collection of values returned by getPool.\n",
                 "properties": {
                     "fullPath": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Full path to the pool.\n"
                     },
                     "id": {
                         "type": "string",
@@ -10963,14 +11265,17 @@
             }
         },
         "f5bigip:ssl/getCertificate:getCertificate": {
+            "description": "Use this data source (`f5bigip.ssl.Certificate`) to get the ssl-certificate details available on BIG-IP\n \n \n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst test = pulumi.output(f5bigip.ssl.getCertificate({\n    name: \"terraform_ssl_certificate\",\n    partition: \"Common\",\n}));\n\nexport const bigipSslCertificateName = test.name;\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ntest = f5bigip.ssl.get_certificate(name=\"terraform_ssl_certificate\",\n    partition=\"Common\")\npulumi.export(\"bigipSslCertificateName\", test.name)\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test = Output.Create(F5BigIP.Ssl.GetCertificate.InvokeAsync(new F5BigIP.Ssl.GetCertificateArgs\n        {\n            Name = \"terraform_ssl_certificate\",\n            Partition = \"Common\",\n        }));\n        this.BigipSslCertificateName = test.Apply(test =\u003e test.Name);\n    }\n\n    [Output(\"bigipSslCertificateName\")]\n    public Output\u003cstring\u003e BigipSslCertificateName { get; set; }\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ssl\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttest, err := ssl.LookupCertificate(ctx, \u0026ssl.LookupCertificateArgs{\n\t\t\tName:      \"terraform_ssl_certificate\",\n\t\t\tPartition: \"Common\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"bigipSslCertificateName\", test.Name)\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getCertificate.\n",
                 "properties": {
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the ssl_certificate\n"
                     },
                     "partition": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "partition of the ltm ssl_certificate\n"
                     }
                 },
                 "type": "object",
@@ -10990,10 +11295,12 @@
                         "description": "The provider-assigned unique ID for this managed resource.\n"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of ssl_certificate configured on bigip with full path\n"
                     },
                     "partition": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Bigip partition in which ssl-certificate is configured\n"
                     }
                 },
                 "type": "object",
@@ -11006,17 +11313,21 @@
             }
         },
         "f5bigip:ssl/getVWanConfig:getVWanConfig": {
+            "description": "Use this data source (`f5bigip.ssl.getVWanConfig`) to get the vWAN site config from Azure VWAN Site\n \n \n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst vwanconfig = pulumi.output(f5bigip.ssl.getVWanConfig({\n    azureVwanName: \"azurevwan-bigip-vwan-9c8d\",\n    azureVwanResourcegroup: \"azurevwan-bigip-rg-9c8d\",\n    azureVwanVpnsite: \"azurevwan-bigip-vsite-9c8d\",\n}));\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nvwanconfig = f5bigip.ssl.get_v_wan_config(azure_vwan_name=\"azurevwan-bigip-vwan-9c8d\",\n    azure_vwan_resourcegroup=\"azurevwan-bigip-rg-9c8d\",\n    azure_vwan_vpnsite=\"azurevwan-bigip-vsite-9c8d\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var vwanconfig = Output.Create(F5BigIP.Ssl.GetVWanConfig.InvokeAsync(new F5BigIP.Ssl.GetVWanConfigArgs\n        {\n            AzureVwanName = \"azurevwan-bigip-vwan-9c8d\",\n            AzureVwanResourcegroup = \"azurevwan-bigip-rg-9c8d\",\n            AzureVwanVpnsite = \"azurevwan-bigip-vsite-9c8d\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ssl\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ssl.GetVWanConfig(ctx, \u0026ssl.GetVWanConfigArgs{\n\t\t\tAzureVwanName:          \"azurevwan-bigip-vwan-9c8d\",\n\t\t\tAzureVwanResourcegroup: \"azurevwan-bigip-rg-9c8d\",\n\t\t\tAzureVwanVpnsite:       \"azurevwan-bigip-vsite-9c8d\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## Pre-required Environment Settings:\n\n* `AZURE_CLIENT_ID` - (Required) Set this environment variable with the Azure app client ID to use.\n\n* `AZURE_CLIENT_SECRET` - (Required) Set this environment variable with the Azure app secret to use.\n\n* `AZURE_SUBSCRIPTION_ID` - (Required) Set this environment variable with the Azure subscription ID to use.\n\n* `AZURE_TENANT_ID` - (Required) Set this environment variable with the Tenant ID to which to authenticate.\n\n* `STORAGE_ACCOUNT_NAME` - (Required) Set this environment variable with the storage account for download config.\n\n* `STORAGE_ACCOUNT_KEY` - (Required) Specifies the storage account key to authenticate,set this Environment variable with account key value.\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getVWanConfig.\n",
                 "properties": {
                     "azureVwanName": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the Azure vWAN Name\n"
                     },
                     "azureVwanResourcegroup": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the Azure vWAN resource group\n"
                     },
                     "azureVwanVpnsite": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Name of the Azure vWAN VPN site from which configuration to be download\n"
                     }
                 },
                 "type": "object",
@@ -11039,29 +11350,34 @@
                         "type": "string"
                     },
                     "bigipGwIp": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(type `string`) provides IP address of BIGIP G/W for IPSec Endpoint.\n"
                     },
                     "hubAddressSpace": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(type `string`) Provides IP Address space used on vWAN Hub.\n"
                     },
                     "hubConnectedSubnets": {
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "(type `list`) Provides Subnets connected to vWAN Hub.\n"
                     },
                     "id": {
                         "type": "string",
                         "description": "The provider-assigned unique ID for this managed resource.\n"
                     },
                     "presharedKey": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "(type `string`) provides pre-shared-key used for IPSec Tunnel creation.\n"
                     },
                     "vwanGwAddresses": {
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "(type `list`) Provides vWAN Gateway Address for IPSec End point\n"
                     }
                 },
                 "type": "object",

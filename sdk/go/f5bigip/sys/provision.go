@@ -46,9 +46,9 @@ type Provision struct {
 	CpuRatio pulumi.IntPtrOutput `pulumi:"cpuRatio"`
 	// disk Ratio
 	DiskRatio pulumi.IntPtrOutput `pulumi:"diskRatio"`
-	// Specifies the module being enabled. It can be one among the list [afm, am, apm, asm, avr, cgnat, fps, gtm, ilx, lc, ltm, pem, swg, urldb, sslo, vcmp]
+	// path
 	FullPath pulumi.StringOutput `pulumi:"fullPath"`
-	// Specifies the level of resources that you want to provision for a module. The list of allowed values are [minimum, nominal, dedicated, custom, none]
+	// what level nominal or dedicated
 	Level pulumi.StringPtrOutput `pulumi:"level"`
 	// memory Ratio
 	MemoryRatio pulumi.IntPtrOutput `pulumi:"memoryRatio"`
@@ -92,9 +92,9 @@ type provisionState struct {
 	CpuRatio *int `pulumi:"cpuRatio"`
 	// disk Ratio
 	DiskRatio *int `pulumi:"diskRatio"`
-	// Specifies the module being enabled. It can be one among the list [afm, am, apm, asm, avr, cgnat, fps, gtm, ilx, lc, ltm, pem, swg, urldb, sslo, vcmp]
+	// path
 	FullPath *string `pulumi:"fullPath"`
-	// Specifies the level of resources that you want to provision for a module. The list of allowed values are [minimum, nominal, dedicated, custom, none]
+	// what level nominal or dedicated
 	Level *string `pulumi:"level"`
 	// memory Ratio
 	MemoryRatio *int `pulumi:"memoryRatio"`
@@ -107,9 +107,9 @@ type ProvisionState struct {
 	CpuRatio pulumi.IntPtrInput
 	// disk Ratio
 	DiskRatio pulumi.IntPtrInput
-	// Specifies the module being enabled. It can be one among the list [afm, am, apm, asm, avr, cgnat, fps, gtm, ilx, lc, ltm, pem, swg, urldb, sslo, vcmp]
+	// path
 	FullPath pulumi.StringPtrInput
-	// Specifies the level of resources that you want to provision for a module. The list of allowed values are [minimum, nominal, dedicated, custom, none]
+	// what level nominal or dedicated
 	Level pulumi.StringPtrInput
 	// memory Ratio
 	MemoryRatio pulumi.IntPtrInput
@@ -126,9 +126,9 @@ type provisionArgs struct {
 	CpuRatio *int `pulumi:"cpuRatio"`
 	// disk Ratio
 	DiskRatio *int `pulumi:"diskRatio"`
-	// Specifies the module being enabled. It can be one among the list [afm, am, apm, asm, avr, cgnat, fps, gtm, ilx, lc, ltm, pem, swg, urldb, sslo, vcmp]
+	// path
 	FullPath *string `pulumi:"fullPath"`
-	// Specifies the level of resources that you want to provision for a module. The list of allowed values are [minimum, nominal, dedicated, custom, none]
+	// what level nominal or dedicated
 	Level *string `pulumi:"level"`
 	// memory Ratio
 	MemoryRatio *int `pulumi:"memoryRatio"`
@@ -142,9 +142,9 @@ type ProvisionArgs struct {
 	CpuRatio pulumi.IntPtrInput
 	// disk Ratio
 	DiskRatio pulumi.IntPtrInput
-	// Specifies the module being enabled. It can be one among the list [afm, am, apm, asm, avr, cgnat, fps, gtm, ilx, lc, ltm, pem, swg, urldb, sslo, vcmp]
+	// path
 	FullPath pulumi.StringPtrInput
-	// Specifies the level of resources that you want to provision for a module. The list of allowed values are [minimum, nominal, dedicated, custom, none]
+	// what level nominal or dedicated
 	Level pulumi.StringPtrInput
 	// memory Ratio
 	MemoryRatio pulumi.IntPtrInput

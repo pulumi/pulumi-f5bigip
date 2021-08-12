@@ -48,6 +48,7 @@
         "ltm/profileClientSsl.ts",
         "ltm/profileFastHttp.ts",
         "ltm/profileFastL4.ts",
+        "ltm/profileFtp.ts",
         "ltm/profileHttp.ts",
         "ltm/profileHttp2.ts",
         "ltm/profileHttpCompress.ts",

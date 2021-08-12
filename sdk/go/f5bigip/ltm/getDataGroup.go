@@ -7,6 +7,31 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source (`ltm.DataGroup`) to get the data group details available on BIG-IP
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ltm.LookupDataGroup(ctx, &ltm.LookupDataGroupArgs{
+// 			Name:      "test-dg",
+// 			Partition: "Common",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 func LookupDataGroup(ctx *pulumi.Context, args *LookupDataGroupArgs, opts ...pulumi.InvokeOption) (*LookupDataGroupResult, error) {
 	var rv LookupDataGroupResult
 	err := ctx.Invoke("f5bigip:ltm/getDataGroup:getDataGroup", args, &rv, opts...)
@@ -18,18 +43,24 @@ func LookupDataGroup(ctx *pulumi.Context, args *LookupDataGroupArgs, opts ...pul
 
 // A collection of arguments for invoking getDataGroup.
 type LookupDataGroupArgs struct {
-	Name      string               `pulumi:"name"`
-	Partition string               `pulumi:"partition"`
-	Records   []GetDataGroupRecord `pulumi:"records"`
-	Type      *string              `pulumi:"type"`
+	// Name of the datagroup
+	Name string `pulumi:"name"`
+	// partition of the datagroup
+	Partition string `pulumi:"partition"`
+	// Specifies record of type (string/ip/integer)
+	Records []GetDataGroupRecord `pulumi:"records"`
+	// The Data Group type (string, ip, integer)"
+	Type *string `pulumi:"type"`
 }
 
 // A collection of values returned by getDataGroup.
 type LookupDataGroupResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id        string               `pulumi:"id"`
-	Name      string               `pulumi:"name"`
-	Partition string               `pulumi:"partition"`
-	Records   []GetDataGroupRecord `pulumi:"records"`
-	Type      string               `pulumi:"type"`
+	Id        string `pulumi:"id"`
+	Name      string `pulumi:"name"`
+	Partition string `pulumi:"partition"`
+	// Specifies record of type (string/ip/integer)
+	Records []GetDataGroupRecord `pulumi:"records"`
+	// The Data Group type (string, ip, integer)"
+	Type string `pulumi:"type"`
 }

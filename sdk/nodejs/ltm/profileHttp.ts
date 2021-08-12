@@ -17,7 +17,6 @@ import * as utilities from "../utilities";
  *
  * const sanjose_http = new f5bigip.ltm.ProfileHttp("sanjose-http", {
  *     defaultsFrom: "/Common/http",
- *     description: "some http",
  *     fallbackHost: "titanic",
  *     fallbackStatusCodes: [
  *         "400",
@@ -30,7 +29,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * BIG-IP LTM http profiles can be imported using the `name`, e.g.
+ * BIG-IP LTM http profiles can be imported using the `name`, e.g. bash
  *
  * ```sh
  *  $ pulumi import f5bigip:ltm/profileHttp:ProfileHttp test-http /Common/test-http
@@ -65,8 +64,7 @@ export class ProfileHttp extends pulumi.CustomResource {
     }
 
     /**
-     * Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's
-     * XFF (X-forwarded-for) headers, if they exist.
+     * Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's XFF (X-forwarded-for) headers, if they exist.
      */
     public readonly acceptXff!: pulumi.Output<string>;
     /**
@@ -74,7 +72,7 @@ export class ProfileHttp extends pulumi.CustomResource {
      */
     public readonly appService!: pulumi.Output<string | undefined>;
     /**
-     * Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is none
+     * Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is `none`
      */
     public readonly basicAuthRealm!: pulumi.Output<string>;
     /**
@@ -82,15 +80,15 @@ export class ProfileHttp extends pulumi.CustomResource {
      */
     public readonly defaultsFrom!: pulumi.Output<string>;
     /**
-     * User defined description
+     * Specifies user-defined description.
      */
     public readonly description!: pulumi.Output<string>;
     /**
-     * Specifies a passphrase for the cookie encryption
+     * Type a passphrase for cookie encryption.
      */
     public readonly encryptCookieSecret!: pulumi.Output<string | undefined>;
     /**
-     * Encrypts specified cookies that the BIG-IP system sends to a client system
+     * Type the cookie names for the system to encrypt.
      */
     public readonly encryptCookies!: pulumi.Output<string[] | undefined>;
     /**
@@ -98,27 +96,32 @@ export class ProfileHttp extends pulumi.CustomResource {
      */
     public readonly fallbackHost!: pulumi.Output<string>;
     /**
-     * Specifies one or more three-digit status codes that can be returned by an HTTP server.
+     * Specifies one or more three-digit status codes that can be returned by an HTTP server,that should trigger a redirection to the fallback host.
      */
     public readonly fallbackStatusCodes!: pulumi.Output<string[] | undefined>;
     /**
-     * Specifies the header string that you want to erase from an HTTP request. You can also specify none
+     * Specifies the header string that you want to erase from an HTTP request. Default is `none`.
      */
     public readonly headErase!: pulumi.Output<string>;
     /**
-     * Specifies a quoted header string that you want to insert into an HTTP request
+     * Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
      */
     public readonly headInsert!: pulumi.Output<string>;
     /**
-     * When using connection pooling, which allows clients to make use of other client requests' server-side connections, you can insert the X-Forwarded-For header and specify a client IP address
+     * Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
      */
     public readonly insertXforwardedFor!: pulumi.Output<string>;
     /**
-     * Specifies a quoted header string that you want to insert into an HTTP request. You can also specify none.
+     * Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
+     * specify in the LWS Maximum Columns setting.
      */
     public readonly lwsSeparator!: pulumi.Output<string>;
     /**
-     * Name of the profile_http
+     * Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
+     */
+    public readonly lwsWidth!: pulumi.Output<number>;
+    /**
+     * Specifies the name of the http profile,name of Profile should be full path. Full path is the combination of the `partition + profile name`,For example `/Common/test-http-profile`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -126,23 +129,23 @@ export class ProfileHttp extends pulumi.CustomResource {
      */
     public readonly oneconnectTransformations!: pulumi.Output<string>;
     /**
-     * Specifies the type of HTTP proxy.
+     * Specifies the proxy mode for this profile: reverse, explicit, or transparent. The default is `reverse`.
      */
     public readonly proxyType!: pulumi.Output<string>;
     /**
-     * Specifies which of the application HTTP redirects the system rewrites to HTTPS.
+     * Specifies whether the system rewrites the URIs that are part of HTTP redirect (3XX) responses. The default is `none`.
      */
     public readonly redirectRewrite!: pulumi.Output<string>;
     /**
-     * Specifies how to handle chunked and unchunked requests.
+     * Specifies how the system handles HTTP content that is chunked by a client. The default is `preserve`.
      */
     public readonly requestChunking!: pulumi.Output<string>;
     /**
-     * Specifies how to handle chunked and unchunked responses.
+     * Specifies how the system handles HTTP content that is chunked by a server. The default is `selective`.
      */
     public readonly responseChunking!: pulumi.Output<string>;
     /**
-     * Specifies headers that the BIG-IP system allows in an HTTP response.
+     * Specifies headers that the BIG-IP system allows in an HTTP response.If you are specifying more than one header, separate the headers with a blank space.
      */
     public readonly responseHeadersPermitteds!: pulumi.Output<string[]>;
     /**
@@ -167,7 +170,7 @@ export class ProfileHttp extends pulumi.CustomResource {
      */
     public readonly viaResponse!: pulumi.Output<string>;
     /**
-     * Specifies alternative XFF headers instead of the default X-forwarded-for header
+     * Specifies alternative XFF headers instead of the default X-forwarded-for header.
      */
     public readonly xffAlternativeNames!: pulumi.Output<string[]>;
 
@@ -197,6 +200,7 @@ export class ProfileHttp extends pulumi.CustomResource {
             inputs["headInsert"] = state ? state.headInsert : undefined;
             inputs["insertXforwardedFor"] = state ? state.insertXforwardedFor : undefined;
             inputs["lwsSeparator"] = state ? state.lwsSeparator : undefined;
+            inputs["lwsWidth"] = state ? state.lwsWidth : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["oneconnectTransformations"] = state ? state.oneconnectTransformations : undefined;
             inputs["proxyType"] = state ? state.proxyType : undefined;
@@ -228,6 +232,7 @@ export class ProfileHttp extends pulumi.CustomResource {
             inputs["headInsert"] = args ? args.headInsert : undefined;
             inputs["insertXforwardedFor"] = args ? args.insertXforwardedFor : undefined;
             inputs["lwsSeparator"] = args ? args.lwsSeparator : undefined;
+            inputs["lwsWidth"] = args ? args.lwsWidth : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["oneconnectTransformations"] = args ? args.oneconnectTransformations : undefined;
             inputs["proxyType"] = args ? args.proxyType : undefined;
@@ -254,8 +259,7 @@ export class ProfileHttp extends pulumi.CustomResource {
  */
 export interface ProfileHttpState {
     /**
-     * Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's
-     * XFF (X-forwarded-for) headers, if they exist.
+     * Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's XFF (X-forwarded-for) headers, if they exist.
      */
     acceptXff?: pulumi.Input<string>;
     /**
@@ -263,7 +267,7 @@ export interface ProfileHttpState {
      */
     appService?: pulumi.Input<string>;
     /**
-     * Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is none
+     * Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is `none`
      */
     basicAuthRealm?: pulumi.Input<string>;
     /**
@@ -271,15 +275,15 @@ export interface ProfileHttpState {
      */
     defaultsFrom?: pulumi.Input<string>;
     /**
-     * User defined description
+     * Specifies user-defined description.
      */
     description?: pulumi.Input<string>;
     /**
-     * Specifies a passphrase for the cookie encryption
+     * Type a passphrase for cookie encryption.
      */
     encryptCookieSecret?: pulumi.Input<string>;
     /**
-     * Encrypts specified cookies that the BIG-IP system sends to a client system
+     * Type the cookie names for the system to encrypt.
      */
     encryptCookies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -287,27 +291,32 @@ export interface ProfileHttpState {
      */
     fallbackHost?: pulumi.Input<string>;
     /**
-     * Specifies one or more three-digit status codes that can be returned by an HTTP server.
+     * Specifies one or more three-digit status codes that can be returned by an HTTP server,that should trigger a redirection to the fallback host.
      */
     fallbackStatusCodes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the header string that you want to erase from an HTTP request. You can also specify none
+     * Specifies the header string that you want to erase from an HTTP request. Default is `none`.
      */
     headErase?: pulumi.Input<string>;
     /**
-     * Specifies a quoted header string that you want to insert into an HTTP request
+     * Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
      */
     headInsert?: pulumi.Input<string>;
     /**
-     * When using connection pooling, which allows clients to make use of other client requests' server-side connections, you can insert the X-Forwarded-For header and specify a client IP address
+     * Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
      */
     insertXforwardedFor?: pulumi.Input<string>;
     /**
-     * Specifies a quoted header string that you want to insert into an HTTP request. You can also specify none.
+     * Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
+     * specify in the LWS Maximum Columns setting.
      */
     lwsSeparator?: pulumi.Input<string>;
     /**
-     * Name of the profile_http
+     * Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
+     */
+    lwsWidth?: pulumi.Input<number>;
+    /**
+     * Specifies the name of the http profile,name of Profile should be full path. Full path is the combination of the `partition + profile name`,For example `/Common/test-http-profile`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -315,23 +324,23 @@ export interface ProfileHttpState {
      */
     oneconnectTransformations?: pulumi.Input<string>;
     /**
-     * Specifies the type of HTTP proxy.
+     * Specifies the proxy mode for this profile: reverse, explicit, or transparent. The default is `reverse`.
      */
     proxyType?: pulumi.Input<string>;
     /**
-     * Specifies which of the application HTTP redirects the system rewrites to HTTPS.
+     * Specifies whether the system rewrites the URIs that are part of HTTP redirect (3XX) responses. The default is `none`.
      */
     redirectRewrite?: pulumi.Input<string>;
     /**
-     * Specifies how to handle chunked and unchunked requests.
+     * Specifies how the system handles HTTP content that is chunked by a client. The default is `preserve`.
      */
     requestChunking?: pulumi.Input<string>;
     /**
-     * Specifies how to handle chunked and unchunked responses.
+     * Specifies how the system handles HTTP content that is chunked by a server. The default is `selective`.
      */
     responseChunking?: pulumi.Input<string>;
     /**
-     * Specifies headers that the BIG-IP system allows in an HTTP response.
+     * Specifies headers that the BIG-IP system allows in an HTTP response.If you are specifying more than one header, separate the headers with a blank space.
      */
     responseHeadersPermitteds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -356,7 +365,7 @@ export interface ProfileHttpState {
      */
     viaResponse?: pulumi.Input<string>;
     /**
-     * Specifies alternative XFF headers instead of the default X-forwarded-for header
+     * Specifies alternative XFF headers instead of the default X-forwarded-for header.
      */
     xffAlternativeNames?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -366,8 +375,7 @@ export interface ProfileHttpState {
  */
 export interface ProfileHttpArgs {
     /**
-     * Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's
-     * XFF (X-forwarded-for) headers, if they exist.
+     * Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's XFF (X-forwarded-for) headers, if they exist.
      */
     acceptXff?: pulumi.Input<string>;
     /**
@@ -375,7 +383,7 @@ export interface ProfileHttpArgs {
      */
     appService?: pulumi.Input<string>;
     /**
-     * Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is none
+     * Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is `none`
      */
     basicAuthRealm?: pulumi.Input<string>;
     /**
@@ -383,15 +391,15 @@ export interface ProfileHttpArgs {
      */
     defaultsFrom?: pulumi.Input<string>;
     /**
-     * User defined description
+     * Specifies user-defined description.
      */
     description?: pulumi.Input<string>;
     /**
-     * Specifies a passphrase for the cookie encryption
+     * Type a passphrase for cookie encryption.
      */
     encryptCookieSecret?: pulumi.Input<string>;
     /**
-     * Encrypts specified cookies that the BIG-IP system sends to a client system
+     * Type the cookie names for the system to encrypt.
      */
     encryptCookies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -399,27 +407,32 @@ export interface ProfileHttpArgs {
      */
     fallbackHost?: pulumi.Input<string>;
     /**
-     * Specifies one or more three-digit status codes that can be returned by an HTTP server.
+     * Specifies one or more three-digit status codes that can be returned by an HTTP server,that should trigger a redirection to the fallback host.
      */
     fallbackStatusCodes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the header string that you want to erase from an HTTP request. You can also specify none
+     * Specifies the header string that you want to erase from an HTTP request. Default is `none`.
      */
     headErase?: pulumi.Input<string>;
     /**
-     * Specifies a quoted header string that you want to insert into an HTTP request
+     * Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
      */
     headInsert?: pulumi.Input<string>;
     /**
-     * When using connection pooling, which allows clients to make use of other client requests' server-side connections, you can insert the X-Forwarded-For header and specify a client IP address
+     * Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
      */
     insertXforwardedFor?: pulumi.Input<string>;
     /**
-     * Specifies a quoted header string that you want to insert into an HTTP request. You can also specify none.
+     * Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
+     * specify in the LWS Maximum Columns setting.
      */
     lwsSeparator?: pulumi.Input<string>;
     /**
-     * Name of the profile_http
+     * Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
+     */
+    lwsWidth?: pulumi.Input<number>;
+    /**
+     * Specifies the name of the http profile,name of Profile should be full path. Full path is the combination of the `partition + profile name`,For example `/Common/test-http-profile`.
      */
     name: pulumi.Input<string>;
     /**
@@ -427,23 +440,23 @@ export interface ProfileHttpArgs {
      */
     oneconnectTransformations?: pulumi.Input<string>;
     /**
-     * Specifies the type of HTTP proxy.
+     * Specifies the proxy mode for this profile: reverse, explicit, or transparent. The default is `reverse`.
      */
     proxyType?: pulumi.Input<string>;
     /**
-     * Specifies which of the application HTTP redirects the system rewrites to HTTPS.
+     * Specifies whether the system rewrites the URIs that are part of HTTP redirect (3XX) responses. The default is `none`.
      */
     redirectRewrite?: pulumi.Input<string>;
     /**
-     * Specifies how to handle chunked and unchunked requests.
+     * Specifies how the system handles HTTP content that is chunked by a client. The default is `preserve`.
      */
     requestChunking?: pulumi.Input<string>;
     /**
-     * Specifies how to handle chunked and unchunked responses.
+     * Specifies how the system handles HTTP content that is chunked by a server. The default is `selective`.
      */
     responseChunking?: pulumi.Input<string>;
     /**
-     * Specifies headers that the BIG-IP system allows in an HTTP response.
+     * Specifies headers that the BIG-IP system allows in an HTTP response.If you are specifying more than one header, separate the headers with a blank space.
      */
     responseHeadersPermitteds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -468,7 +481,7 @@ export interface ProfileHttpArgs {
      */
     viaResponse?: pulumi.Input<string>;
     /**
-     * Specifies alternative XFF headers instead of the default X-forwarded-for header
+     * Specifies alternative XFF headers instead of the default X-forwarded-for header.
      */
     xffAlternativeNames?: pulumi.Input<pulumi.Input<string>[]>;
 }

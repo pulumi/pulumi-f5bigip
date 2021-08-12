@@ -19,7 +19,8 @@ class EventServiceDiscoveryArgs:
                  nodes: Optional[pulumi.Input[Sequence[pulumi.Input['EventServiceDiscoveryNodeArgs']]]] = None):
         """
         The set of arguments for constructing a EventServiceDiscovery resource.
-        :param pulumi.Input[str] taskid: Name of the partition/tenant
+        :param pulumi.Input[str] taskid: servicediscovery endpoint ( Below example shows how to create endpoing using AS3 )
+        :param pulumi.Input[Sequence[pulumi.Input['EventServiceDiscoveryNodeArgs']]] nodes: Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
         """
         pulumi.set(__self__, "taskid", taskid)
         if nodes is not None:
@@ -29,7 +30,7 @@ class EventServiceDiscoveryArgs:
     @pulumi.getter
     def taskid(self) -> pulumi.Input[str]:
         """
-        Name of the partition/tenant
+        servicediscovery endpoint ( Below example shows how to create endpoing using AS3 )
         """
         return pulumi.get(self, "taskid")
 
@@ -40,6 +41,9 @@ class EventServiceDiscoveryArgs:
     @property
     @pulumi.getter
     def nodes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventServiceDiscoveryNodeArgs']]]]:
+        """
+        Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
+        """
         return pulumi.get(self, "nodes")
 
     @nodes.setter
@@ -54,7 +58,8 @@ class _EventServiceDiscoveryState:
                  taskid: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EventServiceDiscovery resources.
-        :param pulumi.Input[str] taskid: Name of the partition/tenant
+        :param pulumi.Input[Sequence[pulumi.Input['EventServiceDiscoveryNodeArgs']]] nodes: Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
+        :param pulumi.Input[str] taskid: servicediscovery endpoint ( Below example shows how to create endpoing using AS3 )
         """
         if nodes is not None:
             pulumi.set(__self__, "nodes", nodes)
@@ -64,6 +69,9 @@ class _EventServiceDiscoveryState:
     @property
     @pulumi.getter
     def nodes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventServiceDiscoveryNodeArgs']]]]:
+        """
+        Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
+        """
         return pulumi.get(self, "nodes")
 
     @nodes.setter
@@ -74,7 +82,7 @@ class _EventServiceDiscoveryState:
     @pulumi.getter
     def taskid(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the partition/tenant
+        servicediscovery endpoint ( Below example shows how to create endpoing using AS3 )
         """
         return pulumi.get(self, "taskid")
 
@@ -95,7 +103,8 @@ class EventServiceDiscovery(pulumi.CustomResource):
         Create a EventServiceDiscovery resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] taskid: Name of the partition/tenant
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventServiceDiscoveryNodeArgs']]]] nodes: Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
+        :param pulumi.Input[str] taskid: servicediscovery endpoint ( Below example shows how to create endpoing using AS3 )
         """
         ...
     @overload
@@ -157,7 +166,8 @@ class EventServiceDiscovery(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] taskid: Name of the partition/tenant
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventServiceDiscoveryNodeArgs']]]] nodes: Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
+        :param pulumi.Input[str] taskid: servicediscovery endpoint ( Below example shows how to create endpoing using AS3 )
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -170,13 +180,16 @@ class EventServiceDiscovery(pulumi.CustomResource):
     @property
     @pulumi.getter
     def nodes(self) -> pulumi.Output[Optional[Sequence['outputs.EventServiceDiscoveryNode']]]:
+        """
+        Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
+        """
         return pulumi.get(self, "nodes")
 
     @property
     @pulumi.getter
     def taskid(self) -> pulumi.Output[str]:
         """
-        Name of the partition/tenant
+        servicediscovery endpoint ( Below example shows how to create endpoing using AS3 )
         """
         return pulumi.get(self, "taskid")
 

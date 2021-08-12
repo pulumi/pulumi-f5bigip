@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * `f5bigip.ltm.VirtualServer` Configures Virtual Server
  *
- * For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+ * For resources should be named with their "full path". The full path is the combination of the partition + name of the resource (example: /Common/my-pool ) or partition + directory + name of the resource (example: /Common/test/my-pool ).When including directory in fullpath we have to make sure it is created in the given partition before using it.
  *
  * ## Example Usage
  *
@@ -45,6 +45,7 @@ import * as utilities from "../utilities";
  *     port: 443,
  *     clientProfiles: ["/Common/clientssl"],
  *     serverProfiles: ["/Common/serverssl"],
+ *     securityLogProfiles: ["/Common/global-network"],
  *     sourceAddressTranslation: "automap",
  * });
  * ```
@@ -128,6 +129,9 @@ export class VirtualServer extends pulumi.CustomResource {
      * List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
      */
     public readonly profiles!: pulumi.Output<string[]>;
+    /**
+     * Specifies the log profile applied to the virtual server.
+     */
     public readonly securityLogProfiles!: pulumi.Output<string[] | undefined>;
     /**
      * List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
@@ -303,6 +307,9 @@ export interface VirtualServerState {
      * List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
      */
     profiles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the log profile applied to the virtual server.
+     */
     securityLogProfiles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
@@ -397,6 +404,9 @@ export interface VirtualServerArgs {
      * List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
      */
     profiles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the log profile applied to the virtual server.
+     */
     securityLogProfiles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles

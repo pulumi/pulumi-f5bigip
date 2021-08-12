@@ -11,6 +11,37 @@ namespace Pulumi.F5BigIP.Ltm
 {
     public static class GetNode
     {
+        /// <summary>
+        /// Use this data source (`f5bigip.ltm.Node`) to get the ltm node details available on BIG-IP
+        /// 
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using F5BigIP = Pulumi.F5BigIP;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(F5BigIP.Ltm.GetNode.InvokeAsync(new F5BigIP.Ltm.GetNodeArgs
+        ///         {
+        ///             Name = "terraform_node",
+        ///             Partition = "Common",
+        ///         }));
+        ///         this.BigipNode = test.Apply(test =&gt; test.Address);
+        ///     }
+        /// 
+        ///     [Output("bigipNode")]
+        ///     public Output&lt;string&gt; BigipNode { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetNodeResult> InvokeAsync(GetNodeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNodeResult>("f5bigip:ltm/getNode:getNode", args ?? new GetNodeArgs(), options.WithVersion());
     }
@@ -18,18 +49,36 @@ namespace Pulumi.F5BigIP.Ltm
 
     public sealed class GetNodeArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The address of the node.
+        /// </summary>
         [Input("address")]
         public string? Address { get; set; }
 
+        /// <summary>
+        /// User defined description of the node.
+        /// </summary>
         [Input("description")]
         public string? Description { get; set; }
 
         [Input("fqdn")]
         public Inputs.GetNodeFqdnArgs? Fqdn { get; set; }
 
+        /// <summary>
+        /// Full path of the node (partition and name)
+        /// </summary>
+        [Input("fullPath")]
+        public string? FullPath { get; set; }
+
+        /// <summary>
+        /// Name of the node.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// partition of the node.
+        /// </summary>
         [Input("partition", required: true)]
         public string Partition { get; set; } = null!;
 
@@ -42,21 +91,49 @@ namespace Pulumi.F5BigIP.Ltm
     [OutputType]
     public sealed class GetNodeResult
     {
+        /// <summary>
+        /// The address of the node.
+        /// </summary>
         public readonly string? Address;
+        /// <summary>
+        /// Node connection limit.
+        /// </summary>
         public readonly int ConnectionLimit;
+        /// <summary>
+        /// User defined description of the node.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The dynamic ratio number for the node.
+        /// </summary>
         public readonly int DynamicRatio;
         public readonly Outputs.GetNodeFqdnResult Fqdn;
+        /// <summary>
+        /// Full path of the node (partition and name)
+        /// </summary>
+        public readonly string? FullPath;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Specifies the health monitors the system currently uses to monitor this node.
+        /// </summary>
         public readonly string Monitor;
         public readonly string Name;
         public readonly string Partition;
+        /// <summary>
+        /// Node rate limit.
+        /// </summary>
         public readonly string RateLimit;
+        /// <summary>
+        /// Node ratio weight.
+        /// </summary>
         public readonly int Ratio;
         public readonly string Session;
+        /// <summary>
+        /// The current state of the node.
+        /// </summary>
         public readonly string State;
 
         [OutputConstructor]
@@ -70,6 +147,8 @@ namespace Pulumi.F5BigIP.Ltm
             int dynamicRatio,
 
             Outputs.GetNodeFqdnResult fqdn,
+
+            string? fullPath,
 
             string id,
 
@@ -92,6 +171,7 @@ namespace Pulumi.F5BigIP.Ltm
             Description = description;
             DynamicRatio = dynamicRatio;
             Fqdn = fqdn;
+            FullPath = fullPath;
             Id = id;
             Monitor = monitor;
             Name = name;

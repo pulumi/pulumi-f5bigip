@@ -14,6 +14,9 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
     public sealed class GetDataGroupRecordResult
     {
         public readonly string? Data;
+        /// <summary>
+        /// Name of the datagroup
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

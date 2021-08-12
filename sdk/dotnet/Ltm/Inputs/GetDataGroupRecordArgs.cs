@@ -15,6 +15,9 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
         [Input("data")]
         public string? Data { get; set; }
 
+        /// <summary>
+        /// Name of the datagroup
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 

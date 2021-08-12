@@ -24,6 +24,7 @@ export * from "./poolAttachment";
 export * from "./profileClientSsl";
 export * from "./profileFastHttp";
 export * from "./profileFastL4";
+export * from "./profileFtp";
 export * from "./profileHttp";
 export * from "./profileHttp2";
 export * from "./profileHttpCompress";
@@ -50,6 +51,7 @@ import { PoolAttachment } from "./poolAttachment";
 import { ProfileClientSsl } from "./profileClientSsl";
 import { ProfileFastHttp } from "./profileFastHttp";
 import { ProfileFastL4 } from "./profileFastL4";
+import { ProfileFtp } from "./profileFtp";
 import { ProfileHttp2 } from "./profileHttp2";
 import { ProfileHttp } from "./profileHttp";
 import { ProfileHttpCompress } from "./profileHttpCompress";
@@ -93,6 +95,8 @@ const _module = {
                 return new ProfileFastHttp(name, <any>undefined, { urn })
             case "f5bigip:ltm/profileFastL4:ProfileFastL4":
                 return new ProfileFastL4(name, <any>undefined, { urn })
+            case "f5bigip:ltm/profileFtp:ProfileFtp":
+                return new ProfileFtp(name, <any>undefined, { urn })
             case "f5bigip:ltm/profileHttp2:ProfileHttp2":
                 return new ProfileHttp2(name, <any>undefined, { urn })
             case "f5bigip:ltm/profileHttp:ProfileHttp":
@@ -132,6 +136,7 @@ pulumi.runtime.registerResourceModule("f5bigip", "ltm/poolAttachment", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "ltm/profileClientSsl", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "ltm/profileFastHttp", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "ltm/profileFastL4", _module)
+pulumi.runtime.registerResourceModule("f5bigip", "ltm/profileFtp", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "ltm/profileHttp", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "ltm/profileHttp2", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "ltm/profileHttpCompress", _module)

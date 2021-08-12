@@ -13,7 +13,7 @@ import (
 
 // `ltm.Node` Manages a node configuration
 //
-// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+// For resources should be named with their "full path".The full path is the combination of the partition + name of the resource( example: /Common/my-node ) or partition + Direcroty + nameof the resource ( example: /Common/test/my-node ).When including directory in fullpath we have to make sure it is created in the given partition before using it.
 //
 // ## Example Usage
 //
@@ -67,7 +67,7 @@ type Node struct {
 	RateLimit pulumi.StringOutput `pulumi:"rateLimit"`
 	// Sets the ratio number for the node.
 	Ratio pulumi.IntOutput `pulumi:"ratio"`
-	// Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
+	// Enables or disables the node for new sessions. The default value is user-enabled.
 	Session pulumi.StringOutput `pulumi:"session"`
 	// Default is "user-up" you can set to "user-down" if you want to disable
 	State pulumi.StringPtrOutput `pulumi:"state"`
@@ -125,7 +125,7 @@ type nodeState struct {
 	RateLimit *string `pulumi:"rateLimit"`
 	// Sets the ratio number for the node.
 	Ratio *int `pulumi:"ratio"`
-	// Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
+	// Enables or disables the node for new sessions. The default value is user-enabled.
 	Session *string `pulumi:"session"`
 	// Default is "user-up" you can set to "user-down" if you want to disable
 	State *string `pulumi:"state"`
@@ -149,7 +149,7 @@ type NodeState struct {
 	RateLimit pulumi.StringPtrInput
 	// Sets the ratio number for the node.
 	Ratio pulumi.IntPtrInput
-	// Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
+	// Enables or disables the node for new sessions. The default value is user-enabled.
 	Session pulumi.StringPtrInput
 	// Default is "user-up" you can set to "user-down" if you want to disable
 	State pulumi.StringPtrInput
@@ -177,7 +177,7 @@ type nodeArgs struct {
 	RateLimit *string `pulumi:"rateLimit"`
 	// Sets the ratio number for the node.
 	Ratio *int `pulumi:"ratio"`
-	// Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
+	// Enables or disables the node for new sessions. The default value is user-enabled.
 	Session *string `pulumi:"session"`
 	// Default is "user-up" you can set to "user-down" if you want to disable
 	State *string `pulumi:"state"`
@@ -202,7 +202,7 @@ type NodeArgs struct {
 	RateLimit pulumi.StringPtrInput
 	// Sets the ratio number for the node.
 	Ratio pulumi.IntPtrInput
-	// Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
+	// Enables or disables the node for new sessions. The default value is user-enabled.
 	Session pulumi.StringPtrInput
 	// Default is "user-up" you can set to "user-down" if you want to disable
 	State pulumi.StringPtrInput

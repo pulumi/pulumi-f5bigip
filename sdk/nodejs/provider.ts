@@ -28,7 +28,7 @@ export class Provider extends pulumi.ProviderResource {
     /**
      * Domain name/IP of the BigIP
      */
-    public readonly address!: pulumi.Output<string>;
+    public readonly address!: pulumi.Output<string | undefined>;
     /**
      * Login reference for token authentication (see BIG-IP REST docs for details)
      */
@@ -36,7 +36,7 @@ export class Provider extends pulumi.ProviderResource {
     /**
      * The user's password. Leave empty if using token_value
      */
-    public readonly password!: pulumi.Output<string>;
+    public readonly password!: pulumi.Output<string | undefined>;
     /**
      * Management Port to connect to Bigip
      */
@@ -48,7 +48,7 @@ export class Provider extends pulumi.ProviderResource {
     /**
      * Username with API access to the BigIP
      */
-    public readonly username!: pulumi.Output<string>;
+    public readonly username!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -57,19 +57,10 @@ export class Provider extends pulumi.ProviderResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: ProviderArgs, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            if ((!args || args.address === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'address'");
-            }
-            if ((!args || args.password === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'password'");
-            }
-            if ((!args || args.username === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'username'");
-            }
             inputs["address"] = args ? args.address : undefined;
             inputs["loginRef"] = args ? args.loginRef : undefined;
             inputs["password"] = args ? args.password : undefined;
@@ -93,7 +84,7 @@ export interface ProviderArgs {
     /**
      * Domain name/IP of the BigIP
      */
-    address: pulumi.Input<string>;
+    address?: pulumi.Input<string>;
     /**
      * Login reference for token authentication (see BIG-IP REST docs for details)
      */
@@ -101,7 +92,7 @@ export interface ProviderArgs {
     /**
      * The user's password. Leave empty if using token_value
      */
-    password: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * Management Port to connect to Bigip
      */
@@ -121,5 +112,5 @@ export interface ProviderArgs {
     /**
      * Username with API access to the BigIP
      */
-    username: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
 }

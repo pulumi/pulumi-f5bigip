@@ -55,6 +55,10 @@ export class Key extends pulumi.CustomResource {
      */
     public readonly content!: pulumi.Output<string>;
     /**
+     * Full Path Name of ssl key
+     */
+    public readonly fullPath!: pulumi.Output<string>;
+    /**
      * Name of the SSL Certificate key to be Imported on to BIGIP
      */
     public readonly name!: pulumi.Output<string>;
@@ -77,6 +81,7 @@ export class Key extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as KeyState | undefined;
             inputs["content"] = state ? state.content : undefined;
+            inputs["fullPath"] = state ? state.fullPath : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["partition"] = state ? state.partition : undefined;
         } else {
@@ -88,6 +93,7 @@ export class Key extends pulumi.CustomResource {
                 throw new Error("Missing required property 'name'");
             }
             inputs["content"] = args ? args.content : undefined;
+            inputs["fullPath"] = args ? args.fullPath : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["partition"] = args ? args.partition : undefined;
         }
@@ -107,6 +113,10 @@ export interface KeyState {
      */
     content?: pulumi.Input<string>;
     /**
+     * Full Path Name of ssl key
+     */
+    fullPath?: pulumi.Input<string>;
+    /**
      * Name of the SSL Certificate key to be Imported on to BIGIP
      */
     name?: pulumi.Input<string>;
@@ -124,6 +134,10 @@ export interface KeyArgs {
      * Content of SSL certificate key present on local Disk
      */
     content: pulumi.Input<string>;
+    /**
+     * Full Path Name of ssl key
+     */
+    fullPath?: pulumi.Input<string>;
     /**
      * Name of the SSL Certificate key to be Imported on to BIGIP
      */

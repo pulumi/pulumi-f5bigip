@@ -2005,7 +2005,8 @@ func (o SnatOriginArrayOutput) Index(i pulumi.IntInput) SnatOriginOutput {
 
 type GetDataGroupRecord struct {
 	Data *string `pulumi:"data"`
-	Name string  `pulumi:"name"`
+	// Name of the datagroup
+	Name string `pulumi:"name"`
 }
 
 // GetDataGroupRecordInput is an input type that accepts GetDataGroupRecordArgs and GetDataGroupRecordOutput values.
@@ -2021,7 +2022,8 @@ type GetDataGroupRecordInput interface {
 
 type GetDataGroupRecordArgs struct {
 	Data pulumi.StringPtrInput `pulumi:"data"`
-	Name pulumi.StringInput    `pulumi:"name"`
+	// Name of the datagroup
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (GetDataGroupRecordArgs) ElementType() reflect.Type {
@@ -2079,6 +2081,7 @@ func (o GetDataGroupRecordOutput) Data() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetDataGroupRecord) *string { return v.Data }).(pulumi.StringPtrOutput)
 }
 
+// Name of the datagroup
 func (o GetDataGroupRecordOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDataGroupRecord) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -2104,11 +2107,16 @@ func (o GetDataGroupRecordArrayOutput) Index(i pulumi.IntInput) GetDataGroupReco
 }
 
 type GetNodeFqdn struct {
+	// The FQDN node's address family.
 	AddressFamily *string `pulumi:"addressFamily"`
-	Autopopulate  string  `pulumi:"autopopulate"`
-	Downinterval  int     `pulumi:"downinterval"`
-	Interval      string  `pulumi:"interval"`
-	Name          *string `pulumi:"name"`
+	// Specifies if the node should scale to the IP address set returned by DNS.
+	Autopopulate string `pulumi:"autopopulate"`
+	// The number of attempts to resolve a domain name.
+	Downinterval int `pulumi:"downinterval"`
+	// The amount of time before sending the next DNS query.
+	Interval string `pulumi:"interval"`
+	// Name of the node.
+	Name *string `pulumi:"name"`
 }
 
 // GetNodeFqdnInput is an input type that accepts GetNodeFqdnArgs and GetNodeFqdnOutput values.
@@ -2123,11 +2131,16 @@ type GetNodeFqdnInput interface {
 }
 
 type GetNodeFqdnArgs struct {
+	// The FQDN node's address family.
 	AddressFamily pulumi.StringPtrInput `pulumi:"addressFamily"`
-	Autopopulate  pulumi.StringInput    `pulumi:"autopopulate"`
-	Downinterval  pulumi.IntInput       `pulumi:"downinterval"`
-	Interval      pulumi.StringInput    `pulumi:"interval"`
-	Name          pulumi.StringPtrInput `pulumi:"name"`
+	// Specifies if the node should scale to the IP address set returned by DNS.
+	Autopopulate pulumi.StringInput `pulumi:"autopopulate"`
+	// The number of attempts to resolve a domain name.
+	Downinterval pulumi.IntInput `pulumi:"downinterval"`
+	// The amount of time before sending the next DNS query.
+	Interval pulumi.StringInput `pulumi:"interval"`
+	// Name of the node.
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (GetNodeFqdnArgs) ElementType() reflect.Type {
@@ -2156,22 +2169,27 @@ func (o GetNodeFqdnOutput) ToGetNodeFqdnOutputWithContext(ctx context.Context) G
 	return o
 }
 
+// The FQDN node's address family.
 func (o GetNodeFqdnOutput) AddressFamily() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetNodeFqdn) *string { return v.AddressFamily }).(pulumi.StringPtrOutput)
 }
 
+// Specifies if the node should scale to the IP address set returned by DNS.
 func (o GetNodeFqdnOutput) Autopopulate() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNodeFqdn) string { return v.Autopopulate }).(pulumi.StringOutput)
 }
 
+// The number of attempts to resolve a domain name.
 func (o GetNodeFqdnOutput) Downinterval() pulumi.IntOutput {
 	return o.ApplyT(func(v GetNodeFqdn) int { return v.Downinterval }).(pulumi.IntOutput)
 }
 
+// The amount of time before sending the next DNS query.
 func (o GetNodeFqdnOutput) Interval() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNodeFqdn) string { return v.Interval }).(pulumi.StringOutput)
 }
 
+// Name of the node.
 func (o GetNodeFqdnOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetNodeFqdn) *string { return v.Name }).(pulumi.StringPtrOutput)
 }

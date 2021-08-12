@@ -4,6 +4,27 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * `f5bigip.BigIqAs3` provides details about bigiq as3 resource
+ *
+ * This resource is helpful to configure as3 declarative JSON on BIG-IP through BIG-IQ.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ * import * as fs from "fs";
+ *
+ * // Example Usage for json file
+ * const exampletask = new f5bigip.BigIqAs3("exampletask", {
+ *     as3Json: fs.readFileSync("bigiq_example.json", "utf-8"),
+ *     bigiqAddress: "xx.xx.xxx.xx",
+ *     bigiqPassword: "xxxxxxxxx",
+ *     bigiqUser: "xxxxx",
+ * });
+ * ```
+ */
 export class BigIqAs3 extends pulumi.CustomResource {
     /**
      * Get an existing BigIqAs3 resource's state with the given name, ID, and optional extra
@@ -33,11 +54,11 @@ export class BigIqAs3 extends pulumi.CustomResource {
     }
 
     /**
-     * AS3 json
+     * Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
      */
     public readonly as3Json!: pulumi.Output<string>;
     /**
-     * The registration key pool to use
+     * Address of the BIG-IQ to which your targer BIG-IP is attached
      */
     public readonly bigiqAddress!: pulumi.Output<string>;
     /**
@@ -45,7 +66,7 @@ export class BigIqAs3 extends pulumi.CustomResource {
      */
     public readonly bigiqLoginRef!: pulumi.Output<string | undefined>;
     /**
-     * The registration key pool to use
+     * Password of the BIG-IQ to which your targer BIG-IP is attached
      */
     public readonly bigiqPassword!: pulumi.Output<string>;
     /**
@@ -57,7 +78,7 @@ export class BigIqAs3 extends pulumi.CustomResource {
      */
     public readonly bigiqTokenAuth!: pulumi.Output<boolean | undefined>;
     /**
-     * The registration key pool to use
+     * User name  of the BIG-IQ to which your targer BIG-IP is attached
      */
     public readonly bigiqUser!: pulumi.Output<string>;
     /**
@@ -121,11 +142,11 @@ export class BigIqAs3 extends pulumi.CustomResource {
  */
 export interface BigIqAs3State {
     /**
-     * AS3 json
+     * Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
      */
     as3Json?: pulumi.Input<string>;
     /**
-     * The registration key pool to use
+     * Address of the BIG-IQ to which your targer BIG-IP is attached
      */
     bigiqAddress?: pulumi.Input<string>;
     /**
@@ -133,7 +154,7 @@ export interface BigIqAs3State {
      */
     bigiqLoginRef?: pulumi.Input<string>;
     /**
-     * The registration key pool to use
+     * Password of the BIG-IQ to which your targer BIG-IP is attached
      */
     bigiqPassword?: pulumi.Input<string>;
     /**
@@ -145,7 +166,7 @@ export interface BigIqAs3State {
      */
     bigiqTokenAuth?: pulumi.Input<boolean>;
     /**
-     * The registration key pool to use
+     * User name  of the BIG-IQ to which your targer BIG-IP is attached
      */
     bigiqUser?: pulumi.Input<string>;
     /**
@@ -159,11 +180,11 @@ export interface BigIqAs3State {
  */
 export interface BigIqAs3Args {
     /**
-     * AS3 json
+     * Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
      */
     as3Json: pulumi.Input<string>;
     /**
-     * The registration key pool to use
+     * Address of the BIG-IQ to which your targer BIG-IP is attached
      */
     bigiqAddress: pulumi.Input<string>;
     /**
@@ -171,7 +192,7 @@ export interface BigIqAs3Args {
      */
     bigiqLoginRef?: pulumi.Input<string>;
     /**
-     * The registration key pool to use
+     * Password of the BIG-IQ to which your targer BIG-IP is attached
      */
     bigiqPassword: pulumi.Input<string>;
     /**
@@ -183,7 +204,7 @@ export interface BigIqAs3Args {
      */
     bigiqTokenAuth?: pulumi.Input<boolean>;
     /**
-     * The registration key pool to use
+     * User name  of the BIG-IQ to which your targer BIG-IP is attached
      */
     bigiqUser: pulumi.Input<string>;
     /**

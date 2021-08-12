@@ -36,7 +36,7 @@ class NodeArgs:
         :param pulumi.Input[str] monitor: specifies the name of the monitor or monitor rule that you want to associate with the node.
         :param pulumi.Input[str] rate_limit: Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
         :param pulumi.Input[int] ratio: Sets the ratio number for the node.
-        :param pulumi.Input[str] session: Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
+        :param pulumi.Input[str] session: Enables or disables the node for new sessions. The default value is user-enabled.
         :param pulumi.Input[str] state: Default is "user-up" you can set to "user-down" if you want to disable
         """
         pulumi.set(__self__, "address", address)
@@ -169,7 +169,7 @@ class NodeArgs:
     @pulumi.getter
     def session(self) -> Optional[pulumi.Input[str]]:
         """
-        Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
+        Enables or disables the node for new sessions. The default value is user-enabled.
         """
         return pulumi.get(self, "session")
 
@@ -214,7 +214,7 @@ class _NodeState:
         :param pulumi.Input[str] name: Name of the node
         :param pulumi.Input[str] rate_limit: Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
         :param pulumi.Input[int] ratio: Sets the ratio number for the node.
-        :param pulumi.Input[str] session: Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
+        :param pulumi.Input[str] session: Enables or disables the node for new sessions. The default value is user-enabled.
         :param pulumi.Input[str] state: Default is "user-up" you can set to "user-down" if you want to disable
         """
         if address is not None:
@@ -349,7 +349,7 @@ class _NodeState:
     @pulumi.getter
     def session(self) -> Optional[pulumi.Input[str]]:
         """
-        Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
+        Enables or disables the node for new sessions. The default value is user-enabled.
         """
         return pulumi.get(self, "session")
 
@@ -390,7 +390,7 @@ class Node(pulumi.CustomResource):
         """
         `ltm.Node` Manages a node configuration
 
-        For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+        For resources should be named with their "full path".The full path is the combination of the partition + name of the resource( example: /Common/my-node ) or partition + Direcroty + nameof the resource ( example: /Common/test/my-node ).When including directory in fullpath we have to make sure it is created in the given partition before using it.
 
         ## Example Usage
 
@@ -422,7 +422,7 @@ class Node(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the node
         :param pulumi.Input[str] rate_limit: Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
         :param pulumi.Input[int] ratio: Sets the ratio number for the node.
-        :param pulumi.Input[str] session: Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
+        :param pulumi.Input[str] session: Enables or disables the node for new sessions. The default value is user-enabled.
         :param pulumi.Input[str] state: Default is "user-up" you can set to "user-down" if you want to disable
         """
         ...
@@ -434,7 +434,7 @@ class Node(pulumi.CustomResource):
         """
         `ltm.Node` Manages a node configuration
 
-        For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+        For resources should be named with their "full path".The full path is the combination of the partition + name of the resource( example: /Common/my-node ) or partition + Direcroty + nameof the resource ( example: /Common/test/my-node ).When including directory in fullpath we have to make sure it is created in the given partition before using it.
 
         ## Example Usage
 
@@ -545,7 +545,7 @@ class Node(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the node
         :param pulumi.Input[str] rate_limit: Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
         :param pulumi.Input[int] ratio: Sets the ratio number for the node.
-        :param pulumi.Input[str] session: Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
+        :param pulumi.Input[str] session: Enables or disables the node for new sessions. The default value is user-enabled.
         :param pulumi.Input[str] state: Default is "user-up" you can set to "user-down" if you want to disable
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -638,7 +638,7 @@ class Node(pulumi.CustomResource):
     @pulumi.getter
     def session(self) -> pulumi.Output[str]:
         """
-        Enables or disables the node for new sessions. Can be set to `user-enabled` or `user-disabled`. (Default: `user-enabled`).
+        Enables or disables the node for new sessions. The default value is user-enabled.
         """
         return pulumi.get(self, "session")
 

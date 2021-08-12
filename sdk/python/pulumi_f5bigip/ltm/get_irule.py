@@ -44,16 +44,25 @@ class GetIruleResult:
     @property
     @pulumi.getter
     def irule(self) -> str:
+        """
+        Irule configured on bigip
+        """
         return pulumi.get(self, "irule")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Name of irule configured on bigip with full path
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def partition(self) -> str:
+        """
+        Bigip partition in which rule is configured
+        """
         return pulumi.get(self, "partition")
 
 
@@ -73,7 +82,22 @@ def get_irule(name: Optional[str] = None,
               partition: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIruleResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source (`ltm.IRule`) to get the ltm irule details available on BIG-IP
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_f5bigip as f5bigip
+
+    test = f5bigip.ltm.get_irule(name="terraform_irule",
+        partition="Common")
+    pulumi.export("bigipIrule", test.irule)
+    ```
+
+
+    :param str name: Name of the irule
+    :param str partition: partition of the ltm irule
     """
     __args__ = dict()
     __args__['name'] = name

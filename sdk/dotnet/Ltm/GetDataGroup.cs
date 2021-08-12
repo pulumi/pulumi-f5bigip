@@ -11,6 +11,34 @@ namespace Pulumi.F5BigIP.Ltm
 {
     public static class GetDataGroup
     {
+        /// <summary>
+        /// Use this data source (`f5bigip.ltm.DataGroup`) to get the data group details available on BIG-IP
+        ///  
+        ///  
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using F5BigIP = Pulumi.F5BigIP;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var dG_TC3 = Output.Create(F5BigIP.Ltm.GetDataGroup.InvokeAsync(new F5BigIP.Ltm.GetDataGroupArgs
+        ///         {
+        ///             Name = "test-dg",
+        ///             Partition = "Common",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetDataGroupResult> InvokeAsync(GetDataGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataGroupResult>("f5bigip:ltm/getDataGroup:getDataGroup", args ?? new GetDataGroupArgs(), options.WithVersion());
     }
@@ -18,20 +46,33 @@ namespace Pulumi.F5BigIP.Ltm
 
     public sealed class GetDataGroupArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the datagroup
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// partition of the datagroup
+        /// </summary>
         [Input("partition", required: true)]
         public string Partition { get; set; } = null!;
 
         [Input("records")]
         private List<Inputs.GetDataGroupRecordArgs>? _records;
+
+        /// <summary>
+        /// Specifies record of type (string/ip/integer)
+        /// </summary>
         public List<Inputs.GetDataGroupRecordArgs> Records
         {
             get => _records ?? (_records = new List<Inputs.GetDataGroupRecordArgs>());
             set => _records = value;
         }
 
+        /// <summary>
+        /// The Data Group type (string, ip, integer)"
+        /// </summary>
         [Input("type")]
         public string? Type { get; set; }
 
@@ -50,7 +91,13 @@ namespace Pulumi.F5BigIP.Ltm
         public readonly string Id;
         public readonly string Name;
         public readonly string Partition;
+        /// <summary>
+        /// Specifies record of type (string/ip/integer)
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetDataGroupRecordResult> Records;
+        /// <summary>
+        /// The Data Group type (string, ip, integer)"
+        /// </summary>
         public readonly string Type;
 
         [OutputConstructor]

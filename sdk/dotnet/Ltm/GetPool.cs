@@ -11,6 +11,34 @@ namespace Pulumi.F5BigIP.Ltm
 {
     public static class GetPool
     {
+        /// <summary>
+        /// Use this data source (`f5bigip.ltm.Pool`) to get the ltm monitor details available on BIG-IP
+        ///  
+        ///  
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using F5BigIP = Pulumi.F5BigIP;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var pool_Example = Output.Create(F5BigIP.Ltm.GetPool.InvokeAsync(new F5BigIP.Ltm.GetPoolArgs
+        ///         {
+        ///             Name = "example-pool",
+        ///             Partition = "Common",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("f5bigip:ltm/getPool:getPool", args ?? new GetPoolArgs(), options.WithVersion());
     }
@@ -18,9 +46,15 @@ namespace Pulumi.F5BigIP.Ltm
 
     public sealed class GetPoolArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the ltm monitor
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// partition of the ltm monitor
+        /// </summary>
         [Input("partition", required: true)]
         public string Partition { get; set; } = null!;
 
@@ -33,6 +67,9 @@ namespace Pulumi.F5BigIP.Ltm
     [OutputType]
     public sealed class GetPoolResult
     {
+        /// <summary>
+        /// Full path to the pool.
+        /// </summary>
         public readonly string FullPath;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

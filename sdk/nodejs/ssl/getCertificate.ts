@@ -5,6 +5,23 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
+/**
+ * Use this data source (`f5bigip.ssl.Certificate`) to get the ssl-certificate details available on BIG-IP
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const test = pulumi.output(f5bigip.ssl.getCertificate({
+ *     name: "terraform_ssl_certificate",
+ *     partition: "Common",
+ * }));
+ *
+ * export const bigipSslCertificateName = test.name;
+ * ```
+ */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
     if (!opts) {
         opts = {}
@@ -23,7 +40,13 @@ export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getCertificate.
  */
 export interface GetCertificateArgs {
+    /**
+     * Name of the ssl_certificate
+     */
     name: string;
+    /**
+     * partition of the ltm ssl_certificate
+     */
     partition: string;
 }
 
@@ -36,6 +59,12 @@ export interface GetCertificateResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Name of sslCertificate configured on bigip with full path
+     */
     readonly name: string;
+    /**
+     * Bigip partition in which ssl-certificate is configured
+     */
     readonly partition: string;
 }

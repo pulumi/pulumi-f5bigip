@@ -7,6 +7,32 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Use this data source (`ssl.Certificate`) to get the ssl-certificate details available on BIG-IP
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ssl"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		test, err := ssl.LookupCertificate(ctx, &ssl.LookupCertificateArgs{
+// 			Name:      "terraform_ssl_certificate",
+// 			Partition: "Common",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("bigipSslCertificateName", test.Name)
+// 		return nil
+// 	})
+// }
+// ```
 func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ...pulumi.InvokeOption) (*LookupCertificateResult, error) {
 	var rv LookupCertificateResult
 	err := ctx.Invoke("f5bigip:ssl/getCertificate:getCertificate", args, &rv, opts...)
@@ -18,7 +44,9 @@ func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ..
 
 // A collection of arguments for invoking getCertificate.
 type LookupCertificateArgs struct {
-	Name      string `pulumi:"name"`
+	// Name of the ssl_certificate
+	Name string `pulumi:"name"`
+	// partition of the ltm ssl_certificate
 	Partition string `pulumi:"partition"`
 }
 
@@ -26,7 +54,9 @@ type LookupCertificateArgs struct {
 type LookupCertificateResult struct {
 	Certificate string `pulumi:"certificate"`
 	// The provider-assigned unique ID for this managed resource.
-	Id        string `pulumi:"id"`
-	Name      string `pulumi:"name"`
+	Id string `pulumi:"id"`
+	// Name of sslCertificate configured on bigip with full path
+	Name string `pulumi:"name"`
+	// Bigip partition in which ssl-certificate is configured
 	Partition string `pulumi:"partition"`
 }

@@ -24,7 +24,7 @@ class PoolAttachmentArgs:
         """
         The set of arguments for constructing a PoolAttachment resource.
         :param pulumi.Input[str] node: Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
-        :param pulumi.Input[str] pool: Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
+        :param pulumi.Input[str] pool: Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`) or partition + directory + name of the pool (For example `/Common/test/my-pool`).When including directory in fullpath we have to make sure it is created in the given partition before using it.
         :param pulumi.Input[int] connection_limit: Specifies a maximum established connection limit for a pool member or node.The default is 0, meaning that there is no limit to the number of connections.
         :param pulumi.Input[str] connection_rate_limit: Specifies the maximum number of connections-per-second allowed for a pool member,The default is 0.
         :param pulumi.Input[int] dynamic_ratio: Specifies the fixed ratio value used for a node during ratio load balancing.
@@ -63,7 +63,7 @@ class PoolAttachmentArgs:
     @pulumi.getter
     def pool(self) -> pulumi.Input[str]:
         """
-        Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
+        Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`) or partition + directory + name of the pool (For example `/Common/test/my-pool`).When including directory in fullpath we have to make sure it is created in the given partition before using it.
         """
         return pulumi.get(self, "pool")
 
@@ -162,7 +162,7 @@ class _PoolAttachmentState:
         :param pulumi.Input[int] dynamic_ratio: Specifies the fixed ratio value used for a node during ratio load balancing.
         :param pulumi.Input[str] fqdn_autopopulate: Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled
         :param pulumi.Input[str] node: Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
-        :param pulumi.Input[str] pool: Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
+        :param pulumi.Input[str] pool: Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`) or partition + directory + name of the pool (For example `/Common/test/my-pool`).When including directory in fullpath we have to make sure it is created in the given partition before using it.
         :param pulumi.Input[int] priority_group: Specifies a number representing the priority group for the pool member. The default is 0, meaning that the member has no priority
         :param pulumi.Input[int] ratio: "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
         """
@@ -247,7 +247,7 @@ class _PoolAttachmentState:
     @pulumi.getter
     def pool(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
+        Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`) or partition + directory + name of the pool (For example `/Common/test/my-pool`).When including directory in fullpath we have to make sure it is created in the given partition before using it.
         """
         return pulumi.get(self, "pool")
 
@@ -299,6 +299,10 @@ class PoolAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        There are two ways to use ltm_pool_attachment resource, where we can take node reference from ltm_node or we can specify node directly with ip:port/fqdn:port which will also create node and atach to pool.
+
+        Pool attachment with node directly taking ip:port/fqdn:port
+
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -317,12 +321,33 @@ class PoolAttachment(pulumi.CustomResource):
             allow_nat="yes")
         attach_node = f5bigip.ltm.PoolAttachment("attachNode",
             pool=pool.name,
-            node="1.1.1.1:80",
-            ratio=2,
-            connection_limit=2,
-            connection_rate_limit="2",
-            priority_group=2,
-            dynamic_ratio=3)
+            node="1.1.1.1:80")
+        ```
+
+        Pool attachment with node reference from ltm_node
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        monitor = f5bigip.ltm.Monitor("monitor",
+            name="/Common/terraform_monitor",
+            parent="/Common/http",
+            send="GET /some/path\n",
+            timeout=999,
+            interval=998)
+        pool = f5bigip.ltm.Pool("pool",
+            name="/Common/terraform-pool",
+            load_balancing_mode="round-robin",
+            monitors=[monitor.name],
+            allow_snat="yes",
+            allow_nat="yes")
+        node = f5bigip.ltm.Node("node",
+            name="/Common/terraform_node",
+            address="192.168.30.2")
+        attach_node = f5bigip.ltm.PoolAttachment("attachNode",
+            pool=pool.name,
+            node=node.name.apply(lambda name: f"{name}:80"))
         ```
 
         :param str resource_name: The name of the resource.
@@ -332,7 +357,7 @@ class PoolAttachment(pulumi.CustomResource):
         :param pulumi.Input[int] dynamic_ratio: Specifies the fixed ratio value used for a node during ratio load balancing.
         :param pulumi.Input[str] fqdn_autopopulate: Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled
         :param pulumi.Input[str] node: Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
-        :param pulumi.Input[str] pool: Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
+        :param pulumi.Input[str] pool: Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`) or partition + directory + name of the pool (For example `/Common/test/my-pool`).When including directory in fullpath we have to make sure it is created in the given partition before using it.
         :param pulumi.Input[int] priority_group: Specifies a number representing the priority group for the pool member. The default is 0, meaning that the member has no priority
         :param pulumi.Input[int] ratio: "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
         """
@@ -347,6 +372,10 @@ class PoolAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        There are two ways to use ltm_pool_attachment resource, where we can take node reference from ltm_node or we can specify node directly with ip:port/fqdn:port which will also create node and atach to pool.
+
+        Pool attachment with node directly taking ip:port/fqdn:port
+
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
@@ -365,12 +394,33 @@ class PoolAttachment(pulumi.CustomResource):
             allow_nat="yes")
         attach_node = f5bigip.ltm.PoolAttachment("attachNode",
             pool=pool.name,
-            node="1.1.1.1:80",
-            ratio=2,
-            connection_limit=2,
-            connection_rate_limit="2",
-            priority_group=2,
-            dynamic_ratio=3)
+            node="1.1.1.1:80")
+        ```
+
+        Pool attachment with node reference from ltm_node
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        monitor = f5bigip.ltm.Monitor("monitor",
+            name="/Common/terraform_monitor",
+            parent="/Common/http",
+            send="GET /some/path\n",
+            timeout=999,
+            interval=998)
+        pool = f5bigip.ltm.Pool("pool",
+            name="/Common/terraform-pool",
+            load_balancing_mode="round-robin",
+            monitors=[monitor.name],
+            allow_snat="yes",
+            allow_nat="yes")
+        node = f5bigip.ltm.Node("node",
+            name="/Common/terraform_node",
+            address="192.168.30.2")
+        attach_node = f5bigip.ltm.PoolAttachment("attachNode",
+            pool=pool.name,
+            node=node.name.apply(lambda name: f"{name}:80"))
         ```
 
         :param str resource_name: The name of the resource.
@@ -450,7 +500,7 @@ class PoolAttachment(pulumi.CustomResource):
         :param pulumi.Input[int] dynamic_ratio: Specifies the fixed ratio value used for a node during ratio load balancing.
         :param pulumi.Input[str] fqdn_autopopulate: Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled
         :param pulumi.Input[str] node: Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
-        :param pulumi.Input[str] pool: Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
+        :param pulumi.Input[str] pool: Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`) or partition + directory + name of the pool (For example `/Common/test/my-pool`).When including directory in fullpath we have to make sure it is created in the given partition before using it.
         :param pulumi.Input[int] priority_group: Specifies a number representing the priority group for the pool member. The default is 0, meaning that the member has no priority
         :param pulumi.Input[int] ratio: "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
         """
@@ -512,7 +562,7 @@ class PoolAttachment(pulumi.CustomResource):
     @pulumi.getter
     def pool(self) -> pulumi.Output[str]:
         """
-        Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
+        Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`) or partition + directory + name of the pool (For example `/Common/test/my-pool`).When including directory in fullpath we have to make sure it is created in the given partition before using it.
         """
         return pulumi.get(self, "pool")
 
