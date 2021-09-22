@@ -7,20 +7,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source (`f5bigip.ltm.Node`) to get the ltm node details available on BIG-IP
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- *
- * const test = pulumi.output(f5bigip.ltm.getNode({
- *     name: "terraform_node",
- *     partition: "Common",
- * }));
- *
- * export const bigipNode = test.address!;
- * ```
  */
 export function getNode(args: GetNodeArgs, opts?: pulumi.InvokeOptions): Promise<GetNodeResult> {
     if (!opts) {
