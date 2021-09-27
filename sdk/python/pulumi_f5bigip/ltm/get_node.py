@@ -198,17 +198,6 @@ def get_node(address: Optional[str] = None,
     """
     Use this data source (`ltm.Node`) to get the ltm node details available on BIG-IP
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_f5bigip as f5bigip
-
-    test = f5bigip.ltm.get_node(name="terraform_node",
-        partition="Common")
-    pulumi.export("bigipNode", test.address)
-    ```
-
 
     :param str address: The address of the node.
     :param str description: User defined description of the node.

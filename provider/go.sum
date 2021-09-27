@@ -254,6 +254,8 @@ github.com/f5devcentral/go-bigip v0.0.0-20210621162944-38d486e26398 h1:DalwPacWa
 github.com/f5devcentral/go-bigip v0.0.0-20210621162944-38d486e26398/go.mod h1:JZj/iVxDmEnGPyEwuNj7x0fuH2CtUBbD2J48MMp/SE8=
 github.com/f5devcentral/go-bigip v0.0.0-20210804055259-11b1d1a8dd26 h1:PvegX15SC9gBqFB3+oldA/xJWsAlbN0/09oP4IB/r1g=
 github.com/f5devcentral/go-bigip v0.0.0-20210804055259-11b1d1a8dd26/go.mod h1:JZj/iVxDmEnGPyEwuNj7x0fuH2CtUBbD2J48MMp/SE8=
+github.com/f5devcentral/go-bigip v0.0.0-20210915090336-5089db0c53ef h1:hhQp/GMJlacwF5GLZSE41sXD/2yk7bOzZprrXMyQdGE=
+github.com/f5devcentral/go-bigip v0.0.0-20210915090336-5089db0c53ef/go.mod h1:JZj/iVxDmEnGPyEwuNj7x0fuH2CtUBbD2J48MMp/SE8=
 github.com/f5devcentral/go-bigip/f5teem v0.0.0-20210331192832-a618463885c6 h1:80oNL8Im3e63C9QUKGTA/Cf19IGELJijIPv6Ub4d3XU=
 github.com/f5devcentral/go-bigip/f5teem v0.0.0-20210331192832-a618463885c6/go.mod h1:r7o5I22EvO+fps2u10bz4ZUlTlNHopQSWzVcW19hK3U=
 github.com/f5devcentral/go-bigip/f5teem v0.0.0-20210512144928-1718610710b5 h1:nfP585ka7VZ9QdWKcJpmC25ZWSrpYUC8MMIyU3AwwQQ=
@@ -262,6 +264,8 @@ github.com/f5devcentral/go-bigip/f5teem v0.0.0-20210621162944-38d486e26398 h1:+Y
 github.com/f5devcentral/go-bigip/f5teem v0.0.0-20210621162944-38d486e26398/go.mod h1:r7o5I22EvO+fps2u10bz4ZUlTlNHopQSWzVcW19hK3U=
 github.com/f5devcentral/go-bigip/f5teem v0.0.0-20210804055259-11b1d1a8dd26 h1:1LOBrQqai8o6ClACLUmn6rMrjXu23KoKcLoixmj0Fhc=
 github.com/f5devcentral/go-bigip/f5teem v0.0.0-20210804055259-11b1d1a8dd26/go.mod h1:r7o5I22EvO+fps2u10bz4ZUlTlNHopQSWzVcW19hK3U=
+github.com/f5devcentral/go-bigip/f5teem v0.0.0-20210915090336-5089db0c53ef h1:RTX4iIPIid9xGDjwhQA3FvE09b5BxpvymY+B2/AYGM4=
+github.com/f5devcentral/go-bigip/f5teem v0.0.0-20210915090336-5089db0c53ef/go.mod h1:r7o5I22EvO+fps2u10bz4ZUlTlNHopQSWzVcW19hK3U=
 github.com/fatih/color v1.7.0/go.mod h1:Zm6kSWBoL9eyXnKyktHP6abPY2pDugNf5KwzbycvMj4=
 github.com/fatih/color v1.9.0 h1:8xPHl4/q1VyqGIPif1F+1V3Y3lSmrq01EabUW3CoW5s=
 github.com/fatih/color v1.9.0/go.mod h1:eQcE1qtQxscV5RaZvpXrrb8Drkc3/DdQ+uUYCNjL+zU=
@@ -751,6 +755,8 @@ github.com/pulumi/terraform-provider-bigip v1.1.1-0.20210623065700-0c31e7075058 
 github.com/pulumi/terraform-provider-bigip v1.1.1-0.20210623065700-0c31e7075058/go.mod h1:Kz/6QnCRNOq82DTYskXboxgGeE+eyylEec7OFXZ6lLQ=
 github.com/pulumi/terraform-provider-bigip v1.1.1-0.20210804073231-2f7df47f880e h1:7PXk7EPSzjXWjOOXDWXCYtLyN+fKQNBf25+nd61t/bI=
 github.com/pulumi/terraform-provider-bigip v1.1.1-0.20210804073231-2f7df47f880e/go.mod h1:8mSSQ9mocc4D5Irho2m1zmpf6VKjL1IKdLjAsMyliCQ=
+github.com/pulumi/terraform-provider-bigip v1.1.1-0.20210916171519-05709b403566 h1:P4MIb4K34T4Vlq0QPYdOb22H/TCuOf2MWVwv57bxdcA=
+github.com/pulumi/terraform-provider-bigip v1.1.1-0.20210916171519-05709b403566/go.mod h1:eS4vCJwyeOAHRpTiKsn84XvlGISO4MSqq0CsuEvuc7M=
 github.com/rjeczalik/notify v0.9.2 h1:MiTWrPj55mNDHEiIX5YUSKefw/+lCQVoAFmD6oQm5w8=
 github.com/rjeczalik/notify v0.9.2/go.mod h1:aErll2f0sUX9PXZnVNyeiObbmTlk5jnMoCa4QEjJeqM=
 github.com/rogpeppe/fastuuid v0.0.0-20150106093220-6724a57986af h1:gu+uRPtBe88sKxUCEXRoeCvVG90TJmwhiqRpvdhQFng=

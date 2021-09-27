@@ -8,31 +8,6 @@ import (
 )
 
 // Use this data source (`ltm.Node`) to get the ltm node details available on BIG-IP
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		test, err := ltm.LookupNode(ctx, &ltm.LookupNodeArgs{
-// 			Name:      "terraform_node",
-// 			Partition: "Common",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("bigipNode", test.Address)
-// 		return nil
-// 	})
-// }
-// ```
 func LookupNode(ctx *pulumi.Context, args *LookupNodeArgs, opts ...pulumi.InvokeOption) (*LookupNodeResult, error) {
 	var rv LookupNodeResult
 	err := ctx.Invoke("f5bigip:ltm/getNode:getNode", args, &rv, opts...)

@@ -13,34 +13,6 @@ namespace Pulumi.F5BigIP.Ltm
     {
         /// <summary>
         /// Use this data source (`f5bigip.ltm.Node`) to get the ltm node details available on BIG-IP
-        /// 
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using Pulumi;
-        /// using F5BigIP = Pulumi.F5BigIP;
-        /// 
-        /// class MyStack : Stack
-        /// {
-        ///     public MyStack()
-        ///     {
-        ///         var test = Output.Create(F5BigIP.Ltm.GetNode.InvokeAsync(new F5BigIP.Ltm.GetNodeArgs
-        ///         {
-        ///             Name = "terraform_node",
-        ///             Partition = "Common",
-        ///         }));
-        ///         this.BigipNode = test.Apply(test =&gt; test.Address);
-        ///     }
-        /// 
-        ///     [Output("bigipNode")]
-        ///     public Output&lt;string&gt; BigipNode { get; set; }
-        /// }
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetNodeResult> InvokeAsync(GetNodeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNodeResult>("f5bigip:ltm/getNode:getNode", args ?? new GetNodeArgs(), options.WithVersion());
