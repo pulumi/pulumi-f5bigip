@@ -33,6 +33,7 @@
         "ltm/getIrule.ts",
         "ltm/getMonitor.ts",
         "ltm/getNode.ts",
+        "ltm/getPolicy.ts",
         "ltm/getPool.ts",
         "ltm/index.ts",
         "ltm/irule.ts",

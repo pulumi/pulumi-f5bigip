@@ -10,7 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Sys
 {
     /// <summary>
-    /// `f5bigip.sys.Provision` provides details bout how to enable "ilx", "asm" "apm" resource on BIG-IP
+    /// `f5bigip.sys.Provision` Manage BIG-IP module provisioning. This resource will only provision at the standard levels of Dedicated, Nominal, and Minimum.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -21,14 +22,13 @@ namespace Pulumi.F5BigIP.Sys
     /// {
     ///     public MyStack()
     ///     {
-    ///         var test_provision = new F5BigIP.Sys.Provision("test-provision", new F5BigIP.Sys.ProvisionArgs
+    ///         var gtm = new F5BigIP.Sys.Provision("gtm", new F5BigIP.Sys.ProvisionArgs
     ///         {
     ///             CpuRatio = 0,
     ///             DiskRatio = 0,
-    ///             FullPath = "asm",
-    ///             Level = "none",
+    ///             Level = "nominal",
     ///             MemoryRatio = 0,
-    ///             Name = "TEST_ASM_PROVISION_NAME",
+    ///             Name = "gtm",
     ///         });
     ///     }
     /// 
@@ -39,37 +39,57 @@ namespace Pulumi.F5BigIP.Sys
     public partial class Provision : Pulumi.CustomResource
     {
         /// <summary>
-        /// cpu Ratio
+        /// Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
         /// </summary>
         [Output("cpuRatio")]
         public Output<int?> CpuRatio { get; private set; } = null!;
 
         /// <summary>
-        /// disk Ratio
+        /// Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
         /// </summary>
         [Output("diskRatio")]
         public Output<int?> DiskRatio { get; private set; } = null!;
 
-        /// <summary>
-        /// path
-        /// </summary>
         [Output("fullPath")]
         public Output<string> FullPath { get; private set; } = null!;
 
         /// <summary>
-        /// what level nominal or dedicated
+        /// Sets the provisioning level for the requested modules. Changing the level for one module may require modifying the level of another module. For example, changing one module to `dedicated` requires setting all others to `none`. Setting the level of a module to `none` means the module is not activated.
+        /// default is `nominal`
+        /// possible options:
+        /// * nominal
+        /// * minimum
+        /// * none
+        /// * dedicated
         /// </summary>
         [Output("level")]
         public Output<string?> Level { get; private set; } = null!;
 
         /// <summary>
-        /// memory Ratio
+        /// Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
         /// </summary>
         [Output("memoryRatio")]
         public Output<int?> MemoryRatio { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the module to be provisioned
+        /// Name of module to provision in BIG-IP. 
+        /// possible options:
+        /// * afm
+        /// * am
+        /// * apm
+        /// * cgnat
+        /// * asm
+        /// * avr
+        /// * dos
+        /// * fps
+        /// * gtm
+        /// * ilx
+        /// * lc
+        /// * ltm
+        /// * pem
+        /// * sslo
+        /// * swg
+        /// * urldb
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -121,37 +141,57 @@ namespace Pulumi.F5BigIP.Sys
     public sealed class ProvisionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// cpu Ratio
+        /// Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
         /// </summary>
         [Input("cpuRatio")]
         public Input<int>? CpuRatio { get; set; }
 
         /// <summary>
-        /// disk Ratio
+        /// Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
         /// </summary>
         [Input("diskRatio")]
         public Input<int>? DiskRatio { get; set; }
 
-        /// <summary>
-        /// path
-        /// </summary>
         [Input("fullPath")]
         public Input<string>? FullPath { get; set; }
 
         /// <summary>
-        /// what level nominal or dedicated
+        /// Sets the provisioning level for the requested modules. Changing the level for one module may require modifying the level of another module. For example, changing one module to `dedicated` requires setting all others to `none`. Setting the level of a module to `none` means the module is not activated.
+        /// default is `nominal`
+        /// possible options:
+        /// * nominal
+        /// * minimum
+        /// * none
+        /// * dedicated
         /// </summary>
         [Input("level")]
         public Input<string>? Level { get; set; }
 
         /// <summary>
-        /// memory Ratio
+        /// Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
         /// </summary>
         [Input("memoryRatio")]
         public Input<int>? MemoryRatio { get; set; }
 
         /// <summary>
-        /// Name of the module to be provisioned
+        /// Name of module to provision in BIG-IP. 
+        /// possible options:
+        /// * afm
+        /// * am
+        /// * apm
+        /// * cgnat
+        /// * asm
+        /// * avr
+        /// * dos
+        /// * fps
+        /// * gtm
+        /// * ilx
+        /// * lc
+        /// * ltm
+        /// * pem
+        /// * sslo
+        /// * swg
+        /// * urldb
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -164,37 +204,57 @@ namespace Pulumi.F5BigIP.Sys
     public sealed class ProvisionState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// cpu Ratio
+        /// Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
         /// </summary>
         [Input("cpuRatio")]
         public Input<int>? CpuRatio { get; set; }
 
         /// <summary>
-        /// disk Ratio
+        /// Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
         /// </summary>
         [Input("diskRatio")]
         public Input<int>? DiskRatio { get; set; }
 
-        /// <summary>
-        /// path
-        /// </summary>
         [Input("fullPath")]
         public Input<string>? FullPath { get; set; }
 
         /// <summary>
-        /// what level nominal or dedicated
+        /// Sets the provisioning level for the requested modules. Changing the level for one module may require modifying the level of another module. For example, changing one module to `dedicated` requires setting all others to `none`. Setting the level of a module to `none` means the module is not activated.
+        /// default is `nominal`
+        /// possible options:
+        /// * nominal
+        /// * minimum
+        /// * none
+        /// * dedicated
         /// </summary>
         [Input("level")]
         public Input<string>? Level { get; set; }
 
         /// <summary>
-        /// memory Ratio
+        /// Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
         /// </summary>
         [Input("memoryRatio")]
         public Input<int>? MemoryRatio { get; set; }
 
         /// <summary>
-        /// Name of the module to be provisioned
+        /// Name of module to provision in BIG-IP. 
+        /// possible options:
+        /// * afm
+        /// * am
+        /// * apm
+        /// * cgnat
+        /// * asm
+        /// * avr
+        /// * dos
+        /// * fps
+        /// * gtm
+        /// * ilx
+        /// * lc
+        /// * ltm
+        /// * pem
+        /// * sslo
+        /// * swg
+        /// * urldb
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

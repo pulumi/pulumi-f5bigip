@@ -20,6 +20,7 @@ class BigIqAs3Args:
                  bigiq_login_ref: Optional[pulumi.Input[str]] = None,
                  bigiq_port: Optional[pulumi.Input[str]] = None,
                  bigiq_token_auth: Optional[pulumi.Input[bool]] = None,
+                 ignore_metadata: Optional[pulumi.Input[bool]] = None,
                  tenant_list: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a BigIqAs3 resource.
@@ -30,6 +31,7 @@ class BigIqAs3Args:
         :param pulumi.Input[str] bigiq_login_ref: Login reference for token authentication (see BIG-IQ REST docs for details)
         :param pulumi.Input[str] bigiq_port: The registration key pool to use
         :param pulumi.Input[bool] bigiq_token_auth: Enable to use an external authentication source (LDAP, TACACS, etc)
+        :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to `true`
         :param pulumi.Input[str] tenant_list: Name of Tenant
         """
         pulumi.set(__self__, "as3_json", as3_json)
@@ -42,6 +44,8 @@ class BigIqAs3Args:
             pulumi.set(__self__, "bigiq_port", bigiq_port)
         if bigiq_token_auth is not None:
             pulumi.set(__self__, "bigiq_token_auth", bigiq_token_auth)
+        if ignore_metadata is not None:
+            pulumi.set(__self__, "ignore_metadata", ignore_metadata)
         if tenant_list is not None:
             pulumi.set(__self__, "tenant_list", tenant_list)
 
@@ -130,6 +134,18 @@ class BigIqAs3Args:
         pulumi.set(self, "bigiq_token_auth", value)
 
     @property
+    @pulumi.getter(name="ignoreMetadata")
+    def ignore_metadata(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set True if you want to ignore metadata changes during update. By default it is set to `true`
+        """
+        return pulumi.get(self, "ignore_metadata")
+
+    @ignore_metadata.setter
+    def ignore_metadata(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_metadata", value)
+
+    @property
     @pulumi.getter(name="tenantList")
     def tenant_list(self) -> Optional[pulumi.Input[str]]:
         """
@@ -152,6 +168,7 @@ class _BigIqAs3State:
                  bigiq_port: Optional[pulumi.Input[str]] = None,
                  bigiq_token_auth: Optional[pulumi.Input[bool]] = None,
                  bigiq_user: Optional[pulumi.Input[str]] = None,
+                 ignore_metadata: Optional[pulumi.Input[bool]] = None,
                  tenant_list: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering BigIqAs3 resources.
@@ -162,6 +179,7 @@ class _BigIqAs3State:
         :param pulumi.Input[str] bigiq_port: The registration key pool to use
         :param pulumi.Input[bool] bigiq_token_auth: Enable to use an external authentication source (LDAP, TACACS, etc)
         :param pulumi.Input[str] bigiq_user: User name  of the BIG-IQ to which your targer BIG-IP is attached
+        :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to `true`
         :param pulumi.Input[str] tenant_list: Name of Tenant
         """
         if as3_json is not None:
@@ -178,6 +196,8 @@ class _BigIqAs3State:
             pulumi.set(__self__, "bigiq_token_auth", bigiq_token_auth)
         if bigiq_user is not None:
             pulumi.set(__self__, "bigiq_user", bigiq_user)
+        if ignore_metadata is not None:
+            pulumi.set(__self__, "ignore_metadata", ignore_metadata)
         if tenant_list is not None:
             pulumi.set(__self__, "tenant_list", tenant_list)
 
@@ -266,6 +286,18 @@ class _BigIqAs3State:
         pulumi.set(self, "bigiq_user", value)
 
     @property
+    @pulumi.getter(name="ignoreMetadata")
+    def ignore_metadata(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set True if you want to ignore metadata changes during update. By default it is set to `true`
+        """
+        return pulumi.get(self, "ignore_metadata")
+
+    @ignore_metadata.setter
+    def ignore_metadata(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_metadata", value)
+
+    @property
     @pulumi.getter(name="tenantList")
     def tenant_list(self) -> Optional[pulumi.Input[str]]:
         """
@@ -290,6 +322,7 @@ class BigIqAs3(pulumi.CustomResource):
                  bigiq_port: Optional[pulumi.Input[str]] = None,
                  bigiq_token_auth: Optional[pulumi.Input[bool]] = None,
                  bigiq_user: Optional[pulumi.Input[str]] = None,
+                 ignore_metadata: Optional[pulumi.Input[bool]] = None,
                  tenant_list: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -320,6 +353,7 @@ class BigIqAs3(pulumi.CustomResource):
         :param pulumi.Input[str] bigiq_port: The registration key pool to use
         :param pulumi.Input[bool] bigiq_token_auth: Enable to use an external authentication source (LDAP, TACACS, etc)
         :param pulumi.Input[str] bigiq_user: User name  of the BIG-IQ to which your targer BIG-IP is attached
+        :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to `true`
         :param pulumi.Input[str] tenant_list: Name of Tenant
         """
         ...
@@ -369,6 +403,7 @@ class BigIqAs3(pulumi.CustomResource):
                  bigiq_port: Optional[pulumi.Input[str]] = None,
                  bigiq_token_auth: Optional[pulumi.Input[bool]] = None,
                  bigiq_user: Optional[pulumi.Input[str]] = None,
+                 ignore_metadata: Optional[pulumi.Input[bool]] = None,
                  tenant_list: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -397,6 +432,7 @@ class BigIqAs3(pulumi.CustomResource):
             if bigiq_user is None and not opts.urn:
                 raise TypeError("Missing required property 'bigiq_user'")
             __props__.__dict__["bigiq_user"] = bigiq_user
+            __props__.__dict__["ignore_metadata"] = ignore_metadata
             __props__.__dict__["tenant_list"] = tenant_list
         super(BigIqAs3, __self__).__init__(
             'f5bigip:index/bigIqAs3:BigIqAs3',
@@ -415,6 +451,7 @@ class BigIqAs3(pulumi.CustomResource):
             bigiq_port: Optional[pulumi.Input[str]] = None,
             bigiq_token_auth: Optional[pulumi.Input[bool]] = None,
             bigiq_user: Optional[pulumi.Input[str]] = None,
+            ignore_metadata: Optional[pulumi.Input[bool]] = None,
             tenant_list: Optional[pulumi.Input[str]] = None) -> 'BigIqAs3':
         """
         Get an existing BigIqAs3 resource's state with the given name, id, and optional extra
@@ -430,6 +467,7 @@ class BigIqAs3(pulumi.CustomResource):
         :param pulumi.Input[str] bigiq_port: The registration key pool to use
         :param pulumi.Input[bool] bigiq_token_auth: Enable to use an external authentication source (LDAP, TACACS, etc)
         :param pulumi.Input[str] bigiq_user: User name  of the BIG-IQ to which your targer BIG-IP is attached
+        :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to `true`
         :param pulumi.Input[str] tenant_list: Name of Tenant
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -443,6 +481,7 @@ class BigIqAs3(pulumi.CustomResource):
         __props__.__dict__["bigiq_port"] = bigiq_port
         __props__.__dict__["bigiq_token_auth"] = bigiq_token_auth
         __props__.__dict__["bigiq_user"] = bigiq_user
+        __props__.__dict__["ignore_metadata"] = ignore_metadata
         __props__.__dict__["tenant_list"] = tenant_list
         return BigIqAs3(resource_name, opts=opts, __props__=__props__)
 
@@ -501,6 +540,14 @@ class BigIqAs3(pulumi.CustomResource):
         User name  of the BIG-IQ to which your targer BIG-IP is attached
         """
         return pulumi.get(self, "bigiq_user")
+
+    @property
+    @pulumi.getter(name="ignoreMetadata")
+    def ignore_metadata(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Set True if you want to ignore metadata changes during update. By default it is set to `true`
+        """
+        return pulumi.get(self, "ignore_metadata")
 
     @property
     @pulumi.getter(name="tenantList")

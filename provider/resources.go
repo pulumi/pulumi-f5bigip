@@ -138,6 +138,7 @@ func Provider() tfbridge.ProviderInfo {
 			"bigip_ltm_monitor":     {Tok: makeDataSource(ltmMod, "getMonitor")},
 			"bigip_ltm_pool":        {Tok: makeDataSource(ltmMod, "getPool")},
 			"bigip_ltm_node":        {Tok: makeDataSource(ltmMod, "getNode")},
+			"bigip_ltm_policy":      {Tok: makeDataSource(ltmMod, "getPolicy")},
 			"bigip_ssl_certificate": {Tok: makeDataSource(sslMod, "getCertificate")},
 			"bigip_vwan_config":     {Tok: makeDataSource(sslMod, "getVWanConfig")},
 		},

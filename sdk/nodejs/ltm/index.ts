@@ -10,6 +10,7 @@ export * from "./getDataGroup";
 export * from "./getIrule";
 export * from "./getMonitor";
 export * from "./getNode";
+export * from "./getPolicy";
 export * from "./getPool";
 export * from "./irule";
 export * from "./monitor";

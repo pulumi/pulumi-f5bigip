@@ -18,6 +18,9 @@ __all__ = [
     'SnatOriginArgs',
     'GetDataGroupRecordArgs',
     'GetNodeFqdnArgs',
+    'GetPolicyRuleArgs',
+    'GetPolicyRuleActionArgs',
+    'GetPolicyRuleConditionArgs',
 ]
 
 @pulumi.input_type
@@ -2765,5 +2768,2197 @@ class GetNodeFqdnArgs:
     @name.setter
     def name(self, value: Optional[str]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class GetPolicyRuleArgs:
+    def __init__(__self__, *,
+                 name: str,
+                 actions: Optional[Sequence['GetPolicyRuleActionArgs']] = None,
+                 conditions: Optional[Sequence['GetPolicyRuleConditionArgs']] = None):
+        """
+        :param str name: Name of the policy which includes partion ( /partition/policy-name )
+        """
+        pulumi.set(__self__, "name", name)
+        if actions is not None:
+            pulumi.set(__self__, "actions", actions)
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the policy which includes partion ( /partition/policy-name )
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> Optional[Sequence['GetPolicyRuleActionArgs']]:
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: Optional[Sequence['GetPolicyRuleActionArgs']]):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> Optional[Sequence['GetPolicyRuleConditionArgs']]:
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: Optional[Sequence['GetPolicyRuleConditionArgs']]):
+        pulumi.set(self, "conditions", value)
+
+
+@pulumi.input_type
+class GetPolicyRuleActionArgs:
+    def __init__(__self__, *,
+                 app_service: str,
+                 application: str,
+                 asm: bool,
+                 avr: bool,
+                 cache: bool,
+                 carp: bool,
+                 category: str,
+                 classify: bool,
+                 clone_pool: str,
+                 code: int,
+                 compress: bool,
+                 connection: bool,
+                 content: str,
+                 cookie_hash: bool,
+                 cookie_insert: bool,
+                 cookie_passive: bool,
+                 cookie_rewrite: bool,
+                 decompress: bool,
+                 defer: bool,
+                 destination_address: bool,
+                 disable: bool,
+                 domain: str,
+                 enable: bool,
+                 expiry: str,
+                 expiry_secs: int,
+                 expression: str,
+                 extension: str,
+                 facility: str,
+                 from_profile: str,
+                 hash: bool,
+                 host: str,
+                 http: bool,
+                 http_basic_auth: bool,
+                 http_cookie: bool,
+                 http_header: bool,
+                 http_referer: bool,
+                 http_reply: bool,
+                 http_set_cookie: bool,
+                 http_uri: bool,
+                 ifile: str,
+                 insert: bool,
+                 internal_virtual: str,
+                 ip_address: str,
+                 key: str,
+                 l7dos: bool,
+                 length: int,
+                 location: str,
+                 log: bool,
+                 ltm_policy: bool,
+                 member: str,
+                 message: str,
+                 netmask: str,
+                 nexthop: str,
+                 node: str,
+                 offset: int,
+                 path: str,
+                 pem: bool,
+                 persist: bool,
+                 pin: bool,
+                 policy: str,
+                 pool: str,
+                 port: int,
+                 priority: str,
+                 profile: str,
+                 protocol: str,
+                 query_string: str,
+                 rateclass: str,
+                 redirect: bool,
+                 remove: bool,
+                 replace: bool,
+                 request: bool,
+                 request_adapt: bool,
+                 reset: bool,
+                 response: bool,
+                 response_adapt: bool,
+                 scheme: str,
+                 script: str,
+                 select: bool,
+                 server_ssl: bool,
+                 set_variable: bool,
+                 shutdown: bool,
+                 snat: str,
+                 snatpool: str,
+                 source_address: bool,
+                 ssl_client_hello: bool,
+                 ssl_server_handshake: bool,
+                 ssl_server_hello: bool,
+                 ssl_session_id: bool,
+                 status: int,
+                 tcl: bool,
+                 tcp_nagle: bool,
+                 text: str,
+                 timeout: int,
+                 tm_name: str,
+                 uie: bool,
+                 universal: bool,
+                 value: str,
+                 virtual: str,
+                 vlan: str,
+                 vlan_id: int,
+                 wam: bool,
+                 write: bool,
+                 forward: Optional[bool] = None,
+                 http_host: Optional[bool] = None):
+        pulumi.set(__self__, "app_service", app_service)
+        pulumi.set(__self__, "application", application)
+        pulumi.set(__self__, "asm", asm)
+        pulumi.set(__self__, "avr", avr)
+        pulumi.set(__self__, "cache", cache)
+        pulumi.set(__self__, "carp", carp)
+        pulumi.set(__self__, "category", category)
+        pulumi.set(__self__, "classify", classify)
+        pulumi.set(__self__, "clone_pool", clone_pool)
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "compress", compress)
+        pulumi.set(__self__, "connection", connection)
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "cookie_hash", cookie_hash)
+        pulumi.set(__self__, "cookie_insert", cookie_insert)
+        pulumi.set(__self__, "cookie_passive", cookie_passive)
+        pulumi.set(__self__, "cookie_rewrite", cookie_rewrite)
+        pulumi.set(__self__, "decompress", decompress)
+        pulumi.set(__self__, "defer", defer)
+        pulumi.set(__self__, "destination_address", destination_address)
+        pulumi.set(__self__, "disable", disable)
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "enable", enable)
+        pulumi.set(__self__, "expiry", expiry)
+        pulumi.set(__self__, "expiry_secs", expiry_secs)
+        pulumi.set(__self__, "expression", expression)
+        pulumi.set(__self__, "extension", extension)
+        pulumi.set(__self__, "facility", facility)
+        pulumi.set(__self__, "from_profile", from_profile)
+        pulumi.set(__self__, "hash", hash)
+        pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "http", http)
+        pulumi.set(__self__, "http_basic_auth", http_basic_auth)
+        pulumi.set(__self__, "http_cookie", http_cookie)
+        pulumi.set(__self__, "http_header", http_header)
+        pulumi.set(__self__, "http_referer", http_referer)
+        pulumi.set(__self__, "http_reply", http_reply)
+        pulumi.set(__self__, "http_set_cookie", http_set_cookie)
+        pulumi.set(__self__, "http_uri", http_uri)
+        pulumi.set(__self__, "ifile", ifile)
+        pulumi.set(__self__, "insert", insert)
+        pulumi.set(__self__, "internal_virtual", internal_virtual)
+        pulumi.set(__self__, "ip_address", ip_address)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "l7dos", l7dos)
+        pulumi.set(__self__, "length", length)
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "log", log)
+        pulumi.set(__self__, "ltm_policy", ltm_policy)
+        pulumi.set(__self__, "member", member)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "netmask", netmask)
+        pulumi.set(__self__, "nexthop", nexthop)
+        pulumi.set(__self__, "node", node)
+        pulumi.set(__self__, "offset", offset)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "pem", pem)
+        pulumi.set(__self__, "persist", persist)
+        pulumi.set(__self__, "pin", pin)
+        pulumi.set(__self__, "policy", policy)
+        pulumi.set(__self__, "pool", pool)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "profile", profile)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "query_string", query_string)
+        pulumi.set(__self__, "rateclass", rateclass)
+        pulumi.set(__self__, "redirect", redirect)
+        pulumi.set(__self__, "remove", remove)
+        pulumi.set(__self__, "replace", replace)
+        pulumi.set(__self__, "request", request)
+        pulumi.set(__self__, "request_adapt", request_adapt)
+        pulumi.set(__self__, "reset", reset)
+        pulumi.set(__self__, "response", response)
+        pulumi.set(__self__, "response_adapt", response_adapt)
+        pulumi.set(__self__, "scheme", scheme)
+        pulumi.set(__self__, "script", script)
+        pulumi.set(__self__, "select", select)
+        pulumi.set(__self__, "server_ssl", server_ssl)
+        pulumi.set(__self__, "set_variable", set_variable)
+        pulumi.set(__self__, "shutdown", shutdown)
+        pulumi.set(__self__, "snat", snat)
+        pulumi.set(__self__, "snatpool", snatpool)
+        pulumi.set(__self__, "source_address", source_address)
+        pulumi.set(__self__, "ssl_client_hello", ssl_client_hello)
+        pulumi.set(__self__, "ssl_server_handshake", ssl_server_handshake)
+        pulumi.set(__self__, "ssl_server_hello", ssl_server_hello)
+        pulumi.set(__self__, "ssl_session_id", ssl_session_id)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "tcl", tcl)
+        pulumi.set(__self__, "tcp_nagle", tcp_nagle)
+        pulumi.set(__self__, "text", text)
+        pulumi.set(__self__, "timeout", timeout)
+        pulumi.set(__self__, "tm_name", tm_name)
+        pulumi.set(__self__, "uie", uie)
+        pulumi.set(__self__, "universal", universal)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "virtual", virtual)
+        pulumi.set(__self__, "vlan", vlan)
+        pulumi.set(__self__, "vlan_id", vlan_id)
+        pulumi.set(__self__, "wam", wam)
+        pulumi.set(__self__, "write", write)
+        if forward is not None:
+            pulumi.set(__self__, "forward", forward)
+        if http_host is not None:
+            pulumi.set(__self__, "http_host", http_host)
+
+    @property
+    @pulumi.getter(name="appService")
+    def app_service(self) -> str:
+        return pulumi.get(self, "app_service")
+
+    @app_service.setter
+    def app_service(self, value: str):
+        pulumi.set(self, "app_service", value)
+
+    @property
+    @pulumi.getter
+    def application(self) -> str:
+        return pulumi.get(self, "application")
+
+    @application.setter
+    def application(self, value: str):
+        pulumi.set(self, "application", value)
+
+    @property
+    @pulumi.getter
+    def asm(self) -> bool:
+        return pulumi.get(self, "asm")
+
+    @asm.setter
+    def asm(self, value: bool):
+        pulumi.set(self, "asm", value)
+
+    @property
+    @pulumi.getter
+    def avr(self) -> bool:
+        return pulumi.get(self, "avr")
+
+    @avr.setter
+    def avr(self, value: bool):
+        pulumi.set(self, "avr", value)
+
+    @property
+    @pulumi.getter
+    def cache(self) -> bool:
+        return pulumi.get(self, "cache")
+
+    @cache.setter
+    def cache(self, value: bool):
+        pulumi.set(self, "cache", value)
+
+    @property
+    @pulumi.getter
+    def carp(self) -> bool:
+        return pulumi.get(self, "carp")
+
+    @carp.setter
+    def carp(self, value: bool):
+        pulumi.set(self, "carp", value)
+
+    @property
+    @pulumi.getter
+    def category(self) -> str:
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: str):
+        pulumi.set(self, "category", value)
+
+    @property
+    @pulumi.getter
+    def classify(self) -> bool:
+        return pulumi.get(self, "classify")
+
+    @classify.setter
+    def classify(self, value: bool):
+        pulumi.set(self, "classify", value)
+
+    @property
+    @pulumi.getter(name="clonePool")
+    def clone_pool(self) -> str:
+        return pulumi.get(self, "clone_pool")
+
+    @clone_pool.setter
+    def clone_pool(self, value: str):
+        pulumi.set(self, "clone_pool", value)
+
+    @property
+    @pulumi.getter
+    def code(self) -> int:
+        return pulumi.get(self, "code")
+
+    @code.setter
+    def code(self, value: int):
+        pulumi.set(self, "code", value)
+
+    @property
+    @pulumi.getter
+    def compress(self) -> bool:
+        return pulumi.get(self, "compress")
+
+    @compress.setter
+    def compress(self, value: bool):
+        pulumi.set(self, "compress", value)
+
+    @property
+    @pulumi.getter
+    def connection(self) -> bool:
+        return pulumi.get(self, "connection")
+
+    @connection.setter
+    def connection(self, value: bool):
+        pulumi.set(self, "connection", value)
+
+    @property
+    @pulumi.getter
+    def content(self) -> str:
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: str):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter(name="cookieHash")
+    def cookie_hash(self) -> bool:
+        return pulumi.get(self, "cookie_hash")
+
+    @cookie_hash.setter
+    def cookie_hash(self, value: bool):
+        pulumi.set(self, "cookie_hash", value)
+
+    @property
+    @pulumi.getter(name="cookieInsert")
+    def cookie_insert(self) -> bool:
+        return pulumi.get(self, "cookie_insert")
+
+    @cookie_insert.setter
+    def cookie_insert(self, value: bool):
+        pulumi.set(self, "cookie_insert", value)
+
+    @property
+    @pulumi.getter(name="cookiePassive")
+    def cookie_passive(self) -> bool:
+        return pulumi.get(self, "cookie_passive")
+
+    @cookie_passive.setter
+    def cookie_passive(self, value: bool):
+        pulumi.set(self, "cookie_passive", value)
+
+    @property
+    @pulumi.getter(name="cookieRewrite")
+    def cookie_rewrite(self) -> bool:
+        return pulumi.get(self, "cookie_rewrite")
+
+    @cookie_rewrite.setter
+    def cookie_rewrite(self, value: bool):
+        pulumi.set(self, "cookie_rewrite", value)
+
+    @property
+    @pulumi.getter
+    def decompress(self) -> bool:
+        return pulumi.get(self, "decompress")
+
+    @decompress.setter
+    def decompress(self, value: bool):
+        pulumi.set(self, "decompress", value)
+
+    @property
+    @pulumi.getter
+    def defer(self) -> bool:
+        return pulumi.get(self, "defer")
+
+    @defer.setter
+    def defer(self, value: bool):
+        pulumi.set(self, "defer", value)
+
+    @property
+    @pulumi.getter(name="destinationAddress")
+    def destination_address(self) -> bool:
+        return pulumi.get(self, "destination_address")
+
+    @destination_address.setter
+    def destination_address(self, value: bool):
+        pulumi.set(self, "destination_address", value)
+
+    @property
+    @pulumi.getter
+    def disable(self) -> bool:
+        return pulumi.get(self, "disable")
+
+    @disable.setter
+    def disable(self, value: bool):
+        pulumi.set(self, "disable", value)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> str:
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: str):
+        pulumi.set(self, "domain", value)
+
+    @property
+    @pulumi.getter
+    def enable(self) -> bool:
+        return pulumi.get(self, "enable")
+
+    @enable.setter
+    def enable(self, value: bool):
+        pulumi.set(self, "enable", value)
+
+    @property
+    @pulumi.getter
+    def expiry(self) -> str:
+        return pulumi.get(self, "expiry")
+
+    @expiry.setter
+    def expiry(self, value: str):
+        pulumi.set(self, "expiry", value)
+
+    @property
+    @pulumi.getter(name="expirySecs")
+    def expiry_secs(self) -> int:
+        return pulumi.get(self, "expiry_secs")
+
+    @expiry_secs.setter
+    def expiry_secs(self, value: int):
+        pulumi.set(self, "expiry_secs", value)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> str:
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: str):
+        pulumi.set(self, "expression", value)
+
+    @property
+    @pulumi.getter
+    def extension(self) -> str:
+        return pulumi.get(self, "extension")
+
+    @extension.setter
+    def extension(self, value: str):
+        pulumi.set(self, "extension", value)
+
+    @property
+    @pulumi.getter
+    def facility(self) -> str:
+        return pulumi.get(self, "facility")
+
+    @facility.setter
+    def facility(self, value: str):
+        pulumi.set(self, "facility", value)
+
+    @property
+    @pulumi.getter(name="fromProfile")
+    def from_profile(self) -> str:
+        return pulumi.get(self, "from_profile")
+
+    @from_profile.setter
+    def from_profile(self, value: str):
+        pulumi.set(self, "from_profile", value)
+
+    @property
+    @pulumi.getter
+    def hash(self) -> bool:
+        return pulumi.get(self, "hash")
+
+    @hash.setter
+    def hash(self, value: bool):
+        pulumi.set(self, "hash", value)
+
+    @property
+    @pulumi.getter
+    def host(self) -> str:
+        return pulumi.get(self, "host")
+
+    @host.setter
+    def host(self, value: str):
+        pulumi.set(self, "host", value)
+
+    @property
+    @pulumi.getter
+    def http(self) -> bool:
+        return pulumi.get(self, "http")
+
+    @http.setter
+    def http(self, value: bool):
+        pulumi.set(self, "http", value)
+
+    @property
+    @pulumi.getter(name="httpBasicAuth")
+    def http_basic_auth(self) -> bool:
+        return pulumi.get(self, "http_basic_auth")
+
+    @http_basic_auth.setter
+    def http_basic_auth(self, value: bool):
+        pulumi.set(self, "http_basic_auth", value)
+
+    @property
+    @pulumi.getter(name="httpCookie")
+    def http_cookie(self) -> bool:
+        return pulumi.get(self, "http_cookie")
+
+    @http_cookie.setter
+    def http_cookie(self, value: bool):
+        pulumi.set(self, "http_cookie", value)
+
+    @property
+    @pulumi.getter(name="httpHeader")
+    def http_header(self) -> bool:
+        return pulumi.get(self, "http_header")
+
+    @http_header.setter
+    def http_header(self, value: bool):
+        pulumi.set(self, "http_header", value)
+
+    @property
+    @pulumi.getter(name="httpReferer")
+    def http_referer(self) -> bool:
+        return pulumi.get(self, "http_referer")
+
+    @http_referer.setter
+    def http_referer(self, value: bool):
+        pulumi.set(self, "http_referer", value)
+
+    @property
+    @pulumi.getter(name="httpReply")
+    def http_reply(self) -> bool:
+        return pulumi.get(self, "http_reply")
+
+    @http_reply.setter
+    def http_reply(self, value: bool):
+        pulumi.set(self, "http_reply", value)
+
+    @property
+    @pulumi.getter(name="httpSetCookie")
+    def http_set_cookie(self) -> bool:
+        return pulumi.get(self, "http_set_cookie")
+
+    @http_set_cookie.setter
+    def http_set_cookie(self, value: bool):
+        pulumi.set(self, "http_set_cookie", value)
+
+    @property
+    @pulumi.getter(name="httpUri")
+    def http_uri(self) -> bool:
+        return pulumi.get(self, "http_uri")
+
+    @http_uri.setter
+    def http_uri(self, value: bool):
+        pulumi.set(self, "http_uri", value)
+
+    @property
+    @pulumi.getter
+    def ifile(self) -> str:
+        return pulumi.get(self, "ifile")
+
+    @ifile.setter
+    def ifile(self, value: str):
+        pulumi.set(self, "ifile", value)
+
+    @property
+    @pulumi.getter
+    def insert(self) -> bool:
+        return pulumi.get(self, "insert")
+
+    @insert.setter
+    def insert(self, value: bool):
+        pulumi.set(self, "insert", value)
+
+    @property
+    @pulumi.getter(name="internalVirtual")
+    def internal_virtual(self) -> str:
+        return pulumi.get(self, "internal_virtual")
+
+    @internal_virtual.setter
+    def internal_virtual(self, value: str):
+        pulumi.set(self, "internal_virtual", value)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> str:
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: str):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: str):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def l7dos(self) -> bool:
+        return pulumi.get(self, "l7dos")
+
+    @l7dos.setter
+    def l7dos(self, value: bool):
+        pulumi.set(self, "l7dos", value)
+
+    @property
+    @pulumi.getter
+    def length(self) -> int:
+        return pulumi.get(self, "length")
+
+    @length.setter
+    def length(self, value: int):
+        pulumi.set(self, "length", value)
+
+    @property
+    @pulumi.getter
+    def location(self) -> str:
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: str):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter
+    def log(self) -> bool:
+        return pulumi.get(self, "log")
+
+    @log.setter
+    def log(self, value: bool):
+        pulumi.set(self, "log", value)
+
+    @property
+    @pulumi.getter(name="ltmPolicy")
+    def ltm_policy(self) -> bool:
+        return pulumi.get(self, "ltm_policy")
+
+    @ltm_policy.setter
+    def ltm_policy(self, value: bool):
+        pulumi.set(self, "ltm_policy", value)
+
+    @property
+    @pulumi.getter
+    def member(self) -> str:
+        return pulumi.get(self, "member")
+
+    @member.setter
+    def member(self, value: str):
+        pulumi.set(self, "member", value)
+
+    @property
+    @pulumi.getter
+    def message(self) -> str:
+        return pulumi.get(self, "message")
+
+    @message.setter
+    def message(self, value: str):
+        pulumi.set(self, "message", value)
+
+    @property
+    @pulumi.getter
+    def netmask(self) -> str:
+        return pulumi.get(self, "netmask")
+
+    @netmask.setter
+    def netmask(self, value: str):
+        pulumi.set(self, "netmask", value)
+
+    @property
+    @pulumi.getter
+    def nexthop(self) -> str:
+        return pulumi.get(self, "nexthop")
+
+    @nexthop.setter
+    def nexthop(self, value: str):
+        pulumi.set(self, "nexthop", value)
+
+    @property
+    @pulumi.getter
+    def node(self) -> str:
+        return pulumi.get(self, "node")
+
+    @node.setter
+    def node(self, value: str):
+        pulumi.set(self, "node", value)
+
+    @property
+    @pulumi.getter
+    def offset(self) -> int:
+        return pulumi.get(self, "offset")
+
+    @offset.setter
+    def offset(self, value: int):
+        pulumi.set(self, "offset", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> str:
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: str):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def pem(self) -> bool:
+        return pulumi.get(self, "pem")
+
+    @pem.setter
+    def pem(self, value: bool):
+        pulumi.set(self, "pem", value)
+
+    @property
+    @pulumi.getter
+    def persist(self) -> bool:
+        return pulumi.get(self, "persist")
+
+    @persist.setter
+    def persist(self, value: bool):
+        pulumi.set(self, "persist", value)
+
+    @property
+    @pulumi.getter
+    def pin(self) -> bool:
+        return pulumi.get(self, "pin")
+
+    @pin.setter
+    def pin(self, value: bool):
+        pulumi.set(self, "pin", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> str:
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: str):
+        pulumi.set(self, "policy", value)
+
+    @property
+    @pulumi.getter
+    def pool(self) -> str:
+        return pulumi.get(self, "pool")
+
+    @pool.setter
+    def pool(self, value: str):
+        pulumi.set(self, "pool", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: int):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> str:
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: str):
+        pulumi.set(self, "priority", value)
+
+    @property
+    @pulumi.getter
+    def profile(self) -> str:
+        return pulumi.get(self, "profile")
+
+    @profile.setter
+    def profile(self, value: str):
+        pulumi.set(self, "profile", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> str:
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: str):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="queryString")
+    def query_string(self) -> str:
+        return pulumi.get(self, "query_string")
+
+    @query_string.setter
+    def query_string(self, value: str):
+        pulumi.set(self, "query_string", value)
+
+    @property
+    @pulumi.getter
+    def rateclass(self) -> str:
+        return pulumi.get(self, "rateclass")
+
+    @rateclass.setter
+    def rateclass(self, value: str):
+        pulumi.set(self, "rateclass", value)
+
+    @property
+    @pulumi.getter
+    def redirect(self) -> bool:
+        return pulumi.get(self, "redirect")
+
+    @redirect.setter
+    def redirect(self, value: bool):
+        pulumi.set(self, "redirect", value)
+
+    @property
+    @pulumi.getter
+    def remove(self) -> bool:
+        return pulumi.get(self, "remove")
+
+    @remove.setter
+    def remove(self, value: bool):
+        pulumi.set(self, "remove", value)
+
+    @property
+    @pulumi.getter
+    def replace(self) -> bool:
+        return pulumi.get(self, "replace")
+
+    @replace.setter
+    def replace(self, value: bool):
+        pulumi.set(self, "replace", value)
+
+    @property
+    @pulumi.getter
+    def request(self) -> bool:
+        return pulumi.get(self, "request")
+
+    @request.setter
+    def request(self, value: bool):
+        pulumi.set(self, "request", value)
+
+    @property
+    @pulumi.getter(name="requestAdapt")
+    def request_adapt(self) -> bool:
+        return pulumi.get(self, "request_adapt")
+
+    @request_adapt.setter
+    def request_adapt(self, value: bool):
+        pulumi.set(self, "request_adapt", value)
+
+    @property
+    @pulumi.getter
+    def reset(self) -> bool:
+        return pulumi.get(self, "reset")
+
+    @reset.setter
+    def reset(self, value: bool):
+        pulumi.set(self, "reset", value)
+
+    @property
+    @pulumi.getter
+    def response(self) -> bool:
+        return pulumi.get(self, "response")
+
+    @response.setter
+    def response(self, value: bool):
+        pulumi.set(self, "response", value)
+
+    @property
+    @pulumi.getter(name="responseAdapt")
+    def response_adapt(self) -> bool:
+        return pulumi.get(self, "response_adapt")
+
+    @response_adapt.setter
+    def response_adapt(self, value: bool):
+        pulumi.set(self, "response_adapt", value)
+
+    @property
+    @pulumi.getter
+    def scheme(self) -> str:
+        return pulumi.get(self, "scheme")
+
+    @scheme.setter
+    def scheme(self, value: str):
+        pulumi.set(self, "scheme", value)
+
+    @property
+    @pulumi.getter
+    def script(self) -> str:
+        return pulumi.get(self, "script")
+
+    @script.setter
+    def script(self, value: str):
+        pulumi.set(self, "script", value)
+
+    @property
+    @pulumi.getter
+    def select(self) -> bool:
+        return pulumi.get(self, "select")
+
+    @select.setter
+    def select(self, value: bool):
+        pulumi.set(self, "select", value)
+
+    @property
+    @pulumi.getter(name="serverSsl")
+    def server_ssl(self) -> bool:
+        return pulumi.get(self, "server_ssl")
+
+    @server_ssl.setter
+    def server_ssl(self, value: bool):
+        pulumi.set(self, "server_ssl", value)
+
+    @property
+    @pulumi.getter(name="setVariable")
+    def set_variable(self) -> bool:
+        return pulumi.get(self, "set_variable")
+
+    @set_variable.setter
+    def set_variable(self, value: bool):
+        pulumi.set(self, "set_variable", value)
+
+    @property
+    @pulumi.getter
+    def shutdown(self) -> bool:
+        return pulumi.get(self, "shutdown")
+
+    @shutdown.setter
+    def shutdown(self, value: bool):
+        pulumi.set(self, "shutdown", value)
+
+    @property
+    @pulumi.getter
+    def snat(self) -> str:
+        return pulumi.get(self, "snat")
+
+    @snat.setter
+    def snat(self, value: str):
+        pulumi.set(self, "snat", value)
+
+    @property
+    @pulumi.getter
+    def snatpool(self) -> str:
+        return pulumi.get(self, "snatpool")
+
+    @snatpool.setter
+    def snatpool(self, value: str):
+        pulumi.set(self, "snatpool", value)
+
+    @property
+    @pulumi.getter(name="sourceAddress")
+    def source_address(self) -> bool:
+        return pulumi.get(self, "source_address")
+
+    @source_address.setter
+    def source_address(self, value: bool):
+        pulumi.set(self, "source_address", value)
+
+    @property
+    @pulumi.getter(name="sslClientHello")
+    def ssl_client_hello(self) -> bool:
+        return pulumi.get(self, "ssl_client_hello")
+
+    @ssl_client_hello.setter
+    def ssl_client_hello(self, value: bool):
+        pulumi.set(self, "ssl_client_hello", value)
+
+    @property
+    @pulumi.getter(name="sslServerHandshake")
+    def ssl_server_handshake(self) -> bool:
+        return pulumi.get(self, "ssl_server_handshake")
+
+    @ssl_server_handshake.setter
+    def ssl_server_handshake(self, value: bool):
+        pulumi.set(self, "ssl_server_handshake", value)
+
+    @property
+    @pulumi.getter(name="sslServerHello")
+    def ssl_server_hello(self) -> bool:
+        return pulumi.get(self, "ssl_server_hello")
+
+    @ssl_server_hello.setter
+    def ssl_server_hello(self, value: bool):
+        pulumi.set(self, "ssl_server_hello", value)
+
+    @property
+    @pulumi.getter(name="sslSessionId")
+    def ssl_session_id(self) -> bool:
+        return pulumi.get(self, "ssl_session_id")
+
+    @ssl_session_id.setter
+    def ssl_session_id(self, value: bool):
+        pulumi.set(self, "ssl_session_id", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> int:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: int):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def tcl(self) -> bool:
+        return pulumi.get(self, "tcl")
+
+    @tcl.setter
+    def tcl(self, value: bool):
+        pulumi.set(self, "tcl", value)
+
+    @property
+    @pulumi.getter(name="tcpNagle")
+    def tcp_nagle(self) -> bool:
+        return pulumi.get(self, "tcp_nagle")
+
+    @tcp_nagle.setter
+    def tcp_nagle(self, value: bool):
+        pulumi.set(self, "tcp_nagle", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> str:
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: str):
+        pulumi.set(self, "text", value)
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> int:
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: int):
+        pulumi.set(self, "timeout", value)
+
+    @property
+    @pulumi.getter(name="tmName")
+    def tm_name(self) -> str:
+        return pulumi.get(self, "tm_name")
+
+    @tm_name.setter
+    def tm_name(self, value: str):
+        pulumi.set(self, "tm_name", value)
+
+    @property
+    @pulumi.getter
+    def uie(self) -> bool:
+        return pulumi.get(self, "uie")
+
+    @uie.setter
+    def uie(self, value: bool):
+        pulumi.set(self, "uie", value)
+
+    @property
+    @pulumi.getter
+    def universal(self) -> bool:
+        return pulumi.get(self, "universal")
+
+    @universal.setter
+    def universal(self, value: bool):
+        pulumi.set(self, "universal", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: str):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def virtual(self) -> str:
+        return pulumi.get(self, "virtual")
+
+    @virtual.setter
+    def virtual(self, value: str):
+        pulumi.set(self, "virtual", value)
+
+    @property
+    @pulumi.getter
+    def vlan(self) -> str:
+        return pulumi.get(self, "vlan")
+
+    @vlan.setter
+    def vlan(self, value: str):
+        pulumi.set(self, "vlan", value)
+
+    @property
+    @pulumi.getter(name="vlanId")
+    def vlan_id(self) -> int:
+        return pulumi.get(self, "vlan_id")
+
+    @vlan_id.setter
+    def vlan_id(self, value: int):
+        pulumi.set(self, "vlan_id", value)
+
+    @property
+    @pulumi.getter
+    def wam(self) -> bool:
+        return pulumi.get(self, "wam")
+
+    @wam.setter
+    def wam(self, value: bool):
+        pulumi.set(self, "wam", value)
+
+    @property
+    @pulumi.getter
+    def write(self) -> bool:
+        return pulumi.get(self, "write")
+
+    @write.setter
+    def write(self, value: bool):
+        pulumi.set(self, "write", value)
+
+    @property
+    @pulumi.getter
+    def forward(self) -> Optional[bool]:
+        return pulumi.get(self, "forward")
+
+    @forward.setter
+    def forward(self, value: Optional[bool]):
+        pulumi.set(self, "forward", value)
+
+    @property
+    @pulumi.getter(name="httpHost")
+    def http_host(self) -> Optional[bool]:
+        return pulumi.get(self, "http_host")
+
+    @http_host.setter
+    def http_host(self, value: Optional[bool]):
+        pulumi.set(self, "http_host", value)
+
+
+@pulumi.input_type
+class GetPolicyRuleConditionArgs:
+    def __init__(__self__, *,
+                 address: bool,
+                 all: bool,
+                 app_service: str,
+                 browser_type: bool,
+                 browser_version: bool,
+                 case_insensitive: bool,
+                 case_sensitive: bool,
+                 cipher: bool,
+                 cipher_bits: bool,
+                 client_ssl: bool,
+                 code: bool,
+                 common_name: bool,
+                 contains: bool,
+                 continent: bool,
+                 country_code: bool,
+                 country_name: bool,
+                 cpu_usage: bool,
+                 device_make: bool,
+                 device_model: bool,
+                 domain: bool,
+                 ends_with: bool,
+                 equals: bool,
+                 expiry: bool,
+                 extension: bool,
+                 external: bool,
+                 geoip: bool,
+                 greater: bool,
+                 greater_or_equal: bool,
+                 host: bool,
+                 http_basic_auth: bool,
+                 http_cookie: bool,
+                 http_header: bool,
+                 http_host: bool,
+                 http_method: bool,
+                 http_referer: bool,
+                 http_set_cookie: bool,
+                 http_status: bool,
+                 http_uri: bool,
+                 http_user_agent: bool,
+                 http_version: bool,
+                 index: int,
+                 internal: bool,
+                 isp: bool,
+                 last15secs: bool,
+                 last1min: bool,
+                 last5mins: bool,
+                 less: bool,
+                 less_or_equal: bool,
+                 local: bool,
+                 major: bool,
+                 matches: bool,
+                 minor: bool,
+                 missing: bool,
+                 mss: bool,
+                 not_: bool,
+                 org: bool,
+                 password: bool,
+                 path: bool,
+                 path_segment: bool,
+                 port: bool,
+                 present: bool,
+                 protocol: bool,
+                 query_parameter: bool,
+                 query_string: bool,
+                 region_code: bool,
+                 region_name: bool,
+                 remote: bool,
+                 request: bool,
+                 response: bool,
+                 route_domain: bool,
+                 rtt: bool,
+                 scheme: bool,
+                 server_name: bool,
+                 ssl_cert: bool,
+                 ssl_client_hello: bool,
+                 ssl_extension: bool,
+                 ssl_server_handshake: bool,
+                 ssl_server_hello: bool,
+                 starts_with: bool,
+                 tcp: bool,
+                 text: bool,
+                 tm_name: str,
+                 unnamed_query_parameter: bool,
+                 user_agent_token: bool,
+                 username: bool,
+                 value: bool,
+                 values: Sequence[str],
+                 version: bool,
+                 vlan: bool,
+                 vlan_id: bool):
+        pulumi.set(__self__, "address", address)
+        pulumi.set(__self__, "all", all)
+        pulumi.set(__self__, "app_service", app_service)
+        pulumi.set(__self__, "browser_type", browser_type)
+        pulumi.set(__self__, "browser_version", browser_version)
+        pulumi.set(__self__, "case_insensitive", case_insensitive)
+        pulumi.set(__self__, "case_sensitive", case_sensitive)
+        pulumi.set(__self__, "cipher", cipher)
+        pulumi.set(__self__, "cipher_bits", cipher_bits)
+        pulumi.set(__self__, "client_ssl", client_ssl)
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "common_name", common_name)
+        pulumi.set(__self__, "contains", contains)
+        pulumi.set(__self__, "continent", continent)
+        pulumi.set(__self__, "country_code", country_code)
+        pulumi.set(__self__, "country_name", country_name)
+        pulumi.set(__self__, "cpu_usage", cpu_usage)
+        pulumi.set(__self__, "device_make", device_make)
+        pulumi.set(__self__, "device_model", device_model)
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "ends_with", ends_with)
+        pulumi.set(__self__, "equals", equals)
+        pulumi.set(__self__, "expiry", expiry)
+        pulumi.set(__self__, "extension", extension)
+        pulumi.set(__self__, "external", external)
+        pulumi.set(__self__, "geoip", geoip)
+        pulumi.set(__self__, "greater", greater)
+        pulumi.set(__self__, "greater_or_equal", greater_or_equal)
+        pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "http_basic_auth", http_basic_auth)
+        pulumi.set(__self__, "http_cookie", http_cookie)
+        pulumi.set(__self__, "http_header", http_header)
+        pulumi.set(__self__, "http_host", http_host)
+        pulumi.set(__self__, "http_method", http_method)
+        pulumi.set(__self__, "http_referer", http_referer)
+        pulumi.set(__self__, "http_set_cookie", http_set_cookie)
+        pulumi.set(__self__, "http_status", http_status)
+        pulumi.set(__self__, "http_uri", http_uri)
+        pulumi.set(__self__, "http_user_agent", http_user_agent)
+        pulumi.set(__self__, "http_version", http_version)
+        pulumi.set(__self__, "index", index)
+        pulumi.set(__self__, "internal", internal)
+        pulumi.set(__self__, "isp", isp)
+        pulumi.set(__self__, "last15secs", last15secs)
+        pulumi.set(__self__, "last1min", last1min)
+        pulumi.set(__self__, "last5mins", last5mins)
+        pulumi.set(__self__, "less", less)
+        pulumi.set(__self__, "less_or_equal", less_or_equal)
+        pulumi.set(__self__, "local", local)
+        pulumi.set(__self__, "major", major)
+        pulumi.set(__self__, "matches", matches)
+        pulumi.set(__self__, "minor", minor)
+        pulumi.set(__self__, "missing", missing)
+        pulumi.set(__self__, "mss", mss)
+        pulumi.set(__self__, "not_", not_)
+        pulumi.set(__self__, "org", org)
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "path_segment", path_segment)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "present", present)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "query_parameter", query_parameter)
+        pulumi.set(__self__, "query_string", query_string)
+        pulumi.set(__self__, "region_code", region_code)
+        pulumi.set(__self__, "region_name", region_name)
+        pulumi.set(__self__, "remote", remote)
+        pulumi.set(__self__, "request", request)
+        pulumi.set(__self__, "response", response)
+        pulumi.set(__self__, "route_domain", route_domain)
+        pulumi.set(__self__, "rtt", rtt)
+        pulumi.set(__self__, "scheme", scheme)
+        pulumi.set(__self__, "server_name", server_name)
+        pulumi.set(__self__, "ssl_cert", ssl_cert)
+        pulumi.set(__self__, "ssl_client_hello", ssl_client_hello)
+        pulumi.set(__self__, "ssl_extension", ssl_extension)
+        pulumi.set(__self__, "ssl_server_handshake", ssl_server_handshake)
+        pulumi.set(__self__, "ssl_server_hello", ssl_server_hello)
+        pulumi.set(__self__, "starts_with", starts_with)
+        pulumi.set(__self__, "tcp", tcp)
+        pulumi.set(__self__, "text", text)
+        pulumi.set(__self__, "tm_name", tm_name)
+        pulumi.set(__self__, "unnamed_query_parameter", unnamed_query_parameter)
+        pulumi.set(__self__, "user_agent_token", user_agent_token)
+        pulumi.set(__self__, "username", username)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "values", values)
+        pulumi.set(__self__, "version", version)
+        pulumi.set(__self__, "vlan", vlan)
+        pulumi.set(__self__, "vlan_id", vlan_id)
+
+    @property
+    @pulumi.getter
+    def address(self) -> bool:
+        return pulumi.get(self, "address")
+
+    @address.setter
+    def address(self, value: bool):
+        pulumi.set(self, "address", value)
+
+    @property
+    @pulumi.getter
+    def all(self) -> bool:
+        return pulumi.get(self, "all")
+
+    @all.setter
+    def all(self, value: bool):
+        pulumi.set(self, "all", value)
+
+    @property
+    @pulumi.getter(name="appService")
+    def app_service(self) -> str:
+        return pulumi.get(self, "app_service")
+
+    @app_service.setter
+    def app_service(self, value: str):
+        pulumi.set(self, "app_service", value)
+
+    @property
+    @pulumi.getter(name="browserType")
+    def browser_type(self) -> bool:
+        return pulumi.get(self, "browser_type")
+
+    @browser_type.setter
+    def browser_type(self, value: bool):
+        pulumi.set(self, "browser_type", value)
+
+    @property
+    @pulumi.getter(name="browserVersion")
+    def browser_version(self) -> bool:
+        return pulumi.get(self, "browser_version")
+
+    @browser_version.setter
+    def browser_version(self, value: bool):
+        pulumi.set(self, "browser_version", value)
+
+    @property
+    @pulumi.getter(name="caseInsensitive")
+    def case_insensitive(self) -> bool:
+        return pulumi.get(self, "case_insensitive")
+
+    @case_insensitive.setter
+    def case_insensitive(self, value: bool):
+        pulumi.set(self, "case_insensitive", value)
+
+    @property
+    @pulumi.getter(name="caseSensitive")
+    def case_sensitive(self) -> bool:
+        return pulumi.get(self, "case_sensitive")
+
+    @case_sensitive.setter
+    def case_sensitive(self, value: bool):
+        pulumi.set(self, "case_sensitive", value)
+
+    @property
+    @pulumi.getter
+    def cipher(self) -> bool:
+        return pulumi.get(self, "cipher")
+
+    @cipher.setter
+    def cipher(self, value: bool):
+        pulumi.set(self, "cipher", value)
+
+    @property
+    @pulumi.getter(name="cipherBits")
+    def cipher_bits(self) -> bool:
+        return pulumi.get(self, "cipher_bits")
+
+    @cipher_bits.setter
+    def cipher_bits(self, value: bool):
+        pulumi.set(self, "cipher_bits", value)
+
+    @property
+    @pulumi.getter(name="clientSsl")
+    def client_ssl(self) -> bool:
+        return pulumi.get(self, "client_ssl")
+
+    @client_ssl.setter
+    def client_ssl(self, value: bool):
+        pulumi.set(self, "client_ssl", value)
+
+    @property
+    @pulumi.getter
+    def code(self) -> bool:
+        return pulumi.get(self, "code")
+
+    @code.setter
+    def code(self, value: bool):
+        pulumi.set(self, "code", value)
+
+    @property
+    @pulumi.getter(name="commonName")
+    def common_name(self) -> bool:
+        return pulumi.get(self, "common_name")
+
+    @common_name.setter
+    def common_name(self, value: bool):
+        pulumi.set(self, "common_name", value)
+
+    @property
+    @pulumi.getter
+    def contains(self) -> bool:
+        return pulumi.get(self, "contains")
+
+    @contains.setter
+    def contains(self, value: bool):
+        pulumi.set(self, "contains", value)
+
+    @property
+    @pulumi.getter
+    def continent(self) -> bool:
+        return pulumi.get(self, "continent")
+
+    @continent.setter
+    def continent(self, value: bool):
+        pulumi.set(self, "continent", value)
+
+    @property
+    @pulumi.getter(name="countryCode")
+    def country_code(self) -> bool:
+        return pulumi.get(self, "country_code")
+
+    @country_code.setter
+    def country_code(self, value: bool):
+        pulumi.set(self, "country_code", value)
+
+    @property
+    @pulumi.getter(name="countryName")
+    def country_name(self) -> bool:
+        return pulumi.get(self, "country_name")
+
+    @country_name.setter
+    def country_name(self, value: bool):
+        pulumi.set(self, "country_name", value)
+
+    @property
+    @pulumi.getter(name="cpuUsage")
+    def cpu_usage(self) -> bool:
+        return pulumi.get(self, "cpu_usage")
+
+    @cpu_usage.setter
+    def cpu_usage(self, value: bool):
+        pulumi.set(self, "cpu_usage", value)
+
+    @property
+    @pulumi.getter(name="deviceMake")
+    def device_make(self) -> bool:
+        return pulumi.get(self, "device_make")
+
+    @device_make.setter
+    def device_make(self, value: bool):
+        pulumi.set(self, "device_make", value)
+
+    @property
+    @pulumi.getter(name="deviceModel")
+    def device_model(self) -> bool:
+        return pulumi.get(self, "device_model")
+
+    @device_model.setter
+    def device_model(self, value: bool):
+        pulumi.set(self, "device_model", value)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> bool:
+        return pulumi.get(self, "domain")
+
+    @domain.setter
+    def domain(self, value: bool):
+        pulumi.set(self, "domain", value)
+
+    @property
+    @pulumi.getter(name="endsWith")
+    def ends_with(self) -> bool:
+        return pulumi.get(self, "ends_with")
+
+    @ends_with.setter
+    def ends_with(self, value: bool):
+        pulumi.set(self, "ends_with", value)
+
+    @property
+    @pulumi.getter
+    def equals(self) -> bool:
+        return pulumi.get(self, "equals")
+
+    @equals.setter
+    def equals(self, value: bool):
+        pulumi.set(self, "equals", value)
+
+    @property
+    @pulumi.getter
+    def expiry(self) -> bool:
+        return pulumi.get(self, "expiry")
+
+    @expiry.setter
+    def expiry(self, value: bool):
+        pulumi.set(self, "expiry", value)
+
+    @property
+    @pulumi.getter
+    def extension(self) -> bool:
+        return pulumi.get(self, "extension")
+
+    @extension.setter
+    def extension(self, value: bool):
+        pulumi.set(self, "extension", value)
+
+    @property
+    @pulumi.getter
+    def external(self) -> bool:
+        return pulumi.get(self, "external")
+
+    @external.setter
+    def external(self, value: bool):
+        pulumi.set(self, "external", value)
+
+    @property
+    @pulumi.getter
+    def geoip(self) -> bool:
+        return pulumi.get(self, "geoip")
+
+    @geoip.setter
+    def geoip(self, value: bool):
+        pulumi.set(self, "geoip", value)
+
+    @property
+    @pulumi.getter
+    def greater(self) -> bool:
+        return pulumi.get(self, "greater")
+
+    @greater.setter
+    def greater(self, value: bool):
+        pulumi.set(self, "greater", value)
+
+    @property
+    @pulumi.getter(name="greaterOrEqual")
+    def greater_or_equal(self) -> bool:
+        return pulumi.get(self, "greater_or_equal")
+
+    @greater_or_equal.setter
+    def greater_or_equal(self, value: bool):
+        pulumi.set(self, "greater_or_equal", value)
+
+    @property
+    @pulumi.getter
+    def host(self) -> bool:
+        return pulumi.get(self, "host")
+
+    @host.setter
+    def host(self, value: bool):
+        pulumi.set(self, "host", value)
+
+    @property
+    @pulumi.getter(name="httpBasicAuth")
+    def http_basic_auth(self) -> bool:
+        return pulumi.get(self, "http_basic_auth")
+
+    @http_basic_auth.setter
+    def http_basic_auth(self, value: bool):
+        pulumi.set(self, "http_basic_auth", value)
+
+    @property
+    @pulumi.getter(name="httpCookie")
+    def http_cookie(self) -> bool:
+        return pulumi.get(self, "http_cookie")
+
+    @http_cookie.setter
+    def http_cookie(self, value: bool):
+        pulumi.set(self, "http_cookie", value)
+
+    @property
+    @pulumi.getter(name="httpHeader")
+    def http_header(self) -> bool:
+        return pulumi.get(self, "http_header")
+
+    @http_header.setter
+    def http_header(self, value: bool):
+        pulumi.set(self, "http_header", value)
+
+    @property
+    @pulumi.getter(name="httpHost")
+    def http_host(self) -> bool:
+        return pulumi.get(self, "http_host")
+
+    @http_host.setter
+    def http_host(self, value: bool):
+        pulumi.set(self, "http_host", value)
+
+    @property
+    @pulumi.getter(name="httpMethod")
+    def http_method(self) -> bool:
+        return pulumi.get(self, "http_method")
+
+    @http_method.setter
+    def http_method(self, value: bool):
+        pulumi.set(self, "http_method", value)
+
+    @property
+    @pulumi.getter(name="httpReferer")
+    def http_referer(self) -> bool:
+        return pulumi.get(self, "http_referer")
+
+    @http_referer.setter
+    def http_referer(self, value: bool):
+        pulumi.set(self, "http_referer", value)
+
+    @property
+    @pulumi.getter(name="httpSetCookie")
+    def http_set_cookie(self) -> bool:
+        return pulumi.get(self, "http_set_cookie")
+
+    @http_set_cookie.setter
+    def http_set_cookie(self, value: bool):
+        pulumi.set(self, "http_set_cookie", value)
+
+    @property
+    @pulumi.getter(name="httpStatus")
+    def http_status(self) -> bool:
+        return pulumi.get(self, "http_status")
+
+    @http_status.setter
+    def http_status(self, value: bool):
+        pulumi.set(self, "http_status", value)
+
+    @property
+    @pulumi.getter(name="httpUri")
+    def http_uri(self) -> bool:
+        return pulumi.get(self, "http_uri")
+
+    @http_uri.setter
+    def http_uri(self, value: bool):
+        pulumi.set(self, "http_uri", value)
+
+    @property
+    @pulumi.getter(name="httpUserAgent")
+    def http_user_agent(self) -> bool:
+        return pulumi.get(self, "http_user_agent")
+
+    @http_user_agent.setter
+    def http_user_agent(self, value: bool):
+        pulumi.set(self, "http_user_agent", value)
+
+    @property
+    @pulumi.getter(name="httpVersion")
+    def http_version(self) -> bool:
+        return pulumi.get(self, "http_version")
+
+    @http_version.setter
+    def http_version(self, value: bool):
+        pulumi.set(self, "http_version", value)
+
+    @property
+    @pulumi.getter
+    def index(self) -> int:
+        return pulumi.get(self, "index")
+
+    @index.setter
+    def index(self, value: int):
+        pulumi.set(self, "index", value)
+
+    @property
+    @pulumi.getter
+    def internal(self) -> bool:
+        return pulumi.get(self, "internal")
+
+    @internal.setter
+    def internal(self, value: bool):
+        pulumi.set(self, "internal", value)
+
+    @property
+    @pulumi.getter
+    def isp(self) -> bool:
+        return pulumi.get(self, "isp")
+
+    @isp.setter
+    def isp(self, value: bool):
+        pulumi.set(self, "isp", value)
+
+    @property
+    @pulumi.getter
+    def last15secs(self) -> bool:
+        return pulumi.get(self, "last15secs")
+
+    @last15secs.setter
+    def last15secs(self, value: bool):
+        pulumi.set(self, "last15secs", value)
+
+    @property
+    @pulumi.getter
+    def last1min(self) -> bool:
+        return pulumi.get(self, "last1min")
+
+    @last1min.setter
+    def last1min(self, value: bool):
+        pulumi.set(self, "last1min", value)
+
+    @property
+    @pulumi.getter
+    def last5mins(self) -> bool:
+        return pulumi.get(self, "last5mins")
+
+    @last5mins.setter
+    def last5mins(self, value: bool):
+        pulumi.set(self, "last5mins", value)
+
+    @property
+    @pulumi.getter
+    def less(self) -> bool:
+        return pulumi.get(self, "less")
+
+    @less.setter
+    def less(self, value: bool):
+        pulumi.set(self, "less", value)
+
+    @property
+    @pulumi.getter(name="lessOrEqual")
+    def less_or_equal(self) -> bool:
+        return pulumi.get(self, "less_or_equal")
+
+    @less_or_equal.setter
+    def less_or_equal(self, value: bool):
+        pulumi.set(self, "less_or_equal", value)
+
+    @property
+    @pulumi.getter
+    def local(self) -> bool:
+        return pulumi.get(self, "local")
+
+    @local.setter
+    def local(self, value: bool):
+        pulumi.set(self, "local", value)
+
+    @property
+    @pulumi.getter
+    def major(self) -> bool:
+        return pulumi.get(self, "major")
+
+    @major.setter
+    def major(self, value: bool):
+        pulumi.set(self, "major", value)
+
+    @property
+    @pulumi.getter
+    def matches(self) -> bool:
+        return pulumi.get(self, "matches")
+
+    @matches.setter
+    def matches(self, value: bool):
+        pulumi.set(self, "matches", value)
+
+    @property
+    @pulumi.getter
+    def minor(self) -> bool:
+        return pulumi.get(self, "minor")
+
+    @minor.setter
+    def minor(self, value: bool):
+        pulumi.set(self, "minor", value)
+
+    @property
+    @pulumi.getter
+    def missing(self) -> bool:
+        return pulumi.get(self, "missing")
+
+    @missing.setter
+    def missing(self, value: bool):
+        pulumi.set(self, "missing", value)
+
+    @property
+    @pulumi.getter
+    def mss(self) -> bool:
+        return pulumi.get(self, "mss")
+
+    @mss.setter
+    def mss(self, value: bool):
+        pulumi.set(self, "mss", value)
+
+    @property
+    @pulumi.getter(name="not")
+    def not_(self) -> bool:
+        return pulumi.get(self, "not_")
+
+    @not_.setter
+    def not_(self, value: bool):
+        pulumi.set(self, "not_", value)
+
+    @property
+    @pulumi.getter
+    def org(self) -> bool:
+        return pulumi.get(self, "org")
+
+    @org.setter
+    def org(self, value: bool):
+        pulumi.set(self, "org", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> bool:
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: bool):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> bool:
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: bool):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="pathSegment")
+    def path_segment(self) -> bool:
+        return pulumi.get(self, "path_segment")
+
+    @path_segment.setter
+    def path_segment(self, value: bool):
+        pulumi.set(self, "path_segment", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> bool:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: bool):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
+    def present(self) -> bool:
+        return pulumi.get(self, "present")
+
+    @present.setter
+    def present(self, value: bool):
+        pulumi.set(self, "present", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> bool:
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: bool):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="queryParameter")
+    def query_parameter(self) -> bool:
+        return pulumi.get(self, "query_parameter")
+
+    @query_parameter.setter
+    def query_parameter(self, value: bool):
+        pulumi.set(self, "query_parameter", value)
+
+    @property
+    @pulumi.getter(name="queryString")
+    def query_string(self) -> bool:
+        return pulumi.get(self, "query_string")
+
+    @query_string.setter
+    def query_string(self, value: bool):
+        pulumi.set(self, "query_string", value)
+
+    @property
+    @pulumi.getter(name="regionCode")
+    def region_code(self) -> bool:
+        return pulumi.get(self, "region_code")
+
+    @region_code.setter
+    def region_code(self, value: bool):
+        pulumi.set(self, "region_code", value)
+
+    @property
+    @pulumi.getter(name="regionName")
+    def region_name(self) -> bool:
+        return pulumi.get(self, "region_name")
+
+    @region_name.setter
+    def region_name(self, value: bool):
+        pulumi.set(self, "region_name", value)
+
+    @property
+    @pulumi.getter
+    def remote(self) -> bool:
+        return pulumi.get(self, "remote")
+
+    @remote.setter
+    def remote(self, value: bool):
+        pulumi.set(self, "remote", value)
+
+    @property
+    @pulumi.getter
+    def request(self) -> bool:
+        return pulumi.get(self, "request")
+
+    @request.setter
+    def request(self, value: bool):
+        pulumi.set(self, "request", value)
+
+    @property
+    @pulumi.getter
+    def response(self) -> bool:
+        return pulumi.get(self, "response")
+
+    @response.setter
+    def response(self, value: bool):
+        pulumi.set(self, "response", value)
+
+    @property
+    @pulumi.getter(name="routeDomain")
+    def route_domain(self) -> bool:
+        return pulumi.get(self, "route_domain")
+
+    @route_domain.setter
+    def route_domain(self, value: bool):
+        pulumi.set(self, "route_domain", value)
+
+    @property
+    @pulumi.getter
+    def rtt(self) -> bool:
+        return pulumi.get(self, "rtt")
+
+    @rtt.setter
+    def rtt(self, value: bool):
+        pulumi.set(self, "rtt", value)
+
+    @property
+    @pulumi.getter
+    def scheme(self) -> bool:
+        return pulumi.get(self, "scheme")
+
+    @scheme.setter
+    def scheme(self, value: bool):
+        pulumi.set(self, "scheme", value)
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> bool:
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: bool):
+        pulumi.set(self, "server_name", value)
+
+    @property
+    @pulumi.getter(name="sslCert")
+    def ssl_cert(self) -> bool:
+        return pulumi.get(self, "ssl_cert")
+
+    @ssl_cert.setter
+    def ssl_cert(self, value: bool):
+        pulumi.set(self, "ssl_cert", value)
+
+    @property
+    @pulumi.getter(name="sslClientHello")
+    def ssl_client_hello(self) -> bool:
+        return pulumi.get(self, "ssl_client_hello")
+
+    @ssl_client_hello.setter
+    def ssl_client_hello(self, value: bool):
+        pulumi.set(self, "ssl_client_hello", value)
+
+    @property
+    @pulumi.getter(name="sslExtension")
+    def ssl_extension(self) -> bool:
+        return pulumi.get(self, "ssl_extension")
+
+    @ssl_extension.setter
+    def ssl_extension(self, value: bool):
+        pulumi.set(self, "ssl_extension", value)
+
+    @property
+    @pulumi.getter(name="sslServerHandshake")
+    def ssl_server_handshake(self) -> bool:
+        return pulumi.get(self, "ssl_server_handshake")
+
+    @ssl_server_handshake.setter
+    def ssl_server_handshake(self, value: bool):
+        pulumi.set(self, "ssl_server_handshake", value)
+
+    @property
+    @pulumi.getter(name="sslServerHello")
+    def ssl_server_hello(self) -> bool:
+        return pulumi.get(self, "ssl_server_hello")
+
+    @ssl_server_hello.setter
+    def ssl_server_hello(self, value: bool):
+        pulumi.set(self, "ssl_server_hello", value)
+
+    @property
+    @pulumi.getter(name="startsWith")
+    def starts_with(self) -> bool:
+        return pulumi.get(self, "starts_with")
+
+    @starts_with.setter
+    def starts_with(self, value: bool):
+        pulumi.set(self, "starts_with", value)
+
+    @property
+    @pulumi.getter
+    def tcp(self) -> bool:
+        return pulumi.get(self, "tcp")
+
+    @tcp.setter
+    def tcp(self, value: bool):
+        pulumi.set(self, "tcp", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> bool:
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: bool):
+        pulumi.set(self, "text", value)
+
+    @property
+    @pulumi.getter(name="tmName")
+    def tm_name(self) -> str:
+        return pulumi.get(self, "tm_name")
+
+    @tm_name.setter
+    def tm_name(self, value: str):
+        pulumi.set(self, "tm_name", value)
+
+    @property
+    @pulumi.getter(name="unnamedQueryParameter")
+    def unnamed_query_parameter(self) -> bool:
+        return pulumi.get(self, "unnamed_query_parameter")
+
+    @unnamed_query_parameter.setter
+    def unnamed_query_parameter(self, value: bool):
+        pulumi.set(self, "unnamed_query_parameter", value)
+
+    @property
+    @pulumi.getter(name="userAgentToken")
+    def user_agent_token(self) -> bool:
+        return pulumi.get(self, "user_agent_token")
+
+    @user_agent_token.setter
+    def user_agent_token(self, value: bool):
+        pulumi.set(self, "user_agent_token", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> bool:
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: bool):
+        pulumi.set(self, "username", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> bool:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: bool):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Sequence[str]):
+        pulumi.set(self, "values", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> bool:
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: bool):
+        pulumi.set(self, "version", value)
+
+    @property
+    @pulumi.getter
+    def vlan(self) -> bool:
+        return pulumi.get(self, "vlan")
+
+    @vlan.setter
+    def vlan(self, value: bool):
+        pulumi.set(self, "vlan", value)
+
+    @property
+    @pulumi.getter(name="vlanId")
+    def vlan_id(self) -> bool:
+        return pulumi.get(self, "vlan_id")
+
+    @vlan_id.setter
+    def vlan_id(self, value: bool):
+        pulumi.set(self, "vlan_id", value)
 
 
