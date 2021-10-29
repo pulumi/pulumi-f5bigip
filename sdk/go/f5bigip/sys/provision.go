@@ -11,7 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// `sys.Provision` provides details bout how to enable "ilx", "asm" "apm" resource on BIG-IP
+// `sys.Provision` Manage BIG-IP module provisioning. This resource will only provision at the standard levels of Dedicated, Nominal, and Minimum.
+//
 // ## Example Usage
 //
 // ```go
@@ -24,13 +25,12 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sys.NewProvision(ctx, "test_provision", &sys.ProvisionArgs{
+// 		_, err := sys.NewProvision(ctx, "gtm", &sys.ProvisionArgs{
 // 			CpuRatio:    pulumi.Int(0),
 // 			DiskRatio:   pulumi.Int(0),
-// 			FullPath:    pulumi.String("asm"),
-// 			Level:       pulumi.String("none"),
+// 			Level:       pulumi.String("nominal"),
 // 			MemoryRatio: pulumi.Int(0),
-// 			Name:        pulumi.String("TEST_ASM_PROVISION_NAME"),
+// 			Name:        pulumi.String("gtm"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -42,17 +42,39 @@ import (
 type Provision struct {
 	pulumi.CustomResourceState
 
-	// cpu Ratio
+	// Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
 	CpuRatio pulumi.IntPtrOutput `pulumi:"cpuRatio"`
-	// disk Ratio
+	// Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
 	DiskRatio pulumi.IntPtrOutput `pulumi:"diskRatio"`
-	// path
-	FullPath pulumi.StringOutput `pulumi:"fullPath"`
-	// what level nominal or dedicated
+	FullPath  pulumi.StringOutput `pulumi:"fullPath"`
+	// Sets the provisioning level for the requested modules. Changing the level for one module may require modifying the level of another module. For example, changing one module to `dedicated` requires setting all others to `none`. Setting the level of a module to `none` means the module is not activated.
+	// default is `nominal`
+	// possible options:
+	// * nominal
+	// * minimum
+	// * none
+	// * dedicated
 	Level pulumi.StringPtrOutput `pulumi:"level"`
-	// memory Ratio
+	// Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
 	MemoryRatio pulumi.IntPtrOutput `pulumi:"memoryRatio"`
-	// Name of the module to be provisioned
+	// Name of module to provision in BIG-IP.
+	// possible options:
+	// * afm
+	// * am
+	// * apm
+	// * cgnat
+	// * asm
+	// * avr
+	// * dos
+	// * fps
+	// * gtm
+	// * ilx
+	// * lc
+	// * ltm
+	// * pem
+	// * sslo
+	// * swg
+	// * urldb
 	Name pulumi.StringOutput `pulumi:"name"`
 }
 
@@ -88,32 +110,76 @@ func GetProvision(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Provision resources.
 type provisionState struct {
-	// cpu Ratio
+	// Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
 	CpuRatio *int `pulumi:"cpuRatio"`
-	// disk Ratio
-	DiskRatio *int `pulumi:"diskRatio"`
-	// path
-	FullPath *string `pulumi:"fullPath"`
-	// what level nominal or dedicated
+	// Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
+	DiskRatio *int    `pulumi:"diskRatio"`
+	FullPath  *string `pulumi:"fullPath"`
+	// Sets the provisioning level for the requested modules. Changing the level for one module may require modifying the level of another module. For example, changing one module to `dedicated` requires setting all others to `none`. Setting the level of a module to `none` means the module is not activated.
+	// default is `nominal`
+	// possible options:
+	// * nominal
+	// * minimum
+	// * none
+	// * dedicated
 	Level *string `pulumi:"level"`
-	// memory Ratio
+	// Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
 	MemoryRatio *int `pulumi:"memoryRatio"`
-	// Name of the module to be provisioned
+	// Name of module to provision in BIG-IP.
+	// possible options:
+	// * afm
+	// * am
+	// * apm
+	// * cgnat
+	// * asm
+	// * avr
+	// * dos
+	// * fps
+	// * gtm
+	// * ilx
+	// * lc
+	// * ltm
+	// * pem
+	// * sslo
+	// * swg
+	// * urldb
 	Name *string `pulumi:"name"`
 }
 
 type ProvisionState struct {
-	// cpu Ratio
+	// Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
 	CpuRatio pulumi.IntPtrInput
-	// disk Ratio
+	// Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
 	DiskRatio pulumi.IntPtrInput
-	// path
-	FullPath pulumi.StringPtrInput
-	// what level nominal or dedicated
+	FullPath  pulumi.StringPtrInput
+	// Sets the provisioning level for the requested modules. Changing the level for one module may require modifying the level of another module. For example, changing one module to `dedicated` requires setting all others to `none`. Setting the level of a module to `none` means the module is not activated.
+	// default is `nominal`
+	// possible options:
+	// * nominal
+	// * minimum
+	// * none
+	// * dedicated
 	Level pulumi.StringPtrInput
-	// memory Ratio
+	// Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
 	MemoryRatio pulumi.IntPtrInput
-	// Name of the module to be provisioned
+	// Name of module to provision in BIG-IP.
+	// possible options:
+	// * afm
+	// * am
+	// * apm
+	// * cgnat
+	// * asm
+	// * avr
+	// * dos
+	// * fps
+	// * gtm
+	// * ilx
+	// * lc
+	// * ltm
+	// * pem
+	// * sslo
+	// * swg
+	// * urldb
 	Name pulumi.StringPtrInput
 }
 
@@ -122,33 +188,77 @@ func (ProvisionState) ElementType() reflect.Type {
 }
 
 type provisionArgs struct {
-	// cpu Ratio
+	// Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
 	CpuRatio *int `pulumi:"cpuRatio"`
-	// disk Ratio
-	DiskRatio *int `pulumi:"diskRatio"`
-	// path
-	FullPath *string `pulumi:"fullPath"`
-	// what level nominal or dedicated
+	// Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
+	DiskRatio *int    `pulumi:"diskRatio"`
+	FullPath  *string `pulumi:"fullPath"`
+	// Sets the provisioning level for the requested modules. Changing the level for one module may require modifying the level of another module. For example, changing one module to `dedicated` requires setting all others to `none`. Setting the level of a module to `none` means the module is not activated.
+	// default is `nominal`
+	// possible options:
+	// * nominal
+	// * minimum
+	// * none
+	// * dedicated
 	Level *string `pulumi:"level"`
-	// memory Ratio
+	// Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
 	MemoryRatio *int `pulumi:"memoryRatio"`
-	// Name of the module to be provisioned
+	// Name of module to provision in BIG-IP.
+	// possible options:
+	// * afm
+	// * am
+	// * apm
+	// * cgnat
+	// * asm
+	// * avr
+	// * dos
+	// * fps
+	// * gtm
+	// * ilx
+	// * lc
+	// * ltm
+	// * pem
+	// * sslo
+	// * swg
+	// * urldb
 	Name string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a Provision resource.
 type ProvisionArgs struct {
-	// cpu Ratio
+	// Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
 	CpuRatio pulumi.IntPtrInput
-	// disk Ratio
+	// Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
 	DiskRatio pulumi.IntPtrInput
-	// path
-	FullPath pulumi.StringPtrInput
-	// what level nominal or dedicated
+	FullPath  pulumi.StringPtrInput
+	// Sets the provisioning level for the requested modules. Changing the level for one module may require modifying the level of another module. For example, changing one module to `dedicated` requires setting all others to `none`. Setting the level of a module to `none` means the module is not activated.
+	// default is `nominal`
+	// possible options:
+	// * nominal
+	// * minimum
+	// * none
+	// * dedicated
 	Level pulumi.StringPtrInput
-	// memory Ratio
+	// Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
 	MemoryRatio pulumi.IntPtrInput
-	// Name of the module to be provisioned
+	// Name of module to provision in BIG-IP.
+	// possible options:
+	// * afm
+	// * am
+	// * apm
+	// * cgnat
+	// * asm
+	// * avr
+	// * dos
+	// * fps
+	// * gtm
+	// * ilx
+	// * lc
+	// * ltm
+	// * pem
+	// * sslo
+	// * swg
+	// * urldb
 	Name pulumi.StringInput
 }
 

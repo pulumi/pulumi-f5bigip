@@ -5,20 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * `f5bigip.sys.Provision` provides details bout how to enable "ilx", "asm" "apm" resource on BIG-IP
+ * `f5bigip.sys.Provision` Manage BIG-IP module provisioning. This resource will only provision at the standard levels of Dedicated, Nominal, and Minimum.
+ *
  * ## Example Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const test_provision = new f5bigip.sys.Provision("test-provision", {
+ * const gtm = new f5bigip.sys.Provision("gtm", {
  *     cpuRatio: 0,
  *     diskRatio: 0,
- *     fullPath: "asm",
- *     level: "none",
+ *     level: "nominal",
  *     memoryRatio: 0,
- *     name: "TEST_ASM_PROVISION_NAME",
+ *     name: "gtm",
  * });
  * ```
  */
@@ -51,27 +51,47 @@ export class Provision extends pulumi.CustomResource {
     }
 
     /**
-     * cpu Ratio
+     * Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
      */
     public readonly cpuRatio!: pulumi.Output<number | undefined>;
     /**
-     * disk Ratio
+     * Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
      */
     public readonly diskRatio!: pulumi.Output<number | undefined>;
-    /**
-     * path
-     */
     public readonly fullPath!: pulumi.Output<string>;
     /**
-     * what level nominal or dedicated
+     * Sets the provisioning level for the requested modules. Changing the level for one module may require modifying the level of another module. For example, changing one module to `dedicated` requires setting all others to `none`. Setting the level of a module to `none` means the module is not activated.
+     * default is `nominal`
+     * possible options:
+     * * nominal
+     * * minimum
+     * * none
+     * * dedicated
      */
     public readonly level!: pulumi.Output<string | undefined>;
     /**
-     * memory Ratio
+     * Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
      */
     public readonly memoryRatio!: pulumi.Output<number | undefined>;
     /**
-     * Name of the module to be provisioned
+     * Name of module to provision in BIG-IP. 
+     * possible options:
+     * * afm
+     * * am
+     * * apm
+     * * cgnat
+     * * asm
+     * * avr
+     * * dos
+     * * fps
+     * * gtm
+     * * ilx
+     * * lc
+     * * ltm
+     * * pem
+     * * sslo
+     * * swg
+     * * urldb
      */
     public readonly name!: pulumi.Output<string>;
 
@@ -118,27 +138,47 @@ export class Provision extends pulumi.CustomResource {
  */
 export interface ProvisionState {
     /**
-     * cpu Ratio
+     * Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
      */
     cpuRatio?: pulumi.Input<number>;
     /**
-     * disk Ratio
+     * Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
      */
     diskRatio?: pulumi.Input<number>;
-    /**
-     * path
-     */
     fullPath?: pulumi.Input<string>;
     /**
-     * what level nominal or dedicated
+     * Sets the provisioning level for the requested modules. Changing the level for one module may require modifying the level of another module. For example, changing one module to `dedicated` requires setting all others to `none`. Setting the level of a module to `none` means the module is not activated.
+     * default is `nominal`
+     * possible options:
+     * * nominal
+     * * minimum
+     * * none
+     * * dedicated
      */
     level?: pulumi.Input<string>;
     /**
-     * memory Ratio
+     * Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
      */
     memoryRatio?: pulumi.Input<number>;
     /**
-     * Name of the module to be provisioned
+     * Name of module to provision in BIG-IP. 
+     * possible options:
+     * * afm
+     * * am
+     * * apm
+     * * cgnat
+     * * asm
+     * * avr
+     * * dos
+     * * fps
+     * * gtm
+     * * ilx
+     * * lc
+     * * ltm
+     * * pem
+     * * sslo
+     * * swg
+     * * urldb
      */
     name?: pulumi.Input<string>;
 }
@@ -148,27 +188,47 @@ export interface ProvisionState {
  */
 export interface ProvisionArgs {
     /**
-     * cpu Ratio
+     * Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
      */
     cpuRatio?: pulumi.Input<number>;
     /**
-     * disk Ratio
+     * Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
      */
     diskRatio?: pulumi.Input<number>;
-    /**
-     * path
-     */
     fullPath?: pulumi.Input<string>;
     /**
-     * what level nominal or dedicated
+     * Sets the provisioning level for the requested modules. Changing the level for one module may require modifying the level of another module. For example, changing one module to `dedicated` requires setting all others to `none`. Setting the level of a module to `none` means the module is not activated.
+     * default is `nominal`
+     * possible options:
+     * * nominal
+     * * minimum
+     * * none
+     * * dedicated
      */
     level?: pulumi.Input<string>;
     /**
-     * memory Ratio
+     * Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
      */
     memoryRatio?: pulumi.Input<number>;
     /**
-     * Name of the module to be provisioned
+     * Name of module to provision in BIG-IP. 
+     * possible options:
+     * * afm
+     * * am
+     * * apm
+     * * cgnat
+     * * asm
+     * * avr
+     * * dos
+     * * fps
+     * * gtm
+     * * ilx
+     * * lc
+     * * ltm
+     * * pem
+     * * sslo
+     * * swg
+     * * urldb
      */
     name: pulumi.Input<string>;
 }

@@ -31,6 +31,8 @@ type BigIqAs3 struct {
 	BigiqTokenAuth pulumi.BoolPtrOutput `pulumi:"bigiqTokenAuth"`
 	// User name  of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqUser pulumi.StringOutput `pulumi:"bigiqUser"`
+	// Set True if you want to ignore metadata changes during update. By default it is set to `true`
+	IgnoreMetadata pulumi.BoolPtrOutput `pulumi:"ignoreMetadata"`
 	// Name of Tenant
 	TenantList pulumi.StringOutput `pulumi:"tenantList"`
 }
@@ -90,6 +92,8 @@ type bigIqAs3State struct {
 	BigiqTokenAuth *bool `pulumi:"bigiqTokenAuth"`
 	// User name  of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqUser *string `pulumi:"bigiqUser"`
+	// Set True if you want to ignore metadata changes during update. By default it is set to `true`
+	IgnoreMetadata *bool `pulumi:"ignoreMetadata"`
 	// Name of Tenant
 	TenantList *string `pulumi:"tenantList"`
 }
@@ -109,6 +113,8 @@ type BigIqAs3State struct {
 	BigiqTokenAuth pulumi.BoolPtrInput
 	// User name  of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqUser pulumi.StringPtrInput
+	// Set True if you want to ignore metadata changes during update. By default it is set to `true`
+	IgnoreMetadata pulumi.BoolPtrInput
 	// Name of Tenant
 	TenantList pulumi.StringPtrInput
 }
@@ -132,6 +138,8 @@ type bigIqAs3Args struct {
 	BigiqTokenAuth *bool `pulumi:"bigiqTokenAuth"`
 	// User name  of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqUser string `pulumi:"bigiqUser"`
+	// Set True if you want to ignore metadata changes during update. By default it is set to `true`
+	IgnoreMetadata *bool `pulumi:"ignoreMetadata"`
 	// Name of Tenant
 	TenantList *string `pulumi:"tenantList"`
 }
@@ -152,6 +160,8 @@ type BigIqAs3Args struct {
 	BigiqTokenAuth pulumi.BoolPtrInput
 	// User name  of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqUser pulumi.StringInput
+	// Set True if you want to ignore metadata changes during update. By default it is set to `true`
+	IgnoreMetadata pulumi.BoolPtrInput
 	// Name of Tenant
 	TenantList pulumi.StringPtrInput
 }

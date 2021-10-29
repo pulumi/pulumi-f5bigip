@@ -2150,6 +2150,1816 @@
                 }
             }
         },
+        "f5bigip:ltm/getPolicyRule:getPolicyRule": {
+            "properties": {
+                "actions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/f5bigip:ltm/getPolicyRuleAction:getPolicyRuleAction"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "conditions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/f5bigip:ltm/getPolicyRuleCondition:getPolicyRuleCondition"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the policy which includes partion ( /partition/policy-name )\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name"
+            ]
+        },
+        "f5bigip:ltm/getPolicyRuleAction:getPolicyRuleAction": {
+            "properties": {
+                "appService": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "application": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "asm": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "avr": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "cache": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "carp": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "category": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "classify": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "clonePool": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "code": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "compress": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "connection": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "content": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "cookieHash": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "cookieInsert": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "cookiePassive": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "cookieRewrite": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "decompress": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "defer": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "destinationAddress": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "disable": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "domain": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "enable": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "expiry": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "expirySecs": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "expression": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "extension": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "facility": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "forward": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "fromProfile": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "hash": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "host": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "http": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "httpBasicAuth": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "httpCookie": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "httpHeader": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "httpHost": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "httpReferer": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "httpReply": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "httpSetCookie": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "httpUri": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ifile": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "insert": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "internalVirtual": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ipAddress": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "key": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "l7dos": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "length": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "location": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "log": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ltmPolicy": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "member": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "message": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "netmask": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "nexthop": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "node": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "offset": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "path": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "pem": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "persist": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "pin": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "policy": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "pool": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "port": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "priority": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "profile": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "protocol": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "queryString": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "rateclass": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "redirect": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "remove": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "replace": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "request": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "requestAdapt": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "reset": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "response": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "responseAdapt": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "scheme": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "script": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "select": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "serverSsl": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "setVariable": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "shutdown": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "snat": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "snatpool": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sourceAddress": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sslClientHello": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sslServerHandshake": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sslServerHello": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sslSessionId": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "status": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tcl": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tcpNagle": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "text": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "timeout": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tmName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "uie": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "universal": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "virtual": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "vlan": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "vlanId": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "wam": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "write": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "appService",
+                "application",
+                "asm",
+                "avr",
+                "cache",
+                "carp",
+                "category",
+                "classify",
+                "clonePool",
+                "code",
+                "compress",
+                "connection",
+                "content",
+                "cookieHash",
+                "cookieInsert",
+                "cookiePassive",
+                "cookieRewrite",
+                "decompress",
+                "defer",
+                "destinationAddress",
+                "disable",
+                "domain",
+                "enable",
+                "expiry",
+                "expirySecs",
+                "expression",
+                "extension",
+                "facility",
+                "fromProfile",
+                "hash",
+                "host",
+                "http",
+                "httpBasicAuth",
+                "httpCookie",
+                "httpHeader",
+                "httpReferer",
+                "httpReply",
+                "httpSetCookie",
+                "httpUri",
+                "ifile",
+                "insert",
+                "internalVirtual",
+                "ipAddress",
+                "key",
+                "l7dos",
+                "length",
+                "location",
+                "log",
+                "ltmPolicy",
+                "member",
+                "message",
+                "netmask",
+                "nexthop",
+                "node",
+                "offset",
+                "path",
+                "pem",
+                "persist",
+                "pin",
+                "policy",
+                "pool",
+                "port",
+                "priority",
+                "profile",
+                "protocol",
+                "queryString",
+                "rateclass",
+                "redirect",
+                "remove",
+                "replace",
+                "request",
+                "requestAdapt",
+                "reset",
+                "response",
+                "responseAdapt",
+                "scheme",
+                "script",
+                "select",
+                "serverSsl",
+                "setVariable",
+                "shutdown",
+                "snat",
+                "snatpool",
+                "sourceAddress",
+                "sslClientHello",
+                "sslServerHandshake",
+                "sslServerHello",
+                "sslSessionId",
+                "status",
+                "tcl",
+                "tcpNagle",
+                "text",
+                "timeout",
+                "tmName",
+                "uie",
+                "universal",
+                "value",
+                "virtual",
+                "vlan",
+                "vlanId",
+                "wam",
+                "write"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "f5bigip:ltm/getPolicyRuleCondition:getPolicyRuleCondition": {
+            "properties": {
+                "address": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "all": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "appService": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "browserType": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "browserVersion": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "caseInsensitive": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "caseSensitive": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "cipher": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "cipherBits": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "clientSsl": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "code": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "commonName": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "contains": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "continent": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "countryCode": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "countryName": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "cpuUsage": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "deviceMake": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "deviceModel": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "domain": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "endsWith": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "equals": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "expiry": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "extension": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "external": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "geoip": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "greater": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "greaterOrEqual": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "host": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "httpBasicAuth": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "httpCookie": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "httpHeader": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "httpHost": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "httpMethod": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "httpReferer": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "httpSetCookie": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "httpStatus": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "httpUri": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "httpUserAgent": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "httpVersion": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "index": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "internal": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "isp": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "last15secs": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "last1min": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "last5mins": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "less": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "lessOrEqual": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "local": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "major": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "matches": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "minor": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "missing": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "mss": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "not": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "org": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "password": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "path": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "pathSegment": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "port": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "present": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "protocol": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "queryParameter": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "queryString": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "regionCode": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "regionName": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "remote": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "request": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "response": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "routeDomain": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "rtt": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "scheme": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "serverName": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sslCert": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sslClientHello": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sslExtension": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sslServerHandshake": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sslServerHello": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "startsWith": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tcp": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "text": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tmName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "unnamedQueryParameter": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "userAgentToken": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "username": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "version": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "vlan": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "vlanId": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "address",
+                "all",
+                "appService",
+                "browserType",
+                "browserVersion",
+                "caseInsensitive",
+                "caseSensitive",
+                "cipher",
+                "cipherBits",
+                "clientSsl",
+                "code",
+                "commonName",
+                "contains",
+                "continent",
+                "countryCode",
+                "countryName",
+                "cpuUsage",
+                "deviceMake",
+                "deviceModel",
+                "domain",
+                "endsWith",
+                "equals",
+                "expiry",
+                "extension",
+                "external",
+                "geoip",
+                "greater",
+                "greaterOrEqual",
+                "host",
+                "httpBasicAuth",
+                "httpCookie",
+                "httpHeader",
+                "httpHost",
+                "httpMethod",
+                "httpReferer",
+                "httpSetCookie",
+                "httpStatus",
+                "httpUri",
+                "httpUserAgent",
+                "httpVersion",
+                "index",
+                "internal",
+                "isp",
+                "last15secs",
+                "last1min",
+                "last5mins",
+                "less",
+                "lessOrEqual",
+                "local",
+                "major",
+                "matches",
+                "minor",
+                "missing",
+                "mss",
+                "not",
+                "org",
+                "password",
+                "path",
+                "pathSegment",
+                "port",
+                "present",
+                "protocol",
+                "queryParameter",
+                "queryString",
+                "regionCode",
+                "regionName",
+                "remote",
+                "request",
+                "response",
+                "routeDomain",
+                "rtt",
+                "scheme",
+                "serverName",
+                "sslCert",
+                "sslClientHello",
+                "sslExtension",
+                "sslServerHandshake",
+                "sslServerHello",
+                "startsWith",
+                "tcp",
+                "text",
+                "tmName",
+                "unnamedQueryParameter",
+                "userAgentToken",
+                "username",
+                "value",
+                "values",
+                "version",
+                "vlan",
+                "vlanId"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
         "f5bigip:net/VlanInterface:VlanInterface": {
             "properties": {
                 "tagged": {
@@ -2716,6 +4526,10 @@
                     "type": "string",
                     "description": "User name  of the BIG-IQ to which your targer BIG-IP is attached\n"
                 },
+                "ignoreMetadata": {
+                    "type": "boolean",
+                    "description": "Set True if you want to ignore metadata changes during update. By default it is set to `true`\n"
+                },
                 "tenantList": {
                     "type": "string",
                     "description": "Name of Tenant\n"
@@ -2756,6 +4570,10 @@
                 "bigiqUser": {
                     "type": "string",
                     "description": "User name  of the BIG-IQ to which your targer BIG-IP is attached\n"
+                },
+                "ignoreMetadata": {
+                    "type": "boolean",
+                    "description": "Set True if you want to ignore metadata changes during update. By default it is set to `true`\n"
                 },
                 "tenantList": {
                     "type": "string",
@@ -2798,6 +4616,10 @@
                     "bigiqUser": {
                         "type": "string",
                         "description": "User name  of the BIG-IQ to which your targer BIG-IP is attached\n"
+                    },
+                    "ignoreMetadata": {
+                        "type": "boolean",
+                        "description": "Set True if you want to ignore metadata changes during update. By default it is set to `true`\n"
                     },
                     "tenantList": {
                         "type": "string",
@@ -10545,31 +12367,30 @@
             }
         },
         "f5bigip:sys/provision:Provision": {
-            "description": "`f5bigip.sys.Provision` provides details bout how to enable \"ilx\", \"asm\" \"apm\" resource on BIG-IP\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst test_provision = new f5bigip.sys.Provision(\"test-provision\", {\n    cpuRatio: 0,\n    diskRatio: 0,\n    fullPath: \"asm\",\n    level: \"none\",\n    memoryRatio: 0,\n    name: \"TEST_ASM_PROVISION_NAME\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ntest_provision = f5bigip.sys.Provision(\"test-provision\",\n    cpu_ratio=0,\n    disk_ratio=0,\n    full_path=\"asm\",\n    level=\"none\",\n    memory_ratio=0,\n    name=\"TEST_ASM_PROVISION_NAME\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test_provision = new F5BigIP.Sys.Provision(\"test-provision\", new F5BigIP.Sys.ProvisionArgs\n        {\n            CpuRatio = 0,\n            DiskRatio = 0,\n            FullPath = \"asm\",\n            Level = \"none\",\n            MemoryRatio = 0,\n            Name = \"TEST_ASM_PROVISION_NAME\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/sys\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := sys.NewProvision(ctx, \"test_provision\", \u0026sys.ProvisionArgs{\n\t\t\tCpuRatio:    pulumi.Int(0),\n\t\t\tDiskRatio:   pulumi.Int(0),\n\t\t\tFullPath:    pulumi.String(\"asm\"),\n\t\t\tLevel:       pulumi.String(\"none\"),\n\t\t\tMemoryRatio: pulumi.Int(0),\n\t\t\tName:        pulumi.String(\"TEST_ASM_PROVISION_NAME\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "`f5bigip.sys.Provision` Manage BIG-IP module provisioning. This resource will only provision at the standard levels of Dedicated, Nominal, and Minimum.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst gtm = new f5bigip.sys.Provision(\"gtm\", {\n    cpuRatio: 0,\n    diskRatio: 0,\n    level: \"nominal\",\n    memoryRatio: 0,\n    name: \"gtm\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ngtm = f5bigip.sys.Provision(\"gtm\",\n    cpu_ratio=0,\n    disk_ratio=0,\n    level=\"nominal\",\n    memory_ratio=0,\n    name=\"gtm\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var gtm = new F5BigIP.Sys.Provision(\"gtm\", new F5BigIP.Sys.ProvisionArgs\n        {\n            CpuRatio = 0,\n            DiskRatio = 0,\n            Level = \"nominal\",\n            MemoryRatio = 0,\n            Name = \"gtm\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/sys\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := sys.NewProvision(ctx, \"gtm\", \u0026sys.ProvisionArgs{\n\t\t\tCpuRatio:    pulumi.Int(0),\n\t\t\tDiskRatio:   pulumi.Int(0),\n\t\t\tLevel:       pulumi.String(\"nominal\"),\n\t\t\tMemoryRatio: pulumi.Int(0),\n\t\t\tName:        pulumi.String(\"gtm\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "cpuRatio": {
                     "type": "integer",
-                    "description": "cpu Ratio\n"
+                    "description": "Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none\n"
                 },
                 "diskRatio": {
                     "type": "integer",
-                    "description": "disk Ratio\n"
+                    "description": "Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none\n"
                 },
                 "fullPath": {
-                    "type": "string",
-                    "description": "path\n"
+                    "type": "string"
                 },
                 "level": {
                     "type": "string",
-                    "description": "what level nominal or dedicated\n"
+                    "description": "Sets the provisioning level for the requested modules. Changing the level for one module may require modifying the level of another module. For example, changing one module to `dedicated` requires setting all others to `none`. Setting the level of a module to `none` means the module is not activated.\ndefault is `nominal`\npossible options:\n* nominal\n* minimum\n* none\n* dedicated\n"
                 },
                 "memoryRatio": {
                     "type": "integer",
-                    "description": "memory Ratio\n"
+                    "description": "Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of the module to be provisioned\n"
+                    "description": "Name of module to provision in BIG-IP. \npossible options:\n* afm\n* am\n* apm\n* cgnat\n* asm\n* avr\n* dos\n* fps\n* gtm\n* ilx\n* lc\n* ltm\n* pem\n* sslo\n* swg\n* urldb\n"
                 }
             },
             "required": [
@@ -10579,27 +12400,26 @@
             "inputProperties": {
                 "cpuRatio": {
                     "type": "integer",
-                    "description": "cpu Ratio\n"
+                    "description": "Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none\n"
                 },
                 "diskRatio": {
                     "type": "integer",
-                    "description": "disk Ratio\n"
+                    "description": "Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none\n"
                 },
                 "fullPath": {
-                    "type": "string",
-                    "description": "path\n"
+                    "type": "string"
                 },
                 "level": {
                     "type": "string",
-                    "description": "what level nominal or dedicated\n"
+                    "description": "Sets the provisioning level for the requested modules. Changing the level for one module may require modifying the level of another module. For example, changing one module to `dedicated` requires setting all others to `none`. Setting the level of a module to `none` means the module is not activated.\ndefault is `nominal`\npossible options:\n* nominal\n* minimum\n* none\n* dedicated\n"
                 },
                 "memoryRatio": {
                     "type": "integer",
-                    "description": "memory Ratio\n"
+                    "description": "Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none\n"
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of the module to be provisioned\n"
+                    "description": "Name of module to provision in BIG-IP. \npossible options:\n* afm\n* am\n* apm\n* cgnat\n* asm\n* avr\n* dos\n* fps\n* gtm\n* ilx\n* lc\n* ltm\n* pem\n* sslo\n* swg\n* urldb\n"
                 }
             },
             "requiredInputs": [
@@ -10610,27 +12430,26 @@
                 "properties": {
                     "cpuRatio": {
                         "type": "integer",
-                        "description": "cpu Ratio\n"
+                        "description": "Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none\n"
                     },
                     "diskRatio": {
                         "type": "integer",
-                        "description": "disk Ratio\n"
+                        "description": "Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none\n"
                     },
                     "fullPath": {
-                        "type": "string",
-                        "description": "path\n"
+                        "type": "string"
                     },
                     "level": {
                         "type": "string",
-                        "description": "what level nominal or dedicated\n"
+                        "description": "Sets the provisioning level for the requested modules. Changing the level for one module may require modifying the level of another module. For example, changing one module to `dedicated` requires setting all others to `none`. Setting the level of a module to `none` means the module is not activated.\ndefault is `nominal`\npossible options:\n* nominal\n* minimum\n* none\n* dedicated\n"
                     },
                     "memoryRatio": {
                         "type": "integer",
-                        "description": "memory Ratio\n"
+                        "description": "Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none\n"
                     },
                     "name": {
                         "type": "string",
-                        "description": "Name of the module to be provisioned\n"
+                        "description": "Name of module to provision in BIG-IP. \npossible options:\n* afm\n* am\n* apm\n* cgnat\n* asm\n* avr\n* dos\n* fps\n* gtm\n* ilx\n* lc\n* ltm\n* pem\n* sslo\n* swg\n* urldb\n"
                     }
                 },
                 "type": "object"
@@ -11213,6 +13032,96 @@
                     "ratio",
                     "session",
                     "state",
+                    "id"
+                ]
+            }
+        },
+        "f5bigip:ltm/getPolicy:getPolicy": {
+            "description": "Use this data source (`f5bigip.ltm.Policy`) to get the ltm policy details available on BIG-IP\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst test = f5bigip.ltm.getPolicy({\n    name: \"/Common/test-policy\",\n});\nexport const bigipPolicy = test.then(test =\u003e test.rules);\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ntest = f5bigip.ltm.get_policy(name=\"/Common/test-policy\")\npulumi.export(\"bigipPolicy\", test.rules)\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test = Output.Create(F5BigIP.Ltm.GetPolicy.InvokeAsync(new F5BigIP.Ltm.GetPolicyArgs\n        {\n            Name = \"/Common/test-policy\",\n        }));\n        this.BigipPolicy = test.Apply(test =\u003e test.Rules);\n    }\n\n    [Output(\"bigipPolicy\")]\n    public Output\u003cstring\u003e BigipPolicy { get; set; }\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\ttest, err := ltm.LookupPolicy(ctx, \u0026ltm.LookupPolicyArgs{\n\t\t\tName: \"/Common/test-policy\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tctx.Export(\"bigipPolicy\", test.Rules)\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getPolicy.\n",
+                "properties": {
+                    "controls": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Specifies the controls.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the policy which includes partion ( /partition/policy-name )\n"
+                    },
+                    "publishedCopy": {
+                        "type": "string"
+                    },
+                    "requires": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Specifies the protocol.\n"
+                    },
+                    "rules": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/f5bigip:ltm/getPolicyRule:getPolicyRule"
+                        },
+                        "description": "Rules defined in the policy.\n"
+                    },
+                    "strategy": {
+                        "type": "string",
+                        "description": "Specifies the match strategy.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getPolicy.\n",
+                "properties": {
+                    "controls": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Specifies the controls.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the policy.\n"
+                    },
+                    "publishedCopy": {
+                        "type": "string"
+                    },
+                    "requires": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Specifies the protocol.\n"
+                    },
+                    "rules": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/f5bigip:ltm/getPolicyRule:getPolicyRule"
+                        },
+                        "description": "Rules defined in the policy.\n"
+                    },
+                    "strategy": {
+                        "type": "string",
+                        "description": "Specifies the match strategy.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name",
                     "id"
                 ]
             }

@@ -21,12 +21,34 @@ class ProvisionArgs:
                  memory_ratio: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a Provision resource.
-        :param pulumi.Input[str] name: Name of the module to be provisioned
-        :param pulumi.Input[int] cpu_ratio: cpu Ratio
-        :param pulumi.Input[int] disk_ratio: disk Ratio
-        :param pulumi.Input[str] full_path: path
-        :param pulumi.Input[str] level: what level nominal or dedicated
-        :param pulumi.Input[int] memory_ratio: memory Ratio
+        :param pulumi.Input[str] name: Name of module to provision in BIG-IP. 
+               possible options:
+               * afm
+               * am
+               * apm
+               * cgnat
+               * asm
+               * avr
+               * dos
+               * fps
+               * gtm
+               * ilx
+               * lc
+               * ltm
+               * pem
+               * sslo
+               * swg
+               * urldb
+        :param pulumi.Input[int] cpu_ratio: Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
+        :param pulumi.Input[int] disk_ratio: Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
+        :param pulumi.Input[str] level: Sets the provisioning level for the requested modules. Changing the level for one module may require modifying the level of another module. For example, changing one module to `dedicated` requires setting all others to `none`. Setting the level of a module to `none` means the module is not activated.
+               default is `nominal`
+               possible options:
+               * nominal
+               * minimum
+               * none
+               * dedicated
+        :param pulumi.Input[int] memory_ratio: Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
         """
         pulumi.set(__self__, "name", name)
         if cpu_ratio is not None:
@@ -44,7 +66,24 @@ class ProvisionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Name of the module to be provisioned
+        Name of module to provision in BIG-IP. 
+        possible options:
+        * afm
+        * am
+        * apm
+        * cgnat
+        * asm
+        * avr
+        * dos
+        * fps
+        * gtm
+        * ilx
+        * lc
+        * ltm
+        * pem
+        * sslo
+        * swg
+        * urldb
         """
         return pulumi.get(self, "name")
 
@@ -56,7 +95,7 @@ class ProvisionArgs:
     @pulumi.getter(name="cpuRatio")
     def cpu_ratio(self) -> Optional[pulumi.Input[int]]:
         """
-        cpu Ratio
+        Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
         """
         return pulumi.get(self, "cpu_ratio")
 
@@ -68,7 +107,7 @@ class ProvisionArgs:
     @pulumi.getter(name="diskRatio")
     def disk_ratio(self) -> Optional[pulumi.Input[int]]:
         """
-        disk Ratio
+        Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
         """
         return pulumi.get(self, "disk_ratio")
 
@@ -79,9 +118,6 @@ class ProvisionArgs:
     @property
     @pulumi.getter(name="fullPath")
     def full_path(self) -> Optional[pulumi.Input[str]]:
-        """
-        path
-        """
         return pulumi.get(self, "full_path")
 
     @full_path.setter
@@ -92,7 +128,13 @@ class ProvisionArgs:
     @pulumi.getter
     def level(self) -> Optional[pulumi.Input[str]]:
         """
-        what level nominal or dedicated
+        Sets the provisioning level for the requested modules. Changing the level for one module may require modifying the level of another module. For example, changing one module to `dedicated` requires setting all others to `none`. Setting the level of a module to `none` means the module is not activated.
+        default is `nominal`
+        possible options:
+        * nominal
+        * minimum
+        * none
+        * dedicated
         """
         return pulumi.get(self, "level")
 
@@ -104,7 +146,7 @@ class ProvisionArgs:
     @pulumi.getter(name="memoryRatio")
     def memory_ratio(self) -> Optional[pulumi.Input[int]]:
         """
-        memory Ratio
+        Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
         """
         return pulumi.get(self, "memory_ratio")
 
@@ -124,12 +166,34 @@ class _ProvisionState:
                  name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Provision resources.
-        :param pulumi.Input[int] cpu_ratio: cpu Ratio
-        :param pulumi.Input[int] disk_ratio: disk Ratio
-        :param pulumi.Input[str] full_path: path
-        :param pulumi.Input[str] level: what level nominal or dedicated
-        :param pulumi.Input[int] memory_ratio: memory Ratio
-        :param pulumi.Input[str] name: Name of the module to be provisioned
+        :param pulumi.Input[int] cpu_ratio: Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
+        :param pulumi.Input[int] disk_ratio: Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
+        :param pulumi.Input[str] level: Sets the provisioning level for the requested modules. Changing the level for one module may require modifying the level of another module. For example, changing one module to `dedicated` requires setting all others to `none`. Setting the level of a module to `none` means the module is not activated.
+               default is `nominal`
+               possible options:
+               * nominal
+               * minimum
+               * none
+               * dedicated
+        :param pulumi.Input[int] memory_ratio: Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
+        :param pulumi.Input[str] name: Name of module to provision in BIG-IP. 
+               possible options:
+               * afm
+               * am
+               * apm
+               * cgnat
+               * asm
+               * avr
+               * dos
+               * fps
+               * gtm
+               * ilx
+               * lc
+               * ltm
+               * pem
+               * sslo
+               * swg
+               * urldb
         """
         if cpu_ratio is not None:
             pulumi.set(__self__, "cpu_ratio", cpu_ratio)
@@ -148,7 +212,7 @@ class _ProvisionState:
     @pulumi.getter(name="cpuRatio")
     def cpu_ratio(self) -> Optional[pulumi.Input[int]]:
         """
-        cpu Ratio
+        Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
         """
         return pulumi.get(self, "cpu_ratio")
 
@@ -160,7 +224,7 @@ class _ProvisionState:
     @pulumi.getter(name="diskRatio")
     def disk_ratio(self) -> Optional[pulumi.Input[int]]:
         """
-        disk Ratio
+        Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
         """
         return pulumi.get(self, "disk_ratio")
 
@@ -171,9 +235,6 @@ class _ProvisionState:
     @property
     @pulumi.getter(name="fullPath")
     def full_path(self) -> Optional[pulumi.Input[str]]:
-        """
-        path
-        """
         return pulumi.get(self, "full_path")
 
     @full_path.setter
@@ -184,7 +245,13 @@ class _ProvisionState:
     @pulumi.getter
     def level(self) -> Optional[pulumi.Input[str]]:
         """
-        what level nominal or dedicated
+        Sets the provisioning level for the requested modules. Changing the level for one module may require modifying the level of another module. For example, changing one module to `dedicated` requires setting all others to `none`. Setting the level of a module to `none` means the module is not activated.
+        default is `nominal`
+        possible options:
+        * nominal
+        * minimum
+        * none
+        * dedicated
         """
         return pulumi.get(self, "level")
 
@@ -196,7 +263,7 @@ class _ProvisionState:
     @pulumi.getter(name="memoryRatio")
     def memory_ratio(self) -> Optional[pulumi.Input[int]]:
         """
-        memory Ratio
+        Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
         """
         return pulumi.get(self, "memory_ratio")
 
@@ -208,7 +275,24 @@ class _ProvisionState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the module to be provisioned
+        Name of module to provision in BIG-IP. 
+        possible options:
+        * afm
+        * am
+        * apm
+        * cgnat
+        * asm
+        * avr
+        * dos
+        * fps
+        * gtm
+        * ilx
+        * lc
+        * ltm
+        * pem
+        * sslo
+        * swg
+        * urldb
         """
         return pulumi.get(self, "name")
 
@@ -230,30 +314,52 @@ class Provision(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        `sys.Provision` provides details bout how to enable "ilx", "asm" "apm" resource on BIG-IP
+        `sys.Provision` Manage BIG-IP module provisioning. This resource will only provision at the standard levels of Dedicated, Nominal, and Minimum.
+
         ## Example Usage
 
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
 
-        test_provision = f5bigip.sys.Provision("test-provision",
+        gtm = f5bigip.sys.Provision("gtm",
             cpu_ratio=0,
             disk_ratio=0,
-            full_path="asm",
-            level="none",
+            level="nominal",
             memory_ratio=0,
-            name="TEST_ASM_PROVISION_NAME")
+            name="gtm")
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] cpu_ratio: cpu Ratio
-        :param pulumi.Input[int] disk_ratio: disk Ratio
-        :param pulumi.Input[str] full_path: path
-        :param pulumi.Input[str] level: what level nominal or dedicated
-        :param pulumi.Input[int] memory_ratio: memory Ratio
-        :param pulumi.Input[str] name: Name of the module to be provisioned
+        :param pulumi.Input[int] cpu_ratio: Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
+        :param pulumi.Input[int] disk_ratio: Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
+        :param pulumi.Input[str] level: Sets the provisioning level for the requested modules. Changing the level for one module may require modifying the level of another module. For example, changing one module to `dedicated` requires setting all others to `none`. Setting the level of a module to `none` means the module is not activated.
+               default is `nominal`
+               possible options:
+               * nominal
+               * minimum
+               * none
+               * dedicated
+        :param pulumi.Input[int] memory_ratio: Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
+        :param pulumi.Input[str] name: Name of module to provision in BIG-IP. 
+               possible options:
+               * afm
+               * am
+               * apm
+               * cgnat
+               * asm
+               * avr
+               * dos
+               * fps
+               * gtm
+               * ilx
+               * lc
+               * ltm
+               * pem
+               * sslo
+               * swg
+               * urldb
         """
         ...
     @overload
@@ -262,20 +368,20 @@ class Provision(pulumi.CustomResource):
                  args: ProvisionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        `sys.Provision` provides details bout how to enable "ilx", "asm" "apm" resource on BIG-IP
+        `sys.Provision` Manage BIG-IP module provisioning. This resource will only provision at the standard levels of Dedicated, Nominal, and Minimum.
+
         ## Example Usage
 
         ```python
         import pulumi
         import pulumi_f5bigip as f5bigip
 
-        test_provision = f5bigip.sys.Provision("test-provision",
+        gtm = f5bigip.sys.Provision("gtm",
             cpu_ratio=0,
             disk_ratio=0,
-            full_path="asm",
-            level="none",
+            level="nominal",
             memory_ratio=0,
-            name="TEST_ASM_PROVISION_NAME")
+            name="gtm")
         ```
 
         :param str resource_name: The name of the resource.
@@ -342,12 +448,34 @@ class Provision(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[int] cpu_ratio: cpu Ratio
-        :param pulumi.Input[int] disk_ratio: disk Ratio
-        :param pulumi.Input[str] full_path: path
-        :param pulumi.Input[str] level: what level nominal or dedicated
-        :param pulumi.Input[int] memory_ratio: memory Ratio
-        :param pulumi.Input[str] name: Name of the module to be provisioned
+        :param pulumi.Input[int] cpu_ratio: Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
+        :param pulumi.Input[int] disk_ratio: Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
+        :param pulumi.Input[str] level: Sets the provisioning level for the requested modules. Changing the level for one module may require modifying the level of another module. For example, changing one module to `dedicated` requires setting all others to `none`. Setting the level of a module to `none` means the module is not activated.
+               default is `nominal`
+               possible options:
+               * nominal
+               * minimum
+               * none
+               * dedicated
+        :param pulumi.Input[int] memory_ratio: Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
+        :param pulumi.Input[str] name: Name of module to provision in BIG-IP. 
+               possible options:
+               * afm
+               * am
+               * apm
+               * cgnat
+               * asm
+               * avr
+               * dos
+               * fps
+               * gtm
+               * ilx
+               * lc
+               * ltm
+               * pem
+               * sslo
+               * swg
+               * urldb
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -365,7 +493,7 @@ class Provision(pulumi.CustomResource):
     @pulumi.getter(name="cpuRatio")
     def cpu_ratio(self) -> pulumi.Output[Optional[int]]:
         """
-        cpu Ratio
+        Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
         """
         return pulumi.get(self, "cpu_ratio")
 
@@ -373,23 +501,26 @@ class Provision(pulumi.CustomResource):
     @pulumi.getter(name="diskRatio")
     def disk_ratio(self) -> pulumi.Output[Optional[int]]:
         """
-        disk Ratio
+        Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
         """
         return pulumi.get(self, "disk_ratio")
 
     @property
     @pulumi.getter(name="fullPath")
     def full_path(self) -> pulumi.Output[str]:
-        """
-        path
-        """
         return pulumi.get(self, "full_path")
 
     @property
     @pulumi.getter
     def level(self) -> pulumi.Output[Optional[str]]:
         """
-        what level nominal or dedicated
+        Sets the provisioning level for the requested modules. Changing the level for one module may require modifying the level of another module. For example, changing one module to `dedicated` requires setting all others to `none`. Setting the level of a module to `none` means the module is not activated.
+        default is `nominal`
+        possible options:
+        * nominal
+        * minimum
+        * none
+        * dedicated
         """
         return pulumi.get(self, "level")
 
@@ -397,7 +528,7 @@ class Provision(pulumi.CustomResource):
     @pulumi.getter(name="memoryRatio")
     def memory_ratio(self) -> pulumi.Output[Optional[int]]:
         """
-        memory Ratio
+        Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
         """
         return pulumi.get(self, "memory_ratio")
 
@@ -405,7 +536,24 @@ class Provision(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the module to be provisioned
+        Name of module to provision in BIG-IP. 
+        possible options:
+        * afm
+        * am
+        * apm
+        * cgnat
+        * asm
+        * avr
+        * dos
+        * fps
+        * gtm
+        * ilx
+        * lc
+        * ltm
+        * pem
+        * sslo
+        * swg
+        * urldb
         """
         return pulumi.get(self, "name")
 

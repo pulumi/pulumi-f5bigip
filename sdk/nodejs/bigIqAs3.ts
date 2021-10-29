@@ -82,6 +82,10 @@ export class BigIqAs3 extends pulumi.CustomResource {
      */
     public readonly bigiqUser!: pulumi.Output<string>;
     /**
+     * Set True if you want to ignore metadata changes during update. By default it is set to `true`
+     */
+    public readonly ignoreMetadata!: pulumi.Output<boolean | undefined>;
+    /**
      * Name of Tenant
      */
     public readonly tenantList!: pulumi.Output<string>;
@@ -106,6 +110,7 @@ export class BigIqAs3 extends pulumi.CustomResource {
             inputs["bigiqPort"] = state ? state.bigiqPort : undefined;
             inputs["bigiqTokenAuth"] = state ? state.bigiqTokenAuth : undefined;
             inputs["bigiqUser"] = state ? state.bigiqUser : undefined;
+            inputs["ignoreMetadata"] = state ? state.ignoreMetadata : undefined;
             inputs["tenantList"] = state ? state.tenantList : undefined;
         } else {
             const args = argsOrState as BigIqAs3Args | undefined;
@@ -128,6 +133,7 @@ export class BigIqAs3 extends pulumi.CustomResource {
             inputs["bigiqPort"] = args ? args.bigiqPort : undefined;
             inputs["bigiqTokenAuth"] = args ? args.bigiqTokenAuth : undefined;
             inputs["bigiqUser"] = args ? args.bigiqUser : undefined;
+            inputs["ignoreMetadata"] = args ? args.ignoreMetadata : undefined;
             inputs["tenantList"] = args ? args.tenantList : undefined;
         }
         if (!opts.version) {
@@ -170,6 +176,10 @@ export interface BigIqAs3State {
      */
     bigiqUser?: pulumi.Input<string>;
     /**
+     * Set True if you want to ignore metadata changes during update. By default it is set to `true`
+     */
+    ignoreMetadata?: pulumi.Input<boolean>;
+    /**
      * Name of Tenant
      */
     tenantList?: pulumi.Input<string>;
@@ -207,6 +217,10 @@ export interface BigIqAs3Args {
      * User name  of the BIG-IQ to which your targer BIG-IP is attached
      */
     bigiqUser: pulumi.Input<string>;
+    /**
+     * Set True if you want to ignore metadata changes during update. By default it is set to `true`
+     */
+    ignoreMetadata?: pulumi.Input<boolean>;
     /**
      * Name of Tenant
      */

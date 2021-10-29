@@ -84,6 +84,12 @@ namespace Pulumi.F5BigIP
         public Output<string> BigiqUser { get; private set; } = null!;
 
         /// <summary>
+        /// Set True if you want to ignore metadata changes during update. By default it is set to `true`
+        /// </summary>
+        [Output("ignoreMetadata")]
+        public Output<bool?> IgnoreMetadata { get; private set; } = null!;
+
+        /// <summary>
         /// Name of Tenant
         /// </summary>
         [Output("tenantList")]
@@ -178,6 +184,12 @@ namespace Pulumi.F5BigIP
         public Input<string> BigiqUser { get; set; } = null!;
 
         /// <summary>
+        /// Set True if you want to ignore metadata changes during update. By default it is set to `true`
+        /// </summary>
+        [Input("ignoreMetadata")]
+        public Input<bool>? IgnoreMetadata { get; set; }
+
+        /// <summary>
         /// Name of Tenant
         /// </summary>
         [Input("tenantList")]
@@ -231,6 +243,12 @@ namespace Pulumi.F5BigIP
         /// </summary>
         [Input("bigiqUser")]
         public Input<string>? BigiqUser { get; set; }
+
+        /// <summary>
+        /// Set True if you want to ignore metadata changes during update. By default it is set to `true`
+        /// </summary>
+        [Input("ignoreMetadata")]
+        public Input<bool>? IgnoreMetadata { get; set; }
 
         /// <summary>
         /// Name of Tenant
