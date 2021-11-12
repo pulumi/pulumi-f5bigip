@@ -95,3 +95,34 @@ export interface GetPolicyResult {
      */
     readonly strategy?: string;
 }
+
+export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
+    return pulumi.output(args).apply(a => getPolicy(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getPolicy.
+ */
+export interface GetPolicyOutputArgs {
+    /**
+     * Specifies the controls.
+     */
+    controls?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Name of the policy which includes partion ( /partition/policy-name )
+     */
+    name: pulumi.Input<string>;
+    publishedCopy?: pulumi.Input<string>;
+    /**
+     * Specifies the protocol.
+     */
+    requires?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Rules defined in the policy.
+     */
+    rules?: pulumi.Input<pulumi.Input<inputs.ltm.GetPolicyRuleArgs>[]>;
+    /**
+     * Specifies the match strategy.
+     */
+    strategy?: pulumi.Input<string>;
+}

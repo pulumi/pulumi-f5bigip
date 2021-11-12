@@ -14,6 +14,7 @@ __all__ = [
     'GetNodeResult',
     'AwaitableGetNodeResult',
     'get_node',
+    'get_node_output',
 ]
 
 @pulumi.output_type
@@ -233,3 +234,24 @@ def get_node(address: Optional[str] = None,
         ratio=__ret__.ratio,
         session=__ret__.session,
         state=__ret__.state)
+
+
+@_utilities.lift_output_func(get_node)
+def get_node_output(address: Optional[pulumi.Input[Optional[str]]] = None,
+                    description: Optional[pulumi.Input[Optional[str]]] = None,
+                    fqdn: Optional[pulumi.Input[Optional[pulumi.InputType['GetNodeFqdnArgs']]]] = None,
+                    full_path: Optional[pulumi.Input[Optional[str]]] = None,
+                    name: Optional[pulumi.Input[str]] = None,
+                    partition: Optional[pulumi.Input[str]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNodeResult]:
+    """
+    Use this data source (`ltm.Node`) to get the ltm node details available on BIG-IP
+
+
+    :param str address: The address of the node.
+    :param str description: User defined description of the node.
+    :param str full_path: Full path of the node (partition and name)
+    :param str name: Name of the node.
+    :param str partition: partition of the node.
+    """
+    ...

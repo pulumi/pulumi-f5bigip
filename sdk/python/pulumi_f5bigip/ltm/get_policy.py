@@ -14,6 +14,7 @@ __all__ = [
     'GetPolicyResult',
     'AwaitableGetPolicyResult',
     'get_policy',
+    'get_policy_output',
 ]
 
 @pulumi.output_type
@@ -161,3 +162,34 @@ def get_policy(controls: Optional[Sequence[str]] = None,
         requires=__ret__.requires,
         rules=__ret__.rules,
         strategy=__ret__.strategy)
+
+
+@_utilities.lift_output_func(get_policy)
+def get_policy_output(controls: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                      name: Optional[pulumi.Input[str]] = None,
+                      published_copy: Optional[pulumi.Input[Optional[str]]] = None,
+                      requires: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                      rules: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetPolicyRuleArgs']]]]] = None,
+                      strategy: Optional[pulumi.Input[Optional[str]]] = None,
+                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyResult]:
+    """
+    Use this data source (`ltm.Policy`) to get the ltm policy details available on BIG-IP
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_f5bigip as f5bigip
+
+    test = f5bigip.ltm.get_policy(name="/Common/test-policy")
+    pulumi.export("bigipPolicy", test.rules)
+    ```
+
+
+    :param Sequence[str] controls: Specifies the controls.
+    :param str name: Name of the policy which includes partion ( /partition/policy-name )
+    :param Sequence[str] requires: Specifies the protocol.
+    :param Sequence[pulumi.InputType['GetPolicyRuleArgs']] rules: Rules defined in the policy.
+    :param str strategy: Specifies the match strategy.
+    """
+    ...

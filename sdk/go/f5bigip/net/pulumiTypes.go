@@ -117,6 +117,8 @@ func (o VlanInterfaceArrayOutput) Index(i pulumi.IntInput) VlanInterfaceOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VlanInterfaceInput)(nil)).Elem(), VlanInterfaceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VlanInterfaceArrayInput)(nil)).Elem(), VlanInterfaceArray{})
 	pulumi.RegisterOutputType(VlanInterfaceOutput{})
 	pulumi.RegisterOutputType(VlanInterfaceArrayOutput{})
 }

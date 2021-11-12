@@ -237,7 +237,7 @@ type VirtualAddressArrayInput interface {
 type VirtualAddressArray []VirtualAddressInput
 
 func (VirtualAddressArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*VirtualAddress)(nil))
+	return reflect.TypeOf((*[]*VirtualAddress)(nil)).Elem()
 }
 
 func (i VirtualAddressArray) ToVirtualAddressArrayOutput() VirtualAddressArrayOutput {
@@ -262,7 +262,7 @@ type VirtualAddressMapInput interface {
 type VirtualAddressMap map[string]VirtualAddressInput
 
 func (VirtualAddressMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*VirtualAddress)(nil))
+	return reflect.TypeOf((*map[string]*VirtualAddress)(nil)).Elem()
 }
 
 func (i VirtualAddressMap) ToVirtualAddressMapOutput() VirtualAddressMapOutput {
@@ -273,9 +273,7 @@ func (i VirtualAddressMap) ToVirtualAddressMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualAddressMapOutput)
 }
 
-type VirtualAddressOutput struct {
-	*pulumi.OutputState
-}
+type VirtualAddressOutput struct{ *pulumi.OutputState }
 
 func (VirtualAddressOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*VirtualAddress)(nil))
@@ -294,14 +292,12 @@ func (o VirtualAddressOutput) ToVirtualAddressPtrOutput() VirtualAddressPtrOutpu
 }
 
 func (o VirtualAddressOutput) ToVirtualAddressPtrOutputWithContext(ctx context.Context) VirtualAddressPtrOutput {
-	return o.ApplyT(func(v VirtualAddress) *VirtualAddress {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualAddress) *VirtualAddress {
 		return &v
 	}).(VirtualAddressPtrOutput)
 }
 
-type VirtualAddressPtrOutput struct {
-	*pulumi.OutputState
-}
+type VirtualAddressPtrOutput struct{ *pulumi.OutputState }
 
 func (VirtualAddressPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**VirtualAddress)(nil))
@@ -313,6 +309,16 @@ func (o VirtualAddressPtrOutput) ToVirtualAddressPtrOutput() VirtualAddressPtrOu
 
 func (o VirtualAddressPtrOutput) ToVirtualAddressPtrOutputWithContext(ctx context.Context) VirtualAddressPtrOutput {
 	return o
+}
+
+func (o VirtualAddressPtrOutput) Elem() VirtualAddressOutput {
+	return o.ApplyT(func(v *VirtualAddress) VirtualAddress {
+		if v != nil {
+			return *v
+		}
+		var ret VirtualAddress
+		return ret
+	}).(VirtualAddressOutput)
 }
 
 type VirtualAddressArrayOutput struct{ *pulumi.OutputState }
@@ -356,6 +362,10 @@ func (o VirtualAddressMapOutput) MapIndex(k pulumi.StringInput) VirtualAddressOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualAddressInput)(nil)).Elem(), &VirtualAddress{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualAddressPtrInput)(nil)).Elem(), &VirtualAddress{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualAddressArrayInput)(nil)).Elem(), VirtualAddressArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualAddressMapInput)(nil)).Elem(), VirtualAddressMap{})
 	pulumi.RegisterOutputType(VirtualAddressOutput{})
 	pulumi.RegisterOutputType(VirtualAddressPtrOutput{})
 	pulumi.RegisterOutputType(VirtualAddressArrayOutput{})

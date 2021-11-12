@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.F5BigIP.Ltm
 {
@@ -41,6 +42,37 @@ namespace Pulumi.F5BigIP.Ltm
         /// </summary>
         public static Task<GetMonitorResult> InvokeAsync(GetMonitorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMonitorResult>("f5bigip:ltm/getMonitor:getMonitor", args ?? new GetMonitorArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source (`f5bigip.ltm.Monitor`) to get the ltm monitor details available on BIG-IP
+        ///  
+        ///  
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using F5BigIP = Pulumi.F5BigIP;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var monitor_TC1 = Output.Create(F5BigIP.Ltm.GetMonitor.InvokeAsync(new F5BigIP.Ltm.GetMonitorArgs
+        ///         {
+        ///             Name = "test-monitor",
+        ///             Partition = "Common",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetMonitorResult> Invoke(GetMonitorInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMonitorResult>("f5bigip:ltm/getMonitor:getMonitor", args ?? new GetMonitorInvokeArgs(), options.WithVersion());
     }
 
 
@@ -59,6 +91,25 @@ namespace Pulumi.F5BigIP.Ltm
         public string Partition { get; set; } = null!;
 
         public GetMonitorArgs()
+        {
+        }
+    }
+
+    public sealed class GetMonitorInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the ltm monitor
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// partition of the ltm monitor
+        /// </summary>
+        [Input("partition", required: true)]
+        public Input<string> Partition { get; set; } = null!;
+
+        public GetMonitorInvokeArgs()
         {
         }
     }

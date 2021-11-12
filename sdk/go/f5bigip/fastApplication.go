@@ -12,6 +12,40 @@ import (
 )
 
 // `FastApplication` This resource will create and manage FAST applications on BIG-IP from provided JSON declaration.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"io/ioutil"
+//
+// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func readFileOrPanic(path string) pulumi.StringPtrInput {
+// 	data, err := ioutil.ReadFile(path)
+// 	if err != nil {
+// 		panic(err.Error())
+// 	}
+// 	return pulumi.String(string(data))
+// }
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := f5bigip.NewFastApplication(ctx, "foo_app", &f5bigip.FastApplicationArgs{
+// 			FastJson: readFileOrPanic("new_fast_app.json"),
+// 			Template: pulumi.String("examples/simple_http"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type FastApplication struct {
 	pulumi.CustomResourceState
 
@@ -163,7 +197,7 @@ type FastApplicationArrayInput interface {
 type FastApplicationArray []FastApplicationInput
 
 func (FastApplicationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*FastApplication)(nil))
+	return reflect.TypeOf((*[]*FastApplication)(nil)).Elem()
 }
 
 func (i FastApplicationArray) ToFastApplicationArrayOutput() FastApplicationArrayOutput {
@@ -188,7 +222,7 @@ type FastApplicationMapInput interface {
 type FastApplicationMap map[string]FastApplicationInput
 
 func (FastApplicationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*FastApplication)(nil))
+	return reflect.TypeOf((*map[string]*FastApplication)(nil)).Elem()
 }
 
 func (i FastApplicationMap) ToFastApplicationMapOutput() FastApplicationMapOutput {
@@ -199,9 +233,7 @@ func (i FastApplicationMap) ToFastApplicationMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(FastApplicationMapOutput)
 }
 
-type FastApplicationOutput struct {
-	*pulumi.OutputState
-}
+type FastApplicationOutput struct{ *pulumi.OutputState }
 
 func (FastApplicationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FastApplication)(nil))
@@ -220,14 +252,12 @@ func (o FastApplicationOutput) ToFastApplicationPtrOutput() FastApplicationPtrOu
 }
 
 func (o FastApplicationOutput) ToFastApplicationPtrOutputWithContext(ctx context.Context) FastApplicationPtrOutput {
-	return o.ApplyT(func(v FastApplication) *FastApplication {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FastApplication) *FastApplication {
 		return &v
 	}).(FastApplicationPtrOutput)
 }
 
-type FastApplicationPtrOutput struct {
-	*pulumi.OutputState
-}
+type FastApplicationPtrOutput struct{ *pulumi.OutputState }
 
 func (FastApplicationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**FastApplication)(nil))
@@ -239,6 +269,16 @@ func (o FastApplicationPtrOutput) ToFastApplicationPtrOutput() FastApplicationPt
 
 func (o FastApplicationPtrOutput) ToFastApplicationPtrOutputWithContext(ctx context.Context) FastApplicationPtrOutput {
 	return o
+}
+
+func (o FastApplicationPtrOutput) Elem() FastApplicationOutput {
+	return o.ApplyT(func(v *FastApplication) FastApplication {
+		if v != nil {
+			return *v
+		}
+		var ret FastApplication
+		return ret
+	}).(FastApplicationOutput)
 }
 
 type FastApplicationArrayOutput struct{ *pulumi.OutputState }
@@ -282,6 +322,10 @@ func (o FastApplicationMapOutput) MapIndex(k pulumi.StringInput) FastApplication
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FastApplicationInput)(nil)).Elem(), &FastApplication{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastApplicationPtrInput)(nil)).Elem(), &FastApplication{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastApplicationArrayInput)(nil)).Elem(), FastApplicationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastApplicationMapInput)(nil)).Elem(), FastApplicationMap{})
 	pulumi.RegisterOutputType(FastApplicationOutput{})
 	pulumi.RegisterOutputType(FastApplicationPtrOutput{})
 	pulumi.RegisterOutputType(FastApplicationArrayOutput{})

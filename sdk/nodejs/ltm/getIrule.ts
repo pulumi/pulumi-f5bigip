@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -70,4 +69,22 @@ export interface GetIruleResult {
      * Bigip partition in which rule is configured
      */
     readonly partition: string;
+}
+
+export function getIruleOutput(args: GetIruleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIruleResult> {
+    return pulumi.output(args).apply(a => getIrule(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getIrule.
+ */
+export interface GetIruleOutputArgs {
+    /**
+     * Name of the irule
+     */
+    name: pulumi.Input<string>;
+    /**
+     * partition of the ltm irule
+     */
+    partition: pulumi.Input<string>;
 }

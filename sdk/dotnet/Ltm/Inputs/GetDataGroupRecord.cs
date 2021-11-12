@@ -10,18 +10,18 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Ltm.Inputs
 {
 
-    public sealed class GetDataGroupRecordInputArgs : Pulumi.ResourceArgs
+    public sealed class GetDataGroupRecordArgs : Pulumi.InvokeArgs
     {
         [Input("data")]
-        public Input<string>? Data { get; set; }
+        public string? Data { get; set; }
 
         /// <summary>
         /// Name of the datagroup
         /// </summary>
         [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        public string Name { get; set; } = null!;
 
-        public GetDataGroupRecordInputArgs()
+        public GetDataGroupRecordArgs()
         {
         }
     }

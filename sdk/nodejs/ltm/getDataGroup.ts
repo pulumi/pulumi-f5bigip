@@ -77,3 +77,29 @@ export interface GetDataGroupResult {
      */
     readonly type: string;
 }
+
+export function getDataGroupOutput(args: GetDataGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataGroupResult> {
+    return pulumi.output(args).apply(a => getDataGroup(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getDataGroup.
+ */
+export interface GetDataGroupOutputArgs {
+    /**
+     * Name of the datagroup
+     */
+    name: pulumi.Input<string>;
+    /**
+     * partition of the datagroup
+     */
+    partition: pulumi.Input<string>;
+    /**
+     * Specifies record of type (string/ip/integer)
+     */
+    records?: pulumi.Input<pulumi.Input<inputs.ltm.GetDataGroupRecordArgs>[]>;
+    /**
+     * The Data Group type (string, ip, integer)"
+     */
+    type?: pulumi.Input<string>;
+}

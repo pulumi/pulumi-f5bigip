@@ -10,39 +10,39 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Ltm.Inputs
 {
 
-    public sealed class GetNodeFqdnInputArgs : Pulumi.ResourceArgs
+    public sealed class GetNodeFqdnArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// The FQDN node's address family.
         /// </summary>
         [Input("addressFamily")]
-        public Input<string>? AddressFamily { get; set; }
+        public string? AddressFamily { get; set; }
 
         /// <summary>
         /// Specifies if the node should scale to the IP address set returned by DNS.
         /// </summary>
         [Input("autopopulate", required: true)]
-        public Input<string> Autopopulate { get; set; } = null!;
+        public string Autopopulate { get; set; } = null!;
 
         /// <summary>
         /// The number of attempts to resolve a domain name.
         /// </summary>
         [Input("downinterval", required: true)]
-        public Input<int> Downinterval { get; set; } = null!;
+        public int Downinterval { get; set; }
 
         /// <summary>
         /// The amount of time before sending the next DNS query.
         /// </summary>
         [Input("interval", required: true)]
-        public Input<string> Interval { get; set; } = null!;
+        public string Interval { get; set; } = null!;
 
         /// <summary>
         /// Name of the node.
         /// </summary>
         [Input("name")]
-        public Input<string>? Name { get; set; }
+        public string? Name { get; set; }
 
-        public GetNodeFqdnInputArgs()
+        public GetNodeFqdnArgs()
         {
         }
     }

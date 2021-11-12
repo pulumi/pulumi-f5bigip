@@ -328,7 +328,7 @@ type ProvisionArrayInput interface {
 type ProvisionArray []ProvisionInput
 
 func (ProvisionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Provision)(nil))
+	return reflect.TypeOf((*[]*Provision)(nil)).Elem()
 }
 
 func (i ProvisionArray) ToProvisionArrayOutput() ProvisionArrayOutput {
@@ -353,7 +353,7 @@ type ProvisionMapInput interface {
 type ProvisionMap map[string]ProvisionInput
 
 func (ProvisionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Provision)(nil))
+	return reflect.TypeOf((*map[string]*Provision)(nil)).Elem()
 }
 
 func (i ProvisionMap) ToProvisionMapOutput() ProvisionMapOutput {
@@ -364,9 +364,7 @@ func (i ProvisionMap) ToProvisionMapOutputWithContext(ctx context.Context) Provi
 	return pulumi.ToOutputWithContext(ctx, i).(ProvisionMapOutput)
 }
 
-type ProvisionOutput struct {
-	*pulumi.OutputState
-}
+type ProvisionOutput struct{ *pulumi.OutputState }
 
 func (ProvisionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Provision)(nil))
@@ -385,14 +383,12 @@ func (o ProvisionOutput) ToProvisionPtrOutput() ProvisionPtrOutput {
 }
 
 func (o ProvisionOutput) ToProvisionPtrOutputWithContext(ctx context.Context) ProvisionPtrOutput {
-	return o.ApplyT(func(v Provision) *Provision {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Provision) *Provision {
 		return &v
 	}).(ProvisionPtrOutput)
 }
 
-type ProvisionPtrOutput struct {
-	*pulumi.OutputState
-}
+type ProvisionPtrOutput struct{ *pulumi.OutputState }
 
 func (ProvisionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Provision)(nil))
@@ -404,6 +400,16 @@ func (o ProvisionPtrOutput) ToProvisionPtrOutput() ProvisionPtrOutput {
 
 func (o ProvisionPtrOutput) ToProvisionPtrOutputWithContext(ctx context.Context) ProvisionPtrOutput {
 	return o
+}
+
+func (o ProvisionPtrOutput) Elem() ProvisionOutput {
+	return o.ApplyT(func(v *Provision) Provision {
+		if v != nil {
+			return *v
+		}
+		var ret Provision
+		return ret
+	}).(ProvisionOutput)
 }
 
 type ProvisionArrayOutput struct{ *pulumi.OutputState }
@@ -447,6 +453,10 @@ func (o ProvisionMapOutput) MapIndex(k pulumi.StringInput) ProvisionOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ProvisionInput)(nil)).Elem(), &Provision{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProvisionPtrInput)(nil)).Elem(), &Provision{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProvisionArrayInput)(nil)).Elem(), ProvisionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProvisionMapInput)(nil)).Elem(), ProvisionMap{})
 	pulumi.RegisterOutputType(ProvisionOutput{})
 	pulumi.RegisterOutputType(ProvisionPtrOutput{})
 	pulumi.RegisterOutputType(ProvisionArrayOutput{})

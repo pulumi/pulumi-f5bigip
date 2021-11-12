@@ -4,6 +4,9 @@
 package ssl
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -82,4 +85,88 @@ type GetVWanConfigResult struct {
 	PresharedKey string `pulumi:"presharedKey"`
 	// (type `list`) Provides vWAN Gateway Address for IPSec End point
 	VwanGwAddresses []string `pulumi:"vwanGwAddresses"`
+}
+
+func GetVWanConfigOutput(ctx *pulumi.Context, args GetVWanConfigOutputArgs, opts ...pulumi.InvokeOption) GetVWanConfigResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetVWanConfigResult, error) {
+			args := v.(GetVWanConfigArgs)
+			r, err := GetVWanConfig(ctx, &args, opts...)
+			return *r, err
+		}).(GetVWanConfigResultOutput)
+}
+
+// A collection of arguments for invoking getVWanConfig.
+type GetVWanConfigOutputArgs struct {
+	// Name of the Azure vWAN Name
+	AzureVwanName pulumi.StringInput `pulumi:"azureVwanName"`
+	// Name of the Azure vWAN resource group
+	AzureVwanResourcegroup pulumi.StringInput `pulumi:"azureVwanResourcegroup"`
+	// Name of the Azure vWAN VPN site from which configuration to be download
+	AzureVwanVpnsite pulumi.StringInput `pulumi:"azureVwanVpnsite"`
+}
+
+func (GetVWanConfigOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVWanConfigArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getVWanConfig.
+type GetVWanConfigResultOutput struct{ *pulumi.OutputState }
+
+func (GetVWanConfigResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVWanConfigResult)(nil)).Elem()
+}
+
+func (o GetVWanConfigResultOutput) ToGetVWanConfigResultOutput() GetVWanConfigResultOutput {
+	return o
+}
+
+func (o GetVWanConfigResultOutput) ToGetVWanConfigResultOutputWithContext(ctx context.Context) GetVWanConfigResultOutput {
+	return o
+}
+
+func (o GetVWanConfigResultOutput) AzureVwanName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVWanConfigResult) string { return v.AzureVwanName }).(pulumi.StringOutput)
+}
+
+func (o GetVWanConfigResultOutput) AzureVwanResourcegroup() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVWanConfigResult) string { return v.AzureVwanResourcegroup }).(pulumi.StringOutput)
+}
+
+func (o GetVWanConfigResultOutput) AzureVwanVpnsite() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVWanConfigResult) string { return v.AzureVwanVpnsite }).(pulumi.StringOutput)
+}
+
+// (type `string`) provides IP address of BIGIP G/W for IPSec Endpoint.
+func (o GetVWanConfigResultOutput) BigipGwIp() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVWanConfigResult) string { return v.BigipGwIp }).(pulumi.StringOutput)
+}
+
+// (type `string`) Provides IP Address space used on vWAN Hub.
+func (o GetVWanConfigResultOutput) HubAddressSpace() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVWanConfigResult) string { return v.HubAddressSpace }).(pulumi.StringOutput)
+}
+
+// (type `list`) Provides Subnets connected to vWAN Hub.
+func (o GetVWanConfigResultOutput) HubConnectedSubnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVWanConfigResult) []string { return v.HubConnectedSubnets }).(pulumi.StringArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetVWanConfigResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVWanConfigResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// (type `string`) provides pre-shared-key used for IPSec Tunnel creation.
+func (o GetVWanConfigResultOutput) PresharedKey() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVWanConfigResult) string { return v.PresharedKey }).(pulumi.StringOutput)
+}
+
+// (type `list`) Provides vWAN Gateway Address for IPSec End point
+func (o GetVWanConfigResultOutput) VwanGwAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVWanConfigResult) []string { return v.VwanGwAddresses }).(pulumi.StringArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetVWanConfigResultOutput{})
 }

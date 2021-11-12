@@ -211,7 +211,7 @@ type RouteArrayInput interface {
 type RouteArray []RouteInput
 
 func (RouteArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Route)(nil))
+	return reflect.TypeOf((*[]*Route)(nil)).Elem()
 }
 
 func (i RouteArray) ToRouteArrayOutput() RouteArrayOutput {
@@ -236,7 +236,7 @@ type RouteMapInput interface {
 type RouteMap map[string]RouteInput
 
 func (RouteMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Route)(nil))
+	return reflect.TypeOf((*map[string]*Route)(nil)).Elem()
 }
 
 func (i RouteMap) ToRouteMapOutput() RouteMapOutput {
@@ -247,9 +247,7 @@ func (i RouteMap) ToRouteMapOutputWithContext(ctx context.Context) RouteMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(RouteMapOutput)
 }
 
-type RouteOutput struct {
-	*pulumi.OutputState
-}
+type RouteOutput struct{ *pulumi.OutputState }
 
 func (RouteOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Route)(nil))
@@ -268,14 +266,12 @@ func (o RouteOutput) ToRoutePtrOutput() RoutePtrOutput {
 }
 
 func (o RouteOutput) ToRoutePtrOutputWithContext(ctx context.Context) RoutePtrOutput {
-	return o.ApplyT(func(v Route) *Route {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Route) *Route {
 		return &v
 	}).(RoutePtrOutput)
 }
 
-type RoutePtrOutput struct {
-	*pulumi.OutputState
-}
+type RoutePtrOutput struct{ *pulumi.OutputState }
 
 func (RoutePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Route)(nil))
@@ -287,6 +283,16 @@ func (o RoutePtrOutput) ToRoutePtrOutput() RoutePtrOutput {
 
 func (o RoutePtrOutput) ToRoutePtrOutputWithContext(ctx context.Context) RoutePtrOutput {
 	return o
+}
+
+func (o RoutePtrOutput) Elem() RouteOutput {
+	return o.ApplyT(func(v *Route) Route {
+		if v != nil {
+			return *v
+		}
+		var ret Route
+		return ret
+	}).(RouteOutput)
 }
 
 type RouteArrayOutput struct{ *pulumi.OutputState }
@@ -330,6 +336,10 @@ func (o RouteMapOutput) MapIndex(k pulumi.StringInput) RouteOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteInput)(nil)).Elem(), &Route{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutePtrInput)(nil)).Elem(), &Route{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteArrayInput)(nil)).Elem(), RouteArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteMapInput)(nil)).Elem(), RouteMap{})
 	pulumi.RegisterOutputType(RouteOutput{})
 	pulumi.RegisterOutputType(RoutePtrOutput{})
 	pulumi.RegisterOutputType(RouteArrayOutput{})

@@ -15,6 +15,46 @@ import (
 //
 // This resource is helpful to configure as3 declarative JSON on BIG-IP.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"io/ioutil"
+//
+// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func readFileOrPanic(path string) pulumi.StringPtrInput {
+// 	data, err := ioutil.ReadFile(path)
+// 	if err != nil {
+// 		panic(err.Error())
+// 	}
+// 	return pulumi.String(string(data))
+// }
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := f5bigip.NewAs3(ctx, "as3_example1As3", &f5bigip.As3Args{
+// 			As3Json: readFileOrPanic("example1.json"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = f5bigip.NewAs3(ctx, "as3_example1Index_as3As3", &f5bigip.As3Args{
+// 			As3Json:      readFileOrPanic("example2.json"),
+// 			TenantFilter: pulumi.String("Sample_03"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // As3 resources can be imported using the partition name, e.g., ( use comma separated partition names if there are multiple partitions in as3 deployments )
@@ -643,7 +683,7 @@ type As3ArrayInput interface {
 type As3Array []As3Input
 
 func (As3Array) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*As3)(nil))
+	return reflect.TypeOf((*[]*As3)(nil)).Elem()
 }
 
 func (i As3Array) ToAs3ArrayOutput() As3ArrayOutput {
@@ -668,7 +708,7 @@ type As3MapInput interface {
 type As3Map map[string]As3Input
 
 func (As3Map) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*As3)(nil))
+	return reflect.TypeOf((*map[string]*As3)(nil)).Elem()
 }
 
 func (i As3Map) ToAs3MapOutput() As3MapOutput {
@@ -679,9 +719,7 @@ func (i As3Map) ToAs3MapOutputWithContext(ctx context.Context) As3MapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(As3MapOutput)
 }
 
-type As3Output struct {
-	*pulumi.OutputState
-}
+type As3Output struct{ *pulumi.OutputState }
 
 func (As3Output) ElementType() reflect.Type {
 	return reflect.TypeOf((*As3)(nil))
@@ -700,14 +738,12 @@ func (o As3Output) ToAs3PtrOutput() As3PtrOutput {
 }
 
 func (o As3Output) ToAs3PtrOutputWithContext(ctx context.Context) As3PtrOutput {
-	return o.ApplyT(func(v As3) *As3 {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v As3) *As3 {
 		return &v
 	}).(As3PtrOutput)
 }
 
-type As3PtrOutput struct {
-	*pulumi.OutputState
-}
+type As3PtrOutput struct{ *pulumi.OutputState }
 
 func (As3PtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**As3)(nil))
@@ -719,6 +755,16 @@ func (o As3PtrOutput) ToAs3PtrOutput() As3PtrOutput {
 
 func (o As3PtrOutput) ToAs3PtrOutputWithContext(ctx context.Context) As3PtrOutput {
 	return o
+}
+
+func (o As3PtrOutput) Elem() As3Output {
+	return o.ApplyT(func(v *As3) As3 {
+		if v != nil {
+			return *v
+		}
+		var ret As3
+		return ret
+	}).(As3Output)
 }
 
 type As3ArrayOutput struct{ *pulumi.OutputState }
@@ -762,6 +808,10 @@ func (o As3MapOutput) MapIndex(k pulumi.StringInput) As3Output {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*As3Input)(nil)).Elem(), &As3{})
+	pulumi.RegisterInputType(reflect.TypeOf((*As3PtrInput)(nil)).Elem(), &As3{})
+	pulumi.RegisterInputType(reflect.TypeOf((*As3ArrayInput)(nil)).Elem(), As3Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*As3MapInput)(nil)).Elem(), As3Map{})
 	pulumi.RegisterOutputType(As3Output{})
 	pulumi.RegisterOutputType(As3PtrOutput{})
 	pulumi.RegisterOutputType(As3ArrayOutput{})

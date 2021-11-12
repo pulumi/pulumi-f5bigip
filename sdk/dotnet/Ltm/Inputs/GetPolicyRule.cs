@@ -10,21 +10,21 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Ltm.Inputs
 {
 
-    public sealed class GetPolicyRuleInputArgs : Pulumi.ResourceArgs
+    public sealed class GetPolicyRuleArgs : Pulumi.InvokeArgs
     {
         [Input("actions")]
-        private InputList<Inputs.GetPolicyRuleActionInputArgs>? _actions;
-        public InputList<Inputs.GetPolicyRuleActionInputArgs> Actions
+        private List<Inputs.GetPolicyRuleActionArgs>? _actions;
+        public List<Inputs.GetPolicyRuleActionArgs> Actions
         {
-            get => _actions ?? (_actions = new InputList<Inputs.GetPolicyRuleActionInputArgs>());
+            get => _actions ?? (_actions = new List<Inputs.GetPolicyRuleActionArgs>());
             set => _actions = value;
         }
 
         [Input("conditions")]
-        private InputList<Inputs.GetPolicyRuleConditionInputArgs>? _conditions;
-        public InputList<Inputs.GetPolicyRuleConditionInputArgs> Conditions
+        private List<Inputs.GetPolicyRuleConditionArgs>? _conditions;
+        public List<Inputs.GetPolicyRuleConditionArgs> Conditions
         {
-            get => _conditions ?? (_conditions = new InputList<Inputs.GetPolicyRuleConditionInputArgs>());
+            get => _conditions ?? (_conditions = new List<Inputs.GetPolicyRuleConditionArgs>());
             set => _conditions = value;
         }
 
@@ -32,9 +32,9 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
         /// Name of the policy which includes partion ( /partition/policy-name )
         /// </summary>
         [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        public string Name { get; set; } = null!;
 
-        public GetPolicyRuleInputArgs()
+        public GetPolicyRuleArgs()
         {
         }
     }

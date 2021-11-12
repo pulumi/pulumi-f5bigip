@@ -9,6 +9,7 @@ export interface EventServiceDiscoveryNode {
     ip?: string;
     port?: number;
 }
+
 export namespace cm {
     export interface DeviceGroupDevice {
         /**
@@ -17,6 +18,7 @@ export namespace cm {
         name?: string;
         setSyncLeader?: boolean;
     }
+
 }
 
 export namespace ltm {
@@ -543,6 +545,7 @@ export namespace net {
          */
         vlanport?: string;
     }
+
 }
 
 export namespace sys {
@@ -578,4 +581,5 @@ export namespace sys {
         name?: string;
         value?: string;
     }
+
 }

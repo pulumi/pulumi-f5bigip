@@ -4,6 +4,9 @@
 package ltm
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -58,4 +61,117 @@ type LookupNodeResult struct {
 	Session string `pulumi:"session"`
 	// The current state of the node.
 	State string `pulumi:"state"`
+}
+
+func LookupNodeOutput(ctx *pulumi.Context, args LookupNodeOutputArgs, opts ...pulumi.InvokeOption) LookupNodeResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupNodeResult, error) {
+			args := v.(LookupNodeArgs)
+			r, err := LookupNode(ctx, &args, opts...)
+			return *r, err
+		}).(LookupNodeResultOutput)
+}
+
+// A collection of arguments for invoking getNode.
+type LookupNodeOutputArgs struct {
+	// The address of the node.
+	Address pulumi.StringPtrInput `pulumi:"address"`
+	// User defined description of the node.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Fqdn        GetNodeFqdnPtrInput   `pulumi:"fqdn"`
+	// Full path of the node (partition and name)
+	FullPath pulumi.StringPtrInput `pulumi:"fullPath"`
+	// Name of the node.
+	Name pulumi.StringInput `pulumi:"name"`
+	// partition of the node.
+	Partition pulumi.StringInput `pulumi:"partition"`
+}
+
+func (LookupNodeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNodeArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getNode.
+type LookupNodeResultOutput struct{ *pulumi.OutputState }
+
+func (LookupNodeResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupNodeResult)(nil)).Elem()
+}
+
+func (o LookupNodeResultOutput) ToLookupNodeResultOutput() LookupNodeResultOutput {
+	return o
+}
+
+func (o LookupNodeResultOutput) ToLookupNodeResultOutputWithContext(ctx context.Context) LookupNodeResultOutput {
+	return o
+}
+
+// The address of the node.
+func (o LookupNodeResultOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNodeResult) *string { return v.Address }).(pulumi.StringPtrOutput)
+}
+
+// Node connection limit.
+func (o LookupNodeResultOutput) ConnectionLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupNodeResult) int { return v.ConnectionLimit }).(pulumi.IntOutput)
+}
+
+// User defined description of the node.
+func (o LookupNodeResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNodeResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The dynamic ratio number for the node.
+func (o LookupNodeResultOutput) DynamicRatio() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupNodeResult) int { return v.DynamicRatio }).(pulumi.IntOutput)
+}
+
+func (o LookupNodeResultOutput) Fqdn() GetNodeFqdnOutput {
+	return o.ApplyT(func(v LookupNodeResult) GetNodeFqdn { return v.Fqdn }).(GetNodeFqdnOutput)
+}
+
+// Full path of the node (partition and name)
+func (o LookupNodeResultOutput) FullPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupNodeResult) *string { return v.FullPath }).(pulumi.StringPtrOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupNodeResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNodeResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Specifies the health monitors the system currently uses to monitor this node.
+func (o LookupNodeResultOutput) Monitor() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNodeResult) string { return v.Monitor }).(pulumi.StringOutput)
+}
+
+func (o LookupNodeResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNodeResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupNodeResultOutput) Partition() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNodeResult) string { return v.Partition }).(pulumi.StringOutput)
+}
+
+// Node rate limit.
+func (o LookupNodeResultOutput) RateLimit() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNodeResult) string { return v.RateLimit }).(pulumi.StringOutput)
+}
+
+// Node ratio weight.
+func (o LookupNodeResultOutput) Ratio() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupNodeResult) int { return v.Ratio }).(pulumi.IntOutput)
+}
+
+func (o LookupNodeResultOutput) Session() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNodeResult) string { return v.Session }).(pulumi.StringOutput)
+}
+
+// The current state of the node.
+func (o LookupNodeResultOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNodeResult) string { return v.State }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupNodeResultOutput{})
 }

@@ -14,6 +14,42 @@ import (
 // `BigIqAs3` provides details about bigiq as3 resource
 //
 // This resource is helpful to configure as3 declarative JSON on BIG-IP through BIG-IQ.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"io/ioutil"
+//
+// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func readFileOrPanic(path string) pulumi.StringPtrInput {
+// 	data, err := ioutil.ReadFile(path)
+// 	if err != nil {
+// 		panic(err.Error())
+// 	}
+// 	return pulumi.String(string(data))
+// }
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := f5bigip.NewBigIqAs3(ctx, "exampletask", &f5bigip.BigIqAs3Args{
+// 			As3Json:       readFileOrPanic("bigiq_example.json"),
+// 			BigiqAddress:  pulumi.String("xx.xx.xxx.xx"),
+// 			BigiqPassword: pulumi.String("xxxxxxxxx"),
+// 			BigiqUser:     pulumi.String("xxxxx"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type BigIqAs3 struct {
 	pulumi.CustomResourceState
 
@@ -232,7 +268,7 @@ type BigIqAs3ArrayInput interface {
 type BigIqAs3Array []BigIqAs3Input
 
 func (BigIqAs3Array) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*BigIqAs3)(nil))
+	return reflect.TypeOf((*[]*BigIqAs3)(nil)).Elem()
 }
 
 func (i BigIqAs3Array) ToBigIqAs3ArrayOutput() BigIqAs3ArrayOutput {
@@ -257,7 +293,7 @@ type BigIqAs3MapInput interface {
 type BigIqAs3Map map[string]BigIqAs3Input
 
 func (BigIqAs3Map) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*BigIqAs3)(nil))
+	return reflect.TypeOf((*map[string]*BigIqAs3)(nil)).Elem()
 }
 
 func (i BigIqAs3Map) ToBigIqAs3MapOutput() BigIqAs3MapOutput {
@@ -268,9 +304,7 @@ func (i BigIqAs3Map) ToBigIqAs3MapOutputWithContext(ctx context.Context) BigIqAs
 	return pulumi.ToOutputWithContext(ctx, i).(BigIqAs3MapOutput)
 }
 
-type BigIqAs3Output struct {
-	*pulumi.OutputState
-}
+type BigIqAs3Output struct{ *pulumi.OutputState }
 
 func (BigIqAs3Output) ElementType() reflect.Type {
 	return reflect.TypeOf((*BigIqAs3)(nil))
@@ -289,14 +323,12 @@ func (o BigIqAs3Output) ToBigIqAs3PtrOutput() BigIqAs3PtrOutput {
 }
 
 func (o BigIqAs3Output) ToBigIqAs3PtrOutputWithContext(ctx context.Context) BigIqAs3PtrOutput {
-	return o.ApplyT(func(v BigIqAs3) *BigIqAs3 {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BigIqAs3) *BigIqAs3 {
 		return &v
 	}).(BigIqAs3PtrOutput)
 }
 
-type BigIqAs3PtrOutput struct {
-	*pulumi.OutputState
-}
+type BigIqAs3PtrOutput struct{ *pulumi.OutputState }
 
 func (BigIqAs3PtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BigIqAs3)(nil))
@@ -308,6 +340,16 @@ func (o BigIqAs3PtrOutput) ToBigIqAs3PtrOutput() BigIqAs3PtrOutput {
 
 func (o BigIqAs3PtrOutput) ToBigIqAs3PtrOutputWithContext(ctx context.Context) BigIqAs3PtrOutput {
 	return o
+}
+
+func (o BigIqAs3PtrOutput) Elem() BigIqAs3Output {
+	return o.ApplyT(func(v *BigIqAs3) BigIqAs3 {
+		if v != nil {
+			return *v
+		}
+		var ret BigIqAs3
+		return ret
+	}).(BigIqAs3Output)
 }
 
 type BigIqAs3ArrayOutput struct{ *pulumi.OutputState }
@@ -351,6 +393,10 @@ func (o BigIqAs3MapOutput) MapIndex(k pulumi.StringInput) BigIqAs3Output {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BigIqAs3Input)(nil)).Elem(), &BigIqAs3{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BigIqAs3PtrInput)(nil)).Elem(), &BigIqAs3{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BigIqAs3ArrayInput)(nil)).Elem(), BigIqAs3Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BigIqAs3MapInput)(nil)).Elem(), BigIqAs3Map{})
 	pulumi.RegisterOutputType(BigIqAs3Output{})
 	pulumi.RegisterOutputType(BigIqAs3PtrOutput{})
 	pulumi.RegisterOutputType(BigIqAs3ArrayOutput{})

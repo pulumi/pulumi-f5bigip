@@ -12,6 +12,7 @@ __all__ = [
     'GetIruleResult',
     'AwaitableGetIruleResult',
     'get_irule',
+    'get_irule_output',
 ]
 
 @pulumi.output_type
@@ -113,3 +114,28 @@ def get_irule(name: Optional[str] = None,
         irule=__ret__.irule,
         name=__ret__.name,
         partition=__ret__.partition)
+
+
+@_utilities.lift_output_func(get_irule)
+def get_irule_output(name: Optional[pulumi.Input[str]] = None,
+                     partition: Optional[pulumi.Input[str]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIruleResult]:
+    """
+    Use this data source (`ltm.IRule`) to get the ltm irule details available on BIG-IP
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_f5bigip as f5bigip
+
+    test = f5bigip.ltm.get_irule(name="terraform_irule",
+        partition="Common")
+    pulumi.export("bigipIrule", test.irule)
+    ```
+
+
+    :param str name: Name of the irule
+    :param str partition: partition of the ltm irule
+    """
+    ...

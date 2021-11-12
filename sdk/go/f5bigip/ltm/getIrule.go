@@ -4,6 +4,9 @@
 package ltm
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -60,4 +63,64 @@ type GetIruleResult struct {
 	Name string `pulumi:"name"`
 	// Bigip partition in which rule is configured
 	Partition string `pulumi:"partition"`
+}
+
+func GetIruleOutput(ctx *pulumi.Context, args GetIruleOutputArgs, opts ...pulumi.InvokeOption) GetIruleResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetIruleResult, error) {
+			args := v.(GetIruleArgs)
+			r, err := GetIrule(ctx, &args, opts...)
+			return *r, err
+		}).(GetIruleResultOutput)
+}
+
+// A collection of arguments for invoking getIrule.
+type GetIruleOutputArgs struct {
+	// Name of the irule
+	Name pulumi.StringInput `pulumi:"name"`
+	// partition of the ltm irule
+	Partition pulumi.StringInput `pulumi:"partition"`
+}
+
+func (GetIruleOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIruleArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getIrule.
+type GetIruleResultOutput struct{ *pulumi.OutputState }
+
+func (GetIruleResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIruleResult)(nil)).Elem()
+}
+
+func (o GetIruleResultOutput) ToGetIruleResultOutput() GetIruleResultOutput {
+	return o
+}
+
+func (o GetIruleResultOutput) ToGetIruleResultOutputWithContext(ctx context.Context) GetIruleResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetIruleResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIruleResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Irule configured on bigip
+func (o GetIruleResultOutput) Irule() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIruleResult) string { return v.Irule }).(pulumi.StringOutput)
+}
+
+// Name of irule configured on bigip with full path
+func (o GetIruleResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIruleResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Bigip partition in which rule is configured
+func (o GetIruleResultOutput) Partition() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIruleResult) string { return v.Partition }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetIruleResultOutput{})
 }

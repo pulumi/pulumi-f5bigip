@@ -4,6 +4,9 @@
 package ltm
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -71,4 +74,85 @@ type LookupPolicyResult struct {
 	Rules []GetPolicyRule `pulumi:"rules"`
 	// Specifies the match strategy.
 	Strategy *string `pulumi:"strategy"`
+}
+
+func LookupPolicyOutput(ctx *pulumi.Context, args LookupPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupPolicyResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupPolicyResult, error) {
+			args := v.(LookupPolicyArgs)
+			r, err := LookupPolicy(ctx, &args, opts...)
+			return *r, err
+		}).(LookupPolicyResultOutput)
+}
+
+// A collection of arguments for invoking getPolicy.
+type LookupPolicyOutputArgs struct {
+	// Specifies the controls.
+	Controls pulumi.StringArrayInput `pulumi:"controls"`
+	// Name of the policy which includes partion ( /partition/policy-name )
+	Name          pulumi.StringInput    `pulumi:"name"`
+	PublishedCopy pulumi.StringPtrInput `pulumi:"publishedCopy"`
+	// Specifies the protocol.
+	Requires pulumi.StringArrayInput `pulumi:"requires"`
+	// Rules defined in the policy.
+	Rules GetPolicyRuleArrayInput `pulumi:"rules"`
+	// Specifies the match strategy.
+	Strategy pulumi.StringPtrInput `pulumi:"strategy"`
+}
+
+func (LookupPolicyOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPolicyArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getPolicy.
+type LookupPolicyResultOutput struct{ *pulumi.OutputState }
+
+func (LookupPolicyResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPolicyResult)(nil)).Elem()
+}
+
+func (o LookupPolicyResultOutput) ToLookupPolicyResultOutput() LookupPolicyResultOutput {
+	return o
+}
+
+func (o LookupPolicyResultOutput) ToLookupPolicyResultOutputWithContext(ctx context.Context) LookupPolicyResultOutput {
+	return o
+}
+
+// Specifies the controls.
+func (o LookupPolicyResultOutput) Controls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupPolicyResult) []string { return v.Controls }).(pulumi.StringArrayOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupPolicyResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicyResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the policy.
+func (o LookupPolicyResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPolicyResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupPolicyResultOutput) PublishedCopy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyResult) *string { return v.PublishedCopy }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the protocol.
+func (o LookupPolicyResultOutput) Requires() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupPolicyResult) []string { return v.Requires }).(pulumi.StringArrayOutput)
+}
+
+// Rules defined in the policy.
+func (o LookupPolicyResultOutput) Rules() GetPolicyRuleArrayOutput {
+	return o.ApplyT(func(v LookupPolicyResult) []GetPolicyRule { return v.Rules }).(GetPolicyRuleArrayOutput)
+}
+
+// Specifies the match strategy.
+func (o LookupPolicyResultOutput) Strategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPolicyResult) *string { return v.Strategy }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupPolicyResultOutput{})
 }

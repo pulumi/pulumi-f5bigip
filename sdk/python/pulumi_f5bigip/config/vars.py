@@ -8,56 +8,65 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = [
-    'address',
-    'login_ref',
-    'password',
-    'port',
-    'teem_disable',
-    'token_auth',
-    'token_value',
-    'username',
-]
+import types
 
 __config__ = pulumi.Config('f5bigip')
 
-address = __config__.get('address')
-"""
-Domain name/IP of the BigIP
-"""
 
-login_ref = __config__.get('loginRef')
-"""
-Login reference for token authentication (see BIG-IP REST docs for details)
-"""
+class _ExportableConfig(types.ModuleType):
+    @property
+    def address(self) -> Optional[str]:
+        """
+        Domain name/IP of the BigIP
+        """
+        return __config__.get('address')
 
-password = __config__.get('password')
-"""
-The user's password. Leave empty if using token_value
-"""
+    @property
+    def login_ref(self) -> Optional[str]:
+        """
+        Login reference for token authentication (see BIG-IP REST docs for details)
+        """
+        return __config__.get('loginRef')
 
-port = __config__.get('port')
-"""
-Management Port to connect to Bigip
-"""
+    @property
+    def password(self) -> Optional[str]:
+        """
+        The user's password. Leave empty if using token_value
+        """
+        return __config__.get('password')
 
-teem_disable = __config__.get('teemDisable')
-"""
-If this flag set to true,sending telemetry data to TEEM will be disabled
-"""
+    @property
+    def port(self) -> Optional[str]:
+        """
+        Management Port to connect to Bigip
+        """
+        return __config__.get('port')
 
-token_auth = __config__.get('tokenAuth')
-"""
-Enable to use an external authentication source (LDAP, TACACS, etc)
-"""
+    @property
+    def teem_disable(self) -> Optional[bool]:
+        """
+        If this flag set to true,sending telemetry data to TEEM will be disabled
+        """
+        return __config__.get_bool('teemDisable')
 
-token_value = __config__.get('tokenValue')
-"""
-A token generated outside the provider, in place of password
-"""
+    @property
+    def token_auth(self) -> Optional[bool]:
+        """
+        Enable to use an external authentication source (LDAP, TACACS, etc)
+        """
+        return __config__.get_bool('tokenAuth')
 
-username = __config__.get('username')
-"""
-Username with API access to the BigIP
-"""
+    @property
+    def token_value(self) -> Optional[str]:
+        """
+        A token generated outside the provider, in place of password
+        """
+        return __config__.get('tokenValue')
+
+    @property
+    def username(self) -> Optional[str]:
+        """
+        Username with API access to the BigIP
+        """
+        return __config__.get('username')
 

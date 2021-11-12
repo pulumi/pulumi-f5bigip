@@ -207,7 +207,7 @@ type SelfIpArrayInput interface {
 type SelfIpArray []SelfIpInput
 
 func (SelfIpArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SelfIp)(nil))
+	return reflect.TypeOf((*[]*SelfIp)(nil)).Elem()
 }
 
 func (i SelfIpArray) ToSelfIpArrayOutput() SelfIpArrayOutput {
@@ -232,7 +232,7 @@ type SelfIpMapInput interface {
 type SelfIpMap map[string]SelfIpInput
 
 func (SelfIpMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SelfIp)(nil))
+	return reflect.TypeOf((*map[string]*SelfIp)(nil)).Elem()
 }
 
 func (i SelfIpMap) ToSelfIpMapOutput() SelfIpMapOutput {
@@ -243,9 +243,7 @@ func (i SelfIpMap) ToSelfIpMapOutputWithContext(ctx context.Context) SelfIpMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(SelfIpMapOutput)
 }
 
-type SelfIpOutput struct {
-	*pulumi.OutputState
-}
+type SelfIpOutput struct{ *pulumi.OutputState }
 
 func (SelfIpOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SelfIp)(nil))
@@ -264,14 +262,12 @@ func (o SelfIpOutput) ToSelfIpPtrOutput() SelfIpPtrOutput {
 }
 
 func (o SelfIpOutput) ToSelfIpPtrOutputWithContext(ctx context.Context) SelfIpPtrOutput {
-	return o.ApplyT(func(v SelfIp) *SelfIp {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SelfIp) *SelfIp {
 		return &v
 	}).(SelfIpPtrOutput)
 }
 
-type SelfIpPtrOutput struct {
-	*pulumi.OutputState
-}
+type SelfIpPtrOutput struct{ *pulumi.OutputState }
 
 func (SelfIpPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SelfIp)(nil))
@@ -283,6 +279,16 @@ func (o SelfIpPtrOutput) ToSelfIpPtrOutput() SelfIpPtrOutput {
 
 func (o SelfIpPtrOutput) ToSelfIpPtrOutputWithContext(ctx context.Context) SelfIpPtrOutput {
 	return o
+}
+
+func (o SelfIpPtrOutput) Elem() SelfIpOutput {
+	return o.ApplyT(func(v *SelfIp) SelfIp {
+		if v != nil {
+			return *v
+		}
+		var ret SelfIp
+		return ret
+	}).(SelfIpOutput)
 }
 
 type SelfIpArrayOutput struct{ *pulumi.OutputState }
@@ -326,6 +332,10 @@ func (o SelfIpMapOutput) MapIndex(k pulumi.StringInput) SelfIpOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SelfIpInput)(nil)).Elem(), &SelfIp{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SelfIpPtrInput)(nil)).Elem(), &SelfIp{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SelfIpArrayInput)(nil)).Elem(), SelfIpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SelfIpMapInput)(nil)).Elem(), SelfIpMap{})
 	pulumi.RegisterOutputType(SelfIpOutput{})
 	pulumi.RegisterOutputType(SelfIpPtrOutput{})
 	pulumi.RegisterOutputType(SelfIpArrayOutput{})

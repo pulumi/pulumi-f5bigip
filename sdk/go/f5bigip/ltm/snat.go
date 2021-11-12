@@ -283,7 +283,7 @@ type SnatArrayInput interface {
 type SnatArray []SnatInput
 
 func (SnatArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Snat)(nil))
+	return reflect.TypeOf((*[]*Snat)(nil)).Elem()
 }
 
 func (i SnatArray) ToSnatArrayOutput() SnatArrayOutput {
@@ -308,7 +308,7 @@ type SnatMapInput interface {
 type SnatMap map[string]SnatInput
 
 func (SnatMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Snat)(nil))
+	return reflect.TypeOf((*map[string]*Snat)(nil)).Elem()
 }
 
 func (i SnatMap) ToSnatMapOutput() SnatMapOutput {
@@ -319,9 +319,7 @@ func (i SnatMap) ToSnatMapOutputWithContext(ctx context.Context) SnatMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SnatMapOutput)
 }
 
-type SnatOutput struct {
-	*pulumi.OutputState
-}
+type SnatOutput struct{ *pulumi.OutputState }
 
 func (SnatOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Snat)(nil))
@@ -340,14 +338,12 @@ func (o SnatOutput) ToSnatPtrOutput() SnatPtrOutput {
 }
 
 func (o SnatOutput) ToSnatPtrOutputWithContext(ctx context.Context) SnatPtrOutput {
-	return o.ApplyT(func(v Snat) *Snat {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Snat) *Snat {
 		return &v
 	}).(SnatPtrOutput)
 }
 
-type SnatPtrOutput struct {
-	*pulumi.OutputState
-}
+type SnatPtrOutput struct{ *pulumi.OutputState }
 
 func (SnatPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Snat)(nil))
@@ -359,6 +355,16 @@ func (o SnatPtrOutput) ToSnatPtrOutput() SnatPtrOutput {
 
 func (o SnatPtrOutput) ToSnatPtrOutputWithContext(ctx context.Context) SnatPtrOutput {
 	return o
+}
+
+func (o SnatPtrOutput) Elem() SnatOutput {
+	return o.ApplyT(func(v *Snat) Snat {
+		if v != nil {
+			return *v
+		}
+		var ret Snat
+		return ret
+	}).(SnatOutput)
 }
 
 type SnatArrayOutput struct{ *pulumi.OutputState }
@@ -402,6 +408,10 @@ func (o SnatMapOutput) MapIndex(k pulumi.StringInput) SnatOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SnatInput)(nil)).Elem(), &Snat{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnatPtrInput)(nil)).Elem(), &Snat{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnatArrayInput)(nil)).Elem(), SnatArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnatMapInput)(nil)).Elem(), SnatMap{})
 	pulumi.RegisterOutputType(SnatOutput{})
 	pulumi.RegisterOutputType(SnatPtrOutput{})
 	pulumi.RegisterOutputType(SnatArrayOutput{})

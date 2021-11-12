@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.F5BigIP.Ltm
 {
@@ -16,6 +17,12 @@ namespace Pulumi.F5BigIP.Ltm
         /// </summary>
         public static Task<GetNodeResult> InvokeAsync(GetNodeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNodeResult>("f5bigip:ltm/getNode:getNode", args ?? new GetNodeArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source (`f5bigip.ltm.Node`) to get the ltm node details available on BIG-IP
+        /// </summary>
+        public static Output<GetNodeResult> Invoke(GetNodeInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetNodeResult>("f5bigip:ltm/getNode:getNode", args ?? new GetNodeInvokeArgs(), options.WithVersion());
     }
 
 
@@ -55,6 +62,46 @@ namespace Pulumi.F5BigIP.Ltm
         public string Partition { get; set; } = null!;
 
         public GetNodeArgs()
+        {
+        }
+    }
+
+    public sealed class GetNodeInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The address of the node.
+        /// </summary>
+        [Input("address")]
+        public Input<string>? Address { get; set; }
+
+        /// <summary>
+        /// User defined description of the node.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        [Input("fqdn")]
+        public Input<Inputs.GetNodeFqdnInputArgs>? Fqdn { get; set; }
+
+        /// <summary>
+        /// Full path of the node (partition and name)
+        /// </summary>
+        [Input("fullPath")]
+        public Input<string>? FullPath { get; set; }
+
+        /// <summary>
+        /// Name of the node.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// partition of the node.
+        /// </summary>
+        [Input("partition", required: true)]
+        public Input<string> Partition { get; set; } = null!;
+
+        public GetNodeInvokeArgs()
         {
         }
     }

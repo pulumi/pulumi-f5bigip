@@ -200,7 +200,7 @@ type DataGroupArrayInput interface {
 type DataGroupArray []DataGroupInput
 
 func (DataGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*DataGroup)(nil))
+	return reflect.TypeOf((*[]*DataGroup)(nil)).Elem()
 }
 
 func (i DataGroupArray) ToDataGroupArrayOutput() DataGroupArrayOutput {
@@ -225,7 +225,7 @@ type DataGroupMapInput interface {
 type DataGroupMap map[string]DataGroupInput
 
 func (DataGroupMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*DataGroup)(nil))
+	return reflect.TypeOf((*map[string]*DataGroup)(nil)).Elem()
 }
 
 func (i DataGroupMap) ToDataGroupMapOutput() DataGroupMapOutput {
@@ -236,9 +236,7 @@ func (i DataGroupMap) ToDataGroupMapOutputWithContext(ctx context.Context) DataG
 	return pulumi.ToOutputWithContext(ctx, i).(DataGroupMapOutput)
 }
 
-type DataGroupOutput struct {
-	*pulumi.OutputState
-}
+type DataGroupOutput struct{ *pulumi.OutputState }
 
 func (DataGroupOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*DataGroup)(nil))
@@ -257,14 +255,12 @@ func (o DataGroupOutput) ToDataGroupPtrOutput() DataGroupPtrOutput {
 }
 
 func (o DataGroupOutput) ToDataGroupPtrOutputWithContext(ctx context.Context) DataGroupPtrOutput {
-	return o.ApplyT(func(v DataGroup) *DataGroup {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataGroup) *DataGroup {
 		return &v
 	}).(DataGroupPtrOutput)
 }
 
-type DataGroupPtrOutput struct {
-	*pulumi.OutputState
-}
+type DataGroupPtrOutput struct{ *pulumi.OutputState }
 
 func (DataGroupPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**DataGroup)(nil))
@@ -276,6 +272,16 @@ func (o DataGroupPtrOutput) ToDataGroupPtrOutput() DataGroupPtrOutput {
 
 func (o DataGroupPtrOutput) ToDataGroupPtrOutputWithContext(ctx context.Context) DataGroupPtrOutput {
 	return o
+}
+
+func (o DataGroupPtrOutput) Elem() DataGroupOutput {
+	return o.ApplyT(func(v *DataGroup) DataGroup {
+		if v != nil {
+			return *v
+		}
+		var ret DataGroup
+		return ret
+	}).(DataGroupOutput)
 }
 
 type DataGroupArrayOutput struct{ *pulumi.OutputState }
@@ -319,6 +325,10 @@ func (o DataGroupMapOutput) MapIndex(k pulumi.StringInput) DataGroupOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataGroupInput)(nil)).Elem(), &DataGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataGroupPtrInput)(nil)).Elem(), &DataGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataGroupArrayInput)(nil)).Elem(), DataGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataGroupMapInput)(nil)).Elem(), DataGroupMap{})
 	pulumi.RegisterOutputType(DataGroupOutput{})
 	pulumi.RegisterOutputType(DataGroupPtrOutput{})
 	pulumi.RegisterOutputType(DataGroupArrayOutput{})

@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -98,4 +97,26 @@ export interface GetVWanConfigResult {
      * (type `list`) Provides vWAN Gateway Address for IPSec End point
      */
     readonly vwanGwAddresses: string[];
+}
+
+export function getVWanConfigOutput(args: GetVWanConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVWanConfigResult> {
+    return pulumi.output(args).apply(a => getVWanConfig(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getVWanConfig.
+ */
+export interface GetVWanConfigOutputArgs {
+    /**
+     * Name of the Azure vWAN Name
+     */
+    azureVwanName: pulumi.Input<string>;
+    /**
+     * Name of the Azure vWAN resource group
+     */
+    azureVwanResourcegroup: pulumi.Input<string>;
+    /**
+     * Name of the Azure vWAN VPN site from which configuration to be download
+     */
+    azureVwanVpnsite: pulumi.Input<string>;
 }

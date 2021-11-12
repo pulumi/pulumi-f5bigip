@@ -102,3 +102,34 @@ export interface GetNodeResult {
      */
     readonly state: string;
 }
+
+export function getNodeOutput(args: GetNodeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNodeResult> {
+    return pulumi.output(args).apply(a => getNode(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getNode.
+ */
+export interface GetNodeOutputArgs {
+    /**
+     * The address of the node.
+     */
+    address?: pulumi.Input<string>;
+    /**
+     * User defined description of the node.
+     */
+    description?: pulumi.Input<string>;
+    fqdn?: pulumi.Input<inputs.ltm.GetNodeFqdnArgs>;
+    /**
+     * Full path of the node (partition and name)
+     */
+    fullPath?: pulumi.Input<string>;
+    /**
+     * Name of the node.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * partition of the node.
+     */
+    partition: pulumi.Input<string>;
+}

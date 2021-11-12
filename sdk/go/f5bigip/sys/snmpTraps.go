@@ -293,7 +293,7 @@ type SnmpTrapsArrayInput interface {
 type SnmpTrapsArray []SnmpTrapsInput
 
 func (SnmpTrapsArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SnmpTraps)(nil))
+	return reflect.TypeOf((*[]*SnmpTraps)(nil)).Elem()
 }
 
 func (i SnmpTrapsArray) ToSnmpTrapsArrayOutput() SnmpTrapsArrayOutput {
@@ -318,7 +318,7 @@ type SnmpTrapsMapInput interface {
 type SnmpTrapsMap map[string]SnmpTrapsInput
 
 func (SnmpTrapsMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SnmpTraps)(nil))
+	return reflect.TypeOf((*map[string]*SnmpTraps)(nil)).Elem()
 }
 
 func (i SnmpTrapsMap) ToSnmpTrapsMapOutput() SnmpTrapsMapOutput {
@@ -329,9 +329,7 @@ func (i SnmpTrapsMap) ToSnmpTrapsMapOutputWithContext(ctx context.Context) SnmpT
 	return pulumi.ToOutputWithContext(ctx, i).(SnmpTrapsMapOutput)
 }
 
-type SnmpTrapsOutput struct {
-	*pulumi.OutputState
-}
+type SnmpTrapsOutput struct{ *pulumi.OutputState }
 
 func (SnmpTrapsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SnmpTraps)(nil))
@@ -350,14 +348,12 @@ func (o SnmpTrapsOutput) ToSnmpTrapsPtrOutput() SnmpTrapsPtrOutput {
 }
 
 func (o SnmpTrapsOutput) ToSnmpTrapsPtrOutputWithContext(ctx context.Context) SnmpTrapsPtrOutput {
-	return o.ApplyT(func(v SnmpTraps) *SnmpTraps {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnmpTraps) *SnmpTraps {
 		return &v
 	}).(SnmpTrapsPtrOutput)
 }
 
-type SnmpTrapsPtrOutput struct {
-	*pulumi.OutputState
-}
+type SnmpTrapsPtrOutput struct{ *pulumi.OutputState }
 
 func (SnmpTrapsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SnmpTraps)(nil))
@@ -369,6 +365,16 @@ func (o SnmpTrapsPtrOutput) ToSnmpTrapsPtrOutput() SnmpTrapsPtrOutput {
 
 func (o SnmpTrapsPtrOutput) ToSnmpTrapsPtrOutputWithContext(ctx context.Context) SnmpTrapsPtrOutput {
 	return o
+}
+
+func (o SnmpTrapsPtrOutput) Elem() SnmpTrapsOutput {
+	return o.ApplyT(func(v *SnmpTraps) SnmpTraps {
+		if v != nil {
+			return *v
+		}
+		var ret SnmpTraps
+		return ret
+	}).(SnmpTrapsOutput)
 }
 
 type SnmpTrapsArrayOutput struct{ *pulumi.OutputState }
@@ -412,6 +418,10 @@ func (o SnmpTrapsMapOutput) MapIndex(k pulumi.StringInput) SnmpTrapsOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SnmpTrapsInput)(nil)).Elem(), &SnmpTraps{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnmpTrapsPtrInput)(nil)).Elem(), &SnmpTraps{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnmpTrapsArrayInput)(nil)).Elem(), SnmpTrapsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnmpTrapsMapInput)(nil)).Elem(), SnmpTrapsMap{})
 	pulumi.RegisterOutputType(SnmpTrapsOutput{})
 	pulumi.RegisterOutputType(SnmpTrapsPtrOutput{})
 	pulumi.RegisterOutputType(SnmpTrapsArrayOutput{})
