@@ -12,6 +12,7 @@ __all__ = [
     'GetVWanConfigResult',
     'AwaitableGetVWanConfigResult',
     'get_v_wan_config',
+    'get_v_wan_config_output',
 ]
 
 @pulumi.output_type
@@ -134,7 +135,7 @@ def get_v_wan_config(azure_vwan_name: Optional[str] = None,
                      azure_vwan_vpnsite: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVWanConfigResult:
     """
-    Use this data source (`ssl.getVWanConfig`) to get the vWAN site config from Azure VWAN Site
+    Use this data source (`ssl.get_v_wan_config`) to get the vWAN site config from Azure VWAN Site
 
     ## Example Usage
 
@@ -185,3 +186,43 @@ def get_v_wan_config(azure_vwan_name: Optional[str] = None,
         id=__ret__.id,
         preshared_key=__ret__.preshared_key,
         vwan_gw_addresses=__ret__.vwan_gw_addresses)
+
+
+@_utilities.lift_output_func(get_v_wan_config)
+def get_v_wan_config_output(azure_vwan_name: Optional[pulumi.Input[str]] = None,
+                            azure_vwan_resourcegroup: Optional[pulumi.Input[str]] = None,
+                            azure_vwan_vpnsite: Optional[pulumi.Input[str]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVWanConfigResult]:
+    """
+    Use this data source (`ssl.get_v_wan_config`) to get the vWAN site config from Azure VWAN Site
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_f5bigip as f5bigip
+
+    vwanconfig = f5bigip.ssl.get_v_wan_config(azure_vwan_name="azurevwan-bigip-vwan-9c8d",
+        azure_vwan_resourcegroup="azurevwan-bigip-rg-9c8d",
+        azure_vwan_vpnsite="azurevwan-bigip-vsite-9c8d")
+    ```
+    ## Pre-required Environment Settings:
+
+    * `AZURE_CLIENT_ID` - (Required) Set this environment variable with the Azure app client ID to use.
+
+    * `AZURE_CLIENT_SECRET` - (Required) Set this environment variable with the Azure app secret to use.
+
+    * `AZURE_SUBSCRIPTION_ID` - (Required) Set this environment variable with the Azure subscription ID to use.
+
+    * `AZURE_TENANT_ID` - (Required) Set this environment variable with the Tenant ID to which to authenticate.
+
+    * `STORAGE_ACCOUNT_NAME` - (Required) Set this environment variable with the storage account for download config.
+
+    * `STORAGE_ACCOUNT_KEY` - (Required) Specifies the storage account key to authenticate,set this Environment variable with account key value.
+
+
+    :param str azure_vwan_name: Name of the Azure vWAN Name
+    :param str azure_vwan_resourcegroup: Name of the Azure vWAN resource group
+    :param str azure_vwan_vpnsite: Name of the Azure vWAN VPN site from which configuration to be download
+    """
+    ...

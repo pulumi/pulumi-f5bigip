@@ -14,6 +14,7 @@ __all__ = [
     'GetDataGroupResult',
     'AwaitableGetDataGroupResult',
     'get_data_group',
+    'get_data_group_output',
 ]
 
 @pulumi.output_type
@@ -127,3 +128,31 @@ def get_data_group(name: Optional[str] = None,
         partition=__ret__.partition,
         records=__ret__.records,
         type=__ret__.type)
+
+
+@_utilities.lift_output_func(get_data_group)
+def get_data_group_output(name: Optional[pulumi.Input[str]] = None,
+                          partition: Optional[pulumi.Input[str]] = None,
+                          records: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetDataGroupRecordArgs']]]]] = None,
+                          type: Optional[pulumi.Input[Optional[str]]] = None,
+                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataGroupResult]:
+    """
+    Use this data source (`ltm.DataGroup`) to get the data group details available on BIG-IP
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_f5bigip as f5bigip
+
+    d_g__tc3 = f5bigip.ltm.get_data_group(name="test-dg",
+        partition="Common")
+    ```
+
+
+    :param str name: Name of the datagroup
+    :param str partition: partition of the datagroup
+    :param Sequence[pulumi.InputType['GetDataGroupRecordArgs']] records: Specifies record of type (string/ip/integer)
+    :param str type: The Data Group type (string, ip, integer)"
+    """
+    ...

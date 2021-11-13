@@ -4,37 +4,94 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
-let __config = new pulumi.Config("f5bigip");
+declare var exports: any;
+const __config = new pulumi.Config("f5bigip");
 
 /**
  * Domain name/IP of the BigIP
  */
-export let address: string | undefined = __config.get("address");
+export declare const address: string | undefined;
+Object.defineProperty(exports, "address", {
+    get() {
+        return __config.get("address");
+    },
+    enumerable: true,
+});
+
 /**
  * Login reference for token authentication (see BIG-IP REST docs for details)
  */
-export let loginRef: string | undefined = __config.get("loginRef");
+export declare const loginRef: string | undefined;
+Object.defineProperty(exports, "loginRef", {
+    get() {
+        return __config.get("loginRef");
+    },
+    enumerable: true,
+});
+
 /**
  * The user's password. Leave empty if using token_value
  */
-export let password: string | undefined = __config.get("password");
+export declare const password: string | undefined;
+Object.defineProperty(exports, "password", {
+    get() {
+        return __config.get("password");
+    },
+    enumerable: true,
+});
+
 /**
  * Management Port to connect to Bigip
  */
-export let port: string | undefined = __config.get("port");
+export declare const port: string | undefined;
+Object.defineProperty(exports, "port", {
+    get() {
+        return __config.get("port");
+    },
+    enumerable: true,
+});
+
 /**
  * If this flag set to true,sending telemetry data to TEEM will be disabled
  */
-export let teemDisable: boolean | undefined = __config.getObject<boolean>("teemDisable");
+export declare const teemDisable: boolean | undefined;
+Object.defineProperty(exports, "teemDisable", {
+    get() {
+        return __config.getObject<boolean>("teemDisable");
+    },
+    enumerable: true,
+});
+
 /**
  * Enable to use an external authentication source (LDAP, TACACS, etc)
  */
-export let tokenAuth: boolean | undefined = __config.getObject<boolean>("tokenAuth");
+export declare const tokenAuth: boolean | undefined;
+Object.defineProperty(exports, "tokenAuth", {
+    get() {
+        return __config.getObject<boolean>("tokenAuth");
+    },
+    enumerable: true,
+});
+
 /**
  * A token generated outside the provider, in place of password
  */
-export let tokenValue: string | undefined = __config.get("tokenValue");
+export declare const tokenValue: string | undefined;
+Object.defineProperty(exports, "tokenValue", {
+    get() {
+        return __config.get("tokenValue");
+    },
+    enumerable: true,
+});
+
 /**
  * Username with API access to the BigIP
  */
-export let username: string | undefined = __config.get("username");
+export declare const username: string | undefined;
+Object.defineProperty(exports, "username", {
+    get() {
+        return __config.get("username");
+    },
+    enumerable: true,
+});
+

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.F5BigIP.Ltm
 {
@@ -43,6 +44,39 @@ namespace Pulumi.F5BigIP.Ltm
         /// </summary>
         public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("f5bigip:ltm/getPolicy:getPolicy", args ?? new GetPolicyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source (`f5bigip.ltm.Policy`) to get the ltm policy details available on BIG-IP
+        /// 
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using F5BigIP = Pulumi.F5BigIP;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(F5BigIP.Ltm.GetPolicy.InvokeAsync(new F5BigIP.Ltm.GetPolicyArgs
+        ///         {
+        ///             Name = "/Common/test-policy",
+        ///         }));
+        ///         this.BigipPolicy = test.Apply(test =&gt; test.Rules);
+        ///     }
+        /// 
+        ///     [Output("bigipPolicy")]
+        ///     public Output&lt;string&gt; BigipPolicy { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetPolicyResult> Invoke(GetPolicyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("f5bigip:ltm/getPolicy:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -100,6 +134,64 @@ namespace Pulumi.F5BigIP.Ltm
         public string? Strategy { get; set; }
 
         public GetPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetPolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("controls")]
+        private InputList<string>? _controls;
+
+        /// <summary>
+        /// Specifies the controls.
+        /// </summary>
+        public InputList<string> Controls
+        {
+            get => _controls ?? (_controls = new InputList<string>());
+            set => _controls = value;
+        }
+
+        /// <summary>
+        /// Name of the policy which includes partion ( /partition/policy-name )
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        [Input("publishedCopy")]
+        public Input<string>? PublishedCopy { get; set; }
+
+        [Input("requires")]
+        private InputList<string>? _requires;
+
+        /// <summary>
+        /// Specifies the protocol.
+        /// </summary>
+        public InputList<string> Requires
+        {
+            get => _requires ?? (_requires = new InputList<string>());
+            set => _requires = value;
+        }
+
+        [Input("rules")]
+        private InputList<Inputs.GetPolicyRuleInputArgs>? _rules;
+
+        /// <summary>
+        /// Rules defined in the policy.
+        /// </summary>
+        public InputList<Inputs.GetPolicyRuleInputArgs> Rules
+        {
+            get => _rules ?? (_rules = new InputList<Inputs.GetPolicyRuleInputArgs>());
+            set => _rules = value;
+        }
+
+        /// <summary>
+        /// Specifies the match strategy.
+        /// </summary>
+        [Input("strategy")]
+        public Input<string>? Strategy { get; set; }
+
+        public GetPolicyInvokeArgs()
         {
         }
     }

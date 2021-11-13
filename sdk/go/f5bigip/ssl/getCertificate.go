@@ -4,6 +4,9 @@
 package ssl
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -59,4 +62,63 @@ type LookupCertificateResult struct {
 	Name string `pulumi:"name"`
 	// Bigip partition in which ssl-certificate is configured
 	Partition string `pulumi:"partition"`
+}
+
+func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupCertificateResult, error) {
+			args := v.(LookupCertificateArgs)
+			r, err := LookupCertificate(ctx, &args, opts...)
+			return *r, err
+		}).(LookupCertificateResultOutput)
+}
+
+// A collection of arguments for invoking getCertificate.
+type LookupCertificateOutputArgs struct {
+	// Name of the ssl_certificate
+	Name pulumi.StringInput `pulumi:"name"`
+	// partition of the ltm ssl_certificate
+	Partition pulumi.StringInput `pulumi:"partition"`
+}
+
+func (LookupCertificateOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCertificateArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getCertificate.
+type LookupCertificateResultOutput struct{ *pulumi.OutputState }
+
+func (LookupCertificateResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCertificateResult)(nil)).Elem()
+}
+
+func (o LookupCertificateResultOutput) ToLookupCertificateResultOutput() LookupCertificateResultOutput {
+	return o
+}
+
+func (o LookupCertificateResultOutput) ToLookupCertificateResultOutputWithContext(ctx context.Context) LookupCertificateResultOutput {
+	return o
+}
+
+func (o LookupCertificateResultOutput) Certificate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.Certificate }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupCertificateResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Name of sslCertificate configured on bigip with full path
+func (o LookupCertificateResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Bigip partition in which ssl-certificate is configured
+func (o LookupCertificateResultOutput) Partition() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCertificateResult) string { return v.Partition }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupCertificateResultOutput{})
 }

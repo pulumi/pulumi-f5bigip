@@ -10,284 +10,284 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Ltm.Inputs
 {
 
-    public sealed class GetPolicyRuleConditionArgs : Pulumi.InvokeArgs
+    public sealed class GetPolicyRuleConditionInputArgs : Pulumi.ResourceArgs
     {
         [Input("address", required: true)]
-        public bool Address { get; set; }
+        public Input<bool> Address { get; set; } = null!;
 
         [Input("all", required: true)]
-        public bool All { get; set; }
+        public Input<bool> All { get; set; } = null!;
 
         [Input("appService", required: true)]
-        public string AppService { get; set; } = null!;
+        public Input<string> AppService { get; set; } = null!;
 
         [Input("browserType", required: true)]
-        public bool BrowserType { get; set; }
+        public Input<bool> BrowserType { get; set; } = null!;
 
         [Input("browserVersion", required: true)]
-        public bool BrowserVersion { get; set; }
+        public Input<bool> BrowserVersion { get; set; } = null!;
 
         [Input("caseInsensitive", required: true)]
-        public bool CaseInsensitive { get; set; }
+        public Input<bool> CaseInsensitive { get; set; } = null!;
 
         [Input("caseSensitive", required: true)]
-        public bool CaseSensitive { get; set; }
+        public Input<bool> CaseSensitive { get; set; } = null!;
 
         [Input("cipher", required: true)]
-        public bool Cipher { get; set; }
+        public Input<bool> Cipher { get; set; } = null!;
 
         [Input("cipherBits", required: true)]
-        public bool CipherBits { get; set; }
+        public Input<bool> CipherBits { get; set; } = null!;
 
         [Input("clientSsl", required: true)]
-        public bool ClientSsl { get; set; }
+        public Input<bool> ClientSsl { get; set; } = null!;
 
         [Input("code", required: true)]
-        public bool Code { get; set; }
+        public Input<bool> Code { get; set; } = null!;
 
         [Input("commonName", required: true)]
-        public bool CommonName { get; set; }
+        public Input<bool> CommonName { get; set; } = null!;
 
         [Input("contains", required: true)]
-        public bool Contains { get; set; }
+        public Input<bool> Contains { get; set; } = null!;
 
         [Input("continent", required: true)]
-        public bool Continent { get; set; }
+        public Input<bool> Continent { get; set; } = null!;
 
         [Input("countryCode", required: true)]
-        public bool CountryCode { get; set; }
+        public Input<bool> CountryCode { get; set; } = null!;
 
         [Input("countryName", required: true)]
-        public bool CountryName { get; set; }
+        public Input<bool> CountryName { get; set; } = null!;
 
         [Input("cpuUsage", required: true)]
-        public bool CpuUsage { get; set; }
+        public Input<bool> CpuUsage { get; set; } = null!;
 
         [Input("deviceMake", required: true)]
-        public bool DeviceMake { get; set; }
+        public Input<bool> DeviceMake { get; set; } = null!;
 
         [Input("deviceModel", required: true)]
-        public bool DeviceModel { get; set; }
+        public Input<bool> DeviceModel { get; set; } = null!;
 
         [Input("domain", required: true)]
-        public bool Domain { get; set; }
+        public Input<bool> Domain { get; set; } = null!;
 
         [Input("endsWith", required: true)]
-        public bool EndsWith { get; set; }
+        public Input<bool> EndsWith { get; set; } = null!;
 
         [Input("equals", required: true)]
-        public bool Equals { get; set; }
+        public Input<bool> Equals { get; set; } = null!;
 
         [Input("expiry", required: true)]
-        public bool Expiry { get; set; }
+        public Input<bool> Expiry { get; set; } = null!;
 
         [Input("extension", required: true)]
-        public bool Extension { get; set; }
+        public Input<bool> Extension { get; set; } = null!;
 
         [Input("external", required: true)]
-        public bool External { get; set; }
+        public Input<bool> External { get; set; } = null!;
 
         [Input("geoip", required: true)]
-        public bool Geoip { get; set; }
+        public Input<bool> Geoip { get; set; } = null!;
 
         [Input("greater", required: true)]
-        public bool Greater { get; set; }
+        public Input<bool> Greater { get; set; } = null!;
 
         [Input("greaterOrEqual", required: true)]
-        public bool GreaterOrEqual { get; set; }
+        public Input<bool> GreaterOrEqual { get; set; } = null!;
 
         [Input("host", required: true)]
-        public bool Host { get; set; }
+        public Input<bool> Host { get; set; } = null!;
 
         [Input("httpBasicAuth", required: true)]
-        public bool HttpBasicAuth { get; set; }
+        public Input<bool> HttpBasicAuth { get; set; } = null!;
 
         [Input("httpCookie", required: true)]
-        public bool HttpCookie { get; set; }
+        public Input<bool> HttpCookie { get; set; } = null!;
 
         [Input("httpHeader", required: true)]
-        public bool HttpHeader { get; set; }
+        public Input<bool> HttpHeader { get; set; } = null!;
 
         [Input("httpHost", required: true)]
-        public bool HttpHost { get; set; }
+        public Input<bool> HttpHost { get; set; } = null!;
 
         [Input("httpMethod", required: true)]
-        public bool HttpMethod { get; set; }
+        public Input<bool> HttpMethod { get; set; } = null!;
 
         [Input("httpReferer", required: true)]
-        public bool HttpReferer { get; set; }
+        public Input<bool> HttpReferer { get; set; } = null!;
 
         [Input("httpSetCookie", required: true)]
-        public bool HttpSetCookie { get; set; }
+        public Input<bool> HttpSetCookie { get; set; } = null!;
 
         [Input("httpStatus", required: true)]
-        public bool HttpStatus { get; set; }
+        public Input<bool> HttpStatus { get; set; } = null!;
 
         [Input("httpUri", required: true)]
-        public bool HttpUri { get; set; }
+        public Input<bool> HttpUri { get; set; } = null!;
 
         [Input("httpUserAgent", required: true)]
-        public bool HttpUserAgent { get; set; }
+        public Input<bool> HttpUserAgent { get; set; } = null!;
 
         [Input("httpVersion", required: true)]
-        public bool HttpVersion { get; set; }
+        public Input<bool> HttpVersion { get; set; } = null!;
 
         [Input("index", required: true)]
-        public int Index { get; set; }
+        public Input<int> Index { get; set; } = null!;
 
         [Input("internal", required: true)]
-        public bool Internal { get; set; }
+        public Input<bool> Internal { get; set; } = null!;
 
         [Input("isp", required: true)]
-        public bool Isp { get; set; }
+        public Input<bool> Isp { get; set; } = null!;
 
         [Input("last15secs", required: true)]
-        public bool Last15secs { get; set; }
+        public Input<bool> Last15secs { get; set; } = null!;
 
         [Input("last1min", required: true)]
-        public bool Last1min { get; set; }
+        public Input<bool> Last1min { get; set; } = null!;
 
         [Input("last5mins", required: true)]
-        public bool Last5mins { get; set; }
+        public Input<bool> Last5mins { get; set; } = null!;
 
         [Input("less", required: true)]
-        public bool Less { get; set; }
+        public Input<bool> Less { get; set; } = null!;
 
         [Input("lessOrEqual", required: true)]
-        public bool LessOrEqual { get; set; }
+        public Input<bool> LessOrEqual { get; set; } = null!;
 
         [Input("local", required: true)]
-        public bool Local { get; set; }
+        public Input<bool> Local { get; set; } = null!;
 
         [Input("major", required: true)]
-        public bool Major { get; set; }
+        public Input<bool> Major { get; set; } = null!;
 
         [Input("matches", required: true)]
-        public bool Matches { get; set; }
+        public Input<bool> Matches { get; set; } = null!;
 
         [Input("minor", required: true)]
-        public bool Minor { get; set; }
+        public Input<bool> Minor { get; set; } = null!;
 
         [Input("missing", required: true)]
-        public bool Missing { get; set; }
+        public Input<bool> Missing { get; set; } = null!;
 
         [Input("mss", required: true)]
-        public bool Mss { get; set; }
+        public Input<bool> Mss { get; set; } = null!;
 
         [Input("not", required: true)]
-        public bool Not { get; set; }
+        public Input<bool> Not { get; set; } = null!;
 
         [Input("org", required: true)]
-        public bool Org { get; set; }
+        public Input<bool> Org { get; set; } = null!;
 
         [Input("password", required: true)]
-        public bool Password { get; set; }
+        public Input<bool> Password { get; set; } = null!;
 
         [Input("path", required: true)]
-        public bool Path { get; set; }
+        public Input<bool> Path { get; set; } = null!;
 
         [Input("pathSegment", required: true)]
-        public bool PathSegment { get; set; }
+        public Input<bool> PathSegment { get; set; } = null!;
 
         [Input("port", required: true)]
-        public bool Port { get; set; }
+        public Input<bool> Port { get; set; } = null!;
 
         [Input("present", required: true)]
-        public bool Present { get; set; }
+        public Input<bool> Present { get; set; } = null!;
 
         [Input("protocol", required: true)]
-        public bool Protocol { get; set; }
+        public Input<bool> Protocol { get; set; } = null!;
 
         [Input("queryParameter", required: true)]
-        public bool QueryParameter { get; set; }
+        public Input<bool> QueryParameter { get; set; } = null!;
 
         [Input("queryString", required: true)]
-        public bool QueryString { get; set; }
+        public Input<bool> QueryString { get; set; } = null!;
 
         [Input("regionCode", required: true)]
-        public bool RegionCode { get; set; }
+        public Input<bool> RegionCode { get; set; } = null!;
 
         [Input("regionName", required: true)]
-        public bool RegionName { get; set; }
+        public Input<bool> RegionName { get; set; } = null!;
 
         [Input("remote", required: true)]
-        public bool Remote { get; set; }
+        public Input<bool> Remote { get; set; } = null!;
 
         [Input("request", required: true)]
-        public bool Request { get; set; }
+        public Input<bool> Request { get; set; } = null!;
 
         [Input("response", required: true)]
-        public bool Response { get; set; }
+        public Input<bool> Response { get; set; } = null!;
 
         [Input("routeDomain", required: true)]
-        public bool RouteDomain { get; set; }
+        public Input<bool> RouteDomain { get; set; } = null!;
 
         [Input("rtt", required: true)]
-        public bool Rtt { get; set; }
+        public Input<bool> Rtt { get; set; } = null!;
 
         [Input("scheme", required: true)]
-        public bool Scheme { get; set; }
+        public Input<bool> Scheme { get; set; } = null!;
 
         [Input("serverName", required: true)]
-        public bool ServerName { get; set; }
+        public Input<bool> ServerName { get; set; } = null!;
 
         [Input("sslCert", required: true)]
-        public bool SslCert { get; set; }
+        public Input<bool> SslCert { get; set; } = null!;
 
         [Input("sslClientHello", required: true)]
-        public bool SslClientHello { get; set; }
+        public Input<bool> SslClientHello { get; set; } = null!;
 
         [Input("sslExtension", required: true)]
-        public bool SslExtension { get; set; }
+        public Input<bool> SslExtension { get; set; } = null!;
 
         [Input("sslServerHandshake", required: true)]
-        public bool SslServerHandshake { get; set; }
+        public Input<bool> SslServerHandshake { get; set; } = null!;
 
         [Input("sslServerHello", required: true)]
-        public bool SslServerHello { get; set; }
+        public Input<bool> SslServerHello { get; set; } = null!;
 
         [Input("startsWith", required: true)]
-        public bool StartsWith { get; set; }
+        public Input<bool> StartsWith { get; set; } = null!;
 
         [Input("tcp", required: true)]
-        public bool Tcp { get; set; }
+        public Input<bool> Tcp { get; set; } = null!;
 
         [Input("text", required: true)]
-        public bool Text { get; set; }
+        public Input<bool> Text { get; set; } = null!;
 
         [Input("tmName", required: true)]
-        public string TmName { get; set; } = null!;
+        public Input<string> TmName { get; set; } = null!;
 
         [Input("unnamedQueryParameter", required: true)]
-        public bool UnnamedQueryParameter { get; set; }
+        public Input<bool> UnnamedQueryParameter { get; set; } = null!;
 
         [Input("userAgentToken", required: true)]
-        public bool UserAgentToken { get; set; }
+        public Input<bool> UserAgentToken { get; set; } = null!;
 
         [Input("username", required: true)]
-        public bool Username { get; set; }
+        public Input<bool> Username { get; set; } = null!;
 
         [Input("value", required: true)]
-        public bool Value { get; set; }
+        public Input<bool> Value { get; set; } = null!;
 
         [Input("values", required: true)]
-        private List<string>? _values;
-        public List<string> Values
+        private InputList<string>? _values;
+        public InputList<string> Values
         {
-            get => _values ?? (_values = new List<string>());
+            get => _values ?? (_values = new InputList<string>());
             set => _values = value;
         }
 
         [Input("version", required: true)]
-        public bool Version { get; set; }
+        public Input<bool> Version { get; set; } = null!;
 
         [Input("vlan", required: true)]
-        public bool Vlan { get; set; }
+        public Input<bool> Vlan { get; set; } = null!;
 
         [Input("vlanId", required: true)]
-        public bool VlanId { get; set; }
+        public Input<bool> VlanId { get; set; } = null!;
 
-        public GetPolicyRuleConditionArgs()
+        public GetPolicyRuleConditionInputArgs()
         {
         }
     }

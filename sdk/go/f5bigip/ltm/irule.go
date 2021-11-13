@@ -156,7 +156,7 @@ type IRuleArrayInput interface {
 type IRuleArray []IRuleInput
 
 func (IRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*IRule)(nil))
+	return reflect.TypeOf((*[]*IRule)(nil)).Elem()
 }
 
 func (i IRuleArray) ToIRuleArrayOutput() IRuleArrayOutput {
@@ -181,7 +181,7 @@ type IRuleMapInput interface {
 type IRuleMap map[string]IRuleInput
 
 func (IRuleMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*IRule)(nil))
+	return reflect.TypeOf((*map[string]*IRule)(nil)).Elem()
 }
 
 func (i IRuleMap) ToIRuleMapOutput() IRuleMapOutput {
@@ -192,9 +192,7 @@ func (i IRuleMap) ToIRuleMapOutputWithContext(ctx context.Context) IRuleMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(IRuleMapOutput)
 }
 
-type IRuleOutput struct {
-	*pulumi.OutputState
-}
+type IRuleOutput struct{ *pulumi.OutputState }
 
 func (IRuleOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IRule)(nil))
@@ -213,14 +211,12 @@ func (o IRuleOutput) ToIRulePtrOutput() IRulePtrOutput {
 }
 
 func (o IRuleOutput) ToIRulePtrOutputWithContext(ctx context.Context) IRulePtrOutput {
-	return o.ApplyT(func(v IRule) *IRule {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IRule) *IRule {
 		return &v
 	}).(IRulePtrOutput)
 }
 
-type IRulePtrOutput struct {
-	*pulumi.OutputState
-}
+type IRulePtrOutput struct{ *pulumi.OutputState }
 
 func (IRulePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**IRule)(nil))
@@ -232,6 +228,16 @@ func (o IRulePtrOutput) ToIRulePtrOutput() IRulePtrOutput {
 
 func (o IRulePtrOutput) ToIRulePtrOutputWithContext(ctx context.Context) IRulePtrOutput {
 	return o
+}
+
+func (o IRulePtrOutput) Elem() IRuleOutput {
+	return o.ApplyT(func(v *IRule) IRule {
+		if v != nil {
+			return *v
+		}
+		var ret IRule
+		return ret
+	}).(IRuleOutput)
 }
 
 type IRuleArrayOutput struct{ *pulumi.OutputState }
@@ -275,6 +281,10 @@ func (o IRuleMapOutput) MapIndex(k pulumi.StringInput) IRuleOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IRuleInput)(nil)).Elem(), &IRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IRulePtrInput)(nil)).Elem(), &IRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IRuleArrayInput)(nil)).Elem(), IRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IRuleMapInput)(nil)).Elem(), IRuleMap{})
 	pulumi.RegisterOutputType(IRuleOutput{})
 	pulumi.RegisterOutputType(IRulePtrOutput{})
 	pulumi.RegisterOutputType(IRuleArrayOutput{})

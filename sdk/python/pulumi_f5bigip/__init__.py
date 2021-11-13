@@ -23,12 +23,18 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_f5bigip.cm as cm
-    import pulumi_f5bigip.config as config
-    import pulumi_f5bigip.ltm as ltm
-    import pulumi_f5bigip.net as net
-    import pulumi_f5bigip.ssl as ssl
-    import pulumi_f5bigip.sys as sys
+    import pulumi_f5bigip.cm as __cm
+    cm = __cm
+    import pulumi_f5bigip.config as __config
+    config = __config
+    import pulumi_f5bigip.ltm as __ltm
+    ltm = __ltm
+    import pulumi_f5bigip.net as __net
+    net = __net
+    import pulumi_f5bigip.ssl as __ssl
+    ssl = __ssl
+    import pulumi_f5bigip.sys as __sys
+    sys = __sys
 else:
     cm = _utilities.lazy_import('pulumi_f5bigip.cm')
     config = _utilities.lazy_import('pulumi_f5bigip.config')

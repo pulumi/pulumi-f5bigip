@@ -529,6 +529,16 @@ func (o IAppVariableArrayOutput) Index(i pulumi.IntInput) IAppVariableOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IAppListInput)(nil)).Elem(), IAppListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IAppListArrayInput)(nil)).Elem(), IAppListArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IAppMetadataInput)(nil)).Elem(), IAppMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IAppMetadataArrayInput)(nil)).Elem(), IAppMetadataArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IAppTableInput)(nil)).Elem(), IAppTableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IAppTableArrayInput)(nil)).Elem(), IAppTableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IAppTableRowInput)(nil)).Elem(), IAppTableRowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IAppTableRowArrayInput)(nil)).Elem(), IAppTableRowArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IAppVariableInput)(nil)).Elem(), IAppVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IAppVariableArrayInput)(nil)).Elem(), IAppVariableArray{})
 	pulumi.RegisterOutputType(IAppListOutput{})
 	pulumi.RegisterOutputType(IAppListArrayOutput{})
 	pulumi.RegisterOutputType(IAppMetadataOutput{})

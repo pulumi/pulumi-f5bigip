@@ -4,6 +4,9 @@
 package ltm
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -57,4 +60,62 @@ type LookupPoolResult struct {
 	Id        string `pulumi:"id"`
 	Name      string `pulumi:"name"`
 	Partition string `pulumi:"partition"`
+}
+
+func LookupPoolOutput(ctx *pulumi.Context, args LookupPoolOutputArgs, opts ...pulumi.InvokeOption) LookupPoolResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupPoolResult, error) {
+			args := v.(LookupPoolArgs)
+			r, err := LookupPool(ctx, &args, opts...)
+			return *r, err
+		}).(LookupPoolResultOutput)
+}
+
+// A collection of arguments for invoking getPool.
+type LookupPoolOutputArgs struct {
+	// Name of the ltm monitor
+	Name pulumi.StringInput `pulumi:"name"`
+	// partition of the ltm monitor
+	Partition pulumi.StringInput `pulumi:"partition"`
+}
+
+func (LookupPoolOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPoolArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getPool.
+type LookupPoolResultOutput struct{ *pulumi.OutputState }
+
+func (LookupPoolResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPoolResult)(nil)).Elem()
+}
+
+func (o LookupPoolResultOutput) ToLookupPoolResultOutput() LookupPoolResultOutput {
+	return o
+}
+
+func (o LookupPoolResultOutput) ToLookupPoolResultOutputWithContext(ctx context.Context) LookupPoolResultOutput {
+	return o
+}
+
+// Full path to the pool.
+func (o LookupPoolResultOutput) FullPath() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPoolResult) string { return v.FullPath }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupPoolResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPoolResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupPoolResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPoolResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupPoolResultOutput) Partition() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPoolResult) string { return v.Partition }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupPoolResultOutput{})
 }

@@ -269,7 +269,7 @@ type TrafficSelectorArrayInput interface {
 type TrafficSelectorArray []TrafficSelectorInput
 
 func (TrafficSelectorArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*TrafficSelector)(nil))
+	return reflect.TypeOf((*[]*TrafficSelector)(nil)).Elem()
 }
 
 func (i TrafficSelectorArray) ToTrafficSelectorArrayOutput() TrafficSelectorArrayOutput {
@@ -294,7 +294,7 @@ type TrafficSelectorMapInput interface {
 type TrafficSelectorMap map[string]TrafficSelectorInput
 
 func (TrafficSelectorMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*TrafficSelector)(nil))
+	return reflect.TypeOf((*map[string]*TrafficSelector)(nil)).Elem()
 }
 
 func (i TrafficSelectorMap) ToTrafficSelectorMapOutput() TrafficSelectorMapOutput {
@@ -305,9 +305,7 @@ func (i TrafficSelectorMap) ToTrafficSelectorMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficSelectorMapOutput)
 }
 
-type TrafficSelectorOutput struct {
-	*pulumi.OutputState
-}
+type TrafficSelectorOutput struct{ *pulumi.OutputState }
 
 func (TrafficSelectorOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*TrafficSelector)(nil))
@@ -326,14 +324,12 @@ func (o TrafficSelectorOutput) ToTrafficSelectorPtrOutput() TrafficSelectorPtrOu
 }
 
 func (o TrafficSelectorOutput) ToTrafficSelectorPtrOutputWithContext(ctx context.Context) TrafficSelectorPtrOutput {
-	return o.ApplyT(func(v TrafficSelector) *TrafficSelector {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrafficSelector) *TrafficSelector {
 		return &v
 	}).(TrafficSelectorPtrOutput)
 }
 
-type TrafficSelectorPtrOutput struct {
-	*pulumi.OutputState
-}
+type TrafficSelectorPtrOutput struct{ *pulumi.OutputState }
 
 func (TrafficSelectorPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**TrafficSelector)(nil))
@@ -345,6 +341,16 @@ func (o TrafficSelectorPtrOutput) ToTrafficSelectorPtrOutput() TrafficSelectorPt
 
 func (o TrafficSelectorPtrOutput) ToTrafficSelectorPtrOutputWithContext(ctx context.Context) TrafficSelectorPtrOutput {
 	return o
+}
+
+func (o TrafficSelectorPtrOutput) Elem() TrafficSelectorOutput {
+	return o.ApplyT(func(v *TrafficSelector) TrafficSelector {
+		if v != nil {
+			return *v
+		}
+		var ret TrafficSelector
+		return ret
+	}).(TrafficSelectorOutput)
 }
 
 type TrafficSelectorArrayOutput struct{ *pulumi.OutputState }
@@ -388,6 +394,10 @@ func (o TrafficSelectorMapOutput) MapIndex(k pulumi.StringInput) TrafficSelector
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TrafficSelectorInput)(nil)).Elem(), &TrafficSelector{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrafficSelectorPtrInput)(nil)).Elem(), &TrafficSelector{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrafficSelectorArrayInput)(nil)).Elem(), TrafficSelectorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrafficSelectorMapInput)(nil)).Elem(), TrafficSelectorMap{})
 	pulumi.RegisterOutputType(TrafficSelectorOutput{})
 	pulumi.RegisterOutputType(TrafficSelectorPtrOutput{})
 	pulumi.RegisterOutputType(TrafficSelectorArrayOutput{})

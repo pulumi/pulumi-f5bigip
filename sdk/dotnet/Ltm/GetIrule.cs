@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.F5BigIP.Ltm
 {
@@ -44,6 +45,40 @@ namespace Pulumi.F5BigIP.Ltm
         /// </summary>
         public static Task<GetIruleResult> InvokeAsync(GetIruleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIruleResult>("f5bigip:ltm/getIrule:getIrule", args ?? new GetIruleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source (`f5bigip.ltm.IRule`) to get the ltm irule details available on BIG-IP
+        ///  
+        ///  
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using F5BigIP = Pulumi.F5BigIP;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(F5BigIP.Ltm.GetIrule.InvokeAsync(new F5BigIP.Ltm.GetIruleArgs
+        ///         {
+        ///             Name = "terraform_irule",
+        ///             Partition = "Common",
+        ///         }));
+        ///         this.BigipIrule = test.Apply(test =&gt; test.Irule);
+        ///     }
+        /// 
+        ///     [Output("bigipIrule")]
+        ///     public Output&lt;string&gt; BigipIrule { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetIruleResult> Invoke(GetIruleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIruleResult>("f5bigip:ltm/getIrule:getIrule", args ?? new GetIruleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -62,6 +97,25 @@ namespace Pulumi.F5BigIP.Ltm
         public string Partition { get; set; } = null!;
 
         public GetIruleArgs()
+        {
+        }
+    }
+
+    public sealed class GetIruleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the irule
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// partition of the ltm irule
+        /// </summary>
+        [Input("partition", required: true)]
+        public Input<string> Partition { get; set; } = null!;
+
+        public GetIruleInvokeArgs()
         {
         }
     }

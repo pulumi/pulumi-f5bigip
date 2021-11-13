@@ -117,6 +117,8 @@ func (o EventServiceDiscoveryNodeArrayOutput) Index(i pulumi.IntInput) EventServ
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EventServiceDiscoveryNodeInput)(nil)).Elem(), EventServiceDiscoveryNodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventServiceDiscoveryNodeArrayInput)(nil)).Elem(), EventServiceDiscoveryNodeArray{})
 	pulumi.RegisterOutputType(EventServiceDiscoveryNodeOutput{})
 	pulumi.RegisterOutputType(EventServiceDiscoveryNodeArrayOutput{})
 }

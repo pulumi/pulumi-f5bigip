@@ -276,7 +276,7 @@ type ProfileFastHttpArrayInput interface {
 type ProfileFastHttpArray []ProfileFastHttpInput
 
 func (ProfileFastHttpArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ProfileFastHttp)(nil))
+	return reflect.TypeOf((*[]*ProfileFastHttp)(nil)).Elem()
 }
 
 func (i ProfileFastHttpArray) ToProfileFastHttpArrayOutput() ProfileFastHttpArrayOutput {
@@ -301,7 +301,7 @@ type ProfileFastHttpMapInput interface {
 type ProfileFastHttpMap map[string]ProfileFastHttpInput
 
 func (ProfileFastHttpMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ProfileFastHttp)(nil))
+	return reflect.TypeOf((*map[string]*ProfileFastHttp)(nil)).Elem()
 }
 
 func (i ProfileFastHttpMap) ToProfileFastHttpMapOutput() ProfileFastHttpMapOutput {
@@ -312,9 +312,7 @@ func (i ProfileFastHttpMap) ToProfileFastHttpMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileFastHttpMapOutput)
 }
 
-type ProfileFastHttpOutput struct {
-	*pulumi.OutputState
-}
+type ProfileFastHttpOutput struct{ *pulumi.OutputState }
 
 func (ProfileFastHttpOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ProfileFastHttp)(nil))
@@ -333,14 +331,12 @@ func (o ProfileFastHttpOutput) ToProfileFastHttpPtrOutput() ProfileFastHttpPtrOu
 }
 
 func (o ProfileFastHttpOutput) ToProfileFastHttpPtrOutputWithContext(ctx context.Context) ProfileFastHttpPtrOutput {
-	return o.ApplyT(func(v ProfileFastHttp) *ProfileFastHttp {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProfileFastHttp) *ProfileFastHttp {
 		return &v
 	}).(ProfileFastHttpPtrOutput)
 }
 
-type ProfileFastHttpPtrOutput struct {
-	*pulumi.OutputState
-}
+type ProfileFastHttpPtrOutput struct{ *pulumi.OutputState }
 
 func (ProfileFastHttpPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ProfileFastHttp)(nil))
@@ -352,6 +348,16 @@ func (o ProfileFastHttpPtrOutput) ToProfileFastHttpPtrOutput() ProfileFastHttpPt
 
 func (o ProfileFastHttpPtrOutput) ToProfileFastHttpPtrOutputWithContext(ctx context.Context) ProfileFastHttpPtrOutput {
 	return o
+}
+
+func (o ProfileFastHttpPtrOutput) Elem() ProfileFastHttpOutput {
+	return o.ApplyT(func(v *ProfileFastHttp) ProfileFastHttp {
+		if v != nil {
+			return *v
+		}
+		var ret ProfileFastHttp
+		return ret
+	}).(ProfileFastHttpOutput)
 }
 
 type ProfileFastHttpArrayOutput struct{ *pulumi.OutputState }
@@ -395,6 +401,10 @@ func (o ProfileFastHttpMapOutput) MapIndex(k pulumi.StringInput) ProfileFastHttp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfileFastHttpInput)(nil)).Elem(), &ProfileFastHttp{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfileFastHttpPtrInput)(nil)).Elem(), &ProfileFastHttp{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfileFastHttpArrayInput)(nil)).Elem(), ProfileFastHttpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfileFastHttpMapInput)(nil)).Elem(), ProfileFastHttpMap{})
 	pulumi.RegisterOutputType(ProfileFastHttpOutput{})
 	pulumi.RegisterOutputType(ProfileFastHttpPtrOutput{})
 	pulumi.RegisterOutputType(ProfileFastHttpArrayOutput{})

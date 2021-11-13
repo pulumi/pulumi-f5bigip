@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -62,4 +61,22 @@ export interface GetPoolResult {
     readonly id: string;
     readonly name: string;
     readonly partition: string;
+}
+
+export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPoolResult> {
+    return pulumi.output(args).apply(a => getPool(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getPool.
+ */
+export interface GetPoolOutputArgs {
+    /**
+     * Name of the ltm monitor
+     */
+    name: pulumi.Input<string>;
+    /**
+     * partition of the ltm monitor
+     */
+    partition: pulumi.Input<string>;
 }

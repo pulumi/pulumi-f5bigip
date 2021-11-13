@@ -183,7 +183,7 @@ type SnatPoolArrayInput interface {
 type SnatPoolArray []SnatPoolInput
 
 func (SnatPoolArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*SnatPool)(nil))
+	return reflect.TypeOf((*[]*SnatPool)(nil)).Elem()
 }
 
 func (i SnatPoolArray) ToSnatPoolArrayOutput() SnatPoolArrayOutput {
@@ -208,7 +208,7 @@ type SnatPoolMapInput interface {
 type SnatPoolMap map[string]SnatPoolInput
 
 func (SnatPoolMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*SnatPool)(nil))
+	return reflect.TypeOf((*map[string]*SnatPool)(nil)).Elem()
 }
 
 func (i SnatPoolMap) ToSnatPoolMapOutput() SnatPoolMapOutput {
@@ -219,9 +219,7 @@ func (i SnatPoolMap) ToSnatPoolMapOutputWithContext(ctx context.Context) SnatPoo
 	return pulumi.ToOutputWithContext(ctx, i).(SnatPoolMapOutput)
 }
 
-type SnatPoolOutput struct {
-	*pulumi.OutputState
-}
+type SnatPoolOutput struct{ *pulumi.OutputState }
 
 func (SnatPoolOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*SnatPool)(nil))
@@ -240,14 +238,12 @@ func (o SnatPoolOutput) ToSnatPoolPtrOutput() SnatPoolPtrOutput {
 }
 
 func (o SnatPoolOutput) ToSnatPoolPtrOutputWithContext(ctx context.Context) SnatPoolPtrOutput {
-	return o.ApplyT(func(v SnatPool) *SnatPool {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnatPool) *SnatPool {
 		return &v
 	}).(SnatPoolPtrOutput)
 }
 
-type SnatPoolPtrOutput struct {
-	*pulumi.OutputState
-}
+type SnatPoolPtrOutput struct{ *pulumi.OutputState }
 
 func (SnatPoolPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**SnatPool)(nil))
@@ -259,6 +255,16 @@ func (o SnatPoolPtrOutput) ToSnatPoolPtrOutput() SnatPoolPtrOutput {
 
 func (o SnatPoolPtrOutput) ToSnatPoolPtrOutputWithContext(ctx context.Context) SnatPoolPtrOutput {
 	return o
+}
+
+func (o SnatPoolPtrOutput) Elem() SnatPoolOutput {
+	return o.ApplyT(func(v *SnatPool) SnatPool {
+		if v != nil {
+			return *v
+		}
+		var ret SnatPool
+		return ret
+	}).(SnatPoolOutput)
 }
 
 type SnatPoolArrayOutput struct{ *pulumi.OutputState }
@@ -302,6 +308,10 @@ func (o SnatPoolMapOutput) MapIndex(k pulumi.StringInput) SnatPoolOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SnatPoolInput)(nil)).Elem(), &SnatPool{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnatPoolPtrInput)(nil)).Elem(), &SnatPool{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnatPoolArrayInput)(nil)).Elem(), SnatPoolArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnatPoolMapInput)(nil)).Elem(), SnatPoolMap{})
 	pulumi.RegisterOutputType(SnatPoolOutput{})
 	pulumi.RegisterOutputType(SnatPoolPtrOutput{})
 	pulumi.RegisterOutputType(SnatPoolArrayOutput{})

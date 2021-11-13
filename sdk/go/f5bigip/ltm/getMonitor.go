@@ -4,6 +4,9 @@
 package ltm
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -79,4 +82,129 @@ type LookupMonitorResult struct {
 	// Displays whether the monitor operates in transparent mode.
 	Transparent string `pulumi:"transparent"`
 	Username    string `pulumi:"username"`
+}
+
+func LookupMonitorOutput(ctx *pulumi.Context, args LookupMonitorOutputArgs, opts ...pulumi.InvokeOption) LookupMonitorResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupMonitorResult, error) {
+			args := v.(LookupMonitorArgs)
+			r, err := LookupMonitor(ctx, &args, opts...)
+			return *r, err
+		}).(LookupMonitorResultOutput)
+}
+
+// A collection of arguments for invoking getMonitor.
+type LookupMonitorOutputArgs struct {
+	// Name of the ltm monitor
+	Name pulumi.StringInput `pulumi:"name"`
+	// partition of the ltm monitor
+	Partition pulumi.StringInput `pulumi:"partition"`
+}
+
+func (LookupMonitorOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupMonitorArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getMonitor.
+type LookupMonitorResultOutput struct{ *pulumi.OutputState }
+
+func (LookupMonitorResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupMonitorResult)(nil)).Elem()
+}
+
+func (o LookupMonitorResultOutput) ToLookupMonitorResultOutput() LookupMonitorResultOutput {
+	return o
+}
+
+func (o LookupMonitorResultOutput) ToLookupMonitorResultOutputWithContext(ctx context.Context) LookupMonitorResultOutput {
+	return o
+}
+
+// Displays whether adaptive response time monitoring is enabled for this monitor.
+func (o LookupMonitorResultOutput) Adaptive() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMonitorResult) string { return v.Adaptive }).(pulumi.StringOutput)
+}
+
+// Displays whether adaptive response time monitoring is enabled for this monitor.
+func (o LookupMonitorResultOutput) AdaptiveLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupMonitorResult) int { return v.AdaptiveLimit }).(pulumi.IntOutput)
+}
+
+func (o LookupMonitorResultOutput) Database() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMonitorResult) string { return v.Database }).(pulumi.StringOutput)
+}
+
+func (o LookupMonitorResultOutput) DefaultsFrom() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMonitorResult) string { return v.DefaultsFrom }).(pulumi.StringOutput)
+}
+
+// id will be full path name of ltm monitor.
+func (o LookupMonitorResultOutput) Destination() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMonitorResult) string { return v.Destination }).(pulumi.StringOutput)
+}
+
+func (o LookupMonitorResultOutput) Filename() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMonitorResult) string { return v.Filename }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupMonitorResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMonitorResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown.
+func (o LookupMonitorResultOutput) Interval() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupMonitorResult) int { return v.Interval }).(pulumi.IntOutput)
+}
+
+// Displays the differentiated services code point (DSCP). DSCP is a 6-bit value in the Differentiated Services (DS) field of the IP header.
+func (o LookupMonitorResultOutput) IpDscp() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupMonitorResult) int { return v.IpDscp }).(pulumi.IntOutput)
+}
+
+// Displays whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
+func (o LookupMonitorResultOutput) ManualResume() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMonitorResult) string { return v.ManualResume }).(pulumi.StringOutput)
+}
+
+func (o LookupMonitorResultOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMonitorResult) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+func (o LookupMonitorResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMonitorResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupMonitorResultOutput) Partition() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMonitorResult) string { return v.Partition }).(pulumi.StringOutput)
+}
+
+func (o LookupMonitorResultOutput) ReceiveDisable() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMonitorResult) string { return v.ReceiveDisable }).(pulumi.StringOutput)
+}
+
+// Instructs the system to mark the target resource down when the test is successful.
+func (o LookupMonitorResultOutput) Reverse() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMonitorResult) string { return v.Reverse }).(pulumi.StringOutput)
+}
+
+func (o LookupMonitorResultOutput) TimeUntilUp() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupMonitorResult) int { return v.TimeUntilUp }).(pulumi.IntOutput)
+}
+
+func (o LookupMonitorResultOutput) Timeout() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupMonitorResult) int { return v.Timeout }).(pulumi.IntOutput)
+}
+
+// Displays whether the monitor operates in transparent mode.
+func (o LookupMonitorResultOutput) Transparent() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMonitorResult) string { return v.Transparent }).(pulumi.StringOutput)
+}
+
+func (o LookupMonitorResultOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupMonitorResult) string { return v.Username }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupMonitorResultOutput{})
 }

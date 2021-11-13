@@ -221,7 +221,7 @@ func (o NodeFqdnOutput) ToNodeFqdnPtrOutput() NodeFqdnPtrOutput {
 }
 
 func (o NodeFqdnOutput) ToNodeFqdnPtrOutputWithContext(ctx context.Context) NodeFqdnPtrOutput {
-	return o.ApplyT(func(v NodeFqdn) *NodeFqdn {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NodeFqdn) *NodeFqdn {
 		return &v
 	}).(NodeFqdnPtrOutput)
 }
@@ -264,7 +264,13 @@ func (o NodeFqdnPtrOutput) ToNodeFqdnPtrOutputWithContext(ctx context.Context) N
 }
 
 func (o NodeFqdnPtrOutput) Elem() NodeFqdnOutput {
-	return o.ApplyT(func(v *NodeFqdn) NodeFqdn { return *v }).(NodeFqdnOutput)
+	return o.ApplyT(func(v *NodeFqdn) NodeFqdn {
+		if v != nil {
+			return *v
+		}
+		var ret NodeFqdn
+		return ret
+	}).(NodeFqdnOutput)
 }
 
 // Specifies the node's address family. The default is 'unspecified', or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
@@ -2155,6 +2161,47 @@ func (i GetNodeFqdnArgs) ToGetNodeFqdnOutputWithContext(ctx context.Context) Get
 	return pulumi.ToOutputWithContext(ctx, i).(GetNodeFqdnOutput)
 }
 
+func (i GetNodeFqdnArgs) ToGetNodeFqdnPtrOutput() GetNodeFqdnPtrOutput {
+	return i.ToGetNodeFqdnPtrOutputWithContext(context.Background())
+}
+
+func (i GetNodeFqdnArgs) ToGetNodeFqdnPtrOutputWithContext(ctx context.Context) GetNodeFqdnPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNodeFqdnOutput).ToGetNodeFqdnPtrOutputWithContext(ctx)
+}
+
+// GetNodeFqdnPtrInput is an input type that accepts GetNodeFqdnArgs, GetNodeFqdnPtr and GetNodeFqdnPtrOutput values.
+// You can construct a concrete instance of `GetNodeFqdnPtrInput` via:
+//
+//          GetNodeFqdnArgs{...}
+//
+//  or:
+//
+//          nil
+type GetNodeFqdnPtrInput interface {
+	pulumi.Input
+
+	ToGetNodeFqdnPtrOutput() GetNodeFqdnPtrOutput
+	ToGetNodeFqdnPtrOutputWithContext(context.Context) GetNodeFqdnPtrOutput
+}
+
+type getNodeFqdnPtrType GetNodeFqdnArgs
+
+func GetNodeFqdnPtr(v *GetNodeFqdnArgs) GetNodeFqdnPtrInput {
+	return (*getNodeFqdnPtrType)(v)
+}
+
+func (*getNodeFqdnPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetNodeFqdn)(nil)).Elem()
+}
+
+func (i *getNodeFqdnPtrType) ToGetNodeFqdnPtrOutput() GetNodeFqdnPtrOutput {
+	return i.ToGetNodeFqdnPtrOutputWithContext(context.Background())
+}
+
+func (i *getNodeFqdnPtrType) ToGetNodeFqdnPtrOutputWithContext(ctx context.Context) GetNodeFqdnPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNodeFqdnPtrOutput)
+}
+
 type GetNodeFqdnOutput struct{ *pulumi.OutputState }
 
 func (GetNodeFqdnOutput) ElementType() reflect.Type {
@@ -2167,6 +2214,16 @@ func (o GetNodeFqdnOutput) ToGetNodeFqdnOutput() GetNodeFqdnOutput {
 
 func (o GetNodeFqdnOutput) ToGetNodeFqdnOutputWithContext(ctx context.Context) GetNodeFqdnOutput {
 	return o
+}
+
+func (o GetNodeFqdnOutput) ToGetNodeFqdnPtrOutput() GetNodeFqdnPtrOutput {
+	return o.ToGetNodeFqdnPtrOutputWithContext(context.Background())
+}
+
+func (o GetNodeFqdnOutput) ToGetNodeFqdnPtrOutputWithContext(ctx context.Context) GetNodeFqdnPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetNodeFqdn) *GetNodeFqdn {
+		return &v
+	}).(GetNodeFqdnPtrOutput)
 }
 
 // The FQDN node's address family.
@@ -2192,6 +2249,80 @@ func (o GetNodeFqdnOutput) Interval() pulumi.StringOutput {
 // Name of the node.
 func (o GetNodeFqdnOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetNodeFqdn) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type GetNodeFqdnPtrOutput struct{ *pulumi.OutputState }
+
+func (GetNodeFqdnPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetNodeFqdn)(nil)).Elem()
+}
+
+func (o GetNodeFqdnPtrOutput) ToGetNodeFqdnPtrOutput() GetNodeFqdnPtrOutput {
+	return o
+}
+
+func (o GetNodeFqdnPtrOutput) ToGetNodeFqdnPtrOutputWithContext(ctx context.Context) GetNodeFqdnPtrOutput {
+	return o
+}
+
+func (o GetNodeFqdnPtrOutput) Elem() GetNodeFqdnOutput {
+	return o.ApplyT(func(v *GetNodeFqdn) GetNodeFqdn {
+		if v != nil {
+			return *v
+		}
+		var ret GetNodeFqdn
+		return ret
+	}).(GetNodeFqdnOutput)
+}
+
+// The FQDN node's address family.
+func (o GetNodeFqdnPtrOutput) AddressFamily() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetNodeFqdn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AddressFamily
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies if the node should scale to the IP address set returned by DNS.
+func (o GetNodeFqdnPtrOutput) Autopopulate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetNodeFqdn) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Autopopulate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The number of attempts to resolve a domain name.
+func (o GetNodeFqdnPtrOutput) Downinterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GetNodeFqdn) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Downinterval
+	}).(pulumi.IntPtrOutput)
+}
+
+// The amount of time before sending the next DNS query.
+func (o GetNodeFqdnPtrOutput) Interval() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetNodeFqdn) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Interval
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the node.
+func (o GetNodeFqdnPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetNodeFqdn) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
 }
 
 type GetPolicyRule struct {
@@ -3644,6 +3775,30 @@ func (o GetPolicyRuleConditionArrayOutput) Index(i pulumi.IntInput) GetPolicyRul
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataGroupRecordInput)(nil)).Elem(), DataGroupRecordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataGroupRecordArrayInput)(nil)).Elem(), DataGroupRecordArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NodeFqdnInput)(nil)).Elem(), NodeFqdnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NodeFqdnPtrInput)(nil)).Elem(), NodeFqdnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyRuleInput)(nil)).Elem(), PolicyRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyRuleArrayInput)(nil)).Elem(), PolicyRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyRuleActionInput)(nil)).Elem(), PolicyRuleActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyRuleActionArrayInput)(nil)).Elem(), PolicyRuleActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyRuleConditionInput)(nil)).Elem(), PolicyRuleConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyRuleConditionArrayInput)(nil)).Elem(), PolicyRuleConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfileClientSslCertKeyChainInput)(nil)).Elem(), ProfileClientSslCertKeyChainArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfileClientSslCertKeyChainArrayInput)(nil)).Elem(), ProfileClientSslCertKeyChainArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnatOriginInput)(nil)).Elem(), SnatOriginArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnatOriginArrayInput)(nil)).Elem(), SnatOriginArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataGroupRecordInput)(nil)).Elem(), GetDataGroupRecordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDataGroupRecordArrayInput)(nil)).Elem(), GetDataGroupRecordArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNodeFqdnInput)(nil)).Elem(), GetNodeFqdnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNodeFqdnPtrInput)(nil)).Elem(), GetNodeFqdnArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyRuleInput)(nil)).Elem(), GetPolicyRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyRuleArrayInput)(nil)).Elem(), GetPolicyRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyRuleActionInput)(nil)).Elem(), GetPolicyRuleActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyRuleActionArrayInput)(nil)).Elem(), GetPolicyRuleActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyRuleConditionInput)(nil)).Elem(), GetPolicyRuleConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyRuleConditionArrayInput)(nil)).Elem(), GetPolicyRuleConditionArray{})
 	pulumi.RegisterOutputType(DataGroupRecordOutput{})
 	pulumi.RegisterOutputType(DataGroupRecordArrayOutput{})
 	pulumi.RegisterOutputType(NodeFqdnOutput{})
@@ -3661,6 +3816,7 @@ func init() {
 	pulumi.RegisterOutputType(GetDataGroupRecordOutput{})
 	pulumi.RegisterOutputType(GetDataGroupRecordArrayOutput{})
 	pulumi.RegisterOutputType(GetNodeFqdnOutput{})
+	pulumi.RegisterOutputType(GetNodeFqdnPtrOutput{})
 	pulumi.RegisterOutputType(GetPolicyRuleOutput{})
 	pulumi.RegisterOutputType(GetPolicyRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetPolicyRuleActionOutput{})

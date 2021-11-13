@@ -272,7 +272,7 @@ type ProfileFastL4ArrayInput interface {
 type ProfileFastL4Array []ProfileFastL4Input
 
 func (ProfileFastL4Array) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ProfileFastL4)(nil))
+	return reflect.TypeOf((*[]*ProfileFastL4)(nil)).Elem()
 }
 
 func (i ProfileFastL4Array) ToProfileFastL4ArrayOutput() ProfileFastL4ArrayOutput {
@@ -297,7 +297,7 @@ type ProfileFastL4MapInput interface {
 type ProfileFastL4Map map[string]ProfileFastL4Input
 
 func (ProfileFastL4Map) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ProfileFastL4)(nil))
+	return reflect.TypeOf((*map[string]*ProfileFastL4)(nil)).Elem()
 }
 
 func (i ProfileFastL4Map) ToProfileFastL4MapOutput() ProfileFastL4MapOutput {
@@ -308,9 +308,7 @@ func (i ProfileFastL4Map) ToProfileFastL4MapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileFastL4MapOutput)
 }
 
-type ProfileFastL4Output struct {
-	*pulumi.OutputState
-}
+type ProfileFastL4Output struct{ *pulumi.OutputState }
 
 func (ProfileFastL4Output) ElementType() reflect.Type {
 	return reflect.TypeOf((*ProfileFastL4)(nil))
@@ -329,14 +327,12 @@ func (o ProfileFastL4Output) ToProfileFastL4PtrOutput() ProfileFastL4PtrOutput {
 }
 
 func (o ProfileFastL4Output) ToProfileFastL4PtrOutputWithContext(ctx context.Context) ProfileFastL4PtrOutput {
-	return o.ApplyT(func(v ProfileFastL4) *ProfileFastL4 {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProfileFastL4) *ProfileFastL4 {
 		return &v
 	}).(ProfileFastL4PtrOutput)
 }
 
-type ProfileFastL4PtrOutput struct {
-	*pulumi.OutputState
-}
+type ProfileFastL4PtrOutput struct{ *pulumi.OutputState }
 
 func (ProfileFastL4PtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ProfileFastL4)(nil))
@@ -348,6 +344,16 @@ func (o ProfileFastL4PtrOutput) ToProfileFastL4PtrOutput() ProfileFastL4PtrOutpu
 
 func (o ProfileFastL4PtrOutput) ToProfileFastL4PtrOutputWithContext(ctx context.Context) ProfileFastL4PtrOutput {
 	return o
+}
+
+func (o ProfileFastL4PtrOutput) Elem() ProfileFastL4Output {
+	return o.ApplyT(func(v *ProfileFastL4) ProfileFastL4 {
+		if v != nil {
+			return *v
+		}
+		var ret ProfileFastL4
+		return ret
+	}).(ProfileFastL4Output)
 }
 
 type ProfileFastL4ArrayOutput struct{ *pulumi.OutputState }
@@ -391,6 +397,10 @@ func (o ProfileFastL4MapOutput) MapIndex(k pulumi.StringInput) ProfileFastL4Outp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfileFastL4Input)(nil)).Elem(), &ProfileFastL4{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfileFastL4PtrInput)(nil)).Elem(), &ProfileFastL4{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfileFastL4ArrayInput)(nil)).Elem(), ProfileFastL4Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfileFastL4MapInput)(nil)).Elem(), ProfileFastL4Map{})
 	pulumi.RegisterOutputType(ProfileFastL4Output{})
 	pulumi.RegisterOutputType(ProfileFastL4PtrOutput{})
 	pulumi.RegisterOutputType(ProfileFastL4ArrayOutput{})

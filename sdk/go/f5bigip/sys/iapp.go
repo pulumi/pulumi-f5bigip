@@ -13,6 +13,38 @@ import (
 // `sys.IApp` resource helps you to deploy Application Services template that can be used to automate and orchestrate Layer 4-7 applications service deployments using F5 Network.
 //
 // ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"io/ioutil"
+//
+// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/sys"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func readFileOrPanic(path string) pulumi.StringPtrInput {
+// 	data, err := ioutil.ReadFile(path)
+// 	if err != nil {
+// 		panic(err.Error())
+// 	}
+// 	return pulumi.String(string(data))
+// }
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := sys.NewIApp(ctx, "simplehttp", &sys.IAppArgs{
+// 			Name:     pulumi.String("simplehttp"),
+// 			Jsonfile: readFileOrPanic("simplehttp.json"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ### Json File
 // ```go
 // package main
@@ -309,7 +341,7 @@ type IAppArrayInput interface {
 type IAppArray []IAppInput
 
 func (IAppArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*IApp)(nil))
+	return reflect.TypeOf((*[]*IApp)(nil)).Elem()
 }
 
 func (i IAppArray) ToIAppArrayOutput() IAppArrayOutput {
@@ -334,7 +366,7 @@ type IAppMapInput interface {
 type IAppMap map[string]IAppInput
 
 func (IAppMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*IApp)(nil))
+	return reflect.TypeOf((*map[string]*IApp)(nil)).Elem()
 }
 
 func (i IAppMap) ToIAppMapOutput() IAppMapOutput {
@@ -345,9 +377,7 @@ func (i IAppMap) ToIAppMapOutputWithContext(ctx context.Context) IAppMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IAppMapOutput)
 }
 
-type IAppOutput struct {
-	*pulumi.OutputState
-}
+type IAppOutput struct{ *pulumi.OutputState }
 
 func (IAppOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*IApp)(nil))
@@ -366,14 +396,12 @@ func (o IAppOutput) ToIAppPtrOutput() IAppPtrOutput {
 }
 
 func (o IAppOutput) ToIAppPtrOutputWithContext(ctx context.Context) IAppPtrOutput {
-	return o.ApplyT(func(v IApp) *IApp {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IApp) *IApp {
 		return &v
 	}).(IAppPtrOutput)
 }
 
-type IAppPtrOutput struct {
-	*pulumi.OutputState
-}
+type IAppPtrOutput struct{ *pulumi.OutputState }
 
 func (IAppPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**IApp)(nil))
@@ -385,6 +413,16 @@ func (o IAppPtrOutput) ToIAppPtrOutput() IAppPtrOutput {
 
 func (o IAppPtrOutput) ToIAppPtrOutputWithContext(ctx context.Context) IAppPtrOutput {
 	return o
+}
+
+func (o IAppPtrOutput) Elem() IAppOutput {
+	return o.ApplyT(func(v *IApp) IApp {
+		if v != nil {
+			return *v
+		}
+		var ret IApp
+		return ret
+	}).(IAppOutput)
 }
 
 type IAppArrayOutput struct{ *pulumi.OutputState }
@@ -428,6 +466,10 @@ func (o IAppMapOutput) MapIndex(k pulumi.StringInput) IAppOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IAppInput)(nil)).Elem(), &IApp{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IAppPtrInput)(nil)).Elem(), &IApp{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IAppArrayInput)(nil)).Elem(), IAppArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IAppMapInput)(nil)).Elem(), IAppMap{})
 	pulumi.RegisterOutputType(IAppOutput{})
 	pulumi.RegisterOutputType(IAppPtrOutput{})
 	pulumi.RegisterOutputType(IAppArrayOutput{})

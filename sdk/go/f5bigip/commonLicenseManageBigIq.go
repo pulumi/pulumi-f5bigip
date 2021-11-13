@@ -384,7 +384,7 @@ type CommonLicenseManageBigIqArrayInput interface {
 type CommonLicenseManageBigIqArray []CommonLicenseManageBigIqInput
 
 func (CommonLicenseManageBigIqArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*CommonLicenseManageBigIq)(nil))
+	return reflect.TypeOf((*[]*CommonLicenseManageBigIq)(nil)).Elem()
 }
 
 func (i CommonLicenseManageBigIqArray) ToCommonLicenseManageBigIqArrayOutput() CommonLicenseManageBigIqArrayOutput {
@@ -409,7 +409,7 @@ type CommonLicenseManageBigIqMapInput interface {
 type CommonLicenseManageBigIqMap map[string]CommonLicenseManageBigIqInput
 
 func (CommonLicenseManageBigIqMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*CommonLicenseManageBigIq)(nil))
+	return reflect.TypeOf((*map[string]*CommonLicenseManageBigIq)(nil)).Elem()
 }
 
 func (i CommonLicenseManageBigIqMap) ToCommonLicenseManageBigIqMapOutput() CommonLicenseManageBigIqMapOutput {
@@ -420,9 +420,7 @@ func (i CommonLicenseManageBigIqMap) ToCommonLicenseManageBigIqMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(CommonLicenseManageBigIqMapOutput)
 }
 
-type CommonLicenseManageBigIqOutput struct {
-	*pulumi.OutputState
-}
+type CommonLicenseManageBigIqOutput struct{ *pulumi.OutputState }
 
 func (CommonLicenseManageBigIqOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*CommonLicenseManageBigIq)(nil))
@@ -441,14 +439,12 @@ func (o CommonLicenseManageBigIqOutput) ToCommonLicenseManageBigIqPtrOutput() Co
 }
 
 func (o CommonLicenseManageBigIqOutput) ToCommonLicenseManageBigIqPtrOutputWithContext(ctx context.Context) CommonLicenseManageBigIqPtrOutput {
-	return o.ApplyT(func(v CommonLicenseManageBigIq) *CommonLicenseManageBigIq {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CommonLicenseManageBigIq) *CommonLicenseManageBigIq {
 		return &v
 	}).(CommonLicenseManageBigIqPtrOutput)
 }
 
-type CommonLicenseManageBigIqPtrOutput struct {
-	*pulumi.OutputState
-}
+type CommonLicenseManageBigIqPtrOutput struct{ *pulumi.OutputState }
 
 func (CommonLicenseManageBigIqPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**CommonLicenseManageBigIq)(nil))
@@ -460,6 +456,16 @@ func (o CommonLicenseManageBigIqPtrOutput) ToCommonLicenseManageBigIqPtrOutput()
 
 func (o CommonLicenseManageBigIqPtrOutput) ToCommonLicenseManageBigIqPtrOutputWithContext(ctx context.Context) CommonLicenseManageBigIqPtrOutput {
 	return o
+}
+
+func (o CommonLicenseManageBigIqPtrOutput) Elem() CommonLicenseManageBigIqOutput {
+	return o.ApplyT(func(v *CommonLicenseManageBigIq) CommonLicenseManageBigIq {
+		if v != nil {
+			return *v
+		}
+		var ret CommonLicenseManageBigIq
+		return ret
+	}).(CommonLicenseManageBigIqOutput)
 }
 
 type CommonLicenseManageBigIqArrayOutput struct{ *pulumi.OutputState }
@@ -503,6 +509,10 @@ func (o CommonLicenseManageBigIqMapOutput) MapIndex(k pulumi.StringInput) Common
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CommonLicenseManageBigIqInput)(nil)).Elem(), &CommonLicenseManageBigIq{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CommonLicenseManageBigIqPtrInput)(nil)).Elem(), &CommonLicenseManageBigIq{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CommonLicenseManageBigIqArrayInput)(nil)).Elem(), CommonLicenseManageBigIqArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CommonLicenseManageBigIqMapInput)(nil)).Elem(), CommonLicenseManageBigIqMap{})
 	pulumi.RegisterOutputType(CommonLicenseManageBigIqOutput{})
 	pulumi.RegisterOutputType(CommonLicenseManageBigIqPtrOutput{})
 	pulumi.RegisterOutputType(CommonLicenseManageBigIqArrayOutput{})

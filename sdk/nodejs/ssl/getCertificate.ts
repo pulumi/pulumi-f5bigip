@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -67,4 +66,22 @@ export interface GetCertificateResult {
      * Bigip partition in which ssl-certificate is configured
      */
     readonly partition: string;
+}
+
+export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
+    return pulumi.output(args).apply(a => getCertificate(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getCertificate.
+ */
+export interface GetCertificateOutputArgs {
+    /**
+     * Name of the ssl_certificate
+     */
+    name: pulumi.Input<string>;
+    /**
+     * partition of the ltm ssl_certificate
+     */
+    partition: pulumi.Input<string>;
 }

@@ -274,7 +274,7 @@ type NodeArrayInput interface {
 type NodeArray []NodeInput
 
 func (NodeArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Node)(nil))
+	return reflect.TypeOf((*[]*Node)(nil)).Elem()
 }
 
 func (i NodeArray) ToNodeArrayOutput() NodeArrayOutput {
@@ -299,7 +299,7 @@ type NodeMapInput interface {
 type NodeMap map[string]NodeInput
 
 func (NodeMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Node)(nil))
+	return reflect.TypeOf((*map[string]*Node)(nil)).Elem()
 }
 
 func (i NodeMap) ToNodeMapOutput() NodeMapOutput {
@@ -310,9 +310,7 @@ func (i NodeMap) ToNodeMapOutputWithContext(ctx context.Context) NodeMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NodeMapOutput)
 }
 
-type NodeOutput struct {
-	*pulumi.OutputState
-}
+type NodeOutput struct{ *pulumi.OutputState }
 
 func (NodeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Node)(nil))
@@ -331,14 +329,12 @@ func (o NodeOutput) ToNodePtrOutput() NodePtrOutput {
 }
 
 func (o NodeOutput) ToNodePtrOutputWithContext(ctx context.Context) NodePtrOutput {
-	return o.ApplyT(func(v Node) *Node {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Node) *Node {
 		return &v
 	}).(NodePtrOutput)
 }
 
-type NodePtrOutput struct {
-	*pulumi.OutputState
-}
+type NodePtrOutput struct{ *pulumi.OutputState }
 
 func (NodePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Node)(nil))
@@ -350,6 +346,16 @@ func (o NodePtrOutput) ToNodePtrOutput() NodePtrOutput {
 
 func (o NodePtrOutput) ToNodePtrOutputWithContext(ctx context.Context) NodePtrOutput {
 	return o
+}
+
+func (o NodePtrOutput) Elem() NodeOutput {
+	return o.ApplyT(func(v *Node) Node {
+		if v != nil {
+			return *v
+		}
+		var ret Node
+		return ret
+	}).(NodeOutput)
 }
 
 type NodeArrayOutput struct{ *pulumi.OutputState }
@@ -393,6 +399,10 @@ func (o NodeMapOutput) MapIndex(k pulumi.StringInput) NodeOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NodeInput)(nil)).Elem(), &Node{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NodePtrInput)(nil)).Elem(), &Node{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NodeArrayInput)(nil)).Elem(), NodeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NodeMapInput)(nil)).Elem(), NodeMap{})
 	pulumi.RegisterOutputType(NodeOutput{})
 	pulumi.RegisterOutputType(NodePtrOutput{})
 	pulumi.RegisterOutputType(NodeArrayOutput{})

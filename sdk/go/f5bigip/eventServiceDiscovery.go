@@ -150,7 +150,7 @@ type EventServiceDiscoveryArrayInput interface {
 type EventServiceDiscoveryArray []EventServiceDiscoveryInput
 
 func (EventServiceDiscoveryArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*EventServiceDiscovery)(nil))
+	return reflect.TypeOf((*[]*EventServiceDiscovery)(nil)).Elem()
 }
 
 func (i EventServiceDiscoveryArray) ToEventServiceDiscoveryArrayOutput() EventServiceDiscoveryArrayOutput {
@@ -175,7 +175,7 @@ type EventServiceDiscoveryMapInput interface {
 type EventServiceDiscoveryMap map[string]EventServiceDiscoveryInput
 
 func (EventServiceDiscoveryMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*EventServiceDiscovery)(nil))
+	return reflect.TypeOf((*map[string]*EventServiceDiscovery)(nil)).Elem()
 }
 
 func (i EventServiceDiscoveryMap) ToEventServiceDiscoveryMapOutput() EventServiceDiscoveryMapOutput {
@@ -186,9 +186,7 @@ func (i EventServiceDiscoveryMap) ToEventServiceDiscoveryMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(EventServiceDiscoveryMapOutput)
 }
 
-type EventServiceDiscoveryOutput struct {
-	*pulumi.OutputState
-}
+type EventServiceDiscoveryOutput struct{ *pulumi.OutputState }
 
 func (EventServiceDiscoveryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*EventServiceDiscovery)(nil))
@@ -207,14 +205,12 @@ func (o EventServiceDiscoveryOutput) ToEventServiceDiscoveryPtrOutput() EventSer
 }
 
 func (o EventServiceDiscoveryOutput) ToEventServiceDiscoveryPtrOutputWithContext(ctx context.Context) EventServiceDiscoveryPtrOutput {
-	return o.ApplyT(func(v EventServiceDiscovery) *EventServiceDiscovery {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventServiceDiscovery) *EventServiceDiscovery {
 		return &v
 	}).(EventServiceDiscoveryPtrOutput)
 }
 
-type EventServiceDiscoveryPtrOutput struct {
-	*pulumi.OutputState
-}
+type EventServiceDiscoveryPtrOutput struct{ *pulumi.OutputState }
 
 func (EventServiceDiscoveryPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**EventServiceDiscovery)(nil))
@@ -226,6 +222,16 @@ func (o EventServiceDiscoveryPtrOutput) ToEventServiceDiscoveryPtrOutput() Event
 
 func (o EventServiceDiscoveryPtrOutput) ToEventServiceDiscoveryPtrOutputWithContext(ctx context.Context) EventServiceDiscoveryPtrOutput {
 	return o
+}
+
+func (o EventServiceDiscoveryPtrOutput) Elem() EventServiceDiscoveryOutput {
+	return o.ApplyT(func(v *EventServiceDiscovery) EventServiceDiscovery {
+		if v != nil {
+			return *v
+		}
+		var ret EventServiceDiscovery
+		return ret
+	}).(EventServiceDiscoveryOutput)
 }
 
 type EventServiceDiscoveryArrayOutput struct{ *pulumi.OutputState }
@@ -269,6 +275,10 @@ func (o EventServiceDiscoveryMapOutput) MapIndex(k pulumi.StringInput) EventServ
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EventServiceDiscoveryInput)(nil)).Elem(), &EventServiceDiscovery{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventServiceDiscoveryPtrInput)(nil)).Elem(), &EventServiceDiscovery{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventServiceDiscoveryArrayInput)(nil)).Elem(), EventServiceDiscoveryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventServiceDiscoveryMapInput)(nil)).Elem(), EventServiceDiscoveryMap{})
 	pulumi.RegisterOutputType(EventServiceDiscoveryOutput{})
 	pulumi.RegisterOutputType(EventServiceDiscoveryPtrOutput{})
 	pulumi.RegisterOutputType(EventServiceDiscoveryArrayOutput{})

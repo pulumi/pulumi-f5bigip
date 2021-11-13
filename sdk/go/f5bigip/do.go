@@ -14,6 +14,39 @@ import (
 // `Do` provides details about bigip do resource
 //
 // This resource is helpful to configure do declarative JSON on BIG-IP.
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"io/ioutil"
+//
+// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func readFileOrPanic(path string) pulumi.StringPtrInput {
+// 	data, err := ioutil.ReadFile(path)
+// 	if err != nil {
+// 		panic(err.Error())
+// 	}
+// 	return pulumi.String(string(data))
+// }
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := f5bigip.NewDo(ctx, "do_example", &f5bigip.DoArgs{
+// 			DoJson:  readFileOrPanic("example.json"),
+// 			Timeout: pulumi.Int(15),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type Do struct {
 	pulumi.CustomResourceState
 
@@ -173,7 +206,7 @@ type DoArrayInput interface {
 type DoArray []DoInput
 
 func (DoArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Do)(nil))
+	return reflect.TypeOf((*[]*Do)(nil)).Elem()
 }
 
 func (i DoArray) ToDoArrayOutput() DoArrayOutput {
@@ -198,7 +231,7 @@ type DoMapInput interface {
 type DoMap map[string]DoInput
 
 func (DoMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Do)(nil))
+	return reflect.TypeOf((*map[string]*Do)(nil)).Elem()
 }
 
 func (i DoMap) ToDoMapOutput() DoMapOutput {
@@ -209,9 +242,7 @@ func (i DoMap) ToDoMapOutputWithContext(ctx context.Context) DoMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DoMapOutput)
 }
 
-type DoOutput struct {
-	*pulumi.OutputState
-}
+type DoOutput struct{ *pulumi.OutputState }
 
 func (DoOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Do)(nil))
@@ -230,14 +261,12 @@ func (o DoOutput) ToDoPtrOutput() DoPtrOutput {
 }
 
 func (o DoOutput) ToDoPtrOutputWithContext(ctx context.Context) DoPtrOutput {
-	return o.ApplyT(func(v Do) *Do {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Do) *Do {
 		return &v
 	}).(DoPtrOutput)
 }
 
-type DoPtrOutput struct {
-	*pulumi.OutputState
-}
+type DoPtrOutput struct{ *pulumi.OutputState }
 
 func (DoPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Do)(nil))
@@ -249,6 +278,16 @@ func (o DoPtrOutput) ToDoPtrOutput() DoPtrOutput {
 
 func (o DoPtrOutput) ToDoPtrOutputWithContext(ctx context.Context) DoPtrOutput {
 	return o
+}
+
+func (o DoPtrOutput) Elem() DoOutput {
+	return o.ApplyT(func(v *Do) Do {
+		if v != nil {
+			return *v
+		}
+		var ret Do
+		return ret
+	}).(DoOutput)
 }
 
 type DoArrayOutput struct{ *pulumi.OutputState }
@@ -292,6 +331,10 @@ func (o DoMapOutput) MapIndex(k pulumi.StringInput) DoOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DoInput)(nil)).Elem(), &Do{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DoPtrInput)(nil)).Elem(), &Do{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DoArrayInput)(nil)).Elem(), DoArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DoMapInput)(nil)).Elem(), DoMap{})
 	pulumi.RegisterOutputType(DoOutput{})
 	pulumi.RegisterOutputType(DoPtrOutput{})
 	pulumi.RegisterOutputType(DoArrayOutput{})

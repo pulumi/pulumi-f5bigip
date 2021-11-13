@@ -165,7 +165,7 @@ type FastTemplateArrayInput interface {
 type FastTemplateArray []FastTemplateInput
 
 func (FastTemplateArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*FastTemplate)(nil))
+	return reflect.TypeOf((*[]*FastTemplate)(nil)).Elem()
 }
 
 func (i FastTemplateArray) ToFastTemplateArrayOutput() FastTemplateArrayOutput {
@@ -190,7 +190,7 @@ type FastTemplateMapInput interface {
 type FastTemplateMap map[string]FastTemplateInput
 
 func (FastTemplateMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*FastTemplate)(nil))
+	return reflect.TypeOf((*map[string]*FastTemplate)(nil)).Elem()
 }
 
 func (i FastTemplateMap) ToFastTemplateMapOutput() FastTemplateMapOutput {
@@ -201,9 +201,7 @@ func (i FastTemplateMap) ToFastTemplateMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(FastTemplateMapOutput)
 }
 
-type FastTemplateOutput struct {
-	*pulumi.OutputState
-}
+type FastTemplateOutput struct{ *pulumi.OutputState }
 
 func (FastTemplateOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*FastTemplate)(nil))
@@ -222,14 +220,12 @@ func (o FastTemplateOutput) ToFastTemplatePtrOutput() FastTemplatePtrOutput {
 }
 
 func (o FastTemplateOutput) ToFastTemplatePtrOutputWithContext(ctx context.Context) FastTemplatePtrOutput {
-	return o.ApplyT(func(v FastTemplate) *FastTemplate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FastTemplate) *FastTemplate {
 		return &v
 	}).(FastTemplatePtrOutput)
 }
 
-type FastTemplatePtrOutput struct {
-	*pulumi.OutputState
-}
+type FastTemplatePtrOutput struct{ *pulumi.OutputState }
 
 func (FastTemplatePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**FastTemplate)(nil))
@@ -241,6 +237,16 @@ func (o FastTemplatePtrOutput) ToFastTemplatePtrOutput() FastTemplatePtrOutput {
 
 func (o FastTemplatePtrOutput) ToFastTemplatePtrOutputWithContext(ctx context.Context) FastTemplatePtrOutput {
 	return o
+}
+
+func (o FastTemplatePtrOutput) Elem() FastTemplateOutput {
+	return o.ApplyT(func(v *FastTemplate) FastTemplate {
+		if v != nil {
+			return *v
+		}
+		var ret FastTemplate
+		return ret
+	}).(FastTemplateOutput)
 }
 
 type FastTemplateArrayOutput struct{ *pulumi.OutputState }
@@ -284,6 +290,10 @@ func (o FastTemplateMapOutput) MapIndex(k pulumi.StringInput) FastTemplateOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FastTemplateInput)(nil)).Elem(), &FastTemplate{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastTemplatePtrInput)(nil)).Elem(), &FastTemplate{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastTemplateArrayInput)(nil)).Elem(), FastTemplateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastTemplateMapInput)(nil)).Elem(), FastTemplateMap{})
 	pulumi.RegisterOutputType(FastTemplateOutput{})
 	pulumi.RegisterOutputType(FastTemplatePtrOutput{})
 	pulumi.RegisterOutputType(FastTemplateArrayOutput{})

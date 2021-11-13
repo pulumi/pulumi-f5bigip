@@ -10,321 +10,321 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Ltm.Inputs
 {
 
-    public sealed class GetPolicyRuleActionArgs : Pulumi.InvokeArgs
+    public sealed class GetPolicyRuleActionInputArgs : Pulumi.ResourceArgs
     {
         [Input("appService", required: true)]
-        public string AppService { get; set; } = null!;
+        public Input<string> AppService { get; set; } = null!;
 
         [Input("application", required: true)]
-        public string Application { get; set; } = null!;
+        public Input<string> Application { get; set; } = null!;
 
         [Input("asm", required: true)]
-        public bool Asm { get; set; }
+        public Input<bool> Asm { get; set; } = null!;
 
         [Input("avr", required: true)]
-        public bool Avr { get; set; }
+        public Input<bool> Avr { get; set; } = null!;
 
         [Input("cache", required: true)]
-        public bool Cache { get; set; }
+        public Input<bool> Cache { get; set; } = null!;
 
         [Input("carp", required: true)]
-        public bool Carp { get; set; }
+        public Input<bool> Carp { get; set; } = null!;
 
         [Input("category", required: true)]
-        public string Category { get; set; } = null!;
+        public Input<string> Category { get; set; } = null!;
 
         [Input("classify", required: true)]
-        public bool Classify { get; set; }
+        public Input<bool> Classify { get; set; } = null!;
 
         [Input("clonePool", required: true)]
-        public string ClonePool { get; set; } = null!;
+        public Input<string> ClonePool { get; set; } = null!;
 
         [Input("code", required: true)]
-        public int Code { get; set; }
+        public Input<int> Code { get; set; } = null!;
 
         [Input("compress", required: true)]
-        public bool Compress { get; set; }
+        public Input<bool> Compress { get; set; } = null!;
 
         [Input("connection", required: true)]
-        public bool Connection { get; set; }
+        public Input<bool> Connection { get; set; } = null!;
 
         [Input("content", required: true)]
-        public string Content { get; set; } = null!;
+        public Input<string> Content { get; set; } = null!;
 
         [Input("cookieHash", required: true)]
-        public bool CookieHash { get; set; }
+        public Input<bool> CookieHash { get; set; } = null!;
 
         [Input("cookieInsert", required: true)]
-        public bool CookieInsert { get; set; }
+        public Input<bool> CookieInsert { get; set; } = null!;
 
         [Input("cookiePassive", required: true)]
-        public bool CookiePassive { get; set; }
+        public Input<bool> CookiePassive { get; set; } = null!;
 
         [Input("cookieRewrite", required: true)]
-        public bool CookieRewrite { get; set; }
+        public Input<bool> CookieRewrite { get; set; } = null!;
 
         [Input("decompress", required: true)]
-        public bool Decompress { get; set; }
+        public Input<bool> Decompress { get; set; } = null!;
 
         [Input("defer", required: true)]
-        public bool Defer { get; set; }
+        public Input<bool> Defer { get; set; } = null!;
 
         [Input("destinationAddress", required: true)]
-        public bool DestinationAddress { get; set; }
+        public Input<bool> DestinationAddress { get; set; } = null!;
 
         [Input("disable", required: true)]
-        public bool Disable { get; set; }
+        public Input<bool> Disable { get; set; } = null!;
 
         [Input("domain", required: true)]
-        public string Domain { get; set; } = null!;
+        public Input<string> Domain { get; set; } = null!;
 
         [Input("enable", required: true)]
-        public bool Enable { get; set; }
+        public Input<bool> Enable { get; set; } = null!;
 
         [Input("expiry", required: true)]
-        public string Expiry { get; set; } = null!;
+        public Input<string> Expiry { get; set; } = null!;
 
         [Input("expirySecs", required: true)]
-        public int ExpirySecs { get; set; }
+        public Input<int> ExpirySecs { get; set; } = null!;
 
         [Input("expression", required: true)]
-        public string Expression { get; set; } = null!;
+        public Input<string> Expression { get; set; } = null!;
 
         [Input("extension", required: true)]
-        public string Extension { get; set; } = null!;
+        public Input<string> Extension { get; set; } = null!;
 
         [Input("facility", required: true)]
-        public string Facility { get; set; } = null!;
+        public Input<string> Facility { get; set; } = null!;
 
         [Input("forward")]
-        public bool? Forward { get; set; }
+        public Input<bool>? Forward { get; set; }
 
         [Input("fromProfile", required: true)]
-        public string FromProfile { get; set; } = null!;
+        public Input<string> FromProfile { get; set; } = null!;
 
         [Input("hash", required: true)]
-        public bool Hash { get; set; }
+        public Input<bool> Hash { get; set; } = null!;
 
         [Input("host", required: true)]
-        public string Host { get; set; } = null!;
+        public Input<string> Host { get; set; } = null!;
 
         [Input("http", required: true)]
-        public bool Http { get; set; }
+        public Input<bool> Http { get; set; } = null!;
 
         [Input("httpBasicAuth", required: true)]
-        public bool HttpBasicAuth { get; set; }
+        public Input<bool> HttpBasicAuth { get; set; } = null!;
 
         [Input("httpCookie", required: true)]
-        public bool HttpCookie { get; set; }
+        public Input<bool> HttpCookie { get; set; } = null!;
 
         [Input("httpHeader", required: true)]
-        public bool HttpHeader { get; set; }
+        public Input<bool> HttpHeader { get; set; } = null!;
 
         [Input("httpHost")]
-        public bool? HttpHost { get; set; }
+        public Input<bool>? HttpHost { get; set; }
 
         [Input("httpReferer", required: true)]
-        public bool HttpReferer { get; set; }
+        public Input<bool> HttpReferer { get; set; } = null!;
 
         [Input("httpReply", required: true)]
-        public bool HttpReply { get; set; }
+        public Input<bool> HttpReply { get; set; } = null!;
 
         [Input("httpSetCookie", required: true)]
-        public bool HttpSetCookie { get; set; }
+        public Input<bool> HttpSetCookie { get; set; } = null!;
 
         [Input("httpUri", required: true)]
-        public bool HttpUri { get; set; }
+        public Input<bool> HttpUri { get; set; } = null!;
 
         [Input("ifile", required: true)]
-        public string Ifile { get; set; } = null!;
+        public Input<string> Ifile { get; set; } = null!;
 
         [Input("insert", required: true)]
-        public bool Insert { get; set; }
+        public Input<bool> Insert { get; set; } = null!;
 
         [Input("internalVirtual", required: true)]
-        public string InternalVirtual { get; set; } = null!;
+        public Input<string> InternalVirtual { get; set; } = null!;
 
         [Input("ipAddress", required: true)]
-        public string IpAddress { get; set; } = null!;
+        public Input<string> IpAddress { get; set; } = null!;
 
         [Input("key", required: true)]
-        public string Key { get; set; } = null!;
+        public Input<string> Key { get; set; } = null!;
 
         [Input("l7dos", required: true)]
-        public bool L7dos { get; set; }
+        public Input<bool> L7dos { get; set; } = null!;
 
         [Input("length", required: true)]
-        public int Length { get; set; }
+        public Input<int> Length { get; set; } = null!;
 
         [Input("location", required: true)]
-        public string Location { get; set; } = null!;
+        public Input<string> Location { get; set; } = null!;
 
         [Input("log", required: true)]
-        public bool Log { get; set; }
+        public Input<bool> Log { get; set; } = null!;
 
         [Input("ltmPolicy", required: true)]
-        public bool LtmPolicy { get; set; }
+        public Input<bool> LtmPolicy { get; set; } = null!;
 
         [Input("member", required: true)]
-        public string Member { get; set; } = null!;
+        public Input<string> Member { get; set; } = null!;
 
         [Input("message", required: true)]
-        public string Message { get; set; } = null!;
+        public Input<string> Message { get; set; } = null!;
 
         [Input("netmask", required: true)]
-        public string Netmask { get; set; } = null!;
+        public Input<string> Netmask { get; set; } = null!;
 
         [Input("nexthop", required: true)]
-        public string Nexthop { get; set; } = null!;
+        public Input<string> Nexthop { get; set; } = null!;
 
         [Input("node", required: true)]
-        public string Node { get; set; } = null!;
+        public Input<string> Node { get; set; } = null!;
 
         [Input("offset", required: true)]
-        public int Offset { get; set; }
+        public Input<int> Offset { get; set; } = null!;
 
         [Input("path", required: true)]
-        public string Path { get; set; } = null!;
+        public Input<string> Path { get; set; } = null!;
 
         [Input("pem", required: true)]
-        public bool Pem { get; set; }
+        public Input<bool> Pem { get; set; } = null!;
 
         [Input("persist", required: true)]
-        public bool Persist { get; set; }
+        public Input<bool> Persist { get; set; } = null!;
 
         [Input("pin", required: true)]
-        public bool Pin { get; set; }
+        public Input<bool> Pin { get; set; } = null!;
 
         [Input("policy", required: true)]
-        public string Policy { get; set; } = null!;
+        public Input<string> Policy { get; set; } = null!;
 
         [Input("pool", required: true)]
-        public string Pool { get; set; } = null!;
+        public Input<string> Pool { get; set; } = null!;
 
         [Input("port", required: true)]
-        public int Port { get; set; }
+        public Input<int> Port { get; set; } = null!;
 
         [Input("priority", required: true)]
-        public string Priority { get; set; } = null!;
+        public Input<string> Priority { get; set; } = null!;
 
         [Input("profile", required: true)]
-        public string Profile { get; set; } = null!;
+        public Input<string> Profile { get; set; } = null!;
 
         [Input("protocol", required: true)]
-        public string Protocol { get; set; } = null!;
+        public Input<string> Protocol { get; set; } = null!;
 
         [Input("queryString", required: true)]
-        public string QueryString { get; set; } = null!;
+        public Input<string> QueryString { get; set; } = null!;
 
         [Input("rateclass", required: true)]
-        public string Rateclass { get; set; } = null!;
+        public Input<string> Rateclass { get; set; } = null!;
 
         [Input("redirect", required: true)]
-        public bool Redirect { get; set; }
+        public Input<bool> Redirect { get; set; } = null!;
 
         [Input("remove", required: true)]
-        public bool Remove { get; set; }
+        public Input<bool> Remove { get; set; } = null!;
 
         [Input("replace", required: true)]
-        public bool Replace { get; set; }
+        public Input<bool> Replace { get; set; } = null!;
 
         [Input("request", required: true)]
-        public bool Request { get; set; }
+        public Input<bool> Request { get; set; } = null!;
 
         [Input("requestAdapt", required: true)]
-        public bool RequestAdapt { get; set; }
+        public Input<bool> RequestAdapt { get; set; } = null!;
 
         [Input("reset", required: true)]
-        public bool Reset { get; set; }
+        public Input<bool> Reset { get; set; } = null!;
 
         [Input("response", required: true)]
-        public bool Response { get; set; }
+        public Input<bool> Response { get; set; } = null!;
 
         [Input("responseAdapt", required: true)]
-        public bool ResponseAdapt { get; set; }
+        public Input<bool> ResponseAdapt { get; set; } = null!;
 
         [Input("scheme", required: true)]
-        public string Scheme { get; set; } = null!;
+        public Input<string> Scheme { get; set; } = null!;
 
         [Input("script", required: true)]
-        public string Script { get; set; } = null!;
+        public Input<string> Script { get; set; } = null!;
 
         [Input("select", required: true)]
-        public bool Select { get; set; }
+        public Input<bool> Select { get; set; } = null!;
 
         [Input("serverSsl", required: true)]
-        public bool ServerSsl { get; set; }
+        public Input<bool> ServerSsl { get; set; } = null!;
 
         [Input("setVariable", required: true)]
-        public bool SetVariable { get; set; }
+        public Input<bool> SetVariable { get; set; } = null!;
 
         [Input("shutdown", required: true)]
-        public bool Shutdown { get; set; }
+        public Input<bool> Shutdown { get; set; } = null!;
 
         [Input("snat", required: true)]
-        public string Snat { get; set; } = null!;
+        public Input<string> Snat { get; set; } = null!;
 
         [Input("snatpool", required: true)]
-        public string Snatpool { get; set; } = null!;
+        public Input<string> Snatpool { get; set; } = null!;
 
         [Input("sourceAddress", required: true)]
-        public bool SourceAddress { get; set; }
+        public Input<bool> SourceAddress { get; set; } = null!;
 
         [Input("sslClientHello", required: true)]
-        public bool SslClientHello { get; set; }
+        public Input<bool> SslClientHello { get; set; } = null!;
 
         [Input("sslServerHandshake", required: true)]
-        public bool SslServerHandshake { get; set; }
+        public Input<bool> SslServerHandshake { get; set; } = null!;
 
         [Input("sslServerHello", required: true)]
-        public bool SslServerHello { get; set; }
+        public Input<bool> SslServerHello { get; set; } = null!;
 
         [Input("sslSessionId", required: true)]
-        public bool SslSessionId { get; set; }
+        public Input<bool> SslSessionId { get; set; } = null!;
 
         [Input("status", required: true)]
-        public int Status { get; set; }
+        public Input<int> Status { get; set; } = null!;
 
         [Input("tcl", required: true)]
-        public bool Tcl { get; set; }
+        public Input<bool> Tcl { get; set; } = null!;
 
         [Input("tcpNagle", required: true)]
-        public bool TcpNagle { get; set; }
+        public Input<bool> TcpNagle { get; set; } = null!;
 
         [Input("text", required: true)]
-        public string Text { get; set; } = null!;
+        public Input<string> Text { get; set; } = null!;
 
         [Input("timeout", required: true)]
-        public int Timeout { get; set; }
+        public Input<int> Timeout { get; set; } = null!;
 
         [Input("tmName", required: true)]
-        public string TmName { get; set; } = null!;
+        public Input<string> TmName { get; set; } = null!;
 
         [Input("uie", required: true)]
-        public bool Uie { get; set; }
+        public Input<bool> Uie { get; set; } = null!;
 
         [Input("universal", required: true)]
-        public bool Universal { get; set; }
+        public Input<bool> Universal { get; set; } = null!;
 
         [Input("value", required: true)]
-        public string Value { get; set; } = null!;
+        public Input<string> Value { get; set; } = null!;
 
         [Input("virtual", required: true)]
-        public string Virtual { get; set; } = null!;
+        public Input<string> Virtual { get; set; } = null!;
 
         [Input("vlan", required: true)]
-        public string Vlan { get; set; } = null!;
+        public Input<string> Vlan { get; set; } = null!;
 
         [Input("vlanId", required: true)]
-        public int VlanId { get; set; }
+        public Input<int> VlanId { get; set; } = null!;
 
         [Input("wam", required: true)]
-        public bool Wam { get; set; }
+        public Input<bool> Wam { get; set; } = null!;
 
         [Input("write", required: true)]
-        public bool Write { get; set; }
+        public Input<bool> Write { get; set; } = null!;
 
-        public GetPolicyRuleActionArgs()
+        public GetPolicyRuleActionInputArgs()
         {
         }
     }
