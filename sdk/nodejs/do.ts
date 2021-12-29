@@ -50,6 +50,30 @@ export class Do extends pulumi.CustomResource {
     }
 
     /**
+     * IP Address of BIGIP Host to be used for this resource,this is optional parameter.
+     * whenever we specify this parameter it gets overwrite provider configuration
+     */
+    public readonly bigipAddress!: pulumi.Output<string | undefined>;
+    /**
+     * Password of  BIGIP host to be used for this resource,this is optional parameter.
+     * whenever we specify this parameter it gets overwrite provider configuration
+     */
+    public readonly bigipPassword!: pulumi.Output<string | undefined>;
+    /**
+     * Port number of BIGIP host to be used for this resource,this is optional parameter.
+     * whenever we specify this parameter it gets overwrite provider configuration
+     */
+    public readonly bigipPort!: pulumi.Output<string | undefined>;
+    /**
+     * Enable to use an external authentication source (LDAP, TACACS, etc)
+     */
+    public readonly bigipTokenAuth!: pulumi.Output<boolean | undefined>;
+    /**
+     * UserName of BIGIP host to be used for this resource,this is optional parameter.
+     * whenever we specify this parameter it gets overwrite provider configuration
+     */
+    public readonly bigipUser!: pulumi.Output<string | undefined>;
+    /**
      * Name of the of the Declarative DO JSON file
      */
     public readonly doJson!: pulumi.Output<string>;
@@ -77,6 +101,11 @@ export class Do extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DoState | undefined;
+            inputs["bigipAddress"] = state ? state.bigipAddress : undefined;
+            inputs["bigipPassword"] = state ? state.bigipPassword : undefined;
+            inputs["bigipPort"] = state ? state.bigipPort : undefined;
+            inputs["bigipTokenAuth"] = state ? state.bigipTokenAuth : undefined;
+            inputs["bigipUser"] = state ? state.bigipUser : undefined;
             inputs["doJson"] = state ? state.doJson : undefined;
             inputs["tenantName"] = state ? state.tenantName : undefined;
             inputs["timeout"] = state ? state.timeout : undefined;
@@ -85,6 +114,11 @@ export class Do extends pulumi.CustomResource {
             if ((!args || args.doJson === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'doJson'");
             }
+            inputs["bigipAddress"] = args ? args.bigipAddress : undefined;
+            inputs["bigipPassword"] = args ? args.bigipPassword : undefined;
+            inputs["bigipPort"] = args ? args.bigipPort : undefined;
+            inputs["bigipTokenAuth"] = args ? args.bigipTokenAuth : undefined;
+            inputs["bigipUser"] = args ? args.bigipUser : undefined;
             inputs["doJson"] = args ? args.doJson : undefined;
             inputs["tenantName"] = args ? args.tenantName : undefined;
             inputs["timeout"] = args ? args.timeout : undefined;
@@ -100,6 +134,30 @@ export class Do extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Do resources.
  */
 export interface DoState {
+    /**
+     * IP Address of BIGIP Host to be used for this resource,this is optional parameter.
+     * whenever we specify this parameter it gets overwrite provider configuration
+     */
+    bigipAddress?: pulumi.Input<string>;
+    /**
+     * Password of  BIGIP host to be used for this resource,this is optional parameter.
+     * whenever we specify this parameter it gets overwrite provider configuration
+     */
+    bigipPassword?: pulumi.Input<string>;
+    /**
+     * Port number of BIGIP host to be used for this resource,this is optional parameter.
+     * whenever we specify this parameter it gets overwrite provider configuration
+     */
+    bigipPort?: pulumi.Input<string>;
+    /**
+     * Enable to use an external authentication source (LDAP, TACACS, etc)
+     */
+    bigipTokenAuth?: pulumi.Input<boolean>;
+    /**
+     * UserName of BIGIP host to be used for this resource,this is optional parameter.
+     * whenever we specify this parameter it gets overwrite provider configuration
+     */
+    bigipUser?: pulumi.Input<string>;
     /**
      * Name of the of the Declarative DO JSON file
      */
@@ -120,6 +178,30 @@ export interface DoState {
  * The set of arguments for constructing a Do resource.
  */
 export interface DoArgs {
+    /**
+     * IP Address of BIGIP Host to be used for this resource,this is optional parameter.
+     * whenever we specify this parameter it gets overwrite provider configuration
+     */
+    bigipAddress?: pulumi.Input<string>;
+    /**
+     * Password of  BIGIP host to be used for this resource,this is optional parameter.
+     * whenever we specify this parameter it gets overwrite provider configuration
+     */
+    bigipPassword?: pulumi.Input<string>;
+    /**
+     * Port number of BIGIP host to be used for this resource,this is optional parameter.
+     * whenever we specify this parameter it gets overwrite provider configuration
+     */
+    bigipPort?: pulumi.Input<string>;
+    /**
+     * Enable to use an external authentication source (LDAP, TACACS, etc)
+     */
+    bigipTokenAuth?: pulumi.Input<boolean>;
+    /**
+     * UserName of BIGIP host to be used for this resource,this is optional parameter.
+     * whenever we specify this parameter it gets overwrite provider configuration
+     */
+    bigipUser?: pulumi.Input<string>;
     /**
      * Name of the of the Declarative DO JSON file
      */

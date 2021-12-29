@@ -235,10 +235,10 @@ github.com/envoyproxy/go-control-plane v0.9.7/go.mod h1:cwu0lG7PUMfa9snN8LXBig5y
 github.com/envoyproxy/go-control-plane v0.9.9-0.20201210154907-fd9021fe5dad/go.mod h1:cXg6YxExXjJnVBQHBLXeUAgxn2UodCpnH306RInaBQk=
 github.com/envoyproxy/go-control-plane v0.9.9-0.20210217033140-668b12f5399d/go.mod h1:cXg6YxExXjJnVBQHBLXeUAgxn2UodCpnH306RInaBQk=
 github.com/envoyproxy/protoc-gen-validate v0.1.0/go.mod h1:iSmxcyjqTsJpI2R4NaDN7+kN2VEUnK/pcBlmesArF7c=
-github.com/f5devcentral/go-bigip v0.0.0-20211027120755-cd28b206eeca h1:u2hx1WfA592/nD11+FmVEXTqmKf9q0Bnuquvbi4/BLY=
-github.com/f5devcentral/go-bigip v0.0.0-20211027120755-cd28b206eeca/go.mod h1:JZj/iVxDmEnGPyEwuNj7x0fuH2CtUBbD2J48MMp/SE8=
-github.com/f5devcentral/go-bigip/f5teem v0.0.0-20211027120755-cd28b206eeca h1:wqpQP8/aOBVdPtv6m6EC2Iwi25Mv1IiQhMXy99s/5rM=
-github.com/f5devcentral/go-bigip/f5teem v0.0.0-20211027120755-cd28b206eeca/go.mod h1:r7o5I22EvO+fps2u10bz4ZUlTlNHopQSWzVcW19hK3U=
+github.com/f5devcentral/go-bigip v0.0.0-20211208144806-c9b2472e4619 h1:enrCfLqoEhSUxMre+eA8Pb9xJpQsoiV6NHQY0gGgNrc=
+github.com/f5devcentral/go-bigip v0.0.0-20211208144806-c9b2472e4619/go.mod h1:JZj/iVxDmEnGPyEwuNj7x0fuH2CtUBbD2J48MMp/SE8=
+github.com/f5devcentral/go-bigip/f5teem v0.0.0-20211208144806-c9b2472e4619 h1:JUI4NZjKP2wRoGkBhkxxFBvA1mASxQx+iC5ispqTBow=
+github.com/f5devcentral/go-bigip/f5teem v0.0.0-20211208144806-c9b2472e4619/go.mod h1:r7o5I22EvO+fps2u10bz4ZUlTlNHopQSWzVcW19hK3U=
 github.com/fatih/color v1.7.0/go.mod h1:Zm6kSWBoL9eyXnKyktHP6abPY2pDugNf5KwzbycvMj4=
 github.com/fatih/color v1.9.0 h1:8xPHl4/q1VyqGIPif1F+1V3Y3lSmrq01EabUW3CoW5s=
 github.com/fatih/color v1.9.0/go.mod h1:eQcE1qtQxscV5RaZvpXrrb8Drkc3/DdQ+uUYCNjL+zU=
@@ -707,8 +707,8 @@ github.com/pulumi/pulumi/sdk/v3 v3.17.0 h1:CxdgdmFEvo99JviXP6d332Y2AyAIPbLI6fu4K
 github.com/pulumi/pulumi/sdk/v3 v3.17.0/go.mod h1:252ou/zAU1g6E8iTwe2Y9ht7pb5BDl2fJlOuAgZCHiA=
 github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e h1:Dik4Qe/+xguB8JagPyXNlbOnRiXGmq/PSPQTGunYnTk=
 github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e/go.mod h1:sZ9FUzGO+yM41hsQHs/yIcj/Y993qMdBxBU5mpDmAfQ=
-github.com/pulumi/terraform-provider-bigip v1.1.1-0.20211027150139-dd74050fd0a4 h1:7A75R3VfhyTtknytr2QcZ4whnxFdf7nvhONCGQDXrds=
-github.com/pulumi/terraform-provider-bigip v1.1.1-0.20211027150139-dd74050fd0a4/go.mod h1:aUi5doZYr6gqH9/Ju75q64G0VGKuS/AdqqhbPPS4dqk=
+github.com/pulumi/terraform-provider-bigip v1.1.1-0.20211208150443-f20e1eb510de h1:EkSEzVmx620MIhtGgyBfYuqCviIxs21HviZ16j/+hcE=
+github.com/pulumi/terraform-provider-bigip v1.1.1-0.20211208150443-f20e1eb510de/go.mod h1:1BxK+m4wSSZbR0ptcZTJGmq2qJZZzfPIINj3thKHX5I=
 github.com/rjeczalik/notify v0.9.2 h1:MiTWrPj55mNDHEiIX5YUSKefw/+lCQVoAFmD6oQm5w8=
 github.com/rjeczalik/notify v0.9.2/go.mod h1:aErll2f0sUX9PXZnVNyeiObbmTlk5jnMoCa4QEjJeqM=
 github.com/rogpeppe/fastuuid v0.0.0-20150106093220-6724a57986af/go.mod h1:XWv6SoW27p1b0cqNHllgS5HIMJraePCO15w5zCzIWYg=

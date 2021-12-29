@@ -50,6 +50,20 @@ import (
 type Do struct {
 	pulumi.CustomResourceState
 
+	// IP Address of BIGIP Host to be used for this resource,this is optional parameter.
+	// whenever we specify this parameter it gets overwrite provider configuration
+	BigipAddress pulumi.StringPtrOutput `pulumi:"bigipAddress"`
+	// Password of  BIGIP host to be used for this resource,this is optional parameter.
+	// whenever we specify this parameter it gets overwrite provider configuration
+	BigipPassword pulumi.StringPtrOutput `pulumi:"bigipPassword"`
+	// Port number of BIGIP host to be used for this resource,this is optional parameter.
+	// whenever we specify this parameter it gets overwrite provider configuration
+	BigipPort pulumi.StringPtrOutput `pulumi:"bigipPort"`
+	// Enable to use an external authentication source (LDAP, TACACS, etc)
+	BigipTokenAuth pulumi.BoolPtrOutput `pulumi:"bigipTokenAuth"`
+	// UserName of BIGIP host to be used for this resource,this is optional parameter.
+	// whenever we specify this parameter it gets overwrite provider configuration
+	BigipUser pulumi.StringPtrOutput `pulumi:"bigipUser"`
 	// Name of the of the Declarative DO JSON file
 	DoJson pulumi.StringOutput `pulumi:"doJson"`
 	// unique identifier for DO resource
@@ -92,6 +106,20 @@ func GetDo(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Do resources.
 type doState struct {
+	// IP Address of BIGIP Host to be used for this resource,this is optional parameter.
+	// whenever we specify this parameter it gets overwrite provider configuration
+	BigipAddress *string `pulumi:"bigipAddress"`
+	// Password of  BIGIP host to be used for this resource,this is optional parameter.
+	// whenever we specify this parameter it gets overwrite provider configuration
+	BigipPassword *string `pulumi:"bigipPassword"`
+	// Port number of BIGIP host to be used for this resource,this is optional parameter.
+	// whenever we specify this parameter it gets overwrite provider configuration
+	BigipPort *string `pulumi:"bigipPort"`
+	// Enable to use an external authentication source (LDAP, TACACS, etc)
+	BigipTokenAuth *bool `pulumi:"bigipTokenAuth"`
+	// UserName of BIGIP host to be used for this resource,this is optional parameter.
+	// whenever we specify this parameter it gets overwrite provider configuration
+	BigipUser *string `pulumi:"bigipUser"`
 	// Name of the of the Declarative DO JSON file
 	DoJson *string `pulumi:"doJson"`
 	// unique identifier for DO resource
@@ -103,6 +131,20 @@ type doState struct {
 }
 
 type DoState struct {
+	// IP Address of BIGIP Host to be used for this resource,this is optional parameter.
+	// whenever we specify this parameter it gets overwrite provider configuration
+	BigipAddress pulumi.StringPtrInput
+	// Password of  BIGIP host to be used for this resource,this is optional parameter.
+	// whenever we specify this parameter it gets overwrite provider configuration
+	BigipPassword pulumi.StringPtrInput
+	// Port number of BIGIP host to be used for this resource,this is optional parameter.
+	// whenever we specify this parameter it gets overwrite provider configuration
+	BigipPort pulumi.StringPtrInput
+	// Enable to use an external authentication source (LDAP, TACACS, etc)
+	BigipTokenAuth pulumi.BoolPtrInput
+	// UserName of BIGIP host to be used for this resource,this is optional parameter.
+	// whenever we specify this parameter it gets overwrite provider configuration
+	BigipUser pulumi.StringPtrInput
 	// Name of the of the Declarative DO JSON file
 	DoJson pulumi.StringPtrInput
 	// unique identifier for DO resource
@@ -118,6 +160,20 @@ func (DoState) ElementType() reflect.Type {
 }
 
 type doArgs struct {
+	// IP Address of BIGIP Host to be used for this resource,this is optional parameter.
+	// whenever we specify this parameter it gets overwrite provider configuration
+	BigipAddress *string `pulumi:"bigipAddress"`
+	// Password of  BIGIP host to be used for this resource,this is optional parameter.
+	// whenever we specify this parameter it gets overwrite provider configuration
+	BigipPassword *string `pulumi:"bigipPassword"`
+	// Port number of BIGIP host to be used for this resource,this is optional parameter.
+	// whenever we specify this parameter it gets overwrite provider configuration
+	BigipPort *string `pulumi:"bigipPort"`
+	// Enable to use an external authentication source (LDAP, TACACS, etc)
+	BigipTokenAuth *bool `pulumi:"bigipTokenAuth"`
+	// UserName of BIGIP host to be used for this resource,this is optional parameter.
+	// whenever we specify this parameter it gets overwrite provider configuration
+	BigipUser *string `pulumi:"bigipUser"`
 	// Name of the of the Declarative DO JSON file
 	DoJson string `pulumi:"doJson"`
 	// unique identifier for DO resource
@@ -130,6 +186,20 @@ type doArgs struct {
 
 // The set of arguments for constructing a Do resource.
 type DoArgs struct {
+	// IP Address of BIGIP Host to be used for this resource,this is optional parameter.
+	// whenever we specify this parameter it gets overwrite provider configuration
+	BigipAddress pulumi.StringPtrInput
+	// Password of  BIGIP host to be used for this resource,this is optional parameter.
+	// whenever we specify this parameter it gets overwrite provider configuration
+	BigipPassword pulumi.StringPtrInput
+	// Port number of BIGIP host to be used for this resource,this is optional parameter.
+	// whenever we specify this parameter it gets overwrite provider configuration
+	BigipPort pulumi.StringPtrInput
+	// Enable to use an external authentication source (LDAP, TACACS, etc)
+	BigipTokenAuth pulumi.BoolPtrInput
+	// UserName of BIGIP host to be used for this resource,this is optional parameter.
+	// whenever we specify this parameter it gets overwrite provider configuration
+	BigipUser pulumi.StringPtrInput
 	// Name of the of the Declarative DO JSON file
 	DoJson pulumi.StringInput
 	// unique identifier for DO resource

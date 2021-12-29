@@ -32,6 +32,11 @@ import (
 // 			Ip:           pulumi.String("11.1.1.1/24"),
 // 			Vlan:         pulumi.String("/Common/internal"),
 // 			TrafficGroup: pulumi.String("traffic-group-1"),
+// 			PortLockdowns: pulumi.StringArray{
+// 				pulumi.String("tcp:4040"),
+// 				pulumi.String("udp:5050"),
+// 				pulumi.String("egp:0"),
+// 			},
 // 		}, pulumi.DependsOn([]pulumi.Resource{
 // 			bigip_net_vlan.Vlan1,
 // 		}))
@@ -49,6 +54,8 @@ type SelfIp struct {
 	Ip pulumi.StringOutput `pulumi:"ip"`
 	// Name of the selfip
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Specifies the port lockdown, defaults to `Allow Default` if not specified.
+	PortLockdowns pulumi.StringArrayOutput `pulumi:"portLockdowns"`
 	// Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
 	TrafficGroup pulumi.StringPtrOutput `pulumi:"trafficGroup"`
 	// Specifies the VLAN for which you are setting a self IP address. This setting must be provided when a self IP is created.
@@ -97,6 +104,8 @@ type selfIpState struct {
 	Ip *string `pulumi:"ip"`
 	// Name of the selfip
 	Name *string `pulumi:"name"`
+	// Specifies the port lockdown, defaults to `Allow Default` if not specified.
+	PortLockdowns []string `pulumi:"portLockdowns"`
 	// Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
 	TrafficGroup *string `pulumi:"trafficGroup"`
 	// Specifies the VLAN for which you are setting a self IP address. This setting must be provided when a self IP is created.
@@ -108,6 +117,8 @@ type SelfIpState struct {
 	Ip pulumi.StringPtrInput
 	// Name of the selfip
 	Name pulumi.StringPtrInput
+	// Specifies the port lockdown, defaults to `Allow Default` if not specified.
+	PortLockdowns pulumi.StringArrayInput
 	// Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
 	TrafficGroup pulumi.StringPtrInput
 	// Specifies the VLAN for which you are setting a self IP address. This setting must be provided when a self IP is created.
@@ -123,6 +134,8 @@ type selfIpArgs struct {
 	Ip string `pulumi:"ip"`
 	// Name of the selfip
 	Name string `pulumi:"name"`
+	// Specifies the port lockdown, defaults to `Allow Default` if not specified.
+	PortLockdowns []string `pulumi:"portLockdowns"`
 	// Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
 	TrafficGroup *string `pulumi:"trafficGroup"`
 	// Specifies the VLAN for which you are setting a self IP address. This setting must be provided when a self IP is created.
@@ -135,6 +148,8 @@ type SelfIpArgs struct {
 	Ip pulumi.StringInput
 	// Name of the selfip
 	Name pulumi.StringInput
+	// Specifies the port lockdown, defaults to `Allow Default` if not specified.
+	PortLockdowns pulumi.StringArrayInput
 	// Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
 	TrafficGroup pulumi.StringPtrInput
 	// Specifies the VLAN for which you are setting a self IP address. This setting must be provided when a self IP is created.

@@ -4923,6 +4923,26 @@
         "f5bigip:index/do:Do": {
             "description": "`f5bigip.Do` provides details about bigip do resource\n\nThis resource is helpful to configure do declarative JSON on BIG-IP.\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\nimport * as fs from \"fs\";\n\nconst do_example = new f5bigip.Do(\"do-example\", {\n    doJson: fs.readFileSync(\"example.json\", \"utf-8\"),\n    timeout: 15,\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ndo_example = f5bigip.Do(\"do-example\",\n    do_json=(lambda path: open(path).read())(\"example.json\"),\n    timeout=15)\n```\n```csharp\nusing System.IO;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var do_example = new F5BigIP.Do(\"do-example\", new F5BigIP.DoArgs\n        {\n            DoJson = File.ReadAllText(\"example.json\"),\n            Timeout = 15,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"io/ioutil\"\n\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc readFileOrPanic(path string) pulumi.StringPtrInput {\n\tdata, err := ioutil.ReadFile(path)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\treturn pulumi.String(string(data))\n}\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := f5bigip.NewDo(ctx, \"do_example\", \u0026f5bigip.DoArgs{\n\t\t\tDoJson:  readFileOrPanic(\"example.json\"),\n\t\t\tTimeout: pulumi.Int(15),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
+                "bigipAddress": {
+                    "type": "string",
+                    "description": "IP Address of BIGIP Host to be used for this resource,this is optional parameter.\nwhenever we specify this parameter it gets overwrite provider configuration\n"
+                },
+                "bigipPassword": {
+                    "type": "string",
+                    "description": "Password of  BIGIP host to be used for this resource,this is optional parameter.\nwhenever we specify this parameter it gets overwrite provider configuration\n"
+                },
+                "bigipPort": {
+                    "type": "string",
+                    "description": "Port number of BIGIP host to be used for this resource,this is optional parameter.\nwhenever we specify this parameter it gets overwrite provider configuration\n"
+                },
+                "bigipTokenAuth": {
+                    "type": "boolean",
+                    "description": "Enable to use an external authentication source (LDAP, TACACS, etc)\n"
+                },
+                "bigipUser": {
+                    "type": "string",
+                    "description": "UserName of BIGIP host to be used for this resource,this is optional parameter.\nwhenever we specify this parameter it gets overwrite provider configuration\n"
+                },
                 "doJson": {
                     "type": "string",
                     "description": "Name of the of the Declarative DO JSON file\n"
@@ -4941,6 +4961,26 @@
                 "doJson"
             ],
             "inputProperties": {
+                "bigipAddress": {
+                    "type": "string",
+                    "description": "IP Address of BIGIP Host to be used for this resource,this is optional parameter.\nwhenever we specify this parameter it gets overwrite provider configuration\n"
+                },
+                "bigipPassword": {
+                    "type": "string",
+                    "description": "Password of  BIGIP host to be used for this resource,this is optional parameter.\nwhenever we specify this parameter it gets overwrite provider configuration\n"
+                },
+                "bigipPort": {
+                    "type": "string",
+                    "description": "Port number of BIGIP host to be used for this resource,this is optional parameter.\nwhenever we specify this parameter it gets overwrite provider configuration\n"
+                },
+                "bigipTokenAuth": {
+                    "type": "boolean",
+                    "description": "Enable to use an external authentication source (LDAP, TACACS, etc)\n"
+                },
+                "bigipUser": {
+                    "type": "string",
+                    "description": "UserName of BIGIP host to be used for this resource,this is optional parameter.\nwhenever we specify this parameter it gets overwrite provider configuration\n"
+                },
                 "doJson": {
                     "type": "string",
                     "description": "Name of the of the Declarative DO JSON file\n"
@@ -4961,6 +5001,26 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering Do resources.\n",
                 "properties": {
+                    "bigipAddress": {
+                        "type": "string",
+                        "description": "IP Address of BIGIP Host to be used for this resource,this is optional parameter.\nwhenever we specify this parameter it gets overwrite provider configuration\n"
+                    },
+                    "bigipPassword": {
+                        "type": "string",
+                        "description": "Password of  BIGIP host to be used for this resource,this is optional parameter.\nwhenever we specify this parameter it gets overwrite provider configuration\n"
+                    },
+                    "bigipPort": {
+                        "type": "string",
+                        "description": "Port number of BIGIP host to be used for this resource,this is optional parameter.\nwhenever we specify this parameter it gets overwrite provider configuration\n"
+                    },
+                    "bigipTokenAuth": {
+                        "type": "boolean",
+                        "description": "Enable to use an external authentication source (LDAP, TACACS, etc)\n"
+                    },
+                    "bigipUser": {
+                        "type": "string",
+                        "description": "UserName of BIGIP host to be used for this resource,this is optional parameter.\nwhenever we specify this parameter it gets overwrite provider configuration\n"
+                    },
                     "doJson": {
                         "type": "string",
                         "description": "Name of the of the Declarative DO JSON file\n"
@@ -11658,7 +11718,7 @@
             }
         },
         "f5bigip:net/selfIp:SelfIp": {
-            "description": "`f5bigip.net.SelfIp` Manages a selfip configuration\n\nResource should be named with their \"full path\". The full path is the combination of the partition + name of the resource, for example /Common/my-selfip.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst selfip1 = new f5bigip.net.SelfIp(\"selfip1\", {\n    name: \"/Common/internalselfIP\",\n    ip: \"11.1.1.1/24\",\n    vlan: \"/Common/internal\",\n    trafficGroup: \"traffic-group-1\",\n}, {\n    dependsOn: [bigip_net_vlan.vlan1],\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nselfip1 = f5bigip.net.SelfIp(\"selfip1\",\n    name=\"/Common/internalselfIP\",\n    ip=\"11.1.1.1/24\",\n    vlan=\"/Common/internal\",\n    traffic_group=\"traffic-group-1\",\n    opts=pulumi.ResourceOptions(depends_on=[bigip_net_vlan[\"vlan1\"]]))\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var selfip1 = new F5BigIP.Net.SelfIp(\"selfip1\", new F5BigIP.Net.SelfIpArgs\n        {\n            Name = \"/Common/internalselfIP\",\n            Ip = \"11.1.1.1/24\",\n            Vlan = \"/Common/internal\",\n            TrafficGroup = \"traffic-group-1\",\n        }, new CustomResourceOptions\n        {\n            DependsOn = \n            {\n                bigip_net_vlan.Vlan1,\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/net\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := net.NewSelfIp(ctx, \"selfip1\", \u0026net.SelfIpArgs{\n\t\t\tName:         pulumi.String(\"/Common/internalselfIP\"),\n\t\t\tIp:           pulumi.String(\"11.1.1.1/24\"),\n\t\t\tVlan:         pulumi.String(\"/Common/internal\"),\n\t\t\tTrafficGroup: pulumi.String(\"traffic-group-1\"),\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tbigip_net_vlan.Vlan1,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "`f5bigip.net.SelfIp` Manages a selfip configuration\n\nResource should be named with their \"full path\". The full path is the combination of the partition + name of the resource, for example /Common/my-selfip.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst selfip1 = new f5bigip.net.SelfIp(\"selfip1\", {\n    name: \"/Common/internalselfIP\",\n    ip: \"11.1.1.1/24\",\n    vlan: \"/Common/internal\",\n    trafficGroup: \"traffic-group-1\",\n    portLockdowns: [\n        \"tcp:4040\",\n        \"udp:5050\",\n        \"egp:0\",\n    ],\n}, {\n    dependsOn: [bigip_net_vlan.vlan1],\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nselfip1 = f5bigip.net.SelfIp(\"selfip1\",\n    name=\"/Common/internalselfIP\",\n    ip=\"11.1.1.1/24\",\n    vlan=\"/Common/internal\",\n    traffic_group=\"traffic-group-1\",\n    port_lockdowns=[\n        \"tcp:4040\",\n        \"udp:5050\",\n        \"egp:0\",\n    ],\n    opts=pulumi.ResourceOptions(depends_on=[bigip_net_vlan[\"vlan1\"]]))\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var selfip1 = new F5BigIP.Net.SelfIp(\"selfip1\", new F5BigIP.Net.SelfIpArgs\n        {\n            Name = \"/Common/internalselfIP\",\n            Ip = \"11.1.1.1/24\",\n            Vlan = \"/Common/internal\",\n            TrafficGroup = \"traffic-group-1\",\n            PortLockdowns = \n            {\n                \"tcp:4040\",\n                \"udp:5050\",\n                \"egp:0\",\n            },\n        }, new CustomResourceOptions\n        {\n            DependsOn = \n            {\n                bigip_net_vlan.Vlan1,\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/net\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := net.NewSelfIp(ctx, \"selfip1\", \u0026net.SelfIpArgs{\n\t\t\tName:         pulumi.String(\"/Common/internalselfIP\"),\n\t\t\tIp:           pulumi.String(\"11.1.1.1/24\"),\n\t\t\tVlan:         pulumi.String(\"/Common/internal\"),\n\t\t\tTrafficGroup: pulumi.String(\"traffic-group-1\"),\n\t\t\tPortLockdowns: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"tcp:4040\"),\n\t\t\t\tpulumi.String(\"udp:5050\"),\n\t\t\t\tpulumi.String(\"egp:0\"),\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tbigip_net_vlan.Vlan1,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "ip": {
                     "type": "string",
@@ -11667,6 +11727,13 @@
                 "name": {
                     "type": "string",
                     "description": "Name of the selfip\n"
+                },
+                "portLockdowns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies the port lockdown, defaults to `Allow Default` if not specified.\n"
                 },
                 "trafficGroup": {
                     "type": "string",
@@ -11690,6 +11757,13 @@
                 "name": {
                     "type": "string",
                     "description": "Name of the selfip\n"
+                },
+                "portLockdowns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies the port lockdown, defaults to `Allow Default` if not specified.\n"
                 },
                 "trafficGroup": {
                     "type": "string",
@@ -11715,6 +11789,13 @@
                     "name": {
                         "type": "string",
                         "description": "Name of the selfip\n"
+                    },
+                    "portLockdowns": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Specifies the port lockdown, defaults to `Allow Default` if not specified.\n"
                     },
                     "trafficGroup": {
                         "type": "string",

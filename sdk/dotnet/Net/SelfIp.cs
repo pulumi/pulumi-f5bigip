@@ -30,6 +30,12 @@ namespace Pulumi.F5BigIP.Net
     ///             Ip = "11.1.1.1/24",
     ///             Vlan = "/Common/internal",
     ///             TrafficGroup = "traffic-group-1",
+    ///             PortLockdowns = 
+    ///             {
+    ///                 "tcp:4040",
+    ///                 "udp:5050",
+    ///                 "egp:0",
+    ///             },
     ///         }, new CustomResourceOptions
     ///         {
     ///             DependsOn = 
@@ -56,6 +62,12 @@ namespace Pulumi.F5BigIP.Net
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the port lockdown, defaults to `Allow Default` if not specified.
+        /// </summary>
+        [Output("portLockdowns")]
+        public Output<ImmutableArray<string>> PortLockdowns { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
@@ -127,6 +139,18 @@ namespace Pulumi.F5BigIP.Net
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("portLockdowns")]
+        private InputList<string>? _portLockdowns;
+
+        /// <summary>
+        /// Specifies the port lockdown, defaults to `Allow Default` if not specified.
+        /// </summary>
+        public InputList<string> PortLockdowns
+        {
+            get => _portLockdowns ?? (_portLockdowns = new InputList<string>());
+            set => _portLockdowns = value;
+        }
+
         /// <summary>
         /// Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
         /// </summary>
@@ -157,6 +181,18 @@ namespace Pulumi.F5BigIP.Net
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("portLockdowns")]
+        private InputList<string>? _portLockdowns;
+
+        /// <summary>
+        /// Specifies the port lockdown, defaults to `Allow Default` if not specified.
+        /// </summary>
+        public InputList<string> PortLockdowns
+        {
+            get => _portLockdowns ?? (_portLockdowns = new InputList<string>());
+            set => _portLockdowns = value;
+        }
 
         /// <summary>
         /// Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
