@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade terraform-provider-bigip to v1.12.1
+_(none)_
 
 ---
+
+## 3.6.1 (2021-12-30)
+* Upgrade terraform-provider-bigip to v1.12.1
 
 ## 3.6.0 (2021-11-15)
 * Upgrade to terraform-bridge 3.11.0
