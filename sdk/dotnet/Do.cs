@@ -38,6 +38,40 @@ namespace Pulumi.F5BigIP
     public partial class Do : Pulumi.CustomResource
     {
         /// <summary>
+        /// IP Address of BIGIP Host to be used for this resource,this is optional parameter.
+        /// whenever we specify this parameter it gets overwrite provider configuration
+        /// </summary>
+        [Output("bigipAddress")]
+        public Output<string?> BigipAddress { get; private set; } = null!;
+
+        /// <summary>
+        /// Password of  BIGIP host to be used for this resource,this is optional parameter.
+        /// whenever we specify this parameter it gets overwrite provider configuration
+        /// </summary>
+        [Output("bigipPassword")]
+        public Output<string?> BigipPassword { get; private set; } = null!;
+
+        /// <summary>
+        /// Port number of BIGIP host to be used for this resource,this is optional parameter.
+        /// whenever we specify this parameter it gets overwrite provider configuration
+        /// </summary>
+        [Output("bigipPort")]
+        public Output<string?> BigipPort { get; private set; } = null!;
+
+        /// <summary>
+        /// Enable to use an external authentication source (LDAP, TACACS, etc)
+        /// </summary>
+        [Output("bigipTokenAuth")]
+        public Output<bool?> BigipTokenAuth { get; private set; } = null!;
+
+        /// <summary>
+        /// UserName of BIGIP host to be used for this resource,this is optional parameter.
+        /// whenever we specify this parameter it gets overwrite provider configuration
+        /// </summary>
+        [Output("bigipUser")]
+        public Output<string?> BigipUser { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the of the Declarative DO JSON file
         /// </summary>
         [Output("doJson")]
@@ -102,6 +136,40 @@ namespace Pulumi.F5BigIP
     public sealed class DoArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// IP Address of BIGIP Host to be used for this resource,this is optional parameter.
+        /// whenever we specify this parameter it gets overwrite provider configuration
+        /// </summary>
+        [Input("bigipAddress")]
+        public Input<string>? BigipAddress { get; set; }
+
+        /// <summary>
+        /// Password of  BIGIP host to be used for this resource,this is optional parameter.
+        /// whenever we specify this parameter it gets overwrite provider configuration
+        /// </summary>
+        [Input("bigipPassword")]
+        public Input<string>? BigipPassword { get; set; }
+
+        /// <summary>
+        /// Port number of BIGIP host to be used for this resource,this is optional parameter.
+        /// whenever we specify this parameter it gets overwrite provider configuration
+        /// </summary>
+        [Input("bigipPort")]
+        public Input<string>? BigipPort { get; set; }
+
+        /// <summary>
+        /// Enable to use an external authentication source (LDAP, TACACS, etc)
+        /// </summary>
+        [Input("bigipTokenAuth")]
+        public Input<bool>? BigipTokenAuth { get; set; }
+
+        /// <summary>
+        /// UserName of BIGIP host to be used for this resource,this is optional parameter.
+        /// whenever we specify this parameter it gets overwrite provider configuration
+        /// </summary>
+        [Input("bigipUser")]
+        public Input<string>? BigipUser { get; set; }
+
+        /// <summary>
         /// Name of the of the Declarative DO JSON file
         /// </summary>
         [Input("doJson", required: true)]
@@ -126,6 +194,40 @@ namespace Pulumi.F5BigIP
 
     public sealed class DoState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// IP Address of BIGIP Host to be used for this resource,this is optional parameter.
+        /// whenever we specify this parameter it gets overwrite provider configuration
+        /// </summary>
+        [Input("bigipAddress")]
+        public Input<string>? BigipAddress { get; set; }
+
+        /// <summary>
+        /// Password of  BIGIP host to be used for this resource,this is optional parameter.
+        /// whenever we specify this parameter it gets overwrite provider configuration
+        /// </summary>
+        [Input("bigipPassword")]
+        public Input<string>? BigipPassword { get; set; }
+
+        /// <summary>
+        /// Port number of BIGIP host to be used for this resource,this is optional parameter.
+        /// whenever we specify this parameter it gets overwrite provider configuration
+        /// </summary>
+        [Input("bigipPort")]
+        public Input<string>? BigipPort { get; set; }
+
+        /// <summary>
+        /// Enable to use an external authentication source (LDAP, TACACS, etc)
+        /// </summary>
+        [Input("bigipTokenAuth")]
+        public Input<bool>? BigipTokenAuth { get; set; }
+
+        /// <summary>
+        /// UserName of BIGIP host to be used for this resource,this is optional parameter.
+        /// whenever we specify this parameter it gets overwrite provider configuration
+        /// </summary>
+        [Input("bigipUser")]
+        public Input<string>? BigipUser { get; set; }
+
         /// <summary>
         /// Name of the of the Declarative DO JSON file
         /// </summary>

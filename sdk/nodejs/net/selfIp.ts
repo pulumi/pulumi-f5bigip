@@ -20,6 +20,11 @@ import * as utilities from "../utilities";
  *     ip: "11.1.1.1/24",
  *     vlan: "/Common/internal",
  *     trafficGroup: "traffic-group-1",
+ *     portLockdowns: [
+ *         "tcp:4040",
+ *         "udp:5050",
+ *         "egp:0",
+ *     ],
  * }, {
  *     dependsOn: [bigip_net_vlan.vlan1],
  * });
@@ -62,6 +67,10 @@ export class SelfIp extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Specifies the port lockdown, defaults to `Allow Default` if not specified.
+     */
+    public readonly portLockdowns!: pulumi.Output<string[] | undefined>;
+    /**
      * Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
      */
     public readonly trafficGroup!: pulumi.Output<string | undefined>;
@@ -85,6 +94,7 @@ export class SelfIp extends pulumi.CustomResource {
             const state = argsOrState as SelfIpState | undefined;
             inputs["ip"] = state ? state.ip : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["portLockdowns"] = state ? state.portLockdowns : undefined;
             inputs["trafficGroup"] = state ? state.trafficGroup : undefined;
             inputs["vlan"] = state ? state.vlan : undefined;
         } else {
@@ -100,6 +110,7 @@ export class SelfIp extends pulumi.CustomResource {
             }
             inputs["ip"] = args ? args.ip : undefined;
             inputs["name"] = args ? args.name : undefined;
+            inputs["portLockdowns"] = args ? args.portLockdowns : undefined;
             inputs["trafficGroup"] = args ? args.trafficGroup : undefined;
             inputs["vlan"] = args ? args.vlan : undefined;
         }
@@ -123,6 +134,10 @@ export interface SelfIpState {
      */
     name?: pulumi.Input<string>;
     /**
+     * Specifies the port lockdown, defaults to `Allow Default` if not specified.
+     */
+    portLockdowns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
      */
     trafficGroup?: pulumi.Input<string>;
@@ -144,6 +159,10 @@ export interface SelfIpArgs {
      * Name of the selfip
      */
     name: pulumi.Input<string>;
+    /**
+     * Specifies the port lockdown, defaults to `Allow Default` if not specified.
+     */
+    portLockdowns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
      */
