@@ -278,7 +278,7 @@ type NetTunnelInput interface {
 }
 
 func (*NetTunnel) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetTunnel)(nil))
+	return reflect.TypeOf((**NetTunnel)(nil)).Elem()
 }
 
 func (i *NetTunnel) ToNetTunnelOutput() NetTunnelOutput {
@@ -287,35 +287,6 @@ func (i *NetTunnel) ToNetTunnelOutput() NetTunnelOutput {
 
 func (i *NetTunnel) ToNetTunnelOutputWithContext(ctx context.Context) NetTunnelOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetTunnelOutput)
-}
-
-func (i *NetTunnel) ToNetTunnelPtrOutput() NetTunnelPtrOutput {
-	return i.ToNetTunnelPtrOutputWithContext(context.Background())
-}
-
-func (i *NetTunnel) ToNetTunnelPtrOutputWithContext(ctx context.Context) NetTunnelPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetTunnelPtrOutput)
-}
-
-type NetTunnelPtrInput interface {
-	pulumi.Input
-
-	ToNetTunnelPtrOutput() NetTunnelPtrOutput
-	ToNetTunnelPtrOutputWithContext(ctx context.Context) NetTunnelPtrOutput
-}
-
-type netTunnelPtrType NetTunnelArgs
-
-func (*netTunnelPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetTunnel)(nil))
-}
-
-func (i *netTunnelPtrType) ToNetTunnelPtrOutput() NetTunnelPtrOutput {
-	return i.ToNetTunnelPtrOutputWithContext(context.Background())
-}
-
-func (i *netTunnelPtrType) ToNetTunnelPtrOutputWithContext(ctx context.Context) NetTunnelPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetTunnelPtrOutput)
 }
 
 // NetTunnelArrayInput is an input type that accepts NetTunnelArray and NetTunnelArrayOutput values.
@@ -371,7 +342,7 @@ func (i NetTunnelMap) ToNetTunnelMapOutputWithContext(ctx context.Context) NetTu
 type NetTunnelOutput struct{ *pulumi.OutputState }
 
 func (NetTunnelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetTunnel)(nil))
+	return reflect.TypeOf((**NetTunnel)(nil)).Elem()
 }
 
 func (o NetTunnelOutput) ToNetTunnelOutput() NetTunnelOutput {
@@ -382,44 +353,10 @@ func (o NetTunnelOutput) ToNetTunnelOutputWithContext(ctx context.Context) NetTu
 	return o
 }
 
-func (o NetTunnelOutput) ToNetTunnelPtrOutput() NetTunnelPtrOutput {
-	return o.ToNetTunnelPtrOutputWithContext(context.Background())
-}
-
-func (o NetTunnelOutput) ToNetTunnelPtrOutputWithContext(ctx context.Context) NetTunnelPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetTunnel) *NetTunnel {
-		return &v
-	}).(NetTunnelPtrOutput)
-}
-
-type NetTunnelPtrOutput struct{ *pulumi.OutputState }
-
-func (NetTunnelPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetTunnel)(nil))
-}
-
-func (o NetTunnelPtrOutput) ToNetTunnelPtrOutput() NetTunnelPtrOutput {
-	return o
-}
-
-func (o NetTunnelPtrOutput) ToNetTunnelPtrOutputWithContext(ctx context.Context) NetTunnelPtrOutput {
-	return o
-}
-
-func (o NetTunnelPtrOutput) Elem() NetTunnelOutput {
-	return o.ApplyT(func(v *NetTunnel) NetTunnel {
-		if v != nil {
-			return *v
-		}
-		var ret NetTunnel
-		return ret
-	}).(NetTunnelOutput)
-}
-
 type NetTunnelArrayOutput struct{ *pulumi.OutputState }
 
 func (NetTunnelArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NetTunnel)(nil))
+	return reflect.TypeOf((*[]*NetTunnel)(nil)).Elem()
 }
 
 func (o NetTunnelArrayOutput) ToNetTunnelArrayOutput() NetTunnelArrayOutput {
@@ -431,15 +368,15 @@ func (o NetTunnelArrayOutput) ToNetTunnelArrayOutputWithContext(ctx context.Cont
 }
 
 func (o NetTunnelArrayOutput) Index(i pulumi.IntInput) NetTunnelOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetTunnel {
-		return vs[0].([]NetTunnel)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetTunnel {
+		return vs[0].([]*NetTunnel)[vs[1].(int)]
 	}).(NetTunnelOutput)
 }
 
 type NetTunnelMapOutput struct{ *pulumi.OutputState }
 
 func (NetTunnelMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]NetTunnel)(nil))
+	return reflect.TypeOf((*map[string]*NetTunnel)(nil)).Elem()
 }
 
 func (o NetTunnelMapOutput) ToNetTunnelMapOutput() NetTunnelMapOutput {
@@ -451,18 +388,16 @@ func (o NetTunnelMapOutput) ToNetTunnelMapOutputWithContext(ctx context.Context)
 }
 
 func (o NetTunnelMapOutput) MapIndex(k pulumi.StringInput) NetTunnelOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NetTunnel {
-		return vs[0].(map[string]NetTunnel)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *NetTunnel {
+		return vs[0].(map[string]*NetTunnel)[vs[1].(string)]
 	}).(NetTunnelOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetTunnelInput)(nil)).Elem(), &NetTunnel{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetTunnelPtrInput)(nil)).Elem(), &NetTunnel{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetTunnelArrayInput)(nil)).Elem(), NetTunnelArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetTunnelMapInput)(nil)).Elem(), NetTunnelMap{})
 	pulumi.RegisterOutputType(NetTunnelOutput{})
-	pulumi.RegisterOutputType(NetTunnelPtrOutput{})
 	pulumi.RegisterOutputType(NetTunnelArrayOutput{})
 	pulumi.RegisterOutputType(NetTunnelMapOutput{})
 }

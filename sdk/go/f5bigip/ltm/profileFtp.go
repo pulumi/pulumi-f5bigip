@@ -28,7 +28,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ltm.NewProfileFtp(ctx, "sanjose_ftp_profile", &ltm.ProfileFtpArgs{
+// 		_, err := ltm.NewProfileFtp(ctx, "sanjose-ftp-profile", &ltm.ProfileFtpArgs{
 // 			AllowActiveMode:        pulumi.String("enabled"),
 // 			DefaultsFrom:           pulumi.String("/Common/ftp"),
 // 			Description:            pulumi.String("test-tftp-profile"),
@@ -56,7 +56,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ltm.NewProfileFtp(ctx, "sanjose_ftp_profile", &ltm.ProfileFtpArgs{
+// 		_, err := ltm.NewProfileFtp(ctx, "sanjose-ftp-profile", &ltm.ProfileFtpArgs{
 // 			AllowFtps:         pulumi.String("enabled"),
 // 			DefaultsFrom:      pulumi.String("/Common/ftp"),
 // 			Description:       pulumi.String("test-tftp-profile"),
@@ -319,7 +319,7 @@ type ProfileFtpInput interface {
 }
 
 func (*ProfileFtp) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileFtp)(nil))
+	return reflect.TypeOf((**ProfileFtp)(nil)).Elem()
 }
 
 func (i *ProfileFtp) ToProfileFtpOutput() ProfileFtpOutput {
@@ -328,35 +328,6 @@ func (i *ProfileFtp) ToProfileFtpOutput() ProfileFtpOutput {
 
 func (i *ProfileFtp) ToProfileFtpOutputWithContext(ctx context.Context) ProfileFtpOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileFtpOutput)
-}
-
-func (i *ProfileFtp) ToProfileFtpPtrOutput() ProfileFtpPtrOutput {
-	return i.ToProfileFtpPtrOutputWithContext(context.Background())
-}
-
-func (i *ProfileFtp) ToProfileFtpPtrOutputWithContext(ctx context.Context) ProfileFtpPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProfileFtpPtrOutput)
-}
-
-type ProfileFtpPtrInput interface {
-	pulumi.Input
-
-	ToProfileFtpPtrOutput() ProfileFtpPtrOutput
-	ToProfileFtpPtrOutputWithContext(ctx context.Context) ProfileFtpPtrOutput
-}
-
-type profileFtpPtrType ProfileFtpArgs
-
-func (*profileFtpPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProfileFtp)(nil))
-}
-
-func (i *profileFtpPtrType) ToProfileFtpPtrOutput() ProfileFtpPtrOutput {
-	return i.ToProfileFtpPtrOutputWithContext(context.Background())
-}
-
-func (i *profileFtpPtrType) ToProfileFtpPtrOutputWithContext(ctx context.Context) ProfileFtpPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProfileFtpPtrOutput)
 }
 
 // ProfileFtpArrayInput is an input type that accepts ProfileFtpArray and ProfileFtpArrayOutput values.
@@ -412,7 +383,7 @@ func (i ProfileFtpMap) ToProfileFtpMapOutputWithContext(ctx context.Context) Pro
 type ProfileFtpOutput struct{ *pulumi.OutputState }
 
 func (ProfileFtpOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileFtp)(nil))
+	return reflect.TypeOf((**ProfileFtp)(nil)).Elem()
 }
 
 func (o ProfileFtpOutput) ToProfileFtpOutput() ProfileFtpOutput {
@@ -423,44 +394,10 @@ func (o ProfileFtpOutput) ToProfileFtpOutputWithContext(ctx context.Context) Pro
 	return o
 }
 
-func (o ProfileFtpOutput) ToProfileFtpPtrOutput() ProfileFtpPtrOutput {
-	return o.ToProfileFtpPtrOutputWithContext(context.Background())
-}
-
-func (o ProfileFtpOutput) ToProfileFtpPtrOutputWithContext(ctx context.Context) ProfileFtpPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProfileFtp) *ProfileFtp {
-		return &v
-	}).(ProfileFtpPtrOutput)
-}
-
-type ProfileFtpPtrOutput struct{ *pulumi.OutputState }
-
-func (ProfileFtpPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProfileFtp)(nil))
-}
-
-func (o ProfileFtpPtrOutput) ToProfileFtpPtrOutput() ProfileFtpPtrOutput {
-	return o
-}
-
-func (o ProfileFtpPtrOutput) ToProfileFtpPtrOutputWithContext(ctx context.Context) ProfileFtpPtrOutput {
-	return o
-}
-
-func (o ProfileFtpPtrOutput) Elem() ProfileFtpOutput {
-	return o.ApplyT(func(v *ProfileFtp) ProfileFtp {
-		if v != nil {
-			return *v
-		}
-		var ret ProfileFtp
-		return ret
-	}).(ProfileFtpOutput)
-}
-
 type ProfileFtpArrayOutput struct{ *pulumi.OutputState }
 
 func (ProfileFtpArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProfileFtp)(nil))
+	return reflect.TypeOf((*[]*ProfileFtp)(nil)).Elem()
 }
 
 func (o ProfileFtpArrayOutput) ToProfileFtpArrayOutput() ProfileFtpArrayOutput {
@@ -472,15 +409,15 @@ func (o ProfileFtpArrayOutput) ToProfileFtpArrayOutputWithContext(ctx context.Co
 }
 
 func (o ProfileFtpArrayOutput) Index(i pulumi.IntInput) ProfileFtpOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProfileFtp {
-		return vs[0].([]ProfileFtp)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProfileFtp {
+		return vs[0].([]*ProfileFtp)[vs[1].(int)]
 	}).(ProfileFtpOutput)
 }
 
 type ProfileFtpMapOutput struct{ *pulumi.OutputState }
 
 func (ProfileFtpMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ProfileFtp)(nil))
+	return reflect.TypeOf((*map[string]*ProfileFtp)(nil)).Elem()
 }
 
 func (o ProfileFtpMapOutput) ToProfileFtpMapOutput() ProfileFtpMapOutput {
@@ -492,18 +429,16 @@ func (o ProfileFtpMapOutput) ToProfileFtpMapOutputWithContext(ctx context.Contex
 }
 
 func (o ProfileFtpMapOutput) MapIndex(k pulumi.StringInput) ProfileFtpOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ProfileFtp {
-		return vs[0].(map[string]ProfileFtp)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ProfileFtp {
+		return vs[0].(map[string]*ProfileFtp)[vs[1].(string)]
 	}).(ProfileFtpOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileFtpInput)(nil)).Elem(), &ProfileFtp{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProfileFtpPtrInput)(nil)).Elem(), &ProfileFtp{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileFtpArrayInput)(nil)).Elem(), ProfileFtpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileFtpMapInput)(nil)).Elem(), ProfileFtpMap{})
 	pulumi.RegisterOutputType(ProfileFtpOutput{})
-	pulumi.RegisterOutputType(ProfileFtpPtrOutput{})
 	pulumi.RegisterOutputType(ProfileFtpArrayOutput{})
 	pulumi.RegisterOutputType(ProfileFtpMapOutput{})
 }

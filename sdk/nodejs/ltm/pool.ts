@@ -105,40 +105,38 @@ export class Pool extends pulumi.CustomResource {
      */
     constructor(name: string, args: PoolArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PoolArgs | PoolState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PoolState | undefined;
-            inputs["allowNat"] = state ? state.allowNat : undefined;
-            inputs["allowSnat"] = state ? state.allowSnat : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["loadBalancingMode"] = state ? state.loadBalancingMode : undefined;
-            inputs["minimumActiveMembers"] = state ? state.minimumActiveMembers : undefined;
-            inputs["monitors"] = state ? state.monitors : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["reselectTries"] = state ? state.reselectTries : undefined;
-            inputs["serviceDownAction"] = state ? state.serviceDownAction : undefined;
-            inputs["slowRampTime"] = state ? state.slowRampTime : undefined;
+            resourceInputs["allowNat"] = state ? state.allowNat : undefined;
+            resourceInputs["allowSnat"] = state ? state.allowSnat : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["loadBalancingMode"] = state ? state.loadBalancingMode : undefined;
+            resourceInputs["minimumActiveMembers"] = state ? state.minimumActiveMembers : undefined;
+            resourceInputs["monitors"] = state ? state.monitors : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["reselectTries"] = state ? state.reselectTries : undefined;
+            resourceInputs["serviceDownAction"] = state ? state.serviceDownAction : undefined;
+            resourceInputs["slowRampTime"] = state ? state.slowRampTime : undefined;
         } else {
             const args = argsOrState as PoolArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            inputs["allowNat"] = args ? args.allowNat : undefined;
-            inputs["allowSnat"] = args ? args.allowSnat : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["loadBalancingMode"] = args ? args.loadBalancingMode : undefined;
-            inputs["minimumActiveMembers"] = args ? args.minimumActiveMembers : undefined;
-            inputs["monitors"] = args ? args.monitors : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["reselectTries"] = args ? args.reselectTries : undefined;
-            inputs["serviceDownAction"] = args ? args.serviceDownAction : undefined;
-            inputs["slowRampTime"] = args ? args.slowRampTime : undefined;
+            resourceInputs["allowNat"] = args ? args.allowNat : undefined;
+            resourceInputs["allowSnat"] = args ? args.allowSnat : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["loadBalancingMode"] = args ? args.loadBalancingMode : undefined;
+            resourceInputs["minimumActiveMembers"] = args ? args.minimumActiveMembers : undefined;
+            resourceInputs["monitors"] = args ? args.monitors : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["reselectTries"] = args ? args.reselectTries : undefined;
+            resourceInputs["serviceDownAction"] = args ? args.serviceDownAction : undefined;
+            resourceInputs["slowRampTime"] = args ? args.slowRampTime : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Pool.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Pool.__pulumiType, name, resourceInputs, opts);
     }
 }
 

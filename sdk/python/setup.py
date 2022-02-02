@@ -55,6 +55,7 @@ setup(name='pulumi_f5bigip',
       package_data={
           'pulumi_f5bigip': [
               'py.typed',
+              'pulumi-plugin.json',
           ]
       },
       install_requires=[

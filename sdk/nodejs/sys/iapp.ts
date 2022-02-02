@@ -135,51 +135,49 @@ export class IApp extends pulumi.CustomResource {
      */
     constructor(name: string, args?: IAppArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IAppArgs | IAppState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IAppState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["devicegroup"] = state ? state.devicegroup : undefined;
-            inputs["executeAction"] = state ? state.executeAction : undefined;
-            inputs["inheritedDevicegroup"] = state ? state.inheritedDevicegroup : undefined;
-            inputs["inheritedTrafficGroup"] = state ? state.inheritedTrafficGroup : undefined;
-            inputs["jsonfile"] = state ? state.jsonfile : undefined;
-            inputs["lists"] = state ? state.lists : undefined;
-            inputs["metadatas"] = state ? state.metadatas : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["partition"] = state ? state.partition : undefined;
-            inputs["strictUpdates"] = state ? state.strictUpdates : undefined;
-            inputs["tables"] = state ? state.tables : undefined;
-            inputs["template"] = state ? state.template : undefined;
-            inputs["templateModified"] = state ? state.templateModified : undefined;
-            inputs["templatePrerequisiteErrors"] = state ? state.templatePrerequisiteErrors : undefined;
-            inputs["trafficGroup"] = state ? state.trafficGroup : undefined;
-            inputs["variables"] = state ? state.variables : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["devicegroup"] = state ? state.devicegroup : undefined;
+            resourceInputs["executeAction"] = state ? state.executeAction : undefined;
+            resourceInputs["inheritedDevicegroup"] = state ? state.inheritedDevicegroup : undefined;
+            resourceInputs["inheritedTrafficGroup"] = state ? state.inheritedTrafficGroup : undefined;
+            resourceInputs["jsonfile"] = state ? state.jsonfile : undefined;
+            resourceInputs["lists"] = state ? state.lists : undefined;
+            resourceInputs["metadatas"] = state ? state.metadatas : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["partition"] = state ? state.partition : undefined;
+            resourceInputs["strictUpdates"] = state ? state.strictUpdates : undefined;
+            resourceInputs["tables"] = state ? state.tables : undefined;
+            resourceInputs["template"] = state ? state.template : undefined;
+            resourceInputs["templateModified"] = state ? state.templateModified : undefined;
+            resourceInputs["templatePrerequisiteErrors"] = state ? state.templatePrerequisiteErrors : undefined;
+            resourceInputs["trafficGroup"] = state ? state.trafficGroup : undefined;
+            resourceInputs["variables"] = state ? state.variables : undefined;
         } else {
             const args = argsOrState as IAppArgs | undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["devicegroup"] = args ? args.devicegroup : undefined;
-            inputs["executeAction"] = args ? args.executeAction : undefined;
-            inputs["inheritedDevicegroup"] = args ? args.inheritedDevicegroup : undefined;
-            inputs["inheritedTrafficGroup"] = args ? args.inheritedTrafficGroup : undefined;
-            inputs["jsonfile"] = args ? args.jsonfile : undefined;
-            inputs["lists"] = args ? args.lists : undefined;
-            inputs["metadatas"] = args ? args.metadatas : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["partition"] = args ? args.partition : undefined;
-            inputs["strictUpdates"] = args ? args.strictUpdates : undefined;
-            inputs["tables"] = args ? args.tables : undefined;
-            inputs["template"] = args ? args.template : undefined;
-            inputs["templateModified"] = args ? args.templateModified : undefined;
-            inputs["templatePrerequisiteErrors"] = args ? args.templatePrerequisiteErrors : undefined;
-            inputs["trafficGroup"] = args ? args.trafficGroup : undefined;
-            inputs["variables"] = args ? args.variables : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["devicegroup"] = args ? args.devicegroup : undefined;
+            resourceInputs["executeAction"] = args ? args.executeAction : undefined;
+            resourceInputs["inheritedDevicegroup"] = args ? args.inheritedDevicegroup : undefined;
+            resourceInputs["inheritedTrafficGroup"] = args ? args.inheritedTrafficGroup : undefined;
+            resourceInputs["jsonfile"] = args ? args.jsonfile : undefined;
+            resourceInputs["lists"] = args ? args.lists : undefined;
+            resourceInputs["metadatas"] = args ? args.metadatas : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["partition"] = args ? args.partition : undefined;
+            resourceInputs["strictUpdates"] = args ? args.strictUpdates : undefined;
+            resourceInputs["tables"] = args ? args.tables : undefined;
+            resourceInputs["template"] = args ? args.template : undefined;
+            resourceInputs["templateModified"] = args ? args.templateModified : undefined;
+            resourceInputs["templatePrerequisiteErrors"] = args ? args.templatePrerequisiteErrors : undefined;
+            resourceInputs["trafficGroup"] = args ? args.trafficGroup : undefined;
+            resourceInputs["variables"] = args ? args.variables : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(IApp.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(IApp.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -529,32 +529,30 @@ export class As3 extends pulumi.CustomResource {
      */
     constructor(name: string, args: As3Args, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: As3Args | As3State, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as As3State | undefined;
-            inputs["applicationList"] = state ? state.applicationList : undefined;
-            inputs["as3Json"] = state ? state.as3Json : undefined;
-            inputs["ignoreMetadata"] = state ? state.ignoreMetadata : undefined;
-            inputs["tenantFilter"] = state ? state.tenantFilter : undefined;
-            inputs["tenantList"] = state ? state.tenantList : undefined;
-            inputs["tenantName"] = state ? state.tenantName : undefined;
+            resourceInputs["applicationList"] = state ? state.applicationList : undefined;
+            resourceInputs["as3Json"] = state ? state.as3Json : undefined;
+            resourceInputs["ignoreMetadata"] = state ? state.ignoreMetadata : undefined;
+            resourceInputs["tenantFilter"] = state ? state.tenantFilter : undefined;
+            resourceInputs["tenantList"] = state ? state.tenantList : undefined;
+            resourceInputs["tenantName"] = state ? state.tenantName : undefined;
         } else {
             const args = argsOrState as As3Args | undefined;
             if ((!args || args.as3Json === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'as3Json'");
             }
-            inputs["applicationList"] = args ? args.applicationList : undefined;
-            inputs["as3Json"] = args ? args.as3Json : undefined;
-            inputs["ignoreMetadata"] = args ? args.ignoreMetadata : undefined;
-            inputs["tenantFilter"] = args ? args.tenantFilter : undefined;
-            inputs["tenantList"] = args ? args.tenantList : undefined;
-            inputs["tenantName"] = args ? args.tenantName : undefined;
+            resourceInputs["applicationList"] = args ? args.applicationList : undefined;
+            resourceInputs["as3Json"] = args ? args.as3Json : undefined;
+            resourceInputs["ignoreMetadata"] = args ? args.ignoreMetadata : undefined;
+            resourceInputs["tenantFilter"] = args ? args.tenantFilter : undefined;
+            resourceInputs["tenantList"] = args ? args.tenantList : undefined;
+            resourceInputs["tenantName"] = args ? args.tenantName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(As3.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(As3.__pulumiType, name, resourceInputs, opts);
     }
 }
 

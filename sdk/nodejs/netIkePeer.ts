@@ -194,44 +194,44 @@ export class NetIkePeer extends pulumi.CustomResource {
      */
     constructor(name: string, args: NetIkePeerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NetIkePeerArgs | NetIkePeerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetIkePeerState | undefined;
-            inputs["appService"] = state ? state.appService : undefined;
-            inputs["caCertFile"] = state ? state.caCertFile : undefined;
-            inputs["crlFile"] = state ? state.crlFile : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["dpdDelay"] = state ? state.dpdDelay : undefined;
-            inputs["generatePolicy"] = state ? state.generatePolicy : undefined;
-            inputs["lifetime"] = state ? state.lifetime : undefined;
-            inputs["mode"] = state ? state.mode : undefined;
-            inputs["myCertFile"] = state ? state.myCertFile : undefined;
-            inputs["myCertKeyFile"] = state ? state.myCertKeyFile : undefined;
-            inputs["myCertKeyPassphrase"] = state ? state.myCertKeyPassphrase : undefined;
-            inputs["myIdType"] = state ? state.myIdType : undefined;
-            inputs["myIdValue"] = state ? state.myIdValue : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["natTraversal"] = state ? state.natTraversal : undefined;
-            inputs["passive"] = state ? state.passive : undefined;
-            inputs["peersCertFile"] = state ? state.peersCertFile : undefined;
-            inputs["peersCertType"] = state ? state.peersCertType : undefined;
-            inputs["peersIdType"] = state ? state.peersIdType : undefined;
-            inputs["peersIdValue"] = state ? state.peersIdValue : undefined;
-            inputs["phase1AuthMethod"] = state ? state.phase1AuthMethod : undefined;
-            inputs["phase1EncryptAlgorithm"] = state ? state.phase1EncryptAlgorithm : undefined;
-            inputs["phase1HashAlgorithm"] = state ? state.phase1HashAlgorithm : undefined;
-            inputs["phase1PerfectForwardSecrecy"] = state ? state.phase1PerfectForwardSecrecy : undefined;
-            inputs["presharedKey"] = state ? state.presharedKey : undefined;
-            inputs["presharedKeyEncrypted"] = state ? state.presharedKeyEncrypted : undefined;
-            inputs["prf"] = state ? state.prf : undefined;
-            inputs["proxySupport"] = state ? state.proxySupport : undefined;
-            inputs["remoteAddress"] = state ? state.remoteAddress : undefined;
-            inputs["replayWindowSize"] = state ? state.replayWindowSize : undefined;
-            inputs["state"] = state ? state.state : undefined;
-            inputs["trafficSelectors"] = state ? state.trafficSelectors : undefined;
-            inputs["verifyCert"] = state ? state.verifyCert : undefined;
-            inputs["versions"] = state ? state.versions : undefined;
+            resourceInputs["appService"] = state ? state.appService : undefined;
+            resourceInputs["caCertFile"] = state ? state.caCertFile : undefined;
+            resourceInputs["crlFile"] = state ? state.crlFile : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["dpdDelay"] = state ? state.dpdDelay : undefined;
+            resourceInputs["generatePolicy"] = state ? state.generatePolicy : undefined;
+            resourceInputs["lifetime"] = state ? state.lifetime : undefined;
+            resourceInputs["mode"] = state ? state.mode : undefined;
+            resourceInputs["myCertFile"] = state ? state.myCertFile : undefined;
+            resourceInputs["myCertKeyFile"] = state ? state.myCertKeyFile : undefined;
+            resourceInputs["myCertKeyPassphrase"] = state ? state.myCertKeyPassphrase : undefined;
+            resourceInputs["myIdType"] = state ? state.myIdType : undefined;
+            resourceInputs["myIdValue"] = state ? state.myIdValue : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["natTraversal"] = state ? state.natTraversal : undefined;
+            resourceInputs["passive"] = state ? state.passive : undefined;
+            resourceInputs["peersCertFile"] = state ? state.peersCertFile : undefined;
+            resourceInputs["peersCertType"] = state ? state.peersCertType : undefined;
+            resourceInputs["peersIdType"] = state ? state.peersIdType : undefined;
+            resourceInputs["peersIdValue"] = state ? state.peersIdValue : undefined;
+            resourceInputs["phase1AuthMethod"] = state ? state.phase1AuthMethod : undefined;
+            resourceInputs["phase1EncryptAlgorithm"] = state ? state.phase1EncryptAlgorithm : undefined;
+            resourceInputs["phase1HashAlgorithm"] = state ? state.phase1HashAlgorithm : undefined;
+            resourceInputs["phase1PerfectForwardSecrecy"] = state ? state.phase1PerfectForwardSecrecy : undefined;
+            resourceInputs["presharedKey"] = state ? state.presharedKey : undefined;
+            resourceInputs["presharedKeyEncrypted"] = state ? state.presharedKeyEncrypted : undefined;
+            resourceInputs["prf"] = state ? state.prf : undefined;
+            resourceInputs["proxySupport"] = state ? state.proxySupport : undefined;
+            resourceInputs["remoteAddress"] = state ? state.remoteAddress : undefined;
+            resourceInputs["replayWindowSize"] = state ? state.replayWindowSize : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["trafficSelectors"] = state ? state.trafficSelectors : undefined;
+            resourceInputs["verifyCert"] = state ? state.verifyCert : undefined;
+            resourceInputs["versions"] = state ? state.versions : undefined;
         } else {
             const args = argsOrState as NetIkePeerArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -240,45 +240,43 @@ export class NetIkePeer extends pulumi.CustomResource {
             if ((!args || args.remoteAddress === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'remoteAddress'");
             }
-            inputs["appService"] = args ? args.appService : undefined;
-            inputs["caCertFile"] = args ? args.caCertFile : undefined;
-            inputs["crlFile"] = args ? args.crlFile : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["dpdDelay"] = args ? args.dpdDelay : undefined;
-            inputs["generatePolicy"] = args ? args.generatePolicy : undefined;
-            inputs["lifetime"] = args ? args.lifetime : undefined;
-            inputs["mode"] = args ? args.mode : undefined;
-            inputs["myCertFile"] = args ? args.myCertFile : undefined;
-            inputs["myCertKeyFile"] = args ? args.myCertKeyFile : undefined;
-            inputs["myCertKeyPassphrase"] = args ? args.myCertKeyPassphrase : undefined;
-            inputs["myIdType"] = args ? args.myIdType : undefined;
-            inputs["myIdValue"] = args ? args.myIdValue : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["natTraversal"] = args ? args.natTraversal : undefined;
-            inputs["passive"] = args ? args.passive : undefined;
-            inputs["peersCertFile"] = args ? args.peersCertFile : undefined;
-            inputs["peersCertType"] = args ? args.peersCertType : undefined;
-            inputs["peersIdType"] = args ? args.peersIdType : undefined;
-            inputs["peersIdValue"] = args ? args.peersIdValue : undefined;
-            inputs["phase1AuthMethod"] = args ? args.phase1AuthMethod : undefined;
-            inputs["phase1EncryptAlgorithm"] = args ? args.phase1EncryptAlgorithm : undefined;
-            inputs["phase1HashAlgorithm"] = args ? args.phase1HashAlgorithm : undefined;
-            inputs["phase1PerfectForwardSecrecy"] = args ? args.phase1PerfectForwardSecrecy : undefined;
-            inputs["presharedKey"] = args ? args.presharedKey : undefined;
-            inputs["presharedKeyEncrypted"] = args ? args.presharedKeyEncrypted : undefined;
-            inputs["prf"] = args ? args.prf : undefined;
-            inputs["proxySupport"] = args ? args.proxySupport : undefined;
-            inputs["remoteAddress"] = args ? args.remoteAddress : undefined;
-            inputs["replayWindowSize"] = args ? args.replayWindowSize : undefined;
-            inputs["state"] = args ? args.state : undefined;
-            inputs["trafficSelectors"] = args ? args.trafficSelectors : undefined;
-            inputs["verifyCert"] = args ? args.verifyCert : undefined;
-            inputs["versions"] = args ? args.versions : undefined;
+            resourceInputs["appService"] = args ? args.appService : undefined;
+            resourceInputs["caCertFile"] = args ? args.caCertFile : undefined;
+            resourceInputs["crlFile"] = args ? args.crlFile : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["dpdDelay"] = args ? args.dpdDelay : undefined;
+            resourceInputs["generatePolicy"] = args ? args.generatePolicy : undefined;
+            resourceInputs["lifetime"] = args ? args.lifetime : undefined;
+            resourceInputs["mode"] = args ? args.mode : undefined;
+            resourceInputs["myCertFile"] = args ? args.myCertFile : undefined;
+            resourceInputs["myCertKeyFile"] = args ? args.myCertKeyFile : undefined;
+            resourceInputs["myCertKeyPassphrase"] = args ? args.myCertKeyPassphrase : undefined;
+            resourceInputs["myIdType"] = args ? args.myIdType : undefined;
+            resourceInputs["myIdValue"] = args ? args.myIdValue : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["natTraversal"] = args ? args.natTraversal : undefined;
+            resourceInputs["passive"] = args ? args.passive : undefined;
+            resourceInputs["peersCertFile"] = args ? args.peersCertFile : undefined;
+            resourceInputs["peersCertType"] = args ? args.peersCertType : undefined;
+            resourceInputs["peersIdType"] = args ? args.peersIdType : undefined;
+            resourceInputs["peersIdValue"] = args ? args.peersIdValue : undefined;
+            resourceInputs["phase1AuthMethod"] = args ? args.phase1AuthMethod : undefined;
+            resourceInputs["phase1EncryptAlgorithm"] = args ? args.phase1EncryptAlgorithm : undefined;
+            resourceInputs["phase1HashAlgorithm"] = args ? args.phase1HashAlgorithm : undefined;
+            resourceInputs["phase1PerfectForwardSecrecy"] = args ? args.phase1PerfectForwardSecrecy : undefined;
+            resourceInputs["presharedKey"] = args ? args.presharedKey : undefined;
+            resourceInputs["presharedKeyEncrypted"] = args ? args.presharedKeyEncrypted : undefined;
+            resourceInputs["prf"] = args ? args.prf : undefined;
+            resourceInputs["proxySupport"] = args ? args.proxySupport : undefined;
+            resourceInputs["remoteAddress"] = args ? args.remoteAddress : undefined;
+            resourceInputs["replayWindowSize"] = args ? args.replayWindowSize : undefined;
+            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["trafficSelectors"] = args ? args.trafficSelectors : undefined;
+            resourceInputs["verifyCert"] = args ? args.verifyCert : undefined;
+            resourceInputs["versions"] = args ? args.versions : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NetIkePeer.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NetIkePeer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

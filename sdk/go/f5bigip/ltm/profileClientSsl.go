@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ltm.NewProfileClientSsl(ctx, "test_ClientSsl", &ltm.ProfileClientSslArgs{
+// 		_, err := ltm.NewProfileClientSsl(ctx, "test-ClientSsl", &ltm.ProfileClientSslArgs{
 // 			Authenticate: pulumi.String("always"),
 // 			Ciphers:      pulumi.String("DEFAULT"),
 // 			DefaultsFrom: pulumi.String("/Common/clientssl"),
@@ -680,7 +680,7 @@ type ProfileClientSslInput interface {
 }
 
 func (*ProfileClientSsl) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileClientSsl)(nil))
+	return reflect.TypeOf((**ProfileClientSsl)(nil)).Elem()
 }
 
 func (i *ProfileClientSsl) ToProfileClientSslOutput() ProfileClientSslOutput {
@@ -689,35 +689,6 @@ func (i *ProfileClientSsl) ToProfileClientSslOutput() ProfileClientSslOutput {
 
 func (i *ProfileClientSsl) ToProfileClientSslOutputWithContext(ctx context.Context) ProfileClientSslOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileClientSslOutput)
-}
-
-func (i *ProfileClientSsl) ToProfileClientSslPtrOutput() ProfileClientSslPtrOutput {
-	return i.ToProfileClientSslPtrOutputWithContext(context.Background())
-}
-
-func (i *ProfileClientSsl) ToProfileClientSslPtrOutputWithContext(ctx context.Context) ProfileClientSslPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProfileClientSslPtrOutput)
-}
-
-type ProfileClientSslPtrInput interface {
-	pulumi.Input
-
-	ToProfileClientSslPtrOutput() ProfileClientSslPtrOutput
-	ToProfileClientSslPtrOutputWithContext(ctx context.Context) ProfileClientSslPtrOutput
-}
-
-type profileClientSslPtrType ProfileClientSslArgs
-
-func (*profileClientSslPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProfileClientSsl)(nil))
-}
-
-func (i *profileClientSslPtrType) ToProfileClientSslPtrOutput() ProfileClientSslPtrOutput {
-	return i.ToProfileClientSslPtrOutputWithContext(context.Background())
-}
-
-func (i *profileClientSslPtrType) ToProfileClientSslPtrOutputWithContext(ctx context.Context) ProfileClientSslPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProfileClientSslPtrOutput)
 }
 
 // ProfileClientSslArrayInput is an input type that accepts ProfileClientSslArray and ProfileClientSslArrayOutput values.
@@ -773,7 +744,7 @@ func (i ProfileClientSslMap) ToProfileClientSslMapOutputWithContext(ctx context.
 type ProfileClientSslOutput struct{ *pulumi.OutputState }
 
 func (ProfileClientSslOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileClientSsl)(nil))
+	return reflect.TypeOf((**ProfileClientSsl)(nil)).Elem()
 }
 
 func (o ProfileClientSslOutput) ToProfileClientSslOutput() ProfileClientSslOutput {
@@ -784,44 +755,10 @@ func (o ProfileClientSslOutput) ToProfileClientSslOutputWithContext(ctx context.
 	return o
 }
 
-func (o ProfileClientSslOutput) ToProfileClientSslPtrOutput() ProfileClientSslPtrOutput {
-	return o.ToProfileClientSslPtrOutputWithContext(context.Background())
-}
-
-func (o ProfileClientSslOutput) ToProfileClientSslPtrOutputWithContext(ctx context.Context) ProfileClientSslPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProfileClientSsl) *ProfileClientSsl {
-		return &v
-	}).(ProfileClientSslPtrOutput)
-}
-
-type ProfileClientSslPtrOutput struct{ *pulumi.OutputState }
-
-func (ProfileClientSslPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProfileClientSsl)(nil))
-}
-
-func (o ProfileClientSslPtrOutput) ToProfileClientSslPtrOutput() ProfileClientSslPtrOutput {
-	return o
-}
-
-func (o ProfileClientSslPtrOutput) ToProfileClientSslPtrOutputWithContext(ctx context.Context) ProfileClientSslPtrOutput {
-	return o
-}
-
-func (o ProfileClientSslPtrOutput) Elem() ProfileClientSslOutput {
-	return o.ApplyT(func(v *ProfileClientSsl) ProfileClientSsl {
-		if v != nil {
-			return *v
-		}
-		var ret ProfileClientSsl
-		return ret
-	}).(ProfileClientSslOutput)
-}
-
 type ProfileClientSslArrayOutput struct{ *pulumi.OutputState }
 
 func (ProfileClientSslArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProfileClientSsl)(nil))
+	return reflect.TypeOf((*[]*ProfileClientSsl)(nil)).Elem()
 }
 
 func (o ProfileClientSslArrayOutput) ToProfileClientSslArrayOutput() ProfileClientSslArrayOutput {
@@ -833,15 +770,15 @@ func (o ProfileClientSslArrayOutput) ToProfileClientSslArrayOutputWithContext(ct
 }
 
 func (o ProfileClientSslArrayOutput) Index(i pulumi.IntInput) ProfileClientSslOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProfileClientSsl {
-		return vs[0].([]ProfileClientSsl)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProfileClientSsl {
+		return vs[0].([]*ProfileClientSsl)[vs[1].(int)]
 	}).(ProfileClientSslOutput)
 }
 
 type ProfileClientSslMapOutput struct{ *pulumi.OutputState }
 
 func (ProfileClientSslMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ProfileClientSsl)(nil))
+	return reflect.TypeOf((*map[string]*ProfileClientSsl)(nil)).Elem()
 }
 
 func (o ProfileClientSslMapOutput) ToProfileClientSslMapOutput() ProfileClientSslMapOutput {
@@ -853,18 +790,16 @@ func (o ProfileClientSslMapOutput) ToProfileClientSslMapOutputWithContext(ctx co
 }
 
 func (o ProfileClientSslMapOutput) MapIndex(k pulumi.StringInput) ProfileClientSslOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ProfileClientSsl {
-		return vs[0].(map[string]ProfileClientSsl)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ProfileClientSsl {
+		return vs[0].(map[string]*ProfileClientSsl)[vs[1].(string)]
 	}).(ProfileClientSslOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileClientSslInput)(nil)).Elem(), &ProfileClientSsl{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProfileClientSslPtrInput)(nil)).Elem(), &ProfileClientSsl{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileClientSslArrayInput)(nil)).Elem(), ProfileClientSslArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileClientSslMapInput)(nil)).Elem(), ProfileClientSslMap{})
 	pulumi.RegisterOutputType(ProfileClientSslOutput{})
-	pulumi.RegisterOutputType(ProfileClientSslPtrOutput{})
 	pulumi.RegisterOutputType(ProfileClientSslArrayOutput{})
 	pulumi.RegisterOutputType(ProfileClientSslMapOutput{})
 }

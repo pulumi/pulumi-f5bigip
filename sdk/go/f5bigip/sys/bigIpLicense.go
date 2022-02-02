@@ -99,7 +99,7 @@ type BigIpLicenseInput interface {
 }
 
 func (*BigIpLicense) ElementType() reflect.Type {
-	return reflect.TypeOf((*BigIpLicense)(nil))
+	return reflect.TypeOf((**BigIpLicense)(nil)).Elem()
 }
 
 func (i *BigIpLicense) ToBigIpLicenseOutput() BigIpLicenseOutput {
@@ -108,35 +108,6 @@ func (i *BigIpLicense) ToBigIpLicenseOutput() BigIpLicenseOutput {
 
 func (i *BigIpLicense) ToBigIpLicenseOutputWithContext(ctx context.Context) BigIpLicenseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BigIpLicenseOutput)
-}
-
-func (i *BigIpLicense) ToBigIpLicensePtrOutput() BigIpLicensePtrOutput {
-	return i.ToBigIpLicensePtrOutputWithContext(context.Background())
-}
-
-func (i *BigIpLicense) ToBigIpLicensePtrOutputWithContext(ctx context.Context) BigIpLicensePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BigIpLicensePtrOutput)
-}
-
-type BigIpLicensePtrInput interface {
-	pulumi.Input
-
-	ToBigIpLicensePtrOutput() BigIpLicensePtrOutput
-	ToBigIpLicensePtrOutputWithContext(ctx context.Context) BigIpLicensePtrOutput
-}
-
-type bigIpLicensePtrType BigIpLicenseArgs
-
-func (*bigIpLicensePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BigIpLicense)(nil))
-}
-
-func (i *bigIpLicensePtrType) ToBigIpLicensePtrOutput() BigIpLicensePtrOutput {
-	return i.ToBigIpLicensePtrOutputWithContext(context.Background())
-}
-
-func (i *bigIpLicensePtrType) ToBigIpLicensePtrOutputWithContext(ctx context.Context) BigIpLicensePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BigIpLicensePtrOutput)
 }
 
 // BigIpLicenseArrayInput is an input type that accepts BigIpLicenseArray and BigIpLicenseArrayOutput values.
@@ -192,7 +163,7 @@ func (i BigIpLicenseMap) ToBigIpLicenseMapOutputWithContext(ctx context.Context)
 type BigIpLicenseOutput struct{ *pulumi.OutputState }
 
 func (BigIpLicenseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BigIpLicense)(nil))
+	return reflect.TypeOf((**BigIpLicense)(nil)).Elem()
 }
 
 func (o BigIpLicenseOutput) ToBigIpLicenseOutput() BigIpLicenseOutput {
@@ -203,44 +174,10 @@ func (o BigIpLicenseOutput) ToBigIpLicenseOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o BigIpLicenseOutput) ToBigIpLicensePtrOutput() BigIpLicensePtrOutput {
-	return o.ToBigIpLicensePtrOutputWithContext(context.Background())
-}
-
-func (o BigIpLicenseOutput) ToBigIpLicensePtrOutputWithContext(ctx context.Context) BigIpLicensePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BigIpLicense) *BigIpLicense {
-		return &v
-	}).(BigIpLicensePtrOutput)
-}
-
-type BigIpLicensePtrOutput struct{ *pulumi.OutputState }
-
-func (BigIpLicensePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BigIpLicense)(nil))
-}
-
-func (o BigIpLicensePtrOutput) ToBigIpLicensePtrOutput() BigIpLicensePtrOutput {
-	return o
-}
-
-func (o BigIpLicensePtrOutput) ToBigIpLicensePtrOutputWithContext(ctx context.Context) BigIpLicensePtrOutput {
-	return o
-}
-
-func (o BigIpLicensePtrOutput) Elem() BigIpLicenseOutput {
-	return o.ApplyT(func(v *BigIpLicense) BigIpLicense {
-		if v != nil {
-			return *v
-		}
-		var ret BigIpLicense
-		return ret
-	}).(BigIpLicenseOutput)
-}
-
 type BigIpLicenseArrayOutput struct{ *pulumi.OutputState }
 
 func (BigIpLicenseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BigIpLicense)(nil))
+	return reflect.TypeOf((*[]*BigIpLicense)(nil)).Elem()
 }
 
 func (o BigIpLicenseArrayOutput) ToBigIpLicenseArrayOutput() BigIpLicenseArrayOutput {
@@ -252,15 +189,15 @@ func (o BigIpLicenseArrayOutput) ToBigIpLicenseArrayOutputWithContext(ctx contex
 }
 
 func (o BigIpLicenseArrayOutput) Index(i pulumi.IntInput) BigIpLicenseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BigIpLicense {
-		return vs[0].([]BigIpLicense)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BigIpLicense {
+		return vs[0].([]*BigIpLicense)[vs[1].(int)]
 	}).(BigIpLicenseOutput)
 }
 
 type BigIpLicenseMapOutput struct{ *pulumi.OutputState }
 
 func (BigIpLicenseMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]BigIpLicense)(nil))
+	return reflect.TypeOf((*map[string]*BigIpLicense)(nil)).Elem()
 }
 
 func (o BigIpLicenseMapOutput) ToBigIpLicenseMapOutput() BigIpLicenseMapOutput {
@@ -272,18 +209,16 @@ func (o BigIpLicenseMapOutput) ToBigIpLicenseMapOutputWithContext(ctx context.Co
 }
 
 func (o BigIpLicenseMapOutput) MapIndex(k pulumi.StringInput) BigIpLicenseOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BigIpLicense {
-		return vs[0].(map[string]BigIpLicense)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *BigIpLicense {
+		return vs[0].(map[string]*BigIpLicense)[vs[1].(string)]
 	}).(BigIpLicenseOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BigIpLicenseInput)(nil)).Elem(), &BigIpLicense{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BigIpLicensePtrInput)(nil)).Elem(), &BigIpLicense{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BigIpLicenseArrayInput)(nil)).Elem(), BigIpLicenseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BigIpLicenseMapInput)(nil)).Elem(), BigIpLicenseMap{})
 	pulumi.RegisterOutputType(BigIpLicenseOutput{})
-	pulumi.RegisterOutputType(BigIpLicensePtrOutput{})
 	pulumi.RegisterOutputType(BigIpLicenseArrayOutput{})
 	pulumi.RegisterOutputType(BigIpLicenseMapOutput{})
 }

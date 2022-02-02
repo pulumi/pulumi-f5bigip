@@ -35,7 +35,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := f5bigip.NewFastApplication(ctx, "foo_app", &f5bigip.FastApplicationArgs{
+// 		_, err := f5bigip.NewFastApplication(ctx, "foo-app", &f5bigip.FastApplicationArgs{
 // 			FastJson: readFileOrPanic("new_fast_app.json"),
 // 			Template: pulumi.String("examples/simple_http"),
 // 		})
@@ -143,7 +143,7 @@ type FastApplicationInput interface {
 }
 
 func (*FastApplication) ElementType() reflect.Type {
-	return reflect.TypeOf((*FastApplication)(nil))
+	return reflect.TypeOf((**FastApplication)(nil)).Elem()
 }
 
 func (i *FastApplication) ToFastApplicationOutput() FastApplicationOutput {
@@ -152,35 +152,6 @@ func (i *FastApplication) ToFastApplicationOutput() FastApplicationOutput {
 
 func (i *FastApplication) ToFastApplicationOutputWithContext(ctx context.Context) FastApplicationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FastApplicationOutput)
-}
-
-func (i *FastApplication) ToFastApplicationPtrOutput() FastApplicationPtrOutput {
-	return i.ToFastApplicationPtrOutputWithContext(context.Background())
-}
-
-func (i *FastApplication) ToFastApplicationPtrOutputWithContext(ctx context.Context) FastApplicationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FastApplicationPtrOutput)
-}
-
-type FastApplicationPtrInput interface {
-	pulumi.Input
-
-	ToFastApplicationPtrOutput() FastApplicationPtrOutput
-	ToFastApplicationPtrOutputWithContext(ctx context.Context) FastApplicationPtrOutput
-}
-
-type fastApplicationPtrType FastApplicationArgs
-
-func (*fastApplicationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FastApplication)(nil))
-}
-
-func (i *fastApplicationPtrType) ToFastApplicationPtrOutput() FastApplicationPtrOutput {
-	return i.ToFastApplicationPtrOutputWithContext(context.Background())
-}
-
-func (i *fastApplicationPtrType) ToFastApplicationPtrOutputWithContext(ctx context.Context) FastApplicationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FastApplicationPtrOutput)
 }
 
 // FastApplicationArrayInput is an input type that accepts FastApplicationArray and FastApplicationArrayOutput values.
@@ -236,7 +207,7 @@ func (i FastApplicationMap) ToFastApplicationMapOutputWithContext(ctx context.Co
 type FastApplicationOutput struct{ *pulumi.OutputState }
 
 func (FastApplicationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FastApplication)(nil))
+	return reflect.TypeOf((**FastApplication)(nil)).Elem()
 }
 
 func (o FastApplicationOutput) ToFastApplicationOutput() FastApplicationOutput {
@@ -247,44 +218,10 @@ func (o FastApplicationOutput) ToFastApplicationOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o FastApplicationOutput) ToFastApplicationPtrOutput() FastApplicationPtrOutput {
-	return o.ToFastApplicationPtrOutputWithContext(context.Background())
-}
-
-func (o FastApplicationOutput) ToFastApplicationPtrOutputWithContext(ctx context.Context) FastApplicationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FastApplication) *FastApplication {
-		return &v
-	}).(FastApplicationPtrOutput)
-}
-
-type FastApplicationPtrOutput struct{ *pulumi.OutputState }
-
-func (FastApplicationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FastApplication)(nil))
-}
-
-func (o FastApplicationPtrOutput) ToFastApplicationPtrOutput() FastApplicationPtrOutput {
-	return o
-}
-
-func (o FastApplicationPtrOutput) ToFastApplicationPtrOutputWithContext(ctx context.Context) FastApplicationPtrOutput {
-	return o
-}
-
-func (o FastApplicationPtrOutput) Elem() FastApplicationOutput {
-	return o.ApplyT(func(v *FastApplication) FastApplication {
-		if v != nil {
-			return *v
-		}
-		var ret FastApplication
-		return ret
-	}).(FastApplicationOutput)
-}
-
 type FastApplicationArrayOutput struct{ *pulumi.OutputState }
 
 func (FastApplicationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FastApplication)(nil))
+	return reflect.TypeOf((*[]*FastApplication)(nil)).Elem()
 }
 
 func (o FastApplicationArrayOutput) ToFastApplicationArrayOutput() FastApplicationArrayOutput {
@@ -296,15 +233,15 @@ func (o FastApplicationArrayOutput) ToFastApplicationArrayOutputWithContext(ctx 
 }
 
 func (o FastApplicationArrayOutput) Index(i pulumi.IntInput) FastApplicationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FastApplication {
-		return vs[0].([]FastApplication)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FastApplication {
+		return vs[0].([]*FastApplication)[vs[1].(int)]
 	}).(FastApplicationOutput)
 }
 
 type FastApplicationMapOutput struct{ *pulumi.OutputState }
 
 func (FastApplicationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FastApplication)(nil))
+	return reflect.TypeOf((*map[string]*FastApplication)(nil)).Elem()
 }
 
 func (o FastApplicationMapOutput) ToFastApplicationMapOutput() FastApplicationMapOutput {
@@ -316,18 +253,16 @@ func (o FastApplicationMapOutput) ToFastApplicationMapOutputWithContext(ctx cont
 }
 
 func (o FastApplicationMapOutput) MapIndex(k pulumi.StringInput) FastApplicationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FastApplication {
-		return vs[0].(map[string]FastApplication)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FastApplication {
+		return vs[0].(map[string]*FastApplication)[vs[1].(string)]
 	}).(FastApplicationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FastApplicationInput)(nil)).Elem(), &FastApplication{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FastApplicationPtrInput)(nil)).Elem(), &FastApplication{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FastApplicationArrayInput)(nil)).Elem(), FastApplicationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FastApplicationMapInput)(nil)).Elem(), FastApplicationMap{})
 	pulumi.RegisterOutputType(FastApplicationOutput{})
-	pulumi.RegisterOutputType(FastApplicationPtrOutput{})
 	pulumi.RegisterOutputType(FastApplicationArrayOutput{})
 	pulumi.RegisterOutputType(FastApplicationMapOutput{})
 }

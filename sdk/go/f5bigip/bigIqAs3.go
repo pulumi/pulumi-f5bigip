@@ -214,7 +214,7 @@ type BigIqAs3Input interface {
 }
 
 func (*BigIqAs3) ElementType() reflect.Type {
-	return reflect.TypeOf((*BigIqAs3)(nil))
+	return reflect.TypeOf((**BigIqAs3)(nil)).Elem()
 }
 
 func (i *BigIqAs3) ToBigIqAs3Output() BigIqAs3Output {
@@ -223,35 +223,6 @@ func (i *BigIqAs3) ToBigIqAs3Output() BigIqAs3Output {
 
 func (i *BigIqAs3) ToBigIqAs3OutputWithContext(ctx context.Context) BigIqAs3Output {
 	return pulumi.ToOutputWithContext(ctx, i).(BigIqAs3Output)
-}
-
-func (i *BigIqAs3) ToBigIqAs3PtrOutput() BigIqAs3PtrOutput {
-	return i.ToBigIqAs3PtrOutputWithContext(context.Background())
-}
-
-func (i *BigIqAs3) ToBigIqAs3PtrOutputWithContext(ctx context.Context) BigIqAs3PtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BigIqAs3PtrOutput)
-}
-
-type BigIqAs3PtrInput interface {
-	pulumi.Input
-
-	ToBigIqAs3PtrOutput() BigIqAs3PtrOutput
-	ToBigIqAs3PtrOutputWithContext(ctx context.Context) BigIqAs3PtrOutput
-}
-
-type bigIqAs3PtrType BigIqAs3Args
-
-func (*bigIqAs3PtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BigIqAs3)(nil))
-}
-
-func (i *bigIqAs3PtrType) ToBigIqAs3PtrOutput() BigIqAs3PtrOutput {
-	return i.ToBigIqAs3PtrOutputWithContext(context.Background())
-}
-
-func (i *bigIqAs3PtrType) ToBigIqAs3PtrOutputWithContext(ctx context.Context) BigIqAs3PtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BigIqAs3PtrOutput)
 }
 
 // BigIqAs3ArrayInput is an input type that accepts BigIqAs3Array and BigIqAs3ArrayOutput values.
@@ -307,7 +278,7 @@ func (i BigIqAs3Map) ToBigIqAs3MapOutputWithContext(ctx context.Context) BigIqAs
 type BigIqAs3Output struct{ *pulumi.OutputState }
 
 func (BigIqAs3Output) ElementType() reflect.Type {
-	return reflect.TypeOf((*BigIqAs3)(nil))
+	return reflect.TypeOf((**BigIqAs3)(nil)).Elem()
 }
 
 func (o BigIqAs3Output) ToBigIqAs3Output() BigIqAs3Output {
@@ -318,44 +289,10 @@ func (o BigIqAs3Output) ToBigIqAs3OutputWithContext(ctx context.Context) BigIqAs
 	return o
 }
 
-func (o BigIqAs3Output) ToBigIqAs3PtrOutput() BigIqAs3PtrOutput {
-	return o.ToBigIqAs3PtrOutputWithContext(context.Background())
-}
-
-func (o BigIqAs3Output) ToBigIqAs3PtrOutputWithContext(ctx context.Context) BigIqAs3PtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BigIqAs3) *BigIqAs3 {
-		return &v
-	}).(BigIqAs3PtrOutput)
-}
-
-type BigIqAs3PtrOutput struct{ *pulumi.OutputState }
-
-func (BigIqAs3PtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BigIqAs3)(nil))
-}
-
-func (o BigIqAs3PtrOutput) ToBigIqAs3PtrOutput() BigIqAs3PtrOutput {
-	return o
-}
-
-func (o BigIqAs3PtrOutput) ToBigIqAs3PtrOutputWithContext(ctx context.Context) BigIqAs3PtrOutput {
-	return o
-}
-
-func (o BigIqAs3PtrOutput) Elem() BigIqAs3Output {
-	return o.ApplyT(func(v *BigIqAs3) BigIqAs3 {
-		if v != nil {
-			return *v
-		}
-		var ret BigIqAs3
-		return ret
-	}).(BigIqAs3Output)
-}
-
 type BigIqAs3ArrayOutput struct{ *pulumi.OutputState }
 
 func (BigIqAs3ArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BigIqAs3)(nil))
+	return reflect.TypeOf((*[]*BigIqAs3)(nil)).Elem()
 }
 
 func (o BigIqAs3ArrayOutput) ToBigIqAs3ArrayOutput() BigIqAs3ArrayOutput {
@@ -367,15 +304,15 @@ func (o BigIqAs3ArrayOutput) ToBigIqAs3ArrayOutputWithContext(ctx context.Contex
 }
 
 func (o BigIqAs3ArrayOutput) Index(i pulumi.IntInput) BigIqAs3Output {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BigIqAs3 {
-		return vs[0].([]BigIqAs3)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BigIqAs3 {
+		return vs[0].([]*BigIqAs3)[vs[1].(int)]
 	}).(BigIqAs3Output)
 }
 
 type BigIqAs3MapOutput struct{ *pulumi.OutputState }
 
 func (BigIqAs3MapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]BigIqAs3)(nil))
+	return reflect.TypeOf((*map[string]*BigIqAs3)(nil)).Elem()
 }
 
 func (o BigIqAs3MapOutput) ToBigIqAs3MapOutput() BigIqAs3MapOutput {
@@ -387,18 +324,16 @@ func (o BigIqAs3MapOutput) ToBigIqAs3MapOutputWithContext(ctx context.Context) B
 }
 
 func (o BigIqAs3MapOutput) MapIndex(k pulumi.StringInput) BigIqAs3Output {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BigIqAs3 {
-		return vs[0].(map[string]BigIqAs3)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *BigIqAs3 {
+		return vs[0].(map[string]*BigIqAs3)[vs[1].(string)]
 	}).(BigIqAs3Output)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BigIqAs3Input)(nil)).Elem(), &BigIqAs3{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BigIqAs3PtrInput)(nil)).Elem(), &BigIqAs3{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BigIqAs3ArrayInput)(nil)).Elem(), BigIqAs3Array{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BigIqAs3MapInput)(nil)).Elem(), BigIqAs3Map{})
 	pulumi.RegisterOutputType(BigIqAs3Output{})
-	pulumi.RegisterOutputType(BigIqAs3PtrOutput{})
 	pulumi.RegisterOutputType(BigIqAs3ArrayOutput{})
 	pulumi.RegisterOutputType(BigIqAs3MapOutput{})
 }

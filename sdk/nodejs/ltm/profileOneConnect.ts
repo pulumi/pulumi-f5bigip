@@ -106,40 +106,38 @@ export class ProfileOneConnect extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProfileOneConnectArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProfileOneConnectArgs | ProfileOneConnectState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProfileOneConnectState | undefined;
-            inputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
-            inputs["idleTimeoutOverride"] = state ? state.idleTimeoutOverride : undefined;
-            inputs["limitType"] = state ? state.limitType : undefined;
-            inputs["maxAge"] = state ? state.maxAge : undefined;
-            inputs["maxReuse"] = state ? state.maxReuse : undefined;
-            inputs["maxSize"] = state ? state.maxSize : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["partition"] = state ? state.partition : undefined;
-            inputs["sharePools"] = state ? state.sharePools : undefined;
-            inputs["sourceMask"] = state ? state.sourceMask : undefined;
+            resourceInputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
+            resourceInputs["idleTimeoutOverride"] = state ? state.idleTimeoutOverride : undefined;
+            resourceInputs["limitType"] = state ? state.limitType : undefined;
+            resourceInputs["maxAge"] = state ? state.maxAge : undefined;
+            resourceInputs["maxReuse"] = state ? state.maxReuse : undefined;
+            resourceInputs["maxSize"] = state ? state.maxSize : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["partition"] = state ? state.partition : undefined;
+            resourceInputs["sharePools"] = state ? state.sharePools : undefined;
+            resourceInputs["sourceMask"] = state ? state.sourceMask : undefined;
         } else {
             const args = argsOrState as ProfileOneConnectArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            inputs["defaultsFrom"] = args ? args.defaultsFrom : undefined;
-            inputs["idleTimeoutOverride"] = args ? args.idleTimeoutOverride : undefined;
-            inputs["limitType"] = args ? args.limitType : undefined;
-            inputs["maxAge"] = args ? args.maxAge : undefined;
-            inputs["maxReuse"] = args ? args.maxReuse : undefined;
-            inputs["maxSize"] = args ? args.maxSize : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["partition"] = args ? args.partition : undefined;
-            inputs["sharePools"] = args ? args.sharePools : undefined;
-            inputs["sourceMask"] = args ? args.sourceMask : undefined;
+            resourceInputs["defaultsFrom"] = args ? args.defaultsFrom : undefined;
+            resourceInputs["idleTimeoutOverride"] = args ? args.idleTimeoutOverride : undefined;
+            resourceInputs["limitType"] = args ? args.limitType : undefined;
+            resourceInputs["maxAge"] = args ? args.maxAge : undefined;
+            resourceInputs["maxReuse"] = args ? args.maxReuse : undefined;
+            resourceInputs["maxSize"] = args ? args.maxSize : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["partition"] = args ? args.partition : undefined;
+            resourceInputs["sharePools"] = args ? args.sharePools : undefined;
+            resourceInputs["sourceMask"] = args ? args.sourceMask : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ProfileOneConnect.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ProfileOneConnect.__pulumiType, name, resourceInputs, opts);
     }
 }
 

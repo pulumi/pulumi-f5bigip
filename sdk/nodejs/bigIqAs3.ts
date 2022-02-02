@@ -99,19 +99,19 @@ export class BigIqAs3 extends pulumi.CustomResource {
      */
     constructor(name: string, args: BigIqAs3Args, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BigIqAs3Args | BigIqAs3State, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BigIqAs3State | undefined;
-            inputs["as3Json"] = state ? state.as3Json : undefined;
-            inputs["bigiqAddress"] = state ? state.bigiqAddress : undefined;
-            inputs["bigiqLoginRef"] = state ? state.bigiqLoginRef : undefined;
-            inputs["bigiqPassword"] = state ? state.bigiqPassword : undefined;
-            inputs["bigiqPort"] = state ? state.bigiqPort : undefined;
-            inputs["bigiqTokenAuth"] = state ? state.bigiqTokenAuth : undefined;
-            inputs["bigiqUser"] = state ? state.bigiqUser : undefined;
-            inputs["ignoreMetadata"] = state ? state.ignoreMetadata : undefined;
-            inputs["tenantList"] = state ? state.tenantList : undefined;
+            resourceInputs["as3Json"] = state ? state.as3Json : undefined;
+            resourceInputs["bigiqAddress"] = state ? state.bigiqAddress : undefined;
+            resourceInputs["bigiqLoginRef"] = state ? state.bigiqLoginRef : undefined;
+            resourceInputs["bigiqPassword"] = state ? state.bigiqPassword : undefined;
+            resourceInputs["bigiqPort"] = state ? state.bigiqPort : undefined;
+            resourceInputs["bigiqTokenAuth"] = state ? state.bigiqTokenAuth : undefined;
+            resourceInputs["bigiqUser"] = state ? state.bigiqUser : undefined;
+            resourceInputs["ignoreMetadata"] = state ? state.ignoreMetadata : undefined;
+            resourceInputs["tenantList"] = state ? state.tenantList : undefined;
         } else {
             const args = argsOrState as BigIqAs3Args | undefined;
             if ((!args || args.as3Json === undefined) && !opts.urn) {
@@ -126,20 +126,18 @@ export class BigIqAs3 extends pulumi.CustomResource {
             if ((!args || args.bigiqUser === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bigiqUser'");
             }
-            inputs["as3Json"] = args ? args.as3Json : undefined;
-            inputs["bigiqAddress"] = args ? args.bigiqAddress : undefined;
-            inputs["bigiqLoginRef"] = args ? args.bigiqLoginRef : undefined;
-            inputs["bigiqPassword"] = args ? args.bigiqPassword : undefined;
-            inputs["bigiqPort"] = args ? args.bigiqPort : undefined;
-            inputs["bigiqTokenAuth"] = args ? args.bigiqTokenAuth : undefined;
-            inputs["bigiqUser"] = args ? args.bigiqUser : undefined;
-            inputs["ignoreMetadata"] = args ? args.ignoreMetadata : undefined;
-            inputs["tenantList"] = args ? args.tenantList : undefined;
+            resourceInputs["as3Json"] = args ? args.as3Json : undefined;
+            resourceInputs["bigiqAddress"] = args ? args.bigiqAddress : undefined;
+            resourceInputs["bigiqLoginRef"] = args ? args.bigiqLoginRef : undefined;
+            resourceInputs["bigiqPassword"] = args ? args.bigiqPassword : undefined;
+            resourceInputs["bigiqPort"] = args ? args.bigiqPort : undefined;
+            resourceInputs["bigiqTokenAuth"] = args ? args.bigiqTokenAuth : undefined;
+            resourceInputs["bigiqUser"] = args ? args.bigiqUser : undefined;
+            resourceInputs["ignoreMetadata"] = args ? args.ignoreMetadata : undefined;
+            resourceInputs["tenantList"] = args ? args.tenantList : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(BigIqAs3.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(BigIqAs3.__pulumiType, name, resourceInputs, opts);
     }
 }
 

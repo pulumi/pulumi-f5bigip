@@ -117,21 +117,21 @@ export class Snat extends pulumi.CustomResource {
      */
     constructor(name: string, args: SnatArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SnatArgs | SnatState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SnatState | undefined;
-            inputs["autolasthop"] = state ? state.autolasthop : undefined;
-            inputs["fullPath"] = state ? state.fullPath : undefined;
-            inputs["mirror"] = state ? state.mirror : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["origins"] = state ? state.origins : undefined;
-            inputs["partition"] = state ? state.partition : undefined;
-            inputs["snatpool"] = state ? state.snatpool : undefined;
-            inputs["sourceport"] = state ? state.sourceport : undefined;
-            inputs["translation"] = state ? state.translation : undefined;
-            inputs["vlans"] = state ? state.vlans : undefined;
-            inputs["vlansdisabled"] = state ? state.vlansdisabled : undefined;
+            resourceInputs["autolasthop"] = state ? state.autolasthop : undefined;
+            resourceInputs["fullPath"] = state ? state.fullPath : undefined;
+            resourceInputs["mirror"] = state ? state.mirror : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["origins"] = state ? state.origins : undefined;
+            resourceInputs["partition"] = state ? state.partition : undefined;
+            resourceInputs["snatpool"] = state ? state.snatpool : undefined;
+            resourceInputs["sourceport"] = state ? state.sourceport : undefined;
+            resourceInputs["translation"] = state ? state.translation : undefined;
+            resourceInputs["vlans"] = state ? state.vlans : undefined;
+            resourceInputs["vlansdisabled"] = state ? state.vlansdisabled : undefined;
         } else {
             const args = argsOrState as SnatArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -140,22 +140,20 @@ export class Snat extends pulumi.CustomResource {
             if ((!args || args.origins === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'origins'");
             }
-            inputs["autolasthop"] = args ? args.autolasthop : undefined;
-            inputs["fullPath"] = args ? args.fullPath : undefined;
-            inputs["mirror"] = args ? args.mirror : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["origins"] = args ? args.origins : undefined;
-            inputs["partition"] = args ? args.partition : undefined;
-            inputs["snatpool"] = args ? args.snatpool : undefined;
-            inputs["sourceport"] = args ? args.sourceport : undefined;
-            inputs["translation"] = args ? args.translation : undefined;
-            inputs["vlans"] = args ? args.vlans : undefined;
-            inputs["vlansdisabled"] = args ? args.vlansdisabled : undefined;
+            resourceInputs["autolasthop"] = args ? args.autolasthop : undefined;
+            resourceInputs["fullPath"] = args ? args.fullPath : undefined;
+            resourceInputs["mirror"] = args ? args.mirror : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["origins"] = args ? args.origins : undefined;
+            resourceInputs["partition"] = args ? args.partition : undefined;
+            resourceInputs["snatpool"] = args ? args.snatpool : undefined;
+            resourceInputs["sourceport"] = args ? args.sourceport : undefined;
+            resourceInputs["translation"] = args ? args.translation : undefined;
+            resourceInputs["vlans"] = args ? args.vlans : undefined;
+            resourceInputs["vlansdisabled"] = args ? args.vlansdisabled : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Snat.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Snat.__pulumiType, name, resourceInputs, opts);
     }
 }
 

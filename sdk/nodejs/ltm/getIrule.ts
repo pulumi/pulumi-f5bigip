@@ -26,9 +26,7 @@ export function getIrule(args: GetIruleArgs, opts?: pulumi.InvokeOptions): Promi
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("f5bigip:ltm/getIrule:getIrule", {
         "name": args.name,
         "partition": args.partition,

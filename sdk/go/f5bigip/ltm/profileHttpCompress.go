@@ -176,7 +176,7 @@ type ProfileHttpCompressInput interface {
 }
 
 func (*ProfileHttpCompress) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileHttpCompress)(nil))
+	return reflect.TypeOf((**ProfileHttpCompress)(nil)).Elem()
 }
 
 func (i *ProfileHttpCompress) ToProfileHttpCompressOutput() ProfileHttpCompressOutput {
@@ -185,35 +185,6 @@ func (i *ProfileHttpCompress) ToProfileHttpCompressOutput() ProfileHttpCompressO
 
 func (i *ProfileHttpCompress) ToProfileHttpCompressOutputWithContext(ctx context.Context) ProfileHttpCompressOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileHttpCompressOutput)
-}
-
-func (i *ProfileHttpCompress) ToProfileHttpCompressPtrOutput() ProfileHttpCompressPtrOutput {
-	return i.ToProfileHttpCompressPtrOutputWithContext(context.Background())
-}
-
-func (i *ProfileHttpCompress) ToProfileHttpCompressPtrOutputWithContext(ctx context.Context) ProfileHttpCompressPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProfileHttpCompressPtrOutput)
-}
-
-type ProfileHttpCompressPtrInput interface {
-	pulumi.Input
-
-	ToProfileHttpCompressPtrOutput() ProfileHttpCompressPtrOutput
-	ToProfileHttpCompressPtrOutputWithContext(ctx context.Context) ProfileHttpCompressPtrOutput
-}
-
-type profileHttpCompressPtrType ProfileHttpCompressArgs
-
-func (*profileHttpCompressPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProfileHttpCompress)(nil))
-}
-
-func (i *profileHttpCompressPtrType) ToProfileHttpCompressPtrOutput() ProfileHttpCompressPtrOutput {
-	return i.ToProfileHttpCompressPtrOutputWithContext(context.Background())
-}
-
-func (i *profileHttpCompressPtrType) ToProfileHttpCompressPtrOutputWithContext(ctx context.Context) ProfileHttpCompressPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProfileHttpCompressPtrOutput)
 }
 
 // ProfileHttpCompressArrayInput is an input type that accepts ProfileHttpCompressArray and ProfileHttpCompressArrayOutput values.
@@ -269,7 +240,7 @@ func (i ProfileHttpCompressMap) ToProfileHttpCompressMapOutputWithContext(ctx co
 type ProfileHttpCompressOutput struct{ *pulumi.OutputState }
 
 func (ProfileHttpCompressOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileHttpCompress)(nil))
+	return reflect.TypeOf((**ProfileHttpCompress)(nil)).Elem()
 }
 
 func (o ProfileHttpCompressOutput) ToProfileHttpCompressOutput() ProfileHttpCompressOutput {
@@ -280,44 +251,10 @@ func (o ProfileHttpCompressOutput) ToProfileHttpCompressOutputWithContext(ctx co
 	return o
 }
 
-func (o ProfileHttpCompressOutput) ToProfileHttpCompressPtrOutput() ProfileHttpCompressPtrOutput {
-	return o.ToProfileHttpCompressPtrOutputWithContext(context.Background())
-}
-
-func (o ProfileHttpCompressOutput) ToProfileHttpCompressPtrOutputWithContext(ctx context.Context) ProfileHttpCompressPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProfileHttpCompress) *ProfileHttpCompress {
-		return &v
-	}).(ProfileHttpCompressPtrOutput)
-}
-
-type ProfileHttpCompressPtrOutput struct{ *pulumi.OutputState }
-
-func (ProfileHttpCompressPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProfileHttpCompress)(nil))
-}
-
-func (o ProfileHttpCompressPtrOutput) ToProfileHttpCompressPtrOutput() ProfileHttpCompressPtrOutput {
-	return o
-}
-
-func (o ProfileHttpCompressPtrOutput) ToProfileHttpCompressPtrOutputWithContext(ctx context.Context) ProfileHttpCompressPtrOutput {
-	return o
-}
-
-func (o ProfileHttpCompressPtrOutput) Elem() ProfileHttpCompressOutput {
-	return o.ApplyT(func(v *ProfileHttpCompress) ProfileHttpCompress {
-		if v != nil {
-			return *v
-		}
-		var ret ProfileHttpCompress
-		return ret
-	}).(ProfileHttpCompressOutput)
-}
-
 type ProfileHttpCompressArrayOutput struct{ *pulumi.OutputState }
 
 func (ProfileHttpCompressArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProfileHttpCompress)(nil))
+	return reflect.TypeOf((*[]*ProfileHttpCompress)(nil)).Elem()
 }
 
 func (o ProfileHttpCompressArrayOutput) ToProfileHttpCompressArrayOutput() ProfileHttpCompressArrayOutput {
@@ -329,15 +266,15 @@ func (o ProfileHttpCompressArrayOutput) ToProfileHttpCompressArrayOutputWithCont
 }
 
 func (o ProfileHttpCompressArrayOutput) Index(i pulumi.IntInput) ProfileHttpCompressOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProfileHttpCompress {
-		return vs[0].([]ProfileHttpCompress)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProfileHttpCompress {
+		return vs[0].([]*ProfileHttpCompress)[vs[1].(int)]
 	}).(ProfileHttpCompressOutput)
 }
 
 type ProfileHttpCompressMapOutput struct{ *pulumi.OutputState }
 
 func (ProfileHttpCompressMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ProfileHttpCompress)(nil))
+	return reflect.TypeOf((*map[string]*ProfileHttpCompress)(nil)).Elem()
 }
 
 func (o ProfileHttpCompressMapOutput) ToProfileHttpCompressMapOutput() ProfileHttpCompressMapOutput {
@@ -349,18 +286,16 @@ func (o ProfileHttpCompressMapOutput) ToProfileHttpCompressMapOutputWithContext(
 }
 
 func (o ProfileHttpCompressMapOutput) MapIndex(k pulumi.StringInput) ProfileHttpCompressOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ProfileHttpCompress {
-		return vs[0].(map[string]ProfileHttpCompress)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ProfileHttpCompress {
+		return vs[0].(map[string]*ProfileHttpCompress)[vs[1].(string)]
 	}).(ProfileHttpCompressOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileHttpCompressInput)(nil)).Elem(), &ProfileHttpCompress{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProfileHttpCompressPtrInput)(nil)).Elem(), &ProfileHttpCompress{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileHttpCompressArrayInput)(nil)).Elem(), ProfileHttpCompressArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileHttpCompressMapInput)(nil)).Elem(), ProfileHttpCompressMap{})
 	pulumi.RegisterOutputType(ProfileHttpCompressOutput{})
-	pulumi.RegisterOutputType(ProfileHttpCompressPtrOutput{})
 	pulumi.RegisterOutputType(ProfileHttpCompressArrayOutput{})
 	pulumi.RegisterOutputType(ProfileHttpCompressMapOutput{})
 }

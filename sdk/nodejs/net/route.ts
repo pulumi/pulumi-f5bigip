@@ -80,15 +80,15 @@ export class Route extends pulumi.CustomResource {
      */
     constructor(name: string, args: RouteArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RouteArgs | RouteState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RouteState | undefined;
-            inputs["gw"] = state ? state.gw : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["network"] = state ? state.network : undefined;
-            inputs["reject"] = state ? state.reject : undefined;
-            inputs["tunnelRef"] = state ? state.tunnelRef : undefined;
+            resourceInputs["gw"] = state ? state.gw : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["network"] = state ? state.network : undefined;
+            resourceInputs["reject"] = state ? state.reject : undefined;
+            resourceInputs["tunnelRef"] = state ? state.tunnelRef : undefined;
         } else {
             const args = argsOrState as RouteArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -97,16 +97,14 @@ export class Route extends pulumi.CustomResource {
             if ((!args || args.network === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'network'");
             }
-            inputs["gw"] = args ? args.gw : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["network"] = args ? args.network : undefined;
-            inputs["reject"] = args ? args.reject : undefined;
-            inputs["tunnelRef"] = args ? args.tunnelRef : undefined;
+            resourceInputs["gw"] = args ? args.gw : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["network"] = args ? args.network : undefined;
+            resourceInputs["reject"] = args ? args.reject : undefined;
+            resourceInputs["tunnelRef"] = args ? args.tunnelRef : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Route.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Route.__pulumiType, name, resourceInputs, opts);
     }
 }
 

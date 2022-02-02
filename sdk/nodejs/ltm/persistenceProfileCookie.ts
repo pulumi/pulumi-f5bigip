@@ -175,28 +175,28 @@ export class PersistenceProfileCookie extends pulumi.CustomResource {
      */
     constructor(name: string, args: PersistenceProfileCookieArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PersistenceProfileCookieArgs | PersistenceProfileCookieState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PersistenceProfileCookieState | undefined;
-            inputs["alwaysSend"] = state ? state.alwaysSend : undefined;
-            inputs["appService"] = state ? state.appService : undefined;
-            inputs["cookieEncryption"] = state ? state.cookieEncryption : undefined;
-            inputs["cookieEncryptionPassphrase"] = state ? state.cookieEncryptionPassphrase : undefined;
-            inputs["cookieName"] = state ? state.cookieName : undefined;
-            inputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
-            inputs["expiration"] = state ? state.expiration : undefined;
-            inputs["hashLength"] = state ? state.hashLength : undefined;
-            inputs["hashOffset"] = state ? state.hashOffset : undefined;
-            inputs["httponly"] = state ? state.httponly : undefined;
-            inputs["matchAcrossPools"] = state ? state.matchAcrossPools : undefined;
-            inputs["matchAcrossServices"] = state ? state.matchAcrossServices : undefined;
-            inputs["matchAcrossVirtuals"] = state ? state.matchAcrossVirtuals : undefined;
-            inputs["method"] = state ? state.method : undefined;
-            inputs["mirror"] = state ? state.mirror : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["overrideConnLimit"] = state ? state.overrideConnLimit : undefined;
-            inputs["timeout"] = state ? state.timeout : undefined;
+            resourceInputs["alwaysSend"] = state ? state.alwaysSend : undefined;
+            resourceInputs["appService"] = state ? state.appService : undefined;
+            resourceInputs["cookieEncryption"] = state ? state.cookieEncryption : undefined;
+            resourceInputs["cookieEncryptionPassphrase"] = state ? state.cookieEncryptionPassphrase : undefined;
+            resourceInputs["cookieName"] = state ? state.cookieName : undefined;
+            resourceInputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
+            resourceInputs["expiration"] = state ? state.expiration : undefined;
+            resourceInputs["hashLength"] = state ? state.hashLength : undefined;
+            resourceInputs["hashOffset"] = state ? state.hashOffset : undefined;
+            resourceInputs["httponly"] = state ? state.httponly : undefined;
+            resourceInputs["matchAcrossPools"] = state ? state.matchAcrossPools : undefined;
+            resourceInputs["matchAcrossServices"] = state ? state.matchAcrossServices : undefined;
+            resourceInputs["matchAcrossVirtuals"] = state ? state.matchAcrossVirtuals : undefined;
+            resourceInputs["method"] = state ? state.method : undefined;
+            resourceInputs["mirror"] = state ? state.mirror : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["overrideConnLimit"] = state ? state.overrideConnLimit : undefined;
+            resourceInputs["timeout"] = state ? state.timeout : undefined;
         } else {
             const args = argsOrState as PersistenceProfileCookieArgs | undefined;
             if ((!args || args.defaultsFrom === undefined) && !opts.urn) {
@@ -205,29 +205,27 @@ export class PersistenceProfileCookie extends pulumi.CustomResource {
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            inputs["alwaysSend"] = args ? args.alwaysSend : undefined;
-            inputs["appService"] = args ? args.appService : undefined;
-            inputs["cookieEncryption"] = args ? args.cookieEncryption : undefined;
-            inputs["cookieEncryptionPassphrase"] = args ? args.cookieEncryptionPassphrase : undefined;
-            inputs["cookieName"] = args ? args.cookieName : undefined;
-            inputs["defaultsFrom"] = args ? args.defaultsFrom : undefined;
-            inputs["expiration"] = args ? args.expiration : undefined;
-            inputs["hashLength"] = args ? args.hashLength : undefined;
-            inputs["hashOffset"] = args ? args.hashOffset : undefined;
-            inputs["httponly"] = args ? args.httponly : undefined;
-            inputs["matchAcrossPools"] = args ? args.matchAcrossPools : undefined;
-            inputs["matchAcrossServices"] = args ? args.matchAcrossServices : undefined;
-            inputs["matchAcrossVirtuals"] = args ? args.matchAcrossVirtuals : undefined;
-            inputs["method"] = args ? args.method : undefined;
-            inputs["mirror"] = args ? args.mirror : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["overrideConnLimit"] = args ? args.overrideConnLimit : undefined;
-            inputs["timeout"] = args ? args.timeout : undefined;
+            resourceInputs["alwaysSend"] = args ? args.alwaysSend : undefined;
+            resourceInputs["appService"] = args ? args.appService : undefined;
+            resourceInputs["cookieEncryption"] = args ? args.cookieEncryption : undefined;
+            resourceInputs["cookieEncryptionPassphrase"] = args ? args.cookieEncryptionPassphrase : undefined;
+            resourceInputs["cookieName"] = args ? args.cookieName : undefined;
+            resourceInputs["defaultsFrom"] = args ? args.defaultsFrom : undefined;
+            resourceInputs["expiration"] = args ? args.expiration : undefined;
+            resourceInputs["hashLength"] = args ? args.hashLength : undefined;
+            resourceInputs["hashOffset"] = args ? args.hashOffset : undefined;
+            resourceInputs["httponly"] = args ? args.httponly : undefined;
+            resourceInputs["matchAcrossPools"] = args ? args.matchAcrossPools : undefined;
+            resourceInputs["matchAcrossServices"] = args ? args.matchAcrossServices : undefined;
+            resourceInputs["matchAcrossVirtuals"] = args ? args.matchAcrossVirtuals : undefined;
+            resourceInputs["method"] = args ? args.method : undefined;
+            resourceInputs["mirror"] = args ? args.mirror : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["overrideConnLimit"] = args ? args.overrideConnLimit : undefined;
+            resourceInputs["timeout"] = args ? args.timeout : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PersistenceProfileCookie.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PersistenceProfileCookie.__pulumiType, name, resourceInputs, opts);
     }
 }
 

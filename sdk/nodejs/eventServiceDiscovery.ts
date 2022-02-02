@@ -51,24 +51,22 @@ export class EventServiceDiscovery extends pulumi.CustomResource {
      */
     constructor(name: string, args: EventServiceDiscoveryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EventServiceDiscoveryArgs | EventServiceDiscoveryState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventServiceDiscoveryState | undefined;
-            inputs["nodes"] = state ? state.nodes : undefined;
-            inputs["taskid"] = state ? state.taskid : undefined;
+            resourceInputs["nodes"] = state ? state.nodes : undefined;
+            resourceInputs["taskid"] = state ? state.taskid : undefined;
         } else {
             const args = argsOrState as EventServiceDiscoveryArgs | undefined;
             if ((!args || args.taskid === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'taskid'");
             }
-            inputs["nodes"] = args ? args.nodes : undefined;
-            inputs["taskid"] = args ? args.taskid : undefined;
+            resourceInputs["nodes"] = args ? args.nodes : undefined;
+            resourceInputs["taskid"] = args ? args.taskid : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(EventServiceDiscovery.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(EventServiceDiscovery.__pulumiType, name, resourceInputs, opts);
     }
 }
 

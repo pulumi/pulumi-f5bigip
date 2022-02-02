@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := f5bigip.NewTrafficSelector(ctx, "test_selector", &f5bigip.TrafficSelectorArgs{
+// 		_, err := f5bigip.NewTrafficSelector(ctx, "test-selector", &f5bigip.TrafficSelectorArgs{
 // 			DestinationAddress: pulumi.String("3.10.11.2/32"),
 // 			Name:               pulumi.String("/Common/test-selector"),
 // 			SourceAddress:      pulumi.String("2.10.11.12/32"),
@@ -215,7 +215,7 @@ type TrafficSelectorInput interface {
 }
 
 func (*TrafficSelector) ElementType() reflect.Type {
-	return reflect.TypeOf((*TrafficSelector)(nil))
+	return reflect.TypeOf((**TrafficSelector)(nil)).Elem()
 }
 
 func (i *TrafficSelector) ToTrafficSelectorOutput() TrafficSelectorOutput {
@@ -224,35 +224,6 @@ func (i *TrafficSelector) ToTrafficSelectorOutput() TrafficSelectorOutput {
 
 func (i *TrafficSelector) ToTrafficSelectorOutputWithContext(ctx context.Context) TrafficSelectorOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficSelectorOutput)
-}
-
-func (i *TrafficSelector) ToTrafficSelectorPtrOutput() TrafficSelectorPtrOutput {
-	return i.ToTrafficSelectorPtrOutputWithContext(context.Background())
-}
-
-func (i *TrafficSelector) ToTrafficSelectorPtrOutputWithContext(ctx context.Context) TrafficSelectorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TrafficSelectorPtrOutput)
-}
-
-type TrafficSelectorPtrInput interface {
-	pulumi.Input
-
-	ToTrafficSelectorPtrOutput() TrafficSelectorPtrOutput
-	ToTrafficSelectorPtrOutputWithContext(ctx context.Context) TrafficSelectorPtrOutput
-}
-
-type trafficSelectorPtrType TrafficSelectorArgs
-
-func (*trafficSelectorPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TrafficSelector)(nil))
-}
-
-func (i *trafficSelectorPtrType) ToTrafficSelectorPtrOutput() TrafficSelectorPtrOutput {
-	return i.ToTrafficSelectorPtrOutputWithContext(context.Background())
-}
-
-func (i *trafficSelectorPtrType) ToTrafficSelectorPtrOutputWithContext(ctx context.Context) TrafficSelectorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TrafficSelectorPtrOutput)
 }
 
 // TrafficSelectorArrayInput is an input type that accepts TrafficSelectorArray and TrafficSelectorArrayOutput values.
@@ -308,7 +279,7 @@ func (i TrafficSelectorMap) ToTrafficSelectorMapOutputWithContext(ctx context.Co
 type TrafficSelectorOutput struct{ *pulumi.OutputState }
 
 func (TrafficSelectorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TrafficSelector)(nil))
+	return reflect.TypeOf((**TrafficSelector)(nil)).Elem()
 }
 
 func (o TrafficSelectorOutput) ToTrafficSelectorOutput() TrafficSelectorOutput {
@@ -319,44 +290,10 @@ func (o TrafficSelectorOutput) ToTrafficSelectorOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o TrafficSelectorOutput) ToTrafficSelectorPtrOutput() TrafficSelectorPtrOutput {
-	return o.ToTrafficSelectorPtrOutputWithContext(context.Background())
-}
-
-func (o TrafficSelectorOutput) ToTrafficSelectorPtrOutputWithContext(ctx context.Context) TrafficSelectorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrafficSelector) *TrafficSelector {
-		return &v
-	}).(TrafficSelectorPtrOutput)
-}
-
-type TrafficSelectorPtrOutput struct{ *pulumi.OutputState }
-
-func (TrafficSelectorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TrafficSelector)(nil))
-}
-
-func (o TrafficSelectorPtrOutput) ToTrafficSelectorPtrOutput() TrafficSelectorPtrOutput {
-	return o
-}
-
-func (o TrafficSelectorPtrOutput) ToTrafficSelectorPtrOutputWithContext(ctx context.Context) TrafficSelectorPtrOutput {
-	return o
-}
-
-func (o TrafficSelectorPtrOutput) Elem() TrafficSelectorOutput {
-	return o.ApplyT(func(v *TrafficSelector) TrafficSelector {
-		if v != nil {
-			return *v
-		}
-		var ret TrafficSelector
-		return ret
-	}).(TrafficSelectorOutput)
-}
-
 type TrafficSelectorArrayOutput struct{ *pulumi.OutputState }
 
 func (TrafficSelectorArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TrafficSelector)(nil))
+	return reflect.TypeOf((*[]*TrafficSelector)(nil)).Elem()
 }
 
 func (o TrafficSelectorArrayOutput) ToTrafficSelectorArrayOutput() TrafficSelectorArrayOutput {
@@ -368,15 +305,15 @@ func (o TrafficSelectorArrayOutput) ToTrafficSelectorArrayOutputWithContext(ctx 
 }
 
 func (o TrafficSelectorArrayOutput) Index(i pulumi.IntInput) TrafficSelectorOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TrafficSelector {
-		return vs[0].([]TrafficSelector)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TrafficSelector {
+		return vs[0].([]*TrafficSelector)[vs[1].(int)]
 	}).(TrafficSelectorOutput)
 }
 
 type TrafficSelectorMapOutput struct{ *pulumi.OutputState }
 
 func (TrafficSelectorMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]TrafficSelector)(nil))
+	return reflect.TypeOf((*map[string]*TrafficSelector)(nil)).Elem()
 }
 
 func (o TrafficSelectorMapOutput) ToTrafficSelectorMapOutput() TrafficSelectorMapOutput {
@@ -388,18 +325,16 @@ func (o TrafficSelectorMapOutput) ToTrafficSelectorMapOutputWithContext(ctx cont
 }
 
 func (o TrafficSelectorMapOutput) MapIndex(k pulumi.StringInput) TrafficSelectorOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TrafficSelector {
-		return vs[0].(map[string]TrafficSelector)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *TrafficSelector {
+		return vs[0].(map[string]*TrafficSelector)[vs[1].(string)]
 	}).(TrafficSelectorOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficSelectorInput)(nil)).Elem(), &TrafficSelector{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TrafficSelectorPtrInput)(nil)).Elem(), &TrafficSelector{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficSelectorArrayInput)(nil)).Elem(), TrafficSelectorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TrafficSelectorMapInput)(nil)).Elem(), TrafficSelectorMap{})
 	pulumi.RegisterOutputType(TrafficSelectorOutput{})
-	pulumi.RegisterOutputType(TrafficSelectorPtrOutput{})
 	pulumi.RegisterOutputType(TrafficSelectorArrayOutput{})
 	pulumi.RegisterOutputType(TrafficSelectorMapOutput{})
 }

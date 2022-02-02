@@ -125,46 +125,44 @@ export class ProfileHttp2 extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProfileHttp2Args, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProfileHttp2Args | ProfileHttp2State, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProfileHttp2State | undefined;
-            inputs["activationModes"] = state ? state.activationModes : undefined;
-            inputs["concurrentStreamsPerConnection"] = state ? state.concurrentStreamsPerConnection : undefined;
-            inputs["connectionIdleTimeout"] = state ? state.connectionIdleTimeout : undefined;
-            inputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
-            inputs["enforceTlsRequirements"] = state ? state.enforceTlsRequirements : undefined;
-            inputs["frameSize"] = state ? state.frameSize : undefined;
-            inputs["headerTableSize"] = state ? state.headerTableSize : undefined;
-            inputs["includeContentLength"] = state ? state.includeContentLength : undefined;
-            inputs["insertHeader"] = state ? state.insertHeader : undefined;
-            inputs["insertHeaderName"] = state ? state.insertHeaderName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["receiveWindow"] = state ? state.receiveWindow : undefined;
-            inputs["writeSize"] = state ? state.writeSize : undefined;
+            resourceInputs["activationModes"] = state ? state.activationModes : undefined;
+            resourceInputs["concurrentStreamsPerConnection"] = state ? state.concurrentStreamsPerConnection : undefined;
+            resourceInputs["connectionIdleTimeout"] = state ? state.connectionIdleTimeout : undefined;
+            resourceInputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
+            resourceInputs["enforceTlsRequirements"] = state ? state.enforceTlsRequirements : undefined;
+            resourceInputs["frameSize"] = state ? state.frameSize : undefined;
+            resourceInputs["headerTableSize"] = state ? state.headerTableSize : undefined;
+            resourceInputs["includeContentLength"] = state ? state.includeContentLength : undefined;
+            resourceInputs["insertHeader"] = state ? state.insertHeader : undefined;
+            resourceInputs["insertHeaderName"] = state ? state.insertHeaderName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["receiveWindow"] = state ? state.receiveWindow : undefined;
+            resourceInputs["writeSize"] = state ? state.writeSize : undefined;
         } else {
             const args = argsOrState as ProfileHttp2Args | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            inputs["activationModes"] = args ? args.activationModes : undefined;
-            inputs["concurrentStreamsPerConnection"] = args ? args.concurrentStreamsPerConnection : undefined;
-            inputs["connectionIdleTimeout"] = args ? args.connectionIdleTimeout : undefined;
-            inputs["defaultsFrom"] = args ? args.defaultsFrom : undefined;
-            inputs["enforceTlsRequirements"] = args ? args.enforceTlsRequirements : undefined;
-            inputs["frameSize"] = args ? args.frameSize : undefined;
-            inputs["headerTableSize"] = args ? args.headerTableSize : undefined;
-            inputs["includeContentLength"] = args ? args.includeContentLength : undefined;
-            inputs["insertHeader"] = args ? args.insertHeader : undefined;
-            inputs["insertHeaderName"] = args ? args.insertHeaderName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["receiveWindow"] = args ? args.receiveWindow : undefined;
-            inputs["writeSize"] = args ? args.writeSize : undefined;
+            resourceInputs["activationModes"] = args ? args.activationModes : undefined;
+            resourceInputs["concurrentStreamsPerConnection"] = args ? args.concurrentStreamsPerConnection : undefined;
+            resourceInputs["connectionIdleTimeout"] = args ? args.connectionIdleTimeout : undefined;
+            resourceInputs["defaultsFrom"] = args ? args.defaultsFrom : undefined;
+            resourceInputs["enforceTlsRequirements"] = args ? args.enforceTlsRequirements : undefined;
+            resourceInputs["frameSize"] = args ? args.frameSize : undefined;
+            resourceInputs["headerTableSize"] = args ? args.headerTableSize : undefined;
+            resourceInputs["includeContentLength"] = args ? args.includeContentLength : undefined;
+            resourceInputs["insertHeader"] = args ? args.insertHeader : undefined;
+            resourceInputs["insertHeaderName"] = args ? args.insertHeaderName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["receiveWindow"] = args ? args.receiveWindow : undefined;
+            resourceInputs["writeSize"] = args ? args.writeSize : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ProfileHttp2.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ProfileHttp2.__pulumiType, name, resourceInputs, opts);
     }
 }
 

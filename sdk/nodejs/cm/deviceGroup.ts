@@ -108,37 +108,35 @@ export class DeviceGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args?: DeviceGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DeviceGroupArgs | DeviceGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DeviceGroupState | undefined;
-            inputs["autoSync"] = state ? state.autoSync : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["devices"] = state ? state.devices : undefined;
-            inputs["fullLoadOnSync"] = state ? state.fullLoadOnSync : undefined;
-            inputs["incrementalConfig"] = state ? state.incrementalConfig : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["networkFailover"] = state ? state.networkFailover : undefined;
-            inputs["partition"] = state ? state.partition : undefined;
-            inputs["saveOnAutoSync"] = state ? state.saveOnAutoSync : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["autoSync"] = state ? state.autoSync : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["devices"] = state ? state.devices : undefined;
+            resourceInputs["fullLoadOnSync"] = state ? state.fullLoadOnSync : undefined;
+            resourceInputs["incrementalConfig"] = state ? state.incrementalConfig : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkFailover"] = state ? state.networkFailover : undefined;
+            resourceInputs["partition"] = state ? state.partition : undefined;
+            resourceInputs["saveOnAutoSync"] = state ? state.saveOnAutoSync : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as DeviceGroupArgs | undefined;
-            inputs["autoSync"] = args ? args.autoSync : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["devices"] = args ? args.devices : undefined;
-            inputs["fullLoadOnSync"] = args ? args.fullLoadOnSync : undefined;
-            inputs["incrementalConfig"] = args ? args.incrementalConfig : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["networkFailover"] = args ? args.networkFailover : undefined;
-            inputs["partition"] = args ? args.partition : undefined;
-            inputs["saveOnAutoSync"] = args ? args.saveOnAutoSync : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            resourceInputs["autoSync"] = args ? args.autoSync : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["devices"] = args ? args.devices : undefined;
+            resourceInputs["fullLoadOnSync"] = args ? args.fullLoadOnSync : undefined;
+            resourceInputs["incrementalConfig"] = args ? args.incrementalConfig : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkFailover"] = args ? args.networkFailover : undefined;
+            resourceInputs["partition"] = args ? args.partition : undefined;
+            resourceInputs["saveOnAutoSync"] = args ? args.saveOnAutoSync : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DeviceGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DeviceGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

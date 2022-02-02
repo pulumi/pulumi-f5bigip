@@ -38,9 +38,7 @@ export function getVWanConfig(args: GetVWanConfigArgs, opts?: pulumi.InvokeOptio
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("f5bigip:ssl/getVWanConfig:getVWanConfig", {
         "azureVwanName": args.azureVwanName,
         "azureVwanResourcegroup": args.azureVwanResourcegroup,

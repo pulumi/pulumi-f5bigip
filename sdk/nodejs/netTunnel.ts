@@ -126,27 +126,27 @@ export class NetTunnel extends pulumi.CustomResource {
      */
     constructor(name: string, args: NetTunnelArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NetTunnelArgs | NetTunnelState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetTunnelState | undefined;
-            inputs["appService"] = state ? state.appService : undefined;
-            inputs["autoLastHop"] = state ? state.autoLastHop : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["idleTimeout"] = state ? state.idleTimeout : undefined;
-            inputs["key"] = state ? state.key : undefined;
-            inputs["localAddress"] = state ? state.localAddress : undefined;
-            inputs["mode"] = state ? state.mode : undefined;
-            inputs["mtu"] = state ? state.mtu : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["partition"] = state ? state.partition : undefined;
-            inputs["profile"] = state ? state.profile : undefined;
-            inputs["remoteAddress"] = state ? state.remoteAddress : undefined;
-            inputs["secondaryAddress"] = state ? state.secondaryAddress : undefined;
-            inputs["tos"] = state ? state.tos : undefined;
-            inputs["trafficGroup"] = state ? state.trafficGroup : undefined;
-            inputs["transparent"] = state ? state.transparent : undefined;
-            inputs["usePmtu"] = state ? state.usePmtu : undefined;
+            resourceInputs["appService"] = state ? state.appService : undefined;
+            resourceInputs["autoLastHop"] = state ? state.autoLastHop : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["idleTimeout"] = state ? state.idleTimeout : undefined;
+            resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["localAddress"] = state ? state.localAddress : undefined;
+            resourceInputs["mode"] = state ? state.mode : undefined;
+            resourceInputs["mtu"] = state ? state.mtu : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["partition"] = state ? state.partition : undefined;
+            resourceInputs["profile"] = state ? state.profile : undefined;
+            resourceInputs["remoteAddress"] = state ? state.remoteAddress : undefined;
+            resourceInputs["secondaryAddress"] = state ? state.secondaryAddress : undefined;
+            resourceInputs["tos"] = state ? state.tos : undefined;
+            resourceInputs["trafficGroup"] = state ? state.trafficGroup : undefined;
+            resourceInputs["transparent"] = state ? state.transparent : undefined;
+            resourceInputs["usePmtu"] = state ? state.usePmtu : undefined;
         } else {
             const args = argsOrState as NetTunnelArgs | undefined;
             if ((!args || args.localAddress === undefined) && !opts.urn) {
@@ -158,28 +158,26 @@ export class NetTunnel extends pulumi.CustomResource {
             if ((!args || args.profile === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'profile'");
             }
-            inputs["appService"] = args ? args.appService : undefined;
-            inputs["autoLastHop"] = args ? args.autoLastHop : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["idleTimeout"] = args ? args.idleTimeout : undefined;
-            inputs["key"] = args ? args.key : undefined;
-            inputs["localAddress"] = args ? args.localAddress : undefined;
-            inputs["mode"] = args ? args.mode : undefined;
-            inputs["mtu"] = args ? args.mtu : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["partition"] = args ? args.partition : undefined;
-            inputs["profile"] = args ? args.profile : undefined;
-            inputs["remoteAddress"] = args ? args.remoteAddress : undefined;
-            inputs["secondaryAddress"] = args ? args.secondaryAddress : undefined;
-            inputs["tos"] = args ? args.tos : undefined;
-            inputs["trafficGroup"] = args ? args.trafficGroup : undefined;
-            inputs["transparent"] = args ? args.transparent : undefined;
-            inputs["usePmtu"] = args ? args.usePmtu : undefined;
+            resourceInputs["appService"] = args ? args.appService : undefined;
+            resourceInputs["autoLastHop"] = args ? args.autoLastHop : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["idleTimeout"] = args ? args.idleTimeout : undefined;
+            resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["localAddress"] = args ? args.localAddress : undefined;
+            resourceInputs["mode"] = args ? args.mode : undefined;
+            resourceInputs["mtu"] = args ? args.mtu : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["partition"] = args ? args.partition : undefined;
+            resourceInputs["profile"] = args ? args.profile : undefined;
+            resourceInputs["remoteAddress"] = args ? args.remoteAddress : undefined;
+            resourceInputs["secondaryAddress"] = args ? args.secondaryAddress : undefined;
+            resourceInputs["tos"] = args ? args.tos : undefined;
+            resourceInputs["trafficGroup"] = args ? args.trafficGroup : undefined;
+            resourceInputs["transparent"] = args ? args.transparent : undefined;
+            resourceInputs["usePmtu"] = args ? args.usePmtu : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(NetTunnel.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(NetTunnel.__pulumiType, name, resourceInputs, opts);
     }
 }
 

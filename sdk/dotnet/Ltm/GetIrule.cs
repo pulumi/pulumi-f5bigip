@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.F5BigIP.Ltm
 {
@@ -44,7 +43,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetIruleResult> InvokeAsync(GetIruleArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIruleResult>("f5bigip:ltm/getIrule:getIrule", args ?? new GetIruleArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIruleResult>("f5bigip:ltm/getIrule:getIrule", args ?? new GetIruleArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source (`f5bigip.ltm.IRule`) to get the ltm irule details available on BIG-IP
@@ -78,7 +77,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetIruleResult> Invoke(GetIruleInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIruleResult>("f5bigip:ltm/getIrule:getIrule", args ?? new GetIruleInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetIruleResult>("f5bigip:ltm/getIrule:getIrule", args ?? new GetIruleInvokeArgs(), options.WithDefaults());
     }
 
 

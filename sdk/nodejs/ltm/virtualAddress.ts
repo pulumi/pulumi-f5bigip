@@ -91,36 +91,34 @@ export class VirtualAddress extends pulumi.CustomResource {
      */
     constructor(name: string, args: VirtualAddressArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VirtualAddressArgs | VirtualAddressState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualAddressState | undefined;
-            inputs["advertizeRoute"] = state ? state.advertizeRoute : undefined;
-            inputs["arp"] = state ? state.arp : undefined;
-            inputs["autoDelete"] = state ? state.autoDelete : undefined;
-            inputs["connLimit"] = state ? state.connLimit : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["icmpEcho"] = state ? state.icmpEcho : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["trafficGroup"] = state ? state.trafficGroup : undefined;
+            resourceInputs["advertizeRoute"] = state ? state.advertizeRoute : undefined;
+            resourceInputs["arp"] = state ? state.arp : undefined;
+            resourceInputs["autoDelete"] = state ? state.autoDelete : undefined;
+            resourceInputs["connLimit"] = state ? state.connLimit : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["icmpEcho"] = state ? state.icmpEcho : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["trafficGroup"] = state ? state.trafficGroup : undefined;
         } else {
             const args = argsOrState as VirtualAddressArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            inputs["advertizeRoute"] = args ? args.advertizeRoute : undefined;
-            inputs["arp"] = args ? args.arp : undefined;
-            inputs["autoDelete"] = args ? args.autoDelete : undefined;
-            inputs["connLimit"] = args ? args.connLimit : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["icmpEcho"] = args ? args.icmpEcho : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["trafficGroup"] = args ? args.trafficGroup : undefined;
+            resourceInputs["advertizeRoute"] = args ? args.advertizeRoute : undefined;
+            resourceInputs["arp"] = args ? args.arp : undefined;
+            resourceInputs["autoDelete"] = args ? args.autoDelete : undefined;
+            resourceInputs["connLimit"] = args ? args.connLimit : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["icmpEcho"] = args ? args.icmpEcho : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["trafficGroup"] = args ? args.trafficGroup : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VirtualAddress.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VirtualAddress.__pulumiType, name, resourceInputs, opts);
     }
 }
 

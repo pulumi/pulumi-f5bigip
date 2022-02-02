@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ltm.NewProfileOneConnect(ctx, "test_oneconnect", &ltm.ProfileOneConnectArgs{
+// 		_, err := ltm.NewProfileOneConnect(ctx, "test-oneconnect", &ltm.ProfileOneConnectArgs{
 // 			Name: pulumi.String("/Common/test-oneconnect"),
 // 		})
 // 		if err != nil {
@@ -210,7 +210,7 @@ type ProfileOneConnectInput interface {
 }
 
 func (*ProfileOneConnect) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileOneConnect)(nil))
+	return reflect.TypeOf((**ProfileOneConnect)(nil)).Elem()
 }
 
 func (i *ProfileOneConnect) ToProfileOneConnectOutput() ProfileOneConnectOutput {
@@ -219,35 +219,6 @@ func (i *ProfileOneConnect) ToProfileOneConnectOutput() ProfileOneConnectOutput 
 
 func (i *ProfileOneConnect) ToProfileOneConnectOutputWithContext(ctx context.Context) ProfileOneConnectOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileOneConnectOutput)
-}
-
-func (i *ProfileOneConnect) ToProfileOneConnectPtrOutput() ProfileOneConnectPtrOutput {
-	return i.ToProfileOneConnectPtrOutputWithContext(context.Background())
-}
-
-func (i *ProfileOneConnect) ToProfileOneConnectPtrOutputWithContext(ctx context.Context) ProfileOneConnectPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProfileOneConnectPtrOutput)
-}
-
-type ProfileOneConnectPtrInput interface {
-	pulumi.Input
-
-	ToProfileOneConnectPtrOutput() ProfileOneConnectPtrOutput
-	ToProfileOneConnectPtrOutputWithContext(ctx context.Context) ProfileOneConnectPtrOutput
-}
-
-type profileOneConnectPtrType ProfileOneConnectArgs
-
-func (*profileOneConnectPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProfileOneConnect)(nil))
-}
-
-func (i *profileOneConnectPtrType) ToProfileOneConnectPtrOutput() ProfileOneConnectPtrOutput {
-	return i.ToProfileOneConnectPtrOutputWithContext(context.Background())
-}
-
-func (i *profileOneConnectPtrType) ToProfileOneConnectPtrOutputWithContext(ctx context.Context) ProfileOneConnectPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProfileOneConnectPtrOutput)
 }
 
 // ProfileOneConnectArrayInput is an input type that accepts ProfileOneConnectArray and ProfileOneConnectArrayOutput values.
@@ -303,7 +274,7 @@ func (i ProfileOneConnectMap) ToProfileOneConnectMapOutputWithContext(ctx contex
 type ProfileOneConnectOutput struct{ *pulumi.OutputState }
 
 func (ProfileOneConnectOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileOneConnect)(nil))
+	return reflect.TypeOf((**ProfileOneConnect)(nil)).Elem()
 }
 
 func (o ProfileOneConnectOutput) ToProfileOneConnectOutput() ProfileOneConnectOutput {
@@ -314,44 +285,10 @@ func (o ProfileOneConnectOutput) ToProfileOneConnectOutputWithContext(ctx contex
 	return o
 }
 
-func (o ProfileOneConnectOutput) ToProfileOneConnectPtrOutput() ProfileOneConnectPtrOutput {
-	return o.ToProfileOneConnectPtrOutputWithContext(context.Background())
-}
-
-func (o ProfileOneConnectOutput) ToProfileOneConnectPtrOutputWithContext(ctx context.Context) ProfileOneConnectPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProfileOneConnect) *ProfileOneConnect {
-		return &v
-	}).(ProfileOneConnectPtrOutput)
-}
-
-type ProfileOneConnectPtrOutput struct{ *pulumi.OutputState }
-
-func (ProfileOneConnectPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProfileOneConnect)(nil))
-}
-
-func (o ProfileOneConnectPtrOutput) ToProfileOneConnectPtrOutput() ProfileOneConnectPtrOutput {
-	return o
-}
-
-func (o ProfileOneConnectPtrOutput) ToProfileOneConnectPtrOutputWithContext(ctx context.Context) ProfileOneConnectPtrOutput {
-	return o
-}
-
-func (o ProfileOneConnectPtrOutput) Elem() ProfileOneConnectOutput {
-	return o.ApplyT(func(v *ProfileOneConnect) ProfileOneConnect {
-		if v != nil {
-			return *v
-		}
-		var ret ProfileOneConnect
-		return ret
-	}).(ProfileOneConnectOutput)
-}
-
 type ProfileOneConnectArrayOutput struct{ *pulumi.OutputState }
 
 func (ProfileOneConnectArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProfileOneConnect)(nil))
+	return reflect.TypeOf((*[]*ProfileOneConnect)(nil)).Elem()
 }
 
 func (o ProfileOneConnectArrayOutput) ToProfileOneConnectArrayOutput() ProfileOneConnectArrayOutput {
@@ -363,15 +300,15 @@ func (o ProfileOneConnectArrayOutput) ToProfileOneConnectArrayOutputWithContext(
 }
 
 func (o ProfileOneConnectArrayOutput) Index(i pulumi.IntInput) ProfileOneConnectOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProfileOneConnect {
-		return vs[0].([]ProfileOneConnect)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProfileOneConnect {
+		return vs[0].([]*ProfileOneConnect)[vs[1].(int)]
 	}).(ProfileOneConnectOutput)
 }
 
 type ProfileOneConnectMapOutput struct{ *pulumi.OutputState }
 
 func (ProfileOneConnectMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ProfileOneConnect)(nil))
+	return reflect.TypeOf((*map[string]*ProfileOneConnect)(nil)).Elem()
 }
 
 func (o ProfileOneConnectMapOutput) ToProfileOneConnectMapOutput() ProfileOneConnectMapOutput {
@@ -383,18 +320,16 @@ func (o ProfileOneConnectMapOutput) ToProfileOneConnectMapOutputWithContext(ctx 
 }
 
 func (o ProfileOneConnectMapOutput) MapIndex(k pulumi.StringInput) ProfileOneConnectOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ProfileOneConnect {
-		return vs[0].(map[string]ProfileOneConnect)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ProfileOneConnect {
+		return vs[0].(map[string]*ProfileOneConnect)[vs[1].(string)]
 	}).(ProfileOneConnectOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileOneConnectInput)(nil)).Elem(), &ProfileOneConnect{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProfileOneConnectPtrInput)(nil)).Elem(), &ProfileOneConnect{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileOneConnectArrayInput)(nil)).Elem(), ProfileOneConnectArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileOneConnectMapInput)(nil)).Elem(), ProfileOneConnectMap{})
 	pulumi.RegisterOutputType(ProfileOneConnectOutput{})
-	pulumi.RegisterOutputType(ProfileOneConnectPtrOutput{})
 	pulumi.RegisterOutputType(ProfileOneConnectArrayOutput{})
 	pulumi.RegisterOutputType(ProfileOneConnectMapOutput{})
 }

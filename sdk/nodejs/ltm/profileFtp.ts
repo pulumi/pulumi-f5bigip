@@ -159,52 +159,50 @@ export class ProfileFtp extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProfileFtpArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProfileFtpArgs | ProfileFtpState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProfileFtpState | undefined;
-            inputs["allowActiveMode"] = state ? state.allowActiveMode : undefined;
-            inputs["allowFtps"] = state ? state.allowFtps : undefined;
-            inputs["appService"] = state ? state.appService : undefined;
-            inputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["enforceTlssessionReuse"] = state ? state.enforceTlssessionReuse : undefined;
-            inputs["ftpsMode"] = state ? state.ftpsMode : undefined;
-            inputs["inheritParentProfile"] = state ? state.inheritParentProfile : undefined;
-            inputs["inheritVlanList"] = state ? state.inheritVlanList : undefined;
-            inputs["logProfile"] = state ? state.logProfile : undefined;
-            inputs["logPublisher"] = state ? state.logPublisher : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["partition"] = state ? state.partition : undefined;
-            inputs["port"] = state ? state.port : undefined;
-            inputs["security"] = state ? state.security : undefined;
-            inputs["translateExtended"] = state ? state.translateExtended : undefined;
+            resourceInputs["allowActiveMode"] = state ? state.allowActiveMode : undefined;
+            resourceInputs["allowFtps"] = state ? state.allowFtps : undefined;
+            resourceInputs["appService"] = state ? state.appService : undefined;
+            resourceInputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["enforceTlssessionReuse"] = state ? state.enforceTlssessionReuse : undefined;
+            resourceInputs["ftpsMode"] = state ? state.ftpsMode : undefined;
+            resourceInputs["inheritParentProfile"] = state ? state.inheritParentProfile : undefined;
+            resourceInputs["inheritVlanList"] = state ? state.inheritVlanList : undefined;
+            resourceInputs["logProfile"] = state ? state.logProfile : undefined;
+            resourceInputs["logPublisher"] = state ? state.logPublisher : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["partition"] = state ? state.partition : undefined;
+            resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["security"] = state ? state.security : undefined;
+            resourceInputs["translateExtended"] = state ? state.translateExtended : undefined;
         } else {
             const args = argsOrState as ProfileFtpArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            inputs["allowActiveMode"] = args ? args.allowActiveMode : undefined;
-            inputs["allowFtps"] = args ? args.allowFtps : undefined;
-            inputs["appService"] = args ? args.appService : undefined;
-            inputs["defaultsFrom"] = args ? args.defaultsFrom : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["enforceTlssessionReuse"] = args ? args.enforceTlssessionReuse : undefined;
-            inputs["ftpsMode"] = args ? args.ftpsMode : undefined;
-            inputs["inheritParentProfile"] = args ? args.inheritParentProfile : undefined;
-            inputs["inheritVlanList"] = args ? args.inheritVlanList : undefined;
-            inputs["logProfile"] = args ? args.logProfile : undefined;
-            inputs["logPublisher"] = args ? args.logPublisher : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["partition"] = args ? args.partition : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["security"] = args ? args.security : undefined;
-            inputs["translateExtended"] = args ? args.translateExtended : undefined;
+            resourceInputs["allowActiveMode"] = args ? args.allowActiveMode : undefined;
+            resourceInputs["allowFtps"] = args ? args.allowFtps : undefined;
+            resourceInputs["appService"] = args ? args.appService : undefined;
+            resourceInputs["defaultsFrom"] = args ? args.defaultsFrom : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enforceTlssessionReuse"] = args ? args.enforceTlssessionReuse : undefined;
+            resourceInputs["ftpsMode"] = args ? args.ftpsMode : undefined;
+            resourceInputs["inheritParentProfile"] = args ? args.inheritParentProfile : undefined;
+            resourceInputs["inheritVlanList"] = args ? args.inheritVlanList : undefined;
+            resourceInputs["logProfile"] = args ? args.logProfile : undefined;
+            resourceInputs["logPublisher"] = args ? args.logPublisher : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["partition"] = args ? args.partition : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["security"] = args ? args.security : undefined;
+            resourceInputs["translateExtended"] = args ? args.translateExtended : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ProfileFtp.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ProfileFtp.__pulumiType, name, resourceInputs, opts);
     }
 }
 

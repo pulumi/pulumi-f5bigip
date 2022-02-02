@@ -114,40 +114,38 @@ export class ProfileFastL4 extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProfileFastL4Args, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProfileFastL4Args | ProfileFastL4State, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProfileFastL4State | undefined;
-            inputs["clientTimeout"] = state ? state.clientTimeout : undefined;
-            inputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
-            inputs["explicitflowMigration"] = state ? state.explicitflowMigration : undefined;
-            inputs["hardwareSyncookie"] = state ? state.hardwareSyncookie : undefined;
-            inputs["idleTimeout"] = state ? state.idleTimeout : undefined;
-            inputs["iptosToclient"] = state ? state.iptosToclient : undefined;
-            inputs["iptosToserver"] = state ? state.iptosToserver : undefined;
-            inputs["keepaliveInterval"] = state ? state.keepaliveInterval : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["partition"] = state ? state.partition : undefined;
+            resourceInputs["clientTimeout"] = state ? state.clientTimeout : undefined;
+            resourceInputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
+            resourceInputs["explicitflowMigration"] = state ? state.explicitflowMigration : undefined;
+            resourceInputs["hardwareSyncookie"] = state ? state.hardwareSyncookie : undefined;
+            resourceInputs["idleTimeout"] = state ? state.idleTimeout : undefined;
+            resourceInputs["iptosToclient"] = state ? state.iptosToclient : undefined;
+            resourceInputs["iptosToserver"] = state ? state.iptosToserver : undefined;
+            resourceInputs["keepaliveInterval"] = state ? state.keepaliveInterval : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["partition"] = state ? state.partition : undefined;
         } else {
             const args = argsOrState as ProfileFastL4Args | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            inputs["clientTimeout"] = args ? args.clientTimeout : undefined;
-            inputs["defaultsFrom"] = args ? args.defaultsFrom : undefined;
-            inputs["explicitflowMigration"] = args ? args.explicitflowMigration : undefined;
-            inputs["hardwareSyncookie"] = args ? args.hardwareSyncookie : undefined;
-            inputs["idleTimeout"] = args ? args.idleTimeout : undefined;
-            inputs["iptosToclient"] = args ? args.iptosToclient : undefined;
-            inputs["iptosToserver"] = args ? args.iptosToserver : undefined;
-            inputs["keepaliveInterval"] = args ? args.keepaliveInterval : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["partition"] = args ? args.partition : undefined;
+            resourceInputs["clientTimeout"] = args ? args.clientTimeout : undefined;
+            resourceInputs["defaultsFrom"] = args ? args.defaultsFrom : undefined;
+            resourceInputs["explicitflowMigration"] = args ? args.explicitflowMigration : undefined;
+            resourceInputs["hardwareSyncookie"] = args ? args.hardwareSyncookie : undefined;
+            resourceInputs["idleTimeout"] = args ? args.idleTimeout : undefined;
+            resourceInputs["iptosToclient"] = args ? args.iptosToclient : undefined;
+            resourceInputs["iptosToserver"] = args ? args.iptosToserver : undefined;
+            resourceInputs["keepaliveInterval"] = args ? args.keepaliveInterval : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["partition"] = args ? args.partition : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ProfileFastL4.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ProfileFastL4.__pulumiType, name, resourceInputs, opts);
     }
 }
 

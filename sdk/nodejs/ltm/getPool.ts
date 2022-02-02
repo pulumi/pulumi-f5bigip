@@ -24,9 +24,7 @@ export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("f5bigip:ltm/getPool:getPool", {
         "name": args.name,
         "partition": args.partition,

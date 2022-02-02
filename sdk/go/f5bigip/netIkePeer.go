@@ -420,7 +420,7 @@ type NetIkePeerInput interface {
 }
 
 func (*NetIkePeer) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetIkePeer)(nil))
+	return reflect.TypeOf((**NetIkePeer)(nil)).Elem()
 }
 
 func (i *NetIkePeer) ToNetIkePeerOutput() NetIkePeerOutput {
@@ -429,35 +429,6 @@ func (i *NetIkePeer) ToNetIkePeerOutput() NetIkePeerOutput {
 
 func (i *NetIkePeer) ToNetIkePeerOutputWithContext(ctx context.Context) NetIkePeerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetIkePeerOutput)
-}
-
-func (i *NetIkePeer) ToNetIkePeerPtrOutput() NetIkePeerPtrOutput {
-	return i.ToNetIkePeerPtrOutputWithContext(context.Background())
-}
-
-func (i *NetIkePeer) ToNetIkePeerPtrOutputWithContext(ctx context.Context) NetIkePeerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetIkePeerPtrOutput)
-}
-
-type NetIkePeerPtrInput interface {
-	pulumi.Input
-
-	ToNetIkePeerPtrOutput() NetIkePeerPtrOutput
-	ToNetIkePeerPtrOutputWithContext(ctx context.Context) NetIkePeerPtrOutput
-}
-
-type netIkePeerPtrType NetIkePeerArgs
-
-func (*netIkePeerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetIkePeer)(nil))
-}
-
-func (i *netIkePeerPtrType) ToNetIkePeerPtrOutput() NetIkePeerPtrOutput {
-	return i.ToNetIkePeerPtrOutputWithContext(context.Background())
-}
-
-func (i *netIkePeerPtrType) ToNetIkePeerPtrOutputWithContext(ctx context.Context) NetIkePeerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NetIkePeerPtrOutput)
 }
 
 // NetIkePeerArrayInput is an input type that accepts NetIkePeerArray and NetIkePeerArrayOutput values.
@@ -513,7 +484,7 @@ func (i NetIkePeerMap) ToNetIkePeerMapOutputWithContext(ctx context.Context) Net
 type NetIkePeerOutput struct{ *pulumi.OutputState }
 
 func (NetIkePeerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NetIkePeer)(nil))
+	return reflect.TypeOf((**NetIkePeer)(nil)).Elem()
 }
 
 func (o NetIkePeerOutput) ToNetIkePeerOutput() NetIkePeerOutput {
@@ -524,44 +495,10 @@ func (o NetIkePeerOutput) ToNetIkePeerOutputWithContext(ctx context.Context) Net
 	return o
 }
 
-func (o NetIkePeerOutput) ToNetIkePeerPtrOutput() NetIkePeerPtrOutput {
-	return o.ToNetIkePeerPtrOutputWithContext(context.Background())
-}
-
-func (o NetIkePeerOutput) ToNetIkePeerPtrOutputWithContext(ctx context.Context) NetIkePeerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NetIkePeer) *NetIkePeer {
-		return &v
-	}).(NetIkePeerPtrOutput)
-}
-
-type NetIkePeerPtrOutput struct{ *pulumi.OutputState }
-
-func (NetIkePeerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NetIkePeer)(nil))
-}
-
-func (o NetIkePeerPtrOutput) ToNetIkePeerPtrOutput() NetIkePeerPtrOutput {
-	return o
-}
-
-func (o NetIkePeerPtrOutput) ToNetIkePeerPtrOutputWithContext(ctx context.Context) NetIkePeerPtrOutput {
-	return o
-}
-
-func (o NetIkePeerPtrOutput) Elem() NetIkePeerOutput {
-	return o.ApplyT(func(v *NetIkePeer) NetIkePeer {
-		if v != nil {
-			return *v
-		}
-		var ret NetIkePeer
-		return ret
-	}).(NetIkePeerOutput)
-}
-
 type NetIkePeerArrayOutput struct{ *pulumi.OutputState }
 
 func (NetIkePeerArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NetIkePeer)(nil))
+	return reflect.TypeOf((*[]*NetIkePeer)(nil)).Elem()
 }
 
 func (o NetIkePeerArrayOutput) ToNetIkePeerArrayOutput() NetIkePeerArrayOutput {
@@ -573,15 +510,15 @@ func (o NetIkePeerArrayOutput) ToNetIkePeerArrayOutputWithContext(ctx context.Co
 }
 
 func (o NetIkePeerArrayOutput) Index(i pulumi.IntInput) NetIkePeerOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetIkePeer {
-		return vs[0].([]NetIkePeer)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetIkePeer {
+		return vs[0].([]*NetIkePeer)[vs[1].(int)]
 	}).(NetIkePeerOutput)
 }
 
 type NetIkePeerMapOutput struct{ *pulumi.OutputState }
 
 func (NetIkePeerMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]NetIkePeer)(nil))
+	return reflect.TypeOf((*map[string]*NetIkePeer)(nil)).Elem()
 }
 
 func (o NetIkePeerMapOutput) ToNetIkePeerMapOutput() NetIkePeerMapOutput {
@@ -593,18 +530,16 @@ func (o NetIkePeerMapOutput) ToNetIkePeerMapOutputWithContext(ctx context.Contex
 }
 
 func (o NetIkePeerMapOutput) MapIndex(k pulumi.StringInput) NetIkePeerOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NetIkePeer {
-		return vs[0].(map[string]NetIkePeer)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *NetIkePeer {
+		return vs[0].(map[string]*NetIkePeer)[vs[1].(string)]
 	}).(NetIkePeerOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NetIkePeerInput)(nil)).Elem(), &NetIkePeer{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NetIkePeerPtrInput)(nil)).Elem(), &NetIkePeer{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetIkePeerArrayInput)(nil)).Elem(), NetIkePeerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetIkePeerMapInput)(nil)).Elem(), NetIkePeerMap{})
 	pulumi.RegisterOutputType(NetIkePeerOutput{})
-	pulumi.RegisterOutputType(NetIkePeerPtrOutput{})
 	pulumi.RegisterOutputType(NetIkePeerArrayOutput{})
 	pulumi.RegisterOutputType(NetIkePeerMapOutput{})
 }

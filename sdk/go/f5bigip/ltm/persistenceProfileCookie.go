@@ -332,7 +332,7 @@ type PersistenceProfileCookieInput interface {
 }
 
 func (*PersistenceProfileCookie) ElementType() reflect.Type {
-	return reflect.TypeOf((*PersistenceProfileCookie)(nil))
+	return reflect.TypeOf((**PersistenceProfileCookie)(nil)).Elem()
 }
 
 func (i *PersistenceProfileCookie) ToPersistenceProfileCookieOutput() PersistenceProfileCookieOutput {
@@ -341,35 +341,6 @@ func (i *PersistenceProfileCookie) ToPersistenceProfileCookieOutput() Persistenc
 
 func (i *PersistenceProfileCookie) ToPersistenceProfileCookieOutputWithContext(ctx context.Context) PersistenceProfileCookieOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PersistenceProfileCookieOutput)
-}
-
-func (i *PersistenceProfileCookie) ToPersistenceProfileCookiePtrOutput() PersistenceProfileCookiePtrOutput {
-	return i.ToPersistenceProfileCookiePtrOutputWithContext(context.Background())
-}
-
-func (i *PersistenceProfileCookie) ToPersistenceProfileCookiePtrOutputWithContext(ctx context.Context) PersistenceProfileCookiePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PersistenceProfileCookiePtrOutput)
-}
-
-type PersistenceProfileCookiePtrInput interface {
-	pulumi.Input
-
-	ToPersistenceProfileCookiePtrOutput() PersistenceProfileCookiePtrOutput
-	ToPersistenceProfileCookiePtrOutputWithContext(ctx context.Context) PersistenceProfileCookiePtrOutput
-}
-
-type persistenceProfileCookiePtrType PersistenceProfileCookieArgs
-
-func (*persistenceProfileCookiePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PersistenceProfileCookie)(nil))
-}
-
-func (i *persistenceProfileCookiePtrType) ToPersistenceProfileCookiePtrOutput() PersistenceProfileCookiePtrOutput {
-	return i.ToPersistenceProfileCookiePtrOutputWithContext(context.Background())
-}
-
-func (i *persistenceProfileCookiePtrType) ToPersistenceProfileCookiePtrOutputWithContext(ctx context.Context) PersistenceProfileCookiePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PersistenceProfileCookiePtrOutput)
 }
 
 // PersistenceProfileCookieArrayInput is an input type that accepts PersistenceProfileCookieArray and PersistenceProfileCookieArrayOutput values.
@@ -425,7 +396,7 @@ func (i PersistenceProfileCookieMap) ToPersistenceProfileCookieMapOutputWithCont
 type PersistenceProfileCookieOutput struct{ *pulumi.OutputState }
 
 func (PersistenceProfileCookieOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PersistenceProfileCookie)(nil))
+	return reflect.TypeOf((**PersistenceProfileCookie)(nil)).Elem()
 }
 
 func (o PersistenceProfileCookieOutput) ToPersistenceProfileCookieOutput() PersistenceProfileCookieOutput {
@@ -436,44 +407,10 @@ func (o PersistenceProfileCookieOutput) ToPersistenceProfileCookieOutputWithCont
 	return o
 }
 
-func (o PersistenceProfileCookieOutput) ToPersistenceProfileCookiePtrOutput() PersistenceProfileCookiePtrOutput {
-	return o.ToPersistenceProfileCookiePtrOutputWithContext(context.Background())
-}
-
-func (o PersistenceProfileCookieOutput) ToPersistenceProfileCookiePtrOutputWithContext(ctx context.Context) PersistenceProfileCookiePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PersistenceProfileCookie) *PersistenceProfileCookie {
-		return &v
-	}).(PersistenceProfileCookiePtrOutput)
-}
-
-type PersistenceProfileCookiePtrOutput struct{ *pulumi.OutputState }
-
-func (PersistenceProfileCookiePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PersistenceProfileCookie)(nil))
-}
-
-func (o PersistenceProfileCookiePtrOutput) ToPersistenceProfileCookiePtrOutput() PersistenceProfileCookiePtrOutput {
-	return o
-}
-
-func (o PersistenceProfileCookiePtrOutput) ToPersistenceProfileCookiePtrOutputWithContext(ctx context.Context) PersistenceProfileCookiePtrOutput {
-	return o
-}
-
-func (o PersistenceProfileCookiePtrOutput) Elem() PersistenceProfileCookieOutput {
-	return o.ApplyT(func(v *PersistenceProfileCookie) PersistenceProfileCookie {
-		if v != nil {
-			return *v
-		}
-		var ret PersistenceProfileCookie
-		return ret
-	}).(PersistenceProfileCookieOutput)
-}
-
 type PersistenceProfileCookieArrayOutput struct{ *pulumi.OutputState }
 
 func (PersistenceProfileCookieArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PersistenceProfileCookie)(nil))
+	return reflect.TypeOf((*[]*PersistenceProfileCookie)(nil)).Elem()
 }
 
 func (o PersistenceProfileCookieArrayOutput) ToPersistenceProfileCookieArrayOutput() PersistenceProfileCookieArrayOutput {
@@ -485,15 +422,15 @@ func (o PersistenceProfileCookieArrayOutput) ToPersistenceProfileCookieArrayOutp
 }
 
 func (o PersistenceProfileCookieArrayOutput) Index(i pulumi.IntInput) PersistenceProfileCookieOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PersistenceProfileCookie {
-		return vs[0].([]PersistenceProfileCookie)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PersistenceProfileCookie {
+		return vs[0].([]*PersistenceProfileCookie)[vs[1].(int)]
 	}).(PersistenceProfileCookieOutput)
 }
 
 type PersistenceProfileCookieMapOutput struct{ *pulumi.OutputState }
 
 func (PersistenceProfileCookieMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]PersistenceProfileCookie)(nil))
+	return reflect.TypeOf((*map[string]*PersistenceProfileCookie)(nil)).Elem()
 }
 
 func (o PersistenceProfileCookieMapOutput) ToPersistenceProfileCookieMapOutput() PersistenceProfileCookieMapOutput {
@@ -505,18 +442,16 @@ func (o PersistenceProfileCookieMapOutput) ToPersistenceProfileCookieMapOutputWi
 }
 
 func (o PersistenceProfileCookieMapOutput) MapIndex(k pulumi.StringInput) PersistenceProfileCookieOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PersistenceProfileCookie {
-		return vs[0].(map[string]PersistenceProfileCookie)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *PersistenceProfileCookie {
+		return vs[0].(map[string]*PersistenceProfileCookie)[vs[1].(string)]
 	}).(PersistenceProfileCookieOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PersistenceProfileCookieInput)(nil)).Elem(), &PersistenceProfileCookie{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PersistenceProfileCookiePtrInput)(nil)).Elem(), &PersistenceProfileCookie{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PersistenceProfileCookieArrayInput)(nil)).Elem(), PersistenceProfileCookieArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PersistenceProfileCookieMapInput)(nil)).Elem(), PersistenceProfileCookieMap{})
 	pulumi.RegisterOutputType(PersistenceProfileCookieOutput{})
-	pulumi.RegisterOutputType(PersistenceProfileCookiePtrOutput{})
 	pulumi.RegisterOutputType(PersistenceProfileCookieArrayOutput{})
 	pulumi.RegisterOutputType(PersistenceProfileCookieMapOutput{})
 }

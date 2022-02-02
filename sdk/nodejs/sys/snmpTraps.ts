@@ -115,45 +115,43 @@ export class SnmpTraps extends pulumi.CustomResource {
      */
     constructor(name: string, args?: SnmpTrapsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SnmpTrapsArgs | SnmpTrapsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SnmpTrapsState | undefined;
-            inputs["authPasswordencrypted"] = state ? state.authPasswordencrypted : undefined;
-            inputs["authProtocol"] = state ? state.authProtocol : undefined;
-            inputs["community"] = state ? state.community : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["engineId"] = state ? state.engineId : undefined;
-            inputs["host"] = state ? state.host : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["port"] = state ? state.port : undefined;
-            inputs["privacyPassword"] = state ? state.privacyPassword : undefined;
-            inputs["privacyPasswordEncrypted"] = state ? state.privacyPasswordEncrypted : undefined;
-            inputs["privacyProtocol"] = state ? state.privacyProtocol : undefined;
-            inputs["securityLevel"] = state ? state.securityLevel : undefined;
-            inputs["securityName"] = state ? state.securityName : undefined;
-            inputs["version"] = state ? state.version : undefined;
+            resourceInputs["authPasswordencrypted"] = state ? state.authPasswordencrypted : undefined;
+            resourceInputs["authProtocol"] = state ? state.authProtocol : undefined;
+            resourceInputs["community"] = state ? state.community : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["engineId"] = state ? state.engineId : undefined;
+            resourceInputs["host"] = state ? state.host : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["privacyPassword"] = state ? state.privacyPassword : undefined;
+            resourceInputs["privacyPasswordEncrypted"] = state ? state.privacyPasswordEncrypted : undefined;
+            resourceInputs["privacyProtocol"] = state ? state.privacyProtocol : undefined;
+            resourceInputs["securityLevel"] = state ? state.securityLevel : undefined;
+            resourceInputs["securityName"] = state ? state.securityName : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as SnmpTrapsArgs | undefined;
-            inputs["authPasswordencrypted"] = args ? args.authPasswordencrypted : undefined;
-            inputs["authProtocol"] = args ? args.authProtocol : undefined;
-            inputs["community"] = args ? args.community : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["engineId"] = args ? args.engineId : undefined;
-            inputs["host"] = args ? args.host : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["privacyPassword"] = args ? args.privacyPassword : undefined;
-            inputs["privacyPasswordEncrypted"] = args ? args.privacyPasswordEncrypted : undefined;
-            inputs["privacyProtocol"] = args ? args.privacyProtocol : undefined;
-            inputs["securityLevel"] = args ? args.securityLevel : undefined;
-            inputs["securityName"] = args ? args.securityName : undefined;
-            inputs["version"] = args ? args.version : undefined;
+            resourceInputs["authPasswordencrypted"] = args ? args.authPasswordencrypted : undefined;
+            resourceInputs["authProtocol"] = args ? args.authProtocol : undefined;
+            resourceInputs["community"] = args ? args.community : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["engineId"] = args ? args.engineId : undefined;
+            resourceInputs["host"] = args ? args.host : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["privacyPassword"] = args ? args.privacyPassword : undefined;
+            resourceInputs["privacyPasswordEncrypted"] = args ? args.privacyPasswordEncrypted : undefined;
+            resourceInputs["privacyProtocol"] = args ? args.privacyProtocol : undefined;
+            resourceInputs["securityLevel"] = args ? args.securityLevel : undefined;
+            resourceInputs["securityName"] = args ? args.securityName : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SnmpTraps.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SnmpTraps.__pulumiType, name, resourceInputs, opts);
     }
 }
 
