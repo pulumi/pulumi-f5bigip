@@ -101,32 +101,30 @@ export class Policy extends pulumi.CustomResource {
      */
     constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PolicyArgs | PolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PolicyState | undefined;
-            inputs["controls"] = state ? state.controls : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["publishedCopy"] = state ? state.publishedCopy : undefined;
-            inputs["requires"] = state ? state.requires : undefined;
-            inputs["rules"] = state ? state.rules : undefined;
-            inputs["strategy"] = state ? state.strategy : undefined;
+            resourceInputs["controls"] = state ? state.controls : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["publishedCopy"] = state ? state.publishedCopy : undefined;
+            resourceInputs["requires"] = state ? state.requires : undefined;
+            resourceInputs["rules"] = state ? state.rules : undefined;
+            resourceInputs["strategy"] = state ? state.strategy : undefined;
         } else {
             const args = argsOrState as PolicyArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            inputs["controls"] = args ? args.controls : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["publishedCopy"] = args ? args.publishedCopy : undefined;
-            inputs["requires"] = args ? args.requires : undefined;
-            inputs["rules"] = args ? args.rules : undefined;
-            inputs["strategy"] = args ? args.strategy : undefined;
+            resourceInputs["controls"] = args ? args.controls : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["publishedCopy"] = args ? args.publishedCopy : undefined;
+            resourceInputs["requires"] = args ? args.requires : undefined;
+            resourceInputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["strategy"] = args ? args.strategy : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Policy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Policy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

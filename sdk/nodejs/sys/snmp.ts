@@ -69,23 +69,21 @@ export class Snmp extends pulumi.CustomResource {
      */
     constructor(name: string, args?: SnmpArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SnmpArgs | SnmpState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SnmpState | undefined;
-            inputs["allowedaddresses"] = state ? state.allowedaddresses : undefined;
-            inputs["sysContact"] = state ? state.sysContact : undefined;
-            inputs["sysLocation"] = state ? state.sysLocation : undefined;
+            resourceInputs["allowedaddresses"] = state ? state.allowedaddresses : undefined;
+            resourceInputs["sysContact"] = state ? state.sysContact : undefined;
+            resourceInputs["sysLocation"] = state ? state.sysLocation : undefined;
         } else {
             const args = argsOrState as SnmpArgs | undefined;
-            inputs["allowedaddresses"] = args ? args.allowedaddresses : undefined;
-            inputs["sysContact"] = args ? args.sysContact : undefined;
-            inputs["sysLocation"] = args ? args.sysLocation : undefined;
+            resourceInputs["allowedaddresses"] = args ? args.allowedaddresses : undefined;
+            resourceInputs["sysContact"] = args ? args.sysContact : undefined;
+            resourceInputs["sysLocation"] = args ? args.sysLocation : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Snmp.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Snmp.__pulumiType, name, resourceInputs, opts);
     }
 }
 

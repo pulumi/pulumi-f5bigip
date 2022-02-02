@@ -104,32 +104,30 @@ export class Provision extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProvisionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProvisionArgs | ProvisionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProvisionState | undefined;
-            inputs["cpuRatio"] = state ? state.cpuRatio : undefined;
-            inputs["diskRatio"] = state ? state.diskRatio : undefined;
-            inputs["fullPath"] = state ? state.fullPath : undefined;
-            inputs["level"] = state ? state.level : undefined;
-            inputs["memoryRatio"] = state ? state.memoryRatio : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["cpuRatio"] = state ? state.cpuRatio : undefined;
+            resourceInputs["diskRatio"] = state ? state.diskRatio : undefined;
+            resourceInputs["fullPath"] = state ? state.fullPath : undefined;
+            resourceInputs["level"] = state ? state.level : undefined;
+            resourceInputs["memoryRatio"] = state ? state.memoryRatio : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as ProvisionArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            inputs["cpuRatio"] = args ? args.cpuRatio : undefined;
-            inputs["diskRatio"] = args ? args.diskRatio : undefined;
-            inputs["fullPath"] = args ? args.fullPath : undefined;
-            inputs["level"] = args ? args.level : undefined;
-            inputs["memoryRatio"] = args ? args.memoryRatio : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["cpuRatio"] = args ? args.cpuRatio : undefined;
+            resourceInputs["diskRatio"] = args ? args.diskRatio : undefined;
+            resourceInputs["fullPath"] = args ? args.fullPath : undefined;
+            resourceInputs["level"] = args ? args.level : undefined;
+            resourceInputs["memoryRatio"] = args ? args.memoryRatio : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Provision.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Provision.__pulumiType, name, resourceInputs, opts);
     }
 }
 

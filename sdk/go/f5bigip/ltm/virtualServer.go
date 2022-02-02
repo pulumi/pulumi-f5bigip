@@ -54,7 +54,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = ltm.NewVirtualServer(ctx, "httpsLtm_virtualServerVirtualServer", &ltm.VirtualServerArgs{
+// 		_, err = ltm.NewVirtualServer(ctx, "httpsLtm/virtualServerVirtualServer", &ltm.VirtualServerArgs{
 // 			Name:        pulumi.String("/Common/terraform_vs_https"),
 // 			Destination: pulumi.String("10.255.255.254"),
 // 			Description: pulumi.String("VirtualServer-test"),
@@ -383,7 +383,7 @@ type VirtualServerInput interface {
 }
 
 func (*VirtualServer) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualServer)(nil))
+	return reflect.TypeOf((**VirtualServer)(nil)).Elem()
 }
 
 func (i *VirtualServer) ToVirtualServerOutput() VirtualServerOutput {
@@ -392,35 +392,6 @@ func (i *VirtualServer) ToVirtualServerOutput() VirtualServerOutput {
 
 func (i *VirtualServer) ToVirtualServerOutputWithContext(ctx context.Context) VirtualServerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualServerOutput)
-}
-
-func (i *VirtualServer) ToVirtualServerPtrOutput() VirtualServerPtrOutput {
-	return i.ToVirtualServerPtrOutputWithContext(context.Background())
-}
-
-func (i *VirtualServer) ToVirtualServerPtrOutputWithContext(ctx context.Context) VirtualServerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualServerPtrOutput)
-}
-
-type VirtualServerPtrInput interface {
-	pulumi.Input
-
-	ToVirtualServerPtrOutput() VirtualServerPtrOutput
-	ToVirtualServerPtrOutputWithContext(ctx context.Context) VirtualServerPtrOutput
-}
-
-type virtualServerPtrType VirtualServerArgs
-
-func (*virtualServerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualServer)(nil))
-}
-
-func (i *virtualServerPtrType) ToVirtualServerPtrOutput() VirtualServerPtrOutput {
-	return i.ToVirtualServerPtrOutputWithContext(context.Background())
-}
-
-func (i *virtualServerPtrType) ToVirtualServerPtrOutputWithContext(ctx context.Context) VirtualServerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VirtualServerPtrOutput)
 }
 
 // VirtualServerArrayInput is an input type that accepts VirtualServerArray and VirtualServerArrayOutput values.
@@ -476,7 +447,7 @@ func (i VirtualServerMap) ToVirtualServerMapOutputWithContext(ctx context.Contex
 type VirtualServerOutput struct{ *pulumi.OutputState }
 
 func (VirtualServerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VirtualServer)(nil))
+	return reflect.TypeOf((**VirtualServer)(nil)).Elem()
 }
 
 func (o VirtualServerOutput) ToVirtualServerOutput() VirtualServerOutput {
@@ -487,44 +458,10 @@ func (o VirtualServerOutput) ToVirtualServerOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o VirtualServerOutput) ToVirtualServerPtrOutput() VirtualServerPtrOutput {
-	return o.ToVirtualServerPtrOutputWithContext(context.Background())
-}
-
-func (o VirtualServerOutput) ToVirtualServerPtrOutputWithContext(ctx context.Context) VirtualServerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VirtualServer) *VirtualServer {
-		return &v
-	}).(VirtualServerPtrOutput)
-}
-
-type VirtualServerPtrOutput struct{ *pulumi.OutputState }
-
-func (VirtualServerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VirtualServer)(nil))
-}
-
-func (o VirtualServerPtrOutput) ToVirtualServerPtrOutput() VirtualServerPtrOutput {
-	return o
-}
-
-func (o VirtualServerPtrOutput) ToVirtualServerPtrOutputWithContext(ctx context.Context) VirtualServerPtrOutput {
-	return o
-}
-
-func (o VirtualServerPtrOutput) Elem() VirtualServerOutput {
-	return o.ApplyT(func(v *VirtualServer) VirtualServer {
-		if v != nil {
-			return *v
-		}
-		var ret VirtualServer
-		return ret
-	}).(VirtualServerOutput)
-}
-
 type VirtualServerArrayOutput struct{ *pulumi.OutputState }
 
 func (VirtualServerArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VirtualServer)(nil))
+	return reflect.TypeOf((*[]*VirtualServer)(nil)).Elem()
 }
 
 func (o VirtualServerArrayOutput) ToVirtualServerArrayOutput() VirtualServerArrayOutput {
@@ -536,15 +473,15 @@ func (o VirtualServerArrayOutput) ToVirtualServerArrayOutputWithContext(ctx cont
 }
 
 func (o VirtualServerArrayOutput) Index(i pulumi.IntInput) VirtualServerOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VirtualServer {
-		return vs[0].([]VirtualServer)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualServer {
+		return vs[0].([]*VirtualServer)[vs[1].(int)]
 	}).(VirtualServerOutput)
 }
 
 type VirtualServerMapOutput struct{ *pulumi.OutputState }
 
 func (VirtualServerMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]VirtualServer)(nil))
+	return reflect.TypeOf((*map[string]*VirtualServer)(nil)).Elem()
 }
 
 func (o VirtualServerMapOutput) ToVirtualServerMapOutput() VirtualServerMapOutput {
@@ -556,18 +493,16 @@ func (o VirtualServerMapOutput) ToVirtualServerMapOutputWithContext(ctx context.
 }
 
 func (o VirtualServerMapOutput) MapIndex(k pulumi.StringInput) VirtualServerOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VirtualServer {
-		return vs[0].(map[string]VirtualServer)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *VirtualServer {
+		return vs[0].(map[string]*VirtualServer)[vs[1].(string)]
 	}).(VirtualServerOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualServerInput)(nil)).Elem(), &VirtualServer{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VirtualServerPtrInput)(nil)).Elem(), &VirtualServer{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualServerArrayInput)(nil)).Elem(), VirtualServerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VirtualServerMapInput)(nil)).Elem(), VirtualServerMap{})
 	pulumi.RegisterOutputType(VirtualServerOutput{})
-	pulumi.RegisterOutputType(VirtualServerPtrOutput{})
 	pulumi.RegisterOutputType(VirtualServerArrayOutput{})
 	pulumi.RegisterOutputType(VirtualServerMapOutput{})
 }

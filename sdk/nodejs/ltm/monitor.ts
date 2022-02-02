@@ -170,32 +170,32 @@ export class Monitor extends pulumi.CustomResource {
      */
     constructor(name: string, args: MonitorArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MonitorArgs | MonitorState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MonitorState | undefined;
-            inputs["adaptive"] = state ? state.adaptive : undefined;
-            inputs["adaptiveLimit"] = state ? state.adaptiveLimit : undefined;
-            inputs["compatibility"] = state ? state.compatibility : undefined;
-            inputs["database"] = state ? state.database : undefined;
-            inputs["destination"] = state ? state.destination : undefined;
-            inputs["filename"] = state ? state.filename : undefined;
-            inputs["interval"] = state ? state.interval : undefined;
-            inputs["ipDscp"] = state ? state.ipDscp : undefined;
-            inputs["manualResume"] = state ? state.manualResume : undefined;
-            inputs["mode"] = state ? state.mode : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["parent"] = state ? state.parent : undefined;
-            inputs["password"] = state ? state.password : undefined;
-            inputs["receive"] = state ? state.receive : undefined;
-            inputs["receiveDisable"] = state ? state.receiveDisable : undefined;
-            inputs["reverse"] = state ? state.reverse : undefined;
-            inputs["send"] = state ? state.send : undefined;
-            inputs["timeUntilUp"] = state ? state.timeUntilUp : undefined;
-            inputs["timeout"] = state ? state.timeout : undefined;
-            inputs["transparent"] = state ? state.transparent : undefined;
-            inputs["upInterval"] = state ? state.upInterval : undefined;
-            inputs["username"] = state ? state.username : undefined;
+            resourceInputs["adaptive"] = state ? state.adaptive : undefined;
+            resourceInputs["adaptiveLimit"] = state ? state.adaptiveLimit : undefined;
+            resourceInputs["compatibility"] = state ? state.compatibility : undefined;
+            resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["destination"] = state ? state.destination : undefined;
+            resourceInputs["filename"] = state ? state.filename : undefined;
+            resourceInputs["interval"] = state ? state.interval : undefined;
+            resourceInputs["ipDscp"] = state ? state.ipDscp : undefined;
+            resourceInputs["manualResume"] = state ? state.manualResume : undefined;
+            resourceInputs["mode"] = state ? state.mode : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parent"] = state ? state.parent : undefined;
+            resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["receive"] = state ? state.receive : undefined;
+            resourceInputs["receiveDisable"] = state ? state.receiveDisable : undefined;
+            resourceInputs["reverse"] = state ? state.reverse : undefined;
+            resourceInputs["send"] = state ? state.send : undefined;
+            resourceInputs["timeUntilUp"] = state ? state.timeUntilUp : undefined;
+            resourceInputs["timeout"] = state ? state.timeout : undefined;
+            resourceInputs["transparent"] = state ? state.transparent : undefined;
+            resourceInputs["upInterval"] = state ? state.upInterval : undefined;
+            resourceInputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as MonitorArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -204,33 +204,31 @@ export class Monitor extends pulumi.CustomResource {
             if ((!args || args.parent === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'parent'");
             }
-            inputs["adaptive"] = args ? args.adaptive : undefined;
-            inputs["adaptiveLimit"] = args ? args.adaptiveLimit : undefined;
-            inputs["compatibility"] = args ? args.compatibility : undefined;
-            inputs["database"] = args ? args.database : undefined;
-            inputs["destination"] = args ? args.destination : undefined;
-            inputs["filename"] = args ? args.filename : undefined;
-            inputs["interval"] = args ? args.interval : undefined;
-            inputs["ipDscp"] = args ? args.ipDscp : undefined;
-            inputs["manualResume"] = args ? args.manualResume : undefined;
-            inputs["mode"] = args ? args.mode : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parent"] = args ? args.parent : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["receive"] = args ? args.receive : undefined;
-            inputs["receiveDisable"] = args ? args.receiveDisable : undefined;
-            inputs["reverse"] = args ? args.reverse : undefined;
-            inputs["send"] = args ? args.send : undefined;
-            inputs["timeUntilUp"] = args ? args.timeUntilUp : undefined;
-            inputs["timeout"] = args ? args.timeout : undefined;
-            inputs["transparent"] = args ? args.transparent : undefined;
-            inputs["upInterval"] = args ? args.upInterval : undefined;
-            inputs["username"] = args ? args.username : undefined;
+            resourceInputs["adaptive"] = args ? args.adaptive : undefined;
+            resourceInputs["adaptiveLimit"] = args ? args.adaptiveLimit : undefined;
+            resourceInputs["compatibility"] = args ? args.compatibility : undefined;
+            resourceInputs["database"] = args ? args.database : undefined;
+            resourceInputs["destination"] = args ? args.destination : undefined;
+            resourceInputs["filename"] = args ? args.filename : undefined;
+            resourceInputs["interval"] = args ? args.interval : undefined;
+            resourceInputs["ipDscp"] = args ? args.ipDscp : undefined;
+            resourceInputs["manualResume"] = args ? args.manualResume : undefined;
+            resourceInputs["mode"] = args ? args.mode : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parent"] = args ? args.parent : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["receive"] = args ? args.receive : undefined;
+            resourceInputs["receiveDisable"] = args ? args.receiveDisable : undefined;
+            resourceInputs["reverse"] = args ? args.reverse : undefined;
+            resourceInputs["send"] = args ? args.send : undefined;
+            resourceInputs["timeUntilUp"] = args ? args.timeUntilUp : undefined;
+            resourceInputs["timeout"] = args ? args.timeout : undefined;
+            resourceInputs["transparent"] = args ? args.transparent : undefined;
+            resourceInputs["upInterval"] = args ? args.upInterval : undefined;
+            resourceInputs["username"] = args ? args.username : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Monitor.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Monitor.__pulumiType, name, resourceInputs, opts);
     }
 }
 

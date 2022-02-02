@@ -183,74 +183,72 @@ export class ProfileHttp extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProfileHttpArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProfileHttpArgs | ProfileHttpState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProfileHttpState | undefined;
-            inputs["acceptXff"] = state ? state.acceptXff : undefined;
-            inputs["appService"] = state ? state.appService : undefined;
-            inputs["basicAuthRealm"] = state ? state.basicAuthRealm : undefined;
-            inputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["encryptCookieSecret"] = state ? state.encryptCookieSecret : undefined;
-            inputs["encryptCookies"] = state ? state.encryptCookies : undefined;
-            inputs["fallbackHost"] = state ? state.fallbackHost : undefined;
-            inputs["fallbackStatusCodes"] = state ? state.fallbackStatusCodes : undefined;
-            inputs["headErase"] = state ? state.headErase : undefined;
-            inputs["headInsert"] = state ? state.headInsert : undefined;
-            inputs["insertXforwardedFor"] = state ? state.insertXforwardedFor : undefined;
-            inputs["lwsSeparator"] = state ? state.lwsSeparator : undefined;
-            inputs["lwsWidth"] = state ? state.lwsWidth : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["oneconnectTransformations"] = state ? state.oneconnectTransformations : undefined;
-            inputs["proxyType"] = state ? state.proxyType : undefined;
-            inputs["redirectRewrite"] = state ? state.redirectRewrite : undefined;
-            inputs["requestChunking"] = state ? state.requestChunking : undefined;
-            inputs["responseChunking"] = state ? state.responseChunking : undefined;
-            inputs["responseHeadersPermitteds"] = state ? state.responseHeadersPermitteds : undefined;
-            inputs["serverAgentName"] = state ? state.serverAgentName : undefined;
-            inputs["tmPartition"] = state ? state.tmPartition : undefined;
-            inputs["viaHostName"] = state ? state.viaHostName : undefined;
-            inputs["viaRequest"] = state ? state.viaRequest : undefined;
-            inputs["viaResponse"] = state ? state.viaResponse : undefined;
-            inputs["xffAlternativeNames"] = state ? state.xffAlternativeNames : undefined;
+            resourceInputs["acceptXff"] = state ? state.acceptXff : undefined;
+            resourceInputs["appService"] = state ? state.appService : undefined;
+            resourceInputs["basicAuthRealm"] = state ? state.basicAuthRealm : undefined;
+            resourceInputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["encryptCookieSecret"] = state ? state.encryptCookieSecret : undefined;
+            resourceInputs["encryptCookies"] = state ? state.encryptCookies : undefined;
+            resourceInputs["fallbackHost"] = state ? state.fallbackHost : undefined;
+            resourceInputs["fallbackStatusCodes"] = state ? state.fallbackStatusCodes : undefined;
+            resourceInputs["headErase"] = state ? state.headErase : undefined;
+            resourceInputs["headInsert"] = state ? state.headInsert : undefined;
+            resourceInputs["insertXforwardedFor"] = state ? state.insertXforwardedFor : undefined;
+            resourceInputs["lwsSeparator"] = state ? state.lwsSeparator : undefined;
+            resourceInputs["lwsWidth"] = state ? state.lwsWidth : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["oneconnectTransformations"] = state ? state.oneconnectTransformations : undefined;
+            resourceInputs["proxyType"] = state ? state.proxyType : undefined;
+            resourceInputs["redirectRewrite"] = state ? state.redirectRewrite : undefined;
+            resourceInputs["requestChunking"] = state ? state.requestChunking : undefined;
+            resourceInputs["responseChunking"] = state ? state.responseChunking : undefined;
+            resourceInputs["responseHeadersPermitteds"] = state ? state.responseHeadersPermitteds : undefined;
+            resourceInputs["serverAgentName"] = state ? state.serverAgentName : undefined;
+            resourceInputs["tmPartition"] = state ? state.tmPartition : undefined;
+            resourceInputs["viaHostName"] = state ? state.viaHostName : undefined;
+            resourceInputs["viaRequest"] = state ? state.viaRequest : undefined;
+            resourceInputs["viaResponse"] = state ? state.viaResponse : undefined;
+            resourceInputs["xffAlternativeNames"] = state ? state.xffAlternativeNames : undefined;
         } else {
             const args = argsOrState as ProfileHttpArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            inputs["acceptXff"] = args ? args.acceptXff : undefined;
-            inputs["appService"] = args ? args.appService : undefined;
-            inputs["basicAuthRealm"] = args ? args.basicAuthRealm : undefined;
-            inputs["defaultsFrom"] = args ? args.defaultsFrom : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["encryptCookieSecret"] = args ? args.encryptCookieSecret : undefined;
-            inputs["encryptCookies"] = args ? args.encryptCookies : undefined;
-            inputs["fallbackHost"] = args ? args.fallbackHost : undefined;
-            inputs["fallbackStatusCodes"] = args ? args.fallbackStatusCodes : undefined;
-            inputs["headErase"] = args ? args.headErase : undefined;
-            inputs["headInsert"] = args ? args.headInsert : undefined;
-            inputs["insertXforwardedFor"] = args ? args.insertXforwardedFor : undefined;
-            inputs["lwsSeparator"] = args ? args.lwsSeparator : undefined;
-            inputs["lwsWidth"] = args ? args.lwsWidth : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["oneconnectTransformations"] = args ? args.oneconnectTransformations : undefined;
-            inputs["proxyType"] = args ? args.proxyType : undefined;
-            inputs["redirectRewrite"] = args ? args.redirectRewrite : undefined;
-            inputs["requestChunking"] = args ? args.requestChunking : undefined;
-            inputs["responseChunking"] = args ? args.responseChunking : undefined;
-            inputs["responseHeadersPermitteds"] = args ? args.responseHeadersPermitteds : undefined;
-            inputs["serverAgentName"] = args ? args.serverAgentName : undefined;
-            inputs["tmPartition"] = args ? args.tmPartition : undefined;
-            inputs["viaHostName"] = args ? args.viaHostName : undefined;
-            inputs["viaRequest"] = args ? args.viaRequest : undefined;
-            inputs["viaResponse"] = args ? args.viaResponse : undefined;
-            inputs["xffAlternativeNames"] = args ? args.xffAlternativeNames : undefined;
+            resourceInputs["acceptXff"] = args ? args.acceptXff : undefined;
+            resourceInputs["appService"] = args ? args.appService : undefined;
+            resourceInputs["basicAuthRealm"] = args ? args.basicAuthRealm : undefined;
+            resourceInputs["defaultsFrom"] = args ? args.defaultsFrom : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["encryptCookieSecret"] = args ? args.encryptCookieSecret : undefined;
+            resourceInputs["encryptCookies"] = args ? args.encryptCookies : undefined;
+            resourceInputs["fallbackHost"] = args ? args.fallbackHost : undefined;
+            resourceInputs["fallbackStatusCodes"] = args ? args.fallbackStatusCodes : undefined;
+            resourceInputs["headErase"] = args ? args.headErase : undefined;
+            resourceInputs["headInsert"] = args ? args.headInsert : undefined;
+            resourceInputs["insertXforwardedFor"] = args ? args.insertXforwardedFor : undefined;
+            resourceInputs["lwsSeparator"] = args ? args.lwsSeparator : undefined;
+            resourceInputs["lwsWidth"] = args ? args.lwsWidth : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["oneconnectTransformations"] = args ? args.oneconnectTransformations : undefined;
+            resourceInputs["proxyType"] = args ? args.proxyType : undefined;
+            resourceInputs["redirectRewrite"] = args ? args.redirectRewrite : undefined;
+            resourceInputs["requestChunking"] = args ? args.requestChunking : undefined;
+            resourceInputs["responseChunking"] = args ? args.responseChunking : undefined;
+            resourceInputs["responseHeadersPermitteds"] = args ? args.responseHeadersPermitteds : undefined;
+            resourceInputs["serverAgentName"] = args ? args.serverAgentName : undefined;
+            resourceInputs["tmPartition"] = args ? args.tmPartition : undefined;
+            resourceInputs["viaHostName"] = args ? args.viaHostName : undefined;
+            resourceInputs["viaRequest"] = args ? args.viaRequest : undefined;
+            resourceInputs["viaResponse"] = args ? args.viaResponse : undefined;
+            resourceInputs["xffAlternativeNames"] = args ? args.xffAlternativeNames : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ProfileHttp.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ProfileHttp.__pulumiType, name, resourceInputs, opts);
     }
 }
 

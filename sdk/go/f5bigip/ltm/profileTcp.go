@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ltm.NewProfileTcp(ctx, "sanjose_tcp_lan_profile", &ltm.ProfileTcpArgs{
+// 		_, err := ltm.NewProfileTcp(ctx, "sanjose-tcp-lan-profile", &ltm.ProfileTcpArgs{
 // 			CloseWaitTimeout:  pulumi.Int(5),
 // 			DeferredAccept:    pulumi.String("enabled"),
 // 			FastOpen:          pulumi.String("enabled"),
@@ -209,7 +209,7 @@ type ProfileTcpInput interface {
 }
 
 func (*ProfileTcp) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileTcp)(nil))
+	return reflect.TypeOf((**ProfileTcp)(nil)).Elem()
 }
 
 func (i *ProfileTcp) ToProfileTcpOutput() ProfileTcpOutput {
@@ -218,35 +218,6 @@ func (i *ProfileTcp) ToProfileTcpOutput() ProfileTcpOutput {
 
 func (i *ProfileTcp) ToProfileTcpOutputWithContext(ctx context.Context) ProfileTcpOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileTcpOutput)
-}
-
-func (i *ProfileTcp) ToProfileTcpPtrOutput() ProfileTcpPtrOutput {
-	return i.ToProfileTcpPtrOutputWithContext(context.Background())
-}
-
-func (i *ProfileTcp) ToProfileTcpPtrOutputWithContext(ctx context.Context) ProfileTcpPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProfileTcpPtrOutput)
-}
-
-type ProfileTcpPtrInput interface {
-	pulumi.Input
-
-	ToProfileTcpPtrOutput() ProfileTcpPtrOutput
-	ToProfileTcpPtrOutputWithContext(ctx context.Context) ProfileTcpPtrOutput
-}
-
-type profileTcpPtrType ProfileTcpArgs
-
-func (*profileTcpPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProfileTcp)(nil))
-}
-
-func (i *profileTcpPtrType) ToProfileTcpPtrOutput() ProfileTcpPtrOutput {
-	return i.ToProfileTcpPtrOutputWithContext(context.Background())
-}
-
-func (i *profileTcpPtrType) ToProfileTcpPtrOutputWithContext(ctx context.Context) ProfileTcpPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProfileTcpPtrOutput)
 }
 
 // ProfileTcpArrayInput is an input type that accepts ProfileTcpArray and ProfileTcpArrayOutput values.
@@ -302,7 +273,7 @@ func (i ProfileTcpMap) ToProfileTcpMapOutputWithContext(ctx context.Context) Pro
 type ProfileTcpOutput struct{ *pulumi.OutputState }
 
 func (ProfileTcpOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileTcp)(nil))
+	return reflect.TypeOf((**ProfileTcp)(nil)).Elem()
 }
 
 func (o ProfileTcpOutput) ToProfileTcpOutput() ProfileTcpOutput {
@@ -313,44 +284,10 @@ func (o ProfileTcpOutput) ToProfileTcpOutputWithContext(ctx context.Context) Pro
 	return o
 }
 
-func (o ProfileTcpOutput) ToProfileTcpPtrOutput() ProfileTcpPtrOutput {
-	return o.ToProfileTcpPtrOutputWithContext(context.Background())
-}
-
-func (o ProfileTcpOutput) ToProfileTcpPtrOutputWithContext(ctx context.Context) ProfileTcpPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProfileTcp) *ProfileTcp {
-		return &v
-	}).(ProfileTcpPtrOutput)
-}
-
-type ProfileTcpPtrOutput struct{ *pulumi.OutputState }
-
-func (ProfileTcpPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProfileTcp)(nil))
-}
-
-func (o ProfileTcpPtrOutput) ToProfileTcpPtrOutput() ProfileTcpPtrOutput {
-	return o
-}
-
-func (o ProfileTcpPtrOutput) ToProfileTcpPtrOutputWithContext(ctx context.Context) ProfileTcpPtrOutput {
-	return o
-}
-
-func (o ProfileTcpPtrOutput) Elem() ProfileTcpOutput {
-	return o.ApplyT(func(v *ProfileTcp) ProfileTcp {
-		if v != nil {
-			return *v
-		}
-		var ret ProfileTcp
-		return ret
-	}).(ProfileTcpOutput)
-}
-
 type ProfileTcpArrayOutput struct{ *pulumi.OutputState }
 
 func (ProfileTcpArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProfileTcp)(nil))
+	return reflect.TypeOf((*[]*ProfileTcp)(nil)).Elem()
 }
 
 func (o ProfileTcpArrayOutput) ToProfileTcpArrayOutput() ProfileTcpArrayOutput {
@@ -362,15 +299,15 @@ func (o ProfileTcpArrayOutput) ToProfileTcpArrayOutputWithContext(ctx context.Co
 }
 
 func (o ProfileTcpArrayOutput) Index(i pulumi.IntInput) ProfileTcpOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProfileTcp {
-		return vs[0].([]ProfileTcp)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProfileTcp {
+		return vs[0].([]*ProfileTcp)[vs[1].(int)]
 	}).(ProfileTcpOutput)
 }
 
 type ProfileTcpMapOutput struct{ *pulumi.OutputState }
 
 func (ProfileTcpMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ProfileTcp)(nil))
+	return reflect.TypeOf((*map[string]*ProfileTcp)(nil)).Elem()
 }
 
 func (o ProfileTcpMapOutput) ToProfileTcpMapOutput() ProfileTcpMapOutput {
@@ -382,18 +319,16 @@ func (o ProfileTcpMapOutput) ToProfileTcpMapOutputWithContext(ctx context.Contex
 }
 
 func (o ProfileTcpMapOutput) MapIndex(k pulumi.StringInput) ProfileTcpOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ProfileTcp {
-		return vs[0].(map[string]ProfileTcp)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ProfileTcp {
+		return vs[0].(map[string]*ProfileTcp)[vs[1].(string)]
 	}).(ProfileTcpOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileTcpInput)(nil)).Elem(), &ProfileTcp{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProfileTcpPtrInput)(nil)).Elem(), &ProfileTcp{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileTcpArrayInput)(nil)).Elem(), ProfileTcpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileTcpMapInput)(nil)).Elem(), ProfileTcpMap{})
 	pulumi.RegisterOutputType(ProfileTcpOutput{})
-	pulumi.RegisterOutputType(ProfileTcpPtrOutput{})
 	pulumi.RegisterOutputType(ProfileTcpArrayOutput{})
 	pulumi.RegisterOutputType(ProfileTcpMapOutput{})
 }

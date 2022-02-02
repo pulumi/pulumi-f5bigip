@@ -267,7 +267,7 @@ type PoolAttachmentInput interface {
 }
 
 func (*PoolAttachment) ElementType() reflect.Type {
-	return reflect.TypeOf((*PoolAttachment)(nil))
+	return reflect.TypeOf((**PoolAttachment)(nil)).Elem()
 }
 
 func (i *PoolAttachment) ToPoolAttachmentOutput() PoolAttachmentOutput {
@@ -276,35 +276,6 @@ func (i *PoolAttachment) ToPoolAttachmentOutput() PoolAttachmentOutput {
 
 func (i *PoolAttachment) ToPoolAttachmentOutputWithContext(ctx context.Context) PoolAttachmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PoolAttachmentOutput)
-}
-
-func (i *PoolAttachment) ToPoolAttachmentPtrOutput() PoolAttachmentPtrOutput {
-	return i.ToPoolAttachmentPtrOutputWithContext(context.Background())
-}
-
-func (i *PoolAttachment) ToPoolAttachmentPtrOutputWithContext(ctx context.Context) PoolAttachmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PoolAttachmentPtrOutput)
-}
-
-type PoolAttachmentPtrInput interface {
-	pulumi.Input
-
-	ToPoolAttachmentPtrOutput() PoolAttachmentPtrOutput
-	ToPoolAttachmentPtrOutputWithContext(ctx context.Context) PoolAttachmentPtrOutput
-}
-
-type poolAttachmentPtrType PoolAttachmentArgs
-
-func (*poolAttachmentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PoolAttachment)(nil))
-}
-
-func (i *poolAttachmentPtrType) ToPoolAttachmentPtrOutput() PoolAttachmentPtrOutput {
-	return i.ToPoolAttachmentPtrOutputWithContext(context.Background())
-}
-
-func (i *poolAttachmentPtrType) ToPoolAttachmentPtrOutputWithContext(ctx context.Context) PoolAttachmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PoolAttachmentPtrOutput)
 }
 
 // PoolAttachmentArrayInput is an input type that accepts PoolAttachmentArray and PoolAttachmentArrayOutput values.
@@ -360,7 +331,7 @@ func (i PoolAttachmentMap) ToPoolAttachmentMapOutputWithContext(ctx context.Cont
 type PoolAttachmentOutput struct{ *pulumi.OutputState }
 
 func (PoolAttachmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PoolAttachment)(nil))
+	return reflect.TypeOf((**PoolAttachment)(nil)).Elem()
 }
 
 func (o PoolAttachmentOutput) ToPoolAttachmentOutput() PoolAttachmentOutput {
@@ -371,44 +342,10 @@ func (o PoolAttachmentOutput) ToPoolAttachmentOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o PoolAttachmentOutput) ToPoolAttachmentPtrOutput() PoolAttachmentPtrOutput {
-	return o.ToPoolAttachmentPtrOutputWithContext(context.Background())
-}
-
-func (o PoolAttachmentOutput) ToPoolAttachmentPtrOutputWithContext(ctx context.Context) PoolAttachmentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PoolAttachment) *PoolAttachment {
-		return &v
-	}).(PoolAttachmentPtrOutput)
-}
-
-type PoolAttachmentPtrOutput struct{ *pulumi.OutputState }
-
-func (PoolAttachmentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PoolAttachment)(nil))
-}
-
-func (o PoolAttachmentPtrOutput) ToPoolAttachmentPtrOutput() PoolAttachmentPtrOutput {
-	return o
-}
-
-func (o PoolAttachmentPtrOutput) ToPoolAttachmentPtrOutputWithContext(ctx context.Context) PoolAttachmentPtrOutput {
-	return o
-}
-
-func (o PoolAttachmentPtrOutput) Elem() PoolAttachmentOutput {
-	return o.ApplyT(func(v *PoolAttachment) PoolAttachment {
-		if v != nil {
-			return *v
-		}
-		var ret PoolAttachment
-		return ret
-	}).(PoolAttachmentOutput)
-}
-
 type PoolAttachmentArrayOutput struct{ *pulumi.OutputState }
 
 func (PoolAttachmentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PoolAttachment)(nil))
+	return reflect.TypeOf((*[]*PoolAttachment)(nil)).Elem()
 }
 
 func (o PoolAttachmentArrayOutput) ToPoolAttachmentArrayOutput() PoolAttachmentArrayOutput {
@@ -420,15 +357,15 @@ func (o PoolAttachmentArrayOutput) ToPoolAttachmentArrayOutputWithContext(ctx co
 }
 
 func (o PoolAttachmentArrayOutput) Index(i pulumi.IntInput) PoolAttachmentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PoolAttachment {
-		return vs[0].([]PoolAttachment)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PoolAttachment {
+		return vs[0].([]*PoolAttachment)[vs[1].(int)]
 	}).(PoolAttachmentOutput)
 }
 
 type PoolAttachmentMapOutput struct{ *pulumi.OutputState }
 
 func (PoolAttachmentMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]PoolAttachment)(nil))
+	return reflect.TypeOf((*map[string]*PoolAttachment)(nil)).Elem()
 }
 
 func (o PoolAttachmentMapOutput) ToPoolAttachmentMapOutput() PoolAttachmentMapOutput {
@@ -440,18 +377,16 @@ func (o PoolAttachmentMapOutput) ToPoolAttachmentMapOutputWithContext(ctx contex
 }
 
 func (o PoolAttachmentMapOutput) MapIndex(k pulumi.StringInput) PoolAttachmentOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PoolAttachment {
-		return vs[0].(map[string]PoolAttachment)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *PoolAttachment {
+		return vs[0].(map[string]*PoolAttachment)[vs[1].(string)]
 	}).(PoolAttachmentOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolAttachmentInput)(nil)).Elem(), &PoolAttachment{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PoolAttachmentPtrInput)(nil)).Elem(), &PoolAttachment{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolAttachmentArrayInput)(nil)).Elem(), PoolAttachmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PoolAttachmentMapInput)(nil)).Elem(), PoolAttachmentMap{})
 	pulumi.RegisterOutputType(PoolAttachmentOutput{})
-	pulumi.RegisterOutputType(PoolAttachmentPtrOutput{})
 	pulumi.RegisterOutputType(PoolAttachmentArrayOutput{})
 	pulumi.RegisterOutputType(PoolAttachmentMapOutput{})
 }

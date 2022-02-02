@@ -82,13 +82,13 @@ export class DataGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: DataGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DataGroupArgs | DataGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DataGroupState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["records"] = state ? state.records : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["records"] = state ? state.records : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as DataGroupArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -97,14 +97,12 @@ export class DataGroup extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["records"] = args ? args.records : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["records"] = args ? args.records : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DataGroup.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DataGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

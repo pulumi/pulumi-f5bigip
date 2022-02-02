@@ -26,7 +26,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := f5bigip.NewCommand(ctx, "test_command", &f5bigip.CommandArgs{
+// 		_, err := f5bigip.NewCommand(ctx, "test-command", &f5bigip.CommandArgs{
 // 			Commands: pulumi.StringArray{
 // 				pulumi.String("delete ltm node 10.10.10.70"),
 // 			},
@@ -129,7 +129,7 @@ type CommandInput interface {
 }
 
 func (*Command) ElementType() reflect.Type {
-	return reflect.TypeOf((*Command)(nil))
+	return reflect.TypeOf((**Command)(nil)).Elem()
 }
 
 func (i *Command) ToCommandOutput() CommandOutput {
@@ -138,35 +138,6 @@ func (i *Command) ToCommandOutput() CommandOutput {
 
 func (i *Command) ToCommandOutputWithContext(ctx context.Context) CommandOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CommandOutput)
-}
-
-func (i *Command) ToCommandPtrOutput() CommandPtrOutput {
-	return i.ToCommandPtrOutputWithContext(context.Background())
-}
-
-func (i *Command) ToCommandPtrOutputWithContext(ctx context.Context) CommandPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CommandPtrOutput)
-}
-
-type CommandPtrInput interface {
-	pulumi.Input
-
-	ToCommandPtrOutput() CommandPtrOutput
-	ToCommandPtrOutputWithContext(ctx context.Context) CommandPtrOutput
-}
-
-type commandPtrType CommandArgs
-
-func (*commandPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Command)(nil))
-}
-
-func (i *commandPtrType) ToCommandPtrOutput() CommandPtrOutput {
-	return i.ToCommandPtrOutputWithContext(context.Background())
-}
-
-func (i *commandPtrType) ToCommandPtrOutputWithContext(ctx context.Context) CommandPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CommandPtrOutput)
 }
 
 // CommandArrayInput is an input type that accepts CommandArray and CommandArrayOutput values.
@@ -222,7 +193,7 @@ func (i CommandMap) ToCommandMapOutputWithContext(ctx context.Context) CommandMa
 type CommandOutput struct{ *pulumi.OutputState }
 
 func (CommandOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Command)(nil))
+	return reflect.TypeOf((**Command)(nil)).Elem()
 }
 
 func (o CommandOutput) ToCommandOutput() CommandOutput {
@@ -233,44 +204,10 @@ func (o CommandOutput) ToCommandOutputWithContext(ctx context.Context) CommandOu
 	return o
 }
 
-func (o CommandOutput) ToCommandPtrOutput() CommandPtrOutput {
-	return o.ToCommandPtrOutputWithContext(context.Background())
-}
-
-func (o CommandOutput) ToCommandPtrOutputWithContext(ctx context.Context) CommandPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Command) *Command {
-		return &v
-	}).(CommandPtrOutput)
-}
-
-type CommandPtrOutput struct{ *pulumi.OutputState }
-
-func (CommandPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Command)(nil))
-}
-
-func (o CommandPtrOutput) ToCommandPtrOutput() CommandPtrOutput {
-	return o
-}
-
-func (o CommandPtrOutput) ToCommandPtrOutputWithContext(ctx context.Context) CommandPtrOutput {
-	return o
-}
-
-func (o CommandPtrOutput) Elem() CommandOutput {
-	return o.ApplyT(func(v *Command) Command {
-		if v != nil {
-			return *v
-		}
-		var ret Command
-		return ret
-	}).(CommandOutput)
-}
-
 type CommandArrayOutput struct{ *pulumi.OutputState }
 
 func (CommandArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Command)(nil))
+	return reflect.TypeOf((*[]*Command)(nil)).Elem()
 }
 
 func (o CommandArrayOutput) ToCommandArrayOutput() CommandArrayOutput {
@@ -282,15 +219,15 @@ func (o CommandArrayOutput) ToCommandArrayOutputWithContext(ctx context.Context)
 }
 
 func (o CommandArrayOutput) Index(i pulumi.IntInput) CommandOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Command {
-		return vs[0].([]Command)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Command {
+		return vs[0].([]*Command)[vs[1].(int)]
 	}).(CommandOutput)
 }
 
 type CommandMapOutput struct{ *pulumi.OutputState }
 
 func (CommandMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Command)(nil))
+	return reflect.TypeOf((*map[string]*Command)(nil)).Elem()
 }
 
 func (o CommandMapOutput) ToCommandMapOutput() CommandMapOutput {
@@ -302,18 +239,16 @@ func (o CommandMapOutput) ToCommandMapOutputWithContext(ctx context.Context) Com
 }
 
 func (o CommandMapOutput) MapIndex(k pulumi.StringInput) CommandOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Command {
-		return vs[0].(map[string]Command)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Command {
+		return vs[0].(map[string]*Command)[vs[1].(string)]
 	}).(CommandOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CommandInput)(nil)).Elem(), &Command{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CommandPtrInput)(nil)).Elem(), &Command{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CommandArrayInput)(nil)).Elem(), CommandArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CommandMapInput)(nil)).Elem(), CommandMap{})
 	pulumi.RegisterOutputType(CommandOutput{})
-	pulumi.RegisterOutputType(CommandPtrOutput{})
 	pulumi.RegisterOutputType(CommandArrayOutput{})
 	pulumi.RegisterOutputType(CommandMapOutput{})
 }

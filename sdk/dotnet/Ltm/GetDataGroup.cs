@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.F5BigIP.Ltm
 {
@@ -41,7 +40,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetDataGroupResult> InvokeAsync(GetDataGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetDataGroupResult>("f5bigip:ltm/getDataGroup:getDataGroup", args ?? new GetDataGroupArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetDataGroupResult>("f5bigip:ltm/getDataGroup:getDataGroup", args ?? new GetDataGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source (`f5bigip.ltm.DataGroup`) to get the data group details available on BIG-IP
@@ -72,7 +71,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetDataGroupResult> Invoke(GetDataGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetDataGroupResult>("f5bigip:ltm/getDataGroup:getDataGroup", args ?? new GetDataGroupInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetDataGroupResult>("f5bigip:ltm/getDataGroup:getDataGroup", args ?? new GetDataGroupInvokeArgs(), options.WithDefaults());
     }
 
 

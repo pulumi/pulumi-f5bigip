@@ -129,7 +129,7 @@ type SnmpInput interface {
 }
 
 func (*Snmp) ElementType() reflect.Type {
-	return reflect.TypeOf((*Snmp)(nil))
+	return reflect.TypeOf((**Snmp)(nil)).Elem()
 }
 
 func (i *Snmp) ToSnmpOutput() SnmpOutput {
@@ -138,35 +138,6 @@ func (i *Snmp) ToSnmpOutput() SnmpOutput {
 
 func (i *Snmp) ToSnmpOutputWithContext(ctx context.Context) SnmpOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SnmpOutput)
-}
-
-func (i *Snmp) ToSnmpPtrOutput() SnmpPtrOutput {
-	return i.ToSnmpPtrOutputWithContext(context.Background())
-}
-
-func (i *Snmp) ToSnmpPtrOutputWithContext(ctx context.Context) SnmpPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SnmpPtrOutput)
-}
-
-type SnmpPtrInput interface {
-	pulumi.Input
-
-	ToSnmpPtrOutput() SnmpPtrOutput
-	ToSnmpPtrOutputWithContext(ctx context.Context) SnmpPtrOutput
-}
-
-type snmpPtrType SnmpArgs
-
-func (*snmpPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Snmp)(nil))
-}
-
-func (i *snmpPtrType) ToSnmpPtrOutput() SnmpPtrOutput {
-	return i.ToSnmpPtrOutputWithContext(context.Background())
-}
-
-func (i *snmpPtrType) ToSnmpPtrOutputWithContext(ctx context.Context) SnmpPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SnmpPtrOutput)
 }
 
 // SnmpArrayInput is an input type that accepts SnmpArray and SnmpArrayOutput values.
@@ -222,7 +193,7 @@ func (i SnmpMap) ToSnmpMapOutputWithContext(ctx context.Context) SnmpMapOutput {
 type SnmpOutput struct{ *pulumi.OutputState }
 
 func (SnmpOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Snmp)(nil))
+	return reflect.TypeOf((**Snmp)(nil)).Elem()
 }
 
 func (o SnmpOutput) ToSnmpOutput() SnmpOutput {
@@ -233,44 +204,10 @@ func (o SnmpOutput) ToSnmpOutputWithContext(ctx context.Context) SnmpOutput {
 	return o
 }
 
-func (o SnmpOutput) ToSnmpPtrOutput() SnmpPtrOutput {
-	return o.ToSnmpPtrOutputWithContext(context.Background())
-}
-
-func (o SnmpOutput) ToSnmpPtrOutputWithContext(ctx context.Context) SnmpPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Snmp) *Snmp {
-		return &v
-	}).(SnmpPtrOutput)
-}
-
-type SnmpPtrOutput struct{ *pulumi.OutputState }
-
-func (SnmpPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Snmp)(nil))
-}
-
-func (o SnmpPtrOutput) ToSnmpPtrOutput() SnmpPtrOutput {
-	return o
-}
-
-func (o SnmpPtrOutput) ToSnmpPtrOutputWithContext(ctx context.Context) SnmpPtrOutput {
-	return o
-}
-
-func (o SnmpPtrOutput) Elem() SnmpOutput {
-	return o.ApplyT(func(v *Snmp) Snmp {
-		if v != nil {
-			return *v
-		}
-		var ret Snmp
-		return ret
-	}).(SnmpOutput)
-}
-
 type SnmpArrayOutput struct{ *pulumi.OutputState }
 
 func (SnmpArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Snmp)(nil))
+	return reflect.TypeOf((*[]*Snmp)(nil)).Elem()
 }
 
 func (o SnmpArrayOutput) ToSnmpArrayOutput() SnmpArrayOutput {
@@ -282,15 +219,15 @@ func (o SnmpArrayOutput) ToSnmpArrayOutputWithContext(ctx context.Context) SnmpA
 }
 
 func (o SnmpArrayOutput) Index(i pulumi.IntInput) SnmpOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Snmp {
-		return vs[0].([]Snmp)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Snmp {
+		return vs[0].([]*Snmp)[vs[1].(int)]
 	}).(SnmpOutput)
 }
 
 type SnmpMapOutput struct{ *pulumi.OutputState }
 
 func (SnmpMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Snmp)(nil))
+	return reflect.TypeOf((*map[string]*Snmp)(nil)).Elem()
 }
 
 func (o SnmpMapOutput) ToSnmpMapOutput() SnmpMapOutput {
@@ -302,18 +239,16 @@ func (o SnmpMapOutput) ToSnmpMapOutputWithContext(ctx context.Context) SnmpMapOu
 }
 
 func (o SnmpMapOutput) MapIndex(k pulumi.StringInput) SnmpOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Snmp {
-		return vs[0].(map[string]Snmp)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Snmp {
+		return vs[0].(map[string]*Snmp)[vs[1].(string)]
 	}).(SnmpOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SnmpInput)(nil)).Elem(), &Snmp{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SnmpPtrInput)(nil)).Elem(), &Snmp{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnmpArrayInput)(nil)).Elem(), SnmpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnmpMapInput)(nil)).Elem(), SnmpMap{})
 	pulumi.RegisterOutputType(SnmpOutput{})
-	pulumi.RegisterOutputType(SnmpPtrOutput{})
 	pulumi.RegisterOutputType(SnmpArrayOutput{})
 	pulumi.RegisterOutputType(SnmpMapOutput{})
 }

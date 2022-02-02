@@ -71,26 +71,24 @@ export class Ntp extends pulumi.CustomResource {
      */
     constructor(name: string, args: NtpArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NtpArgs | NtpState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NtpState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["servers"] = state ? state.servers : undefined;
-            inputs["timezone"] = state ? state.timezone : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["servers"] = state ? state.servers : undefined;
+            resourceInputs["timezone"] = state ? state.timezone : undefined;
         } else {
             const args = argsOrState as NtpArgs | undefined;
             if ((!args || args.description === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["servers"] = args ? args.servers : undefined;
-            inputs["timezone"] = args ? args.timezone : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["servers"] = args ? args.servers : undefined;
+            resourceInputs["timezone"] = args ? args.timezone : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Ntp.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Ntp.__pulumiType, name, resourceInputs, opts);
     }
 }
 

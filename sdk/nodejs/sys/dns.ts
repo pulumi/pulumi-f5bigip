@@ -75,28 +75,26 @@ export class Dns extends pulumi.CustomResource {
      */
     constructor(name: string, args: DnsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DnsArgs | DnsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DnsState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["nameServers"] = state ? state.nameServers : undefined;
-            inputs["numberOfDots"] = state ? state.numberOfDots : undefined;
-            inputs["searches"] = state ? state.searches : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["nameServers"] = state ? state.nameServers : undefined;
+            resourceInputs["numberOfDots"] = state ? state.numberOfDots : undefined;
+            resourceInputs["searches"] = state ? state.searches : undefined;
         } else {
             const args = argsOrState as DnsArgs | undefined;
             if ((!args || args.description === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["nameServers"] = args ? args.nameServers : undefined;
-            inputs["numberOfDots"] = args ? args.numberOfDots : undefined;
-            inputs["searches"] = args ? args.searches : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["nameServers"] = args ? args.nameServers : undefined;
+            resourceInputs["numberOfDots"] = args ? args.numberOfDots : undefined;
+            resourceInputs["searches"] = args ? args.searches : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Dns.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Dns.__pulumiType, name, resourceInputs, opts);
     }
 }
 

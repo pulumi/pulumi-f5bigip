@@ -68,26 +68,24 @@ export class Command extends pulumi.CustomResource {
      */
     constructor(name: string, args: CommandArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CommandArgs | CommandState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CommandState | undefined;
-            inputs["commandResults"] = state ? state.commandResults : undefined;
-            inputs["commands"] = state ? state.commands : undefined;
-            inputs["when"] = state ? state.when : undefined;
+            resourceInputs["commandResults"] = state ? state.commandResults : undefined;
+            resourceInputs["commands"] = state ? state.commands : undefined;
+            resourceInputs["when"] = state ? state.when : undefined;
         } else {
             const args = argsOrState as CommandArgs | undefined;
             if ((!args || args.commands === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'commands'");
             }
-            inputs["commandResults"] = args ? args.commandResults : undefined;
-            inputs["commands"] = args ? args.commands : undefined;
-            inputs["when"] = args ? args.when : undefined;
+            resourceInputs["commandResults"] = args ? args.commandResults : undefined;
+            resourceInputs["commands"] = args ? args.commands : undefined;
+            resourceInputs["when"] = args ? args.when : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Command.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Command.__pulumiType, name, resourceInputs, opts);
     }
 }
 

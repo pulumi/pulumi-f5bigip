@@ -112,42 +112,40 @@ export class ProfileFastHttp extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProfileFastHttpArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProfileFastHttpArgs | ProfileFastHttpState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProfileFastHttpState | undefined;
-            inputs["connpoolMaxreuse"] = state ? state.connpoolMaxreuse : undefined;
-            inputs["connpoolMaxsize"] = state ? state.connpoolMaxsize : undefined;
-            inputs["connpoolMinsize"] = state ? state.connpoolMinsize : undefined;
-            inputs["connpoolReplenish"] = state ? state.connpoolReplenish : undefined;
-            inputs["connpoolStep"] = state ? state.connpoolStep : undefined;
-            inputs["connpoolidleTimeoutoverride"] = state ? state.connpoolidleTimeoutoverride : undefined;
-            inputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
-            inputs["forcehttp10response"] = state ? state.forcehttp10response : undefined;
-            inputs["idleTimeout"] = state ? state.idleTimeout : undefined;
-            inputs["maxheaderSize"] = state ? state.maxheaderSize : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["connpoolMaxreuse"] = state ? state.connpoolMaxreuse : undefined;
+            resourceInputs["connpoolMaxsize"] = state ? state.connpoolMaxsize : undefined;
+            resourceInputs["connpoolMinsize"] = state ? state.connpoolMinsize : undefined;
+            resourceInputs["connpoolReplenish"] = state ? state.connpoolReplenish : undefined;
+            resourceInputs["connpoolStep"] = state ? state.connpoolStep : undefined;
+            resourceInputs["connpoolidleTimeoutoverride"] = state ? state.connpoolidleTimeoutoverride : undefined;
+            resourceInputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
+            resourceInputs["forcehttp10response"] = state ? state.forcehttp10response : undefined;
+            resourceInputs["idleTimeout"] = state ? state.idleTimeout : undefined;
+            resourceInputs["maxheaderSize"] = state ? state.maxheaderSize : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as ProfileFastHttpArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            inputs["connpoolMaxreuse"] = args ? args.connpoolMaxreuse : undefined;
-            inputs["connpoolMaxsize"] = args ? args.connpoolMaxsize : undefined;
-            inputs["connpoolMinsize"] = args ? args.connpoolMinsize : undefined;
-            inputs["connpoolReplenish"] = args ? args.connpoolReplenish : undefined;
-            inputs["connpoolStep"] = args ? args.connpoolStep : undefined;
-            inputs["connpoolidleTimeoutoverride"] = args ? args.connpoolidleTimeoutoverride : undefined;
-            inputs["defaultsFrom"] = args ? args.defaultsFrom : undefined;
-            inputs["forcehttp10response"] = args ? args.forcehttp10response : undefined;
-            inputs["idleTimeout"] = args ? args.idleTimeout : undefined;
-            inputs["maxheaderSize"] = args ? args.maxheaderSize : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["connpoolMaxreuse"] = args ? args.connpoolMaxreuse : undefined;
+            resourceInputs["connpoolMaxsize"] = args ? args.connpoolMaxsize : undefined;
+            resourceInputs["connpoolMinsize"] = args ? args.connpoolMinsize : undefined;
+            resourceInputs["connpoolReplenish"] = args ? args.connpoolReplenish : undefined;
+            resourceInputs["connpoolStep"] = args ? args.connpoolStep : undefined;
+            resourceInputs["connpoolidleTimeoutoverride"] = args ? args.connpoolidleTimeoutoverride : undefined;
+            resourceInputs["defaultsFrom"] = args ? args.defaultsFrom : undefined;
+            resourceInputs["forcehttp10response"] = args ? args.forcehttp10response : undefined;
+            resourceInputs["idleTimeout"] = args ? args.idleTimeout : undefined;
+            resourceInputs["maxheaderSize"] = args ? args.maxheaderSize : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ProfileFastHttp.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ProfileFastHttp.__pulumiType, name, resourceInputs, opts);
     }
 }
 

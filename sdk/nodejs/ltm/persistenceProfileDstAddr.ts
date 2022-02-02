@@ -126,21 +126,21 @@ export class PersistenceProfileDstAddr extends pulumi.CustomResource {
      */
     constructor(name: string, args: PersistenceProfileDstAddrArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PersistenceProfileDstAddrArgs | PersistenceProfileDstAddrState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PersistenceProfileDstAddrState | undefined;
-            inputs["appService"] = state ? state.appService : undefined;
-            inputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
-            inputs["hashAlgorithm"] = state ? state.hashAlgorithm : undefined;
-            inputs["mask"] = state ? state.mask : undefined;
-            inputs["matchAcrossPools"] = state ? state.matchAcrossPools : undefined;
-            inputs["matchAcrossServices"] = state ? state.matchAcrossServices : undefined;
-            inputs["matchAcrossVirtuals"] = state ? state.matchAcrossVirtuals : undefined;
-            inputs["mirror"] = state ? state.mirror : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["overrideConnLimit"] = state ? state.overrideConnLimit : undefined;
-            inputs["timeout"] = state ? state.timeout : undefined;
+            resourceInputs["appService"] = state ? state.appService : undefined;
+            resourceInputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
+            resourceInputs["hashAlgorithm"] = state ? state.hashAlgorithm : undefined;
+            resourceInputs["mask"] = state ? state.mask : undefined;
+            resourceInputs["matchAcrossPools"] = state ? state.matchAcrossPools : undefined;
+            resourceInputs["matchAcrossServices"] = state ? state.matchAcrossServices : undefined;
+            resourceInputs["matchAcrossVirtuals"] = state ? state.matchAcrossVirtuals : undefined;
+            resourceInputs["mirror"] = state ? state.mirror : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["overrideConnLimit"] = state ? state.overrideConnLimit : undefined;
+            resourceInputs["timeout"] = state ? state.timeout : undefined;
         } else {
             const args = argsOrState as PersistenceProfileDstAddrArgs | undefined;
             if ((!args || args.defaultsFrom === undefined) && !opts.urn) {
@@ -149,22 +149,20 @@ export class PersistenceProfileDstAddr extends pulumi.CustomResource {
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            inputs["appService"] = args ? args.appService : undefined;
-            inputs["defaultsFrom"] = args ? args.defaultsFrom : undefined;
-            inputs["hashAlgorithm"] = args ? args.hashAlgorithm : undefined;
-            inputs["mask"] = args ? args.mask : undefined;
-            inputs["matchAcrossPools"] = args ? args.matchAcrossPools : undefined;
-            inputs["matchAcrossServices"] = args ? args.matchAcrossServices : undefined;
-            inputs["matchAcrossVirtuals"] = args ? args.matchAcrossVirtuals : undefined;
-            inputs["mirror"] = args ? args.mirror : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["overrideConnLimit"] = args ? args.overrideConnLimit : undefined;
-            inputs["timeout"] = args ? args.timeout : undefined;
+            resourceInputs["appService"] = args ? args.appService : undefined;
+            resourceInputs["defaultsFrom"] = args ? args.defaultsFrom : undefined;
+            resourceInputs["hashAlgorithm"] = args ? args.hashAlgorithm : undefined;
+            resourceInputs["mask"] = args ? args.mask : undefined;
+            resourceInputs["matchAcrossPools"] = args ? args.matchAcrossPools : undefined;
+            resourceInputs["matchAcrossServices"] = args ? args.matchAcrossServices : undefined;
+            resourceInputs["matchAcrossVirtuals"] = args ? args.matchAcrossVirtuals : undefined;
+            resourceInputs["mirror"] = args ? args.mirror : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["overrideConnLimit"] = args ? args.overrideConnLimit : undefined;
+            resourceInputs["timeout"] = args ? args.timeout : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PersistenceProfileDstAddr.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PersistenceProfileDstAddr.__pulumiType, name, resourceInputs, opts);
     }
 }
 

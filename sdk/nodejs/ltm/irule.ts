@@ -55,12 +55,12 @@ export class IRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: IRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IRuleArgs | IRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IRuleState | undefined;
-            inputs["irule"] = state ? state.irule : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["irule"] = state ? state.irule : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as IRuleArgs | undefined;
             if ((!args || args.irule === undefined) && !opts.urn) {
@@ -69,13 +69,11 @@ export class IRule extends pulumi.CustomResource {
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            inputs["irule"] = args ? args.irule : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["irule"] = args ? args.irule : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(IRule.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(IRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

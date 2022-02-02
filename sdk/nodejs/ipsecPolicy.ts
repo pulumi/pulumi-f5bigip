@@ -118,44 +118,42 @@ export class IpsecPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: IpsecPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IpsecPolicyArgs | IpsecPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IpsecPolicyState | undefined;
-            inputs["authAlgorithm"] = state ? state.authAlgorithm : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["encryptAlgorithm"] = state ? state.encryptAlgorithm : undefined;
-            inputs["ipcomp"] = state ? state.ipcomp : undefined;
-            inputs["kbLifetime"] = state ? state.kbLifetime : undefined;
-            inputs["lifetime"] = state ? state.lifetime : undefined;
-            inputs["mode"] = state ? state.mode : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["perfectForwardSecrecy"] = state ? state.perfectForwardSecrecy : undefined;
-            inputs["protocol"] = state ? state.protocol : undefined;
-            inputs["tunnelLocalAddress"] = state ? state.tunnelLocalAddress : undefined;
-            inputs["tunnelRemoteAddress"] = state ? state.tunnelRemoteAddress : undefined;
+            resourceInputs["authAlgorithm"] = state ? state.authAlgorithm : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["encryptAlgorithm"] = state ? state.encryptAlgorithm : undefined;
+            resourceInputs["ipcomp"] = state ? state.ipcomp : undefined;
+            resourceInputs["kbLifetime"] = state ? state.kbLifetime : undefined;
+            resourceInputs["lifetime"] = state ? state.lifetime : undefined;
+            resourceInputs["mode"] = state ? state.mode : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["perfectForwardSecrecy"] = state ? state.perfectForwardSecrecy : undefined;
+            resourceInputs["protocol"] = state ? state.protocol : undefined;
+            resourceInputs["tunnelLocalAddress"] = state ? state.tunnelLocalAddress : undefined;
+            resourceInputs["tunnelRemoteAddress"] = state ? state.tunnelRemoteAddress : undefined;
         } else {
             const args = argsOrState as IpsecPolicyArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            inputs["authAlgorithm"] = args ? args.authAlgorithm : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["encryptAlgorithm"] = args ? args.encryptAlgorithm : undefined;
-            inputs["ipcomp"] = args ? args.ipcomp : undefined;
-            inputs["kbLifetime"] = args ? args.kbLifetime : undefined;
-            inputs["lifetime"] = args ? args.lifetime : undefined;
-            inputs["mode"] = args ? args.mode : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["perfectForwardSecrecy"] = args ? args.perfectForwardSecrecy : undefined;
-            inputs["protocol"] = args ? args.protocol : undefined;
-            inputs["tunnelLocalAddress"] = args ? args.tunnelLocalAddress : undefined;
-            inputs["tunnelRemoteAddress"] = args ? args.tunnelRemoteAddress : undefined;
+            resourceInputs["authAlgorithm"] = args ? args.authAlgorithm : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["encryptAlgorithm"] = args ? args.encryptAlgorithm : undefined;
+            resourceInputs["ipcomp"] = args ? args.ipcomp : undefined;
+            resourceInputs["kbLifetime"] = args ? args.kbLifetime : undefined;
+            resourceInputs["lifetime"] = args ? args.lifetime : undefined;
+            resourceInputs["mode"] = args ? args.mode : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["perfectForwardSecrecy"] = args ? args.perfectForwardSecrecy : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["tunnelLocalAddress"] = args ? args.tunnelLocalAddress : undefined;
+            resourceInputs["tunnelRemoteAddress"] = args ? args.tunnelRemoteAddress : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(IpsecPolicy.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(IpsecPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

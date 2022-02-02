@@ -70,12 +70,12 @@ export class SnatPool extends pulumi.CustomResource {
      */
     constructor(name: string, args: SnatPoolArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SnatPoolArgs | SnatPoolState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SnatPoolState | undefined;
-            inputs["members"] = state ? state.members : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["members"] = state ? state.members : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as SnatPoolArgs | undefined;
             if ((!args || args.members === undefined) && !opts.urn) {
@@ -84,13 +84,11 @@ export class SnatPool extends pulumi.CustomResource {
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            inputs["members"] = args ? args.members : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["members"] = args ? args.members : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SnatPool.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SnatPool.__pulumiType, name, resourceInputs, opts);
     }
 }
 

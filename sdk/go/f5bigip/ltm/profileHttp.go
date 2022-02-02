@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ltm.NewProfileHttp(ctx, "sanjose_http", &ltm.ProfileHttpArgs{
+// 		_, err := ltm.NewProfileHttp(ctx, "sanjose-http", &ltm.ProfileHttpArgs{
 // 			DefaultsFrom: pulumi.String("/Common/http"),
 // 			FallbackHost: pulumi.String("titanic"),
 // 			FallbackStatusCodes: pulumi.StringArray{
@@ -397,7 +397,7 @@ type ProfileHttpInput interface {
 }
 
 func (*ProfileHttp) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileHttp)(nil))
+	return reflect.TypeOf((**ProfileHttp)(nil)).Elem()
 }
 
 func (i *ProfileHttp) ToProfileHttpOutput() ProfileHttpOutput {
@@ -406,35 +406,6 @@ func (i *ProfileHttp) ToProfileHttpOutput() ProfileHttpOutput {
 
 func (i *ProfileHttp) ToProfileHttpOutputWithContext(ctx context.Context) ProfileHttpOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileHttpOutput)
-}
-
-func (i *ProfileHttp) ToProfileHttpPtrOutput() ProfileHttpPtrOutput {
-	return i.ToProfileHttpPtrOutputWithContext(context.Background())
-}
-
-func (i *ProfileHttp) ToProfileHttpPtrOutputWithContext(ctx context.Context) ProfileHttpPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProfileHttpPtrOutput)
-}
-
-type ProfileHttpPtrInput interface {
-	pulumi.Input
-
-	ToProfileHttpPtrOutput() ProfileHttpPtrOutput
-	ToProfileHttpPtrOutputWithContext(ctx context.Context) ProfileHttpPtrOutput
-}
-
-type profileHttpPtrType ProfileHttpArgs
-
-func (*profileHttpPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProfileHttp)(nil))
-}
-
-func (i *profileHttpPtrType) ToProfileHttpPtrOutput() ProfileHttpPtrOutput {
-	return i.ToProfileHttpPtrOutputWithContext(context.Background())
-}
-
-func (i *profileHttpPtrType) ToProfileHttpPtrOutputWithContext(ctx context.Context) ProfileHttpPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProfileHttpPtrOutput)
 }
 
 // ProfileHttpArrayInput is an input type that accepts ProfileHttpArray and ProfileHttpArrayOutput values.
@@ -490,7 +461,7 @@ func (i ProfileHttpMap) ToProfileHttpMapOutputWithContext(ctx context.Context) P
 type ProfileHttpOutput struct{ *pulumi.OutputState }
 
 func (ProfileHttpOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProfileHttp)(nil))
+	return reflect.TypeOf((**ProfileHttp)(nil)).Elem()
 }
 
 func (o ProfileHttpOutput) ToProfileHttpOutput() ProfileHttpOutput {
@@ -501,44 +472,10 @@ func (o ProfileHttpOutput) ToProfileHttpOutputWithContext(ctx context.Context) P
 	return o
 }
 
-func (o ProfileHttpOutput) ToProfileHttpPtrOutput() ProfileHttpPtrOutput {
-	return o.ToProfileHttpPtrOutputWithContext(context.Background())
-}
-
-func (o ProfileHttpOutput) ToProfileHttpPtrOutputWithContext(ctx context.Context) ProfileHttpPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProfileHttp) *ProfileHttp {
-		return &v
-	}).(ProfileHttpPtrOutput)
-}
-
-type ProfileHttpPtrOutput struct{ *pulumi.OutputState }
-
-func (ProfileHttpPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProfileHttp)(nil))
-}
-
-func (o ProfileHttpPtrOutput) ToProfileHttpPtrOutput() ProfileHttpPtrOutput {
-	return o
-}
-
-func (o ProfileHttpPtrOutput) ToProfileHttpPtrOutputWithContext(ctx context.Context) ProfileHttpPtrOutput {
-	return o
-}
-
-func (o ProfileHttpPtrOutput) Elem() ProfileHttpOutput {
-	return o.ApplyT(func(v *ProfileHttp) ProfileHttp {
-		if v != nil {
-			return *v
-		}
-		var ret ProfileHttp
-		return ret
-	}).(ProfileHttpOutput)
-}
-
 type ProfileHttpArrayOutput struct{ *pulumi.OutputState }
 
 func (ProfileHttpArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProfileHttp)(nil))
+	return reflect.TypeOf((*[]*ProfileHttp)(nil)).Elem()
 }
 
 func (o ProfileHttpArrayOutput) ToProfileHttpArrayOutput() ProfileHttpArrayOutput {
@@ -550,15 +487,15 @@ func (o ProfileHttpArrayOutput) ToProfileHttpArrayOutputWithContext(ctx context.
 }
 
 func (o ProfileHttpArrayOutput) Index(i pulumi.IntInput) ProfileHttpOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProfileHttp {
-		return vs[0].([]ProfileHttp)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProfileHttp {
+		return vs[0].([]*ProfileHttp)[vs[1].(int)]
 	}).(ProfileHttpOutput)
 }
 
 type ProfileHttpMapOutput struct{ *pulumi.OutputState }
 
 func (ProfileHttpMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ProfileHttp)(nil))
+	return reflect.TypeOf((*map[string]*ProfileHttp)(nil)).Elem()
 }
 
 func (o ProfileHttpMapOutput) ToProfileHttpMapOutput() ProfileHttpMapOutput {
@@ -570,18 +507,16 @@ func (o ProfileHttpMapOutput) ToProfileHttpMapOutputWithContext(ctx context.Cont
 }
 
 func (o ProfileHttpMapOutput) MapIndex(k pulumi.StringInput) ProfileHttpOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ProfileHttp {
-		return vs[0].(map[string]ProfileHttp)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ProfileHttp {
+		return vs[0].(map[string]*ProfileHttp)[vs[1].(string)]
 	}).(ProfileHttpOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileHttpInput)(nil)).Elem(), &ProfileHttp{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProfileHttpPtrInput)(nil)).Elem(), &ProfileHttp{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileHttpArrayInput)(nil)).Elem(), ProfileHttpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileHttpMapInput)(nil)).Elem(), ProfileHttpMap{})
 	pulumi.RegisterOutputType(ProfileHttpOutput{})
-	pulumi.RegisterOutputType(ProfileHttpPtrOutput{})
 	pulumi.RegisterOutputType(ProfileHttpArrayOutput{})
 	pulumi.RegisterOutputType(ProfileHttpMapOutput{})
 }

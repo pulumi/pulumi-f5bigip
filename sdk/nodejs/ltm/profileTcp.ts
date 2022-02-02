@@ -105,40 +105,38 @@ export class ProfileTcp extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProfileTcpArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProfileTcpArgs | ProfileTcpState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProfileTcpState | undefined;
-            inputs["closeWaitTimeout"] = state ? state.closeWaitTimeout : undefined;
-            inputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
-            inputs["deferredAccept"] = state ? state.deferredAccept : undefined;
-            inputs["fastOpen"] = state ? state.fastOpen : undefined;
-            inputs["finwait2timeout"] = state ? state.finwait2timeout : undefined;
-            inputs["finwaitTimeout"] = state ? state.finwaitTimeout : undefined;
-            inputs["idleTimeout"] = state ? state.idleTimeout : undefined;
-            inputs["keepaliveInterval"] = state ? state.keepaliveInterval : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["partition"] = state ? state.partition : undefined;
+            resourceInputs["closeWaitTimeout"] = state ? state.closeWaitTimeout : undefined;
+            resourceInputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
+            resourceInputs["deferredAccept"] = state ? state.deferredAccept : undefined;
+            resourceInputs["fastOpen"] = state ? state.fastOpen : undefined;
+            resourceInputs["finwait2timeout"] = state ? state.finwait2timeout : undefined;
+            resourceInputs["finwaitTimeout"] = state ? state.finwaitTimeout : undefined;
+            resourceInputs["idleTimeout"] = state ? state.idleTimeout : undefined;
+            resourceInputs["keepaliveInterval"] = state ? state.keepaliveInterval : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["partition"] = state ? state.partition : undefined;
         } else {
             const args = argsOrState as ProfileTcpArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            inputs["closeWaitTimeout"] = args ? args.closeWaitTimeout : undefined;
-            inputs["defaultsFrom"] = args ? args.defaultsFrom : undefined;
-            inputs["deferredAccept"] = args ? args.deferredAccept : undefined;
-            inputs["fastOpen"] = args ? args.fastOpen : undefined;
-            inputs["finwait2timeout"] = args ? args.finwait2timeout : undefined;
-            inputs["finwaitTimeout"] = args ? args.finwaitTimeout : undefined;
-            inputs["idleTimeout"] = args ? args.idleTimeout : undefined;
-            inputs["keepaliveInterval"] = args ? args.keepaliveInterval : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["partition"] = args ? args.partition : undefined;
+            resourceInputs["closeWaitTimeout"] = args ? args.closeWaitTimeout : undefined;
+            resourceInputs["defaultsFrom"] = args ? args.defaultsFrom : undefined;
+            resourceInputs["deferredAccept"] = args ? args.deferredAccept : undefined;
+            resourceInputs["fastOpen"] = args ? args.fastOpen : undefined;
+            resourceInputs["finwait2timeout"] = args ? args.finwait2timeout : undefined;
+            resourceInputs["finwaitTimeout"] = args ? args.finwaitTimeout : undefined;
+            resourceInputs["idleTimeout"] = args ? args.idleTimeout : undefined;
+            resourceInputs["keepaliveInterval"] = args ? args.keepaliveInterval : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["partition"] = args ? args.partition : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ProfileTcp.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ProfileTcp.__pulumiType, name, resourceInputs, opts);
     }
 }
 

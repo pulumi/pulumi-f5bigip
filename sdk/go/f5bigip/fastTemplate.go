@@ -111,7 +111,7 @@ type FastTemplateInput interface {
 }
 
 func (*FastTemplate) ElementType() reflect.Type {
-	return reflect.TypeOf((*FastTemplate)(nil))
+	return reflect.TypeOf((**FastTemplate)(nil)).Elem()
 }
 
 func (i *FastTemplate) ToFastTemplateOutput() FastTemplateOutput {
@@ -120,35 +120,6 @@ func (i *FastTemplate) ToFastTemplateOutput() FastTemplateOutput {
 
 func (i *FastTemplate) ToFastTemplateOutputWithContext(ctx context.Context) FastTemplateOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FastTemplateOutput)
-}
-
-func (i *FastTemplate) ToFastTemplatePtrOutput() FastTemplatePtrOutput {
-	return i.ToFastTemplatePtrOutputWithContext(context.Background())
-}
-
-func (i *FastTemplate) ToFastTemplatePtrOutputWithContext(ctx context.Context) FastTemplatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FastTemplatePtrOutput)
-}
-
-type FastTemplatePtrInput interface {
-	pulumi.Input
-
-	ToFastTemplatePtrOutput() FastTemplatePtrOutput
-	ToFastTemplatePtrOutputWithContext(ctx context.Context) FastTemplatePtrOutput
-}
-
-type fastTemplatePtrType FastTemplateArgs
-
-func (*fastTemplatePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FastTemplate)(nil))
-}
-
-func (i *fastTemplatePtrType) ToFastTemplatePtrOutput() FastTemplatePtrOutput {
-	return i.ToFastTemplatePtrOutputWithContext(context.Background())
-}
-
-func (i *fastTemplatePtrType) ToFastTemplatePtrOutputWithContext(ctx context.Context) FastTemplatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FastTemplatePtrOutput)
 }
 
 // FastTemplateArrayInput is an input type that accepts FastTemplateArray and FastTemplateArrayOutput values.
@@ -204,7 +175,7 @@ func (i FastTemplateMap) ToFastTemplateMapOutputWithContext(ctx context.Context)
 type FastTemplateOutput struct{ *pulumi.OutputState }
 
 func (FastTemplateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FastTemplate)(nil))
+	return reflect.TypeOf((**FastTemplate)(nil)).Elem()
 }
 
 func (o FastTemplateOutput) ToFastTemplateOutput() FastTemplateOutput {
@@ -215,44 +186,10 @@ func (o FastTemplateOutput) ToFastTemplateOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o FastTemplateOutput) ToFastTemplatePtrOutput() FastTemplatePtrOutput {
-	return o.ToFastTemplatePtrOutputWithContext(context.Background())
-}
-
-func (o FastTemplateOutput) ToFastTemplatePtrOutputWithContext(ctx context.Context) FastTemplatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FastTemplate) *FastTemplate {
-		return &v
-	}).(FastTemplatePtrOutput)
-}
-
-type FastTemplatePtrOutput struct{ *pulumi.OutputState }
-
-func (FastTemplatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FastTemplate)(nil))
-}
-
-func (o FastTemplatePtrOutput) ToFastTemplatePtrOutput() FastTemplatePtrOutput {
-	return o
-}
-
-func (o FastTemplatePtrOutput) ToFastTemplatePtrOutputWithContext(ctx context.Context) FastTemplatePtrOutput {
-	return o
-}
-
-func (o FastTemplatePtrOutput) Elem() FastTemplateOutput {
-	return o.ApplyT(func(v *FastTemplate) FastTemplate {
-		if v != nil {
-			return *v
-		}
-		var ret FastTemplate
-		return ret
-	}).(FastTemplateOutput)
-}
-
 type FastTemplateArrayOutput struct{ *pulumi.OutputState }
 
 func (FastTemplateArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FastTemplate)(nil))
+	return reflect.TypeOf((*[]*FastTemplate)(nil)).Elem()
 }
 
 func (o FastTemplateArrayOutput) ToFastTemplateArrayOutput() FastTemplateArrayOutput {
@@ -264,15 +201,15 @@ func (o FastTemplateArrayOutput) ToFastTemplateArrayOutputWithContext(ctx contex
 }
 
 func (o FastTemplateArrayOutput) Index(i pulumi.IntInput) FastTemplateOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FastTemplate {
-		return vs[0].([]FastTemplate)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FastTemplate {
+		return vs[0].([]*FastTemplate)[vs[1].(int)]
 	}).(FastTemplateOutput)
 }
 
 type FastTemplateMapOutput struct{ *pulumi.OutputState }
 
 func (FastTemplateMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FastTemplate)(nil))
+	return reflect.TypeOf((*map[string]*FastTemplate)(nil)).Elem()
 }
 
 func (o FastTemplateMapOutput) ToFastTemplateMapOutput() FastTemplateMapOutput {
@@ -284,18 +221,16 @@ func (o FastTemplateMapOutput) ToFastTemplateMapOutputWithContext(ctx context.Co
 }
 
 func (o FastTemplateMapOutput) MapIndex(k pulumi.StringInput) FastTemplateOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FastTemplate {
-		return vs[0].(map[string]FastTemplate)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FastTemplate {
+		return vs[0].(map[string]*FastTemplate)[vs[1].(string)]
 	}).(FastTemplateOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FastTemplateInput)(nil)).Elem(), &FastTemplate{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FastTemplatePtrInput)(nil)).Elem(), &FastTemplate{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FastTemplateArrayInput)(nil)).Elem(), FastTemplateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FastTemplateMapInput)(nil)).Elem(), FastTemplateMap{})
 	pulumi.RegisterOutputType(FastTemplateOutput{})
-	pulumi.RegisterOutputType(FastTemplatePtrOutput{})
 	pulumi.RegisterOutputType(FastTemplateArrayOutput{})
 	pulumi.RegisterOutputType(FastTemplateMapOutput{})
 }

@@ -76,26 +76,24 @@ export class Vlan extends pulumi.CustomResource {
      */
     constructor(name: string, args: VlanArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VlanArgs | VlanState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VlanState | undefined;
-            inputs["interfaces"] = state ? state.interfaces : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["tag"] = state ? state.tag : undefined;
+            resourceInputs["interfaces"] = state ? state.interfaces : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["tag"] = state ? state.tag : undefined;
         } else {
             const args = argsOrState as VlanArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            inputs["interfaces"] = args ? args.interfaces : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tag"] = args ? args.tag : undefined;
+            resourceInputs["interfaces"] = args ? args.interfaces : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tag"] = args ? args.tag : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Vlan.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Vlan.__pulumiType, name, resourceInputs, opts);
     }
 }
 

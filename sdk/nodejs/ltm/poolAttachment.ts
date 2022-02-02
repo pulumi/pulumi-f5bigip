@@ -137,18 +137,18 @@ export class PoolAttachment extends pulumi.CustomResource {
      */
     constructor(name: string, args: PoolAttachmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PoolAttachmentArgs | PoolAttachmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PoolAttachmentState | undefined;
-            inputs["connectionLimit"] = state ? state.connectionLimit : undefined;
-            inputs["connectionRateLimit"] = state ? state.connectionRateLimit : undefined;
-            inputs["dynamicRatio"] = state ? state.dynamicRatio : undefined;
-            inputs["fqdnAutopopulate"] = state ? state.fqdnAutopopulate : undefined;
-            inputs["node"] = state ? state.node : undefined;
-            inputs["pool"] = state ? state.pool : undefined;
-            inputs["priorityGroup"] = state ? state.priorityGroup : undefined;
-            inputs["ratio"] = state ? state.ratio : undefined;
+            resourceInputs["connectionLimit"] = state ? state.connectionLimit : undefined;
+            resourceInputs["connectionRateLimit"] = state ? state.connectionRateLimit : undefined;
+            resourceInputs["dynamicRatio"] = state ? state.dynamicRatio : undefined;
+            resourceInputs["fqdnAutopopulate"] = state ? state.fqdnAutopopulate : undefined;
+            resourceInputs["node"] = state ? state.node : undefined;
+            resourceInputs["pool"] = state ? state.pool : undefined;
+            resourceInputs["priorityGroup"] = state ? state.priorityGroup : undefined;
+            resourceInputs["ratio"] = state ? state.ratio : undefined;
         } else {
             const args = argsOrState as PoolAttachmentArgs | undefined;
             if ((!args || args.node === undefined) && !opts.urn) {
@@ -157,19 +157,17 @@ export class PoolAttachment extends pulumi.CustomResource {
             if ((!args || args.pool === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'pool'");
             }
-            inputs["connectionLimit"] = args ? args.connectionLimit : undefined;
-            inputs["connectionRateLimit"] = args ? args.connectionRateLimit : undefined;
-            inputs["dynamicRatio"] = args ? args.dynamicRatio : undefined;
-            inputs["fqdnAutopopulate"] = args ? args.fqdnAutopopulate : undefined;
-            inputs["node"] = args ? args.node : undefined;
-            inputs["pool"] = args ? args.pool : undefined;
-            inputs["priorityGroup"] = args ? args.priorityGroup : undefined;
-            inputs["ratio"] = args ? args.ratio : undefined;
+            resourceInputs["connectionLimit"] = args ? args.connectionLimit : undefined;
+            resourceInputs["connectionRateLimit"] = args ? args.connectionRateLimit : undefined;
+            resourceInputs["dynamicRatio"] = args ? args.dynamicRatio : undefined;
+            resourceInputs["fqdnAutopopulate"] = args ? args.fqdnAutopopulate : undefined;
+            resourceInputs["node"] = args ? args.node : undefined;
+            resourceInputs["pool"] = args ? args.pool : undefined;
+            resourceInputs["priorityGroup"] = args ? args.priorityGroup : undefined;
+            resourceInputs["ratio"] = args ? args.ratio : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(PoolAttachment.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(PoolAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

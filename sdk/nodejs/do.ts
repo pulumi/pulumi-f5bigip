@@ -97,36 +97,34 @@ export class Do extends pulumi.CustomResource {
      */
     constructor(name: string, args: DoArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DoArgs | DoState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DoState | undefined;
-            inputs["bigipAddress"] = state ? state.bigipAddress : undefined;
-            inputs["bigipPassword"] = state ? state.bigipPassword : undefined;
-            inputs["bigipPort"] = state ? state.bigipPort : undefined;
-            inputs["bigipTokenAuth"] = state ? state.bigipTokenAuth : undefined;
-            inputs["bigipUser"] = state ? state.bigipUser : undefined;
-            inputs["doJson"] = state ? state.doJson : undefined;
-            inputs["tenantName"] = state ? state.tenantName : undefined;
-            inputs["timeout"] = state ? state.timeout : undefined;
+            resourceInputs["bigipAddress"] = state ? state.bigipAddress : undefined;
+            resourceInputs["bigipPassword"] = state ? state.bigipPassword : undefined;
+            resourceInputs["bigipPort"] = state ? state.bigipPort : undefined;
+            resourceInputs["bigipTokenAuth"] = state ? state.bigipTokenAuth : undefined;
+            resourceInputs["bigipUser"] = state ? state.bigipUser : undefined;
+            resourceInputs["doJson"] = state ? state.doJson : undefined;
+            resourceInputs["tenantName"] = state ? state.tenantName : undefined;
+            resourceInputs["timeout"] = state ? state.timeout : undefined;
         } else {
             const args = argsOrState as DoArgs | undefined;
             if ((!args || args.doJson === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'doJson'");
             }
-            inputs["bigipAddress"] = args ? args.bigipAddress : undefined;
-            inputs["bigipPassword"] = args ? args.bigipPassword : undefined;
-            inputs["bigipPort"] = args ? args.bigipPort : undefined;
-            inputs["bigipTokenAuth"] = args ? args.bigipTokenAuth : undefined;
-            inputs["bigipUser"] = args ? args.bigipUser : undefined;
-            inputs["doJson"] = args ? args.doJson : undefined;
-            inputs["tenantName"] = args ? args.tenantName : undefined;
-            inputs["timeout"] = args ? args.timeout : undefined;
+            resourceInputs["bigipAddress"] = args ? args.bigipAddress : undefined;
+            resourceInputs["bigipPassword"] = args ? args.bigipPassword : undefined;
+            resourceInputs["bigipPort"] = args ? args.bigipPort : undefined;
+            resourceInputs["bigipTokenAuth"] = args ? args.bigipTokenAuth : undefined;
+            resourceInputs["bigipUser"] = args ? args.bigipUser : undefined;
+            resourceInputs["doJson"] = args ? args.doJson : undefined;
+            resourceInputs["tenantName"] = args ? args.tenantName : undefined;
+            resourceInputs["timeout"] = args ? args.timeout : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Do.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Do.__pulumiType, name, resourceInputs, opts);
     }
 }
 

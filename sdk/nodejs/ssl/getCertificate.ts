@@ -26,9 +26,7 @@ export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOpt
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("f5bigip:ssl/getCertificate:getCertificate", {
         "name": args.name,
         "partition": args.partition,

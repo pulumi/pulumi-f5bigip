@@ -101,20 +101,20 @@ export class TrafficSelector extends pulumi.CustomResource {
      */
     constructor(name: string, args: TrafficSelectorArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TrafficSelectorArgs | TrafficSelectorState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TrafficSelectorState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["destinationAddress"] = state ? state.destinationAddress : undefined;
-            inputs["destinationPort"] = state ? state.destinationPort : undefined;
-            inputs["direction"] = state ? state.direction : undefined;
-            inputs["ipProtocol"] = state ? state.ipProtocol : undefined;
-            inputs["ipsecPolicy"] = state ? state.ipsecPolicy : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["order"] = state ? state.order : undefined;
-            inputs["sourceAddress"] = state ? state.sourceAddress : undefined;
-            inputs["sourcePort"] = state ? state.sourcePort : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["destinationAddress"] = state ? state.destinationAddress : undefined;
+            resourceInputs["destinationPort"] = state ? state.destinationPort : undefined;
+            resourceInputs["direction"] = state ? state.direction : undefined;
+            resourceInputs["ipProtocol"] = state ? state.ipProtocol : undefined;
+            resourceInputs["ipsecPolicy"] = state ? state.ipsecPolicy : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["order"] = state ? state.order : undefined;
+            resourceInputs["sourceAddress"] = state ? state.sourceAddress : undefined;
+            resourceInputs["sourcePort"] = state ? state.sourcePort : undefined;
         } else {
             const args = argsOrState as TrafficSelectorArgs | undefined;
             if ((!args || args.destinationAddress === undefined) && !opts.urn) {
@@ -126,21 +126,19 @@ export class TrafficSelector extends pulumi.CustomResource {
             if ((!args || args.sourceAddress === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceAddress'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["destinationAddress"] = args ? args.destinationAddress : undefined;
-            inputs["destinationPort"] = args ? args.destinationPort : undefined;
-            inputs["direction"] = args ? args.direction : undefined;
-            inputs["ipProtocol"] = args ? args.ipProtocol : undefined;
-            inputs["ipsecPolicy"] = args ? args.ipsecPolicy : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["order"] = args ? args.order : undefined;
-            inputs["sourceAddress"] = args ? args.sourceAddress : undefined;
-            inputs["sourcePort"] = args ? args.sourcePort : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["destinationAddress"] = args ? args.destinationAddress : undefined;
+            resourceInputs["destinationPort"] = args ? args.destinationPort : undefined;
+            resourceInputs["direction"] = args ? args.direction : undefined;
+            resourceInputs["ipProtocol"] = args ? args.ipProtocol : undefined;
+            resourceInputs["ipsecPolicy"] = args ? args.ipsecPolicy : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["order"] = args ? args.order : undefined;
+            resourceInputs["sourceAddress"] = args ? args.sourceAddress : undefined;
+            resourceInputs["sourcePort"] = args ? args.sourcePort : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(TrafficSelector.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(TrafficSelector.__pulumiType, name, resourceInputs, opts);
     }
 }
 

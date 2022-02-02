@@ -139,7 +139,7 @@ type VlanInput interface {
 }
 
 func (*Vlan) ElementType() reflect.Type {
-	return reflect.TypeOf((*Vlan)(nil))
+	return reflect.TypeOf((**Vlan)(nil)).Elem()
 }
 
 func (i *Vlan) ToVlanOutput() VlanOutput {
@@ -148,35 +148,6 @@ func (i *Vlan) ToVlanOutput() VlanOutput {
 
 func (i *Vlan) ToVlanOutputWithContext(ctx context.Context) VlanOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VlanOutput)
-}
-
-func (i *Vlan) ToVlanPtrOutput() VlanPtrOutput {
-	return i.ToVlanPtrOutputWithContext(context.Background())
-}
-
-func (i *Vlan) ToVlanPtrOutputWithContext(ctx context.Context) VlanPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VlanPtrOutput)
-}
-
-type VlanPtrInput interface {
-	pulumi.Input
-
-	ToVlanPtrOutput() VlanPtrOutput
-	ToVlanPtrOutputWithContext(ctx context.Context) VlanPtrOutput
-}
-
-type vlanPtrType VlanArgs
-
-func (*vlanPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Vlan)(nil))
-}
-
-func (i *vlanPtrType) ToVlanPtrOutput() VlanPtrOutput {
-	return i.ToVlanPtrOutputWithContext(context.Background())
-}
-
-func (i *vlanPtrType) ToVlanPtrOutputWithContext(ctx context.Context) VlanPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VlanPtrOutput)
 }
 
 // VlanArrayInput is an input type that accepts VlanArray and VlanArrayOutput values.
@@ -232,7 +203,7 @@ func (i VlanMap) ToVlanMapOutputWithContext(ctx context.Context) VlanMapOutput {
 type VlanOutput struct{ *pulumi.OutputState }
 
 func (VlanOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Vlan)(nil))
+	return reflect.TypeOf((**Vlan)(nil)).Elem()
 }
 
 func (o VlanOutput) ToVlanOutput() VlanOutput {
@@ -243,44 +214,10 @@ func (o VlanOutput) ToVlanOutputWithContext(ctx context.Context) VlanOutput {
 	return o
 }
 
-func (o VlanOutput) ToVlanPtrOutput() VlanPtrOutput {
-	return o.ToVlanPtrOutputWithContext(context.Background())
-}
-
-func (o VlanOutput) ToVlanPtrOutputWithContext(ctx context.Context) VlanPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Vlan) *Vlan {
-		return &v
-	}).(VlanPtrOutput)
-}
-
-type VlanPtrOutput struct{ *pulumi.OutputState }
-
-func (VlanPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Vlan)(nil))
-}
-
-func (o VlanPtrOutput) ToVlanPtrOutput() VlanPtrOutput {
-	return o
-}
-
-func (o VlanPtrOutput) ToVlanPtrOutputWithContext(ctx context.Context) VlanPtrOutput {
-	return o
-}
-
-func (o VlanPtrOutput) Elem() VlanOutput {
-	return o.ApplyT(func(v *Vlan) Vlan {
-		if v != nil {
-			return *v
-		}
-		var ret Vlan
-		return ret
-	}).(VlanOutput)
-}
-
 type VlanArrayOutput struct{ *pulumi.OutputState }
 
 func (VlanArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Vlan)(nil))
+	return reflect.TypeOf((*[]*Vlan)(nil)).Elem()
 }
 
 func (o VlanArrayOutput) ToVlanArrayOutput() VlanArrayOutput {
@@ -292,15 +229,15 @@ func (o VlanArrayOutput) ToVlanArrayOutputWithContext(ctx context.Context) VlanA
 }
 
 func (o VlanArrayOutput) Index(i pulumi.IntInput) VlanOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Vlan {
-		return vs[0].([]Vlan)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Vlan {
+		return vs[0].([]*Vlan)[vs[1].(int)]
 	}).(VlanOutput)
 }
 
 type VlanMapOutput struct{ *pulumi.OutputState }
 
 func (VlanMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Vlan)(nil))
+	return reflect.TypeOf((*map[string]*Vlan)(nil)).Elem()
 }
 
 func (o VlanMapOutput) ToVlanMapOutput() VlanMapOutput {
@@ -312,18 +249,16 @@ func (o VlanMapOutput) ToVlanMapOutputWithContext(ctx context.Context) VlanMapOu
 }
 
 func (o VlanMapOutput) MapIndex(k pulumi.StringInput) VlanOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Vlan {
-		return vs[0].(map[string]Vlan)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Vlan {
+		return vs[0].(map[string]*Vlan)[vs[1].(string)]
 	}).(VlanOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VlanInput)(nil)).Elem(), &Vlan{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VlanPtrInput)(nil)).Elem(), &Vlan{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VlanArrayInput)(nil)).Elem(), VlanArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VlanMapInput)(nil)).Elem(), VlanMap{})
 	pulumi.RegisterOutputType(VlanOutput{})
-	pulumi.RegisterOutputType(VlanPtrOutput{})
 	pulumi.RegisterOutputType(VlanArrayOutput{})
 	pulumi.RegisterOutputType(VlanMapOutput{})
 }

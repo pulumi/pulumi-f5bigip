@@ -58,13 +58,13 @@ export class FastTemplate extends pulumi.CustomResource {
      */
     constructor(name: string, args: FastTemplateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FastTemplateArgs | FastTemplateState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FastTemplateState | undefined;
-            inputs["md5Hash"] = state ? state.md5Hash : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["source"] = state ? state.source : undefined;
+            resourceInputs["md5Hash"] = state ? state.md5Hash : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["source"] = state ? state.source : undefined;
         } else {
             const args = argsOrState as FastTemplateArgs | undefined;
             if ((!args || args.md5Hash === undefined) && !opts.urn) {
@@ -73,14 +73,12 @@ export class FastTemplate extends pulumi.CustomResource {
             if ((!args || args.source === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            inputs["md5Hash"] = args ? args.md5Hash : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["source"] = args ? args.source : undefined;
+            resourceInputs["md5Hash"] = args ? args.md5Hash : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["source"] = args ? args.source : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(FastTemplate.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(FastTemplate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

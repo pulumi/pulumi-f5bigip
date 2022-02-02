@@ -169,26 +169,26 @@ export class CommonLicenseManageBigIq extends pulumi.CustomResource {
      */
     constructor(name: string, args: CommonLicenseManageBigIqArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CommonLicenseManageBigIqArgs | CommonLicenseManageBigIqState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CommonLicenseManageBigIqState | undefined;
-            inputs["assignmentType"] = state ? state.assignmentType : undefined;
-            inputs["bigiqAddress"] = state ? state.bigiqAddress : undefined;
-            inputs["bigiqLoginRef"] = state ? state.bigiqLoginRef : undefined;
-            inputs["bigiqPassword"] = state ? state.bigiqPassword : undefined;
-            inputs["bigiqPort"] = state ? state.bigiqPort : undefined;
-            inputs["bigiqTokenAuth"] = state ? state.bigiqTokenAuth : undefined;
-            inputs["bigiqUser"] = state ? state.bigiqUser : undefined;
-            inputs["deviceLicenseStatus"] = state ? state.deviceLicenseStatus : undefined;
-            inputs["hypervisor"] = state ? state.hypervisor : undefined;
-            inputs["key"] = state ? state.key : undefined;
-            inputs["licensePoolname"] = state ? state.licensePoolname : undefined;
-            inputs["macAddress"] = state ? state.macAddress : undefined;
-            inputs["skukeyword1"] = state ? state.skukeyword1 : undefined;
-            inputs["skukeyword2"] = state ? state.skukeyword2 : undefined;
-            inputs["tenant"] = state ? state.tenant : undefined;
-            inputs["unitOfMeasure"] = state ? state.unitOfMeasure : undefined;
+            resourceInputs["assignmentType"] = state ? state.assignmentType : undefined;
+            resourceInputs["bigiqAddress"] = state ? state.bigiqAddress : undefined;
+            resourceInputs["bigiqLoginRef"] = state ? state.bigiqLoginRef : undefined;
+            resourceInputs["bigiqPassword"] = state ? state.bigiqPassword : undefined;
+            resourceInputs["bigiqPort"] = state ? state.bigiqPort : undefined;
+            resourceInputs["bigiqTokenAuth"] = state ? state.bigiqTokenAuth : undefined;
+            resourceInputs["bigiqUser"] = state ? state.bigiqUser : undefined;
+            resourceInputs["deviceLicenseStatus"] = state ? state.deviceLicenseStatus : undefined;
+            resourceInputs["hypervisor"] = state ? state.hypervisor : undefined;
+            resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["licensePoolname"] = state ? state.licensePoolname : undefined;
+            resourceInputs["macAddress"] = state ? state.macAddress : undefined;
+            resourceInputs["skukeyword1"] = state ? state.skukeyword1 : undefined;
+            resourceInputs["skukeyword2"] = state ? state.skukeyword2 : undefined;
+            resourceInputs["tenant"] = state ? state.tenant : undefined;
+            resourceInputs["unitOfMeasure"] = state ? state.unitOfMeasure : undefined;
         } else {
             const args = argsOrState as CommonLicenseManageBigIqArgs | undefined;
             if ((!args || args.assignmentType === undefined) && !opts.urn) {
@@ -206,27 +206,25 @@ export class CommonLicenseManageBigIq extends pulumi.CustomResource {
             if ((!args || args.licensePoolname === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'licensePoolname'");
             }
-            inputs["assignmentType"] = args ? args.assignmentType : undefined;
-            inputs["bigiqAddress"] = args ? args.bigiqAddress : undefined;
-            inputs["bigiqLoginRef"] = args ? args.bigiqLoginRef : undefined;
-            inputs["bigiqPassword"] = args ? args.bigiqPassword : undefined;
-            inputs["bigiqPort"] = args ? args.bigiqPort : undefined;
-            inputs["bigiqTokenAuth"] = args ? args.bigiqTokenAuth : undefined;
-            inputs["bigiqUser"] = args ? args.bigiqUser : undefined;
-            inputs["deviceLicenseStatus"] = args ? args.deviceLicenseStatus : undefined;
-            inputs["hypervisor"] = args ? args.hypervisor : undefined;
-            inputs["key"] = args ? args.key : undefined;
-            inputs["licensePoolname"] = args ? args.licensePoolname : undefined;
-            inputs["macAddress"] = args ? args.macAddress : undefined;
-            inputs["skukeyword1"] = args ? args.skukeyword1 : undefined;
-            inputs["skukeyword2"] = args ? args.skukeyword2 : undefined;
-            inputs["tenant"] = args ? args.tenant : undefined;
-            inputs["unitOfMeasure"] = args ? args.unitOfMeasure : undefined;
+            resourceInputs["assignmentType"] = args ? args.assignmentType : undefined;
+            resourceInputs["bigiqAddress"] = args ? args.bigiqAddress : undefined;
+            resourceInputs["bigiqLoginRef"] = args ? args.bigiqLoginRef : undefined;
+            resourceInputs["bigiqPassword"] = args ? args.bigiqPassword : undefined;
+            resourceInputs["bigiqPort"] = args ? args.bigiqPort : undefined;
+            resourceInputs["bigiqTokenAuth"] = args ? args.bigiqTokenAuth : undefined;
+            resourceInputs["bigiqUser"] = args ? args.bigiqUser : undefined;
+            resourceInputs["deviceLicenseStatus"] = args ? args.deviceLicenseStatus : undefined;
+            resourceInputs["hypervisor"] = args ? args.hypervisor : undefined;
+            resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["licensePoolname"] = args ? args.licensePoolname : undefined;
+            resourceInputs["macAddress"] = args ? args.macAddress : undefined;
+            resourceInputs["skukeyword1"] = args ? args.skukeyword1 : undefined;
+            resourceInputs["skukeyword2"] = args ? args.skukeyword2 : undefined;
+            resourceInputs["tenant"] = args ? args.tenant : undefined;
+            resourceInputs["unitOfMeasure"] = args ? args.unitOfMeasure : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(CommonLicenseManageBigIq.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(CommonLicenseManageBigIq.__pulumiType, name, resourceInputs, opts);
     }
 }
 

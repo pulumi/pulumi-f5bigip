@@ -88,15 +88,15 @@ export class SelfIp extends pulumi.CustomResource {
      */
     constructor(name: string, args: SelfIpArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SelfIpArgs | SelfIpState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SelfIpState | undefined;
-            inputs["ip"] = state ? state.ip : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["portLockdowns"] = state ? state.portLockdowns : undefined;
-            inputs["trafficGroup"] = state ? state.trafficGroup : undefined;
-            inputs["vlan"] = state ? state.vlan : undefined;
+            resourceInputs["ip"] = state ? state.ip : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["portLockdowns"] = state ? state.portLockdowns : undefined;
+            resourceInputs["trafficGroup"] = state ? state.trafficGroup : undefined;
+            resourceInputs["vlan"] = state ? state.vlan : undefined;
         } else {
             const args = argsOrState as SelfIpArgs | undefined;
             if ((!args || args.ip === undefined) && !opts.urn) {
@@ -108,16 +108,14 @@ export class SelfIp extends pulumi.CustomResource {
             if ((!args || args.vlan === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vlan'");
             }
-            inputs["ip"] = args ? args.ip : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["portLockdowns"] = args ? args.portLockdowns : undefined;
-            inputs["trafficGroup"] = args ? args.trafficGroup : undefined;
-            inputs["vlan"] = args ? args.vlan : undefined;
+            resourceInputs["ip"] = args ? args.ip : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["portLockdowns"] = args ? args.portLockdowns : undefined;
+            resourceInputs["trafficGroup"] = args ? args.trafficGroup : undefined;
+            resourceInputs["vlan"] = args ? args.vlan : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(SelfIp.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(SelfIp.__pulumiType, name, resourceInputs, opts);
     }
 }
 

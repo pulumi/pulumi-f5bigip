@@ -5,8 +5,8 @@ go 1.16
 require (
 	github.com/F5Networks/terraform-provider-bigip v1.3.3
 	github.com/hashicorp/terraform-plugin-sdk v1.7.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.11.0
-	github.com/pulumi/pulumi/sdk/v3 v3.17.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.18.0
+	github.com/pulumi/pulumi/sdk/v3 v3.23.2
 )
 
 replace github.com/F5Networks/terraform-provider-bigip => github.com/pulumi/terraform-provider-bigip v1.1.1-0.20211208150443-f20e1eb510de

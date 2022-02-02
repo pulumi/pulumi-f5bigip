@@ -58,22 +58,20 @@ export class Provider extends pulumi.ProviderResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            inputs["address"] = args ? args.address : undefined;
-            inputs["loginRef"] = args ? args.loginRef : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["teemDisable"] = pulumi.output(args ? args.teemDisable : undefined).apply(JSON.stringify);
-            inputs["tokenAuth"] = pulumi.output(args ? args.tokenAuth : undefined).apply(JSON.stringify);
-            inputs["tokenValue"] = args ? args.tokenValue : undefined;
-            inputs["username"] = args ? args.username : undefined;
+            resourceInputs["address"] = args ? args.address : undefined;
+            resourceInputs["loginRef"] = args ? args.loginRef : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["teemDisable"] = pulumi.output(args ? args.teemDisable : undefined).apply(JSON.stringify);
+            resourceInputs["tokenAuth"] = pulumi.output(args ? args.tokenAuth : undefined).apply(JSON.stringify);
+            resourceInputs["tokenValue"] = args ? args.tokenValue : undefined;
+            resourceInputs["username"] = args ? args.username : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Provider.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Provider.__pulumiType, name, resourceInputs, opts);
     }
 }
 

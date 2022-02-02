@@ -110,21 +110,21 @@ export class Node extends pulumi.CustomResource {
      */
     constructor(name: string, args: NodeArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NodeArgs | NodeState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NodeState | undefined;
-            inputs["address"] = state ? state.address : undefined;
-            inputs["connectionLimit"] = state ? state.connectionLimit : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["dynamicRatio"] = state ? state.dynamicRatio : undefined;
-            inputs["fqdn"] = state ? state.fqdn : undefined;
-            inputs["monitor"] = state ? state.monitor : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["rateLimit"] = state ? state.rateLimit : undefined;
-            inputs["ratio"] = state ? state.ratio : undefined;
-            inputs["session"] = state ? state.session : undefined;
-            inputs["state"] = state ? state.state : undefined;
+            resourceInputs["address"] = state ? state.address : undefined;
+            resourceInputs["connectionLimit"] = state ? state.connectionLimit : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["dynamicRatio"] = state ? state.dynamicRatio : undefined;
+            resourceInputs["fqdn"] = state ? state.fqdn : undefined;
+            resourceInputs["monitor"] = state ? state.monitor : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["rateLimit"] = state ? state.rateLimit : undefined;
+            resourceInputs["ratio"] = state ? state.ratio : undefined;
+            resourceInputs["session"] = state ? state.session : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
         } else {
             const args = argsOrState as NodeArgs | undefined;
             if ((!args || args.address === undefined) && !opts.urn) {
@@ -133,22 +133,20 @@ export class Node extends pulumi.CustomResource {
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            inputs["address"] = args ? args.address : undefined;
-            inputs["connectionLimit"] = args ? args.connectionLimit : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["dynamicRatio"] = args ? args.dynamicRatio : undefined;
-            inputs["fqdn"] = args ? args.fqdn : undefined;
-            inputs["monitor"] = args ? args.monitor : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["rateLimit"] = args ? args.rateLimit : undefined;
-            inputs["ratio"] = args ? args.ratio : undefined;
-            inputs["session"] = args ? args.session : undefined;
-            inputs["state"] = args ? args.state : undefined;
+            resourceInputs["address"] = args ? args.address : undefined;
+            resourceInputs["connectionLimit"] = args ? args.connectionLimit : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["dynamicRatio"] = args ? args.dynamicRatio : undefined;
+            resourceInputs["fqdn"] = args ? args.fqdn : undefined;
+            resourceInputs["monitor"] = args ? args.monitor : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["rateLimit"] = args ? args.rateLimit : undefined;
+            resourceInputs["ratio"] = args ? args.ratio : undefined;
+            resourceInputs["session"] = args ? args.session : undefined;
+            resourceInputs["state"] = args ? args.state : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Node.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Node.__pulumiType, name, resourceInputs, opts);
     }
 }
 

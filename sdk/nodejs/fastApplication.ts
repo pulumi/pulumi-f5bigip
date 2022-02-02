@@ -74,28 +74,26 @@ export class FastApplication extends pulumi.CustomResource {
      */
     constructor(name: string, args: FastApplicationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FastApplicationArgs | FastApplicationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FastApplicationState | undefined;
-            inputs["application"] = state ? state.application : undefined;
-            inputs["fastJson"] = state ? state.fastJson : undefined;
-            inputs["template"] = state ? state.template : undefined;
-            inputs["tenant"] = state ? state.tenant : undefined;
+            resourceInputs["application"] = state ? state.application : undefined;
+            resourceInputs["fastJson"] = state ? state.fastJson : undefined;
+            resourceInputs["template"] = state ? state.template : undefined;
+            resourceInputs["tenant"] = state ? state.tenant : undefined;
         } else {
             const args = argsOrState as FastApplicationArgs | undefined;
             if ((!args || args.fastJson === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fastJson'");
             }
-            inputs["fastJson"] = args ? args.fastJson : undefined;
-            inputs["template"] = args ? args.template : undefined;
-            inputs["application"] = undefined /*out*/;
-            inputs["tenant"] = undefined /*out*/;
+            resourceInputs["fastJson"] = args ? args.fastJson : undefined;
+            resourceInputs["template"] = args ? args.template : undefined;
+            resourceInputs["application"] = undefined /*out*/;
+            resourceInputs["tenant"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(FastApplication.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(FastApplication.__pulumiType, name, resourceInputs, opts);
     }
 }
 

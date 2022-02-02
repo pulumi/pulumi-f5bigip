@@ -179,35 +179,35 @@ export class VirtualServer extends pulumi.CustomResource {
      */
     constructor(name: string, args: VirtualServerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VirtualServerArgs | VirtualServerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VirtualServerState | undefined;
-            inputs["clientProfiles"] = state ? state.clientProfiles : undefined;
-            inputs["defaultPersistenceProfile"] = state ? state.defaultPersistenceProfile : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["destination"] = state ? state.destination : undefined;
-            inputs["fallbackPersistenceProfile"] = state ? state.fallbackPersistenceProfile : undefined;
-            inputs["ipProtocol"] = state ? state.ipProtocol : undefined;
-            inputs["irules"] = state ? state.irules : undefined;
-            inputs["mask"] = state ? state.mask : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["perFlowRequestAccessPolicy"] = state ? state.perFlowRequestAccessPolicy : undefined;
-            inputs["persistenceProfiles"] = state ? state.persistenceProfiles : undefined;
-            inputs["policies"] = state ? state.policies : undefined;
-            inputs["pool"] = state ? state.pool : undefined;
-            inputs["port"] = state ? state.port : undefined;
-            inputs["profiles"] = state ? state.profiles : undefined;
-            inputs["securityLogProfiles"] = state ? state.securityLogProfiles : undefined;
-            inputs["serverProfiles"] = state ? state.serverProfiles : undefined;
-            inputs["snatpool"] = state ? state.snatpool : undefined;
-            inputs["source"] = state ? state.source : undefined;
-            inputs["sourceAddressTranslation"] = state ? state.sourceAddressTranslation : undefined;
-            inputs["state"] = state ? state.state : undefined;
-            inputs["translateAddress"] = state ? state.translateAddress : undefined;
-            inputs["translatePort"] = state ? state.translatePort : undefined;
-            inputs["vlans"] = state ? state.vlans : undefined;
-            inputs["vlansEnabled"] = state ? state.vlansEnabled : undefined;
+            resourceInputs["clientProfiles"] = state ? state.clientProfiles : undefined;
+            resourceInputs["defaultPersistenceProfile"] = state ? state.defaultPersistenceProfile : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["destination"] = state ? state.destination : undefined;
+            resourceInputs["fallbackPersistenceProfile"] = state ? state.fallbackPersistenceProfile : undefined;
+            resourceInputs["ipProtocol"] = state ? state.ipProtocol : undefined;
+            resourceInputs["irules"] = state ? state.irules : undefined;
+            resourceInputs["mask"] = state ? state.mask : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["perFlowRequestAccessPolicy"] = state ? state.perFlowRequestAccessPolicy : undefined;
+            resourceInputs["persistenceProfiles"] = state ? state.persistenceProfiles : undefined;
+            resourceInputs["policies"] = state ? state.policies : undefined;
+            resourceInputs["pool"] = state ? state.pool : undefined;
+            resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["profiles"] = state ? state.profiles : undefined;
+            resourceInputs["securityLogProfiles"] = state ? state.securityLogProfiles : undefined;
+            resourceInputs["serverProfiles"] = state ? state.serverProfiles : undefined;
+            resourceInputs["snatpool"] = state ? state.snatpool : undefined;
+            resourceInputs["source"] = state ? state.source : undefined;
+            resourceInputs["sourceAddressTranslation"] = state ? state.sourceAddressTranslation : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["translateAddress"] = state ? state.translateAddress : undefined;
+            resourceInputs["translatePort"] = state ? state.translatePort : undefined;
+            resourceInputs["vlans"] = state ? state.vlans : undefined;
+            resourceInputs["vlansEnabled"] = state ? state.vlansEnabled : undefined;
         } else {
             const args = argsOrState as VirtualServerArgs | undefined;
             if ((!args || args.destination === undefined) && !opts.urn) {
@@ -219,36 +219,34 @@ export class VirtualServer extends pulumi.CustomResource {
             if ((!args || args.port === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'port'");
             }
-            inputs["clientProfiles"] = args ? args.clientProfiles : undefined;
-            inputs["defaultPersistenceProfile"] = args ? args.defaultPersistenceProfile : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["destination"] = args ? args.destination : undefined;
-            inputs["fallbackPersistenceProfile"] = args ? args.fallbackPersistenceProfile : undefined;
-            inputs["ipProtocol"] = args ? args.ipProtocol : undefined;
-            inputs["irules"] = args ? args.irules : undefined;
-            inputs["mask"] = args ? args.mask : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["perFlowRequestAccessPolicy"] = args ? args.perFlowRequestAccessPolicy : undefined;
-            inputs["persistenceProfiles"] = args ? args.persistenceProfiles : undefined;
-            inputs["policies"] = args ? args.policies : undefined;
-            inputs["pool"] = args ? args.pool : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["profiles"] = args ? args.profiles : undefined;
-            inputs["securityLogProfiles"] = args ? args.securityLogProfiles : undefined;
-            inputs["serverProfiles"] = args ? args.serverProfiles : undefined;
-            inputs["snatpool"] = args ? args.snatpool : undefined;
-            inputs["source"] = args ? args.source : undefined;
-            inputs["sourceAddressTranslation"] = args ? args.sourceAddressTranslation : undefined;
-            inputs["state"] = args ? args.state : undefined;
-            inputs["translateAddress"] = args ? args.translateAddress : undefined;
-            inputs["translatePort"] = args ? args.translatePort : undefined;
-            inputs["vlans"] = args ? args.vlans : undefined;
-            inputs["vlansEnabled"] = args ? args.vlansEnabled : undefined;
+            resourceInputs["clientProfiles"] = args ? args.clientProfiles : undefined;
+            resourceInputs["defaultPersistenceProfile"] = args ? args.defaultPersistenceProfile : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["destination"] = args ? args.destination : undefined;
+            resourceInputs["fallbackPersistenceProfile"] = args ? args.fallbackPersistenceProfile : undefined;
+            resourceInputs["ipProtocol"] = args ? args.ipProtocol : undefined;
+            resourceInputs["irules"] = args ? args.irules : undefined;
+            resourceInputs["mask"] = args ? args.mask : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["perFlowRequestAccessPolicy"] = args ? args.perFlowRequestAccessPolicy : undefined;
+            resourceInputs["persistenceProfiles"] = args ? args.persistenceProfiles : undefined;
+            resourceInputs["policies"] = args ? args.policies : undefined;
+            resourceInputs["pool"] = args ? args.pool : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["profiles"] = args ? args.profiles : undefined;
+            resourceInputs["securityLogProfiles"] = args ? args.securityLogProfiles : undefined;
+            resourceInputs["serverProfiles"] = args ? args.serverProfiles : undefined;
+            resourceInputs["snatpool"] = args ? args.snatpool : undefined;
+            resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["sourceAddressTranslation"] = args ? args.sourceAddressTranslation : undefined;
+            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["translateAddress"] = args ? args.translateAddress : undefined;
+            resourceInputs["translatePort"] = args ? args.translatePort : undefined;
+            resourceInputs["vlans"] = args ? args.vlans : undefined;
+            resourceInputs["vlansEnabled"] = args ? args.vlansEnabled : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(VirtualServer.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(VirtualServer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

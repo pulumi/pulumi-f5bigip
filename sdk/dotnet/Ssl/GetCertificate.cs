@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.F5BigIP.Ssl
 {
@@ -44,7 +43,7 @@ namespace Pulumi.F5BigIP.Ssl
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("f5bigip:ssl/getCertificate:getCertificate", args ?? new GetCertificateArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("f5bigip:ssl/getCertificate:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source (`f5bigip.ssl.Certificate`) to get the ssl-certificate details available on BIG-IP
@@ -78,7 +77,7 @@ namespace Pulumi.F5BigIP.Ssl
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("f5bigip:ssl/getCertificate:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("f5bigip:ssl/getCertificate:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
     }
 
 
