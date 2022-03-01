@@ -9,6 +9,41 @@ using Pulumi.Serialization;
 
 namespace Pulumi.F5BigIP
 {
+    /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var test = new F5BigIP.EventServiceDiscovery("test", new F5BigIP.EventServiceDiscoveryArgs
+    ///         {
+    ///             Nodes = 
+    ///             {
+    ///                 new F5BigIP.Inputs.EventServiceDiscoveryNodeArgs
+    ///                 {
+    ///                     Id = "newNode1",
+    ///                     Ip = "192.168.2.3",
+    ///                     Port = 8080,
+    ///                 },
+    ///                 new F5BigIP.Inputs.EventServiceDiscoveryNodeArgs
+    ///                 {
+    ///                     Id = "newNode2",
+    ///                     Ip = "192.168.2.4",
+    ///                     Port = 8080,
+    ///                 },
+    ///             },
+    ///             Taskid = "~Sample_event_sd~My_app~My_pool",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// </summary>
     [F5BigIPResourceType("f5bigip:index/eventServiceDiscovery:EventServiceDiscovery")]
     public partial class EventServiceDiscovery : Pulumi.CustomResource
     {
