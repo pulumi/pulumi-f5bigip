@@ -100,7 +100,28 @@ class EventServiceDiscovery(pulumi.CustomResource):
                  taskid: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a EventServiceDiscovery resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        test = f5bigip.EventServiceDiscovery("test",
+            nodes=[
+                f5bigip.EventServiceDiscoveryNodeArgs(
+                    id="newNode1",
+                    ip="192.168.2.3",
+                    port=8080,
+                ),
+                f5bigip.EventServiceDiscoveryNodeArgs(
+                    id="newNode2",
+                    ip="192.168.2.4",
+                    port=8080,
+                ),
+            ],
+            taskid="~Sample_event_sd~My_app~My_pool")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventServiceDiscoveryNodeArgs']]]] nodes: Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
@@ -113,7 +134,28 @@ class EventServiceDiscovery(pulumi.CustomResource):
                  args: EventServiceDiscoveryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a EventServiceDiscovery resource with the given unique name, props, and options.
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        test = f5bigip.EventServiceDiscovery("test",
+            nodes=[
+                f5bigip.EventServiceDiscoveryNodeArgs(
+                    id="newNode1",
+                    ip="192.168.2.3",
+                    port=8080,
+                ),
+                f5bigip.EventServiceDiscoveryNodeArgs(
+                    id="newNode2",
+                    ip="192.168.2.4",
+                    port=8080,
+                ),
+            ],
+            taskid="~Sample_event_sd~My_app~My_pool")
+        ```
+
         :param str resource_name: The name of the resource.
         :param EventServiceDiscoveryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
