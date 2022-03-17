@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -500,9 +499,11 @@ type As3 struct {
 	// Name of Application
 	ApplicationList pulumi.StringOutput `pulumi:"applicationList"`
 	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
-	As3Json pulumi.StringOutput `pulumi:"as3Json"`
+	As3Json pulumi.StringPtrOutput `pulumi:"as3Json"`
 	// Set True if you want to ignore metadata changes during update. By default it is set to false
 	IgnoreMetadata pulumi.BoolPtrOutput `pulumi:"ignoreMetadata"`
+	// ID of AS3 post declaration async task
+	TaskId pulumi.StringOutput `pulumi:"taskId"`
 	// If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
 	TenantFilter pulumi.StringPtrOutput `pulumi:"tenantFilter"`
 	// Name of Tenant
@@ -517,12 +518,9 @@ type As3 struct {
 func NewAs3(ctx *pulumi.Context,
 	name string, args *As3Args, opts ...pulumi.ResourceOption) (*As3, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &As3Args{}
 	}
 
-	if args.As3Json == nil {
-		return nil, errors.New("invalid value for required argument 'As3Json'")
-	}
 	var resource As3
 	err := ctx.RegisterResource("f5bigip:index/as3:As3", name, args, &resource, opts...)
 	if err != nil {
@@ -551,6 +549,8 @@ type as3State struct {
 	As3Json *string `pulumi:"as3Json"`
 	// Set True if you want to ignore metadata changes during update. By default it is set to false
 	IgnoreMetadata *bool `pulumi:"ignoreMetadata"`
+	// ID of AS3 post declaration async task
+	TaskId *string `pulumi:"taskId"`
 	// If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
 	TenantFilter *string `pulumi:"tenantFilter"`
 	// Name of Tenant
@@ -568,6 +568,8 @@ type As3State struct {
 	As3Json pulumi.StringPtrInput
 	// Set True if you want to ignore metadata changes during update. By default it is set to false
 	IgnoreMetadata pulumi.BoolPtrInput
+	// ID of AS3 post declaration async task
+	TaskId pulumi.StringPtrInput
 	// If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
 	TenantFilter pulumi.StringPtrInput
 	// Name of Tenant
@@ -586,9 +588,11 @@ type as3Args struct {
 	// Name of Application
 	ApplicationList *string `pulumi:"applicationList"`
 	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
-	As3Json string `pulumi:"as3Json"`
+	As3Json *string `pulumi:"as3Json"`
 	// Set True if you want to ignore metadata changes during update. By default it is set to false
 	IgnoreMetadata *bool `pulumi:"ignoreMetadata"`
+	// ID of AS3 post declaration async task
+	TaskId *string `pulumi:"taskId"`
 	// If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
 	TenantFilter *string `pulumi:"tenantFilter"`
 	// Name of Tenant
@@ -604,9 +608,11 @@ type As3Args struct {
 	// Name of Application
 	ApplicationList pulumi.StringPtrInput
 	// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
-	As3Json pulumi.StringInput
+	As3Json pulumi.StringPtrInput
 	// Set True if you want to ignore metadata changes during update. By default it is set to false
 	IgnoreMetadata pulumi.BoolPtrInput
+	// ID of AS3 post declaration async task
+	TaskId pulumi.StringPtrInput
 	// If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
 	TenantFilter pulumi.StringPtrInput
 	// Name of Tenant

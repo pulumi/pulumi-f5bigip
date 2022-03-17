@@ -208,16 +208,17 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> TranslatePort { get; private set; } = null!;
 
         /// <summary>
-        /// The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.
+        /// The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlan_enabled`
         /// </summary>
         [Output("vlans")]
         public Output<ImmutableArray<string>> Vlans { get; private set; } = null!;
 
         /// <summary>
-        /// Enables the virtual server on the VLANs specified by the VLANs option.
+        /// Enables the virtual server on the VLANs specified by the `vlans` option.
+        /// By default it is `false` i.e vlanDisabled on specified vlans, if we want enable virtual server on VLANs specified by `vlans`, mark this attribute to `true`.
         /// </summary>
         [Output("vlansEnabled")]
-        public Output<bool> VlansEnabled { get; private set; } = null!;
+        public Output<bool?> VlansEnabled { get; private set; } = null!;
 
 
         /// <summary>
@@ -439,7 +440,7 @@ namespace Pulumi.F5BigIP.Ltm
         private InputList<string>? _vlans;
 
         /// <summary>
-        /// The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.
+        /// The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlan_enabled`
         /// </summary>
         public InputList<string> Vlans
         {
@@ -448,7 +449,8 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Enables the virtual server on the VLANs specified by the VLANs option.
+        /// Enables the virtual server on the VLANs specified by the `vlans` option.
+        /// By default it is `false` i.e vlanDisabled on specified vlans, if we want enable virtual server on VLANs specified by `vlans`, mark this attribute to `true`.
         /// </summary>
         [Input("vlansEnabled")]
         public Input<bool>? VlansEnabled { get; set; }
@@ -634,7 +636,7 @@ namespace Pulumi.F5BigIP.Ltm
         private InputList<string>? _vlans;
 
         /// <summary>
-        /// The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.
+        /// The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlan_enabled`
         /// </summary>
         public InputList<string> Vlans
         {
@@ -643,7 +645,8 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Enables the virtual server on the VLANs specified by the VLANs option.
+        /// Enables the virtual server on the VLANs specified by the `vlans` option.
+        /// By default it is `false` i.e vlanDisabled on specified vlans, if we want enable virtual server on VLANs specified by `vlans`, mark this attribute to `true`.
         /// </summary>
         [Input("vlansEnabled")]
         public Input<bool>? VlansEnabled { get; set; }

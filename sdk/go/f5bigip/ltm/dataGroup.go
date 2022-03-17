@@ -13,48 +13,19 @@ import (
 
 // `ltm.DataGroup` Manages internal (in-line) datagroup configuration
 //
-// Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-datagroup.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ltm.NewDataGroup(ctx, "datagroup", &ltm.DataGroupArgs{
-// 			Name: pulumi.String("/Common/dgx2"),
-// 			Records: ltm.DataGroupRecordArray{
-// 				&ltm.DataGroupRecordArgs{
-// 					Data: pulumi.String("pool1"),
-// 					Name: pulumi.String("abc.com"),
-// 				},
-// 				&ltm.DataGroupRecordArgs{
-// 					Data: pulumi.String("123"),
-// 					Name: pulumi.String("test"),
-// 				},
-// 			},
-// 			Type: pulumi.String("string"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
+// Resource should be named with their`full path`. The full path is the combination of the `partition + name` of the resource, for example `/Common/my-datagroup`.
 type DataGroup struct {
 	pulumi.CustomResourceState
 
+	// Set `false` if you want to Create External Datagroups. default is `true`,means creates internal datagroup.
+	Internal pulumi.BoolPtrOutput `pulumi:"internal"`
 	// , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
 	Name pulumi.StringOutput `pulumi:"name"`
 	// a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
 	Records DataGroupRecordArrayOutput `pulumi:"records"`
+	// Path to a file with records in it,The file should be well-formed,it includes records, one per line,that resemble the following format "key separator value". For example, `foo := bar`.
+	// This should be used in conjunction with `internal` attribute set `false`
+	RecordsSrc pulumi.StringPtrOutput `pulumi:"recordsSrc"`
 	// datagroup type (applies to the `name` field of the record), supports: `string`, `ip` or `integer`
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -94,19 +65,29 @@ func GetDataGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataGroup resources.
 type dataGroupState struct {
+	// Set `false` if you want to Create External Datagroups. default is `true`,means creates internal datagroup.
+	Internal *bool `pulumi:"internal"`
 	// , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
 	Name *string `pulumi:"name"`
 	// a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
 	Records []DataGroupRecord `pulumi:"records"`
+	// Path to a file with records in it,The file should be well-formed,it includes records, one per line,that resemble the following format "key separator value". For example, `foo := bar`.
+	// This should be used in conjunction with `internal` attribute set `false`
+	RecordsSrc *string `pulumi:"recordsSrc"`
 	// datagroup type (applies to the `name` field of the record), supports: `string`, `ip` or `integer`
 	Type *string `pulumi:"type"`
 }
 
 type DataGroupState struct {
+	// Set `false` if you want to Create External Datagroups. default is `true`,means creates internal datagroup.
+	Internal pulumi.BoolPtrInput
 	// , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
 	Name pulumi.StringPtrInput
 	// a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
 	Records DataGroupRecordArrayInput
+	// Path to a file with records in it,The file should be well-formed,it includes records, one per line,that resemble the following format "key separator value". For example, `foo := bar`.
+	// This should be used in conjunction with `internal` attribute set `false`
+	RecordsSrc pulumi.StringPtrInput
 	// datagroup type (applies to the `name` field of the record), supports: `string`, `ip` or `integer`
 	Type pulumi.StringPtrInput
 }
@@ -116,20 +97,30 @@ func (DataGroupState) ElementType() reflect.Type {
 }
 
 type dataGroupArgs struct {
+	// Set `false` if you want to Create External Datagroups. default is `true`,means creates internal datagroup.
+	Internal *bool `pulumi:"internal"`
 	// , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
 	Name string `pulumi:"name"`
 	// a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
 	Records []DataGroupRecord `pulumi:"records"`
+	// Path to a file with records in it,The file should be well-formed,it includes records, one per line,that resemble the following format "key separator value". For example, `foo := bar`.
+	// This should be used in conjunction with `internal` attribute set `false`
+	RecordsSrc *string `pulumi:"recordsSrc"`
 	// datagroup type (applies to the `name` field of the record), supports: `string`, `ip` or `integer`
 	Type string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a DataGroup resource.
 type DataGroupArgs struct {
+	// Set `false` if you want to Create External Datagroups. default is `true`,means creates internal datagroup.
+	Internal pulumi.BoolPtrInput
 	// , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
 	Name pulumi.StringInput
 	// a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
 	Records DataGroupRecordArrayInput
+	// Path to a file with records in it,The file should be well-formed,it includes records, one per line,that resemble the following format "key separator value". For example, `foo := bar`.
+	// This should be used in conjunction with `internal` attribute set `false`
+	RecordsSrc pulumi.StringPtrInput
 	// datagroup type (applies to the `name` field of the record), supports: `string`, `ip` or `integer`
 	Type pulumi.StringInput
 }

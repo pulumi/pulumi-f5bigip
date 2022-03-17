@@ -7,9 +7,31 @@ import * as utilities from "../utilities";
 /**
  * `f5bigip.net.SelfIp` Manages a selfip configuration
  *
- * Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-selfip.
+ * Resource should be named with their `full path`. The full path is the combination of the `partition + name of the resource`, for example `/Common/my-selfip`.
  *
  * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const vlan1 = new f5bigip.net.Vlan("vlan1", {
+ *     name: "/Common/Internal",
+ *     tag: 101,
+ *     interfaces: [{
+ *         vlanport: 1.2,
+ *         tagged: false,
+ *     }],
+ * });
+ * const selfip1 = new f5bigip.net.SelfIp("selfip1", {
+ *     name: "/Common/internalselfIP",
+ *     ip: "11.1.1.1/24",
+ *     vlan: "/Common/internal",
+ * }, {
+ *     dependsOn: [vlan1],
+ * });
+ * ```
+ * ### Example usage with `portLockdown`
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -67,7 +89,7 @@ export class SelfIp extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies the port lockdown, defaults to `Allow Default` if not specified.
+     * Specifies the port lockdown, defaults to `Allow None` if not specified.
      */
     public readonly portLockdowns!: pulumi.Output<string[] | undefined>;
     /**
@@ -132,7 +154,7 @@ export interface SelfIpState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the port lockdown, defaults to `Allow Default` if not specified.
+     * Specifies the port lockdown, defaults to `Allow None` if not specified.
      */
     portLockdowns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -158,7 +180,7 @@ export interface SelfIpArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * Specifies the port lockdown, defaults to `Allow Default` if not specified.
+     * Specifies the port lockdown, defaults to `Allow None` if not specified.
      */
     portLockdowns?: pulumi.Input<pulumi.Input<string>[]>;
     /**

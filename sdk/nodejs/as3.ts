@@ -500,11 +500,15 @@ export class As3 extends pulumi.CustomResource {
     /**
      * Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
      */
-    public readonly as3Json!: pulumi.Output<string>;
+    public readonly as3Json!: pulumi.Output<string | undefined>;
     /**
      * Set True if you want to ignore metadata changes during update. By default it is set to false
      */
     public readonly ignoreMetadata!: pulumi.Output<boolean | undefined>;
+    /**
+     * ID of AS3 post declaration async task
+     */
+    public readonly taskId!: pulumi.Output<string>;
     /**
      * If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
      */
@@ -527,7 +531,7 @@ export class As3 extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: As3Args, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: As3Args, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: As3Args | As3State, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -536,17 +540,16 @@ export class As3 extends pulumi.CustomResource {
             resourceInputs["applicationList"] = state ? state.applicationList : undefined;
             resourceInputs["as3Json"] = state ? state.as3Json : undefined;
             resourceInputs["ignoreMetadata"] = state ? state.ignoreMetadata : undefined;
+            resourceInputs["taskId"] = state ? state.taskId : undefined;
             resourceInputs["tenantFilter"] = state ? state.tenantFilter : undefined;
             resourceInputs["tenantList"] = state ? state.tenantList : undefined;
             resourceInputs["tenantName"] = state ? state.tenantName : undefined;
         } else {
             const args = argsOrState as As3Args | undefined;
-            if ((!args || args.as3Json === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'as3Json'");
-            }
             resourceInputs["applicationList"] = args ? args.applicationList : undefined;
             resourceInputs["as3Json"] = args ? args.as3Json : undefined;
             resourceInputs["ignoreMetadata"] = args ? args.ignoreMetadata : undefined;
+            resourceInputs["taskId"] = args ? args.taskId : undefined;
             resourceInputs["tenantFilter"] = args ? args.tenantFilter : undefined;
             resourceInputs["tenantList"] = args ? args.tenantList : undefined;
             resourceInputs["tenantName"] = args ? args.tenantName : undefined;
@@ -572,6 +575,10 @@ export interface As3State {
      * Set True if you want to ignore metadata changes during update. By default it is set to false
      */
     ignoreMetadata?: pulumi.Input<boolean>;
+    /**
+     * ID of AS3 post declaration async task
+     */
+    taskId?: pulumi.Input<string>;
     /**
      * If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
      */
@@ -599,11 +606,15 @@ export interface As3Args {
     /**
      * Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
      */
-    as3Json: pulumi.Input<string>;
+    as3Json?: pulumi.Input<string>;
     /**
      * Set True if you want to ignore metadata changes during update. By default it is set to false
      */
     ignoreMetadata?: pulumi.Input<boolean>;
+    /**
+     * ID of AS3 post declaration async task
+     */
+    taskId?: pulumi.Input<string>;
     /**
      * If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
      */

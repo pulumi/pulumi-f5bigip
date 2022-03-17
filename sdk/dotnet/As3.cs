@@ -494,13 +494,19 @@ namespace Pulumi.F5BigIP
         /// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         /// </summary>
         [Output("as3Json")]
-        public Output<string> As3Json { get; private set; } = null!;
+        public Output<string?> As3Json { get; private set; } = null!;
 
         /// <summary>
         /// Set True if you want to ignore metadata changes during update. By default it is set to false
         /// </summary>
         [Output("ignoreMetadata")]
         public Output<bool?> IgnoreMetadata { get; private set; } = null!;
+
+        /// <summary>
+        /// ID of AS3 post declaration async task
+        /// </summary>
+        [Output("taskId")]
+        public Output<string> TaskId { get; private set; } = null!;
 
         /// <summary>
         /// If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
@@ -528,7 +534,7 @@ namespace Pulumi.F5BigIP
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public As3(string name, As3Args args, CustomResourceOptions? options = null)
+        public As3(string name, As3Args? args = null, CustomResourceOptions? options = null)
             : base("f5bigip:index/as3:As3", name, args ?? new As3Args(), MakeResourceOptions(options, ""))
         {
         }
@@ -575,14 +581,20 @@ namespace Pulumi.F5BigIP
         /// <summary>
         /// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         /// </summary>
-        [Input("as3Json", required: true)]
-        public Input<string> As3Json { get; set; } = null!;
+        [Input("as3Json")]
+        public Input<string>? As3Json { get; set; }
 
         /// <summary>
         /// Set True if you want to ignore metadata changes during update. By default it is set to false
         /// </summary>
         [Input("ignoreMetadata")]
         public Input<bool>? IgnoreMetadata { get; set; }
+
+        /// <summary>
+        /// ID of AS3 post declaration async task
+        /// </summary>
+        [Input("taskId")]
+        public Input<string>? TaskId { get; set; }
 
         /// <summary>
         /// If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
@@ -626,6 +638,12 @@ namespace Pulumi.F5BigIP
         /// </summary>
         [Input("ignoreMetadata")]
         public Input<bool>? IgnoreMetadata { get; set; }
+
+        /// <summary>
+        /// ID of AS3 post declaration async task
+        /// </summary>
+        [Input("taskId")]
+        public Input<string>? TaskId { get; set; }
 
         /// <summary>
         /// If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.

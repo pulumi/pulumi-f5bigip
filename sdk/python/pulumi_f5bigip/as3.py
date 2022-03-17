@@ -13,123 +13,19 @@ __all__ = ['As3Args', 'As3']
 @pulumi.input_type
 class As3Args:
     def __init__(__self__, *,
-                 as3_json: pulumi.Input[str],
                  application_list: Optional[pulumi.Input[str]] = None,
+                 as3_json: Optional[pulumi.Input[str]] = None,
                  ignore_metadata: Optional[pulumi.Input[bool]] = None,
+                 task_id: Optional[pulumi.Input[str]] = None,
                  tenant_filter: Optional[pulumi.Input[str]] = None,
                  tenant_list: Optional[pulumi.Input[str]] = None,
                  tenant_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a As3 resource.
-        :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
-        :param pulumi.Input[str] application_list: Name of Application
-        :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to false
-        :param pulumi.Input[str] tenant_filter: If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
-        :param pulumi.Input[str] tenant_list: Name of Tenant
-        :param pulumi.Input[str] tenant_name: Name of Tenant
-        """
-        pulumi.set(__self__, "as3_json", as3_json)
-        if application_list is not None:
-            pulumi.set(__self__, "application_list", application_list)
-        if ignore_metadata is not None:
-            pulumi.set(__self__, "ignore_metadata", ignore_metadata)
-        if tenant_filter is not None:
-            pulumi.set(__self__, "tenant_filter", tenant_filter)
-        if tenant_list is not None:
-            pulumi.set(__self__, "tenant_list", tenant_list)
-        if tenant_name is not None:
-            warnings.warn("""this attribute is no longer in use""", DeprecationWarning)
-            pulumi.log.warn("""tenant_name is deprecated: this attribute is no longer in use""")
-        if tenant_name is not None:
-            pulumi.set(__self__, "tenant_name", tenant_name)
-
-    @property
-    @pulumi.getter(name="as3Json")
-    def as3_json(self) -> pulumi.Input[str]:
-        """
-        Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
-        """
-        return pulumi.get(self, "as3_json")
-
-    @as3_json.setter
-    def as3_json(self, value: pulumi.Input[str]):
-        pulumi.set(self, "as3_json", value)
-
-    @property
-    @pulumi.getter(name="applicationList")
-    def application_list(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of Application
-        """
-        return pulumi.get(self, "application_list")
-
-    @application_list.setter
-    def application_list(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "application_list", value)
-
-    @property
-    @pulumi.getter(name="ignoreMetadata")
-    def ignore_metadata(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set True if you want to ignore metadata changes during update. By default it is set to false
-        """
-        return pulumi.get(self, "ignore_metadata")
-
-    @ignore_metadata.setter
-    def ignore_metadata(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "ignore_metadata", value)
-
-    @property
-    @pulumi.getter(name="tenantFilter")
-    def tenant_filter(self) -> Optional[pulumi.Input[str]]:
-        """
-        If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
-        """
-        return pulumi.get(self, "tenant_filter")
-
-    @tenant_filter.setter
-    def tenant_filter(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "tenant_filter", value)
-
-    @property
-    @pulumi.getter(name="tenantList")
-    def tenant_list(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of Tenant
-        """
-        return pulumi.get(self, "tenant_list")
-
-    @tenant_list.setter
-    def tenant_list(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "tenant_list", value)
-
-    @property
-    @pulumi.getter(name="tenantName")
-    def tenant_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of Tenant
-        """
-        return pulumi.get(self, "tenant_name")
-
-    @tenant_name.setter
-    def tenant_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "tenant_name", value)
-
-
-@pulumi.input_type
-class _As3State:
-    def __init__(__self__, *,
-                 application_list: Optional[pulumi.Input[str]] = None,
-                 as3_json: Optional[pulumi.Input[str]] = None,
-                 ignore_metadata: Optional[pulumi.Input[bool]] = None,
-                 tenant_filter: Optional[pulumi.Input[str]] = None,
-                 tenant_list: Optional[pulumi.Input[str]] = None,
-                 tenant_name: Optional[pulumi.Input[str]] = None):
-        """
-        Input properties used for looking up and filtering As3 resources.
         :param pulumi.Input[str] application_list: Name of Application
         :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to false
+        :param pulumi.Input[str] task_id: ID of AS3 post declaration async task
         :param pulumi.Input[str] tenant_filter: If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
         :param pulumi.Input[str] tenant_list: Name of Tenant
         :param pulumi.Input[str] tenant_name: Name of Tenant
@@ -140,6 +36,8 @@ class _As3State:
             pulumi.set(__self__, "as3_json", as3_json)
         if ignore_metadata is not None:
             pulumi.set(__self__, "ignore_metadata", ignore_metadata)
+        if task_id is not None:
+            pulumi.set(__self__, "task_id", task_id)
         if tenant_filter is not None:
             pulumi.set(__self__, "tenant_filter", tenant_filter)
         if tenant_list is not None:
@@ -187,6 +85,141 @@ class _As3State:
         pulumi.set(self, "ignore_metadata", value)
 
     @property
+    @pulumi.getter(name="taskId")
+    def task_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of AS3 post declaration async task
+        """
+        return pulumi.get(self, "task_id")
+
+    @task_id.setter
+    def task_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "task_id", value)
+
+    @property
+    @pulumi.getter(name="tenantFilter")
+    def tenant_filter(self) -> Optional[pulumi.Input[str]]:
+        """
+        If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
+        """
+        return pulumi.get(self, "tenant_filter")
+
+    @tenant_filter.setter
+    def tenant_filter(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_filter", value)
+
+    @property
+    @pulumi.getter(name="tenantList")
+    def tenant_list(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of Tenant
+        """
+        return pulumi.get(self, "tenant_list")
+
+    @tenant_list.setter
+    def tenant_list(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_list", value)
+
+    @property
+    @pulumi.getter(name="tenantName")
+    def tenant_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of Tenant
+        """
+        return pulumi.get(self, "tenant_name")
+
+    @tenant_name.setter
+    def tenant_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tenant_name", value)
+
+
+@pulumi.input_type
+class _As3State:
+    def __init__(__self__, *,
+                 application_list: Optional[pulumi.Input[str]] = None,
+                 as3_json: Optional[pulumi.Input[str]] = None,
+                 ignore_metadata: Optional[pulumi.Input[bool]] = None,
+                 task_id: Optional[pulumi.Input[str]] = None,
+                 tenant_filter: Optional[pulumi.Input[str]] = None,
+                 tenant_list: Optional[pulumi.Input[str]] = None,
+                 tenant_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering As3 resources.
+        :param pulumi.Input[str] application_list: Name of Application
+        :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to false
+        :param pulumi.Input[str] task_id: ID of AS3 post declaration async task
+        :param pulumi.Input[str] tenant_filter: If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
+        :param pulumi.Input[str] tenant_list: Name of Tenant
+        :param pulumi.Input[str] tenant_name: Name of Tenant
+        """
+        if application_list is not None:
+            pulumi.set(__self__, "application_list", application_list)
+        if as3_json is not None:
+            pulumi.set(__self__, "as3_json", as3_json)
+        if ignore_metadata is not None:
+            pulumi.set(__self__, "ignore_metadata", ignore_metadata)
+        if task_id is not None:
+            pulumi.set(__self__, "task_id", task_id)
+        if tenant_filter is not None:
+            pulumi.set(__self__, "tenant_filter", tenant_filter)
+        if tenant_list is not None:
+            pulumi.set(__self__, "tenant_list", tenant_list)
+        if tenant_name is not None:
+            warnings.warn("""this attribute is no longer in use""", DeprecationWarning)
+            pulumi.log.warn("""tenant_name is deprecated: this attribute is no longer in use""")
+        if tenant_name is not None:
+            pulumi.set(__self__, "tenant_name", tenant_name)
+
+    @property
+    @pulumi.getter(name="applicationList")
+    def application_list(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of Application
+        """
+        return pulumi.get(self, "application_list")
+
+    @application_list.setter
+    def application_list(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_list", value)
+
+    @property
+    @pulumi.getter(name="as3Json")
+    def as3_json(self) -> Optional[pulumi.Input[str]]:
+        """
+        Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+        """
+        return pulumi.get(self, "as3_json")
+
+    @as3_json.setter
+    def as3_json(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "as3_json", value)
+
+    @property
+    @pulumi.getter(name="ignoreMetadata")
+    def ignore_metadata(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set True if you want to ignore metadata changes during update. By default it is set to false
+        """
+        return pulumi.get(self, "ignore_metadata")
+
+    @ignore_metadata.setter
+    def ignore_metadata(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_metadata", value)
+
+    @property
+    @pulumi.getter(name="taskId")
+    def task_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of AS3 post declaration async task
+        """
+        return pulumi.get(self, "task_id")
+
+    @task_id.setter
+    def task_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "task_id", value)
+
+    @property
     @pulumi.getter(name="tenantFilter")
     def tenant_filter(self) -> Optional[pulumi.Input[str]]:
         """
@@ -231,6 +264,7 @@ class As3(pulumi.CustomResource):
                  application_list: Optional[pulumi.Input[str]] = None,
                  as3_json: Optional[pulumi.Input[str]] = None,
                  ignore_metadata: Optional[pulumi.Input[bool]] = None,
+                 task_id: Optional[pulumi.Input[str]] = None,
                  tenant_filter: Optional[pulumi.Input[str]] = None,
                  tenant_list: Optional[pulumi.Input[str]] = None,
                  tenant_name: Optional[pulumi.Input[str]] = None,
@@ -699,6 +733,7 @@ class As3(pulumi.CustomResource):
         :param pulumi.Input[str] application_list: Name of Application
         :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to false
+        :param pulumi.Input[str] task_id: ID of AS3 post declaration async task
         :param pulumi.Input[str] tenant_filter: If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
         :param pulumi.Input[str] tenant_list: Name of Tenant
         :param pulumi.Input[str] tenant_name: Name of Tenant
@@ -707,7 +742,7 @@ class As3(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: As3Args,
+                 args: Optional[As3Args] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         `As3` provides details about bigip as3 resource
@@ -1186,6 +1221,7 @@ class As3(pulumi.CustomResource):
                  application_list: Optional[pulumi.Input[str]] = None,
                  as3_json: Optional[pulumi.Input[str]] = None,
                  ignore_metadata: Optional[pulumi.Input[bool]] = None,
+                 task_id: Optional[pulumi.Input[str]] = None,
                  tenant_filter: Optional[pulumi.Input[str]] = None,
                  tenant_list: Optional[pulumi.Input[str]] = None,
                  tenant_name: Optional[pulumi.Input[str]] = None,
@@ -1202,10 +1238,9 @@ class As3(pulumi.CustomResource):
             __props__ = As3Args.__new__(As3Args)
 
             __props__.__dict__["application_list"] = application_list
-            if as3_json is None and not opts.urn:
-                raise TypeError("Missing required property 'as3_json'")
             __props__.__dict__["as3_json"] = as3_json
             __props__.__dict__["ignore_metadata"] = ignore_metadata
+            __props__.__dict__["task_id"] = task_id
             __props__.__dict__["tenant_filter"] = tenant_filter
             __props__.__dict__["tenant_list"] = tenant_list
             if tenant_name is not None and not opts.urn:
@@ -1225,6 +1260,7 @@ class As3(pulumi.CustomResource):
             application_list: Optional[pulumi.Input[str]] = None,
             as3_json: Optional[pulumi.Input[str]] = None,
             ignore_metadata: Optional[pulumi.Input[bool]] = None,
+            task_id: Optional[pulumi.Input[str]] = None,
             tenant_filter: Optional[pulumi.Input[str]] = None,
             tenant_list: Optional[pulumi.Input[str]] = None,
             tenant_name: Optional[pulumi.Input[str]] = None) -> 'As3':
@@ -1238,6 +1274,7 @@ class As3(pulumi.CustomResource):
         :param pulumi.Input[str] application_list: Name of Application
         :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to false
+        :param pulumi.Input[str] task_id: ID of AS3 post declaration async task
         :param pulumi.Input[str] tenant_filter: If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
         :param pulumi.Input[str] tenant_list: Name of Tenant
         :param pulumi.Input[str] tenant_name: Name of Tenant
@@ -1249,6 +1286,7 @@ class As3(pulumi.CustomResource):
         __props__.__dict__["application_list"] = application_list
         __props__.__dict__["as3_json"] = as3_json
         __props__.__dict__["ignore_metadata"] = ignore_metadata
+        __props__.__dict__["task_id"] = task_id
         __props__.__dict__["tenant_filter"] = tenant_filter
         __props__.__dict__["tenant_list"] = tenant_list
         __props__.__dict__["tenant_name"] = tenant_name
@@ -1264,7 +1302,7 @@ class As3(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="as3Json")
-    def as3_json(self) -> pulumi.Output[str]:
+    def as3_json(self) -> pulumi.Output[Optional[str]]:
         """
         Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         """
@@ -1277,6 +1315,14 @@ class As3(pulumi.CustomResource):
         Set True if you want to ignore metadata changes during update. By default it is set to false
         """
         return pulumi.get(self, "ignore_metadata")
+
+    @property
+    @pulumi.getter(name="taskId")
+    def task_id(self) -> pulumi.Output[str]:
+        """
+        ID of AS3 post declaration async task
+        """
+        return pulumi.get(self, "task_id")
 
     @property
     @pulumi.getter(name="tenantFilter")

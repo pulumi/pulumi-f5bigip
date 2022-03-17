@@ -2008,7 +2008,7 @@ class SnatOrigin(dict):
                  app_service: Optional[str] = None,
                  name: Optional[str] = None):
         """
-        :param str name: Name of the snat
+        :param str name: Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
         """
         if app_service is not None:
             pulumi.set(__self__, "app_service", app_service)
@@ -2024,7 +2024,7 @@ class SnatOrigin(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Name of the snat
+        Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
         """
         return pulumi.get(self, "name")
 

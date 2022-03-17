@@ -23,7 +23,7 @@ class SelfIpArgs:
         :param pulumi.Input[str] ip: The Self IP's address and netmask.
         :param pulumi.Input[str] name: Name of the selfip
         :param pulumi.Input[str] vlan: Specifies the VLAN for which you are setting a self IP address. This setting must be provided when a self IP is created.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] port_lockdowns: Specifies the port lockdown, defaults to `Allow Default` if not specified.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] port_lockdowns: Specifies the port lockdown, defaults to `Allow None` if not specified.
         :param pulumi.Input[str] traffic_group: Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
         """
         pulumi.set(__self__, "ip", ip)
@@ -74,7 +74,7 @@ class SelfIpArgs:
     @pulumi.getter(name="portLockdowns")
     def port_lockdowns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies the port lockdown, defaults to `Allow Default` if not specified.
+        Specifies the port lockdown, defaults to `Allow None` if not specified.
         """
         return pulumi.get(self, "port_lockdowns")
 
@@ -107,7 +107,7 @@ class _SelfIpState:
         Input properties used for looking up and filtering SelfIp resources.
         :param pulumi.Input[str] ip: The Self IP's address and netmask.
         :param pulumi.Input[str] name: Name of the selfip
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] port_lockdowns: Specifies the port lockdown, defaults to `Allow Default` if not specified.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] port_lockdowns: Specifies the port lockdown, defaults to `Allow None` if not specified.
         :param pulumi.Input[str] traffic_group: Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
         :param pulumi.Input[str] vlan: Specifies the VLAN for which you are setting a self IP address. This setting must be provided when a self IP is created.
         """
@@ -150,7 +150,7 @@ class _SelfIpState:
     @pulumi.getter(name="portLockdowns")
     def port_lockdowns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies the port lockdown, defaults to `Allow Default` if not specified.
+        Specifies the port lockdown, defaults to `Allow None` if not specified.
         """
         return pulumi.get(self, "port_lockdowns")
 
@@ -197,9 +197,28 @@ class SelfIp(pulumi.CustomResource):
         """
         `net.SelfIp` Manages a selfip configuration
 
-        Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-selfip.
+        Resource should be named with their `full path`. The full path is the combination of the `partition + name of the resource`, for example `/Common/my-selfip`.
 
         ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        vlan1 = f5bigip.net.Vlan("vlan1",
+            name="/Common/Internal",
+            tag=101,
+            interfaces=[f5bigip.net.VlanInterfaceArgs(
+                vlanport="1.2",
+                tagged=False,
+            )])
+        selfip1 = f5bigip.net.SelfIp("selfip1",
+            name="/Common/internalselfIP",
+            ip="11.1.1.1/24",
+            vlan="/Common/internal",
+            opts=pulumi.ResourceOptions(depends_on=[vlan1]))
+        ```
+        ### Example usage with `port_lockdown`
 
         ```python
         import pulumi
@@ -222,7 +241,7 @@ class SelfIp(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] ip: The Self IP's address and netmask.
         :param pulumi.Input[str] name: Name of the selfip
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] port_lockdowns: Specifies the port lockdown, defaults to `Allow Default` if not specified.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] port_lockdowns: Specifies the port lockdown, defaults to `Allow None` if not specified.
         :param pulumi.Input[str] traffic_group: Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
         :param pulumi.Input[str] vlan: Specifies the VLAN for which you are setting a self IP address. This setting must be provided when a self IP is created.
         """
@@ -235,9 +254,28 @@ class SelfIp(pulumi.CustomResource):
         """
         `net.SelfIp` Manages a selfip configuration
 
-        Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-selfip.
+        Resource should be named with their `full path`. The full path is the combination of the `partition + name of the resource`, for example `/Common/my-selfip`.
 
         ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        vlan1 = f5bigip.net.Vlan("vlan1",
+            name="/Common/Internal",
+            tag=101,
+            interfaces=[f5bigip.net.VlanInterfaceArgs(
+                vlanport="1.2",
+                tagged=False,
+            )])
+        selfip1 = f5bigip.net.SelfIp("selfip1",
+            name="/Common/internalselfIP",
+            ip="11.1.1.1/24",
+            vlan="/Common/internal",
+            opts=pulumi.ResourceOptions(depends_on=[vlan1]))
+        ```
+        ### Example usage with `port_lockdown`
 
         ```python
         import pulumi
@@ -323,7 +361,7 @@ class SelfIp(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] ip: The Self IP's address and netmask.
         :param pulumi.Input[str] name: Name of the selfip
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] port_lockdowns: Specifies the port lockdown, defaults to `Allow Default` if not specified.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] port_lockdowns: Specifies the port lockdown, defaults to `Allow None` if not specified.
         :param pulumi.Input[str] traffic_group: Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
         :param pulumi.Input[str] vlan: Specifies the VLAN for which you are setting a self IP address. This setting must be provided when a self IP is created.
         """
@@ -358,7 +396,7 @@ class SelfIp(pulumi.CustomResource):
     @pulumi.getter(name="portLockdowns")
     def port_lockdowns(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Specifies the port lockdown, defaults to `Allow Default` if not specified.
+        Specifies the port lockdown, defaults to `Allow None` if not specified.
         """
         return pulumi.get(self, "port_lockdowns")
 

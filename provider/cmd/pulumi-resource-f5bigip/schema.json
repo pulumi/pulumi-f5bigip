@@ -2055,7 +2055,7 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of the snat\n",
+                    "description": "Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -4414,6 +4414,10 @@
                     "type": "boolean",
                     "description": "Set True if you want to ignore metadata changes during update. By default it is set to false\n"
                 },
+                "taskId": {
+                    "type": "string",
+                    "description": "ID of AS3 post declaration async task\n"
+                },
                 "tenantFilter": {
                     "type": "string",
                     "description": "If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.\n"
@@ -4430,7 +4434,7 @@
             },
             "required": [
                 "applicationList",
-                "as3Json",
+                "taskId",
                 "tenantList"
             ],
             "inputProperties": {
@@ -4446,6 +4450,10 @@
                     "type": "boolean",
                     "description": "Set True if you want to ignore metadata changes during update. By default it is set to false\n"
                 },
+                "taskId": {
+                    "type": "string",
+                    "description": "ID of AS3 post declaration async task\n"
+                },
                 "tenantFilter": {
                     "type": "string",
                     "description": "If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.\n"
@@ -4460,9 +4468,6 @@
                     "deprecationMessage": "this attribute is no longer in use"
                 }
             },
-            "requiredInputs": [
-                "as3Json"
-            ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering As3 resources.\n",
                 "properties": {
@@ -4477,6 +4482,10 @@
                     "ignoreMetadata": {
                         "type": "boolean",
                         "description": "Set True if you want to ignore metadata changes during update. By default it is set to false\n"
+                    },
+                    "taskId": {
+                        "type": "string",
+                        "description": "ID of AS3 post declaration async task\n"
                     },
                     "tenantFilter": {
                         "type": "string",
@@ -5382,6 +5391,75 @@
                 "type": "object"
             }
         },
+        "f5bigip:index/ipsecProfile:IpsecProfile": {
+            "description": "`f5bigip.IpsecProfile` Manage IPSec Profiles on a BIG-IP\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst azurevWANProfile = new f5bigip.IpsecProfile(\"azurevWAN_profile\", {\n    description: \"mytestipsecprofile\",\n    name: \"/Common/Mytestipsecprofile\",\n    trafficSelector: \"test-trafficselector\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nazurev_wan_profile = f5bigip.IpsecProfile(\"azurevWANProfile\",\n    description=\"mytestipsecprofile\",\n    name=\"/Common/Mytestipsecprofile\",\n    traffic_selector=\"test-trafficselector\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var azurevWANProfile = new F5BigIP.IpsecProfile(\"azurevWANProfile\", new F5BigIP.IpsecProfileArgs\n        {\n            Description = \"mytestipsecprofile\",\n            Name = \"/Common/Mytestipsecprofile\",\n            TrafficSelector = \"test-trafficselector\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := f5bigip.NewIpsecProfile(ctx, \"azurevWANProfile\", \u0026f5bigip.IpsecProfileArgs{\n\t\t\tDescription:     pulumi.String(\"mytestipsecprofile\"),\n\t\t\tName:            pulumi.String(\"/Common/Mytestipsecprofile\"),\n\t\t\tTrafficSelector: pulumi.String(\"test-trafficselector\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "description": "Specifies descriptive text that identifies the IPsec interface tunnel profile.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Displays the name of the IPsec interface tunnel profile,it should be \"full path\".The full path is the combination of the partition + name of the IPSec profile.(For example `/Common/test-profile`)\n"
+                },
+                "parentProfile": {
+                    "type": "string",
+                    "description": "Specifies the profile from which this profile inherits settings. The default is the system-supplied `/Common/ipsec` profile\n"
+                },
+                "trafficSelector": {
+                    "type": "string",
+                    "description": "Specifies the traffic selector for the IPsec interface tunnel to which the profile is applied\n"
+                }
+            },
+            "required": [
+                "description",
+                "name",
+                "trafficSelector"
+            ],
+            "inputProperties": {
+                "description": {
+                    "type": "string",
+                    "description": "Specifies descriptive text that identifies the IPsec interface tunnel profile.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Displays the name of the IPsec interface tunnel profile,it should be \"full path\".The full path is the combination of the partition + name of the IPSec profile.(For example `/Common/test-profile`)\n"
+                },
+                "parentProfile": {
+                    "type": "string",
+                    "description": "Specifies the profile from which this profile inherits settings. The default is the system-supplied `/Common/ipsec` profile\n"
+                },
+                "trafficSelector": {
+                    "type": "string",
+                    "description": "Specifies the traffic selector for the IPsec interface tunnel to which the profile is applied\n"
+                }
+            },
+            "requiredInputs": [
+                "name"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering IpsecProfile resources.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "Specifies descriptive text that identifies the IPsec interface tunnel profile.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Displays the name of the IPsec interface tunnel profile,it should be \"full path\".The full path is the combination of the partition + name of the IPSec profile.(For example `/Common/test-profile`)\n"
+                    },
+                    "parentProfile": {
+                        "type": "string",
+                        "description": "Specifies the profile from which this profile inherits settings. The default is the system-supplied `/Common/ipsec` profile\n"
+                    },
+                    "trafficSelector": {
+                        "type": "string",
+                        "description": "Specifies the traffic selector for the IPsec interface tunnel to which the profile is applied\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "f5bigip:index/netIkePeer:NetIkePeer": {
             "description": "`f5bigip.NetIkePeer` Manages a ike_peer configuration\n\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst example1 = new f5bigip.NetIkePeer(\"example1\", {\n    localAddress: \"192.16.81.240\",\n    name: \"example1\",\n    profile: \"/Common/dslite\",\n});\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
@@ -6237,8 +6315,12 @@
             }
         },
         "f5bigip:ltm/dataGroup:DataGroup": {
-            "description": "`f5bigip.ltm.DataGroup` Manages internal (in-line) datagroup configuration\n\nResource should be named with their \"full path\". The full path is the combination of the partition + name of the resource, for example /Common/my-datagroup.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst datagroup = new f5bigip.ltm.DataGroup(\"datagroup\", {\n    name: \"/Common/dgx2\",\n    records: [\n        {\n            data: \"pool1\",\n            name: \"abc.com\",\n        },\n        {\n            data: \"123\",\n            name: \"test\",\n        },\n    ],\n    type: \"string\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ndatagroup = f5bigip.ltm.DataGroup(\"datagroup\",\n    name=\"/Common/dgx2\",\n    records=[\n        f5bigip.ltm.DataGroupRecordArgs(\n            data=\"pool1\",\n            name=\"abc.com\",\n        ),\n        f5bigip.ltm.DataGroupRecordArgs(\n            data=\"123\",\n            name=\"test\",\n        ),\n    ],\n    type=\"string\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var datagroup = new F5BigIP.Ltm.DataGroup(\"datagroup\", new F5BigIP.Ltm.DataGroupArgs\n        {\n            Name = \"/Common/dgx2\",\n            Records = \n            {\n                new F5BigIP.Ltm.Inputs.DataGroupRecordArgs\n                {\n                    Data = \"pool1\",\n                    Name = \"abc.com\",\n                },\n                new F5BigIP.Ltm.Inputs.DataGroupRecordArgs\n                {\n                    Data = \"123\",\n                    Name = \"test\",\n                },\n            },\n            Type = \"string\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewDataGroup(ctx, \"datagroup\", \u0026ltm.DataGroupArgs{\n\t\t\tName: pulumi.String(\"/Common/dgx2\"),\n\t\t\tRecords: ltm.DataGroupRecordArray{\n\t\t\t\t\u0026ltm.DataGroupRecordArgs{\n\t\t\t\t\tData: pulumi.String(\"pool1\"),\n\t\t\t\t\tName: pulumi.String(\"abc.com\"),\n\t\t\t\t},\n\t\t\t\t\u0026ltm.DataGroupRecordArgs{\n\t\t\t\t\tData: pulumi.String(\"123\"),\n\t\t\t\t\tName: pulumi.String(\"test\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tType: pulumi.String(\"string\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "`f5bigip.ltm.DataGroup` Manages internal (in-line) datagroup configuration\n\nResource should be named with their`full path`. The full path is the combination of the `partition + name` of the resource, for example `/Common/my-datagroup`.\n",
             "properties": {
+                "internal": {
+                    "type": "boolean",
+                    "description": "Set `false` if you want to Create External Datagroups. default is `true`,means creates internal datagroup.\n"
+                },
                 "name": {
                     "type": "string",
                     "description": ", sets the value of the record's `name` attribute, must be of type defined in `type` attribute\n"
@@ -6249,6 +6331,10 @@
                         "$ref": "#/types/f5bigip:ltm/DataGroupRecord:DataGroupRecord"
                     },
                     "description": "a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.\n"
+                },
+                "recordsSrc": {
+                    "type": "string",
+                    "description": "Path to a file with records in it,The file should be well-formed,it includes records, one per line,that resemble the following format \"key separator value\". For example, `foo := bar`.\nThis should be used in conjunction with `internal` attribute set `false`\n"
                 },
                 "type": {
                     "type": "string",
@@ -6260,6 +6346,10 @@
                 "type"
             ],
             "inputProperties": {
+                "internal": {
+                    "type": "boolean",
+                    "description": "Set `false` if you want to Create External Datagroups. default is `true`,means creates internal datagroup.\n"
+                },
                 "name": {
                     "type": "string",
                     "description": ", sets the value of the record's `name` attribute, must be of type defined in `type` attribute\n"
@@ -6270,6 +6360,10 @@
                         "$ref": "#/types/f5bigip:ltm/DataGroupRecord:DataGroupRecord"
                     },
                     "description": "a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.\n"
+                },
+                "recordsSrc": {
+                    "type": "string",
+                    "description": "Path to a file with records in it,The file should be well-formed,it includes records, one per line,that resemble the following format \"key separator value\". For example, `foo := bar`.\nThis should be used in conjunction with `internal` attribute set `false`\n"
                 },
                 "type": {
                     "type": "string",
@@ -6283,6 +6377,10 @@
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering DataGroup resources.\n",
                 "properties": {
+                    "internal": {
+                        "type": "boolean",
+                        "description": "Set `false` if you want to Create External Datagroups. default is `true`,means creates internal datagroup.\n"
+                    },
                     "name": {
                         "type": "string",
                         "description": ", sets the value of the record's `name` attribute, must be of type defined in `type` attribute\n"
@@ -6293,6 +6391,10 @@
                             "$ref": "#/types/f5bigip:ltm/DataGroupRecord:DataGroupRecord"
                         },
                         "description": "a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.\n"
+                    },
+                    "recordsSrc": {
+                        "type": "string",
+                        "description": "Path to a file with records in it,The file should be well-formed,it includes records, one per line,that resemble the following format \"key separator value\". For example, `foo := bar`.\nThis should be used in conjunction with `internal` attribute set `false`\n"
                     },
                     "type": {
                         "type": "string",
@@ -7787,7 +7889,7 @@
             }
         },
         "f5bigip:ltm/poolAttachment:PoolAttachment": {
-            "description": "`f5bigip.ltm.PoolAttachment` Manages nodes membership in pools\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\nThere are two ways to use ltm_pool_attachment resource, where we can take node reference from ltm_node or we can specify node directly with ip:port/fqdn:port which will also create node and atach to pool.\n\n\nPool attachment with node directly taking ip:port/fqdn:port\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst monitor = new f5bigip.ltm.Monitor(\"monitor\", {\n    name: \"/Common/terraform_monitor\",\n    parent: \"/Common/http\",\n    send: \"GET /some/path\r\\n\",\n    timeout: \"999\",\n    interval: \"998\",\n});\nconst pool = new f5bigip.ltm.Pool(\"pool\", {\n    name: \"/Common/terraform-pool\",\n    loadBalancingMode: \"round-robin\",\n    monitors: [monitor.name],\n    allowSnat: \"yes\",\n    allowNat: \"yes\",\n});\nconst attachNode = new f5bigip.ltm.PoolAttachment(\"attachNode\", {\n    pool: pool.name,\n    node: \"1.1.1.1:80\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nmonitor = f5bigip.ltm.Monitor(\"monitor\",\n    name=\"/Common/terraform_monitor\",\n    parent=\"/Common/http\",\n    send=\"GET /some/path\r\\n\",\n    timeout=999,\n    interval=998)\npool = f5bigip.ltm.Pool(\"pool\",\n    name=\"/Common/terraform-pool\",\n    load_balancing_mode=\"round-robin\",\n    monitors=[monitor.name],\n    allow_snat=\"yes\",\n    allow_nat=\"yes\")\nattach_node = f5bigip.ltm.PoolAttachment(\"attachNode\",\n    pool=pool.name,\n    node=\"1.1.1.1:80\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var monitor = new F5BigIP.Ltm.Monitor(\"monitor\", new F5BigIP.Ltm.MonitorArgs\n        {\n            Name = \"/Common/terraform_monitor\",\n            Parent = \"/Common/http\",\n            Send = @\"GET /some/path\r\n\",\n            Timeout = 999,\n            Interval = 998,\n        });\n        var pool = new F5BigIP.Ltm.Pool(\"pool\", new F5BigIP.Ltm.PoolArgs\n        {\n            Name = \"/Common/terraform-pool\",\n            LoadBalancingMode = \"round-robin\",\n            Monitors = \n            {\n                monitor.Name,\n            },\n            AllowSnat = \"yes\",\n            AllowNat = \"yes\",\n        });\n        var attachNode = new F5BigIP.Ltm.PoolAttachment(\"attachNode\", new F5BigIP.Ltm.PoolAttachmentArgs\n        {\n            Pool = pool.Name,\n            Node = \"1.1.1.1:80\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmonitor, err := ltm.NewMonitor(ctx, \"monitor\", \u0026ltm.MonitorArgs{\n\t\t\tName:   pulumi.String(\"/Common/terraform_monitor\"),\n\t\t\tParent: pulumi.String(\"/Common/http\"),\n\t\t\tSend: pulumi.String(\"GET /some/path\r\\n\"),\n\t\t\tTimeout:  pulumi.Int(999),\n\t\t\tInterval: pulumi.Int(998),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tpool, err := ltm.NewPool(ctx, \"pool\", \u0026ltm.PoolArgs{\n\t\t\tName:              pulumi.String(\"/Common/terraform-pool\"),\n\t\t\tLoadBalancingMode: pulumi.String(\"round-robin\"),\n\t\t\tMonitors: pulumi.StringArray{\n\t\t\t\tmonitor.Name,\n\t\t\t},\n\t\t\tAllowSnat: pulumi.String(\"yes\"),\n\t\t\tAllowNat:  pulumi.String(\"yes\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewPoolAttachment(ctx, \"attachNode\", \u0026ltm.PoolAttachmentArgs{\n\t\t\tPool: pool.Name,\n\t\t\tNode: pulumi.String(\"1.1.1.1:80\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\nPool attachment with node reference from ltm_node\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst monitor = new f5bigip.ltm.Monitor(\"monitor\", {\n    name: \"/Common/terraform_monitor\",\n    parent: \"/Common/http\",\n    send: \"GET /some/path\r\\n\",\n    timeout: \"999\",\n    interval: \"998\",\n});\nconst pool = new f5bigip.ltm.Pool(\"pool\", {\n    name: \"/Common/terraform-pool\",\n    loadBalancingMode: \"round-robin\",\n    monitors: [monitor.name],\n    allowSnat: \"yes\",\n    allowNat: \"yes\",\n});\nconst node = new f5bigip.ltm.Node(\"node\", {\n    name: \"/Common/terraform_node\",\n    address: \"192.168.30.2\",\n});\nconst attachNode = new f5bigip.ltm.PoolAttachment(\"attachNode\", {\n    pool: pool.name,\n    node: pulumi.interpolate`${node.name}:80`,\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nmonitor = f5bigip.ltm.Monitor(\"monitor\",\n    name=\"/Common/terraform_monitor\",\n    parent=\"/Common/http\",\n    send=\"GET /some/path\r\\n\",\n    timeout=999,\n    interval=998)\npool = f5bigip.ltm.Pool(\"pool\",\n    name=\"/Common/terraform-pool\",\n    load_balancing_mode=\"round-robin\",\n    monitors=[monitor.name],\n    allow_snat=\"yes\",\n    allow_nat=\"yes\")\nnode = f5bigip.ltm.Node(\"node\",\n    name=\"/Common/terraform_node\",\n    address=\"192.168.30.2\")\nattach_node = f5bigip.ltm.PoolAttachment(\"attachNode\",\n    pool=pool.name,\n    node=node.name.apply(lambda name: f\"{name}:80\"))\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var monitor = new F5BigIP.Ltm.Monitor(\"monitor\", new F5BigIP.Ltm.MonitorArgs\n        {\n            Name = \"/Common/terraform_monitor\",\n            Parent = \"/Common/http\",\n            Send = @\"GET /some/path\r\n\",\n            Timeout = 999,\n            Interval = 998,\n        });\n        var pool = new F5BigIP.Ltm.Pool(\"pool\", new F5BigIP.Ltm.PoolArgs\n        {\n            Name = \"/Common/terraform-pool\",\n            LoadBalancingMode = \"round-robin\",\n            Monitors = \n            {\n                monitor.Name,\n            },\n            AllowSnat = \"yes\",\n            AllowNat = \"yes\",\n        });\n        var node = new F5BigIP.Ltm.Node(\"node\", new F5BigIP.Ltm.NodeArgs\n        {\n            Name = \"/Common/terraform_node\",\n            Address = \"192.168.30.2\",\n        });\n        var attachNode = new F5BigIP.Ltm.PoolAttachment(\"attachNode\", new F5BigIP.Ltm.PoolAttachmentArgs\n        {\n            Pool = pool.Name,\n            Node = node.Name.Apply(name =\u003e $\"{name}:80\"),\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmonitor, err := ltm.NewMonitor(ctx, \"monitor\", \u0026ltm.MonitorArgs{\n\t\t\tName:   pulumi.String(\"/Common/terraform_monitor\"),\n\t\t\tParent: pulumi.String(\"/Common/http\"),\n\t\t\tSend: pulumi.String(\"GET /some/path\r\\n\"),\n\t\t\tTimeout:  pulumi.Int(999),\n\t\t\tInterval: pulumi.Int(998),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tpool, err := ltm.NewPool(ctx, \"pool\", \u0026ltm.PoolArgs{\n\t\t\tName:              pulumi.String(\"/Common/terraform-pool\"),\n\t\t\tLoadBalancingMode: pulumi.String(\"round-robin\"),\n\t\t\tMonitors: pulumi.StringArray{\n\t\t\t\tmonitor.Name,\n\t\t\t},\n\t\t\tAllowSnat: pulumi.String(\"yes\"),\n\t\t\tAllowNat:  pulumi.String(\"yes\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tnode, err := ltm.NewNode(ctx, \"node\", \u0026ltm.NodeArgs{\n\t\t\tName:    pulumi.String(\"/Common/terraform_node\"),\n\t\t\tAddress: pulumi.String(\"192.168.30.2\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewPoolAttachment(ctx, \"attachNode\", \u0026ltm.PoolAttachmentArgs{\n\t\t\tPool: pool.Name,\n\t\t\tNode: node.Name.ApplyT(func(name string) (string, error) {\n\t\t\t\treturn fmt.Sprintf(\"%v%v\", name, \":80\"), nil\n\t\t\t}).(pulumi.StringOutput),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "`f5bigip.ltm.PoolAttachment` Manages nodes membership in pools\n\n{{% examples %}}\n## Example Usage\n\nThere are two ways to use ltm_pool_attachment resource, where we can take node reference from ltm_node or we can specify node directly with ip:port/fqdn:port which will also create node and atach to pool.\n\n{{% example %}}\n### Pool attachment with node directly taking  `ip:port` / `fqdn:port`\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst monitor = new f5bigip.ltm.Monitor(\"monitor\", {\n    name: \"/Common/terraform_monitor\",\n    parent: \"/Common/http\",\n    send: \"GET /some/path\r\\n\",\n    timeout: \"999\",\n    interval: \"998\",\n});\nconst pool = new f5bigip.ltm.Pool(\"pool\", {\n    name: \"/Common/terraform-pool\",\n    loadBalancingMode: \"round-robin\",\n    monitors: [monitor.name],\n    allowSnat: \"yes\",\n    allowNat: \"yes\",\n});\nconst attachNode = new f5bigip.ltm.PoolAttachment(\"attachNode\", {\n    pool: pool.name,\n    node: \"1.1.1.1:80\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nmonitor = f5bigip.ltm.Monitor(\"monitor\",\n    name=\"/Common/terraform_monitor\",\n    parent=\"/Common/http\",\n    send=\"GET /some/path\r\\n\",\n    timeout=999,\n    interval=998)\npool = f5bigip.ltm.Pool(\"pool\",\n    name=\"/Common/terraform-pool\",\n    load_balancing_mode=\"round-robin\",\n    monitors=[monitor.name],\n    allow_snat=\"yes\",\n    allow_nat=\"yes\")\nattach_node = f5bigip.ltm.PoolAttachment(\"attachNode\",\n    pool=pool.name,\n    node=\"1.1.1.1:80\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var monitor = new F5BigIP.Ltm.Monitor(\"monitor\", new F5BigIP.Ltm.MonitorArgs\n        {\n            Name = \"/Common/terraform_monitor\",\n            Parent = \"/Common/http\",\n            Send = @\"GET /some/path\r\n\",\n            Timeout = 999,\n            Interval = 998,\n        });\n        var pool = new F5BigIP.Ltm.Pool(\"pool\", new F5BigIP.Ltm.PoolArgs\n        {\n            Name = \"/Common/terraform-pool\",\n            LoadBalancingMode = \"round-robin\",\n            Monitors = \n            {\n                monitor.Name,\n            },\n            AllowSnat = \"yes\",\n            AllowNat = \"yes\",\n        });\n        var attachNode = new F5BigIP.Ltm.PoolAttachment(\"attachNode\", new F5BigIP.Ltm.PoolAttachmentArgs\n        {\n            Pool = pool.Name,\n            Node = \"1.1.1.1:80\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmonitor, err := ltm.NewMonitor(ctx, \"monitor\", \u0026ltm.MonitorArgs{\n\t\t\tName:   pulumi.String(\"/Common/terraform_monitor\"),\n\t\t\tParent: pulumi.String(\"/Common/http\"),\n\t\t\tSend: pulumi.String(\"GET /some/path\r\\n\"),\n\t\t\tTimeout:  pulumi.Int(999),\n\t\t\tInterval: pulumi.Int(998),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tpool, err := ltm.NewPool(ctx, \"pool\", \u0026ltm.PoolArgs{\n\t\t\tName:              pulumi.String(\"/Common/terraform-pool\"),\n\t\t\tLoadBalancingMode: pulumi.String(\"round-robin\"),\n\t\t\tMonitors: pulumi.StringArray{\n\t\t\t\tmonitor.Name,\n\t\t\t},\n\t\t\tAllowSnat: pulumi.String(\"yes\"),\n\t\t\tAllowNat:  pulumi.String(\"yes\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewPoolAttachment(ctx, \"attachNode\", \u0026ltm.PoolAttachmentArgs{\n\t\t\tPool: pool.Name,\n\t\t\tNode: pulumi.String(\"1.1.1.1:80\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% example %}}\n### Pool attachment with node referenced from `f5bigip.ltm.Node`\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst monitor = new f5bigip.ltm.Monitor(\"monitor\", {\n    name: \"/Common/terraform_monitor\",\n    parent: \"/Common/http\",\n    send: \"GET /some/path\r\\n\",\n    timeout: \"999\",\n    interval: \"998\",\n});\nconst pool = new f5bigip.ltm.Pool(\"pool\", {\n    name: \"/Common/terraform-pool\",\n    loadBalancingMode: \"round-robin\",\n    monitors: [monitor.name],\n    allowSnat: \"yes\",\n    allowNat: \"yes\",\n});\nconst node = new f5bigip.ltm.Node(\"node\", {\n    name: \"/Common/terraform_node\",\n    address: \"192.168.30.2\",\n});\nconst attachNode = new f5bigip.ltm.PoolAttachment(\"attachNode\", {\n    pool: pool.name,\n    node: pulumi.interpolate`${node.name}:80`,\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nmonitor = f5bigip.ltm.Monitor(\"monitor\",\n    name=\"/Common/terraform_monitor\",\n    parent=\"/Common/http\",\n    send=\"GET /some/path\r\\n\",\n    timeout=999,\n    interval=998)\npool = f5bigip.ltm.Pool(\"pool\",\n    name=\"/Common/terraform-pool\",\n    load_balancing_mode=\"round-robin\",\n    monitors=[monitor.name],\n    allow_snat=\"yes\",\n    allow_nat=\"yes\")\nnode = f5bigip.ltm.Node(\"node\",\n    name=\"/Common/terraform_node\",\n    address=\"192.168.30.2\")\nattach_node = f5bigip.ltm.PoolAttachment(\"attachNode\",\n    pool=pool.name,\n    node=node.name.apply(lambda name: f\"{name}:80\"))\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var monitor = new F5BigIP.Ltm.Monitor(\"monitor\", new F5BigIP.Ltm.MonitorArgs\n        {\n            Name = \"/Common/terraform_monitor\",\n            Parent = \"/Common/http\",\n            Send = @\"GET /some/path\r\n\",\n            Timeout = 999,\n            Interval = 998,\n        });\n        var pool = new F5BigIP.Ltm.Pool(\"pool\", new F5BigIP.Ltm.PoolArgs\n        {\n            Name = \"/Common/terraform-pool\",\n            LoadBalancingMode = \"round-robin\",\n            Monitors = \n            {\n                monitor.Name,\n            },\n            AllowSnat = \"yes\",\n            AllowNat = \"yes\",\n        });\n        var node = new F5BigIP.Ltm.Node(\"node\", new F5BigIP.Ltm.NodeArgs\n        {\n            Name = \"/Common/terraform_node\",\n            Address = \"192.168.30.2\",\n        });\n        var attachNode = new F5BigIP.Ltm.PoolAttachment(\"attachNode\", new F5BigIP.Ltm.PoolAttachmentArgs\n        {\n            Pool = pool.Name,\n            Node = node.Name.Apply(name =\u003e $\"{name}:80\"),\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmonitor, err := ltm.NewMonitor(ctx, \"monitor\", \u0026ltm.MonitorArgs{\n\t\t\tName:   pulumi.String(\"/Common/terraform_monitor\"),\n\t\t\tParent: pulumi.String(\"/Common/http\"),\n\t\t\tSend: pulumi.String(\"GET /some/path\r\\n\"),\n\t\t\tTimeout:  pulumi.Int(999),\n\t\t\tInterval: pulumi.Int(998),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tpool, err := ltm.NewPool(ctx, \"pool\", \u0026ltm.PoolArgs{\n\t\t\tName:              pulumi.String(\"/Common/terraform-pool\"),\n\t\t\tLoadBalancingMode: pulumi.String(\"round-robin\"),\n\t\t\tMonitors: pulumi.StringArray{\n\t\t\t\tmonitor.Name,\n\t\t\t},\n\t\t\tAllowSnat: pulumi.String(\"yes\"),\n\t\t\tAllowNat:  pulumi.String(\"yes\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tnode, err := ltm.NewNode(ctx, \"node\", \u0026ltm.NodeArgs{\n\t\t\tName:    pulumi.String(\"/Common/terraform_node\"),\n\t\t\tAddress: pulumi.String(\"192.168.30.2\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewPoolAttachment(ctx, \"attachNode\", \u0026ltm.PoolAttachmentArgs{\n\t\t\tPool: pool.Name,\n\t\t\tNode: node.Name.ApplyT(func(name string) (string, error) {\n\t\t\t\treturn fmt.Sprintf(\"%v%v\", name, \":80\"), nil\n\t\t\t}).(pulumi.StringOutput),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "connectionLimit": {
                     "type": "integer",
@@ -10901,7 +11003,7 @@
             }
         },
         "f5bigip:ltm/snat:Snat": {
-            "description": "`f5bigip.ltm.Snat` Manages a snat configuration\n\nFor resources should be named with their \"full path\". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst test_snat = new f5bigip.ltm.Snat(\"test-snat\", {\n    autolasthop: \"default\",\n    fullPath: \"/Common/test-snat\",\n    mirror: \"disabled\",\n    name: \"TEST_SNAT_NAME\",\n    origins: [\n        {\n            name: \"2.2.2.2\",\n        },\n        {\n            name: \"3.3.3.3\",\n        },\n    ],\n    partition: \"Common\",\n    translation: \"/Common/136.1.1.1\",\n    vlansdisabled: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ntest_snat = f5bigip.ltm.Snat(\"test-snat\",\n    autolasthop=\"default\",\n    full_path=\"/Common/test-snat\",\n    mirror=\"disabled\",\n    name=\"TEST_SNAT_NAME\",\n    origins=[\n        f5bigip.ltm.SnatOriginArgs(\n            name=\"2.2.2.2\",\n        ),\n        f5bigip.ltm.SnatOriginArgs(\n            name=\"3.3.3.3\",\n        ),\n    ],\n    partition=\"Common\",\n    translation=\"/Common/136.1.1.1\",\n    vlansdisabled=True)\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test_snat = new F5BigIP.Ltm.Snat(\"test-snat\", new F5BigIP.Ltm.SnatArgs\n        {\n            Autolasthop = \"default\",\n            FullPath = \"/Common/test-snat\",\n            Mirror = \"disabled\",\n            Name = \"TEST_SNAT_NAME\",\n            Origins = \n            {\n                new F5BigIP.Ltm.Inputs.SnatOriginArgs\n                {\n                    Name = \"2.2.2.2\",\n                },\n                new F5BigIP.Ltm.Inputs.SnatOriginArgs\n                {\n                    Name = \"3.3.3.3\",\n                },\n            },\n            Partition = \"Common\",\n            Translation = \"/Common/136.1.1.1\",\n            Vlansdisabled = true,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewSnat(ctx, \"test-snat\", \u0026ltm.SnatArgs{\n\t\t\tAutolasthop: pulumi.String(\"default\"),\n\t\t\tFullPath:    pulumi.String(\"/Common/test-snat\"),\n\t\t\tMirror:      pulumi.String(\"disabled\"),\n\t\t\tName:        pulumi.String(\"TEST_SNAT_NAME\"),\n\t\t\tOrigins: ltm.SnatOriginArray{\n\t\t\t\t\u0026ltm.SnatOriginArgs{\n\t\t\t\t\tName: pulumi.String(\"2.2.2.2\"),\n\t\t\t\t},\n\t\t\t\t\u0026ltm.SnatOriginArgs{\n\t\t\t\t\tName: pulumi.String(\"3.3.3.3\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tPartition:     pulumi.String(\"Common\"),\n\t\t\tTranslation:   pulumi.String(\"/Common/136.1.1.1\"),\n\t\t\tVlansdisabled: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "`f5bigip.ltm.Snat` Manages a SNAT configuration\n\nFor resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource.For example `/Common/test-snat`.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst test_snat = new f5bigip.ltm.Snat(\"test-snat\", {\n    name: \"/Common/test-snat\",\n    origins: [{\n        name: \"0.0.0.0/0\",\n    }],\n    sourceport: \"preserve\",\n    translation: \"/Common/136.1.1.2\",\n    vlans: [\"/Common/internal\"],\n    vlansdisabled: false,\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ntest_snat = f5bigip.ltm.Snat(\"test-snat\",\n    name=\"/Common/test-snat\",\n    origins=[f5bigip.ltm.SnatOriginArgs(\n        name=\"0.0.0.0/0\",\n    )],\n    sourceport=\"preserve\",\n    translation=\"/Common/136.1.1.2\",\n    vlans=[\"/Common/internal\"],\n    vlansdisabled=False)\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var test_snat = new F5BigIP.Ltm.Snat(\"test-snat\", new F5BigIP.Ltm.SnatArgs\n        {\n            Name = \"/Common/test-snat\",\n            Origins = \n            {\n                new F5BigIP.Ltm.Inputs.SnatOriginArgs\n                {\n                    Name = \"0.0.0.0/0\",\n                },\n            },\n            Sourceport = \"preserve\",\n            Translation = \"/Common/136.1.1.2\",\n            Vlans = \n            {\n                \"/Common/internal\",\n            },\n            Vlansdisabled = false,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewSnat(ctx, \"test-snat\", \u0026ltm.SnatArgs{\n\t\t\tName: pulumi.String(\"/Common/test-snat\"),\n\t\t\tOrigins: ltm.SnatOriginArray{\n\t\t\t\t\u0026ltm.SnatOriginArgs{\n\t\t\t\t\tName: pulumi.String(\"0.0.0.0/0\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tSourceport:  pulumi.String(\"preserve\"),\n\t\t\tTranslation: pulumi.String(\"/Common/136.1.1.2\"),\n\t\t\tVlans: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"/Common/internal\"),\n\t\t\t},\n\t\t\tVlansdisabled: pulumi.Bool(false),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "autolasthop": {
                     "type": "string",
@@ -10917,44 +11019,46 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of the snat\n"
+                    "description": "Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.\n"
                 },
                 "origins": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/f5bigip:ltm/SnatOrigin:SnatOrigin"
                     },
-                    "description": "IP or hostname of the snat\n"
+                    "description": "Specifies, for each SNAT that you create, the origin addresses that are to be members of that SNAT. Specify origin addresses by their IP addresses and service ports\n"
                 },
                 "partition": {
                     "type": "string",
-                    "description": "Displays the administrative partition within which this profile resides\n"
+                    "description": "Partition or path to which the SNAT belongs\n"
                 },
                 "snatpool": {
                     "type": "string",
-                    "description": "Specifies the name of a SNAT pool. You can only use this option when automap and translation are not used.\n"
+                    "description": "Specifies the name of a SNAT pool. You can only use this option when `automap` and `translation` are not used.\n"
                 },
                 "sourceport": {
                     "type": "string",
-                    "description": "Specifies whether the system preserves the source port of the connection. The default is preserve. Use of the preserve-strict setting should be restricted to UDP only under very special circumstances such as nPath or transparent (that is, no translation of any other L3/L4 field), where there is a 1:1 relationship between virtual IP addresses and node addresses, or when clustered multi-processing (CMP) is disabled. The change setting is useful for obfuscating internal network addresses.\n"
+                    "description": "Specifies how the SNAT object handles the client's source port. The default is `preserve`.\n"
                 },
                 "translation": {
                     "type": "string",
-                    "description": "Specifies the name of a translated IP address. Note that translated addresses are outside the traffic management system. You can only use this option when automap and snatpool are not used.\n"
+                    "description": "Specifies the IP address configured for translation. Note that translated addresses are outside the traffic management system. You can only use this option when `automap` and `snatpool` are not used.\n"
                 },
                 "vlans": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies the name of the VLAN to which you want to assign the SNAT. The default is vlans-enabled.\n"
+                    "description": "Specifies the available VLANs or tunnels and those for which the SNAT is enabled or disabled.\n"
                 },
                 "vlansdisabled": {
                     "type": "boolean",
-                    "description": "Disables the SNAT on all VLANs.\n"
+                    "description": "Specifies the VLANs or tunnels for which the SNAT is enabled or disabled. The default is `true`, vlandisabled on VLANS specified by `vlans`,if set to `false` vlanEnabled set on VLANS specified by `vlans` .\n"
                 }
             },
             "required": [
+                "autolasthop",
+                "mirror",
                 "name",
                 "origins"
             ],
@@ -10973,41 +11077,41 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "Name of the snat\n"
+                    "description": "Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.\n"
                 },
                 "origins": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/f5bigip:ltm/SnatOrigin:SnatOrigin"
                     },
-                    "description": "IP or hostname of the snat\n"
+                    "description": "Specifies, for each SNAT that you create, the origin addresses that are to be members of that SNAT. Specify origin addresses by their IP addresses and service ports\n"
                 },
                 "partition": {
                     "type": "string",
-                    "description": "Displays the administrative partition within which this profile resides\n"
+                    "description": "Partition or path to which the SNAT belongs\n"
                 },
                 "snatpool": {
                     "type": "string",
-                    "description": "Specifies the name of a SNAT pool. You can only use this option when automap and translation are not used.\n"
+                    "description": "Specifies the name of a SNAT pool. You can only use this option when `automap` and `translation` are not used.\n"
                 },
                 "sourceport": {
                     "type": "string",
-                    "description": "Specifies whether the system preserves the source port of the connection. The default is preserve. Use of the preserve-strict setting should be restricted to UDP only under very special circumstances such as nPath or transparent (that is, no translation of any other L3/L4 field), where there is a 1:1 relationship between virtual IP addresses and node addresses, or when clustered multi-processing (CMP) is disabled. The change setting is useful for obfuscating internal network addresses.\n"
+                    "description": "Specifies how the SNAT object handles the client's source port. The default is `preserve`.\n"
                 },
                 "translation": {
                     "type": "string",
-                    "description": "Specifies the name of a translated IP address. Note that translated addresses are outside the traffic management system. You can only use this option when automap and snatpool are not used.\n"
+                    "description": "Specifies the IP address configured for translation. Note that translated addresses are outside the traffic management system. You can only use this option when `automap` and `snatpool` are not used.\n"
                 },
                 "vlans": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies the name of the VLAN to which you want to assign the SNAT. The default is vlans-enabled.\n"
+                    "description": "Specifies the available VLANs or tunnels and those for which the SNAT is enabled or disabled.\n"
                 },
                 "vlansdisabled": {
                     "type": "boolean",
-                    "description": "Disables the SNAT on all VLANs.\n"
+                    "description": "Specifies the VLANs or tunnels for which the SNAT is enabled or disabled. The default is `true`, vlandisabled on VLANS specified by `vlans`,if set to `false` vlanEnabled set on VLANS specified by `vlans` .\n"
                 }
             },
             "requiredInputs": [
@@ -11031,41 +11135,41 @@
                     },
                     "name": {
                         "type": "string",
-                        "description": "Name of the snat\n"
+                        "description": "Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.\n"
                     },
                     "origins": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/f5bigip:ltm/SnatOrigin:SnatOrigin"
                         },
-                        "description": "IP or hostname of the snat\n"
+                        "description": "Specifies, for each SNAT that you create, the origin addresses that are to be members of that SNAT. Specify origin addresses by their IP addresses and service ports\n"
                     },
                     "partition": {
                         "type": "string",
-                        "description": "Displays the administrative partition within which this profile resides\n"
+                        "description": "Partition or path to which the SNAT belongs\n"
                     },
                     "snatpool": {
                         "type": "string",
-                        "description": "Specifies the name of a SNAT pool. You can only use this option when automap and translation are not used.\n"
+                        "description": "Specifies the name of a SNAT pool. You can only use this option when `automap` and `translation` are not used.\n"
                     },
                     "sourceport": {
                         "type": "string",
-                        "description": "Specifies whether the system preserves the source port of the connection. The default is preserve. Use of the preserve-strict setting should be restricted to UDP only under very special circumstances such as nPath or transparent (that is, no translation of any other L3/L4 field), where there is a 1:1 relationship between virtual IP addresses and node addresses, or when clustered multi-processing (CMP) is disabled. The change setting is useful for obfuscating internal network addresses.\n"
+                        "description": "Specifies how the SNAT object handles the client's source port. The default is `preserve`.\n"
                     },
                     "translation": {
                         "type": "string",
-                        "description": "Specifies the name of a translated IP address. Note that translated addresses are outside the traffic management system. You can only use this option when automap and snatpool are not used.\n"
+                        "description": "Specifies the IP address configured for translation. Note that translated addresses are outside the traffic management system. You can only use this option when `automap` and `snatpool` are not used.\n"
                     },
                     "vlans": {
                         "type": "array",
                         "items": {
                             "type": "string"
                         },
-                        "description": "Specifies the name of the VLAN to which you want to assign the SNAT. The default is vlans-enabled.\n"
+                        "description": "Specifies the available VLANs or tunnels and those for which the SNAT is enabled or disabled.\n"
                     },
                     "vlansdisabled": {
                         "type": "boolean",
-                        "description": "Disables the SNAT on all VLANs.\n"
+                        "description": "Specifies the VLANs or tunnels for which the SNAT is enabled or disabled. The default is `true`, vlandisabled on VLANS specified by `vlans`,if set to `false` vlanEnabled set on VLANS specified by `vlans` .\n"
                     }
                 },
                 "type": "object"
@@ -11358,11 +11462,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.\n"
+                    "description": "The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlan_enabled`\n"
                 },
                 "vlansEnabled": {
                     "type": "boolean",
-                    "description": "Enables the virtual server on the VLANs specified by the VLANs option.\n"
+                    "description": "Enables the virtual server on the VLANs specified by the `vlans` option.\nBy default it is `false` i.e vlanDisabled on specified vlans, if we want enable virtual server on VLANs specified by `vlans`, mark this attribute to `true`.\n"
                 }
             },
             "required": [
@@ -11378,8 +11482,7 @@
                 "source",
                 "sourceAddressTranslation",
                 "translateAddress",
-                "translatePort",
-                "vlansEnabled"
+                "translatePort"
             ],
             "inputProperties": {
                 "clientProfiles": {
@@ -11497,11 +11600,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.\n"
+                    "description": "The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlan_enabled`\n"
                 },
                 "vlansEnabled": {
                     "type": "boolean",
-                    "description": "Enables the virtual server on the VLANs specified by the VLANs option.\n"
+                    "description": "Enables the virtual server on the VLANs specified by the `vlans` option.\nBy default it is `false` i.e vlanDisabled on specified vlans, if we want enable virtual server on VLANs specified by `vlans`, mark this attribute to `true`.\n"
                 }
             },
             "requiredInputs": [
@@ -11627,11 +11730,11 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.\n"
+                        "description": "The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlan_enabled`\n"
                     },
                     "vlansEnabled": {
                         "type": "boolean",
-                        "description": "Enables the virtual server on the VLANs specified by the VLANs option.\n"
+                        "description": "Enables the virtual server on the VLANs specified by the `vlans` option.\nBy default it is `false` i.e vlanDisabled on specified vlans, if we want enable virtual server on VLANs specified by `vlans`, mark this attribute to `true`.\n"
                     }
                 },
                 "type": "object"
@@ -11719,7 +11822,7 @@
             }
         },
         "f5bigip:net/selfIp:SelfIp": {
-            "description": "`f5bigip.net.SelfIp` Manages a selfip configuration\n\nResource should be named with their \"full path\". The full path is the combination of the partition + name of the resource, for example /Common/my-selfip.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst selfip1 = new f5bigip.net.SelfIp(\"selfip1\", {\n    name: \"/Common/internalselfIP\",\n    ip: \"11.1.1.1/24\",\n    vlan: \"/Common/internal\",\n    trafficGroup: \"traffic-group-1\",\n    portLockdowns: [\n        \"tcp:4040\",\n        \"udp:5050\",\n        \"egp:0\",\n    ],\n}, {\n    dependsOn: [bigip_net_vlan.vlan1],\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nselfip1 = f5bigip.net.SelfIp(\"selfip1\",\n    name=\"/Common/internalselfIP\",\n    ip=\"11.1.1.1/24\",\n    vlan=\"/Common/internal\",\n    traffic_group=\"traffic-group-1\",\n    port_lockdowns=[\n        \"tcp:4040\",\n        \"udp:5050\",\n        \"egp:0\",\n    ],\n    opts=pulumi.ResourceOptions(depends_on=[bigip_net_vlan[\"vlan1\"]]))\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var selfip1 = new F5BigIP.Net.SelfIp(\"selfip1\", new F5BigIP.Net.SelfIpArgs\n        {\n            Name = \"/Common/internalselfIP\",\n            Ip = \"11.1.1.1/24\",\n            Vlan = \"/Common/internal\",\n            TrafficGroup = \"traffic-group-1\",\n            PortLockdowns = \n            {\n                \"tcp:4040\",\n                \"udp:5050\",\n                \"egp:0\",\n            },\n        }, new CustomResourceOptions\n        {\n            DependsOn = \n            {\n                bigip_net_vlan.Vlan1,\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/net\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := net.NewSelfIp(ctx, \"selfip1\", \u0026net.SelfIpArgs{\n\t\t\tName:         pulumi.String(\"/Common/internalselfIP\"),\n\t\t\tIp:           pulumi.String(\"11.1.1.1/24\"),\n\t\t\tVlan:         pulumi.String(\"/Common/internal\"),\n\t\t\tTrafficGroup: pulumi.String(\"traffic-group-1\"),\n\t\t\tPortLockdowns: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"tcp:4040\"),\n\t\t\t\tpulumi.String(\"udp:5050\"),\n\t\t\t\tpulumi.String(\"egp:0\"),\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tbigip_net_vlan.Vlan1,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "`f5bigip.net.SelfIp` Manages a selfip configuration\n\nResource should be named with their `full path`. The full path is the combination of the `partition + name of the resource`, for example `/Common/my-selfip`.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst vlan1 = new f5bigip.net.Vlan(\"vlan1\", {\n    name: \"/Common/Internal\",\n    tag: 101,\n    interfaces: [{\n        vlanport: 1.2,\n        tagged: false,\n    }],\n});\nconst selfip1 = new f5bigip.net.SelfIp(\"selfip1\", {\n    name: \"/Common/internalselfIP\",\n    ip: \"11.1.1.1/24\",\n    vlan: \"/Common/internal\",\n}, {\n    dependsOn: [vlan1],\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nvlan1 = f5bigip.net.Vlan(\"vlan1\",\n    name=\"/Common/Internal\",\n    tag=101,\n    interfaces=[f5bigip.net.VlanInterfaceArgs(\n        vlanport=\"1.2\",\n        tagged=False,\n    )])\nselfip1 = f5bigip.net.SelfIp(\"selfip1\",\n    name=\"/Common/internalselfIP\",\n    ip=\"11.1.1.1/24\",\n    vlan=\"/Common/internal\",\n    opts=pulumi.ResourceOptions(depends_on=[vlan1]))\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var vlan1 = new F5BigIP.Net.Vlan(\"vlan1\", new F5BigIP.Net.VlanArgs\n        {\n            Name = \"/Common/Internal\",\n            Tag = 101,\n            Interfaces = \n            {\n                new F5BigIP.Net.Inputs.VlanInterfaceArgs\n                {\n                    Vlanport = \"1.2\",\n                    Tagged = false,\n                },\n            },\n        });\n        var selfip1 = new F5BigIP.Net.SelfIp(\"selfip1\", new F5BigIP.Net.SelfIpArgs\n        {\n            Name = \"/Common/internalselfIP\",\n            Ip = \"11.1.1.1/24\",\n            Vlan = \"/Common/internal\",\n        }, new CustomResourceOptions\n        {\n            DependsOn = \n            {\n                vlan1,\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/net\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tvlan1, err := net.NewVlan(ctx, \"vlan1\", \u0026net.VlanArgs{\n\t\t\tName: pulumi.String(\"/Common/Internal\"),\n\t\t\tTag:  pulumi.Int(101),\n\t\t\tInterfaces: net.VlanInterfaceArray{\n\t\t\t\t\u0026net.VlanInterfaceArgs{\n\t\t\t\t\tVlanport: pulumi.String(\"1.2\"),\n\t\t\t\t\tTagged:   pulumi.Bool(false),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = net.NewSelfIp(ctx, \"selfip1\", \u0026net.SelfIpArgs{\n\t\t\tName: pulumi.String(\"/Common/internalselfIP\"),\n\t\t\tIp:   pulumi.String(\"11.1.1.1/24\"),\n\t\t\tVlan: pulumi.String(\"/Common/internal\"),\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tvlan1,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% example %}}\n### Example usage with `port_lockdown`\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst selfip1 = new f5bigip.net.SelfIp(\"selfip1\", {\n    name: \"/Common/internalselfIP\",\n    ip: \"11.1.1.1/24\",\n    vlan: \"/Common/internal\",\n    trafficGroup: \"traffic-group-1\",\n    portLockdowns: [\n        \"tcp:4040\",\n        \"udp:5050\",\n        \"egp:0\",\n    ],\n}, {\n    dependsOn: [bigip_net_vlan.vlan1],\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nselfip1 = f5bigip.net.SelfIp(\"selfip1\",\n    name=\"/Common/internalselfIP\",\n    ip=\"11.1.1.1/24\",\n    vlan=\"/Common/internal\",\n    traffic_group=\"traffic-group-1\",\n    port_lockdowns=[\n        \"tcp:4040\",\n        \"udp:5050\",\n        \"egp:0\",\n    ],\n    opts=pulumi.ResourceOptions(depends_on=[bigip_net_vlan[\"vlan1\"]]))\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var selfip1 = new F5BigIP.Net.SelfIp(\"selfip1\", new F5BigIP.Net.SelfIpArgs\n        {\n            Name = \"/Common/internalselfIP\",\n            Ip = \"11.1.1.1/24\",\n            Vlan = \"/Common/internal\",\n            TrafficGroup = \"traffic-group-1\",\n            PortLockdowns = \n            {\n                \"tcp:4040\",\n                \"udp:5050\",\n                \"egp:0\",\n            },\n        }, new CustomResourceOptions\n        {\n            DependsOn = \n            {\n                bigip_net_vlan.Vlan1,\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/net\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := net.NewSelfIp(ctx, \"selfip1\", \u0026net.SelfIpArgs{\n\t\t\tName:         pulumi.String(\"/Common/internalselfIP\"),\n\t\t\tIp:           pulumi.String(\"11.1.1.1/24\"),\n\t\t\tVlan:         pulumi.String(\"/Common/internal\"),\n\t\t\tTrafficGroup: pulumi.String(\"traffic-group-1\"),\n\t\t\tPortLockdowns: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"tcp:4040\"),\n\t\t\t\tpulumi.String(\"udp:5050\"),\n\t\t\t\tpulumi.String(\"egp:0\"),\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tbigip_net_vlan.Vlan1,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "ip": {
                     "type": "string",
@@ -11734,7 +11837,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies the port lockdown, defaults to `Allow Default` if not specified.\n"
+                    "description": "Specifies the port lockdown, defaults to `Allow None` if not specified.\n"
                 },
                 "trafficGroup": {
                     "type": "string",
@@ -11764,7 +11867,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies the port lockdown, defaults to `Allow Default` if not specified.\n"
+                    "description": "Specifies the port lockdown, defaults to `Allow None` if not specified.\n"
                 },
                 "trafficGroup": {
                     "type": "string",
@@ -11796,7 +11899,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "Specifies the port lockdown, defaults to `Allow Default` if not specified.\n"
+                        "description": "Specifies the port lockdown, defaults to `Allow None` if not specified.\n"
                     },
                     "trafficGroup": {
                         "type": "string",

@@ -300,8 +300,7 @@ class PoolAttachment(pulumi.CustomResource):
         ## Example Usage
 
         There are two ways to use ltm_pool_attachment resource, where we can take node reference from ltm_node or we can specify node directly with ip:port/fqdn:port which will also create node and atach to pool.
-
-        Pool attachment with node directly taking ip:port/fqdn:port
+        ### Pool attachment with node directly taking  `ip:port` / `fqdn:port`
 
         ```python
         import pulumi
@@ -323,8 +322,7 @@ class PoolAttachment(pulumi.CustomResource):
             pool=pool.name,
             node="1.1.1.1:80")
         ```
-
-        Pool attachment with node reference from ltm_node
+        ### Pool attachment with node referenced from `ltm.Node`
 
         ```python
         import pulumi
@@ -373,8 +371,7 @@ class PoolAttachment(pulumi.CustomResource):
         ## Example Usage
 
         There are two ways to use ltm_pool_attachment resource, where we can take node reference from ltm_node or we can specify node directly with ip:port/fqdn:port which will also create node and atach to pool.
-
-        Pool attachment with node directly taking ip:port/fqdn:port
+        ### Pool attachment with node directly taking  `ip:port` / `fqdn:port`
 
         ```python
         import pulumi
@@ -396,8 +393,7 @@ class PoolAttachment(pulumi.CustomResource):
             pool=pool.name,
             node="1.1.1.1:80")
         ```
-
-        Pool attachment with node reference from ltm_node
+        ### Pool attachment with node referenced from `ltm.Node`
 
         ```python
         import pulumi

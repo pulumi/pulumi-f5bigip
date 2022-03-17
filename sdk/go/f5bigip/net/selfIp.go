@@ -13,9 +13,48 @@ import (
 
 // `net.SelfIp` Manages a selfip configuration
 //
-// Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-selfip.
+// Resource should be named with their `full path`. The full path is the combination of the `partition + name of the resource`, for example `/Common/my-selfip`.
 //
 // ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/net"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		vlan1, err := net.NewVlan(ctx, "vlan1", &net.VlanArgs{
+// 			Name: pulumi.String("/Common/Internal"),
+// 			Tag:  pulumi.Int(101),
+// 			Interfaces: net.VlanInterfaceArray{
+// 				&net.VlanInterfaceArgs{
+// 					Vlanport: pulumi.String("1.2"),
+// 					Tagged:   pulumi.Bool(false),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = net.NewSelfIp(ctx, "selfip1", &net.SelfIpArgs{
+// 			Name: pulumi.String("/Common/internalselfIP"),
+// 			Ip:   pulumi.String("11.1.1.1/24"),
+// 			Vlan: pulumi.String("/Common/internal"),
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			vlan1,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Example usage with `portLockdown`
 //
 // ```go
 // package main
@@ -54,7 +93,7 @@ type SelfIp struct {
 	Ip pulumi.StringOutput `pulumi:"ip"`
 	// Name of the selfip
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the port lockdown, defaults to `Allow Default` if not specified.
+	// Specifies the port lockdown, defaults to `Allow None` if not specified.
 	PortLockdowns pulumi.StringArrayOutput `pulumi:"portLockdowns"`
 	// Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
 	TrafficGroup pulumi.StringPtrOutput `pulumi:"trafficGroup"`
@@ -104,7 +143,7 @@ type selfIpState struct {
 	Ip *string `pulumi:"ip"`
 	// Name of the selfip
 	Name *string `pulumi:"name"`
-	// Specifies the port lockdown, defaults to `Allow Default` if not specified.
+	// Specifies the port lockdown, defaults to `Allow None` if not specified.
 	PortLockdowns []string `pulumi:"portLockdowns"`
 	// Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
 	TrafficGroup *string `pulumi:"trafficGroup"`
@@ -117,7 +156,7 @@ type SelfIpState struct {
 	Ip pulumi.StringPtrInput
 	// Name of the selfip
 	Name pulumi.StringPtrInput
-	// Specifies the port lockdown, defaults to `Allow Default` if not specified.
+	// Specifies the port lockdown, defaults to `Allow None` if not specified.
 	PortLockdowns pulumi.StringArrayInput
 	// Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
 	TrafficGroup pulumi.StringPtrInput
@@ -134,7 +173,7 @@ type selfIpArgs struct {
 	Ip string `pulumi:"ip"`
 	// Name of the selfip
 	Name string `pulumi:"name"`
-	// Specifies the port lockdown, defaults to `Allow Default` if not specified.
+	// Specifies the port lockdown, defaults to `Allow None` if not specified.
 	PortLockdowns []string `pulumi:"portLockdowns"`
 	// Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
 	TrafficGroup *string `pulumi:"trafficGroup"`
@@ -148,7 +187,7 @@ type SelfIpArgs struct {
 	Ip pulumi.StringInput
 	// Name of the selfip
 	Name pulumi.StringInput
-	// Specifies the port lockdown, defaults to `Allow Default` if not specified.
+	// Specifies the port lockdown, defaults to `Allow None` if not specified.
 	PortLockdowns pulumi.StringArrayInput
 	// Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
 	TrafficGroup pulumi.StringPtrInput
