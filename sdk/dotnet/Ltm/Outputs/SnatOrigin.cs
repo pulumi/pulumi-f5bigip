@@ -15,7 +15,7 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
     {
         public readonly string? AppService;
         /// <summary>
-        /// Name of the snat
+        /// Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
         /// </summary>
         public readonly string? Name;
 

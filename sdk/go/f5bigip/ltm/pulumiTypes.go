@@ -1908,7 +1908,7 @@ func (o ProfileClientSslCertKeyChainArrayOutput) Index(i pulumi.IntInput) Profil
 
 type SnatOrigin struct {
 	AppService *string `pulumi:"appService"`
-	// Name of the snat
+	// Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
 	Name *string `pulumi:"name"`
 }
 
@@ -1925,7 +1925,7 @@ type SnatOriginInput interface {
 
 type SnatOriginArgs struct {
 	AppService pulumi.StringPtrInput `pulumi:"appService"`
-	// Name of the snat
+	// Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
@@ -1984,7 +1984,7 @@ func (o SnatOriginOutput) AppService() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SnatOrigin) *string { return v.AppService }).(pulumi.StringPtrOutput)
 }
 
-// Name of the snat
+// Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
 func (o SnatOriginOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SnatOrigin) *string { return v.Name }).(pulumi.StringPtrOutput)
 }

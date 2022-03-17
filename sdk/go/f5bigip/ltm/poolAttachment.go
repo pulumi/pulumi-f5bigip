@@ -16,8 +16,7 @@ import (
 // ## Example Usage
 //
 // There are two ways to use ltmPoolAttachment resource, where we can take node reference from ltmNode or we can specify node directly with ip:port/fqdn:port which will also create node and atach to pool.
-//
-// Pool attachment with node directly taking ip:port/fqdn:port
+// ### Pool attachment with node directly taking  `ip:port` / `fqdn:port`
 //
 // ```go
 // package main
@@ -62,8 +61,7 @@ import (
 // 	})
 // }
 // ```
-//
-// Pool attachment with node reference from ltmNode
+// ### Pool attachment with node referenced from `ltm.Node`
 //
 // ```go
 // package main

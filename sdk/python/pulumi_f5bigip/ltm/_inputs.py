@@ -2623,7 +2623,7 @@ class SnatOriginArgs:
                  app_service: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: Name of the snat
+        :param pulumi.Input[str] name: Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
         """
         if app_service is not None:
             pulumi.set(__self__, "app_service", app_service)
@@ -2643,7 +2643,7 @@ class SnatOriginArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the snat
+        Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
         """
         return pulumi.get(self, "name")
 

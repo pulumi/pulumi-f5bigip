@@ -12,44 +12,17 @@ namespace Pulumi.F5BigIP.Ltm
     /// <summary>
     /// `f5bigip.ltm.DataGroup` Manages internal (in-line) datagroup configuration
     /// 
-    /// Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-datagroup.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using F5BigIP = Pulumi.F5BigIP;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var datagroup = new F5BigIP.Ltm.DataGroup("datagroup", new F5BigIP.Ltm.DataGroupArgs
-    ///         {
-    ///             Name = "/Common/dgx2",
-    ///             Records = 
-    ///             {
-    ///                 new F5BigIP.Ltm.Inputs.DataGroupRecordArgs
-    ///                 {
-    ///                     Data = "pool1",
-    ///                     Name = "abc.com",
-    ///                 },
-    ///                 new F5BigIP.Ltm.Inputs.DataGroupRecordArgs
-    ///                 {
-    ///                     Data = "123",
-    ///                     Name = "test",
-    ///                 },
-    ///             },
-    ///             Type = "string",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
+    /// Resource should be named with their`full path`. The full path is the combination of the `partition + name` of the resource, for example `/Common/my-datagroup`.
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/dataGroup:DataGroup")]
     public partial class DataGroup : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Set `false` if you want to Create External Datagroups. default is `true`,means creates internal datagroup.
+        /// </summary>
+        [Output("internal")]
+        public Output<bool?> Internal { get; private set; } = null!;
+
         /// <summary>
         /// , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
         /// </summary>
@@ -61,6 +34,13 @@ namespace Pulumi.F5BigIP.Ltm
         /// </summary>
         [Output("records")]
         public Output<ImmutableArray<Outputs.DataGroupRecord>> Records { get; private set; } = null!;
+
+        /// <summary>
+        /// Path to a file with records in it,The file should be well-formed,it includes records, one per line,that resemble the following format "key separator value". For example, `foo := bar`.
+        /// This should be used in conjunction with `internal` attribute set `false`
+        /// </summary>
+        [Output("recordsSrc")]
+        public Output<string?> RecordsSrc { get; private set; } = null!;
 
         /// <summary>
         /// datagroup type (applies to the `name` field of the record), supports: `string`, `ip` or `integer`
@@ -115,6 +95,12 @@ namespace Pulumi.F5BigIP.Ltm
     public sealed class DataGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Set `false` if you want to Create External Datagroups. default is `true`,means creates internal datagroup.
+        /// </summary>
+        [Input("internal")]
+        public Input<bool>? Internal { get; set; }
+
+        /// <summary>
         /// , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
         /// </summary>
         [Input("name", required: true)]
@@ -133,6 +119,13 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
+        /// Path to a file with records in it,The file should be well-formed,it includes records, one per line,that resemble the following format "key separator value". For example, `foo := bar`.
+        /// This should be used in conjunction with `internal` attribute set `false`
+        /// </summary>
+        [Input("recordsSrc")]
+        public Input<string>? RecordsSrc { get; set; }
+
+        /// <summary>
         /// datagroup type (applies to the `name` field of the record), supports: `string`, `ip` or `integer`
         /// </summary>
         [Input("type", required: true)]
@@ -145,6 +138,12 @@ namespace Pulumi.F5BigIP.Ltm
 
     public sealed class DataGroupState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Set `false` if you want to Create External Datagroups. default is `true`,means creates internal datagroup.
+        /// </summary>
+        [Input("internal")]
+        public Input<bool>? Internal { get; set; }
+
         /// <summary>
         /// , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
         /// </summary>
@@ -162,6 +161,13 @@ namespace Pulumi.F5BigIP.Ltm
             get => _records ?? (_records = new InputList<Inputs.DataGroupRecordGetArgs>());
             set => _records = value;
         }
+
+        /// <summary>
+        /// Path to a file with records in it,The file should be well-formed,it includes records, one per line,that resemble the following format "key separator value". For example, `foo := bar`.
+        /// This should be used in conjunction with `internal` attribute set `false`
+        /// </summary>
+        [Input("recordsSrc")]
+        public Input<string>? RecordsSrc { get; set; }
 
         /// <summary>
         /// datagroup type (applies to the `name` field of the record), supports: `string`, `ip` or `integer`

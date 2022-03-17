@@ -15,8 +15,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// ## Example Usage
     /// 
     /// There are two ways to use ltm_pool_attachment resource, where we can take node reference from ltm_node or we can specify node directly with ip:port/fqdn:port which will also create node and atach to pool.
-    /// 
-    /// Pool attachment with node directly taking ip:port/fqdn:port
+    /// ### Pool attachment with node directly taking  `ip:port` / `fqdn:port`
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -55,8 +54,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// }
     /// ```
-    /// 
-    /// Pool attachment with node reference from ltm_node
+    /// ### Pool attachment with node referenced from `f5bigip.ltm.Node`
     /// 
     /// ```csharp
     /// using Pulumi;

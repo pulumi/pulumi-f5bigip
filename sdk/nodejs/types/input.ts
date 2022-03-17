@@ -766,7 +766,7 @@ export namespace ltm {
     export interface SnatOrigin {
         appService?: pulumi.Input<string>;
         /**
-         * Name of the snat
+         * Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
          */
         name?: pulumi.Input<string>;
     }

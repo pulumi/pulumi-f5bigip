@@ -60,8 +60,9 @@ class VirtualServerArgs:
         :param pulumi.Input[str] state: Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
         :param pulumi.Input[str] translate_address: Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
         :param pulumi.Input[str] translate_port: Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans: The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.
-        :param pulumi.Input[bool] vlans_enabled: Enables the virtual server on the VLANs specified by the VLANs option.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans: The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlan_enabled`
+        :param pulumi.Input[bool] vlans_enabled: Enables the virtual server on the VLANs specified by the `vlans` option.
+               By default it is `false` i.e vlanDisabled on specified vlans, if we want enable virtual server on VLANs specified by `vlans`, mark this attribute to `true`.
         """
         pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "name", name)
@@ -382,7 +383,7 @@ class VirtualServerArgs:
     @pulumi.getter
     def vlans(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.
+        The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlan_enabled`
         """
         return pulumi.get(self, "vlans")
 
@@ -394,7 +395,8 @@ class VirtualServerArgs:
     @pulumi.getter(name="vlansEnabled")
     def vlans_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enables the virtual server on the VLANs specified by the VLANs option.
+        Enables the virtual server on the VLANs specified by the `vlans` option.
+        By default it is `false` i.e vlanDisabled on specified vlans, if we want enable virtual server on VLANs specified by `vlans`, mark this attribute to `true`.
         """
         return pulumi.get(self, "vlans_enabled")
 
@@ -453,8 +455,9 @@ class _VirtualServerState:
         :param pulumi.Input[str] state: Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
         :param pulumi.Input[str] translate_address: Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
         :param pulumi.Input[str] translate_port: Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans: The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.
-        :param pulumi.Input[bool] vlans_enabled: Enables the virtual server on the VLANs specified by the VLANs option.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans: The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlan_enabled`
+        :param pulumi.Input[bool] vlans_enabled: Enables the virtual server on the VLANs specified by the `vlans` option.
+               By default it is `false` i.e vlanDisabled on specified vlans, if we want enable virtual server on VLANs specified by `vlans`, mark this attribute to `true`.
         """
         if client_profiles is not None:
             pulumi.set(__self__, "client_profiles", client_profiles)
@@ -778,7 +781,7 @@ class _VirtualServerState:
     @pulumi.getter
     def vlans(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.
+        The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlan_enabled`
         """
         return pulumi.get(self, "vlans")
 
@@ -790,7 +793,8 @@ class _VirtualServerState:
     @pulumi.getter(name="vlansEnabled")
     def vlans_enabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enables the virtual server on the VLANs specified by the VLANs option.
+        Enables the virtual server on the VLANs specified by the `vlans` option.
+        By default it is `false` i.e vlanDisabled on specified vlans, if we want enable virtual server on VLANs specified by `vlans`, mark this attribute to `true`.
         """
         return pulumi.get(self, "vlans_enabled")
 
@@ -895,8 +899,9 @@ class VirtualServer(pulumi.CustomResource):
         :param pulumi.Input[str] state: Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
         :param pulumi.Input[str] translate_address: Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
         :param pulumi.Input[str] translate_port: Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans: The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.
-        :param pulumi.Input[bool] vlans_enabled: Enables the virtual server on the VLANs specified by the VLANs option.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans: The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlan_enabled`
+        :param pulumi.Input[bool] vlans_enabled: Enables the virtual server on the VLANs specified by the `vlans` option.
+               By default it is `false` i.e vlanDisabled on specified vlans, if we want enable virtual server on VLANs specified by `vlans`, mark this attribute to `true`.
         """
         ...
     @overload
@@ -1092,8 +1097,9 @@ class VirtualServer(pulumi.CustomResource):
         :param pulumi.Input[str] state: Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
         :param pulumi.Input[str] translate_address: Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
         :param pulumi.Input[str] translate_port: Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans: The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.
-        :param pulumi.Input[bool] vlans_enabled: Enables the virtual server on the VLANs specified by the VLANs option.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans: The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlan_enabled`
+        :param pulumi.Input[bool] vlans_enabled: Enables the virtual server on the VLANs specified by the `vlans` option.
+               By default it is `false` i.e vlanDisabled on specified vlans, if we want enable virtual server on VLANs specified by `vlans`, mark this attribute to `true`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1305,15 +1311,16 @@ class VirtualServer(pulumi.CustomResource):
     @pulumi.getter
     def vlans(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.
+        The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlan_enabled`
         """
         return pulumi.get(self, "vlans")
 
     @property
     @pulumi.getter(name="vlansEnabled")
-    def vlans_enabled(self) -> pulumi.Output[bool]:
+    def vlans_enabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enables the virtual server on the VLANs specified by the VLANs option.
+        Enables the virtual server on the VLANs specified by the `vlans` option.
+        By default it is `false` i.e vlanDisabled on specified vlans, if we want enable virtual server on VLANs specified by `vlans`, mark this attribute to `true`.
         """
         return pulumi.get(self, "vlans_enabled")
 

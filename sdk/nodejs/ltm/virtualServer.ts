@@ -162,13 +162,14 @@ export class VirtualServer extends pulumi.CustomResource {
      */
     public readonly translatePort!: pulumi.Output<string>;
     /**
-     * The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.
+     * The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlanEnabled`
      */
     public readonly vlans!: pulumi.Output<string[] | undefined>;
     /**
-     * Enables the virtual server on the VLANs specified by the VLANs option.
+     * Enables the virtual server on the VLANs specified by the `vlans` option.
+     * By default it is `false` i.e vlanDisabled on specified vlans, if we want enable virtual server on VLANs specified by `vlans`, mark this attribute to `true`.
      */
-    public readonly vlansEnabled!: pulumi.Output<boolean>;
+    public readonly vlansEnabled!: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a VirtualServer resource with the given unique name, arguments, and options.
@@ -338,11 +339,12 @@ export interface VirtualServerState {
      */
     translatePort?: pulumi.Input<string>;
     /**
-     * The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.
+     * The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlanEnabled`
      */
     vlans?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Enables the virtual server on the VLANs specified by the VLANs option.
+     * Enables the virtual server on the VLANs specified by the `vlans` option.
+     * By default it is `false` i.e vlanDisabled on specified vlans, if we want enable virtual server on VLANs specified by `vlans`, mark this attribute to `true`.
      */
     vlansEnabled?: pulumi.Input<boolean>;
 }
@@ -435,11 +437,12 @@ export interface VirtualServerArgs {
      */
     translatePort?: pulumi.Input<string>;
     /**
-     * The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.
+     * The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlanEnabled`
      */
     vlans?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Enables the virtual server on the VLANs specified by the VLANs option.
+     * Enables the virtual server on the VLANs specified by the `vlans` option.
+     * By default it is `false` i.e vlanDisabled on specified vlans, if we want enable virtual server on VLANs specified by `vlans`, mark this attribute to `true`.
      */
     vlansEnabled?: pulumi.Input<boolean>;
 }

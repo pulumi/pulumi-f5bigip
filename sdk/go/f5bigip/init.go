@@ -38,6 +38,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FastTemplate{}
 	case "f5bigip:index/ipsecPolicy:IpsecPolicy":
 		r = &IpsecPolicy{}
+	case "f5bigip:index/ipsecProfile:IpsecProfile":
+		r = &IpsecProfile{}
 	case "f5bigip:index/netIkePeer:NetIkePeer":
 		r = &NetIkePeer{}
 	case "f5bigip:index/netTunnel:NetTunnel":
@@ -118,6 +120,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"f5bigip",
 		"index/ipsecPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"f5bigip",
+		"index/ipsecProfile",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

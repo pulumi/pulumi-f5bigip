@@ -12,9 +12,48 @@ namespace Pulumi.F5BigIP.Net
     /// <summary>
     /// `f5bigip.net.SelfIp` Manages a selfip configuration
     /// 
-    /// Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-selfip.
+    /// Resource should be named with their `full path`. The full path is the combination of the `partition + name of the resource`, for example `/Common/my-selfip`.
     /// 
     /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var vlan1 = new F5BigIP.Net.Vlan("vlan1", new F5BigIP.Net.VlanArgs
+    ///         {
+    ///             Name = "/Common/Internal",
+    ///             Tag = 101,
+    ///             Interfaces = 
+    ///             {
+    ///                 new F5BigIP.Net.Inputs.VlanInterfaceArgs
+    ///                 {
+    ///                     Vlanport = "1.2",
+    ///                     Tagged = false,
+    ///                 },
+    ///             },
+    ///         });
+    ///         var selfip1 = new F5BigIP.Net.SelfIp("selfip1", new F5BigIP.Net.SelfIpArgs
+    ///         {
+    ///             Name = "/Common/internalselfIP",
+    ///             Ip = "11.1.1.1/24",
+    ///             Vlan = "/Common/internal",
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 vlan1,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Example usage with `port_lockdown`
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -64,7 +103,7 @@ namespace Pulumi.F5BigIP.Net
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the port lockdown, defaults to `Allow Default` if not specified.
+        /// Specifies the port lockdown, defaults to `Allow None` if not specified.
         /// </summary>
         [Output("portLockdowns")]
         public Output<ImmutableArray<string>> PortLockdowns { get; private set; } = null!;
@@ -143,7 +182,7 @@ namespace Pulumi.F5BigIP.Net
         private InputList<string>? _portLockdowns;
 
         /// <summary>
-        /// Specifies the port lockdown, defaults to `Allow Default` if not specified.
+        /// Specifies the port lockdown, defaults to `Allow None` if not specified.
         /// </summary>
         public InputList<string> PortLockdowns
         {
@@ -186,7 +225,7 @@ namespace Pulumi.F5BigIP.Net
         private InputList<string>? _portLockdowns;
 
         /// <summary>
-        /// Specifies the port lockdown, defaults to `Allow Default` if not specified.
+        /// Specifies the port lockdown, defaults to `Allow None` if not specified.
         /// </summary>
         public InputList<string> PortLockdowns
         {

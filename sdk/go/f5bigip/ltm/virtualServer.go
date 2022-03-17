@@ -123,10 +123,11 @@ type VirtualServer struct {
 	TranslateAddress pulumi.StringOutput `pulumi:"translateAddress"`
 	// Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
 	TranslatePort pulumi.StringOutput `pulumi:"translatePort"`
-	// The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.
+	// The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlanEnabled`
 	Vlans pulumi.StringArrayOutput `pulumi:"vlans"`
-	// Enables the virtual server on the VLANs specified by the VLANs option.
-	VlansEnabled pulumi.BoolOutput `pulumi:"vlansEnabled"`
+	// Enables the virtual server on the VLANs specified by the `vlans` option.
+	// By default it is `false` i.e vlanDisabled on specified vlans, if we want enable virtual server on VLANs specified by `vlans`, mark this attribute to `true`.
+	VlansEnabled pulumi.BoolPtrOutput `pulumi:"vlansEnabled"`
 }
 
 // NewVirtualServer registers a new resource with the given unique name, arguments, and options.
@@ -210,9 +211,10 @@ type virtualServerState struct {
 	TranslateAddress *string `pulumi:"translateAddress"`
 	// Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
 	TranslatePort *string `pulumi:"translatePort"`
-	// The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.
+	// The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlanEnabled`
 	Vlans []string `pulumi:"vlans"`
-	// Enables the virtual server on the VLANs specified by the VLANs option.
+	// Enables the virtual server on the VLANs specified by the `vlans` option.
+	// By default it is `false` i.e vlanDisabled on specified vlans, if we want enable virtual server on VLANs specified by `vlans`, mark this attribute to `true`.
 	VlansEnabled *bool `pulumi:"vlansEnabled"`
 }
 
@@ -260,9 +262,10 @@ type VirtualServerState struct {
 	TranslateAddress pulumi.StringPtrInput
 	// Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
 	TranslatePort pulumi.StringPtrInput
-	// The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.
+	// The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlanEnabled`
 	Vlans pulumi.StringArrayInput
-	// Enables the virtual server on the VLANs specified by the VLANs option.
+	// Enables the virtual server on the VLANs specified by the `vlans` option.
+	// By default it is `false` i.e vlanDisabled on specified vlans, if we want enable virtual server on VLANs specified by `vlans`, mark this attribute to `true`.
 	VlansEnabled pulumi.BoolPtrInput
 }
 
@@ -314,9 +317,10 @@ type virtualServerArgs struct {
 	TranslateAddress *string `pulumi:"translateAddress"`
 	// Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
 	TranslatePort *string `pulumi:"translatePort"`
-	// The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.
+	// The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlanEnabled`
 	Vlans []string `pulumi:"vlans"`
-	// Enables the virtual server on the VLANs specified by the VLANs option.
+	// Enables the virtual server on the VLANs specified by the `vlans` option.
+	// By default it is `false` i.e vlanDisabled on specified vlans, if we want enable virtual server on VLANs specified by `vlans`, mark this attribute to `true`.
 	VlansEnabled *bool `pulumi:"vlansEnabled"`
 }
 
@@ -365,9 +369,10 @@ type VirtualServerArgs struct {
 	TranslateAddress pulumi.StringPtrInput
 	// Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
 	TranslatePort pulumi.StringPtrInput
-	// The virtual server is enabled/disabled on this set of VLANs. See vlans-disabled and vlans-enabled.
+	// The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlanEnabled`
 	Vlans pulumi.StringArrayInput
-	// Enables the virtual server on the VLANs specified by the VLANs option.
+	// Enables the virtual server on the VLANs specified by the `vlans` option.
+	// By default it is `false` i.e vlanDisabled on specified vlans, if we want enable virtual server on VLANs specified by `vlans`, mark this attribute to `true`.
 	VlansEnabled pulumi.BoolPtrInput
 }
 

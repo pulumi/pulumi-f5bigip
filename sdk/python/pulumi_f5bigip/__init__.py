@@ -14,6 +14,7 @@ from .event_service_discovery import *
 from .fast_application import *
 from .fast_template import *
 from .ipsec_policy import *
+from .ipsec_profile import *
 from .net_ike_peer import *
 from .net_tunnel import *
 from .provider import *
@@ -132,6 +133,14 @@ _utilities.register(
   "fqn": "pulumi_f5bigip",
   "classes": {
    "f5bigip:index/ipsecPolicy:IpsecPolicy": "IpsecPolicy"
+  }
+ },
+ {
+  "pkg": "f5bigip",
+  "mod": "index/ipsecProfile",
+  "fqn": "pulumi_f5bigip",
+  "classes": {
+   "f5bigip:index/ipsecProfile:IpsecProfile": "IpsecProfile"
   }
  },
  {

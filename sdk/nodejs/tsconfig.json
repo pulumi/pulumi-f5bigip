@@ -28,6 +28,7 @@
         "fastTemplate.ts",
         "index.ts",
         "ipsecPolicy.ts",
+        "ipsecProfile.ts",
         "ltm/dataGroup.ts",
         "ltm/getDataGroup.ts",
         "ltm/getIrule.ts",

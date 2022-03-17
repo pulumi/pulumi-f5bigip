@@ -11,9 +11,9 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// `ltm.Snat` Manages a snat configuration
+// `ltm.Snat` Manages a SNAT configuration
 //
-// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+// For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource.For example `/Common/test-snat`.
 //
 // ## Example Usage
 //
@@ -28,21 +28,18 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := ltm.NewSnat(ctx, "test-snat", &ltm.SnatArgs{
-// 			Autolasthop: pulumi.String("default"),
-// 			FullPath:    pulumi.String("/Common/test-snat"),
-// 			Mirror:      pulumi.String("disabled"),
-// 			Name:        pulumi.String("TEST_SNAT_NAME"),
+// 			Name: pulumi.String("/Common/test-snat"),
 // 			Origins: ltm.SnatOriginArray{
 // 				&ltm.SnatOriginArgs{
-// 					Name: pulumi.String("2.2.2.2"),
-// 				},
-// 				&ltm.SnatOriginArgs{
-// 					Name: pulumi.String("3.3.3.3"),
+// 					Name: pulumi.String("0.0.0.0/0"),
 // 				},
 // 			},
-// 			Partition:     pulumi.String("Common"),
-// 			Translation:   pulumi.String("/Common/136.1.1.1"),
-// 			Vlansdisabled: pulumi.Bool(true),
+// 			Sourceport:  pulumi.String("preserve"),
+// 			Translation: pulumi.String("/Common/136.1.1.2"),
+// 			Vlans: pulumi.StringArray{
+// 				pulumi.String("/Common/internal"),
+// 			},
+// 			Vlansdisabled: pulumi.Bool(false),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -55,26 +52,26 @@ type Snat struct {
 	pulumi.CustomResourceState
 
 	// -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
-	Autolasthop pulumi.StringPtrOutput `pulumi:"autolasthop"`
+	Autolasthop pulumi.StringOutput `pulumi:"autolasthop"`
 	// Fullpath
 	FullPath pulumi.StringPtrOutput `pulumi:"fullPath"`
 	// Enables or disables mirroring of SNAT connections.
-	Mirror pulumi.StringPtrOutput `pulumi:"mirror"`
-	// Name of the snat
+	Mirror pulumi.StringOutput `pulumi:"mirror"`
+	// Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// IP or hostname of the snat
+	// Specifies, for each SNAT that you create, the origin addresses that are to be members of that SNAT. Specify origin addresses by their IP addresses and service ports
 	Origins SnatOriginArrayOutput `pulumi:"origins"`
-	// Displays the administrative partition within which this profile resides
+	// Partition or path to which the SNAT belongs
 	Partition pulumi.StringPtrOutput `pulumi:"partition"`
-	// Specifies the name of a SNAT pool. You can only use this option when automap and translation are not used.
+	// Specifies the name of a SNAT pool. You can only use this option when `automap` and `translation` are not used.
 	Snatpool pulumi.StringPtrOutput `pulumi:"snatpool"`
-	// Specifies whether the system preserves the source port of the connection. The default is preserve. Use of the preserve-strict setting should be restricted to UDP only under very special circumstances such as nPath or transparent (that is, no translation of any other L3/L4 field), where there is a 1:1 relationship between virtual IP addresses and node addresses, or when clustered multi-processing (CMP) is disabled. The change setting is useful for obfuscating internal network addresses.
+	// Specifies how the SNAT object handles the client's source port. The default is `preserve`.
 	Sourceport pulumi.StringPtrOutput `pulumi:"sourceport"`
-	// Specifies the name of a translated IP address. Note that translated addresses are outside the traffic management system. You can only use this option when automap and snatpool are not used.
+	// Specifies the IP address configured for translation. Note that translated addresses are outside the traffic management system. You can only use this option when `automap` and `snatpool` are not used.
 	Translation pulumi.StringPtrOutput `pulumi:"translation"`
-	// Specifies the name of the VLAN to which you want to assign the SNAT. The default is vlans-enabled.
+	// Specifies the available VLANs or tunnels and those for which the SNAT is enabled or disabled.
 	Vlans pulumi.StringArrayOutput `pulumi:"vlans"`
-	// Disables the SNAT on all VLANs.
+	// Specifies the VLANs or tunnels for which the SNAT is enabled or disabled. The default is `true`, vlandisabled on VLANS specified by `vlans`,if set to `false` vlanEnabled set on VLANS specified by `vlans` .
 	Vlansdisabled pulumi.BoolPtrOutput `pulumi:"vlansdisabled"`
 }
 
@@ -119,21 +116,21 @@ type snatState struct {
 	FullPath *string `pulumi:"fullPath"`
 	// Enables or disables mirroring of SNAT connections.
 	Mirror *string `pulumi:"mirror"`
-	// Name of the snat
+	// Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
 	Name *string `pulumi:"name"`
-	// IP or hostname of the snat
+	// Specifies, for each SNAT that you create, the origin addresses that are to be members of that SNAT. Specify origin addresses by their IP addresses and service ports
 	Origins []SnatOrigin `pulumi:"origins"`
-	// Displays the administrative partition within which this profile resides
+	// Partition or path to which the SNAT belongs
 	Partition *string `pulumi:"partition"`
-	// Specifies the name of a SNAT pool. You can only use this option when automap and translation are not used.
+	// Specifies the name of a SNAT pool. You can only use this option when `automap` and `translation` are not used.
 	Snatpool *string `pulumi:"snatpool"`
-	// Specifies whether the system preserves the source port of the connection. The default is preserve. Use of the preserve-strict setting should be restricted to UDP only under very special circumstances such as nPath or transparent (that is, no translation of any other L3/L4 field), where there is a 1:1 relationship between virtual IP addresses and node addresses, or when clustered multi-processing (CMP) is disabled. The change setting is useful for obfuscating internal network addresses.
+	// Specifies how the SNAT object handles the client's source port. The default is `preserve`.
 	Sourceport *string `pulumi:"sourceport"`
-	// Specifies the name of a translated IP address. Note that translated addresses are outside the traffic management system. You can only use this option when automap and snatpool are not used.
+	// Specifies the IP address configured for translation. Note that translated addresses are outside the traffic management system. You can only use this option when `automap` and `snatpool` are not used.
 	Translation *string `pulumi:"translation"`
-	// Specifies the name of the VLAN to which you want to assign the SNAT. The default is vlans-enabled.
+	// Specifies the available VLANs or tunnels and those for which the SNAT is enabled or disabled.
 	Vlans []string `pulumi:"vlans"`
-	// Disables the SNAT on all VLANs.
+	// Specifies the VLANs or tunnels for which the SNAT is enabled or disabled. The default is `true`, vlandisabled on VLANS specified by `vlans`,if set to `false` vlanEnabled set on VLANS specified by `vlans` .
 	Vlansdisabled *bool `pulumi:"vlansdisabled"`
 }
 
@@ -144,21 +141,21 @@ type SnatState struct {
 	FullPath pulumi.StringPtrInput
 	// Enables or disables mirroring of SNAT connections.
 	Mirror pulumi.StringPtrInput
-	// Name of the snat
+	// Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
 	Name pulumi.StringPtrInput
-	// IP or hostname of the snat
+	// Specifies, for each SNAT that you create, the origin addresses that are to be members of that SNAT. Specify origin addresses by their IP addresses and service ports
 	Origins SnatOriginArrayInput
-	// Displays the administrative partition within which this profile resides
+	// Partition or path to which the SNAT belongs
 	Partition pulumi.StringPtrInput
-	// Specifies the name of a SNAT pool. You can only use this option when automap and translation are not used.
+	// Specifies the name of a SNAT pool. You can only use this option when `automap` and `translation` are not used.
 	Snatpool pulumi.StringPtrInput
-	// Specifies whether the system preserves the source port of the connection. The default is preserve. Use of the preserve-strict setting should be restricted to UDP only under very special circumstances such as nPath or transparent (that is, no translation of any other L3/L4 field), where there is a 1:1 relationship between virtual IP addresses and node addresses, or when clustered multi-processing (CMP) is disabled. The change setting is useful for obfuscating internal network addresses.
+	// Specifies how the SNAT object handles the client's source port. The default is `preserve`.
 	Sourceport pulumi.StringPtrInput
-	// Specifies the name of a translated IP address. Note that translated addresses are outside the traffic management system. You can only use this option when automap and snatpool are not used.
+	// Specifies the IP address configured for translation. Note that translated addresses are outside the traffic management system. You can only use this option when `automap` and `snatpool` are not used.
 	Translation pulumi.StringPtrInput
-	// Specifies the name of the VLAN to which you want to assign the SNAT. The default is vlans-enabled.
+	// Specifies the available VLANs or tunnels and those for which the SNAT is enabled or disabled.
 	Vlans pulumi.StringArrayInput
-	// Disables the SNAT on all VLANs.
+	// Specifies the VLANs or tunnels for which the SNAT is enabled or disabled. The default is `true`, vlandisabled on VLANS specified by `vlans`,if set to `false` vlanEnabled set on VLANS specified by `vlans` .
 	Vlansdisabled pulumi.BoolPtrInput
 }
 
@@ -173,21 +170,21 @@ type snatArgs struct {
 	FullPath *string `pulumi:"fullPath"`
 	// Enables or disables mirroring of SNAT connections.
 	Mirror *string `pulumi:"mirror"`
-	// Name of the snat
+	// Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
 	Name string `pulumi:"name"`
-	// IP or hostname of the snat
+	// Specifies, for each SNAT that you create, the origin addresses that are to be members of that SNAT. Specify origin addresses by their IP addresses and service ports
 	Origins []SnatOrigin `pulumi:"origins"`
-	// Displays the administrative partition within which this profile resides
+	// Partition or path to which the SNAT belongs
 	Partition *string `pulumi:"partition"`
-	// Specifies the name of a SNAT pool. You can only use this option when automap and translation are not used.
+	// Specifies the name of a SNAT pool. You can only use this option when `automap` and `translation` are not used.
 	Snatpool *string `pulumi:"snatpool"`
-	// Specifies whether the system preserves the source port of the connection. The default is preserve. Use of the preserve-strict setting should be restricted to UDP only under very special circumstances such as nPath or transparent (that is, no translation of any other L3/L4 field), where there is a 1:1 relationship between virtual IP addresses and node addresses, or when clustered multi-processing (CMP) is disabled. The change setting is useful for obfuscating internal network addresses.
+	// Specifies how the SNAT object handles the client's source port. The default is `preserve`.
 	Sourceport *string `pulumi:"sourceport"`
-	// Specifies the name of a translated IP address. Note that translated addresses are outside the traffic management system. You can only use this option when automap and snatpool are not used.
+	// Specifies the IP address configured for translation. Note that translated addresses are outside the traffic management system. You can only use this option when `automap` and `snatpool` are not used.
 	Translation *string `pulumi:"translation"`
-	// Specifies the name of the VLAN to which you want to assign the SNAT. The default is vlans-enabled.
+	// Specifies the available VLANs or tunnels and those for which the SNAT is enabled or disabled.
 	Vlans []string `pulumi:"vlans"`
-	// Disables the SNAT on all VLANs.
+	// Specifies the VLANs or tunnels for which the SNAT is enabled or disabled. The default is `true`, vlandisabled on VLANS specified by `vlans`,if set to `false` vlanEnabled set on VLANS specified by `vlans` .
 	Vlansdisabled *bool `pulumi:"vlansdisabled"`
 }
 
@@ -199,21 +196,21 @@ type SnatArgs struct {
 	FullPath pulumi.StringPtrInput
 	// Enables or disables mirroring of SNAT connections.
 	Mirror pulumi.StringPtrInput
-	// Name of the snat
+	// Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
 	Name pulumi.StringInput
-	// IP or hostname of the snat
+	// Specifies, for each SNAT that you create, the origin addresses that are to be members of that SNAT. Specify origin addresses by their IP addresses and service ports
 	Origins SnatOriginArrayInput
-	// Displays the administrative partition within which this profile resides
+	// Partition or path to which the SNAT belongs
 	Partition pulumi.StringPtrInput
-	// Specifies the name of a SNAT pool. You can only use this option when automap and translation are not used.
+	// Specifies the name of a SNAT pool. You can only use this option when `automap` and `translation` are not used.
 	Snatpool pulumi.StringPtrInput
-	// Specifies whether the system preserves the source port of the connection. The default is preserve. Use of the preserve-strict setting should be restricted to UDP only under very special circumstances such as nPath or transparent (that is, no translation of any other L3/L4 field), where there is a 1:1 relationship between virtual IP addresses and node addresses, or when clustered multi-processing (CMP) is disabled. The change setting is useful for obfuscating internal network addresses.
+	// Specifies how the SNAT object handles the client's source port. The default is `preserve`.
 	Sourceport pulumi.StringPtrInput
-	// Specifies the name of a translated IP address. Note that translated addresses are outside the traffic management system. You can only use this option when automap and snatpool are not used.
+	// Specifies the IP address configured for translation. Note that translated addresses are outside the traffic management system. You can only use this option when `automap` and `snatpool` are not used.
 	Translation pulumi.StringPtrInput
-	// Specifies the name of the VLAN to which you want to assign the SNAT. The default is vlans-enabled.
+	// Specifies the available VLANs or tunnels and those for which the SNAT is enabled or disabled.
 	Vlans pulumi.StringArrayInput
-	// Disables the SNAT on all VLANs.
+	// Specifies the VLANs or tunnels for which the SNAT is enabled or disabled. The default is `true`, vlandisabled on VLANS specified by `vlans`,if set to `false` vlanEnabled set on VLANS specified by `vlans` .
 	Vlansdisabled pulumi.BoolPtrInput
 }
 

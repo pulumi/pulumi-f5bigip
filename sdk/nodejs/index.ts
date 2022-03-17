@@ -14,6 +14,7 @@ export * from "./eventServiceDiscovery";
 export * from "./fastApplication";
 export * from "./fastTemplate";
 export * from "./ipsecPolicy";
+export * from "./ipsecProfile";
 export * from "./netIkePeer";
 export * from "./netTunnel";
 export * from "./provider";
@@ -48,6 +49,7 @@ import { EventServiceDiscovery } from "./eventServiceDiscovery";
 import { FastApplication } from "./fastApplication";
 import { FastTemplate } from "./fastTemplate";
 import { IpsecPolicy } from "./ipsecPolicy";
+import { IpsecProfile } from "./ipsecProfile";
 import { NetIkePeer } from "./netIkePeer";
 import { NetTunnel } from "./netTunnel";
 import { TrafficSelector } from "./trafficSelector";
@@ -74,6 +76,8 @@ const _module = {
                 return new FastTemplate(name, <any>undefined, { urn })
             case "f5bigip:index/ipsecPolicy:IpsecPolicy":
                 return new IpsecPolicy(name, <any>undefined, { urn })
+            case "f5bigip:index/ipsecProfile:IpsecProfile":
+                return new IpsecProfile(name, <any>undefined, { urn })
             case "f5bigip:index/netIkePeer:NetIkePeer":
                 return new NetIkePeer(name, <any>undefined, { urn })
             case "f5bigip:index/netTunnel:NetTunnel":
@@ -94,6 +98,7 @@ pulumi.runtime.registerResourceModule("f5bigip", "index/eventServiceDiscovery", 
 pulumi.runtime.registerResourceModule("f5bigip", "index/fastApplication", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/fastTemplate", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/ipsecPolicy", _module)
+pulumi.runtime.registerResourceModule("f5bigip", "index/ipsecProfile", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/netIkePeer", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/netTunnel", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/trafficSelector", _module)

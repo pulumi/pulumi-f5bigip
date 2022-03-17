@@ -28,17 +28,17 @@ class SnatArgs:
                  vlansdisabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Snat resource.
-        :param pulumi.Input[str] name: Name of the snat
-        :param pulumi.Input[Sequence[pulumi.Input['SnatOriginArgs']]] origins: IP or hostname of the snat
+        :param pulumi.Input[str] name: Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
+        :param pulumi.Input[Sequence[pulumi.Input['SnatOriginArgs']]] origins: Specifies, for each SNAT that you create, the origin addresses that are to be members of that SNAT. Specify origin addresses by their IP addresses and service ports
         :param pulumi.Input[str] autolasthop: -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
         :param pulumi.Input[str] full_path: Fullpath
         :param pulumi.Input[str] mirror: Enables or disables mirroring of SNAT connections.
-        :param pulumi.Input[str] partition: Displays the administrative partition within which this profile resides
-        :param pulumi.Input[str] snatpool: Specifies the name of a SNAT pool. You can only use this option when automap and translation are not used.
-        :param pulumi.Input[str] sourceport: Specifies whether the system preserves the source port of the connection. The default is preserve. Use of the preserve-strict setting should be restricted to UDP only under very special circumstances such as nPath or transparent (that is, no translation of any other L3/L4 field), where there is a 1:1 relationship between virtual IP addresses and node addresses, or when clustered multi-processing (CMP) is disabled. The change setting is useful for obfuscating internal network addresses.
-        :param pulumi.Input[str] translation: Specifies the name of a translated IP address. Note that translated addresses are outside the traffic management system. You can only use this option when automap and snatpool are not used.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans: Specifies the name of the VLAN to which you want to assign the SNAT. The default is vlans-enabled.
-        :param pulumi.Input[bool] vlansdisabled: Disables the SNAT on all VLANs.
+        :param pulumi.Input[str] partition: Partition or path to which the SNAT belongs
+        :param pulumi.Input[str] snatpool: Specifies the name of a SNAT pool. You can only use this option when `automap` and `translation` are not used.
+        :param pulumi.Input[str] sourceport: Specifies how the SNAT object handles the client's source port. The default is `preserve`.
+        :param pulumi.Input[str] translation: Specifies the IP address configured for translation. Note that translated addresses are outside the traffic management system. You can only use this option when `automap` and `snatpool` are not used.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans: Specifies the available VLANs or tunnels and those for which the SNAT is enabled or disabled.
+        :param pulumi.Input[bool] vlansdisabled: Specifies the VLANs or tunnels for which the SNAT is enabled or disabled. The default is `true`, vlandisabled on VLANS specified by `vlans`,if set to `false` vlanEnabled set on VLANS specified by `vlans` .
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "origins", origins)
@@ -65,7 +65,7 @@ class SnatArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Name of the snat
+        Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
         """
         return pulumi.get(self, "name")
 
@@ -77,7 +77,7 @@ class SnatArgs:
     @pulumi.getter
     def origins(self) -> pulumi.Input[Sequence[pulumi.Input['SnatOriginArgs']]]:
         """
-        IP or hostname of the snat
+        Specifies, for each SNAT that you create, the origin addresses that are to be members of that SNAT. Specify origin addresses by their IP addresses and service ports
         """
         return pulumi.get(self, "origins")
 
@@ -125,7 +125,7 @@ class SnatArgs:
     @pulumi.getter
     def partition(self) -> Optional[pulumi.Input[str]]:
         """
-        Displays the administrative partition within which this profile resides
+        Partition or path to which the SNAT belongs
         """
         return pulumi.get(self, "partition")
 
@@ -137,7 +137,7 @@ class SnatArgs:
     @pulumi.getter
     def snatpool(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of a SNAT pool. You can only use this option when automap and translation are not used.
+        Specifies the name of a SNAT pool. You can only use this option when `automap` and `translation` are not used.
         """
         return pulumi.get(self, "snatpool")
 
@@ -149,7 +149,7 @@ class SnatArgs:
     @pulumi.getter
     def sourceport(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies whether the system preserves the source port of the connection. The default is preserve. Use of the preserve-strict setting should be restricted to UDP only under very special circumstances such as nPath or transparent (that is, no translation of any other L3/L4 field), where there is a 1:1 relationship between virtual IP addresses and node addresses, or when clustered multi-processing (CMP) is disabled. The change setting is useful for obfuscating internal network addresses.
+        Specifies how the SNAT object handles the client's source port. The default is `preserve`.
         """
         return pulumi.get(self, "sourceport")
 
@@ -161,7 +161,7 @@ class SnatArgs:
     @pulumi.getter
     def translation(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of a translated IP address. Note that translated addresses are outside the traffic management system. You can only use this option when automap and snatpool are not used.
+        Specifies the IP address configured for translation. Note that translated addresses are outside the traffic management system. You can only use this option when `automap` and `snatpool` are not used.
         """
         return pulumi.get(self, "translation")
 
@@ -173,7 +173,7 @@ class SnatArgs:
     @pulumi.getter
     def vlans(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies the name of the VLAN to which you want to assign the SNAT. The default is vlans-enabled.
+        Specifies the available VLANs or tunnels and those for which the SNAT is enabled or disabled.
         """
         return pulumi.get(self, "vlans")
 
@@ -185,7 +185,7 @@ class SnatArgs:
     @pulumi.getter
     def vlansdisabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Disables the SNAT on all VLANs.
+        Specifies the VLANs or tunnels for which the SNAT is enabled or disabled. The default is `true`, vlandisabled on VLANS specified by `vlans`,if set to `false` vlanEnabled set on VLANS specified by `vlans` .
         """
         return pulumi.get(self, "vlansdisabled")
 
@@ -213,14 +213,14 @@ class _SnatState:
         :param pulumi.Input[str] autolasthop: -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
         :param pulumi.Input[str] full_path: Fullpath
         :param pulumi.Input[str] mirror: Enables or disables mirroring of SNAT connections.
-        :param pulumi.Input[str] name: Name of the snat
-        :param pulumi.Input[Sequence[pulumi.Input['SnatOriginArgs']]] origins: IP or hostname of the snat
-        :param pulumi.Input[str] partition: Displays the administrative partition within which this profile resides
-        :param pulumi.Input[str] snatpool: Specifies the name of a SNAT pool. You can only use this option when automap and translation are not used.
-        :param pulumi.Input[str] sourceport: Specifies whether the system preserves the source port of the connection. The default is preserve. Use of the preserve-strict setting should be restricted to UDP only under very special circumstances such as nPath or transparent (that is, no translation of any other L3/L4 field), where there is a 1:1 relationship between virtual IP addresses and node addresses, or when clustered multi-processing (CMP) is disabled. The change setting is useful for obfuscating internal network addresses.
-        :param pulumi.Input[str] translation: Specifies the name of a translated IP address. Note that translated addresses are outside the traffic management system. You can only use this option when automap and snatpool are not used.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans: Specifies the name of the VLAN to which you want to assign the SNAT. The default is vlans-enabled.
-        :param pulumi.Input[bool] vlansdisabled: Disables the SNAT on all VLANs.
+        :param pulumi.Input[str] name: Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
+        :param pulumi.Input[Sequence[pulumi.Input['SnatOriginArgs']]] origins: Specifies, for each SNAT that you create, the origin addresses that are to be members of that SNAT. Specify origin addresses by their IP addresses and service ports
+        :param pulumi.Input[str] partition: Partition or path to which the SNAT belongs
+        :param pulumi.Input[str] snatpool: Specifies the name of a SNAT pool. You can only use this option when `automap` and `translation` are not used.
+        :param pulumi.Input[str] sourceport: Specifies how the SNAT object handles the client's source port. The default is `preserve`.
+        :param pulumi.Input[str] translation: Specifies the IP address configured for translation. Note that translated addresses are outside the traffic management system. You can only use this option when `automap` and `snatpool` are not used.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans: Specifies the available VLANs or tunnels and those for which the SNAT is enabled or disabled.
+        :param pulumi.Input[bool] vlansdisabled: Specifies the VLANs or tunnels for which the SNAT is enabled or disabled. The default is `true`, vlandisabled on VLANS specified by `vlans`,if set to `false` vlanEnabled set on VLANS specified by `vlans` .
         """
         if autolasthop is not None:
             pulumi.set(__self__, "autolasthop", autolasthop)
@@ -285,7 +285,7 @@ class _SnatState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the snat
+        Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
         """
         return pulumi.get(self, "name")
 
@@ -297,7 +297,7 @@ class _SnatState:
     @pulumi.getter
     def origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SnatOriginArgs']]]]:
         """
-        IP or hostname of the snat
+        Specifies, for each SNAT that you create, the origin addresses that are to be members of that SNAT. Specify origin addresses by their IP addresses and service ports
         """
         return pulumi.get(self, "origins")
 
@@ -309,7 +309,7 @@ class _SnatState:
     @pulumi.getter
     def partition(self) -> Optional[pulumi.Input[str]]:
         """
-        Displays the administrative partition within which this profile resides
+        Partition or path to which the SNAT belongs
         """
         return pulumi.get(self, "partition")
 
@@ -321,7 +321,7 @@ class _SnatState:
     @pulumi.getter
     def snatpool(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of a SNAT pool. You can only use this option when automap and translation are not used.
+        Specifies the name of a SNAT pool. You can only use this option when `automap` and `translation` are not used.
         """
         return pulumi.get(self, "snatpool")
 
@@ -333,7 +333,7 @@ class _SnatState:
     @pulumi.getter
     def sourceport(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies whether the system preserves the source port of the connection. The default is preserve. Use of the preserve-strict setting should be restricted to UDP only under very special circumstances such as nPath or transparent (that is, no translation of any other L3/L4 field), where there is a 1:1 relationship between virtual IP addresses and node addresses, or when clustered multi-processing (CMP) is disabled. The change setting is useful for obfuscating internal network addresses.
+        Specifies how the SNAT object handles the client's source port. The default is `preserve`.
         """
         return pulumi.get(self, "sourceport")
 
@@ -345,7 +345,7 @@ class _SnatState:
     @pulumi.getter
     def translation(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of a translated IP address. Note that translated addresses are outside the traffic management system. You can only use this option when automap and snatpool are not used.
+        Specifies the IP address configured for translation. Note that translated addresses are outside the traffic management system. You can only use this option when `automap` and `snatpool` are not used.
         """
         return pulumi.get(self, "translation")
 
@@ -357,7 +357,7 @@ class _SnatState:
     @pulumi.getter
     def vlans(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies the name of the VLAN to which you want to assign the SNAT. The default is vlans-enabled.
+        Specifies the available VLANs or tunnels and those for which the SNAT is enabled or disabled.
         """
         return pulumi.get(self, "vlans")
 
@@ -369,7 +369,7 @@ class _SnatState:
     @pulumi.getter
     def vlansdisabled(self) -> Optional[pulumi.Input[bool]]:
         """
-        Disables the SNAT on all VLANs.
+        Specifies the VLANs or tunnels for which the SNAT is enabled or disabled. The default is `true`, vlandisabled on VLANS specified by `vlans`,if set to `false` vlanEnabled set on VLANS specified by `vlans` .
         """
         return pulumi.get(self, "vlansdisabled")
 
@@ -396,9 +396,9 @@ class Snat(pulumi.CustomResource):
                  vlansdisabled: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        `ltm.Snat` Manages a snat configuration
+        `ltm.Snat` Manages a SNAT configuration
 
-        For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+        For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource.For example `/Common/test-snat`.
 
         ## Example Usage
 
@@ -407,21 +407,14 @@ class Snat(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         test_snat = f5bigip.ltm.Snat("test-snat",
-            autolasthop="default",
-            full_path="/Common/test-snat",
-            mirror="disabled",
-            name="TEST_SNAT_NAME",
-            origins=[
-                f5bigip.ltm.SnatOriginArgs(
-                    name="2.2.2.2",
-                ),
-                f5bigip.ltm.SnatOriginArgs(
-                    name="3.3.3.3",
-                ),
-            ],
-            partition="Common",
-            translation="/Common/136.1.1.1",
-            vlansdisabled=True)
+            name="/Common/test-snat",
+            origins=[f5bigip.ltm.SnatOriginArgs(
+                name="0.0.0.0/0",
+            )],
+            sourceport="preserve",
+            translation="/Common/136.1.1.2",
+            vlans=["/Common/internal"],
+            vlansdisabled=False)
         ```
 
         :param str resource_name: The name of the resource.
@@ -429,14 +422,14 @@ class Snat(pulumi.CustomResource):
         :param pulumi.Input[str] autolasthop: -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
         :param pulumi.Input[str] full_path: Fullpath
         :param pulumi.Input[str] mirror: Enables or disables mirroring of SNAT connections.
-        :param pulumi.Input[str] name: Name of the snat
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SnatOriginArgs']]]] origins: IP or hostname of the snat
-        :param pulumi.Input[str] partition: Displays the administrative partition within which this profile resides
-        :param pulumi.Input[str] snatpool: Specifies the name of a SNAT pool. You can only use this option when automap and translation are not used.
-        :param pulumi.Input[str] sourceport: Specifies whether the system preserves the source port of the connection. The default is preserve. Use of the preserve-strict setting should be restricted to UDP only under very special circumstances such as nPath or transparent (that is, no translation of any other L3/L4 field), where there is a 1:1 relationship between virtual IP addresses and node addresses, or when clustered multi-processing (CMP) is disabled. The change setting is useful for obfuscating internal network addresses.
-        :param pulumi.Input[str] translation: Specifies the name of a translated IP address. Note that translated addresses are outside the traffic management system. You can only use this option when automap and snatpool are not used.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans: Specifies the name of the VLAN to which you want to assign the SNAT. The default is vlans-enabled.
-        :param pulumi.Input[bool] vlansdisabled: Disables the SNAT on all VLANs.
+        :param pulumi.Input[str] name: Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SnatOriginArgs']]]] origins: Specifies, for each SNAT that you create, the origin addresses that are to be members of that SNAT. Specify origin addresses by their IP addresses and service ports
+        :param pulumi.Input[str] partition: Partition or path to which the SNAT belongs
+        :param pulumi.Input[str] snatpool: Specifies the name of a SNAT pool. You can only use this option when `automap` and `translation` are not used.
+        :param pulumi.Input[str] sourceport: Specifies how the SNAT object handles the client's source port. The default is `preserve`.
+        :param pulumi.Input[str] translation: Specifies the IP address configured for translation. Note that translated addresses are outside the traffic management system. You can only use this option when `automap` and `snatpool` are not used.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans: Specifies the available VLANs or tunnels and those for which the SNAT is enabled or disabled.
+        :param pulumi.Input[bool] vlansdisabled: Specifies the VLANs or tunnels for which the SNAT is enabled or disabled. The default is `true`, vlandisabled on VLANS specified by `vlans`,if set to `false` vlanEnabled set on VLANS specified by `vlans` .
         """
         ...
     @overload
@@ -445,9 +438,9 @@ class Snat(pulumi.CustomResource):
                  args: SnatArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        `ltm.Snat` Manages a snat configuration
+        `ltm.Snat` Manages a SNAT configuration
 
-        For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+        For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource.For example `/Common/test-snat`.
 
         ## Example Usage
 
@@ -456,21 +449,14 @@ class Snat(pulumi.CustomResource):
         import pulumi_f5bigip as f5bigip
 
         test_snat = f5bigip.ltm.Snat("test-snat",
-            autolasthop="default",
-            full_path="/Common/test-snat",
-            mirror="disabled",
-            name="TEST_SNAT_NAME",
-            origins=[
-                f5bigip.ltm.SnatOriginArgs(
-                    name="2.2.2.2",
-                ),
-                f5bigip.ltm.SnatOriginArgs(
-                    name="3.3.3.3",
-                ),
-            ],
-            partition="Common",
-            translation="/Common/136.1.1.1",
-            vlansdisabled=True)
+            name="/Common/test-snat",
+            origins=[f5bigip.ltm.SnatOriginArgs(
+                name="0.0.0.0/0",
+            )],
+            sourceport="preserve",
+            translation="/Common/136.1.1.2",
+            vlans=["/Common/internal"],
+            vlansdisabled=False)
         ```
 
         :param str resource_name: The name of the resource.
@@ -557,14 +543,14 @@ class Snat(pulumi.CustomResource):
         :param pulumi.Input[str] autolasthop: -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
         :param pulumi.Input[str] full_path: Fullpath
         :param pulumi.Input[str] mirror: Enables or disables mirroring of SNAT connections.
-        :param pulumi.Input[str] name: Name of the snat
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SnatOriginArgs']]]] origins: IP or hostname of the snat
-        :param pulumi.Input[str] partition: Displays the administrative partition within which this profile resides
-        :param pulumi.Input[str] snatpool: Specifies the name of a SNAT pool. You can only use this option when automap and translation are not used.
-        :param pulumi.Input[str] sourceport: Specifies whether the system preserves the source port of the connection. The default is preserve. Use of the preserve-strict setting should be restricted to UDP only under very special circumstances such as nPath or transparent (that is, no translation of any other L3/L4 field), where there is a 1:1 relationship between virtual IP addresses and node addresses, or when clustered multi-processing (CMP) is disabled. The change setting is useful for obfuscating internal network addresses.
-        :param pulumi.Input[str] translation: Specifies the name of a translated IP address. Note that translated addresses are outside the traffic management system. You can only use this option when automap and snatpool are not used.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans: Specifies the name of the VLAN to which you want to assign the SNAT. The default is vlans-enabled.
-        :param pulumi.Input[bool] vlansdisabled: Disables the SNAT on all VLANs.
+        :param pulumi.Input[str] name: Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SnatOriginArgs']]]] origins: Specifies, for each SNAT that you create, the origin addresses that are to be members of that SNAT. Specify origin addresses by their IP addresses and service ports
+        :param pulumi.Input[str] partition: Partition or path to which the SNAT belongs
+        :param pulumi.Input[str] snatpool: Specifies the name of a SNAT pool. You can only use this option when `automap` and `translation` are not used.
+        :param pulumi.Input[str] sourceport: Specifies how the SNAT object handles the client's source port. The default is `preserve`.
+        :param pulumi.Input[str] translation: Specifies the IP address configured for translation. Note that translated addresses are outside the traffic management system. You can only use this option when `automap` and `snatpool` are not used.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans: Specifies the available VLANs or tunnels and those for which the SNAT is enabled or disabled.
+        :param pulumi.Input[bool] vlansdisabled: Specifies the VLANs or tunnels for which the SNAT is enabled or disabled. The default is `true`, vlandisabled on VLANS specified by `vlans`,if set to `false` vlanEnabled set on VLANS specified by `vlans` .
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -585,7 +571,7 @@ class Snat(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def autolasthop(self) -> pulumi.Output[Optional[str]]:
+    def autolasthop(self) -> pulumi.Output[str]:
         """
         -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
         """
@@ -601,7 +587,7 @@ class Snat(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def mirror(self) -> pulumi.Output[Optional[str]]:
+    def mirror(self) -> pulumi.Output[str]:
         """
         Enables or disables mirroring of SNAT connections.
         """
@@ -611,7 +597,7 @@ class Snat(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the snat
+        Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
         """
         return pulumi.get(self, "name")
 
@@ -619,7 +605,7 @@ class Snat(pulumi.CustomResource):
     @pulumi.getter
     def origins(self) -> pulumi.Output[Sequence['outputs.SnatOrigin']]:
         """
-        IP or hostname of the snat
+        Specifies, for each SNAT that you create, the origin addresses that are to be members of that SNAT. Specify origin addresses by their IP addresses and service ports
         """
         return pulumi.get(self, "origins")
 
@@ -627,7 +613,7 @@ class Snat(pulumi.CustomResource):
     @pulumi.getter
     def partition(self) -> pulumi.Output[Optional[str]]:
         """
-        Displays the administrative partition within which this profile resides
+        Partition or path to which the SNAT belongs
         """
         return pulumi.get(self, "partition")
 
@@ -635,7 +621,7 @@ class Snat(pulumi.CustomResource):
     @pulumi.getter
     def snatpool(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the name of a SNAT pool. You can only use this option when automap and translation are not used.
+        Specifies the name of a SNAT pool. You can only use this option when `automap` and `translation` are not used.
         """
         return pulumi.get(self, "snatpool")
 
@@ -643,7 +629,7 @@ class Snat(pulumi.CustomResource):
     @pulumi.getter
     def sourceport(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies whether the system preserves the source port of the connection. The default is preserve. Use of the preserve-strict setting should be restricted to UDP only under very special circumstances such as nPath or transparent (that is, no translation of any other L3/L4 field), where there is a 1:1 relationship between virtual IP addresses and node addresses, or when clustered multi-processing (CMP) is disabled. The change setting is useful for obfuscating internal network addresses.
+        Specifies how the SNAT object handles the client's source port. The default is `preserve`.
         """
         return pulumi.get(self, "sourceport")
 
@@ -651,7 +637,7 @@ class Snat(pulumi.CustomResource):
     @pulumi.getter
     def translation(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the name of a translated IP address. Note that translated addresses are outside the traffic management system. You can only use this option when automap and snatpool are not used.
+        Specifies the IP address configured for translation. Note that translated addresses are outside the traffic management system. You can only use this option when `automap` and `snatpool` are not used.
         """
         return pulumi.get(self, "translation")
 
@@ -659,7 +645,7 @@ class Snat(pulumi.CustomResource):
     @pulumi.getter
     def vlans(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Specifies the name of the VLAN to which you want to assign the SNAT. The default is vlans-enabled.
+        Specifies the available VLANs or tunnels and those for which the SNAT is enabled or disabled.
         """
         return pulumi.get(self, "vlans")
 
@@ -667,7 +653,7 @@ class Snat(pulumi.CustomResource):
     @pulumi.getter
     def vlansdisabled(self) -> pulumi.Output[Optional[bool]]:
         """
-        Disables the SNAT on all VLANs.
+        Specifies the VLANs or tunnels for which the SNAT is enabled or disabled. The default is `true`, vlandisabled on VLANS specified by `vlans`,if set to `false` vlanEnabled set on VLANS specified by `vlans` .
         """
         return pulumi.get(self, "vlansdisabled")
 
