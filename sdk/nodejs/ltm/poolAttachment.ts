@@ -20,8 +20,8 @@ import * as utilities from "../utilities";
  *     name: "/Common/terraform_monitor",
  *     parent: "/Common/http",
  *     send: "GET /some/path\n",
- *     timeout: "999",
- *     interval: "998",
+ *     timeout: 999,
+ *     interval: 998,
  * });
  * const pool = new f5bigip.ltm.Pool("pool", {
  *     name: "/Common/terraform-pool",
@@ -45,8 +45,8 @@ import * as utilities from "../utilities";
  *     name: "/Common/terraform_monitor",
  *     parent: "/Common/http",
  *     send: "GET /some/path\n",
- *     timeout: "999",
- *     interval: "998",
+ *     timeout: 999,
+ *     interval: 998,
  * });
  * const pool = new f5bigip.ltm.Pool("pool", {
  *     name: "/Common/terraform-pool",
