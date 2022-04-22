@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     name: "/Common/Internal",
  *     tag: 101,
  *     interfaces: [{
- *         vlanport: 1.2,
+ *         vlanport: "1.2",
  *         tagged: false,
  *     }],
  * });
