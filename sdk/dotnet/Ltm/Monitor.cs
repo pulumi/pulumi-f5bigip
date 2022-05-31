@@ -35,6 +35,17 @@ namespace Pulumi.F5BigIP.Ltm
     /// ",
     ///             Timeout = 999,
     ///         });
+    ///         var test_https_monitor = new F5BigIP.Ltm.Monitor("test-https-monitor", new F5BigIP.Ltm.MonitorArgs
+    ///         {
+    ///             Interval = 999,
+    ///             Name = "/Common/terraform_monitor",
+    ///             Parent = "/Common/http",
+    ///             Send = @"GET /some/path
+    /// 
+    /// ",
+    ///             SslProfile = "/Common/serverssl",
+    ///             Timeout = 999,
+    ///         });
     ///         var test_ftp_monitor = new F5BigIP.Ltm.Monitor("test-ftp-monitor", new F5BigIP.Ltm.MonitorArgs
     ///         {
     ///             Destination = "*:8008",
@@ -165,6 +176,12 @@ namespace Pulumi.F5BigIP.Ltm
         /// </summary>
         [Output("send")]
         public Output<string> Send { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
+        /// </summary>
+        [Output("sslProfile")]
+        public Output<string?> SslProfile { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
@@ -345,6 +362,12 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Send { get; set; }
 
         /// <summary>
+        /// Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
+        /// </summary>
+        [Input("sslProfile")]
+        public Input<string>? SslProfile { get; set; }
+
+        /// <summary>
         /// Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
         /// </summary>
         [Input("timeUntilUp")]
@@ -482,6 +505,12 @@ namespace Pulumi.F5BigIP.Ltm
         /// </summary>
         [Input("send")]
         public Input<string>? Send { get; set; }
+
+        /// <summary>
+        /// Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
+        /// </summary>
+        [Input("sslProfile")]
+        public Input<string>? SslProfile { get; set; }
 
         /// <summary>
         /// Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.

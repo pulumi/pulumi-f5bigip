@@ -51,6 +51,22 @@ import * as utilities from "../utilities";
  *     dependsOn: [bigip_net_vlan.vlan1],
  * });
  * ```
+ * ### Example usage with `portLockdown` set to `["none"]`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const selfip1 = new f5bigip.net.SelfIp("selfip1", {
+ *     name: "/Common/internalselfIP",
+ *     ip: "11.1.1.1/24",
+ *     vlan: "/Common/internal",
+ *     trafficGroup: "traffic-group-1",
+ *     portLockdowns: ["none"],
+ * }, {
+ *     dependsOn: [bigip_net_vlan.vlan1],
+ * });
+ * ```
  */
 export class SelfIp extends pulumi.CustomResource {
     /**

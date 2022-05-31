@@ -62,7 +62,7 @@ export class BigIqAs3 extends pulumi.CustomResource {
      */
     public readonly bigiqAddress!: pulumi.Output<string>;
     /**
-     * Login reference for token authentication (see BIG-IQ REST docs for details)
+     * BIGIQ Login reference for token authentication
      */
     public readonly bigiqLoginRef!: pulumi.Output<string | undefined>;
     /**
@@ -70,11 +70,11 @@ export class BigIqAs3 extends pulumi.CustomResource {
      */
     public readonly bigiqPassword!: pulumi.Output<string>;
     /**
-     * The registration key pool to use
+     * type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
      */
     public readonly bigiqPort!: pulumi.Output<string | undefined>;
     /**
-     * Enable to use an external authentication source (LDAP, TACACS, etc)
+     * type `bool`, if set to `true` enables Token based Authentication,default is `false`
      */
     public readonly bigiqTokenAuth!: pulumi.Output<boolean | undefined>;
     /**
@@ -154,7 +154,7 @@ export interface BigIqAs3State {
      */
     bigiqAddress?: pulumi.Input<string>;
     /**
-     * Login reference for token authentication (see BIG-IQ REST docs for details)
+     * BIGIQ Login reference for token authentication
      */
     bigiqLoginRef?: pulumi.Input<string>;
     /**
@@ -162,11 +162,11 @@ export interface BigIqAs3State {
      */
     bigiqPassword?: pulumi.Input<string>;
     /**
-     * The registration key pool to use
+     * type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
      */
     bigiqPort?: pulumi.Input<string>;
     /**
-     * Enable to use an external authentication source (LDAP, TACACS, etc)
+     * type `bool`, if set to `true` enables Token based Authentication,default is `false`
      */
     bigiqTokenAuth?: pulumi.Input<boolean>;
     /**
@@ -196,7 +196,7 @@ export interface BigIqAs3Args {
      */
     bigiqAddress: pulumi.Input<string>;
     /**
-     * Login reference for token authentication (see BIG-IQ REST docs for details)
+     * BIGIQ Login reference for token authentication
      */
     bigiqLoginRef?: pulumi.Input<string>;
     /**
@@ -204,11 +204,11 @@ export interface BigIqAs3Args {
      */
     bigiqPassword: pulumi.Input<string>;
     /**
-     * The registration key pool to use
+     * type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
      */
     bigiqPort?: pulumi.Input<string>;
     /**
-     * Enable to use an external authentication source (LDAP, TACACS, etc)
+     * type `bool`, if set to `true` enables Token based Authentication,default is `false`
      */
     bigiqTokenAuth?: pulumi.Input<boolean>;
     /**

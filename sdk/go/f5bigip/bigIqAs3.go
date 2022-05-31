@@ -57,13 +57,13 @@ type BigIqAs3 struct {
 	As3Json pulumi.StringOutput `pulumi:"as3Json"`
 	// Address of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqAddress pulumi.StringOutput `pulumi:"bigiqAddress"`
-	// Login reference for token authentication (see BIG-IQ REST docs for details)
+	// BIGIQ Login reference for token authentication
 	BigiqLoginRef pulumi.StringPtrOutput `pulumi:"bigiqLoginRef"`
 	// Password of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqPassword pulumi.StringOutput `pulumi:"bigiqPassword"`
-	// The registration key pool to use
+	// type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
 	BigiqPort pulumi.StringPtrOutput `pulumi:"bigiqPort"`
-	// Enable to use an external authentication source (LDAP, TACACS, etc)
+	// type `bool`, if set to `true` enables Token based Authentication,default is `false`
 	BigiqTokenAuth pulumi.BoolPtrOutput `pulumi:"bigiqTokenAuth"`
 	// User name  of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqUser pulumi.StringOutput `pulumi:"bigiqUser"`
@@ -118,13 +118,13 @@ type bigIqAs3State struct {
 	As3Json *string `pulumi:"as3Json"`
 	// Address of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqAddress *string `pulumi:"bigiqAddress"`
-	// Login reference for token authentication (see BIG-IQ REST docs for details)
+	// BIGIQ Login reference for token authentication
 	BigiqLoginRef *string `pulumi:"bigiqLoginRef"`
 	// Password of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqPassword *string `pulumi:"bigiqPassword"`
-	// The registration key pool to use
+	// type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
 	BigiqPort *string `pulumi:"bigiqPort"`
-	// Enable to use an external authentication source (LDAP, TACACS, etc)
+	// type `bool`, if set to `true` enables Token based Authentication,default is `false`
 	BigiqTokenAuth *bool `pulumi:"bigiqTokenAuth"`
 	// User name  of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqUser *string `pulumi:"bigiqUser"`
@@ -139,13 +139,13 @@ type BigIqAs3State struct {
 	As3Json pulumi.StringPtrInput
 	// Address of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqAddress pulumi.StringPtrInput
-	// Login reference for token authentication (see BIG-IQ REST docs for details)
+	// BIGIQ Login reference for token authentication
 	BigiqLoginRef pulumi.StringPtrInput
 	// Password of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqPassword pulumi.StringPtrInput
-	// The registration key pool to use
+	// type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
 	BigiqPort pulumi.StringPtrInput
-	// Enable to use an external authentication source (LDAP, TACACS, etc)
+	// type `bool`, if set to `true` enables Token based Authentication,default is `false`
 	BigiqTokenAuth pulumi.BoolPtrInput
 	// User name  of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqUser pulumi.StringPtrInput
@@ -164,13 +164,13 @@ type bigIqAs3Args struct {
 	As3Json string `pulumi:"as3Json"`
 	// Address of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqAddress string `pulumi:"bigiqAddress"`
-	// Login reference for token authentication (see BIG-IQ REST docs for details)
+	// BIGIQ Login reference for token authentication
 	BigiqLoginRef *string `pulumi:"bigiqLoginRef"`
 	// Password of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqPassword string `pulumi:"bigiqPassword"`
-	// The registration key pool to use
+	// type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
 	BigiqPort *string `pulumi:"bigiqPort"`
-	// Enable to use an external authentication source (LDAP, TACACS, etc)
+	// type `bool`, if set to `true` enables Token based Authentication,default is `false`
 	BigiqTokenAuth *bool `pulumi:"bigiqTokenAuth"`
 	// User name  of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqUser string `pulumi:"bigiqUser"`
@@ -186,13 +186,13 @@ type BigIqAs3Args struct {
 	As3Json pulumi.StringInput
 	// Address of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqAddress pulumi.StringInput
-	// Login reference for token authentication (see BIG-IQ REST docs for details)
+	// BIGIQ Login reference for token authentication
 	BigiqLoginRef pulumi.StringPtrInput
 	// Password of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqPassword pulumi.StringInput
-	// The registration key pool to use
+	// type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
 	BigiqPort pulumi.StringPtrInput
-	// Enable to use an external authentication source (LDAP, TACACS, etc)
+	// type `bool`, if set to `true` enables Token based Authentication,default is `false`
 	BigiqTokenAuth pulumi.BoolPtrInput
 	// User name  of the BIG-IQ to which your targer BIG-IP is attached
 	BigiqUser pulumi.StringInput

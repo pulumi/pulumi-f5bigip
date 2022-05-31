@@ -19,6 +19,7 @@ export * from "./netIkePeer";
 export * from "./netTunnel";
 export * from "./provider";
 export * from "./trafficSelector";
+export * from "./wafPolicy";
 
 // Export sub-modules:
 import * as cm from "./cm";
@@ -53,6 +54,7 @@ import { IpsecProfile } from "./ipsecProfile";
 import { NetIkePeer } from "./netIkePeer";
 import { NetTunnel } from "./netTunnel";
 import { TrafficSelector } from "./trafficSelector";
+import { WafPolicy } from "./wafPolicy";
 
 const _module = {
     version: utilities.getVersion(),
@@ -84,6 +86,8 @@ const _module = {
                 return new NetTunnel(name, <any>undefined, { urn })
             case "f5bigip:index/trafficSelector:TrafficSelector":
                 return new TrafficSelector(name, <any>undefined, { urn })
+            case "f5bigip:index/wafPolicy:WafPolicy":
+                return new WafPolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -102,6 +106,7 @@ pulumi.runtime.registerResourceModule("f5bigip", "index/ipsecProfile", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/netIkePeer", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/netTunnel", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/trafficSelector", _module)
+pulumi.runtime.registerResourceModule("f5bigip", "index/wafPolicy", _module)
 
 import { Provider } from "./provider";
 

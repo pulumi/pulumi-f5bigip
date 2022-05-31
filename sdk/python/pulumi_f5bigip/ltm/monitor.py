@@ -30,6 +30,7 @@ class MonitorArgs:
                  receive_disable: Optional[pulumi.Input[str]] = None,
                  reverse: Optional[pulumi.Input[str]] = None,
                  send: Optional[pulumi.Input[str]] = None,
+                 ssl_profile: Optional[pulumi.Input[str]] = None,
                  time_until_up: Optional[pulumi.Input[int]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  transparent: Optional[pulumi.Input[str]] = None,
@@ -54,6 +55,7 @@ class MonitorArgs:
         :param pulumi.Input[str] receive_disable: The system marks the node or pool member disabled when its response matches Receive Disable String but not Receive String.
         :param pulumi.Input[str] reverse: Instructs the system to mark the target resource down when the test is successful.
         :param pulumi.Input[str] send: Specifies the text string that the monitor sends to the target object.
+        :param pulumi.Input[str] ssl_profile: Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
         :param pulumi.Input[int] time_until_up: Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
         :param pulumi.Input[int] timeout: Specifies the number of seconds the target has in which to respond to the monitor request. The default is `16` seconds
         :param pulumi.Input[str] transparent: Specifies whether the monitor operates in transparent mode.
@@ -92,6 +94,8 @@ class MonitorArgs:
             pulumi.set(__self__, "reverse", reverse)
         if send is not None:
             pulumi.set(__self__, "send", send)
+        if ssl_profile is not None:
+            pulumi.set(__self__, "ssl_profile", ssl_profile)
         if time_until_up is not None:
             pulumi.set(__self__, "time_until_up", time_until_up)
         if timeout is not None:
@@ -308,6 +312,18 @@ class MonitorArgs:
         pulumi.set(self, "send", value)
 
     @property
+    @pulumi.getter(name="sslProfile")
+    def ssl_profile(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
+        """
+        return pulumi.get(self, "ssl_profile")
+
+    @ssl_profile.setter
+    def ssl_profile(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssl_profile", value)
+
+    @property
     @pulumi.getter(name="timeUntilUp")
     def time_until_up(self) -> Optional[pulumi.Input[int]]:
         """
@@ -388,6 +404,7 @@ class _MonitorState:
                  receive_disable: Optional[pulumi.Input[str]] = None,
                  reverse: Optional[pulumi.Input[str]] = None,
                  send: Optional[pulumi.Input[str]] = None,
+                 ssl_profile: Optional[pulumi.Input[str]] = None,
                  time_until_up: Optional[pulumi.Input[int]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  transparent: Optional[pulumi.Input[str]] = None,
@@ -412,6 +429,7 @@ class _MonitorState:
         :param pulumi.Input[str] receive_disable: The system marks the node or pool member disabled when its response matches Receive Disable String but not Receive String.
         :param pulumi.Input[str] reverse: Instructs the system to mark the target resource down when the test is successful.
         :param pulumi.Input[str] send: Specifies the text string that the monitor sends to the target object.
+        :param pulumi.Input[str] ssl_profile: Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
         :param pulumi.Input[int] time_until_up: Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
         :param pulumi.Input[int] timeout: Specifies the number of seconds the target has in which to respond to the monitor request. The default is `16` seconds
         :param pulumi.Input[str] transparent: Specifies whether the monitor operates in transparent mode.
@@ -452,6 +470,8 @@ class _MonitorState:
             pulumi.set(__self__, "reverse", reverse)
         if send is not None:
             pulumi.set(__self__, "send", send)
+        if ssl_profile is not None:
+            pulumi.set(__self__, "ssl_profile", ssl_profile)
         if time_until_up is not None:
             pulumi.set(__self__, "time_until_up", time_until_up)
         if timeout is not None:
@@ -668,6 +688,18 @@ class _MonitorState:
         pulumi.set(self, "send", value)
 
     @property
+    @pulumi.getter(name="sslProfile")
+    def ssl_profile(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
+        """
+        return pulumi.get(self, "ssl_profile")
+
+    @ssl_profile.setter
+    def ssl_profile(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssl_profile", value)
+
+    @property
     @pulumi.getter(name="timeUntilUp")
     def time_until_up(self) -> Optional[pulumi.Input[int]]:
         """
@@ -750,6 +782,7 @@ class Monitor(pulumi.CustomResource):
                  receive_disable: Optional[pulumi.Input[str]] = None,
                  reverse: Optional[pulumi.Input[str]] = None,
                  send: Optional[pulumi.Input[str]] = None,
+                 ssl_profile: Optional[pulumi.Input[str]] = None,
                  time_until_up: Optional[pulumi.Input[int]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  transparent: Optional[pulumi.Input[str]] = None,
@@ -775,6 +808,15 @@ class Monitor(pulumi.CustomResource):
             send=\"\"\"GET /some/path
 
         \"\"\",
+            timeout=999)
+        test_https_monitor = f5bigip.ltm.Monitor("test-https-monitor",
+            interval=999,
+            name="/Common/terraform_monitor",
+            parent="/Common/http",
+            send=\"\"\"GET /some/path
+
+        \"\"\",
+            ssl_profile="/Common/serverssl",
             timeout=999)
         test_ftp_monitor = f5bigip.ltm.Monitor("test-ftp-monitor",
             destination="*:8008",
@@ -814,6 +856,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] receive_disable: The system marks the node or pool member disabled when its response matches Receive Disable String but not Receive String.
         :param pulumi.Input[str] reverse: Instructs the system to mark the target resource down when the test is successful.
         :param pulumi.Input[str] send: Specifies the text string that the monitor sends to the target object.
+        :param pulumi.Input[str] ssl_profile: Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
         :param pulumi.Input[int] time_until_up: Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
         :param pulumi.Input[int] timeout: Specifies the number of seconds the target has in which to respond to the monitor request. The default is `16` seconds
         :param pulumi.Input[str] transparent: Specifies whether the monitor operates in transparent mode.
@@ -845,6 +888,15 @@ class Monitor(pulumi.CustomResource):
             send=\"\"\"GET /some/path
 
         \"\"\",
+            timeout=999)
+        test_https_monitor = f5bigip.ltm.Monitor("test-https-monitor",
+            interval=999,
+            name="/Common/terraform_monitor",
+            parent="/Common/http",
+            send=\"\"\"GET /some/path
+
+        \"\"\",
+            ssl_profile="/Common/serverssl",
             timeout=999)
         test_ftp_monitor = f5bigip.ltm.Monitor("test-ftp-monitor",
             destination="*:8008",
@@ -897,6 +949,7 @@ class Monitor(pulumi.CustomResource):
                  receive_disable: Optional[pulumi.Input[str]] = None,
                  reverse: Optional[pulumi.Input[str]] = None,
                  send: Optional[pulumi.Input[str]] = None,
+                 ssl_profile: Optional[pulumi.Input[str]] = None,
                  time_until_up: Optional[pulumi.Input[int]] = None,
                  timeout: Optional[pulumi.Input[int]] = None,
                  transparent: Optional[pulumi.Input[str]] = None,
@@ -935,6 +988,7 @@ class Monitor(pulumi.CustomResource):
             __props__.__dict__["receive_disable"] = receive_disable
             __props__.__dict__["reverse"] = reverse
             __props__.__dict__["send"] = send
+            __props__.__dict__["ssl_profile"] = ssl_profile
             __props__.__dict__["time_until_up"] = time_until_up
             __props__.__dict__["timeout"] = timeout
             __props__.__dict__["transparent"] = transparent
@@ -967,6 +1021,7 @@ class Monitor(pulumi.CustomResource):
             receive_disable: Optional[pulumi.Input[str]] = None,
             reverse: Optional[pulumi.Input[str]] = None,
             send: Optional[pulumi.Input[str]] = None,
+            ssl_profile: Optional[pulumi.Input[str]] = None,
             time_until_up: Optional[pulumi.Input[int]] = None,
             timeout: Optional[pulumi.Input[int]] = None,
             transparent: Optional[pulumi.Input[str]] = None,
@@ -996,6 +1051,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] receive_disable: The system marks the node or pool member disabled when its response matches Receive Disable String but not Receive String.
         :param pulumi.Input[str] reverse: Instructs the system to mark the target resource down when the test is successful.
         :param pulumi.Input[str] send: Specifies the text string that the monitor sends to the target object.
+        :param pulumi.Input[str] ssl_profile: Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
         :param pulumi.Input[int] time_until_up: Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
         :param pulumi.Input[int] timeout: Specifies the number of seconds the target has in which to respond to the monitor request. The default is `16` seconds
         :param pulumi.Input[str] transparent: Specifies whether the monitor operates in transparent mode.
@@ -1023,6 +1079,7 @@ class Monitor(pulumi.CustomResource):
         __props__.__dict__["receive_disable"] = receive_disable
         __props__.__dict__["reverse"] = reverse
         __props__.__dict__["send"] = send
+        __props__.__dict__["ssl_profile"] = ssl_profile
         __props__.__dict__["time_until_up"] = time_until_up
         __props__.__dict__["timeout"] = timeout
         __props__.__dict__["transparent"] = transparent
@@ -1165,6 +1222,14 @@ class Monitor(pulumi.CustomResource):
         Specifies the text string that the monitor sends to the target object.
         """
         return pulumi.get(self, "send")
+
+    @property
+    @pulumi.getter(name="sslProfile")
+    def ssl_profile(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
+        """
+        return pulumi.get(self, "ssl_profile")
 
     @property
     @pulumi.getter(name="timeUntilUp")

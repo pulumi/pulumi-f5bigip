@@ -138,6 +138,7 @@ func Provider() tfbridge.ProviderInfo {
 			"bigip_fast_template":               {Tok: makeResource(mainMod, "FastTemplate")},
 			"bigip_fast_application":            {Tok: makeResource(mainMod, "FastApplication")},
 			"bigip_ipsec_profile":               {Tok: makeResource(mainMod, "IpsecProfile")},
+			"bigip_waf_policy":                  {Tok: makeResource(mainMod, "WafPolicy")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"bigip_ltm_datagroup":   {Tok: makeDataSource(ltmMod, "getDataGroup")},
@@ -148,6 +149,16 @@ func Provider() tfbridge.ProviderInfo {
 			"bigip_ltm_policy":      {Tok: makeDataSource(ltmMod, "getPolicy")},
 			"bigip_ssl_certificate": {Tok: makeDataSource(sslMod, "getCertificate")},
 			"bigip_vwan_config":     {Tok: makeDataSource(sslMod, "getVWanConfig")},
+			"bigip_waf_entity_parameter": {
+				Tok: makeDataSource(sslMod, "getWafEntityParameter"),
+				Docs: &tfbridge.DocInfo{
+					Markdown: []byte(" "),
+				},
+			},
+			"bigip_waf_entity_url":     {Tok: makeDataSource(sslMod, "getWafEntityUrl")},
+			"bigip_waf_pb_suggestions": {Tok: makeDataSource(sslMod, "getWafPbSuggestions")},
+			"bigip_waf_policy":         {Tok: makeDataSource(sslMod, "getWafPolicy")},
+			"bigip_waf_signatures":     {Tok: makeDataSource(sslMod, "getWafSignatures")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{

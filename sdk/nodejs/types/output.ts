@@ -548,6 +548,20 @@ export namespace net {
 
 }
 
+export namespace ssl {
+    export interface GetWafEntityUrlMethodOverride {
+        /**
+         * Specifies that the system allows or disallows a method for this URL
+         */
+        allow: boolean;
+        /**
+         * Specifies an HTTP method.
+         */
+        method: string;
+    }
+
+}
+
 export namespace sys {
     export interface IAppList {
         encrypted?: string;

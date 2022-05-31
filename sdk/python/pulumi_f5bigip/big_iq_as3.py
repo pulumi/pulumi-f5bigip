@@ -28,9 +28,9 @@ class BigIqAs3Args:
         :param pulumi.Input[str] bigiq_address: Address of the BIG-IQ to which your targer BIG-IP is attached
         :param pulumi.Input[str] bigiq_password: Password of the BIG-IQ to which your targer BIG-IP is attached
         :param pulumi.Input[str] bigiq_user: User name  of the BIG-IQ to which your targer BIG-IP is attached
-        :param pulumi.Input[str] bigiq_login_ref: Login reference for token authentication (see BIG-IQ REST docs for details)
-        :param pulumi.Input[str] bigiq_port: The registration key pool to use
-        :param pulumi.Input[bool] bigiq_token_auth: Enable to use an external authentication source (LDAP, TACACS, etc)
+        :param pulumi.Input[str] bigiq_login_ref: BIGIQ Login reference for token authentication
+        :param pulumi.Input[str] bigiq_port: type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
+        :param pulumi.Input[bool] bigiq_token_auth: type `bool`, if set to `true` enables Token based Authentication,default is `false`
         :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to `true`
         :param pulumi.Input[str] tenant_list: Name of Tenant
         """
@@ -101,7 +101,7 @@ class BigIqAs3Args:
     @pulumi.getter(name="bigiqLoginRef")
     def bigiq_login_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        Login reference for token authentication (see BIG-IQ REST docs for details)
+        BIGIQ Login reference for token authentication
         """
         return pulumi.get(self, "bigiq_login_ref")
 
@@ -113,7 +113,7 @@ class BigIqAs3Args:
     @pulumi.getter(name="bigiqPort")
     def bigiq_port(self) -> Optional[pulumi.Input[str]]:
         """
-        The registration key pool to use
+        type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
         """
         return pulumi.get(self, "bigiq_port")
 
@@ -125,7 +125,7 @@ class BigIqAs3Args:
     @pulumi.getter(name="bigiqTokenAuth")
     def bigiq_token_auth(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable to use an external authentication source (LDAP, TACACS, etc)
+        type `bool`, if set to `true` enables Token based Authentication,default is `false`
         """
         return pulumi.get(self, "bigiq_token_auth")
 
@@ -174,10 +174,10 @@ class _BigIqAs3State:
         Input properties used for looking up and filtering BigIqAs3 resources.
         :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         :param pulumi.Input[str] bigiq_address: Address of the BIG-IQ to which your targer BIG-IP is attached
-        :param pulumi.Input[str] bigiq_login_ref: Login reference for token authentication (see BIG-IQ REST docs for details)
+        :param pulumi.Input[str] bigiq_login_ref: BIGIQ Login reference for token authentication
         :param pulumi.Input[str] bigiq_password: Password of the BIG-IQ to which your targer BIG-IP is attached
-        :param pulumi.Input[str] bigiq_port: The registration key pool to use
-        :param pulumi.Input[bool] bigiq_token_auth: Enable to use an external authentication source (LDAP, TACACS, etc)
+        :param pulumi.Input[str] bigiq_port: type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
+        :param pulumi.Input[bool] bigiq_token_auth: type `bool`, if set to `true` enables Token based Authentication,default is `false`
         :param pulumi.Input[str] bigiq_user: User name  of the BIG-IQ to which your targer BIG-IP is attached
         :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to `true`
         :param pulumi.Input[str] tenant_list: Name of Tenant
@@ -229,7 +229,7 @@ class _BigIqAs3State:
     @pulumi.getter(name="bigiqLoginRef")
     def bigiq_login_ref(self) -> Optional[pulumi.Input[str]]:
         """
-        Login reference for token authentication (see BIG-IQ REST docs for details)
+        BIGIQ Login reference for token authentication
         """
         return pulumi.get(self, "bigiq_login_ref")
 
@@ -253,7 +253,7 @@ class _BigIqAs3State:
     @pulumi.getter(name="bigiqPort")
     def bigiq_port(self) -> Optional[pulumi.Input[str]]:
         """
-        The registration key pool to use
+        type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
         """
         return pulumi.get(self, "bigiq_port")
 
@@ -265,7 +265,7 @@ class _BigIqAs3State:
     @pulumi.getter(name="bigiqTokenAuth")
     def bigiq_token_auth(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enable to use an external authentication source (LDAP, TACACS, etc)
+        type `bool`, if set to `true` enables Token based Authentication,default is `false`
         """
         return pulumi.get(self, "bigiq_token_auth")
 
@@ -348,10 +348,10 @@ class BigIqAs3(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         :param pulumi.Input[str] bigiq_address: Address of the BIG-IQ to which your targer BIG-IP is attached
-        :param pulumi.Input[str] bigiq_login_ref: Login reference for token authentication (see BIG-IQ REST docs for details)
+        :param pulumi.Input[str] bigiq_login_ref: BIGIQ Login reference for token authentication
         :param pulumi.Input[str] bigiq_password: Password of the BIG-IQ to which your targer BIG-IP is attached
-        :param pulumi.Input[str] bigiq_port: The registration key pool to use
-        :param pulumi.Input[bool] bigiq_token_auth: Enable to use an external authentication source (LDAP, TACACS, etc)
+        :param pulumi.Input[str] bigiq_port: type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
+        :param pulumi.Input[bool] bigiq_token_auth: type `bool`, if set to `true` enables Token based Authentication,default is `false`
         :param pulumi.Input[str] bigiq_user: User name  of the BIG-IQ to which your targer BIG-IP is attached
         :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to `true`
         :param pulumi.Input[str] tenant_list: Name of Tenant
@@ -462,10 +462,10 @@ class BigIqAs3(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         :param pulumi.Input[str] bigiq_address: Address of the BIG-IQ to which your targer BIG-IP is attached
-        :param pulumi.Input[str] bigiq_login_ref: Login reference for token authentication (see BIG-IQ REST docs for details)
+        :param pulumi.Input[str] bigiq_login_ref: BIGIQ Login reference for token authentication
         :param pulumi.Input[str] bigiq_password: Password of the BIG-IQ to which your targer BIG-IP is attached
-        :param pulumi.Input[str] bigiq_port: The registration key pool to use
-        :param pulumi.Input[bool] bigiq_token_auth: Enable to use an external authentication source (LDAP, TACACS, etc)
+        :param pulumi.Input[str] bigiq_port: type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
+        :param pulumi.Input[bool] bigiq_token_auth: type `bool`, if set to `true` enables Token based Authentication,default is `false`
         :param pulumi.Input[str] bigiq_user: User name  of the BIG-IQ to which your targer BIG-IP is attached
         :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to `true`
         :param pulumi.Input[str] tenant_list: Name of Tenant
@@ -505,7 +505,7 @@ class BigIqAs3(pulumi.CustomResource):
     @pulumi.getter(name="bigiqLoginRef")
     def bigiq_login_ref(self) -> pulumi.Output[Optional[str]]:
         """
-        Login reference for token authentication (see BIG-IQ REST docs for details)
+        BIGIQ Login reference for token authentication
         """
         return pulumi.get(self, "bigiq_login_ref")
 
@@ -521,7 +521,7 @@ class BigIqAs3(pulumi.CustomResource):
     @pulumi.getter(name="bigiqPort")
     def bigiq_port(self) -> pulumi.Output[Optional[str]]:
         """
-        The registration key pool to use
+        type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
         """
         return pulumi.get(self, "bigiq_port")
 
@@ -529,7 +529,7 @@ class BigIqAs3(pulumi.CustomResource):
     @pulumi.getter(name="bigiqTokenAuth")
     def bigiq_token_auth(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enable to use an external authentication source (LDAP, TACACS, etc)
+        type `bool`, if set to `true` enables Token based Authentication,default is `false`
         """
         return pulumi.get(self, "bigiq_token_auth")
 

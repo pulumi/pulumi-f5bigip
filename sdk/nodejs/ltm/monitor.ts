@@ -23,6 +23,14 @@ import * as utilities from "../utilities";
  *     send: "GET /some/path\n",
  *     timeout: 999,
  * });
+ * const test_https_monitor = new f5bigip.ltm.Monitor("test-https-monitor", {
+ *     interval: 999,
+ *     name: "/Common/terraform_monitor",
+ *     parent: "/Common/http",
+ *     send: "GET /some/path\n",
+ *     sslProfile: "/Common/serverssl",
+ *     timeout: 999,
+ * });
  * const test_ftp_monitor = new f5bigip.ltm.Monitor("test-ftp-monitor", {
  *     destination: "*:8008",
  *     filename: "somefile",
@@ -141,6 +149,10 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly send!: pulumi.Output<string>;
     /**
+     * Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
+     */
+    public readonly sslProfile!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
      */
     public readonly timeUntilUp!: pulumi.Output<number>;
@@ -191,6 +203,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["receiveDisable"] = state ? state.receiveDisable : undefined;
             resourceInputs["reverse"] = state ? state.reverse : undefined;
             resourceInputs["send"] = state ? state.send : undefined;
+            resourceInputs["sslProfile"] = state ? state.sslProfile : undefined;
             resourceInputs["timeUntilUp"] = state ? state.timeUntilUp : undefined;
             resourceInputs["timeout"] = state ? state.timeout : undefined;
             resourceInputs["transparent"] = state ? state.transparent : undefined;
@@ -221,6 +234,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["receiveDisable"] = args ? args.receiveDisable : undefined;
             resourceInputs["reverse"] = args ? args.reverse : undefined;
             resourceInputs["send"] = args ? args.send : undefined;
+            resourceInputs["sslProfile"] = args ? args.sslProfile : undefined;
             resourceInputs["timeUntilUp"] = args ? args.timeUntilUp : undefined;
             resourceInputs["timeout"] = args ? args.timeout : undefined;
             resourceInputs["transparent"] = args ? args.transparent : undefined;
@@ -304,6 +318,10 @@ export interface MonitorState {
      * Specifies the text string that the monitor sends to the target object.
      */
     send?: pulumi.Input<string>;
+    /**
+     * Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
+     */
+    sslProfile?: pulumi.Input<string>;
     /**
      * Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
      */
@@ -398,6 +416,10 @@ export interface MonitorArgs {
      * Specifies the text string that the monitor sends to the target object.
      */
     send?: pulumi.Input<string>;
+    /**
+     * Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
+     */
+    sslProfile?: pulumi.Input<string>;
     /**
      * Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
      */

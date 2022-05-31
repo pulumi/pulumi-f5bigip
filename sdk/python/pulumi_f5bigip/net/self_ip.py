@@ -236,6 +236,20 @@ class SelfIp(pulumi.CustomResource):
             ],
             opts=pulumi.ResourceOptions(depends_on=[bigip_net_vlan["vlan1"]]))
         ```
+        ### Example usage with `port_lockdown` set to `["none"]`
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        selfip1 = f5bigip.net.SelfIp("selfip1",
+            name="/Common/internalselfIP",
+            ip="11.1.1.1/24",
+            vlan="/Common/internal",
+            traffic_group="traffic-group-1",
+            port_lockdowns=["none"],
+            opts=pulumi.ResourceOptions(depends_on=[bigip_net_vlan["vlan1"]]))
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -291,6 +305,20 @@ class SelfIp(pulumi.CustomResource):
                 "udp:5050",
                 "egp:0",
             ],
+            opts=pulumi.ResourceOptions(depends_on=[bigip_net_vlan["vlan1"]]))
+        ```
+        ### Example usage with `port_lockdown` set to `["none"]`
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        selfip1 = f5bigip.net.SelfIp("selfip1",
+            name="/Common/internalselfIP",
+            ip="11.1.1.1/24",
+            vlan="/Common/internal",
+            traffic_group="traffic-group-1",
+            port_lockdowns=["none"],
             opts=pulumi.ResourceOptions(depends_on=[bigip_net_vlan["vlan1"]]))
         ```
 
