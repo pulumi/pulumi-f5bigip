@@ -86,6 +86,36 @@ import (
 // 	})
 // }
 // ```
+// ### Example usage with `portLockdown` set to `["none"]`
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/net"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := net.NewSelfIp(ctx, "selfip1", &net.SelfIpArgs{
+// 			Name:         pulumi.String("/Common/internalselfIP"),
+// 			Ip:           pulumi.String("11.1.1.1/24"),
+// 			Vlan:         pulumi.String("/Common/internal"),
+// 			TrafficGroup: pulumi.String("traffic-group-1"),
+// 			PortLockdowns: pulumi.StringArray{
+// 				pulumi.String("none"),
+// 			},
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			bigip_net_vlan.Vlan1,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 type SelfIp struct {
 	pulumi.CustomResourceState
 

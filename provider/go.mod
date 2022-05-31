@@ -9,4 +9,4 @@ require (
 	github.com/pulumi/pulumi/sdk/v3 v3.30.0
 )
 
-replace github.com/F5Networks/terraform-provider-bigip => github.com/pulumi/terraform-provider-bigip v1.1.1-0.20220302180104-0b3a482e5983
+replace github.com/F5Networks/terraform-provider-bigip => github.com/pulumi/terraform-provider-bigip v1.1.1-0.20220526124114-f5b0215f2250

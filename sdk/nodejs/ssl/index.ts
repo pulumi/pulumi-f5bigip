@@ -8,6 +8,11 @@ import * as utilities from "../utilities";
 export * from "./certificate";
 export * from "./getCertificate";
 export * from "./getVWanConfig";
+export * from "./getWafEntityParameter";
+export * from "./getWafEntityUrl";
+export * from "./getWafPbSuggestions";
+export * from "./getWafPolicy";
+export * from "./getWafSignatures";
 export * from "./key";
 
 // Import resources to register:

@@ -54,7 +54,7 @@ namespace Pulumi.F5BigIP
         public Output<string> BigiqAddress { get; private set; } = null!;
 
         /// <summary>
-        /// Login reference for token authentication (see BIG-IQ REST docs for details)
+        /// BIGIQ Login reference for token authentication
         /// </summary>
         [Output("bigiqLoginRef")]
         public Output<string?> BigiqLoginRef { get; private set; } = null!;
@@ -66,13 +66,13 @@ namespace Pulumi.F5BigIP
         public Output<string> BigiqPassword { get; private set; } = null!;
 
         /// <summary>
-        /// The registration key pool to use
+        /// type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
         /// </summary>
         [Output("bigiqPort")]
         public Output<string?> BigiqPort { get; private set; } = null!;
 
         /// <summary>
-        /// Enable to use an external authentication source (LDAP, TACACS, etc)
+        /// type `bool`, if set to `true` enables Token based Authentication,default is `false`
         /// </summary>
         [Output("bigiqTokenAuth")]
         public Output<bool?> BigiqTokenAuth { get; private set; } = null!;
@@ -154,7 +154,7 @@ namespace Pulumi.F5BigIP
         public Input<string> BigiqAddress { get; set; } = null!;
 
         /// <summary>
-        /// Login reference for token authentication (see BIG-IQ REST docs for details)
+        /// BIGIQ Login reference for token authentication
         /// </summary>
         [Input("bigiqLoginRef")]
         public Input<string>? BigiqLoginRef { get; set; }
@@ -166,13 +166,13 @@ namespace Pulumi.F5BigIP
         public Input<string> BigiqPassword { get; set; } = null!;
 
         /// <summary>
-        /// The registration key pool to use
+        /// type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
         /// </summary>
         [Input("bigiqPort")]
         public Input<string>? BigiqPort { get; set; }
 
         /// <summary>
-        /// Enable to use an external authentication source (LDAP, TACACS, etc)
+        /// type `bool`, if set to `true` enables Token based Authentication,default is `false`
         /// </summary>
         [Input("bigiqTokenAuth")]
         public Input<bool>? BigiqTokenAuth { get; set; }
@@ -215,7 +215,7 @@ namespace Pulumi.F5BigIP
         public Input<string>? BigiqAddress { get; set; }
 
         /// <summary>
-        /// Login reference for token authentication (see BIG-IQ REST docs for details)
+        /// BIGIQ Login reference for token authentication
         /// </summary>
         [Input("bigiqLoginRef")]
         public Input<string>? BigiqLoginRef { get; set; }
@@ -227,13 +227,13 @@ namespace Pulumi.F5BigIP
         public Input<string>? BigiqPassword { get; set; }
 
         /// <summary>
-        /// The registration key pool to use
+        /// type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
         /// </summary>
         [Input("bigiqPort")]
         public Input<string>? BigiqPort { get; set; }
 
         /// <summary>
-        /// Enable to use an external authentication source (LDAP, TACACS, etc)
+        /// type `bool`, if set to `true` enables Token based Authentication,default is `false`
         /// </summary>
         [Input("bigiqTokenAuth")]
         public Input<bool>? BigiqTokenAuth { get; set; }

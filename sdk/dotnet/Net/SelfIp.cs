@@ -86,6 +86,37 @@ namespace Pulumi.F5BigIP.Net
     /// 
     /// }
     /// ```
+    /// ### Example usage with `port_lockdown` set to `["none"]`
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var selfip1 = new F5BigIP.Net.SelfIp("selfip1", new F5BigIP.Net.SelfIpArgs
+    ///         {
+    ///             Name = "/Common/internalselfIP",
+    ///             Ip = "11.1.1.1/24",
+    ///             Vlan = "/Common/internal",
+    ///             TrafficGroup = "traffic-group-1",
+    ///             PortLockdowns = 
+    ///             {
+    ///                 "none",
+    ///             },
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 bigip_net_vlan.Vlan1,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:net/selfIp:SelfIp")]
     public partial class SelfIp : Pulumi.CustomResource

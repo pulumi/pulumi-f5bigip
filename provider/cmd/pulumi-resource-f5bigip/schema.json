@@ -3983,6 +3983,33 @@
             },
             "type": "object"
         },
+        "f5bigip:ssl/getWafEntityUrlMethodOverride:getWafEntityUrlMethodOverride": {
+            "properties": {
+                "allow": {
+                    "type": "boolean",
+                    "description": "Specifies that the system allows or disallows a method for this URL\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "method": {
+                    "type": "string",
+                    "description": "Specifies an HTTP method.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "allow",
+                "method"
+            ]
+        },
         "f5bigip:sys/IAppList:IAppList": {
             "properties": {
                 "encrypted": {
@@ -4517,7 +4544,7 @@
                 },
                 "bigiqLoginRef": {
                     "type": "string",
-                    "description": "Login reference for token authentication (see BIG-IQ REST docs for details)\n"
+                    "description": "BIGIQ Login reference for token authentication\n"
                 },
                 "bigiqPassword": {
                     "type": "string",
@@ -4525,11 +4552,11 @@
                 },
                 "bigiqPort": {
                     "type": "string",
-                    "description": "The registration key pool to use\n"
+                    "description": "type `int`, BIGIQ License Manager Port number, specify if port is other than `443`\n"
                 },
                 "bigiqTokenAuth": {
                     "type": "boolean",
-                    "description": "Enable to use an external authentication source (LDAP, TACACS, etc)\n"
+                    "description": "type `bool`, if set to `true` enables Token based Authentication,default is `false`\n"
                 },
                 "bigiqUser": {
                     "type": "string",
@@ -4562,7 +4589,7 @@
                 },
                 "bigiqLoginRef": {
                     "type": "string",
-                    "description": "Login reference for token authentication (see BIG-IQ REST docs for details)\n"
+                    "description": "BIGIQ Login reference for token authentication\n"
                 },
                 "bigiqPassword": {
                     "type": "string",
@@ -4570,11 +4597,11 @@
                 },
                 "bigiqPort": {
                     "type": "string",
-                    "description": "The registration key pool to use\n"
+                    "description": "type `int`, BIGIQ License Manager Port number, specify if port is other than `443`\n"
                 },
                 "bigiqTokenAuth": {
                     "type": "boolean",
-                    "description": "Enable to use an external authentication source (LDAP, TACACS, etc)\n"
+                    "description": "type `bool`, if set to `true` enables Token based Authentication,default is `false`\n"
                 },
                 "bigiqUser": {
                     "type": "string",
@@ -4608,7 +4635,7 @@
                     },
                     "bigiqLoginRef": {
                         "type": "string",
-                        "description": "Login reference for token authentication (see BIG-IQ REST docs for details)\n"
+                        "description": "BIGIQ Login reference for token authentication\n"
                     },
                     "bigiqPassword": {
                         "type": "string",
@@ -4616,11 +4643,11 @@
                     },
                     "bigiqPort": {
                         "type": "string",
-                        "description": "The registration key pool to use\n"
+                        "description": "type `int`, BIGIQ License Manager Port number, specify if port is other than `443`\n"
                     },
                     "bigiqTokenAuth": {
                         "type": "boolean",
-                        "description": "Enable to use an external authentication source (LDAP, TACACS, etc)\n"
+                        "description": "type `bool`, if set to `true` enables Token based Authentication,default is `false`\n"
                     },
                     "bigiqUser": {
                         "type": "string",
@@ -6314,6 +6341,299 @@
                 "type": "object"
             }
         },
+        "f5bigip:index/wafPolicy:WafPolicy": {
+            "description": "`f5bigip.WafPolicy` Manages a WAF Policy resource with its adjustments and modifications on a BIG-IP.\nIt outputs an up-to-date WAF Policy in a JSON format\n\n* [Declarative WAF documentation](https://clouddocs.f5.com/products/waf-declarative-policy/declarative_policy_v16_1.html)\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst param1 = f5bigip.ssl.getWafEntityParameter({\n    name: \"Param1\",\n    type: \"explicit\",\n    dataType: \"alpha-numeric\",\n    performStaging: true,\n});\nconst param2 = f5bigip.ssl.getWafEntityParameter({\n    name: \"Param2\",\n    type: \"explicit\",\n    dataType: \"alpha-numeric\",\n    performStaging: true,\n});\nconst uRL = f5bigip.ssl.getWafEntityUrl({\n    name: \"URL1\",\n    protocol: \"http\",\n});\nconst uRL2 = f5bigip.ssl.getWafEntityUrl({\n    name: \"URL2\",\n});\nconst test_awaf = new f5bigip.WafPolicy(\"test-awaf\", {\n    name: \"/Common/testpolicyravi\",\n    templateName: \"POLICY_TEMPLATE_RAPID_DEPLOYMENT\",\n    applicationLanguage: \"utf-8\",\n    enforcementMode: \"blocking\",\n    serverTechnologies: [\n        \"MySQL\",\n        \"Unix/Linux\",\n        \"MongoDB\",\n    ],\n    parameters: [\n        param1.then(param1 =\u003e param1.json),\n        param2.then(param2 =\u003e param2.json),\n    ],\n    urls: [\n        uRL.then(uRL =\u003e uRL.json),\n        uRL2.then(uRL2 =\u003e uRL2.json),\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nparam1 = f5bigip.ssl.get_waf_entity_parameter(name=\"Param1\",\n    type=\"explicit\",\n    data_type=\"alpha-numeric\",\n    perform_staging=True)\nparam2 = f5bigip.ssl.get_waf_entity_parameter(name=\"Param2\",\n    type=\"explicit\",\n    data_type=\"alpha-numeric\",\n    perform_staging=True)\nu_rl = f5bigip.ssl.get_waf_entity_url(name=\"URL1\",\n    protocol=\"http\")\nu_rl2 = f5bigip.ssl.get_waf_entity_url(name=\"URL2\")\ntest_awaf = f5bigip.WafPolicy(\"test-awaf\",\n    name=\"/Common/testpolicyravi\",\n    template_name=\"POLICY_TEMPLATE_RAPID_DEPLOYMENT\",\n    application_language=\"utf-8\",\n    enforcement_mode=\"blocking\",\n    server_technologies=[\n        \"MySQL\",\n        \"Unix/Linux\",\n        \"MongoDB\",\n    ],\n    parameters=[\n        param1.json,\n        param2.json,\n    ],\n    urls=[\n        u_rl.json,\n        u_rl2.json,\n    ])\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var param1 = Output.Create(F5BigIP.Ssl.GetWafEntityParameter.InvokeAsync(new F5BigIP.Ssl.GetWafEntityParameterArgs\n        {\n            Name = \"Param1\",\n            Type = \"explicit\",\n            DataType = \"alpha-numeric\",\n            PerformStaging = true,\n        }));\n        var param2 = Output.Create(F5BigIP.Ssl.GetWafEntityParameter.InvokeAsync(new F5BigIP.Ssl.GetWafEntityParameterArgs\n        {\n            Name = \"Param2\",\n            Type = \"explicit\",\n            DataType = \"alpha-numeric\",\n            PerformStaging = true,\n        }));\n        var uRL = Output.Create(F5BigIP.Ssl.GetWafEntityUrl.InvokeAsync(new F5BigIP.Ssl.GetWafEntityUrlArgs\n        {\n            Name = \"URL1\",\n            Protocol = \"http\",\n        }));\n        var uRL2 = Output.Create(F5BigIP.Ssl.GetWafEntityUrl.InvokeAsync(new F5BigIP.Ssl.GetWafEntityUrlArgs\n        {\n            Name = \"URL2\",\n        }));\n        var test_awaf = new F5BigIP.WafPolicy(\"test-awaf\", new F5BigIP.WafPolicyArgs\n        {\n            Name = \"/Common/testpolicyravi\",\n            TemplateName = \"POLICY_TEMPLATE_RAPID_DEPLOYMENT\",\n            ApplicationLanguage = \"utf-8\",\n            EnforcementMode = \"blocking\",\n            ServerTechnologies = \n            {\n                \"MySQL\",\n                \"Unix/Linux\",\n                \"MongoDB\",\n            },\n            Parameters = \n            {\n                param1.Apply(param1 =\u003e param1.Json),\n                param2.Apply(param2 =\u003e param2.Json),\n            },\n            Urls = \n            {\n                uRL.Apply(uRL =\u003e uRL.Json),\n                uRL2.Apply(uRL2 =\u003e uRL2.Json),\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip\"\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ssl\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tparam1, err := ssl.GetWafEntityParameter(ctx, \u0026ssl.GetWafEntityParameterArgs{\n\t\t\tName:           \"Param1\",\n\t\t\tType:           pulumi.StringRef(\"explicit\"),\n\t\t\tDataType:       pulumi.StringRef(\"alpha-numeric\"),\n\t\t\tPerformStaging: pulumi.BoolRef(true),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tparam2, err := ssl.GetWafEntityParameter(ctx, \u0026ssl.GetWafEntityParameterArgs{\n\t\t\tName:           \"Param2\",\n\t\t\tType:           pulumi.StringRef(\"explicit\"),\n\t\t\tDataType:       pulumi.StringRef(\"alpha-numeric\"),\n\t\t\tPerformStaging: pulumi.BoolRef(true),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tuRL, err := ssl.GetWafEntityUrl(ctx, \u0026ssl.GetWafEntityUrlArgs{\n\t\t\tName:     \"URL1\",\n\t\t\tProtocol: pulumi.StringRef(\"http\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tuRL2, err := ssl.GetWafEntityUrl(ctx, \u0026ssl.GetWafEntityUrlArgs{\n\t\t\tName: \"URL2\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = f5bigip.NewWafPolicy(ctx, \"test-awaf\", \u0026f5bigip.WafPolicyArgs{\n\t\t\tName:                pulumi.String(\"/Common/testpolicyravi\"),\n\t\t\tTemplateName:        pulumi.String(\"POLICY_TEMPLATE_RAPID_DEPLOYMENT\"),\n\t\t\tApplicationLanguage: pulumi.String(\"utf-8\"),\n\t\t\tEnforcementMode:     pulumi.String(\"blocking\"),\n\t\t\tServerTechnologies: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"MySQL\"),\n\t\t\t\tpulumi.String(\"Unix/Linux\"),\n\t\t\t\tpulumi.String(\"MongoDB\"),\n\t\t\t},\n\t\t\tParameters: pulumi.StringArray{\n\t\t\t\tpulumi.String(param1.Json),\n\t\t\t\tpulumi.String(param2.Json),\n\t\t\t},\n\t\t\tUrls: pulumi.StringArray{\n\t\t\t\tpulumi.String(uRL.Json),\n\t\t\t\tpulumi.String(uRL2.Json),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n\n## Import\n\nAn existing WAF Policy or if the WAF Policy has been manually created or modified on the BIG-IP WebUI, it can be imported using its `id`. e.g\n\n```sh\n $ pulumi import f5bigip:index/wafPolicy:WafPolicy example \u003cid\u003e\n```\n\n ",
+            "properties": {
+                "applicationLanguage": {
+                    "type": "string",
+                    "description": "The character encoding for the web application. The character encoding determines how the policy processes the character sets. The default is `utf-8`\n"
+                },
+                "caseInsensitive": {
+                    "type": "boolean",
+                    "description": "Specifies whether the security policy treats microservice URLs, file types, URLs, and parameters as case sensitive or not. When this setting is enabled, the system stores these security policy elements in lowercase in the security policy configuration\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Specifies the description of the policy.\n"
+                },
+                "enablePassivemode": {
+                    "type": "boolean",
+                    "description": "Passive Mode allows the policy to be associated with a Performance L4 Virtual Server (using a FastL4 profile). With FastL4, traffic is analyzed but is not modified in any way.\n"
+                },
+                "enforcementMode": {
+                    "type": "string",
+                    "description": "How the system processes a request that triggers a security policy violation\n"
+                },
+                "modifications": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "the modifications section includes actions that modify the declarative policy as it is defined in the adjustments\nsection. The modifications section is updated manually, with the changes generally driven by the learning suggestions\nprovided by the BIG-IP.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_). It will be `fullpath`, ex: `/Common/policy1`\n"
+                },
+                "parameters": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "This section defines parameters that the security policy permits in requests.\n"
+                },
+                "policyExportJson": {
+                    "type": "string",
+                    "description": "Exported WAF policy deployed on BIGIP.\n"
+                },
+                "policyId": {
+                    "type": "string",
+                    "description": "The id of the A.WAF Policy as it would be calculated on the BIG-IP.\n"
+                },
+                "policyImportJson": {
+                    "type": "string",
+                    "description": "The payload of the WAF Policy to be used for IMPORT on to BIGIP\n"
+                },
+                "protocolIndependent": {
+                    "type": "boolean",
+                    "description": "When creating a security policy, you can determine whether a security policy differentiates between HTTP and HTTPS URLs. If enabled, the security policy differentiates between HTTP and HTTPS URLs. If disabled, the security policy configures URLs without specifying a specific protocol. This is useful for applications that behave the same for HTTP and HTTPS, and it keeps the security policy from including the same URL twice.\n"
+                },
+                "serverTechnologies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The server technology is a server-side application, framework, web server or operating system type that is configured in the policy in order to adapt the policy to the checks needed for the respective technology.\n"
+                },
+                "signatureSets": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Defines behavior when signatures found within a signature-set are detected in a request. Settings are culmulative, so if a signature is found in any set with block enabled, that signature will have block enabled.\n"
+                },
+                "signatures": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "This section defines the properties of a signature on the policy.\n"
+                },
+                "templateName": {
+                    "type": "string",
+                    "description": "Specifies the name of the template used for the policy creation.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of policy you want to create. The default policy type is Security.\n"
+                },
+                "urls": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "In a security policy, you can manually specify the HTTP URLs that are allowed (or disallowed) in traffic to the web application being protected. If you are using automatic policy building (and the policy includes learning URLs), the system can determine which URLs to add, based on legitimate traffic.\n"
+                }
+            },
+            "required": [
+                "name",
+                "policyExportJson",
+                "policyId",
+                "templateName"
+            ],
+            "inputProperties": {
+                "applicationLanguage": {
+                    "type": "string",
+                    "description": "The character encoding for the web application. The character encoding determines how the policy processes the character sets. The default is `utf-8`\n"
+                },
+                "caseInsensitive": {
+                    "type": "boolean",
+                    "description": "Specifies whether the security policy treats microservice URLs, file types, URLs, and parameters as case sensitive or not. When this setting is enabled, the system stores these security policy elements in lowercase in the security policy configuration\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Specifies the description of the policy.\n"
+                },
+                "enablePassivemode": {
+                    "type": "boolean",
+                    "description": "Passive Mode allows the policy to be associated with a Performance L4 Virtual Server (using a FastL4 profile). With FastL4, traffic is analyzed but is not modified in any way.\n"
+                },
+                "enforcementMode": {
+                    "type": "string",
+                    "description": "How the system processes a request that triggers a security policy violation\n"
+                },
+                "modifications": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "the modifications section includes actions that modify the declarative policy as it is defined in the adjustments\nsection. The modifications section is updated manually, with the changes generally driven by the learning suggestions\nprovided by the BIG-IP.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_). It will be `fullpath`, ex: `/Common/policy1`\n"
+                },
+                "parameters": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "This section defines parameters that the security policy permits in requests.\n"
+                },
+                "policyExportJson": {
+                    "type": "string",
+                    "description": "Exported WAF policy deployed on BIGIP.\n"
+                },
+                "policyId": {
+                    "type": "string",
+                    "description": "The id of the A.WAF Policy as it would be calculated on the BIG-IP.\n"
+                },
+                "policyImportJson": {
+                    "type": "string",
+                    "description": "The payload of the WAF Policy to be used for IMPORT on to BIGIP\n"
+                },
+                "protocolIndependent": {
+                    "type": "boolean",
+                    "description": "When creating a security policy, you can determine whether a security policy differentiates between HTTP and HTTPS URLs. If enabled, the security policy differentiates between HTTP and HTTPS URLs. If disabled, the security policy configures URLs without specifying a specific protocol. This is useful for applications that behave the same for HTTP and HTTPS, and it keeps the security policy from including the same URL twice.\n"
+                },
+                "serverTechnologies": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The server technology is a server-side application, framework, web server or operating system type that is configured in the policy in order to adapt the policy to the checks needed for the respective technology.\n"
+                },
+                "signatureSets": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Defines behavior when signatures found within a signature-set are detected in a request. Settings are culmulative, so if a signature is found in any set with block enabled, that signature will have block enabled.\n"
+                },
+                "signatures": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "This section defines the properties of a signature on the policy.\n"
+                },
+                "templateName": {
+                    "type": "string",
+                    "description": "Specifies the name of the template used for the policy creation.\n"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "The type of policy you want to create. The default policy type is Security.\n"
+                },
+                "urls": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "In a security policy, you can manually specify the HTTP URLs that are allowed (or disallowed) in traffic to the web application being protected. If you are using automatic policy building (and the policy includes learning URLs), the system can determine which URLs to add, based on legitimate traffic.\n"
+                }
+            },
+            "requiredInputs": [
+                "name",
+                "templateName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering WafPolicy resources.\n",
+                "properties": {
+                    "applicationLanguage": {
+                        "type": "string",
+                        "description": "The character encoding for the web application. The character encoding determines how the policy processes the character sets. The default is `utf-8`\n"
+                    },
+                    "caseInsensitive": {
+                        "type": "boolean",
+                        "description": "Specifies whether the security policy treats microservice URLs, file types, URLs, and parameters as case sensitive or not. When this setting is enabled, the system stores these security policy elements in lowercase in the security policy configuration\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Specifies the description of the policy.\n"
+                    },
+                    "enablePassivemode": {
+                        "type": "boolean",
+                        "description": "Passive Mode allows the policy to be associated with a Performance L4 Virtual Server (using a FastL4 profile). With FastL4, traffic is analyzed but is not modified in any way.\n"
+                    },
+                    "enforcementMode": {
+                        "type": "string",
+                        "description": "How the system processes a request that triggers a security policy violation\n"
+                    },
+                    "modifications": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "the modifications section includes actions that modify the declarative policy as it is defined in the adjustments\nsection. The modifications section is updated manually, with the changes generally driven by the learning suggestions\nprovided by the BIG-IP.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_). It will be `fullpath`, ex: `/Common/policy1`\n"
+                    },
+                    "parameters": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "This section defines parameters that the security policy permits in requests.\n"
+                    },
+                    "policyExportJson": {
+                        "type": "string",
+                        "description": "Exported WAF policy deployed on BIGIP.\n"
+                    },
+                    "policyId": {
+                        "type": "string",
+                        "description": "The id of the A.WAF Policy as it would be calculated on the BIG-IP.\n"
+                    },
+                    "policyImportJson": {
+                        "type": "string",
+                        "description": "The payload of the WAF Policy to be used for IMPORT on to BIGIP\n"
+                    },
+                    "protocolIndependent": {
+                        "type": "boolean",
+                        "description": "When creating a security policy, you can determine whether a security policy differentiates between HTTP and HTTPS URLs. If enabled, the security policy differentiates between HTTP and HTTPS URLs. If disabled, the security policy configures URLs without specifying a specific protocol. This is useful for applications that behave the same for HTTP and HTTPS, and it keeps the security policy from including the same URL twice.\n"
+                    },
+                    "serverTechnologies": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "The server technology is a server-side application, framework, web server or operating system type that is configured in the policy in order to adapt the policy to the checks needed for the respective technology.\n"
+                    },
+                    "signatureSets": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Defines behavior when signatures found within a signature-set are detected in a request. Settings are culmulative, so if a signature is found in any set with block enabled, that signature will have block enabled.\n"
+                    },
+                    "signatures": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "This section defines the properties of a signature on the policy.\n"
+                    },
+                    "templateName": {
+                        "type": "string",
+                        "description": "Specifies the name of the template used for the policy creation.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "The type of policy you want to create. The default policy type is Security.\n"
+                    },
+                    "urls": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "In a security policy, you can manually specify the HTTP URLs that are allowed (or disallowed) in traffic to the web application being protected. If you are using automatic policy building (and the policy includes learning URLs), the system can determine which URLs to add, based on legitimate traffic.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "f5bigip:ltm/dataGroup:DataGroup": {
             "description": "`f5bigip.ltm.DataGroup` Manages internal (in-line) datagroup configuration\n\nResource should be named with their`full path`. The full path is the combination of the `partition + name` of the resource, for example `/Common/my-datagroup`.\n",
             "properties": {
@@ -6450,7 +6770,7 @@
             }
         },
         "f5bigip:ltm/monitor:Monitor": {
-            "description": "`f5bigip.ltm.Monitor` Configures a custom monitor for use by health checks.\n\nFor resources should be named with their \"full path\". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst monitor = new f5bigip.ltm.Monitor(\"monitor\", {\n    destination: \"1.2.3.4:1234\",\n    interval: 999,\n    name: \"/Common/terraform_monitor\",\n    parent: \"/Common/http\",\n    send: \"GET /some/path\r\\n\",\n    timeout: 999,\n});\nconst test_ftp_monitor = new f5bigip.ltm.Monitor(\"test-ftp-monitor\", {\n    destination: \"*:8008\",\n    filename: \"somefile\",\n    interval: 5,\n    name: \"/Common/ftp-test\",\n    parent: \"/Common/ftp\",\n    timeUntilUp: 0,\n    timeout: 16,\n});\nconst test_postgresql_monitor = new f5bigip.ltm.Monitor(\"test-postgresql-monitor\", {\n    interval: 5,\n    name: \"/Common/test-postgresql-monitor\",\n    parent: \"/Common/postgresql\",\n    password: \"abcd1234\",\n    receive: \"Test\",\n    send: \"SELECT 'Test';\",\n    timeout: 16,\n    username: \"abcd\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nmonitor = f5bigip.ltm.Monitor(\"monitor\",\n    destination=\"1.2.3.4:1234\",\n    interval=999,\n    name=\"/Common/terraform_monitor\",\n    parent=\"/Common/http\",\n    send=\"\"\"GET /some/path\r\n\n\"\"\",\n    timeout=999)\ntest_ftp_monitor = f5bigip.ltm.Monitor(\"test-ftp-monitor\",\n    destination=\"*:8008\",\n    filename=\"somefile\",\n    interval=5,\n    name=\"/Common/ftp-test\",\n    parent=\"/Common/ftp\",\n    time_until_up=0,\n    timeout=16)\ntest_postgresql_monitor = f5bigip.ltm.Monitor(\"test-postgresql-monitor\",\n    interval=5,\n    name=\"/Common/test-postgresql-monitor\",\n    parent=\"/Common/postgresql\",\n    password=\"abcd1234\",\n    receive=\"Test\",\n    send=\"SELECT 'Test';\",\n    timeout=16,\n    username=\"abcd\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var monitor = new F5BigIP.Ltm.Monitor(\"monitor\", new F5BigIP.Ltm.MonitorArgs\n        {\n            Destination = \"1.2.3.4:1234\",\n            Interval = 999,\n            Name = \"/Common/terraform_monitor\",\n            Parent = \"/Common/http\",\n            Send = @\"GET /some/path\r\n\n\",\n            Timeout = 999,\n        });\n        var test_ftp_monitor = new F5BigIP.Ltm.Monitor(\"test-ftp-monitor\", new F5BigIP.Ltm.MonitorArgs\n        {\n            Destination = \"*:8008\",\n            Filename = \"somefile\",\n            Interval = 5,\n            Name = \"/Common/ftp-test\",\n            Parent = \"/Common/ftp\",\n            TimeUntilUp = 0,\n            Timeout = 16,\n        });\n        var test_postgresql_monitor = new F5BigIP.Ltm.Monitor(\"test-postgresql-monitor\", new F5BigIP.Ltm.MonitorArgs\n        {\n            Interval = 5,\n            Name = \"/Common/test-postgresql-monitor\",\n            Parent = \"/Common/postgresql\",\n            Password = \"abcd1234\",\n            Receive = \"Test\",\n            Send = \"SELECT 'Test';\",\n            Timeout = 16,\n            Username = \"abcd\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewMonitor(ctx, \"monitor\", \u0026ltm.MonitorArgs{\n\t\t\tDestination: pulumi.String(\"1.2.3.4:1234\"),\n\t\t\tInterval:    pulumi.Int(999),\n\t\t\tName:        pulumi.String(\"/Common/terraform_monitor\"),\n\t\t\tParent:      pulumi.String(\"/Common/http\"),\n\t\t\tSend: pulumi.String(fmt.Sprintf(\"%v%v\", \"GET /some/path\r\\n\", \"\\n\")),\n\t\t\tTimeout: pulumi.Int(999),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewMonitor(ctx, \"test-ftp-monitor\", \u0026ltm.MonitorArgs{\n\t\t\tDestination: pulumi.String(\"*:8008\"),\n\t\t\tFilename:    pulumi.String(\"somefile\"),\n\t\t\tInterval:    pulumi.Int(5),\n\t\t\tName:        pulumi.String(\"/Common/ftp-test\"),\n\t\t\tParent:      pulumi.String(\"/Common/ftp\"),\n\t\t\tTimeUntilUp: pulumi.Int(0),\n\t\t\tTimeout:     pulumi.Int(16),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewMonitor(ctx, \"test-postgresql-monitor\", \u0026ltm.MonitorArgs{\n\t\t\tInterval: pulumi.Int(5),\n\t\t\tName:     pulumi.String(\"/Common/test-postgresql-monitor\"),\n\t\t\tParent:   pulumi.String(\"/Common/postgresql\"),\n\t\t\tPassword: pulumi.String(\"abcd1234\"),\n\t\t\tReceive:  pulumi.String(\"Test\"),\n\t\t\tSend:     pulumi.String(\"SELECT 'Test';\"),\n\t\t\tTimeout:  pulumi.Int(16),\n\t\t\tUsername: pulumi.String(\"abcd\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "`f5bigip.ltm.Monitor` Configures a custom monitor for use by health checks.\n\nFor resources should be named with their \"full path\". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst monitor = new f5bigip.ltm.Monitor(\"monitor\", {\n    destination: \"1.2.3.4:1234\",\n    interval: 999,\n    name: \"/Common/terraform_monitor\",\n    parent: \"/Common/http\",\n    send: \"GET /some/path\r\\n\",\n    timeout: 999,\n});\nconst test_https_monitor = new f5bigip.ltm.Monitor(\"test-https-monitor\", {\n    interval: 999,\n    name: \"/Common/terraform_monitor\",\n    parent: \"/Common/http\",\n    send: \"GET /some/path\r\\n\",\n    sslProfile: \"/Common/serverssl\",\n    timeout: 999,\n});\nconst test_ftp_monitor = new f5bigip.ltm.Monitor(\"test-ftp-monitor\", {\n    destination: \"*:8008\",\n    filename: \"somefile\",\n    interval: 5,\n    name: \"/Common/ftp-test\",\n    parent: \"/Common/ftp\",\n    timeUntilUp: 0,\n    timeout: 16,\n});\nconst test_postgresql_monitor = new f5bigip.ltm.Monitor(\"test-postgresql-monitor\", {\n    interval: 5,\n    name: \"/Common/test-postgresql-monitor\",\n    parent: \"/Common/postgresql\",\n    password: \"abcd1234\",\n    receive: \"Test\",\n    send: \"SELECT 'Test';\",\n    timeout: 16,\n    username: \"abcd\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nmonitor = f5bigip.ltm.Monitor(\"monitor\",\n    destination=\"1.2.3.4:1234\",\n    interval=999,\n    name=\"/Common/terraform_monitor\",\n    parent=\"/Common/http\",\n    send=\"\"\"GET /some/path\r\n\n\"\"\",\n    timeout=999)\ntest_https_monitor = f5bigip.ltm.Monitor(\"test-https-monitor\",\n    interval=999,\n    name=\"/Common/terraform_monitor\",\n    parent=\"/Common/http\",\n    send=\"\"\"GET /some/path\r\n\n\"\"\",\n    ssl_profile=\"/Common/serverssl\",\n    timeout=999)\ntest_ftp_monitor = f5bigip.ltm.Monitor(\"test-ftp-monitor\",\n    destination=\"*:8008\",\n    filename=\"somefile\",\n    interval=5,\n    name=\"/Common/ftp-test\",\n    parent=\"/Common/ftp\",\n    time_until_up=0,\n    timeout=16)\ntest_postgresql_monitor = f5bigip.ltm.Monitor(\"test-postgresql-monitor\",\n    interval=5,\n    name=\"/Common/test-postgresql-monitor\",\n    parent=\"/Common/postgresql\",\n    password=\"abcd1234\",\n    receive=\"Test\",\n    send=\"SELECT 'Test';\",\n    timeout=16,\n    username=\"abcd\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var monitor = new F5BigIP.Ltm.Monitor(\"monitor\", new F5BigIP.Ltm.MonitorArgs\n        {\n            Destination = \"1.2.3.4:1234\",\n            Interval = 999,\n            Name = \"/Common/terraform_monitor\",\n            Parent = \"/Common/http\",\n            Send = @\"GET /some/path\r\n\n\",\n            Timeout = 999,\n        });\n        var test_https_monitor = new F5BigIP.Ltm.Monitor(\"test-https-monitor\", new F5BigIP.Ltm.MonitorArgs\n        {\n            Interval = 999,\n            Name = \"/Common/terraform_monitor\",\n            Parent = \"/Common/http\",\n            Send = @\"GET /some/path\r\n\n\",\n            SslProfile = \"/Common/serverssl\",\n            Timeout = 999,\n        });\n        var test_ftp_monitor = new F5BigIP.Ltm.Monitor(\"test-ftp-monitor\", new F5BigIP.Ltm.MonitorArgs\n        {\n            Destination = \"*:8008\",\n            Filename = \"somefile\",\n            Interval = 5,\n            Name = \"/Common/ftp-test\",\n            Parent = \"/Common/ftp\",\n            TimeUntilUp = 0,\n            Timeout = 16,\n        });\n        var test_postgresql_monitor = new F5BigIP.Ltm.Monitor(\"test-postgresql-monitor\", new F5BigIP.Ltm.MonitorArgs\n        {\n            Interval = 5,\n            Name = \"/Common/test-postgresql-monitor\",\n            Parent = \"/Common/postgresql\",\n            Password = \"abcd1234\",\n            Receive = \"Test\",\n            Send = \"SELECT 'Test';\",\n            Timeout = 16,\n            Username = \"abcd\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewMonitor(ctx, \"monitor\", \u0026ltm.MonitorArgs{\n\t\t\tDestination: pulumi.String(\"1.2.3.4:1234\"),\n\t\t\tInterval:    pulumi.Int(999),\n\t\t\tName:        pulumi.String(\"/Common/terraform_monitor\"),\n\t\t\tParent:      pulumi.String(\"/Common/http\"),\n\t\t\tSend: pulumi.String(fmt.Sprintf(\"%v%v\", \"GET /some/path\r\\n\", \"\\n\")),\n\t\t\tTimeout: pulumi.Int(999),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewMonitor(ctx, \"test-https-monitor\", \u0026ltm.MonitorArgs{\n\t\t\tInterval: pulumi.Int(999),\n\t\t\tName:     pulumi.String(\"/Common/terraform_monitor\"),\n\t\t\tParent:   pulumi.String(\"/Common/http\"),\n\t\t\tSend: pulumi.String(fmt.Sprintf(\"%v%v\", \"GET /some/path\r\\n\", \"\\n\")),\n\t\t\tSslProfile: pulumi.String(\"/Common/serverssl\"),\n\t\t\tTimeout:    pulumi.Int(999),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewMonitor(ctx, \"test-ftp-monitor\", \u0026ltm.MonitorArgs{\n\t\t\tDestination: pulumi.String(\"*:8008\"),\n\t\t\tFilename:    pulumi.String(\"somefile\"),\n\t\t\tInterval:    pulumi.Int(5),\n\t\t\tName:        pulumi.String(\"/Common/ftp-test\"),\n\t\t\tParent:      pulumi.String(\"/Common/ftp\"),\n\t\t\tTimeUntilUp: pulumi.Int(0),\n\t\t\tTimeout:     pulumi.Int(16),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewMonitor(ctx, \"test-postgresql-monitor\", \u0026ltm.MonitorArgs{\n\t\t\tInterval: pulumi.Int(5),\n\t\t\tName:     pulumi.String(\"/Common/test-postgresql-monitor\"),\n\t\t\tParent:   pulumi.String(\"/Common/postgresql\"),\n\t\t\tPassword: pulumi.String(\"abcd1234\"),\n\t\t\tReceive:  pulumi.String(\"Test\"),\n\t\t\tSend:     pulumi.String(\"SELECT 'Test';\"),\n\t\t\tTimeout:  pulumi.Int(16),\n\t\t\tUsername: pulumi.String(\"abcd\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "adaptive": {
                     "type": "string",
@@ -6519,6 +6839,10 @@
                 "send": {
                     "type": "string",
                     "description": "Specifies the text string that the monitor sends to the target object.\n"
+                },
+                "sslProfile": {
+                    "type": "string",
+                    "description": "Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`\n"
                 },
                 "timeUntilUp": {
                     "type": "integer",
@@ -6627,6 +6951,10 @@
                     "type": "string",
                     "description": "Specifies the text string that the monitor sends to the target object.\n"
                 },
+                "sslProfile": {
+                    "type": "string",
+                    "description": "Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`\n"
+                },
                 "timeUntilUp": {
                     "type": "integer",
                     "description": "Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.\n"
@@ -6722,6 +7050,10 @@
                     "send": {
                         "type": "string",
                         "description": "Specifies the text string that the monitor sends to the target object.\n"
+                    },
+                    "sslProfile": {
+                        "type": "string",
+                        "description": "Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`\n"
                     },
                     "timeUntilUp": {
                         "type": "integer",
@@ -11822,7 +12154,7 @@
             }
         },
         "f5bigip:net/selfIp:SelfIp": {
-            "description": "`f5bigip.net.SelfIp` Manages a selfip configuration\n\nResource should be named with their `full path`. The full path is the combination of the `partition + name of the resource`, for example `/Common/my-selfip`.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst vlan1 = new f5bigip.net.Vlan(\"vlan1\", {\n    name: \"/Common/Internal\",\n    tag: 101,\n    interfaces: [{\n        vlanport: \"1.2\",\n        tagged: false,\n    }],\n});\nconst selfip1 = new f5bigip.net.SelfIp(\"selfip1\", {\n    name: \"/Common/internalselfIP\",\n    ip: \"11.1.1.1/24\",\n    vlan: \"/Common/internal\",\n}, {\n    dependsOn: [vlan1],\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nvlan1 = f5bigip.net.Vlan(\"vlan1\",\n    name=\"/Common/Internal\",\n    tag=101,\n    interfaces=[f5bigip.net.VlanInterfaceArgs(\n        vlanport=\"1.2\",\n        tagged=False,\n    )])\nselfip1 = f5bigip.net.SelfIp(\"selfip1\",\n    name=\"/Common/internalselfIP\",\n    ip=\"11.1.1.1/24\",\n    vlan=\"/Common/internal\",\n    opts=pulumi.ResourceOptions(depends_on=[vlan1]))\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var vlan1 = new F5BigIP.Net.Vlan(\"vlan1\", new F5BigIP.Net.VlanArgs\n        {\n            Name = \"/Common/Internal\",\n            Tag = 101,\n            Interfaces = \n            {\n                new F5BigIP.Net.Inputs.VlanInterfaceArgs\n                {\n                    Vlanport = \"1.2\",\n                    Tagged = false,\n                },\n            },\n        });\n        var selfip1 = new F5BigIP.Net.SelfIp(\"selfip1\", new F5BigIP.Net.SelfIpArgs\n        {\n            Name = \"/Common/internalselfIP\",\n            Ip = \"11.1.1.1/24\",\n            Vlan = \"/Common/internal\",\n        }, new CustomResourceOptions\n        {\n            DependsOn = \n            {\n                vlan1,\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/net\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tvlan1, err := net.NewVlan(ctx, \"vlan1\", \u0026net.VlanArgs{\n\t\t\tName: pulumi.String(\"/Common/Internal\"),\n\t\t\tTag:  pulumi.Int(101),\n\t\t\tInterfaces: net.VlanInterfaceArray{\n\t\t\t\t\u0026net.VlanInterfaceArgs{\n\t\t\t\t\tVlanport: pulumi.String(\"1.2\"),\n\t\t\t\t\tTagged:   pulumi.Bool(false),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = net.NewSelfIp(ctx, \"selfip1\", \u0026net.SelfIpArgs{\n\t\t\tName: pulumi.String(\"/Common/internalselfIP\"),\n\t\t\tIp:   pulumi.String(\"11.1.1.1/24\"),\n\t\t\tVlan: pulumi.String(\"/Common/internal\"),\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tvlan1,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% example %}}\n### Example usage with `port_lockdown`\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst selfip1 = new f5bigip.net.SelfIp(\"selfip1\", {\n    name: \"/Common/internalselfIP\",\n    ip: \"11.1.1.1/24\",\n    vlan: \"/Common/internal\",\n    trafficGroup: \"traffic-group-1\",\n    portLockdowns: [\n        \"tcp:4040\",\n        \"udp:5050\",\n        \"egp:0\",\n    ],\n}, {\n    dependsOn: [bigip_net_vlan.vlan1],\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nselfip1 = f5bigip.net.SelfIp(\"selfip1\",\n    name=\"/Common/internalselfIP\",\n    ip=\"11.1.1.1/24\",\n    vlan=\"/Common/internal\",\n    traffic_group=\"traffic-group-1\",\n    port_lockdowns=[\n        \"tcp:4040\",\n        \"udp:5050\",\n        \"egp:0\",\n    ],\n    opts=pulumi.ResourceOptions(depends_on=[bigip_net_vlan[\"vlan1\"]]))\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var selfip1 = new F5BigIP.Net.SelfIp(\"selfip1\", new F5BigIP.Net.SelfIpArgs\n        {\n            Name = \"/Common/internalselfIP\",\n            Ip = \"11.1.1.1/24\",\n            Vlan = \"/Common/internal\",\n            TrafficGroup = \"traffic-group-1\",\n            PortLockdowns = \n            {\n                \"tcp:4040\",\n                \"udp:5050\",\n                \"egp:0\",\n            },\n        }, new CustomResourceOptions\n        {\n            DependsOn = \n            {\n                bigip_net_vlan.Vlan1,\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/net\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := net.NewSelfIp(ctx, \"selfip1\", \u0026net.SelfIpArgs{\n\t\t\tName:         pulumi.String(\"/Common/internalselfIP\"),\n\t\t\tIp:           pulumi.String(\"11.1.1.1/24\"),\n\t\t\tVlan:         pulumi.String(\"/Common/internal\"),\n\t\t\tTrafficGroup: pulumi.String(\"traffic-group-1\"),\n\t\t\tPortLockdowns: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"tcp:4040\"),\n\t\t\t\tpulumi.String(\"udp:5050\"),\n\t\t\t\tpulumi.String(\"egp:0\"),\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tbigip_net_vlan.Vlan1,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "`f5bigip.net.SelfIp` Manages a selfip configuration\n\nResource should be named with their `full path`. The full path is the combination of the `partition + name of the resource`, for example `/Common/my-selfip`.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst vlan1 = new f5bigip.net.Vlan(\"vlan1\", {\n    name: \"/Common/Internal\",\n    tag: 101,\n    interfaces: [{\n        vlanport: \"1.2\",\n        tagged: false,\n    }],\n});\nconst selfip1 = new f5bigip.net.SelfIp(\"selfip1\", {\n    name: \"/Common/internalselfIP\",\n    ip: \"11.1.1.1/24\",\n    vlan: \"/Common/internal\",\n}, {\n    dependsOn: [vlan1],\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nvlan1 = f5bigip.net.Vlan(\"vlan1\",\n    name=\"/Common/Internal\",\n    tag=101,\n    interfaces=[f5bigip.net.VlanInterfaceArgs(\n        vlanport=\"1.2\",\n        tagged=False,\n    )])\nselfip1 = f5bigip.net.SelfIp(\"selfip1\",\n    name=\"/Common/internalselfIP\",\n    ip=\"11.1.1.1/24\",\n    vlan=\"/Common/internal\",\n    opts=pulumi.ResourceOptions(depends_on=[vlan1]))\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var vlan1 = new F5BigIP.Net.Vlan(\"vlan1\", new F5BigIP.Net.VlanArgs\n        {\n            Name = \"/Common/Internal\",\n            Tag = 101,\n            Interfaces = \n            {\n                new F5BigIP.Net.Inputs.VlanInterfaceArgs\n                {\n                    Vlanport = \"1.2\",\n                    Tagged = false,\n                },\n            },\n        });\n        var selfip1 = new F5BigIP.Net.SelfIp(\"selfip1\", new F5BigIP.Net.SelfIpArgs\n        {\n            Name = \"/Common/internalselfIP\",\n            Ip = \"11.1.1.1/24\",\n            Vlan = \"/Common/internal\",\n        }, new CustomResourceOptions\n        {\n            DependsOn = \n            {\n                vlan1,\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/net\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tvlan1, err := net.NewVlan(ctx, \"vlan1\", \u0026net.VlanArgs{\n\t\t\tName: pulumi.String(\"/Common/Internal\"),\n\t\t\tTag:  pulumi.Int(101),\n\t\t\tInterfaces: net.VlanInterfaceArray{\n\t\t\t\t\u0026net.VlanInterfaceArgs{\n\t\t\t\t\tVlanport: pulumi.String(\"1.2\"),\n\t\t\t\t\tTagged:   pulumi.Bool(false),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = net.NewSelfIp(ctx, \"selfip1\", \u0026net.SelfIpArgs{\n\t\t\tName: pulumi.String(\"/Common/internalselfIP\"),\n\t\t\tIp:   pulumi.String(\"11.1.1.1/24\"),\n\t\t\tVlan: pulumi.String(\"/Common/internal\"),\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tvlan1,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% example %}}\n### Example usage with `port_lockdown`\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst selfip1 = new f5bigip.net.SelfIp(\"selfip1\", {\n    name: \"/Common/internalselfIP\",\n    ip: \"11.1.1.1/24\",\n    vlan: \"/Common/internal\",\n    trafficGroup: \"traffic-group-1\",\n    portLockdowns: [\n        \"tcp:4040\",\n        \"udp:5050\",\n        \"egp:0\",\n    ],\n}, {\n    dependsOn: [bigip_net_vlan.vlan1],\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nselfip1 = f5bigip.net.SelfIp(\"selfip1\",\n    name=\"/Common/internalselfIP\",\n    ip=\"11.1.1.1/24\",\n    vlan=\"/Common/internal\",\n    traffic_group=\"traffic-group-1\",\n    port_lockdowns=[\n        \"tcp:4040\",\n        \"udp:5050\",\n        \"egp:0\",\n    ],\n    opts=pulumi.ResourceOptions(depends_on=[bigip_net_vlan[\"vlan1\"]]))\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var selfip1 = new F5BigIP.Net.SelfIp(\"selfip1\", new F5BigIP.Net.SelfIpArgs\n        {\n            Name = \"/Common/internalselfIP\",\n            Ip = \"11.1.1.1/24\",\n            Vlan = \"/Common/internal\",\n            TrafficGroup = \"traffic-group-1\",\n            PortLockdowns = \n            {\n                \"tcp:4040\",\n                \"udp:5050\",\n                \"egp:0\",\n            },\n        }, new CustomResourceOptions\n        {\n            DependsOn = \n            {\n                bigip_net_vlan.Vlan1,\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/net\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := net.NewSelfIp(ctx, \"selfip1\", \u0026net.SelfIpArgs{\n\t\t\tName:         pulumi.String(\"/Common/internalselfIP\"),\n\t\t\tIp:           pulumi.String(\"11.1.1.1/24\"),\n\t\t\tVlan:         pulumi.String(\"/Common/internal\"),\n\t\t\tTrafficGroup: pulumi.String(\"traffic-group-1\"),\n\t\t\tPortLockdowns: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"tcp:4040\"),\n\t\t\t\tpulumi.String(\"udp:5050\"),\n\t\t\t\tpulumi.String(\"egp:0\"),\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tbigip_net_vlan.Vlan1,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% example %}}\n### Example usage with `port_lockdown` set to `[\"none\"]`\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst selfip1 = new f5bigip.net.SelfIp(\"selfip1\", {\n    name: \"/Common/internalselfIP\",\n    ip: \"11.1.1.1/24\",\n    vlan: \"/Common/internal\",\n    trafficGroup: \"traffic-group-1\",\n    portLockdowns: [\"none\"],\n}, {\n    dependsOn: [bigip_net_vlan.vlan1],\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nselfip1 = f5bigip.net.SelfIp(\"selfip1\",\n    name=\"/Common/internalselfIP\",\n    ip=\"11.1.1.1/24\",\n    vlan=\"/Common/internal\",\n    traffic_group=\"traffic-group-1\",\n    port_lockdowns=[\"none\"],\n    opts=pulumi.ResourceOptions(depends_on=[bigip_net_vlan[\"vlan1\"]]))\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var selfip1 = new F5BigIP.Net.SelfIp(\"selfip1\", new F5BigIP.Net.SelfIpArgs\n        {\n            Name = \"/Common/internalselfIP\",\n            Ip = \"11.1.1.1/24\",\n            Vlan = \"/Common/internal\",\n            TrafficGroup = \"traffic-group-1\",\n            PortLockdowns = \n            {\n                \"none\",\n            },\n        }, new CustomResourceOptions\n        {\n            DependsOn = \n            {\n                bigip_net_vlan.Vlan1,\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/net\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := net.NewSelfIp(ctx, \"selfip1\", \u0026net.SelfIpArgs{\n\t\t\tName:         pulumi.String(\"/Common/internalselfIP\"),\n\t\t\tIp:           pulumi.String(\"11.1.1.1/24\"),\n\t\t\tVlan:         pulumi.String(\"/Common/internal\"),\n\t\t\tTrafficGroup: pulumi.String(\"traffic-group-1\"),\n\t\t\tPortLockdowns: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"none\"),\n\t\t\t},\n\t\t}, pulumi.DependsOn([]pulumi.Resource{\n\t\t\tbigip_net_vlan.Vlan1,\n\t\t}))\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "ip": {
                     "type": "string",
@@ -13484,6 +13816,464 @@
                     "hubConnectedSubnets",
                     "presharedKey",
                     "vwanGwAddresses",
+                    "id"
+                ]
+            }
+        },
+        "f5bigip:ssl/getWafEntityParameter:getWafEntityParameter": {
+            "inputs": {
+                "description": "A collection of arguments for invoking getWafEntityParameter.\n",
+                "properties": {
+                    "allowEmptyType": {
+                        "type": "boolean"
+                    },
+                    "allowRepeatedParameterName": {
+                        "type": "boolean"
+                    },
+                    "attackSignaturesCheck": {
+                        "type": "boolean"
+                    },
+                    "checkMaxValueLength": {
+                        "type": "boolean"
+                    },
+                    "checkMinValueLength": {
+                        "type": "boolean"
+                    },
+                    "dataType": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "enableRegularExpression": {
+                        "type": "boolean"
+                    },
+                    "isBase64": {
+                        "type": "boolean"
+                    },
+                    "isCookie": {
+                        "type": "boolean"
+                    },
+                    "isHeader": {
+                        "type": "boolean"
+                    },
+                    "json": {
+                        "type": "string"
+                    },
+                    "level": {
+                        "type": "string"
+                    },
+                    "mandatory": {
+                        "type": "boolean"
+                    },
+                    "metacharsOnParameterValueCheck": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "parameterLocation": {
+                        "type": "string"
+                    },
+                    "performStaging": {
+                        "type": "boolean"
+                    },
+                    "sensitiveParameter": {
+                        "type": "boolean"
+                    },
+                    "signatureOverridesDisables": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "valueType": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getWafEntityParameter.\n",
+                "properties": {
+                    "allowEmptyType": {
+                        "type": "boolean"
+                    },
+                    "allowRepeatedParameterName": {
+                        "type": "boolean"
+                    },
+                    "attackSignaturesCheck": {
+                        "type": "boolean"
+                    },
+                    "checkMaxValueLength": {
+                        "type": "boolean"
+                    },
+                    "checkMinValueLength": {
+                        "type": "boolean"
+                    },
+                    "dataType": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "enableRegularExpression": {
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "isBase64": {
+                        "type": "boolean"
+                    },
+                    "isCookie": {
+                        "type": "boolean"
+                    },
+                    "isHeader": {
+                        "type": "boolean"
+                    },
+                    "json": {
+                        "type": "string"
+                    },
+                    "level": {
+                        "type": "string"
+                    },
+                    "mandatory": {
+                        "type": "boolean"
+                    },
+                    "metacharsOnParameterValueCheck": {
+                        "type": "boolean"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "parameterLocation": {
+                        "type": "string"
+                    },
+                    "performStaging": {
+                        "type": "boolean"
+                    },
+                    "sensitiveParameter": {
+                        "type": "boolean"
+                    },
+                    "signatureOverridesDisables": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "valueType": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "json",
+                    "name",
+                    "id"
+                ]
+            }
+        },
+        "f5bigip:ssl/getWafEntityUrl:getWafEntityUrl": {
+            "description": "Use this data source (`f5bigip.ssl.getWafPbSuggestions`) to create JSON for WAF URL to later use with an existing WAF policy.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst wAFURL1 = pulumi.output(f5bigip.ssl.getWafEntityUrl({\n    description: \"this is a test\",\n    methodOverrides: [\n        {\n            allow: false,\n            method: \"BCOPY\",\n        },\n        {\n            allow: true,\n            method: \"BDELETE\",\n        },\n    ],\n    name: \"/foobar\",\n    performStaging: true,\n    protocol: \"HTTP\",\n    signatureOverridesDisables: [\n        12345678,\n        87654321,\n    ],\n    type: \"explicit\",\n}));\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nw_afurl1 = f5bigip.ssl.get_waf_entity_url(description=\"this is a test\",\n    method_overrides=[\n        f5bigip.ssl.GetWafEntityUrlMethodOverrideArgs(\n            allow=False,\n            method=\"BCOPY\",\n        ),\n        f5bigip.ssl.GetWafEntityUrlMethodOverrideArgs(\n            allow=True,\n            method=\"BDELETE\",\n        ),\n    ],\n    name=\"/foobar\",\n    perform_staging=True,\n    protocol=\"HTTP\",\n    signature_overrides_disables=[\n        12345678,\n        87654321,\n    ],\n    type=\"explicit\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var wAFURL1 = Output.Create(F5BigIP.Ssl.GetWafEntityUrl.InvokeAsync(new F5BigIP.Ssl.GetWafEntityUrlArgs\n        {\n            Description = \"this is a test\",\n            MethodOverrides = \n            {\n                new F5BigIP.Ssl.Inputs.GetWafEntityUrlMethodOverrideArgs\n                {\n                    Allow = false,\n                    Method = \"BCOPY\",\n                },\n                new F5BigIP.Ssl.Inputs.GetWafEntityUrlMethodOverrideArgs\n                {\n                    Allow = true,\n                    Method = \"BDELETE\",\n                },\n            },\n            Name = \"/foobar\",\n            PerformStaging = true,\n            Protocol = \"HTTP\",\n            SignatureOverridesDisables = \n            {\n                12345678,\n                87654321,\n            },\n            Type = \"explicit\",\n        }));\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getWafEntityUrl.\n",
+                "properties": {
+                    "description": {
+                        "type": "string",
+                        "description": "A description of the URL.\n"
+                    },
+                    "method": {
+                        "type": "string",
+                        "description": "Specifies an HTTP method.\n"
+                    },
+                    "methodOverrides": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/f5bigip:ssl/getWafEntityUrlMethodOverride:getWafEntityUrlMethodOverride"
+                        },
+                        "description": "A list of methods that are allowed or disallowed for a specific URL.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "WAF entity URL name.\n"
+                    },
+                    "performStaging": {
+                        "type": "boolean",
+                        "description": "If true then any violation associated to the respective URL will not be enforced, and the request will not be considered illegal.\n"
+                    },
+                    "protocol": {
+                        "type": "string",
+                        "description": "Specifies whether the protocol for the URL is 'http' or 'https'. Default is: http.\n"
+                    },
+                    "signatureOverridesDisables": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        },
+                        "description": "List of Attack Signature Ids which are disabled for this particular URL.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Specifies whether the parameter is an 'explicit' or a 'wildcard' attribute. Default is: wildcard.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "name"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getWafEntityUrl.\n",
+                "properties": {
+                    "description": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "json": {
+                        "type": "string",
+                        "description": "Json string representing created WAF entity URL declaration in JSON format\n"
+                    },
+                    "method": {
+                        "type": "string"
+                    },
+                    "methodOverrides": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/f5bigip:ssl/getWafEntityUrlMethodOverride:getWafEntityUrlMethodOverride"
+                        }
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "performStaging": {
+                        "type": "boolean"
+                    },
+                    "protocol": {
+                        "type": "string"
+                    },
+                    "signatureOverridesDisables": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "type": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "json",
+                    "name",
+                    "id"
+                ]
+            }
+        },
+        "f5bigip:ssl/getWafPbSuggestions:getWafPbSuggestions": {
+            "description": "Use this data source (`f5bigip.ssl.getWafPbSuggestions`) to export PB suggestions from an existing WAF policy.\n \n \n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst pBWAF1 = pulumi.output(f5bigip.ssl.getWafPbSuggestions({\n    minimumLearningScore: 20,\n    partition: \"Common\",\n    policyName: \"protect_me_policy\",\n}));\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\np_bwaf1 = f5bigip.ssl.get_waf_pb_suggestions(minimum_learning_score=20,\n    partition=\"Common\",\n    policy_name=\"protect_me_policy\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var pBWAF1 = Output.Create(F5BigIP.Ssl.GetWafPbSuggestions.InvokeAsync(new F5BigIP.Ssl.GetWafPbSuggestionsArgs\n        {\n            MinimumLearningScore = 20,\n            Partition = \"Common\",\n            PolicyName = \"protect_me_policy\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ssl\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ssl.GetWafPbSuggestions(ctx, \u0026ssl.GetWafPbSuggestionsArgs{\n\t\t\tMinimumLearningScore: 20,\n\t\t\tPartition:            \"Common\",\n\t\t\tPolicyName:           \"protect_me_policy\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getWafPbSuggestions.\n",
+                "properties": {
+                    "minimumLearningScore": {
+                        "type": "integer",
+                        "description": "The minimum learning score for suggestions.\n"
+                    },
+                    "partition": {
+                        "type": "string",
+                        "description": "Partition on which WAF policy is located.\n"
+                    },
+                    "policyId": {
+                        "type": "string",
+                        "description": "System generated id of the WAF policy\n"
+                    },
+                    "policyName": {
+                        "type": "string",
+                        "description": "WAF policy name from which PB suggestions should be exported.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "minimumLearningScore",
+                    "partition",
+                    "policyName"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getWafPbSuggestions.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "json": {
+                        "type": "string",
+                        "description": "Json string representing exported PB suggestions ready to be used in WAF policy declaration\n"
+                    },
+                    "minimumLearningScore": {
+                        "type": "integer"
+                    },
+                    "partition": {
+                        "type": "string"
+                    },
+                    "policyId": {
+                        "type": "string",
+                        "description": "System generated id of the WAF policy\n"
+                    },
+                    "policyName": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "json",
+                    "minimumLearningScore",
+                    "partition",
+                    "policyId",
+                    "policyName",
+                    "id"
+                ]
+            }
+        },
+        "f5bigip:ssl/getWafPolicy:getWafPolicy": {
+            "description": "Use this data source (`f5bigip.WafPolicy`) to get the details of exist WAF policy BIG-IP.\n \n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst existpolicy = pulumi.output(f5bigip.ssl.getWafPolicy({\n    policyId: \"xxxxx\",\n}));\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nexistpolicy = f5bigip.ssl.get_waf_policy(policy_id=\"xxxxx\")\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var existpolicy = Output.Create(F5BigIP.Ssl.GetWafPolicy.InvokeAsync(new F5BigIP.Ssl.GetWafPolicyArgs\n        {\n            PolicyId = \"xxxxx\",\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ssl\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ssl.GetWafPolicy(ctx, \u0026ssl.GetWafPolicyArgs{\n\t\t\tPolicyId: \"xxxxx\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getWafPolicy.\n",
+                "properties": {
+                    "policyId": {
+                        "type": "string",
+                        "description": "ID of the WAF policy deployed in the BIG-IP.\n"
+                    },
+                    "policyJson": {
+                        "type": "string",
+                        "description": "Exported WAF policy JSON\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "policyId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getWafPolicy.\n",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "policyId": {
+                        "type": "string"
+                    },
+                    "policyJson": {
+                        "type": "string",
+                        "description": "Exported WAF policy JSON\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "policyId",
+                    "policyJson",
+                    "id"
+                ]
+            }
+        },
+        "f5bigip:ssl/getWafSignatures:getWafSignatures": {
+            "description": "Use this data source (`f5bigip.ssl.getWafSignatures`) to get the details of attack signatures available on BIG-IP WAF\n \n \n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst wAFSIG1 = pulumi.output(f5bigip.ssl.getWafSignatures({\n    signatureId: 200104004,\n}));\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nw_afsig1 = f5bigip.ssl.get_waf_signatures(signature_id=200104004)\n```\n```csharp\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var wAFSIG1 = Output.Create(F5BigIP.Ssl.GetWafSignatures.InvokeAsync(new F5BigIP.Ssl.GetWafSignaturesArgs\n        {\n            SignatureId = 200104004,\n        }));\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ssl\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ssl.GetWafSignatures(ctx, \u0026ssl.GetWafSignaturesArgs{\n\t\t\tSignatureId: 200104004,\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}",
+            "inputs": {
+                "description": "A collection of arguments for invoking getWafSignatures.\n",
+                "properties": {
+                    "accuracy": {
+                        "type": "string",
+                        "description": "The relative detection accuracy of the signature.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Description of the signature.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the signature as configured on the system.\n"
+                    },
+                    "risk": {
+                        "type": "string",
+                        "description": "The relative risk level of the attack that matches this signature.\n"
+                    },
+                    "signatureId": {
+                        "type": "integer",
+                        "description": "ID of the signature in the BIG-IP WAF database.\n"
+                    },
+                    "systemSignatureId": {
+                        "type": "string",
+                        "description": "System generated ID of the signature.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Type of the signature.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "signatureId"
+                ]
+            },
+            "outputs": {
+                "description": "A collection of values returned by getWafSignatures.\n",
+                "properties": {
+                    "accuracy": {
+                        "type": "string",
+                        "description": "The relative detection accuracy of the signature.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Description of the signature.\n"
+                    },
+                    "id": {
+                        "type": "string",
+                        "description": "The provider-assigned unique ID for this managed resource.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the signature as configured on the system.\n"
+                    },
+                    "risk": {
+                        "type": "string",
+                        "description": "The relative risk level of the attack that matches this signature.\n"
+                    },
+                    "signatureId": {
+                        "type": "integer",
+                        "description": "ID of the signature in the database.\n"
+                    },
+                    "systemSignatureId": {
+                        "type": "string",
+                        "description": "System generated ID of the signature.\n"
+                    },
+                    "type": {
+                        "type": "string",
+                        "description": "Type of the signature.\n"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "accuracy",
+                    "description",
+                    "name",
+                    "risk",
+                    "signatureId",
+                    "systemSignatureId",
+                    "type",
                     "id"
                 ]
             }

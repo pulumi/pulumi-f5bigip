@@ -8,4 +8,11 @@ import typing
 from .certificate import *
 from .get_certificate import *
 from .get_v_wan_config import *
+from .get_waf_entity_parameter import *
+from .get_waf_entity_url import *
+from .get_waf_pb_suggestions import *
+from .get_waf_policy import *
+from .get_waf_signatures import *
 from .key import *
+from ._inputs import *
+from . import outputs

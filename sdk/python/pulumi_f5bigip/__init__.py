@@ -19,6 +19,7 @@ from .net_ike_peer import *
 from .net_tunnel import *
 from .provider import *
 from .traffic_selector import *
+from .waf_policy import *
 from ._inputs import *
 from . import outputs
 
@@ -165,6 +166,14 @@ _utilities.register(
   "fqn": "pulumi_f5bigip",
   "classes": {
    "f5bigip:index/trafficSelector:TrafficSelector": "TrafficSelector"
+  }
+ },
+ {
+  "pkg": "f5bigip",
+  "mod": "index/wafPolicy",
+  "fqn": "pulumi_f5bigip",
+  "classes": {
+   "f5bigip:index/wafPolicy:WafPolicy": "WafPolicy"
   }
  },
  {

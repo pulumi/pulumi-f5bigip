@@ -46,6 +46,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NetTunnel{}
 	case "f5bigip:index/trafficSelector:TrafficSelector":
 		r = &TrafficSelector{}
+	case "f5bigip:index/wafPolicy:WafPolicy":
+		r = &WafPolicy{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -137,6 +139,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"f5bigip",
 		"index/trafficSelector",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"f5bigip",
+		"index/wafPolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourcePackage(

@@ -40,6 +40,17 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		_, err = ltm.NewMonitor(ctx, "test-https-monitor", &ltm.MonitorArgs{
+// 			Interval: pulumi.Int(999),
+// 			Name:     pulumi.String("/Common/terraform_monitor"),
+// 			Parent:   pulumi.String("/Common/http"),
+// 			Send: pulumi.String(fmt.Sprintf("%v%v", "GET /some/path\n", "\n")),
+// 			SslProfile: pulumi.String("/Common/serverssl"),
+// 			Timeout:    pulumi.Int(999),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
 // 		_, err = ltm.NewMonitor(ctx, "test-ftp-monitor", &ltm.MonitorArgs{
 // 			Destination: pulumi.String("*:8008"),
 // 			Filename:    pulumi.String("somefile"),
@@ -106,6 +117,8 @@ type Monitor struct {
 	Reverse pulumi.StringOutput `pulumi:"reverse"`
 	// Specifies the text string that the monitor sends to the target object.
 	Send pulumi.StringOutput `pulumi:"send"`
+	// Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
+	SslProfile pulumi.StringPtrOutput `pulumi:"sslProfile"`
 	// Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
 	TimeUntilUp pulumi.IntOutput `pulumi:"timeUntilUp"`
 	// Specifies the number of seconds the target has in which to respond to the monitor request. The default is `16` seconds
@@ -187,6 +200,8 @@ type monitorState struct {
 	Reverse *string `pulumi:"reverse"`
 	// Specifies the text string that the monitor sends to the target object.
 	Send *string `pulumi:"send"`
+	// Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
+	SslProfile *string `pulumi:"sslProfile"`
 	// Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
 	TimeUntilUp *int `pulumi:"timeUntilUp"`
 	// Specifies the number of seconds the target has in which to respond to the monitor request. The default is `16` seconds
@@ -234,6 +249,8 @@ type MonitorState struct {
 	Reverse pulumi.StringPtrInput
 	// Specifies the text string that the monitor sends to the target object.
 	Send pulumi.StringPtrInput
+	// Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
+	SslProfile pulumi.StringPtrInput
 	// Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
 	TimeUntilUp pulumi.IntPtrInput
 	// Specifies the number of seconds the target has in which to respond to the monitor request. The default is `16` seconds
@@ -285,6 +302,8 @@ type monitorArgs struct {
 	Reverse *string `pulumi:"reverse"`
 	// Specifies the text string that the monitor sends to the target object.
 	Send *string `pulumi:"send"`
+	// Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
+	SslProfile *string `pulumi:"sslProfile"`
 	// Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
 	TimeUntilUp *int `pulumi:"timeUntilUp"`
 	// Specifies the number of seconds the target has in which to respond to the monitor request. The default is `16` seconds
@@ -333,6 +352,8 @@ type MonitorArgs struct {
 	Reverse pulumi.StringPtrInput
 	// Specifies the text string that the monitor sends to the target object.
 	Send pulumi.StringPtrInput
+	// Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
+	SslProfile pulumi.StringPtrInput
 	// Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
 	TimeUntilUp pulumi.IntPtrInput
 	// Specifies the number of seconds the target has in which to respond to the monitor request. The default is `16` seconds

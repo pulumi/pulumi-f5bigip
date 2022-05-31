@@ -71,6 +71,11 @@
         "ssl/certificate.ts",
         "ssl/getCertificate.ts",
         "ssl/getVWanConfig.ts",
+        "ssl/getWafEntityParameter.ts",
+        "ssl/getWafEntityUrl.ts",
+        "ssl/getWafPbSuggestions.ts",
+        "ssl/getWafPolicy.ts",
+        "ssl/getWafSignatures.ts",
         "ssl/index.ts",
         "ssl/key.ts",
         "sys/bigIpLicense.ts",
@@ -85,6 +90,7 @@
         "types/index.ts",
         "types/input.ts",
         "types/output.ts",
-        "utilities.ts"
+        "utilities.ts",
+        "wafPolicy.ts"
     ]
 }
