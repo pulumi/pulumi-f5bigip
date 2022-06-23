@@ -9,22 +9,6 @@ import * as utilities from "./utilities";
  *
  * This resource is helpful to configure as3 declarative JSON on BIG-IP.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- * import * from "fs";
- *
- * // Example Usage for json file
- * const as3_example1As3 = new f5bigip.As3("as3-example1As3", {as3Json: fs.readFileSync("example1.json")});
- * // Example Usage for json file with tenant filter
- * const as3_example1Index_as3As3 = new f5bigip.As3("as3-example1Index/as3As3", {
- *     as3Json: fs.readFileSync("example2.json"),
- *     tenantFilter: "Sample_03",
- * });
- * ```
- *
  * ## Import
  *
  * As3 resources can be imported using the partition name, e.g., ( use comma separated partition names if there are multiple partitions in as3 deployments )

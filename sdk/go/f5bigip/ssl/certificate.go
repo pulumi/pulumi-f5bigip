@@ -231,6 +231,26 @@ func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) C
 	return o
 }
 
+// Content of certificate on Disk
+func (o CertificateOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Content }).(pulumi.StringOutput)
+}
+
+// Full Path Name of ssl certificate
+func (o CertificateOutput) FullPath() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.FullPath }).(pulumi.StringOutput)
+}
+
+// Name of the SSL Certificate to be Imported on to BIGIP
+func (o CertificateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Partition of ssl certificate
+func (o CertificateOutput) Partition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.Partition }).(pulumi.StringPtrOutput)
+}
+
 type CertificateArrayOutput struct{ *pulumi.OutputState }
 
 func (CertificateArrayOutput) ElementType() reflect.Type {

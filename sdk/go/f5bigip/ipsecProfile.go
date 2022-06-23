@@ -217,6 +217,26 @@ func (o IpsecProfileOutput) ToIpsecProfileOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Specifies descriptive text that identifies the IPsec interface tunnel profile.
+func (o IpsecProfileOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *IpsecProfile) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// Displays the name of the IPsec interface tunnel profile,it should be "full path".The full path is the combination of the partition + name of the IPSec profile.(For example `/Common/test-profile`)
+func (o IpsecProfileOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IpsecProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the profile from which this profile inherits settings. The default is the system-supplied `/Common/ipsec` profile
+func (o IpsecProfileOutput) ParentProfile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IpsecProfile) pulumi.StringPtrOutput { return v.ParentProfile }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the traffic selector for the IPsec interface tunnel to which the profile is applied
+func (o IpsecProfileOutput) TrafficSelector() pulumi.StringOutput {
+	return o.ApplyT(func(v *IpsecProfile) pulumi.StringOutput { return v.TrafficSelector }).(pulumi.StringOutput)
+}
+
 type IpsecProfileArrayOutput struct{ *pulumi.OutputState }
 
 func (IpsecProfileArrayOutput) ElementType() reflect.Type {

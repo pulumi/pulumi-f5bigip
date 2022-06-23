@@ -755,6 +755,286 @@ func (o ProfileClientSslOutput) ToProfileClientSslOutputWithContext(ctx context.
 	return o
 }
 
+// Alert time out
+func (o ProfileClientSslOutput) AlertTimeout() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.AlertTimeout }).(pulumi.StringOutput)
+}
+
+// Enables or disables acceptance of non-SSL connections, When creating a new profile, the setting is provided by the parent profile
+func (o ProfileClientSslOutput) AllowNonSsl() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.AllowNonSsl }).(pulumi.StringOutput)
+}
+
+// Specifies the frequency of client authentication for an SSL session.When `once`,specifies that the system authenticates the client once for an SSL session.
+// When `always`, specifies that the system authenticates the client once for an SSL session and also upon reuse of that session.
+func (o ProfileClientSslOutput) Authenticate() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.Authenticate }).(pulumi.StringOutput)
+}
+
+// Specifies the maximum number of certificates to be traversed in a client certificate chain
+func (o ProfileClientSslOutput) AuthenticateDepth() pulumi.IntOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.IntOutput { return v.AuthenticateDepth }).(pulumi.IntOutput)
+}
+
+// Specifies the client certificate to use in SSL client certificate constrained delegation. This certificate will be used if client does not provide a cert during the SSL handshake. The default value is none.
+func (o ProfileClientSslOutput) C3dClientFallbackCert() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.C3dClientFallbackCert }).(pulumi.StringOutput)
+}
+
+// Specifies the BIG-IP action when the OCSP responder returns unknown status. The default value is drop, which causes the onnection to be dropped. Conversely, you can specify ignore, which causes the connection to ignore the unknown status and continue.
+func (o ProfileClientSslOutput) C3dDropUnknownOcspStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.C3dDropUnknownOcspStatus }).(pulumi.StringOutput)
+}
+
+// Specifies the SSL client certificate constrained delegation OCSP object that the BIG-IP SSL should use to connect to the OCSP responder and check the client certificate status.
+func (o ProfileClientSslOutput) C3dOcsp() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.C3dOcsp }).(pulumi.StringOutput)
+}
+
+// Client certificate file path. Default None.
+func (o ProfileClientSslOutput) CaFile() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.CaFile }).(pulumi.StringOutput)
+}
+
+// Cache size (sessions).
+func (o ProfileClientSslOutput) CacheSize() pulumi.IntOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.IntOutput { return v.CacheSize }).(pulumi.IntOutput)
+}
+
+// Cache time out
+func (o ProfileClientSslOutput) CacheTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.IntOutput { return v.CacheTimeout }).(pulumi.IntOutput)
+}
+
+// Specifies a cert name for use.
+func (o ProfileClientSslOutput) Cert() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.Cert }).(pulumi.StringOutput)
+}
+
+// Cert extension includes for ssl forward proxy
+func (o ProfileClientSslOutput) CertExtensionIncludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringArrayOutput { return v.CertExtensionIncludes }).(pulumi.StringArrayOutput)
+}
+
+func (o ProfileClientSslOutput) CertKeyChains() ProfileClientSslCertKeyChainArrayOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) ProfileClientSslCertKeyChainArrayOutput { return v.CertKeyChains }).(ProfileClientSslCertKeyChainArrayOutput)
+}
+
+// Life span of the certificate in days for ssl forward proxy
+func (o ProfileClientSslOutput) CertLifeSpan() pulumi.IntOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.IntOutput { return v.CertLifeSpan }).(pulumi.IntOutput)
+}
+
+// Cert lookup by ip address and port enabled / disabled
+func (o ProfileClientSslOutput) CertLookupByIpaddrPort() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.CertLookupByIpaddrPort }).(pulumi.StringOutput)
+}
+
+// Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+func (o ProfileClientSslOutput) Chain() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.Chain }).(pulumi.StringOutput)
+}
+
+// Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
+func (o ProfileClientSslOutput) Ciphers() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.Ciphers }).(pulumi.StringOutput)
+}
+
+// client certificate name
+func (o ProfileClientSslOutput) ClientCertCa() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.ClientCertCa }).(pulumi.StringOutput)
+}
+
+// Certificate revocation file name
+func (o ProfileClientSslOutput) CrlFile() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.CrlFile }).(pulumi.StringOutput)
+}
+
+// Parent profile for this clientssl profile.Once this value has been set, it cannot be changed. Default value is `/Common/clientssl`. It Should Full path `/partition/profile_name`
+func (o ProfileClientSslOutput) DefaultsFrom() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringPtrOutput { return v.DefaultsFrom }).(pulumi.StringPtrOutput)
+}
+
+// Forward proxy bypass default action. (enabled / disabled)
+func (o ProfileClientSslOutput) ForwardProxyBypassDefaultAction() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.ForwardProxyBypassDefaultAction }).(pulumi.StringOutput)
+}
+
+// full path of the profile
+func (o ProfileClientSslOutput) FullPath() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.FullPath }).(pulumi.StringOutput)
+}
+
+// generation
+func (o ProfileClientSslOutput) Generation() pulumi.IntOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.IntOutput { return v.Generation }).(pulumi.IntOutput)
+}
+
+// Generic alerts enabled / disabled.
+func (o ProfileClientSslOutput) GenericAlert() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.GenericAlert }).(pulumi.StringOutput)
+}
+
+// Handshake time out (seconds)
+func (o ProfileClientSslOutput) HandshakeTimeout() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.HandshakeTimeout }).(pulumi.StringOutput)
+}
+
+// Inherit cert key chain
+func (o ProfileClientSslOutput) InheritCertKeychain() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.InheritCertKeychain }).(pulumi.StringOutput)
+}
+
+// Contains a key name
+func (o ProfileClientSslOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
+}
+
+// ModSSL Methods enabled / disabled. Default is disabled.
+func (o ProfileClientSslOutput) ModSslMethods() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.ModSslMethods }).(pulumi.StringOutput)
+}
+
+// ModSSL Methods enabled / disabled. Default is disabled.
+func (o ProfileClientSslOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.Mode }).(pulumi.StringOutput)
+}
+
+// Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
+func (o ProfileClientSslOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// name of partition
+func (o ProfileClientSslOutput) Partition() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.Partition }).(pulumi.StringOutput)
+}
+
+// Client Certificate Constrained Delegation CA passphrase
+func (o ProfileClientSslOutput) Passphrase() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.Passphrase }).(pulumi.StringOutput)
+}
+
+// Specifies the way the system handles client certificates.When ignore, specifies that the system ignores certificates from client systems.When require, specifies that the system requires a client to present a valid certificate.When request, specifies that the system requests a valid certificate from a client but always authenticate the client.
+func (o ProfileClientSslOutput) PeerCertMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.PeerCertMode }).(pulumi.StringOutput)
+}
+
+// Proxy CA Cert
+func (o ProfileClientSslOutput) ProxyCaCert() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.ProxyCaCert }).(pulumi.StringOutput)
+}
+
+// Proxy CA Key
+func (o ProfileClientSslOutput) ProxyCaKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.ProxyCaKey }).(pulumi.StringOutput)
+}
+
+// Proxy CA Passphrase
+func (o ProfileClientSslOutput) ProxyCaPassphrase() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.ProxyCaPassphrase }).(pulumi.StringOutput)
+}
+
+// Proxy SSL enabled / disabled. Default is disabled.
+func (o ProfileClientSslOutput) ProxySsl() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.ProxySsl }).(pulumi.StringOutput)
+}
+
+// Proxy SSL passthrough enabled / disabled. Default is disabled.
+func (o ProfileClientSslOutput) ProxySslPassthrough() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.ProxySslPassthrough }).(pulumi.StringOutput)
+}
+
+// Renogotiate Period (seconds)
+func (o ProfileClientSslOutput) RenegotiatePeriod() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.RenegotiatePeriod }).(pulumi.StringOutput)
+}
+
+// Renogotiate Size
+func (o ProfileClientSslOutput) RenegotiateSize() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.RenegotiateSize }).(pulumi.StringOutput)
+}
+
+// Enables or disables SSL renegotiation.When creating a new profile, the setting is provided by the parent profile
+func (o ProfileClientSslOutput) Renegotiation() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.Renegotiation }).(pulumi.StringOutput)
+}
+
+// When `true`, client certificate is retained in SSL session.
+func (o ProfileClientSslOutput) RetainCertificate() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.RetainCertificate }).(pulumi.StringOutput)
+}
+
+// Specifies the method of secure renegotiations for SSL connections. When creating a new profile, the setting is provided by the parent profile.
+// When `request` is set the system request secure renegotation of SSL connections.
+// `require` is a default setting and when set the system permits initial SSL handshakes from clients but terminates renegotiations from unpatched clients.
+// The `require-strict` setting the system requires strict renegotiation of SSL connections. In this mode the system refuses connections to insecure servers, and terminates existing SSL connections to insecure servers
+func (o ProfileClientSslOutput) SecureRenegotiation() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.SecureRenegotiation }).(pulumi.StringOutput)
+}
+
+// Specifies the fully qualified DNS hostname of the server used in Server Name Indication communications. When creating a new profile, the setting is provided by the parent profile.The server name can also be a wildcard string containing the asterisk `*` character.
+func (o ProfileClientSslOutput) ServerName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.ServerName }).(pulumi.StringOutput)
+}
+
+// Session Mirroring (enabled / disabled)
+func (o ProfileClientSslOutput) SessionMirroring() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.SessionMirroring }).(pulumi.StringOutput)
+}
+
+// Session Ticket (enabled / disabled)
+func (o ProfileClientSslOutput) SessionTicket() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.SessionTicket }).(pulumi.StringOutput)
+}
+
+// Indicates that the system uses this profile as the default SSL profile when there is no match to the server name, or when the client provides no SNI extension support.When creating a new profile, the setting is provided by the parent profile.
+// There can be only one SSL profile with this setting enabled.
+func (o ProfileClientSslOutput) SniDefault() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.SniDefault }).(pulumi.StringOutput)
+}
+
+// Requires that the network peers also provide SNI support, this setting only takes effect when `sniDefault` is set to `true`.When creating a new profile, the setting is provided by the parent profile
+func (o ProfileClientSslOutput) SniRequire() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.SniRequire }).(pulumi.StringOutput)
+}
+
+// Enables or disables SSL client certificate constrained delegation. The default option is disabled. Conversely, you can specify enabled to use the SSL client certificate constrained delegation.
+func (o ProfileClientSslOutput) SslC3d() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.SslC3d }).(pulumi.StringOutput)
+}
+
+// Specifies whether SSL forward proxy feature is enabled or not. The default value is disabled.
+func (o ProfileClientSslOutput) SslForwardProxy() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.SslForwardProxy }).(pulumi.StringOutput)
+}
+
+// Specifies whether SSL forward proxy bypass feature is enabled or not. The default value is disabled.
+func (o ProfileClientSslOutput) SslForwardProxyBypass() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.SslForwardProxyBypass }).(pulumi.StringOutput)
+}
+
+// SSL sign hash (any, sha1, sha256, sha384)
+func (o ProfileClientSslOutput) SslSignHash() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.SslSignHash }).(pulumi.StringOutput)
+}
+
+// Enables or disables the resumption of SSL sessions after an unclean shutdown.When creating a new profile, the setting is provided by the parent profile.
+func (o ProfileClientSslOutput) StrictResume() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.StrictResume }).(pulumi.StringOutput)
+}
+
+// List of Enabled selection from a set of industry standard options for handling SSL processing.By default,
+// Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tmOptions    = ["dont-insert-empty-fragments","no-tlsv1.3"]
+func (o ProfileClientSslOutput) TmOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringArrayOutput { return v.TmOptions }).(pulumi.StringArrayOutput)
+}
+
+// Unclean Shutdown (enabled / disabled)
+func (o ProfileClientSslOutput) UncleanShutdown() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.UncleanShutdown }).(pulumi.StringOutput)
+}
+
 type ProfileClientSslArrayOutput struct{ *pulumi.OutputState }
 
 func (ProfileClientSslArrayOutput) ElementType() reflect.Type {

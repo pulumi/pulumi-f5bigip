@@ -405,6 +405,86 @@ func (o CommonLicenseManageBigIqOutput) ToCommonLicenseManageBigIqOutputWithCont
 	return o
 }
 
+// The type of assignment, which is determined by whether the BIG-IP is unreachable, unmanaged, or managed by BIG-IQ. Possible values: “UNREACHABLE”, “UNMANAGED”, or “MANAGED”.
+func (o CommonLicenseManageBigIqOutput) AssignmentType() pulumi.StringOutput {
+	return o.ApplyT(func(v *CommonLicenseManageBigIq) pulumi.StringOutput { return v.AssignmentType }).(pulumi.StringOutput)
+}
+
+// BIGIQ License Manager IP Address, variable type `string`
+func (o CommonLicenseManageBigIqOutput) BigiqAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v *CommonLicenseManageBigIq) pulumi.StringOutput { return v.BigiqAddress }).(pulumi.StringOutput)
+}
+
+// BIGIQ Login reference for token authentication
+func (o CommonLicenseManageBigIqOutput) BigiqLoginRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommonLicenseManageBigIq) pulumi.StringPtrOutput { return v.BigiqLoginRef }).(pulumi.StringPtrOutput)
+}
+
+// BIGIQ License Manager password.  variable type `string`
+func (o CommonLicenseManageBigIqOutput) BigiqPassword() pulumi.StringOutput {
+	return o.ApplyT(func(v *CommonLicenseManageBigIq) pulumi.StringOutput { return v.BigiqPassword }).(pulumi.StringOutput)
+}
+
+// type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
+func (o CommonLicenseManageBigIqOutput) BigiqPort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommonLicenseManageBigIq) pulumi.StringPtrOutput { return v.BigiqPort }).(pulumi.StringPtrOutput)
+}
+
+// type `bool`, if set to `true` enables Token based Authentication,default is `false`
+func (o CommonLicenseManageBigIqOutput) BigiqTokenAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CommonLicenseManageBigIq) pulumi.BoolPtrOutput { return v.BigiqTokenAuth }).(pulumi.BoolPtrOutput)
+}
+
+// BIGIQ License Manager username, variable type `string`
+func (o CommonLicenseManageBigIqOutput) BigiqUser() pulumi.StringOutput {
+	return o.ApplyT(func(v *CommonLicenseManageBigIq) pulumi.StringOutput { return v.BigiqUser }).(pulumi.StringOutput)
+}
+
+// Status of Licence Assignment
+func (o CommonLicenseManageBigIqOutput) DeviceLicenseStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *CommonLicenseManageBigIq) pulumi.StringOutput { return v.DeviceLicenseStatus }).(pulumi.StringOutput)
+}
+
+// Identifies the platform running the BIG-IP VE. Possible values: “aws”, “azure”, “gce”, “vmware”, “hyperv”, “kvm”, or “xen”. type `string`
+func (o CommonLicenseManageBigIqOutput) Hypervisor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommonLicenseManageBigIq) pulumi.StringPtrOutput { return v.Hypervisor }).(pulumi.StringPtrOutput)
+}
+
+// License Assignment is done with specified `key`, supported only with RegKeypool type License assignement. type `string`
+func (o CommonLicenseManageBigIqOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommonLicenseManageBigIq) pulumi.StringPtrOutput { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// A name given to the license pool. type `string`
+func (o CommonLicenseManageBigIqOutput) LicensePoolname() pulumi.StringOutput {
+	return o.ApplyT(func(v *CommonLicenseManageBigIq) pulumi.StringOutput { return v.LicensePoolname }).(pulumi.StringOutput)
+}
+
+// MAC address of the BIG-IP. type `string`
+func (o CommonLicenseManageBigIqOutput) MacAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommonLicenseManageBigIq) pulumi.StringPtrOutput { return v.MacAddress }).(pulumi.StringPtrOutput)
+}
+
+// An optional offering name. type `string`
+func (o CommonLicenseManageBigIqOutput) Skukeyword1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommonLicenseManageBigIq) pulumi.StringPtrOutput { return v.Skukeyword1 }).(pulumi.StringPtrOutput)
+}
+
+// An optional offering name. type `string`
+func (o CommonLicenseManageBigIqOutput) Skukeyword2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommonLicenseManageBigIq) pulumi.StringPtrOutput { return v.Skukeyword2 }).(pulumi.StringPtrOutput)
+}
+
+// For an unreachable BIG-IP, you can provide an optional description for the assignment in this field.
+func (o CommonLicenseManageBigIqOutput) Tenant() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommonLicenseManageBigIq) pulumi.StringPtrOutput { return v.Tenant }).(pulumi.StringPtrOutput)
+}
+
+// The units used to measure billing. For example, “hourly” or “daily”. Type `string`
+func (o CommonLicenseManageBigIqOutput) UnitOfMeasure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommonLicenseManageBigIq) pulumi.StringPtrOutput { return v.UnitOfMeasure }).(pulumi.StringPtrOutput)
+}
+
 type CommonLicenseManageBigIqArrayOutput struct{ *pulumi.OutputState }
 
 func (CommonLicenseManageBigIqArrayOutput) ElementType() reflect.Type {

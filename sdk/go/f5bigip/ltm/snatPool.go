@@ -204,6 +204,16 @@ func (o SnatPoolOutput) ToSnatPoolOutputWithContext(ctx context.Context) SnatPoo
 	return o
 }
 
+// Specifies a translation address to add to or delete from a SNAT pool (at least one address is required)
+func (o SnatPoolOutput) Members() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SnatPool) pulumi.StringArrayOutput { return v.Members }).(pulumi.StringArrayOutput)
+}
+
+// Name of the snatpool
+func (o SnatPoolOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SnatPool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
 type SnatPoolArrayOutput struct{ *pulumi.OutputState }
 
 func (SnatPoolArrayOutput) ElementType() reflect.Type {

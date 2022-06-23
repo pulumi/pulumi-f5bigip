@@ -349,6 +349,58 @@ func (o ProvisionOutput) ToProvisionOutputWithContext(ctx context.Context) Provi
 	return o
 }
 
+// Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
+func (o ProvisionOutput) CpuRatio() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Provision) pulumi.IntPtrOutput { return v.CpuRatio }).(pulumi.IntPtrOutput)
+}
+
+// Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
+func (o ProvisionOutput) DiskRatio() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Provision) pulumi.IntPtrOutput { return v.DiskRatio }).(pulumi.IntPtrOutput)
+}
+
+func (o ProvisionOutput) FullPath() pulumi.StringOutput {
+	return o.ApplyT(func(v *Provision) pulumi.StringOutput { return v.FullPath }).(pulumi.StringOutput)
+}
+
+// Sets the provisioning level for the requested modules. Changing the level for one module may require modifying the level of another module. For example, changing one module to `dedicated` requires setting all others to `none`. Setting the level of a module to `none` means the module is not activated.
+// default is `nominal`
+// possible options:
+// * nominal
+// * minimum
+// * none
+// * dedicated
+func (o ProvisionOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provision) pulumi.StringPtrOutput { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+// Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
+func (o ProvisionOutput) MemoryRatio() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Provision) pulumi.IntPtrOutput { return v.MemoryRatio }).(pulumi.IntPtrOutput)
+}
+
+// Name of module to provision in BIG-IP.
+// possible options:
+// * afm
+// * am
+// * apm
+// * cgnat
+// * asm
+// * avr
+// * dos
+// * fps
+// * gtm
+// * ilx
+// * lc
+// * ltm
+// * pem
+// * sslo
+// * swg
+// * urldb
+func (o ProvisionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Provision) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
 type ProvisionArrayOutput struct{ *pulumi.OutputState }
 
 func (ProvisionArrayOutput) ElementType() reflect.Type {

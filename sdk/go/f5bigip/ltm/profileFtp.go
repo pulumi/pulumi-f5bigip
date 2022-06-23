@@ -394,6 +394,88 @@ func (o ProfileFtpOutput) ToProfileFtpOutputWithContext(ctx context.Context) Pro
 	return o
 }
 
+// Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled
+func (o ProfileFtpOutput) AllowActiveMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfileFtp) pulumi.StringPtrOutput { return v.AllowActiveMode }).(pulumi.StringPtrOutput)
+}
+
+// Allow explicit FTPS negotiation. The default is disabled.When enabled (selected), that the system allows explicit FTPS negotiation for SSL or TLS.
+func (o ProfileFtpOutput) AllowFtps() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfileFtp) pulumi.StringPtrOutput { return v.AllowFtps }).(pulumi.StringPtrOutput)
+}
+
+// The application service to which the object belongs.
+func (o ProfileFtpOutput) AppService() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfileFtp) pulumi.StringPtrOutput { return v.AppService }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
+func (o ProfileFtpOutput) DefaultsFrom() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileFtp) pulumi.StringOutput { return v.DefaultsFrom }).(pulumi.StringOutput)
+}
+
+// User defined description
+func (o ProfileFtpOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfileFtp) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Specifies, when selected (enabled), that the system enforces the data connection to reuse a TLS session. The default value is unchecked (disabled)
+func (o ProfileFtpOutput) EnforceTlssessionReuse() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfileFtp) pulumi.StringPtrOutput { return v.EnforceTlssessionReuse }).(pulumi.StringPtrOutput)
+}
+
+// Specifies if you want to Disallow, Allow, or Require FTPS mode. The default is Disallow
+func (o ProfileFtpOutput) FtpsMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfileFtp) pulumi.StringPtrOutput { return v.FtpsMode }).(pulumi.StringPtrOutput)
+}
+
+// Enables the FTP data channel to inherit the TCP profile used by the control channel.If disabled,the data channel uses
+// FastL4 only.
+func (o ProfileFtpOutput) InheritParentProfile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfileFtp) pulumi.StringPtrOutput { return v.InheritParentProfile }).(pulumi.StringPtrOutput)
+}
+
+// inherent vlan list
+func (o ProfileFtpOutput) InheritVlanList() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfileFtp) pulumi.StringPtrOutput { return v.InheritVlanList }).(pulumi.StringPtrOutput)
+}
+
+// Configures the ALG log profile that controls logging
+func (o ProfileFtpOutput) LogProfile() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileFtp) pulumi.StringOutput { return v.LogProfile }).(pulumi.StringOutput)
+}
+
+// Configures the log publisher that handles events logging for this profile
+func (o ProfileFtpOutput) LogPublisher() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileFtp) pulumi.StringOutput { return v.LogPublisher }).(pulumi.StringOutput)
+}
+
+// Name of the profile_ftp
+func (o ProfileFtpOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileFtp) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Displays the administrative partition within which this profile resides
+func (o ProfileFtpOutput) Partition() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileFtp) pulumi.StringOutput { return v.Partition }).(pulumi.StringOutput)
+}
+
+// Specifies a service for the data channel port used for this FTP profile. The default port is ftp-data.
+func (o ProfileFtpOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ProfileFtp) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// Enables secure FTP traffic for the BIG-IP Application Security Manager. You can set the security option only if the
+// system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
+func (o ProfileFtpOutput) Security() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileFtp) pulumi.StringOutput { return v.Security }).(pulumi.StringOutput)
+}
+
+// Specifies, when selected (enabled), that the system uses ensures compatibility between IP version 4 and IP version 6 clients and servers when using the FTP protocol. The default is selected (enabled).
+func (o ProfileFtpOutput) TranslateExtended() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfileFtp) pulumi.StringPtrOutput { return v.TranslateExtended }).(pulumi.StringPtrOutput)
+}
+
 type ProfileFtpArrayOutput struct{ *pulumi.OutputState }
 
 func (ProfileFtpArrayOutput) ElementType() reflect.Type {

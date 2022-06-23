@@ -205,6 +205,16 @@ func (o EventServiceDiscoveryOutput) ToEventServiceDiscoveryOutputWithContext(ct
 	return o
 }
 
+// Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
+func (o EventServiceDiscoveryOutput) Nodes() EventServiceDiscoveryNodeArrayOutput {
+	return o.ApplyT(func(v *EventServiceDiscovery) EventServiceDiscoveryNodeArrayOutput { return v.Nodes }).(EventServiceDiscoveryNodeArrayOutput)
+}
+
+// servicediscovery endpoint ( Below example shows how to create endpoing using AS3 )
+func (o EventServiceDiscoveryOutput) Taskid() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventServiceDiscovery) pulumi.StringOutput { return v.Taskid }).(pulumi.StringOutput)
+}
+
 type EventServiceDiscoveryArrayOutput struct{ *pulumi.OutputState }
 
 func (EventServiceDiscoveryArrayOutput) ElementType() reflect.Type {

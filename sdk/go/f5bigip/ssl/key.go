@@ -231,6 +231,26 @@ func (o KeyOutput) ToKeyOutputWithContext(ctx context.Context) KeyOutput {
 	return o
 }
 
+// Content of SSL certificate key present on local Disk
+func (o KeyOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.Content }).(pulumi.StringOutput)
+}
+
+// Full Path Name of ssl key
+func (o KeyOutput) FullPath() pulumi.StringOutput {
+	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.FullPath }).(pulumi.StringOutput)
+}
+
+// Name of the SSL Certificate key to be Imported on to BIGIP
+func (o KeyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Partition of ssl certificate key
+func (o KeyOutput) Partition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Key) pulumi.StringPtrOutput { return v.Partition }).(pulumi.StringPtrOutput)
+}
+
 type KeyArrayOutput struct{ *pulumi.OutputState }
 
 func (KeyArrayOutput) ElementType() reflect.Type {

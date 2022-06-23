@@ -293,6 +293,56 @@ func (o ProfileFastL4Output) ToProfileFastL4OutputWithContext(ctx context.Contex
 	return o
 }
 
+// Specifies late binding client timeout in seconds. This setting specifies the number of seconds allowed for a client to transmit enough data to select a server when late binding is enabled. If it expires timeout-recovery mode will dictate what action to take.
+func (o ProfileFastL4Output) ClientTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v *ProfileFastL4) pulumi.IntOutput { return v.ClientTimeout }).(pulumi.IntOutput)
+}
+
+// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
+func (o ProfileFastL4Output) DefaultsFrom() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileFastL4) pulumi.StringOutput { return v.DefaultsFrom }).(pulumi.StringOutput)
+}
+
+// Enables or disables late binding explicit flow migration that allows iRules to control when flows move from software to hardware. Explicit flow migration is disabled by default hence BIG-IP automatically migrates flows from software to hardware.
+func (o ProfileFastL4Output) ExplicitflowMigration() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileFastL4) pulumi.StringOutput { return v.ExplicitflowMigration }).(pulumi.StringOutput)
+}
+
+// Enables or disables hardware SYN cookie support when PVA10 is present on the system. Note that when you set the hardware syncookie option to enabled, you may also want to set the following bigdb database variables using the "/sys modify db" command, based on your requirements: pva.SynCookies.Full.ConnectionThreshold (default: 500000), pva.SynCookies.Assist.ConnectionThreshold (default: 500000) pva.SynCookies.ClientWindow (default: 0). The default value is disabled.
+func (o ProfileFastL4Output) HardwareSyncookie() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileFastL4) pulumi.StringOutput { return v.HardwareSyncookie }).(pulumi.StringOutput)
+}
+
+// Specifies an idle timeout in seconds. This setting specifies the number of seconds that a connection is idle before the connection is eligible for deletion.When you specify an idle timeout for the Fast L4 profile, the value must be greater than the bigdb database variable Pva.Scrub time in msec for it to work properly.The default value is 300 seconds.
+func (o ProfileFastL4Output) IdleTimeout() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileFastL4) pulumi.StringOutput { return v.IdleTimeout }).(pulumi.StringOutput)
+}
+
+// Specifies an IP ToS number for the client side. This option specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to clients. The default value is 65535 (pass-through), which indicates, do not modify.
+func (o ProfileFastL4Output) IptosToclient() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileFastL4) pulumi.StringOutput { return v.IptosToclient }).(pulumi.StringOutput)
+}
+
+// Specifies an IP ToS number for the server side. This setting specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to servers. The default value is 65535 (pass-through), which indicates, do not modify.
+func (o ProfileFastL4Output) IptosToserver() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileFastL4) pulumi.StringOutput { return v.IptosToserver }).(pulumi.StringOutput)
+}
+
+// Specifies the keep alive probe interval, in seconds. The default value is disabled (0 seconds).
+func (o ProfileFastL4Output) KeepaliveInterval() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileFastL4) pulumi.StringOutput { return v.KeepaliveInterval }).(pulumi.StringOutput)
+}
+
+// Name of the profile_fastl4
+func (o ProfileFastL4Output) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileFastL4) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Displays the administrative partition within which this profile resides
+func (o ProfileFastL4Output) Partition() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileFastL4) pulumi.StringOutput { return v.Partition }).(pulumi.StringOutput)
+}
+
 type ProfileFastL4ArrayOutput struct{ *pulumi.OutputState }
 
 func (ProfileFastL4ArrayOutput) ElementType() reflect.Type {

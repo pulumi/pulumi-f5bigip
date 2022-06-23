@@ -251,6 +251,36 @@ func (o ProfileHttpCompressOutput) ToProfileHttpCompressOutputWithContext(ctx co
 	return o
 }
 
+// Excludes a specified list of content types from compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
+func (o ProfileHttpCompressOutput) ContentTypeExcludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProfileHttpCompress) pulumi.StringArrayOutput { return v.ContentTypeExcludes }).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of content types for compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
+func (o ProfileHttpCompressOutput) ContentTypeIncludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProfileHttpCompress) pulumi.StringArrayOutput { return v.ContentTypeIncludes }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
+func (o ProfileHttpCompressOutput) DefaultsFrom() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileHttpCompress) pulumi.StringOutput { return v.DefaultsFrom }).(pulumi.StringOutput)
+}
+
+// Name of the profile_httpcompress
+func (o ProfileHttpCompressOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileHttpCompress) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Disables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you do not want to compress.
+func (o ProfileHttpCompressOutput) UriExcludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProfileHttpCompress) pulumi.StringArrayOutput { return v.UriExcludes }).(pulumi.StringArrayOutput)
+}
+
+// Enables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you want to compress.
+func (o ProfileHttpCompressOutput) UriIncludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProfileHttpCompress) pulumi.StringArrayOutput { return v.UriIncludes }).(pulumi.StringArrayOutput)
+}
+
 type ProfileHttpCompressArrayOutput struct{ *pulumi.OutputState }
 
 func (ProfileHttpCompressArrayOutput) ElementType() reflect.Type {

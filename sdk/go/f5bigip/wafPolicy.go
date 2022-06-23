@@ -427,6 +427,98 @@ func (o WafPolicyOutput) ToWafPolicyOutputWithContext(ctx context.Context) WafPo
 	return o
 }
 
+// The character encoding for the web application. The character encoding determines how the policy processes the character sets. The default is `utf-8`
+func (o WafPolicyOutput) ApplicationLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.StringPtrOutput { return v.ApplicationLanguage }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the security policy treats microservice URLs, file types, URLs, and parameters as case sensitive or not. When this setting is enabled, the system stores these security policy elements in lowercase in the security policy configuration
+func (o WafPolicyOutput) CaseInsensitive() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.BoolPtrOutput { return v.CaseInsensitive }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the description of the policy.
+func (o WafPolicyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Passive Mode allows the policy to be associated with a Performance L4 Virtual Server (using a FastL4 profile). With FastL4, traffic is analyzed but is not modified in any way.
+func (o WafPolicyOutput) EnablePassivemode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.BoolPtrOutput { return v.EnablePassivemode }).(pulumi.BoolPtrOutput)
+}
+
+// How the system processes a request that triggers a security policy violation
+func (o WafPolicyOutput) EnforcementMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.StringPtrOutput { return v.EnforcementMode }).(pulumi.StringPtrOutput)
+}
+
+// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
+// section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
+// provided by the BIG-IP.
+func (o WafPolicyOutput) Modifications() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.StringArrayOutput { return v.Modifications }).(pulumi.StringArrayOutput)
+}
+
+// The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_). It will be `fullpath`, ex: `/Common/policy1`
+func (o WafPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// This section defines parameters that the security policy permits in requests.
+func (o WafPolicyOutput) Parameters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.StringArrayOutput { return v.Parameters }).(pulumi.StringArrayOutput)
+}
+
+// Exported WAF policy deployed on BIGIP.
+func (o WafPolicyOutput) PolicyExportJson() pulumi.StringOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.StringOutput { return v.PolicyExportJson }).(pulumi.StringOutput)
+}
+
+// The id of the A.WAF Policy as it would be calculated on the BIG-IP.
+func (o WafPolicyOutput) PolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
+}
+
+// The payload of the WAF Policy to be used for IMPORT on to BIGIP
+func (o WafPolicyOutput) PolicyImportJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.StringPtrOutput { return v.PolicyImportJson }).(pulumi.StringPtrOutput)
+}
+
+// When creating a security policy, you can determine whether a security policy differentiates between HTTP and HTTPS URLs. If enabled, the security policy differentiates between HTTP and HTTPS URLs. If disabled, the security policy configures URLs without specifying a specific protocol. This is useful for applications that behave the same for HTTP and HTTPS, and it keeps the security policy from including the same URL twice.
+func (o WafPolicyOutput) ProtocolIndependent() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.BoolPtrOutput { return v.ProtocolIndependent }).(pulumi.BoolPtrOutput)
+}
+
+// The server technology is a server-side application, framework, web server or operating system type that is configured in the policy in order to adapt the policy to the checks needed for the respective technology.
+func (o WafPolicyOutput) ServerTechnologies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.StringArrayOutput { return v.ServerTechnologies }).(pulumi.StringArrayOutput)
+}
+
+// Defines behavior when signatures found within a signature-set are detected in a request. Settings are culmulative, so if a signature is found in any set with block enabled, that signature will have block enabled.
+func (o WafPolicyOutput) SignatureSets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.StringArrayOutput { return v.SignatureSets }).(pulumi.StringArrayOutput)
+}
+
+// This section defines the properties of a signature on the policy.
+func (o WafPolicyOutput) Signatures() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.StringArrayOutput { return v.Signatures }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the name of the template used for the policy creation.
+func (o WafPolicyOutput) TemplateName() pulumi.StringOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.StringOutput { return v.TemplateName }).(pulumi.StringOutput)
+}
+
+// The type of policy you want to create. The default policy type is Security.
+func (o WafPolicyOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// In a security policy, you can manually specify the HTTP URLs that are allowed (or disallowed) in traffic to the web application being protected. If you are using automatic policy building (and the policy includes learning URLs), the system can determine which URLs to add, based on legitimate traffic.
+func (o WafPolicyOutput) Urls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.StringArrayOutput { return v.Urls }).(pulumi.StringArrayOutput)
+}
+
 type WafPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (WafPolicyArrayOutput) ElementType() reflect.Type {

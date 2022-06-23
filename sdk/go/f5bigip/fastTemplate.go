@@ -186,6 +186,21 @@ func (o FastTemplateOutput) ToFastTemplateOutputWithContext(ctx context.Context)
 	return o
 }
 
+// MD5 hash of the zip archive file containing FAST template
+func (o FastTemplateOutput) Md5Hash() pulumi.StringOutput {
+	return o.ApplyT(func(v *FastTemplate) pulumi.StringOutput { return v.Md5Hash }).(pulumi.StringOutput)
+}
+
+// Name of the FAST template set to be created on to BIGIP
+func (o FastTemplateOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FastTemplate) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Path to the zip archive file containing FAST template set on Local Disk
+func (o FastTemplateOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v *FastTemplate) pulumi.StringOutput { return v.Source }).(pulumi.StringOutput)
+}
+
 type FastTemplateArrayOutput struct{ *pulumi.OutputState }
 
 func (FastTemplateArrayOutput) ElementType() reflect.Type {

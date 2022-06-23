@@ -289,6 +289,56 @@ func (o PoolOutput) ToPoolOutputWithContext(ctx context.Context) PoolOutput {
 	return o
 }
 
+// Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].
+func (o PoolOutput) AllowNat() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.AllowNat }).(pulumi.StringOutput)
+}
+
+// Specifies whether SNATs are automatically enabled or disabled for any connections using this pool,[ Default : `yes`, Possible Values `yes` or `no`].
+func (o PoolOutput) AllowSnat() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.AllowSnat }).(pulumi.StringOutput)
+}
+
+// Specifies descriptive text that identifies the pool.
+func (o PoolOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Pool) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the load balancing method. The default is Round Robin.
+func (o PoolOutput) LoadBalancingMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.LoadBalancingMode }).(pulumi.StringOutput)
+}
+
+// Specifies whether the system load balances traffic according to the priority number assigned to the pool member,Default Value is `0` meaning `disabled`.
+func (o PoolOutput) MinimumActiveMembers() pulumi.IntOutput {
+	return o.ApplyT(func(v *Pool) pulumi.IntOutput { return v.MinimumActiveMembers }).(pulumi.IntOutput)
+}
+
+// List of monitor names to associate with the pool
+func (o PoolOutput) Monitors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Pool) pulumi.StringArrayOutput { return v.Monitors }).(pulumi.StringArrayOutput)
+}
+
+// Name of the pool,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
+func (o PoolOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the number of times the system tries to contact a new pool member after a passive failure.
+func (o PoolOutput) ReselectTries() pulumi.IntOutput {
+	return o.ApplyT(func(v *Pool) pulumi.IntOutput { return v.ReselectTries }).(pulumi.IntOutput)
+}
+
+// Specifies how the system should respond when the target pool member becomes unavailable. The default is `None`, Possible values: `[none, reset, reselect, drop]`.
+func (o PoolOutput) ServiceDownAction() pulumi.StringOutput {
+	return o.ApplyT(func(v *Pool) pulumi.StringOutput { return v.ServiceDownAction }).(pulumi.StringOutput)
+}
+
+// Specifies the duration during which the system sends less traffic to a newly-enabled pool member.
+func (o PoolOutput) SlowRampTime() pulumi.IntOutput {
+	return o.ApplyT(func(v *Pool) pulumi.IntOutput { return v.SlowRampTime }).(pulumi.IntOutput)
+}
+
 type PoolArrayOutput struct{ *pulumi.OutputState }
 
 func (PoolArrayOutput) ElementType() reflect.Type {

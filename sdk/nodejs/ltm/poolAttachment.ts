@@ -10,60 +10,6 @@ import * as utilities from "../utilities";
  * ## Example Usage
  *
  * There are two ways to use ltmPoolAttachment resource, where we can take node reference from ltmNode or we can specify node directly with ip:port/fqdn:port which will also create node and atach to pool.
- * ### Pool attachment with node directly taking  `ip:port` / `fqdn:port`
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- *
- * const monitor = new f5bigip.ltm.Monitor("monitor", {
- *     name: "/Common/terraform_monitor",
- *     parent: "/Common/http",
- *     send: "GET /some/path\n",
- *     timeout: 999,
- *     interval: 998,
- * });
- * const pool = new f5bigip.ltm.Pool("pool", {
- *     name: "/Common/terraform-pool",
- *     loadBalancingMode: "round-robin",
- *     monitors: [monitor.name],
- *     allowSnat: "yes",
- *     allowNat: "yes",
- * });
- * const attachNode = new f5bigip.ltm.PoolAttachment("attachNode", {
- *     pool: pool.name,
- *     node: "1.1.1.1:80",
- * });
- * ```
- * ### Pool attachment with node referenced from `f5bigip.ltm.Node`
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- *
- * const monitor = new f5bigip.ltm.Monitor("monitor", {
- *     name: "/Common/terraform_monitor",
- *     parent: "/Common/http",
- *     send: "GET /some/path\n",
- *     timeout: 999,
- *     interval: 998,
- * });
- * const pool = new f5bigip.ltm.Pool("pool", {
- *     name: "/Common/terraform-pool",
- *     loadBalancingMode: "round-robin",
- *     monitors: [monitor.name],
- *     allowSnat: "yes",
- *     allowNat: "yes",
- * });
- * const node = new f5bigip.ltm.Node("node", {
- *     name: "/Common/terraform_node",
- *     address: "192.168.30.2",
- * });
- * const attachNode = new f5bigip.ltm.PoolAttachment("attachNode", {
- *     pool: pool.name,
- *     node: pulumi.interpolate`${node.name}:80`,
- * });
- * ```
  */
 export class PoolAttachment extends pulumi.CustomResource {
     /**

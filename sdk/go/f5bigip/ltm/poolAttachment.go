@@ -107,7 +107,7 @@ import (
 // 		_, err = ltm.NewPoolAttachment(ctx, "attachNode", &ltm.PoolAttachmentArgs{
 // 			Pool: pool.Name,
 // 			Node: node.Name.ApplyT(func(name string) (string, error) {
-// 				return fmt.Sprintf("%v%v", name, ":80"), nil
+// 				return fmt.Sprintf("%v:80", name), nil
 // 			}).(pulumi.StringOutput),
 // 		})
 // 		if err != nil {
@@ -338,6 +338,46 @@ func (o PoolAttachmentOutput) ToPoolAttachmentOutput() PoolAttachmentOutput {
 
 func (o PoolAttachmentOutput) ToPoolAttachmentOutputWithContext(ctx context.Context) PoolAttachmentOutput {
 	return o
+}
+
+// Specifies a maximum established connection limit for a pool member or node.The default is 0, meaning that there is no limit to the number of connections.
+func (o PoolAttachmentOutput) ConnectionLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v *PoolAttachment) pulumi.IntOutput { return v.ConnectionLimit }).(pulumi.IntOutput)
+}
+
+// Specifies the maximum number of connections-per-second allowed for a pool member,The default is 0.
+func (o PoolAttachmentOutput) ConnectionRateLimit() pulumi.StringOutput {
+	return o.ApplyT(func(v *PoolAttachment) pulumi.StringOutput { return v.ConnectionRateLimit }).(pulumi.StringOutput)
+}
+
+// Specifies the fixed ratio value used for a node during ratio load balancing.
+func (o PoolAttachmentOutput) DynamicRatio() pulumi.IntOutput {
+	return o.ApplyT(func(v *PoolAttachment) pulumi.IntOutput { return v.DynamicRatio }).(pulumi.IntOutput)
+}
+
+// Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled
+func (o PoolAttachmentOutput) FqdnAutopopulate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PoolAttachment) pulumi.StringPtrOutput { return v.FqdnAutopopulate }).(pulumi.StringPtrOutput)
+}
+
+// Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
+func (o PoolAttachmentOutput) Node() pulumi.StringOutput {
+	return o.ApplyT(func(v *PoolAttachment) pulumi.StringOutput { return v.Node }).(pulumi.StringOutput)
+}
+
+// Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`) or partition + directory + name of the pool (For example `/Common/test/my-pool`).When including directory in fullpath we have to make sure it is created in the given partition before using it.
+func (o PoolAttachmentOutput) Pool() pulumi.StringOutput {
+	return o.ApplyT(func(v *PoolAttachment) pulumi.StringOutput { return v.Pool }).(pulumi.StringOutput)
+}
+
+// Specifies a number representing the priority group for the pool member. The default is 0, meaning that the member has no priority
+func (o PoolAttachmentOutput) PriorityGroup() pulumi.IntOutput {
+	return o.ApplyT(func(v *PoolAttachment) pulumi.IntOutput { return v.PriorityGroup }).(pulumi.IntOutput)
+}
+
+// "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
+func (o PoolAttachmentOutput) Ratio() pulumi.IntOutput {
+	return o.ApplyT(func(v *PoolAttachment) pulumi.IntOutput { return v.Ratio }).(pulumi.IntOutput)
 }
 
 type PoolAttachmentArrayOutput struct{ *pulumi.OutputState }

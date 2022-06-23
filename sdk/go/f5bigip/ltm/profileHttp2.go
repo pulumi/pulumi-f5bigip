@@ -326,6 +326,71 @@ func (o ProfileHttp2Output) ToProfileHttp2OutputWithContext(ctx context.Context)
 	return o
 }
 
+// This setting specifies the condition that will cause the BIG-IP system to handle an incoming connection as an HTTP/2 connection, Allowed values : `[“alpn”]` (or) `[“always”]`.
+func (o ProfileHttp2Output) ActivationModes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProfileHttp2) pulumi.StringArrayOutput { return v.ActivationModes }).(pulumi.StringArrayOutput)
+}
+
+// Specifies how many concurrent requests are allowed to be outstanding on a single HTTP/2 connection.
+func (o ProfileHttp2Output) ConcurrentStreamsPerConnection() pulumi.IntOutput {
+	return o.ApplyT(func(v *ProfileHttp2) pulumi.IntOutput { return v.ConcurrentStreamsPerConnection }).(pulumi.IntOutput)
+}
+
+// Specifies the number of seconds that a connection is idle before the connection is eligible for deletion.
+func (o ProfileHttp2Output) ConnectionIdleTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v *ProfileHttp2) pulumi.IntOutput { return v.ConnectionIdleTimeout }).(pulumi.IntOutput)
+}
+
+// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
+func (o ProfileHttp2Output) DefaultsFrom() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileHttp2) pulumi.StringOutput { return v.DefaultsFrom }).(pulumi.StringOutput)
+}
+
+// Enable or disable enforcement of TLS requirements,Allowed Values : `"enabled"/"disabled"` [Default:`"enabled"`].
+func (o ProfileHttp2Output) EnforceTlsRequirements() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileHttp2) pulumi.StringOutput { return v.EnforceTlsRequirements }).(pulumi.StringOutput)
+}
+
+// The size of the data frames, in bytes, that the HTTP/2 protocol sends to the client. `Default: 2048`.
+func (o ProfileHttp2Output) FrameSize() pulumi.IntOutput {
+	return o.ApplyT(func(v *ProfileHttp2) pulumi.IntOutput { return v.FrameSize }).(pulumi.IntOutput)
+}
+
+// The size of the header table, in KB, for the HTTP headers that the HTTP/2 protocol compresses to save bandwidth.
+func (o ProfileHttp2Output) HeaderTableSize() pulumi.IntOutput {
+	return o.ApplyT(func(v *ProfileHttp2) pulumi.IntOutput { return v.HeaderTableSize }).(pulumi.IntOutput)
+}
+
+// Enable to include content-length in HTTP/2 headers,Default : disabled
+func (o ProfileHttp2Output) IncludeContentLength() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileHttp2) pulumi.StringOutput { return v.IncludeContentLength }).(pulumi.StringOutput)
+}
+
+// This setting specifies whether the BIG-IP system should add an HTTP header to the HTTP request to show that the request was received over HTTP/2, Allowed Values : `"enabled"/"disabled"` [ Default: `"disabled"`].
+func (o ProfileHttp2Output) InsertHeader() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileHttp2) pulumi.StringOutput { return v.InsertHeader }).(pulumi.StringOutput)
+}
+
+// This setting specifies the name of the header that the BIG-IP system will add to the HTTP request when the Insert Header is enabled.
+func (o ProfileHttp2Output) InsertHeaderName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileHttp2) pulumi.StringOutput { return v.InsertHeaderName }).(pulumi.StringOutput)
+}
+
+// Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-http2-profile`.
+func (o ProfileHttp2Output) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileHttp2) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The flow-control size for upload streams, in KB. `Default: 32`.
+func (o ProfileHttp2Output) ReceiveWindow() pulumi.IntOutput {
+	return o.ApplyT(func(v *ProfileHttp2) pulumi.IntOutput { return v.ReceiveWindow }).(pulumi.IntOutput)
+}
+
+// The total size of combined data frames, in bytes, that the HTTP/2 protocol sends in a single write function. `Default: 16384`".
+func (o ProfileHttp2Output) WriteSize() pulumi.IntOutput {
+	return o.ApplyT(func(v *ProfileHttp2) pulumi.IntOutput { return v.WriteSize }).(pulumi.IntOutput)
+}
+
 type ProfileHttp2ArrayOutput struct{ *pulumi.OutputState }
 
 func (ProfileHttp2ArrayOutput) ElementType() reflect.Type {

@@ -177,6 +177,16 @@ func (o IRuleOutput) ToIRuleOutputWithContext(ctx context.Context) IRuleOutput {
 	return o
 }
 
+// Body of the iRule
+func (o IRuleOutput) Irule() pulumi.StringOutput {
+	return o.ApplyT(func(v *IRule) pulumi.StringOutput { return v.Irule }).(pulumi.StringOutput)
+}
+
+// Name of the iRule
+func (o IRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
 type IRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (IRuleArrayOutput) ElementType() reflect.Type {

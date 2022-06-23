@@ -710,6 +710,43 @@ func (o As3Output) ToAs3OutputWithContext(ctx context.Context) As3Output {
 	return o
 }
 
+// Name of Application
+func (o As3Output) ApplicationList() pulumi.StringOutput {
+	return o.ApplyT(func(v *As3) pulumi.StringOutput { return v.ApplicationList }).(pulumi.StringOutput)
+}
+
+// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+func (o As3Output) As3Json() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *As3) pulumi.StringPtrOutput { return v.As3Json }).(pulumi.StringPtrOutput)
+}
+
+// Set True if you want to ignore metadata changes during update. By default it is set to false
+func (o As3Output) IgnoreMetadata() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *As3) pulumi.BoolPtrOutput { return v.IgnoreMetadata }).(pulumi.BoolPtrOutput)
+}
+
+// ID of AS3 post declaration async task
+func (o As3Output) TaskId() pulumi.StringOutput {
+	return o.ApplyT(func(v *As3) pulumi.StringOutput { return v.TaskId }).(pulumi.StringOutput)
+}
+
+// If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
+func (o As3Output) TenantFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *As3) pulumi.StringPtrOutput { return v.TenantFilter }).(pulumi.StringPtrOutput)
+}
+
+// Name of Tenant
+func (o As3Output) TenantList() pulumi.StringOutput {
+	return o.ApplyT(func(v *As3) pulumi.StringOutput { return v.TenantList }).(pulumi.StringOutput)
+}
+
+// Name of Tenant
+//
+// Deprecated: this attribute is no longer in use
+func (o As3Output) TenantName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *As3) pulumi.StringPtrOutput { return v.TenantName }).(pulumi.StringPtrOutput)
+}
+
 type As3ArrayOutput struct{ *pulumi.OutputState }
 
 func (As3ArrayOutput) ElementType() reflect.Type {

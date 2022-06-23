@@ -232,6 +232,31 @@ func (o RouteOutput) ToRouteOutputWithContext(ctx context.Context) RouteOutput {
 	return o
 }
 
+// Specifies a gateway address for the route.
+func (o RouteOutput) Gw() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.Gw }).(pulumi.StringPtrOutput)
+}
+
+// Name of the route.Name of Route should be full path,full path is the combination of the `partition + route name`,For ex: `/Common/test-net-route`.
+func (o RouteOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The destination subnet and netmask for the route.
+func (o RouteOutput) Network() pulumi.StringOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.Network }).(pulumi.StringOutput)
+}
+
+// reject route
+func (o RouteOutput) Reject() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.BoolPtrOutput { return v.Reject }).(pulumi.BoolPtrOutput)
+}
+
+// tunnel_ref to route traffic
+func (o RouteOutput) TunnelRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.TunnelRef }).(pulumi.StringPtrOutput)
+}
+
 type RouteArrayOutput struct{ *pulumi.OutputState }
 
 func (RouteArrayOutput) ElementType() reflect.Type {

@@ -222,6 +222,26 @@ func (o DeviceOutput) ToDeviceOutputWithContext(ctx context.Context) DeviceOutpu
 	return o
 }
 
+// IP address used for config sync
+func (o DeviceOutput) ConfigsyncIp() pulumi.StringOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.ConfigsyncIp }).(pulumi.StringOutput)
+}
+
+// IP address used for state mirroring
+func (o DeviceOutput) MirrorIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringPtrOutput { return v.MirrorIp }).(pulumi.StringPtrOutput)
+}
+
+// Secondary IP address used for state mirroring
+func (o DeviceOutput) MirrorSecondaryIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringPtrOutput { return v.MirrorSecondaryIp }).(pulumi.StringPtrOutput)
+}
+
+// Address of the Device which needs to be Deviceensed
+func (o DeviceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
 type DeviceArrayOutput struct{ *pulumi.OutputState }
 
 func (DeviceArrayOutput) ElementType() reflect.Type {

@@ -34,7 +34,7 @@ import (
 // 			Interval:    pulumi.Int(999),
 // 			Name:        pulumi.String("/Common/terraform_monitor"),
 // 			Parent:      pulumi.String("/Common/http"),
-// 			Send: pulumi.String(fmt.Sprintf("%v%v", "GET /some/path\n", "\n")),
+// 			Send: pulumi.String(fmt.Sprintf("GET /some/path\n\n")),
 // 			Timeout: pulumi.Int(999),
 // 		})
 // 		if err != nil {
@@ -44,7 +44,7 @@ import (
 // 			Interval: pulumi.Int(999),
 // 			Name:     pulumi.String("/Common/terraform_monitor"),
 // 			Parent:   pulumi.String("/Common/http"),
-// 			Send: pulumi.String(fmt.Sprintf("%v%v", "GET /some/path\n", "\n")),
+// 			Send: pulumi.String(fmt.Sprintf("GET /some/path\n\n")),
 // 			SslProfile: pulumi.String("/Common/serverssl"),
 // 			Timeout:    pulumi.Int(999),
 // 		})
@@ -451,6 +451,121 @@ func (o MonitorOutput) ToMonitorOutput() MonitorOutput {
 
 func (o MonitorOutput) ToMonitorOutputWithContext(ctx context.Context) MonitorOutput {
 	return o
+}
+
+// Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
+func (o MonitorOutput) Adaptive() pulumi.StringOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Adaptive }).(pulumi.StringOutput)
+}
+
+// Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.
+func (o MonitorOutput) AdaptiveLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.IntOutput { return v.AdaptiveLimit }).(pulumi.IntOutput)
+}
+
+// Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
+func (o MonitorOutput) Compatibility() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.Compatibility }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the database in which the user is created
+func (o MonitorOutput) Database() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.Database }).(pulumi.StringPtrOutput)
+}
+
+// Specify an alias address for monitoring
+func (o MonitorOutput) Destination() pulumi.StringOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Destination }).(pulumi.StringOutput)
+}
+
+// Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
+func (o MonitorOutput) Filename() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.Filename }).(pulumi.StringPtrOutput)
+}
+
+// Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown. The default is `5`
+func (o MonitorOutput) Interval() pulumi.IntOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.IntOutput { return v.Interval }).(pulumi.IntOutput)
+}
+
+// Displays the differentiated services code point (DSCP).The default is `0 (zero)`.
+func (o MonitorOutput) IpDscp() pulumi.IntOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.IntOutput { return v.IpDscp }).(pulumi.IntOutput)
+}
+
+// Specifies whether the system automatically changes the status of a resource to Enabled at the next successful monitor check.
+func (o MonitorOutput) ManualResume() pulumi.StringOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.ManualResume }).(pulumi.StringOutput)
+}
+
+// Specifies the data transfer process (DTP) mode. The default value is passive. The options are passive (Specifies that the monitor sends a data transfer request to the FTP server. When the FTP server receives the request, the FTP server then initiates and establishes the data connection.) and active (Specifies that the monitor initiates and establishes the data connection with the FTP server.).
+func (o MonitorOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Mode }).(pulumi.StringOutput)
+}
+
+// Specifies the Name of the LTM Monitor.Name of Monitor should be full path,full path is the combination of the `partition + monitor name`,For ex:`/Common/test-ltm-monitor`.
+func (o MonitorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Parent monitor for the system to use for setting initial values for the new monitor.
+func (o MonitorOutput) Parent() pulumi.StringOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Parent }).(pulumi.StringOutput)
+}
+
+// Specifies the password if the monitored target requires authentication
+func (o MonitorOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the regular expression representing the text string that the monitor looks for in the returned resource.
+func (o MonitorOutput) Receive() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.Receive }).(pulumi.StringPtrOutput)
+}
+
+// The system marks the node or pool member disabled when its response matches Receive Disable String but not Receive String.
+func (o MonitorOutput) ReceiveDisable() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.ReceiveDisable }).(pulumi.StringPtrOutput)
+}
+
+// Instructs the system to mark the target resource down when the test is successful.
+func (o MonitorOutput) Reverse() pulumi.StringOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Reverse }).(pulumi.StringOutput)
+}
+
+// Specifies the text string that the monitor sends to the target object.
+func (o MonitorOutput) Send() pulumi.StringOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Send }).(pulumi.StringOutput)
+}
+
+// Specifies the ssl profile for the monitor. It only makes sense when the parent is `/Common/https`
+func (o MonitorOutput) SslProfile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.SslProfile }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the number of seconds to wait after a resource first responds correctly to the monitor before setting the resource to up.
+func (o MonitorOutput) TimeUntilUp() pulumi.IntOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.IntOutput { return v.TimeUntilUp }).(pulumi.IntOutput)
+}
+
+// Specifies the number of seconds the target has in which to respond to the monitor request. The default is `16` seconds
+func (o MonitorOutput) Timeout() pulumi.IntOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.IntOutput { return v.Timeout }).(pulumi.IntOutput)
+}
+
+// Specifies whether the monitor operates in transparent mode.
+func (o MonitorOutput) Transparent() pulumi.StringOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringOutput { return v.Transparent }).(pulumi.StringOutput)
+}
+
+// Specifies the interval for the system to use to perform the health check when a resource is up. The default is `0(Disabled)`
+func (o MonitorOutput) UpInterval() pulumi.IntOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.IntOutput { return v.UpInterval }).(pulumi.IntOutput)
+}
+
+// Specifies the user name if the monitored target requires authentication
+func (o MonitorOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.Username }).(pulumi.StringPtrOutput)
 }
 
 type MonitorArrayOutput struct{ *pulumi.OutputState }

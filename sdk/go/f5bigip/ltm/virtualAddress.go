@@ -258,6 +258,46 @@ func (o VirtualAddressOutput) ToVirtualAddressOutputWithContext(ctx context.Cont
 	return o
 }
 
+// Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )
+func (o VirtualAddressOutput) AdvertizeRoute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualAddress) pulumi.StringPtrOutput { return v.AdvertizeRoute }).(pulumi.StringPtrOutput)
+}
+
+// Enable or disable ARP for the virtual address
+func (o VirtualAddressOutput) Arp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualAddress) pulumi.BoolPtrOutput { return v.Arp }).(pulumi.BoolPtrOutput)
+}
+
+// Automatically delete the virtual address with the virtual server
+func (o VirtualAddressOutput) AutoDelete() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualAddress) pulumi.BoolPtrOutput { return v.AutoDelete }).(pulumi.BoolPtrOutput)
+}
+
+// Max number of connections for virtual address
+func (o VirtualAddressOutput) ConnLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VirtualAddress) pulumi.IntPtrOutput { return v.ConnLimit }).(pulumi.IntPtrOutput)
+}
+
+// Enable or disable the virtual address
+func (o VirtualAddressOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VirtualAddress) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies how the system sends responses to ICMP echo requests on a per-virtual address basis.
+func (o VirtualAddressOutput) IcmpEcho() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualAddress) pulumi.StringPtrOutput { return v.IcmpEcho }).(pulumi.StringPtrOutput)
+}
+
+// Name of the virtual address
+func (o VirtualAddressOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualAddress) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specify the partition and traffic group
+func (o VirtualAddressOutput) TrafficGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VirtualAddress) pulumi.StringPtrOutput { return v.TrafficGroup }).(pulumi.StringPtrOutput)
+}
+
 type VirtualAddressArrayOutput struct{ *pulumi.OutputState }
 
 func (VirtualAddressArrayOutput) ElementType() reflect.Type {

@@ -362,6 +362,87 @@ func (o IAppOutput) ToIAppOutputWithContext(ctx context.Context) IAppOutput {
 	return o
 }
 
+// Address of the Iapp which needs to be Iappensed
+func (o IAppOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// BIG-IP password
+func (o IAppOutput) Devicegroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.Devicegroup }).(pulumi.StringPtrOutput)
+}
+
+// BIG-IP password
+func (o IAppOutput) ExecuteAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.ExecuteAction }).(pulumi.StringPtrOutput)
+}
+
+// BIG-IP password
+func (o IAppOutput) InheritedDevicegroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.InheritedDevicegroup }).(pulumi.StringPtrOutput)
+}
+
+// BIG-IP password
+func (o IAppOutput) InheritedTrafficGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.InheritedTrafficGroup }).(pulumi.StringPtrOutput)
+}
+
+// Refer to the Json file which will be deployed on F5 BIG-IP.
+func (o IAppOutput) Jsonfile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.Jsonfile }).(pulumi.StringPtrOutput)
+}
+
+func (o IAppOutput) Lists() IAppListArrayOutput {
+	return o.ApplyT(func(v *IApp) IAppListArrayOutput { return v.Lists }).(IAppListArrayOutput)
+}
+
+func (o IAppOutput) Metadatas() IAppMetadataArrayOutput {
+	return o.ApplyT(func(v *IApp) IAppMetadataArrayOutput { return v.Metadatas }).(IAppMetadataArrayOutput)
+}
+
+// Name of the iApp.
+func (o IAppOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Address of the Iapp which needs to be Iappensed
+func (o IAppOutput) Partition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.Partition }).(pulumi.StringPtrOutput)
+}
+
+// BIG-IP password
+func (o IAppOutput) StrictUpdates() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.StrictUpdates }).(pulumi.StringPtrOutput)
+}
+
+func (o IAppOutput) Tables() IAppTableArrayOutput {
+	return o.ApplyT(func(v *IApp) IAppTableArrayOutput { return v.Tables }).(IAppTableArrayOutput)
+}
+
+// BIG-IP password
+func (o IAppOutput) Template() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.Template }).(pulumi.StringPtrOutput)
+}
+
+// BIG-IP password
+func (o IAppOutput) TemplateModified() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.TemplateModified }).(pulumi.StringPtrOutput)
+}
+
+// BIG-IP password
+func (o IAppOutput) TemplatePrerequisiteErrors() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.TemplatePrerequisiteErrors }).(pulumi.StringPtrOutput)
+}
+
+// BIG-IP password
+func (o IAppOutput) TrafficGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.TrafficGroup }).(pulumi.StringPtrOutput)
+}
+
+func (o IAppOutput) Variables() IAppVariableArrayOutput {
+	return o.ApplyT(func(v *IApp) IAppVariableArrayOutput { return v.Variables }).(IAppVariableArrayOutput)
+}
+
 type IAppArrayOutput struct{ *pulumi.OutputState }
 
 func (IAppArrayOutput) ElementType() reflect.Type {

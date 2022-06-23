@@ -174,6 +174,16 @@ func (o BigIpLicenseOutput) ToBigIpLicenseOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Tmsh command to execute tmsh commands like install
+func (o BigIpLicenseOutput) Command() pulumi.StringOutput {
+	return o.ApplyT(func(v *BigIpLicense) pulumi.StringOutput { return v.Command }).(pulumi.StringOutput)
+}
+
+// A unique Key F5 provides for Licensing BIG-IP
+func (o BigIpLicenseOutput) RegistrationKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *BigIpLicense) pulumi.StringOutput { return v.RegistrationKey }).(pulumi.StringOutput)
+}
+
 type BigIpLicenseArrayOutput struct{ *pulumi.OutputState }
 
 func (BigIpLicenseArrayOutput) ElementType() reflect.Type {

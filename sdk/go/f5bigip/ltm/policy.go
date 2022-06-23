@@ -266,6 +266,36 @@ func (o PolicyOutput) ToPolicyOutputWithContext(ctx context.Context) PolicyOutpu
 	return o
 }
 
+// Specifies the controls
+func (o PolicyOutput) Controls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringArrayOutput { return v.Controls }).(pulumi.StringArrayOutput)
+}
+
+// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+func (o PolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// If you want to publish the policy else it will be deployed in Drafts mode.
+func (o PolicyOutput) PublishedCopy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.PublishedCopy }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the protocol
+func (o PolicyOutput) Requires() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringArrayOutput { return v.Requires }).(pulumi.StringArrayOutput)
+}
+
+// Rules can be applied using the policy
+func (o PolicyOutput) Rules() PolicyRuleArrayOutput {
+	return o.ApplyT(func(v *Policy) PolicyRuleArrayOutput { return v.Rules }).(PolicyRuleArrayOutput)
+}
+
+// Specifies the match strategy
+func (o PolicyOutput) Strategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.Strategy }).(pulumi.StringPtrOutput)
+}
+
 type PolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (PolicyArrayOutput) ElementType() reflect.Type {

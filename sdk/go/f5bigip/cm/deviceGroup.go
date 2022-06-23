@@ -282,6 +282,56 @@ func (o DeviceGroupOutput) ToDeviceGroupOutputWithContext(ctx context.Context) D
 	return o
 }
 
+// Specifies if the device-group will automatically sync configuration data to its members
+func (o DeviceGroupOutput) AutoSync() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeviceGroup) pulumi.StringPtrOutput { return v.AutoSync }).(pulumi.StringPtrOutput)
+}
+
+// Description of Device group
+func (o DeviceGroupOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeviceGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Name of the device to be included in device group, this need to be configured before using devicegroup resource
+func (o DeviceGroupOutput) Devices() DeviceGroupDeviceArrayOutput {
+	return o.ApplyT(func(v *DeviceGroup) DeviceGroupDeviceArrayOutput { return v.Devices }).(DeviceGroupDeviceArrayOutput)
+}
+
+// Specifies if the device-group will perform a full-load upon sync
+func (o DeviceGroupOutput) FullLoadOnSync() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeviceGroup) pulumi.StringPtrOutput { return v.FullLoadOnSync }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the maximum size (in KB) to devote to incremental config sync cached transactions. The default is 1024 KB.
+func (o DeviceGroupOutput) IncrementalConfig() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeviceGroup) pulumi.IntPtrOutput { return v.IncrementalConfig }).(pulumi.IntPtrOutput)
+}
+
+// Is the name of the device Group
+func (o DeviceGroupOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeviceGroup) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Specifies if the device-group will use a network connection for failover
+func (o DeviceGroupOutput) NetworkFailover() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeviceGroup) pulumi.StringPtrOutput { return v.NetworkFailover }).(pulumi.StringPtrOutput)
+}
+
+// Device administrative partition
+func (o DeviceGroupOutput) Partition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeviceGroup) pulumi.StringPtrOutput { return v.Partition }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the configuration should be saved upon auto-sync.
+func (o DeviceGroupOutput) SaveOnAutoSync() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeviceGroup) pulumi.StringPtrOutput { return v.SaveOnAutoSync }).(pulumi.StringPtrOutput)
+}
+
+// Specifies if the device-group will be used for failover or resource syncing
+func (o DeviceGroupOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeviceGroup) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
 type DeviceGroupArrayOutput struct{ *pulumi.OutputState }
 
 func (DeviceGroupArrayOutput) ElementType() reflect.Type {

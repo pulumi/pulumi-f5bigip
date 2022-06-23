@@ -204,6 +204,21 @@ func (o SnmpOutput) ToSnmpOutputWithContext(ctx context.Context) SnmpOutput {
 	return o
 }
 
+// Configures hosts or networks from which snmpd can accept traffic. Entries go directly into hosts.allow.
+func (o SnmpOutput) Allowedaddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Snmp) pulumi.StringArrayOutput { return v.Allowedaddresses }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the contact information for the system administrator.
+func (o SnmpOutput) SysContact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snmp) pulumi.StringPtrOutput { return v.SysContact }).(pulumi.StringPtrOutput)
+}
+
+// Describes the system's physical location.
+func (o SnmpOutput) SysLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snmp) pulumi.StringPtrOutput { return v.SysLocation }).(pulumi.StringPtrOutput)
+}
+
 type SnmpArrayOutput struct{ *pulumi.OutputState }
 
 func (SnmpArrayOutput) ElementType() reflect.Type {

@@ -293,6 +293,51 @@ func (o PersistenceProfileSslOutput) ToPersistenceProfileSslOutputWithContext(ct
 	return o
 }
 
+func (o PersistenceProfileSslOutput) AppService() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PersistenceProfileSsl) pulumi.StringPtrOutput { return v.AppService }).(pulumi.StringPtrOutput)
+}
+
+// Inherit defaults from parent profile
+func (o PersistenceProfileSslOutput) DefaultsFrom() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileSsl) pulumi.StringOutput { return v.DefaultsFrom }).(pulumi.StringOutput)
+}
+
+// To enable _ disable match across pools with given persistence record
+func (o PersistenceProfileSslOutput) MatchAcrossPools() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileSsl) pulumi.StringOutput { return v.MatchAcrossPools }).(pulumi.StringOutput)
+}
+
+// To enable _ disable match across services with given persistence record
+func (o PersistenceProfileSslOutput) MatchAcrossServices() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileSsl) pulumi.StringOutput { return v.MatchAcrossServices }).(pulumi.StringOutput)
+}
+
+// To enable _ disable match across services with given persistence record
+func (o PersistenceProfileSslOutput) MatchAcrossVirtuals() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileSsl) pulumi.StringOutput { return v.MatchAcrossVirtuals }).(pulumi.StringOutput)
+}
+
+// To enable _ disable
+func (o PersistenceProfileSslOutput) Mirror() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileSsl) pulumi.StringOutput { return v.Mirror }).(pulumi.StringOutput)
+}
+
+// Name of the persistence profile
+func (o PersistenceProfileSslOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileSsl) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
+// limits remain hard limits and are not overridden.
+func (o PersistenceProfileSslOutput) OverrideConnLimit() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileSsl) pulumi.StringOutput { return v.OverrideConnLimit }).(pulumi.StringOutput)
+}
+
+// Timeout for persistence of the session
+func (o PersistenceProfileSslOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PersistenceProfileSsl) pulumi.IntPtrOutput { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
 type PersistenceProfileSslArrayOutput struct{ *pulumi.OutputState }
 
 func (PersistenceProfileSslArrayOutput) ElementType() reflect.Type {

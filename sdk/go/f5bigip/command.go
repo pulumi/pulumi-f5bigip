@@ -204,6 +204,20 @@ func (o CommandOutput) ToCommandOutputWithContext(ctx context.Context) CommandOu
 	return o
 }
 
+// The resulting output from the `commands` executed
+func (o CommandOutput) CommandResults() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Command) pulumi.StringArrayOutput { return v.CommandResults }).(pulumi.StringArrayOutput)
+}
+
+// The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `commandResult`
+func (o CommandOutput) Commands() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Command) pulumi.StringArrayOutput { return v.Commands }).(pulumi.StringArrayOutput)
+}
+
+func (o CommandOutput) When() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Command) pulumi.StringPtrOutput { return v.When }).(pulumi.StringPtrOutput)
+}
+
 type CommandArrayOutput struct{ *pulumi.OutputState }
 
 func (CommandArrayOutput) ElementType() reflect.Type {

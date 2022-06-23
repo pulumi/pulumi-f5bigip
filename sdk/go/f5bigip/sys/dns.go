@@ -222,6 +222,26 @@ func (o DnsOutput) ToDnsOutputWithContext(ctx context.Context) DnsOutput {
 	return o
 }
 
+// Provide description for your DNS server
+func (o DnsOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dns) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// Name or IP address of the DNS server
+func (o DnsOutput) NameServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Dns) pulumi.StringArrayOutput { return v.NameServers }).(pulumi.StringArrayOutput)
+}
+
+// Configures the number of dots needed in a name before an initial absolute query will be made.
+func (o DnsOutput) NumberOfDots() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Dns) pulumi.IntPtrOutput { return v.NumberOfDots }).(pulumi.IntPtrOutput)
+}
+
+// Specify what domains you want to search
+func (o DnsOutput) Searches() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Dns) pulumi.StringArrayOutput { return v.Searches }).(pulumi.StringArrayOutput)
+}
+
 type DnsArrayOutput struct{ *pulumi.OutputState }
 
 func (DnsArrayOutput) ElementType() reflect.Type {

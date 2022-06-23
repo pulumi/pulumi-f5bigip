@@ -218,6 +218,26 @@ func (o FastApplicationOutput) ToFastApplicationOutputWithContext(ctx context.Co
 	return o
 }
 
+// A FAST application name.
+func (o FastApplicationOutput) Application() pulumi.StringOutput {
+	return o.ApplyT(func(v *FastApplication) pulumi.StringOutput { return v.Application }).(pulumi.StringOutput)
+}
+
+// Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
+func (o FastApplicationOutput) FastJson() pulumi.StringOutput {
+	return o.ApplyT(func(v *FastApplication) pulumi.StringOutput { return v.FastJson }).(pulumi.StringOutput)
+}
+
+// Name of installed FAST template used to create FAST application. This parameter is required when creating new resource.
+func (o FastApplicationOutput) Template() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FastApplication) pulumi.StringPtrOutput { return v.Template }).(pulumi.StringPtrOutput)
+}
+
+// A FAST tenant name on which you want to manage application.
+func (o FastApplicationOutput) Tenant() pulumi.StringOutput {
+	return o.ApplyT(func(v *FastApplication) pulumi.StringOutput { return v.Tenant }).(pulumi.StringOutput)
+}
+
 type FastApplicationArrayOutput struct{ *pulumi.OutputState }
 
 func (FastApplicationArrayOutput) ElementType() reflect.Type {

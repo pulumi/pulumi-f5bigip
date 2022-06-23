@@ -297,6 +297,52 @@ func (o DoOutput) ToDoOutputWithContext(ctx context.Context) DoOutput {
 	return o
 }
 
+// IP Address of BIGIP Host to be used for this resource,this is optional parameter.
+// whenever we specify this parameter it gets overwrite provider configuration
+func (o DoOutput) BigipAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Do) pulumi.StringPtrOutput { return v.BigipAddress }).(pulumi.StringPtrOutput)
+}
+
+// Password of  BIGIP host to be used for this resource,this is optional parameter.
+// whenever we specify this parameter it gets overwrite provider configuration
+func (o DoOutput) BigipPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Do) pulumi.StringPtrOutput { return v.BigipPassword }).(pulumi.StringPtrOutput)
+}
+
+// Port number of BIGIP host to be used for this resource,this is optional parameter.
+// whenever we specify this parameter it gets overwrite provider configuration
+func (o DoOutput) BigipPort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Do) pulumi.StringPtrOutput { return v.BigipPort }).(pulumi.StringPtrOutput)
+}
+
+// Enable to use an external authentication source (LDAP, TACACS, etc)
+func (o DoOutput) BigipTokenAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Do) pulumi.BoolPtrOutput { return v.BigipTokenAuth }).(pulumi.BoolPtrOutput)
+}
+
+// UserName of BIGIP host to be used for this resource,this is optional parameter.
+// whenever we specify this parameter it gets overwrite provider configuration
+func (o DoOutput) BigipUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Do) pulumi.StringPtrOutput { return v.BigipUser }).(pulumi.StringPtrOutput)
+}
+
+// Name of the of the Declarative DO JSON file
+func (o DoOutput) DoJson() pulumi.StringOutput {
+	return o.ApplyT(func(v *Do) pulumi.StringOutput { return v.DoJson }).(pulumi.StringOutput)
+}
+
+// unique identifier for DO resource
+//
+// Deprecated: this attribute is no longer in use
+func (o DoOutput) TenantName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Do) pulumi.StringPtrOutput { return v.TenantName }).(pulumi.StringPtrOutput)
+}
+
+// DO json
+func (o DoOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Do) pulumi.IntPtrOutput { return v.Timeout }).(pulumi.IntPtrOutput)
+}
+
 type DoArrayOutput struct{ *pulumi.OutputState }
 
 func (DoArrayOutput) ElementType() reflect.Type {

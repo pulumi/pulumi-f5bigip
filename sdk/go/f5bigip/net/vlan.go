@@ -214,6 +214,21 @@ func (o VlanOutput) ToVlanOutputWithContext(ctx context.Context) VlanOutput {
 	return o
 }
 
+// Specifies which interfaces you want this VLAN to use for traffic management.
+func (o VlanOutput) Interfaces() VlanInterfaceArrayOutput {
+	return o.ApplyT(func(v *Vlan) VlanInterfaceArrayOutput { return v.Interfaces }).(VlanInterfaceArrayOutput)
+}
+
+// Name of the vlan
+func (o VlanOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Vlan) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies a number that the system adds into the header of any frame passing through the VLAN.
+func (o VlanOutput) Tag() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Vlan) pulumi.IntPtrOutput { return v.Tag }).(pulumi.IntPtrOutput)
+}
+
 type VlanArrayOutput struct{ *pulumi.OutputState }
 
 func (VlanArrayOutput) ElementType() reflect.Type {

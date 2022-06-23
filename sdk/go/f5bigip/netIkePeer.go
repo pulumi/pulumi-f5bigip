@@ -495,6 +495,176 @@ func (o NetIkePeerOutput) ToNetIkePeerOutputWithContext(ctx context.Context) Net
 	return o
 }
 
+// The application service that the object belongs to
+func (o NetIkePeerOutput) AppService() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetIkePeer) pulumi.StringPtrOutput { return v.AppService }).(pulumi.StringPtrOutput)
+}
+
+// the trusted root and intermediate certificate authorities
+func (o NetIkePeerOutput) CaCertFile() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetIkePeer) pulumi.StringOutput { return v.CaCertFile }).(pulumi.StringOutput)
+}
+
+// Specifies the file name of the Certificate Revocation List. Only supported in IKEv1
+func (o NetIkePeerOutput) CrlFile() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetIkePeer) pulumi.StringOutput { return v.CrlFile }).(pulumi.StringOutput)
+}
+
+// User defined description
+func (o NetIkePeerOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetIkePeer) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// Specifies the number of seconds between Dead Peer Detection messages
+func (o NetIkePeerOutput) DpdDelay() pulumi.IntOutput {
+	return o.ApplyT(func(v *NetIkePeer) pulumi.IntOutput { return v.DpdDelay }).(pulumi.IntOutput)
+}
+
+// Enable or disable the generation of Security Policy Database entries(SPD) when the device is the responder of the IKE remote node
+func (o NetIkePeerOutput) GeneratePolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetIkePeer) pulumi.StringOutput { return v.GeneratePolicy }).(pulumi.StringOutput)
+}
+
+// Defines the lifetime in minutes of an IKE SA which will be proposed in the phase 1 negotiations
+func (o NetIkePeerOutput) Lifetime() pulumi.IntOutput {
+	return o.ApplyT(func(v *NetIkePeer) pulumi.IntOutput { return v.Lifetime }).(pulumi.IntOutput)
+}
+
+// Defines the exchange mode for phase 1 when racoon is the initiator, or the acceptable exchange mode when racoon is the responder
+func (o NetIkePeerOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetIkePeer) pulumi.StringOutput { return v.Mode }).(pulumi.StringOutput)
+}
+
+// Specifies the name of the certificate file object
+func (o NetIkePeerOutput) MyCertFile() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetIkePeer) pulumi.StringOutput { return v.MyCertFile }).(pulumi.StringOutput)
+}
+
+// Specifies the name of the certificate key file object
+func (o NetIkePeerOutput) MyCertKeyFile() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetIkePeer) pulumi.StringOutput { return v.MyCertKeyFile }).(pulumi.StringOutput)
+}
+
+// Specifies the passphrase of the key used for my-cert-key-file
+func (o NetIkePeerOutput) MyCertKeyPassphrase() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetIkePeer) pulumi.StringOutput { return v.MyCertKeyPassphrase }).(pulumi.StringOutput)
+}
+
+// Specifies the identifier type sent to the remote host to use in the phase 1 negotiation
+func (o NetIkePeerOutput) MyIdType() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetIkePeer) pulumi.StringOutput { return v.MyIdType }).(pulumi.StringOutput)
+}
+
+// Specifies the identifier value sent to the remote host in the phase 1 negotiation
+func (o NetIkePeerOutput) MyIdValue() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetIkePeer) pulumi.StringOutput { return v.MyIdValue }).(pulumi.StringOutput)
+}
+
+// Name of the ike_peer
+func (o NetIkePeerOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetIkePeer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Enables use of the NAT-Traversal IPsec extension
+func (o NetIkePeerOutput) NatTraversal() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetIkePeer) pulumi.StringOutput { return v.NatTraversal }).(pulumi.StringOutput)
+}
+
+// Specifies whether the local IKE agent can be the initiator of the IKE negotiation with this ike-peer
+func (o NetIkePeerOutput) Passive() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetIkePeer) pulumi.StringOutput { return v.Passive }).(pulumi.StringOutput)
+}
+
+// Specifies the peer’s certificate for authentication
+func (o NetIkePeerOutput) PeersCertFile() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetIkePeer) pulumi.StringOutput { return v.PeersCertFile }).(pulumi.StringOutput)
+}
+
+// Specifies that the only peers-cert-type supported is certfile
+func (o NetIkePeerOutput) PeersCertType() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetIkePeer) pulumi.StringOutput { return v.PeersCertType }).(pulumi.StringOutput)
+}
+
+// Specifies which of address, fqdn, asn1dn, user-fqdn or keyid-tag types to use as peers-id-type
+func (o NetIkePeerOutput) PeersIdType() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetIkePeer) pulumi.StringOutput { return v.PeersIdType }).(pulumi.StringOutput)
+}
+
+// Specifies the peer’s identifier to be received
+func (o NetIkePeerOutput) PeersIdValue() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetIkePeer) pulumi.StringOutput { return v.PeersIdValue }).(pulumi.StringOutput)
+}
+
+// Specifies the authentication method used for phase 1 negotiation
+func (o NetIkePeerOutput) Phase1AuthMethod() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetIkePeer) pulumi.StringOutput { return v.Phase1AuthMethod }).(pulumi.StringOutput)
+}
+
+// Specifies the encryption algorithm used for the isakmp phase 1 negotiation
+func (o NetIkePeerOutput) Phase1EncryptAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetIkePeer) pulumi.StringOutput { return v.Phase1EncryptAlgorithm }).(pulumi.StringOutput)
+}
+
+// Defines the hash algorithm used for the isakmp phase 1 negotiation
+func (o NetIkePeerOutput) Phase1HashAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetIkePeer) pulumi.StringOutput { return v.Phase1HashAlgorithm }).(pulumi.StringOutput)
+}
+
+// Defines the Diffie-Hellman group for key exchange to provide perfect forward secrecy
+func (o NetIkePeerOutput) Phase1PerfectForwardSecrecy() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetIkePeer) pulumi.StringOutput { return v.Phase1PerfectForwardSecrecy }).(pulumi.StringOutput)
+}
+
+// Specifies the preshared key for ISAKMP SAs
+func (o NetIkePeerOutput) PresharedKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetIkePeer) pulumi.StringPtrOutput { return v.PresharedKey }).(pulumi.StringPtrOutput)
+}
+
+// Display the encrypted preshared-key for the IKE remote node
+func (o NetIkePeerOutput) PresharedKeyEncrypted() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetIkePeer) pulumi.StringOutput { return v.PresharedKeyEncrypted }).(pulumi.StringOutput)
+}
+
+// Specifies the pseudo-random function used to derive keying material for all cryptographic operations
+func (o NetIkePeerOutput) Prf() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetIkePeer) pulumi.StringOutput { return v.Prf }).(pulumi.StringOutput)
+}
+
+// If this value is enabled, both values of ID payloads in the phase 2 exchange are used as the addresses of end-point of IPsec-SAs
+func (o NetIkePeerOutput) ProxySupport() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetIkePeer) pulumi.StringOutput { return v.ProxySupport }).(pulumi.StringOutput)
+}
+
+// Specifies the IP address of the IKE remote node
+func (o NetIkePeerOutput) RemoteAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetIkePeer) pulumi.StringOutput { return v.RemoteAddress }).(pulumi.StringOutput)
+}
+
+// Specifies the replay window size of the IPsec SAs negotiated with the IKE remote node
+func (o NetIkePeerOutput) ReplayWindowSize() pulumi.IntOutput {
+	return o.ApplyT(func(v *NetIkePeer) pulumi.IntOutput { return v.ReplayWindowSize }).(pulumi.IntOutput)
+}
+
+// Enables or disables this IKE remote node
+func (o NetIkePeerOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetIkePeer) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
+}
+
+// Specifies the names of the traffic-selector objects associated with this ike-peer
+func (o NetIkePeerOutput) TrafficSelectors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetIkePeer) pulumi.StringArrayOutput { return v.TrafficSelectors }).(pulumi.StringArrayOutput)
+}
+
+// Specifies whether to verify the certificate chain of the remote peer based on the trusted certificates in ca-cert-file
+func (o NetIkePeerOutput) VerifyCert() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetIkePeer) pulumi.StringOutput { return v.VerifyCert }).(pulumi.StringOutput)
+}
+
+// Specifies which version of IKE to be used
+func (o NetIkePeerOutput) Versions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *NetIkePeer) pulumi.StringArrayOutput { return v.Versions }).(pulumi.StringArrayOutput)
+}
+
 type NetIkePeerArrayOutput struct{ *pulumi.OutputState }
 
 func (NetIkePeerArrayOutput) ElementType() reflect.Type {

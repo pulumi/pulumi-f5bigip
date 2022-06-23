@@ -295,6 +295,60 @@ func (o NodeOutput) ToNodeOutputWithContext(ctx context.Context) NodeOutput {
 	return o
 }
 
+// IP or hostname of the node
+func (o NodeOutput) Address() pulumi.StringOutput {
+	return o.ApplyT(func(v *Node) pulumi.StringOutput { return v.Address }).(pulumi.StringOutput)
+}
+
+// Specifies the maximum number of connections allowed for the node or node address.
+func (o NodeOutput) ConnectionLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v *Node) pulumi.IntOutput { return v.ConnectionLimit }).(pulumi.IntOutput)
+}
+
+// User-defined description give ltm_node
+func (o NodeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Node) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the fixed ratio value used for a node during ratio load balancing.
+func (o NodeOutput) DynamicRatio() pulumi.IntOutput {
+	return o.ApplyT(func(v *Node) pulumi.IntOutput { return v.DynamicRatio }).(pulumi.IntOutput)
+}
+
+func (o NodeOutput) Fqdn() NodeFqdnPtrOutput {
+	return o.ApplyT(func(v *Node) NodeFqdnPtrOutput { return v.Fqdn }).(NodeFqdnPtrOutput)
+}
+
+// specifies the name of the monitor or monitor rule that you want to associate with the node.
+func (o NodeOutput) Monitor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Node) pulumi.StringPtrOutput { return v.Monitor }).(pulumi.StringPtrOutput)
+}
+
+// Name of the node
+func (o NodeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Node) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
+func (o NodeOutput) RateLimit() pulumi.StringOutput {
+	return o.ApplyT(func(v *Node) pulumi.StringOutput { return v.RateLimit }).(pulumi.StringOutput)
+}
+
+// Sets the ratio number for the node.
+func (o NodeOutput) Ratio() pulumi.IntOutput {
+	return o.ApplyT(func(v *Node) pulumi.IntOutput { return v.Ratio }).(pulumi.IntOutput)
+}
+
+// Enables or disables the node for new sessions. The default value is user-enabled.
+func (o NodeOutput) Session() pulumi.StringOutput {
+	return o.ApplyT(func(v *Node) pulumi.StringOutput { return v.Session }).(pulumi.StringOutput)
+}
+
+// Default is "user-up" you can set to "user-down" if you want to disable
+func (o NodeOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Node) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
+}
+
 type NodeArrayOutput struct{ *pulumi.OutputState }
 
 func (NodeArrayOutput) ElementType() reflect.Type {

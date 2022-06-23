@@ -312,6 +312,31 @@ func (o SelfIpOutput) ToSelfIpOutputWithContext(ctx context.Context) SelfIpOutpu
 	return o
 }
 
+// The Self IP's address and netmask.
+func (o SelfIpOutput) Ip() pulumi.StringOutput {
+	return o.ApplyT(func(v *SelfIp) pulumi.StringOutput { return v.Ip }).(pulumi.StringOutput)
+}
+
+// Name of the selfip
+func (o SelfIpOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SelfIp) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the port lockdown, defaults to `Allow None` if not specified.
+func (o SelfIpOutput) PortLockdowns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SelfIp) pulumi.StringArrayOutput { return v.PortLockdowns }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
+func (o SelfIpOutput) TrafficGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SelfIp) pulumi.StringPtrOutput { return v.TrafficGroup }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the VLAN for which you are setting a self IP address. This setting must be provided when a self IP is created.
+func (o SelfIpOutput) Vlan() pulumi.StringOutput {
+	return o.ApplyT(func(v *SelfIp) pulumi.StringOutput { return v.Vlan }).(pulumi.StringOutput)
+}
+
 type SelfIpArrayOutput struct{ *pulumi.OutputState }
 
 func (SelfIpArrayOutput) ElementType() reflect.Type {

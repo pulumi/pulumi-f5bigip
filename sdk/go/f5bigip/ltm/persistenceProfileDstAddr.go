@@ -320,6 +320,62 @@ func (o PersistenceProfileDstAddrOutput) ToPersistenceProfileDstAddrOutputWithCo
 	return o
 }
 
+func (o PersistenceProfileDstAddrOutput) AppService() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileDstAddr) pulumi.StringOutput { return v.AppService }).(pulumi.StringOutput)
+}
+
+// Inherit defaults from parent profile
+func (o PersistenceProfileDstAddrOutput) DefaultsFrom() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileDstAddr) pulumi.StringOutput { return v.DefaultsFrom }).(pulumi.StringOutput)
+}
+
+// Specify the hash algorithm
+func (o PersistenceProfileDstAddrOutput) HashAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileDstAddr) pulumi.StringOutput { return v.HashAlgorithm }).(pulumi.StringOutput)
+}
+
+// Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
+// when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
+func (o PersistenceProfileDstAddrOutput) Mask() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileDstAddr) pulumi.StringOutput { return v.Mask }).(pulumi.StringOutput)
+}
+
+// To enable _ disable match across pools with given persistence record
+func (o PersistenceProfileDstAddrOutput) MatchAcrossPools() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileDstAddr) pulumi.StringOutput { return v.MatchAcrossPools }).(pulumi.StringOutput)
+}
+
+// To enable _ disable match across services with given persistence record
+func (o PersistenceProfileDstAddrOutput) MatchAcrossServices() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileDstAddr) pulumi.StringOutput { return v.MatchAcrossServices }).(pulumi.StringOutput)
+}
+
+// To enable _ disable match across services with given persistence record
+func (o PersistenceProfileDstAddrOutput) MatchAcrossVirtuals() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileDstAddr) pulumi.StringOutput { return v.MatchAcrossVirtuals }).(pulumi.StringOutput)
+}
+
+// To enable _ disable
+func (o PersistenceProfileDstAddrOutput) Mirror() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileDstAddr) pulumi.StringOutput { return v.Mirror }).(pulumi.StringOutput)
+}
+
+// Name of the persistence profile
+func (o PersistenceProfileDstAddrOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileDstAddr) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
+// limits remain hard limits and are not overridden.
+func (o PersistenceProfileDstAddrOutput) OverrideConnLimit() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileDstAddr) pulumi.StringOutput { return v.OverrideConnLimit }).(pulumi.StringOutput)
+}
+
+// Timeout for persistence of the session
+func (o PersistenceProfileDstAddrOutput) Timeout() pulumi.IntOutput {
+	return o.ApplyT(func(v *PersistenceProfileDstAddr) pulumi.IntOutput { return v.Timeout }).(pulumi.IntOutput)
+}
+
 type PersistenceProfileDstAddrArrayOutput struct{ *pulumi.OutputState }
 
 func (PersistenceProfileDstAddrArrayOutput) ElementType() reflect.Type {

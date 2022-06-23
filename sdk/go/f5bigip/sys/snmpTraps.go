@@ -314,6 +314,76 @@ func (o SnmpTrapsOutput) ToSnmpTrapsOutputWithContext(ctx context.Context) SnmpT
 	return o
 }
 
+// Encrypted password
+func (o SnmpTrapsOutput) AuthPasswordencrypted() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnmpTraps) pulumi.StringPtrOutput { return v.AuthPasswordencrypted }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the protocol used to authenticate the user.
+func (o SnmpTrapsOutput) AuthProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnmpTraps) pulumi.StringPtrOutput { return v.AuthProtocol }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the community string used for this trap.
+func (o SnmpTrapsOutput) Community() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnmpTraps) pulumi.StringPtrOutput { return v.Community }).(pulumi.StringPtrOutput)
+}
+
+// The port that the trap will be sent to.
+func (o SnmpTrapsOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnmpTraps) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the authoritative security engine for SNMPv3.
+func (o SnmpTrapsOutput) EngineId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnmpTraps) pulumi.StringPtrOutput { return v.EngineId }).(pulumi.StringPtrOutput)
+}
+
+// The host the trap will be sent to.
+func (o SnmpTrapsOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnmpTraps) pulumi.StringPtrOutput { return v.Host }).(pulumi.StringPtrOutput)
+}
+
+// Name of the snmp trap.
+func (o SnmpTrapsOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnmpTraps) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// User defined description.
+func (o SnmpTrapsOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SnmpTraps) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the clear text password used to encrypt traffic. This field will not be displayed.
+func (o SnmpTrapsOutput) PrivacyPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnmpTraps) pulumi.StringPtrOutput { return v.PrivacyPassword }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the encrypted password used to encrypt traffic.
+func (o SnmpTrapsOutput) PrivacyPasswordEncrypted() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnmpTraps) pulumi.StringPtrOutput { return v.PrivacyPasswordEncrypted }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the protocol used to encrypt traffic.
+func (o SnmpTrapsOutput) PrivacyProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnmpTraps) pulumi.StringPtrOutput { return v.PrivacyProtocol }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether or not traffic is encrypted and whether or not authentication is required.
+func (o SnmpTrapsOutput) SecurityLevel() pulumi.StringOutput {
+	return o.ApplyT(func(v *SnmpTraps) pulumi.StringOutput { return v.SecurityLevel }).(pulumi.StringOutput)
+}
+
+// Security name used in conjunction with SNMPv3.
+func (o SnmpTrapsOutput) SecurityName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SnmpTraps) pulumi.StringPtrOutput { return v.SecurityName }).(pulumi.StringPtrOutput)
+}
+
+// SNMP version used for sending the trap.
+func (o SnmpTrapsOutput) Version() pulumi.StringOutput {
+	return o.ApplyT(func(v *SnmpTraps) pulumi.StringOutput { return v.Version }).(pulumi.StringOutput)
+}
+
 type SnmpTrapsArrayOutput struct{ *pulumi.OutputState }
 
 func (SnmpTrapsArrayOutput) ElementType() reflect.Type {

@@ -321,6 +321,69 @@ func (o IpsecPolicyOutput) ToIpsecPolicyOutputWithContext(ctx context.Context) I
 	return o
 }
 
+// Specifies the algorithm to use for IKE authentication. Valid choices are: `sha1, sha256, sha384, sha512, aes-gcm128,
+// aes-gcm192, aes-gcm256, aes-gmac128, aes-gmac192, aes-gmac256`
+func (o IpsecPolicyOutput) AuthAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v *IpsecPolicy) pulumi.StringOutput { return v.AuthAlgorithm }).(pulumi.StringOutput)
+}
+
+// Description of the IPSec policy.
+func (o IpsecPolicyOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *IpsecPolicy) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// Specifies the algorithm to use for IKE encryption. Valid choices are: `null, 3des, aes128, aes192, aes256, aes-gmac256,
+// aes-gmac192, aes-gmac128, aes-gcm256, aes-gcm192, aes-gcm256, aes-gcm128`
+func (o IpsecPolicyOutput) EncryptAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v *IpsecPolicy) pulumi.StringOutput { return v.EncryptAlgorithm }).(pulumi.StringOutput)
+}
+
+// Specifies whether to use IPComp encapsulation. Valid choices are: `none", null", deflate`
+func (o IpsecPolicyOutput) Ipcomp() pulumi.StringOutput {
+	return o.ApplyT(func(v *IpsecPolicy) pulumi.StringOutput { return v.Ipcomp }).(pulumi.StringOutput)
+}
+
+// Specifies the length of time before the IKE security association expires, in kilobytes.
+func (o IpsecPolicyOutput) KbLifetime() pulumi.IntOutput {
+	return o.ApplyT(func(v *IpsecPolicy) pulumi.IntOutput { return v.KbLifetime }).(pulumi.IntOutput)
+}
+
+// Specifies the length of time before the IKE security association expires, in minutes.
+func (o IpsecPolicyOutput) Lifetime() pulumi.IntOutput {
+	return o.ApplyT(func(v *IpsecPolicy) pulumi.IntOutput { return v.Lifetime }).(pulumi.IntOutput)
+}
+
+// Specifies the processing mode. Valid choices are: `transport, interface, isession, tunnel`
+func (o IpsecPolicyOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v *IpsecPolicy) pulumi.StringOutput { return v.Mode }).(pulumi.StringOutput)
+}
+
+// Name of the IPSec policy,it should be "full path".The full path is the combination of the partition + name of the IPSec policy.(For example `/Common/test-policy`)
+func (o IpsecPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IpsecPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the Diffie-Hellman group to use for IKE Phase 2 negotiation. Valid choices are: `none, modp768, modp1024, modp1536, modp2048, modp3072,
+// modp4096, modp6144, modp8192`
+func (o IpsecPolicyOutput) PerfectForwardSecrecy() pulumi.StringOutput {
+	return o.ApplyT(func(v *IpsecPolicy) pulumi.StringOutput { return v.PerfectForwardSecrecy }).(pulumi.StringOutput)
+}
+
+// Specifies the IPsec protocol. Valid choices are: `ah, esp`
+func (o IpsecPolicyOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v *IpsecPolicy) pulumi.StringOutput { return v.Protocol }).(pulumi.StringOutput)
+}
+
+// Specifies the local endpoint IP address of the IPsec tunnel. This parameter is only valid when mode is tunnel.
+func (o IpsecPolicyOutput) TunnelLocalAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v *IpsecPolicy) pulumi.StringOutput { return v.TunnelLocalAddress }).(pulumi.StringOutput)
+}
+
+// Specifies the remote endpoint IP address of the IPsec tunnel. This parameter is only valid when mode is tunnel.
+func (o IpsecPolicyOutput) TunnelRemoteAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v *IpsecPolicy) pulumi.StringOutput { return v.TunnelRemoteAddress }).(pulumi.StringOutput)
+}
+
 type IpsecPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (IpsecPolicyArrayOutput) ElementType() reflect.Type {

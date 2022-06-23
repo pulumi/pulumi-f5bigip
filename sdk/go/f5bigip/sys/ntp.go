@@ -210,6 +210,21 @@ func (o NtpOutput) ToNtpOutputWithContext(ctx context.Context) NtpOutput {
 	return o
 }
 
+// Name of the ntp Servers
+func (o NtpOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *Ntp) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// Adds NTP servers to or deletes NTP servers from the BIG-IP system.
+func (o NtpOutput) Servers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Ntp) pulumi.StringArrayOutput { return v.Servers }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the time zone that you want to use for the system time.
+func (o NtpOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ntp) pulumi.StringPtrOutput { return v.Timezone }).(pulumi.StringPtrOutput)
+}
+
 type NtpArrayOutput struct{ *pulumi.OutputState }
 
 func (NtpArrayOutput) ElementType() reflect.Type {

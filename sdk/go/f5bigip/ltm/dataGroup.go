@@ -212,6 +212,32 @@ func (o DataGroupOutput) ToDataGroupOutputWithContext(ctx context.Context) DataG
 	return o
 }
 
+// Set `false` if you want to Create External Datagroups. default is `true`,means creates internal datagroup.
+func (o DataGroupOutput) Internal() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DataGroup) pulumi.BoolPtrOutput { return v.Internal }).(pulumi.BoolPtrOutput)
+}
+
+// , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
+func (o DataGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// a set of `name` and `data` attributes, name must be of type specified by the `type` attributed (`string`, `ip` and `integer`), data is optional and can take any value, multiple `record` sets can be specified as needed.
+func (o DataGroupOutput) Records() DataGroupRecordArrayOutput {
+	return o.ApplyT(func(v *DataGroup) DataGroupRecordArrayOutput { return v.Records }).(DataGroupRecordArrayOutput)
+}
+
+// Path to a file with records in it,The file should be well-formed,it includes records, one per line,that resemble the following format "key separator value". For example, `foo := bar`.
+// This should be used in conjunction with `internal` attribute set `false`
+func (o DataGroupOutput) RecordsSrc() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataGroup) pulumi.StringPtrOutput { return v.RecordsSrc }).(pulumi.StringPtrOutput)
+}
+
+// datagroup type (applies to the `name` field of the record), supports: `string`, `ip` or `integer`
+func (o DataGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
 type DataGroupArrayOutput struct{ *pulumi.OutputState }
 
 func (DataGroupArrayOutput) ElementType() reflect.Type {
