@@ -17,112 +17,136 @@ namespace Pulumi.F5BigIP.Net
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var vlan1 = new F5BigIP.Net.Vlan("vlan1", new()
     ///     {
-    ///         var vlan1 = new F5BigIP.Net.Vlan("vlan1", new F5BigIP.Net.VlanArgs
+    ///         Name = "/Common/Internal",
+    ///         Tag = 101,
+    ///         Interfaces = new[]
     ///         {
-    ///             Name = "/Common/Internal",
-    ///             Tag = 101,
-    ///             Interfaces = 
+    ///             new F5BigIP.Net.Inputs.VlanInterfaceArgs
     ///             {
-    ///                 new F5BigIP.Net.Inputs.VlanInterfaceArgs
-    ///                 {
-    ///                     Vlanport = "1.2",
-    ///                     Tagged = false,
-    ///                 },
+    ///                 Vlanport = "1.2",
+    ///                 Tagged = false,
     ///             },
-    ///         });
-    ///         var selfip1 = new F5BigIP.Net.SelfIp("selfip1", new F5BigIP.Net.SelfIpArgs
-    ///         {
-    ///             Name = "/Common/internalselfIP",
-    ///             Ip = "11.1.1.1/24",
-    ///             Vlan = "/Common/internal",
-    ///         }, new CustomResourceOptions
-    ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 vlan1,
-    ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     var selfip1 = new F5BigIP.Net.SelfIp("selfip1", new()
+    ///     {
+    ///         Name = "/Common/internalselfIP",
+    ///         Ip = "11.1.1.1/24",
+    ///         Vlan = "/Common/internal",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             vlan1,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Example usage with `port_lockdown`
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var selfip1 = new F5BigIP.Net.SelfIp("selfip1", new()
     ///     {
-    ///         var selfip1 = new F5BigIP.Net.SelfIp("selfip1", new F5BigIP.Net.SelfIpArgs
+    ///         Name = "/Common/internalselfIP",
+    ///         Ip = "11.1.1.1/24",
+    ///         Vlan = "/Common/internal",
+    ///         TrafficGroup = "traffic-group-1",
+    ///         PortLockdowns = new[]
     ///         {
-    ///             Name = "/Common/internalselfIP",
-    ///             Ip = "11.1.1.1/24",
-    ///             Vlan = "/Common/internal",
-    ///             TrafficGroup = "traffic-group-1",
-    ///             PortLockdowns = 
-    ///             {
-    ///                 "tcp:4040",
-    ///                 "udp:5050",
-    ///                 "egp:0",
-    ///             },
-    ///         }, new CustomResourceOptions
+    ///             "tcp:4040",
+    ///             "udp:5050",
+    ///             "egp:0",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
     ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 bigip_net_vlan.Vlan1,
-    ///             },
-    ///         });
-    ///     }
+    ///             bigip_net_vlan.Vlan1,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Example usage with `port_lockdown` set to `["none"]`
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var selfip1 = new F5BigIP.Net.SelfIp("selfip1", new()
     ///     {
-    ///         var selfip1 = new F5BigIP.Net.SelfIp("selfip1", new F5BigIP.Net.SelfIpArgs
+    ///         Name = "/Common/internalselfIP",
+    ///         Ip = "11.1.1.1/24",
+    ///         Vlan = "/Common/internal",
+    ///         TrafficGroup = "traffic-group-1",
+    ///         PortLockdowns = new[]
     ///         {
-    ///             Name = "/Common/internalselfIP",
-    ///             Ip = "11.1.1.1/24",
-    ///             Vlan = "/Common/internal",
-    ///             TrafficGroup = "traffic-group-1",
-    ///             PortLockdowns = 
-    ///             {
-    ///                 "none",
-    ///             },
-    ///         }, new CustomResourceOptions
+    ///             "none",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
     ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 bigip_net_vlan.Vlan1,
-    ///             },
-    ///         });
-    ///     }
+    ///             bigip_net_vlan.Vlan1,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
+    /// ```
+    /// ### Example usage with route domain embedded in the `ip`
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var selfip1 = new F5BigIP.Net.SelfIp("selfip1", new()
+    ///     {
+    ///         Name = "/Common/internalselfIP",
+    ///         Ip = "11.1.1.1%4/24",
+    ///         Vlan = "/Common/internal",
+    ///         TrafficGroup = "traffic-group-1",
+    ///         PortLockdowns = new[]
+    ///         {
+    ///             "none",
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
+    ///         {
+    ///             bigip_net_vlan.Vlan1,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:net/selfIp:SelfIp")]
-    public partial class SelfIp : Pulumi.CustomResource
+    public partial class SelfIp : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Self IP's address and netmask.
+        /// The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
         /// </summary>
         [Output("ip")]
         public Output<string> Ip { get; private set; } = null!;
@@ -195,10 +219,10 @@ namespace Pulumi.F5BigIP.Net
         }
     }
 
-    public sealed class SelfIpArgs : Pulumi.ResourceArgs
+    public sealed class SelfIpArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Self IP's address and netmask.
+        /// The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
         /// </summary>
         [Input("ip", required: true)]
         public Input<string> Ip { get; set; } = null!;
@@ -236,12 +260,13 @@ namespace Pulumi.F5BigIP.Net
         public SelfIpArgs()
         {
         }
+        public static new SelfIpArgs Empty => new SelfIpArgs();
     }
 
-    public sealed class SelfIpState : Pulumi.ResourceArgs
+    public sealed class SelfIpState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Self IP's address and netmask.
+        /// The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
         /// </summary>
         [Input("ip")]
         public Input<string>? Ip { get; set; }
@@ -279,5 +304,6 @@ namespace Pulumi.F5BigIP.Net
         public SelfIpState()
         {
         }
+        public static new SelfIpState Empty => new SelfIpState();
     }
 }

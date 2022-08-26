@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Ltm.Inputs
 {
 
-    public sealed class PolicyRuleActionArgs : Pulumi.ResourceArgs
+    public sealed class PolicyRuleActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("appService")]
         public Input<string>? AppService { get; set; }
@@ -45,6 +45,9 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
         [Input("compress")]
         public Input<bool>? Compress { get; set; }
 
+        /// <summary>
+        /// This action is set to `true` by default, it needs to be explicitly set to `false` for actions it conflicts with.
+        /// </summary>
         [Input("connection")]
         public Input<bool>? Connection { get; set; }
 
@@ -333,5 +336,6 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
         public PolicyRuleActionArgs()
         {
         }
+        public static new PolicyRuleActionArgs Empty => new PolicyRuleActionArgs();
     }
 }

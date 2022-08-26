@@ -21,28 +21,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/net"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/net"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := net.NewVlan(ctx, "vlan1", &net.VlanArgs{
-// 			Interfaces: net.VlanInterfaceArray{
-// 				&net.VlanInterfaceArgs{
-// 					Tagged:   pulumi.Bool(false),
-// 					Vlanport: pulumi.String("1.2"),
-// 				},
-// 			},
-// 			Name: pulumi.String("/Common/Internal"),
-// 			Tag:  pulumi.Int(101),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := net.NewVlan(ctx, "vlan1", &net.VlanArgs{
+//				Interfaces: net.VlanInterfaceArray{
+//					&net.VlanInterfaceArgs{
+//						Tagged:   pulumi.Bool(false),
+//						Vlanport: pulumi.String("1.2"),
+//					},
+//				},
+//				Name: pulumi.String("/Common/Internal"),
+//				Tag:  pulumi.Int(101),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type Vlan struct {
 	pulumi.CustomResourceState
@@ -153,7 +156,7 @@ func (i *Vlan) ToVlanOutputWithContext(ctx context.Context) VlanOutput {
 // VlanArrayInput is an input type that accepts VlanArray and VlanArrayOutput values.
 // You can construct a concrete instance of `VlanArrayInput` via:
 //
-//          VlanArray{ VlanArgs{...} }
+//	VlanArray{ VlanArgs{...} }
 type VlanArrayInput interface {
 	pulumi.Input
 
@@ -178,7 +181,7 @@ func (i VlanArray) ToVlanArrayOutputWithContext(ctx context.Context) VlanArrayOu
 // VlanMapInput is an input type that accepts VlanMap and VlanMapOutput values.
 // You can construct a concrete instance of `VlanMapInput` via:
 //
-//          VlanMap{ "key": VlanArgs{...} }
+//	VlanMap{ "key": VlanArgs{...} }
 type VlanMapInput interface {
 	pulumi.Input
 
@@ -212,6 +215,21 @@ func (o VlanOutput) ToVlanOutput() VlanOutput {
 
 func (o VlanOutput) ToVlanOutputWithContext(ctx context.Context) VlanOutput {
 	return o
+}
+
+// Specifies which interfaces you want this VLAN to use for traffic management.
+func (o VlanOutput) Interfaces() VlanInterfaceArrayOutput {
+	return o.ApplyT(func(v *Vlan) VlanInterfaceArrayOutput { return v.Interfaces }).(VlanInterfaceArrayOutput)
+}
+
+// Name of the vlan
+func (o VlanOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Vlan) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies a number that the system adds into the header of any frame passing through the VLAN.
+func (o VlanOutput) Tag() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Vlan) pulumi.IntPtrOutput { return v.Tag }).(pulumi.IntPtrOutput)
 }
 
 type VlanArrayOutput struct{ *pulumi.OutputState }

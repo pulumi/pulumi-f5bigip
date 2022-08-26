@@ -19,32 +19,35 @@ import (
 // package main
 //
 // import (
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := f5bigip.NewFastApplication(ctx, "foo-app", &f5bigip.FastApplicationArgs{
-// 			FastJson: readFileOrPanic("new_fast_app.json"),
-// 			Template: pulumi.String("examples/simple_http"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := f5bigip.NewFastApplication(ctx, "foo-app", &f5bigip.FastApplicationArgs{
+//				FastJson: readFileOrPanic("new_fast_app.json"),
+//				Template: pulumi.String("examples/simple_http"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type FastApplication struct {
 	pulumi.CustomResourceState
@@ -157,7 +160,7 @@ func (i *FastApplication) ToFastApplicationOutputWithContext(ctx context.Context
 // FastApplicationArrayInput is an input type that accepts FastApplicationArray and FastApplicationArrayOutput values.
 // You can construct a concrete instance of `FastApplicationArrayInput` via:
 //
-//          FastApplicationArray{ FastApplicationArgs{...} }
+//	FastApplicationArray{ FastApplicationArgs{...} }
 type FastApplicationArrayInput interface {
 	pulumi.Input
 
@@ -182,7 +185,7 @@ func (i FastApplicationArray) ToFastApplicationArrayOutputWithContext(ctx contex
 // FastApplicationMapInput is an input type that accepts FastApplicationMap and FastApplicationMapOutput values.
 // You can construct a concrete instance of `FastApplicationMapInput` via:
 //
-//          FastApplicationMap{ "key": FastApplicationArgs{...} }
+//	FastApplicationMap{ "key": FastApplicationArgs{...} }
 type FastApplicationMapInput interface {
 	pulumi.Input
 
@@ -216,6 +219,26 @@ func (o FastApplicationOutput) ToFastApplicationOutput() FastApplicationOutput {
 
 func (o FastApplicationOutput) ToFastApplicationOutputWithContext(ctx context.Context) FastApplicationOutput {
 	return o
+}
+
+// A FAST application name.
+func (o FastApplicationOutput) Application() pulumi.StringOutput {
+	return o.ApplyT(func(v *FastApplication) pulumi.StringOutput { return v.Application }).(pulumi.StringOutput)
+}
+
+// Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
+func (o FastApplicationOutput) FastJson() pulumi.StringOutput {
+	return o.ApplyT(func(v *FastApplication) pulumi.StringOutput { return v.FastJson }).(pulumi.StringOutput)
+}
+
+// Name of installed FAST template used to create FAST application. This parameter is required when creating new resource.
+func (o FastApplicationOutput) Template() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FastApplication) pulumi.StringPtrOutput { return v.Template }).(pulumi.StringPtrOutput)
+}
+
+// A FAST tenant name on which you want to manage application.
+func (o FastApplicationOutput) Tenant() pulumi.StringOutput {
+	return o.ApplyT(func(v *FastApplication) pulumi.StringOutput { return v.Tenant }).(pulumi.StringOutput)
 }
 
 type FastApplicationArrayOutput struct{ *pulumi.OutputState }

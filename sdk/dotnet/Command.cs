@@ -16,29 +16,27 @@ namespace Pulumi.F5BigIP
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     //create ltm node
+    ///     var test_command = new F5BigIP.Command("test-command", new()
     ///     {
-    ///         //create ltm node
-    ///         var test_command = new F5BigIP.Command("test-command", new F5BigIP.CommandArgs
+    ///         Commands = new[]
     ///         {
-    ///             Commands = 
-    ///             {
-    ///                 "delete ltm node 10.10.10.70",
-    ///             },
-    ///             When = "destroy",
-    ///         });
-    ///     }
+    ///             "delete ltm node 10.10.10.70",
+    ///         },
+    ///         When = "destroy",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:index/command:Command")]
-    public partial class Command : Pulumi.CustomResource
+    public partial class Command : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The resulting output from the `commands` executed
@@ -99,7 +97,7 @@ namespace Pulumi.F5BigIP
         }
     }
 
-    public sealed class CommandArgs : Pulumi.ResourceArgs
+    public sealed class CommandArgs : global::Pulumi.ResourceArgs
     {
         [Input("commandResults")]
         private InputList<string>? _commandResults;
@@ -131,9 +129,10 @@ namespace Pulumi.F5BigIP
         public CommandArgs()
         {
         }
+        public static new CommandArgs Empty => new CommandArgs();
     }
 
-    public sealed class CommandState : Pulumi.ResourceArgs
+    public sealed class CommandState : global::Pulumi.ResourceArgs
     {
         [Input("commandResults")]
         private InputList<string>? _commandResults;
@@ -165,5 +164,6 @@ namespace Pulumi.F5BigIP
         public CommandState()
         {
         }
+        public static new CommandState Empty => new CommandState();
     }
 }

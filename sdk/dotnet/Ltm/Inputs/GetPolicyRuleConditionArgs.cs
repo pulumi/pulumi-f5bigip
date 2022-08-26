@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Ltm.Inputs
 {
 
-    public sealed class GetPolicyRuleConditionInputArgs : Pulumi.ResourceArgs
+    public sealed class GetPolicyRuleConditionInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("address", required: true)]
         public Input<bool> Address { get; set; } = null!;
@@ -290,5 +290,6 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
         public GetPolicyRuleConditionInputArgs()
         {
         }
+        public static new GetPolicyRuleConditionInputArgs Empty => new GetPolicyRuleConditionInputArgs();
     }
 }

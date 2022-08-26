@@ -18,63 +18,69 @@ import (
 // package main
 //
 // import (
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/sys"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/sys"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sys.NewIApp(ctx, "simplehttp", &sys.IAppArgs{
-// 			Name:     pulumi.String("simplehttp"),
-// 			Jsonfile: readFileOrPanic("simplehttp.json"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sys.NewIApp(ctx, "simplehttp", &sys.IAppArgs{
+//				Name:     pulumi.String("simplehttp"),
+//				Jsonfile: readFileOrPanic("simplehttp.json"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Json File
 // ```go
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
 // ```
 //
-//  * `description` - User defined description.
-//  * `deviceGroup` - The name of the device group that the application service is assigned to.
-//  * `executeAction` - Run the specified template action associated with the application.
-//  * `inheritedDevicegroup`- Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use 'device-group default' or 'device-group non-default' to set this.
-//  * `inheritedTrafficGroup` - Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use 'traffic-group default' or 'traffic-group non-default' to set this.
-//  * `partition` - Displays the administrative partition within which the application resides.
-//  * `strictUpdates` - Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system's application management interfaces.
-//  * `template` - The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.
-//  * `templateModified` - Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.
-//  * `templatePrerequisiteErrors` - Indicates any missing prerequisites associated with the template that defines this application.
-//  * `trafficGroup` - The name of the traffic group that the application service is assigned to.
-//  * `lists` - string values
-//  * `metadata` - User defined generic data for the application service. It is a name and value pair.
-//  * `tables` - Values provided like pool name, nodes etc.
-//  * `variables` - Name, values, encrypted or not
+//   - `description` - User defined description.
+//   - `deviceGroup` - The name of the device group that the application service is assigned to.
+//   - `executeAction` - Run the specified template action associated with the application.
+//   - `inheritedDevicegroup`- Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use 'device-group default' or 'device-group non-default' to set this.
+//   - `inheritedTrafficGroup` - Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use 'traffic-group default' or 'traffic-group non-default' to set this.
+//   - `partition` - Displays the administrative partition within which the application resides.
+//   - `strictUpdates` - Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system's application management interfaces.
+//   - `template` - The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.
+//   - `templateModified` - Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.
+//   - `templatePrerequisiteErrors` - Indicates any missing prerequisites associated with the template that defines this application.
+//   - `trafficGroup` - The name of the traffic group that the application service is assigned to.
+//   - `lists` - string values
+//   - `metadata` - User defined generic data for the application service. It is a name and value pair.
+//   - `tables` - Values provided like pool name, nodes etc.
+//   - `variables` - Name, values, encrypted or not
 type IApp struct {
 	pulumi.CustomResourceState
 
@@ -301,7 +307,7 @@ func (i *IApp) ToIAppOutputWithContext(ctx context.Context) IAppOutput {
 // IAppArrayInput is an input type that accepts IAppArray and IAppArrayOutput values.
 // You can construct a concrete instance of `IAppArrayInput` via:
 //
-//          IAppArray{ IAppArgs{...} }
+//	IAppArray{ IAppArgs{...} }
 type IAppArrayInput interface {
 	pulumi.Input
 
@@ -326,7 +332,7 @@ func (i IAppArray) ToIAppArrayOutputWithContext(ctx context.Context) IAppArrayOu
 // IAppMapInput is an input type that accepts IAppMap and IAppMapOutput values.
 // You can construct a concrete instance of `IAppMapInput` via:
 //
-//          IAppMap{ "key": IAppArgs{...} }
+//	IAppMap{ "key": IAppArgs{...} }
 type IAppMapInput interface {
 	pulumi.Input
 
@@ -360,6 +366,87 @@ func (o IAppOutput) ToIAppOutput() IAppOutput {
 
 func (o IAppOutput) ToIAppOutputWithContext(ctx context.Context) IAppOutput {
 	return o
+}
+
+// Address of the Iapp which needs to be Iappensed
+func (o IAppOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// BIG-IP password
+func (o IAppOutput) Devicegroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.Devicegroup }).(pulumi.StringPtrOutput)
+}
+
+// BIG-IP password
+func (o IAppOutput) ExecuteAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.ExecuteAction }).(pulumi.StringPtrOutput)
+}
+
+// BIG-IP password
+func (o IAppOutput) InheritedDevicegroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.InheritedDevicegroup }).(pulumi.StringPtrOutput)
+}
+
+// BIG-IP password
+func (o IAppOutput) InheritedTrafficGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.InheritedTrafficGroup }).(pulumi.StringPtrOutput)
+}
+
+// Refer to the Json file which will be deployed on F5 BIG-IP.
+func (o IAppOutput) Jsonfile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.Jsonfile }).(pulumi.StringPtrOutput)
+}
+
+func (o IAppOutput) Lists() IAppListArrayOutput {
+	return o.ApplyT(func(v *IApp) IAppListArrayOutput { return v.Lists }).(IAppListArrayOutput)
+}
+
+func (o IAppOutput) Metadatas() IAppMetadataArrayOutput {
+	return o.ApplyT(func(v *IApp) IAppMetadataArrayOutput { return v.Metadatas }).(IAppMetadataArrayOutput)
+}
+
+// Name of the iApp.
+func (o IAppOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Address of the Iapp which needs to be Iappensed
+func (o IAppOutput) Partition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.Partition }).(pulumi.StringPtrOutput)
+}
+
+// BIG-IP password
+func (o IAppOutput) StrictUpdates() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.StrictUpdates }).(pulumi.StringPtrOutput)
+}
+
+func (o IAppOutput) Tables() IAppTableArrayOutput {
+	return o.ApplyT(func(v *IApp) IAppTableArrayOutput { return v.Tables }).(IAppTableArrayOutput)
+}
+
+// BIG-IP password
+func (o IAppOutput) Template() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.Template }).(pulumi.StringPtrOutput)
+}
+
+// BIG-IP password
+func (o IAppOutput) TemplateModified() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.TemplateModified }).(pulumi.StringPtrOutput)
+}
+
+// BIG-IP password
+func (o IAppOutput) TemplatePrerequisiteErrors() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.TemplatePrerequisiteErrors }).(pulumi.StringPtrOutput)
+}
+
+// BIG-IP password
+func (o IAppOutput) TrafficGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.TrafficGroup }).(pulumi.StringPtrOutput)
+}
+
+func (o IAppOutput) Variables() IAppVariableArrayOutput {
+	return o.ApplyT(func(v *IApp) IAppVariableArrayOutput { return v.Variables }).(IAppVariableArrayOutput)
 }
 
 type IAppArrayOutput struct{ *pulumi.OutputState }

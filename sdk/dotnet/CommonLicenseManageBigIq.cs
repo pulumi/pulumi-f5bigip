@@ -15,78 +15,81 @@ namespace Pulumi.F5BigIP
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // MANAGED Regkey Pool
+    ///     var testExampleCommonLicenseManageBigIq = new F5BigIP.CommonLicenseManageBigIq("testExampleCommonLicenseManageBigIq", new()
     ///     {
-    ///         // MANAGED Regkey Pool
-    ///         var testExampleCommonLicenseManageBigIq = new F5BigIP.CommonLicenseManageBigIq("testExampleCommonLicenseManageBigIq", new F5BigIP.CommonLicenseManageBigIqArgs
-    ///         {
-    ///             BigiqAddress = @var.Bigiq,
-    ///             BigiqUser = @var.Bigiq_un,
-    ///             BigiqPassword = @var.Bigiq_pw,
-    ///             LicensePoolname = "regkeypool_name",
-    ///             AssignmentType = "MANAGED",
-    ///         });
-    ///         // UNMANAGED Regkey Pool
-    ///         var testExampleIndex_commonLicenseManageBigIqCommonLicenseManageBigIq = new F5BigIP.CommonLicenseManageBigIq("testExampleIndex/commonLicenseManageBigIqCommonLicenseManageBigIq", new F5BigIP.CommonLicenseManageBigIqArgs
-    ///         {
-    ///             BigiqAddress = @var.Bigiq,
-    ///             BigiqUser = @var.Bigiq_un,
-    ///             BigiqPassword = @var.Bigiq_pw,
-    ///             LicensePoolname = "regkeypool_name",
-    ///             AssignmentType = "UNMANAGED",
-    ///         });
-    ///         // UNMANAGED Utility Pool
-    ///         var testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq = new F5BigIP.CommonLicenseManageBigIq("testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq", new F5BigIP.CommonLicenseManageBigIqArgs
-    ///         {
-    ///             BigiqAddress = @var.Bigiq,
-    ///             BigiqUser = @var.Bigiq_un,
-    ///             BigiqPassword = @var.Bigiq_pw,
-    ///             LicensePoolname = "utilitypool_name",
-    ///             AssignmentType = "UNMANAGED",
-    ///             UnitOfMeasure = "yearly",
-    ///             Skukeyword1 = "BTHSM200M",
-    ///         });
-    ///         // UNREACHABLE Regkey Pool
-    ///         var testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq1 = new F5BigIP.CommonLicenseManageBigIq("testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq1", new F5BigIP.CommonLicenseManageBigIqArgs
-    ///         {
-    ///             BigiqAddress = "xxx.xxx.xxx.xxx",
-    ///             BigiqUser = "xxxx",
-    ///             BigiqPassword = "xxxxx",
-    ///             LicensePoolname = "regkey_pool_name",
-    ///             AssignmentType = "UNREACHABLE",
-    ///             MacAddress = "FA:16:3E:1B:6D:32",
-    ///             Hypervisor = "azure",
-    ///         });
-    ///         // MANAGED Purchased Pool
-    ///         var testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq2 = new F5BigIP.CommonLicenseManageBigIq("testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq2", new F5BigIP.CommonLicenseManageBigIqArgs
-    ///         {
-    ///             BigiqAddress = @var.Bigiq,
-    ///             BigiqUser = @var.Bigiq_un,
-    ///             BigiqPassword = @var.Bigiq_pw,
-    ///             LicensePoolname = "purchased_pool_name",
-    ///             AssignmentType = "MANAGED",
-    ///         });
-    ///         // UNMANAGED Purchased Pool
-    ///         var testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq3 = new F5BigIP.CommonLicenseManageBigIq("testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq3", new F5BigIP.CommonLicenseManageBigIqArgs
-    ///         {
-    ///             BigiqAddress = @var.Bigiq,
-    ///             BigiqUser = @var.Bigiq_un,
-    ///             BigiqPassword = @var.Bigiq_pw,
-    ///             LicensePoolname = "purchased_pool_name",
-    ///             AssignmentType = "UNMANAGED",
-    ///         });
-    ///     }
+    ///         BigiqAddress = @var.Bigiq,
+    ///         BigiqUser = @var.Bigiq_un,
+    ///         BigiqPassword = @var.Bigiq_pw,
+    ///         LicensePoolname = "regkeypool_name",
+    ///         AssignmentType = "MANAGED",
+    ///     });
     /// 
-    /// }
+    ///     // UNMANAGED Regkey Pool
+    ///     var testExampleIndex_commonLicenseManageBigIqCommonLicenseManageBigIq = new F5BigIP.CommonLicenseManageBigIq("testExampleIndex/commonLicenseManageBigIqCommonLicenseManageBigIq", new()
+    ///     {
+    ///         BigiqAddress = @var.Bigiq,
+    ///         BigiqUser = @var.Bigiq_un,
+    ///         BigiqPassword = @var.Bigiq_pw,
+    ///         LicensePoolname = "regkeypool_name",
+    ///         AssignmentType = "UNMANAGED",
+    ///     });
+    /// 
+    ///     // UNMANAGED Utility Pool
+    ///     var testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq = new F5BigIP.CommonLicenseManageBigIq("testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq", new()
+    ///     {
+    ///         BigiqAddress = @var.Bigiq,
+    ///         BigiqUser = @var.Bigiq_un,
+    ///         BigiqPassword = @var.Bigiq_pw,
+    ///         LicensePoolname = "utilitypool_name",
+    ///         AssignmentType = "UNMANAGED",
+    ///         UnitOfMeasure = "yearly",
+    ///         Skukeyword1 = "BTHSM200M",
+    ///     });
+    /// 
+    ///     // UNREACHABLE Regkey Pool
+    ///     var testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq1 = new F5BigIP.CommonLicenseManageBigIq("testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq1", new()
+    ///     {
+    ///         BigiqAddress = "xxx.xxx.xxx.xxx",
+    ///         BigiqUser = "xxxx",
+    ///         BigiqPassword = "xxxxx",
+    ///         LicensePoolname = "regkey_pool_name",
+    ///         AssignmentType = "UNREACHABLE",
+    ///         MacAddress = "FA:16:3E:1B:6D:32",
+    ///         Hypervisor = "azure",
+    ///     });
+    /// 
+    ///     // MANAGED Purchased Pool
+    ///     var testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq2 = new F5BigIP.CommonLicenseManageBigIq("testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq2", new()
+    ///     {
+    ///         BigiqAddress = @var.Bigiq,
+    ///         BigiqUser = @var.Bigiq_un,
+    ///         BigiqPassword = @var.Bigiq_pw,
+    ///         LicensePoolname = "purchased_pool_name",
+    ///         AssignmentType = "MANAGED",
+    ///     });
+    /// 
+    ///     // UNMANAGED Purchased Pool
+    ///     var testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq3 = new F5BigIP.CommonLicenseManageBigIq("testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq3", new()
+    ///     {
+    ///         BigiqAddress = @var.Bigiq,
+    ///         BigiqUser = @var.Bigiq_un,
+    ///         BigiqPassword = @var.Bigiq_pw,
+    ///         LicensePoolname = "purchased_pool_name",
+    ///         AssignmentType = "UNMANAGED",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:index/commonLicenseManageBigIq:CommonLicenseManageBigIq")]
-    public partial class CommonLicenseManageBigIq : Pulumi.CustomResource
+    public partial class CommonLicenseManageBigIq : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The type of assignment, which is determined by whether the BIG-IP is unreachable, unmanaged, or managed by BIG-IQ. Possible values: “UNREACHABLE”, “UNMANAGED”, or “MANAGED”.
@@ -228,7 +231,7 @@ namespace Pulumi.F5BigIP
         }
     }
 
-    public sealed class CommonLicenseManageBigIqArgs : Pulumi.ResourceArgs
+    public sealed class CommonLicenseManageBigIqArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of assignment, which is determined by whether the BIG-IP is unreachable, unmanaged, or managed by BIG-IQ. Possible values: “UNREACHABLE”, “UNMANAGED”, or “MANAGED”.
@@ -329,9 +332,10 @@ namespace Pulumi.F5BigIP
         public CommonLicenseManageBigIqArgs()
         {
         }
+        public static new CommonLicenseManageBigIqArgs Empty => new CommonLicenseManageBigIqArgs();
     }
 
-    public sealed class CommonLicenseManageBigIqState : Pulumi.ResourceArgs
+    public sealed class CommonLicenseManageBigIqState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of assignment, which is determined by whether the BIG-IP is unreachable, unmanaged, or managed by BIG-IQ. Possible values: “UNREACHABLE”, “UNMANAGED”, or “MANAGED”.
@@ -432,5 +436,6 @@ namespace Pulumi.F5BigIP
         public CommonLicenseManageBigIqState()
         {
         }
+        public static new CommonLicenseManageBigIqState Empty => new CommonLicenseManageBigIqState();
     }
 }

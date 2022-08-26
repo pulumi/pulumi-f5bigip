@@ -16,26 +16,24 @@ namespace Pulumi.F5BigIP
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var do_example = new F5BigIP.Do("do-example", new()
     ///     {
-    ///         var do_example = new F5BigIP.Do("do-example", new F5BigIP.DoArgs
-    ///         {
-    ///             DoJson = File.ReadAllText("example.json"),
-    ///             Timeout = 15,
-    ///         });
-    ///     }
+    ///         DoJson = File.ReadAllText("example.json"),
+    ///         Timeout = 15,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:index/do:Do")]
-    public partial class Do : Pulumi.CustomResource
+    public partial class Do : global::Pulumi.CustomResource
     {
         /// <summary>
         /// IP Address of BIGIP Host to be used for this resource,this is optional parameter.
@@ -133,7 +131,7 @@ namespace Pulumi.F5BigIP
         }
     }
 
-    public sealed class DoArgs : Pulumi.ResourceArgs
+    public sealed class DoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// IP Address of BIGIP Host to be used for this resource,this is optional parameter.
@@ -190,9 +188,10 @@ namespace Pulumi.F5BigIP
         public DoArgs()
         {
         }
+        public static new DoArgs Empty => new DoArgs();
     }
 
-    public sealed class DoState : Pulumi.ResourceArgs
+    public sealed class DoState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// IP Address of BIGIP Host to be used for this resource,this is optional parameter.
@@ -249,5 +248,6 @@ namespace Pulumi.F5BigIP
         public DoState()
         {
         }
+        public static new DoState Empty => new DoState();
     }
 }

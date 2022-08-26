@@ -19,7 +19,7 @@ namespace Pulumi.F5BigIP.Ssl
     }
 
 
-    public sealed class GetWafEntityParameterArgs : Pulumi.InvokeArgs
+    public sealed class GetWafEntityParameterArgs : global::Pulumi.InvokeArgs
     {
         [Input("allowEmptyType")]
         public bool? AllowEmptyType { get; set; }
@@ -95,9 +95,10 @@ namespace Pulumi.F5BigIP.Ssl
         public GetWafEntityParameterArgs()
         {
         }
+        public static new GetWafEntityParameterArgs Empty => new GetWafEntityParameterArgs();
     }
 
-    public sealed class GetWafEntityParameterInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWafEntityParameterInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("allowEmptyType")]
         public Input<bool>? AllowEmptyType { get; set; }
@@ -173,6 +174,7 @@ namespace Pulumi.F5BigIP.Ssl
         public GetWafEntityParameterInvokeArgs()
         {
         }
+        public static new GetWafEntityParameterInvokeArgs Empty => new GetWafEntityParameterInvokeArgs();
     }
 
 

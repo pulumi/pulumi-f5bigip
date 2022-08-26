@@ -19,30 +19,33 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ltm.NewPersistenceProfileDstAddr(ctx, "dstaddr", &ltm.PersistenceProfileDstAddrArgs{
-// 			DefaultsFrom:        pulumi.String("/Common/dest_addr"),
-// 			HashAlgorithm:       pulumi.String("carp"),
-// 			Mask:                pulumi.String("255.255.255.255"),
-// 			MatchAcrossPools:    pulumi.String("enabled"),
-// 			MatchAcrossServices: pulumi.String("enabled"),
-// 			MatchAcrossVirtuals: pulumi.String("enabled"),
-// 			Mirror:              pulumi.String("enabled"),
-// 			Name:                pulumi.String("/Common/terraform_ppdstaddr"),
-// 			OverrideConnLimit:   pulumi.String("enabled"),
-// 			Timeout:             pulumi.Int(3600),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ltm.NewPersistenceProfileDstAddr(ctx, "dstaddr", &ltm.PersistenceProfileDstAddrArgs{
+//				DefaultsFrom:        pulumi.String("/Common/dest_addr"),
+//				HashAlgorithm:       pulumi.String("carp"),
+//				Mask:                pulumi.String("255.255.255.255"),
+//				MatchAcrossPools:    pulumi.String("enabled"),
+//				MatchAcrossServices: pulumi.String("enabled"),
+//				MatchAcrossVirtuals: pulumi.String("enabled"),
+//				Mirror:              pulumi.String("enabled"),
+//				Name:                pulumi.String("/Common/terraform_ppdstaddr"),
+//				OverrideConnLimit:   pulumi.String("enabled"),
+//				Timeout:             pulumi.Int(3600),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Reference
@@ -259,7 +262,7 @@ func (i *PersistenceProfileDstAddr) ToPersistenceProfileDstAddrOutputWithContext
 // PersistenceProfileDstAddrArrayInput is an input type that accepts PersistenceProfileDstAddrArray and PersistenceProfileDstAddrArrayOutput values.
 // You can construct a concrete instance of `PersistenceProfileDstAddrArrayInput` via:
 //
-//          PersistenceProfileDstAddrArray{ PersistenceProfileDstAddrArgs{...} }
+//	PersistenceProfileDstAddrArray{ PersistenceProfileDstAddrArgs{...} }
 type PersistenceProfileDstAddrArrayInput interface {
 	pulumi.Input
 
@@ -284,7 +287,7 @@ func (i PersistenceProfileDstAddrArray) ToPersistenceProfileDstAddrArrayOutputWi
 // PersistenceProfileDstAddrMapInput is an input type that accepts PersistenceProfileDstAddrMap and PersistenceProfileDstAddrMapOutput values.
 // You can construct a concrete instance of `PersistenceProfileDstAddrMapInput` via:
 //
-//          PersistenceProfileDstAddrMap{ "key": PersistenceProfileDstAddrArgs{...} }
+//	PersistenceProfileDstAddrMap{ "key": PersistenceProfileDstAddrArgs{...} }
 type PersistenceProfileDstAddrMapInput interface {
 	pulumi.Input
 
@@ -318,6 +321,62 @@ func (o PersistenceProfileDstAddrOutput) ToPersistenceProfileDstAddrOutput() Per
 
 func (o PersistenceProfileDstAddrOutput) ToPersistenceProfileDstAddrOutputWithContext(ctx context.Context) PersistenceProfileDstAddrOutput {
 	return o
+}
+
+func (o PersistenceProfileDstAddrOutput) AppService() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileDstAddr) pulumi.StringOutput { return v.AppService }).(pulumi.StringOutput)
+}
+
+// Inherit defaults from parent profile
+func (o PersistenceProfileDstAddrOutput) DefaultsFrom() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileDstAddr) pulumi.StringOutput { return v.DefaultsFrom }).(pulumi.StringOutput)
+}
+
+// Specify the hash algorithm
+func (o PersistenceProfileDstAddrOutput) HashAlgorithm() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileDstAddr) pulumi.StringOutput { return v.HashAlgorithm }).(pulumi.StringOutput)
+}
+
+// Identify a range of source IP addresses to manage together as a single source address affinity persistent connection
+// when connecting to the pool. Must be a valid IPv4 or IPv6 mask.
+func (o PersistenceProfileDstAddrOutput) Mask() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileDstAddr) pulumi.StringOutput { return v.Mask }).(pulumi.StringOutput)
+}
+
+// To enable _ disable match across pools with given persistence record
+func (o PersistenceProfileDstAddrOutput) MatchAcrossPools() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileDstAddr) pulumi.StringOutput { return v.MatchAcrossPools }).(pulumi.StringOutput)
+}
+
+// To enable _ disable match across services with given persistence record
+func (o PersistenceProfileDstAddrOutput) MatchAcrossServices() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileDstAddr) pulumi.StringOutput { return v.MatchAcrossServices }).(pulumi.StringOutput)
+}
+
+// To enable _ disable match across services with given persistence record
+func (o PersistenceProfileDstAddrOutput) MatchAcrossVirtuals() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileDstAddr) pulumi.StringOutput { return v.MatchAcrossVirtuals }).(pulumi.StringOutput)
+}
+
+// To enable _ disable
+func (o PersistenceProfileDstAddrOutput) Mirror() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileDstAddr) pulumi.StringOutput { return v.Mirror }).(pulumi.StringOutput)
+}
+
+// Name of the persistence profile
+func (o PersistenceProfileDstAddrOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileDstAddr) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
+// limits remain hard limits and are not overridden.
+func (o PersistenceProfileDstAddrOutput) OverrideConnLimit() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileDstAddr) pulumi.StringOutput { return v.OverrideConnLimit }).(pulumi.StringOutput)
+}
+
+// Timeout for persistence of the session
+func (o PersistenceProfileDstAddrOutput) Timeout() pulumi.IntOutput {
+	return o.ApplyT(func(v *PersistenceProfileDstAddr) pulumi.IntOutput { return v.Timeout }).(pulumi.IntOutput)
 }
 
 type PersistenceProfileDstAddrArrayOutput struct{ *pulumi.OutputState }

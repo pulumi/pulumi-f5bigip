@@ -18,22 +18,25 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ltm.LookupDataGroup(ctx, &ltm.LookupDataGroupArgs{
-// 			Name:      "test-dg",
-// 			Partition: "Common",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ltm.LookupDataGroup(ctx, &ltm.LookupDataGroupArgs{
+//				Name:      "test-dg",
+//				Partition: "Common",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupDataGroup(ctx *pulumi.Context, args *LookupDataGroupArgs, opts ...pulumi.InvokeOption) (*LookupDataGroupResult, error) {
 	var rv LookupDataGroupResult

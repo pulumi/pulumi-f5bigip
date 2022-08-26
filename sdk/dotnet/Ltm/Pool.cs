@@ -12,40 +12,40 @@ namespace Pulumi.F5BigIP.Ltm
     /// <summary>
     /// `f5bigip.ltm.Pool` Manages F5 BIG-IP LTM pools via iControl REST API.
     /// 
-    /// Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )
+    /// For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource or  `partition + directory + name`.
+    /// For example `/Common/my-pool`.
     /// 
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var monitor = new F5BigIP.Ltm.Monitor("monitor", new()
     ///     {
-    ///         var monitor = new F5BigIP.Ltm.Monitor("monitor", new F5BigIP.Ltm.MonitorArgs
-    ///         {
-    ///             Name = "/Common/terraform_monitor",
-    ///             Parent = "/Common/http",
-    ///         });
-    ///         var pool = new F5BigIP.Ltm.Pool("pool", new F5BigIP.Ltm.PoolArgs
-    ///         {
-    ///             Name = "/Common/Axiom_Environment_APP1_Pool",
-    ///             LoadBalancingMode = "round-robin",
-    ///             MinimumActiveMembers = 1,
-    ///             Monitors = 
-    ///             {
-    ///                 monitor.Name,
-    ///             },
-    ///         });
-    ///     }
+    ///         Name = "/Common/terraform_monitor",
+    ///         Parent = "/Common/http",
+    ///     });
     /// 
-    /// }
+    ///     var pool = new F5BigIP.Ltm.Pool("pool", new()
+    ///     {
+    ///         Name = "/Common/Axiom_Environment_APP1_Pool",
+    ///         LoadBalancingMode = "round-robin",
+    ///         MinimumActiveMembers = 1,
+    ///         Monitors = new[]
+    ///         {
+    ///             monitor.Name,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/pool:Pool")]
-    public partial class Pool : Pulumi.CustomResource
+    public partial class Pool : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].
@@ -84,7 +84,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<ImmutableArray<string>> Monitors { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the pool,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
+        /// Name of the pool,it should be `full path`.The full path is the combination of the `partition + name` of the pool.(For example `/Common/my-pool`)
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -151,7 +151,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
     }
 
-    public sealed class PoolArgs : Pulumi.ResourceArgs
+    public sealed class PoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].
@@ -196,7 +196,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Name of the pool,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
+        /// Name of the pool,it should be `full path`.The full path is the combination of the `partition + name` of the pool.(For example `/Common/my-pool`)
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -222,9 +222,10 @@ namespace Pulumi.F5BigIP.Ltm
         public PoolArgs()
         {
         }
+        public static new PoolArgs Empty => new PoolArgs();
     }
 
-    public sealed class PoolState : Pulumi.ResourceArgs
+    public sealed class PoolState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].
@@ -269,7 +270,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Name of the pool,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
+        /// Name of the pool,it should be `full path`.The full path is the combination of the `partition + name` of the pool.(For example `/Common/my-pool`)
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -295,5 +296,6 @@ namespace Pulumi.F5BigIP.Ltm
         public PoolState()
         {
         }
+        public static new PoolState Empty => new PoolState();
     }
 }

@@ -15,32 +15,30 @@ namespace Pulumi.F5BigIP.Ltm
     /// ## Example
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var testPpcookie = new F5BigIP.Ltm.PersistenceProfileCookie("testPpcookie", new()
     ///     {
-    ///         var testPpcookie = new F5BigIP.Ltm.PersistenceProfileCookie("testPpcookie", new F5BigIP.Ltm.PersistenceProfileCookieArgs
-    ///         {
-    ///             Name = "/Common/terraform_cookie",
-    ///             DefaultsFrom = "/Common/cookie",
-    ///             MatchAcrossPools = "enabled",
-    ///             MatchAcrossServices = "enabled",
-    ///             MatchAcrossVirtuals = "enabled",
-    ///             Timeout = 3600,
-    ///             OverrideConnLimit = "enabled",
-    ///             AlwaysSend = "enabled",
-    ///             CookieEncryption = "required",
-    ///             CookieEncryptionPassphrase = "iam",
-    ///             CookieName = "ham",
-    ///             Expiration = "1:0:0",
-    ///             HashLength = 0,
-    ///         });
-    ///     }
+    ///         Name = "/Common/terraform_cookie",
+    ///         DefaultsFrom = "/Common/cookie",
+    ///         MatchAcrossPools = "enabled",
+    ///         MatchAcrossServices = "enabled",
+    ///         MatchAcrossVirtuals = "enabled",
+    ///         Timeout = 3600,
+    ///         OverrideConnLimit = "enabled",
+    ///         AlwaysSend = "enabled",
+    ///         CookieEncryption = "required",
+    ///         CookieEncryptionPassphrase = "iam",
+    ///         CookieName = "ham",
+    ///         Expiration = "1:0:0",
+    ///         HashLength = 0,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Reference
@@ -81,7 +79,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// `httponly` (Optional) (enabled or disabled) Sending only over http
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/persistenceProfileCookie:PersistenceProfileCookie")]
-    public partial class PersistenceProfileCookie : Pulumi.CustomResource
+    public partial class PersistenceProfileCookie : global::Pulumi.CustomResource
     {
         /// <summary>
         /// To enable _ disable always sending cookies
@@ -233,7 +231,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
     }
 
-    public sealed class PersistenceProfileCookieArgs : Pulumi.ResourceArgs
+    public sealed class PersistenceProfileCookieArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// To enable _ disable always sending cookies
@@ -344,9 +342,10 @@ namespace Pulumi.F5BigIP.Ltm
         public PersistenceProfileCookieArgs()
         {
         }
+        public static new PersistenceProfileCookieArgs Empty => new PersistenceProfileCookieArgs();
     }
 
-    public sealed class PersistenceProfileCookieState : Pulumi.ResourceArgs
+    public sealed class PersistenceProfileCookieState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// To enable _ disable always sending cookies
@@ -457,5 +456,6 @@ namespace Pulumi.F5BigIP.Ltm
         public PersistenceProfileCookieState()
         {
         }
+        public static new PersistenceProfileCookieState Empty => new PersistenceProfileCookieState();
     }
 }

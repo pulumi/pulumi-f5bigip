@@ -15,26 +15,24 @@ namespace Pulumi.F5BigIP
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var foo_app = new F5BigIP.FastApplication("foo-app", new()
     ///     {
-    ///         var foo_app = new F5BigIP.FastApplication("foo-app", new F5BigIP.FastApplicationArgs
-    ///         {
-    ///             FastJson = File.ReadAllText("new_fast_app.json"),
-    ///             Template = "examples/simple_http",
-    ///         });
-    ///     }
+    ///         FastJson = File.ReadAllText("new_fast_app.json"),
+    ///         Template = "examples/simple_http",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:index/fastApplication:FastApplication")]
-    public partial class FastApplication : Pulumi.CustomResource
+    public partial class FastApplication : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A FAST application name.
@@ -104,7 +102,7 @@ namespace Pulumi.F5BigIP
         }
     }
 
-    public sealed class FastApplicationArgs : Pulumi.ResourceArgs
+    public sealed class FastApplicationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
@@ -121,9 +119,10 @@ namespace Pulumi.F5BigIP
         public FastApplicationArgs()
         {
         }
+        public static new FastApplicationArgs Empty => new FastApplicationArgs();
     }
 
-    public sealed class FastApplicationState : Pulumi.ResourceArgs
+    public sealed class FastApplicationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A FAST application name.
@@ -152,5 +151,6 @@ namespace Pulumi.F5BigIP
         public FastApplicationState()
         {
         }
+        public static new FastApplicationState Empty => new FastApplicationState();
     }
 }

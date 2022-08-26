@@ -15,27 +15,25 @@ namespace Pulumi.F5BigIP.Ltm
     /// ## Example
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var ppssl = new F5BigIP.Ltm.PersistenceProfileSsl("ppssl", new()
     ///     {
-    ///         var ppssl = new F5BigIP.Ltm.PersistenceProfileSsl("ppssl", new F5BigIP.Ltm.PersistenceProfileSslArgs
-    ///         {
-    ///             DefaultsFrom = "/Common/ssl",
-    ///             MatchAcrossPools = "enabled",
-    ///             MatchAcrossServices = "enabled",
-    ///             MatchAcrossVirtuals = "enabled",
-    ///             Mirror = "enabled",
-    ///             Name = "/Common/terraform_ssl",
-    ///             OverrideConnLimit = "enabled",
-    ///             Timeout = 3600,
-    ///         });
-    ///     }
+    ///         DefaultsFrom = "/Common/ssl",
+    ///         MatchAcrossPools = "enabled",
+    ///         MatchAcrossServices = "enabled",
+    ///         MatchAcrossVirtuals = "enabled",
+    ///         Mirror = "enabled",
+    ///         Name = "/Common/terraform_ssl",
+    ///         OverrideConnLimit = "enabled",
+    ///         Timeout = 3600,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Reference
@@ -57,7 +55,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// `override_conn_limit` (Optional) (enabled or disabled) Enable or dissable pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/persistenceProfileSsl:PersistenceProfileSsl")]
-    public partial class PersistenceProfileSsl : Pulumi.CustomResource
+    public partial class PersistenceProfileSsl : global::Pulumi.CustomResource
     {
         [Output("appService")]
         public Output<string?> AppService { get; private set; } = null!;
@@ -155,7 +153,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
     }
 
-    public sealed class PersistenceProfileSslArgs : Pulumi.ResourceArgs
+    public sealed class PersistenceProfileSslArgs : global::Pulumi.ResourceArgs
     {
         [Input("appService")]
         public Input<string>? AppService { get; set; }
@@ -212,9 +210,10 @@ namespace Pulumi.F5BigIP.Ltm
         public PersistenceProfileSslArgs()
         {
         }
+        public static new PersistenceProfileSslArgs Empty => new PersistenceProfileSslArgs();
     }
 
-    public sealed class PersistenceProfileSslState : Pulumi.ResourceArgs
+    public sealed class PersistenceProfileSslState : global::Pulumi.ResourceArgs
     {
         [Input("appService")]
         public Input<string>? AppService { get; set; }
@@ -271,5 +270,6 @@ namespace Pulumi.F5BigIP.Ltm
         public PersistenceProfileSslState()
         {
         }
+        public static new PersistenceProfileSslState Empty => new PersistenceProfileSslState();
     }
 }

@@ -19,28 +19,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/sys"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/sys"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sys.NewDns(ctx, "dns1", &sys.DnsArgs{
-// 			Description: pulumi.String("/Common/DNS1"),
-// 			NameServers: pulumi.StringArray{
-// 				pulumi.String("1.1.1.1"),
-// 			},
-// 			NumberOfDots: pulumi.Int(2),
-// 			Searches: pulumi.StringArray{
-// 				pulumi.String("f5.com"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sys.NewDns(ctx, "dns1", &sys.DnsArgs{
+//				Description: pulumi.String("/Common/DNS1"),
+//				NameServers: pulumi.StringArray{
+//					pulumi.String("1.1.1.1"),
+//				},
+//				NumberOfDots: pulumi.Int(2),
+//				Searches: pulumi.StringArray{
+//					pulumi.String("f5.com"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type Dns struct {
 	pulumi.CustomResourceState
@@ -161,7 +164,7 @@ func (i *Dns) ToDnsOutputWithContext(ctx context.Context) DnsOutput {
 // DnsArrayInput is an input type that accepts DnsArray and DnsArrayOutput values.
 // You can construct a concrete instance of `DnsArrayInput` via:
 //
-//          DnsArray{ DnsArgs{...} }
+//	DnsArray{ DnsArgs{...} }
 type DnsArrayInput interface {
 	pulumi.Input
 
@@ -186,7 +189,7 @@ func (i DnsArray) ToDnsArrayOutputWithContext(ctx context.Context) DnsArrayOutpu
 // DnsMapInput is an input type that accepts DnsMap and DnsMapOutput values.
 // You can construct a concrete instance of `DnsMapInput` via:
 //
-//          DnsMap{ "key": DnsArgs{...} }
+//	DnsMap{ "key": DnsArgs{...} }
 type DnsMapInput interface {
 	pulumi.Input
 
@@ -220,6 +223,26 @@ func (o DnsOutput) ToDnsOutput() DnsOutput {
 
 func (o DnsOutput) ToDnsOutputWithContext(ctx context.Context) DnsOutput {
 	return o
+}
+
+// Provide description for your DNS server
+func (o DnsOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *Dns) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// Name or IP address of the DNS server
+func (o DnsOutput) NameServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Dns) pulumi.StringArrayOutput { return v.NameServers }).(pulumi.StringArrayOutput)
+}
+
+// Configures the number of dots needed in a name before an initial absolute query will be made.
+func (o DnsOutput) NumberOfDots() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Dns) pulumi.IntPtrOutput { return v.NumberOfDots }).(pulumi.IntPtrOutput)
+}
+
+// Specify what domains you want to search
+func (o DnsOutput) Searches() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Dns) pulumi.StringArrayOutput { return v.Searches }).(pulumi.StringArrayOutput)
 }
 
 type DnsArrayOutput struct{ *pulumi.OutputState }

@@ -19,25 +19,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/sys"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/sys"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sys.NewProvision(ctx, "gtm", &sys.ProvisionArgs{
-// 			CpuRatio:    pulumi.Int(0),
-// 			DiskRatio:   pulumi.Int(0),
-// 			Level:       pulumi.String("nominal"),
-// 			MemoryRatio: pulumi.Int(0),
-// 			Name:        pulumi.String("gtm"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sys.NewProvision(ctx, "gtm", &sys.ProvisionArgs{
+//				CpuRatio:    pulumi.Int(0),
+//				DiskRatio:   pulumi.Int(0),
+//				Level:       pulumi.String("nominal"),
+//				MemoryRatio: pulumi.Int(0),
+//				Name:        pulumi.String("gtm"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type Provision struct {
 	pulumi.CustomResourceState
@@ -288,7 +291,7 @@ func (i *Provision) ToProvisionOutputWithContext(ctx context.Context) ProvisionO
 // ProvisionArrayInput is an input type that accepts ProvisionArray and ProvisionArrayOutput values.
 // You can construct a concrete instance of `ProvisionArrayInput` via:
 //
-//          ProvisionArray{ ProvisionArgs{...} }
+//	ProvisionArray{ ProvisionArgs{...} }
 type ProvisionArrayInput interface {
 	pulumi.Input
 
@@ -313,7 +316,7 @@ func (i ProvisionArray) ToProvisionArrayOutputWithContext(ctx context.Context) P
 // ProvisionMapInput is an input type that accepts ProvisionMap and ProvisionMapOutput values.
 // You can construct a concrete instance of `ProvisionMapInput` via:
 //
-//          ProvisionMap{ "key": ProvisionArgs{...} }
+//	ProvisionMap{ "key": ProvisionArgs{...} }
 type ProvisionMapInput interface {
 	pulumi.Input
 
@@ -347,6 +350,58 @@ func (o ProvisionOutput) ToProvisionOutput() ProvisionOutput {
 
 func (o ProvisionOutput) ToProvisionOutputWithContext(ctx context.Context) ProvisionOutput {
 	return o
+}
+
+// Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
+func (o ProvisionOutput) CpuRatio() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Provision) pulumi.IntPtrOutput { return v.CpuRatio }).(pulumi.IntPtrOutput)
+}
+
+// Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
+func (o ProvisionOutput) DiskRatio() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Provision) pulumi.IntPtrOutput { return v.DiskRatio }).(pulumi.IntPtrOutput)
+}
+
+func (o ProvisionOutput) FullPath() pulumi.StringOutput {
+	return o.ApplyT(func(v *Provision) pulumi.StringOutput { return v.FullPath }).(pulumi.StringOutput)
+}
+
+// Sets the provisioning level for the requested modules. Changing the level for one module may require modifying the level of another module. For example, changing one module to `dedicated` requires setting all others to `none`. Setting the level of a module to `none` means the module is not activated.
+// default is `nominal`
+// possible options:
+// * nominal
+// * minimum
+// * none
+// * dedicated
+func (o ProvisionOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provision) pulumi.StringPtrOutput { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+// Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
+func (o ProvisionOutput) MemoryRatio() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Provision) pulumi.IntPtrOutput { return v.MemoryRatio }).(pulumi.IntPtrOutput)
+}
+
+// Name of module to provision in BIG-IP.
+// possible options:
+// * afm
+// * am
+// * apm
+// * cgnat
+// * asm
+// * avr
+// * dos
+// * fps
+// * gtm
+// * ilx
+// * lc
+// * ltm
+// * pem
+// * sslo
+// * swg
+// * urldb
+func (o ProvisionOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Provision) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 type ProvisionArrayOutput struct{ *pulumi.OutputState }

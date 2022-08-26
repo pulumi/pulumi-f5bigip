@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Ltm.Inputs
 {
 
-    public sealed class ProfileClientSslCertKeyChainArgs : Pulumi.ResourceArgs
+    public sealed class ProfileClientSslCertKeyChainArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies a cert name for use.
@@ -42,5 +42,6 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
         public ProfileClientSslCertKeyChainArgs()
         {
         }
+        public static new ProfileClientSslCertKeyChainArgs Empty => new ProfileClientSslCertKeyChainArgs();
     }
 }

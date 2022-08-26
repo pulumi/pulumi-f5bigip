@@ -13,7 +13,7 @@ namespace Pulumi.F5BigIP
     /// `f5bigip.NetIkePeer` Manages a ike_peer configuration
     /// </summary>
     [F5BigIPResourceType("f5bigip:index/netIkePeer:NetIkePeer")]
-    public partial class NetIkePeer : Pulumi.CustomResource
+    public partial class NetIkePeer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The application service that the object belongs to
@@ -263,7 +263,7 @@ namespace Pulumi.F5BigIP
         }
     }
 
-    public sealed class NetIkePeerArgs : Pulumi.ResourceArgs
+    public sealed class NetIkePeerArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application service that the object belongs to
@@ -484,9 +484,10 @@ namespace Pulumi.F5BigIP
         public NetIkePeerArgs()
         {
         }
+        public static new NetIkePeerArgs Empty => new NetIkePeerArgs();
     }
 
-    public sealed class NetIkePeerState : Pulumi.ResourceArgs
+    public sealed class NetIkePeerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application service that the object belongs to
@@ -707,5 +708,6 @@ namespace Pulumi.F5BigIP
         public NetIkePeerState()
         {
         }
+        public static new NetIkePeerState Empty => new NetIkePeerState();
     }
 }

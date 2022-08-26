@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Inputs
 {
 
-    public sealed class EventServiceDiscoveryNodeArgs : Pulumi.ResourceArgs
+    public sealed class EventServiceDiscoveryNodeArgs : global::Pulumi.ResourceArgs
     {
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.F5BigIP.Inputs
         public EventServiceDiscoveryNodeArgs()
         {
         }
+        public static new EventServiceDiscoveryNodeArgs Empty => new EventServiceDiscoveryNodeArgs();
     }
 }

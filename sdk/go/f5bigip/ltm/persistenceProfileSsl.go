@@ -19,28 +19,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ltm.NewPersistenceProfileSsl(ctx, "ppssl", &ltm.PersistenceProfileSslArgs{
-// 			DefaultsFrom:        pulumi.String("/Common/ssl"),
-// 			MatchAcrossPools:    pulumi.String("enabled"),
-// 			MatchAcrossServices: pulumi.String("enabled"),
-// 			MatchAcrossVirtuals: pulumi.String("enabled"),
-// 			Mirror:              pulumi.String("enabled"),
-// 			Name:                pulumi.String("/Common/terraform_ssl"),
-// 			OverrideConnLimit:   pulumi.String("enabled"),
-// 			Timeout:             pulumi.Int(3600),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ltm.NewPersistenceProfileSsl(ctx, "ppssl", &ltm.PersistenceProfileSslArgs{
+//				DefaultsFrom:        pulumi.String("/Common/ssl"),
+//				MatchAcrossPools:    pulumi.String("enabled"),
+//				MatchAcrossServices: pulumi.String("enabled"),
+//				MatchAcrossVirtuals: pulumi.String("enabled"),
+//				Mirror:              pulumi.String("enabled"),
+//				Name:                pulumi.String("/Common/terraform_ssl"),
+//				OverrideConnLimit:   pulumi.String("enabled"),
+//				Timeout:             pulumi.Int(3600),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Reference
@@ -232,7 +235,7 @@ func (i *PersistenceProfileSsl) ToPersistenceProfileSslOutputWithContext(ctx con
 // PersistenceProfileSslArrayInput is an input type that accepts PersistenceProfileSslArray and PersistenceProfileSslArrayOutput values.
 // You can construct a concrete instance of `PersistenceProfileSslArrayInput` via:
 //
-//          PersistenceProfileSslArray{ PersistenceProfileSslArgs{...} }
+//	PersistenceProfileSslArray{ PersistenceProfileSslArgs{...} }
 type PersistenceProfileSslArrayInput interface {
 	pulumi.Input
 
@@ -257,7 +260,7 @@ func (i PersistenceProfileSslArray) ToPersistenceProfileSslArrayOutputWithContex
 // PersistenceProfileSslMapInput is an input type that accepts PersistenceProfileSslMap and PersistenceProfileSslMapOutput values.
 // You can construct a concrete instance of `PersistenceProfileSslMapInput` via:
 //
-//          PersistenceProfileSslMap{ "key": PersistenceProfileSslArgs{...} }
+//	PersistenceProfileSslMap{ "key": PersistenceProfileSslArgs{...} }
 type PersistenceProfileSslMapInput interface {
 	pulumi.Input
 
@@ -291,6 +294,51 @@ func (o PersistenceProfileSslOutput) ToPersistenceProfileSslOutput() Persistence
 
 func (o PersistenceProfileSslOutput) ToPersistenceProfileSslOutputWithContext(ctx context.Context) PersistenceProfileSslOutput {
 	return o
+}
+
+func (o PersistenceProfileSslOutput) AppService() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PersistenceProfileSsl) pulumi.StringPtrOutput { return v.AppService }).(pulumi.StringPtrOutput)
+}
+
+// Inherit defaults from parent profile
+func (o PersistenceProfileSslOutput) DefaultsFrom() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileSsl) pulumi.StringOutput { return v.DefaultsFrom }).(pulumi.StringOutput)
+}
+
+// To enable _ disable match across pools with given persistence record
+func (o PersistenceProfileSslOutput) MatchAcrossPools() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileSsl) pulumi.StringOutput { return v.MatchAcrossPools }).(pulumi.StringOutput)
+}
+
+// To enable _ disable match across services with given persistence record
+func (o PersistenceProfileSslOutput) MatchAcrossServices() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileSsl) pulumi.StringOutput { return v.MatchAcrossServices }).(pulumi.StringOutput)
+}
+
+// To enable _ disable match across services with given persistence record
+func (o PersistenceProfileSslOutput) MatchAcrossVirtuals() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileSsl) pulumi.StringOutput { return v.MatchAcrossVirtuals }).(pulumi.StringOutput)
+}
+
+// To enable _ disable
+func (o PersistenceProfileSslOutput) Mirror() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileSsl) pulumi.StringOutput { return v.Mirror }).(pulumi.StringOutput)
+}
+
+// Name of the persistence profile
+func (o PersistenceProfileSslOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileSsl) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
+// limits remain hard limits and are not overridden.
+func (o PersistenceProfileSslOutput) OverrideConnLimit() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileSsl) pulumi.StringOutput { return v.OverrideConnLimit }).(pulumi.StringOutput)
+}
+
+// Timeout for persistence of the session
+func (o PersistenceProfileSslOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PersistenceProfileSsl) pulumi.IntPtrOutput { return v.Timeout }).(pulumi.IntPtrOutput)
 }
 
 type PersistenceProfileSslArrayOutput struct{ *pulumi.OutputState }

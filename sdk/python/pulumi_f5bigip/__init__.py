@@ -12,6 +12,9 @@ from .common_license_manage_big_iq import *
 from .do import *
 from .event_service_discovery import *
 from .fast_application import *
+from .fast_http_app import *
+from .fast_https_app import *
+from .fast_tcp_app import *
 from .fast_template import *
 from .ipsec_policy import *
 from .ipsec_profile import *
@@ -118,6 +121,30 @@ _utilities.register(
   "fqn": "pulumi_f5bigip",
   "classes": {
    "f5bigip:index/fastApplication:FastApplication": "FastApplication"
+  }
+ },
+ {
+  "pkg": "f5bigip",
+  "mod": "index/fastHttpApp",
+  "fqn": "pulumi_f5bigip",
+  "classes": {
+   "f5bigip:index/fastHttpApp:FastHttpApp": "FastHttpApp"
+  }
+ },
+ {
+  "pkg": "f5bigip",
+  "mod": "index/fastHttpsApp",
+  "fqn": "pulumi_f5bigip",
+  "classes": {
+   "f5bigip:index/fastHttpsApp:FastHttpsApp": "FastHttpsApp"
+  }
+ },
+ {
+  "pkg": "f5bigip",
+  "mod": "index/fastTcpApp",
+  "fqn": "pulumi_f5bigip",
+  "classes": {
+   "f5bigip:index/fastTcpApp:FastTcpApp": "FastTcpApp"
   }
  },
  {

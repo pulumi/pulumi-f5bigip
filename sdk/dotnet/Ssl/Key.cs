@@ -16,27 +16,25 @@ namespace Pulumi.F5BigIP.Ssl
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test_key = new F5BigIP.Ssl.Key("test-key", new()
     ///     {
-    ///         var test_key = new F5BigIP.Ssl.Key("test-key", new F5BigIP.Ssl.KeyArgs
-    ///         {
-    ///             Name = "serverkey.key",
-    ///             Content = File.ReadAllText("serverkey.key"),
-    ///             Partition = "Common",
-    ///         });
-    ///     }
+    ///         Name = "serverkey.key",
+    ///         Content = File.ReadAllText("serverkey.key"),
+    ///         Partition = "Common",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ssl/key:Key")]
-    public partial class Key : Pulumi.CustomResource
+    public partial class Key : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Content of SSL certificate key present on local Disk
@@ -106,7 +104,7 @@ namespace Pulumi.F5BigIP.Ssl
         }
     }
 
-    public sealed class KeyArgs : Pulumi.ResourceArgs
+    public sealed class KeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Content of SSL certificate key present on local Disk
@@ -135,9 +133,10 @@ namespace Pulumi.F5BigIP.Ssl
         public KeyArgs()
         {
         }
+        public static new KeyArgs Empty => new KeyArgs();
     }
 
-    public sealed class KeyState : Pulumi.ResourceArgs
+    public sealed class KeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Content of SSL certificate key present on local Disk
@@ -166,5 +165,6 @@ namespace Pulumi.F5BigIP.Ssl
         public KeyState()
         {
         }
+        public static new KeyState Empty => new KeyState();
     }
 }

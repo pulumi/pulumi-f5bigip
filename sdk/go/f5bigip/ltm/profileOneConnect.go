@@ -21,21 +21,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ltm.NewProfileOneConnect(ctx, "test-oneconnect", &ltm.ProfileOneConnectArgs{
-// 			Name: pulumi.String("/Common/test-oneconnect"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ltm.NewProfileOneConnect(ctx, "test-oneconnect", &ltm.ProfileOneConnectArgs{
+//				Name: pulumi.String("/Common/test-oneconnect"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -43,7 +46,9 @@ import (
 // BIG-IP LTM oneconnect profiles can be imported using the `name` , e.g.
 //
 // ```sh
-//  $ pulumi import f5bigip:ltm/profileOneConnect:ProfileOneConnect test-oneconnect /Common/test-oneconnect
+//
+//	$ pulumi import f5bigip:ltm/profileOneConnect:ProfileOneConnect test-oneconnect /Common/test-oneconnect
+//
 // ```
 type ProfileOneConnect struct {
 	pulumi.CustomResourceState
@@ -224,7 +229,7 @@ func (i *ProfileOneConnect) ToProfileOneConnectOutputWithContext(ctx context.Con
 // ProfileOneConnectArrayInput is an input type that accepts ProfileOneConnectArray and ProfileOneConnectArrayOutput values.
 // You can construct a concrete instance of `ProfileOneConnectArrayInput` via:
 //
-//          ProfileOneConnectArray{ ProfileOneConnectArgs{...} }
+//	ProfileOneConnectArray{ ProfileOneConnectArgs{...} }
 type ProfileOneConnectArrayInput interface {
 	pulumi.Input
 
@@ -249,7 +254,7 @@ func (i ProfileOneConnectArray) ToProfileOneConnectArrayOutputWithContext(ctx co
 // ProfileOneConnectMapInput is an input type that accepts ProfileOneConnectMap and ProfileOneConnectMapOutput values.
 // You can construct a concrete instance of `ProfileOneConnectMapInput` via:
 //
-//          ProfileOneConnectMap{ "key": ProfileOneConnectArgs{...} }
+//	ProfileOneConnectMap{ "key": ProfileOneConnectArgs{...} }
 type ProfileOneConnectMapInput interface {
 	pulumi.Input
 
@@ -283,6 +288,56 @@ func (o ProfileOneConnectOutput) ToProfileOneConnectOutput() ProfileOneConnectOu
 
 func (o ProfileOneConnectOutput) ToProfileOneConnectOutputWithContext(ctx context.Context) ProfileOneConnectOutput {
 	return o
+}
+
+// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
+func (o ProfileOneConnectOutput) DefaultsFrom() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileOneConnect) pulumi.StringOutput { return v.DefaultsFrom }).(pulumi.StringOutput)
+}
+
+// Specifies the number of seconds that a connection is idle before the connection flow is eligible for deletion. Possible values are `disabled`, `indefinite`, or a numeric value that you specify. The default value is `disabled`
+func (o ProfileOneConnectOutput) IdleTimeoutOverride() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileOneConnect) pulumi.StringOutput { return v.IdleTimeoutOverride }).(pulumi.StringOutput)
+}
+
+// Controls how connection limits are enforced in conjunction with OneConnect. The default is `None`. Supported Values: `[None,idle,strict]`
+func (o ProfileOneConnectOutput) LimitType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileOneConnect) pulumi.StringOutput { return v.LimitType }).(pulumi.StringOutput)
+}
+
+// Specifies the maximum age in number of seconds allowed for a connection in the connection reuse pool. For any connection with an age higher than this value, the system removes that connection from the reuse pool. The default value is `86400`.
+func (o ProfileOneConnectOutput) MaxAge() pulumi.IntOutput {
+	return o.ApplyT(func(v *ProfileOneConnect) pulumi.IntOutput { return v.MaxAge }).(pulumi.IntOutput)
+}
+
+// Specifies the maximum number of times that a server-side connection can be reused. The default value is `1000`.
+func (o ProfileOneConnectOutput) MaxReuse() pulumi.IntOutput {
+	return o.ApplyT(func(v *ProfileOneConnect) pulumi.IntOutput { return v.MaxReuse }).(pulumi.IntOutput)
+}
+
+// Specifies the maximum number of connections that the system holds in the connection reuse pool. If the pool is already full, then the server-side connection closes after the response is completed. The default value is `10000`.
+func (o ProfileOneConnectOutput) MaxSize() pulumi.IntOutput {
+	return o.ApplyT(func(v *ProfileOneConnect) pulumi.IntOutput { return v.MaxSize }).(pulumi.IntOutput)
+}
+
+// Name of Profile should be full path.The full path is the combination of the `partition + profileName`,For example `/Common/test-oneconnect-profile`.
+func (o ProfileOneConnectOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileOneConnect) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Displays the administrative partition within which this profile resides
+func (o ProfileOneConnectOutput) Partition() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileOneConnect) pulumi.StringOutput { return v.Partition }).(pulumi.StringOutput)
+}
+
+// Specify if you want to share the pool, default value is `disabled`.
+func (o ProfileOneConnectOutput) SharePools() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileOneConnect) pulumi.StringOutput { return v.SharePools }).(pulumi.StringOutput)
+}
+
+// Specifies a source IP mask. The default value is `0.0.0.0`. The system applies the value of this option to the source address to determine its eligibility for reuse. A mask of 0.0.0.0 causes the system to share reused connections across all clients. A host mask (all 1's in binary), causes the system to share only those reused connections originating from the same client IP address.
+func (o ProfileOneConnectOutput) SourceMask() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileOneConnect) pulumi.StringOutput { return v.SourceMask }).(pulumi.StringOutput)
 }
 
 type ProfileOneConnectArrayOutput struct{ *pulumi.OutputState }

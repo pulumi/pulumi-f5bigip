@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Ltm.Inputs
 {
 
-    public sealed class PolicyRuleGetArgs : Pulumi.ResourceArgs
+    public sealed class PolicyRuleGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("actions")]
         private InputList<Inputs.PolicyRuleActionGetArgs>? _actions;
@@ -37,5 +37,6 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
         public PolicyRuleGetArgs()
         {
         }
+        public static new PolicyRuleGetArgs Empty => new PolicyRuleGetArgs();
     }
 }

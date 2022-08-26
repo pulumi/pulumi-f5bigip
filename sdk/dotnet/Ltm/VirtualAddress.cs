@@ -17,25 +17,23 @@ namespace Pulumi.F5BigIP.Ltm
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var vsVa = new F5BigIP.Ltm.VirtualAddress("vsVa", new()
     ///     {
-    ///         var vsVa = new F5BigIP.Ltm.VirtualAddress("vsVa", new F5BigIP.Ltm.VirtualAddressArgs
-    ///         {
-    ///             AdvertizeRoute = "enabled",
-    ///             Name = "/Common/xxxxx",
-    ///         });
-    ///     }
+    ///         AdvertizeRoute = "enabled",
+    ///         Name = "/Common/xxxxx",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/virtualAddress:VirtualAddress")]
-    public partial class VirtualAddress : Pulumi.CustomResource
+    public partial class VirtualAddress : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )
@@ -129,7 +127,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
     }
 
-    public sealed class VirtualAddressArgs : Pulumi.ResourceArgs
+    public sealed class VirtualAddressArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )
@@ -182,9 +180,10 @@ namespace Pulumi.F5BigIP.Ltm
         public VirtualAddressArgs()
         {
         }
+        public static new VirtualAddressArgs Empty => new VirtualAddressArgs();
     }
 
-    public sealed class VirtualAddressState : Pulumi.ResourceArgs
+    public sealed class VirtualAddressState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )
@@ -237,5 +236,6 @@ namespace Pulumi.F5BigIP.Ltm
         public VirtualAddressState()
         {
         }
+        public static new VirtualAddressState Empty => new VirtualAddressState();
     }
 }

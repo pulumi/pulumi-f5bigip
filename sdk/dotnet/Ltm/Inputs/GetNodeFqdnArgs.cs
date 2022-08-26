@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Ltm.Inputs
 {
 
-    public sealed class GetNodeFqdnInputArgs : Pulumi.ResourceArgs
+    public sealed class GetNodeFqdnInputArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The FQDN node's address family.
@@ -45,5 +45,6 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
         public GetNodeFqdnInputArgs()
         {
         }
+        public static new GetNodeFqdnInputArgs Empty => new GetNodeFqdnInputArgs();
     }
 }

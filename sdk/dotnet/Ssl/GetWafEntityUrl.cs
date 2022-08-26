@@ -20,42 +20,40 @@ namespace Pulumi.F5BigIP.Ssl
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using F5BigIP = Pulumi.F5BigIP;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var wAFURL1 = F5BigIP.Ssl.GetWafEntityUrl.Invoke(new()
         ///     {
-        ///         var wAFURL1 = Output.Create(F5BigIP.Ssl.GetWafEntityUrl.InvokeAsync(new F5BigIP.Ssl.GetWafEntityUrlArgs
+        ///         Description = "this is a test",
+        ///         MethodOverrides = new[]
         ///         {
-        ///             Description = "this is a test",
-        ///             MethodOverrides = 
+        ///             new F5BigIP.Ssl.Inputs.GetWafEntityUrlMethodOverrideInputArgs
         ///             {
-        ///                 new F5BigIP.Ssl.Inputs.GetWafEntityUrlMethodOverrideArgs
-        ///                 {
-        ///                     Allow = false,
-        ///                     Method = "BCOPY",
-        ///                 },
-        ///                 new F5BigIP.Ssl.Inputs.GetWafEntityUrlMethodOverrideArgs
-        ///                 {
-        ///                     Allow = true,
-        ///                     Method = "BDELETE",
-        ///                 },
+        ///                 Allow = false,
+        ///                 Method = "BCOPY",
         ///             },
-        ///             Name = "/foobar",
-        ///             PerformStaging = true,
-        ///             Protocol = "HTTP",
-        ///             SignatureOverridesDisables = 
+        ///             new F5BigIP.Ssl.Inputs.GetWafEntityUrlMethodOverrideInputArgs
         ///             {
-        ///                 12345678,
-        ///                 87654321,
+        ///                 Allow = true,
+        ///                 Method = "BDELETE",
         ///             },
-        ///             Type = "explicit",
-        ///         }));
-        ///     }
+        ///         },
+        ///         Name = "/foobar",
+        ///         PerformStaging = true,
+        ///         Protocol = "HTTP",
+        ///         SignatureOverridesDisables = new[]
+        ///         {
+        ///             12345678,
+        ///             87654321,
+        ///         },
+        ///         Type = "explicit",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -72,42 +70,40 @@ namespace Pulumi.F5BigIP.Ssl
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using F5BigIP = Pulumi.F5BigIP;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var wAFURL1 = F5BigIP.Ssl.GetWafEntityUrl.Invoke(new()
         ///     {
-        ///         var wAFURL1 = Output.Create(F5BigIP.Ssl.GetWafEntityUrl.InvokeAsync(new F5BigIP.Ssl.GetWafEntityUrlArgs
+        ///         Description = "this is a test",
+        ///         MethodOverrides = new[]
         ///         {
-        ///             Description = "this is a test",
-        ///             MethodOverrides = 
+        ///             new F5BigIP.Ssl.Inputs.GetWafEntityUrlMethodOverrideInputArgs
         ///             {
-        ///                 new F5BigIP.Ssl.Inputs.GetWafEntityUrlMethodOverrideArgs
-        ///                 {
-        ///                     Allow = false,
-        ///                     Method = "BCOPY",
-        ///                 },
-        ///                 new F5BigIP.Ssl.Inputs.GetWafEntityUrlMethodOverrideArgs
-        ///                 {
-        ///                     Allow = true,
-        ///                     Method = "BDELETE",
-        ///                 },
+        ///                 Allow = false,
+        ///                 Method = "BCOPY",
         ///             },
-        ///             Name = "/foobar",
-        ///             PerformStaging = true,
-        ///             Protocol = "HTTP",
-        ///             SignatureOverridesDisables = 
+        ///             new F5BigIP.Ssl.Inputs.GetWafEntityUrlMethodOverrideInputArgs
         ///             {
-        ///                 12345678,
-        ///                 87654321,
+        ///                 Allow = true,
+        ///                 Method = "BDELETE",
         ///             },
-        ///             Type = "explicit",
-        ///         }));
-        ///     }
+        ///         },
+        ///         Name = "/foobar",
+        ///         PerformStaging = true,
+        ///         Protocol = "HTTP",
+        ///         SignatureOverridesDisables = new[]
+        ///         {
+        ///             12345678,
+        ///             87654321,
+        ///         },
+        ///         Type = "explicit",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -117,7 +113,7 @@ namespace Pulumi.F5BigIP.Ssl
     }
 
 
-    public sealed class GetWafEntityUrlArgs : Pulumi.InvokeArgs
+    public sealed class GetWafEntityUrlArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A description of the URL.
@@ -182,9 +178,10 @@ namespace Pulumi.F5BigIP.Ssl
         public GetWafEntityUrlArgs()
         {
         }
+        public static new GetWafEntityUrlArgs Empty => new GetWafEntityUrlArgs();
     }
 
-    public sealed class GetWafEntityUrlInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWafEntityUrlInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// A description of the URL.
@@ -249,6 +246,7 @@ namespace Pulumi.F5BigIP.Ssl
         public GetWafEntityUrlInvokeArgs()
         {
         }
+        public static new GetWafEntityUrlInvokeArgs Empty => new GetWafEntityUrlInvokeArgs();
     }
 
 

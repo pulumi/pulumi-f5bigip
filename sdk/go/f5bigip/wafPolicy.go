@@ -22,69 +22,73 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ssl"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ssl"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		param1, err := ssl.GetWafEntityParameter(ctx, &ssl.GetWafEntityParameterArgs{
-// 			Name:           "Param1",
-// 			Type:           pulumi.StringRef("explicit"),
-// 			DataType:       pulumi.StringRef("alpha-numeric"),
-// 			PerformStaging: pulumi.BoolRef(true),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		param2, err := ssl.GetWafEntityParameter(ctx, &ssl.GetWafEntityParameterArgs{
-// 			Name:           "Param2",
-// 			Type:           pulumi.StringRef("explicit"),
-// 			DataType:       pulumi.StringRef("alpha-numeric"),
-// 			PerformStaging: pulumi.BoolRef(true),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		uRL, err := ssl.GetWafEntityUrl(ctx, &ssl.GetWafEntityUrlArgs{
-// 			Name:     "URL1",
-// 			Protocol: pulumi.StringRef("http"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		uRL2, err := ssl.GetWafEntityUrl(ctx, &ssl.GetWafEntityUrlArgs{
-// 			Name: "URL2",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = f5bigip.NewWafPolicy(ctx, "test-awaf", &f5bigip.WafPolicyArgs{
-// 			Name:                pulumi.String("/Common/testpolicyravi"),
-// 			TemplateName:        pulumi.String("POLICY_TEMPLATE_RAPID_DEPLOYMENT"),
-// 			ApplicationLanguage: pulumi.String("utf-8"),
-// 			EnforcementMode:     pulumi.String("blocking"),
-// 			ServerTechnologies: pulumi.StringArray{
-// 				pulumi.String("MySQL"),
-// 				pulumi.String("Unix/Linux"),
-// 				pulumi.String("MongoDB"),
-// 			},
-// 			Parameters: pulumi.StringArray{
-// 				pulumi.String(param1.Json),
-// 				pulumi.String(param2.Json),
-// 			},
-// 			Urls: pulumi.StringArray{
-// 				pulumi.String(uRL.Json),
-// 				pulumi.String(uRL2.Json),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			param1, err := ssl.GetWafEntityParameter(ctx, &ssl.GetWafEntityParameterArgs{
+//				Name:           "Param1",
+//				Type:           pulumi.StringRef("explicit"),
+//				DataType:       pulumi.StringRef("alpha-numeric"),
+//				PerformStaging: pulumi.BoolRef(true),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			param2, err := ssl.GetWafEntityParameter(ctx, &ssl.GetWafEntityParameterArgs{
+//				Name:           "Param2",
+//				Type:           pulumi.StringRef("explicit"),
+//				DataType:       pulumi.StringRef("alpha-numeric"),
+//				PerformStaging: pulumi.BoolRef(true),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			uRL, err := ssl.GetWafEntityUrl(ctx, &ssl.GetWafEntityUrlArgs{
+//				Name:     "URL1",
+//				Protocol: pulumi.StringRef("http"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			uRL2, err := ssl.GetWafEntityUrl(ctx, &ssl.GetWafEntityUrlArgs{
+//				Name: "URL2",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = f5bigip.NewWafPolicy(ctx, "test-awaf", &f5bigip.WafPolicyArgs{
+//				Name:                pulumi.String("testpolicyravi"),
+//				Partition:           pulumi.String("Common"),
+//				TemplateName:        pulumi.String("POLICY_TEMPLATE_RAPID_DEPLOYMENT"),
+//				ApplicationLanguage: pulumi.String("utf-8"),
+//				EnforcementMode:     pulumi.String("blocking"),
+//				ServerTechnologies: pulumi.StringArray{
+//					pulumi.String("MySQL"),
+//					pulumi.String("Unix/Linux"),
+//					pulumi.String("MongoDB"),
+//				},
+//				Parameters: pulumi.StringArray{
+//					pulumi.String(param1.Json),
+//					pulumi.String(param2.Json),
+//				},
+//				Urls: pulumi.StringArray{
+//					pulumi.String(uRL.Json),
+//					pulumi.String(uRL2.Json),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -92,7 +96,9 @@ import (
 // An existing WAF Policy or if the WAF Policy has been manually created or modified on the BIG-IP WebUI, it can be imported using its `id`. e.g
 //
 // ```sh
-//  $ pulumi import f5bigip:index/wafPolicy:WafPolicy example <id>
+//
+//	$ pulumi import f5bigip:index/wafPolicy:WafPolicy example <id>
+//
 // ```
 type WafPolicy struct {
 	pulumi.CustomResourceState
@@ -107,19 +113,32 @@ type WafPolicy struct {
 	EnablePassivemode pulumi.BoolPtrOutput `pulumi:"enablePassivemode"`
 	// How the system processes a request that triggers a security policy violation
 	EnforcementMode pulumi.StringPtrOutput `pulumi:"enforcementMode"`
+	// `fileTypes` takes list of file-types options to be used for policy builder.
+	// See file types below for more details.
+	FileTypes WafPolicyFileTypeArrayOutput `pulumi:"fileTypes"`
+	// `graphqlProfiles` takes list of graphql profile options to be used for policy builder.
+	// See graphql profiles below for more details.
+	GraphqlProfiles WafPolicyGraphqlProfileArrayOutput `pulumi:"graphqlProfiles"`
 	// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
 	// section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
 	// provided by the BIG-IP.
 	Modifications pulumi.StringArrayOutput `pulumi:"modifications"`
-	// The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_). It will be `fullpath`, ex: `/Common/policy1`
+	// The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
 	Name pulumi.StringOutput `pulumi:"name"`
+	// This section defines the Link for open api files on the policy.
+	OpenApiFiles pulumi.StringArrayOutput `pulumi:"openApiFiles"`
 	// This section defines parameters that the security policy permits in requests.
 	Parameters pulumi.StringArrayOutput `pulumi:"parameters"`
+	// Specifies the partition of the policy. Default is `Common`
+	Partition pulumi.StringPtrOutput `pulumi:"partition"`
+	// `policyBuilder` block will provide `learningMode` options to be used for policy builder.
+	// See policy builder below for more details.
+	PolicyBuilders WafPolicyPolicyBuilderArrayOutput `pulumi:"policyBuilders"`
 	// Exported WAF policy deployed on BIGIP.
 	PolicyExportJson pulumi.StringOutput `pulumi:"policyExportJson"`
 	// The id of the A.WAF Policy as it would be calculated on the BIG-IP.
 	PolicyId pulumi.StringOutput `pulumi:"policyId"`
-	// The payload of the WAF Policy to be used for IMPORT on to BIGIP
+	// The payload of the WAF Policy to be used for IMPORT on to BIG-IP.
 	PolicyImportJson pulumi.StringPtrOutput `pulumi:"policyImportJson"`
 	// When creating a security policy, you can determine whether a security policy differentiates between HTTP and HTTPS URLs. If enabled, the security policy differentiates between HTTP and HTTPS URLs. If disabled, the security policy configures URLs without specifying a specific protocol. This is useful for applications that behave the same for HTTP and HTTPS, and it keeps the security policy from including the same URL twice.
 	ProtocolIndependent pulumi.BoolPtrOutput `pulumi:"protocolIndependent"`
@@ -129,9 +148,11 @@ type WafPolicy struct {
 	SignatureSets pulumi.StringArrayOutput `pulumi:"signatureSets"`
 	// This section defines the properties of a signature on the policy.
 	Signatures pulumi.StringArrayOutput `pulumi:"signatures"`
+	// bulk signature setting
+	SignaturesSettings WafPolicySignaturesSettingArrayOutput `pulumi:"signaturesSettings"`
 	// Specifies the name of the template used for the policy creation.
 	TemplateName pulumi.StringOutput `pulumi:"templateName"`
-	// The type of policy you want to create. The default policy type is Security.
+	// The type of policy you want to create. The default policy type is `security`.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 	// In a security policy, you can manually specify the HTTP URLs that are allowed (or disallowed) in traffic to the web application being protected. If you are using automatic policy building (and the policy includes learning URLs), the system can determine which URLs to add, based on legitimate traffic.
 	Urls pulumi.StringArrayOutput `pulumi:"urls"`
@@ -182,19 +203,32 @@ type wafPolicyState struct {
 	EnablePassivemode *bool `pulumi:"enablePassivemode"`
 	// How the system processes a request that triggers a security policy violation
 	EnforcementMode *string `pulumi:"enforcementMode"`
+	// `fileTypes` takes list of file-types options to be used for policy builder.
+	// See file types below for more details.
+	FileTypes []WafPolicyFileType `pulumi:"fileTypes"`
+	// `graphqlProfiles` takes list of graphql profile options to be used for policy builder.
+	// See graphql profiles below for more details.
+	GraphqlProfiles []WafPolicyGraphqlProfile `pulumi:"graphqlProfiles"`
 	// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
 	// section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
 	// provided by the BIG-IP.
 	Modifications []string `pulumi:"modifications"`
-	// The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_). It will be `fullpath`, ex: `/Common/policy1`
+	// The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
 	Name *string `pulumi:"name"`
+	// This section defines the Link for open api files on the policy.
+	OpenApiFiles []string `pulumi:"openApiFiles"`
 	// This section defines parameters that the security policy permits in requests.
 	Parameters []string `pulumi:"parameters"`
+	// Specifies the partition of the policy. Default is `Common`
+	Partition *string `pulumi:"partition"`
+	// `policyBuilder` block will provide `learningMode` options to be used for policy builder.
+	// See policy builder below for more details.
+	PolicyBuilders []WafPolicyPolicyBuilder `pulumi:"policyBuilders"`
 	// Exported WAF policy deployed on BIGIP.
 	PolicyExportJson *string `pulumi:"policyExportJson"`
 	// The id of the A.WAF Policy as it would be calculated on the BIG-IP.
 	PolicyId *string `pulumi:"policyId"`
-	// The payload of the WAF Policy to be used for IMPORT on to BIGIP
+	// The payload of the WAF Policy to be used for IMPORT on to BIG-IP.
 	PolicyImportJson *string `pulumi:"policyImportJson"`
 	// When creating a security policy, you can determine whether a security policy differentiates between HTTP and HTTPS URLs. If enabled, the security policy differentiates between HTTP and HTTPS URLs. If disabled, the security policy configures URLs without specifying a specific protocol. This is useful for applications that behave the same for HTTP and HTTPS, and it keeps the security policy from including the same URL twice.
 	ProtocolIndependent *bool `pulumi:"protocolIndependent"`
@@ -204,9 +238,11 @@ type wafPolicyState struct {
 	SignatureSets []string `pulumi:"signatureSets"`
 	// This section defines the properties of a signature on the policy.
 	Signatures []string `pulumi:"signatures"`
+	// bulk signature setting
+	SignaturesSettings []WafPolicySignaturesSetting `pulumi:"signaturesSettings"`
 	// Specifies the name of the template used for the policy creation.
 	TemplateName *string `pulumi:"templateName"`
-	// The type of policy you want to create. The default policy type is Security.
+	// The type of policy you want to create. The default policy type is `security`.
 	Type *string `pulumi:"type"`
 	// In a security policy, you can manually specify the HTTP URLs that are allowed (or disallowed) in traffic to the web application being protected. If you are using automatic policy building (and the policy includes learning URLs), the system can determine which URLs to add, based on legitimate traffic.
 	Urls []string `pulumi:"urls"`
@@ -223,19 +259,32 @@ type WafPolicyState struct {
 	EnablePassivemode pulumi.BoolPtrInput
 	// How the system processes a request that triggers a security policy violation
 	EnforcementMode pulumi.StringPtrInput
+	// `fileTypes` takes list of file-types options to be used for policy builder.
+	// See file types below for more details.
+	FileTypes WafPolicyFileTypeArrayInput
+	// `graphqlProfiles` takes list of graphql profile options to be used for policy builder.
+	// See graphql profiles below for more details.
+	GraphqlProfiles WafPolicyGraphqlProfileArrayInput
 	// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
 	// section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
 	// provided by the BIG-IP.
 	Modifications pulumi.StringArrayInput
-	// The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_). It will be `fullpath`, ex: `/Common/policy1`
+	// The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
 	Name pulumi.StringPtrInput
+	// This section defines the Link for open api files on the policy.
+	OpenApiFiles pulumi.StringArrayInput
 	// This section defines parameters that the security policy permits in requests.
 	Parameters pulumi.StringArrayInput
+	// Specifies the partition of the policy. Default is `Common`
+	Partition pulumi.StringPtrInput
+	// `policyBuilder` block will provide `learningMode` options to be used for policy builder.
+	// See policy builder below for more details.
+	PolicyBuilders WafPolicyPolicyBuilderArrayInput
 	// Exported WAF policy deployed on BIGIP.
 	PolicyExportJson pulumi.StringPtrInput
 	// The id of the A.WAF Policy as it would be calculated on the BIG-IP.
 	PolicyId pulumi.StringPtrInput
-	// The payload of the WAF Policy to be used for IMPORT on to BIGIP
+	// The payload of the WAF Policy to be used for IMPORT on to BIG-IP.
 	PolicyImportJson pulumi.StringPtrInput
 	// When creating a security policy, you can determine whether a security policy differentiates between HTTP and HTTPS URLs. If enabled, the security policy differentiates between HTTP and HTTPS URLs. If disabled, the security policy configures URLs without specifying a specific protocol. This is useful for applications that behave the same for HTTP and HTTPS, and it keeps the security policy from including the same URL twice.
 	ProtocolIndependent pulumi.BoolPtrInput
@@ -245,9 +294,11 @@ type WafPolicyState struct {
 	SignatureSets pulumi.StringArrayInput
 	// This section defines the properties of a signature on the policy.
 	Signatures pulumi.StringArrayInput
+	// bulk signature setting
+	SignaturesSettings WafPolicySignaturesSettingArrayInput
 	// Specifies the name of the template used for the policy creation.
 	TemplateName pulumi.StringPtrInput
-	// The type of policy you want to create. The default policy type is Security.
+	// The type of policy you want to create. The default policy type is `security`.
 	Type pulumi.StringPtrInput
 	// In a security policy, you can manually specify the HTTP URLs that are allowed (or disallowed) in traffic to the web application being protected. If you are using automatic policy building (and the policy includes learning URLs), the system can determine which URLs to add, based on legitimate traffic.
 	Urls pulumi.StringArrayInput
@@ -268,19 +319,32 @@ type wafPolicyArgs struct {
 	EnablePassivemode *bool `pulumi:"enablePassivemode"`
 	// How the system processes a request that triggers a security policy violation
 	EnforcementMode *string `pulumi:"enforcementMode"`
+	// `fileTypes` takes list of file-types options to be used for policy builder.
+	// See file types below for more details.
+	FileTypes []WafPolicyFileType `pulumi:"fileTypes"`
+	// `graphqlProfiles` takes list of graphql profile options to be used for policy builder.
+	// See graphql profiles below for more details.
+	GraphqlProfiles []WafPolicyGraphqlProfile `pulumi:"graphqlProfiles"`
 	// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
 	// section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
 	// provided by the BIG-IP.
 	Modifications []string `pulumi:"modifications"`
-	// The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_). It will be `fullpath`, ex: `/Common/policy1`
+	// The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
 	Name string `pulumi:"name"`
+	// This section defines the Link for open api files on the policy.
+	OpenApiFiles []string `pulumi:"openApiFiles"`
 	// This section defines parameters that the security policy permits in requests.
 	Parameters []string `pulumi:"parameters"`
+	// Specifies the partition of the policy. Default is `Common`
+	Partition *string `pulumi:"partition"`
+	// `policyBuilder` block will provide `learningMode` options to be used for policy builder.
+	// See policy builder below for more details.
+	PolicyBuilders []WafPolicyPolicyBuilder `pulumi:"policyBuilders"`
 	// Exported WAF policy deployed on BIGIP.
 	PolicyExportJson *string `pulumi:"policyExportJson"`
 	// The id of the A.WAF Policy as it would be calculated on the BIG-IP.
 	PolicyId *string `pulumi:"policyId"`
-	// The payload of the WAF Policy to be used for IMPORT on to BIGIP
+	// The payload of the WAF Policy to be used for IMPORT on to BIG-IP.
 	PolicyImportJson *string `pulumi:"policyImportJson"`
 	// When creating a security policy, you can determine whether a security policy differentiates between HTTP and HTTPS URLs. If enabled, the security policy differentiates between HTTP and HTTPS URLs. If disabled, the security policy configures URLs without specifying a specific protocol. This is useful for applications that behave the same for HTTP and HTTPS, and it keeps the security policy from including the same URL twice.
 	ProtocolIndependent *bool `pulumi:"protocolIndependent"`
@@ -290,9 +354,11 @@ type wafPolicyArgs struct {
 	SignatureSets []string `pulumi:"signatureSets"`
 	// This section defines the properties of a signature on the policy.
 	Signatures []string `pulumi:"signatures"`
+	// bulk signature setting
+	SignaturesSettings []WafPolicySignaturesSetting `pulumi:"signaturesSettings"`
 	// Specifies the name of the template used for the policy creation.
 	TemplateName string `pulumi:"templateName"`
-	// The type of policy you want to create. The default policy type is Security.
+	// The type of policy you want to create. The default policy type is `security`.
 	Type *string `pulumi:"type"`
 	// In a security policy, you can manually specify the HTTP URLs that are allowed (or disallowed) in traffic to the web application being protected. If you are using automatic policy building (and the policy includes learning URLs), the system can determine which URLs to add, based on legitimate traffic.
 	Urls []string `pulumi:"urls"`
@@ -310,19 +376,32 @@ type WafPolicyArgs struct {
 	EnablePassivemode pulumi.BoolPtrInput
 	// How the system processes a request that triggers a security policy violation
 	EnforcementMode pulumi.StringPtrInput
+	// `fileTypes` takes list of file-types options to be used for policy builder.
+	// See file types below for more details.
+	FileTypes WafPolicyFileTypeArrayInput
+	// `graphqlProfiles` takes list of graphql profile options to be used for policy builder.
+	// See graphql profiles below for more details.
+	GraphqlProfiles WafPolicyGraphqlProfileArrayInput
 	// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
 	// section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
 	// provided by the BIG-IP.
 	Modifications pulumi.StringArrayInput
-	// The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_). It will be `fullpath`, ex: `/Common/policy1`
+	// The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
 	Name pulumi.StringInput
+	// This section defines the Link for open api files on the policy.
+	OpenApiFiles pulumi.StringArrayInput
 	// This section defines parameters that the security policy permits in requests.
 	Parameters pulumi.StringArrayInput
+	// Specifies the partition of the policy. Default is `Common`
+	Partition pulumi.StringPtrInput
+	// `policyBuilder` block will provide `learningMode` options to be used for policy builder.
+	// See policy builder below for more details.
+	PolicyBuilders WafPolicyPolicyBuilderArrayInput
 	// Exported WAF policy deployed on BIGIP.
 	PolicyExportJson pulumi.StringPtrInput
 	// The id of the A.WAF Policy as it would be calculated on the BIG-IP.
 	PolicyId pulumi.StringPtrInput
-	// The payload of the WAF Policy to be used for IMPORT on to BIGIP
+	// The payload of the WAF Policy to be used for IMPORT on to BIG-IP.
 	PolicyImportJson pulumi.StringPtrInput
 	// When creating a security policy, you can determine whether a security policy differentiates between HTTP and HTTPS URLs. If enabled, the security policy differentiates between HTTP and HTTPS URLs. If disabled, the security policy configures URLs without specifying a specific protocol. This is useful for applications that behave the same for HTTP and HTTPS, and it keeps the security policy from including the same URL twice.
 	ProtocolIndependent pulumi.BoolPtrInput
@@ -332,9 +411,11 @@ type WafPolicyArgs struct {
 	SignatureSets pulumi.StringArrayInput
 	// This section defines the properties of a signature on the policy.
 	Signatures pulumi.StringArrayInput
+	// bulk signature setting
+	SignaturesSettings WafPolicySignaturesSettingArrayInput
 	// Specifies the name of the template used for the policy creation.
 	TemplateName pulumi.StringInput
-	// The type of policy you want to create. The default policy type is Security.
+	// The type of policy you want to create. The default policy type is `security`.
 	Type pulumi.StringPtrInput
 	// In a security policy, you can manually specify the HTTP URLs that are allowed (or disallowed) in traffic to the web application being protected. If you are using automatic policy building (and the policy includes learning URLs), the system can determine which URLs to add, based on legitimate traffic.
 	Urls pulumi.StringArrayInput
@@ -366,7 +447,7 @@ func (i *WafPolicy) ToWafPolicyOutputWithContext(ctx context.Context) WafPolicyO
 // WafPolicyArrayInput is an input type that accepts WafPolicyArray and WafPolicyArrayOutput values.
 // You can construct a concrete instance of `WafPolicyArrayInput` via:
 //
-//          WafPolicyArray{ WafPolicyArgs{...} }
+//	WafPolicyArray{ WafPolicyArgs{...} }
 type WafPolicyArrayInput interface {
 	pulumi.Input
 
@@ -391,7 +472,7 @@ func (i WafPolicyArray) ToWafPolicyArrayOutputWithContext(ctx context.Context) W
 // WafPolicyMapInput is an input type that accepts WafPolicyMap and WafPolicyMapOutput values.
 // You can construct a concrete instance of `WafPolicyMapInput` via:
 //
-//          WafPolicyMap{ "key": WafPolicyArgs{...} }
+//	WafPolicyMap{ "key": WafPolicyArgs{...} }
 type WafPolicyMapInput interface {
 	pulumi.Input
 
@@ -425,6 +506,131 @@ func (o WafPolicyOutput) ToWafPolicyOutput() WafPolicyOutput {
 
 func (o WafPolicyOutput) ToWafPolicyOutputWithContext(ctx context.Context) WafPolicyOutput {
 	return o
+}
+
+// The character encoding for the web application. The character encoding determines how the policy processes the character sets. The default is `utf-8`
+func (o WafPolicyOutput) ApplicationLanguage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.StringPtrOutput { return v.ApplicationLanguage }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the security policy treats microservice URLs, file types, URLs, and parameters as case sensitive or not. When this setting is enabled, the system stores these security policy elements in lowercase in the security policy configuration
+func (o WafPolicyOutput) CaseInsensitive() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.BoolPtrOutput { return v.CaseInsensitive }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the description of the policy.
+func (o WafPolicyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Passive Mode allows the policy to be associated with a Performance L4 Virtual Server (using a FastL4 profile). With FastL4, traffic is analyzed but is not modified in any way.
+func (o WafPolicyOutput) EnablePassivemode() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.BoolPtrOutput { return v.EnablePassivemode }).(pulumi.BoolPtrOutput)
+}
+
+// How the system processes a request that triggers a security policy violation
+func (o WafPolicyOutput) EnforcementMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.StringPtrOutput { return v.EnforcementMode }).(pulumi.StringPtrOutput)
+}
+
+// `fileTypes` takes list of file-types options to be used for policy builder.
+// See file types below for more details.
+func (o WafPolicyOutput) FileTypes() WafPolicyFileTypeArrayOutput {
+	return o.ApplyT(func(v *WafPolicy) WafPolicyFileTypeArrayOutput { return v.FileTypes }).(WafPolicyFileTypeArrayOutput)
+}
+
+// `graphqlProfiles` takes list of graphql profile options to be used for policy builder.
+// See graphql profiles below for more details.
+func (o WafPolicyOutput) GraphqlProfiles() WafPolicyGraphqlProfileArrayOutput {
+	return o.ApplyT(func(v *WafPolicy) WafPolicyGraphqlProfileArrayOutput { return v.GraphqlProfiles }).(WafPolicyGraphqlProfileArrayOutput)
+}
+
+// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
+// section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
+// provided by the BIG-IP.
+func (o WafPolicyOutput) Modifications() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.StringArrayOutput { return v.Modifications }).(pulumi.StringArrayOutput)
+}
+
+// The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
+func (o WafPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// This section defines the Link for open api files on the policy.
+func (o WafPolicyOutput) OpenApiFiles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.StringArrayOutput { return v.OpenApiFiles }).(pulumi.StringArrayOutput)
+}
+
+// This section defines parameters that the security policy permits in requests.
+func (o WafPolicyOutput) Parameters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.StringArrayOutput { return v.Parameters }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the partition of the policy. Default is `Common`
+func (o WafPolicyOutput) Partition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.StringPtrOutput { return v.Partition }).(pulumi.StringPtrOutput)
+}
+
+// `policyBuilder` block will provide `learningMode` options to be used for policy builder.
+// See policy builder below for more details.
+func (o WafPolicyOutput) PolicyBuilders() WafPolicyPolicyBuilderArrayOutput {
+	return o.ApplyT(func(v *WafPolicy) WafPolicyPolicyBuilderArrayOutput { return v.PolicyBuilders }).(WafPolicyPolicyBuilderArrayOutput)
+}
+
+// Exported WAF policy deployed on BIGIP.
+func (o WafPolicyOutput) PolicyExportJson() pulumi.StringOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.StringOutput { return v.PolicyExportJson }).(pulumi.StringOutput)
+}
+
+// The id of the A.WAF Policy as it would be calculated on the BIG-IP.
+func (o WafPolicyOutput) PolicyId() pulumi.StringOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.StringOutput { return v.PolicyId }).(pulumi.StringOutput)
+}
+
+// The payload of the WAF Policy to be used for IMPORT on to BIG-IP.
+func (o WafPolicyOutput) PolicyImportJson() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.StringPtrOutput { return v.PolicyImportJson }).(pulumi.StringPtrOutput)
+}
+
+// When creating a security policy, you can determine whether a security policy differentiates between HTTP and HTTPS URLs. If enabled, the security policy differentiates between HTTP and HTTPS URLs. If disabled, the security policy configures URLs without specifying a specific protocol. This is useful for applications that behave the same for HTTP and HTTPS, and it keeps the security policy from including the same URL twice.
+func (o WafPolicyOutput) ProtocolIndependent() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.BoolPtrOutput { return v.ProtocolIndependent }).(pulumi.BoolPtrOutput)
+}
+
+// The server technology is a server-side application, framework, web server or operating system type that is configured in the policy in order to adapt the policy to the checks needed for the respective technology.
+func (o WafPolicyOutput) ServerTechnologies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.StringArrayOutput { return v.ServerTechnologies }).(pulumi.StringArrayOutput)
+}
+
+// Defines behavior when signatures found within a signature-set are detected in a request. Settings are culmulative, so if a signature is found in any set with block enabled, that signature will have block enabled.
+func (o WafPolicyOutput) SignatureSets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.StringArrayOutput { return v.SignatureSets }).(pulumi.StringArrayOutput)
+}
+
+// This section defines the properties of a signature on the policy.
+func (o WafPolicyOutput) Signatures() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.StringArrayOutput { return v.Signatures }).(pulumi.StringArrayOutput)
+}
+
+// bulk signature setting
+func (o WafPolicyOutput) SignaturesSettings() WafPolicySignaturesSettingArrayOutput {
+	return o.ApplyT(func(v *WafPolicy) WafPolicySignaturesSettingArrayOutput { return v.SignaturesSettings }).(WafPolicySignaturesSettingArrayOutput)
+}
+
+// Specifies the name of the template used for the policy creation.
+func (o WafPolicyOutput) TemplateName() pulumi.StringOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.StringOutput { return v.TemplateName }).(pulumi.StringOutput)
+}
+
+// The type of policy you want to create. The default policy type is `security`.
+func (o WafPolicyOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+// In a security policy, you can manually specify the HTTP URLs that are allowed (or disallowed) in traffic to the web application being protected. If you are using automatic policy building (and the policy includes learning URLs), the system can determine which URLs to add, based on legitimate traffic.
+func (o WafPolicyOutput) Urls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.StringArrayOutput { return v.Urls }).(pulumi.StringArrayOutput)
 }
 
 type WafPolicyArrayOutput struct{ *pulumi.OutputState }

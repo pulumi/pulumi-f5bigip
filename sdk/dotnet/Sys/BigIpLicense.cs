@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Sys
 {
     [F5BigIPResourceType("f5bigip:sys/bigIpLicense:BigIpLicense")]
-    public partial class BigIpLicense : Pulumi.CustomResource
+    public partial class BigIpLicense : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Tmsh command to execute tmsh commands like install
@@ -68,7 +68,7 @@ namespace Pulumi.F5BigIP.Sys
         }
     }
 
-    public sealed class BigIpLicenseArgs : Pulumi.ResourceArgs
+    public sealed class BigIpLicenseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Tmsh command to execute tmsh commands like install
@@ -85,9 +85,10 @@ namespace Pulumi.F5BigIP.Sys
         public BigIpLicenseArgs()
         {
         }
+        public static new BigIpLicenseArgs Empty => new BigIpLicenseArgs();
     }
 
-    public sealed class BigIpLicenseState : Pulumi.ResourceArgs
+    public sealed class BigIpLicenseState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Tmsh command to execute tmsh commands like install
@@ -104,5 +105,6 @@ namespace Pulumi.F5BigIP.Sys
         public BigIpLicenseState()
         {
         }
+        public static new BigIpLicenseState Empty => new BigIpLicenseState();
     }
 }

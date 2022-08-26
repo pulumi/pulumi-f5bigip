@@ -20,20 +20,18 @@ namespace Pulumi.F5BigIP.Ssl
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using F5BigIP = Pulumi.F5BigIP;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var wAFSIG1 = F5BigIP.Ssl.GetWafSignatures.Invoke(new()
         ///     {
-        ///         var wAFSIG1 = Output.Create(F5BigIP.Ssl.GetWafSignatures.InvokeAsync(new F5BigIP.Ssl.GetWafSignaturesArgs
-        ///         {
-        ///             SignatureId = 200104004,
-        ///         }));
-        ///     }
+        ///         SignatureId = 200104004,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -50,20 +48,18 @@ namespace Pulumi.F5BigIP.Ssl
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using F5BigIP = Pulumi.F5BigIP;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var wAFSIG1 = F5BigIP.Ssl.GetWafSignatures.Invoke(new()
         ///     {
-        ///         var wAFSIG1 = Output.Create(F5BigIP.Ssl.GetWafSignatures.InvokeAsync(new F5BigIP.Ssl.GetWafSignaturesArgs
-        ///         {
-        ///             SignatureId = 200104004,
-        ///         }));
-        ///     }
+        ///         SignatureId = 200104004,
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -73,7 +69,7 @@ namespace Pulumi.F5BigIP.Ssl
     }
 
 
-    public sealed class GetWafSignaturesArgs : Pulumi.InvokeArgs
+    public sealed class GetWafSignaturesArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The relative detection accuracy of the signature.
@@ -87,11 +83,17 @@ namespace Pulumi.F5BigIP.Ssl
         [Input("description")]
         public string? Description { get; set; }
 
+        [Input("enabled")]
+        public bool? Enabled { get; set; }
+
         /// <summary>
         /// Name of the signature as configured on the system.
         /// </summary>
         [Input("name")]
         public string? Name { get; set; }
+
+        [Input("performStaging")]
+        public bool? PerformStaging { get; set; }
 
         /// <summary>
         /// The relative risk level of the attack that matches this signature.
@@ -111,6 +113,9 @@ namespace Pulumi.F5BigIP.Ssl
         [Input("systemSignatureId")]
         public string? SystemSignatureId { get; set; }
 
+        [Input("tag")]
+        public string? Tag { get; set; }
+
         /// <summary>
         /// Type of the signature.
         /// </summary>
@@ -120,9 +125,10 @@ namespace Pulumi.F5BigIP.Ssl
         public GetWafSignaturesArgs()
         {
         }
+        public static new GetWafSignaturesArgs Empty => new GetWafSignaturesArgs();
     }
 
-    public sealed class GetWafSignaturesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWafSignaturesInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The relative detection accuracy of the signature.
@@ -136,11 +142,17 @@ namespace Pulumi.F5BigIP.Ssl
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("enabled")]
+        public Input<bool>? Enabled { get; set; }
+
         /// <summary>
         /// Name of the signature as configured on the system.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("performStaging")]
+        public Input<bool>? PerformStaging { get; set; }
 
         /// <summary>
         /// The relative risk level of the attack that matches this signature.
@@ -160,6 +172,9 @@ namespace Pulumi.F5BigIP.Ssl
         [Input("systemSignatureId")]
         public Input<string>? SystemSignatureId { get; set; }
 
+        [Input("tag")]
+        public Input<string>? Tag { get; set; }
+
         /// <summary>
         /// Type of the signature.
         /// </summary>
@@ -169,6 +184,7 @@ namespace Pulumi.F5BigIP.Ssl
         public GetWafSignaturesInvokeArgs()
         {
         }
+        public static new GetWafSignaturesInvokeArgs Empty => new GetWafSignaturesInvokeArgs();
     }
 
 
@@ -182,15 +198,18 @@ namespace Pulumi.F5BigIP.Ssl
         /// <summary>
         /// Description of the signature.
         /// </summary>
-        public readonly string Description;
+        public readonly string? Description;
+        public readonly bool? Enabled;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Json;
         /// <summary>
         /// Name of the signature as configured on the system.
         /// </summary>
         public readonly string Name;
+        public readonly bool? PerformStaging;
         /// <summary>
         /// The relative risk level of the attack that matches this signature.
         /// </summary>
@@ -203,6 +222,7 @@ namespace Pulumi.F5BigIP.Ssl
         /// System generated ID of the signature.
         /// </summary>
         public readonly string SystemSignatureId;
+        public readonly string Tag;
         /// <summary>
         /// Type of the signature.
         /// </summary>
@@ -212,11 +232,17 @@ namespace Pulumi.F5BigIP.Ssl
         private GetWafSignaturesResult(
             string accuracy,
 
-            string description,
+            string? description,
+
+            bool? enabled,
 
             string id,
 
+            string json,
+
             string name,
+
+            bool? performStaging,
 
             string risk,
 
@@ -224,15 +250,21 @@ namespace Pulumi.F5BigIP.Ssl
 
             string systemSignatureId,
 
+            string tag,
+
             string type)
         {
             Accuracy = accuracy;
             Description = description;
+            Enabled = enabled;
             Id = id;
+            Json = json;
             Name = name;
+            PerformStaging = performStaging;
             Risk = risk;
             SignatureId = signatureId;
             SystemSignatureId = systemSignatureId;
+            Tag = tag;
             Type = type;
         }
     }

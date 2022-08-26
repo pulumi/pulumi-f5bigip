@@ -15,29 +15,27 @@ namespace Pulumi.F5BigIP.Ltm
     /// ## Example
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var dstaddr = new F5BigIP.Ltm.PersistenceProfileDstAddr("dstaddr", new()
     ///     {
-    ///         var dstaddr = new F5BigIP.Ltm.PersistenceProfileDstAddr("dstaddr", new F5BigIP.Ltm.PersistenceProfileDstAddrArgs
-    ///         {
-    ///             DefaultsFrom = "/Common/dest_addr",
-    ///             HashAlgorithm = "carp",
-    ///             Mask = "255.255.255.255",
-    ///             MatchAcrossPools = "enabled",
-    ///             MatchAcrossServices = "enabled",
-    ///             MatchAcrossVirtuals = "enabled",
-    ///             Mirror = "enabled",
-    ///             Name = "/Common/terraform_ppdstaddr",
-    ///             OverrideConnLimit = "enabled",
-    ///             Timeout = 3600,
-    ///         });
-    ///     }
+    ///         DefaultsFrom = "/Common/dest_addr",
+    ///         HashAlgorithm = "carp",
+    ///         Mask = "255.255.255.255",
+    ///         MatchAcrossPools = "enabled",
+    ///         MatchAcrossServices = "enabled",
+    ///         MatchAcrossVirtuals = "enabled",
+    ///         Mirror = "enabled",
+    ///         Name = "/Common/terraform_ppdstaddr",
+    ///         OverrideConnLimit = "enabled",
+    ///         Timeout = 3600,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Reference
@@ -59,7 +57,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// `override_conn_limit` (Optional) (enabled or disabled) Enable or dissable pool member connection limits are overridden for persisted clients. Per-virtual connection limits remain hard limits and are not overridden.
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/persistenceProfileDstAddr:PersistenceProfileDstAddr")]
-    public partial class PersistenceProfileDstAddr : Pulumi.CustomResource
+    public partial class PersistenceProfileDstAddr : global::Pulumi.CustomResource
     {
         [Output("appService")]
         public Output<string> AppService { get; private set; } = null!;
@@ -170,7 +168,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
     }
 
-    public sealed class PersistenceProfileDstAddrArgs : Pulumi.ResourceArgs
+    public sealed class PersistenceProfileDstAddrArgs : global::Pulumi.ResourceArgs
     {
         [Input("appService")]
         public Input<string>? AppService { get; set; }
@@ -240,9 +238,10 @@ namespace Pulumi.F5BigIP.Ltm
         public PersistenceProfileDstAddrArgs()
         {
         }
+        public static new PersistenceProfileDstAddrArgs Empty => new PersistenceProfileDstAddrArgs();
     }
 
-    public sealed class PersistenceProfileDstAddrState : Pulumi.ResourceArgs
+    public sealed class PersistenceProfileDstAddrState : global::Pulumi.ResourceArgs
     {
         [Input("appService")]
         public Input<string>? AppService { get; set; }
@@ -312,5 +311,6 @@ namespace Pulumi.F5BigIP.Ltm
         public PersistenceProfileDstAddrState()
         {
         }
+        public static new PersistenceProfileDstAddrState Empty => new PersistenceProfileDstAddrState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Ltm.Inputs
 {
 
-    public sealed class NodeFqdnArgs : Pulumi.ResourceArgs
+    public sealed class NodeFqdnArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the node's address family. The default is 'unspecified', or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
@@ -39,5 +39,6 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
         public NodeFqdnArgs()
         {
         }
+        public static new NodeFqdnArgs Empty => new NodeFqdnArgs();
     }
 }

@@ -17,34 +17,32 @@ namespace Pulumi.F5BigIP.Ltm
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var sjfasthttpprofile = new F5BigIP.Ltm.ProfileFastHttp("sjfasthttpprofile", new()
     ///     {
-    ///         var sjfasthttpprofile = new F5BigIP.Ltm.ProfileFastHttp("sjfasthttpprofile", new F5BigIP.Ltm.ProfileFastHttpArgs
-    ///         {
-    ///             ConnpoolMaxreuse = 2,
-    ///             ConnpoolMaxsize = 2048,
-    ///             ConnpoolMinsize = 0,
-    ///             ConnpoolReplenish = "enabled",
-    ///             ConnpoolStep = 4,
-    ///             ConnpoolidleTimeoutoverride = 0,
-    ///             DefaultsFrom = "/Common/fasthttp",
-    ///             Forcehttp10response = "disabled",
-    ///             IdleTimeout = 300,
-    ///             MaxheaderSize = 32768,
-    ///             Name = "/Common/sjfasthttpprofile",
-    ///         });
-    ///     }
+    ///         ConnpoolMaxreuse = 2,
+    ///         ConnpoolMaxsize = 2048,
+    ///         ConnpoolMinsize = 0,
+    ///         ConnpoolReplenish = "enabled",
+    ///         ConnpoolStep = 4,
+    ///         ConnpoolidleTimeoutoverride = 0,
+    ///         DefaultsFrom = "/Common/fasthttp",
+    ///         Forcehttp10response = "disabled",
+    ///         IdleTimeout = 300,
+    ///         MaxheaderSize = 32768,
+    ///         Name = "/Common/sjfasthttpprofile",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/profileFastHttp:ProfileFastHttp")]
-    public partial class ProfileFastHttp : Pulumi.CustomResource
+    public partial class ProfileFastHttp : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the maximum number of times that the system can re-use a current connection. The default value is 0 (zero).
@@ -156,7 +154,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
     }
 
-    public sealed class ProfileFastHttpArgs : Pulumi.ResourceArgs
+    public sealed class ProfileFastHttpArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the maximum number of times that the system can re-use a current connection. The default value is 0 (zero).
@@ -227,9 +225,10 @@ namespace Pulumi.F5BigIP.Ltm
         public ProfileFastHttpArgs()
         {
         }
+        public static new ProfileFastHttpArgs Empty => new ProfileFastHttpArgs();
     }
 
-    public sealed class ProfileFastHttpState : Pulumi.ResourceArgs
+    public sealed class ProfileFastHttpState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the maximum number of times that the system can re-use a current connection. The default value is 0 (zero).
@@ -300,5 +299,6 @@ namespace Pulumi.F5BigIP.Ltm
         public ProfileFastHttpState()
         {
         }
+        public static new ProfileFastHttpState Empty => new ProfileFastHttpState();
     }
 }

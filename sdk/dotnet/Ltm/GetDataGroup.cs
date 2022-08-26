@@ -20,21 +20,19 @@ namespace Pulumi.F5BigIP.Ltm
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using F5BigIP = Pulumi.F5BigIP;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var dG_TC3 = F5BigIP.Ltm.GetDataGroup.Invoke(new()
         ///     {
-        ///         var dG_TC3 = Output.Create(F5BigIP.Ltm.GetDataGroup.InvokeAsync(new F5BigIP.Ltm.GetDataGroupArgs
-        ///         {
-        ///             Name = "test-dg",
-        ///             Partition = "Common",
-        ///         }));
-        ///     }
+        ///         Name = "test-dg",
+        ///         Partition = "Common",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -51,21 +49,19 @@ namespace Pulumi.F5BigIP.Ltm
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using F5BigIP = Pulumi.F5BigIP;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var dG_TC3 = F5BigIP.Ltm.GetDataGroup.Invoke(new()
         ///     {
-        ///         var dG_TC3 = Output.Create(F5BigIP.Ltm.GetDataGroup.InvokeAsync(new F5BigIP.Ltm.GetDataGroupArgs
-        ///         {
-        ///             Name = "test-dg",
-        ///             Partition = "Common",
-        ///         }));
-        ///     }
+        ///         Name = "test-dg",
+        ///         Partition = "Common",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.F5BigIP.Ltm
     }
 
 
-    public sealed class GetDataGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetDataGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the datagroup
@@ -110,9 +106,10 @@ namespace Pulumi.F5BigIP.Ltm
         public GetDataGroupArgs()
         {
         }
+        public static new GetDataGroupArgs Empty => new GetDataGroupArgs();
     }
 
-    public sealed class GetDataGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetDataGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the datagroup
@@ -147,6 +144,7 @@ namespace Pulumi.F5BigIP.Ltm
         public GetDataGroupInvokeArgs()
         {
         }
+        public static new GetDataGroupInvokeArgs Empty => new GetDataGroupInvokeArgs();
     }
 
 

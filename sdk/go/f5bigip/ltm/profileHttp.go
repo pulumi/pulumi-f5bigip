@@ -21,28 +21,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ltm.NewProfileHttp(ctx, "sanjose-http", &ltm.ProfileHttpArgs{
-// 			DefaultsFrom: pulumi.String("/Common/http"),
-// 			FallbackHost: pulumi.String("titanic"),
-// 			FallbackStatusCodes: pulumi.StringArray{
-// 				pulumi.String("400"),
-// 				pulumi.String("500"),
-// 				pulumi.String("300"),
-// 			},
-// 			Name: pulumi.String("/Common/sanjose-http"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ltm.NewProfileHttp(ctx, "sanjose-http", &ltm.ProfileHttpArgs{
+//				DefaultsFrom: pulumi.String("/Common/http"),
+//				FallbackHost: pulumi.String("titanic"),
+//				FallbackStatusCodes: pulumi.StringArray{
+//					pulumi.String("400"),
+//					pulumi.String("500"),
+//					pulumi.String("300"),
+//				},
+//				Name: pulumi.String("/Common/sanjose-http"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -50,7 +53,9 @@ import (
 // BIG-IP LTM http profiles can be imported using the `name`, e.g. bash
 //
 // ```sh
-//  $ pulumi import f5bigip:ltm/profileHttp:ProfileHttp test-http /Common/test-http
+//
+//	$ pulumi import f5bigip:ltm/profileHttp:ProfileHttp test-http /Common/test-http
+//
 // ```
 type ProfileHttp struct {
 	pulumi.CustomResourceState
@@ -411,7 +416,7 @@ func (i *ProfileHttp) ToProfileHttpOutputWithContext(ctx context.Context) Profil
 // ProfileHttpArrayInput is an input type that accepts ProfileHttpArray and ProfileHttpArrayOutput values.
 // You can construct a concrete instance of `ProfileHttpArrayInput` via:
 //
-//          ProfileHttpArray{ ProfileHttpArgs{...} }
+//	ProfileHttpArray{ ProfileHttpArgs{...} }
 type ProfileHttpArrayInput interface {
 	pulumi.Input
 
@@ -436,7 +441,7 @@ func (i ProfileHttpArray) ToProfileHttpArrayOutputWithContext(ctx context.Contex
 // ProfileHttpMapInput is an input type that accepts ProfileHttpMap and ProfileHttpMapOutput values.
 // You can construct a concrete instance of `ProfileHttpMapInput` via:
 //
-//          ProfileHttpMap{ "key": ProfileHttpArgs{...} }
+//	ProfileHttpMap{ "key": ProfileHttpArgs{...} }
 type ProfileHttpMapInput interface {
 	pulumi.Input
 
@@ -470,6 +475,143 @@ func (o ProfileHttpOutput) ToProfileHttpOutput() ProfileHttpOutput {
 
 func (o ProfileHttpOutput) ToProfileHttpOutputWithContext(ctx context.Context) ProfileHttpOutput {
 	return o
+}
+
+// Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's XFF (X-forwarded-for) headers, if they exist.
+func (o ProfileHttpOutput) AcceptXff() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileHttp) pulumi.StringOutput { return v.AcceptXff }).(pulumi.StringOutput)
+}
+
+// The application service to which the object belongs.
+func (o ProfileHttpOutput) AppService() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfileHttp) pulumi.StringPtrOutput { return v.AppService }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a quoted string for the basic authentication realm. The system sends this string to a client whenever authorization fails. The default value is `none`
+func (o ProfileHttpOutput) BasicAuthRealm() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileHttp) pulumi.StringOutput { return v.BasicAuthRealm }).(pulumi.StringOutput)
+}
+
+// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
+func (o ProfileHttpOutput) DefaultsFrom() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileHttp) pulumi.StringOutput { return v.DefaultsFrom }).(pulumi.StringOutput)
+}
+
+// Specifies user-defined description.
+func (o ProfileHttpOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileHttp) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// Type a passphrase for cookie encryption.
+func (o ProfileHttpOutput) EncryptCookieSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfileHttp) pulumi.StringPtrOutput { return v.EncryptCookieSecret }).(pulumi.StringPtrOutput)
+}
+
+// Type the cookie names for the system to encrypt.
+func (o ProfileHttpOutput) EncryptCookies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProfileHttp) pulumi.StringArrayOutput { return v.EncryptCookies }).(pulumi.StringArrayOutput)
+}
+
+// Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
+func (o ProfileHttpOutput) FallbackHost() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileHttp) pulumi.StringOutput { return v.FallbackHost }).(pulumi.StringOutput)
+}
+
+// Specifies one or more three-digit status codes that can be returned by an HTTP server,that should trigger a redirection to the fallback host.
+func (o ProfileHttpOutput) FallbackStatusCodes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProfileHttp) pulumi.StringArrayOutput { return v.FallbackStatusCodes }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the header string that you want to erase from an HTTP request. Default is `none`.
+func (o ProfileHttpOutput) HeadErase() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileHttp) pulumi.StringOutput { return v.HeadErase }).(pulumi.StringOutput)
+}
+
+// Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
+func (o ProfileHttpOutput) HeadInsert() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileHttp) pulumi.StringOutput { return v.HeadInsert }).(pulumi.StringOutput)
+}
+
+// Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
+func (o ProfileHttpOutput) InsertXforwardedFor() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileHttp) pulumi.StringOutput { return v.InsertXforwardedFor }).(pulumi.StringOutput)
+}
+
+// Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
+// specify in the LWS Maximum Columns setting.
+func (o ProfileHttpOutput) LwsSeparator() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileHttp) pulumi.StringOutput { return v.LwsSeparator }).(pulumi.StringOutput)
+}
+
+// Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you specify in the LWS Maximum Columns setting.
+func (o ProfileHttpOutput) LwsWidth() pulumi.IntOutput {
+	return o.ApplyT(func(v *ProfileHttp) pulumi.IntOutput { return v.LwsWidth }).(pulumi.IntOutput)
+}
+
+// Specifies the name of the http profile,name of Profile should be full path. Full path is the combination of the `partition + profile name`,For example `/Common/test-http-profile`.
+func (o ProfileHttpOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileHttp) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Enables the system to perform HTTP header transformations for the purpose of  keeping server-side connections open. This feature requires configuration of a OneConnect profile
+func (o ProfileHttpOutput) OneconnectTransformations() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileHttp) pulumi.StringOutput { return v.OneconnectTransformations }).(pulumi.StringOutput)
+}
+
+// Specifies the proxy mode for this profile: reverse, explicit, or transparent. The default is `reverse`.
+func (o ProfileHttpOutput) ProxyType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileHttp) pulumi.StringOutput { return v.ProxyType }).(pulumi.StringOutput)
+}
+
+// Specifies whether the system rewrites the URIs that are part of HTTP redirect (3XX) responses. The default is `none`.
+func (o ProfileHttpOutput) RedirectRewrite() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileHttp) pulumi.StringOutput { return v.RedirectRewrite }).(pulumi.StringOutput)
+}
+
+// Specifies how the system handles HTTP content that is chunked by a client. The default is `preserve`.
+func (o ProfileHttpOutput) RequestChunking() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileHttp) pulumi.StringOutput { return v.RequestChunking }).(pulumi.StringOutput)
+}
+
+// Specifies how the system handles HTTP content that is chunked by a server. The default is `selective`.
+func (o ProfileHttpOutput) ResponseChunking() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileHttp) pulumi.StringOutput { return v.ResponseChunking }).(pulumi.StringOutput)
+}
+
+// Specifies headers that the BIG-IP system allows in an HTTP response.If you are specifying more than one header, separate the headers with a blank space.
+func (o ProfileHttpOutput) ResponseHeadersPermitteds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProfileHttp) pulumi.StringArrayOutput { return v.ResponseHeadersPermitteds }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no
+// string is specified, then no Server header will be added to such responses
+func (o ProfileHttpOutput) ServerAgentName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileHttp) pulumi.StringOutput { return v.ServerAgentName }).(pulumi.StringOutput)
+}
+
+// Displays the administrative partition within which this profile resides.
+func (o ProfileHttpOutput) TmPartition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfileHttp) pulumi.StringPtrOutput { return v.TmPartition }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the hostname to include into Via header
+func (o ProfileHttpOutput) ViaHostName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileHttp) pulumi.StringOutput { return v.ViaHostName }).(pulumi.StringOutput)
+}
+
+// Specifies whether to append, remove, or preserve a Via header in an HTTP request
+func (o ProfileHttpOutput) ViaRequest() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileHttp) pulumi.StringOutput { return v.ViaRequest }).(pulumi.StringOutput)
+}
+
+// Specifies whether to append, remove, or preserve a Via header in an HTTP request
+func (o ProfileHttpOutput) ViaResponse() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileHttp) pulumi.StringOutput { return v.ViaResponse }).(pulumi.StringOutput)
+}
+
+// Specifies alternative XFF headers instead of the default X-forwarded-for header.
+func (o ProfileHttpOutput) XffAlternativeNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProfileHttp) pulumi.StringArrayOutput { return v.XffAlternativeNames }).(pulumi.StringArrayOutput)
 }
 
 type ProfileHttpArrayOutput struct{ *pulumi.OutputState }

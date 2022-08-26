@@ -21,23 +21,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := f5bigip.NewTrafficSelector(ctx, "test-selector", &f5bigip.TrafficSelectorArgs{
-// 			DestinationAddress: pulumi.String("3.10.11.2/32"),
-// 			Name:               pulumi.String("/Common/test-selector"),
-// 			SourceAddress:      pulumi.String("2.10.11.12/32"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := f5bigip.NewTrafficSelector(ctx, "test-selector", &f5bigip.TrafficSelectorArgs{
+//				DestinationAddress: pulumi.String("3.10.11.2/32"),
+//				Name:               pulumi.String("/Common/test-selector"),
+//				SourceAddress:      pulumi.String("2.10.11.12/32"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type TrafficSelector struct {
 	pulumi.CustomResourceState
@@ -229,7 +232,7 @@ func (i *TrafficSelector) ToTrafficSelectorOutputWithContext(ctx context.Context
 // TrafficSelectorArrayInput is an input type that accepts TrafficSelectorArray and TrafficSelectorArrayOutput values.
 // You can construct a concrete instance of `TrafficSelectorArrayInput` via:
 //
-//          TrafficSelectorArray{ TrafficSelectorArgs{...} }
+//	TrafficSelectorArray{ TrafficSelectorArgs{...} }
 type TrafficSelectorArrayInput interface {
 	pulumi.Input
 
@@ -254,7 +257,7 @@ func (i TrafficSelectorArray) ToTrafficSelectorArrayOutputWithContext(ctx contex
 // TrafficSelectorMapInput is an input type that accepts TrafficSelectorMap and TrafficSelectorMapOutput values.
 // You can construct a concrete instance of `TrafficSelectorMapInput` via:
 //
-//          TrafficSelectorMap{ "key": TrafficSelectorArgs{...} }
+//	TrafficSelectorMap{ "key": TrafficSelectorArgs{...} }
 type TrafficSelectorMapInput interface {
 	pulumi.Input
 
@@ -288,6 +291,57 @@ func (o TrafficSelectorOutput) ToTrafficSelectorOutput() TrafficSelectorOutput {
 
 func (o TrafficSelectorOutput) ToTrafficSelectorOutputWithContext(ctx context.Context) TrafficSelectorOutput {
 	return o
+}
+
+// Description of the traffic selector.
+func (o TrafficSelectorOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *TrafficSelector) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// Specifies the host or network IP address to which the application traffic is destined.When creating a new traffic selector, this parameter is required.
+func (o TrafficSelectorOutput) DestinationAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v *TrafficSelector) pulumi.StringOutput { return v.DestinationAddress }).(pulumi.StringOutput)
+}
+
+// Specifies the IP port used by the application. The default value is `All Ports (0)`
+func (o TrafficSelectorOutput) DestinationPort() pulumi.IntOutput {
+	return o.ApplyT(func(v *TrafficSelector) pulumi.IntOutput { return v.DestinationPort }).(pulumi.IntOutput)
+}
+
+// Specifies whether the traffic selector applies to inbound or outbound traffic, or both. The default value is `Both`.
+func (o TrafficSelectorOutput) Direction() pulumi.StringOutput {
+	return o.ApplyT(func(v *TrafficSelector) pulumi.StringOutput { return v.Direction }).(pulumi.StringOutput)
+}
+
+// Specifies the network protocol to use for this traffic. The default value is `All Protocols (255)`
+func (o TrafficSelectorOutput) IpProtocol() pulumi.IntOutput {
+	return o.ApplyT(func(v *TrafficSelector) pulumi.IntOutput { return v.IpProtocol }).(pulumi.IntOutput)
+}
+
+// Specifies the IPsec policy that tells the BIG-IP system how to handle the packets.When creating a new traffic selector, if this parameter is not specified, the default is `default-ipsec-policy`.
+func (o TrafficSelectorOutput) IpsecPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v *TrafficSelector) pulumi.StringOutput { return v.IpsecPolicy }).(pulumi.StringOutput)
+}
+
+// Name of the IPSec traffic-selector,it should be "full path".The full path is the combination of the partition + name of the IPSec traffic-selector.(For example `/Common/test-selector`)
+func (o TrafficSelectorOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *TrafficSelector) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the order in which traffic is matched, if traffic can be matched to multiple traffic selectors.Traffic is matched to the traffic selector with the highest priority (lowest order number).
+// When creating a new traffic selector, if this parameter is not specified, the default is `last`
+func (o TrafficSelectorOutput) Order() pulumi.IntOutput {
+	return o.ApplyT(func(v *TrafficSelector) pulumi.IntOutput { return v.Order }).(pulumi.IntOutput)
+}
+
+// Specifies the host or network IP address from which the application traffic originates.When creating a new traffic selector, this parameter is required.
+func (o TrafficSelectorOutput) SourceAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v *TrafficSelector) pulumi.StringOutput { return v.SourceAddress }).(pulumi.StringOutput)
+}
+
+// Specifies the IP port used by the application. The default value is `All Ports (0)`.
+func (o TrafficSelectorOutput) SourcePort() pulumi.IntOutput {
+	return o.ApplyT(func(v *TrafficSelector) pulumi.IntOutput { return v.SourcePort }).(pulumi.IntOutput)
 }
 
 type TrafficSelectorArrayOutput struct{ *pulumi.OutputState }

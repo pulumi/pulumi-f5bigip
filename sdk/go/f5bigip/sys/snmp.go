@@ -17,25 +17,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/sys"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/sys"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sys.NewSnmp(ctx, "snmp", &sys.SnmpArgs{
-// 			Allowedaddresses: pulumi.StringArray{
-// 				pulumi.String("202.10.10.2"),
-// 			},
-// 			SysContact:  pulumi.String(" NetOPsAdmin s.shitole@f5.com"),
-// 			SysLocation: pulumi.String("SeattleHQ"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sys.NewSnmp(ctx, "snmp", &sys.SnmpArgs{
+//				Allowedaddresses: pulumi.StringArray{
+//					pulumi.String("202.10.10.2"),
+//				},
+//				SysContact:  pulumi.String(" NetOPsAdmin s.shitole@f5.com"),
+//				SysLocation: pulumi.String("SeattleHQ"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type Snmp struct {
 	pulumi.CustomResourceState
@@ -143,7 +146,7 @@ func (i *Snmp) ToSnmpOutputWithContext(ctx context.Context) SnmpOutput {
 // SnmpArrayInput is an input type that accepts SnmpArray and SnmpArrayOutput values.
 // You can construct a concrete instance of `SnmpArrayInput` via:
 //
-//          SnmpArray{ SnmpArgs{...} }
+//	SnmpArray{ SnmpArgs{...} }
 type SnmpArrayInput interface {
 	pulumi.Input
 
@@ -168,7 +171,7 @@ func (i SnmpArray) ToSnmpArrayOutputWithContext(ctx context.Context) SnmpArrayOu
 // SnmpMapInput is an input type that accepts SnmpMap and SnmpMapOutput values.
 // You can construct a concrete instance of `SnmpMapInput` via:
 //
-//          SnmpMap{ "key": SnmpArgs{...} }
+//	SnmpMap{ "key": SnmpArgs{...} }
 type SnmpMapInput interface {
 	pulumi.Input
 
@@ -202,6 +205,21 @@ func (o SnmpOutput) ToSnmpOutput() SnmpOutput {
 
 func (o SnmpOutput) ToSnmpOutputWithContext(ctx context.Context) SnmpOutput {
 	return o
+}
+
+// Configures hosts or networks from which snmpd can accept traffic. Entries go directly into hosts.allow.
+func (o SnmpOutput) Allowedaddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Snmp) pulumi.StringArrayOutput { return v.Allowedaddresses }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the contact information for the system administrator.
+func (o SnmpOutput) SysContact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snmp) pulumi.StringPtrOutput { return v.SysContact }).(pulumi.StringPtrOutput)
+}
+
+// Describes the system's physical location.
+func (o SnmpOutput) SysLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snmp) pulumi.StringPtrOutput { return v.SysLocation }).(pulumi.StringPtrOutput)
 }
 
 type SnmpArrayOutput struct{ *pulumi.OutputState }

@@ -16,7 +16,7 @@ namespace Pulumi.F5BigIP
     /// [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
     /// </summary>
     [F5BigIPResourceType("pulumi:providers:f5bigip")]
-    public partial class Provider : Pulumi.ProviderResource
+    public partial class Provider : global::Pulumi.ProviderResource
     {
         /// <summary>
         /// Domain name/IP of the BigIP
@@ -80,7 +80,7 @@ namespace Pulumi.F5BigIP
         }
     }
 
-    public sealed class ProviderArgs : Pulumi.ResourceArgs
+    public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Domain name/IP of the BigIP
@@ -133,5 +133,6 @@ namespace Pulumi.F5BigIP
         public ProviderArgs()
         {
         }
+        public static new ProviderArgs Empty => new ProviderArgs();
     }
 }

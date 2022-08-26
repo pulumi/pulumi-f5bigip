@@ -17,38 +17,36 @@ namespace Pulumi.F5BigIP.Ltm
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test_snat = new F5BigIP.Ltm.Snat("test-snat", new()
     ///     {
-    ///         var test_snat = new F5BigIP.Ltm.Snat("test-snat", new F5BigIP.Ltm.SnatArgs
+    ///         Name = "/Common/test-snat",
+    ///         Origins = new[]
     ///         {
-    ///             Name = "/Common/test-snat",
-    ///             Origins = 
+    ///             new F5BigIP.Ltm.Inputs.SnatOriginArgs
     ///             {
-    ///                 new F5BigIP.Ltm.Inputs.SnatOriginArgs
-    ///                 {
-    ///                     Name = "0.0.0.0/0",
-    ///                 },
+    ///                 Name = "0.0.0.0/0",
     ///             },
-    ///             Sourceport = "preserve",
-    ///             Translation = "/Common/136.1.1.2",
-    ///             Vlans = 
-    ///             {
-    ///                 "/Common/internal",
-    ///             },
-    ///             Vlansdisabled = false,
-    ///         });
-    ///     }
+    ///         },
+    ///         Sourceport = "preserve",
+    ///         Translation = "/Common/136.1.1.2",
+    ///         Vlans = new[]
+    ///         {
+    ///             "/Common/internal",
+    ///         },
+    ///         Vlansdisabled = false,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/snat:Snat")]
-    public partial class Snat : Pulumi.CustomResource
+    public partial class Snat : global::Pulumi.CustomResource
     {
         /// <summary>
         /// -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
@@ -160,7 +158,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
     }
 
-    public sealed class SnatArgs : Pulumi.ResourceArgs
+    public sealed class SnatArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
@@ -243,9 +241,10 @@ namespace Pulumi.F5BigIP.Ltm
         public SnatArgs()
         {
         }
+        public static new SnatArgs Empty => new SnatArgs();
     }
 
-    public sealed class SnatState : Pulumi.ResourceArgs
+    public sealed class SnatState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
@@ -328,5 +327,6 @@ namespace Pulumi.F5BigIP.Ltm
         public SnatState()
         {
         }
+        public static new SnatState Empty => new SnatState();
     }
 }

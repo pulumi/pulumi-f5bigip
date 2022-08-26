@@ -17,29 +17,27 @@ namespace Pulumi.F5BigIP.Ltm
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var snatpoolSanjose = new F5BigIP.Ltm.SnatPool("snatpoolSanjose", new()
     ///     {
-    ///         var snatpoolSanjose = new F5BigIP.Ltm.SnatPool("snatpoolSanjose", new F5BigIP.Ltm.SnatPoolArgs
+    ///         Members = new[]
     ///         {
-    ///             Members = 
-    ///             {
-    ///                 "191.1.1.1",
-    ///                 "194.2.2.2",
-    ///             },
-    ///             Name = "/Common/snatpool_sanjose",
-    ///         });
-    ///     }
+    ///             "191.1.1.1",
+    ///             "194.2.2.2",
+    ///         },
+    ///         Name = "/Common/snatpool_sanjose",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/snatPool:SnatPool")]
-    public partial class SnatPool : Pulumi.CustomResource
+    public partial class SnatPool : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies a translation address to add to or delete from a SNAT pool (at least one address is required)
@@ -97,7 +95,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
     }
 
-    public sealed class SnatPoolArgs : Pulumi.ResourceArgs
+    public sealed class SnatPoolArgs : global::Pulumi.ResourceArgs
     {
         [Input("members", required: true)]
         private InputList<string>? _members;
@@ -120,9 +118,10 @@ namespace Pulumi.F5BigIP.Ltm
         public SnatPoolArgs()
         {
         }
+        public static new SnatPoolArgs Empty => new SnatPoolArgs();
     }
 
-    public sealed class SnatPoolState : Pulumi.ResourceArgs
+    public sealed class SnatPoolState : global::Pulumi.ResourceArgs
     {
         [Input("members")]
         private InputList<string>? _members;
@@ -145,5 +144,6 @@ namespace Pulumi.F5BigIP.Ltm
         public SnatPoolState()
         {
         }
+        public static new SnatPoolState Empty => new SnatPoolState();
     }
 }

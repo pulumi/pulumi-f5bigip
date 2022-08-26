@@ -20,22 +20,20 @@ namespace Pulumi.F5BigIP.Ssl
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using F5BigIP = Pulumi.F5BigIP;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var vwanconfig = F5BigIP.Ssl.GetVWanConfig.Invoke(new()
         ///     {
-        ///         var vwanconfig = Output.Create(F5BigIP.Ssl.GetVWanConfig.InvokeAsync(new F5BigIP.Ssl.GetVWanConfigArgs
-        ///         {
-        ///             AzureVwanName = "azurevwan-bigip-vwan-9c8d",
-        ///             AzureVwanResourcegroup = "azurevwan-bigip-rg-9c8d",
-        ///             AzureVwanVpnsite = "azurevwan-bigip-vsite-9c8d",
-        ///         }));
-        ///     }
+        ///         AzureVwanName = "azurevwan-bigip-vwan-9c8d",
+        ///         AzureVwanResourcegroup = "azurevwan-bigip-rg-9c8d",
+        ///         AzureVwanVpnsite = "azurevwan-bigip-vsite-9c8d",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -65,22 +63,20 @@ namespace Pulumi.F5BigIP.Ssl
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using F5BigIP = Pulumi.F5BigIP;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var vwanconfig = F5BigIP.Ssl.GetVWanConfig.Invoke(new()
         ///     {
-        ///         var vwanconfig = Output.Create(F5BigIP.Ssl.GetVWanConfig.InvokeAsync(new F5BigIP.Ssl.GetVWanConfigArgs
-        ///         {
-        ///             AzureVwanName = "azurevwan-bigip-vwan-9c8d",
-        ///             AzureVwanResourcegroup = "azurevwan-bigip-rg-9c8d",
-        ///             AzureVwanVpnsite = "azurevwan-bigip-vsite-9c8d",
-        ///         }));
-        ///     }
+        ///         AzureVwanName = "azurevwan-bigip-vwan-9c8d",
+        ///         AzureVwanResourcegroup = "azurevwan-bigip-rg-9c8d",
+        ///         AzureVwanVpnsite = "azurevwan-bigip-vsite-9c8d",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -103,7 +99,7 @@ namespace Pulumi.F5BigIP.Ssl
     }
 
 
-    public sealed class GetVWanConfigArgs : Pulumi.InvokeArgs
+    public sealed class GetVWanConfigArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Azure vWAN Name
@@ -126,9 +122,10 @@ namespace Pulumi.F5BigIP.Ssl
         public GetVWanConfigArgs()
         {
         }
+        public static new GetVWanConfigArgs Empty => new GetVWanConfigArgs();
     }
 
-    public sealed class GetVWanConfigInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVWanConfigInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Azure vWAN Name
@@ -151,6 +148,7 @@ namespace Pulumi.F5BigIP.Ssl
         public GetVWanConfigInvokeArgs()
         {
         }
+        public static new GetVWanConfigInvokeArgs Empty => new GetVWanConfigInvokeArgs();
     }
 
 

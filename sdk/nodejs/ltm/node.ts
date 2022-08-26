@@ -8,7 +8,8 @@ import * as utilities from "../utilities";
 /**
  * `f5bigip.ltm.Node` Manages a node configuration
  *
- * For resources should be named with their "full path".The full path is the combination of the partition + name of the resource( example: /Common/my-node ) or partition + Direcroty + nameof the resource ( example: /Common/test/my-node ).When including directory in fullpath we have to make sure it is created in the given partition before using it.
+ * For resources should be named with their `full path`.The full path is the combination of the `partition + name` of the resource( example: `/Common/my-node` ) or `partition + Direcroty + name` of the resource ( example: `/Common/test/my-node` ).
+ * When including directory in `full path` we have to make sure it is created in the given partition before using it.
  *
  * ## Example Usage
  *
@@ -99,7 +100,7 @@ export class Node extends pulumi.CustomResource {
     /**
      * Default is "user-up" you can set to "user-down" if you want to disable
      */
-    public readonly state!: pulumi.Output<string | undefined>;
+    public readonly state!: pulumi.Output<string>;
 
     /**
      * Create a Node resource with the given unique name, arguments, and options.

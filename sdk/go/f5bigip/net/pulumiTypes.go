@@ -20,7 +20,7 @@ type VlanInterface struct {
 // VlanInterfaceInput is an input type that accepts VlanInterfaceArgs and VlanInterfaceOutput values.
 // You can construct a concrete instance of `VlanInterfaceInput` via:
 //
-//          VlanInterfaceArgs{...}
+//	VlanInterfaceArgs{...}
 type VlanInterfaceInput interface {
 	pulumi.Input
 
@@ -50,7 +50,7 @@ func (i VlanInterfaceArgs) ToVlanInterfaceOutputWithContext(ctx context.Context)
 // VlanInterfaceArrayInput is an input type that accepts VlanInterfaceArray and VlanInterfaceArrayOutput values.
 // You can construct a concrete instance of `VlanInterfaceArrayInput` via:
 //
-//          VlanInterfaceArray{ VlanInterfaceArgs{...} }
+//	VlanInterfaceArray{ VlanInterfaceArgs{...} }
 type VlanInterfaceArrayInput interface {
 	pulumi.Input
 

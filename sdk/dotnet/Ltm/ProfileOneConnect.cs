@@ -17,20 +17,18 @@ namespace Pulumi.F5BigIP.Ltm
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test_oneconnect = new F5BigIP.Ltm.ProfileOneConnect("test-oneconnect", new()
     ///     {
-    ///         var test_oneconnect = new F5BigIP.Ltm.ProfileOneConnect("test-oneconnect", new F5BigIP.Ltm.ProfileOneConnectArgs
-    ///         {
-    ///             Name = "/Common/test-oneconnect",
-    ///         });
-    ///     }
+    ///         Name = "/Common/test-oneconnect",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -42,7 +40,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/profileOneConnect:ProfileOneConnect")]
-    public partial class ProfileOneConnect : Pulumi.CustomResource
+    public partial class ProfileOneConnect : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
@@ -148,7 +146,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
     }
 
-    public sealed class ProfileOneConnectArgs : Pulumi.ResourceArgs
+    public sealed class ProfileOneConnectArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
@@ -213,9 +211,10 @@ namespace Pulumi.F5BigIP.Ltm
         public ProfileOneConnectArgs()
         {
         }
+        public static new ProfileOneConnectArgs Empty => new ProfileOneConnectArgs();
     }
 
-    public sealed class ProfileOneConnectState : Pulumi.ResourceArgs
+    public sealed class ProfileOneConnectState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
@@ -280,5 +279,6 @@ namespace Pulumi.F5BigIP.Ltm
         public ProfileOneConnectState()
         {
         }
+        public static new ProfileOneConnectState Empty => new ProfileOneConnectState();
     }
 }

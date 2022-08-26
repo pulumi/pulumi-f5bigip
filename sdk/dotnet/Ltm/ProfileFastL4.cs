@@ -17,28 +17,26 @@ namespace Pulumi.F5BigIP.Ltm
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var profileFastl4 = new F5BigIP.Ltm.ProfileFastL4("profileFastl4", new()
     ///     {
-    ///         var profileFastl4 = new F5BigIP.Ltm.ProfileFastL4("profileFastl4", new F5BigIP.Ltm.ProfileFastL4Args
-    ///         {
-    ///             ClientTimeout = 40,
-    ///             DefaultsFrom = "/Common/fastL4",
-    ///             ExplicitflowMigration = "enabled",
-    ///             HardwareSyncookie = "enabled",
-    ///             IdleTimeout = "200",
-    ///             IptosToclient = "pass-through",
-    ///             IptosToserver = "pass-through",
-    ///             KeepaliveInterval = "disabled",
-    ///             Name = "/Common/sjfastl4profile",
-    ///         });
-    ///     }
+    ///         ClientTimeout = 40,
+    ///         DefaultsFrom = "/Common/fastL4",
+    ///         ExplicitflowMigration = "enabled",
+    ///         HardwareSyncookie = "enabled",
+    ///         IdleTimeout = "200",
+    ///         IptosToclient = "pass-through",
+    ///         IptosToserver = "pass-through",
+    ///         KeepaliveInterval = "disabled",
+    ///         Name = "/Common/sjfastl4profile",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +48,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/profileFastL4:ProfileFastL4")]
-    public partial class ProfileFastL4 : Pulumi.CustomResource
+    public partial class ProfileFastL4 : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies late binding client timeout in seconds. This setting specifies the number of seconds allowed for a client to transmit enough data to select a server when late binding is enabled. If it expires timeout-recovery mode will dictate what action to take.
@@ -156,7 +154,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
     }
 
-    public sealed class ProfileFastL4Args : Pulumi.ResourceArgs
+    public sealed class ProfileFastL4Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies late binding client timeout in seconds. This setting specifies the number of seconds allowed for a client to transmit enough data to select a server when late binding is enabled. If it expires timeout-recovery mode will dictate what action to take.
@@ -221,9 +219,10 @@ namespace Pulumi.F5BigIP.Ltm
         public ProfileFastL4Args()
         {
         }
+        public static new ProfileFastL4Args Empty => new ProfileFastL4Args();
     }
 
-    public sealed class ProfileFastL4State : Pulumi.ResourceArgs
+    public sealed class ProfileFastL4State : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies late binding client timeout in seconds. This setting specifies the number of seconds allowed for a client to transmit enough data to select a server when late binding is enabled. If it expires timeout-recovery mode will dictate what action to take.
@@ -288,5 +287,6 @@ namespace Pulumi.F5BigIP.Ltm
         public ProfileFastL4State()
         {
         }
+        public static new ProfileFastL4State Empty => new ProfileFastL4State();
     }
 }

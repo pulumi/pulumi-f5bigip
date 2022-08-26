@@ -21,23 +21,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/net"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/net"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := net.NewRoute(ctx, "route2", &net.RouteArgs{
-// 			Gw:      pulumi.String("1.1.1.2"),
-// 			Name:    pulumi.String("/Common/external-route"),
-// 			Network: pulumi.String("10.10.10.0/24"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := net.NewRoute(ctx, "route2", &net.RouteArgs{
+//				Gw:      pulumi.String("1.1.1.2"),
+//				Name:    pulumi.String("/Common/external-route"),
+//				Network: pulumi.String("10.10.10.0/24"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type Route struct {
 	pulumi.CustomResourceState
@@ -171,7 +174,7 @@ func (i *Route) ToRouteOutputWithContext(ctx context.Context) RouteOutput {
 // RouteArrayInput is an input type that accepts RouteArray and RouteArrayOutput values.
 // You can construct a concrete instance of `RouteArrayInput` via:
 //
-//          RouteArray{ RouteArgs{...} }
+//	RouteArray{ RouteArgs{...} }
 type RouteArrayInput interface {
 	pulumi.Input
 
@@ -196,7 +199,7 @@ func (i RouteArray) ToRouteArrayOutputWithContext(ctx context.Context) RouteArra
 // RouteMapInput is an input type that accepts RouteMap and RouteMapOutput values.
 // You can construct a concrete instance of `RouteMapInput` via:
 //
-//          RouteMap{ "key": RouteArgs{...} }
+//	RouteMap{ "key": RouteArgs{...} }
 type RouteMapInput interface {
 	pulumi.Input
 
@@ -230,6 +233,31 @@ func (o RouteOutput) ToRouteOutput() RouteOutput {
 
 func (o RouteOutput) ToRouteOutputWithContext(ctx context.Context) RouteOutput {
 	return o
+}
+
+// Specifies a gateway address for the route.
+func (o RouteOutput) Gw() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.Gw }).(pulumi.StringPtrOutput)
+}
+
+// Name of the route.Name of Route should be full path,full path is the combination of the `partition + route name`,For ex: `/Common/test-net-route`.
+func (o RouteOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The destination subnet and netmask for the route.
+func (o RouteOutput) Network() pulumi.StringOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringOutput { return v.Network }).(pulumi.StringOutput)
+}
+
+// reject route
+func (o RouteOutput) Reject() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.BoolPtrOutput { return v.Reject }).(pulumi.BoolPtrOutput)
+}
+
+// tunnel_ref to route traffic
+func (o RouteOutput) TunnelRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Route) pulumi.StringPtrOutput { return v.TunnelRef }).(pulumi.StringPtrOutput)
 }
 
 type RouteArrayOutput struct{ *pulumi.OutputState }

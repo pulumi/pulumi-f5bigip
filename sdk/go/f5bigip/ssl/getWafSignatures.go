@@ -18,21 +18,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ssl"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ssl"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ssl.GetWafSignatures(ctx, &ssl.GetWafSignaturesArgs{
-// 			SignatureId: 200104004,
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ssl.GetWafSignatures(ctx, &ssl.GetWafSignaturesArgs{
+//				SignatureId: 200104004,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 func GetWafSignatures(ctx *pulumi.Context, args *GetWafSignaturesArgs, opts ...pulumi.InvokeOption) (*GetWafSignaturesResult, error) {
 	var rv GetWafSignaturesResult
@@ -49,14 +52,17 @@ type GetWafSignaturesArgs struct {
 	Accuracy *string `pulumi:"accuracy"`
 	// Description of the signature.
 	Description *string `pulumi:"description"`
+	Enabled     *bool   `pulumi:"enabled"`
 	// Name of the signature as configured on the system.
-	Name *string `pulumi:"name"`
+	Name           *string `pulumi:"name"`
+	PerformStaging *bool   `pulumi:"performStaging"`
 	// The relative risk level of the attack that matches this signature.
 	Risk *string `pulumi:"risk"`
 	// ID of the signature in the BIG-IP WAF database.
 	SignatureId int `pulumi:"signatureId"`
 	// System generated ID of the signature.
 	SystemSignatureId *string `pulumi:"systemSignatureId"`
+	Tag               *string `pulumi:"tag"`
 	// Type of the signature.
 	Type *string `pulumi:"type"`
 }
@@ -66,17 +72,21 @@ type GetWafSignaturesResult struct {
 	// The relative detection accuracy of the signature.
 	Accuracy string `pulumi:"accuracy"`
 	// Description of the signature.
-	Description string `pulumi:"description"`
+	Description *string `pulumi:"description"`
+	Enabled     *bool   `pulumi:"enabled"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
+	Id   string `pulumi:"id"`
+	Json string `pulumi:"json"`
 	// Name of the signature as configured on the system.
-	Name string `pulumi:"name"`
+	Name           string `pulumi:"name"`
+	PerformStaging *bool  `pulumi:"performStaging"`
 	// The relative risk level of the attack that matches this signature.
 	Risk string `pulumi:"risk"`
 	// ID of the signature in the database.
 	SignatureId int `pulumi:"signatureId"`
 	// System generated ID of the signature.
 	SystemSignatureId string `pulumi:"systemSignatureId"`
+	Tag               string `pulumi:"tag"`
 	// Type of the signature.
 	Type string `pulumi:"type"`
 }
@@ -100,14 +110,17 @@ type GetWafSignaturesOutputArgs struct {
 	Accuracy pulumi.StringPtrInput `pulumi:"accuracy"`
 	// Description of the signature.
 	Description pulumi.StringPtrInput `pulumi:"description"`
+	Enabled     pulumi.BoolPtrInput   `pulumi:"enabled"`
 	// Name of the signature as configured on the system.
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name           pulumi.StringPtrInput `pulumi:"name"`
+	PerformStaging pulumi.BoolPtrInput   `pulumi:"performStaging"`
 	// The relative risk level of the attack that matches this signature.
 	Risk pulumi.StringPtrInput `pulumi:"risk"`
 	// ID of the signature in the BIG-IP WAF database.
 	SignatureId pulumi.IntInput `pulumi:"signatureId"`
 	// System generated ID of the signature.
 	SystemSignatureId pulumi.StringPtrInput `pulumi:"systemSignatureId"`
+	Tag               pulumi.StringPtrInput `pulumi:"tag"`
 	// Type of the signature.
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
@@ -137,8 +150,12 @@ func (o GetWafSignaturesResultOutput) Accuracy() pulumi.StringOutput {
 }
 
 // Description of the signature.
-func (o GetWafSignaturesResultOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v GetWafSignaturesResult) string { return v.Description }).(pulumi.StringOutput)
+func (o GetWafSignaturesResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetWafSignaturesResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o GetWafSignaturesResultOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetWafSignaturesResult) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
@@ -146,9 +163,17 @@ func (o GetWafSignaturesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWafSignaturesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+func (o GetWafSignaturesResultOutput) Json() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWafSignaturesResult) string { return v.Json }).(pulumi.StringOutput)
+}
+
 // Name of the signature as configured on the system.
 func (o GetWafSignaturesResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWafSignaturesResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetWafSignaturesResultOutput) PerformStaging() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetWafSignaturesResult) *bool { return v.PerformStaging }).(pulumi.BoolPtrOutput)
 }
 
 // The relative risk level of the attack that matches this signature.
@@ -164,6 +189,10 @@ func (o GetWafSignaturesResultOutput) SignatureId() pulumi.IntOutput {
 // System generated ID of the signature.
 func (o GetWafSignaturesResultOutput) SystemSignatureId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetWafSignaturesResult) string { return v.SystemSignatureId }).(pulumi.StringOutput)
+}
+
+func (o GetWafSignaturesResultOutput) Tag() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWafSignaturesResult) string { return v.Tag }).(pulumi.StringOutput)
 }
 
 // Type of the signature.

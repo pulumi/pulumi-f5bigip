@@ -21,25 +21,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ltm.NewSnatPool(ctx, "snatpoolSanjose", &ltm.SnatPoolArgs{
-// 			Members: pulumi.StringArray{
-// 				pulumi.String("191.1.1.1"),
-// 				pulumi.String("194.2.2.2"),
-// 			},
-// 			Name: pulumi.String("/Common/snatpool_sanjose"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ltm.NewSnatPool(ctx, "snatpoolSanjose", &ltm.SnatPoolArgs{
+//				Members: pulumi.StringArray{
+//					pulumi.String("191.1.1.1"),
+//					pulumi.String("194.2.2.2"),
+//				},
+//				Name: pulumi.String("/Common/snatpool_sanjose"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type SnatPool struct {
 	pulumi.CustomResourceState
@@ -143,7 +146,7 @@ func (i *SnatPool) ToSnatPoolOutputWithContext(ctx context.Context) SnatPoolOutp
 // SnatPoolArrayInput is an input type that accepts SnatPoolArray and SnatPoolArrayOutput values.
 // You can construct a concrete instance of `SnatPoolArrayInput` via:
 //
-//          SnatPoolArray{ SnatPoolArgs{...} }
+//	SnatPoolArray{ SnatPoolArgs{...} }
 type SnatPoolArrayInput interface {
 	pulumi.Input
 
@@ -168,7 +171,7 @@ func (i SnatPoolArray) ToSnatPoolArrayOutputWithContext(ctx context.Context) Sna
 // SnatPoolMapInput is an input type that accepts SnatPoolMap and SnatPoolMapOutput values.
 // You can construct a concrete instance of `SnatPoolMapInput` via:
 //
-//          SnatPoolMap{ "key": SnatPoolArgs{...} }
+//	SnatPoolMap{ "key": SnatPoolArgs{...} }
 type SnatPoolMapInput interface {
 	pulumi.Input
 
@@ -202,6 +205,16 @@ func (o SnatPoolOutput) ToSnatPoolOutput() SnatPoolOutput {
 
 func (o SnatPoolOutput) ToSnatPoolOutputWithContext(ctx context.Context) SnatPoolOutput {
 	return o
+}
+
+// Specifies a translation address to add to or delete from a SNAT pool (at least one address is required)
+func (o SnatPoolOutput) Members() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SnatPool) pulumi.StringArrayOutput { return v.Members }).(pulumi.StringArrayOutput)
+}
+
+// Name of the snatpool
+func (o SnatPoolOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *SnatPool) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 type SnatPoolArrayOutput struct{ *pulumi.OutputState }

@@ -18,62 +18,65 @@ namespace Pulumi.F5BigIP
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var param1 = F5BigIP.Ssl.GetWafEntityParameter.Invoke(new()
     ///     {
-    ///         var param1 = Output.Create(F5BigIP.Ssl.GetWafEntityParameter.InvokeAsync(new F5BigIP.Ssl.GetWafEntityParameterArgs
-    ///         {
-    ///             Name = "Param1",
-    ///             Type = "explicit",
-    ///             DataType = "alpha-numeric",
-    ///             PerformStaging = true,
-    ///         }));
-    ///         var param2 = Output.Create(F5BigIP.Ssl.GetWafEntityParameter.InvokeAsync(new F5BigIP.Ssl.GetWafEntityParameterArgs
-    ///         {
-    ///             Name = "Param2",
-    ///             Type = "explicit",
-    ///             DataType = "alpha-numeric",
-    ///             PerformStaging = true,
-    ///         }));
-    ///         var uRL = Output.Create(F5BigIP.Ssl.GetWafEntityUrl.InvokeAsync(new F5BigIP.Ssl.GetWafEntityUrlArgs
-    ///         {
-    ///             Name = "URL1",
-    ///             Protocol = "http",
-    ///         }));
-    ///         var uRL2 = Output.Create(F5BigIP.Ssl.GetWafEntityUrl.InvokeAsync(new F5BigIP.Ssl.GetWafEntityUrlArgs
-    ///         {
-    ///             Name = "URL2",
-    ///         }));
-    ///         var test_awaf = new F5BigIP.WafPolicy("test-awaf", new F5BigIP.WafPolicyArgs
-    ///         {
-    ///             Name = "/Common/testpolicyravi",
-    ///             TemplateName = "POLICY_TEMPLATE_RAPID_DEPLOYMENT",
-    ///             ApplicationLanguage = "utf-8",
-    ///             EnforcementMode = "blocking",
-    ///             ServerTechnologies = 
-    ///             {
-    ///                 "MySQL",
-    ///                 "Unix/Linux",
-    ///                 "MongoDB",
-    ///             },
-    ///             Parameters = 
-    ///             {
-    ///                 param1.Apply(param1 =&gt; param1.Json),
-    ///                 param2.Apply(param2 =&gt; param2.Json),
-    ///             },
-    ///             Urls = 
-    ///             {
-    ///                 uRL.Apply(uRL =&gt; uRL.Json),
-    ///                 uRL2.Apply(uRL2 =&gt; uRL2.Json),
-    ///             },
-    ///         });
-    ///     }
+    ///         Name = "Param1",
+    ///         Type = "explicit",
+    ///         DataType = "alpha-numeric",
+    ///         PerformStaging = true,
+    ///     });
     /// 
-    /// }
+    ///     var param2 = F5BigIP.Ssl.GetWafEntityParameter.Invoke(new()
+    ///     {
+    ///         Name = "Param2",
+    ///         Type = "explicit",
+    ///         DataType = "alpha-numeric",
+    ///         PerformStaging = true,
+    ///     });
+    /// 
+    ///     var uRL = F5BigIP.Ssl.GetWafEntityUrl.Invoke(new()
+    ///     {
+    ///         Name = "URL1",
+    ///         Protocol = "http",
+    ///     });
+    /// 
+    ///     var uRL2 = F5BigIP.Ssl.GetWafEntityUrl.Invoke(new()
+    ///     {
+    ///         Name = "URL2",
+    ///     });
+    /// 
+    ///     var test_awaf = new F5BigIP.WafPolicy("test-awaf", new()
+    ///     {
+    ///         Name = "testpolicyravi",
+    ///         Partition = "Common",
+    ///         TemplateName = "POLICY_TEMPLATE_RAPID_DEPLOYMENT",
+    ///         ApplicationLanguage = "utf-8",
+    ///         EnforcementMode = "blocking",
+    ///         ServerTechnologies = new[]
+    ///         {
+    ///             "MySQL",
+    ///             "Unix/Linux",
+    ///             "MongoDB",
+    ///         },
+    ///         Parameters = new[]
+    ///         {
+    ///             param1.Apply(getWafEntityParameterResult =&gt; getWafEntityParameterResult.Json),
+    ///             param2.Apply(getWafEntityParameterResult =&gt; getWafEntityParameterResult.Json),
+    ///         },
+    ///         Urls = new[]
+    ///         {
+    ///             uRL.Apply(getWafEntityUrlResult =&gt; getWafEntityUrlResult.Json),
+    ///             uRL2.Apply(getWafEntityUrlResult =&gt; getWafEntityUrlResult.Json),
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -85,7 +88,7 @@ namespace Pulumi.F5BigIP
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:index/wafPolicy:WafPolicy")]
-    public partial class WafPolicy : Pulumi.CustomResource
+    public partial class WafPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The character encoding for the web application. The character encoding determines how the policy processes the character sets. The default is `utf-8`
@@ -118,6 +121,20 @@ namespace Pulumi.F5BigIP
         public Output<string?> EnforcementMode { get; private set; } = null!;
 
         /// <summary>
+        /// `file_types` takes list of file-types options to be used for policy builder.
+        /// See file types below for more details.
+        /// </summary>
+        [Output("fileTypes")]
+        public Output<ImmutableArray<Outputs.WafPolicyFileType>> FileTypes { get; private set; } = null!;
+
+        /// <summary>
+        /// `graphql_profiles` takes list of graphql profile options to be used for policy builder.
+        /// See graphql profiles below for more details.
+        /// </summary>
+        [Output("graphqlProfiles")]
+        public Output<ImmutableArray<Outputs.WafPolicyGraphqlProfile>> GraphqlProfiles { get; private set; } = null!;
+
+        /// <summary>
         /// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
         /// section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
         /// provided by the BIG-IP.
@@ -126,16 +143,35 @@ namespace Pulumi.F5BigIP
         public Output<ImmutableArray<string>> Modifications { get; private set; } = null!;
 
         /// <summary>
-        /// The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_). It will be `fullpath`, ex: `/Common/policy1`
+        /// The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// This section defines the Link for open api files on the policy.
+        /// </summary>
+        [Output("openApiFiles")]
+        public Output<ImmutableArray<string>> OpenApiFiles { get; private set; } = null!;
 
         /// <summary>
         /// This section defines parameters that the security policy permits in requests.
         /// </summary>
         [Output("parameters")]
         public Output<ImmutableArray<string>> Parameters { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the partition of the policy. Default is `Common`
+        /// </summary>
+        [Output("partition")]
+        public Output<string?> Partition { get; private set; } = null!;
+
+        /// <summary>
+        /// `policy_builder` block will provide `learning_mode` options to be used for policy builder.
+        /// See policy builder below for more details.
+        /// </summary>
+        [Output("policyBuilders")]
+        public Output<ImmutableArray<Outputs.WafPolicyPolicyBuilder>> PolicyBuilders { get; private set; } = null!;
 
         /// <summary>
         /// Exported WAF policy deployed on BIGIP.
@@ -150,7 +186,7 @@ namespace Pulumi.F5BigIP
         public Output<string> PolicyId { get; private set; } = null!;
 
         /// <summary>
-        /// The payload of the WAF Policy to be used for IMPORT on to BIGIP
+        /// The payload of the WAF Policy to be used for IMPORT on to BIG-IP.
         /// </summary>
         [Output("policyImportJson")]
         public Output<string?> PolicyImportJson { get; private set; } = null!;
@@ -180,13 +216,19 @@ namespace Pulumi.F5BigIP
         public Output<ImmutableArray<string>> Signatures { get; private set; } = null!;
 
         /// <summary>
+        /// bulk signature setting
+        /// </summary>
+        [Output("signaturesSettings")]
+        public Output<ImmutableArray<Outputs.WafPolicySignaturesSetting>> SignaturesSettings { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the name of the template used for the policy creation.
         /// </summary>
         [Output("templateName")]
         public Output<string> TemplateName { get; private set; } = null!;
 
         /// <summary>
-        /// The type of policy you want to create. The default policy type is Security.
+        /// The type of policy you want to create. The default policy type is `security`.
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
@@ -241,7 +283,7 @@ namespace Pulumi.F5BigIP
         }
     }
 
-    public sealed class WafPolicyArgs : Pulumi.ResourceArgs
+    public sealed class WafPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The character encoding for the web application. The character encoding determines how the policy processes the character sets. The default is `utf-8`
@@ -273,6 +315,32 @@ namespace Pulumi.F5BigIP
         [Input("enforcementMode")]
         public Input<string>? EnforcementMode { get; set; }
 
+        [Input("fileTypes")]
+        private InputList<Inputs.WafPolicyFileTypeArgs>? _fileTypes;
+
+        /// <summary>
+        /// `file_types` takes list of file-types options to be used for policy builder.
+        /// See file types below for more details.
+        /// </summary>
+        public InputList<Inputs.WafPolicyFileTypeArgs> FileTypes
+        {
+            get => _fileTypes ?? (_fileTypes = new InputList<Inputs.WafPolicyFileTypeArgs>());
+            set => _fileTypes = value;
+        }
+
+        [Input("graphqlProfiles")]
+        private InputList<Inputs.WafPolicyGraphqlProfileArgs>? _graphqlProfiles;
+
+        /// <summary>
+        /// `graphql_profiles` takes list of graphql profile options to be used for policy builder.
+        /// See graphql profiles below for more details.
+        /// </summary>
+        public InputList<Inputs.WafPolicyGraphqlProfileArgs> GraphqlProfiles
+        {
+            get => _graphqlProfiles ?? (_graphqlProfiles = new InputList<Inputs.WafPolicyGraphqlProfileArgs>());
+            set => _graphqlProfiles = value;
+        }
+
         [Input("modifications")]
         private InputList<string>? _modifications;
 
@@ -288,10 +356,22 @@ namespace Pulumi.F5BigIP
         }
 
         /// <summary>
-        /// The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_). It will be `fullpath`, ex: `/Common/policy1`
+        /// The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        [Input("openApiFiles")]
+        private InputList<string>? _openApiFiles;
+
+        /// <summary>
+        /// This section defines the Link for open api files on the policy.
+        /// </summary>
+        public InputList<string> OpenApiFiles
+        {
+            get => _openApiFiles ?? (_openApiFiles = new InputList<string>());
+            set => _openApiFiles = value;
+        }
 
         [Input("parameters")]
         private InputList<string>? _parameters;
@@ -303,6 +383,25 @@ namespace Pulumi.F5BigIP
         {
             get => _parameters ?? (_parameters = new InputList<string>());
             set => _parameters = value;
+        }
+
+        /// <summary>
+        /// Specifies the partition of the policy. Default is `Common`
+        /// </summary>
+        [Input("partition")]
+        public Input<string>? Partition { get; set; }
+
+        [Input("policyBuilders")]
+        private InputList<Inputs.WafPolicyPolicyBuilderArgs>? _policyBuilders;
+
+        /// <summary>
+        /// `policy_builder` block will provide `learning_mode` options to be used for policy builder.
+        /// See policy builder below for more details.
+        /// </summary>
+        public InputList<Inputs.WafPolicyPolicyBuilderArgs> PolicyBuilders
+        {
+            get => _policyBuilders ?? (_policyBuilders = new InputList<Inputs.WafPolicyPolicyBuilderArgs>());
+            set => _policyBuilders = value;
         }
 
         /// <summary>
@@ -318,7 +417,7 @@ namespace Pulumi.F5BigIP
         public Input<string>? PolicyId { get; set; }
 
         /// <summary>
-        /// The payload of the WAF Policy to be used for IMPORT on to BIGIP
+        /// The payload of the WAF Policy to be used for IMPORT on to BIG-IP.
         /// </summary>
         [Input("policyImportJson")]
         public Input<string>? PolicyImportJson { get; set; }
@@ -365,6 +464,18 @@ namespace Pulumi.F5BigIP
             set => _signatures = value;
         }
 
+        [Input("signaturesSettings")]
+        private InputList<Inputs.WafPolicySignaturesSettingArgs>? _signaturesSettings;
+
+        /// <summary>
+        /// bulk signature setting
+        /// </summary>
+        public InputList<Inputs.WafPolicySignaturesSettingArgs> SignaturesSettings
+        {
+            get => _signaturesSettings ?? (_signaturesSettings = new InputList<Inputs.WafPolicySignaturesSettingArgs>());
+            set => _signaturesSettings = value;
+        }
+
         /// <summary>
         /// Specifies the name of the template used for the policy creation.
         /// </summary>
@@ -372,7 +483,7 @@ namespace Pulumi.F5BigIP
         public Input<string> TemplateName { get; set; } = null!;
 
         /// <summary>
-        /// The type of policy you want to create. The default policy type is Security.
+        /// The type of policy you want to create. The default policy type is `security`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -392,9 +503,10 @@ namespace Pulumi.F5BigIP
         public WafPolicyArgs()
         {
         }
+        public static new WafPolicyArgs Empty => new WafPolicyArgs();
     }
 
-    public sealed class WafPolicyState : Pulumi.ResourceArgs
+    public sealed class WafPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The character encoding for the web application. The character encoding determines how the policy processes the character sets. The default is `utf-8`
@@ -426,6 +538,32 @@ namespace Pulumi.F5BigIP
         [Input("enforcementMode")]
         public Input<string>? EnforcementMode { get; set; }
 
+        [Input("fileTypes")]
+        private InputList<Inputs.WafPolicyFileTypeGetArgs>? _fileTypes;
+
+        /// <summary>
+        /// `file_types` takes list of file-types options to be used for policy builder.
+        /// See file types below for more details.
+        /// </summary>
+        public InputList<Inputs.WafPolicyFileTypeGetArgs> FileTypes
+        {
+            get => _fileTypes ?? (_fileTypes = new InputList<Inputs.WafPolicyFileTypeGetArgs>());
+            set => _fileTypes = value;
+        }
+
+        [Input("graphqlProfiles")]
+        private InputList<Inputs.WafPolicyGraphqlProfileGetArgs>? _graphqlProfiles;
+
+        /// <summary>
+        /// `graphql_profiles` takes list of graphql profile options to be used for policy builder.
+        /// See graphql profiles below for more details.
+        /// </summary>
+        public InputList<Inputs.WafPolicyGraphqlProfileGetArgs> GraphqlProfiles
+        {
+            get => _graphqlProfiles ?? (_graphqlProfiles = new InputList<Inputs.WafPolicyGraphqlProfileGetArgs>());
+            set => _graphqlProfiles = value;
+        }
+
         [Input("modifications")]
         private InputList<string>? _modifications;
 
@@ -441,10 +579,22 @@ namespace Pulumi.F5BigIP
         }
 
         /// <summary>
-        /// The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_). It will be `fullpath`, ex: `/Common/policy1`
+        /// The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("openApiFiles")]
+        private InputList<string>? _openApiFiles;
+
+        /// <summary>
+        /// This section defines the Link for open api files on the policy.
+        /// </summary>
+        public InputList<string> OpenApiFiles
+        {
+            get => _openApiFiles ?? (_openApiFiles = new InputList<string>());
+            set => _openApiFiles = value;
+        }
 
         [Input("parameters")]
         private InputList<string>? _parameters;
@@ -456,6 +606,25 @@ namespace Pulumi.F5BigIP
         {
             get => _parameters ?? (_parameters = new InputList<string>());
             set => _parameters = value;
+        }
+
+        /// <summary>
+        /// Specifies the partition of the policy. Default is `Common`
+        /// </summary>
+        [Input("partition")]
+        public Input<string>? Partition { get; set; }
+
+        [Input("policyBuilders")]
+        private InputList<Inputs.WafPolicyPolicyBuilderGetArgs>? _policyBuilders;
+
+        /// <summary>
+        /// `policy_builder` block will provide `learning_mode` options to be used for policy builder.
+        /// See policy builder below for more details.
+        /// </summary>
+        public InputList<Inputs.WafPolicyPolicyBuilderGetArgs> PolicyBuilders
+        {
+            get => _policyBuilders ?? (_policyBuilders = new InputList<Inputs.WafPolicyPolicyBuilderGetArgs>());
+            set => _policyBuilders = value;
         }
 
         /// <summary>
@@ -471,7 +640,7 @@ namespace Pulumi.F5BigIP
         public Input<string>? PolicyId { get; set; }
 
         /// <summary>
-        /// The payload of the WAF Policy to be used for IMPORT on to BIGIP
+        /// The payload of the WAF Policy to be used for IMPORT on to BIG-IP.
         /// </summary>
         [Input("policyImportJson")]
         public Input<string>? PolicyImportJson { get; set; }
@@ -518,6 +687,18 @@ namespace Pulumi.F5BigIP
             set => _signatures = value;
         }
 
+        [Input("signaturesSettings")]
+        private InputList<Inputs.WafPolicySignaturesSettingGetArgs>? _signaturesSettings;
+
+        /// <summary>
+        /// bulk signature setting
+        /// </summary>
+        public InputList<Inputs.WafPolicySignaturesSettingGetArgs> SignaturesSettings
+        {
+            get => _signaturesSettings ?? (_signaturesSettings = new InputList<Inputs.WafPolicySignaturesSettingGetArgs>());
+            set => _signaturesSettings = value;
+        }
+
         /// <summary>
         /// Specifies the name of the template used for the policy creation.
         /// </summary>
@@ -525,7 +706,7 @@ namespace Pulumi.F5BigIP
         public Input<string>? TemplateName { get; set; }
 
         /// <summary>
-        /// The type of policy you want to create. The default policy type is Security.
+        /// The type of policy you want to create. The default policy type is `security`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -545,5 +726,6 @@ namespace Pulumi.F5BigIP
         public WafPolicyState()
         {
         }
+        public static new WafPolicyState Empty => new WafPolicyState();
     }
 }

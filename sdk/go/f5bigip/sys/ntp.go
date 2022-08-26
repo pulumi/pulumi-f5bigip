@@ -20,25 +20,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/sys"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/sys"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := sys.NewNtp(ctx, "ntp1", &sys.NtpArgs{
-// 			Description: pulumi.String("/Common/NTP1"),
-// 			Servers: pulumi.StringArray{
-// 				pulumi.String("time.facebook.com"),
-// 			},
-// 			Timezone: pulumi.String("America/Los_Angeles"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sys.NewNtp(ctx, "ntp1", &sys.NtpArgs{
+//				Description: pulumi.String("/Common/NTP1"),
+//				Servers: pulumi.StringArray{
+//					pulumi.String("time.facebook.com"),
+//				},
+//				Timezone: pulumi.String("America/Los_Angeles"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type Ntp struct {
 	pulumi.CustomResourceState
@@ -149,7 +152,7 @@ func (i *Ntp) ToNtpOutputWithContext(ctx context.Context) NtpOutput {
 // NtpArrayInput is an input type that accepts NtpArray and NtpArrayOutput values.
 // You can construct a concrete instance of `NtpArrayInput` via:
 //
-//          NtpArray{ NtpArgs{...} }
+//	NtpArray{ NtpArgs{...} }
 type NtpArrayInput interface {
 	pulumi.Input
 
@@ -174,7 +177,7 @@ func (i NtpArray) ToNtpArrayOutputWithContext(ctx context.Context) NtpArrayOutpu
 // NtpMapInput is an input type that accepts NtpMap and NtpMapOutput values.
 // You can construct a concrete instance of `NtpMapInput` via:
 //
-//          NtpMap{ "key": NtpArgs{...} }
+//	NtpMap{ "key": NtpArgs{...} }
 type NtpMapInput interface {
 	pulumi.Input
 
@@ -208,6 +211,21 @@ func (o NtpOutput) ToNtpOutput() NtpOutput {
 
 func (o NtpOutput) ToNtpOutputWithContext(ctx context.Context) NtpOutput {
 	return o
+}
+
+// Name of the ntp Servers
+func (o NtpOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *Ntp) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// Adds NTP servers to or deletes NTP servers from the BIG-IP system.
+func (o NtpOutput) Servers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Ntp) pulumi.StringArrayOutput { return v.Servers }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the time zone that you want to use for the system time.
+func (o NtpOutput) Timezone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ntp) pulumi.StringPtrOutput { return v.Timezone }).(pulumi.StringPtrOutput)
 }
 
 type NtpArrayOutput struct{ *pulumi.OutputState }

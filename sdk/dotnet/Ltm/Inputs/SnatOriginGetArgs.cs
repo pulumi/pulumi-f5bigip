@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Ltm.Inputs
 {
 
-    public sealed class SnatOriginGetArgs : Pulumi.ResourceArgs
+    public sealed class SnatOriginGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("appService")]
         public Input<string>? AppService { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
         public SnatOriginGetArgs()
         {
         }
+        public static new SnatOriginGetArgs Empty => new SnatOriginGetArgs();
     }
 }

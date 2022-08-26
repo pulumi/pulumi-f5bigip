@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
- * import * from "fs";
+ * import * as fs from "fs";
  *
  * // Example Usage for json file
  * const as3_example1As3 = new f5bigip.As3("as3-example1As3", {as3Json: fs.readFileSync("example1.json")});

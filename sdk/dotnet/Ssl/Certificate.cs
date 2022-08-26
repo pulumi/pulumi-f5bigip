@@ -16,27 +16,25 @@ namespace Pulumi.F5BigIP.Ssl
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test_cert = new F5BigIP.Ssl.Certificate("test-cert", new()
     ///     {
-    ///         var test_cert = new F5BigIP.Ssl.Certificate("test-cert", new F5BigIP.Ssl.CertificateArgs
-    ///         {
-    ///             Name = "servercert.crt",
-    ///             Content = File.ReadAllText("servercert.crt"),
-    ///             Partition = "Common",
-    ///         });
-    ///     }
+    ///         Name = "servercert.crt",
+    ///         Content = File.ReadAllText("servercert.crt"),
+    ///         Partition = "Common",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ssl/certificate:Certificate")]
-    public partial class Certificate : Pulumi.CustomResource
+    public partial class Certificate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Content of certificate on Disk
@@ -106,7 +104,7 @@ namespace Pulumi.F5BigIP.Ssl
         }
     }
 
-    public sealed class CertificateArgs : Pulumi.ResourceArgs
+    public sealed class CertificateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Content of certificate on Disk
@@ -135,9 +133,10 @@ namespace Pulumi.F5BigIP.Ssl
         public CertificateArgs()
         {
         }
+        public static new CertificateArgs Empty => new CertificateArgs();
     }
 
-    public sealed class CertificateState : Pulumi.ResourceArgs
+    public sealed class CertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Content of certificate on Disk
@@ -166,5 +165,6 @@ namespace Pulumi.F5BigIP.Ssl
         public CertificateState()
         {
         }
+        public static new CertificateState Empty => new CertificateState();
     }
 }

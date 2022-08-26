@@ -21,34 +21,37 @@ import (
 // package main
 //
 // import (
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := f5bigip.NewBigIqAs3(ctx, "exampletask", &f5bigip.BigIqAs3Args{
-// 			As3Json:       readFileOrPanic("bigiq_example.json"),
-// 			BigiqAddress:  pulumi.String("xx.xx.xxx.xx"),
-// 			BigiqPassword: pulumi.String("xxxxxxxxx"),
-// 			BigiqUser:     pulumi.String("xxxxx"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := f5bigip.NewBigIqAs3(ctx, "exampletask", &f5bigip.BigIqAs3Args{
+//				As3Json:       readFileOrPanic("bigiq_example.json"),
+//				BigiqAddress:  pulumi.String("xx.xx.xxx.xx"),
+//				BigiqPassword: pulumi.String("xxxxxxxxx"),
+//				BigiqUser:     pulumi.String("xxxxx"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type BigIqAs3 struct {
 	pulumi.CustomResourceState
@@ -228,7 +231,7 @@ func (i *BigIqAs3) ToBigIqAs3OutputWithContext(ctx context.Context) BigIqAs3Outp
 // BigIqAs3ArrayInput is an input type that accepts BigIqAs3Array and BigIqAs3ArrayOutput values.
 // You can construct a concrete instance of `BigIqAs3ArrayInput` via:
 //
-//          BigIqAs3Array{ BigIqAs3Args{...} }
+//	BigIqAs3Array{ BigIqAs3Args{...} }
 type BigIqAs3ArrayInput interface {
 	pulumi.Input
 
@@ -253,7 +256,7 @@ func (i BigIqAs3Array) ToBigIqAs3ArrayOutputWithContext(ctx context.Context) Big
 // BigIqAs3MapInput is an input type that accepts BigIqAs3Map and BigIqAs3MapOutput values.
 // You can construct a concrete instance of `BigIqAs3MapInput` via:
 //
-//          BigIqAs3Map{ "key": BigIqAs3Args{...} }
+//	BigIqAs3Map{ "key": BigIqAs3Args{...} }
 type BigIqAs3MapInput interface {
 	pulumi.Input
 
@@ -287,6 +290,51 @@ func (o BigIqAs3Output) ToBigIqAs3Output() BigIqAs3Output {
 
 func (o BigIqAs3Output) ToBigIqAs3OutputWithContext(ctx context.Context) BigIqAs3Output {
 	return o
+}
+
+// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
+func (o BigIqAs3Output) As3Json() pulumi.StringOutput {
+	return o.ApplyT(func(v *BigIqAs3) pulumi.StringOutput { return v.As3Json }).(pulumi.StringOutput)
+}
+
+// Address of the BIG-IQ to which your targer BIG-IP is attached
+func (o BigIqAs3Output) BigiqAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v *BigIqAs3) pulumi.StringOutput { return v.BigiqAddress }).(pulumi.StringOutput)
+}
+
+// BIGIQ Login reference for token authentication
+func (o BigIqAs3Output) BigiqLoginRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BigIqAs3) pulumi.StringPtrOutput { return v.BigiqLoginRef }).(pulumi.StringPtrOutput)
+}
+
+// Password of the BIG-IQ to which your targer BIG-IP is attached
+func (o BigIqAs3Output) BigiqPassword() pulumi.StringOutput {
+	return o.ApplyT(func(v *BigIqAs3) pulumi.StringOutput { return v.BigiqPassword }).(pulumi.StringOutput)
+}
+
+// type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
+func (o BigIqAs3Output) BigiqPort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BigIqAs3) pulumi.StringPtrOutput { return v.BigiqPort }).(pulumi.StringPtrOutput)
+}
+
+// type `bool`, if set to `true` enables Token based Authentication,default is `false`
+func (o BigIqAs3Output) BigiqTokenAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BigIqAs3) pulumi.BoolPtrOutput { return v.BigiqTokenAuth }).(pulumi.BoolPtrOutput)
+}
+
+// User name  of the BIG-IQ to which your targer BIG-IP is attached
+func (o BigIqAs3Output) BigiqUser() pulumi.StringOutput {
+	return o.ApplyT(func(v *BigIqAs3) pulumi.StringOutput { return v.BigiqUser }).(pulumi.StringOutput)
+}
+
+// Set True if you want to ignore metadata changes during update. By default it is set to `true`
+func (o BigIqAs3Output) IgnoreMetadata() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BigIqAs3) pulumi.BoolPtrOutput { return v.IgnoreMetadata }).(pulumi.BoolPtrOutput)
+}
+
+// Name of Tenant
+func (o BigIqAs3Output) TenantList() pulumi.StringOutput {
+	return o.ApplyT(func(v *BigIqAs3) pulumi.StringOutput { return v.TenantList }).(pulumi.StringOutput)
 }
 
 type BigIqAs3ArrayOutput struct{ *pulumi.OutputState }

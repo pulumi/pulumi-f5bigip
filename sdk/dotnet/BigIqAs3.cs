@@ -17,29 +17,27 @@ namespace Pulumi.F5BigIP
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Example Usage for json file
+    ///     var exampletask = new F5BigIP.BigIqAs3("exampletask", new()
     ///     {
-    ///         // Example Usage for json file
-    ///         var exampletask = new F5BigIP.BigIqAs3("exampletask", new F5BigIP.BigIqAs3Args
-    ///         {
-    ///             As3Json = File.ReadAllText("bigiq_example.json"),
-    ///             BigiqAddress = "xx.xx.xxx.xx",
-    ///             BigiqPassword = "xxxxxxxxx",
-    ///             BigiqUser = "xxxxx",
-    ///         });
-    ///     }
+    ///         As3Json = File.ReadAllText("bigiq_example.json"),
+    ///         BigiqAddress = "xx.xx.xxx.xx",
+    ///         BigiqPassword = "xxxxxxxxx",
+    ///         BigiqUser = "xxxxx",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:index/bigIqAs3:BigIqAs3")]
-    public partial class BigIqAs3 : Pulumi.CustomResource
+    public partial class BigIqAs3 : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
@@ -139,7 +137,7 @@ namespace Pulumi.F5BigIP
         }
     }
 
-    public sealed class BigIqAs3Args : Pulumi.ResourceArgs
+    public sealed class BigIqAs3Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
@@ -198,9 +196,10 @@ namespace Pulumi.F5BigIP
         public BigIqAs3Args()
         {
         }
+        public static new BigIqAs3Args Empty => new BigIqAs3Args();
     }
 
-    public sealed class BigIqAs3State : Pulumi.ResourceArgs
+    public sealed class BigIqAs3State : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
@@ -259,5 +258,6 @@ namespace Pulumi.F5BigIP
         public BigIqAs3State()
         {
         }
+        public static new BigIqAs3State Empty => new BigIqAs3State();
     }
 }

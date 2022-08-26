@@ -19,23 +19,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := f5bigip.NewIpsecProfile(ctx, "azurevWANProfile", &f5bigip.IpsecProfileArgs{
-// 			Description:     pulumi.String("mytestipsecprofile"),
-// 			Name:            pulumi.String("/Common/Mytestipsecprofile"),
-// 			TrafficSelector: pulumi.String("test-trafficselector"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := f5bigip.NewIpsecProfile(ctx, "azurevWANProfile", &f5bigip.IpsecProfileArgs{
+//				Description:     pulumi.String("mytestipsecprofile"),
+//				Name:            pulumi.String("/Common/Mytestipsecprofile"),
+//				TrafficSelector: pulumi.String("test-trafficselector"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type IpsecProfile struct {
 	pulumi.CustomResourceState
@@ -156,7 +159,7 @@ func (i *IpsecProfile) ToIpsecProfileOutputWithContext(ctx context.Context) Ipse
 // IpsecProfileArrayInput is an input type that accepts IpsecProfileArray and IpsecProfileArrayOutput values.
 // You can construct a concrete instance of `IpsecProfileArrayInput` via:
 //
-//          IpsecProfileArray{ IpsecProfileArgs{...} }
+//	IpsecProfileArray{ IpsecProfileArgs{...} }
 type IpsecProfileArrayInput interface {
 	pulumi.Input
 
@@ -181,7 +184,7 @@ func (i IpsecProfileArray) ToIpsecProfileArrayOutputWithContext(ctx context.Cont
 // IpsecProfileMapInput is an input type that accepts IpsecProfileMap and IpsecProfileMapOutput values.
 // You can construct a concrete instance of `IpsecProfileMapInput` via:
 //
-//          IpsecProfileMap{ "key": IpsecProfileArgs{...} }
+//	IpsecProfileMap{ "key": IpsecProfileArgs{...} }
 type IpsecProfileMapInput interface {
 	pulumi.Input
 
@@ -215,6 +218,26 @@ func (o IpsecProfileOutput) ToIpsecProfileOutput() IpsecProfileOutput {
 
 func (o IpsecProfileOutput) ToIpsecProfileOutputWithContext(ctx context.Context) IpsecProfileOutput {
 	return o
+}
+
+// Specifies descriptive text that identifies the IPsec interface tunnel profile.
+func (o IpsecProfileOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *IpsecProfile) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// Displays the name of the IPsec interface tunnel profile,it should be "full path".The full path is the combination of the partition + name of the IPSec profile.(For example `/Common/test-profile`)
+func (o IpsecProfileOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IpsecProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the profile from which this profile inherits settings. The default is the system-supplied `/Common/ipsec` profile
+func (o IpsecProfileOutput) ParentProfile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IpsecProfile) pulumi.StringPtrOutput { return v.ParentProfile }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the traffic selector for the IPsec interface tunnel to which the profile is applied
+func (o IpsecProfileOutput) TrafficSelector() pulumi.StringOutput {
+	return o.ApplyT(func(v *IpsecProfile) pulumi.StringOutput { return v.TrafficSelector }).(pulumi.StringOutput)
 }
 
 type IpsecProfileArrayOutput struct{ *pulumi.OutputState }

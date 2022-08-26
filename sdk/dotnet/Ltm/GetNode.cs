@@ -25,7 +25,7 @@ namespace Pulumi.F5BigIP.Ltm
     }
 
 
-    public sealed class GetNodeArgs : Pulumi.InvokeArgs
+    public sealed class GetNodeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The address of the node.
@@ -63,9 +63,10 @@ namespace Pulumi.F5BigIP.Ltm
         public GetNodeArgs()
         {
         }
+        public static new GetNodeArgs Empty => new GetNodeArgs();
     }
 
-    public sealed class GetNodeInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetNodeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The address of the node.
@@ -103,6 +104,7 @@ namespace Pulumi.F5BigIP.Ltm
         public GetNodeInvokeArgs()
         {
         }
+        public static new GetNodeInvokeArgs Empty => new GetNodeInvokeArgs();
     }
 
 

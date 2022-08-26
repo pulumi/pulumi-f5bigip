@@ -13,7 +13,8 @@ import (
 
 // `ltm.Node` Manages a node configuration
 //
-// For resources should be named with their "full path".The full path is the combination of the partition + name of the resource( example: /Common/my-node ) or partition + Direcroty + nameof the resource ( example: /Common/test/my-node ).When including directory in fullpath we have to make sure it is created in the given partition before using it.
+// For resources should be named with their `full path`.The full path is the combination of the `partition + name` of the resource( example: `/Common/my-node` ) or `partition + Direcroty + name` of the resource ( example: `/Common/test/my-node` ).
+// When including directory in `full path` we have to make sure it is created in the given partition before using it.
 //
 // ## Example Usage
 //
@@ -21,31 +22,34 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ltm.NewNode(ctx, "node", &ltm.NodeArgs{
-// 			Address:         pulumi.String("192.168.30.1"),
-// 			ConnectionLimit: pulumi.Int(0),
-// 			Description:     pulumi.String("Test-Node"),
-// 			DynamicRatio:    pulumi.Int(1),
-// 			Fqdn: &ltm.NodeFqdnArgs{
-// 				AddressFamily: pulumi.String("ipv4"),
-// 				Interval:      pulumi.String("3000"),
-// 			},
-// 			Monitor:   pulumi.String("/Common/icmp"),
-// 			Name:      pulumi.String("/Common/terraform_node1"),
-// 			RateLimit: pulumi.String("disabled"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ltm.NewNode(ctx, "node", &ltm.NodeArgs{
+//				Address:         pulumi.String("192.168.30.1"),
+//				ConnectionLimit: pulumi.Int(0),
+//				Description:     pulumi.String("Test-Node"),
+//				DynamicRatio:    pulumi.Int(1),
+//				Fqdn: &ltm.NodeFqdnArgs{
+//					AddressFamily: pulumi.String("ipv4"),
+//					Interval:      pulumi.String("3000"),
+//				},
+//				Monitor:   pulumi.String("/Common/icmp"),
+//				Name:      pulumi.String("/Common/terraform_node1"),
+//				RateLimit: pulumi.String("disabled"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type Node struct {
 	pulumi.CustomResourceState
@@ -70,7 +74,7 @@ type Node struct {
 	// Enables or disables the node for new sessions. The default value is user-enabled.
 	Session pulumi.StringOutput `pulumi:"session"`
 	// Default is "user-up" you can set to "user-down" if you want to disable
-	State pulumi.StringPtrOutput `pulumi:"state"`
+	State pulumi.StringOutput `pulumi:"state"`
 }
 
 // NewNode registers a new resource with the given unique name, arguments, and options.
@@ -234,7 +238,7 @@ func (i *Node) ToNodeOutputWithContext(ctx context.Context) NodeOutput {
 // NodeArrayInput is an input type that accepts NodeArray and NodeArrayOutput values.
 // You can construct a concrete instance of `NodeArrayInput` via:
 //
-//          NodeArray{ NodeArgs{...} }
+//	NodeArray{ NodeArgs{...} }
 type NodeArrayInput interface {
 	pulumi.Input
 
@@ -259,7 +263,7 @@ func (i NodeArray) ToNodeArrayOutputWithContext(ctx context.Context) NodeArrayOu
 // NodeMapInput is an input type that accepts NodeMap and NodeMapOutput values.
 // You can construct a concrete instance of `NodeMapInput` via:
 //
-//          NodeMap{ "key": NodeArgs{...} }
+//	NodeMap{ "key": NodeArgs{...} }
 type NodeMapInput interface {
 	pulumi.Input
 
@@ -293,6 +297,60 @@ func (o NodeOutput) ToNodeOutput() NodeOutput {
 
 func (o NodeOutput) ToNodeOutputWithContext(ctx context.Context) NodeOutput {
 	return o
+}
+
+// IP or hostname of the node
+func (o NodeOutput) Address() pulumi.StringOutput {
+	return o.ApplyT(func(v *Node) pulumi.StringOutput { return v.Address }).(pulumi.StringOutput)
+}
+
+// Specifies the maximum number of connections allowed for the node or node address.
+func (o NodeOutput) ConnectionLimit() pulumi.IntOutput {
+	return o.ApplyT(func(v *Node) pulumi.IntOutput { return v.ConnectionLimit }).(pulumi.IntOutput)
+}
+
+// User-defined description give ltm_node
+func (o NodeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Node) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the fixed ratio value used for a node during ratio load balancing.
+func (o NodeOutput) DynamicRatio() pulumi.IntOutput {
+	return o.ApplyT(func(v *Node) pulumi.IntOutput { return v.DynamicRatio }).(pulumi.IntOutput)
+}
+
+func (o NodeOutput) Fqdn() NodeFqdnPtrOutput {
+	return o.ApplyT(func(v *Node) NodeFqdnPtrOutput { return v.Fqdn }).(NodeFqdnPtrOutput)
+}
+
+// specifies the name of the monitor or monitor rule that you want to associate with the node.
+func (o NodeOutput) Monitor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Node) pulumi.StringPtrOutput { return v.Monitor }).(pulumi.StringPtrOutput)
+}
+
+// Name of the node
+func (o NodeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Node) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the maximum number of connections per second allowed for a node or node address. The default value is 'disabled'.
+func (o NodeOutput) RateLimit() pulumi.StringOutput {
+	return o.ApplyT(func(v *Node) pulumi.StringOutput { return v.RateLimit }).(pulumi.StringOutput)
+}
+
+// Sets the ratio number for the node.
+func (o NodeOutput) Ratio() pulumi.IntOutput {
+	return o.ApplyT(func(v *Node) pulumi.IntOutput { return v.Ratio }).(pulumi.IntOutput)
+}
+
+// Enables or disables the node for new sessions. The default value is user-enabled.
+func (o NodeOutput) Session() pulumi.StringOutput {
+	return o.ApplyT(func(v *Node) pulumi.StringOutput { return v.Session }).(pulumi.StringOutput)
+}
+
+// Default is "user-up" you can set to "user-down" if you want to disable
+func (o NodeOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *Node) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
 type NodeArrayOutput struct{ *pulumi.OutputState }

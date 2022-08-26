@@ -20,24 +20,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := f5bigip.NewCommand(ctx, "test-command", &f5bigip.CommandArgs{
-// 			Commands: pulumi.StringArray{
-// 				pulumi.String("delete ltm node 10.10.10.70"),
-// 			},
-// 			When: pulumi.String("destroy"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := f5bigip.NewCommand(ctx, "test-command", &f5bigip.CommandArgs{
+//				Commands: pulumi.StringArray{
+//					pulumi.String("delete ltm node 10.10.10.70"),
+//				},
+//				When: pulumi.String("destroy"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type Command struct {
 	pulumi.CustomResourceState
@@ -143,7 +146,7 @@ func (i *Command) ToCommandOutputWithContext(ctx context.Context) CommandOutput 
 // CommandArrayInput is an input type that accepts CommandArray and CommandArrayOutput values.
 // You can construct a concrete instance of `CommandArrayInput` via:
 //
-//          CommandArray{ CommandArgs{...} }
+//	CommandArray{ CommandArgs{...} }
 type CommandArrayInput interface {
 	pulumi.Input
 
@@ -168,7 +171,7 @@ func (i CommandArray) ToCommandArrayOutputWithContext(ctx context.Context) Comma
 // CommandMapInput is an input type that accepts CommandMap and CommandMapOutput values.
 // You can construct a concrete instance of `CommandMapInput` via:
 //
-//          CommandMap{ "key": CommandArgs{...} }
+//	CommandMap{ "key": CommandArgs{...} }
 type CommandMapInput interface {
 	pulumi.Input
 
@@ -202,6 +205,20 @@ func (o CommandOutput) ToCommandOutput() CommandOutput {
 
 func (o CommandOutput) ToCommandOutputWithContext(ctx context.Context) CommandOutput {
 	return o
+}
+
+// The resulting output from the `commands` executed
+func (o CommandOutput) CommandResults() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Command) pulumi.StringArrayOutput { return v.CommandResults }).(pulumi.StringArrayOutput)
+}
+
+// The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `commandResult`
+func (o CommandOutput) Commands() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Command) pulumi.StringArrayOutput { return v.Commands }).(pulumi.StringArrayOutput)
+}
+
+func (o CommandOutput) When() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Command) pulumi.StringPtrOutput { return v.When }).(pulumi.StringPtrOutput)
 }
 
 type CommandArrayOutput struct{ *pulumi.OutputState }

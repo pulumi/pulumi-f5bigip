@@ -17,28 +17,27 @@ namespace Pulumi.F5BigIP
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     // Example Usage for json file
+    ///     var as3_example1As3 = new F5BigIP.As3("as3-example1As3", new()
     ///     {
-    ///         // Example Usage for json file
-    ///         var as3_example1As3 = new F5BigIP.As3("as3-example1As3", new F5BigIP.As3Args
-    ///         {
-    ///             As3Json = File.ReadAllText("example1.json"),
-    ///         });
-    ///         // Example Usage for json file with tenant filter
-    ///         var as3_example1Index_as3As3 = new F5BigIP.As3("as3-example1Index/as3As3", new F5BigIP.As3Args
-    ///         {
-    ///             As3Json = File.ReadAllText("example2.json"),
-    ///             TenantFilter = "Sample_03",
-    ///         });
-    ///     }
+    ///         As3Json = File.ReadAllText("example1.json"),
+    ///     });
     /// 
-    /// }
+    ///     // Example Usage for json file with tenant filter
+    ///     var as3_example1Index_as3As3 = new F5BigIP.As3("as3-example1Index/as3As3", new()
+    ///     {
+    ///         As3Json = File.ReadAllText("example2.json"),
+    ///         TenantFilter = "Sample_03",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -482,7 +481,7 @@ namespace Pulumi.F5BigIP
     ///  = "Sample_http_01,Sample_non_http_01" } * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/composing-a-declaration.html
     /// </summary>
     [F5BigIPResourceType("f5bigip:index/as3:As3")]
-    public partial class As3 : Pulumi.CustomResource
+    public partial class As3 : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Name of Application
@@ -570,7 +569,7 @@ namespace Pulumi.F5BigIP
         }
     }
 
-    public sealed class As3Args : Pulumi.ResourceArgs
+    public sealed class As3Args : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of Application
@@ -617,9 +616,10 @@ namespace Pulumi.F5BigIP
         public As3Args()
         {
         }
+        public static new As3Args Empty => new As3Args();
     }
 
-    public sealed class As3State : Pulumi.ResourceArgs
+    public sealed class As3State : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of Application
@@ -666,5 +666,6 @@ namespace Pulumi.F5BigIP
         public As3State()
         {
         }
+        public static new As3State Empty => new As3State();
     }
 }

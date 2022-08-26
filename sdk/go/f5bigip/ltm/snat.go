@@ -21,32 +21,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ltm.NewSnat(ctx, "test-snat", &ltm.SnatArgs{
-// 			Name: pulumi.String("/Common/test-snat"),
-// 			Origins: ltm.SnatOriginArray{
-// 				&ltm.SnatOriginArgs{
-// 					Name: pulumi.String("0.0.0.0/0"),
-// 				},
-// 			},
-// 			Sourceport:  pulumi.String("preserve"),
-// 			Translation: pulumi.String("/Common/136.1.1.2"),
-// 			Vlans: pulumi.StringArray{
-// 				pulumi.String("/Common/internal"),
-// 			},
-// 			Vlansdisabled: pulumi.Bool(false),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ltm.NewSnat(ctx, "test-snat", &ltm.SnatArgs{
+//				Name: pulumi.String("/Common/test-snat"),
+//				Origins: ltm.SnatOriginArray{
+//					&ltm.SnatOriginArgs{
+//						Name: pulumi.String("0.0.0.0/0"),
+//					},
+//				},
+//				Sourceport:  pulumi.String("preserve"),
+//				Translation: pulumi.String("/Common/136.1.1.2"),
+//				Vlans: pulumi.StringArray{
+//					pulumi.String("/Common/internal"),
+//				},
+//				Vlansdisabled: pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type Snat struct {
 	pulumi.CustomResourceState
@@ -240,7 +243,7 @@ func (i *Snat) ToSnatOutputWithContext(ctx context.Context) SnatOutput {
 // SnatArrayInput is an input type that accepts SnatArray and SnatArrayOutput values.
 // You can construct a concrete instance of `SnatArrayInput` via:
 //
-//          SnatArray{ SnatArgs{...} }
+//	SnatArray{ SnatArgs{...} }
 type SnatArrayInput interface {
 	pulumi.Input
 
@@ -265,7 +268,7 @@ func (i SnatArray) ToSnatArrayOutputWithContext(ctx context.Context) SnatArrayOu
 // SnatMapInput is an input type that accepts SnatMap and SnatMapOutput values.
 // You can construct a concrete instance of `SnatMapInput` via:
 //
-//          SnatMap{ "key": SnatArgs{...} }
+//	SnatMap{ "key": SnatArgs{...} }
 type SnatMapInput interface {
 	pulumi.Input
 
@@ -299,6 +302,61 @@ func (o SnatOutput) ToSnatOutput() SnatOutput {
 
 func (o SnatOutput) ToSnatOutputWithContext(ctx context.Context) SnatOutput {
 	return o
+}
+
+// -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
+func (o SnatOutput) Autolasthop() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snat) pulumi.StringOutput { return v.Autolasthop }).(pulumi.StringOutput)
+}
+
+// Fullpath
+func (o SnatOutput) FullPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snat) pulumi.StringPtrOutput { return v.FullPath }).(pulumi.StringPtrOutput)
+}
+
+// Enables or disables mirroring of SNAT connections.
+func (o SnatOutput) Mirror() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snat) pulumi.StringOutput { return v.Mirror }).(pulumi.StringOutput)
+}
+
+// Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
+func (o SnatOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Snat) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies, for each SNAT that you create, the origin addresses that are to be members of that SNAT. Specify origin addresses by their IP addresses and service ports
+func (o SnatOutput) Origins() SnatOriginArrayOutput {
+	return o.ApplyT(func(v *Snat) SnatOriginArrayOutput { return v.Origins }).(SnatOriginArrayOutput)
+}
+
+// Partition or path to which the SNAT belongs
+func (o SnatOutput) Partition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snat) pulumi.StringPtrOutput { return v.Partition }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of a SNAT pool. You can only use this option when `automap` and `translation` are not used.
+func (o SnatOutput) Snatpool() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snat) pulumi.StringPtrOutput { return v.Snatpool }).(pulumi.StringPtrOutput)
+}
+
+// Specifies how the SNAT object handles the client's source port. The default is `preserve`.
+func (o SnatOutput) Sourceport() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snat) pulumi.StringPtrOutput { return v.Sourceport }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the IP address configured for translation. Note that translated addresses are outside the traffic management system. You can only use this option when `automap` and `snatpool` are not used.
+func (o SnatOutput) Translation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Snat) pulumi.StringPtrOutput { return v.Translation }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the available VLANs or tunnels and those for which the SNAT is enabled or disabled.
+func (o SnatOutput) Vlans() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Snat) pulumi.StringArrayOutput { return v.Vlans }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the VLANs or tunnels for which the SNAT is enabled or disabled. The default is `true`, vlandisabled on VLANS specified by `vlans`,if set to `false` vlanEnabled set on VLANS specified by `vlans` .
+func (o SnatOutput) Vlansdisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Snat) pulumi.BoolPtrOutput { return v.Vlansdisabled }).(pulumi.BoolPtrOutput)
 }
 
 type SnatArrayOutput struct{ *pulumi.OutputState }

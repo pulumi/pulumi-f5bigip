@@ -7,7 +7,8 @@ import * as utilities from "../utilities";
 /**
  * `f5bigip.ltm.Pool` Manages F5 BIG-IP LTM pools via iControl REST API.
  *
- * Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )
+ * For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource or  `partition + directory + name`.
+ * For example `/Common/my-pool`.
  *
  * ## Example Usage
  *
@@ -80,7 +81,7 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly monitors!: pulumi.Output<string[]>;
     /**
-     * Name of the pool,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
+     * Name of the pool,it should be `full path`.The full path is the combination of the `partition + name` of the pool.(For example `/Common/my-pool`)
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -169,7 +170,7 @@ export interface PoolState {
      */
     monitors?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Name of the pool,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
+     * Name of the pool,it should be `full path`.The full path is the combination of the `partition + name` of the pool.(For example `/Common/my-pool`)
      */
     name?: pulumi.Input<string>;
     /**
@@ -215,7 +216,7 @@ export interface PoolArgs {
      */
     monitors?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Name of the pool,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`)
+     * Name of the pool,it should be `full path`.The full path is the combination of the `partition + name` of the pool.(For example `/Common/my-pool`)
      */
     name: pulumi.Input<string>;
     /**
