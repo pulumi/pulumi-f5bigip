@@ -17,27 +17,25 @@ namespace Pulumi.F5BigIP.Ltm
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test_ClientSsl = new F5BigIP.Ltm.ProfileClientSsl("test-ClientSsl", new()
     ///     {
-    ///         var test_ClientSsl = new F5BigIP.Ltm.ProfileClientSsl("test-ClientSsl", new F5BigIP.Ltm.ProfileClientSslArgs
-    ///         {
-    ///             Authenticate = "always",
-    ///             Ciphers = "DEFAULT",
-    ///             DefaultsFrom = "/Common/clientssl",
-    ///             Name = "/Common/test-ClientSsl",
-    ///         });
-    ///     }
+    ///         Authenticate = "always",
+    ///         Ciphers = "DEFAULT",
+    ///         DefaultsFrom = "/Common/clientssl",
+    ///         Name = "/Common/test-ClientSsl",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/profileClientSsl:ProfileClientSsl")]
-    public partial class ProfileClientSsl : Pulumi.CustomResource
+    public partial class ProfileClientSsl : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Alert time out
@@ -416,7 +414,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
     }
 
-    public sealed class ProfileClientSslArgs : Pulumi.ResourceArgs
+    public sealed class ProfileClientSslArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Alert time out
@@ -771,9 +769,10 @@ namespace Pulumi.F5BigIP.Ltm
         public ProfileClientSslArgs()
         {
         }
+        public static new ProfileClientSslArgs Empty => new ProfileClientSslArgs();
     }
 
-    public sealed class ProfileClientSslState : Pulumi.ResourceArgs
+    public sealed class ProfileClientSslState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Alert time out
@@ -1128,5 +1127,6 @@ namespace Pulumi.F5BigIP.Ltm
         public ProfileClientSslState()
         {
         }
+        public static new ProfileClientSslState Empty => new ProfileClientSslState();
     }
 }

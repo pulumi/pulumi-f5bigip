@@ -74,7 +74,7 @@ namespace Pulumi.F5BigIP
         }
     }
 
-    internal sealed class F5BigIPResourceTypeAttribute : Pulumi.ResourceTypeAttribute
+    internal sealed class F5BigIPResourceTypeAttribute : global::Pulumi.ResourceTypeAttribute
     {
         public F5BigIPResourceTypeAttribute(string type) : base(type, Utilities.Version)
         {

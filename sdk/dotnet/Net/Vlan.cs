@@ -17,33 +17,31 @@ namespace Pulumi.F5BigIP.Net
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var vlan1 = new F5BigIP.Net.Vlan("vlan1", new()
     ///     {
-    ///         var vlan1 = new F5BigIP.Net.Vlan("vlan1", new F5BigIP.Net.VlanArgs
+    ///         Interfaces = new[]
     ///         {
-    ///             Interfaces = 
+    ///             new F5BigIP.Net.Inputs.VlanInterfaceArgs
     ///             {
-    ///                 new F5BigIP.Net.Inputs.VlanInterfaceArgs
-    ///                 {
-    ///                     Tagged = false,
-    ///                     Vlanport = "1.2",
-    ///                 },
+    ///                 Tagged = false,
+    ///                 Vlanport = "1.2",
     ///             },
-    ///             Name = "/Common/Internal",
-    ///             Tag = 101,
-    ///         });
-    ///     }
+    ///         },
+    ///         Name = "/Common/Internal",
+    ///         Tag = 101,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:net/vlan:Vlan")]
-    public partial class Vlan : Pulumi.CustomResource
+    public partial class Vlan : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies which interfaces you want this VLAN to use for traffic management.
@@ -107,7 +105,7 @@ namespace Pulumi.F5BigIP.Net
         }
     }
 
-    public sealed class VlanArgs : Pulumi.ResourceArgs
+    public sealed class VlanArgs : global::Pulumi.ResourceArgs
     {
         [Input("interfaces")]
         private InputList<Inputs.VlanInterfaceArgs>? _interfaces;
@@ -136,9 +134,10 @@ namespace Pulumi.F5BigIP.Net
         public VlanArgs()
         {
         }
+        public static new VlanArgs Empty => new VlanArgs();
     }
 
-    public sealed class VlanState : Pulumi.ResourceArgs
+    public sealed class VlanState : global::Pulumi.ResourceArgs
     {
         [Input("interfaces")]
         private InputList<Inputs.VlanInterfaceGetArgs>? _interfaces;
@@ -167,5 +166,6 @@ namespace Pulumi.F5BigIP.Net
         public VlanState()
         {
         }
+        public static new VlanState Empty => new VlanState();
     }
 }

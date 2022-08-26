@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.CM.Inputs
 {
 
-    public sealed class DeviceGroupDeviceGetArgs : Pulumi.ResourceArgs
+    public sealed class DeviceGroupDeviceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Is the name of the device Group
@@ -24,5 +24,6 @@ namespace Pulumi.F5BigIP.CM.Inputs
         public DeviceGroupDeviceGetArgs()
         {
         }
+        public static new DeviceGroupDeviceGetArgs Empty => new DeviceGroupDeviceGetArgs();
     }
 }

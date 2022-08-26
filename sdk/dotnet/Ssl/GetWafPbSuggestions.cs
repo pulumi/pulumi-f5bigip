@@ -20,22 +20,20 @@ namespace Pulumi.F5BigIP.Ssl
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using F5BigIP = Pulumi.F5BigIP;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var pBWAF1 = F5BigIP.Ssl.GetWafPbSuggestions.Invoke(new()
         ///     {
-        ///         var pBWAF1 = Output.Create(F5BigIP.Ssl.GetWafPbSuggestions.InvokeAsync(new F5BigIP.Ssl.GetWafPbSuggestionsArgs
-        ///         {
-        ///             MinimumLearningScore = 20,
-        ///             Partition = "Common",
-        ///             PolicyName = "protect_me_policy",
-        ///         }));
-        ///     }
+        ///         MinimumLearningScore = 20,
+        ///         Partition = "Common",
+        ///         PolicyName = "protect_me_policy",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,22 +50,20 @@ namespace Pulumi.F5BigIP.Ssl
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using F5BigIP = Pulumi.F5BigIP;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var pBWAF1 = F5BigIP.Ssl.GetWafPbSuggestions.Invoke(new()
         ///     {
-        ///         var pBWAF1 = Output.Create(F5BigIP.Ssl.GetWafPbSuggestions.InvokeAsync(new F5BigIP.Ssl.GetWafPbSuggestionsArgs
-        ///         {
-        ///             MinimumLearningScore = 20,
-        ///             Partition = "Common",
-        ///             PolicyName = "protect_me_policy",
-        ///         }));
-        ///     }
+        ///         MinimumLearningScore = 20,
+        ///         Partition = "Common",
+        ///         PolicyName = "protect_me_policy",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -77,7 +73,7 @@ namespace Pulumi.F5BigIP.Ssl
     }
 
 
-    public sealed class GetWafPbSuggestionsArgs : Pulumi.InvokeArgs
+    public sealed class GetWafPbSuggestionsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The minimum learning score for suggestions.
@@ -106,9 +102,10 @@ namespace Pulumi.F5BigIP.Ssl
         public GetWafPbSuggestionsArgs()
         {
         }
+        public static new GetWafPbSuggestionsArgs Empty => new GetWafPbSuggestionsArgs();
     }
 
-    public sealed class GetWafPbSuggestionsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWafPbSuggestionsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The minimum learning score for suggestions.
@@ -137,6 +134,7 @@ namespace Pulumi.F5BigIP.Ssl
         public GetWafPbSuggestionsInvokeArgs()
         {
         }
+        public static new GetWafPbSuggestionsInvokeArgs Empty => new GetWafPbSuggestionsInvokeArgs();
     }
 
 

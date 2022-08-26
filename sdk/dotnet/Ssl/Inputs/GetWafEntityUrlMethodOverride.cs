@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Ssl.Inputs
 {
 
-    public sealed class GetWafEntityUrlMethodOverrideArgs : Pulumi.InvokeArgs
+    public sealed class GetWafEntityUrlMethodOverrideArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Specifies that the system allows or disallows a method for this URL
@@ -27,5 +27,6 @@ namespace Pulumi.F5BigIP.Ssl.Inputs
         public GetWafEntityUrlMethodOverrideArgs()
         {
         }
+        public static new GetWafEntityUrlMethodOverrideArgs Empty => new GetWafEntityUrlMethodOverrideArgs();
     }
 }

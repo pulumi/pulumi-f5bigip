@@ -116,7 +116,7 @@ func (i *IRule) ToIRuleOutputWithContext(ctx context.Context) IRuleOutput {
 // IRuleArrayInput is an input type that accepts IRuleArray and IRuleArrayOutput values.
 // You can construct a concrete instance of `IRuleArrayInput` via:
 //
-//          IRuleArray{ IRuleArgs{...} }
+//	IRuleArray{ IRuleArgs{...} }
 type IRuleArrayInput interface {
 	pulumi.Input
 
@@ -141,7 +141,7 @@ func (i IRuleArray) ToIRuleArrayOutputWithContext(ctx context.Context) IRuleArra
 // IRuleMapInput is an input type that accepts IRuleMap and IRuleMapOutput values.
 // You can construct a concrete instance of `IRuleMapInput` via:
 //
-//          IRuleMap{ "key": IRuleArgs{...} }
+//	IRuleMap{ "key": IRuleArgs{...} }
 type IRuleMapInput interface {
 	pulumi.Input
 
@@ -175,6 +175,16 @@ func (o IRuleOutput) ToIRuleOutput() IRuleOutput {
 
 func (o IRuleOutput) ToIRuleOutputWithContext(ctx context.Context) IRuleOutput {
 	return o
+}
+
+// Body of the iRule
+func (o IRuleOutput) Irule() pulumi.StringOutput {
+	return o.ApplyT(func(v *IRule) pulumi.StringOutput { return v.Irule }).(pulumi.StringOutput)
+}
+
+// Name of the iRule
+func (o IRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IRule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 type IRuleArrayOutput struct{ *pulumi.OutputState }

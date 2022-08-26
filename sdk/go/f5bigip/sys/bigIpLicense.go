@@ -113,7 +113,7 @@ func (i *BigIpLicense) ToBigIpLicenseOutputWithContext(ctx context.Context) BigI
 // BigIpLicenseArrayInput is an input type that accepts BigIpLicenseArray and BigIpLicenseArrayOutput values.
 // You can construct a concrete instance of `BigIpLicenseArrayInput` via:
 //
-//          BigIpLicenseArray{ BigIpLicenseArgs{...} }
+//	BigIpLicenseArray{ BigIpLicenseArgs{...} }
 type BigIpLicenseArrayInput interface {
 	pulumi.Input
 
@@ -138,7 +138,7 @@ func (i BigIpLicenseArray) ToBigIpLicenseArrayOutputWithContext(ctx context.Cont
 // BigIpLicenseMapInput is an input type that accepts BigIpLicenseMap and BigIpLicenseMapOutput values.
 // You can construct a concrete instance of `BigIpLicenseMapInput` via:
 //
-//          BigIpLicenseMap{ "key": BigIpLicenseArgs{...} }
+//	BigIpLicenseMap{ "key": BigIpLicenseArgs{...} }
 type BigIpLicenseMapInput interface {
 	pulumi.Input
 
@@ -172,6 +172,16 @@ func (o BigIpLicenseOutput) ToBigIpLicenseOutput() BigIpLicenseOutput {
 
 func (o BigIpLicenseOutput) ToBigIpLicenseOutputWithContext(ctx context.Context) BigIpLicenseOutput {
 	return o
+}
+
+// Tmsh command to execute tmsh commands like install
+func (o BigIpLicenseOutput) Command() pulumi.StringOutput {
+	return o.ApplyT(func(v *BigIpLicense) pulumi.StringOutput { return v.Command }).(pulumi.StringOutput)
+}
+
+// A unique Key F5 provides for Licensing BIG-IP
+func (o BigIpLicenseOutput) RegistrationKey() pulumi.StringOutput {
+	return o.ApplyT(func(v *BigIpLicense) pulumi.StringOutput { return v.RegistrationKey }).(pulumi.StringOutput)
 }
 
 type BigIpLicenseArrayOutput struct{ *pulumi.OutputState }

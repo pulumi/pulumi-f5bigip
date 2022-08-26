@@ -12,71 +12,72 @@ namespace Pulumi.F5BigIP.Ltm
     /// <summary>
     /// `f5bigip.ltm.VirtualServer` Configures Virtual Server
     /// 
-    /// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource (example: /Common/my-pool ) or partition + directory + name of the resource (example: /Common/test/my-pool ).When including directory in fullpath we have to make sure it is created in the given partition before using it.
+    /// For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource (example: `/Common/test-virtualserver` ) or `partition + directory + name` of the resource (example: `/Common/test/test-virtualserver` ).
+    /// When including directory in `fullpath` we have to make sure it is created in the given partition before using it.
     /// 
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var http = new F5BigIP.Ltm.VirtualServer("http", new()
     ///     {
-    ///         var http = new F5BigIP.Ltm.VirtualServer("http", new F5BigIP.Ltm.VirtualServerArgs
-    ///         {
-    ///             Name = "/Common/terraform_vs_http",
-    ///             Destination = "10.12.12.12",
-    ///             Port = 80,
-    ///             Pool = "/Common/the-default-pool",
-    ///         });
-    ///         // A Virtual server with SSL enabled
-    ///         var httpsVirtualServer = new F5BigIP.Ltm.VirtualServer("httpsVirtualServer", new F5BigIP.Ltm.VirtualServerArgs
-    ///         {
-    ///             Name = "/Common/terraform_vs_https",
-    ///             Destination = @var.Vip_ip,
-    ///             Description = "VirtualServer-test",
-    ///             Port = 443,
-    ///             Pool = @var.Pool,
-    ///             Profiles = 
-    ///             {
-    ///                 "/Common/tcp",
-    ///                 "/Common/my-awesome-ssl-cert",
-    ///                 "/Common/http",
-    ///             },
-    ///             SourceAddressTranslation = "automap",
-    ///             TranslateAddress = "enabled",
-    ///             TranslatePort = "enabled",
-    ///         });
-    ///         // A Virtual server with separate client and server profiles
-    ///         var httpsLtm_virtualServerVirtualServer = new F5BigIP.Ltm.VirtualServer("httpsLtm/virtualServerVirtualServer", new F5BigIP.Ltm.VirtualServerArgs
-    ///         {
-    ///             Name = "/Common/terraform_vs_https",
-    ///             Destination = "10.255.255.254",
-    ///             Description = "VirtualServer-test",
-    ///             Port = 443,
-    ///             ClientProfiles = 
-    ///             {
-    ///                 "/Common/clientssl",
-    ///             },
-    ///             ServerProfiles = 
-    ///             {
-    ///                 "/Common/serverssl",
-    ///             },
-    ///             SecurityLogProfiles = 
-    ///             {
-    ///                 "/Common/global-network",
-    ///             },
-    ///             SourceAddressTranslation = "automap",
-    ///         });
-    ///     }
+    ///         Name = "/Common/terraform_vs_http",
+    ///         Destination = "10.12.12.12",
+    ///         Port = 80,
+    ///         Pool = "/Common/the-default-pool",
+    ///     });
     /// 
-    /// }
+    ///     // A Virtual server with SSL enabled
+    ///     var httpsVirtualServer = new F5BigIP.Ltm.VirtualServer("httpsVirtualServer", new()
+    ///     {
+    ///         Name = "/Common/terraform_vs_https",
+    ///         Destination = @var.Vip_ip,
+    ///         Description = "VirtualServer-test",
+    ///         Port = 443,
+    ///         Pool = @var.Pool,
+    ///         Profiles = new[]
+    ///         {
+    ///             "/Common/tcp",
+    ///             "/Common/my-awesome-ssl-cert",
+    ///             "/Common/http",
+    ///         },
+    ///         SourceAddressTranslation = "automap",
+    ///         TranslateAddress = "enabled",
+    ///         TranslatePort = "enabled",
+    ///     });
+    /// 
+    ///     // A Virtual server with separate client and server profiles
+    ///     var httpsLtm_virtualServerVirtualServer = new F5BigIP.Ltm.VirtualServer("httpsLtm/virtualServerVirtualServer", new()
+    ///     {
+    ///         Name = "/Common/terraform_vs_https",
+    ///         Destination = "10.255.255.254",
+    ///         Description = "VirtualServer-test",
+    ///         Port = 443,
+    ///         ClientProfiles = new[]
+    ///         {
+    ///             "/Common/clientssl",
+    ///         },
+    ///         ServerProfiles = new[]
+    ///         {
+    ///             "/Common/serverssl",
+    ///         },
+    ///         SecurityLogProfiles = new[]
+    ///         {
+    ///             "/Common/global-network",
+    ///         },
+    ///         SourceAddressTranslation = "automap",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/virtualServer:VirtualServer")]
-    public partial class VirtualServer : Pulumi.CustomResource
+    public partial class VirtualServer : global::Pulumi.CustomResource
     {
         /// <summary>
         /// List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
@@ -264,7 +265,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
     }
 
-    public sealed class VirtualServerArgs : Pulumi.ResourceArgs
+    public sealed class VirtualServerArgs : global::Pulumi.ResourceArgs
     {
         [Input("clientProfiles")]
         private InputList<string>? _clientProfiles;
@@ -458,9 +459,10 @@ namespace Pulumi.F5BigIP.Ltm
         public VirtualServerArgs()
         {
         }
+        public static new VirtualServerArgs Empty => new VirtualServerArgs();
     }
 
-    public sealed class VirtualServerState : Pulumi.ResourceArgs
+    public sealed class VirtualServerState : global::Pulumi.ResourceArgs
     {
         [Input("clientProfiles")]
         private InputList<string>? _clientProfiles;
@@ -654,5 +656,6 @@ namespace Pulumi.F5BigIP.Ltm
         public VirtualServerState()
         {
         }
+        public static new VirtualServerState Empty => new VirtualServerState();
     }
 }

@@ -17,33 +17,36 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := f5bigip.NewEventServiceDiscovery(ctx, "test", &f5bigip.EventServiceDiscoveryArgs{
-// 			Nodes: EventServiceDiscoveryNodeArray{
-// 				&EventServiceDiscoveryNodeArgs{
-// 					Id:   pulumi.String("newNode1"),
-// 					Ip:   pulumi.String("192.168.2.3"),
-// 					Port: pulumi.Int(8080),
-// 				},
-// 				&EventServiceDiscoveryNodeArgs{
-// 					Id:   pulumi.String("newNode2"),
-// 					Ip:   pulumi.String("192.168.2.4"),
-// 					Port: pulumi.Int(8080),
-// 				},
-// 			},
-// 			Taskid: pulumi.String("~Sample_event_sd~My_app~My_pool"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := f5bigip.NewEventServiceDiscovery(ctx, "test", &f5bigip.EventServiceDiscoveryArgs{
+//				Nodes: EventServiceDiscoveryNodeArray{
+//					&EventServiceDiscoveryNodeArgs{
+//						Id:   pulumi.String("newNode1"),
+//						Ip:   pulumi.String("192.168.2.3"),
+//						Port: pulumi.Int(8080),
+//					},
+//					&EventServiceDiscoveryNodeArgs{
+//						Id:   pulumi.String("newNode2"),
+//						Ip:   pulumi.String("192.168.2.4"),
+//						Port: pulumi.Int(8080),
+//					},
+//				},
+//				Taskid: pulumi.String("~Sample_event_sd~My_app~My_pool"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type EventServiceDiscovery struct {
 	pulumi.CustomResourceState
@@ -144,7 +147,7 @@ func (i *EventServiceDiscovery) ToEventServiceDiscoveryOutputWithContext(ctx con
 // EventServiceDiscoveryArrayInput is an input type that accepts EventServiceDiscoveryArray and EventServiceDiscoveryArrayOutput values.
 // You can construct a concrete instance of `EventServiceDiscoveryArrayInput` via:
 //
-//          EventServiceDiscoveryArray{ EventServiceDiscoveryArgs{...} }
+//	EventServiceDiscoveryArray{ EventServiceDiscoveryArgs{...} }
 type EventServiceDiscoveryArrayInput interface {
 	pulumi.Input
 
@@ -169,7 +172,7 @@ func (i EventServiceDiscoveryArray) ToEventServiceDiscoveryArrayOutputWithContex
 // EventServiceDiscoveryMapInput is an input type that accepts EventServiceDiscoveryMap and EventServiceDiscoveryMapOutput values.
 // You can construct a concrete instance of `EventServiceDiscoveryMapInput` via:
 //
-//          EventServiceDiscoveryMap{ "key": EventServiceDiscoveryArgs{...} }
+//	EventServiceDiscoveryMap{ "key": EventServiceDiscoveryArgs{...} }
 type EventServiceDiscoveryMapInput interface {
 	pulumi.Input
 
@@ -203,6 +206,16 @@ func (o EventServiceDiscoveryOutput) ToEventServiceDiscoveryOutput() EventServic
 
 func (o EventServiceDiscoveryOutput) ToEventServiceDiscoveryOutputWithContext(ctx context.Context) EventServiceDiscoveryOutput {
 	return o
+}
+
+// Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
+func (o EventServiceDiscoveryOutput) Nodes() EventServiceDiscoveryNodeArrayOutput {
+	return o.ApplyT(func(v *EventServiceDiscovery) EventServiceDiscoveryNodeArrayOutput { return v.Nodes }).(EventServiceDiscoveryNodeArrayOutput)
+}
+
+// servicediscovery endpoint ( Below example shows how to create endpoing using AS3 )
+func (o EventServiceDiscoveryOutput) Taskid() pulumi.StringOutput {
+	return o.ApplyT(func(v *EventServiceDiscovery) pulumi.StringOutput { return v.Taskid }).(pulumi.StringOutput)
 }
 
 type EventServiceDiscoveryArrayOutput struct{ *pulumi.OutputState }

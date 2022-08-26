@@ -20,24 +20,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/cm"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/cm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cm.NewDevice(ctx, "myNewDevice", &cm.DeviceArgs{
-// 			ConfigsyncIp:      pulumi.String("2.2.2.2"),
-// 			MirrorIp:          pulumi.String("10.10.10.10"),
-// 			MirrorSecondaryIp: pulumi.String("11.11.11.11"),
-// 			Name:              pulumi.String("bigip300.f5.com"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cm.NewDevice(ctx, "myNewDevice", &cm.DeviceArgs{
+//				ConfigsyncIp:      pulumi.String("2.2.2.2"),
+//				MirrorIp:          pulumi.String("10.10.10.10"),
+//				MirrorSecondaryIp: pulumi.String("11.11.11.11"),
+//				Name:              pulumi.String("bigip300.f5.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type Device struct {
 	pulumi.CustomResourceState
@@ -161,7 +164,7 @@ func (i *Device) ToDeviceOutputWithContext(ctx context.Context) DeviceOutput {
 // DeviceArrayInput is an input type that accepts DeviceArray and DeviceArrayOutput values.
 // You can construct a concrete instance of `DeviceArrayInput` via:
 //
-//          DeviceArray{ DeviceArgs{...} }
+//	DeviceArray{ DeviceArgs{...} }
 type DeviceArrayInput interface {
 	pulumi.Input
 
@@ -186,7 +189,7 @@ func (i DeviceArray) ToDeviceArrayOutputWithContext(ctx context.Context) DeviceA
 // DeviceMapInput is an input type that accepts DeviceMap and DeviceMapOutput values.
 // You can construct a concrete instance of `DeviceMapInput` via:
 //
-//          DeviceMap{ "key": DeviceArgs{...} }
+//	DeviceMap{ "key": DeviceArgs{...} }
 type DeviceMapInput interface {
 	pulumi.Input
 
@@ -220,6 +223,26 @@ func (o DeviceOutput) ToDeviceOutput() DeviceOutput {
 
 func (o DeviceOutput) ToDeviceOutputWithContext(ctx context.Context) DeviceOutput {
 	return o
+}
+
+// IP address used for config sync
+func (o DeviceOutput) ConfigsyncIp() pulumi.StringOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.ConfigsyncIp }).(pulumi.StringOutput)
+}
+
+// IP address used for state mirroring
+func (o DeviceOutput) MirrorIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringPtrOutput { return v.MirrorIp }).(pulumi.StringPtrOutput)
+}
+
+// Secondary IP address used for state mirroring
+func (o DeviceOutput) MirrorSecondaryIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringPtrOutput { return v.MirrorSecondaryIp }).(pulumi.StringPtrOutput)
+}
+
+// Address of the Device which needs to be Deviceensed
+func (o DeviceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Device) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 type DeviceArrayOutput struct{ *pulumi.OutputState }

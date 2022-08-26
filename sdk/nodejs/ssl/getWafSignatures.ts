@@ -27,10 +27,13 @@ export function getWafSignatures(args: GetWafSignaturesArgs, opts?: pulumi.Invok
     return pulumi.runtime.invoke("f5bigip:ssl/getWafSignatures:getWafSignatures", {
         "accuracy": args.accuracy,
         "description": args.description,
+        "enabled": args.enabled,
         "name": args.name,
+        "performStaging": args.performStaging,
         "risk": args.risk,
         "signatureId": args.signatureId,
         "systemSignatureId": args.systemSignatureId,
+        "tag": args.tag,
         "type": args.type,
     }, opts);
 }
@@ -47,10 +50,12 @@ export interface GetWafSignaturesArgs {
      * Description of the signature.
      */
     description?: string;
+    enabled?: boolean;
     /**
      * Name of the signature as configured on the system.
      */
     name?: string;
+    performStaging?: boolean;
     /**
      * The relative risk level of the attack that matches this signature.
      */
@@ -63,6 +68,7 @@ export interface GetWafSignaturesArgs {
      * System generated ID of the signature.
      */
     systemSignatureId?: string;
+    tag?: string;
     /**
      * Type of the signature.
      */
@@ -80,15 +86,18 @@ export interface GetWafSignaturesResult {
     /**
      * Description of the signature.
      */
-    readonly description: string;
+    readonly description?: string;
+    readonly enabled?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly json: string;
     /**
      * Name of the signature as configured on the system.
      */
     readonly name: string;
+    readonly performStaging?: boolean;
     /**
      * The relative risk level of the attack that matches this signature.
      */
@@ -101,6 +110,7 @@ export interface GetWafSignaturesResult {
      * System generated ID of the signature.
      */
     readonly systemSignatureId: string;
+    readonly tag: string;
     /**
      * Type of the signature.
      */
@@ -123,10 +133,12 @@ export interface GetWafSignaturesOutputArgs {
      * Description of the signature.
      */
     description?: pulumi.Input<string>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * Name of the signature as configured on the system.
      */
     name?: pulumi.Input<string>;
+    performStaging?: pulumi.Input<boolean>;
     /**
      * The relative risk level of the attack that matches this signature.
      */
@@ -139,6 +151,7 @@ export interface GetWafSignaturesOutputArgs {
      * System generated ID of the signature.
      */
     systemSignatureId?: pulumi.Input<string>;
+    tag?: pulumi.Input<string>;
     /**
      * Type of the signature.
      */

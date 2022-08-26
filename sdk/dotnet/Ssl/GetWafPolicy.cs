@@ -19,20 +19,18 @@ namespace Pulumi.F5BigIP.Ssl
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using F5BigIP = Pulumi.F5BigIP;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var existpolicy = F5BigIP.Ssl.GetWafPolicy.Invoke(new()
         ///     {
-        ///         var existpolicy = Output.Create(F5BigIP.Ssl.GetWafPolicy.InvokeAsync(new F5BigIP.Ssl.GetWafPolicyArgs
-        ///         {
-        ///             PolicyId = "xxxxx",
-        ///         }));
-        ///     }
+        ///         PolicyId = "xxxxx",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -48,20 +46,18 @@ namespace Pulumi.F5BigIP.Ssl
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using F5BigIP = Pulumi.F5BigIP;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var existpolicy = F5BigIP.Ssl.GetWafPolicy.Invoke(new()
         ///     {
-        ///         var existpolicy = Output.Create(F5BigIP.Ssl.GetWafPolicy.InvokeAsync(new F5BigIP.Ssl.GetWafPolicyArgs
-        ///         {
-        ///             PolicyId = "xxxxx",
-        ///         }));
-        ///     }
+        ///         PolicyId = "xxxxx",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -71,7 +67,7 @@ namespace Pulumi.F5BigIP.Ssl
     }
 
 
-    public sealed class GetWafPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetWafPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID of the WAF policy deployed in the BIG-IP.
@@ -88,9 +84,10 @@ namespace Pulumi.F5BigIP.Ssl
         public GetWafPolicyArgs()
         {
         }
+        public static new GetWafPolicyArgs Empty => new GetWafPolicyArgs();
     }
 
-    public sealed class GetWafPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetWafPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// ID of the WAF policy deployed in the BIG-IP.
@@ -107,6 +104,7 @@ namespace Pulumi.F5BigIP.Ssl
         public GetWafPolicyInvokeArgs()
         {
         }
+        public static new GetWafPolicyInvokeArgs Empty => new GetWafPolicyInvokeArgs();
     }
 
 

@@ -16,27 +16,25 @@ namespace Pulumi.F5BigIP.CM
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var myNewDevice = new F5BigIP.CM.Device("myNewDevice", new()
     ///     {
-    ///         var myNewDevice = new F5BigIP.CM.Device("myNewDevice", new F5BigIP.CM.DeviceArgs
-    ///         {
-    ///             ConfigsyncIp = "2.2.2.2",
-    ///             MirrorIp = "10.10.10.10",
-    ///             MirrorSecondaryIp = "11.11.11.11",
-    ///             Name = "bigip300.f5.com",
-    ///         });
-    ///     }
+    ///         ConfigsyncIp = "2.2.2.2",
+    ///         MirrorIp = "10.10.10.10",
+    ///         MirrorSecondaryIp = "11.11.11.11",
+    ///         Name = "bigip300.f5.com",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:cm/device:Device")]
-    public partial class Device : Pulumi.CustomResource
+    public partial class Device : global::Pulumi.CustomResource
     {
         /// <summary>
         /// IP address used for config sync
@@ -106,7 +104,7 @@ namespace Pulumi.F5BigIP.CM
         }
     }
 
-    public sealed class DeviceArgs : Pulumi.ResourceArgs
+    public sealed class DeviceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// IP address used for config sync
@@ -135,9 +133,10 @@ namespace Pulumi.F5BigIP.CM
         public DeviceArgs()
         {
         }
+        public static new DeviceArgs Empty => new DeviceArgs();
     }
 
-    public sealed class DeviceState : Pulumi.ResourceArgs
+    public sealed class DeviceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// IP address used for config sync
@@ -166,5 +165,6 @@ namespace Pulumi.F5BigIP.CM
         public DeviceState()
         {
         }
+        public static new DeviceState Empty => new DeviceState();
     }
 }

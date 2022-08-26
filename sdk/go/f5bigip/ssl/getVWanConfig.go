@@ -18,23 +18,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ssl"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ssl"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ssl.GetVWanConfig(ctx, &ssl.GetVWanConfigArgs{
-// 			AzureVwanName:          "azurevwan-bigip-vwan-9c8d",
-// 			AzureVwanResourcegroup: "azurevwan-bigip-rg-9c8d",
-// 			AzureVwanVpnsite:       "azurevwan-bigip-vsite-9c8d",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ssl.GetVWanConfig(ctx, &ssl.GetVWanConfigArgs{
+//				AzureVwanName:          "azurevwan-bigip-vwan-9c8d",
+//				AzureVwanResourcegroup: "azurevwan-bigip-rg-9c8d",
+//				AzureVwanVpnsite:       "azurevwan-bigip-vsite-9c8d",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Pre-required Environment Settings:
 //

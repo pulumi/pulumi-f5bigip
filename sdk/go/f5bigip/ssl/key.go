@@ -20,33 +20,36 @@ import (
 // package main
 //
 // import (
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ssl"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ssl"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ssl.NewKey(ctx, "test-key", &ssl.KeyArgs{
-// 			Name:      pulumi.String("serverkey.key"),
-// 			Content:   readFileOrPanic("serverkey.key"),
-// 			Partition: pulumi.String("Common"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ssl.NewKey(ctx, "test-key", &ssl.KeyArgs{
+//				Name:      pulumi.String("serverkey.key"),
+//				Content:   readFileOrPanic("serverkey.key"),
+//				Partition: pulumi.String("Common"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type Key struct {
 	pulumi.CustomResourceState
@@ -170,7 +173,7 @@ func (i *Key) ToKeyOutputWithContext(ctx context.Context) KeyOutput {
 // KeyArrayInput is an input type that accepts KeyArray and KeyArrayOutput values.
 // You can construct a concrete instance of `KeyArrayInput` via:
 //
-//          KeyArray{ KeyArgs{...} }
+//	KeyArray{ KeyArgs{...} }
 type KeyArrayInput interface {
 	pulumi.Input
 
@@ -195,7 +198,7 @@ func (i KeyArray) ToKeyArrayOutputWithContext(ctx context.Context) KeyArrayOutpu
 // KeyMapInput is an input type that accepts KeyMap and KeyMapOutput values.
 // You can construct a concrete instance of `KeyMapInput` via:
 //
-//          KeyMap{ "key": KeyArgs{...} }
+//	KeyMap{ "key": KeyArgs{...} }
 type KeyMapInput interface {
 	pulumi.Input
 
@@ -229,6 +232,26 @@ func (o KeyOutput) ToKeyOutput() KeyOutput {
 
 func (o KeyOutput) ToKeyOutputWithContext(ctx context.Context) KeyOutput {
 	return o
+}
+
+// Content of SSL certificate key present on local Disk
+func (o KeyOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.Content }).(pulumi.StringOutput)
+}
+
+// Full Path Name of ssl key
+func (o KeyOutput) FullPath() pulumi.StringOutput {
+	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.FullPath }).(pulumi.StringOutput)
+}
+
+// Name of the SSL Certificate key to be Imported on to BIGIP
+func (o KeyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Key) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Partition of ssl certificate key
+func (o KeyOutput) Partition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Key) pulumi.StringPtrOutput { return v.Partition }).(pulumi.StringPtrOutput)
 }
 
 type KeyArrayOutput struct{ *pulumi.OutputState }

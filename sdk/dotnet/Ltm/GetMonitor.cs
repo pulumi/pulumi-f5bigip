@@ -20,21 +20,19 @@ namespace Pulumi.F5BigIP.Ltm
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using F5BigIP = Pulumi.F5BigIP;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var monitor_TC1 = F5BigIP.Ltm.GetMonitor.Invoke(new()
         ///     {
-        ///         var monitor_TC1 = Output.Create(F5BigIP.Ltm.GetMonitor.InvokeAsync(new F5BigIP.Ltm.GetMonitorArgs
-        ///         {
-        ///             Name = "test-monitor",
-        ///             Partition = "Common",
-        ///         }));
-        ///     }
+        ///         Name = "test-monitor",
+        ///         Partition = "Common",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -51,21 +49,19 @@ namespace Pulumi.F5BigIP.Ltm
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using F5BigIP = Pulumi.F5BigIP;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var monitor_TC1 = F5BigIP.Ltm.GetMonitor.Invoke(new()
         ///     {
-        ///         var monitor_TC1 = Output.Create(F5BigIP.Ltm.GetMonitor.InvokeAsync(new F5BigIP.Ltm.GetMonitorArgs
-        ///         {
-        ///             Name = "test-monitor",
-        ///             Partition = "Common",
-        ///         }));
-        ///     }
+        ///         Name = "test-monitor",
+        ///         Partition = "Common",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.F5BigIP.Ltm
     }
 
 
-    public sealed class GetMonitorArgs : Pulumi.InvokeArgs
+    public sealed class GetMonitorArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the ltm monitor
@@ -92,9 +88,10 @@ namespace Pulumi.F5BigIP.Ltm
         public GetMonitorArgs()
         {
         }
+        public static new GetMonitorArgs Empty => new GetMonitorArgs();
     }
 
-    public sealed class GetMonitorInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetMonitorInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the ltm monitor
@@ -111,6 +108,7 @@ namespace Pulumi.F5BigIP.Ltm
         public GetMonitorInvokeArgs()
         {
         }
+        public static new GetMonitorInvokeArgs Empty => new GetMonitorInvokeArgs();
     }
 
 

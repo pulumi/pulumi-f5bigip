@@ -125,7 +125,7 @@ func (i *FastTemplate) ToFastTemplateOutputWithContext(ctx context.Context) Fast
 // FastTemplateArrayInput is an input type that accepts FastTemplateArray and FastTemplateArrayOutput values.
 // You can construct a concrete instance of `FastTemplateArrayInput` via:
 //
-//          FastTemplateArray{ FastTemplateArgs{...} }
+//	FastTemplateArray{ FastTemplateArgs{...} }
 type FastTemplateArrayInput interface {
 	pulumi.Input
 
@@ -150,7 +150,7 @@ func (i FastTemplateArray) ToFastTemplateArrayOutputWithContext(ctx context.Cont
 // FastTemplateMapInput is an input type that accepts FastTemplateMap and FastTemplateMapOutput values.
 // You can construct a concrete instance of `FastTemplateMapInput` via:
 //
-//          FastTemplateMap{ "key": FastTemplateArgs{...} }
+//	FastTemplateMap{ "key": FastTemplateArgs{...} }
 type FastTemplateMapInput interface {
 	pulumi.Input
 
@@ -184,6 +184,21 @@ func (o FastTemplateOutput) ToFastTemplateOutput() FastTemplateOutput {
 
 func (o FastTemplateOutput) ToFastTemplateOutputWithContext(ctx context.Context) FastTemplateOutput {
 	return o
+}
+
+// MD5 hash of the zip archive file containing FAST template
+func (o FastTemplateOutput) Md5Hash() pulumi.StringOutput {
+	return o.ApplyT(func(v *FastTemplate) pulumi.StringOutput { return v.Md5Hash }).(pulumi.StringOutput)
+}
+
+// Name of the FAST template set to be created on to BIGIP
+func (o FastTemplateOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FastTemplate) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Path to the zip archive file containing FAST template set on Local Disk
+func (o FastTemplateOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v *FastTemplate) pulumi.StringOutput { return v.Source }).(pulumi.StringOutput)
 }
 
 type FastTemplateArrayOutput struct{ *pulumi.OutputState }

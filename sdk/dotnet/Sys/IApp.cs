@@ -15,34 +15,29 @@ namespace Pulumi.F5BigIP.Sys
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var simplehttp = new F5BigIP.Sys.IApp("simplehttp", new()
     ///     {
-    ///         var simplehttp = new F5BigIP.Sys.IApp("simplehttp", new F5BigIP.Sys.IAppArgs
-    ///         {
-    ///             Name = "simplehttp",
-    ///             Jsonfile = File.ReadAllText("simplehttp.json"),
-    ///         });
-    ///     }
+    ///         Name = "simplehttp",
+    ///         Jsonfile = File.ReadAllText("simplehttp.json"),
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### Json File
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///     }
-    /// 
-    /// }
+    /// });
     /// ```
     /// 
     ///  * `description` - User defined description.
@@ -62,7 +57,7 @@ namespace Pulumi.F5BigIP.Sys
     ///  * `variables` - Name, values, encrypted or not
     /// </summary>
     [F5BigIPResourceType("f5bigip:sys/iApp:IApp")]
-    public partial class IApp : Pulumi.CustomResource
+    public partial class IApp : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Address of the Iapp which needs to be Iappensed
@@ -198,7 +193,7 @@ namespace Pulumi.F5BigIP.Sys
         }
     }
 
-    public sealed class IAppArgs : Pulumi.ResourceArgs
+    public sealed class IAppArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Address of the Iapp which needs to be Iappensed
@@ -313,9 +308,10 @@ namespace Pulumi.F5BigIP.Sys
         public IAppArgs()
         {
         }
+        public static new IAppArgs Empty => new IAppArgs();
     }
 
-    public sealed class IAppState : Pulumi.ResourceArgs
+    public sealed class IAppState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Address of the Iapp which needs to be Iappensed
@@ -430,5 +426,6 @@ namespace Pulumi.F5BigIP.Sys
         public IAppState()
         {
         }
+        public static new IAppState Empty => new IAppState();
     }
 }

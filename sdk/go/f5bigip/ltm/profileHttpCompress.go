@@ -21,35 +21,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ltm.NewProfileHttpCompress(ctx, "sjhttpcompression", &ltm.ProfileHttpCompressArgs{
-// 			ContentTypeExcludes: pulumi.StringArray{
-// 				pulumi.String("nicecontentexclude.com"),
-// 			},
-// 			ContentTypeIncludes: pulumi.StringArray{
-// 				pulumi.String("nicecontent.com"),
-// 			},
-// 			DefaultsFrom: pulumi.String("/Common/httpcompression"),
-// 			Name:         pulumi.String("/Common/sjhttpcompression2"),
-// 			UriExcludes: pulumi.StringArray{
-// 				pulumi.String("www.abc.f5.com"),
-// 				pulumi.String("www.abc2.f5.com"),
-// 			},
-// 			UriIncludes: pulumi.StringArray{
-// 				pulumi.String("www.xyzbc.cisco.com"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ltm.NewProfileHttpCompress(ctx, "sjhttpcompression", &ltm.ProfileHttpCompressArgs{
+//				ContentTypeExcludes: pulumi.StringArray{
+//					pulumi.String("nicecontentexclude.com"),
+//				},
+//				ContentTypeIncludes: pulumi.StringArray{
+//					pulumi.String("nicecontent.com"),
+//				},
+//				DefaultsFrom: pulumi.String("/Common/httpcompression"),
+//				Name:         pulumi.String("/Common/sjhttpcompression2"),
+//				UriExcludes: pulumi.StringArray{
+//					pulumi.String("www.abc.f5.com"),
+//					pulumi.String("www.abc2.f5.com"),
+//				},
+//				UriIncludes: pulumi.StringArray{
+//					pulumi.String("www.xyzbc.cisco.com"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type ProfileHttpCompress struct {
 	pulumi.CustomResourceState
@@ -190,7 +193,7 @@ func (i *ProfileHttpCompress) ToProfileHttpCompressOutputWithContext(ctx context
 // ProfileHttpCompressArrayInput is an input type that accepts ProfileHttpCompressArray and ProfileHttpCompressArrayOutput values.
 // You can construct a concrete instance of `ProfileHttpCompressArrayInput` via:
 //
-//          ProfileHttpCompressArray{ ProfileHttpCompressArgs{...} }
+//	ProfileHttpCompressArray{ ProfileHttpCompressArgs{...} }
 type ProfileHttpCompressArrayInput interface {
 	pulumi.Input
 
@@ -215,7 +218,7 @@ func (i ProfileHttpCompressArray) ToProfileHttpCompressArrayOutputWithContext(ct
 // ProfileHttpCompressMapInput is an input type that accepts ProfileHttpCompressMap and ProfileHttpCompressMapOutput values.
 // You can construct a concrete instance of `ProfileHttpCompressMapInput` via:
 //
-//          ProfileHttpCompressMap{ "key": ProfileHttpCompressArgs{...} }
+//	ProfileHttpCompressMap{ "key": ProfileHttpCompressArgs{...} }
 type ProfileHttpCompressMapInput interface {
 	pulumi.Input
 
@@ -249,6 +252,36 @@ func (o ProfileHttpCompressOutput) ToProfileHttpCompressOutput() ProfileHttpComp
 
 func (o ProfileHttpCompressOutput) ToProfileHttpCompressOutputWithContext(ctx context.Context) ProfileHttpCompressOutput {
 	return o
+}
+
+// Excludes a specified list of content types from compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
+func (o ProfileHttpCompressOutput) ContentTypeExcludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProfileHttpCompress) pulumi.StringArrayOutput { return v.ContentTypeExcludes }).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of content types for compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
+func (o ProfileHttpCompressOutput) ContentTypeIncludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProfileHttpCompress) pulumi.StringArrayOutput { return v.ContentTypeIncludes }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
+func (o ProfileHttpCompressOutput) DefaultsFrom() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileHttpCompress) pulumi.StringOutput { return v.DefaultsFrom }).(pulumi.StringOutput)
+}
+
+// Name of the profile_httpcompress
+func (o ProfileHttpCompressOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileHttpCompress) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Disables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you do not want to compress.
+func (o ProfileHttpCompressOutput) UriExcludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProfileHttpCompress) pulumi.StringArrayOutput { return v.UriExcludes }).(pulumi.StringArrayOutput)
+}
+
+// Enables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you want to compress.
+func (o ProfileHttpCompressOutput) UriIncludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProfileHttpCompress) pulumi.StringArrayOutput { return v.UriIncludes }).(pulumi.StringArrayOutput)
 }
 
 type ProfileHttpCompressArrayOutput struct{ *pulumi.OutputState }

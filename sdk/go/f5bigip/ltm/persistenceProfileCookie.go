@@ -19,33 +19,36 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ltm.NewPersistenceProfileCookie(ctx, "testPpcookie", &ltm.PersistenceProfileCookieArgs{
-// 			Name:                       pulumi.String("/Common/terraform_cookie"),
-// 			DefaultsFrom:               pulumi.String("/Common/cookie"),
-// 			MatchAcrossPools:           pulumi.String("enabled"),
-// 			MatchAcrossServices:        pulumi.String("enabled"),
-// 			MatchAcrossVirtuals:        pulumi.String("enabled"),
-// 			Timeout:                    pulumi.Int(3600),
-// 			OverrideConnLimit:          pulumi.String("enabled"),
-// 			AlwaysSend:                 pulumi.String("enabled"),
-// 			CookieEncryption:           pulumi.String("required"),
-// 			CookieEncryptionPassphrase: pulumi.String("iam"),
-// 			CookieName:                 pulumi.String("ham"),
-// 			Expiration:                 pulumi.String("1:0:0"),
-// 			HashLength:                 pulumi.Int(0),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ltm.NewPersistenceProfileCookie(ctx, "testPpcookie", &ltm.PersistenceProfileCookieArgs{
+//				Name:                       pulumi.String("/Common/terraform_cookie"),
+//				DefaultsFrom:               pulumi.String("/Common/cookie"),
+//				MatchAcrossPools:           pulumi.String("enabled"),
+//				MatchAcrossServices:        pulumi.String("enabled"),
+//				MatchAcrossVirtuals:        pulumi.String("enabled"),
+//				Timeout:                    pulumi.Int(3600),
+//				OverrideConnLimit:          pulumi.String("enabled"),
+//				AlwaysSend:                 pulumi.String("enabled"),
+//				CookieEncryption:           pulumi.String("required"),
+//				CookieEncryptionPassphrase: pulumi.String("iam"),
+//				CookieName:                 pulumi.String("ham"),
+//				Expiration:                 pulumi.String("1:0:0"),
+//				HashLength:                 pulumi.Int(0),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Reference
@@ -346,7 +349,7 @@ func (i *PersistenceProfileCookie) ToPersistenceProfileCookieOutputWithContext(c
 // PersistenceProfileCookieArrayInput is an input type that accepts PersistenceProfileCookieArray and PersistenceProfileCookieArrayOutput values.
 // You can construct a concrete instance of `PersistenceProfileCookieArrayInput` via:
 //
-//          PersistenceProfileCookieArray{ PersistenceProfileCookieArgs{...} }
+//	PersistenceProfileCookieArray{ PersistenceProfileCookieArgs{...} }
 type PersistenceProfileCookieArrayInput interface {
 	pulumi.Input
 
@@ -371,7 +374,7 @@ func (i PersistenceProfileCookieArray) ToPersistenceProfileCookieArrayOutputWith
 // PersistenceProfileCookieMapInput is an input type that accepts PersistenceProfileCookieMap and PersistenceProfileCookieMapOutput values.
 // You can construct a concrete instance of `PersistenceProfileCookieMapInput` via:
 //
-//          PersistenceProfileCookieMap{ "key": PersistenceProfileCookieArgs{...} }
+//	PersistenceProfileCookieMap{ "key": PersistenceProfileCookieArgs{...} }
 type PersistenceProfileCookieMapInput interface {
 	pulumi.Input
 
@@ -405,6 +408,96 @@ func (o PersistenceProfileCookieOutput) ToPersistenceProfileCookieOutput() Persi
 
 func (o PersistenceProfileCookieOutput) ToPersistenceProfileCookieOutputWithContext(ctx context.Context) PersistenceProfileCookieOutput {
 	return o
+}
+
+// To enable _ disable always sending cookies
+func (o PersistenceProfileCookieOutput) AlwaysSend() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileCookie) pulumi.StringOutput { return v.AlwaysSend }).(pulumi.StringOutput)
+}
+
+func (o PersistenceProfileCookieOutput) AppService() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileCookie) pulumi.StringOutput { return v.AppService }).(pulumi.StringOutput)
+}
+
+// To required, preferred, or disabled policy for cookie encryption
+func (o PersistenceProfileCookieOutput) CookieEncryption() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileCookie) pulumi.StringOutput { return v.CookieEncryption }).(pulumi.StringOutput)
+}
+
+// Passphrase for encrypted cookies
+func (o PersistenceProfileCookieOutput) CookieEncryptionPassphrase() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileCookie) pulumi.StringOutput { return v.CookieEncryptionPassphrase }).(pulumi.StringOutput)
+}
+
+// Name of the cookie to track persistence
+func (o PersistenceProfileCookieOutput) CookieName() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileCookie) pulumi.StringOutput { return v.CookieName }).(pulumi.StringOutput)
+}
+
+// Inherit defaults from parent profile
+func (o PersistenceProfileCookieOutput) DefaultsFrom() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileCookie) pulumi.StringOutput { return v.DefaultsFrom }).(pulumi.StringOutput)
+}
+
+// Expiration TTL for cookie specified in D:H:M:S or in seconds
+func (o PersistenceProfileCookieOutput) Expiration() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileCookie) pulumi.StringOutput { return v.Expiration }).(pulumi.StringOutput)
+}
+
+// Length of hash to apply to cookie
+func (o PersistenceProfileCookieOutput) HashLength() pulumi.IntOutput {
+	return o.ApplyT(func(v *PersistenceProfileCookie) pulumi.IntOutput { return v.HashLength }).(pulumi.IntOutput)
+}
+
+// Number of characters to skip in the cookie for the hash
+func (o PersistenceProfileCookieOutput) HashOffset() pulumi.IntOutput {
+	return o.ApplyT(func(v *PersistenceProfileCookie) pulumi.IntOutput { return v.HashOffset }).(pulumi.IntOutput)
+}
+
+// To enable _ disable sending only over http
+func (o PersistenceProfileCookieOutput) Httponly() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileCookie) pulumi.StringOutput { return v.Httponly }).(pulumi.StringOutput)
+}
+
+// To enable _ disable match across pools with given persistence record
+func (o PersistenceProfileCookieOutput) MatchAcrossPools() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileCookie) pulumi.StringOutput { return v.MatchAcrossPools }).(pulumi.StringOutput)
+}
+
+// To enable _ disable match across services with given persistence record
+func (o PersistenceProfileCookieOutput) MatchAcrossServices() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileCookie) pulumi.StringOutput { return v.MatchAcrossServices }).(pulumi.StringOutput)
+}
+
+// To enable _ disable match across virtual servers with given persistence record
+func (o PersistenceProfileCookieOutput) MatchAcrossVirtuals() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileCookie) pulumi.StringOutput { return v.MatchAcrossVirtuals }).(pulumi.StringOutput)
+}
+
+// Specifies the type of cookie processing that the system uses
+func (o PersistenceProfileCookieOutput) Method() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileCookie) pulumi.StringOutput { return v.Method }).(pulumi.StringOutput)
+}
+
+// To enable _ disable
+func (o PersistenceProfileCookieOutput) Mirror() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileCookie) pulumi.StringOutput { return v.Mirror }).(pulumi.StringOutput)
+}
+
+// Name of the persistence profile
+func (o PersistenceProfileCookieOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileCookie) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// To enable _ disable that pool member connection limits are overridden for persisted clients. Per-virtual connection
+// limits remain hard limits and are not overridden.
+func (o PersistenceProfileCookieOutput) OverrideConnLimit() pulumi.StringOutput {
+	return o.ApplyT(func(v *PersistenceProfileCookie) pulumi.StringOutput { return v.OverrideConnLimit }).(pulumi.StringOutput)
+}
+
+// Timeout for persistence of the session
+func (o PersistenceProfileCookieOutput) Timeout() pulumi.IntOutput {
+	return o.ApplyT(func(v *PersistenceProfileCookie) pulumi.IntOutput { return v.Timeout }).(pulumi.IntOutput)
 }
 
 type PersistenceProfileCookieArrayOutput struct{ *pulumi.OutputState }

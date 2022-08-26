@@ -67,6 +67,22 @@ import * as utilities from "../utilities";
  *     dependsOn: [bigip_net_vlan.vlan1],
  * });
  * ```
+ * ### Example usage with route domain embedded in the `ip`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const selfip1 = new f5bigip.net.SelfIp("selfip1", {
+ *     name: "/Common/internalselfIP",
+ *     ip: `11.1.1.1%4/24`,
+ *     vlan: "/Common/internal",
+ *     trafficGroup: "traffic-group-1",
+ *     portLockdowns: ["none"],
+ * }, {
+ *     dependsOn: [bigip_net_vlan.vlan1],
+ * });
+ * ```
  */
 export class SelfIp extends pulumi.CustomResource {
     /**
@@ -97,7 +113,7 @@ export class SelfIp extends pulumi.CustomResource {
     }
 
     /**
-     * The Self IP's address and netmask.
+     * The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
      */
     public readonly ip!: pulumi.Output<string>;
     /**
@@ -162,7 +178,7 @@ export class SelfIp extends pulumi.CustomResource {
  */
 export interface SelfIpState {
     /**
-     * The Self IP's address and netmask.
+     * The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
      */
     ip?: pulumi.Input<string>;
     /**
@@ -188,7 +204,7 @@ export interface SelfIpState {
  */
 export interface SelfIpArgs {
     /**
-     * The Self IP's address and netmask.
+     * The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
      */
     ip: pulumi.Input<string>;
     /**

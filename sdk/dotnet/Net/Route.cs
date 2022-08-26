@@ -17,26 +17,24 @@ namespace Pulumi.F5BigIP.Net
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var route2 = new F5BigIP.Net.Route("route2", new()
     ///     {
-    ///         var route2 = new F5BigIP.Net.Route("route2", new F5BigIP.Net.RouteArgs
-    ///         {
-    ///             Gw = "1.1.1.2",
-    ///             Name = "/Common/external-route",
-    ///             Network = "10.10.10.0/24",
-    ///         });
-    ///     }
+    ///         Gw = "1.1.1.2",
+    ///         Name = "/Common/external-route",
+    ///         Network = "10.10.10.0/24",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:net/route:Route")]
-    public partial class Route : Pulumi.CustomResource
+    public partial class Route : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies a gateway address for the route.
@@ -112,7 +110,7 @@ namespace Pulumi.F5BigIP.Net
         }
     }
 
-    public sealed class RouteArgs : Pulumi.ResourceArgs
+    public sealed class RouteArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies a gateway address for the route.
@@ -147,9 +145,10 @@ namespace Pulumi.F5BigIP.Net
         public RouteArgs()
         {
         }
+        public static new RouteArgs Empty => new RouteArgs();
     }
 
-    public sealed class RouteState : Pulumi.ResourceArgs
+    public sealed class RouteState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies a gateway address for the route.
@@ -184,5 +183,6 @@ namespace Pulumi.F5BigIP.Net
         public RouteState()
         {
         }
+        public static new RouteState Empty => new RouteState();
     }
 }

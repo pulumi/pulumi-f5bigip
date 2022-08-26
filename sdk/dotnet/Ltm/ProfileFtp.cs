@@ -18,49 +18,45 @@ namespace Pulumi.F5BigIP.Ltm
     /// ### For Bigip versions (14.x - 16.x)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var sanjose_ftp_profile = new F5BigIP.Ltm.ProfileFtp("sanjose-ftp-profile", new()
     ///     {
-    ///         var sanjose_ftp_profile = new F5BigIP.Ltm.ProfileFtp("sanjose-ftp-profile", new F5BigIP.Ltm.ProfileFtpArgs
-    ///         {
-    ///             AllowActiveMode = "enabled",
-    ///             DefaultsFrom = "/Common/ftp",
-    ///             Description = "test-tftp-profile",
-    ///             EnforceTlssessionReuse = "enabled",
-    ///             FtpsMode = "allow",
-    ///             Name = "/Common/sanjose-ftp-profile",
-    ///             Port = 2020,
-    ///         });
-    ///     }
+    ///         AllowActiveMode = "enabled",
+    ///         DefaultsFrom = "/Common/ftp",
+    ///         Description = "test-tftp-profile",
+    ///         EnforceTlssessionReuse = "enabled",
+    ///         FtpsMode = "allow",
+    ///         Name = "/Common/sanjose-ftp-profile",
+    ///         Port = 2020,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### For Bigip versions (12.x - 13.x)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var sanjose_ftp_profile = new F5BigIP.Ltm.ProfileFtp("sanjose-ftp-profile", new()
     ///     {
-    ///         var sanjose_ftp_profile = new F5BigIP.Ltm.ProfileFtp("sanjose-ftp-profile", new F5BigIP.Ltm.ProfileFtpArgs
-    ///         {
-    ///             AllowFtps = "enabled",
-    ///             DefaultsFrom = "/Common/ftp",
-    ///             Description = "test-tftp-profile",
-    ///             Name = "/Common/sanjose-ftp-profile",
-    ///             Port = 2020,
-    ///             TranslateExtended = "enabled",
-    ///         });
-    ///     }
+    ///         AllowFtps = "enabled",
+    ///         DefaultsFrom = "/Common/ftp",
+    ///         Description = "test-tftp-profile",
+    ///         Name = "/Common/sanjose-ftp-profile",
+    ///         Port = 2020,
+    ///         TranslateExtended = "enabled",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## Common Arguments for all versions
     /// 
@@ -77,7 +73,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// * `description` - (Optional)User defined description for FTP profile
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/profileFtp:ProfileFtp")]
-    public partial class ProfileFtp : Pulumi.CustomResource
+    public partial class ProfileFtp : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled
@@ -221,7 +217,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
     }
 
-    public sealed class ProfileFtpArgs : Pulumi.ResourceArgs
+    public sealed class ProfileFtpArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled
@@ -324,9 +320,10 @@ namespace Pulumi.F5BigIP.Ltm
         public ProfileFtpArgs()
         {
         }
+        public static new ProfileFtpArgs Empty => new ProfileFtpArgs();
     }
 
-    public sealed class ProfileFtpState : Pulumi.ResourceArgs
+    public sealed class ProfileFtpState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled
@@ -429,5 +426,6 @@ namespace Pulumi.F5BigIP.Ltm
         public ProfileFtpState()
         {
         }
+        public static new ProfileFtpState Empty => new ProfileFtpState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Ltm.Inputs
 {
 
-    public sealed class PolicyRuleConditionArgs : Pulumi.ResourceArgs
+    public sealed class PolicyRuleConditionArgs : global::Pulumi.ResourceArgs
     {
         [Input("address")]
         public Input<bool>? Address { get; set; }
@@ -77,6 +77,9 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
 
         [Input("equals")]
         public Input<bool>? Equals { get; set; }
+
+        [Input("exists")]
+        public Input<bool>? Exists { get; set; }
 
         [Input("expiry")]
         public Input<bool>? Expiry { get; set; }
@@ -290,5 +293,6 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
         public PolicyRuleConditionArgs()
         {
         }
+        public static new PolicyRuleConditionArgs Empty => new PolicyRuleConditionArgs();
     }
 }

@@ -17,33 +17,31 @@ namespace Pulumi.F5BigIP
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test_policy = new F5BigIP.IpsecPolicy("test-policy", new()
     ///     {
-    ///         var test_policy = new F5BigIP.IpsecPolicy("test-policy", new F5BigIP.IpsecPolicyArgs
-    ///         {
-    ///             AuthAlgorithm = "sha1",
-    ///             Description = "created by terraform provider",
-    ///             EncryptAlgorithm = "3des",
-    ///             Ipcomp = "deflate",
-    ///             Lifetime = 3,
-    ///             Mode = "tunnel",
-    ///             Name = "/Common/test-policy",
-    ///             Protocol = "esp",
-    ///             TunnelLocalAddress = "192.168.1.1",
-    ///             TunnelRemoteAddress = "10.10.1.1",
-    ///         });
-    ///     }
+    ///         AuthAlgorithm = "sha1",
+    ///         Description = "created by terraform provider",
+    ///         EncryptAlgorithm = "3des",
+    ///         Ipcomp = "deflate",
+    ///         Lifetime = 3,
+    ///         Mode = "tunnel",
+    ///         Name = "/Common/test-policy",
+    ///         Protocol = "esp",
+    ///         TunnelLocalAddress = "192.168.1.1",
+    ///         TunnelRemoteAddress = "10.10.1.1",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:index/ipsecPolicy:IpsecPolicy")]
-    public partial class IpsecPolicy : Pulumi.CustomResource
+    public partial class IpsecPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the algorithm to use for IKE authentication. Valid choices are: `sha1, sha256, sha384, sha512, aes-gcm128,
@@ -164,7 +162,7 @@ namespace Pulumi.F5BigIP
         }
     }
 
-    public sealed class IpsecPolicyArgs : Pulumi.ResourceArgs
+    public sealed class IpsecPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the algorithm to use for IKE authentication. Valid choices are: `sha1, sha256, sha384, sha512, aes-gcm128,
@@ -244,9 +242,10 @@ namespace Pulumi.F5BigIP
         public IpsecPolicyArgs()
         {
         }
+        public static new IpsecPolicyArgs Empty => new IpsecPolicyArgs();
     }
 
-    public sealed class IpsecPolicyState : Pulumi.ResourceArgs
+    public sealed class IpsecPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the algorithm to use for IKE authentication. Valid choices are: `sha1, sha256, sha384, sha512, aes-gcm128,
@@ -326,5 +325,6 @@ namespace Pulumi.F5BigIP
         public IpsecPolicyState()
         {
         }
+        public static new IpsecPolicyState Empty => new IpsecPolicyState();
     }
 }

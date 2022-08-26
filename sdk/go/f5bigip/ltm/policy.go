@@ -13,7 +13,7 @@ import (
 
 // `ltm.Policy` Configures ltm policies to manage traffic assigned to a virtual server
 //
-// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+// For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource. For example `/Common/test-policy`.
 //
 // ## Example Usage
 //
@@ -21,50 +21,54 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		mypool, err := ltm.NewPool(ctx, "mypool", &ltm.PoolArgs{
-// 			Name:              pulumi.String("/Common/test-pool"),
-// 			AllowNat:          pulumi.String("yes"),
-// 			AllowSnat:         pulumi.String("yes"),
-// 			LoadBalancingMode: pulumi.String("round-robin"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = ltm.NewPolicy(ctx, "test-policy", &ltm.PolicyArgs{
-// 			Name:     pulumi.String("/Common/test-policy"),
-// 			Strategy: pulumi.String("first-match"),
-// 			Requires: pulumi.StringArray{
-// 				pulumi.String("http"),
-// 			},
-// 			Controls: pulumi.StringArray{
-// 				pulumi.String("forwarding"),
-// 			},
-// 			Rules: ltm.PolicyRuleArray{
-// 				&ltm.PolicyRuleArgs{
-// 					Name: pulumi.String("rule6"),
-// 					Actions: ltm.PolicyRuleActionArray{
-// 						&ltm.PolicyRuleActionArgs{
-// 							Forward: pulumi.Bool(true),
-// 							Pool:    mypool.Name,
-// 						},
-// 					},
-// 				},
-// 			},
-// 		}, pulumi.DependsOn([]pulumi.Resource{
-// 			mypool,
-// 		}))
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			mypool, err := ltm.NewPool(ctx, "mypool", &ltm.PoolArgs{
+//				Name:              pulumi.String("/Common/test-pool"),
+//				AllowNat:          pulumi.String("yes"),
+//				AllowSnat:         pulumi.String("yes"),
+//				LoadBalancingMode: pulumi.String("round-robin"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ltm.NewPolicy(ctx, "test-policy", &ltm.PolicyArgs{
+//				Name:     pulumi.String("/Common/test-policy"),
+//				Strategy: pulumi.String("first-match"),
+//				Requires: pulumi.StringArray{
+//					pulumi.String("http"),
+//				},
+//				Controls: pulumi.StringArray{
+//					pulumi.String("forwarding"),
+//				},
+//				Rules: ltm.PolicyRuleArray{
+//					&ltm.PolicyRuleArgs{
+//						Name: pulumi.String("rule6"),
+//						Actions: ltm.PolicyRuleActionArray{
+//							&ltm.PolicyRuleActionArgs{
+//								Forward:    pulumi.Bool(true),
+//								Connection: pulumi.Bool(false),
+//								Pool:       mypool.Name,
+//							},
+//						},
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				mypool,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type Policy struct {
 	pulumi.CustomResourceState
@@ -205,7 +209,7 @@ func (i *Policy) ToPolicyOutputWithContext(ctx context.Context) PolicyOutput {
 // PolicyArrayInput is an input type that accepts PolicyArray and PolicyArrayOutput values.
 // You can construct a concrete instance of `PolicyArrayInput` via:
 //
-//          PolicyArray{ PolicyArgs{...} }
+//	PolicyArray{ PolicyArgs{...} }
 type PolicyArrayInput interface {
 	pulumi.Input
 
@@ -230,7 +234,7 @@ func (i PolicyArray) ToPolicyArrayOutputWithContext(ctx context.Context) PolicyA
 // PolicyMapInput is an input type that accepts PolicyMap and PolicyMapOutput values.
 // You can construct a concrete instance of `PolicyMapInput` via:
 //
-//          PolicyMap{ "key": PolicyArgs{...} }
+//	PolicyMap{ "key": PolicyArgs{...} }
 type PolicyMapInput interface {
 	pulumi.Input
 
@@ -264,6 +268,36 @@ func (o PolicyOutput) ToPolicyOutput() PolicyOutput {
 
 func (o PolicyOutput) ToPolicyOutputWithContext(ctx context.Context) PolicyOutput {
 	return o
+}
+
+// Specifies the controls
+func (o PolicyOutput) Controls() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringArrayOutput { return v.Controls }).(pulumi.StringArrayOutput)
+}
+
+// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+func (o PolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// If you want to publish the policy else it will be deployed in Drafts mode.
+func (o PolicyOutput) PublishedCopy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.PublishedCopy }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the protocol
+func (o PolicyOutput) Requires() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringArrayOutput { return v.Requires }).(pulumi.StringArrayOutput)
+}
+
+// Rules can be applied using the policy
+func (o PolicyOutput) Rules() PolicyRuleArrayOutput {
+	return o.ApplyT(func(v *Policy) PolicyRuleArrayOutput { return v.Rules }).(PolicyRuleArrayOutput)
+}
+
+// Specifies the match strategy
+func (o PolicyOutput) Strategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.Strategy }).(pulumi.StringPtrOutput)
 }
 
 type PolicyArrayOutput struct{ *pulumi.OutputState }

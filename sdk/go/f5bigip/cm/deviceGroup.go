@@ -18,32 +18,35 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/cm"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/cm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := cm.NewDeviceGroup(ctx, "myNewDevicegroup", &cm.DeviceGroupArgs{
-// 			AutoSync: pulumi.String("enabled"),
-// 			Devices: cm.DeviceGroupDeviceArray{
-// 				&cm.DeviceGroupDeviceArgs{
-// 					Name: pulumi.String("bigip1.cisco.com"),
-// 				},
-// 				&cm.DeviceGroupDeviceArgs{
-// 					Name: pulumi.String("bigip200.f5.com"),
-// 				},
-// 			},
-// 			FullLoadOnSync: pulumi.String("true"),
-// 			Name:           pulumi.String("sanjose_devicegroup"),
-// 			Type:           pulumi.String("sync-only"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cm.NewDeviceGroup(ctx, "myNewDevicegroup", &cm.DeviceGroupArgs{
+//				AutoSync: pulumi.String("enabled"),
+//				Devices: cm.DeviceGroupDeviceArray{
+//					&cm.DeviceGroupDeviceArgs{
+//						Name: pulumi.String("bigip1.cisco.com"),
+//					},
+//					&cm.DeviceGroupDeviceArgs{
+//						Name: pulumi.String("bigip200.f5.com"),
+//					},
+//				},
+//				FullLoadOnSync: pulumi.String("true"),
+//				Name:           pulumi.String("sanjose_devicegroup"),
+//				Type:           pulumi.String("sync-only"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type DeviceGroup struct {
 	pulumi.CustomResourceState
@@ -221,7 +224,7 @@ func (i *DeviceGroup) ToDeviceGroupOutputWithContext(ctx context.Context) Device
 // DeviceGroupArrayInput is an input type that accepts DeviceGroupArray and DeviceGroupArrayOutput values.
 // You can construct a concrete instance of `DeviceGroupArrayInput` via:
 //
-//          DeviceGroupArray{ DeviceGroupArgs{...} }
+//	DeviceGroupArray{ DeviceGroupArgs{...} }
 type DeviceGroupArrayInput interface {
 	pulumi.Input
 
@@ -246,7 +249,7 @@ func (i DeviceGroupArray) ToDeviceGroupArrayOutputWithContext(ctx context.Contex
 // DeviceGroupMapInput is an input type that accepts DeviceGroupMap and DeviceGroupMapOutput values.
 // You can construct a concrete instance of `DeviceGroupMapInput` via:
 //
-//          DeviceGroupMap{ "key": DeviceGroupArgs{...} }
+//	DeviceGroupMap{ "key": DeviceGroupArgs{...} }
 type DeviceGroupMapInput interface {
 	pulumi.Input
 
@@ -280,6 +283,56 @@ func (o DeviceGroupOutput) ToDeviceGroupOutput() DeviceGroupOutput {
 
 func (o DeviceGroupOutput) ToDeviceGroupOutputWithContext(ctx context.Context) DeviceGroupOutput {
 	return o
+}
+
+// Specifies if the device-group will automatically sync configuration data to its members
+func (o DeviceGroupOutput) AutoSync() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeviceGroup) pulumi.StringPtrOutput { return v.AutoSync }).(pulumi.StringPtrOutput)
+}
+
+// Description of Device group
+func (o DeviceGroupOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeviceGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Name of the device to be included in device group, this need to be configured before using devicegroup resource
+func (o DeviceGroupOutput) Devices() DeviceGroupDeviceArrayOutput {
+	return o.ApplyT(func(v *DeviceGroup) DeviceGroupDeviceArrayOutput { return v.Devices }).(DeviceGroupDeviceArrayOutput)
+}
+
+// Specifies if the device-group will perform a full-load upon sync
+func (o DeviceGroupOutput) FullLoadOnSync() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeviceGroup) pulumi.StringPtrOutput { return v.FullLoadOnSync }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the maximum size (in KB) to devote to incremental config sync cached transactions. The default is 1024 KB.
+func (o DeviceGroupOutput) IncrementalConfig() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DeviceGroup) pulumi.IntPtrOutput { return v.IncrementalConfig }).(pulumi.IntPtrOutput)
+}
+
+// Is the name of the device Group
+func (o DeviceGroupOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeviceGroup) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Specifies if the device-group will use a network connection for failover
+func (o DeviceGroupOutput) NetworkFailover() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeviceGroup) pulumi.StringPtrOutput { return v.NetworkFailover }).(pulumi.StringPtrOutput)
+}
+
+// Device administrative partition
+func (o DeviceGroupOutput) Partition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeviceGroup) pulumi.StringPtrOutput { return v.Partition }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the configuration should be saved upon auto-sync.
+func (o DeviceGroupOutput) SaveOnAutoSync() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeviceGroup) pulumi.StringPtrOutput { return v.SaveOnAutoSync }).(pulumi.StringPtrOutput)
+}
+
+// Specifies if the device-group will be used for failover or resource syncing
+func (o DeviceGroupOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DeviceGroup) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }
 
 type DeviceGroupArrayOutput struct{ *pulumi.OutputState }

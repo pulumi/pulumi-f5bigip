@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Ltm.Inputs
 {
 
-    public sealed class GetPolicyRuleActionInputArgs : Pulumi.ResourceArgs
+    public sealed class GetPolicyRuleActionInputArgs : global::Pulumi.ResourceArgs
     {
         [Input("appService", required: true)]
         public Input<string> AppService { get; set; } = null!;
@@ -327,5 +327,6 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
         public GetPolicyRuleActionInputArgs()
         {
         }
+        public static new GetPolicyRuleActionInputArgs Empty => new GetPolicyRuleActionInputArgs();
     }
 }

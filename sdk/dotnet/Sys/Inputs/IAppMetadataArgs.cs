@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Sys.Inputs
 {
 
-    public sealed class IAppMetadataArgs : Pulumi.ResourceArgs
+    public sealed class IAppMetadataArgs : global::Pulumi.ResourceArgs
     {
         [Input("persists")]
         public Input<string>? Persists { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.F5BigIP.Sys.Inputs
         public IAppMetadataArgs()
         {
         }
+        public static new IAppMetadataArgs Empty => new IAppMetadataArgs();
     }
 }

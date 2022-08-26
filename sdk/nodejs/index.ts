@@ -12,6 +12,9 @@ export * from "./commonLicenseManageBigIq";
 export * from "./do";
 export * from "./eventServiceDiscovery";
 export * from "./fastApplication";
+export * from "./fastHttpApp";
+export * from "./fastHttpsApp";
+export * from "./fastTcpApp";
 export * from "./fastTemplate";
 export * from "./ipsecPolicy";
 export * from "./ipsecProfile";
@@ -48,6 +51,9 @@ import { CommonLicenseManageBigIq } from "./commonLicenseManageBigIq";
 import { Do } from "./do";
 import { EventServiceDiscovery } from "./eventServiceDiscovery";
 import { FastApplication } from "./fastApplication";
+import { FastHttpApp } from "./fastHttpApp";
+import { FastHttpsApp } from "./fastHttpsApp";
+import { FastTcpApp } from "./fastTcpApp";
 import { FastTemplate } from "./fastTemplate";
 import { IpsecPolicy } from "./ipsecPolicy";
 import { IpsecProfile } from "./ipsecProfile";
@@ -74,6 +80,12 @@ const _module = {
                 return new EventServiceDiscovery(name, <any>undefined, { urn })
             case "f5bigip:index/fastApplication:FastApplication":
                 return new FastApplication(name, <any>undefined, { urn })
+            case "f5bigip:index/fastHttpApp:FastHttpApp":
+                return new FastHttpApp(name, <any>undefined, { urn })
+            case "f5bigip:index/fastHttpsApp:FastHttpsApp":
+                return new FastHttpsApp(name, <any>undefined, { urn })
+            case "f5bigip:index/fastTcpApp:FastTcpApp":
+                return new FastTcpApp(name, <any>undefined, { urn })
             case "f5bigip:index/fastTemplate:FastTemplate":
                 return new FastTemplate(name, <any>undefined, { urn })
             case "f5bigip:index/ipsecPolicy:IpsecPolicy":
@@ -100,6 +112,9 @@ pulumi.runtime.registerResourceModule("f5bigip", "index/commonLicenseManageBigIq
 pulumi.runtime.registerResourceModule("f5bigip", "index/do", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/eventServiceDiscovery", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/fastApplication", _module)
+pulumi.runtime.registerResourceModule("f5bigip", "index/fastHttpApp", _module)
+pulumi.runtime.registerResourceModule("f5bigip", "index/fastHttpsApp", _module)
+pulumi.runtime.registerResourceModule("f5bigip", "index/fastTcpApp", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/fastTemplate", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/ipsecPolicy", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/ipsecProfile", _module)

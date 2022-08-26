@@ -15,28 +15,26 @@ namespace Pulumi.F5BigIP.Sys
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var gtm = new F5BigIP.Sys.Provision("gtm", new()
     ///     {
-    ///         var gtm = new F5BigIP.Sys.Provision("gtm", new F5BigIP.Sys.ProvisionArgs
-    ///         {
-    ///             CpuRatio = 0,
-    ///             DiskRatio = 0,
-    ///             Level = "nominal",
-    ///             MemoryRatio = 0,
-    ///             Name = "gtm",
-    ///         });
-    ///     }
+    ///         CpuRatio = 0,
+    ///         DiskRatio = 0,
+    ///         Level = "nominal",
+    ///         MemoryRatio = 0,
+    ///         Name = "gtm",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:sys/provision:Provision")]
-    public partial class Provision : Pulumi.CustomResource
+    public partial class Provision : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
@@ -138,7 +136,7 @@ namespace Pulumi.F5BigIP.Sys
         }
     }
 
-    public sealed class ProvisionArgs : Pulumi.ResourceArgs
+    public sealed class ProvisionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
@@ -199,9 +197,10 @@ namespace Pulumi.F5BigIP.Sys
         public ProvisionArgs()
         {
         }
+        public static new ProvisionArgs Empty => new ProvisionArgs();
     }
 
-    public sealed class ProvisionState : Pulumi.ResourceArgs
+    public sealed class ProvisionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
@@ -262,5 +261,6 @@ namespace Pulumi.F5BigIP.Sys
         public ProvisionState()
         {
         }
+        public static new ProvisionState Empty => new ProvisionState();
     }
 }

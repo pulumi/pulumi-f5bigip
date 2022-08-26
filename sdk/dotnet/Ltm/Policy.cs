@@ -12,66 +12,66 @@ namespace Pulumi.F5BigIP.Ltm
     /// <summary>
     /// `f5bigip.ltm.Policy` Configures ltm policies to manage traffic assigned to a virtual server
     /// 
-    /// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+    /// For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource. For example `/Common/test-policy`.
     /// 
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var mypool = new F5BigIP.Ltm.Pool("mypool", new()
     ///     {
-    ///         var mypool = new F5BigIP.Ltm.Pool("mypool", new F5BigIP.Ltm.PoolArgs
+    ///         Name = "/Common/test-pool",
+    ///         AllowNat = "yes",
+    ///         AllowSnat = "yes",
+    ///         LoadBalancingMode = "round-robin",
+    ///     });
+    /// 
+    ///     var test_policy = new F5BigIP.Ltm.Policy("test-policy", new()
+    ///     {
+    ///         Name = "/Common/test-policy",
+    ///         Strategy = "first-match",
+    ///         Requires = new[]
     ///         {
-    ///             Name = "/Common/test-pool",
-    ///             AllowNat = "yes",
-    ///             AllowSnat = "yes",
-    ///             LoadBalancingMode = "round-robin",
-    ///         });
-    ///         var test_policy = new F5BigIP.Ltm.Policy("test-policy", new F5BigIP.Ltm.PolicyArgs
+    ///             "http",
+    ///         },
+    ///         Controls = new[]
     ///         {
-    ///             Name = "/Common/test-policy",
-    ///             Strategy = "first-match",
-    ///             Requires = 
+    ///             "forwarding",
+    ///         },
+    ///         Rules = new[]
+    ///         {
+    ///             new F5BigIP.Ltm.Inputs.PolicyRuleArgs
     ///             {
-    ///                 "http",
-    ///             },
-    ///             Controls = 
-    ///             {
-    ///                 "forwarding",
-    ///             },
-    ///             Rules = 
-    ///             {
-    ///                 new F5BigIP.Ltm.Inputs.PolicyRuleArgs
+    ///                 Name = "rule6",
+    ///                 Actions = new[]
     ///                 {
-    ///                     Name = "rule6",
-    ///                     Actions = 
+    ///                     new F5BigIP.Ltm.Inputs.PolicyRuleActionArgs
     ///                     {
-    ///                         new F5BigIP.Ltm.Inputs.PolicyRuleActionArgs
-    ///                         {
-    ///                             Forward = true,
-    ///                             Pool = mypool.Name,
-    ///                         },
+    ///                         Forward = true,
+    ///                         Connection = false,
+    ///                         Pool = mypool.Name,
     ///                     },
     ///                 },
     ///             },
-    ///         }, new CustomResourceOptions
+    ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn = new[]
     ///         {
-    ///             DependsOn = 
-    ///             {
-    ///                 mypool,
-    ///             },
-    ///         });
-    ///     }
+    ///             mypool,
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/policy:Policy")]
-    public partial class Policy : Pulumi.CustomResource
+    public partial class Policy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the controls
@@ -153,7 +153,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
     }
 
-    public sealed class PolicyArgs : Pulumi.ResourceArgs
+    public sealed class PolicyArgs : global::Pulumi.ResourceArgs
     {
         [Input("controls")]
         private InputList<string>? _controls;
@@ -212,9 +212,10 @@ namespace Pulumi.F5BigIP.Ltm
         public PolicyArgs()
         {
         }
+        public static new PolicyArgs Empty => new PolicyArgs();
     }
 
-    public sealed class PolicyState : Pulumi.ResourceArgs
+    public sealed class PolicyState : global::Pulumi.ResourceArgs
     {
         [Input("controls")]
         private InputList<string>? _controls;
@@ -273,5 +274,6 @@ namespace Pulumi.F5BigIP.Ltm
         public PolicyState()
         {
         }
+        public static new PolicyState Empty => new PolicyState();
     }
 }

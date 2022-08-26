@@ -12,68 +12,69 @@ namespace Pulumi.F5BigIP.Ltm
     /// <summary>
     /// `f5bigip.ltm.Monitor` Configures a custom monitor for use by health checks.
     /// 
-    /// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+    /// For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource. For example `/Common/test-monitor`.
     /// 
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var monitor = new F5BigIP.Ltm.Monitor("monitor", new()
     ///     {
-    ///         var monitor = new F5BigIP.Ltm.Monitor("monitor", new F5BigIP.Ltm.MonitorArgs
-    ///         {
-    ///             Destination = "1.2.3.4:1234",
-    ///             Interval = 999,
-    ///             Name = "/Common/terraform_monitor",
-    ///             Parent = "/Common/http",
-    ///             Send = @"GET /some/path
+    ///         Destination = "1.2.3.4:1234",
+    ///         Interval = 998,
+    ///         Name = "/Common/terraform_monitor",
+    ///         Parent = "/Common/http",
+    ///         Send = @"GET /some/path
     /// 
     /// ",
-    ///             Timeout = 999,
-    ///         });
-    ///         var test_https_monitor = new F5BigIP.Ltm.Monitor("test-https-monitor", new F5BigIP.Ltm.MonitorArgs
-    ///         {
-    ///             Interval = 999,
-    ///             Name = "/Common/terraform_monitor",
-    ///             Parent = "/Common/http",
-    ///             Send = @"GET /some/path
+    ///         Timeout = 999,
+    ///     });
+    /// 
+    ///     var test_https_monitor = new F5BigIP.Ltm.Monitor("test-https-monitor", new()
+    ///     {
+    ///         Interval = 999,
+    ///         Name = "/Common/terraform_monitor",
+    ///         Parent = "/Common/http",
+    ///         Send = @"GET /some/path
     /// 
     /// ",
-    ///             SslProfile = "/Common/serverssl",
-    ///             Timeout = 999,
-    ///         });
-    ///         var test_ftp_monitor = new F5BigIP.Ltm.Monitor("test-ftp-monitor", new F5BigIP.Ltm.MonitorArgs
-    ///         {
-    ///             Destination = "*:8008",
-    ///             Filename = "somefile",
-    ///             Interval = 5,
-    ///             Name = "/Common/ftp-test",
-    ///             Parent = "/Common/ftp",
-    ///             TimeUntilUp = 0,
-    ///             Timeout = 16,
-    ///         });
-    ///         var test_postgresql_monitor = new F5BigIP.Ltm.Monitor("test-postgresql-monitor", new F5BigIP.Ltm.MonitorArgs
-    ///         {
-    ///             Interval = 5,
-    ///             Name = "/Common/test-postgresql-monitor",
-    ///             Parent = "/Common/postgresql",
-    ///             Password = "abcd1234",
-    ///             Receive = "Test",
-    ///             Send = "SELECT 'Test';",
-    ///             Timeout = 16,
-    ///             Username = "abcd",
-    ///         });
-    ///     }
+    ///         SslProfile = "/Common/serverssl",
+    ///         Timeout = 1000,
+    ///     });
     /// 
-    /// }
+    ///     var test_ftp_monitor = new F5BigIP.Ltm.Monitor("test-ftp-monitor", new()
+    ///     {
+    ///         Destination = "*:8008",
+    ///         Filename = "somefile",
+    ///         Interval = 5,
+    ///         Name = "/Common/ftp-test",
+    ///         Parent = "/Common/ftp",
+    ///         TimeUntilUp = 0,
+    ///         Timeout = 16,
+    ///     });
+    /// 
+    ///     var test_postgresql_monitor = new F5BigIP.Ltm.Monitor("test-postgresql-monitor", new()
+    ///     {
+    ///         Interval = 5,
+    ///         Name = "/Common/test-postgresql-monitor",
+    ///         Parent = "/Common/postgresql",
+    ///         Password = "abcd1234",
+    ///         Receive = "Test",
+    ///         Send = "SELECT 'Test';",
+    ///         Timeout = 16,
+    ///         Username = "abcd",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/monitor:Monitor")]
-    public partial class Monitor : Pulumi.CustomResource
+    public partial class Monitor : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
@@ -112,7 +113,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string?> Filename { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown. The default is `5`
+        /// Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
         /// </summary>
         [Output("interval")]
         public Output<int> Interval { get; private set; } = null!;
@@ -257,7 +258,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
     }
 
-    public sealed class MonitorArgs : Pulumi.ResourceArgs
+    public sealed class MonitorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
@@ -296,7 +297,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Filename { get; set; }
 
         /// <summary>
-        /// Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown. The default is `5`
+        /// Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
         /// </summary>
         [Input("interval")]
         public Input<int>? Interval { get; set; }
@@ -400,9 +401,10 @@ namespace Pulumi.F5BigIP.Ltm
         public MonitorArgs()
         {
         }
+        public static new MonitorArgs Empty => new MonitorArgs();
     }
 
-    public sealed class MonitorState : Pulumi.ResourceArgs
+    public sealed class MonitorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
@@ -441,7 +443,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Filename { get; set; }
 
         /// <summary>
-        /// Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown. The default is `5`
+        /// Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
         /// </summary>
         [Input("interval")]
         public Input<int>? Interval { get; set; }
@@ -545,5 +547,6 @@ namespace Pulumi.F5BigIP.Ltm
         public MonitorState()
         {
         }
+        public static new MonitorState Empty => new MonitorState();
     }
 }

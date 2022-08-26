@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * `f5bigip.ltm.Monitor` Configures a custom monitor for use by health checks.
  *
- * For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+ * For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource. For example `/Common/test-monitor`.
  *
  * ## Example Usage
  *
@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *
  * const monitor = new f5bigip.ltm.Monitor("monitor", {
  *     destination: "1.2.3.4:1234",
- *     interval: 999,
+ *     interval: 998,
  *     name: "/Common/terraform_monitor",
  *     parent: "/Common/http",
  *     send: "GET /some/path\n",
@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *     parent: "/Common/http",
  *     send: "GET /some/path\n",
  *     sslProfile: "/Common/serverssl",
- *     timeout: 999,
+ *     timeout: 1000,
  * });
  * const test_ftp_monitor = new f5bigip.ltm.Monitor("test-ftp-monitor", {
  *     destination: "*:8008",
@@ -105,7 +105,7 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly filename!: pulumi.Output<string | undefined>;
     /**
-     * Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown. The default is `5`
+     * Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
      */
     public readonly interval!: pulumi.Output<number>;
     /**
@@ -275,7 +275,7 @@ export interface MonitorState {
      */
     filename?: pulumi.Input<string>;
     /**
-     * Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown. The default is `5`
+     * Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
      */
     interval?: pulumi.Input<number>;
     /**
@@ -373,7 +373,7 @@ export interface MonitorArgs {
      */
     filename?: pulumi.Input<string>;
     /**
-     * Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown. The default is `5`
+     * Specifies, in seconds, the frequency at which the system issues the monitor check when either the resource is down or the status of the resource is unknown,value of `interval` should be always less than `timeout`. Default is `5`.
      */
     interval?: pulumi.Input<number>;
     /**

@@ -12,40 +12,39 @@ namespace Pulumi.F5BigIP.Ltm
     /// <summary>
     /// `f5bigip.ltm.Node` Manages a node configuration
     /// 
-    /// For resources should be named with their "full path".The full path is the combination of the partition + name of the resource( example: /Common/my-node ) or partition + Direcroty + nameof the resource ( example: /Common/test/my-node ).When including directory in fullpath we have to make sure it is created in the given partition before using it.
+    /// For resources should be named with their `full path`.The full path is the combination of the `partition + name` of the resource( example: `/Common/my-node` ) or `partition + Direcroty + name` of the resource ( example: `/Common/test/my-node` ).
+    /// When including directory in `full path` we have to make sure it is created in the given partition before using it.
     /// 
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var node = new F5BigIP.Ltm.Node("node", new()
     ///     {
-    ///         var node = new F5BigIP.Ltm.Node("node", new F5BigIP.Ltm.NodeArgs
+    ///         Address = "192.168.30.1",
+    ///         ConnectionLimit = 0,
+    ///         Description = "Test-Node",
+    ///         DynamicRatio = 1,
+    ///         Fqdn = new F5BigIP.Ltm.Inputs.NodeFqdnArgs
     ///         {
-    ///             Address = "192.168.30.1",
-    ///             ConnectionLimit = 0,
-    ///             Description = "Test-Node",
-    ///             DynamicRatio = 1,
-    ///             Fqdn = new F5BigIP.Ltm.Inputs.NodeFqdnArgs
-    ///             {
-    ///                 AddressFamily = "ipv4",
-    ///                 Interval = "3000",
-    ///             },
-    ///             Monitor = "/Common/icmp",
-    ///             Name = "/Common/terraform_node1",
-    ///             RateLimit = "disabled",
-    ///         });
-    ///     }
+    ///             AddressFamily = "ipv4",
+    ///             Interval = "3000",
+    ///         },
+    ///         Monitor = "/Common/icmp",
+    ///         Name = "/Common/terraform_node1",
+    ///         RateLimit = "disabled",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/node:Node")]
-    public partial class Node : Pulumi.CustomResource
+    public partial class Node : global::Pulumi.CustomResource
     {
         /// <summary>
         /// IP or hostname of the node
@@ -108,7 +107,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// Default is "user-up" you can set to "user-down" if you want to disable
         /// </summary>
         [Output("state")]
-        public Output<string?> State { get; private set; } = null!;
+        public Output<string> State { get; private set; } = null!;
 
 
         /// <summary>
@@ -154,7 +153,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
     }
 
-    public sealed class NodeArgs : Pulumi.ResourceArgs
+    public sealed class NodeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// IP or hostname of the node
@@ -222,9 +221,10 @@ namespace Pulumi.F5BigIP.Ltm
         public NodeArgs()
         {
         }
+        public static new NodeArgs Empty => new NodeArgs();
     }
 
-    public sealed class NodeState : Pulumi.ResourceArgs
+    public sealed class NodeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// IP or hostname of the node
@@ -292,5 +292,6 @@ namespace Pulumi.F5BigIP.Ltm
         public NodeState()
         {
         }
+        public static new NodeState Empty => new NodeState();
     }
 }

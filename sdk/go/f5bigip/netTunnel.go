@@ -19,23 +19,26 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := f5bigip.NewNetTunnel(ctx, "example1", &f5bigip.NetTunnelArgs{
-// 			LocalAddress: pulumi.String("192.16.81.240"),
-// 			Name:         pulumi.String("example1"),
-// 			Profile:      pulumi.String("/Common/dslite"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := f5bigip.NewNetTunnel(ctx, "example1", &f5bigip.NetTunnelArgs{
+//				LocalAddress: pulumi.String("192.16.81.240"),
+//				Name:         pulumi.String("example1"),
+//				Profile:      pulumi.String("/Common/dslite"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type NetTunnel struct {
 	pulumi.CustomResourceState
@@ -292,7 +295,7 @@ func (i *NetTunnel) ToNetTunnelOutputWithContext(ctx context.Context) NetTunnelO
 // NetTunnelArrayInput is an input type that accepts NetTunnelArray and NetTunnelArrayOutput values.
 // You can construct a concrete instance of `NetTunnelArrayInput` via:
 //
-//          NetTunnelArray{ NetTunnelArgs{...} }
+//	NetTunnelArray{ NetTunnelArgs{...} }
 type NetTunnelArrayInput interface {
 	pulumi.Input
 
@@ -317,7 +320,7 @@ func (i NetTunnelArray) ToNetTunnelArrayOutputWithContext(ctx context.Context) N
 // NetTunnelMapInput is an input type that accepts NetTunnelMap and NetTunnelMapOutput values.
 // You can construct a concrete instance of `NetTunnelMapInput` via:
 //
-//          NetTunnelMap{ "key": NetTunnelArgs{...} }
+//	NetTunnelMap{ "key": NetTunnelArgs{...} }
 type NetTunnelMapInput interface {
 	pulumi.Input
 
@@ -351,6 +354,91 @@ func (o NetTunnelOutput) ToNetTunnelOutput() NetTunnelOutput {
 
 func (o NetTunnelOutput) ToNetTunnelOutputWithContext(ctx context.Context) NetTunnelOutput {
 	return o
+}
+
+// The application service that the object belongs to
+func (o NetTunnelOutput) AppService() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetTunnel) pulumi.StringPtrOutput { return v.AppService }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether auto lasthop is enabled or not
+func (o NetTunnelOutput) AutoLastHop() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetTunnel) pulumi.StringPtrOutput { return v.AutoLastHop }).(pulumi.StringPtrOutput)
+}
+
+// User defined description
+func (o NetTunnelOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetTunnel) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Specifies an idle timeout for wildcard tunnels in seconds
+func (o NetTunnelOutput) IdleTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetTunnel) pulumi.IntPtrOutput { return v.IdleTimeout }).(pulumi.IntPtrOutput)
+}
+
+// The key field may represent different values depending on the type of the tunnel
+func (o NetTunnelOutput) Key() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetTunnel) pulumi.IntPtrOutput { return v.Key }).(pulumi.IntPtrOutput)
+}
+
+// Specifies a local IP address. This option is required
+func (o NetTunnelOutput) LocalAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetTunnel) pulumi.StringOutput { return v.LocalAddress }).(pulumi.StringOutput)
+}
+
+// Specifies how the tunnel carries traffic
+func (o NetTunnelOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetTunnel) pulumi.StringPtrOutput { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the maximum transmission unit (MTU) of the tunnel
+func (o NetTunnelOutput) Mtu() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *NetTunnel) pulumi.IntPtrOutput { return v.Mtu }).(pulumi.IntPtrOutput)
+}
+
+// Name of the tunnel
+func (o NetTunnelOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetTunnel) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Displays the admin-partition within which this component resides
+func (o NetTunnelOutput) Partition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetTunnel) pulumi.StringPtrOutput { return v.Partition }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the profile that you want to associate with the tunnel
+func (o NetTunnelOutput) Profile() pulumi.StringOutput {
+	return o.ApplyT(func(v *NetTunnel) pulumi.StringOutput { return v.Profile }).(pulumi.StringOutput)
+}
+
+// Specifies a remote IP address
+func (o NetTunnelOutput) RemoteAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetTunnel) pulumi.StringPtrOutput { return v.RemoteAddress }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a secondary non-floating IP address when the local-address is set to a floating address
+func (o NetTunnelOutput) SecondaryAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetTunnel) pulumi.StringPtrOutput { return v.SecondaryAddress }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a value for insertion into the Type of Service (ToS) octet within the IP header of the encapsulating header of transmitted packets
+func (o NetTunnelOutput) Tos() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetTunnel) pulumi.StringPtrOutput { return v.Tos }).(pulumi.StringPtrOutput)
+}
+
+// Specifies a traffic-group for use with the tunnel
+func (o NetTunnelOutput) TrafficGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetTunnel) pulumi.StringPtrOutput { return v.TrafficGroup }).(pulumi.StringPtrOutput)
+}
+
+// Enables or disables the tunnel to be transparent
+func (o NetTunnelOutput) Transparent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetTunnel) pulumi.StringPtrOutput { return v.Transparent }).(pulumi.StringPtrOutput)
+}
+
+// Enables or disables the tunnel to use the PMTU (Path MTU) information provided by ICMP NeedFrag error messages
+func (o NetTunnelOutput) UsePmtu() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NetTunnel) pulumi.StringPtrOutput { return v.UsePmtu }).(pulumi.StringPtrOutput)
 }
 
 type NetTunnelArrayOutput struct{ *pulumi.OutputState }

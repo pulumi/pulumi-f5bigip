@@ -17,42 +17,40 @@ namespace Pulumi.F5BigIP.Ltm
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var sjhttpcompression = new F5BigIP.Ltm.ProfileHttpCompress("sjhttpcompression", new()
     ///     {
-    ///         var sjhttpcompression = new F5BigIP.Ltm.ProfileHttpCompress("sjhttpcompression", new F5BigIP.Ltm.ProfileHttpCompressArgs
+    ///         ContentTypeExcludes = new[]
     ///         {
-    ///             ContentTypeExcludes = 
-    ///             {
-    ///                 "nicecontentexclude.com",
-    ///             },
-    ///             ContentTypeIncludes = 
-    ///             {
-    ///                 "nicecontent.com",
-    ///             },
-    ///             DefaultsFrom = "/Common/httpcompression",
-    ///             Name = "/Common/sjhttpcompression2",
-    ///             UriExcludes = 
-    ///             {
-    ///                 "www.abc.f5.com",
-    ///                 "www.abc2.f5.com",
-    ///             },
-    ///             UriIncludes = 
-    ///             {
-    ///                 "www.xyzbc.cisco.com",
-    ///             },
-    ///         });
-    ///     }
+    ///             "nicecontentexclude.com",
+    ///         },
+    ///         ContentTypeIncludes = new[]
+    ///         {
+    ///             "nicecontent.com",
+    ///         },
+    ///         DefaultsFrom = "/Common/httpcompression",
+    ///         Name = "/Common/sjhttpcompression2",
+    ///         UriExcludes = new[]
+    ///         {
+    ///             "www.abc.f5.com",
+    ///             "www.abc2.f5.com",
+    ///         },
+    ///         UriIncludes = new[]
+    ///         {
+    ///             "www.xyzbc.cisco.com",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/profileHttpCompress:ProfileHttpCompress")]
-    public partial class ProfileHttpCompress : Pulumi.CustomResource
+    public partial class ProfileHttpCompress : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Excludes a specified list of content types from compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
@@ -134,7 +132,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
     }
 
-    public sealed class ProfileHttpCompressArgs : Pulumi.ResourceArgs
+    public sealed class ProfileHttpCompressArgs : global::Pulumi.ResourceArgs
     {
         [Input("contentTypeExcludes")]
         private InputList<string>? _contentTypeExcludes;
@@ -199,9 +197,10 @@ namespace Pulumi.F5BigIP.Ltm
         public ProfileHttpCompressArgs()
         {
         }
+        public static new ProfileHttpCompressArgs Empty => new ProfileHttpCompressArgs();
     }
 
-    public sealed class ProfileHttpCompressState : Pulumi.ResourceArgs
+    public sealed class ProfileHttpCompressState : global::Pulumi.ResourceArgs
     {
         [Input("contentTypeExcludes")]
         private InputList<string>? _contentTypeExcludes;
@@ -266,5 +265,6 @@ namespace Pulumi.F5BigIP.Ltm
         public ProfileHttpCompressState()
         {
         }
+        public static new ProfileHttpCompressState Empty => new ProfileHttpCompressState();
     }
 }

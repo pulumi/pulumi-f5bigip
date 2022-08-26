@@ -17,28 +17,26 @@ namespace Pulumi.F5BigIP.Ltm
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var sanjose_http = new F5BigIP.Ltm.ProfileHttp("sanjose-http", new()
     ///     {
-    ///         var sanjose_http = new F5BigIP.Ltm.ProfileHttp("sanjose-http", new F5BigIP.Ltm.ProfileHttpArgs
+    ///         DefaultsFrom = "/Common/http",
+    ///         FallbackHost = "titanic",
+    ///         FallbackStatusCodes = new[]
     ///         {
-    ///             DefaultsFrom = "/Common/http",
-    ///             FallbackHost = "titanic",
-    ///             FallbackStatusCodes = 
-    ///             {
-    ///                 "400",
-    ///                 "500",
-    ///                 "300",
-    ///             },
-    ///             Name = "/Common/sanjose-http",
-    ///         });
-    ///     }
+    ///             "400",
+    ///             "500",
+    ///             "300",
+    ///         },
+    ///         Name = "/Common/sanjose-http",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -50,7 +48,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/profileHttp:ProfileHttp")]
-    public partial class ProfileHttp : Pulumi.CustomResource
+    public partial class ProfileHttp : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's XFF (X-forwarded-for) headers, if they exist.
@@ -260,7 +258,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
     }
 
-    public sealed class ProfileHttpArgs : Pulumi.ResourceArgs
+    public sealed class ProfileHttpArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's XFF (X-forwarded-for) headers, if they exist.
@@ -453,9 +451,10 @@ namespace Pulumi.F5BigIP.Ltm
         public ProfileHttpArgs()
         {
         }
+        public static new ProfileHttpArgs Empty => new ProfileHttpArgs();
     }
 
-    public sealed class ProfileHttpState : Pulumi.ResourceArgs
+    public sealed class ProfileHttpState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's XFF (X-forwarded-for) headers, if they exist.
@@ -648,5 +647,6 @@ namespace Pulumi.F5BigIP.Ltm
         public ProfileHttpState()
         {
         }
+        public static new ProfileHttpState Empty => new ProfileHttpState();
     }
 }

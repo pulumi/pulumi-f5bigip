@@ -20,21 +20,19 @@ namespace Pulumi.F5BigIP.Ltm
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using F5BigIP = Pulumi.F5BigIP;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var pool_Example = F5BigIP.Ltm.GetPool.Invoke(new()
         ///     {
-        ///         var pool_Example = Output.Create(F5BigIP.Ltm.GetPool.InvokeAsync(new F5BigIP.Ltm.GetPoolArgs
-        ///         {
-        ///             Name = "example-pool",
-        ///             Partition = "Common",
-        ///         }));
-        ///     }
+        ///         Name = "example-pool",
+        ///         Partition = "Common",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -51,21 +49,19 @@ namespace Pulumi.F5BigIP.Ltm
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using F5BigIP = Pulumi.F5BigIP;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var pool_Example = F5BigIP.Ltm.GetPool.Invoke(new()
         ///     {
-        ///         var pool_Example = Output.Create(F5BigIP.Ltm.GetPool.InvokeAsync(new F5BigIP.Ltm.GetPoolArgs
-        ///         {
-        ///             Name = "example-pool",
-        ///             Partition = "Common",
-        ///         }));
-        ///     }
+        ///         Name = "example-pool",
+        ///         Partition = "Common",
+        ///     });
         /// 
-        /// }
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -75,7 +71,7 @@ namespace Pulumi.F5BigIP.Ltm
     }
 
 
-    public sealed class GetPoolArgs : Pulumi.InvokeArgs
+    public sealed class GetPoolArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the ltm monitor
@@ -92,9 +88,10 @@ namespace Pulumi.F5BigIP.Ltm
         public GetPoolArgs()
         {
         }
+        public static new GetPoolArgs Empty => new GetPoolArgs();
     }
 
-    public sealed class GetPoolInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPoolInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the ltm monitor
@@ -111,6 +108,7 @@ namespace Pulumi.F5BigIP.Ltm
         public GetPoolInvokeArgs()
         {
         }
+        public static new GetPoolInvokeArgs Empty => new GetPoolInvokeArgs();
     }
 
 

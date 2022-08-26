@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Net.Inputs
 {
 
-    public sealed class VlanInterfaceArgs : Pulumi.ResourceArgs
+    public sealed class VlanInterfaceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies a list of tagged interfaces or trunks associated with this VLAN. Note that you can associate tagged interfaces or trunks with any number of VLANs.
@@ -27,5 +27,6 @@ namespace Pulumi.F5BigIP.Net.Inputs
         public VlanInterfaceArgs()
         {
         }
+        public static new VlanInterfaceArgs Empty => new VlanInterfaceArgs();
     }
 }

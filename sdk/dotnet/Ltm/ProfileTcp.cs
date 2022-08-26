@@ -17,31 +17,29 @@ namespace Pulumi.F5BigIP.Ltm
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var sanjose_tcp_lan_profile = new F5BigIP.Ltm.ProfileTcp("sanjose-tcp-lan-profile", new()
     ///     {
-    ///         var sanjose_tcp_lan_profile = new F5BigIP.Ltm.ProfileTcp("sanjose-tcp-lan-profile", new F5BigIP.Ltm.ProfileTcpArgs
-    ///         {
-    ///             CloseWaitTimeout = 5,
-    ///             DeferredAccept = "enabled",
-    ///             FastOpen = "enabled",
-    ///             Finwait2timeout = 5,
-    ///             FinwaitTimeout = 300,
-    ///             IdleTimeout = 200,
-    ///             KeepaliveInterval = 1700,
-    ///             Name = "/Common/sanjose-tcp-lan-profile",
-    ///         });
-    ///     }
+    ///         CloseWaitTimeout = 5,
+    ///         DeferredAccept = "enabled",
+    ///         FastOpen = "enabled",
+    ///         Finwait2timeout = 5,
+    ///         FinwaitTimeout = 300,
+    ///         IdleTimeout = 200,
+    ///         KeepaliveInterval = 1700,
+    ///         Name = "/Common/sanjose-tcp-lan-profile",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/profileTcp:ProfileTcp")]
-    public partial class ProfileTcp : Pulumi.CustomResource
+    public partial class ProfileTcp : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies the number of seconds that a connection remains in a LAST-ACK state before quitting. A value of 0 represents a term of forever (or until the maxrtx of the FIN state). The default value is 5 seconds.
@@ -147,7 +145,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
     }
 
-    public sealed class ProfileTcpArgs : Pulumi.ResourceArgs
+    public sealed class ProfileTcpArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the number of seconds that a connection remains in a LAST-ACK state before quitting. A value of 0 represents a term of forever (or until the maxrtx of the FIN state). The default value is 5 seconds.
@@ -212,9 +210,10 @@ namespace Pulumi.F5BigIP.Ltm
         public ProfileTcpArgs()
         {
         }
+        public static new ProfileTcpArgs Empty => new ProfileTcpArgs();
     }
 
-    public sealed class ProfileTcpState : Pulumi.ResourceArgs
+    public sealed class ProfileTcpState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies the number of seconds that a connection remains in a LAST-ACK state before quitting. A value of 0 represents a term of forever (or until the maxrtx of the FIN state). The default value is 5 seconds.
@@ -279,5 +278,6 @@ namespace Pulumi.F5BigIP.Ltm
         public ProfileTcpState()
         {
         }
+        public static new ProfileTcpState Empty => new ProfileTcpState();
     }
 }

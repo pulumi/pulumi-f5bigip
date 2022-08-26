@@ -20,23 +20,22 @@ namespace Pulumi.F5BigIP.Ltm
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using F5BigIP = Pulumi.F5BigIP;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = F5BigIP.Ltm.GetPolicy.Invoke(new()
         ///     {
-        ///         var test = Output.Create(F5BigIP.Ltm.GetPolicy.InvokeAsync(new F5BigIP.Ltm.GetPolicyArgs
-        ///         {
-        ///             Name = "/Common/test-policy",
-        ///         }));
-        ///         this.BigipPolicy = test.Apply(test =&gt; test.Rules);
-        ///     }
+        ///         Name = "/Common/test-policy",
+        ///     });
         /// 
-        ///     [Output("bigipPolicy")]
-        ///     public Output&lt;string&gt; BigipPolicy { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["bigipPolicy"] = test.Apply(getPolicyResult =&gt; getPolicyResult.Rules),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -53,23 +52,22 @@ namespace Pulumi.F5BigIP.Ltm
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using F5BigIP = Pulumi.F5BigIP;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = F5BigIP.Ltm.GetPolicy.Invoke(new()
         ///     {
-        ///         var test = Output.Create(F5BigIP.Ltm.GetPolicy.InvokeAsync(new F5BigIP.Ltm.GetPolicyArgs
-        ///         {
-        ///             Name = "/Common/test-policy",
-        ///         }));
-        ///         this.BigipPolicy = test.Apply(test =&gt; test.Rules);
-        ///     }
+        ///         Name = "/Common/test-policy",
+        ///     });
         /// 
-        ///     [Output("bigipPolicy")]
-        ///     public Output&lt;string&gt; BigipPolicy { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["bigipPolicy"] = test.Apply(getPolicyResult =&gt; getPolicyResult.Rules),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -79,7 +77,7 @@ namespace Pulumi.F5BigIP.Ltm
     }
 
 
-    public sealed class GetPolicyArgs : Pulumi.InvokeArgs
+    public sealed class GetPolicyArgs : global::Pulumi.InvokeArgs
     {
         [Input("controls")]
         private List<string>? _controls;
@@ -135,9 +133,10 @@ namespace Pulumi.F5BigIP.Ltm
         public GetPolicyArgs()
         {
         }
+        public static new GetPolicyArgs Empty => new GetPolicyArgs();
     }
 
-    public sealed class GetPolicyInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("controls")]
         private InputList<string>? _controls;
@@ -193,6 +192,7 @@ namespace Pulumi.F5BigIP.Ltm
         public GetPolicyInvokeArgs()
         {
         }
+        public static new GetPolicyInvokeArgs Empty => new GetPolicyInvokeArgs();
     }
 
 

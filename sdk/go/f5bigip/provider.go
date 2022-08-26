@@ -122,6 +122,36 @@ func (o ProviderOutput) ToProviderOutputWithContext(ctx context.Context) Provide
 	return o
 }
 
+// Domain name/IP of the BigIP
+func (o ProviderOutput) Address() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Address }).(pulumi.StringPtrOutput)
+}
+
+// Login reference for token authentication (see BIG-IP REST docs for details)
+func (o ProviderOutput) LoginRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.LoginRef }).(pulumi.StringPtrOutput)
+}
+
+// The user's password. Leave empty if using token_value
+func (o ProviderOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// Management Port to connect to Bigip
+func (o ProviderOutput) Port() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Port }).(pulumi.StringPtrOutput)
+}
+
+// A token generated outside the provider, in place of password
+func (o ProviderOutput) TokenValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.TokenValue }).(pulumi.StringPtrOutput)
+}
+
+// Username with API access to the BigIP
+func (o ProviderOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Username }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderInput)(nil)).Elem(), &Provider{})
 	pulumi.RegisterOutputType(ProviderOutput{})

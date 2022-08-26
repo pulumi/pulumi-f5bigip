@@ -15,26 +15,24 @@ namespace Pulumi.F5BigIP
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example1 = new F5BigIP.NetTunnel("example1", new()
     ///     {
-    ///         var example1 = new F5BigIP.NetTunnel("example1", new F5BigIP.NetTunnelArgs
-    ///         {
-    ///             LocalAddress = "192.16.81.240",
-    ///             Name = "example1",
-    ///             Profile = "/Common/dslite",
-    ///         });
-    ///     }
+    ///         LocalAddress = "192.16.81.240",
+    ///         Name = "example1",
+    ///         Profile = "/Common/dslite",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:index/netTunnel:NetTunnel")]
-    public partial class NetTunnel : Pulumi.CustomResource
+    public partial class NetTunnel : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The application service that the object belongs to
@@ -182,7 +180,7 @@ namespace Pulumi.F5BigIP
         }
     }
 
-    public sealed class NetTunnelArgs : Pulumi.ResourceArgs
+    public sealed class NetTunnelArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application service that the object belongs to
@@ -289,9 +287,10 @@ namespace Pulumi.F5BigIP
         public NetTunnelArgs()
         {
         }
+        public static new NetTunnelArgs Empty => new NetTunnelArgs();
     }
 
-    public sealed class NetTunnelState : Pulumi.ResourceArgs
+    public sealed class NetTunnelState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The application service that the object belongs to
@@ -398,5 +397,6 @@ namespace Pulumi.F5BigIP
         public NetTunnelState()
         {
         }
+        public static new NetTunnelState Empty => new NetTunnelState();
     }
 }

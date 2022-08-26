@@ -17,43 +17,42 @@ namespace Pulumi.F5BigIP.Ltm
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var nyhttp2 = new F5BigIP.Ltm.ProfileHttp2("nyhttp2", new()
     ///     {
-    ///         var nyhttp2 = new F5BigIP.Ltm.ProfileHttp2("nyhttp2", new F5BigIP.Ltm.ProfileHttp2Args
+    ///         Name = "/Common/test-profile-http2",
+    ///         FrameSize = 2021,
+    ///         ReceiveWindow = 31,
+    ///         WriteSize = 16380,
+    ///         HeaderTableSize = 4092,
+    ///         IncludeContentLength = "enabled",
+    ///         EnforceTlsRequirements = "enabled",
+    ///         InsertHeader = "disabled",
+    ///         ConcurrentStreamsPerConnection = 30,
+    ///         ConnectionIdleTimeout = 100,
+    ///         ActivationModes = new[]
     ///         {
-    ///             Name = "/Common/test-profile-http2",
-    ///             FrameSize = 2021,
-    ///             ReceiveWindow = 31,
-    ///             WriteSize = 16380,
-    ///             HeaderTableSize = 4092,
-    ///             IncludeContentLength = "enabled",
-    ///             EnforceTlsRequirements = "enabled",
-    ///             InsertHeader = "disabled",
-    ///             ConcurrentStreamsPerConnection = 30,
-    ///             ConnectionIdleTimeout = 100,
-    ///             ActivationModes = 
-    ///             {
-    ///                 "always",
-    ///             },
-    ///         });
-    ///         //Child Profile which inherits parent http2 profile
-    ///         var nyhttp2_child = new F5BigIP.Ltm.ProfileHttp2("nyhttp2-child", new F5BigIP.Ltm.ProfileHttp2Args
-    ///         {
-    ///             Name = "/Common/test-profile-http2-child",
-    ///             DefaultsFrom = nyhttp2.Name,
-    ///         });
-    ///     }
+    ///             "always",
+    ///         },
+    ///     });
     /// 
-    /// }
+    ///     //Child Profile which inherits parent http2 profile
+    ///     var nyhttp2_child = new F5BigIP.Ltm.ProfileHttp2("nyhttp2-child", new()
+    ///     {
+    ///         Name = "/Common/test-profile-http2-child",
+    ///         DefaultsFrom = nyhttp2.Name,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/profileHttp2:ProfileHttp2")]
-    public partial class ProfileHttp2 : Pulumi.CustomResource
+    public partial class ProfileHttp2 : global::Pulumi.CustomResource
     {
         /// <summary>
         /// This setting specifies the condition that will cause the BIG-IP system to handle an incoming connection as an HTTP/2 connection, Allowed values : `[“alpn”]` (or) `[“always”]`.
@@ -177,7 +176,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
     }
 
-    public sealed class ProfileHttp2Args : Pulumi.ResourceArgs
+    public sealed class ProfileHttp2Args : global::Pulumi.ResourceArgs
     {
         [Input("activationModes")]
         private InputList<string>? _activationModes;
@@ -266,9 +265,10 @@ namespace Pulumi.F5BigIP.Ltm
         public ProfileHttp2Args()
         {
         }
+        public static new ProfileHttp2Args Empty => new ProfileHttp2Args();
     }
 
-    public sealed class ProfileHttp2State : Pulumi.ResourceArgs
+    public sealed class ProfileHttp2State : global::Pulumi.ResourceArgs
     {
         [Input("activationModes")]
         private InputList<string>? _activationModes;
@@ -357,5 +357,6 @@ namespace Pulumi.F5BigIP.Ltm
         public ProfileHttp2State()
         {
         }
+        public static new ProfileHttp2State Empty => new ProfileHttp2State();
     }
 }

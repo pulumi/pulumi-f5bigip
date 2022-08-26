@@ -20,24 +20,23 @@ namespace Pulumi.F5BigIP.Ltm
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using F5BigIP = Pulumi.F5BigIP;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = F5BigIP.Ltm.GetIrule.Invoke(new()
         ///     {
-        ///         var test = Output.Create(F5BigIP.Ltm.GetIrule.InvokeAsync(new F5BigIP.Ltm.GetIruleArgs
-        ///         {
-        ///             Name = "terraform_irule",
-        ///             Partition = "Common",
-        ///         }));
-        ///         this.BigipIrule = test.Apply(test =&gt; test.Irule);
-        ///     }
+        ///         Name = "terraform_irule",
+        ///         Partition = "Common",
+        ///     });
         /// 
-        ///     [Output("bigipIrule")]
-        ///     public Output&lt;string&gt; BigipIrule { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["bigipIrule"] = test.Apply(getIruleResult =&gt; getIruleResult.Irule),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -54,24 +53,23 @@ namespace Pulumi.F5BigIP.Ltm
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using F5BigIP = Pulumi.F5BigIP;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = F5BigIP.Ltm.GetIrule.Invoke(new()
         ///     {
-        ///         var test = Output.Create(F5BigIP.Ltm.GetIrule.InvokeAsync(new F5BigIP.Ltm.GetIruleArgs
-        ///         {
-        ///             Name = "terraform_irule",
-        ///             Partition = "Common",
-        ///         }));
-        ///         this.BigipIrule = test.Apply(test =&gt; test.Irule);
-        ///     }
+        ///         Name = "terraform_irule",
+        ///         Partition = "Common",
+        ///     });
         /// 
-        ///     [Output("bigipIrule")]
-        ///     public Output&lt;string&gt; BigipIrule { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["bigipIrule"] = test.Apply(getIruleResult =&gt; getIruleResult.Irule),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +79,7 @@ namespace Pulumi.F5BigIP.Ltm
     }
 
 
-    public sealed class GetIruleArgs : Pulumi.InvokeArgs
+    public sealed class GetIruleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the irule
@@ -98,9 +96,10 @@ namespace Pulumi.F5BigIP.Ltm
         public GetIruleArgs()
         {
         }
+        public static new GetIruleArgs Empty => new GetIruleArgs();
     }
 
-    public sealed class GetIruleInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetIruleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the irule
@@ -117,6 +116,7 @@ namespace Pulumi.F5BigIP.Ltm
         public GetIruleInvokeArgs()
         {
         }
+        public static new GetIruleInvokeArgs Empty => new GetIruleInvokeArgs();
     }
 
 

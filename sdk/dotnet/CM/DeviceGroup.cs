@@ -15,38 +15,36 @@ namespace Pulumi.F5BigIP.CM
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var myNewDevicegroup = new F5BigIP.CM.DeviceGroup("myNewDevicegroup", new()
     ///     {
-    ///         var myNewDevicegroup = new F5BigIP.CM.DeviceGroup("myNewDevicegroup", new F5BigIP.CM.DeviceGroupArgs
+    ///         AutoSync = "enabled",
+    ///         Devices = new[]
     ///         {
-    ///             AutoSync = "enabled",
-    ///             Devices = 
+    ///             new F5BigIP.CM.Inputs.DeviceGroupDeviceArgs
     ///             {
-    ///                 new F5BigIP.CM.Inputs.DeviceGroupDeviceArgs
-    ///                 {
-    ///                     Name = "bigip1.cisco.com",
-    ///                 },
-    ///                 new F5BigIP.CM.Inputs.DeviceGroupDeviceArgs
-    ///                 {
-    ///                     Name = "bigip200.f5.com",
-    ///                 },
+    ///                 Name = "bigip1.cisco.com",
     ///             },
-    ///             FullLoadOnSync = "true",
-    ///             Name = "sanjose_devicegroup",
-    ///             Type = "sync-only",
-    ///         });
-    ///     }
+    ///             new F5BigIP.CM.Inputs.DeviceGroupDeviceArgs
+    ///             {
+    ///                 Name = "bigip200.f5.com",
+    ///             },
+    ///         },
+    ///         FullLoadOnSync = "true",
+    ///         Name = "sanjose_devicegroup",
+    ///         Type = "sync-only",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:cm/deviceGroup:DeviceGroup")]
-    public partial class DeviceGroup : Pulumi.CustomResource
+    public partial class DeviceGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies if the device-group will automatically sync configuration data to its members
@@ -152,7 +150,7 @@ namespace Pulumi.F5BigIP.CM
         }
     }
 
-    public sealed class DeviceGroupArgs : Pulumi.ResourceArgs
+    public sealed class DeviceGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies if the device-group will automatically sync configuration data to its members
@@ -223,9 +221,10 @@ namespace Pulumi.F5BigIP.CM
         public DeviceGroupArgs()
         {
         }
+        public static new DeviceGroupArgs Empty => new DeviceGroupArgs();
     }
 
-    public sealed class DeviceGroupState : Pulumi.ResourceArgs
+    public sealed class DeviceGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies if the device-group will automatically sync configuration data to its members
@@ -296,5 +295,6 @@ namespace Pulumi.F5BigIP.CM
         public DeviceGroupState()
         {
         }
+        public static new DeviceGroupState Empty => new DeviceGroupState();
     }
 }

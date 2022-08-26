@@ -20,7 +20,7 @@ type GetWafEntityUrlMethodOverride struct {
 // GetWafEntityUrlMethodOverrideInput is an input type that accepts GetWafEntityUrlMethodOverrideArgs and GetWafEntityUrlMethodOverrideOutput values.
 // You can construct a concrete instance of `GetWafEntityUrlMethodOverrideInput` via:
 //
-//          GetWafEntityUrlMethodOverrideArgs{...}
+//	GetWafEntityUrlMethodOverrideArgs{...}
 type GetWafEntityUrlMethodOverrideInput interface {
 	pulumi.Input
 
@@ -50,7 +50,7 @@ func (i GetWafEntityUrlMethodOverrideArgs) ToGetWafEntityUrlMethodOverrideOutput
 // GetWafEntityUrlMethodOverrideArrayInput is an input type that accepts GetWafEntityUrlMethodOverrideArray and GetWafEntityUrlMethodOverrideArrayOutput values.
 // You can construct a concrete instance of `GetWafEntityUrlMethodOverrideArrayInput` via:
 //
-//          GetWafEntityUrlMethodOverrideArray{ GetWafEntityUrlMethodOverrideArgs{...} }
+//	GetWafEntityUrlMethodOverrideArray{ GetWafEntityUrlMethodOverrideArgs{...} }
 type GetWafEntityUrlMethodOverrideArrayInput interface {
 	pulumi.Input
 

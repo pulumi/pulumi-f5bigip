@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
- * import * from "fs";
+ * import * as fs from "fs";
  *
  * const simplehttp = new f5bigip.sys.IApp("simplehttp", {
  *     name: "simplehttp",

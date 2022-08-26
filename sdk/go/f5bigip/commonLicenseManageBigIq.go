@@ -19,79 +19,82 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := f5bigip.NewCommonLicenseManageBigIq(ctx, "testExampleCommonLicenseManageBigIq", &f5bigip.CommonLicenseManageBigIqArgs{
-// 			BigiqAddress:    pulumi.Any(_var.Bigiq),
-// 			BigiqUser:       pulumi.Any(_var.Bigiq_un),
-// 			BigiqPassword:   pulumi.Any(_var.Bigiq_pw),
-// 			LicensePoolname: pulumi.String("regkeypool_name"),
-// 			AssignmentType:  pulumi.String("MANAGED"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = f5bigip.NewCommonLicenseManageBigIq(ctx, "testExampleIndex/commonLicenseManageBigIqCommonLicenseManageBigIq", &f5bigip.CommonLicenseManageBigIqArgs{
-// 			BigiqAddress:    pulumi.Any(_var.Bigiq),
-// 			BigiqUser:       pulumi.Any(_var.Bigiq_un),
-// 			BigiqPassword:   pulumi.Any(_var.Bigiq_pw),
-// 			LicensePoolname: pulumi.String("regkeypool_name"),
-// 			AssignmentType:  pulumi.String("UNMANAGED"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = f5bigip.NewCommonLicenseManageBigIq(ctx, "testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq", &f5bigip.CommonLicenseManageBigIqArgs{
-// 			BigiqAddress:    pulumi.Any(_var.Bigiq),
-// 			BigiqUser:       pulumi.Any(_var.Bigiq_un),
-// 			BigiqPassword:   pulumi.Any(_var.Bigiq_pw),
-// 			LicensePoolname: pulumi.String("utilitypool_name"),
-// 			AssignmentType:  pulumi.String("UNMANAGED"),
-// 			UnitOfMeasure:   pulumi.String("yearly"),
-// 			Skukeyword1:     pulumi.String("BTHSM200M"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = f5bigip.NewCommonLicenseManageBigIq(ctx, "testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq1", &f5bigip.CommonLicenseManageBigIqArgs{
-// 			BigiqAddress:    pulumi.String("xxx.xxx.xxx.xxx"),
-// 			BigiqUser:       pulumi.String("xxxx"),
-// 			BigiqPassword:   pulumi.String("xxxxx"),
-// 			LicensePoolname: pulumi.String("regkey_pool_name"),
-// 			AssignmentType:  pulumi.String("UNREACHABLE"),
-// 			MacAddress:      pulumi.String("FA:16:3E:1B:6D:32"),
-// 			Hypervisor:      pulumi.String("azure"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = f5bigip.NewCommonLicenseManageBigIq(ctx, "testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq2", &f5bigip.CommonLicenseManageBigIqArgs{
-// 			BigiqAddress:    pulumi.Any(_var.Bigiq),
-// 			BigiqUser:       pulumi.Any(_var.Bigiq_un),
-// 			BigiqPassword:   pulumi.Any(_var.Bigiq_pw),
-// 			LicensePoolname: pulumi.String("purchased_pool_name"),
-// 			AssignmentType:  pulumi.String("MANAGED"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = f5bigip.NewCommonLicenseManageBigIq(ctx, "testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq3", &f5bigip.CommonLicenseManageBigIqArgs{
-// 			BigiqAddress:    pulumi.Any(_var.Bigiq),
-// 			BigiqUser:       pulumi.Any(_var.Bigiq_un),
-// 			BigiqPassword:   pulumi.Any(_var.Bigiq_pw),
-// 			LicensePoolname: pulumi.String("purchased_pool_name"),
-// 			AssignmentType:  pulumi.String("UNMANAGED"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := f5bigip.NewCommonLicenseManageBigIq(ctx, "testExampleCommonLicenseManageBigIq", &f5bigip.CommonLicenseManageBigIqArgs{
+//				BigiqAddress:    pulumi.Any(_var.Bigiq),
+//				BigiqUser:       pulumi.Any(_var.Bigiq_un),
+//				BigiqPassword:   pulumi.Any(_var.Bigiq_pw),
+//				LicensePoolname: pulumi.String("regkeypool_name"),
+//				AssignmentType:  pulumi.String("MANAGED"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = f5bigip.NewCommonLicenseManageBigIq(ctx, "testExampleIndex/commonLicenseManageBigIqCommonLicenseManageBigIq", &f5bigip.CommonLicenseManageBigIqArgs{
+//				BigiqAddress:    pulumi.Any(_var.Bigiq),
+//				BigiqUser:       pulumi.Any(_var.Bigiq_un),
+//				BigiqPassword:   pulumi.Any(_var.Bigiq_pw),
+//				LicensePoolname: pulumi.String("regkeypool_name"),
+//				AssignmentType:  pulumi.String("UNMANAGED"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = f5bigip.NewCommonLicenseManageBigIq(ctx, "testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq", &f5bigip.CommonLicenseManageBigIqArgs{
+//				BigiqAddress:    pulumi.Any(_var.Bigiq),
+//				BigiqUser:       pulumi.Any(_var.Bigiq_un),
+//				BigiqPassword:   pulumi.Any(_var.Bigiq_pw),
+//				LicensePoolname: pulumi.String("utilitypool_name"),
+//				AssignmentType:  pulumi.String("UNMANAGED"),
+//				UnitOfMeasure:   pulumi.String("yearly"),
+//				Skukeyword1:     pulumi.String("BTHSM200M"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = f5bigip.NewCommonLicenseManageBigIq(ctx, "testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq1", &f5bigip.CommonLicenseManageBigIqArgs{
+//				BigiqAddress:    pulumi.String("xxx.xxx.xxx.xxx"),
+//				BigiqUser:       pulumi.String("xxxx"),
+//				BigiqPassword:   pulumi.String("xxxxx"),
+//				LicensePoolname: pulumi.String("regkey_pool_name"),
+//				AssignmentType:  pulumi.String("UNREACHABLE"),
+//				MacAddress:      pulumi.String("FA:16:3E:1B:6D:32"),
+//				Hypervisor:      pulumi.String("azure"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = f5bigip.NewCommonLicenseManageBigIq(ctx, "testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq2", &f5bigip.CommonLicenseManageBigIqArgs{
+//				BigiqAddress:    pulumi.Any(_var.Bigiq),
+//				BigiqUser:       pulumi.Any(_var.Bigiq_un),
+//				BigiqPassword:   pulumi.Any(_var.Bigiq_pw),
+//				LicensePoolname: pulumi.String("purchased_pool_name"),
+//				AssignmentType:  pulumi.String("MANAGED"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = f5bigip.NewCommonLicenseManageBigIq(ctx, "testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq3", &f5bigip.CommonLicenseManageBigIqArgs{
+//				BigiqAddress:    pulumi.Any(_var.Bigiq),
+//				BigiqUser:       pulumi.Any(_var.Bigiq_un),
+//				BigiqPassword:   pulumi.Any(_var.Bigiq_pw),
+//				LicensePoolname: pulumi.String("purchased_pool_name"),
+//				AssignmentType:  pulumi.String("UNMANAGED"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type CommonLicenseManageBigIq struct {
 	pulumi.CustomResourceState
@@ -344,7 +347,7 @@ func (i *CommonLicenseManageBigIq) ToCommonLicenseManageBigIqOutputWithContext(c
 // CommonLicenseManageBigIqArrayInput is an input type that accepts CommonLicenseManageBigIqArray and CommonLicenseManageBigIqArrayOutput values.
 // You can construct a concrete instance of `CommonLicenseManageBigIqArrayInput` via:
 //
-//          CommonLicenseManageBigIqArray{ CommonLicenseManageBigIqArgs{...} }
+//	CommonLicenseManageBigIqArray{ CommonLicenseManageBigIqArgs{...} }
 type CommonLicenseManageBigIqArrayInput interface {
 	pulumi.Input
 
@@ -369,7 +372,7 @@ func (i CommonLicenseManageBigIqArray) ToCommonLicenseManageBigIqArrayOutputWith
 // CommonLicenseManageBigIqMapInput is an input type that accepts CommonLicenseManageBigIqMap and CommonLicenseManageBigIqMapOutput values.
 // You can construct a concrete instance of `CommonLicenseManageBigIqMapInput` via:
 //
-//          CommonLicenseManageBigIqMap{ "key": CommonLicenseManageBigIqArgs{...} }
+//	CommonLicenseManageBigIqMap{ "key": CommonLicenseManageBigIqArgs{...} }
 type CommonLicenseManageBigIqMapInput interface {
 	pulumi.Input
 
@@ -403,6 +406,86 @@ func (o CommonLicenseManageBigIqOutput) ToCommonLicenseManageBigIqOutput() Commo
 
 func (o CommonLicenseManageBigIqOutput) ToCommonLicenseManageBigIqOutputWithContext(ctx context.Context) CommonLicenseManageBigIqOutput {
 	return o
+}
+
+// The type of assignment, which is determined by whether the BIG-IP is unreachable, unmanaged, or managed by BIG-IQ. Possible values: “UNREACHABLE”, “UNMANAGED”, or “MANAGED”.
+func (o CommonLicenseManageBigIqOutput) AssignmentType() pulumi.StringOutput {
+	return o.ApplyT(func(v *CommonLicenseManageBigIq) pulumi.StringOutput { return v.AssignmentType }).(pulumi.StringOutput)
+}
+
+// BIGIQ License Manager IP Address, variable type `string`
+func (o CommonLicenseManageBigIqOutput) BigiqAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v *CommonLicenseManageBigIq) pulumi.StringOutput { return v.BigiqAddress }).(pulumi.StringOutput)
+}
+
+// BIGIQ Login reference for token authentication
+func (o CommonLicenseManageBigIqOutput) BigiqLoginRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommonLicenseManageBigIq) pulumi.StringPtrOutput { return v.BigiqLoginRef }).(pulumi.StringPtrOutput)
+}
+
+// BIGIQ License Manager password.  variable type `string`
+func (o CommonLicenseManageBigIqOutput) BigiqPassword() pulumi.StringOutput {
+	return o.ApplyT(func(v *CommonLicenseManageBigIq) pulumi.StringOutput { return v.BigiqPassword }).(pulumi.StringOutput)
+}
+
+// type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
+func (o CommonLicenseManageBigIqOutput) BigiqPort() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommonLicenseManageBigIq) pulumi.StringPtrOutput { return v.BigiqPort }).(pulumi.StringPtrOutput)
+}
+
+// type `bool`, if set to `true` enables Token based Authentication,default is `false`
+func (o CommonLicenseManageBigIqOutput) BigiqTokenAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CommonLicenseManageBigIq) pulumi.BoolPtrOutput { return v.BigiqTokenAuth }).(pulumi.BoolPtrOutput)
+}
+
+// BIGIQ License Manager username, variable type `string`
+func (o CommonLicenseManageBigIqOutput) BigiqUser() pulumi.StringOutput {
+	return o.ApplyT(func(v *CommonLicenseManageBigIq) pulumi.StringOutput { return v.BigiqUser }).(pulumi.StringOutput)
+}
+
+// Status of Licence Assignment
+func (o CommonLicenseManageBigIqOutput) DeviceLicenseStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *CommonLicenseManageBigIq) pulumi.StringOutput { return v.DeviceLicenseStatus }).(pulumi.StringOutput)
+}
+
+// Identifies the platform running the BIG-IP VE. Possible values: “aws”, “azure”, “gce”, “vmware”, “hyperv”, “kvm”, or “xen”. type `string`
+func (o CommonLicenseManageBigIqOutput) Hypervisor() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommonLicenseManageBigIq) pulumi.StringPtrOutput { return v.Hypervisor }).(pulumi.StringPtrOutput)
+}
+
+// License Assignment is done with specified `key`, supported only with RegKeypool type License assignement. type `string`
+func (o CommonLicenseManageBigIqOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommonLicenseManageBigIq) pulumi.StringPtrOutput { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// A name given to the license pool. type `string`
+func (o CommonLicenseManageBigIqOutput) LicensePoolname() pulumi.StringOutput {
+	return o.ApplyT(func(v *CommonLicenseManageBigIq) pulumi.StringOutput { return v.LicensePoolname }).(pulumi.StringOutput)
+}
+
+// MAC address of the BIG-IP. type `string`
+func (o CommonLicenseManageBigIqOutput) MacAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommonLicenseManageBigIq) pulumi.StringPtrOutput { return v.MacAddress }).(pulumi.StringPtrOutput)
+}
+
+// An optional offering name. type `string`
+func (o CommonLicenseManageBigIqOutput) Skukeyword1() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommonLicenseManageBigIq) pulumi.StringPtrOutput { return v.Skukeyword1 }).(pulumi.StringPtrOutput)
+}
+
+// An optional offering name. type `string`
+func (o CommonLicenseManageBigIqOutput) Skukeyword2() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommonLicenseManageBigIq) pulumi.StringPtrOutput { return v.Skukeyword2 }).(pulumi.StringPtrOutput)
+}
+
+// For an unreachable BIG-IP, you can provide an optional description for the assignment in this field.
+func (o CommonLicenseManageBigIqOutput) Tenant() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommonLicenseManageBigIq) pulumi.StringPtrOutput { return v.Tenant }).(pulumi.StringPtrOutput)
+}
+
+// The units used to measure billing. For example, “hourly” or “daily”. Type `string`
+func (o CommonLicenseManageBigIqOutput) UnitOfMeasure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommonLicenseManageBigIq) pulumi.StringPtrOutput { return v.UnitOfMeasure }).(pulumi.StringPtrOutput)
 }
 
 type CommonLicenseManageBigIqArrayOutput struct{ *pulumi.OutputState }

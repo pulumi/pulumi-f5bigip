@@ -20,33 +20,36 @@ import (
 // package main
 //
 // import (
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ssl"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ssl"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func readFileOrPanic(path string) pulumi.StringPtrInput {
-// 	data, err := ioutil.ReadFile(path)
-// 	if err != nil {
-// 		panic(err.Error())
-// 	}
-// 	return pulumi.String(string(data))
-// }
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := ioutil.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ssl.NewCertificate(ctx, "test-cert", &ssl.CertificateArgs{
-// 			Name:      pulumi.String("servercert.crt"),
-// 			Content:   readFileOrPanic("servercert.crt"),
-// 			Partition: pulumi.String("Common"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ssl.NewCertificate(ctx, "test-cert", &ssl.CertificateArgs{
+//				Name:      pulumi.String("servercert.crt"),
+//				Content:   readFileOrPanic("servercert.crt"),
+//				Partition: pulumi.String("Common"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 type Certificate struct {
 	pulumi.CustomResourceState
@@ -170,7 +173,7 @@ func (i *Certificate) ToCertificateOutputWithContext(ctx context.Context) Certif
 // CertificateArrayInput is an input type that accepts CertificateArray and CertificateArrayOutput values.
 // You can construct a concrete instance of `CertificateArrayInput` via:
 //
-//          CertificateArray{ CertificateArgs{...} }
+//	CertificateArray{ CertificateArgs{...} }
 type CertificateArrayInput interface {
 	pulumi.Input
 
@@ -195,7 +198,7 @@ func (i CertificateArray) ToCertificateArrayOutputWithContext(ctx context.Contex
 // CertificateMapInput is an input type that accepts CertificateMap and CertificateMapOutput values.
 // You can construct a concrete instance of `CertificateMapInput` via:
 //
-//          CertificateMap{ "key": CertificateArgs{...} }
+//	CertificateMap{ "key": CertificateArgs{...} }
 type CertificateMapInput interface {
 	pulumi.Input
 
@@ -229,6 +232,26 @@ func (o CertificateOutput) ToCertificateOutput() CertificateOutput {
 
 func (o CertificateOutput) ToCertificateOutputWithContext(ctx context.Context) CertificateOutput {
 	return o
+}
+
+// Content of certificate on Disk
+func (o CertificateOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Content }).(pulumi.StringOutput)
+}
+
+// Full Path Name of ssl certificate
+func (o CertificateOutput) FullPath() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.FullPath }).(pulumi.StringOutput)
+}
+
+// Name of the SSL Certificate to be Imported on to BIGIP
+func (o CertificateOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Partition of ssl certificate
+func (o CertificateOutput) Partition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.Partition }).(pulumi.StringPtrOutput)
 }
 
 type CertificateArrayOutput struct{ *pulumi.OutputState }

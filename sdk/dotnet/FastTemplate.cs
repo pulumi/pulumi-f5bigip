@@ -14,7 +14,7 @@ namespace Pulumi.F5BigIP
     /// Template set can be imported from zip archive files on the local disk.
     /// </summary>
     [F5BigIPResourceType("f5bigip:index/fastTemplate:FastTemplate")]
-    public partial class FastTemplate : Pulumi.CustomResource
+    public partial class FastTemplate : global::Pulumi.CustomResource
     {
         /// <summary>
         /// MD5 hash of the zip archive file containing FAST template
@@ -78,7 +78,7 @@ namespace Pulumi.F5BigIP
         }
     }
 
-    public sealed class FastTemplateArgs : Pulumi.ResourceArgs
+    public sealed class FastTemplateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// MD5 hash of the zip archive file containing FAST template
@@ -101,9 +101,10 @@ namespace Pulumi.F5BigIP
         public FastTemplateArgs()
         {
         }
+        public static new FastTemplateArgs Empty => new FastTemplateArgs();
     }
 
-    public sealed class FastTemplateState : Pulumi.ResourceArgs
+    public sealed class FastTemplateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// MD5 hash of the zip archive file containing FAST template
@@ -126,5 +127,6 @@ namespace Pulumi.F5BigIP
         public FastTemplateState()
         {
         }
+        public static new FastTemplateState Empty => new FastTemplateState();
     }
 }

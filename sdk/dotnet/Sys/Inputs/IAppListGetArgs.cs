@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Sys.Inputs
 {
 
-    public sealed class IAppListGetArgs : Pulumi.ResourceArgs
+    public sealed class IAppListGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("encrypted")]
         public Input<string>? Encrypted { get; set; }
@@ -21,5 +21,6 @@ namespace Pulumi.F5BigIP.Sys.Inputs
         public IAppListGetArgs()
         {
         }
+        public static new IAppListGetArgs Empty => new IAppListGetArgs();
     }
 }

@@ -14,29 +14,27 @@ namespace Pulumi.F5BigIP.Sys
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var snmp = new F5BigIP.Sys.Snmp("snmp", new()
     ///     {
-    ///         var snmp = new F5BigIP.Sys.Snmp("snmp", new F5BigIP.Sys.SnmpArgs
+    ///         Allowedaddresses = new[]
     ///         {
-    ///             Allowedaddresses = 
-    ///             {
-    ///                 "202.10.10.2",
-    ///             },
-    ///             SysContact = " NetOPsAdmin s.shitole@f5.com",
-    ///             SysLocation = "SeattleHQ",
-    ///         });
-    ///     }
+    ///             "202.10.10.2",
+    ///         },
+    ///         SysContact = " NetOPsAdmin s.shitole@f5.com",
+    ///         SysLocation = "SeattleHQ",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:sys/snmp:Snmp")]
-    public partial class Snmp : Pulumi.CustomResource
+    public partial class Snmp : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Configures hosts or networks from which snmpd can accept traffic. Entries go directly into hosts.allow.
@@ -100,7 +98,7 @@ namespace Pulumi.F5BigIP.Sys
         }
     }
 
-    public sealed class SnmpArgs : Pulumi.ResourceArgs
+    public sealed class SnmpArgs : global::Pulumi.ResourceArgs
     {
         [Input("allowedaddresses")]
         private InputList<string>? _allowedaddresses;
@@ -129,9 +127,10 @@ namespace Pulumi.F5BigIP.Sys
         public SnmpArgs()
         {
         }
+        public static new SnmpArgs Empty => new SnmpArgs();
     }
 
-    public sealed class SnmpState : Pulumi.ResourceArgs
+    public sealed class SnmpState : global::Pulumi.ResourceArgs
     {
         [Input("allowedaddresses")]
         private InputList<string>? _allowedaddresses;
@@ -160,5 +159,6 @@ namespace Pulumi.F5BigIP.Sys
         public SnmpState()
         {
         }
+        public static new SnmpState Empty => new SnmpState();
     }
 }

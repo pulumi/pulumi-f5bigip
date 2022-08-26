@@ -16,29 +16,27 @@ namespace Pulumi.F5BigIP.Sys
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var ntp1 = new F5BigIP.Sys.Ntp("ntp1", new()
     ///     {
-    ///         var ntp1 = new F5BigIP.Sys.Ntp("ntp1", new F5BigIP.Sys.NtpArgs
+    ///         Description = "/Common/NTP1",
+    ///         Servers = new[]
     ///         {
-    ///             Description = "/Common/NTP1",
-    ///             Servers = 
-    ///             {
-    ///                 "time.facebook.com",
-    ///             },
-    ///             Timezone = "America/Los_Angeles",
-    ///         });
-    ///     }
+    ///             "time.facebook.com",
+    ///         },
+    ///         Timezone = "America/Los_Angeles",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:sys/ntp:Ntp")]
-    public partial class Ntp : Pulumi.CustomResource
+    public partial class Ntp : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Name of the ntp Servers
@@ -102,7 +100,7 @@ namespace Pulumi.F5BigIP.Sys
         }
     }
 
-    public sealed class NtpArgs : Pulumi.ResourceArgs
+    public sealed class NtpArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the ntp Servers
@@ -131,9 +129,10 @@ namespace Pulumi.F5BigIP.Sys
         public NtpArgs()
         {
         }
+        public static new NtpArgs Empty => new NtpArgs();
     }
 
-    public sealed class NtpState : Pulumi.ResourceArgs
+    public sealed class NtpState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Name of the ntp Servers
@@ -162,5 +161,6 @@ namespace Pulumi.F5BigIP.Sys
         public NtpState()
         {
         }
+        public static new NtpState Empty => new NtpState();
     }
 }

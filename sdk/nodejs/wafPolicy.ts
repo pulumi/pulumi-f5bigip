@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -36,7 +37,8 @@ import * as utilities from "./utilities";
  *     name: "URL2",
  * });
  * const test_awaf = new f5bigip.WafPolicy("test-awaf", {
- *     name: "/Common/testpolicyravi",
+ *     name: "testpolicyravi",
+ *     partition: "Common",
  *     templateName: "POLICY_TEMPLATE_RAPID_DEPLOYMENT",
  *     applicationLanguage: "utf-8",
  *     enforcementMode: "blocking",
@@ -113,19 +115,42 @@ export class WafPolicy extends pulumi.CustomResource {
      */
     public readonly enforcementMode!: pulumi.Output<string | undefined>;
     /**
+     * `fileTypes` takes list of file-types options to be used for policy builder.
+     * See file types below for more details.
+     */
+    public readonly fileTypes!: pulumi.Output<outputs.WafPolicyFileType[] | undefined>;
+    /**
+     * `graphqlProfiles` takes list of graphql profile options to be used for policy builder.
+     * See graphql profiles below for more details.
+     */
+    public readonly graphqlProfiles!: pulumi.Output<outputs.WafPolicyGraphqlProfile[] | undefined>;
+    /**
      * the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
      * section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
      * provided by the BIG-IP.
      */
     public readonly modifications!: pulumi.Output<string[] | undefined>;
     /**
-     * The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_). It will be `fullpath`, ex: `/Common/policy1`
+     * The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * This section defines the Link for open api files on the policy.
+     */
+    public readonly openApiFiles!: pulumi.Output<string[] | undefined>;
     /**
      * This section defines parameters that the security policy permits in requests.
      */
     public readonly parameters!: pulumi.Output<string[] | undefined>;
+    /**
+     * Specifies the partition of the policy. Default is `Common`
+     */
+    public readonly partition!: pulumi.Output<string | undefined>;
+    /**
+     * `policyBuilder` block will provide `learningMode` options to be used for policy builder.
+     * See policy builder below for more details.
+     */
+    public readonly policyBuilders!: pulumi.Output<outputs.WafPolicyPolicyBuilder[] | undefined>;
     /**
      * Exported WAF policy deployed on BIGIP.
      */
@@ -135,7 +160,7 @@ export class WafPolicy extends pulumi.CustomResource {
      */
     public readonly policyId!: pulumi.Output<string>;
     /**
-     * The payload of the WAF Policy to be used for IMPORT on to BIGIP
+     * The payload of the WAF Policy to be used for IMPORT on to BIG-IP.
      */
     public readonly policyImportJson!: pulumi.Output<string | undefined>;
     /**
@@ -155,11 +180,15 @@ export class WafPolicy extends pulumi.CustomResource {
      */
     public readonly signatures!: pulumi.Output<string[] | undefined>;
     /**
+     * bulk signature setting
+     */
+    public readonly signaturesSettings!: pulumi.Output<outputs.WafPolicySignaturesSetting[] | undefined>;
+    /**
      * Specifies the name of the template used for the policy creation.
      */
     public readonly templateName!: pulumi.Output<string>;
     /**
-     * The type of policy you want to create. The default policy type is Security.
+     * The type of policy you want to create. The default policy type is `security`.
      */
     public readonly type!: pulumi.Output<string | undefined>;
     /**
@@ -185,9 +214,14 @@ export class WafPolicy extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["enablePassivemode"] = state ? state.enablePassivemode : undefined;
             resourceInputs["enforcementMode"] = state ? state.enforcementMode : undefined;
+            resourceInputs["fileTypes"] = state ? state.fileTypes : undefined;
+            resourceInputs["graphqlProfiles"] = state ? state.graphqlProfiles : undefined;
             resourceInputs["modifications"] = state ? state.modifications : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["openApiFiles"] = state ? state.openApiFiles : undefined;
             resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["partition"] = state ? state.partition : undefined;
+            resourceInputs["policyBuilders"] = state ? state.policyBuilders : undefined;
             resourceInputs["policyExportJson"] = state ? state.policyExportJson : undefined;
             resourceInputs["policyId"] = state ? state.policyId : undefined;
             resourceInputs["policyImportJson"] = state ? state.policyImportJson : undefined;
@@ -195,6 +229,7 @@ export class WafPolicy extends pulumi.CustomResource {
             resourceInputs["serverTechnologies"] = state ? state.serverTechnologies : undefined;
             resourceInputs["signatureSets"] = state ? state.signatureSets : undefined;
             resourceInputs["signatures"] = state ? state.signatures : undefined;
+            resourceInputs["signaturesSettings"] = state ? state.signaturesSettings : undefined;
             resourceInputs["templateName"] = state ? state.templateName : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
             resourceInputs["urls"] = state ? state.urls : undefined;
@@ -211,9 +246,14 @@ export class WafPolicy extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["enablePassivemode"] = args ? args.enablePassivemode : undefined;
             resourceInputs["enforcementMode"] = args ? args.enforcementMode : undefined;
+            resourceInputs["fileTypes"] = args ? args.fileTypes : undefined;
+            resourceInputs["graphqlProfiles"] = args ? args.graphqlProfiles : undefined;
             resourceInputs["modifications"] = args ? args.modifications : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["openApiFiles"] = args ? args.openApiFiles : undefined;
             resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["partition"] = args ? args.partition : undefined;
+            resourceInputs["policyBuilders"] = args ? args.policyBuilders : undefined;
             resourceInputs["policyExportJson"] = args ? args.policyExportJson : undefined;
             resourceInputs["policyId"] = args ? args.policyId : undefined;
             resourceInputs["policyImportJson"] = args ? args.policyImportJson : undefined;
@@ -221,6 +261,7 @@ export class WafPolicy extends pulumi.CustomResource {
             resourceInputs["serverTechnologies"] = args ? args.serverTechnologies : undefined;
             resourceInputs["signatureSets"] = args ? args.signatureSets : undefined;
             resourceInputs["signatures"] = args ? args.signatures : undefined;
+            resourceInputs["signaturesSettings"] = args ? args.signaturesSettings : undefined;
             resourceInputs["templateName"] = args ? args.templateName : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["urls"] = args ? args.urls : undefined;
@@ -255,19 +296,42 @@ export interface WafPolicyState {
      */
     enforcementMode?: pulumi.Input<string>;
     /**
+     * `fileTypes` takes list of file-types options to be used for policy builder.
+     * See file types below for more details.
+     */
+    fileTypes?: pulumi.Input<pulumi.Input<inputs.WafPolicyFileType>[]>;
+    /**
+     * `graphqlProfiles` takes list of graphql profile options to be used for policy builder.
+     * See graphql profiles below for more details.
+     */
+    graphqlProfiles?: pulumi.Input<pulumi.Input<inputs.WafPolicyGraphqlProfile>[]>;
+    /**
      * the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
      * section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
      * provided by the BIG-IP.
      */
     modifications?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_). It will be `fullpath`, ex: `/Common/policy1`
+     * The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
      */
     name?: pulumi.Input<string>;
+    /**
+     * This section defines the Link for open api files on the policy.
+     */
+    openApiFiles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * This section defines parameters that the security policy permits in requests.
      */
     parameters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the partition of the policy. Default is `Common`
+     */
+    partition?: pulumi.Input<string>;
+    /**
+     * `policyBuilder` block will provide `learningMode` options to be used for policy builder.
+     * See policy builder below for more details.
+     */
+    policyBuilders?: pulumi.Input<pulumi.Input<inputs.WafPolicyPolicyBuilder>[]>;
     /**
      * Exported WAF policy deployed on BIGIP.
      */
@@ -277,7 +341,7 @@ export interface WafPolicyState {
      */
     policyId?: pulumi.Input<string>;
     /**
-     * The payload of the WAF Policy to be used for IMPORT on to BIGIP
+     * The payload of the WAF Policy to be used for IMPORT on to BIG-IP.
      */
     policyImportJson?: pulumi.Input<string>;
     /**
@@ -297,11 +361,15 @@ export interface WafPolicyState {
      */
     signatures?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * bulk signature setting
+     */
+    signaturesSettings?: pulumi.Input<pulumi.Input<inputs.WafPolicySignaturesSetting>[]>;
+    /**
      * Specifies the name of the template used for the policy creation.
      */
     templateName?: pulumi.Input<string>;
     /**
-     * The type of policy you want to create. The default policy type is Security.
+     * The type of policy you want to create. The default policy type is `security`.
      */
     type?: pulumi.Input<string>;
     /**
@@ -335,19 +403,42 @@ export interface WafPolicyArgs {
      */
     enforcementMode?: pulumi.Input<string>;
     /**
+     * `fileTypes` takes list of file-types options to be used for policy builder.
+     * See file types below for more details.
+     */
+    fileTypes?: pulumi.Input<pulumi.Input<inputs.WafPolicyFileType>[]>;
+    /**
+     * `graphqlProfiles` takes list of graphql profile options to be used for policy builder.
+     * See graphql profiles below for more details.
+     */
+    graphqlProfiles?: pulumi.Input<pulumi.Input<inputs.WafPolicyGraphqlProfile>[]>;
+    /**
      * the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
      * section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
      * provided by the BIG-IP.
      */
     modifications?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_). It will be `fullpath`, ex: `/Common/policy1`
+     * The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
      */
     name: pulumi.Input<string>;
+    /**
+     * This section defines the Link for open api files on the policy.
+     */
+    openApiFiles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * This section defines parameters that the security policy permits in requests.
      */
     parameters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the partition of the policy. Default is `Common`
+     */
+    partition?: pulumi.Input<string>;
+    /**
+     * `policyBuilder` block will provide `learningMode` options to be used for policy builder.
+     * See policy builder below for more details.
+     */
+    policyBuilders?: pulumi.Input<pulumi.Input<inputs.WafPolicyPolicyBuilder>[]>;
     /**
      * Exported WAF policy deployed on BIGIP.
      */
@@ -357,7 +448,7 @@ export interface WafPolicyArgs {
      */
     policyId?: pulumi.Input<string>;
     /**
-     * The payload of the WAF Policy to be used for IMPORT on to BIGIP
+     * The payload of the WAF Policy to be used for IMPORT on to BIG-IP.
      */
     policyImportJson?: pulumi.Input<string>;
     /**
@@ -377,11 +468,15 @@ export interface WafPolicyArgs {
      */
     signatures?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * bulk signature setting
+     */
+    signaturesSettings?: pulumi.Input<pulumi.Input<inputs.WafPolicySignaturesSetting>[]>;
+    /**
      * Specifies the name of the template used for the policy creation.
      */
     templateName: pulumi.Input<string>;
     /**
-     * The type of policy you want to create. The default policy type is Security.
+     * The type of policy you want to create. The default policy type is `security`.
      */
     type?: pulumi.Input<string>;
     /**

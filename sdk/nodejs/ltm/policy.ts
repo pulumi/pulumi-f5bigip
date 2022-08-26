@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
 /**
  * `f5bigip.ltm.Policy` Configures ltm policies to manage traffic assigned to a virtual server
  *
- * For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+ * For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource. For example `/Common/test-policy`.
  *
  * ## Example Usage
  *
@@ -31,6 +31,7 @@ import * as utilities from "../utilities";
  *         name: "rule6",
  *         actions: [{
  *             forward: true,
+ *             connection: false,
  *             pool: mypool.name,
  *         }],
  *     }],

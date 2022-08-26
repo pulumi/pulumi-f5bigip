@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Ltm.Inputs
 {
 
-    public sealed class GetDataGroupRecordArgs : Pulumi.InvokeArgs
+    public sealed class GetDataGroupRecordArgs : global::Pulumi.InvokeArgs
     {
         [Input("data")]
         public string? Data { get; set; }
@@ -24,5 +24,6 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
         public GetDataGroupRecordArgs()
         {
         }
+        public static new GetDataGroupRecordArgs Empty => new GetDataGroupRecordArgs();
     }
 }

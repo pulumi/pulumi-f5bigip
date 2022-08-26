@@ -15,30 +15,28 @@ namespace Pulumi.F5BigIP.Ltm
     /// ## Example
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var srcaddr = new F5BigIP.Ltm.PersistenceProfileSrcAddr("srcaddr", new()
     ///     {
-    ///         var srcaddr = new F5BigIP.Ltm.PersistenceProfileSrcAddr("srcaddr", new F5BigIP.Ltm.PersistenceProfileSrcAddrArgs
-    ///         {
-    ///             DefaultsFrom = "/Common/source_addr",
-    ///             HashAlgorithm = "carp",
-    ///             MapProxies = "enabled",
-    ///             Mask = "255.255.255.255",
-    ///             MatchAcrossPools = "enabled",
-    ///             MatchAcrossServices = "enabled",
-    ///             MatchAcrossVirtuals = "enabled",
-    ///             Mirror = "enabled",
-    ///             Name = "/Common/terraform_srcaddr",
-    ///             OverrideConnLimit = "enabled",
-    ///             Timeout = 3600,
-    ///         });
-    ///     }
+    ///         DefaultsFrom = "/Common/source_addr",
+    ///         HashAlgorithm = "carp",
+    ///         MapProxies = "enabled",
+    ///         Mask = "255.255.255.255",
+    ///         MatchAcrossPools = "enabled",
+    ///         MatchAcrossServices = "enabled",
+    ///         MatchAcrossVirtuals = "enabled",
+    ///         Mirror = "enabled",
+    ///         Name = "/Common/terraform_srcaddr",
+    ///         OverrideConnLimit = "enabled",
+    ///         Timeout = 3600,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// 
     /// ## Reference
@@ -66,7 +64,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// `map_proxies` (Optional) (enabled or disabled) Directs all to the same single pool member
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/persistenceProfileSrcAddr:PersistenceProfileSrcAddr")]
-    public partial class PersistenceProfileSrcAddr : Pulumi.CustomResource
+    public partial class PersistenceProfileSrcAddr : global::Pulumi.CustomResource
     {
         [Output("appService")]
         public Output<string> AppService { get; private set; } = null!;
@@ -183,7 +181,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
     }
 
-    public sealed class PersistenceProfileSrcAddrArgs : Pulumi.ResourceArgs
+    public sealed class PersistenceProfileSrcAddrArgs : global::Pulumi.ResourceArgs
     {
         [Input("appService")]
         public Input<string>? AppService { get; set; }
@@ -259,9 +257,10 @@ namespace Pulumi.F5BigIP.Ltm
         public PersistenceProfileSrcAddrArgs()
         {
         }
+        public static new PersistenceProfileSrcAddrArgs Empty => new PersistenceProfileSrcAddrArgs();
     }
 
-    public sealed class PersistenceProfileSrcAddrState : Pulumi.ResourceArgs
+    public sealed class PersistenceProfileSrcAddrState : global::Pulumi.ResourceArgs
     {
         [Input("appService")]
         public Input<string>? AppService { get; set; }
@@ -337,5 +336,6 @@ namespace Pulumi.F5BigIP.Ltm
         public PersistenceProfileSrcAddrState()
         {
         }
+        public static new PersistenceProfileSrcAddrState Empty => new PersistenceProfileSrcAddrState();
     }
 }

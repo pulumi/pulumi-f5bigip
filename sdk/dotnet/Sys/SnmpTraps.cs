@@ -14,28 +14,26 @@ namespace Pulumi.F5BigIP.Sys
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var snmpTraps = new F5BigIP.Sys.SnmpTraps("snmpTraps", new()
     ///     {
-    ///         var snmpTraps = new F5BigIP.Sys.SnmpTraps("snmpTraps", new F5BigIP.Sys.SnmpTrapsArgs
-    ///         {
-    ///             Community = "f5community",
-    ///             Description = "Setup snmp traps",
-    ///             Host = "195.10.10.1",
-    ///             Name = "snmptraps",
-    ///             Port = 111,
-    ///         });
-    ///     }
+    ///         Community = "f5community",
+    ///         Description = "Setup snmp traps",
+    ///         Host = "195.10.10.1",
+    ///         Name = "snmptraps",
+    ///         Port = 111,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:sys/snmpTraps:SnmpTraps")]
-    public partial class SnmpTraps : Pulumi.CustomResource
+    public partial class SnmpTraps : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Encrypted password
@@ -165,7 +163,7 @@ namespace Pulumi.F5BigIP.Sys
         }
     }
 
-    public sealed class SnmpTrapsArgs : Pulumi.ResourceArgs
+    public sealed class SnmpTrapsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Encrypted password
@@ -254,9 +252,10 @@ namespace Pulumi.F5BigIP.Sys
         public SnmpTrapsArgs()
         {
         }
+        public static new SnmpTrapsArgs Empty => new SnmpTrapsArgs();
     }
 
-    public sealed class SnmpTrapsState : Pulumi.ResourceArgs
+    public sealed class SnmpTrapsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Encrypted password
@@ -345,5 +344,6 @@ namespace Pulumi.F5BigIP.Sys
         public SnmpTrapsState()
         {
         }
+        public static new SnmpTrapsState Empty => new SnmpTrapsState();
     }
 }

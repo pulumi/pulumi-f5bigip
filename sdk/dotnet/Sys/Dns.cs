@@ -15,33 +15,31 @@ namespace Pulumi.F5BigIP.Sys
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var dns1 = new F5BigIP.Sys.Dns("dns1", new()
     ///     {
-    ///         var dns1 = new F5BigIP.Sys.Dns("dns1", new F5BigIP.Sys.DnsArgs
+    ///         Description = "/Common/DNS1",
+    ///         NameServers = new[]
     ///         {
-    ///             Description = "/Common/DNS1",
-    ///             NameServers = 
-    ///             {
-    ///                 "1.1.1.1",
-    ///             },
-    ///             NumberOfDots = 2,
-    ///             Searches = 
-    ///             {
-    ///                 "f5.com",
-    ///             },
-    ///         });
-    ///     }
+    ///             "1.1.1.1",
+    ///         },
+    ///         NumberOfDots = 2,
+    ///         Searches = new[]
+    ///         {
+    ///             "f5.com",
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:sys/dns:Dns")]
-    public partial class Dns : Pulumi.CustomResource
+    public partial class Dns : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Provide description for your DNS server
@@ -111,7 +109,7 @@ namespace Pulumi.F5BigIP.Sys
         }
     }
 
-    public sealed class DnsArgs : Pulumi.ResourceArgs
+    public sealed class DnsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Provide description for your DNS server
@@ -152,9 +150,10 @@ namespace Pulumi.F5BigIP.Sys
         public DnsArgs()
         {
         }
+        public static new DnsArgs Empty => new DnsArgs();
     }
 
-    public sealed class DnsState : Pulumi.ResourceArgs
+    public sealed class DnsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Provide description for your DNS server
@@ -195,5 +194,6 @@ namespace Pulumi.F5BigIP.Sys
         public DnsState()
         {
         }
+        public static new DnsState Empty => new DnsState();
     }
 }

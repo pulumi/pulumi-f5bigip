@@ -13,39 +13,37 @@ namespace Pulumi.F5BigIP
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test = new F5BigIP.EventServiceDiscovery("test", new()
     ///     {
-    ///         var test = new F5BigIP.EventServiceDiscovery("test", new F5BigIP.EventServiceDiscoveryArgs
+    ///         Nodes = new[]
     ///         {
-    ///             Nodes = 
+    ///             new F5BigIP.Inputs.EventServiceDiscoveryNodeArgs
     ///             {
-    ///                 new F5BigIP.Inputs.EventServiceDiscoveryNodeArgs
-    ///                 {
-    ///                     Id = "newNode1",
-    ///                     Ip = "192.168.2.3",
-    ///                     Port = 8080,
-    ///                 },
-    ///                 new F5BigIP.Inputs.EventServiceDiscoveryNodeArgs
-    ///                 {
-    ///                     Id = "newNode2",
-    ///                     Ip = "192.168.2.4",
-    ///                     Port = 8080,
-    ///                 },
+    ///                 Id = "newNode1",
+    ///                 Ip = "192.168.2.3",
+    ///                 Port = 8080,
     ///             },
-    ///             Taskid = "~Sample_event_sd~My_app~My_pool",
-    ///         });
-    ///     }
+    ///             new F5BigIP.Inputs.EventServiceDiscoveryNodeArgs
+    ///             {
+    ///                 Id = "newNode2",
+    ///                 Ip = "192.168.2.4",
+    ///                 Port = 8080,
+    ///             },
+    ///         },
+    ///         Taskid = "~Sample_event_sd~My_app~My_pool",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:index/eventServiceDiscovery:EventServiceDiscovery")]
-    public partial class EventServiceDiscovery : Pulumi.CustomResource
+    public partial class EventServiceDiscovery : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
@@ -103,7 +101,7 @@ namespace Pulumi.F5BigIP
         }
     }
 
-    public sealed class EventServiceDiscoveryArgs : Pulumi.ResourceArgs
+    public sealed class EventServiceDiscoveryArgs : global::Pulumi.ResourceArgs
     {
         [Input("nodes")]
         private InputList<Inputs.EventServiceDiscoveryNodeArgs>? _nodes;
@@ -126,9 +124,10 @@ namespace Pulumi.F5BigIP
         public EventServiceDiscoveryArgs()
         {
         }
+        public static new EventServiceDiscoveryArgs Empty => new EventServiceDiscoveryArgs();
     }
 
-    public sealed class EventServiceDiscoveryState : Pulumi.ResourceArgs
+    public sealed class EventServiceDiscoveryState : global::Pulumi.ResourceArgs
     {
         [Input("nodes")]
         private InputList<Inputs.EventServiceDiscoveryNodeGetArgs>? _nodes;
@@ -151,5 +150,6 @@ namespace Pulumi.F5BigIP
         public EventServiceDiscoveryState()
         {
         }
+        public static new EventServiceDiscoveryState Empty => new EventServiceDiscoveryState();
     }
 }

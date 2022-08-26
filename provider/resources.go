@@ -139,6 +139,9 @@ func Provider() tfbridge.ProviderInfo {
 			"bigip_fast_application":            {Tok: makeResource(mainMod, "FastApplication")},
 			"bigip_ipsec_profile":               {Tok: makeResource(mainMod, "IpsecProfile")},
 			"bigip_waf_policy":                  {Tok: makeResource(mainMod, "WafPolicy")},
+			"bigip_fast_http_app":               {Tok: makeResource(mainMod, "FastHttpApp")},
+			"bigip_fast_https_app":              {Tok: makeResource(mainMod, "FastHttpsApp")},
+			"bigip_fast_tcp_app":                {Tok: makeResource(mainMod, "FastTcpApp")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"bigip_ltm_datagroup":   {Tok: makeDataSource(ltmMod, "getDataGroup")},

@@ -20,24 +20,23 @@ namespace Pulumi.F5BigIP.Ssl
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using F5BigIP = Pulumi.F5BigIP;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = F5BigIP.Ssl.GetCertificate.Invoke(new()
         ///     {
-        ///         var test = Output.Create(F5BigIP.Ssl.GetCertificate.InvokeAsync(new F5BigIP.Ssl.GetCertificateArgs
-        ///         {
-        ///             Name = "terraform_ssl_certificate",
-        ///             Partition = "Common",
-        ///         }));
-        ///         this.BigipSslCertificateName = test.Apply(test =&gt; test.Name);
-        ///     }
+        ///         Name = "terraform_ssl_certificate",
+        ///         Partition = "Common",
+        ///     });
         /// 
-        ///     [Output("bigipSslCertificateName")]
-        ///     public Output&lt;string&gt; BigipSslCertificateName { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["bigipSslCertificateName"] = test.Apply(getCertificateResult =&gt; getCertificateResult.Name),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -54,24 +53,23 @@ namespace Pulumi.F5BigIP.Ssl
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using F5BigIP = Pulumi.F5BigIP;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var test = F5BigIP.Ssl.GetCertificate.Invoke(new()
         ///     {
-        ///         var test = Output.Create(F5BigIP.Ssl.GetCertificate.InvokeAsync(new F5BigIP.Ssl.GetCertificateArgs
-        ///         {
-        ///             Name = "terraform_ssl_certificate",
-        ///             Partition = "Common",
-        ///         }));
-        ///         this.BigipSslCertificateName = test.Apply(test =&gt; test.Name);
-        ///     }
+        ///         Name = "terraform_ssl_certificate",
+        ///         Partition = "Common",
+        ///     });
         /// 
-        ///     [Output("bigipSslCertificateName")]
-        ///     public Output&lt;string&gt; BigipSslCertificateName { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["bigipSslCertificateName"] = test.Apply(getCertificateResult =&gt; getCertificateResult.Name),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -81,7 +79,7 @@ namespace Pulumi.F5BigIP.Ssl
     }
 
 
-    public sealed class GetCertificateArgs : Pulumi.InvokeArgs
+    public sealed class GetCertificateArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the ssl_certificate
@@ -98,9 +96,10 @@ namespace Pulumi.F5BigIP.Ssl
         public GetCertificateArgs()
         {
         }
+        public static new GetCertificateArgs Empty => new GetCertificateArgs();
     }
 
-    public sealed class GetCertificateInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetCertificateInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the ssl_certificate
@@ -117,6 +116,7 @@ namespace Pulumi.F5BigIP.Ssl
         public GetCertificateInvokeArgs()
         {
         }
+        public static new GetCertificateInvokeArgs Empty => new GetCertificateInvokeArgs();
     }
 
 

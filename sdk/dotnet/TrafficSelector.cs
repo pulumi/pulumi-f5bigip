@@ -17,26 +17,24 @@ namespace Pulumi.F5BigIP
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var test_selector = new F5BigIP.TrafficSelector("test-selector", new()
     ///     {
-    ///         var test_selector = new F5BigIP.TrafficSelector("test-selector", new F5BigIP.TrafficSelectorArgs
-    ///         {
-    ///             DestinationAddress = "3.10.11.2/32",
-    ///             Name = "/Common/test-selector",
-    ///             SourceAddress = "2.10.11.12/32",
-    ///         });
-    ///     }
+    ///         DestinationAddress = "3.10.11.2/32",
+    ///         Name = "/Common/test-selector",
+    ///         SourceAddress = "2.10.11.12/32",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:index/trafficSelector:TrafficSelector")]
-    public partial class TrafficSelector : Pulumi.CustomResource
+    public partial class TrafficSelector : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Description of the traffic selector.
@@ -143,7 +141,7 @@ namespace Pulumi.F5BigIP
         }
     }
 
-    public sealed class TrafficSelectorArgs : Pulumi.ResourceArgs
+    public sealed class TrafficSelectorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the traffic selector.
@@ -209,9 +207,10 @@ namespace Pulumi.F5BigIP
         public TrafficSelectorArgs()
         {
         }
+        public static new TrafficSelectorArgs Empty => new TrafficSelectorArgs();
     }
 
-    public sealed class TrafficSelectorState : Pulumi.ResourceArgs
+    public sealed class TrafficSelectorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Description of the traffic selector.
@@ -277,5 +276,6 @@ namespace Pulumi.F5BigIP
         public TrafficSelectorState()
         {
         }
+        public static new TrafficSelectorState Empty => new TrafficSelectorState();
     }
 }

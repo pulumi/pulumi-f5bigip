@@ -10,6 +10,210 @@ export interface EventServiceDiscoveryNode {
     port?: number;
 }
 
+export interface FastHttpAppFastCreateMonitor {
+    /**
+     * Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
+     */
+    interval?: number;
+    /**
+     * set `true` if the servers require login credentials for web access on FAST-Generated Pool Monitor. default is `false`.
+     */
+    monitorAuth?: boolean;
+    /**
+     * password for web access on FAST-Generated Pool Monitor.
+     */
+    password?: string;
+    /**
+     * The presence of this string anywhere in the HTTP response implies availability.
+     */
+    response?: string;
+    /**
+     * Specify data to be sent during each health check for FAST-Generated Pool Monitor.
+     */
+    sendString?: string;
+    /**
+     * username for web access on FAST-Generated Pool Monitor.
+     */
+    username?: string;
+}
+
+export interface FastHttpAppFastCreatePoolMember {
+    /**
+     * List of server address to be used for FAST-Generated Pool.
+     */
+    addresses: string[];
+    /**
+     * connectionLimit value to be used for FAST-Generated Pool.
+     */
+    connectionLimit?: number;
+    /**
+     * port number of serviceport to be used for FAST-Generated Pool.
+     */
+    port?: number;
+    /**
+     * priorityGroup value to be used for FAST-Generated Pool.
+     */
+    priorityGroup?: number;
+    /**
+     * shareNodes value to be used for FAST-Generated Pool.
+     */
+    shareNodes?: boolean;
+}
+
+export interface FastHttpAppVirtualServer {
+    /**
+     * IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
+     */
+    ip: string;
+    /**
+     * -(Optional , `int`) Port number to used for accessing virtual server/application
+     */
+    port: number;
+}
+
+export interface FastHttpsAppCreateTlsServerProfile {
+    /**
+     * Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
+     */
+    tlsCertName: string;
+    /**
+     * Name of existing BIG-IP SSL Key to be used for FAST-Generated TLS Server Profile.
+     */
+    tlsKeyName: string;
+}
+
+export interface FastHttpsAppFastCreateMonitor {
+    /**
+     * Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
+     */
+    interval?: number;
+    /**
+     * set `true` if the servers require login credentials for web access on FAST-Generated Pool Monitor. default is `false`.
+     */
+    monitorAuth?: boolean;
+    /**
+     * password for web access on FAST-Generated Pool Monitor.
+     */
+    password?: string;
+    /**
+     * The presence of this string anywhere in the HTTP response implies availability.
+     */
+    response?: string;
+    /**
+     * Specify data to be sent during each health check for FAST-Generated Pool Monitor.
+     */
+    sendString?: string;
+    /**
+     * username for web access on FAST-Generated Pool Monitor.
+     */
+    username?: string;
+}
+
+export interface FastHttpsAppFastCreatePoolMember {
+    /**
+     * List of server address to be used for FAST-Generated Pool.
+     */
+    addresses: string[];
+    /**
+     * connectionLimit value to be used for FAST-Generated Pool.
+     */
+    connectionLimit?: number;
+    /**
+     * port number of serviceport to be used for FAST-Generated Pool.
+     */
+    port?: number;
+    /**
+     * priorityGroup value to be used for FAST-Generated Pool.
+     */
+    priorityGroup?: number;
+    /**
+     * shareNodes value to be used for FAST-Generated Pool.
+     */
+    shareNodes?: boolean;
+}
+
+export interface FastHttpsAppVirtualServer {
+    /**
+     * IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
+     */
+    ip: string;
+    /**
+     * -(Optional , `int`) Port number to used for accessing virtual server/application
+     */
+    port: number;
+}
+
+export interface FastTcpAppFastCreateMonitor {
+    /**
+     * Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
+     */
+    interval?: number;
+}
+
+export interface FastTcpAppFastCreatePoolMember {
+    /**
+     * List of server address to be used for FAST-Generated Pool.
+     */
+    addresses: string[];
+    /**
+     * connectionLimit value to be used for FAST-Generated Pool.
+     */
+    connectionLimit?: number;
+    /**
+     * port number of serviceport to be used for FAST-Generated Pool.
+     */
+    port?: number;
+    /**
+     * priorityGroup value to be used for FAST-Generated Pool.
+     */
+    priorityGroup?: number;
+    /**
+     * shareNodes value to be used for FAST-Generated Pool.
+     */
+    shareNodes?: boolean;
+}
+
+export interface FastTcpAppVirtualServer {
+    /**
+     * IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
+     */
+    ip: string;
+    /**
+     * -(Optional , `int`) Port number to used for accessing virtual server/application
+     */
+    port: number;
+}
+
+export interface WafPolicyFileType {
+    /**
+     * Specifies the file type name as appearing in the URL extension.
+     */
+    name?: string;
+    /**
+     * Determines the type of the name attribute. Only when setting the type to `wildcard` will the special wildcard characters in the name be interpreted as such
+     */
+    type?: string;
+}
+
+export interface WafPolicyGraphqlProfile {
+    /**
+     * The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
+     */
+    name?: string;
+}
+
+export interface WafPolicyPolicyBuilder {
+    /**
+     * learning mode setting for policy-builder, possible options: [`automatic`,`disabled`, `manual`]
+     */
+    learningMode?: string;
+}
+
+export interface WafPolicySignaturesSetting {
+    placesignaturesInStaging?: boolean;
+    signatureStaging?: boolean;
+}
+
 export namespace cm {
     export interface DeviceGroupDevice {
         /**
@@ -311,7 +515,10 @@ export namespace ltm {
         clonePool: string;
         code: number;
         compress: boolean;
-        connection: boolean;
+        /**
+         * This action is set to `true` by default, it needs to be explicitly set to `false` for actions it conflicts with.
+         */
+        connection?: boolean;
         content: string;
         cookieHash: boolean;
         cookieInsert: boolean;
@@ -388,7 +595,7 @@ export namespace ltm {
         select: boolean;
         serverSsl: boolean;
         setVariable: boolean;
-        shutdown: boolean;
+        shutdown?: boolean;
         snat: string;
         snatpool: string;
         sourceAddress: boolean;
@@ -435,6 +642,7 @@ export namespace ltm {
         domain: boolean;
         endsWith: boolean;
         equals: boolean;
+        exists: boolean;
         expiry: boolean;
         extension: boolean;
         external: boolean;

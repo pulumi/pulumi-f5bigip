@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Ltm.Inputs
 {
 
-    public sealed class DataGroupRecordArgs : Pulumi.ResourceArgs
+    public sealed class DataGroupRecordArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// , sets the value of the record's `data` attribute, specifying a value here will create a record in the form of `name := data`
@@ -27,5 +27,6 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
         public DataGroupRecordArgs()
         {
         }
+        public static new DataGroupRecordArgs Empty => new DataGroupRecordArgs();
     }
 }

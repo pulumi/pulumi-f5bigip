@@ -15,26 +15,24 @@ namespace Pulumi.F5BigIP
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var azurevWANProfile = new F5BigIP.IpsecProfile("azurevWANProfile", new()
     ///     {
-    ///         var azurevWANProfile = new F5BigIP.IpsecProfile("azurevWANProfile", new F5BigIP.IpsecProfileArgs
-    ///         {
-    ///             Description = "mytestipsecprofile",
-    ///             Name = "/Common/Mytestipsecprofile",
-    ///             TrafficSelector = "test-trafficselector",
-    ///         });
-    ///     }
+    ///         Description = "mytestipsecprofile",
+    ///         Name = "/Common/Mytestipsecprofile",
+    ///         TrafficSelector = "test-trafficselector",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:index/ipsecProfile:IpsecProfile")]
-    public partial class IpsecProfile : Pulumi.CustomResource
+    public partial class IpsecProfile : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies descriptive text that identifies the IPsec interface tunnel profile.
@@ -104,7 +102,7 @@ namespace Pulumi.F5BigIP
         }
     }
 
-    public sealed class IpsecProfileArgs : Pulumi.ResourceArgs
+    public sealed class IpsecProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies descriptive text that identifies the IPsec interface tunnel profile.
@@ -133,9 +131,10 @@ namespace Pulumi.F5BigIP
         public IpsecProfileArgs()
         {
         }
+        public static new IpsecProfileArgs Empty => new IpsecProfileArgs();
     }
 
-    public sealed class IpsecProfileState : Pulumi.ResourceArgs
+    public sealed class IpsecProfileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies descriptive text that identifies the IPsec interface tunnel profile.
@@ -164,5 +163,6 @@ namespace Pulumi.F5BigIP
         public IpsecProfileState()
         {
         }
+        public static new IpsecProfileState Empty => new IpsecProfileState();
     }
 }

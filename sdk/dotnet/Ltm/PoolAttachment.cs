@@ -18,89 +18,90 @@ namespace Pulumi.F5BigIP.Ltm
     /// ### Pool attachment with node directly taking  `ip:port` / `fqdn:port`
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var monitor = new F5BigIP.Ltm.Monitor("monitor", new()
     ///     {
-    ///         var monitor = new F5BigIP.Ltm.Monitor("monitor", new F5BigIP.Ltm.MonitorArgs
-    ///         {
-    ///             Name = "/Common/terraform_monitor",
-    ///             Parent = "/Common/http",
-    ///             Send = @"GET /some/path
+    ///         Name = "/Common/terraform_monitor",
+    ///         Parent = "/Common/http",
+    ///         Send = @"GET /some/path
     /// ",
-    ///             Timeout = 999,
-    ///             Interval = 998,
-    ///         });
-    ///         var pool = new F5BigIP.Ltm.Pool("pool", new F5BigIP.Ltm.PoolArgs
-    ///         {
-    ///             Name = "/Common/terraform-pool",
-    ///             LoadBalancingMode = "round-robin",
-    ///             Monitors = 
-    ///             {
-    ///                 monitor.Name,
-    ///             },
-    ///             AllowSnat = "yes",
-    ///             AllowNat = "yes",
-    ///         });
-    ///         var attachNode = new F5BigIP.Ltm.PoolAttachment("attachNode", new F5BigIP.Ltm.PoolAttachmentArgs
-    ///         {
-    ///             Pool = pool.Name,
-    ///             Node = "1.1.1.1:80",
-    ///         });
-    ///     }
+    ///         Timeout = 999,
+    ///         Interval = 998,
+    ///     });
     /// 
-    /// }
+    ///     var pool = new F5BigIP.Ltm.Pool("pool", new()
+    ///     {
+    ///         Name = "/Common/terraform-pool",
+    ///         LoadBalancingMode = "round-robin",
+    ///         Monitors = new[]
+    ///         {
+    ///             monitor.Name,
+    ///         },
+    ///         AllowSnat = "yes",
+    ///         AllowNat = "yes",
+    ///     });
+    /// 
+    ///     var attachNode = new F5BigIP.Ltm.PoolAttachment("attachNode", new()
+    ///     {
+    ///         Pool = pool.Name,
+    ///         Node = "1.1.1.1:80",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Pool attachment with node referenced from `f5bigip.ltm.Node`
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var monitor = new F5BigIP.Ltm.Monitor("monitor", new()
     ///     {
-    ///         var monitor = new F5BigIP.Ltm.Monitor("monitor", new F5BigIP.Ltm.MonitorArgs
-    ///         {
-    ///             Name = "/Common/terraform_monitor",
-    ///             Parent = "/Common/http",
-    ///             Send = @"GET /some/path
+    ///         Name = "/Common/terraform_monitor",
+    ///         Parent = "/Common/http",
+    ///         Send = @"GET /some/path
     /// ",
-    ///             Timeout = 999,
-    ///             Interval = 998,
-    ///         });
-    ///         var pool = new F5BigIP.Ltm.Pool("pool", new F5BigIP.Ltm.PoolArgs
-    ///         {
-    ///             Name = "/Common/terraform-pool",
-    ///             LoadBalancingMode = "round-robin",
-    ///             Monitors = 
-    ///             {
-    ///                 monitor.Name,
-    ///             },
-    ///             AllowSnat = "yes",
-    ///             AllowNat = "yes",
-    ///         });
-    ///         var node = new F5BigIP.Ltm.Node("node", new F5BigIP.Ltm.NodeArgs
-    ///         {
-    ///             Name = "/Common/terraform_node",
-    ///             Address = "192.168.30.2",
-    ///         });
-    ///         var attachNode = new F5BigIP.Ltm.PoolAttachment("attachNode", new F5BigIP.Ltm.PoolAttachmentArgs
-    ///         {
-    ///             Pool = pool.Name,
-    ///             Node = node.Name.Apply(name =&gt; $"{name}:80"),
-    ///         });
-    ///     }
+    ///         Timeout = 999,
+    ///         Interval = 998,
+    ///     });
     /// 
-    /// }
+    ///     var pool = new F5BigIP.Ltm.Pool("pool", new()
+    ///     {
+    ///         Name = "/Common/terraform-pool",
+    ///         LoadBalancingMode = "round-robin",
+    ///         Monitors = new[]
+    ///         {
+    ///             monitor.Name,
+    ///         },
+    ///         AllowSnat = "yes",
+    ///         AllowNat = "yes",
+    ///     });
+    /// 
+    ///     var node = new F5BigIP.Ltm.Node("node", new()
+    ///     {
+    ///         Name = "/Common/terraform_node",
+    ///         Address = "192.168.30.2",
+    ///     });
+    /// 
+    ///     var attachNode = new F5BigIP.Ltm.PoolAttachment("attachNode", new()
+    ///     {
+    ///         Pool = pool.Name,
+    ///         Node = node.Name.Apply(name =&gt; $"{name}:80"),
+    ///     });
+    /// 
+    /// });
     /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/poolAttachment:PoolAttachment")]
-    public partial class PoolAttachment : Pulumi.CustomResource
+    public partial class PoolAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies a maximum established connection limit for a pool member or node.The default is 0, meaning that there is no limit to the number of connections.
@@ -194,7 +195,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
     }
 
-    public sealed class PoolAttachmentArgs : Pulumi.ResourceArgs
+    public sealed class PoolAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies a maximum established connection limit for a pool member or node.The default is 0, meaning that there is no limit to the number of connections.
@@ -247,9 +248,10 @@ namespace Pulumi.F5BigIP.Ltm
         public PoolAttachmentArgs()
         {
         }
+        public static new PoolAttachmentArgs Empty => new PoolAttachmentArgs();
     }
 
-    public sealed class PoolAttachmentState : Pulumi.ResourceArgs
+    public sealed class PoolAttachmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies a maximum established connection limit for a pool member or node.The default is 0, meaning that there is no limit to the number of connections.
@@ -302,5 +304,6 @@ namespace Pulumi.F5BigIP.Ltm
         public PoolAttachmentState()
         {
         }
+        public static new PoolAttachmentState Empty => new PoolAttachmentState();
     }
 }

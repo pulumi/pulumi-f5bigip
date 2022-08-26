@@ -35,6 +35,7 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
         public readonly bool? Domain;
         public readonly bool? EndsWith;
         public readonly bool? Equals;
+        public readonly bool? Exists;
         public readonly bool? Expiry;
         public readonly bool? Extension;
         public readonly bool? External;
@@ -149,6 +150,8 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
             bool? endsWith,
 
             bool? equals,
+
+            bool? exists,
 
             bool? expiry,
 
@@ -308,6 +311,7 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
             Domain = domain;
             EndsWith = endsWith;
             Equals = equals;
+            Exists = exists;
             Expiry = expiry;
             Extension = extension;
             External = external;

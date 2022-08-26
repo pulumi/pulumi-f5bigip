@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Sys.Inputs
 {
 
-    public sealed class IAppTableRowGetArgs : Pulumi.ResourceArgs
+    public sealed class IAppTableRowGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("rows")]
         private InputList<string>? _rows;
@@ -23,5 +23,6 @@ namespace Pulumi.F5BigIP.Sys.Inputs
         public IAppTableRowGetArgs()
         {
         }
+        public static new IAppTableRowGetArgs Empty => new IAppTableRowGetArgs();
     }
 }
