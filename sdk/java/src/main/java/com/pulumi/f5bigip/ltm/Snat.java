@@ -64,14 +64,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="f5bigip:ltm/snat:Snat")
 public class Snat extends com.pulumi.resources.CustomResource {
     /**
-     * -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level&#39;s default.
+     * Specifies whether to automatically map last hop for pools or not. The default is to use next level&#39;s default.
      * 
      */
     @Export(name="autolasthop", type=String.class, parameters={})
     private Output<String> autolasthop;
 
     /**
-     * @return -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level&#39;s default.
+     * @return Specifies whether to automatically map last hop for pools or not. The default is to use next level&#39;s default.
      * 
      */
     public Output<String> autolasthop() {

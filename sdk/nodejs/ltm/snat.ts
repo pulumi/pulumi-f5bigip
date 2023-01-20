@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -57,7 +58,7 @@ export class Snat extends pulumi.CustomResource {
     }
 
     /**
-     * -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
+     * Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
      */
     public readonly autolasthop!: pulumi.Output<string>;
     /**
@@ -155,7 +156,7 @@ export class Snat extends pulumi.CustomResource {
  */
 export interface SnatState {
     /**
-     * -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
+     * Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
      */
     autolasthop?: pulumi.Input<string>;
     /**
@@ -205,7 +206,7 @@ export interface SnatState {
  */
 export interface SnatArgs {
     /**
-     * -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
+     * Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
      */
     autolasthop?: pulumi.Input<string>;
     /**

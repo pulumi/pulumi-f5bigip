@@ -15,13 +15,13 @@ namespace Pulumi.F5BigIP.Ltm
         /// Use this data source (`f5bigip.ltm.Node`) to get the ltm node details available on BIG-IP
         /// </summary>
         public static Task<GetNodeResult> InvokeAsync(GetNodeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetNodeResult>("f5bigip:ltm/getNode:getNode", args ?? new GetNodeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetNodeResult>("f5bigip:ltm/getNode:getNode", args ?? new GetNodeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source (`f5bigip.ltm.Node`) to get the ltm node details available on BIG-IP
         /// </summary>
         public static Output<GetNodeResult> Invoke(GetNodeInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetNodeResult>("f5bigip:ltm/getNode:getNode", args ?? new GetNodeInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetNodeResult>("f5bigip:ltm/getNode:getNode", args ?? new GetNodeInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -120,13 +120,19 @@ namespace Pulumi.F5BigIP.Ltm
         /// Specifies the name of the certificate that the system uses for server-side SSL processing.
         /// </summary>
         [Output("cert")]
-        public Output<string> Cert { get; private set; } = null!;
+        public Output<string?> Cert { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the certificates-key chain to associate with the SSL profile
         /// </summary>
         [Output("chain")]
-        public Output<string> Chain { get; private set; } = null!;
+        public Output<string?> Chain { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+        /// </summary>
+        [Output("cipherGroup")]
+        public Output<string?> CipherGroup { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
@@ -174,7 +180,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// Specifies the file name of the SSL key.
         /// </summary>
         [Output("key")]
-        public Output<string> Key { get; private set; } = null!;
+        public Output<string?> Key { get; private set; } = null!;
 
         /// <summary>
         /// ModSSL Methods enabled / disabled. Default is disabled.
@@ -367,6 +373,10 @@ namespace Pulumi.F5BigIP.Ltm
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "passphrase",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -494,6 +504,12 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Chain { get; set; }
 
         /// <summary>
+        /// Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+        /// </summary>
+        [Input("cipherGroup")]
+        public Input<string>? CipherGroup { get; set; }
+
+        /// <summary>
         /// Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
         /// </summary>
         [Input("ciphers")]
@@ -565,11 +581,21 @@ namespace Pulumi.F5BigIP.Ltm
         [Input("partition")]
         public Input<string>? Partition { get; set; }
 
+        [Input("passphrase")]
+        private Input<string>? _passphrase;
+
         /// <summary>
         /// Client Certificate Constrained Delegation CA passphrase
         /// </summary>
-        [Input("passphrase")]
-        public Input<string>? Passphrase { get; set; }
+        public Input<string>? Passphrase
+        {
+            get => _passphrase;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _passphrase = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies the way the system handles client certificates.When ignore, specifies that the system ignores certificates from client systems.When require, specifies that the system requires a client to present a valid certificate.When request, specifies that the system requests a valid certificate from a client but always authenticate the client.
@@ -827,6 +853,12 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Chain { get; set; }
 
         /// <summary>
+        /// Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+        /// </summary>
+        [Input("cipherGroup")]
+        public Input<string>? CipherGroup { get; set; }
+
+        /// <summary>
         /// Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
         /// </summary>
         [Input("ciphers")]
@@ -898,11 +930,21 @@ namespace Pulumi.F5BigIP.Ltm
         [Input("partition")]
         public Input<string>? Partition { get; set; }
 
+        [Input("passphrase")]
+        private Input<string>? _passphrase;
+
         /// <summary>
         /// Client Certificate Constrained Delegation CA passphrase
         /// </summary>
-        [Input("passphrase")]
-        public Input<string>? Passphrase { get; set; }
+        public Input<string>? Passphrase
+        {
+            get => _passphrase;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _passphrase = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies the way the system handles client certificates.When ignore, specifies that the system ignores certificates from client systems.When require, specifies that the system requires a client to present a valid certificate.When request, specifies that the system requests a valid certificate from a client but always authenticate the client.

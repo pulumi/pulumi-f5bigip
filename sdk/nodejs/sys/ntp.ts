@@ -5,9 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * `f5bigip.sys.Ntp` provides details about a specific bigip
+ * `f5bigip.sys.Ntp` resource is helpful when configuring NTP server on the BIG-IP.
  *
- * This resource is helpful when configuring NTP server on the BIG-IP.
  * ## Example Usage
  *
  * ```typescript
@@ -50,13 +49,13 @@ export class Ntp extends pulumi.CustomResource {
     }
 
     /**
-     * Name of the ntp Servers
+     * User defined description.
      */
     public readonly description!: pulumi.Output<string>;
     /**
-     * Adds NTP servers to or deletes NTP servers from the BIG-IP system.
+     * Specifies the time servers that the system uses to update the system time.
      */
-    public readonly servers!: pulumi.Output<string[] | undefined>;
+    public readonly servers!: pulumi.Output<string[]>;
     /**
      * Specifies the time zone that you want to use for the system time.
      */
@@ -83,6 +82,9 @@ export class Ntp extends pulumi.CustomResource {
             if ((!args || args.description === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
+            if ((!args || args.servers === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'servers'");
+            }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["servers"] = args ? args.servers : undefined;
             resourceInputs["timezone"] = args ? args.timezone : undefined;
@@ -97,11 +99,11 @@ export class Ntp extends pulumi.CustomResource {
  */
 export interface NtpState {
     /**
-     * Name of the ntp Servers
+     * User defined description.
      */
     description?: pulumi.Input<string>;
     /**
-     * Adds NTP servers to or deletes NTP servers from the BIG-IP system.
+     * Specifies the time servers that the system uses to update the system time.
      */
     servers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -115,13 +117,13 @@ export interface NtpState {
  */
 export interface NtpArgs {
     /**
-     * Name of the ntp Servers
+     * User defined description.
      */
     description: pulumi.Input<string>;
     /**
-     * Adds NTP servers to or deletes NTP servers from the BIG-IP system.
+     * Specifies the time servers that the system uses to update the system time.
      */
-    servers?: pulumi.Input<pulumi.Input<string>[]>;
+    servers: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the time zone that you want to use for the system time.
      */

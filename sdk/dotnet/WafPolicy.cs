@@ -15,6 +15,8 @@ namespace Pulumi.F5BigIP
     /// 
     /// * [Declarative WAF documentation](https://clouddocs.f5.com/products/waf-declarative-policy/declarative_policy_v16_1.html)
     /// 
+    /// &gt; **NOTE** This Resource Requires F5 BIG-IP v16.x above version, and ASM need to be provisioned.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -403,12 +405,6 @@ namespace Pulumi.F5BigIP
             get => _policyBuilders ?? (_policyBuilders = new InputList<Inputs.WafPolicyPolicyBuilderArgs>());
             set => _policyBuilders = value;
         }
-
-        /// <summary>
-        /// Exported WAF policy deployed on BIGIP.
-        /// </summary>
-        [Input("policyExportJson")]
-        public Input<string>? PolicyExportJson { get; set; }
 
         /// <summary>
         /// The id of the A.WAF Policy as it would be calculated on the BIG-IP.

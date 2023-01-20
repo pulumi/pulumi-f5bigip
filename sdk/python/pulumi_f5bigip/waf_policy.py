@@ -30,7 +30,6 @@ class WafPolicyArgs:
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  partition: Optional[pulumi.Input[str]] = None,
                  policy_builders: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyPolicyBuilderArgs']]]] = None,
-                 policy_export_json: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
                  policy_import_json: Optional[pulumi.Input[str]] = None,
                  protocol_independent: Optional[pulumi.Input[bool]] = None,
@@ -61,7 +60,6 @@ class WafPolicyArgs:
         :param pulumi.Input[str] partition: Specifies the partition of the policy. Default is `Common`
         :param pulumi.Input[Sequence[pulumi.Input['WafPolicyPolicyBuilderArgs']]] policy_builders: `policy_builder` block will provide `learning_mode` options to be used for policy builder.
                See policy builder below for more details.
-        :param pulumi.Input[str] policy_export_json: Exported WAF policy deployed on BIGIP.
         :param pulumi.Input[str] policy_id: The id of the A.WAF Policy as it would be calculated on the BIG-IP.
         :param pulumi.Input[str] policy_import_json: The payload of the WAF Policy to be used for IMPORT on to BIG-IP.
         :param pulumi.Input[bool] protocol_independent: When creating a security policy, you can determine whether a security policy differentiates between HTTP and HTTPS URLs. If enabled, the security policy differentiates between HTTP and HTTPS URLs. If disabled, the security policy configures URLs without specifying a specific protocol. This is useful for applications that behave the same for HTTP and HTTPS, and it keeps the security policy from including the same URL twice.
@@ -98,8 +96,6 @@ class WafPolicyArgs:
             pulumi.set(__self__, "partition", partition)
         if policy_builders is not None:
             pulumi.set(__self__, "policy_builders", policy_builders)
-        if policy_export_json is not None:
-            pulumi.set(__self__, "policy_export_json", policy_export_json)
         if policy_id is not None:
             pulumi.set(__self__, "policy_id", policy_id)
         if policy_import_json is not None:
@@ -291,18 +287,6 @@ class WafPolicyArgs:
     @policy_builders.setter
     def policy_builders(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyPolicyBuilderArgs']]]]):
         pulumi.set(self, "policy_builders", value)
-
-    @property
-    @pulumi.getter(name="policyExportJson")
-    def policy_export_json(self) -> Optional[pulumi.Input[str]]:
-        """
-        Exported WAF policy deployed on BIGIP.
-        """
-        return pulumi.get(self, "policy_export_json")
-
-    @policy_export_json.setter
-    def policy_export_json(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "policy_export_json", value)
 
     @property
     @pulumi.getter(name="policyId")
@@ -833,7 +817,6 @@ class WafPolicy(pulumi.CustomResource):
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  partition: Optional[pulumi.Input[str]] = None,
                  policy_builders: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyPolicyBuilderArgs']]]]] = None,
-                 policy_export_json: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
                  policy_import_json: Optional[pulumi.Input[str]] = None,
                  protocol_independent: Optional[pulumi.Input[bool]] = None,
@@ -850,6 +833,8 @@ class WafPolicy(pulumi.CustomResource):
         It outputs an up-to-date WAF Policy in a JSON format
 
         * [Declarative WAF documentation](https://clouddocs.f5.com/products/waf-declarative-policy/declarative_policy_v16_1.html)
+
+        > **NOTE** This Resource Requires F5 BIG-IP v16.x above version, and ASM need to be provisioned.
 
         ## Example Usage
 
@@ -917,7 +902,6 @@ class WafPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] partition: Specifies the partition of the policy. Default is `Common`
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyPolicyBuilderArgs']]]] policy_builders: `policy_builder` block will provide `learning_mode` options to be used for policy builder.
                See policy builder below for more details.
-        :param pulumi.Input[str] policy_export_json: Exported WAF policy deployed on BIGIP.
         :param pulumi.Input[str] policy_id: The id of the A.WAF Policy as it would be calculated on the BIG-IP.
         :param pulumi.Input[str] policy_import_json: The payload of the WAF Policy to be used for IMPORT on to BIG-IP.
         :param pulumi.Input[bool] protocol_independent: When creating a security policy, you can determine whether a security policy differentiates between HTTP and HTTPS URLs. If enabled, the security policy differentiates between HTTP and HTTPS URLs. If disabled, the security policy configures URLs without specifying a specific protocol. This is useful for applications that behave the same for HTTP and HTTPS, and it keeps the security policy from including the same URL twice.
@@ -940,6 +924,8 @@ class WafPolicy(pulumi.CustomResource):
         It outputs an up-to-date WAF Policy in a JSON format
 
         * [Declarative WAF documentation](https://clouddocs.f5.com/products/waf-declarative-policy/declarative_policy_v16_1.html)
+
+        > **NOTE** This Resource Requires F5 BIG-IP v16.x above version, and ASM need to be provisioned.
 
         ## Example Usage
 
@@ -1015,7 +1001,6 @@ class WafPolicy(pulumi.CustomResource):
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  partition: Optional[pulumi.Input[str]] = None,
                  policy_builders: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyPolicyBuilderArgs']]]]] = None,
-                 policy_export_json: Optional[pulumi.Input[str]] = None,
                  policy_id: Optional[pulumi.Input[str]] = None,
                  policy_import_json: Optional[pulumi.Input[str]] = None,
                  protocol_independent: Optional[pulumi.Input[bool]] = None,
@@ -1050,7 +1035,6 @@ class WafPolicy(pulumi.CustomResource):
             __props__.__dict__["parameters"] = parameters
             __props__.__dict__["partition"] = partition
             __props__.__dict__["policy_builders"] = policy_builders
-            __props__.__dict__["policy_export_json"] = policy_export_json
             __props__.__dict__["policy_id"] = policy_id
             __props__.__dict__["policy_import_json"] = policy_import_json
             __props__.__dict__["protocol_independent"] = protocol_independent
@@ -1063,6 +1047,7 @@ class WafPolicy(pulumi.CustomResource):
             __props__.__dict__["template_name"] = template_name
             __props__.__dict__["type"] = type
             __props__.__dict__["urls"] = urls
+            __props__.__dict__["policy_export_json"] = None
         super(WafPolicy, __self__).__init__(
             'f5bigip:index/wafPolicy:WafPolicy',
             resource_name,

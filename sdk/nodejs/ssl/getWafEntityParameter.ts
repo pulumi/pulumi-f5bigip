@@ -2,14 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 export function getWafEntityParameter(args: GetWafEntityParameterArgs, opts?: pulumi.InvokeOptions): Promise<GetWafEntityParameterResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("f5bigip:ssl/getWafEntityParameter:getWafEntityParameter", {
         "allowEmptyType": args.allowEmptyType,
         "allowRepeatedParameterName": args.allowRepeatedParameterName,
@@ -32,6 +31,7 @@ export function getWafEntityParameter(args: GetWafEntityParameterArgs, opts?: pu
         "sensitiveParameter": args.sensitiveParameter,
         "signatureOverridesDisables": args.signatureOverridesDisables,
         "type": args.type,
+        "url": args.url,
         "valueType": args.valueType,
     }, opts);
 }
@@ -61,6 +61,7 @@ export interface GetWafEntityParameterArgs {
     sensitiveParameter?: boolean;
     signatureOverridesDisables?: number[];
     type?: string;
+    url?: inputs.ssl.GetWafEntityParameterUrl;
     valueType?: string;
 }
 
@@ -93,11 +94,11 @@ export interface GetWafEntityParameterResult {
     readonly sensitiveParameter?: boolean;
     readonly signatureOverridesDisables?: number[];
     readonly type?: string;
+    readonly url?: outputs.ssl.GetWafEntityParameterUrl;
     readonly valueType?: string;
 }
-
 export function getWafEntityParameterOutput(args: GetWafEntityParameterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWafEntityParameterResult> {
-    return pulumi.output(args).apply(a => getWafEntityParameter(a, opts))
+    return pulumi.output(args).apply((a: any) => getWafEntityParameter(a, opts))
 }
 
 /**
@@ -125,5 +126,6 @@ export interface GetWafEntityParameterOutputArgs {
     sensitiveParameter?: pulumi.Input<boolean>;
     signatureOverridesDisables?: pulumi.Input<pulumi.Input<number>[]>;
     type?: pulumi.Input<string>;
+    url?: pulumi.Input<inputs.ssl.GetWafEntityParameterUrlArgs>;
     valueType?: pulumi.Input<string>;
 }

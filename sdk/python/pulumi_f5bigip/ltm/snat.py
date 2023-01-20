@@ -31,7 +31,7 @@ class SnatArgs:
         The set of arguments for constructing a Snat resource.
         :param pulumi.Input[str] name: Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
         :param pulumi.Input[Sequence[pulumi.Input['SnatOriginArgs']]] origins: Specifies, for each SNAT that you create, the origin addresses that are to be members of that SNAT. Specify origin addresses by their IP addresses and service ports
-        :param pulumi.Input[str] autolasthop: -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
+        :param pulumi.Input[str] autolasthop: Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
         :param pulumi.Input[str] full_path: Fullpath
         :param pulumi.Input[str] mirror: Enables or disables mirroring of SNAT connections.
         :param pulumi.Input[str] partition: Partition or path to which the SNAT belongs
@@ -90,7 +90,7 @@ class SnatArgs:
     @pulumi.getter
     def autolasthop(self) -> Optional[pulumi.Input[str]]:
         """
-        -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
+        Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
         """
         return pulumi.get(self, "autolasthop")
 
@@ -211,7 +211,7 @@ class _SnatState:
                  vlansdisabled: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering Snat resources.
-        :param pulumi.Input[str] autolasthop: -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
+        :param pulumi.Input[str] autolasthop: Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
         :param pulumi.Input[str] full_path: Fullpath
         :param pulumi.Input[str] mirror: Enables or disables mirroring of SNAT connections.
         :param pulumi.Input[str] name: Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
@@ -250,7 +250,7 @@ class _SnatState:
     @pulumi.getter
     def autolasthop(self) -> Optional[pulumi.Input[str]]:
         """
-        -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
+        Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
         """
         return pulumi.get(self, "autolasthop")
 
@@ -420,7 +420,7 @@ class Snat(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] autolasthop: -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
+        :param pulumi.Input[str] autolasthop: Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
         :param pulumi.Input[str] full_path: Fullpath
         :param pulumi.Input[str] mirror: Enables or disables mirroring of SNAT connections.
         :param pulumi.Input[str] name: Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
@@ -538,7 +538,7 @@ class Snat(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] autolasthop: -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
+        :param pulumi.Input[str] autolasthop: Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
         :param pulumi.Input[str] full_path: Fullpath
         :param pulumi.Input[str] mirror: Enables or disables mirroring of SNAT connections.
         :param pulumi.Input[str] name: Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
@@ -571,7 +571,7 @@ class Snat(pulumi.CustomResource):
     @pulumi.getter
     def autolasthop(self) -> pulumi.Output[str]:
         """
-        -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
+        Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
         """
         return pulumi.get(self, "autolasthop")
 

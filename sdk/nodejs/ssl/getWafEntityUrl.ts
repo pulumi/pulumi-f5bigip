@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -14,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const wAFURL1 = pulumi.output(f5bigip.ssl.getWafEntityUrl({
+ * const wAFURL1 = f5bigip.ssl.getWafEntityUrl({
  *     description: "this is a test",
  *     methodOverrides: [
  *         {
@@ -34,15 +35,12 @@ import * as utilities from "../utilities";
  *         87654321,
  *     ],
  *     type: "explicit",
- * }));
+ * });
  * ```
  */
 export function getWafEntityUrl(args: GetWafEntityUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetWafEntityUrlResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("f5bigip:ssl/getWafEntityUrl:getWafEntityUrl", {
         "description": args.description,
         "method": args.method,
@@ -114,9 +112,40 @@ export interface GetWafEntityUrlResult {
     readonly signatureOverridesDisables?: number[];
     readonly type?: string;
 }
-
+/**
+ * Use this data source (`f5bigip.ssl.getWafPbSuggestions`) to create JSON for WAF URL to later use with an existing WAF policy.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const wAFURL1 = f5bigip.ssl.getWafEntityUrl({
+ *     description: "this is a test",
+ *     methodOverrides: [
+ *         {
+ *             allow: false,
+ *             method: "BCOPY",
+ *         },
+ *         {
+ *             allow: true,
+ *             method: "BDELETE",
+ *         },
+ *     ],
+ *     name: "/foobar",
+ *     performStaging: true,
+ *     protocol: "HTTP",
+ *     signatureOverridesDisables: [
+ *         12345678,
+ *         87654321,
+ *     ],
+ *     type: "explicit",
+ * });
+ * ```
+ */
 export function getWafEntityUrlOutput(args: GetWafEntityUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWafEntityUrlResult> {
-    return pulumi.output(args).apply(a => getWafEntityUrl(a, opts))
+    return pulumi.output(args).apply((a: any) => getWafEntityUrl(a, opts))
 }
 
 /**

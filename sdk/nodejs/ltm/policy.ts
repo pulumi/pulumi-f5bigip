@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -73,7 +74,7 @@ export class Policy extends pulumi.CustomResource {
      */
     public readonly controls!: pulumi.Output<string[] | undefined>;
     /**
-     * Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+     * Name of Rule to be applied in policy.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -85,7 +86,7 @@ export class Policy extends pulumi.CustomResource {
      */
     public readonly requires!: pulumi.Output<string[] | undefined>;
     /**
-     * Rules can be applied using the policy
+     * List of Rules can be applied using the policy. Each rule is block type with following arguments.
      */
     public readonly rules!: pulumi.Output<outputs.ltm.PolicyRule[] | undefined>;
     /**
@@ -138,7 +139,7 @@ export interface PolicyState {
      */
     controls?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+     * Name of Rule to be applied in policy.
      */
     name?: pulumi.Input<string>;
     /**
@@ -150,7 +151,7 @@ export interface PolicyState {
      */
     requires?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Rules can be applied using the policy
+     * List of Rules can be applied using the policy. Each rule is block type with following arguments.
      */
     rules?: pulumi.Input<pulumi.Input<inputs.ltm.PolicyRule>[]>;
     /**
@@ -168,7 +169,7 @@ export interface PolicyArgs {
      */
     controls?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+     * Name of Rule to be applied in policy.
      */
     name: pulumi.Input<string>;
     /**
@@ -180,7 +181,7 @@ export interface PolicyArgs {
      */
     requires?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Rules can be applied using the policy
+     * List of Rules can be applied using the policy. Each rule is block type with following arguments.
      */
     rules?: pulumi.Input<pulumi.Input<inputs.ltm.PolicyRule>[]>;
     /**

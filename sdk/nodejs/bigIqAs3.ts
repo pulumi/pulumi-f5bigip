@@ -18,7 +18,7 @@ import * as utilities from "./utilities";
  *
  * // Example Usage for json file
  * const exampletask = new f5bigip.BigIqAs3("exampletask", {
- *     as3Json: fs.readFileSync("bigiq_example.json", "utf-8"),
+ *     as3Json: fs.readFileSync("bigiq_example.json"),
  *     bigiqAddress: "xx.xx.xxx.xx",
  *     bigiqPassword: "xxxxxxxxx",
  *     bigiqUser: "xxxxx",
@@ -128,15 +128,17 @@ export class BigIqAs3 extends pulumi.CustomResource {
             }
             resourceInputs["as3Json"] = args ? args.as3Json : undefined;
             resourceInputs["bigiqAddress"] = args ? args.bigiqAddress : undefined;
-            resourceInputs["bigiqLoginRef"] = args ? args.bigiqLoginRef : undefined;
-            resourceInputs["bigiqPassword"] = args ? args.bigiqPassword : undefined;
-            resourceInputs["bigiqPort"] = args ? args.bigiqPort : undefined;
-            resourceInputs["bigiqTokenAuth"] = args ? args.bigiqTokenAuth : undefined;
-            resourceInputs["bigiqUser"] = args ? args.bigiqUser : undefined;
+            resourceInputs["bigiqLoginRef"] = args?.bigiqLoginRef ? pulumi.secret(args.bigiqLoginRef) : undefined;
+            resourceInputs["bigiqPassword"] = args?.bigiqPassword ? pulumi.secret(args.bigiqPassword) : undefined;
+            resourceInputs["bigiqPort"] = args?.bigiqPort ? pulumi.secret(args.bigiqPort) : undefined;
+            resourceInputs["bigiqTokenAuth"] = args?.bigiqTokenAuth ? pulumi.secret(args.bigiqTokenAuth) : undefined;
+            resourceInputs["bigiqUser"] = args?.bigiqUser ? pulumi.secret(args.bigiqUser) : undefined;
             resourceInputs["ignoreMetadata"] = args ? args.ignoreMetadata : undefined;
             resourceInputs["tenantList"] = args ? args.tenantList : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["bigiqLoginRef", "bigiqPassword", "bigiqPort", "bigiqTokenAuth", "bigiqUser"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(BigIqAs3.__pulumiType, name, resourceInputs, opts);
     }
 }

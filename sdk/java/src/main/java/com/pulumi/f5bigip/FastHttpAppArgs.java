@@ -5,9 +5,10 @@ package com.pulumi.f5bigip;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.f5bigip.inputs.FastHttpAppFastCreateMonitorArgs;
-import com.pulumi.f5bigip.inputs.FastHttpAppFastCreatePoolMemberArgs;
+import com.pulumi.f5bigip.inputs.FastHttpAppMonitorArgs;
+import com.pulumi.f5bigip.inputs.FastHttpAppPoolMemberArgs;
 import com.pulumi.f5bigip.inputs.FastHttpAppVirtualServerArgs;
+import com.pulumi.f5bigip.inputs.FastHttpAppWafSecurityPolicyArgs;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -36,18 +37,18 @@ public final class FastHttpAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of an existing BIG-IP pool.
+     * List of LTM Policies to be applied FAST HTTP Application.
      * 
      */
-    @Import(name="existPoolName")
-    private @Nullable Output<String> existPoolName;
+    @Import(name="endpointLtmPolicies")
+    private @Nullable Output<List<String>> endpointLtmPolicies;
 
     /**
-     * @return Name of an existing BIG-IP pool.
+     * @return List of LTM Policies to be applied FAST HTTP Application.
      * 
      */
-    public Optional<Output<String>> existPoolName() {
-        return Optional.ofNullable(this.existPoolName);
+    public Optional<Output<List<String>>> endpointLtmPolicies() {
+        return Optional.ofNullable(this.endpointLtmPolicies);
     }
 
     /**
@@ -66,6 +67,21 @@ public final class FastHttpAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Select an existing BIG-IP Pool
+     * 
+     */
+    @Import(name="existingPool")
+    private @Nullable Output<String> existingPool;
+
+    /**
+     * @return Select an existing BIG-IP Pool
+     * 
+     */
+    public Optional<Output<String>> existingPool() {
+        return Optional.ofNullable(this.existingPool);
+    }
+
+    /**
      * Name of an existing BIG-IP SNAT pool.
      * 
      */
@@ -81,52 +97,18 @@ public final class FastHttpAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * `fast_create_monitor` block takes input for FAST-Generated Pool Monitor.
-     * See Pool Monitor below for more details.
+     * Name of an existing WAF Security policy.
      * 
      */
-    @Import(name="fastCreateMonitor")
-    private @Nullable Output<FastHttpAppFastCreateMonitorArgs> fastCreateMonitor;
+    @Import(name="existingWafSecurityPolicy")
+    private @Nullable Output<String> existingWafSecurityPolicy;
 
     /**
-     * @return `fast_create_monitor` block takes input for FAST-Generated Pool Monitor.
-     * See Pool Monitor below for more details.
+     * @return Name of an existing WAF Security policy.
      * 
      */
-    public Optional<Output<FastHttpAppFastCreateMonitorArgs>> fastCreateMonitor() {
-        return Optional.ofNullable(this.fastCreateMonitor);
-    }
-
-    /**
-     * `fast_create_pool_members` block takes input for FAST-Generated Pool.
-     * See Pool Members below for more details.
-     * 
-     */
-    @Import(name="fastCreatePoolMembers")
-    private @Nullable Output<List<FastHttpAppFastCreatePoolMemberArgs>> fastCreatePoolMembers;
-
-    /**
-     * @return `fast_create_pool_members` block takes input for FAST-Generated Pool.
-     * See Pool Members below for more details.
-     * 
-     */
-    public Optional<Output<List<FastHttpAppFastCreatePoolMemberArgs>>> fastCreatePoolMembers() {
-        return Optional.ofNullable(this.fastCreatePoolMembers);
-    }
-
-    /**
-     * List of address to be used for FAST-Generated SNAT Pool.
-     * 
-     */
-    @Import(name="fastCreateSnatPoolAddresses")
-    private @Nullable Output<List<String>> fastCreateSnatPoolAddresses;
-
-    /**
-     * @return List of address to be used for FAST-Generated SNAT Pool.
-     * 
-     */
-    public Optional<Output<List<String>>> fastCreateSnatPoolAddresses() {
-        return Optional.ofNullable(this.fastCreateSnatPoolAddresses);
+    public Optional<Output<String>> existingWafSecurityPolicy() {
+        return Optional.ofNullable(this.existingWafSecurityPolicy);
     }
 
     /**
@@ -145,6 +127,55 @@ public final class FastHttpAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * `monitor` block takes input for FAST-Generated Pool Monitor.
+     * See Pool Monitor below for more details.
+     * 
+     */
+    @Import(name="monitor")
+    private @Nullable Output<FastHttpAppMonitorArgs> monitor;
+
+    /**
+     * @return `monitor` block takes input for FAST-Generated Pool Monitor.
+     * See Pool Monitor below for more details.
+     * 
+     */
+    public Optional<Output<FastHttpAppMonitorArgs>> monitor() {
+        return Optional.ofNullable(this.monitor);
+    }
+
+    /**
+     * `pool_members` block takes input for FAST-Generated Pool.
+     * See Pool Members below for more details.
+     * 
+     */
+    @Import(name="poolMembers")
+    private @Nullable Output<List<FastHttpAppPoolMemberArgs>> poolMembers;
+
+    /**
+     * @return `pool_members` block takes input for FAST-Generated Pool.
+     * See Pool Members below for more details.
+     * 
+     */
+    public Optional<Output<List<FastHttpAppPoolMemberArgs>>> poolMembers() {
+        return Optional.ofNullable(this.poolMembers);
+    }
+
+    /**
+     * List of security log profiles to be used for FAST application
+     * 
+     */
+    @Import(name="securityLogProfiles")
+    private @Nullable Output<List<String>> securityLogProfiles;
+
+    /**
+     * @return List of security log profiles to be used for FAST application
+     * 
+     */
+    public Optional<Output<List<String>>> securityLogProfiles() {
+        return Optional.ofNullable(this.securityLogProfiles);
+    }
+
+    /**
      * Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
      * 
      */
@@ -157,6 +188,21 @@ public final class FastHttpAppArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Integer>> slowRampTime() {
         return Optional.ofNullable(this.slowRampTime);
+    }
+
+    /**
+     * List of address to be used for FAST-Generated SNAT Pool.
+     * 
+     */
+    @Import(name="snatPoolAddresses")
+    private @Nullable Output<List<String>> snatPoolAddresses;
+
+    /**
+     * @return List of address to be used for FAST-Generated SNAT Pool.
+     * 
+     */
+    public Optional<Output<List<String>>> snatPoolAddresses() {
+        return Optional.ofNullable(this.snatPoolAddresses);
     }
 
     /**
@@ -191,20 +237,41 @@ public final class FastHttpAppArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.virtualServer);
     }
 
+    /**
+     * `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+     * See WAF Security Policy below for more details.
+     * 
+     */
+    @Import(name="wafSecurityPolicy")
+    private @Nullable Output<FastHttpAppWafSecurityPolicyArgs> wafSecurityPolicy;
+
+    /**
+     * @return `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+     * See WAF Security Policy below for more details.
+     * 
+     */
+    public Optional<Output<FastHttpAppWafSecurityPolicyArgs>> wafSecurityPolicy() {
+        return Optional.ofNullable(this.wafSecurityPolicy);
+    }
+
     private FastHttpAppArgs() {}
 
     private FastHttpAppArgs(FastHttpAppArgs $) {
         this.application = $.application;
-        this.existPoolName = $.existPoolName;
+        this.endpointLtmPolicies = $.endpointLtmPolicies;
         this.existingMonitor = $.existingMonitor;
+        this.existingPool = $.existingPool;
         this.existingSnatPool = $.existingSnatPool;
-        this.fastCreateMonitor = $.fastCreateMonitor;
-        this.fastCreatePoolMembers = $.fastCreatePoolMembers;
-        this.fastCreateSnatPoolAddresses = $.fastCreateSnatPoolAddresses;
+        this.existingWafSecurityPolicy = $.existingWafSecurityPolicy;
         this.loadBalancingMode = $.loadBalancingMode;
+        this.monitor = $.monitor;
+        this.poolMembers = $.poolMembers;
+        this.securityLogProfiles = $.securityLogProfiles;
         this.slowRampTime = $.slowRampTime;
+        this.snatPoolAddresses = $.snatPoolAddresses;
         this.tenant = $.tenant;
         this.virtualServer = $.virtualServer;
+        this.wafSecurityPolicy = $.wafSecurityPolicy;
     }
 
     public static Builder builder() {
@@ -247,24 +314,34 @@ public final class FastHttpAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param existPoolName Name of an existing BIG-IP pool.
+         * @param endpointLtmPolicies List of LTM Policies to be applied FAST HTTP Application.
          * 
          * @return builder
          * 
          */
-        public Builder existPoolName(@Nullable Output<String> existPoolName) {
-            $.existPoolName = existPoolName;
+        public Builder endpointLtmPolicies(@Nullable Output<List<String>> endpointLtmPolicies) {
+            $.endpointLtmPolicies = endpointLtmPolicies;
             return this;
         }
 
         /**
-         * @param existPoolName Name of an existing BIG-IP pool.
+         * @param endpointLtmPolicies List of LTM Policies to be applied FAST HTTP Application.
          * 
          * @return builder
          * 
          */
-        public Builder existPoolName(String existPoolName) {
-            return existPoolName(Output.of(existPoolName));
+        public Builder endpointLtmPolicies(List<String> endpointLtmPolicies) {
+            return endpointLtmPolicies(Output.of(endpointLtmPolicies));
+        }
+
+        /**
+         * @param endpointLtmPolicies List of LTM Policies to be applied FAST HTTP Application.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder endpointLtmPolicies(String... endpointLtmPolicies) {
+            return endpointLtmPolicies(List.of(endpointLtmPolicies));
         }
 
         /**
@@ -289,6 +366,27 @@ public final class FastHttpAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param existingPool Select an existing BIG-IP Pool
+         * 
+         * @return builder
+         * 
+         */
+        public Builder existingPool(@Nullable Output<String> existingPool) {
+            $.existingPool = existingPool;
+            return this;
+        }
+
+        /**
+         * @param existingPool Select an existing BIG-IP Pool
+         * 
+         * @return builder
+         * 
+         */
+        public Builder existingPool(String existingPool) {
+            return existingPool(Output.of(existingPool));
+        }
+
+        /**
          * @param existingSnatPool Name of an existing BIG-IP SNAT pool.
          * 
          * @return builder
@@ -310,91 +408,24 @@ public final class FastHttpAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fastCreateMonitor `fast_create_monitor` block takes input for FAST-Generated Pool Monitor.
-         * See Pool Monitor below for more details.
+         * @param existingWafSecurityPolicy Name of an existing WAF Security policy.
          * 
          * @return builder
          * 
          */
-        public Builder fastCreateMonitor(@Nullable Output<FastHttpAppFastCreateMonitorArgs> fastCreateMonitor) {
-            $.fastCreateMonitor = fastCreateMonitor;
+        public Builder existingWafSecurityPolicy(@Nullable Output<String> existingWafSecurityPolicy) {
+            $.existingWafSecurityPolicy = existingWafSecurityPolicy;
             return this;
         }
 
         /**
-         * @param fastCreateMonitor `fast_create_monitor` block takes input for FAST-Generated Pool Monitor.
-         * See Pool Monitor below for more details.
+         * @param existingWafSecurityPolicy Name of an existing WAF Security policy.
          * 
          * @return builder
          * 
          */
-        public Builder fastCreateMonitor(FastHttpAppFastCreateMonitorArgs fastCreateMonitor) {
-            return fastCreateMonitor(Output.of(fastCreateMonitor));
-        }
-
-        /**
-         * @param fastCreatePoolMembers `fast_create_pool_members` block takes input for FAST-Generated Pool.
-         * See Pool Members below for more details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder fastCreatePoolMembers(@Nullable Output<List<FastHttpAppFastCreatePoolMemberArgs>> fastCreatePoolMembers) {
-            $.fastCreatePoolMembers = fastCreatePoolMembers;
-            return this;
-        }
-
-        /**
-         * @param fastCreatePoolMembers `fast_create_pool_members` block takes input for FAST-Generated Pool.
-         * See Pool Members below for more details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder fastCreatePoolMembers(List<FastHttpAppFastCreatePoolMemberArgs> fastCreatePoolMembers) {
-            return fastCreatePoolMembers(Output.of(fastCreatePoolMembers));
-        }
-
-        /**
-         * @param fastCreatePoolMembers `fast_create_pool_members` block takes input for FAST-Generated Pool.
-         * See Pool Members below for more details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder fastCreatePoolMembers(FastHttpAppFastCreatePoolMemberArgs... fastCreatePoolMembers) {
-            return fastCreatePoolMembers(List.of(fastCreatePoolMembers));
-        }
-
-        /**
-         * @param fastCreateSnatPoolAddresses List of address to be used for FAST-Generated SNAT Pool.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder fastCreateSnatPoolAddresses(@Nullable Output<List<String>> fastCreateSnatPoolAddresses) {
-            $.fastCreateSnatPoolAddresses = fastCreateSnatPoolAddresses;
-            return this;
-        }
-
-        /**
-         * @param fastCreateSnatPoolAddresses List of address to be used for FAST-Generated SNAT Pool.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder fastCreateSnatPoolAddresses(List<String> fastCreateSnatPoolAddresses) {
-            return fastCreateSnatPoolAddresses(Output.of(fastCreateSnatPoolAddresses));
-        }
-
-        /**
-         * @param fastCreateSnatPoolAddresses List of address to be used for FAST-Generated SNAT Pool.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder fastCreateSnatPoolAddresses(String... fastCreateSnatPoolAddresses) {
-            return fastCreateSnatPoolAddresses(List.of(fastCreateSnatPoolAddresses));
+        public Builder existingWafSecurityPolicy(String existingWafSecurityPolicy) {
+            return existingWafSecurityPolicy(Output.of(existingWafSecurityPolicy));
         }
 
         /**
@@ -419,6 +450,94 @@ public final class FastHttpAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param monitor `monitor` block takes input for FAST-Generated Pool Monitor.
+         * See Pool Monitor below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitor(@Nullable Output<FastHttpAppMonitorArgs> monitor) {
+            $.monitor = monitor;
+            return this;
+        }
+
+        /**
+         * @param monitor `monitor` block takes input for FAST-Generated Pool Monitor.
+         * See Pool Monitor below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitor(FastHttpAppMonitorArgs monitor) {
+            return monitor(Output.of(monitor));
+        }
+
+        /**
+         * @param poolMembers `pool_members` block takes input for FAST-Generated Pool.
+         * See Pool Members below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder poolMembers(@Nullable Output<List<FastHttpAppPoolMemberArgs>> poolMembers) {
+            $.poolMembers = poolMembers;
+            return this;
+        }
+
+        /**
+         * @param poolMembers `pool_members` block takes input for FAST-Generated Pool.
+         * See Pool Members below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder poolMembers(List<FastHttpAppPoolMemberArgs> poolMembers) {
+            return poolMembers(Output.of(poolMembers));
+        }
+
+        /**
+         * @param poolMembers `pool_members` block takes input for FAST-Generated Pool.
+         * See Pool Members below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder poolMembers(FastHttpAppPoolMemberArgs... poolMembers) {
+            return poolMembers(List.of(poolMembers));
+        }
+
+        /**
+         * @param securityLogProfiles List of security log profiles to be used for FAST application
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityLogProfiles(@Nullable Output<List<String>> securityLogProfiles) {
+            $.securityLogProfiles = securityLogProfiles;
+            return this;
+        }
+
+        /**
+         * @param securityLogProfiles List of security log profiles to be used for FAST application
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityLogProfiles(List<String> securityLogProfiles) {
+            return securityLogProfiles(Output.of(securityLogProfiles));
+        }
+
+        /**
+         * @param securityLogProfiles List of security log profiles to be used for FAST application
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityLogProfiles(String... securityLogProfiles) {
+            return securityLogProfiles(List.of(securityLogProfiles));
+        }
+
+        /**
          * @param slowRampTime Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
          * 
          * @return builder
@@ -437,6 +556,37 @@ public final class FastHttpAppArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder slowRampTime(Integer slowRampTime) {
             return slowRampTime(Output.of(slowRampTime));
+        }
+
+        /**
+         * @param snatPoolAddresses List of address to be used for FAST-Generated SNAT Pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder snatPoolAddresses(@Nullable Output<List<String>> snatPoolAddresses) {
+            $.snatPoolAddresses = snatPoolAddresses;
+            return this;
+        }
+
+        /**
+         * @param snatPoolAddresses List of address to be used for FAST-Generated SNAT Pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder snatPoolAddresses(List<String> snatPoolAddresses) {
+            return snatPoolAddresses(Output.of(snatPoolAddresses));
+        }
+
+        /**
+         * @param snatPoolAddresses List of address to be used for FAST-Generated SNAT Pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder snatPoolAddresses(String... snatPoolAddresses) {
+            return snatPoolAddresses(List.of(snatPoolAddresses));
         }
 
         /**
@@ -481,6 +631,29 @@ public final class FastHttpAppArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder virtualServer(FastHttpAppVirtualServerArgs virtualServer) {
             return virtualServer(Output.of(virtualServer));
+        }
+
+        /**
+         * @param wafSecurityPolicy `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+         * See WAF Security Policy below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder wafSecurityPolicy(@Nullable Output<FastHttpAppWafSecurityPolicyArgs> wafSecurityPolicy) {
+            $.wafSecurityPolicy = wafSecurityPolicy;
+            return this;
+        }
+
+        /**
+         * @param wafSecurityPolicy `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+         * See WAF Security Policy below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder wafSecurityPolicy(FastHttpAppWafSecurityPolicyArgs wafSecurityPolicy) {
+            return wafSecurityPolicy(Output.of(wafSecurityPolicy));
         }
 
         public FastHttpAppArgs build() {

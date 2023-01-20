@@ -138,7 +138,9 @@ class PolicyRule(dict):
                  actions: Optional[Sequence['outputs.PolicyRuleAction']] = None,
                  conditions: Optional[Sequence['outputs.PolicyRuleCondition']] = None):
         """
-        :param str name: Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+        :param str name: Name of Rule to be applied in policy.
+        :param Sequence['PolicyRuleActionArgs'] actions: Block type. See action block for more details.
+        :param Sequence['PolicyRuleConditionArgs'] conditions: Block type. See condition block for more details.
         """
         pulumi.set(__self__, "name", name)
         if actions is not None:
@@ -150,18 +152,24 @@ class PolicyRule(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+        Name of Rule to be applied in policy.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def actions(self) -> Optional[Sequence['outputs.PolicyRuleAction']]:
+        """
+        Block type. See action block for more details.
+        """
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter
     def conditions(self) -> Optional[Sequence['outputs.PolicyRuleCondition']]:
+        """
+        Block type. See condition block for more details.
+        """
         return pulumi.get(self, "conditions")
 
 
@@ -1114,6 +1122,8 @@ class PolicyRuleCondition(dict):
             suggest = "case_sensitive"
         elif key == "cipherBits":
             suggest = "cipher_bits"
+        elif key == "clientAccepted":
+            suggest = "client_accepted"
         elif key == "clientSsl":
             suggest = "client_ssl"
         elif key == "commonName":
@@ -1214,6 +1224,7 @@ class PolicyRuleCondition(dict):
                  case_sensitive: Optional[bool] = None,
                  cipher: Optional[bool] = None,
                  cipher_bits: Optional[bool] = None,
+                 client_accepted: Optional[bool] = None,
                  client_ssl: Optional[bool] = None,
                  code: Optional[bool] = None,
                  common_name: Optional[bool] = None,
@@ -1222,6 +1233,7 @@ class PolicyRuleCondition(dict):
                  country_code: Optional[bool] = None,
                  country_name: Optional[bool] = None,
                  cpu_usage: Optional[bool] = None,
+                 datagroup: Optional[str] = None,
                  device_make: Optional[bool] = None,
                  device_model: Optional[bool] = None,
                  domain: Optional[bool] = None,
@@ -1314,6 +1326,8 @@ class PolicyRuleCondition(dict):
             pulumi.set(__self__, "cipher", cipher)
         if cipher_bits is not None:
             pulumi.set(__self__, "cipher_bits", cipher_bits)
+        if client_accepted is not None:
+            pulumi.set(__self__, "client_accepted", client_accepted)
         if client_ssl is not None:
             pulumi.set(__self__, "client_ssl", client_ssl)
         if code is not None:
@@ -1330,6 +1344,8 @@ class PolicyRuleCondition(dict):
             pulumi.set(__self__, "country_name", country_name)
         if cpu_usage is not None:
             pulumi.set(__self__, "cpu_usage", cpu_usage)
+        if datagroup is not None:
+            pulumi.set(__self__, "datagroup", datagroup)
         if device_make is not None:
             pulumi.set(__self__, "device_make", device_make)
         if device_model is not None:
@@ -1525,6 +1541,11 @@ class PolicyRuleCondition(dict):
         return pulumi.get(self, "cipher_bits")
 
     @property
+    @pulumi.getter(name="clientAccepted")
+    def client_accepted(self) -> Optional[bool]:
+        return pulumi.get(self, "client_accepted")
+
+    @property
     @pulumi.getter(name="clientSsl")
     def client_ssl(self) -> Optional[bool]:
         return pulumi.get(self, "client_ssl")
@@ -1563,6 +1584,11 @@ class PolicyRuleCondition(dict):
     @pulumi.getter(name="cpuUsage")
     def cpu_usage(self) -> Optional[bool]:
         return pulumi.get(self, "cpu_usage")
+
+    @property
+    @pulumi.getter
+    def datagroup(self) -> Optional[str]:
+        return pulumi.get(self, "datagroup")
 
     @property
     @pulumi.getter(name="deviceMake")
@@ -2921,6 +2947,7 @@ class GetPolicyRuleConditionResult(dict):
                  country_code: bool,
                  country_name: bool,
                  cpu_usage: bool,
+                 datagroup: str,
                  device_make: bool,
                  device_model: bool,
                  domain: bool,
@@ -3011,6 +3038,7 @@ class GetPolicyRuleConditionResult(dict):
         pulumi.set(__self__, "country_code", country_code)
         pulumi.set(__self__, "country_name", country_name)
         pulumi.set(__self__, "cpu_usage", cpu_usage)
+        pulumi.set(__self__, "datagroup", datagroup)
         pulumi.set(__self__, "device_make", device_make)
         pulumi.set(__self__, "device_model", device_model)
         pulumi.set(__self__, "domain", domain)
@@ -3169,6 +3197,11 @@ class GetPolicyRuleConditionResult(dict):
     @pulumi.getter(name="cpuUsage")
     def cpu_usage(self) -> bool:
         return pulumi.get(self, "cpu_usage")
+
+    @property
+    @pulumi.getter
+    def datagroup(self) -> str:
+        return pulumi.get(self, "datagroup")
 
     @property
     @pulumi.getter(name="deviceMake")

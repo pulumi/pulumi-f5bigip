@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -16,7 +17,7 @@ import * as utilities from "./utilities";
  *
  * const fast_tcp_app = new f5bigip.FastTcpApp("fast-tcp-app", {
  *     application: "tcp_app_2",
- *     fastCreatePoolMembers: [{
+ *     poolMembers: [{
  *         addresses: [
  *             "10.11.34.65",
  *             "56.43.23.76",
@@ -67,31 +68,17 @@ export class FastTcpApp extends pulumi.CustomResource {
      */
     public readonly application!: pulumi.Output<string>;
     /**
-     * Name of an existing BIG-IP pool.
-     */
-    public readonly existPoolName!: pulumi.Output<string | undefined>;
-    /**
      * Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
      */
     public readonly existingMonitor!: pulumi.Output<string | undefined>;
     /**
+     * Name of an existing BIG-IP pool.
+     */
+    public readonly existingPool!: pulumi.Output<string | undefined>;
+    /**
      * Name of an existing BIG-IP SNAT pool.
      */
     public readonly existingSnatPool!: pulumi.Output<string | undefined>;
-    /**
-     * `fastCreateMonitor` block takes input for FAST-Generated Pool Monitor.
-     * See Pool Monitor below for more details.
-     */
-    public readonly fastCreateMonitor!: pulumi.Output<outputs.FastTcpAppFastCreateMonitor | undefined>;
-    /**
-     * `fastCreatePoolMembers` block takes input for FAST-Generated Pool.
-     * See Pool Members below for more details.
-     */
-    public readonly fastCreatePoolMembers!: pulumi.Output<outputs.FastTcpAppFastCreatePoolMember[] | undefined>;
-    /**
-     * List of address to be used for FAST-Generated SNAT Pool.
-     */
-    public readonly fastCreateSnatPoolAddresses!: pulumi.Output<string[] | undefined>;
     /**
      * Json payload for FAST TCP application.
      */
@@ -101,9 +88,23 @@ export class FastTcpApp extends pulumi.CustomResource {
      */
     public readonly loadBalancingMode!: pulumi.Output<string | undefined>;
     /**
+     * `monitor` block takes input for FAST-Generated Pool Monitor.
+     * See Pool Monitor below for more details.
+     */
+    public readonly monitor!: pulumi.Output<outputs.FastTcpAppMonitor | undefined>;
+    /**
+     * `poolMembers` block takes input for FAST-Generated Pool.
+     * See Pool Members below for more details.
+     */
+    public readonly poolMembers!: pulumi.Output<outputs.FastTcpAppPoolMember[] | undefined>;
+    /**
      * Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
      */
     public readonly slowRampTime!: pulumi.Output<number | undefined>;
+    /**
+     * List of address to be used for FAST-Generated SNAT Pool.
+     */
+    public readonly snatPoolAddresses!: pulumi.Output<string[] | undefined>;
     /**
      * Name of the FAST TCP application tenant.
      */
@@ -128,15 +129,15 @@ export class FastTcpApp extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as FastTcpAppState | undefined;
             resourceInputs["application"] = state ? state.application : undefined;
-            resourceInputs["existPoolName"] = state ? state.existPoolName : undefined;
             resourceInputs["existingMonitor"] = state ? state.existingMonitor : undefined;
+            resourceInputs["existingPool"] = state ? state.existingPool : undefined;
             resourceInputs["existingSnatPool"] = state ? state.existingSnatPool : undefined;
-            resourceInputs["fastCreateMonitor"] = state ? state.fastCreateMonitor : undefined;
-            resourceInputs["fastCreatePoolMembers"] = state ? state.fastCreatePoolMembers : undefined;
-            resourceInputs["fastCreateSnatPoolAddresses"] = state ? state.fastCreateSnatPoolAddresses : undefined;
             resourceInputs["fastTcpJson"] = state ? state.fastTcpJson : undefined;
             resourceInputs["loadBalancingMode"] = state ? state.loadBalancingMode : undefined;
+            resourceInputs["monitor"] = state ? state.monitor : undefined;
+            resourceInputs["poolMembers"] = state ? state.poolMembers : undefined;
             resourceInputs["slowRampTime"] = state ? state.slowRampTime : undefined;
+            resourceInputs["snatPoolAddresses"] = state ? state.snatPoolAddresses : undefined;
             resourceInputs["tenant"] = state ? state.tenant : undefined;
             resourceInputs["virtualServer"] = state ? state.virtualServer : undefined;
         } else {
@@ -148,14 +149,14 @@ export class FastTcpApp extends pulumi.CustomResource {
                 throw new Error("Missing required property 'tenant'");
             }
             resourceInputs["application"] = args ? args.application : undefined;
-            resourceInputs["existPoolName"] = args ? args.existPoolName : undefined;
             resourceInputs["existingMonitor"] = args ? args.existingMonitor : undefined;
+            resourceInputs["existingPool"] = args ? args.existingPool : undefined;
             resourceInputs["existingSnatPool"] = args ? args.existingSnatPool : undefined;
-            resourceInputs["fastCreateMonitor"] = args ? args.fastCreateMonitor : undefined;
-            resourceInputs["fastCreatePoolMembers"] = args ? args.fastCreatePoolMembers : undefined;
-            resourceInputs["fastCreateSnatPoolAddresses"] = args ? args.fastCreateSnatPoolAddresses : undefined;
             resourceInputs["loadBalancingMode"] = args ? args.loadBalancingMode : undefined;
+            resourceInputs["monitor"] = args ? args.monitor : undefined;
+            resourceInputs["poolMembers"] = args ? args.poolMembers : undefined;
             resourceInputs["slowRampTime"] = args ? args.slowRampTime : undefined;
+            resourceInputs["snatPoolAddresses"] = args ? args.snatPoolAddresses : undefined;
             resourceInputs["tenant"] = args ? args.tenant : undefined;
             resourceInputs["virtualServer"] = args ? args.virtualServer : undefined;
             resourceInputs["fastTcpJson"] = undefined /*out*/;
@@ -174,31 +175,17 @@ export interface FastTcpAppState {
      */
     application?: pulumi.Input<string>;
     /**
-     * Name of an existing BIG-IP pool.
-     */
-    existPoolName?: pulumi.Input<string>;
-    /**
      * Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
      */
     existingMonitor?: pulumi.Input<string>;
     /**
+     * Name of an existing BIG-IP pool.
+     */
+    existingPool?: pulumi.Input<string>;
+    /**
      * Name of an existing BIG-IP SNAT pool.
      */
     existingSnatPool?: pulumi.Input<string>;
-    /**
-     * `fastCreateMonitor` block takes input for FAST-Generated Pool Monitor.
-     * See Pool Monitor below for more details.
-     */
-    fastCreateMonitor?: pulumi.Input<inputs.FastTcpAppFastCreateMonitor>;
-    /**
-     * `fastCreatePoolMembers` block takes input for FAST-Generated Pool.
-     * See Pool Members below for more details.
-     */
-    fastCreatePoolMembers?: pulumi.Input<pulumi.Input<inputs.FastTcpAppFastCreatePoolMember>[]>;
-    /**
-     * List of address to be used for FAST-Generated SNAT Pool.
-     */
-    fastCreateSnatPoolAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Json payload for FAST TCP application.
      */
@@ -208,9 +195,23 @@ export interface FastTcpAppState {
      */
     loadBalancingMode?: pulumi.Input<string>;
     /**
+     * `monitor` block takes input for FAST-Generated Pool Monitor.
+     * See Pool Monitor below for more details.
+     */
+    monitor?: pulumi.Input<inputs.FastTcpAppMonitor>;
+    /**
+     * `poolMembers` block takes input for FAST-Generated Pool.
+     * See Pool Members below for more details.
+     */
+    poolMembers?: pulumi.Input<pulumi.Input<inputs.FastTcpAppPoolMember>[]>;
+    /**
      * Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
      */
     slowRampTime?: pulumi.Input<number>;
+    /**
+     * List of address to be used for FAST-Generated SNAT Pool.
+     */
+    snatPoolAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of the FAST TCP application tenant.
      */
@@ -231,39 +232,39 @@ export interface FastTcpAppArgs {
      */
     application: pulumi.Input<string>;
     /**
-     * Name of an existing BIG-IP pool.
-     */
-    existPoolName?: pulumi.Input<string>;
-    /**
      * Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
      */
     existingMonitor?: pulumi.Input<string>;
+    /**
+     * Name of an existing BIG-IP pool.
+     */
+    existingPool?: pulumi.Input<string>;
     /**
      * Name of an existing BIG-IP SNAT pool.
      */
     existingSnatPool?: pulumi.Input<string>;
     /**
-     * `fastCreateMonitor` block takes input for FAST-Generated Pool Monitor.
-     * See Pool Monitor below for more details.
-     */
-    fastCreateMonitor?: pulumi.Input<inputs.FastTcpAppFastCreateMonitor>;
-    /**
-     * `fastCreatePoolMembers` block takes input for FAST-Generated Pool.
-     * See Pool Members below for more details.
-     */
-    fastCreatePoolMembers?: pulumi.Input<pulumi.Input<inputs.FastTcpAppFastCreatePoolMember>[]>;
-    /**
-     * List of address to be used for FAST-Generated SNAT Pool.
-     */
-    fastCreateSnatPoolAddresses?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
      * A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
      */
     loadBalancingMode?: pulumi.Input<string>;
     /**
+     * `monitor` block takes input for FAST-Generated Pool Monitor.
+     * See Pool Monitor below for more details.
+     */
+    monitor?: pulumi.Input<inputs.FastTcpAppMonitor>;
+    /**
+     * `poolMembers` block takes input for FAST-Generated Pool.
+     * See Pool Members below for more details.
+     */
+    poolMembers?: pulumi.Input<pulumi.Input<inputs.FastTcpAppPoolMember>[]>;
+    /**
      * Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
      */
     slowRampTime?: pulumi.Input<number>;
+    /**
+     * List of address to be used for FAST-Generated SNAT Pool.
+     */
+    snatPoolAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of the FAST TCP application tenant.
      */

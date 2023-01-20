@@ -11,16 +11,22 @@ from . import _utilities
 
 __all__ = [
     'EventServiceDiscoveryNodeArgs',
-    'FastHttpAppFastCreateMonitorArgs',
-    'FastHttpAppFastCreatePoolMemberArgs',
+    'FastHttpAppMonitorArgs',
+    'FastHttpAppPoolMemberArgs',
     'FastHttpAppVirtualServerArgs',
-    'FastHttpsAppCreateTlsServerProfileArgs',
-    'FastHttpsAppFastCreateMonitorArgs',
-    'FastHttpsAppFastCreatePoolMemberArgs',
+    'FastHttpAppWafSecurityPolicyArgs',
+    'FastHttpsAppMonitorArgs',
+    'FastHttpsAppPoolMemberArgs',
+    'FastHttpsAppTlsClientProfileArgs',
+    'FastHttpsAppTlsServerProfileArgs',
     'FastHttpsAppVirtualServerArgs',
-    'FastTcpAppFastCreateMonitorArgs',
-    'FastTcpAppFastCreatePoolMemberArgs',
+    'FastHttpsAppWafSecurityPolicyArgs',
+    'FastTcpAppMonitorArgs',
+    'FastTcpAppPoolMemberArgs',
     'FastTcpAppVirtualServerArgs',
+    'FastUdpAppMonitorArgs',
+    'FastUdpAppPoolMemberArgs',
+    'FastUdpAppVirtualServerArgs',
     'WafPolicyFileTypeArgs',
     'WafPolicyGraphqlProfileArgs',
     'WafPolicyPolicyBuilderArgs',
@@ -69,7 +75,7 @@ class EventServiceDiscoveryNodeArgs:
 
 
 @pulumi.input_type
-class FastHttpAppFastCreateMonitorArgs:
+class FastHttpAppMonitorArgs:
     def __init__(__self__, *,
                  interval: Optional[pulumi.Input[int]] = None,
                  monitor_auth: Optional[pulumi.Input[bool]] = None,
@@ -172,7 +178,7 @@ class FastHttpAppFastCreateMonitorArgs:
 
 
 @pulumi.input_type
-class FastHttpAppFastCreatePoolMemberArgs:
+class FastHttpAppPoolMemberArgs:
     def __init__(__self__, *,
                  addresses: pulumi.Input[Sequence[pulumi.Input[str]]],
                  connection_limit: Optional[pulumi.Input[int]] = None,
@@ -264,7 +270,7 @@ class FastHttpAppVirtualServerArgs:
                  port: pulumi.Input[int]):
         """
         :param pulumi.Input[str] ip: IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
-        :param pulumi.Input[int] port: -(Optional , `int`) Port number to used for accessing virtual server/application
+        :param pulumi.Input[int] port: Port number to used for accessing virtual server/application
         """
         pulumi.set(__self__, "ip", ip)
         pulumi.set(__self__, "port", port)
@@ -285,7 +291,7 @@ class FastHttpAppVirtualServerArgs:
     @pulumi.getter
     def port(self) -> pulumi.Input[int]:
         """
-        -(Optional , `int`) Port number to used for accessing virtual server/application
+        Port number to used for accessing virtual server/application
         """
         return pulumi.get(self, "port")
 
@@ -295,44 +301,29 @@ class FastHttpAppVirtualServerArgs:
 
 
 @pulumi.input_type
-class FastHttpsAppCreateTlsServerProfileArgs:
+class FastHttpAppWafSecurityPolicyArgs:
     def __init__(__self__, *,
-                 tls_cert_name: pulumi.Input[str],
-                 tls_key_name: pulumi.Input[str]):
+                 enable: pulumi.Input[bool]):
         """
-        :param pulumi.Input[str] tls_cert_name: Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
-        :param pulumi.Input[str] tls_key_name: Name of existing BIG-IP SSL Key to be used for FAST-Generated TLS Server Profile.
+        :param pulumi.Input[bool] enable: Setting `true` will enable FAST to create WAF Security Policy.
         """
-        pulumi.set(__self__, "tls_cert_name", tls_cert_name)
-        pulumi.set(__self__, "tls_key_name", tls_key_name)
+        pulumi.set(__self__, "enable", enable)
 
     @property
-    @pulumi.getter(name="tlsCertName")
-    def tls_cert_name(self) -> pulumi.Input[str]:
+    @pulumi.getter
+    def enable(self) -> pulumi.Input[bool]:
         """
-        Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
+        Setting `true` will enable FAST to create WAF Security Policy.
         """
-        return pulumi.get(self, "tls_cert_name")
+        return pulumi.get(self, "enable")
 
-    @tls_cert_name.setter
-    def tls_cert_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "tls_cert_name", value)
-
-    @property
-    @pulumi.getter(name="tlsKeyName")
-    def tls_key_name(self) -> pulumi.Input[str]:
-        """
-        Name of existing BIG-IP SSL Key to be used for FAST-Generated TLS Server Profile.
-        """
-        return pulumi.get(self, "tls_key_name")
-
-    @tls_key_name.setter
-    def tls_key_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "tls_key_name", value)
+    @enable.setter
+    def enable(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enable", value)
 
 
 @pulumi.input_type
-class FastHttpsAppFastCreateMonitorArgs:
+class FastHttpsAppMonitorArgs:
     def __init__(__self__, *,
                  interval: Optional[pulumi.Input[int]] = None,
                  monitor_auth: Optional[pulumi.Input[bool]] = None,
@@ -435,7 +426,7 @@ class FastHttpsAppFastCreateMonitorArgs:
 
 
 @pulumi.input_type
-class FastHttpsAppFastCreatePoolMemberArgs:
+class FastHttpsAppPoolMemberArgs:
     def __init__(__self__, *,
                  addresses: pulumi.Input[Sequence[pulumi.Input[str]]],
                  connection_limit: Optional[pulumi.Input[int]] = None,
@@ -521,13 +512,87 @@ class FastHttpsAppFastCreatePoolMemberArgs:
 
 
 @pulumi.input_type
+class FastHttpsAppTlsClientProfileArgs:
+    def __init__(__self__, *,
+                 tls_cert_name: pulumi.Input[str],
+                 tls_key_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] tls_cert_name: Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
+        :param pulumi.Input[str] tls_key_name: Name of existing BIG-IP SSL Key to be used for FAST-Generated TLS Server Profile.
+        """
+        pulumi.set(__self__, "tls_cert_name", tls_cert_name)
+        pulumi.set(__self__, "tls_key_name", tls_key_name)
+
+    @property
+    @pulumi.getter(name="tlsCertName")
+    def tls_cert_name(self) -> pulumi.Input[str]:
+        """
+        Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
+        """
+        return pulumi.get(self, "tls_cert_name")
+
+    @tls_cert_name.setter
+    def tls_cert_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "tls_cert_name", value)
+
+    @property
+    @pulumi.getter(name="tlsKeyName")
+    def tls_key_name(self) -> pulumi.Input[str]:
+        """
+        Name of existing BIG-IP SSL Key to be used for FAST-Generated TLS Server Profile.
+        """
+        return pulumi.get(self, "tls_key_name")
+
+    @tls_key_name.setter
+    def tls_key_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "tls_key_name", value)
+
+
+@pulumi.input_type
+class FastHttpsAppTlsServerProfileArgs:
+    def __init__(__self__, *,
+                 tls_cert_name: pulumi.Input[str],
+                 tls_key_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] tls_cert_name: Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
+        :param pulumi.Input[str] tls_key_name: Name of existing BIG-IP SSL Key to be used for FAST-Generated TLS Server Profile.
+        """
+        pulumi.set(__self__, "tls_cert_name", tls_cert_name)
+        pulumi.set(__self__, "tls_key_name", tls_key_name)
+
+    @property
+    @pulumi.getter(name="tlsCertName")
+    def tls_cert_name(self) -> pulumi.Input[str]:
+        """
+        Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
+        """
+        return pulumi.get(self, "tls_cert_name")
+
+    @tls_cert_name.setter
+    def tls_cert_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "tls_cert_name", value)
+
+    @property
+    @pulumi.getter(name="tlsKeyName")
+    def tls_key_name(self) -> pulumi.Input[str]:
+        """
+        Name of existing BIG-IP SSL Key to be used for FAST-Generated TLS Server Profile.
+        """
+        return pulumi.get(self, "tls_key_name")
+
+    @tls_key_name.setter
+    def tls_key_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "tls_key_name", value)
+
+
+@pulumi.input_type
 class FastHttpsAppVirtualServerArgs:
     def __init__(__self__, *,
                  ip: pulumi.Input[str],
                  port: pulumi.Input[int]):
         """
         :param pulumi.Input[str] ip: IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
-        :param pulumi.Input[int] port: -(Optional , `int`) Port number to used for accessing virtual server/application
+        :param pulumi.Input[int] port: Port number to used for accessing virtual server/application
         """
         pulumi.set(__self__, "ip", ip)
         pulumi.set(__self__, "port", port)
@@ -548,7 +613,7 @@ class FastHttpsAppVirtualServerArgs:
     @pulumi.getter
     def port(self) -> pulumi.Input[int]:
         """
-        -(Optional , `int`) Port number to used for accessing virtual server/application
+        Port number to used for accessing virtual server/application
         """
         return pulumi.get(self, "port")
 
@@ -558,7 +623,29 @@ class FastHttpsAppVirtualServerArgs:
 
 
 @pulumi.input_type
-class FastTcpAppFastCreateMonitorArgs:
+class FastHttpsAppWafSecurityPolicyArgs:
+    def __init__(__self__, *,
+                 enable: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[bool] enable: Setting `true` will enable FAST to create WAF Security Policy.
+        """
+        pulumi.set(__self__, "enable", enable)
+
+    @property
+    @pulumi.getter
+    def enable(self) -> pulumi.Input[bool]:
+        """
+        Setting `true` will enable FAST to create WAF Security Policy.
+        """
+        return pulumi.get(self, "enable")
+
+    @enable.setter
+    def enable(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enable", value)
+
+
+@pulumi.input_type
+class FastTcpAppMonitorArgs:
     def __init__(__self__, *,
                  interval: Optional[pulumi.Input[int]] = None):
         """
@@ -581,7 +668,7 @@ class FastTcpAppFastCreateMonitorArgs:
 
 
 @pulumi.input_type
-class FastTcpAppFastCreatePoolMemberArgs:
+class FastTcpAppPoolMemberArgs:
     def __init__(__self__, *,
                  addresses: pulumi.Input[Sequence[pulumi.Input[str]]],
                  connection_limit: Optional[pulumi.Input[int]] = None,
@@ -673,7 +760,7 @@ class FastTcpAppVirtualServerArgs:
                  port: pulumi.Input[int]):
         """
         :param pulumi.Input[str] ip: IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
-        :param pulumi.Input[int] port: -(Optional , `int`) Port number to used for accessing virtual server/application
+        :param pulumi.Input[int] port: Port number to used for accessing virtual server/application
         """
         pulumi.set(__self__, "ip", ip)
         pulumi.set(__self__, "port", port)
@@ -694,7 +781,185 @@ class FastTcpAppVirtualServerArgs:
     @pulumi.getter
     def port(self) -> pulumi.Input[int]:
         """
-        -(Optional , `int`) Port number to used for accessing virtual server/application
+        Port number to used for accessing virtual server/application
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+
+@pulumi.input_type
+class FastUdpAppMonitorArgs:
+    def __init__(__self__, *,
+                 expected_response: Optional[pulumi.Input[str]] = None,
+                 interval: Optional[pulumi.Input[int]] = None,
+                 send_string: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] expected_response: The presence of this optional string is required in the response, if specified it confirms availability.
+        :param pulumi.Input[int] interval: Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
+        :param pulumi.Input[str] send_string: Optional data to be sent during each health check.
+        """
+        if expected_response is not None:
+            pulumi.set(__self__, "expected_response", expected_response)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if send_string is not None:
+            pulumi.set(__self__, "send_string", send_string)
+
+    @property
+    @pulumi.getter(name="expectedResponse")
+    def expected_response(self) -> Optional[pulumi.Input[str]]:
+        """
+        The presence of this optional string is required in the response, if specified it confirms availability.
+        """
+        return pulumi.get(self, "expected_response")
+
+    @expected_response.setter
+    def expected_response(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "expected_response", value)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[pulumi.Input[int]]:
+        """
+        Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
+        """
+        return pulumi.get(self, "interval")
+
+    @interval.setter
+    def interval(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "interval", value)
+
+    @property
+    @pulumi.getter(name="sendString")
+    def send_string(self) -> Optional[pulumi.Input[str]]:
+        """
+        Optional data to be sent during each health check.
+        """
+        return pulumi.get(self, "send_string")
+
+    @send_string.setter
+    def send_string(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "send_string", value)
+
+
+@pulumi.input_type
+class FastUdpAppPoolMemberArgs:
+    def __init__(__self__, *,
+                 addresses: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 connection_limit: Optional[pulumi.Input[int]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
+                 priority_group: Optional[pulumi.Input[int]] = None,
+                 share_nodes: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] addresses: List of server address to be used for FAST-Generated Pool.
+        :param pulumi.Input[int] connection_limit: connectionLimit value to be used for FAST-Generated Pool.
+        :param pulumi.Input[int] port: port number of serviceport to be used for FAST-Generated Pool.
+        :param pulumi.Input[int] priority_group: priorityGroup value to be used for FAST-Generated Pool.
+        :param pulumi.Input[bool] share_nodes: shareNodes value to be used for FAST-Generated Pool.
+        """
+        pulumi.set(__self__, "addresses", addresses)
+        if connection_limit is not None:
+            pulumi.set(__self__, "connection_limit", connection_limit)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if priority_group is not None:
+            pulumi.set(__self__, "priority_group", priority_group)
+        if share_nodes is not None:
+            pulumi.set(__self__, "share_nodes", share_nodes)
+
+    @property
+    @pulumi.getter
+    def addresses(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        List of server address to be used for FAST-Generated Pool.
+        """
+        return pulumi.get(self, "addresses")
+
+    @addresses.setter
+    def addresses(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "addresses", value)
+
+    @property
+    @pulumi.getter(name="connectionLimit")
+    def connection_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        connectionLimit value to be used for FAST-Generated Pool.
+        """
+        return pulumi.get(self, "connection_limit")
+
+    @connection_limit.setter
+    def connection_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "connection_limit", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        port number of serviceport to be used for FAST-Generated Pool.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="priorityGroup")
+    def priority_group(self) -> Optional[pulumi.Input[int]]:
+        """
+        priorityGroup value to be used for FAST-Generated Pool.
+        """
+        return pulumi.get(self, "priority_group")
+
+    @priority_group.setter
+    def priority_group(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority_group", value)
+
+    @property
+    @pulumi.getter(name="shareNodes")
+    def share_nodes(self) -> Optional[pulumi.Input[bool]]:
+        """
+        shareNodes value to be used for FAST-Generated Pool.
+        """
+        return pulumi.get(self, "share_nodes")
+
+    @share_nodes.setter
+    def share_nodes(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "share_nodes", value)
+
+
+@pulumi.input_type
+class FastUdpAppVirtualServerArgs:
+    def __init__(__self__, *,
+                 ip: pulumi.Input[str],
+                 port: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] ip: IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
+        :param pulumi.Input[int] port: Port number to used for accessing virtual server/application
+        """
+        pulumi.set(__self__, "ip", ip)
+        pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def ip(self) -> pulumi.Input[str]:
+        """
+        IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
+        """
+        return pulumi.get(self, "ip")
+
+    @ip.setter
+    def ip(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ip", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        """
+        Port number to used for accessing virtual server/application
         """
         return pulumi.get(self, "port")
 

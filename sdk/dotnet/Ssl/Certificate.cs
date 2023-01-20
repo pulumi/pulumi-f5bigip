@@ -83,6 +83,10 @@ namespace Pulumi.F5BigIP.Ssl
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "content",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -106,11 +110,21 @@ namespace Pulumi.F5BigIP.Ssl
 
     public sealed class CertificateArgs : global::Pulumi.ResourceArgs
     {
+        [Input("content", required: true)]
+        private Input<string>? _content;
+
         /// <summary>
         /// Content of certificate on Disk
         /// </summary>
-        [Input("content", required: true)]
-        public Input<string> Content { get; set; } = null!;
+        public Input<string>? Content
+        {
+            get => _content;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _content = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Full Path Name of ssl certificate
@@ -138,11 +152,21 @@ namespace Pulumi.F5BigIP.Ssl
 
     public sealed class CertificateState : global::Pulumi.ResourceArgs
     {
+        [Input("content")]
+        private Input<string>? _content;
+
         /// <summary>
         /// Content of certificate on Disk
         /// </summary>
-        [Input("content")]
-        public Input<string>? Content { get; set; }
+        public Input<string>? Content
+        {
+            get => _content;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _content = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Full Path Name of ssl certificate

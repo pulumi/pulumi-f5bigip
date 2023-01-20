@@ -44,8 +44,18 @@ tokenValue: Optional[str]
 A token generated outside the provider, in place of password
 """
 
+trustedCertPath: Optional[str]
+"""
+Valid Trusted Certificate path
+"""
+
 username: Optional[str]
 """
 Username with API access to the BigIP
+"""
+
+validateCertsDisable: Optional[bool]
+"""
+If set to true, Disables TLS certificate check on BIG-IP. Default : True
 """
 

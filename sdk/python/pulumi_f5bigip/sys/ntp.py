@@ -15,17 +15,16 @@ __all__ = ['NtpArgs', 'Ntp']
 class NtpArgs:
     def __init__(__self__, *,
                  description: pulumi.Input[str],
-                 servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 servers: pulumi.Input[Sequence[pulumi.Input[str]]],
                  timezone: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Ntp resource.
-        :param pulumi.Input[str] description: Name of the ntp Servers
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] servers: Adds NTP servers to or deletes NTP servers from the BIG-IP system.
+        :param pulumi.Input[str] description: User defined description.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] servers: Specifies the time servers that the system uses to update the system time.
         :param pulumi.Input[str] timezone: Specifies the time zone that you want to use for the system time.
         """
         pulumi.set(__self__, "description", description)
-        if servers is not None:
-            pulumi.set(__self__, "servers", servers)
+        pulumi.set(__self__, "servers", servers)
         if timezone is not None:
             pulumi.set(__self__, "timezone", timezone)
 
@@ -33,7 +32,7 @@ class NtpArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[str]:
         """
-        Name of the ntp Servers
+        User defined description.
         """
         return pulumi.get(self, "description")
 
@@ -43,14 +42,14 @@ class NtpArgs:
 
     @property
     @pulumi.getter
-    def servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+    def servers(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Adds NTP servers to or deletes NTP servers from the BIG-IP system.
+        Specifies the time servers that the system uses to update the system time.
         """
         return pulumi.get(self, "servers")
 
     @servers.setter
-    def servers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+    def servers(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "servers", value)
 
     @property
@@ -74,8 +73,8 @@ class _NtpState:
                  timezone: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Ntp resources.
-        :param pulumi.Input[str] description: Name of the ntp Servers
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] servers: Adds NTP servers to or deletes NTP servers from the BIG-IP system.
+        :param pulumi.Input[str] description: User defined description.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] servers: Specifies the time servers that the system uses to update the system time.
         :param pulumi.Input[str] timezone: Specifies the time zone that you want to use for the system time.
         """
         if description is not None:
@@ -89,7 +88,7 @@ class _NtpState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the ntp Servers
+        User defined description.
         """
         return pulumi.get(self, "description")
 
@@ -101,7 +100,7 @@ class _NtpState:
     @pulumi.getter
     def servers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Adds NTP servers to or deletes NTP servers from the BIG-IP system.
+        Specifies the time servers that the system uses to update the system time.
         """
         return pulumi.get(self, "servers")
 
@@ -132,9 +131,8 @@ class Ntp(pulumi.CustomResource):
                  timezone: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        `sys.Ntp` provides details about a specific bigip
+        `sys.Ntp` resource is helpful when configuring NTP server on the BIG-IP.
 
-        This resource is helpful when configuring NTP server on the BIG-IP.
         ## Example Usage
 
         ```python
@@ -149,8 +147,8 @@ class Ntp(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Name of the ntp Servers
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] servers: Adds NTP servers to or deletes NTP servers from the BIG-IP system.
+        :param pulumi.Input[str] description: User defined description.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] servers: Specifies the time servers that the system uses to update the system time.
         :param pulumi.Input[str] timezone: Specifies the time zone that you want to use for the system time.
         """
         ...
@@ -160,9 +158,8 @@ class Ntp(pulumi.CustomResource):
                  args: NtpArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        `sys.Ntp` provides details about a specific bigip
+        `sys.Ntp` resource is helpful when configuring NTP server on the BIG-IP.
 
-        This resource is helpful when configuring NTP server on the BIG-IP.
         ## Example Usage
 
         ```python
@@ -205,6 +202,8 @@ class Ntp(pulumi.CustomResource):
             if description is None and not opts.urn:
                 raise TypeError("Missing required property 'description'")
             __props__.__dict__["description"] = description
+            if servers is None and not opts.urn:
+                raise TypeError("Missing required property 'servers'")
             __props__.__dict__["servers"] = servers
             __props__.__dict__["timezone"] = timezone
         super(Ntp, __self__).__init__(
@@ -227,8 +226,8 @@ class Ntp(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Name of the ntp Servers
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] servers: Adds NTP servers to or deletes NTP servers from the BIG-IP system.
+        :param pulumi.Input[str] description: User defined description.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] servers: Specifies the time servers that the system uses to update the system time.
         :param pulumi.Input[str] timezone: Specifies the time zone that you want to use for the system time.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -244,15 +243,15 @@ class Ntp(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[str]:
         """
-        Name of the ntp Servers
+        User defined description.
         """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
-    def servers(self) -> pulumi.Output[Optional[Sequence[str]]]:
+    def servers(self) -> pulumi.Output[Sequence[str]]:
         """
-        Adds NTP servers to or deletes NTP servers from the BIG-IP system.
+        Specifies the time servers that the system uses to update the system time.
         """
         return pulumi.get(self, "servers")
 

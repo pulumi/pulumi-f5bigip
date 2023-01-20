@@ -134,6 +134,13 @@ public final class GetPolicyRuleCondition extends com.pulumi.resources.InvokeArg
         return this.cpuUsage;
     }
 
+    @Import(name="datagroup", required=true)
+    private String datagroup;
+
+    public String datagroup() {
+        return this.datagroup;
+    }
+
     @Import(name="deviceMake", required=true)
     private Boolean deviceMake;
 
@@ -665,6 +672,7 @@ public final class GetPolicyRuleCondition extends com.pulumi.resources.InvokeArg
         this.countryCode = $.countryCode;
         this.countryName = $.countryName;
         this.cpuUsage = $.cpuUsage;
+        this.datagroup = $.datagroup;
         this.deviceMake = $.deviceMake;
         this.deviceModel = $.deviceModel;
         this.domain = $.domain;
@@ -840,6 +848,11 @@ public final class GetPolicyRuleCondition extends com.pulumi.resources.InvokeArg
 
         public Builder cpuUsage(Boolean cpuUsage) {
             $.cpuUsage = cpuUsage;
+            return this;
+        }
+
+        public Builder datagroup(String datagroup) {
+            $.datagroup = datagroup;
             return this;
         }
 
@@ -1230,6 +1243,7 @@ public final class GetPolicyRuleCondition extends com.pulumi.resources.InvokeArg
             $.countryCode = Objects.requireNonNull($.countryCode, "expected parameter 'countryCode' to be non-null");
             $.countryName = Objects.requireNonNull($.countryName, "expected parameter 'countryName' to be non-null");
             $.cpuUsage = Objects.requireNonNull($.cpuUsage, "expected parameter 'cpuUsage' to be non-null");
+            $.datagroup = Objects.requireNonNull($.datagroup, "expected parameter 'datagroup' to be non-null");
             $.deviceMake = Objects.requireNonNull($.deviceMake, "expected parameter 'deviceMake' to be non-null");
             $.deviceModel = Objects.requireNonNull($.deviceModel, "expected parameter 'deviceModel' to be non-null");
             $.domain = Objects.requireNonNull($.domain, "expected parameter 'domain' to be non-null");

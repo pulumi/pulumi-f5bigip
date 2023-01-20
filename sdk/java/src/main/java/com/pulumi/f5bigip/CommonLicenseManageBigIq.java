@@ -12,6 +12,7 @@ import com.pulumi.f5bigip.Utilities;
 import com.pulumi.f5bigip.inputs.CommonLicenseManageBigIqState;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -356,6 +357,13 @@ public class CommonLicenseManageBigIq extends com.pulumi.resources.CustomResourc
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "bigiqLoginRef",
+                "bigiqPassword",
+                "bigiqPort",
+                "bigiqTokenAuth",
+                "bigiqUser"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

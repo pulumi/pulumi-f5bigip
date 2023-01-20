@@ -27,6 +27,8 @@ type Provider struct {
 	Port pulumi.StringPtrOutput `pulumi:"port"`
 	// A token generated outside the provider, in place of password
 	TokenValue pulumi.StringPtrOutput `pulumi:"tokenValue"`
+	// Valid Trusted Certificate path
+	TrustedCertPath pulumi.StringPtrOutput `pulumi:"trustedCertPath"`
 	// Username with API access to the BigIP
 	Username pulumi.StringPtrOutput `pulumi:"username"`
 }
@@ -61,8 +63,12 @@ type providerArgs struct {
 	TokenAuth *bool `pulumi:"tokenAuth"`
 	// A token generated outside the provider, in place of password
 	TokenValue *string `pulumi:"tokenValue"`
+	// Valid Trusted Certificate path
+	TrustedCertPath *string `pulumi:"trustedCertPath"`
 	// Username with API access to the BigIP
 	Username *string `pulumi:"username"`
+	// If set to true, Disables TLS certificate check on BIG-IP. Default : True
+	ValidateCertsDisable *bool `pulumi:"validateCertsDisable"`
 }
 
 // The set of arguments for constructing a Provider resource.
@@ -81,8 +87,12 @@ type ProviderArgs struct {
 	TokenAuth pulumi.BoolPtrInput
 	// A token generated outside the provider, in place of password
 	TokenValue pulumi.StringPtrInput
+	// Valid Trusted Certificate path
+	TrustedCertPath pulumi.StringPtrInput
 	// Username with API access to the BigIP
 	Username pulumi.StringPtrInput
+	// If set to true, Disables TLS certificate check on BIG-IP. Default : True
+	ValidateCertsDisable pulumi.BoolPtrInput
 }
 
 func (ProviderArgs) ElementType() reflect.Type {
@@ -145,6 +155,11 @@ func (o ProviderOutput) Port() pulumi.StringPtrOutput {
 // A token generated outside the provider, in place of password
 func (o ProviderOutput) TokenValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.TokenValue }).(pulumi.StringPtrOutput)
+}
+
+// Valid Trusted Certificate path
+func (o ProviderOutput) TrustedCertPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.TrustedCertPath }).(pulumi.StringPtrOutput)
 }
 
 // Username with API access to the BigIP

@@ -309,7 +309,7 @@ class As3(pulumi.CustomResource):
 
          bigip_as3.testImporting from ID "Sample_http_01"... bigip_as3.testImport prepared!
 
-         Prepared bigip_as3 for import bigip_as3.testRefreshing state... [id=Sample_http_01] Import successful! The resources that were imported are shown above. These resources are now in your Terraform state and will henceforth be managed by Terraform. $ terraform show # bigip_as3.testresource "bigip_as3" "test" {
+         Prepared bigip_as3 for import bigip_as3.testRefreshing state... [id=Sample_http_01] Import successful! The resources that were imported are shown above. These resources are now in your Terraform state and will henceforth be managed by Terraform. $ terraform show bigip_as3.testresource "bigip_as3" "test" {
 
          as3_json
 
@@ -477,7 +477,7 @@ class As3(pulumi.CustomResource):
 
          bigip_as3.testImporting from ID "Sample_http_01,Sample_non_http_01"... bigip_as3.testImport prepared!
 
-         Prepared bigip_as3 for import bigip_as3.testRefreshing state... [id=Sample_http_01,Sample_non_http_01] Import successful! The resources that were imported are shown above. These resources are now in your Terraform state and will henceforth be managed by Terraform. $ terraform show # bigip_as3.testresource "bigip_as3" "test" {
+         Prepared bigip_as3 for import bigip_as3.testRefreshing state... [id=Sample_http_01,Sample_non_http_01] Import successful! The resources that were imported are shown above. These resources are now in your Terraform state and will henceforth be managed by Terraform. $ terraform show bigip_as3.testresource "bigip_as3" "test" {
 
          as3_json
 
@@ -784,7 +784,7 @@ class As3(pulumi.CustomResource):
 
          bigip_as3.testImporting from ID "Sample_http_01"... bigip_as3.testImport prepared!
 
-         Prepared bigip_as3 for import bigip_as3.testRefreshing state... [id=Sample_http_01] Import successful! The resources that were imported are shown above. These resources are now in your Terraform state and will henceforth be managed by Terraform. $ terraform show # bigip_as3.testresource "bigip_as3" "test" {
+         Prepared bigip_as3 for import bigip_as3.testRefreshing state... [id=Sample_http_01] Import successful! The resources that were imported are shown above. These resources are now in your Terraform state and will henceforth be managed by Terraform. $ terraform show bigip_as3.testresource "bigip_as3" "test" {
 
          as3_json
 
@@ -952,7 +952,7 @@ class As3(pulumi.CustomResource):
 
          bigip_as3.testImporting from ID "Sample_http_01,Sample_non_http_01"... bigip_as3.testImport prepared!
 
-         Prepared bigip_as3 for import bigip_as3.testRefreshing state... [id=Sample_http_01,Sample_non_http_01] Import successful! The resources that were imported are shown above. These resources are now in your Terraform state and will henceforth be managed by Terraform. $ terraform show # bigip_as3.testresource "bigip_as3" "test" {
+         Prepared bigip_as3 for import bigip_as3.testRefreshing state... [id=Sample_http_01,Sample_non_http_01] Import successful! The resources that were imported are shown above. These resources are now in your Terraform state and will henceforth be managed by Terraform. $ terraform show bigip_as3.testresource "bigip_as3" "test" {
 
          as3_json
 

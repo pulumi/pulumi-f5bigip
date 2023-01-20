@@ -21,28 +21,29 @@ func GetWafEntityParameter(ctx *pulumi.Context, args *GetWafEntityParameterArgs,
 
 // A collection of arguments for invoking getWafEntityParameter.
 type GetWafEntityParameterArgs struct {
-	AllowEmptyType                 *bool   `pulumi:"allowEmptyType"`
-	AllowRepeatedParameterName     *bool   `pulumi:"allowRepeatedParameterName"`
-	AttackSignaturesCheck          *bool   `pulumi:"attackSignaturesCheck"`
-	CheckMaxValueLength            *bool   `pulumi:"checkMaxValueLength"`
-	CheckMinValueLength            *bool   `pulumi:"checkMinValueLength"`
-	DataType                       *string `pulumi:"dataType"`
-	Description                    *string `pulumi:"description"`
-	EnableRegularExpression        *bool   `pulumi:"enableRegularExpression"`
-	IsBase64                       *bool   `pulumi:"isBase64"`
-	IsCookie                       *bool   `pulumi:"isCookie"`
-	IsHeader                       *bool   `pulumi:"isHeader"`
-	Json                           *string `pulumi:"json"`
-	Level                          *string `pulumi:"level"`
-	Mandatory                      *bool   `pulumi:"mandatory"`
-	MetacharsOnParameterValueCheck *bool   `pulumi:"metacharsOnParameterValueCheck"`
-	Name                           string  `pulumi:"name"`
-	ParameterLocation              *string `pulumi:"parameterLocation"`
-	PerformStaging                 *bool   `pulumi:"performStaging"`
-	SensitiveParameter             *bool   `pulumi:"sensitiveParameter"`
-	SignatureOverridesDisables     []int   `pulumi:"signatureOverridesDisables"`
-	Type                           *string `pulumi:"type"`
-	ValueType                      *string `pulumi:"valueType"`
+	AllowEmptyType                 *bool                     `pulumi:"allowEmptyType"`
+	AllowRepeatedParameterName     *bool                     `pulumi:"allowRepeatedParameterName"`
+	AttackSignaturesCheck          *bool                     `pulumi:"attackSignaturesCheck"`
+	CheckMaxValueLength            *bool                     `pulumi:"checkMaxValueLength"`
+	CheckMinValueLength            *bool                     `pulumi:"checkMinValueLength"`
+	DataType                       *string                   `pulumi:"dataType"`
+	Description                    *string                   `pulumi:"description"`
+	EnableRegularExpression        *bool                     `pulumi:"enableRegularExpression"`
+	IsBase64                       *bool                     `pulumi:"isBase64"`
+	IsCookie                       *bool                     `pulumi:"isCookie"`
+	IsHeader                       *bool                     `pulumi:"isHeader"`
+	Json                           *string                   `pulumi:"json"`
+	Level                          *string                   `pulumi:"level"`
+	Mandatory                      *bool                     `pulumi:"mandatory"`
+	MetacharsOnParameterValueCheck *bool                     `pulumi:"metacharsOnParameterValueCheck"`
+	Name                           string                    `pulumi:"name"`
+	ParameterLocation              *string                   `pulumi:"parameterLocation"`
+	PerformStaging                 *bool                     `pulumi:"performStaging"`
+	SensitiveParameter             *bool                     `pulumi:"sensitiveParameter"`
+	SignatureOverridesDisables     []int                     `pulumi:"signatureOverridesDisables"`
+	Type                           *string                   `pulumi:"type"`
+	Url                            *GetWafEntityParameterUrl `pulumi:"url"`
+	ValueType                      *string                   `pulumi:"valueType"`
 }
 
 // A collection of values returned by getWafEntityParameter.
@@ -56,21 +57,22 @@ type GetWafEntityParameterResult struct {
 	Description                *string `pulumi:"description"`
 	EnableRegularExpression    *bool   `pulumi:"enableRegularExpression"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                             string  `pulumi:"id"`
-	IsBase64                       *bool   `pulumi:"isBase64"`
-	IsCookie                       *bool   `pulumi:"isCookie"`
-	IsHeader                       *bool   `pulumi:"isHeader"`
-	Json                           string  `pulumi:"json"`
-	Level                          *string `pulumi:"level"`
-	Mandatory                      *bool   `pulumi:"mandatory"`
-	MetacharsOnParameterValueCheck *bool   `pulumi:"metacharsOnParameterValueCheck"`
-	Name                           string  `pulumi:"name"`
-	ParameterLocation              *string `pulumi:"parameterLocation"`
-	PerformStaging                 *bool   `pulumi:"performStaging"`
-	SensitiveParameter             *bool   `pulumi:"sensitiveParameter"`
-	SignatureOverridesDisables     []int   `pulumi:"signatureOverridesDisables"`
-	Type                           *string `pulumi:"type"`
-	ValueType                      *string `pulumi:"valueType"`
+	Id                             string                    `pulumi:"id"`
+	IsBase64                       *bool                     `pulumi:"isBase64"`
+	IsCookie                       *bool                     `pulumi:"isCookie"`
+	IsHeader                       *bool                     `pulumi:"isHeader"`
+	Json                           string                    `pulumi:"json"`
+	Level                          *string                   `pulumi:"level"`
+	Mandatory                      *bool                     `pulumi:"mandatory"`
+	MetacharsOnParameterValueCheck *bool                     `pulumi:"metacharsOnParameterValueCheck"`
+	Name                           string                    `pulumi:"name"`
+	ParameterLocation              *string                   `pulumi:"parameterLocation"`
+	PerformStaging                 *bool                     `pulumi:"performStaging"`
+	SensitiveParameter             *bool                     `pulumi:"sensitiveParameter"`
+	SignatureOverridesDisables     []int                     `pulumi:"signatureOverridesDisables"`
+	Type                           *string                   `pulumi:"type"`
+	Url                            *GetWafEntityParameterUrl `pulumi:"url"`
+	ValueType                      *string                   `pulumi:"valueType"`
 }
 
 func GetWafEntityParameterOutput(ctx *pulumi.Context, args GetWafEntityParameterOutputArgs, opts ...pulumi.InvokeOption) GetWafEntityParameterResultOutput {
@@ -88,28 +90,29 @@ func GetWafEntityParameterOutput(ctx *pulumi.Context, args GetWafEntityParameter
 
 // A collection of arguments for invoking getWafEntityParameter.
 type GetWafEntityParameterOutputArgs struct {
-	AllowEmptyType                 pulumi.BoolPtrInput   `pulumi:"allowEmptyType"`
-	AllowRepeatedParameterName     pulumi.BoolPtrInput   `pulumi:"allowRepeatedParameterName"`
-	AttackSignaturesCheck          pulumi.BoolPtrInput   `pulumi:"attackSignaturesCheck"`
-	CheckMaxValueLength            pulumi.BoolPtrInput   `pulumi:"checkMaxValueLength"`
-	CheckMinValueLength            pulumi.BoolPtrInput   `pulumi:"checkMinValueLength"`
-	DataType                       pulumi.StringPtrInput `pulumi:"dataType"`
-	Description                    pulumi.StringPtrInput `pulumi:"description"`
-	EnableRegularExpression        pulumi.BoolPtrInput   `pulumi:"enableRegularExpression"`
-	IsBase64                       pulumi.BoolPtrInput   `pulumi:"isBase64"`
-	IsCookie                       pulumi.BoolPtrInput   `pulumi:"isCookie"`
-	IsHeader                       pulumi.BoolPtrInput   `pulumi:"isHeader"`
-	Json                           pulumi.StringPtrInput `pulumi:"json"`
-	Level                          pulumi.StringPtrInput `pulumi:"level"`
-	Mandatory                      pulumi.BoolPtrInput   `pulumi:"mandatory"`
-	MetacharsOnParameterValueCheck pulumi.BoolPtrInput   `pulumi:"metacharsOnParameterValueCheck"`
-	Name                           pulumi.StringInput    `pulumi:"name"`
-	ParameterLocation              pulumi.StringPtrInput `pulumi:"parameterLocation"`
-	PerformStaging                 pulumi.BoolPtrInput   `pulumi:"performStaging"`
-	SensitiveParameter             pulumi.BoolPtrInput   `pulumi:"sensitiveParameter"`
-	SignatureOverridesDisables     pulumi.IntArrayInput  `pulumi:"signatureOverridesDisables"`
-	Type                           pulumi.StringPtrInput `pulumi:"type"`
-	ValueType                      pulumi.StringPtrInput `pulumi:"valueType"`
+	AllowEmptyType                 pulumi.BoolPtrInput              `pulumi:"allowEmptyType"`
+	AllowRepeatedParameterName     pulumi.BoolPtrInput              `pulumi:"allowRepeatedParameterName"`
+	AttackSignaturesCheck          pulumi.BoolPtrInput              `pulumi:"attackSignaturesCheck"`
+	CheckMaxValueLength            pulumi.BoolPtrInput              `pulumi:"checkMaxValueLength"`
+	CheckMinValueLength            pulumi.BoolPtrInput              `pulumi:"checkMinValueLength"`
+	DataType                       pulumi.StringPtrInput            `pulumi:"dataType"`
+	Description                    pulumi.StringPtrInput            `pulumi:"description"`
+	EnableRegularExpression        pulumi.BoolPtrInput              `pulumi:"enableRegularExpression"`
+	IsBase64                       pulumi.BoolPtrInput              `pulumi:"isBase64"`
+	IsCookie                       pulumi.BoolPtrInput              `pulumi:"isCookie"`
+	IsHeader                       pulumi.BoolPtrInput              `pulumi:"isHeader"`
+	Json                           pulumi.StringPtrInput            `pulumi:"json"`
+	Level                          pulumi.StringPtrInput            `pulumi:"level"`
+	Mandatory                      pulumi.BoolPtrInput              `pulumi:"mandatory"`
+	MetacharsOnParameterValueCheck pulumi.BoolPtrInput              `pulumi:"metacharsOnParameterValueCheck"`
+	Name                           pulumi.StringInput               `pulumi:"name"`
+	ParameterLocation              pulumi.StringPtrInput            `pulumi:"parameterLocation"`
+	PerformStaging                 pulumi.BoolPtrInput              `pulumi:"performStaging"`
+	SensitiveParameter             pulumi.BoolPtrInput              `pulumi:"sensitiveParameter"`
+	SignatureOverridesDisables     pulumi.IntArrayInput             `pulumi:"signatureOverridesDisables"`
+	Type                           pulumi.StringPtrInput            `pulumi:"type"`
+	Url                            GetWafEntityParameterUrlPtrInput `pulumi:"url"`
+	ValueType                      pulumi.StringPtrInput            `pulumi:"valueType"`
 }
 
 func (GetWafEntityParameterOutputArgs) ElementType() reflect.Type {
@@ -218,6 +221,10 @@ func (o GetWafEntityParameterResultOutput) SignatureOverridesDisables() pulumi.I
 
 func (o GetWafEntityParameterResultOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetWafEntityParameterResult) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o GetWafEntityParameterResultOutput) Url() GetWafEntityParameterUrlPtrOutput {
+	return o.ApplyT(func(v GetWafEntityParameterResult) *GetWafEntityParameterUrl { return v.Url }).(GetWafEntityParameterUrlPtrOutput)
 }
 
 func (o GetWafEntityParameterResultOutput) ValueType() pulumi.StringPtrOutput {

@@ -16,6 +16,7 @@ from .fast_http_app import *
 from .fast_https_app import *
 from .fast_tcp_app import *
 from .fast_template import *
+from .fast_udp_app import *
 from .ipsec_policy import *
 from .ipsec_profile import *
 from .net_ike_peer import *
@@ -40,6 +41,8 @@ if typing.TYPE_CHECKING:
     ssl = __ssl
     import pulumi_f5bigip.sys as __sys
     sys = __sys
+    import pulumi_f5bigip.vcmp as __vcmp
+    vcmp = __vcmp
 else:
     cm = _utilities.lazy_import('pulumi_f5bigip.cm')
     config = _utilities.lazy_import('pulumi_f5bigip.config')
@@ -47,6 +50,7 @@ else:
     net = _utilities.lazy_import('pulumi_f5bigip.net')
     ssl = _utilities.lazy_import('pulumi_f5bigip.ssl')
     sys = _utilities.lazy_import('pulumi_f5bigip.sys')
+    vcmp = _utilities.lazy_import('pulumi_f5bigip.vcmp')
 
 _utilities.register(
     resource_modules="""
@@ -153,6 +157,14 @@ _utilities.register(
   "fqn": "pulumi_f5bigip",
   "classes": {
    "f5bigip:index/fastTemplate:FastTemplate": "FastTemplate"
+  }
+ },
+ {
+  "pkg": "f5bigip",
+  "mod": "index/fastUdpApp",
+  "fqn": "pulumi_f5bigip",
+  "classes": {
+   "f5bigip:index/fastUdpApp:FastUdpApp": "FastUdpApp"
   }
  },
  {
@@ -497,6 +509,14 @@ _utilities.register(
   "fqn": "pulumi_f5bigip.sys",
   "classes": {
    "f5bigip:sys/snmpTraps:SnmpTraps": "SnmpTraps"
+  }
+ },
+ {
+  "pkg": "f5bigip",
+  "mod": "vcmp/guest",
+  "fqn": "pulumi_f5bigip.vcmp",
+  "classes": {
+   "f5bigip:vcmp/guest:Guest": "Guest"
   }
  }
 ]

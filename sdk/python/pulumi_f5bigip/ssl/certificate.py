@@ -238,12 +238,14 @@ class Certificate(pulumi.CustomResource):
 
             if content is None and not opts.urn:
                 raise TypeError("Missing required property 'content'")
-            __props__.__dict__["content"] = content
+            __props__.__dict__["content"] = None if content is None else pulumi.Output.secret(content)
             __props__.__dict__["full_path"] = full_path
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["partition"] = partition
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["content"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Certificate, __self__).__init__(
             'f5bigip:ssl/certificate:Certificate',
             resource_name,

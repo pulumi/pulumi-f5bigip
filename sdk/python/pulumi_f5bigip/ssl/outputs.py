@@ -10,8 +10,42 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'GetWafEntityParameterUrlResult',
     'GetWafEntityUrlMethodOverrideResult',
 ]
+
+@pulumi.output_type
+class GetWafEntityParameterUrlResult(dict):
+    def __init__(__self__, *,
+                 method: str,
+                 name: str,
+                 protocol: str,
+                 type: str):
+        pulumi.set(__self__, "method", method)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def method(self) -> str:
+        return pulumi.get(self, "method")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> str:
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        return pulumi.get(self, "type")
+
 
 @pulumi.output_type
 class GetWafEntityUrlMethodOverrideResult(dict):

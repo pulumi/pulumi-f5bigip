@@ -17,14 +17,14 @@ public final class NtpArgs extends com.pulumi.resources.ResourceArgs {
     public static final NtpArgs Empty = new NtpArgs();
 
     /**
-     * Name of the ntp Servers
+     * User defined description.
      * 
      */
     @Import(name="description", required=true)
     private Output<String> description;
 
     /**
-     * @return Name of the ntp Servers
+     * @return User defined description.
      * 
      */
     public Output<String> description() {
@@ -32,18 +32,18 @@ public final class NtpArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Adds NTP servers to or deletes NTP servers from the BIG-IP system.
+     * Specifies the time servers that the system uses to update the system time.
      * 
      */
-    @Import(name="servers")
-    private @Nullable Output<List<String>> servers;
+    @Import(name="servers", required=true)
+    private Output<List<String>> servers;
 
     /**
-     * @return Adds NTP servers to or deletes NTP servers from the BIG-IP system.
+     * @return Specifies the time servers that the system uses to update the system time.
      * 
      */
-    public Optional<Output<List<String>>> servers() {
-        return Optional.ofNullable(this.servers);
+    public Output<List<String>> servers() {
+        return this.servers;
     }
 
     /**
@@ -88,7 +88,7 @@ public final class NtpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Name of the ntp Servers
+         * @param description User defined description.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class NtpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Name of the ntp Servers
+         * @param description User defined description.
          * 
          * @return builder
          * 
@@ -109,18 +109,18 @@ public final class NtpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param servers Adds NTP servers to or deletes NTP servers from the BIG-IP system.
+         * @param servers Specifies the time servers that the system uses to update the system time.
          * 
          * @return builder
          * 
          */
-        public Builder servers(@Nullable Output<List<String>> servers) {
+        public Builder servers(Output<List<String>> servers) {
             $.servers = servers;
             return this;
         }
 
         /**
-         * @param servers Adds NTP servers to or deletes NTP servers from the BIG-IP system.
+         * @param servers Specifies the time servers that the system uses to update the system time.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class NtpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param servers Adds NTP servers to or deletes NTP servers from the BIG-IP system.
+         * @param servers Specifies the time servers that the system uses to update the system time.
          * 
          * @return builder
          * 
@@ -162,6 +162,7 @@ public final class NtpArgs extends com.pulumi.resources.ResourceArgs {
 
         public NtpArgs build() {
             $.description = Objects.requireNonNull($.description, "expected parameter 'description' to be non-null");
+            $.servers = Objects.requireNonNull($.servers, "expected parameter 'servers' to be non-null");
             return $;
         }
     }

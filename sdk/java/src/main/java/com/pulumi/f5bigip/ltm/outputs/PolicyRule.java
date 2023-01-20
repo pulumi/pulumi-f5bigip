@@ -13,23 +13,39 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class PolicyRule {
+    /**
+     * @return Block type. See action block for more details.
+     * 
+     */
     private @Nullable List<PolicyRuleAction> actions;
+    /**
+     * @return Block type. See condition block for more details.
+     * 
+     */
     private @Nullable List<PolicyRuleCondition> conditions;
     /**
-     * @return Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+     * @return Name of Rule to be applied in policy.
      * 
      */
     private String name;
 
     private PolicyRule() {}
+    /**
+     * @return Block type. See action block for more details.
+     * 
+     */
     public List<PolicyRuleAction> actions() {
         return this.actions == null ? List.of() : this.actions;
     }
+    /**
+     * @return Block type. See condition block for more details.
+     * 
+     */
     public List<PolicyRuleCondition> conditions() {
         return this.conditions == null ? List.of() : this.conditions;
     }
     /**
-     * @return Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+     * @return Name of Rule to be applied in policy.
      * 
      */
     public String name() {

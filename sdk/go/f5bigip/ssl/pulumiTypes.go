@@ -10,6 +10,184 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type GetWafEntityParameterUrl struct {
+	Method   string `pulumi:"method"`
+	Name     string `pulumi:"name"`
+	Protocol string `pulumi:"protocol"`
+	Type     string `pulumi:"type"`
+}
+
+// GetWafEntityParameterUrlInput is an input type that accepts GetWafEntityParameterUrlArgs and GetWafEntityParameterUrlOutput values.
+// You can construct a concrete instance of `GetWafEntityParameterUrlInput` via:
+//
+//	GetWafEntityParameterUrlArgs{...}
+type GetWafEntityParameterUrlInput interface {
+	pulumi.Input
+
+	ToGetWafEntityParameterUrlOutput() GetWafEntityParameterUrlOutput
+	ToGetWafEntityParameterUrlOutputWithContext(context.Context) GetWafEntityParameterUrlOutput
+}
+
+type GetWafEntityParameterUrlArgs struct {
+	Method   pulumi.StringInput `pulumi:"method"`
+	Name     pulumi.StringInput `pulumi:"name"`
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+	Type     pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetWafEntityParameterUrlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWafEntityParameterUrl)(nil)).Elem()
+}
+
+func (i GetWafEntityParameterUrlArgs) ToGetWafEntityParameterUrlOutput() GetWafEntityParameterUrlOutput {
+	return i.ToGetWafEntityParameterUrlOutputWithContext(context.Background())
+}
+
+func (i GetWafEntityParameterUrlArgs) ToGetWafEntityParameterUrlOutputWithContext(ctx context.Context) GetWafEntityParameterUrlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWafEntityParameterUrlOutput)
+}
+
+func (i GetWafEntityParameterUrlArgs) ToGetWafEntityParameterUrlPtrOutput() GetWafEntityParameterUrlPtrOutput {
+	return i.ToGetWafEntityParameterUrlPtrOutputWithContext(context.Background())
+}
+
+func (i GetWafEntityParameterUrlArgs) ToGetWafEntityParameterUrlPtrOutputWithContext(ctx context.Context) GetWafEntityParameterUrlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWafEntityParameterUrlOutput).ToGetWafEntityParameterUrlPtrOutputWithContext(ctx)
+}
+
+// GetWafEntityParameterUrlPtrInput is an input type that accepts GetWafEntityParameterUrlArgs, GetWafEntityParameterUrlPtr and GetWafEntityParameterUrlPtrOutput values.
+// You can construct a concrete instance of `GetWafEntityParameterUrlPtrInput` via:
+//
+//	        GetWafEntityParameterUrlArgs{...}
+//
+//	or:
+//
+//	        nil
+type GetWafEntityParameterUrlPtrInput interface {
+	pulumi.Input
+
+	ToGetWafEntityParameterUrlPtrOutput() GetWafEntityParameterUrlPtrOutput
+	ToGetWafEntityParameterUrlPtrOutputWithContext(context.Context) GetWafEntityParameterUrlPtrOutput
+}
+
+type getWafEntityParameterUrlPtrType GetWafEntityParameterUrlArgs
+
+func GetWafEntityParameterUrlPtr(v *GetWafEntityParameterUrlArgs) GetWafEntityParameterUrlPtrInput {
+	return (*getWafEntityParameterUrlPtrType)(v)
+}
+
+func (*getWafEntityParameterUrlPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetWafEntityParameterUrl)(nil)).Elem()
+}
+
+func (i *getWafEntityParameterUrlPtrType) ToGetWafEntityParameterUrlPtrOutput() GetWafEntityParameterUrlPtrOutput {
+	return i.ToGetWafEntityParameterUrlPtrOutputWithContext(context.Background())
+}
+
+func (i *getWafEntityParameterUrlPtrType) ToGetWafEntityParameterUrlPtrOutputWithContext(ctx context.Context) GetWafEntityParameterUrlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetWafEntityParameterUrlPtrOutput)
+}
+
+type GetWafEntityParameterUrlOutput struct{ *pulumi.OutputState }
+
+func (GetWafEntityParameterUrlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetWafEntityParameterUrl)(nil)).Elem()
+}
+
+func (o GetWafEntityParameterUrlOutput) ToGetWafEntityParameterUrlOutput() GetWafEntityParameterUrlOutput {
+	return o
+}
+
+func (o GetWafEntityParameterUrlOutput) ToGetWafEntityParameterUrlOutputWithContext(ctx context.Context) GetWafEntityParameterUrlOutput {
+	return o
+}
+
+func (o GetWafEntityParameterUrlOutput) ToGetWafEntityParameterUrlPtrOutput() GetWafEntityParameterUrlPtrOutput {
+	return o.ToGetWafEntityParameterUrlPtrOutputWithContext(context.Background())
+}
+
+func (o GetWafEntityParameterUrlOutput) ToGetWafEntityParameterUrlPtrOutputWithContext(ctx context.Context) GetWafEntityParameterUrlPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetWafEntityParameterUrl) *GetWafEntityParameterUrl {
+		return &v
+	}).(GetWafEntityParameterUrlPtrOutput)
+}
+
+func (o GetWafEntityParameterUrlOutput) Method() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWafEntityParameterUrl) string { return v.Method }).(pulumi.StringOutput)
+}
+
+func (o GetWafEntityParameterUrlOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWafEntityParameterUrl) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetWafEntityParameterUrlOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWafEntityParameterUrl) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+func (o GetWafEntityParameterUrlOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetWafEntityParameterUrl) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetWafEntityParameterUrlPtrOutput struct{ *pulumi.OutputState }
+
+func (GetWafEntityParameterUrlPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetWafEntityParameterUrl)(nil)).Elem()
+}
+
+func (o GetWafEntityParameterUrlPtrOutput) ToGetWafEntityParameterUrlPtrOutput() GetWafEntityParameterUrlPtrOutput {
+	return o
+}
+
+func (o GetWafEntityParameterUrlPtrOutput) ToGetWafEntityParameterUrlPtrOutputWithContext(ctx context.Context) GetWafEntityParameterUrlPtrOutput {
+	return o
+}
+
+func (o GetWafEntityParameterUrlPtrOutput) Elem() GetWafEntityParameterUrlOutput {
+	return o.ApplyT(func(v *GetWafEntityParameterUrl) GetWafEntityParameterUrl {
+		if v != nil {
+			return *v
+		}
+		var ret GetWafEntityParameterUrl
+		return ret
+	}).(GetWafEntityParameterUrlOutput)
+}
+
+func (o GetWafEntityParameterUrlPtrOutput) Method() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetWafEntityParameterUrl) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Method
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetWafEntityParameterUrlPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetWafEntityParameterUrl) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetWafEntityParameterUrlPtrOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetWafEntityParameterUrl) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Protocol
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o GetWafEntityParameterUrlPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetWafEntityParameterUrl) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetWafEntityUrlMethodOverride struct {
 	// Specifies that the system allows or disallows a method for this URL
 	Allow bool `pulumi:"allow"`
@@ -117,8 +295,12 @@ func (o GetWafEntityUrlMethodOverrideArrayOutput) Index(i pulumi.IntInput) GetWa
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWafEntityParameterUrlInput)(nil)).Elem(), GetWafEntityParameterUrlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetWafEntityParameterUrlPtrInput)(nil)).Elem(), GetWafEntityParameterUrlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWafEntityUrlMethodOverrideInput)(nil)).Elem(), GetWafEntityUrlMethodOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWafEntityUrlMethodOverrideArrayInput)(nil)).Elem(), GetWafEntityUrlMethodOverrideArray{})
+	pulumi.RegisterOutputType(GetWafEntityParameterUrlOutput{})
+	pulumi.RegisterOutputType(GetWafEntityParameterUrlPtrOutput{})
 	pulumi.RegisterOutputType(GetWafEntityUrlMethodOverrideOutput{})
 	pulumi.RegisterOutputType(GetWafEntityUrlMethodOverrideArrayOutput{})
 }

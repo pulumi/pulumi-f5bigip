@@ -8,6 +8,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = [
     'GetWafEntityParameterResult',
@@ -21,7 +23,7 @@ class GetWafEntityParameterResult:
     """
     A collection of values returned by getWafEntityParameter.
     """
-    def __init__(__self__, allow_empty_type=None, allow_repeated_parameter_name=None, attack_signatures_check=None, check_max_value_length=None, check_min_value_length=None, data_type=None, description=None, enable_regular_expression=None, id=None, is_base64=None, is_cookie=None, is_header=None, json=None, level=None, mandatory=None, metachars_on_parameter_value_check=None, name=None, parameter_location=None, perform_staging=None, sensitive_parameter=None, signature_overrides_disables=None, type=None, value_type=None):
+    def __init__(__self__, allow_empty_type=None, allow_repeated_parameter_name=None, attack_signatures_check=None, check_max_value_length=None, check_min_value_length=None, data_type=None, description=None, enable_regular_expression=None, id=None, is_base64=None, is_cookie=None, is_header=None, json=None, level=None, mandatory=None, metachars_on_parameter_value_check=None, name=None, parameter_location=None, perform_staging=None, sensitive_parameter=None, signature_overrides_disables=None, type=None, url=None, value_type=None):
         if allow_empty_type and not isinstance(allow_empty_type, bool):
             raise TypeError("Expected argument 'allow_empty_type' to be a bool")
         pulumi.set(__self__, "allow_empty_type", allow_empty_type)
@@ -88,6 +90,9 @@ class GetWafEntityParameterResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if url and not isinstance(url, dict):
+            raise TypeError("Expected argument 'url' to be a dict")
+        pulumi.set(__self__, "url", url)
         if value_type and not isinstance(value_type, str):
             raise TypeError("Expected argument 'value_type' to be a str")
         pulumi.set(__self__, "value_type", value_type)
@@ -206,6 +211,11 @@ class GetWafEntityParameterResult:
         return pulumi.get(self, "type")
 
     @property
+    @pulumi.getter
+    def url(self) -> Optional['outputs.GetWafEntityParameterUrlResult']:
+        return pulumi.get(self, "url")
+
+    @property
     @pulumi.getter(name="valueType")
     def value_type(self) -> Optional[str]:
         return pulumi.get(self, "value_type")
@@ -239,6 +249,7 @@ class AwaitableGetWafEntityParameterResult(GetWafEntityParameterResult):
             sensitive_parameter=self.sensitive_parameter,
             signature_overrides_disables=self.signature_overrides_disables,
             type=self.type,
+            url=self.url,
             value_type=self.value_type)
 
 
@@ -263,6 +274,7 @@ def get_waf_entity_parameter(allow_empty_type: Optional[bool] = None,
                              sensitive_parameter: Optional[bool] = None,
                              signature_overrides_disables: Optional[Sequence[int]] = None,
                              type: Optional[str] = None,
+                             url: Optional[pulumi.InputType['GetWafEntityParameterUrlArgs']] = None,
                              value_type: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWafEntityParameterResult:
     """
@@ -290,6 +302,7 @@ def get_waf_entity_parameter(allow_empty_type: Optional[bool] = None,
     __args__['sensitiveParameter'] = sensitive_parameter
     __args__['signatureOverridesDisables'] = signature_overrides_disables
     __args__['type'] = type
+    __args__['url'] = url
     __args__['valueType'] = value_type
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('f5bigip:ssl/getWafEntityParameter:getWafEntityParameter', __args__, opts=opts, typ=GetWafEntityParameterResult).value
@@ -317,6 +330,7 @@ def get_waf_entity_parameter(allow_empty_type: Optional[bool] = None,
         sensitive_parameter=__ret__.sensitive_parameter,
         signature_overrides_disables=__ret__.signature_overrides_disables,
         type=__ret__.type,
+        url=__ret__.url,
         value_type=__ret__.value_type)
 
 
@@ -342,6 +356,7 @@ def get_waf_entity_parameter_output(allow_empty_type: Optional[pulumi.Input[Opti
                                     sensitive_parameter: Optional[pulumi.Input[Optional[bool]]] = None,
                                     signature_overrides_disables: Optional[pulumi.Input[Optional[Sequence[int]]]] = None,
                                     type: Optional[pulumi.Input[Optional[str]]] = None,
+                                    url: Optional[pulumi.Input[Optional[pulumi.InputType['GetWafEntityParameterUrlArgs']]]] = None,
                                     value_type: Optional[pulumi.Input[Optional[str]]] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWafEntityParameterResult]:
     """

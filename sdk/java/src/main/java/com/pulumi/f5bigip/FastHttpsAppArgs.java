@@ -5,10 +5,12 @@ package com.pulumi.f5bigip;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.f5bigip.inputs.FastHttpsAppCreateTlsServerProfileArgs;
-import com.pulumi.f5bigip.inputs.FastHttpsAppFastCreateMonitorArgs;
-import com.pulumi.f5bigip.inputs.FastHttpsAppFastCreatePoolMemberArgs;
+import com.pulumi.f5bigip.inputs.FastHttpsAppMonitorArgs;
+import com.pulumi.f5bigip.inputs.FastHttpsAppPoolMemberArgs;
+import com.pulumi.f5bigip.inputs.FastHttpsAppTlsClientProfileArgs;
+import com.pulumi.f5bigip.inputs.FastHttpsAppTlsServerProfileArgs;
 import com.pulumi.f5bigip.inputs.FastHttpsAppVirtualServerArgs;
+import com.pulumi.f5bigip.inputs.FastHttpsAppWafSecurityPolicyArgs;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -37,35 +39,18 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * `create_tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
-     * See TLS Server Profile below for more details.
+     * List of LTM Policies to be applied FAST HTTPS Application.
      * 
      */
-    @Import(name="createTlsServerProfile")
-    private @Nullable Output<FastHttpsAppCreateTlsServerProfileArgs> createTlsServerProfile;
+    @Import(name="endpointLtmPolicies")
+    private @Nullable Output<List<String>> endpointLtmPolicies;
 
     /**
-     * @return `create_tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
-     * See TLS Server Profile below for more details.
+     * @return List of LTM Policies to be applied FAST HTTPS Application.
      * 
      */
-    public Optional<Output<FastHttpsAppCreateTlsServerProfileArgs>> createTlsServerProfile() {
-        return Optional.ofNullable(this.createTlsServerProfile);
-    }
-
-    /**
-     * Name of an existing BIG-IP pool.
-     * 
-     */
-    @Import(name="existPoolName")
-    private @Nullable Output<String> existPoolName;
-
-    /**
-     * @return Name of an existing BIG-IP pool.
-     * 
-     */
-    public Optional<Output<String>> existPoolName() {
-        return Optional.ofNullable(this.existPoolName);
+    public Optional<Output<List<String>>> endpointLtmPolicies() {
+        return Optional.ofNullable(this.endpointLtmPolicies);
     }
 
     /**
@@ -84,6 +69,21 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Name of an existing BIG-IP pool.
+     * 
+     */
+    @Import(name="existingPool")
+    private @Nullable Output<String> existingPool;
+
+    /**
+     * @return Name of an existing BIG-IP pool.
+     * 
+     */
+    public Optional<Output<String>> existingPool() {
+        return Optional.ofNullable(this.existingPool);
+    }
+
+    /**
      * Name of an existing BIG-IP SNAT pool.
      * 
      */
@@ -99,52 +99,48 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * `fast_create_monitor` block takes input for FAST-Generated Pool Monitor.
-     * See Pool Monitor below for more details.
+     * Name of an existing TLS client profile.
      * 
      */
-    @Import(name="fastCreateMonitor")
-    private @Nullable Output<FastHttpsAppFastCreateMonitorArgs> fastCreateMonitor;
+    @Import(name="existingTlsClientProfile")
+    private @Nullable Output<String> existingTlsClientProfile;
 
     /**
-     * @return `fast_create_monitor` block takes input for FAST-Generated Pool Monitor.
-     * See Pool Monitor below for more details.
+     * @return Name of an existing TLS client profile.
      * 
      */
-    public Optional<Output<FastHttpsAppFastCreateMonitorArgs>> fastCreateMonitor() {
-        return Optional.ofNullable(this.fastCreateMonitor);
+    public Optional<Output<String>> existingTlsClientProfile() {
+        return Optional.ofNullable(this.existingTlsClientProfile);
     }
 
     /**
-     * `fast_create_pool_members` block takes input for FAST-Generated Pool.
-     * See Pool Members below for more details.
+     * Name of an existing TLS server profile.
      * 
      */
-    @Import(name="fastCreatePoolMembers")
-    private @Nullable Output<List<FastHttpsAppFastCreatePoolMemberArgs>> fastCreatePoolMembers;
+    @Import(name="existingTlsServerProfile")
+    private @Nullable Output<String> existingTlsServerProfile;
 
     /**
-     * @return `fast_create_pool_members` block takes input for FAST-Generated Pool.
-     * See Pool Members below for more details.
+     * @return Name of an existing TLS server profile.
      * 
      */
-    public Optional<Output<List<FastHttpsAppFastCreatePoolMemberArgs>>> fastCreatePoolMembers() {
-        return Optional.ofNullable(this.fastCreatePoolMembers);
+    public Optional<Output<String>> existingTlsServerProfile() {
+        return Optional.ofNullable(this.existingTlsServerProfile);
     }
 
     /**
-     * List of address to be used for FAST-Generated SNAT Pool.
+     * Name of an existing WAF Security policy.
      * 
      */
-    @Import(name="fastCreateSnatPoolAddresses")
-    private @Nullable Output<List<String>> fastCreateSnatPoolAddresses;
+    @Import(name="existingWafSecurityPolicy")
+    private @Nullable Output<String> existingWafSecurityPolicy;
 
     /**
-     * @return List of address to be used for FAST-Generated SNAT Pool.
+     * @return Name of an existing WAF Security policy.
      * 
      */
-    public Optional<Output<List<String>>> fastCreateSnatPoolAddresses() {
-        return Optional.ofNullable(this.fastCreateSnatPoolAddresses);
+    public Optional<Output<String>> existingWafSecurityPolicy() {
+        return Optional.ofNullable(this.existingWafSecurityPolicy);
     }
 
     /**
@@ -163,6 +159,55 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * `monitor` block takes input for FAST-Generated Pool Monitor.
+     * See Pool Monitor below for more details.
+     * 
+     */
+    @Import(name="monitor")
+    private @Nullable Output<FastHttpsAppMonitorArgs> monitor;
+
+    /**
+     * @return `monitor` block takes input for FAST-Generated Pool Monitor.
+     * See Pool Monitor below for more details.
+     * 
+     */
+    public Optional<Output<FastHttpsAppMonitorArgs>> monitor() {
+        return Optional.ofNullable(this.monitor);
+    }
+
+    /**
+     * `pool_members` block takes input for FAST-Generated Pool.
+     * See Pool Members below for more details.
+     * 
+     */
+    @Import(name="poolMembers")
+    private @Nullable Output<List<FastHttpsAppPoolMemberArgs>> poolMembers;
+
+    /**
+     * @return `pool_members` block takes input for FAST-Generated Pool.
+     * See Pool Members below for more details.
+     * 
+     */
+    public Optional<Output<List<FastHttpsAppPoolMemberArgs>>> poolMembers() {
+        return Optional.ofNullable(this.poolMembers);
+    }
+
+    /**
+     * List of security log profiles to be used for FAST application
+     * 
+     */
+    @Import(name="securityLogProfiles")
+    private @Nullable Output<List<String>> securityLogProfiles;
+
+    /**
+     * @return List of security log profiles to be used for FAST application
+     * 
+     */
+    public Optional<Output<List<String>>> securityLogProfiles() {
+        return Optional.ofNullable(this.securityLogProfiles);
+    }
+
+    /**
      * Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
      * 
      */
@@ -175,6 +220,21 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Integer>> slowRampTime() {
         return Optional.ofNullable(this.slowRampTime);
+    }
+
+    /**
+     * List of address to be used for FAST-Generated SNAT Pool.
+     * 
+     */
+    @Import(name="snatPoolAddresses")
+    private @Nullable Output<List<String>> snatPoolAddresses;
+
+    /**
+     * @return List of address to be used for FAST-Generated SNAT Pool.
+     * 
+     */
+    public Optional<Output<List<String>>> snatPoolAddresses() {
+        return Optional.ofNullable(this.snatPoolAddresses);
     }
 
     /**
@@ -193,18 +253,37 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of an existing TLS server profile.
+     * `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
+     * See TLS Client Profile below for more details.
      * 
      */
-    @Import(name="tlsServerProfileName")
-    private @Nullable Output<String> tlsServerProfileName;
+    @Import(name="tlsClientProfile")
+    private @Nullable Output<FastHttpsAppTlsClientProfileArgs> tlsClientProfile;
 
     /**
-     * @return Name of an existing TLS server profile.
+     * @return `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
+     * See TLS Client Profile below for more details.
      * 
      */
-    public Optional<Output<String>> tlsServerProfileName() {
-        return Optional.ofNullable(this.tlsServerProfileName);
+    public Optional<Output<FastHttpsAppTlsClientProfileArgs>> tlsClientProfile() {
+        return Optional.ofNullable(this.tlsClientProfile);
+    }
+
+    /**
+     * `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
+     * See TLS Server Profile below for more details.
+     * 
+     */
+    @Import(name="tlsServerProfile")
+    private @Nullable Output<FastHttpsAppTlsServerProfileArgs> tlsServerProfile;
+
+    /**
+     * @return `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
+     * See TLS Server Profile below for more details.
+     * 
+     */
+    public Optional<Output<FastHttpsAppTlsServerProfileArgs>> tlsServerProfile() {
+        return Optional.ofNullable(this.tlsServerProfile);
     }
 
     /**
@@ -224,22 +303,45 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.virtualServer);
     }
 
+    /**
+     * `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+     * See WAF Security Policy below for more details.
+     * 
+     */
+    @Import(name="wafSecurityPolicy")
+    private @Nullable Output<FastHttpsAppWafSecurityPolicyArgs> wafSecurityPolicy;
+
+    /**
+     * @return `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+     * See WAF Security Policy below for more details.
+     * 
+     */
+    public Optional<Output<FastHttpsAppWafSecurityPolicyArgs>> wafSecurityPolicy() {
+        return Optional.ofNullable(this.wafSecurityPolicy);
+    }
+
     private FastHttpsAppArgs() {}
 
     private FastHttpsAppArgs(FastHttpsAppArgs $) {
         this.application = $.application;
-        this.createTlsServerProfile = $.createTlsServerProfile;
-        this.existPoolName = $.existPoolName;
+        this.endpointLtmPolicies = $.endpointLtmPolicies;
         this.existingMonitor = $.existingMonitor;
+        this.existingPool = $.existingPool;
         this.existingSnatPool = $.existingSnatPool;
-        this.fastCreateMonitor = $.fastCreateMonitor;
-        this.fastCreatePoolMembers = $.fastCreatePoolMembers;
-        this.fastCreateSnatPoolAddresses = $.fastCreateSnatPoolAddresses;
+        this.existingTlsClientProfile = $.existingTlsClientProfile;
+        this.existingTlsServerProfile = $.existingTlsServerProfile;
+        this.existingWafSecurityPolicy = $.existingWafSecurityPolicy;
         this.loadBalancingMode = $.loadBalancingMode;
+        this.monitor = $.monitor;
+        this.poolMembers = $.poolMembers;
+        this.securityLogProfiles = $.securityLogProfiles;
         this.slowRampTime = $.slowRampTime;
+        this.snatPoolAddresses = $.snatPoolAddresses;
         this.tenant = $.tenant;
-        this.tlsServerProfileName = $.tlsServerProfileName;
+        this.tlsClientProfile = $.tlsClientProfile;
+        this.tlsServerProfile = $.tlsServerProfile;
         this.virtualServer = $.virtualServer;
+        this.wafSecurityPolicy = $.wafSecurityPolicy;
     }
 
     public static Builder builder() {
@@ -282,47 +384,34 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param createTlsServerProfile `create_tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
-         * See TLS Server Profile below for more details.
+         * @param endpointLtmPolicies List of LTM Policies to be applied FAST HTTPS Application.
          * 
          * @return builder
          * 
          */
-        public Builder createTlsServerProfile(@Nullable Output<FastHttpsAppCreateTlsServerProfileArgs> createTlsServerProfile) {
-            $.createTlsServerProfile = createTlsServerProfile;
+        public Builder endpointLtmPolicies(@Nullable Output<List<String>> endpointLtmPolicies) {
+            $.endpointLtmPolicies = endpointLtmPolicies;
             return this;
         }
 
         /**
-         * @param createTlsServerProfile `create_tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
-         * See TLS Server Profile below for more details.
+         * @param endpointLtmPolicies List of LTM Policies to be applied FAST HTTPS Application.
          * 
          * @return builder
          * 
          */
-        public Builder createTlsServerProfile(FastHttpsAppCreateTlsServerProfileArgs createTlsServerProfile) {
-            return createTlsServerProfile(Output.of(createTlsServerProfile));
+        public Builder endpointLtmPolicies(List<String> endpointLtmPolicies) {
+            return endpointLtmPolicies(Output.of(endpointLtmPolicies));
         }
 
         /**
-         * @param existPoolName Name of an existing BIG-IP pool.
+         * @param endpointLtmPolicies List of LTM Policies to be applied FAST HTTPS Application.
          * 
          * @return builder
          * 
          */
-        public Builder existPoolName(@Nullable Output<String> existPoolName) {
-            $.existPoolName = existPoolName;
-            return this;
-        }
-
-        /**
-         * @param existPoolName Name of an existing BIG-IP pool.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder existPoolName(String existPoolName) {
-            return existPoolName(Output.of(existPoolName));
+        public Builder endpointLtmPolicies(String... endpointLtmPolicies) {
+            return endpointLtmPolicies(List.of(endpointLtmPolicies));
         }
 
         /**
@@ -347,6 +436,27 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param existingPool Name of an existing BIG-IP pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder existingPool(@Nullable Output<String> existingPool) {
+            $.existingPool = existingPool;
+            return this;
+        }
+
+        /**
+         * @param existingPool Name of an existing BIG-IP pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder existingPool(String existingPool) {
+            return existingPool(Output.of(existingPool));
+        }
+
+        /**
          * @param existingSnatPool Name of an existing BIG-IP SNAT pool.
          * 
          * @return builder
@@ -368,91 +478,66 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fastCreateMonitor `fast_create_monitor` block takes input for FAST-Generated Pool Monitor.
-         * See Pool Monitor below for more details.
+         * @param existingTlsClientProfile Name of an existing TLS client profile.
          * 
          * @return builder
          * 
          */
-        public Builder fastCreateMonitor(@Nullable Output<FastHttpsAppFastCreateMonitorArgs> fastCreateMonitor) {
-            $.fastCreateMonitor = fastCreateMonitor;
+        public Builder existingTlsClientProfile(@Nullable Output<String> existingTlsClientProfile) {
+            $.existingTlsClientProfile = existingTlsClientProfile;
             return this;
         }
 
         /**
-         * @param fastCreateMonitor `fast_create_monitor` block takes input for FAST-Generated Pool Monitor.
-         * See Pool Monitor below for more details.
+         * @param existingTlsClientProfile Name of an existing TLS client profile.
          * 
          * @return builder
          * 
          */
-        public Builder fastCreateMonitor(FastHttpsAppFastCreateMonitorArgs fastCreateMonitor) {
-            return fastCreateMonitor(Output.of(fastCreateMonitor));
+        public Builder existingTlsClientProfile(String existingTlsClientProfile) {
+            return existingTlsClientProfile(Output.of(existingTlsClientProfile));
         }
 
         /**
-         * @param fastCreatePoolMembers `fast_create_pool_members` block takes input for FAST-Generated Pool.
-         * See Pool Members below for more details.
+         * @param existingTlsServerProfile Name of an existing TLS server profile.
          * 
          * @return builder
          * 
          */
-        public Builder fastCreatePoolMembers(@Nullable Output<List<FastHttpsAppFastCreatePoolMemberArgs>> fastCreatePoolMembers) {
-            $.fastCreatePoolMembers = fastCreatePoolMembers;
+        public Builder existingTlsServerProfile(@Nullable Output<String> existingTlsServerProfile) {
+            $.existingTlsServerProfile = existingTlsServerProfile;
             return this;
         }
 
         /**
-         * @param fastCreatePoolMembers `fast_create_pool_members` block takes input for FAST-Generated Pool.
-         * See Pool Members below for more details.
+         * @param existingTlsServerProfile Name of an existing TLS server profile.
          * 
          * @return builder
          * 
          */
-        public Builder fastCreatePoolMembers(List<FastHttpsAppFastCreatePoolMemberArgs> fastCreatePoolMembers) {
-            return fastCreatePoolMembers(Output.of(fastCreatePoolMembers));
+        public Builder existingTlsServerProfile(String existingTlsServerProfile) {
+            return existingTlsServerProfile(Output.of(existingTlsServerProfile));
         }
 
         /**
-         * @param fastCreatePoolMembers `fast_create_pool_members` block takes input for FAST-Generated Pool.
-         * See Pool Members below for more details.
+         * @param existingWafSecurityPolicy Name of an existing WAF Security policy.
          * 
          * @return builder
          * 
          */
-        public Builder fastCreatePoolMembers(FastHttpsAppFastCreatePoolMemberArgs... fastCreatePoolMembers) {
-            return fastCreatePoolMembers(List.of(fastCreatePoolMembers));
-        }
-
-        /**
-         * @param fastCreateSnatPoolAddresses List of address to be used for FAST-Generated SNAT Pool.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder fastCreateSnatPoolAddresses(@Nullable Output<List<String>> fastCreateSnatPoolAddresses) {
-            $.fastCreateSnatPoolAddresses = fastCreateSnatPoolAddresses;
+        public Builder existingWafSecurityPolicy(@Nullable Output<String> existingWafSecurityPolicy) {
+            $.existingWafSecurityPolicy = existingWafSecurityPolicy;
             return this;
         }
 
         /**
-         * @param fastCreateSnatPoolAddresses List of address to be used for FAST-Generated SNAT Pool.
+         * @param existingWafSecurityPolicy Name of an existing WAF Security policy.
          * 
          * @return builder
          * 
          */
-        public Builder fastCreateSnatPoolAddresses(List<String> fastCreateSnatPoolAddresses) {
-            return fastCreateSnatPoolAddresses(Output.of(fastCreateSnatPoolAddresses));
-        }
-
-        /**
-         * @param fastCreateSnatPoolAddresses List of address to be used for FAST-Generated SNAT Pool.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder fastCreateSnatPoolAddresses(String... fastCreateSnatPoolAddresses) {
-            return fastCreateSnatPoolAddresses(List.of(fastCreateSnatPoolAddresses));
+        public Builder existingWafSecurityPolicy(String existingWafSecurityPolicy) {
+            return existingWafSecurityPolicy(Output.of(existingWafSecurityPolicy));
         }
 
         /**
@@ -477,6 +562,94 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param monitor `monitor` block takes input for FAST-Generated Pool Monitor.
+         * See Pool Monitor below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitor(@Nullable Output<FastHttpsAppMonitorArgs> monitor) {
+            $.monitor = monitor;
+            return this;
+        }
+
+        /**
+         * @param monitor `monitor` block takes input for FAST-Generated Pool Monitor.
+         * See Pool Monitor below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitor(FastHttpsAppMonitorArgs monitor) {
+            return monitor(Output.of(monitor));
+        }
+
+        /**
+         * @param poolMembers `pool_members` block takes input for FAST-Generated Pool.
+         * See Pool Members below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder poolMembers(@Nullable Output<List<FastHttpsAppPoolMemberArgs>> poolMembers) {
+            $.poolMembers = poolMembers;
+            return this;
+        }
+
+        /**
+         * @param poolMembers `pool_members` block takes input for FAST-Generated Pool.
+         * See Pool Members below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder poolMembers(List<FastHttpsAppPoolMemberArgs> poolMembers) {
+            return poolMembers(Output.of(poolMembers));
+        }
+
+        /**
+         * @param poolMembers `pool_members` block takes input for FAST-Generated Pool.
+         * See Pool Members below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder poolMembers(FastHttpsAppPoolMemberArgs... poolMembers) {
+            return poolMembers(List.of(poolMembers));
+        }
+
+        /**
+         * @param securityLogProfiles List of security log profiles to be used for FAST application
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityLogProfiles(@Nullable Output<List<String>> securityLogProfiles) {
+            $.securityLogProfiles = securityLogProfiles;
+            return this;
+        }
+
+        /**
+         * @param securityLogProfiles List of security log profiles to be used for FAST application
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityLogProfiles(List<String> securityLogProfiles) {
+            return securityLogProfiles(Output.of(securityLogProfiles));
+        }
+
+        /**
+         * @param securityLogProfiles List of security log profiles to be used for FAST application
+         * 
+         * @return builder
+         * 
+         */
+        public Builder securityLogProfiles(String... securityLogProfiles) {
+            return securityLogProfiles(List.of(securityLogProfiles));
+        }
+
+        /**
          * @param slowRampTime Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
          * 
          * @return builder
@@ -495,6 +668,37 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder slowRampTime(Integer slowRampTime) {
             return slowRampTime(Output.of(slowRampTime));
+        }
+
+        /**
+         * @param snatPoolAddresses List of address to be used for FAST-Generated SNAT Pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder snatPoolAddresses(@Nullable Output<List<String>> snatPoolAddresses) {
+            $.snatPoolAddresses = snatPoolAddresses;
+            return this;
+        }
+
+        /**
+         * @param snatPoolAddresses List of address to be used for FAST-Generated SNAT Pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder snatPoolAddresses(List<String> snatPoolAddresses) {
+            return snatPoolAddresses(Output.of(snatPoolAddresses));
+        }
+
+        /**
+         * @param snatPoolAddresses List of address to be used for FAST-Generated SNAT Pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder snatPoolAddresses(String... snatPoolAddresses) {
+            return snatPoolAddresses(List.of(snatPoolAddresses));
         }
 
         /**
@@ -519,24 +723,49 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tlsServerProfileName Name of an existing TLS server profile.
+         * @param tlsClientProfile `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
+         * See TLS Client Profile below for more details.
          * 
          * @return builder
          * 
          */
-        public Builder tlsServerProfileName(@Nullable Output<String> tlsServerProfileName) {
-            $.tlsServerProfileName = tlsServerProfileName;
+        public Builder tlsClientProfile(@Nullable Output<FastHttpsAppTlsClientProfileArgs> tlsClientProfile) {
+            $.tlsClientProfile = tlsClientProfile;
             return this;
         }
 
         /**
-         * @param tlsServerProfileName Name of an existing TLS server profile.
+         * @param tlsClientProfile `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
+         * See TLS Client Profile below for more details.
          * 
          * @return builder
          * 
          */
-        public Builder tlsServerProfileName(String tlsServerProfileName) {
-            return tlsServerProfileName(Output.of(tlsServerProfileName));
+        public Builder tlsClientProfile(FastHttpsAppTlsClientProfileArgs tlsClientProfile) {
+            return tlsClientProfile(Output.of(tlsClientProfile));
+        }
+
+        /**
+         * @param tlsServerProfile `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
+         * See TLS Server Profile below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tlsServerProfile(@Nullable Output<FastHttpsAppTlsServerProfileArgs> tlsServerProfile) {
+            $.tlsServerProfile = tlsServerProfile;
+            return this;
+        }
+
+        /**
+         * @param tlsServerProfile `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
+         * See TLS Server Profile below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tlsServerProfile(FastHttpsAppTlsServerProfileArgs tlsServerProfile) {
+            return tlsServerProfile(Output.of(tlsServerProfile));
         }
 
         /**
@@ -560,6 +789,29 @@ public final class FastHttpsAppArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder virtualServer(FastHttpsAppVirtualServerArgs virtualServer) {
             return virtualServer(Output.of(virtualServer));
+        }
+
+        /**
+         * @param wafSecurityPolicy `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+         * See WAF Security Policy below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder wafSecurityPolicy(@Nullable Output<FastHttpsAppWafSecurityPolicyArgs> wafSecurityPolicy) {
+            $.wafSecurityPolicy = wafSecurityPolicy;
+            return this;
+        }
+
+        /**
+         * @param wafSecurityPolicy `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+         * See WAF Security Policy below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder wafSecurityPolicy(FastHttpsAppWafSecurityPolicyArgs wafSecurityPolicy) {
+            return wafSecurityPolicy(Output.of(wafSecurityPolicy));
         }
 
         public FastHttpsAppArgs build() {

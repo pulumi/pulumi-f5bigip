@@ -122,6 +122,21 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Valid Trusted Certificate path
+     * 
+     */
+    @Import(name="trustedCertPath")
+    private @Nullable Output<String> trustedCertPath;
+
+    /**
+     * @return Valid Trusted Certificate path
+     * 
+     */
+    public Optional<Output<String>> trustedCertPath() {
+        return Optional.ofNullable(this.trustedCertPath);
+    }
+
+    /**
      * Username with API access to the BigIP
      * 
      */
@@ -136,6 +151,21 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.username);
     }
 
+    /**
+     * If set to true, Disables TLS certificate check on BIG-IP. Default : True
+     * 
+     */
+    @Import(name="validateCertsDisable", json=true)
+    private @Nullable Output<Boolean> validateCertsDisable;
+
+    /**
+     * @return If set to true, Disables TLS certificate check on BIG-IP. Default : True
+     * 
+     */
+    public Optional<Output<Boolean>> validateCertsDisable() {
+        return Optional.ofNullable(this.validateCertsDisable);
+    }
+
     private ProviderArgs() {}
 
     private ProviderArgs(ProviderArgs $) {
@@ -146,7 +176,9 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.teemDisable = $.teemDisable;
         this.tokenAuth = $.tokenAuth;
         this.tokenValue = $.tokenValue;
+        this.trustedCertPath = $.trustedCertPath;
         this.username = $.username;
+        this.validateCertsDisable = $.validateCertsDisable;
     }
 
     public static Builder builder() {
@@ -315,6 +347,27 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param trustedCertPath Valid Trusted Certificate path
+         * 
+         * @return builder
+         * 
+         */
+        public Builder trustedCertPath(@Nullable Output<String> trustedCertPath) {
+            $.trustedCertPath = trustedCertPath;
+            return this;
+        }
+
+        /**
+         * @param trustedCertPath Valid Trusted Certificate path
+         * 
+         * @return builder
+         * 
+         */
+        public Builder trustedCertPath(String trustedCertPath) {
+            return trustedCertPath(Output.of(trustedCertPath));
+        }
+
+        /**
          * @param username Username with API access to the BigIP
          * 
          * @return builder
@@ -333,6 +386,27 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder username(String username) {
             return username(Output.of(username));
+        }
+
+        /**
+         * @param validateCertsDisable If set to true, Disables TLS certificate check on BIG-IP. Default : True
+         * 
+         * @return builder
+         * 
+         */
+        public Builder validateCertsDisable(@Nullable Output<Boolean> validateCertsDisable) {
+            $.validateCertsDisable = validateCertsDisable;
+            return this;
+        }
+
+        /**
+         * @param validateCertsDisable If set to true, Disables TLS certificate check on BIG-IP. Default : True
+         * 
+         * @return builder
+         * 
+         */
+        public Builder validateCertsDisable(Boolean validateCertsDisable) {
+            return validateCertsDisable(Output.of(validateCertsDisable));
         }
 
         public ProviderArgs build() {

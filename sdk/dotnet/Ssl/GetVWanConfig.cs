@@ -52,7 +52,7 @@ namespace Pulumi.F5BigIP.Ssl
         /// * `STORAGE_ACCOUNT_KEY` - (Required) Specifies the storage account key to authenticate,set this Environment variable with account key value.
         /// </summary>
         public static Task<GetVWanConfigResult> InvokeAsync(GetVWanConfigArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVWanConfigResult>("f5bigip:ssl/getVWanConfig:getVWanConfig", args ?? new GetVWanConfigArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVWanConfigResult>("f5bigip:ssl/getVWanConfig:getVWanConfig", args ?? new GetVWanConfigArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source (`f5bigip.ssl.getVWanConfig`) to get the vWAN site config from Azure VWAN Site
@@ -95,7 +95,7 @@ namespace Pulumi.F5BigIP.Ssl
         /// * `STORAGE_ACCOUNT_KEY` - (Required) Specifies the storage account key to authenticate,set this Environment variable with account key value.
         /// </summary>
         public static Output<GetVWanConfigResult> Invoke(GetVWanConfigInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVWanConfigResult>("f5bigip:ssl/getVWanConfig:getVWanConfig", args ?? new GetVWanConfigInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVWanConfigResult>("f5bigip:ssl/getVWanConfig:getVWanConfig", args ?? new GetVWanConfigInvokeArgs(), options.WithDefaults());
     }
 
 

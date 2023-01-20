@@ -20,14 +20,18 @@ import * as utilities from "../utilities";
  *     interval: 998,
  *     name: "/Common/terraform_monitor",
  *     parent: "/Common/http",
- *     send: "GET /some/path\n",
+ *     send: `GET /some/path
+ *
+ * `,
  *     timeout: 999,
  * });
  * const test_https_monitor = new f5bigip.ltm.Monitor("test-https-monitor", {
  *     interval: 999,
  *     name: "/Common/terraform_monitor",
  *     parent: "/Common/http",
- *     send: "GET /some/path\n",
+ *     send: `GET /some/path
+ *
+ * `,
  *     sslProfile: "/Common/serverssl",
  *     timeout: 1000,
  * });
@@ -229,7 +233,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["mode"] = args ? args.mode : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["parent"] = args ? args.parent : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["receive"] = args ? args.receive : undefined;
             resourceInputs["receiveDisable"] = args ? args.receiveDisable : undefined;
             resourceInputs["reverse"] = args ? args.reverse : undefined;
@@ -242,6 +246,8 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["username"] = args ? args.username : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["password"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Monitor.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -86,7 +86,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<ImmutableArray<string>> ClientProfiles { get; private set; } = null!;
 
         [Output("defaultPersistenceProfile")]
-        public Output<string?> DefaultPersistenceProfile { get; private set; } = null!;
+        public Output<string> DefaultPersistenceProfile { get; private set; } = null!;
 
         /// <summary>
         /// Description of Virtual server
@@ -98,7 +98,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// Destination IP
         /// </summary>
         [Output("destination")]
-        public Output<string> Destination { get; private set; } = null!;
+        public Output<string?> Destination { get; private set; } = null!;
 
         /// <summary>
         /// Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
@@ -107,10 +107,16 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> FallbackPersistenceProfile { get; private set; } = null!;
 
         /// <summary>
+        /// Applies the specified AFM policy to the virtual in an enforcing way,when creating a new virtual, if this parameter is not specified, the enforced is disabled.This should be in full path ex: `/Common/afm-test-policy`.
+        /// </summary>
+        [Output("firewallEnforcedPolicy")]
+        public Output<string> FirewallEnforcedPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
         /// </summary>
         [Output("ipProtocol")]
-        public Output<string> IpProtocol { get; private set; } = null!;
+        public Output<string?> IpProtocol { get; private set; } = null!;
 
         /// <summary>
         /// The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
@@ -173,7 +179,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<ImmutableArray<string>> ServerProfiles { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
+        /// Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs.
         /// </summary>
         [Output("snatpool")]
         public Output<string> Snatpool { get; private set; } = null!;
@@ -185,10 +191,16 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> Source { get; private set; } = null!;
 
         /// <summary>
-        /// Can be either omitted for none or the values automap or snat
+        /// Can be either omitted for `none` or the values `automap` options : [`snat`,`automap`,`none`].
         /// </summary>
         [Output("sourceAddressTranslation")]
-        public Output<string> SourceAddressTranslation { get; private set; } = null!;
+        public Output<string?> SourceAddressTranslation { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether the system preserves the source port of the connection. The default is `preserve`.
+        /// </summary>
+        [Output("sourcePort")]
+        public Output<string> SourcePort { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
@@ -197,16 +209,22 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies destination traffic matching information to which the virtual server sends traffic
+        /// </summary>
+        [Output("trafficmatchingCriteria")]
+        public Output<string> TrafficmatchingCriteria { get; private set; } = null!;
+
+        /// <summary>
         /// Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
         /// </summary>
         [Output("translateAddress")]
-        public Output<string> TranslateAddress { get; private set; } = null!;
+        public Output<string?> TranslateAddress { get; private set; } = null!;
 
         /// <summary>
         /// Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
         /// </summary>
         [Output("translatePort")]
-        public Output<string> TranslatePort { get; private set; } = null!;
+        public Output<string?> TranslatePort { get; private set; } = null!;
 
         /// <summary>
         /// The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlan_enabled`
@@ -291,14 +309,20 @@ namespace Pulumi.F5BigIP.Ltm
         /// <summary>
         /// Destination IP
         /// </summary>
-        [Input("destination", required: true)]
-        public Input<string> Destination { get; set; } = null!;
+        [Input("destination")]
+        public Input<string>? Destination { get; set; }
 
         /// <summary>
         /// Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
         /// </summary>
         [Input("fallbackPersistenceProfile")]
         public Input<string>? FallbackPersistenceProfile { get; set; }
+
+        /// <summary>
+        /// Applies the specified AFM policy to the virtual in an enforcing way,when creating a new virtual, if this parameter is not specified, the enforced is disabled.This should be in full path ex: `/Common/afm-test-policy`.
+        /// </summary>
+        [Input("firewallEnforcedPolicy")]
+        public Input<string>? FirewallEnforcedPolicy { get; set; }
 
         /// <summary>
         /// Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
@@ -362,8 +386,8 @@ namespace Pulumi.F5BigIP.Ltm
         /// <summary>
         /// Listen port for the virtual server
         /// </summary>
-        [Input("port", required: true)]
-        public Input<int> Port { get; set; } = null!;
+        [Input("port")]
+        public Input<int>? Port { get; set; }
 
         [Input("profiles")]
         private InputList<string>? _profiles;
@@ -402,7 +426,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
+        /// Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs.
         /// </summary>
         [Input("snatpool")]
         public Input<string>? Snatpool { get; set; }
@@ -414,16 +438,28 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Source { get; set; }
 
         /// <summary>
-        /// Can be either omitted for none or the values automap or snat
+        /// Can be either omitted for `none` or the values `automap` options : [`snat`,`automap`,`none`].
         /// </summary>
         [Input("sourceAddressTranslation")]
         public Input<string>? SourceAddressTranslation { get; set; }
+
+        /// <summary>
+        /// Specifies whether the system preserves the source port of the connection. The default is `preserve`.
+        /// </summary>
+        [Input("sourcePort")]
+        public Input<string>? SourcePort { get; set; }
 
         /// <summary>
         /// Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
+
+        /// <summary>
+        /// Specifies destination traffic matching information to which the virtual server sends traffic
+        /// </summary>
+        [Input("trafficmatchingCriteria")]
+        public Input<string>? TrafficmatchingCriteria { get; set; }
 
         /// <summary>
         /// Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
@@ -496,6 +532,12 @@ namespace Pulumi.F5BigIP.Ltm
         /// </summary>
         [Input("fallbackPersistenceProfile")]
         public Input<string>? FallbackPersistenceProfile { get; set; }
+
+        /// <summary>
+        /// Applies the specified AFM policy to the virtual in an enforcing way,when creating a new virtual, if this parameter is not specified, the enforced is disabled.This should be in full path ex: `/Common/afm-test-policy`.
+        /// </summary>
+        [Input("firewallEnforcedPolicy")]
+        public Input<string>? FirewallEnforcedPolicy { get; set; }
 
         /// <summary>
         /// Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
@@ -599,7 +641,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
+        /// Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs.
         /// </summary>
         [Input("snatpool")]
         public Input<string>? Snatpool { get; set; }
@@ -611,16 +653,28 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Source { get; set; }
 
         /// <summary>
-        /// Can be either omitted for none or the values automap or snat
+        /// Can be either omitted for `none` or the values `automap` options : [`snat`,`automap`,`none`].
         /// </summary>
         [Input("sourceAddressTranslation")]
         public Input<string>? SourceAddressTranslation { get; set; }
+
+        /// <summary>
+        /// Specifies whether the system preserves the source port of the connection. The default is `preserve`.
+        /// </summary>
+        [Input("sourcePort")]
+        public Input<string>? SourcePort { get; set; }
 
         /// <summary>
         /// Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
+
+        /// <summary>
+        /// Specifies destination traffic matching information to which the virtual server sends traffic
+        /// </summary>
+        [Input("trafficmatchingCriteria")]
+        public Input<string>? TrafficmatchingCriteria { get; set; }
 
         /// <summary>
         /// Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.

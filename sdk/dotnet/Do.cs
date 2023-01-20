@@ -110,6 +110,11 @@ namespace Pulumi.F5BigIP
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "bigipPassword",
+                    "bigipTokenAuth",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -140,12 +145,22 @@ namespace Pulumi.F5BigIP
         [Input("bigipAddress")]
         public Input<string>? BigipAddress { get; set; }
 
+        [Input("bigipPassword")]
+        private Input<string>? _bigipPassword;
+
         /// <summary>
         /// Password of  BIGIP host to be used for this resource,this is optional parameter.
         /// whenever we specify this parameter it gets overwrite provider configuration
         /// </summary>
-        [Input("bigipPassword")]
-        public Input<string>? BigipPassword { get; set; }
+        public Input<string>? BigipPassword
+        {
+            get => _bigipPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _bigipPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Port number of BIGIP host to be used for this resource,this is optional parameter.
@@ -154,11 +169,21 @@ namespace Pulumi.F5BigIP
         [Input("bigipPort")]
         public Input<string>? BigipPort { get; set; }
 
+        [Input("bigipTokenAuth")]
+        private Input<bool>? _bigipTokenAuth;
+
         /// <summary>
         /// Enable to use an external authentication source (LDAP, TACACS, etc)
         /// </summary>
-        [Input("bigipTokenAuth")]
-        public Input<bool>? BigipTokenAuth { get; set; }
+        public Input<bool>? BigipTokenAuth
+        {
+            get => _bigipTokenAuth;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _bigipTokenAuth = Output.Tuple<Input<bool>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// UserName of BIGIP host to be used for this resource,this is optional parameter.
@@ -200,12 +225,22 @@ namespace Pulumi.F5BigIP
         [Input("bigipAddress")]
         public Input<string>? BigipAddress { get; set; }
 
+        [Input("bigipPassword")]
+        private Input<string>? _bigipPassword;
+
         /// <summary>
         /// Password of  BIGIP host to be used for this resource,this is optional parameter.
         /// whenever we specify this parameter it gets overwrite provider configuration
         /// </summary>
-        [Input("bigipPassword")]
-        public Input<string>? BigipPassword { get; set; }
+        public Input<string>? BigipPassword
+        {
+            get => _bigipPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _bigipPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Port number of BIGIP host to be used for this resource,this is optional parameter.
@@ -214,11 +249,21 @@ namespace Pulumi.F5BigIP
         [Input("bigipPort")]
         public Input<string>? BigipPort { get; set; }
 
+        [Input("bigipTokenAuth")]
+        private Input<bool>? _bigipTokenAuth;
+
         /// <summary>
         /// Enable to use an external authentication source (LDAP, TACACS, etc)
         /// </summary>
-        [Input("bigipTokenAuth")]
-        public Input<bool>? BigipTokenAuth { get; set; }
+        public Input<bool>? BigipTokenAuth
+        {
+            get => _bigipTokenAuth;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _bigipTokenAuth = Output.Tuple<Input<bool>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// UserName of BIGIP host to be used for this resource,this is optional parameter.

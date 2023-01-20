@@ -14,13 +14,13 @@ __all__ = ['VirtualServerArgs', 'VirtualServer']
 @pulumi.input_type
 class VirtualServerArgs:
     def __init__(__self__, *,
-                 destination: pulumi.Input[str],
                  name: pulumi.Input[str],
-                 port: pulumi.Input[int],
                  client_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_persistence_profile: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 destination: Optional[pulumi.Input[str]] = None,
                  fallback_persistence_profile: Optional[pulumi.Input[str]] = None,
+                 firewall_enforced_policy: Optional[pulumi.Input[str]] = None,
                  ip_protocol: Optional[pulumi.Input[str]] = None,
                  irules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  mask: Optional[pulumi.Input[str]] = None,
@@ -28,54 +28,62 @@ class VirtualServerArgs:
                  persistence_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  pool: Optional[pulumi.Input[str]] = None,
+                 port: Optional[pulumi.Input[int]] = None,
                  profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_log_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  server_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  snatpool: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[str]] = None,
                  source_address_translation: Optional[pulumi.Input[str]] = None,
+                 source_port: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
+                 trafficmatching_criteria: Optional[pulumi.Input[str]] = None,
                  translate_address: Optional[pulumi.Input[str]] = None,
                  translate_port: Optional[pulumi.Input[str]] = None,
                  vlans: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vlans_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a VirtualServer resource.
-        :param pulumi.Input[str] destination: Destination IP
         :param pulumi.Input[str] name: Name of the virtual server
-        :param pulumi.Input[int] port: Listen port for the virtual server
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_profiles: List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
         :param pulumi.Input[str] description: Description of Virtual server
+        :param pulumi.Input[str] destination: Destination IP
         :param pulumi.Input[str] fallback_persistence_profile: Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
+        :param pulumi.Input[str] firewall_enforced_policy: Applies the specified AFM policy to the virtual in an enforcing way,when creating a new virtual, if this parameter is not specified, the enforced is disabled.This should be in full path ex: `/Common/afm-test-policy`.
         :param pulumi.Input[str] ip_protocol: Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] irules: The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
         :param pulumi.Input[str] mask: Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
         :param pulumi.Input[Sequence[pulumi.Input[str]]] persistence_profiles: List of persistence profiles associated with the Virtual Server.
         :param pulumi.Input[str] pool: Default pool name
+        :param pulumi.Input[int] port: Listen port for the virtual server
         :param pulumi.Input[Sequence[pulumi.Input[str]]] profiles: List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_log_profiles: Specifies the log profile applied to the virtual server.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] server_profiles: List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
-        :param pulumi.Input[str] snatpool: Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
+        :param pulumi.Input[str] snatpool: Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs.
         :param pulumi.Input[str] source: Specifies an IP address or network from which the virtual server will accept traffic.
-        :param pulumi.Input[str] source_address_translation: Can be either omitted for none or the values automap or snat
+        :param pulumi.Input[str] source_address_translation: Can be either omitted for `none` or the values `automap` options : [`snat`,`automap`,`none`].
+        :param pulumi.Input[str] source_port: Specifies whether the system preserves the source port of the connection. The default is `preserve`.
         :param pulumi.Input[str] state: Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
+        :param pulumi.Input[str] trafficmatching_criteria: Specifies destination traffic matching information to which the virtual server sends traffic
         :param pulumi.Input[str] translate_address: Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
         :param pulumi.Input[str] translate_port: Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans: The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlan_enabled`
         :param pulumi.Input[bool] vlans_enabled: Enables the virtual server on the VLANs specified by the `vlans` option.
                By default it is `false` i.e vlanDisabled on specified vlans, if we want enable virtual server on VLANs specified by `vlans`, mark this attribute to `true`.
         """
-        pulumi.set(__self__, "destination", destination)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "port", port)
         if client_profiles is not None:
             pulumi.set(__self__, "client_profiles", client_profiles)
         if default_persistence_profile is not None:
             pulumi.set(__self__, "default_persistence_profile", default_persistence_profile)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
         if fallback_persistence_profile is not None:
             pulumi.set(__self__, "fallback_persistence_profile", fallback_persistence_profile)
+        if firewall_enforced_policy is not None:
+            pulumi.set(__self__, "firewall_enforced_policy", firewall_enforced_policy)
         if ip_protocol is not None:
             pulumi.set(__self__, "ip_protocol", ip_protocol)
         if irules is not None:
@@ -90,6 +98,8 @@ class VirtualServerArgs:
             pulumi.set(__self__, "policies", policies)
         if pool is not None:
             pulumi.set(__self__, "pool", pool)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
         if profiles is not None:
             pulumi.set(__self__, "profiles", profiles)
         if security_log_profiles is not None:
@@ -102,8 +112,12 @@ class VirtualServerArgs:
             pulumi.set(__self__, "source", source)
         if source_address_translation is not None:
             pulumi.set(__self__, "source_address_translation", source_address_translation)
+        if source_port is not None:
+            pulumi.set(__self__, "source_port", source_port)
         if state is not None:
             pulumi.set(__self__, "state", state)
+        if trafficmatching_criteria is not None:
+            pulumi.set(__self__, "trafficmatching_criteria", trafficmatching_criteria)
         if translate_address is not None:
             pulumi.set(__self__, "translate_address", translate_address)
         if translate_port is not None:
@@ -112,18 +126,6 @@ class VirtualServerArgs:
             pulumi.set(__self__, "vlans", vlans)
         if vlans_enabled is not None:
             pulumi.set(__self__, "vlans_enabled", vlans_enabled)
-
-    @property
-    @pulumi.getter
-    def destination(self) -> pulumi.Input[str]:
-        """
-        Destination IP
-        """
-        return pulumi.get(self, "destination")
-
-    @destination.setter
-    def destination(self, value: pulumi.Input[str]):
-        pulumi.set(self, "destination", value)
 
     @property
     @pulumi.getter
@@ -136,18 +138,6 @@ class VirtualServerArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def port(self) -> pulumi.Input[int]:
-        """
-        Listen port for the virtual server
-        """
-        return pulumi.get(self, "port")
-
-    @port.setter
-    def port(self, value: pulumi.Input[int]):
-        pulumi.set(self, "port", value)
 
     @property
     @pulumi.getter(name="clientProfiles")
@@ -183,6 +173,18 @@ class VirtualServerArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter
+    def destination(self) -> Optional[pulumi.Input[str]]:
+        """
+        Destination IP
+        """
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination", value)
+
+    @property
     @pulumi.getter(name="fallbackPersistenceProfile")
     def fallback_persistence_profile(self) -> Optional[pulumi.Input[str]]:
         """
@@ -193,6 +195,18 @@ class VirtualServerArgs:
     @fallback_persistence_profile.setter
     def fallback_persistence_profile(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "fallback_persistence_profile", value)
+
+    @property
+    @pulumi.getter(name="firewallEnforcedPolicy")
+    def firewall_enforced_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Applies the specified AFM policy to the virtual in an enforcing way,when creating a new virtual, if this parameter is not specified, the enforced is disabled.This should be in full path ex: `/Common/afm-test-policy`.
+        """
+        return pulumi.get(self, "firewall_enforced_policy")
+
+    @firewall_enforced_policy.setter
+    def firewall_enforced_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "firewall_enforced_policy", value)
 
     @property
     @pulumi.getter(name="ipProtocol")
@@ -274,6 +288,18 @@ class VirtualServerArgs:
 
     @property
     @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        Listen port for the virtual server
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter
     def profiles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
@@ -312,7 +338,7 @@ class VirtualServerArgs:
     @pulumi.getter
     def snatpool(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
+        Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs.
         """
         return pulumi.get(self, "snatpool")
 
@@ -336,13 +362,25 @@ class VirtualServerArgs:
     @pulumi.getter(name="sourceAddressTranslation")
     def source_address_translation(self) -> Optional[pulumi.Input[str]]:
         """
-        Can be either omitted for none or the values automap or snat
+        Can be either omitted for `none` or the values `automap` options : [`snat`,`automap`,`none`].
         """
         return pulumi.get(self, "source_address_translation")
 
     @source_address_translation.setter
     def source_address_translation(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source_address_translation", value)
+
+    @property
+    @pulumi.getter(name="sourcePort")
+    def source_port(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the system preserves the source port of the connection. The default is `preserve`.
+        """
+        return pulumi.get(self, "source_port")
+
+    @source_port.setter
+    def source_port(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_port", value)
 
     @property
     @pulumi.getter
@@ -355,6 +393,18 @@ class VirtualServerArgs:
     @state.setter
     def state(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "state", value)
+
+    @property
+    @pulumi.getter(name="trafficmatchingCriteria")
+    def trafficmatching_criteria(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies destination traffic matching information to which the virtual server sends traffic
+        """
+        return pulumi.get(self, "trafficmatching_criteria")
+
+    @trafficmatching_criteria.setter
+    def trafficmatching_criteria(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "trafficmatching_criteria", value)
 
     @property
     @pulumi.getter(name="translateAddress")
@@ -414,6 +464,7 @@ class _VirtualServerState:
                  description: Optional[pulumi.Input[str]] = None,
                  destination: Optional[pulumi.Input[str]] = None,
                  fallback_persistence_profile: Optional[pulumi.Input[str]] = None,
+                 firewall_enforced_policy: Optional[pulumi.Input[str]] = None,
                  ip_protocol: Optional[pulumi.Input[str]] = None,
                  irules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  mask: Optional[pulumi.Input[str]] = None,
@@ -429,7 +480,9 @@ class _VirtualServerState:
                  snatpool: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[str]] = None,
                  source_address_translation: Optional[pulumi.Input[str]] = None,
+                 source_port: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
+                 trafficmatching_criteria: Optional[pulumi.Input[str]] = None,
                  translate_address: Optional[pulumi.Input[str]] = None,
                  translate_port: Optional[pulumi.Input[str]] = None,
                  vlans: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -440,6 +493,7 @@ class _VirtualServerState:
         :param pulumi.Input[str] description: Description of Virtual server
         :param pulumi.Input[str] destination: Destination IP
         :param pulumi.Input[str] fallback_persistence_profile: Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
+        :param pulumi.Input[str] firewall_enforced_policy: Applies the specified AFM policy to the virtual in an enforcing way,when creating a new virtual, if this parameter is not specified, the enforced is disabled.This should be in full path ex: `/Common/afm-test-policy`.
         :param pulumi.Input[str] ip_protocol: Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] irules: The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
         :param pulumi.Input[str] mask: Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
@@ -450,10 +504,12 @@ class _VirtualServerState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] profiles: List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_log_profiles: Specifies the log profile applied to the virtual server.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] server_profiles: List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
-        :param pulumi.Input[str] snatpool: Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
+        :param pulumi.Input[str] snatpool: Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs.
         :param pulumi.Input[str] source: Specifies an IP address or network from which the virtual server will accept traffic.
-        :param pulumi.Input[str] source_address_translation: Can be either omitted for none or the values automap or snat
+        :param pulumi.Input[str] source_address_translation: Can be either omitted for `none` or the values `automap` options : [`snat`,`automap`,`none`].
+        :param pulumi.Input[str] source_port: Specifies whether the system preserves the source port of the connection. The default is `preserve`.
         :param pulumi.Input[str] state: Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
+        :param pulumi.Input[str] trafficmatching_criteria: Specifies destination traffic matching information to which the virtual server sends traffic
         :param pulumi.Input[str] translate_address: Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
         :param pulumi.Input[str] translate_port: Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans: The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlan_enabled`
@@ -470,6 +526,8 @@ class _VirtualServerState:
             pulumi.set(__self__, "destination", destination)
         if fallback_persistence_profile is not None:
             pulumi.set(__self__, "fallback_persistence_profile", fallback_persistence_profile)
+        if firewall_enforced_policy is not None:
+            pulumi.set(__self__, "firewall_enforced_policy", firewall_enforced_policy)
         if ip_protocol is not None:
             pulumi.set(__self__, "ip_protocol", ip_protocol)
         if irules is not None:
@@ -500,8 +558,12 @@ class _VirtualServerState:
             pulumi.set(__self__, "source", source)
         if source_address_translation is not None:
             pulumi.set(__self__, "source_address_translation", source_address_translation)
+        if source_port is not None:
+            pulumi.set(__self__, "source_port", source_port)
         if state is not None:
             pulumi.set(__self__, "state", state)
+        if trafficmatching_criteria is not None:
+            pulumi.set(__self__, "trafficmatching_criteria", trafficmatching_criteria)
         if translate_address is not None:
             pulumi.set(__self__, "translate_address", translate_address)
         if translate_port is not None:
@@ -567,6 +629,18 @@ class _VirtualServerState:
     @fallback_persistence_profile.setter
     def fallback_persistence_profile(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "fallback_persistence_profile", value)
+
+    @property
+    @pulumi.getter(name="firewallEnforcedPolicy")
+    def firewall_enforced_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        Applies the specified AFM policy to the virtual in an enforcing way,when creating a new virtual, if this parameter is not specified, the enforced is disabled.This should be in full path ex: `/Common/afm-test-policy`.
+        """
+        return pulumi.get(self, "firewall_enforced_policy")
+
+    @firewall_enforced_policy.setter
+    def firewall_enforced_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "firewall_enforced_policy", value)
 
     @property
     @pulumi.getter(name="ipProtocol")
@@ -710,7 +784,7 @@ class _VirtualServerState:
     @pulumi.getter
     def snatpool(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
+        Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs.
         """
         return pulumi.get(self, "snatpool")
 
@@ -734,13 +808,25 @@ class _VirtualServerState:
     @pulumi.getter(name="sourceAddressTranslation")
     def source_address_translation(self) -> Optional[pulumi.Input[str]]:
         """
-        Can be either omitted for none or the values automap or snat
+        Can be either omitted for `none` or the values `automap` options : [`snat`,`automap`,`none`].
         """
         return pulumi.get(self, "source_address_translation")
 
     @source_address_translation.setter
     def source_address_translation(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source_address_translation", value)
+
+    @property
+    @pulumi.getter(name="sourcePort")
+    def source_port(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the system preserves the source port of the connection. The default is `preserve`.
+        """
+        return pulumi.get(self, "source_port")
+
+    @source_port.setter
+    def source_port(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_port", value)
 
     @property
     @pulumi.getter
@@ -753,6 +839,18 @@ class _VirtualServerState:
     @state.setter
     def state(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "state", value)
+
+    @property
+    @pulumi.getter(name="trafficmatchingCriteria")
+    def trafficmatching_criteria(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies destination traffic matching information to which the virtual server sends traffic
+        """
+        return pulumi.get(self, "trafficmatching_criteria")
+
+    @trafficmatching_criteria.setter
+    def trafficmatching_criteria(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "trafficmatching_criteria", value)
 
     @property
     @pulumi.getter(name="translateAddress")
@@ -814,6 +912,7 @@ class VirtualServer(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  destination: Optional[pulumi.Input[str]] = None,
                  fallback_persistence_profile: Optional[pulumi.Input[str]] = None,
+                 firewall_enforced_policy: Optional[pulumi.Input[str]] = None,
                  ip_protocol: Optional[pulumi.Input[str]] = None,
                  irules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  mask: Optional[pulumi.Input[str]] = None,
@@ -829,7 +928,9 @@ class VirtualServer(pulumi.CustomResource):
                  snatpool: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[str]] = None,
                  source_address_translation: Optional[pulumi.Input[str]] = None,
+                 source_port: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
+                 trafficmatching_criteria: Optional[pulumi.Input[str]] = None,
                  translate_address: Optional[pulumi.Input[str]] = None,
                  translate_port: Optional[pulumi.Input[str]] = None,
                  vlans: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -885,6 +986,7 @@ class VirtualServer(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of Virtual server
         :param pulumi.Input[str] destination: Destination IP
         :param pulumi.Input[str] fallback_persistence_profile: Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
+        :param pulumi.Input[str] firewall_enforced_policy: Applies the specified AFM policy to the virtual in an enforcing way,when creating a new virtual, if this parameter is not specified, the enforced is disabled.This should be in full path ex: `/Common/afm-test-policy`.
         :param pulumi.Input[str] ip_protocol: Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] irules: The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
         :param pulumi.Input[str] mask: Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
@@ -895,10 +997,12 @@ class VirtualServer(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] profiles: List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_log_profiles: Specifies the log profile applied to the virtual server.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] server_profiles: List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
-        :param pulumi.Input[str] snatpool: Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
+        :param pulumi.Input[str] snatpool: Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs.
         :param pulumi.Input[str] source: Specifies an IP address or network from which the virtual server will accept traffic.
-        :param pulumi.Input[str] source_address_translation: Can be either omitted for none or the values automap or snat
+        :param pulumi.Input[str] source_address_translation: Can be either omitted for `none` or the values `automap` options : [`snat`,`automap`,`none`].
+        :param pulumi.Input[str] source_port: Specifies whether the system preserves the source port of the connection. The default is `preserve`.
         :param pulumi.Input[str] state: Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
+        :param pulumi.Input[str] trafficmatching_criteria: Specifies destination traffic matching information to which the virtual server sends traffic
         :param pulumi.Input[str] translate_address: Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
         :param pulumi.Input[str] translate_port: Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans: The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlan_enabled`
@@ -975,6 +1079,7 @@ class VirtualServer(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  destination: Optional[pulumi.Input[str]] = None,
                  fallback_persistence_profile: Optional[pulumi.Input[str]] = None,
+                 firewall_enforced_policy: Optional[pulumi.Input[str]] = None,
                  ip_protocol: Optional[pulumi.Input[str]] = None,
                  irules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  mask: Optional[pulumi.Input[str]] = None,
@@ -990,7 +1095,9 @@ class VirtualServer(pulumi.CustomResource):
                  snatpool: Optional[pulumi.Input[str]] = None,
                  source: Optional[pulumi.Input[str]] = None,
                  source_address_translation: Optional[pulumi.Input[str]] = None,
+                 source_port: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
+                 trafficmatching_criteria: Optional[pulumi.Input[str]] = None,
                  translate_address: Optional[pulumi.Input[str]] = None,
                  translate_port: Optional[pulumi.Input[str]] = None,
                  vlans: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1007,10 +1114,9 @@ class VirtualServer(pulumi.CustomResource):
             __props__.__dict__["client_profiles"] = client_profiles
             __props__.__dict__["default_persistence_profile"] = default_persistence_profile
             __props__.__dict__["description"] = description
-            if destination is None and not opts.urn:
-                raise TypeError("Missing required property 'destination'")
             __props__.__dict__["destination"] = destination
             __props__.__dict__["fallback_persistence_profile"] = fallback_persistence_profile
+            __props__.__dict__["firewall_enforced_policy"] = firewall_enforced_policy
             __props__.__dict__["ip_protocol"] = ip_protocol
             __props__.__dict__["irules"] = irules
             __props__.__dict__["mask"] = mask
@@ -1021,8 +1127,6 @@ class VirtualServer(pulumi.CustomResource):
             __props__.__dict__["persistence_profiles"] = persistence_profiles
             __props__.__dict__["policies"] = policies
             __props__.__dict__["pool"] = pool
-            if port is None and not opts.urn:
-                raise TypeError("Missing required property 'port'")
             __props__.__dict__["port"] = port
             __props__.__dict__["profiles"] = profiles
             __props__.__dict__["security_log_profiles"] = security_log_profiles
@@ -1030,7 +1134,9 @@ class VirtualServer(pulumi.CustomResource):
             __props__.__dict__["snatpool"] = snatpool
             __props__.__dict__["source"] = source
             __props__.__dict__["source_address_translation"] = source_address_translation
+            __props__.__dict__["source_port"] = source_port
             __props__.__dict__["state"] = state
+            __props__.__dict__["trafficmatching_criteria"] = trafficmatching_criteria
             __props__.__dict__["translate_address"] = translate_address
             __props__.__dict__["translate_port"] = translate_port
             __props__.__dict__["vlans"] = vlans
@@ -1050,6 +1156,7 @@ class VirtualServer(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             destination: Optional[pulumi.Input[str]] = None,
             fallback_persistence_profile: Optional[pulumi.Input[str]] = None,
+            firewall_enforced_policy: Optional[pulumi.Input[str]] = None,
             ip_protocol: Optional[pulumi.Input[str]] = None,
             irules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             mask: Optional[pulumi.Input[str]] = None,
@@ -1065,7 +1172,9 @@ class VirtualServer(pulumi.CustomResource):
             snatpool: Optional[pulumi.Input[str]] = None,
             source: Optional[pulumi.Input[str]] = None,
             source_address_translation: Optional[pulumi.Input[str]] = None,
+            source_port: Optional[pulumi.Input[str]] = None,
             state: Optional[pulumi.Input[str]] = None,
+            trafficmatching_criteria: Optional[pulumi.Input[str]] = None,
             translate_address: Optional[pulumi.Input[str]] = None,
             translate_port: Optional[pulumi.Input[str]] = None,
             vlans: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1081,6 +1190,7 @@ class VirtualServer(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of Virtual server
         :param pulumi.Input[str] destination: Destination IP
         :param pulumi.Input[str] fallback_persistence_profile: Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
+        :param pulumi.Input[str] firewall_enforced_policy: Applies the specified AFM policy to the virtual in an enforcing way,when creating a new virtual, if this parameter is not specified, the enforced is disabled.This should be in full path ex: `/Common/afm-test-policy`.
         :param pulumi.Input[str] ip_protocol: Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
         :param pulumi.Input[Sequence[pulumi.Input[str]]] irules: The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
         :param pulumi.Input[str] mask: Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
@@ -1091,10 +1201,12 @@ class VirtualServer(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] profiles: List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_log_profiles: Specifies the log profile applied to the virtual server.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] server_profiles: List of server context profiles associated on the virtual server. Not mutually exclusive with profiles and client_profiles
-        :param pulumi.Input[str] snatpool: Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
+        :param pulumi.Input[str] snatpool: Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs.
         :param pulumi.Input[str] source: Specifies an IP address or network from which the virtual server will accept traffic.
-        :param pulumi.Input[str] source_address_translation: Can be either omitted for none or the values automap or snat
+        :param pulumi.Input[str] source_address_translation: Can be either omitted for `none` or the values `automap` options : [`snat`,`automap`,`none`].
+        :param pulumi.Input[str] source_port: Specifies whether the system preserves the source port of the connection. The default is `preserve`.
         :param pulumi.Input[str] state: Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
+        :param pulumi.Input[str] trafficmatching_criteria: Specifies destination traffic matching information to which the virtual server sends traffic
         :param pulumi.Input[str] translate_address: Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
         :param pulumi.Input[str] translate_port: Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans: The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlan_enabled`
@@ -1110,6 +1222,7 @@ class VirtualServer(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["destination"] = destination
         __props__.__dict__["fallback_persistence_profile"] = fallback_persistence_profile
+        __props__.__dict__["firewall_enforced_policy"] = firewall_enforced_policy
         __props__.__dict__["ip_protocol"] = ip_protocol
         __props__.__dict__["irules"] = irules
         __props__.__dict__["mask"] = mask
@@ -1125,7 +1238,9 @@ class VirtualServer(pulumi.CustomResource):
         __props__.__dict__["snatpool"] = snatpool
         __props__.__dict__["source"] = source
         __props__.__dict__["source_address_translation"] = source_address_translation
+        __props__.__dict__["source_port"] = source_port
         __props__.__dict__["state"] = state
+        __props__.__dict__["trafficmatching_criteria"] = trafficmatching_criteria
         __props__.__dict__["translate_address"] = translate_address
         __props__.__dict__["translate_port"] = translate_port
         __props__.__dict__["vlans"] = vlans
@@ -1142,7 +1257,7 @@ class VirtualServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultPersistenceProfile")
-    def default_persistence_profile(self) -> pulumi.Output[Optional[str]]:
+    def default_persistence_profile(self) -> pulumi.Output[str]:
         return pulumi.get(self, "default_persistence_profile")
 
     @property
@@ -1155,7 +1270,7 @@ class VirtualServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def destination(self) -> pulumi.Output[str]:
+    def destination(self) -> pulumi.Output[Optional[str]]:
         """
         Destination IP
         """
@@ -1170,8 +1285,16 @@ class VirtualServer(pulumi.CustomResource):
         return pulumi.get(self, "fallback_persistence_profile")
 
     @property
+    @pulumi.getter(name="firewallEnforcedPolicy")
+    def firewall_enforced_policy(self) -> pulumi.Output[str]:
+        """
+        Applies the specified AFM policy to the virtual in an enforcing way,when creating a new virtual, if this parameter is not specified, the enforced is disabled.This should be in full path ex: `/Common/afm-test-policy`.
+        """
+        return pulumi.get(self, "firewall_enforced_policy")
+
+    @property
     @pulumi.getter(name="ipProtocol")
-    def ip_protocol(self) -> pulumi.Output[str]:
+    def ip_protocol(self) -> pulumi.Output[Optional[str]]:
         """
         Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
         """
@@ -1263,7 +1386,7 @@ class VirtualServer(pulumi.CustomResource):
     @pulumi.getter
     def snatpool(self) -> pulumi.Output[str]:
         """
-        Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
+        Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs.
         """
         return pulumi.get(self, "snatpool")
 
@@ -1277,11 +1400,19 @@ class VirtualServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceAddressTranslation")
-    def source_address_translation(self) -> pulumi.Output[str]:
+    def source_address_translation(self) -> pulumi.Output[Optional[str]]:
         """
-        Can be either omitted for none or the values automap or snat
+        Can be either omitted for `none` or the values `automap` options : [`snat`,`automap`,`none`].
         """
         return pulumi.get(self, "source_address_translation")
+
+    @property
+    @pulumi.getter(name="sourcePort")
+    def source_port(self) -> pulumi.Output[str]:
+        """
+        Specifies whether the system preserves the source port of the connection. The default is `preserve`.
+        """
+        return pulumi.get(self, "source_port")
 
     @property
     @pulumi.getter
@@ -1292,8 +1423,16 @@ class VirtualServer(pulumi.CustomResource):
         return pulumi.get(self, "state")
 
     @property
+    @pulumi.getter(name="trafficmatchingCriteria")
+    def trafficmatching_criteria(self) -> pulumi.Output[str]:
+        """
+        Specifies destination traffic matching information to which the virtual server sends traffic
+        """
+        return pulumi.get(self, "trafficmatching_criteria")
+
+    @property
     @pulumi.getter(name="translateAddress")
-    def translate_address(self) -> pulumi.Output[str]:
+    def translate_address(self) -> pulumi.Output[Optional[str]]:
         """
         Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
         """
@@ -1301,7 +1440,7 @@ class VirtualServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="translatePort")
-    def translate_port(self) -> pulumi.Output[str]:
+    def translate_port(self) -> pulumi.Output[Optional[str]]:
         """
         Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
         """

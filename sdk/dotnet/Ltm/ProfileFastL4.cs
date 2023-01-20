@@ -10,9 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Ltm
 {
     /// <summary>
-    /// `f5bigip.ltm.ProfileFastL4` Configures a custom profile_fastl4 for use by health checks.
+    /// `f5bigip.ltm.ProfileFastL4` Configures a custom LTM fastL4 profile for use by health checks.
     /// 
-    /// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+    /// Resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource (For example `/Common/my-fastl4profile`) or  `partition + directory + name` of the resource  (example: `/Common/test/my-fastl4profile`)
     /// 
     /// ## Example Usage
     /// 
@@ -99,16 +99,46 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> KeepaliveInterval { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the profile_fastl4
+        /// Enables intelligent selection of a back-end server or pool, using an iRule to make the selection. The default is `disabled`.
+        /// </summary>
+        [Output("lateBinding")]
+        public Output<string> LateBinding { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies, when checked (enabled), that the system closes a loosely-initiated connection when the system receives the first FIN packet from either the client or the server. The default is disabled.
+        /// </summary>
+        [Output("looseClose")]
+        public Output<string> LooseClose { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies, when checked (enabled), that the system initializes a connection when it receives any TCP packet, rather that requiring a SYN packet for connection initiation. The default is disabled. We recommend that if you enable the Loose Initiation option, you also enable the Loose Close option.
+        /// </summary>
+        [Output("looseInitiation")]
+        public Output<string> LooseInitiation { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of the LTM fastL4 Profile.The full path is the combination of the `partition + name` of the resource (For example `/Common/my-fastl4profile`) or  `partition + directory + name` of the resource  (example: `/Common/test/my-fastl4profile`)
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Displays the administrative partition within which this profile resides
+        /// name of partition
         /// </summary>
         [Output("partition")]
         public Output<string> Partition { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the amount of data the BIG-IP system can accept without acknowledging the server. The default is 0 (zero).
+        /// </summary>
+        [Output("receiveWindowsize")]
+        public Output<int> ReceiveWindowsize { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the acceptable duration for a TCP handshake, that is, the maximum idle time between a client synchronization (SYN) and a client acknowledgment (ACK).The default is `5 seconds`.
+        /// </summary>
+        [Output("tcpHandshakeTimeout")]
+        public Output<string> TcpHandshakeTimeout { get; private set; } = null!;
 
 
         /// <summary>
@@ -205,16 +235,46 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? KeepaliveInterval { get; set; }
 
         /// <summary>
-        /// Name of the profile_fastl4
+        /// Enables intelligent selection of a back-end server or pool, using an iRule to make the selection. The default is `disabled`.
+        /// </summary>
+        [Input("lateBinding")]
+        public Input<string>? LateBinding { get; set; }
+
+        /// <summary>
+        /// Specifies, when checked (enabled), that the system closes a loosely-initiated connection when the system receives the first FIN packet from either the client or the server. The default is disabled.
+        /// </summary>
+        [Input("looseClose")]
+        public Input<string>? LooseClose { get; set; }
+
+        /// <summary>
+        /// Specifies, when checked (enabled), that the system initializes a connection when it receives any TCP packet, rather that requiring a SYN packet for connection initiation. The default is disabled. We recommend that if you enable the Loose Initiation option, you also enable the Loose Close option.
+        /// </summary>
+        [Input("looseInitiation")]
+        public Input<string>? LooseInitiation { get; set; }
+
+        /// <summary>
+        /// Name of the LTM fastL4 Profile.The full path is the combination of the `partition + name` of the resource (For example `/Common/my-fastl4profile`) or  `partition + directory + name` of the resource  (example: `/Common/test/my-fastl4profile`)
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Displays the administrative partition within which this profile resides
+        /// name of partition
         /// </summary>
         [Input("partition")]
         public Input<string>? Partition { get; set; }
+
+        /// <summary>
+        /// Specifies the amount of data the BIG-IP system can accept without acknowledging the server. The default is 0 (zero).
+        /// </summary>
+        [Input("receiveWindowsize")]
+        public Input<int>? ReceiveWindowsize { get; set; }
+
+        /// <summary>
+        /// Specifies the acceptable duration for a TCP handshake, that is, the maximum idle time between a client synchronization (SYN) and a client acknowledgment (ACK).The default is `5 seconds`.
+        /// </summary>
+        [Input("tcpHandshakeTimeout")]
+        public Input<string>? TcpHandshakeTimeout { get; set; }
 
         public ProfileFastL4Args()
         {
@@ -273,16 +333,46 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? KeepaliveInterval { get; set; }
 
         /// <summary>
-        /// Name of the profile_fastl4
+        /// Enables intelligent selection of a back-end server or pool, using an iRule to make the selection. The default is `disabled`.
+        /// </summary>
+        [Input("lateBinding")]
+        public Input<string>? LateBinding { get; set; }
+
+        /// <summary>
+        /// Specifies, when checked (enabled), that the system closes a loosely-initiated connection when the system receives the first FIN packet from either the client or the server. The default is disabled.
+        /// </summary>
+        [Input("looseClose")]
+        public Input<string>? LooseClose { get; set; }
+
+        /// <summary>
+        /// Specifies, when checked (enabled), that the system initializes a connection when it receives any TCP packet, rather that requiring a SYN packet for connection initiation. The default is disabled. We recommend that if you enable the Loose Initiation option, you also enable the Loose Close option.
+        /// </summary>
+        [Input("looseInitiation")]
+        public Input<string>? LooseInitiation { get; set; }
+
+        /// <summary>
+        /// Name of the LTM fastL4 Profile.The full path is the combination of the `partition + name` of the resource (For example `/Common/my-fastl4profile`) or  `partition + directory + name` of the resource  (example: `/Common/test/my-fastl4profile`)
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Displays the administrative partition within which this profile resides
+        /// name of partition
         /// </summary>
         [Input("partition")]
         public Input<string>? Partition { get; set; }
+
+        /// <summary>
+        /// Specifies the amount of data the BIG-IP system can accept without acknowledging the server. The default is 0 (zero).
+        /// </summary>
+        [Input("receiveWindowsize")]
+        public Input<int>? ReceiveWindowsize { get; set; }
+
+        /// <summary>
+        /// Specifies the acceptable duration for a TCP handshake, that is, the maximum idle time between a client synchronization (SYN) and a client acknowledgment (ACK).The default is `5 seconds`.
+        /// </summary>
+        [Input("tcpHandshakeTimeout")]
+        public Input<string>? TcpHandshakeTimeout { get; set; }
 
         public ProfileFastL4State()
         {

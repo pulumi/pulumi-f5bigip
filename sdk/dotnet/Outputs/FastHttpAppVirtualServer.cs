@@ -18,7 +18,7 @@ namespace Pulumi.F5BigIP.Outputs
         /// </summary>
         public readonly string Ip;
         /// <summary>
-        /// -(Optional , `int`) Port number to used for accessing virtual server/application
+        /// Port number to used for accessing virtual server/application
         /// </summary>
         public readonly int Port;
 

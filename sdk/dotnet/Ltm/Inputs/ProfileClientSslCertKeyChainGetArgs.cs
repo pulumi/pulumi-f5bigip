@@ -37,7 +37,16 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
         public Input<string>? Name { get; set; }
 
         [Input("passphrase")]
-        public Input<string>? Passphrase { get; set; }
+        private Input<string>? _passphrase;
+        public Input<string>? Passphrase
+        {
+            get => _passphrase;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _passphrase = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public ProfileClientSslCertKeyChainGetArgs()
         {

@@ -43,7 +43,17 @@ func GetTokenValue(ctx *pulumi.Context) string {
 	return config.Get(ctx, "f5bigip:tokenValue")
 }
 
+// Valid Trusted Certificate path
+func GetTrustedCertPath(ctx *pulumi.Context) string {
+	return config.Get(ctx, "f5bigip:trustedCertPath")
+}
+
 // Username with API access to the BigIP
 func GetUsername(ctx *pulumi.Context) string {
 	return config.Get(ctx, "f5bigip:username")
+}
+
+// If set to true, Disables TLS certificate check on BIG-IP. Default : True
+func GetValidateCertsDisable(ctx *pulumi.Context) bool {
+	return config.GetBool(ctx, "f5bigip:validateCertsDisable")
 }

@@ -16,9 +16,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * `f5bigip.ltm.ProfileTcp` Configures a custom profile_tcp for use by health checks.
+ * `f5bigip.ltm.ProfileTcp` Configures a custom TCP LTM Profile for use by health checks.
  * 
- * Resources should be named with their &#34;full path&#34;. The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )
+ * Resources should be named with their `full path`. The full path is the combination of the `partition + name` (example: /Common/my-pool ) or  `partition + directory + name` of the resource  (example: /Common/test/my-pool )
  * 
  * ## Example Usage
  * ```java
@@ -75,6 +75,20 @@ public class ProfileTcp extends com.pulumi.resources.CustomResource {
         return this.closeWaitTimeout;
     }
     /**
+     * Specifies the algorithm to use to share network resources among competing users to reduce congestion. The default is High Speed.
+     * 
+     */
+    @Export(name="congestionControl", type=String.class, parameters={})
+    private Output</* @Nullable */ String> congestionControl;
+
+    /**
+     * @return Specifies the algorithm to use to share network resources among competing users to reduce congestion. The default is High Speed.
+     * 
+     */
+    public Output<Optional<String>> congestionControl() {
+        return Codegen.optional(this.congestionControl);
+    }
+    /**
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      * 
      */
@@ -103,14 +117,42 @@ public class ProfileTcp extends com.pulumi.resources.CustomResource {
         return this.deferredAccept;
     }
     /**
-     * When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet.
+     * Specifies, when checked (enabled), that the system can send fewer than one ACK (acknowledgment) segment per data segment received. By default, this setting is enabled.
+     * 
+     */
+    @Export(name="delayedAcks", type=String.class, parameters={})
+    private Output</* @Nullable */ String> delayedAcks;
+
+    /**
+     * @return Specifies, when checked (enabled), that the system can send fewer than one ACK (acknowledgment) segment per data segment received. By default, this setting is enabled.
+     * 
+     */
+    public Output<Optional<String>> delayedAcks() {
+        return Codegen.optional(this.delayedAcks);
+    }
+    /**
+     * Enabling this setting allows TCP to assume a packet is lost after fewer than the standard number of duplicate ACKs, if there is no way to send new data and generate more duplicate ACKs.
+     * 
+     */
+    @Export(name="earlyRetransmit", type=String.class, parameters={})
+    private Output</* @Nullable */ String> earlyRetransmit;
+
+    /**
+     * @return Enabling this setting allows TCP to assume a packet is lost after fewer than the standard number of duplicate ACKs, if there is no way to send new data and generate more duplicate ACKs.
+     * 
+     */
+    public Output<Optional<String>> earlyRetransmit() {
+        return Codegen.optional(this.earlyRetransmit);
+    }
+    /**
+     * When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet. Default is `enabled`. If `fast_open` set to `enabled`, argument `verified_accept` can&#39;t be set to `enabled`.
      * 
      */
     @Export(name="fastOpen", type=String.class, parameters={})
     private Output<String> fastOpen;
 
     /**
-     * @return When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet.
+     * @return When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet. Default is `enabled`. If `fast_open` set to `enabled`, argument `verified_accept` can&#39;t be set to `enabled`.
      * 
      */
     public Output<String> fastOpen() {
@@ -159,6 +201,20 @@ public class ProfileTcp extends com.pulumi.resources.CustomResource {
         return this.idleTimeout;
     }
     /**
+     * Specifies the initial congestion window size for connections to this destination. Actual window size is this value multiplied by the MSS (Maximum Segment Size) for the same connection. The default is 10. Valid values range from 0 to 64.
+     * 
+     */
+    @Export(name="initialCongestionWindowsize", type=Integer.class, parameters={})
+    private Output</* @Nullable */ Integer> initialCongestionWindowsize;
+
+    /**
+     * @return Specifies the initial congestion window size for connections to this destination. Actual window size is this value multiplied by the MSS (Maximum Segment Size) for the same connection. The default is 10. Valid values range from 0 to 64.
+     * 
+     */
+    public Output<Optional<Integer>> initialCongestionWindowsize() {
+        return Codegen.optional(this.initialCongestionWindowsize);
+    }
+    /**
      * Specifies the keep alive probe interval, in seconds. The default value is 1800 seconds.
      * 
      */
@@ -173,32 +229,144 @@ public class ProfileTcp extends com.pulumi.resources.CustomResource {
         return this.keepaliveInterval;
     }
     /**
-     * Name of the profile_tcp
+     * Specifies whether the system applies Nagle&#39;s algorithm to reduce the number of short segments on the network.If you select Auto, the system determines whether to use Nagle&#39;s algorithm based on network conditions. By default, this setting is disabled.
+     * 
+     */
+    @Export(name="nagle", type=String.class, parameters={})
+    private Output</* @Nullable */ String> nagle;
+
+    /**
+     * @return Specifies whether the system applies Nagle&#39;s algorithm to reduce the number of short segments on the network.If you select Auto, the system determines whether to use Nagle&#39;s algorithm based on network conditions. By default, this setting is disabled.
+     * 
+     */
+    public Output<Optional<String>> nagle() {
+        return Codegen.optional(this.nagle);
+    }
+    /**
+     * Name of the LTM TCP Profile,name should be `full path`. The full path is the combination of the `partition + name` (example: /Common/my-pool ) or  `partition + directory + name` of the resource  (example: /Common/test/my-pool )
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Name of the profile_tcp
+     * @return Name of the LTM TCP Profile,name should be `full path`. The full path is the combination of the `partition + name` (example: /Common/my-pool ) or  `partition + directory + name` of the resource  (example: /Common/test/my-pool )
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Displays the administrative partition within which this profile resides
+     * name of partition
      * 
      */
     @Export(name="partition", type=String.class, parameters={})
     private Output</* @Nullable */ String> partition;
 
     /**
-     * @return Displays the administrative partition within which this profile resides
+     * @return name of partition
      * 
      */
     public Output<Optional<String>> partition() {
         return Codegen.optional(this.partition);
+    }
+    /**
+     * Specifies the proxy buffer level, in bytes, at which the receive window is closed.
+     * 
+     */
+    @Export(name="proxybufferHigh", type=Integer.class, parameters={})
+    private Output</* @Nullable */ Integer> proxybufferHigh;
+
+    /**
+     * @return Specifies the proxy buffer level, in bytes, at which the receive window is closed.
+     * 
+     */
+    public Output<Optional<Integer>> proxybufferHigh() {
+        return Codegen.optional(this.proxybufferHigh);
+    }
+    /**
+     * Specifies the maximum advertised RECEIVE window size. This value represents the maximum number of bytes to which the RECEIVE window can scale. The default is 65535 bytes.
+     * 
+     */
+    @Export(name="receiveWindowsize", type=Integer.class, parameters={})
+    private Output</* @Nullable */ Integer> receiveWindowsize;
+
+    /**
+     * @return Specifies the maximum advertised RECEIVE window size. This value represents the maximum number of bytes to which the RECEIVE window can scale. The default is 65535 bytes.
+     * 
+     */
+    public Output<Optional<Integer>> receiveWindowsize() {
+        return Codegen.optional(this.receiveWindowsize);
+    }
+    /**
+     * Specifies the SEND window size. The default is 131072 bytes.
+     * 
+     */
+    @Export(name="sendBuffersize", type=Integer.class, parameters={})
+    private Output</* @Nullable */ Integer> sendBuffersize;
+
+    /**
+     * @return Specifies the SEND window size. The default is 131072 bytes.
+     * 
+     */
+    public Output<Optional<Integer>> sendBuffersize() {
+        return Codegen.optional(this.sendBuffersize);
+    }
+    /**
+     * Enabling this setting allows TCP to send a probe segment to trigger fast recovery instead of recovering a loss via a retransmission timeout,By default, this setting is enabled.
+     * 
+     */
+    @Export(name="taillossProbe", type=String.class, parameters={})
+    private Output</* @Nullable */ String> taillossProbe;
+
+    /**
+     * @return Enabling this setting allows TCP to send a probe segment to trigger fast recovery instead of recovering a loss via a retransmission timeout,By default, this setting is enabled.
+     * 
+     */
+    public Output<Optional<String>> taillossProbe() {
+        return Codegen.optional(this.taillossProbe);
+    }
+    /**
+     * Using this setting enabled, the system can recycle a wait-state connection immediately upon receipt of a new connection request instead of having to wait until the connection times out of the wait state. By default, this setting is enabled.
+     * 
+     */
+    @Export(name="timewaitRecycle", type=String.class, parameters={})
+    private Output</* @Nullable */ String> timewaitRecycle;
+
+    /**
+     * @return Using this setting enabled, the system can recycle a wait-state connection immediately upon receipt of a new connection request instead of having to wait until the connection times out of the wait state. By default, this setting is enabled.
+     * 
+     */
+    public Output<Optional<String>> timewaitRecycle() {
+        return Codegen.optional(this.timewaitRecycle);
+    }
+    /**
+     * Specifies, when checked (enabled), that the system can actually communicate with the server before establishing a client connection. To determine this, the system sends the server a SYN packet before responding to the client&#39;s SYN with a SYN-ACK. When unchecked, the system accepts the client connection before selecting a server to talk to. By default, this setting is `disabled`.
+     * 
+     */
+    @Export(name="verifiedAccept", type=String.class, parameters={})
+    private Output</* @Nullable */ String> verifiedAccept;
+
+    /**
+     * @return Specifies, when checked (enabled), that the system can actually communicate with the server before establishing a client connection. To determine this, the system sends the server a SYN packet before responding to the client&#39;s SYN with a SYN-ACK. When unchecked, the system accepts the client connection before selecting a server to talk to. By default, this setting is `disabled`.
+     * 
+     */
+    public Output<Optional<String>> verifiedAccept() {
+        return Codegen.optional(this.verifiedAccept);
+    }
+    /**
+     * Specifies the timeout in milliseconds for terminating a connection with an effective zero length TCP transmit window.
+     * 
+     */
+    @Export(name="zerowindowTimeout", type=Integer.class, parameters={})
+    private Output</* @Nullable */ Integer> zerowindowTimeout;
+
+    /**
+     * @return Specifies the timeout in milliseconds for terminating a connection with an effective zero length TCP transmit window.
+     * 
+     */
+    public Output<Optional<Integer>> zerowindowTimeout() {
+        return Codegen.optional(this.zerowindowTimeout);
     }
 
     /**

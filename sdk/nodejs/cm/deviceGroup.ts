@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -14,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const myNewDevicegroup = new f5bigip.cm.DeviceGroup("my_new_devicegroup", {
+ * const myNewDevicegroup = new f5bigip.cm.DeviceGroup("myNewDevicegroup", {
  *     autoSync: "enabled",
  *     devices: [
  *         {

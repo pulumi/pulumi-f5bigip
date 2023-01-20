@@ -13,20 +13,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const test = pulumi.output(f5bigip.ltm.getIrule({
+ * const test = f5bigip.ltm.getIrule({
  *     name: "terraform_irule",
  *     partition: "Common",
- * }));
- *
- * export const bigipIrule = test.irule;
+ * });
+ * export const bigipIrule = test.then(test => test.irule);
  * ```
  */
 export function getIrule(args: GetIruleArgs, opts?: pulumi.InvokeOptions): Promise<GetIruleResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("f5bigip:ltm/getIrule:getIrule", {
         "name": args.name,
         "partition": args.partition,
@@ -68,9 +64,24 @@ export interface GetIruleResult {
      */
     readonly partition: string;
 }
-
+/**
+ * Use this data source (`f5bigip.ltm.IRule`) to get the ltm irule details available on BIG-IP
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const test = f5bigip.ltm.getIrule({
+ *     name: "terraform_irule",
+ *     partition: "Common",
+ * });
+ * export const bigipIrule = test.then(test => test.irule);
+ * ```
+ */
 export function getIruleOutput(args: GetIruleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIruleResult> {
-    return pulumi.output(args).apply(a => getIrule(a, opts))
+    return pulumi.output(args).apply((a: any) => getIrule(a, opts))
 }
 
 /**

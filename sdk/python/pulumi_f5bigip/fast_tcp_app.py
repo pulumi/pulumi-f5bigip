@@ -18,50 +18,50 @@ class FastTcpAppArgs:
     def __init__(__self__, *,
                  application: pulumi.Input[str],
                  tenant: pulumi.Input[str],
-                 exist_pool_name: Optional[pulumi.Input[str]] = None,
                  existing_monitor: Optional[pulumi.Input[str]] = None,
+                 existing_pool: Optional[pulumi.Input[str]] = None,
                  existing_snat_pool: Optional[pulumi.Input[str]] = None,
-                 fast_create_monitor: Optional[pulumi.Input['FastTcpAppFastCreateMonitorArgs']] = None,
-                 fast_create_pool_members: Optional[pulumi.Input[Sequence[pulumi.Input['FastTcpAppFastCreatePoolMemberArgs']]]] = None,
-                 fast_create_snat_pool_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  load_balancing_mode: Optional[pulumi.Input[str]] = None,
+                 monitor: Optional[pulumi.Input['FastTcpAppMonitorArgs']] = None,
+                 pool_members: Optional[pulumi.Input[Sequence[pulumi.Input['FastTcpAppPoolMemberArgs']]]] = None,
                  slow_ramp_time: Optional[pulumi.Input[int]] = None,
+                 snat_pool_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  virtual_server: Optional[pulumi.Input['FastTcpAppVirtualServerArgs']] = None):
         """
         The set of arguments for constructing a FastTcpApp resource.
         :param pulumi.Input[str] application: Name of the FAST TCP application.
         :param pulumi.Input[str] tenant: Name of the FAST TCP application tenant.
-        :param pulumi.Input[str] exist_pool_name: Name of an existing BIG-IP pool.
         :param pulumi.Input[str] existing_monitor: Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
+        :param pulumi.Input[str] existing_pool: Name of an existing BIG-IP pool.
         :param pulumi.Input[str] existing_snat_pool: Name of an existing BIG-IP SNAT pool.
-        :param pulumi.Input['FastTcpAppFastCreateMonitorArgs'] fast_create_monitor: `fast_create_monitor` block takes input for FAST-Generated Pool Monitor.
-               See Pool Monitor below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input['FastTcpAppFastCreatePoolMemberArgs']]] fast_create_pool_members: `fast_create_pool_members` block takes input for FAST-Generated Pool.
-               See Pool Members below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] fast_create_snat_pool_addresses: List of address to be used for FAST-Generated SNAT Pool.
         :param pulumi.Input[str] load_balancing_mode: A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
+        :param pulumi.Input['FastTcpAppMonitorArgs'] monitor: `monitor` block takes input for FAST-Generated Pool Monitor.
+               See Pool Monitor below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['FastTcpAppPoolMemberArgs']]] pool_members: `pool_members` block takes input for FAST-Generated Pool.
+               See Pool Members below for more details.
         :param pulumi.Input[int] slow_ramp_time: Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] snat_pool_addresses: List of address to be used for FAST-Generated SNAT Pool.
         :param pulumi.Input['FastTcpAppVirtualServerArgs'] virtual_server: `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
                See virtual server below for more details.
         """
         pulumi.set(__self__, "application", application)
         pulumi.set(__self__, "tenant", tenant)
-        if exist_pool_name is not None:
-            pulumi.set(__self__, "exist_pool_name", exist_pool_name)
         if existing_monitor is not None:
             pulumi.set(__self__, "existing_monitor", existing_monitor)
+        if existing_pool is not None:
+            pulumi.set(__self__, "existing_pool", existing_pool)
         if existing_snat_pool is not None:
             pulumi.set(__self__, "existing_snat_pool", existing_snat_pool)
-        if fast_create_monitor is not None:
-            pulumi.set(__self__, "fast_create_monitor", fast_create_monitor)
-        if fast_create_pool_members is not None:
-            pulumi.set(__self__, "fast_create_pool_members", fast_create_pool_members)
-        if fast_create_snat_pool_addresses is not None:
-            pulumi.set(__self__, "fast_create_snat_pool_addresses", fast_create_snat_pool_addresses)
         if load_balancing_mode is not None:
             pulumi.set(__self__, "load_balancing_mode", load_balancing_mode)
+        if monitor is not None:
+            pulumi.set(__self__, "monitor", monitor)
+        if pool_members is not None:
+            pulumi.set(__self__, "pool_members", pool_members)
         if slow_ramp_time is not None:
             pulumi.set(__self__, "slow_ramp_time", slow_ramp_time)
+        if snat_pool_addresses is not None:
+            pulumi.set(__self__, "snat_pool_addresses", snat_pool_addresses)
         if virtual_server is not None:
             pulumi.set(__self__, "virtual_server", virtual_server)
 
@@ -90,18 +90,6 @@ class FastTcpAppArgs:
         pulumi.set(self, "tenant", value)
 
     @property
-    @pulumi.getter(name="existPoolName")
-    def exist_pool_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of an existing BIG-IP pool.
-        """
-        return pulumi.get(self, "exist_pool_name")
-
-    @exist_pool_name.setter
-    def exist_pool_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "exist_pool_name", value)
-
-    @property
     @pulumi.getter(name="existingMonitor")
     def existing_monitor(self) -> Optional[pulumi.Input[str]]:
         """
@@ -112,6 +100,18 @@ class FastTcpAppArgs:
     @existing_monitor.setter
     def existing_monitor(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "existing_monitor", value)
+
+    @property
+    @pulumi.getter(name="existingPool")
+    def existing_pool(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of an existing BIG-IP pool.
+        """
+        return pulumi.get(self, "existing_pool")
+
+    @existing_pool.setter
+    def existing_pool(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "existing_pool", value)
 
     @property
     @pulumi.getter(name="existingSnatPool")
@@ -126,44 +126,6 @@ class FastTcpAppArgs:
         pulumi.set(self, "existing_snat_pool", value)
 
     @property
-    @pulumi.getter(name="fastCreateMonitor")
-    def fast_create_monitor(self) -> Optional[pulumi.Input['FastTcpAppFastCreateMonitorArgs']]:
-        """
-        `fast_create_monitor` block takes input for FAST-Generated Pool Monitor.
-        See Pool Monitor below for more details.
-        """
-        return pulumi.get(self, "fast_create_monitor")
-
-    @fast_create_monitor.setter
-    def fast_create_monitor(self, value: Optional[pulumi.Input['FastTcpAppFastCreateMonitorArgs']]):
-        pulumi.set(self, "fast_create_monitor", value)
-
-    @property
-    @pulumi.getter(name="fastCreatePoolMembers")
-    def fast_create_pool_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FastTcpAppFastCreatePoolMemberArgs']]]]:
-        """
-        `fast_create_pool_members` block takes input for FAST-Generated Pool.
-        See Pool Members below for more details.
-        """
-        return pulumi.get(self, "fast_create_pool_members")
-
-    @fast_create_pool_members.setter
-    def fast_create_pool_members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FastTcpAppFastCreatePoolMemberArgs']]]]):
-        pulumi.set(self, "fast_create_pool_members", value)
-
-    @property
-    @pulumi.getter(name="fastCreateSnatPoolAddresses")
-    def fast_create_snat_pool_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of address to be used for FAST-Generated SNAT Pool.
-        """
-        return pulumi.get(self, "fast_create_snat_pool_addresses")
-
-    @fast_create_snat_pool_addresses.setter
-    def fast_create_snat_pool_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "fast_create_snat_pool_addresses", value)
-
-    @property
     @pulumi.getter(name="loadBalancingMode")
     def load_balancing_mode(self) -> Optional[pulumi.Input[str]]:
         """
@@ -176,6 +138,32 @@ class FastTcpAppArgs:
         pulumi.set(self, "load_balancing_mode", value)
 
     @property
+    @pulumi.getter
+    def monitor(self) -> Optional[pulumi.Input['FastTcpAppMonitorArgs']]:
+        """
+        `monitor` block takes input for FAST-Generated Pool Monitor.
+        See Pool Monitor below for more details.
+        """
+        return pulumi.get(self, "monitor")
+
+    @monitor.setter
+    def monitor(self, value: Optional[pulumi.Input['FastTcpAppMonitorArgs']]):
+        pulumi.set(self, "monitor", value)
+
+    @property
+    @pulumi.getter(name="poolMembers")
+    def pool_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FastTcpAppPoolMemberArgs']]]]:
+        """
+        `pool_members` block takes input for FAST-Generated Pool.
+        See Pool Members below for more details.
+        """
+        return pulumi.get(self, "pool_members")
+
+    @pool_members.setter
+    def pool_members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FastTcpAppPoolMemberArgs']]]]):
+        pulumi.set(self, "pool_members", value)
+
+    @property
     @pulumi.getter(name="slowRampTime")
     def slow_ramp_time(self) -> Optional[pulumi.Input[int]]:
         """
@@ -186,6 +174,18 @@ class FastTcpAppArgs:
     @slow_ramp_time.setter
     def slow_ramp_time(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "slow_ramp_time", value)
+
+    @property
+    @pulumi.getter(name="snatPoolAddresses")
+    def snat_pool_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of address to be used for FAST-Generated SNAT Pool.
+        """
+        return pulumi.get(self, "snat_pool_addresses")
+
+    @snat_pool_addresses.setter
+    def snat_pool_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "snat_pool_addresses", value)
 
     @property
     @pulumi.getter(name="virtualServer")
@@ -205,55 +205,55 @@ class FastTcpAppArgs:
 class _FastTcpAppState:
     def __init__(__self__, *,
                  application: Optional[pulumi.Input[str]] = None,
-                 exist_pool_name: Optional[pulumi.Input[str]] = None,
                  existing_monitor: Optional[pulumi.Input[str]] = None,
+                 existing_pool: Optional[pulumi.Input[str]] = None,
                  existing_snat_pool: Optional[pulumi.Input[str]] = None,
-                 fast_create_monitor: Optional[pulumi.Input['FastTcpAppFastCreateMonitorArgs']] = None,
-                 fast_create_pool_members: Optional[pulumi.Input[Sequence[pulumi.Input['FastTcpAppFastCreatePoolMemberArgs']]]] = None,
-                 fast_create_snat_pool_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  fast_tcp_json: Optional[pulumi.Input[str]] = None,
                  load_balancing_mode: Optional[pulumi.Input[str]] = None,
+                 monitor: Optional[pulumi.Input['FastTcpAppMonitorArgs']] = None,
+                 pool_members: Optional[pulumi.Input[Sequence[pulumi.Input['FastTcpAppPoolMemberArgs']]]] = None,
                  slow_ramp_time: Optional[pulumi.Input[int]] = None,
+                 snat_pool_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tenant: Optional[pulumi.Input[str]] = None,
                  virtual_server: Optional[pulumi.Input['FastTcpAppVirtualServerArgs']] = None):
         """
         Input properties used for looking up and filtering FastTcpApp resources.
         :param pulumi.Input[str] application: Name of the FAST TCP application.
-        :param pulumi.Input[str] exist_pool_name: Name of an existing BIG-IP pool.
         :param pulumi.Input[str] existing_monitor: Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
+        :param pulumi.Input[str] existing_pool: Name of an existing BIG-IP pool.
         :param pulumi.Input[str] existing_snat_pool: Name of an existing BIG-IP SNAT pool.
-        :param pulumi.Input['FastTcpAppFastCreateMonitorArgs'] fast_create_monitor: `fast_create_monitor` block takes input for FAST-Generated Pool Monitor.
-               See Pool Monitor below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input['FastTcpAppFastCreatePoolMemberArgs']]] fast_create_pool_members: `fast_create_pool_members` block takes input for FAST-Generated Pool.
-               See Pool Members below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] fast_create_snat_pool_addresses: List of address to be used for FAST-Generated SNAT Pool.
         :param pulumi.Input[str] fast_tcp_json: Json payload for FAST TCP application.
         :param pulumi.Input[str] load_balancing_mode: A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
+        :param pulumi.Input['FastTcpAppMonitorArgs'] monitor: `monitor` block takes input for FAST-Generated Pool Monitor.
+               See Pool Monitor below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['FastTcpAppPoolMemberArgs']]] pool_members: `pool_members` block takes input for FAST-Generated Pool.
+               See Pool Members below for more details.
         :param pulumi.Input[int] slow_ramp_time: Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] snat_pool_addresses: List of address to be used for FAST-Generated SNAT Pool.
         :param pulumi.Input[str] tenant: Name of the FAST TCP application tenant.
         :param pulumi.Input['FastTcpAppVirtualServerArgs'] virtual_server: `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
                See virtual server below for more details.
         """
         if application is not None:
             pulumi.set(__self__, "application", application)
-        if exist_pool_name is not None:
-            pulumi.set(__self__, "exist_pool_name", exist_pool_name)
         if existing_monitor is not None:
             pulumi.set(__self__, "existing_monitor", existing_monitor)
+        if existing_pool is not None:
+            pulumi.set(__self__, "existing_pool", existing_pool)
         if existing_snat_pool is not None:
             pulumi.set(__self__, "existing_snat_pool", existing_snat_pool)
-        if fast_create_monitor is not None:
-            pulumi.set(__self__, "fast_create_monitor", fast_create_monitor)
-        if fast_create_pool_members is not None:
-            pulumi.set(__self__, "fast_create_pool_members", fast_create_pool_members)
-        if fast_create_snat_pool_addresses is not None:
-            pulumi.set(__self__, "fast_create_snat_pool_addresses", fast_create_snat_pool_addresses)
         if fast_tcp_json is not None:
             pulumi.set(__self__, "fast_tcp_json", fast_tcp_json)
         if load_balancing_mode is not None:
             pulumi.set(__self__, "load_balancing_mode", load_balancing_mode)
+        if monitor is not None:
+            pulumi.set(__self__, "monitor", monitor)
+        if pool_members is not None:
+            pulumi.set(__self__, "pool_members", pool_members)
         if slow_ramp_time is not None:
             pulumi.set(__self__, "slow_ramp_time", slow_ramp_time)
+        if snat_pool_addresses is not None:
+            pulumi.set(__self__, "snat_pool_addresses", snat_pool_addresses)
         if tenant is not None:
             pulumi.set(__self__, "tenant", tenant)
         if virtual_server is not None:
@@ -272,18 +272,6 @@ class _FastTcpAppState:
         pulumi.set(self, "application", value)
 
     @property
-    @pulumi.getter(name="existPoolName")
-    def exist_pool_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of an existing BIG-IP pool.
-        """
-        return pulumi.get(self, "exist_pool_name")
-
-    @exist_pool_name.setter
-    def exist_pool_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "exist_pool_name", value)
-
-    @property
     @pulumi.getter(name="existingMonitor")
     def existing_monitor(self) -> Optional[pulumi.Input[str]]:
         """
@@ -296,6 +284,18 @@ class _FastTcpAppState:
         pulumi.set(self, "existing_monitor", value)
 
     @property
+    @pulumi.getter(name="existingPool")
+    def existing_pool(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of an existing BIG-IP pool.
+        """
+        return pulumi.get(self, "existing_pool")
+
+    @existing_pool.setter
+    def existing_pool(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "existing_pool", value)
+
+    @property
     @pulumi.getter(name="existingSnatPool")
     def existing_snat_pool(self) -> Optional[pulumi.Input[str]]:
         """
@@ -306,44 +306,6 @@ class _FastTcpAppState:
     @existing_snat_pool.setter
     def existing_snat_pool(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "existing_snat_pool", value)
-
-    @property
-    @pulumi.getter(name="fastCreateMonitor")
-    def fast_create_monitor(self) -> Optional[pulumi.Input['FastTcpAppFastCreateMonitorArgs']]:
-        """
-        `fast_create_monitor` block takes input for FAST-Generated Pool Monitor.
-        See Pool Monitor below for more details.
-        """
-        return pulumi.get(self, "fast_create_monitor")
-
-    @fast_create_monitor.setter
-    def fast_create_monitor(self, value: Optional[pulumi.Input['FastTcpAppFastCreateMonitorArgs']]):
-        pulumi.set(self, "fast_create_monitor", value)
-
-    @property
-    @pulumi.getter(name="fastCreatePoolMembers")
-    def fast_create_pool_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FastTcpAppFastCreatePoolMemberArgs']]]]:
-        """
-        `fast_create_pool_members` block takes input for FAST-Generated Pool.
-        See Pool Members below for more details.
-        """
-        return pulumi.get(self, "fast_create_pool_members")
-
-    @fast_create_pool_members.setter
-    def fast_create_pool_members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FastTcpAppFastCreatePoolMemberArgs']]]]):
-        pulumi.set(self, "fast_create_pool_members", value)
-
-    @property
-    @pulumi.getter(name="fastCreateSnatPoolAddresses")
-    def fast_create_snat_pool_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        List of address to be used for FAST-Generated SNAT Pool.
-        """
-        return pulumi.get(self, "fast_create_snat_pool_addresses")
-
-    @fast_create_snat_pool_addresses.setter
-    def fast_create_snat_pool_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "fast_create_snat_pool_addresses", value)
 
     @property
     @pulumi.getter(name="fastTcpJson")
@@ -370,6 +332,32 @@ class _FastTcpAppState:
         pulumi.set(self, "load_balancing_mode", value)
 
     @property
+    @pulumi.getter
+    def monitor(self) -> Optional[pulumi.Input['FastTcpAppMonitorArgs']]:
+        """
+        `monitor` block takes input for FAST-Generated Pool Monitor.
+        See Pool Monitor below for more details.
+        """
+        return pulumi.get(self, "monitor")
+
+    @monitor.setter
+    def monitor(self, value: Optional[pulumi.Input['FastTcpAppMonitorArgs']]):
+        pulumi.set(self, "monitor", value)
+
+    @property
+    @pulumi.getter(name="poolMembers")
+    def pool_members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FastTcpAppPoolMemberArgs']]]]:
+        """
+        `pool_members` block takes input for FAST-Generated Pool.
+        See Pool Members below for more details.
+        """
+        return pulumi.get(self, "pool_members")
+
+    @pool_members.setter
+    def pool_members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FastTcpAppPoolMemberArgs']]]]):
+        pulumi.set(self, "pool_members", value)
+
+    @property
     @pulumi.getter(name="slowRampTime")
     def slow_ramp_time(self) -> Optional[pulumi.Input[int]]:
         """
@@ -380,6 +368,18 @@ class _FastTcpAppState:
     @slow_ramp_time.setter
     def slow_ramp_time(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "slow_ramp_time", value)
+
+    @property
+    @pulumi.getter(name="snatPoolAddresses")
+    def snat_pool_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of address to be used for FAST-Generated SNAT Pool.
+        """
+        return pulumi.get(self, "snat_pool_addresses")
+
+    @snat_pool_addresses.setter
+    def snat_pool_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "snat_pool_addresses", value)
 
     @property
     @pulumi.getter
@@ -413,14 +413,14 @@ class FastTcpApp(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application: Optional[pulumi.Input[str]] = None,
-                 exist_pool_name: Optional[pulumi.Input[str]] = None,
                  existing_monitor: Optional[pulumi.Input[str]] = None,
+                 existing_pool: Optional[pulumi.Input[str]] = None,
                  existing_snat_pool: Optional[pulumi.Input[str]] = None,
-                 fast_create_monitor: Optional[pulumi.Input[pulumi.InputType['FastTcpAppFastCreateMonitorArgs']]] = None,
-                 fast_create_pool_members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastTcpAppFastCreatePoolMemberArgs']]]]] = None,
-                 fast_create_snat_pool_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  load_balancing_mode: Optional[pulumi.Input[str]] = None,
+                 monitor: Optional[pulumi.Input[pulumi.InputType['FastTcpAppMonitorArgs']]] = None,
+                 pool_members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastTcpAppPoolMemberArgs']]]]] = None,
                  slow_ramp_time: Optional[pulumi.Input[int]] = None,
+                 snat_pool_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tenant: Optional[pulumi.Input[str]] = None,
                  virtual_server: Optional[pulumi.Input[pulumi.InputType['FastTcpAppVirtualServerArgs']]] = None,
                  __props__=None):
@@ -435,7 +435,7 @@ class FastTcpApp(pulumi.CustomResource):
 
         fast_tcp_app = f5bigip.FastTcpApp("fast-tcp-app",
             application="tcp_app_2",
-            fast_create_pool_members=[f5bigip.FastTcpAppFastCreatePoolMemberArgs(
+            pool_members=[f5bigip.FastTcpAppPoolMemberArgs(
                 addresses=[
                     "10.11.34.65",
                     "56.43.23.76",
@@ -455,16 +455,16 @@ class FastTcpApp(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application: Name of the FAST TCP application.
-        :param pulumi.Input[str] exist_pool_name: Name of an existing BIG-IP pool.
         :param pulumi.Input[str] existing_monitor: Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
+        :param pulumi.Input[str] existing_pool: Name of an existing BIG-IP pool.
         :param pulumi.Input[str] existing_snat_pool: Name of an existing BIG-IP SNAT pool.
-        :param pulumi.Input[pulumi.InputType['FastTcpAppFastCreateMonitorArgs']] fast_create_monitor: `fast_create_monitor` block takes input for FAST-Generated Pool Monitor.
-               See Pool Monitor below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastTcpAppFastCreatePoolMemberArgs']]]] fast_create_pool_members: `fast_create_pool_members` block takes input for FAST-Generated Pool.
-               See Pool Members below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] fast_create_snat_pool_addresses: List of address to be used for FAST-Generated SNAT Pool.
         :param pulumi.Input[str] load_balancing_mode: A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
+        :param pulumi.Input[pulumi.InputType['FastTcpAppMonitorArgs']] monitor: `monitor` block takes input for FAST-Generated Pool Monitor.
+               See Pool Monitor below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastTcpAppPoolMemberArgs']]]] pool_members: `pool_members` block takes input for FAST-Generated Pool.
+               See Pool Members below for more details.
         :param pulumi.Input[int] slow_ramp_time: Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] snat_pool_addresses: List of address to be used for FAST-Generated SNAT Pool.
         :param pulumi.Input[str] tenant: Name of the FAST TCP application tenant.
         :param pulumi.Input[pulumi.InputType['FastTcpAppVirtualServerArgs']] virtual_server: `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
                See virtual server below for more details.
@@ -486,7 +486,7 @@ class FastTcpApp(pulumi.CustomResource):
 
         fast_tcp_app = f5bigip.FastTcpApp("fast-tcp-app",
             application="tcp_app_2",
-            fast_create_pool_members=[f5bigip.FastTcpAppFastCreatePoolMemberArgs(
+            pool_members=[f5bigip.FastTcpAppPoolMemberArgs(
                 addresses=[
                     "10.11.34.65",
                     "56.43.23.76",
@@ -519,14 +519,14 @@ class FastTcpApp(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application: Optional[pulumi.Input[str]] = None,
-                 exist_pool_name: Optional[pulumi.Input[str]] = None,
                  existing_monitor: Optional[pulumi.Input[str]] = None,
+                 existing_pool: Optional[pulumi.Input[str]] = None,
                  existing_snat_pool: Optional[pulumi.Input[str]] = None,
-                 fast_create_monitor: Optional[pulumi.Input[pulumi.InputType['FastTcpAppFastCreateMonitorArgs']]] = None,
-                 fast_create_pool_members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastTcpAppFastCreatePoolMemberArgs']]]]] = None,
-                 fast_create_snat_pool_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  load_balancing_mode: Optional[pulumi.Input[str]] = None,
+                 monitor: Optional[pulumi.Input[pulumi.InputType['FastTcpAppMonitorArgs']]] = None,
+                 pool_members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastTcpAppPoolMemberArgs']]]]] = None,
                  slow_ramp_time: Optional[pulumi.Input[int]] = None,
+                 snat_pool_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tenant: Optional[pulumi.Input[str]] = None,
                  virtual_server: Optional[pulumi.Input[pulumi.InputType['FastTcpAppVirtualServerArgs']]] = None,
                  __props__=None):
@@ -541,14 +541,14 @@ class FastTcpApp(pulumi.CustomResource):
             if application is None and not opts.urn:
                 raise TypeError("Missing required property 'application'")
             __props__.__dict__["application"] = application
-            __props__.__dict__["exist_pool_name"] = exist_pool_name
             __props__.__dict__["existing_monitor"] = existing_monitor
+            __props__.__dict__["existing_pool"] = existing_pool
             __props__.__dict__["existing_snat_pool"] = existing_snat_pool
-            __props__.__dict__["fast_create_monitor"] = fast_create_monitor
-            __props__.__dict__["fast_create_pool_members"] = fast_create_pool_members
-            __props__.__dict__["fast_create_snat_pool_addresses"] = fast_create_snat_pool_addresses
             __props__.__dict__["load_balancing_mode"] = load_balancing_mode
+            __props__.__dict__["monitor"] = monitor
+            __props__.__dict__["pool_members"] = pool_members
             __props__.__dict__["slow_ramp_time"] = slow_ramp_time
+            __props__.__dict__["snat_pool_addresses"] = snat_pool_addresses
             if tenant is None and not opts.urn:
                 raise TypeError("Missing required property 'tenant'")
             __props__.__dict__["tenant"] = tenant
@@ -565,15 +565,15 @@ class FastTcpApp(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             application: Optional[pulumi.Input[str]] = None,
-            exist_pool_name: Optional[pulumi.Input[str]] = None,
             existing_monitor: Optional[pulumi.Input[str]] = None,
+            existing_pool: Optional[pulumi.Input[str]] = None,
             existing_snat_pool: Optional[pulumi.Input[str]] = None,
-            fast_create_monitor: Optional[pulumi.Input[pulumi.InputType['FastTcpAppFastCreateMonitorArgs']]] = None,
-            fast_create_pool_members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastTcpAppFastCreatePoolMemberArgs']]]]] = None,
-            fast_create_snat_pool_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             fast_tcp_json: Optional[pulumi.Input[str]] = None,
             load_balancing_mode: Optional[pulumi.Input[str]] = None,
+            monitor: Optional[pulumi.Input[pulumi.InputType['FastTcpAppMonitorArgs']]] = None,
+            pool_members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastTcpAppPoolMemberArgs']]]]] = None,
             slow_ramp_time: Optional[pulumi.Input[int]] = None,
+            snat_pool_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tenant: Optional[pulumi.Input[str]] = None,
             virtual_server: Optional[pulumi.Input[pulumi.InputType['FastTcpAppVirtualServerArgs']]] = None) -> 'FastTcpApp':
         """
@@ -584,17 +584,17 @@ class FastTcpApp(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application: Name of the FAST TCP application.
-        :param pulumi.Input[str] exist_pool_name: Name of an existing BIG-IP pool.
         :param pulumi.Input[str] existing_monitor: Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
+        :param pulumi.Input[str] existing_pool: Name of an existing BIG-IP pool.
         :param pulumi.Input[str] existing_snat_pool: Name of an existing BIG-IP SNAT pool.
-        :param pulumi.Input[pulumi.InputType['FastTcpAppFastCreateMonitorArgs']] fast_create_monitor: `fast_create_monitor` block takes input for FAST-Generated Pool Monitor.
-               See Pool Monitor below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastTcpAppFastCreatePoolMemberArgs']]]] fast_create_pool_members: `fast_create_pool_members` block takes input for FAST-Generated Pool.
-               See Pool Members below for more details.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] fast_create_snat_pool_addresses: List of address to be used for FAST-Generated SNAT Pool.
         :param pulumi.Input[str] fast_tcp_json: Json payload for FAST TCP application.
         :param pulumi.Input[str] load_balancing_mode: A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
+        :param pulumi.Input[pulumi.InputType['FastTcpAppMonitorArgs']] monitor: `monitor` block takes input for FAST-Generated Pool Monitor.
+               See Pool Monitor below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastTcpAppPoolMemberArgs']]]] pool_members: `pool_members` block takes input for FAST-Generated Pool.
+               See Pool Members below for more details.
         :param pulumi.Input[int] slow_ramp_time: Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] snat_pool_addresses: List of address to be used for FAST-Generated SNAT Pool.
         :param pulumi.Input[str] tenant: Name of the FAST TCP application tenant.
         :param pulumi.Input[pulumi.InputType['FastTcpAppVirtualServerArgs']] virtual_server: `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
                See virtual server below for more details.
@@ -604,15 +604,15 @@ class FastTcpApp(pulumi.CustomResource):
         __props__ = _FastTcpAppState.__new__(_FastTcpAppState)
 
         __props__.__dict__["application"] = application
-        __props__.__dict__["exist_pool_name"] = exist_pool_name
         __props__.__dict__["existing_monitor"] = existing_monitor
+        __props__.__dict__["existing_pool"] = existing_pool
         __props__.__dict__["existing_snat_pool"] = existing_snat_pool
-        __props__.__dict__["fast_create_monitor"] = fast_create_monitor
-        __props__.__dict__["fast_create_pool_members"] = fast_create_pool_members
-        __props__.__dict__["fast_create_snat_pool_addresses"] = fast_create_snat_pool_addresses
         __props__.__dict__["fast_tcp_json"] = fast_tcp_json
         __props__.__dict__["load_balancing_mode"] = load_balancing_mode
+        __props__.__dict__["monitor"] = monitor
+        __props__.__dict__["pool_members"] = pool_members
         __props__.__dict__["slow_ramp_time"] = slow_ramp_time
+        __props__.__dict__["snat_pool_addresses"] = snat_pool_addresses
         __props__.__dict__["tenant"] = tenant
         __props__.__dict__["virtual_server"] = virtual_server
         return FastTcpApp(resource_name, opts=opts, __props__=__props__)
@@ -626,14 +626,6 @@ class FastTcpApp(pulumi.CustomResource):
         return pulumi.get(self, "application")
 
     @property
-    @pulumi.getter(name="existPoolName")
-    def exist_pool_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        Name of an existing BIG-IP pool.
-        """
-        return pulumi.get(self, "exist_pool_name")
-
-    @property
     @pulumi.getter(name="existingMonitor")
     def existing_monitor(self) -> pulumi.Output[Optional[str]]:
         """
@@ -642,38 +634,20 @@ class FastTcpApp(pulumi.CustomResource):
         return pulumi.get(self, "existing_monitor")
 
     @property
+    @pulumi.getter(name="existingPool")
+    def existing_pool(self) -> pulumi.Output[Optional[str]]:
+        """
+        Name of an existing BIG-IP pool.
+        """
+        return pulumi.get(self, "existing_pool")
+
+    @property
     @pulumi.getter(name="existingSnatPool")
     def existing_snat_pool(self) -> pulumi.Output[Optional[str]]:
         """
         Name of an existing BIG-IP SNAT pool.
         """
         return pulumi.get(self, "existing_snat_pool")
-
-    @property
-    @pulumi.getter(name="fastCreateMonitor")
-    def fast_create_monitor(self) -> pulumi.Output[Optional['outputs.FastTcpAppFastCreateMonitor']]:
-        """
-        `fast_create_monitor` block takes input for FAST-Generated Pool Monitor.
-        See Pool Monitor below for more details.
-        """
-        return pulumi.get(self, "fast_create_monitor")
-
-    @property
-    @pulumi.getter(name="fastCreatePoolMembers")
-    def fast_create_pool_members(self) -> pulumi.Output[Optional[Sequence['outputs.FastTcpAppFastCreatePoolMember']]]:
-        """
-        `fast_create_pool_members` block takes input for FAST-Generated Pool.
-        See Pool Members below for more details.
-        """
-        return pulumi.get(self, "fast_create_pool_members")
-
-    @property
-    @pulumi.getter(name="fastCreateSnatPoolAddresses")
-    def fast_create_snat_pool_addresses(self) -> pulumi.Output[Optional[Sequence[str]]]:
-        """
-        List of address to be used for FAST-Generated SNAT Pool.
-        """
-        return pulumi.get(self, "fast_create_snat_pool_addresses")
 
     @property
     @pulumi.getter(name="fastTcpJson")
@@ -692,12 +666,38 @@ class FastTcpApp(pulumi.CustomResource):
         return pulumi.get(self, "load_balancing_mode")
 
     @property
+    @pulumi.getter
+    def monitor(self) -> pulumi.Output[Optional['outputs.FastTcpAppMonitor']]:
+        """
+        `monitor` block takes input for FAST-Generated Pool Monitor.
+        See Pool Monitor below for more details.
+        """
+        return pulumi.get(self, "monitor")
+
+    @property
+    @pulumi.getter(name="poolMembers")
+    def pool_members(self) -> pulumi.Output[Optional[Sequence['outputs.FastTcpAppPoolMember']]]:
+        """
+        `pool_members` block takes input for FAST-Generated Pool.
+        See Pool Members below for more details.
+        """
+        return pulumi.get(self, "pool_members")
+
+    @property
     @pulumi.getter(name="slowRampTime")
     def slow_ramp_time(self) -> pulumi.Output[Optional[int]]:
         """
         Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
         """
         return pulumi.get(self, "slow_ramp_time")
+
+    @property
+    @pulumi.getter(name="snatPoolAddresses")
+    def snat_pool_addresses(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        List of address to be used for FAST-Generated SNAT Pool.
+        """
+        return pulumi.get(self, "snat_pool_addresses")
 
     @property
     @pulumi.getter

@@ -205,14 +205,14 @@ public class ProfileClientSsl extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="cert", type=String.class, parameters={})
-    private Output<String> cert;
+    private Output</* @Nullable */ String> cert;
 
     /**
      * @return Specifies a cert name for use.
      * 
      */
-    public Output<String> cert() {
-        return this.cert;
+    public Output<Optional<String>> cert() {
+        return Codegen.optional(this.cert);
     }
     /**
      * Cert extension includes for ssl forward proxy
@@ -228,11 +228,17 @@ public class ProfileClientSsl extends com.pulumi.resources.CustomResource {
     public Output<List<String>> certExtensionIncludes() {
         return this.certExtensionIncludes;
     }
-    @Export(name="certKeyChains", type=List.class, parameters={ProfileClientSslCertKeyChain.class})
-    private Output<List<ProfileClientSslCertKeyChain>> certKeyChains;
+    /**
+     * @deprecated
+     * This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
+     * 
+     */
+    @Deprecated /* This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute. */
+    @Export(name="certKeyChain", type=ProfileClientSslCertKeyChain.class, parameters={})
+    private Output</* @Nullable */ ProfileClientSslCertKeyChain> certKeyChain;
 
-    public Output<List<ProfileClientSslCertKeyChain>> certKeyChains() {
-        return this.certKeyChains;
+    public Output<Optional<ProfileClientSslCertKeyChain>> certKeyChain() {
+        return Codegen.optional(this.certKeyChain);
     }
     /**
      * Life span of the certificate in days for ssl forward proxy
@@ -267,14 +273,28 @@ public class ProfileClientSsl extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="chain", type=String.class, parameters={})
-    private Output<String> chain;
+    private Output</* @Nullable */ String> chain;
 
     /**
      * @return Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
      * 
      */
-    public Output<String> chain() {
-        return this.chain;
+    public Output<Optional<String>> chain() {
+        return Codegen.optional(this.chain);
+    }
+    /**
+     * Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+     * 
+     */
+    @Export(name="cipherGroup", type=String.class, parameters={})
+    private Output</* @Nullable */ String> cipherGroup;
+
+    /**
+     * @return Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+     * 
+     */
+    public Output<Optional<String>> cipherGroup() {
+        return Codegen.optional(this.cipherGroup);
     }
     /**
      * Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
@@ -421,14 +441,14 @@ public class ProfileClientSsl extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="key", type=String.class, parameters={})
-    private Output<String> key;
+    private Output</* @Nullable */ String> key;
 
     /**
      * @return Contains a key name
      * 
      */
-    public Output<String> key() {
-        return this.key;
+    public Output<Optional<String>> key() {
+        return Codegen.optional(this.key);
     }
     /**
      * ModSSL Methods enabled / disabled. Default is disabled.
@@ -865,6 +885,9 @@ public class ProfileClientSsl extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "passphrase"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

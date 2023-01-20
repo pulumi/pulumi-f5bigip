@@ -29,6 +29,7 @@ public final class GetPolicyRuleCondition {
     private Boolean countryCode;
     private Boolean countryName;
     private Boolean cpuUsage;
+    private String datagroup;
     private Boolean deviceMake;
     private Boolean deviceModel;
     private Boolean domain;
@@ -154,6 +155,9 @@ public final class GetPolicyRuleCondition {
     }
     public Boolean cpuUsage() {
         return this.cpuUsage;
+    }
+    public String datagroup() {
+        return this.datagroup;
     }
     public Boolean deviceMake() {
         return this.deviceMake;
@@ -401,6 +405,7 @@ public final class GetPolicyRuleCondition {
         private Boolean countryCode;
         private Boolean countryName;
         private Boolean cpuUsage;
+        private String datagroup;
         private Boolean deviceMake;
         private Boolean deviceModel;
         private Boolean domain;
@@ -494,6 +499,7 @@ public final class GetPolicyRuleCondition {
     	      this.countryCode = defaults.countryCode;
     	      this.countryName = defaults.countryName;
     	      this.cpuUsage = defaults.cpuUsage;
+    	      this.datagroup = defaults.datagroup;
     	      this.deviceMake = defaults.deviceMake;
     	      this.deviceModel = defaults.deviceModel;
     	      this.domain = defaults.domain;
@@ -652,6 +658,11 @@ public final class GetPolicyRuleCondition {
         @CustomType.Setter
         public Builder cpuUsage(Boolean cpuUsage) {
             this.cpuUsage = Objects.requireNonNull(cpuUsage);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder datagroup(String datagroup) {
+            this.datagroup = Objects.requireNonNull(datagroup);
             return this;
         }
         @CustomType.Setter
@@ -1041,6 +1052,7 @@ public final class GetPolicyRuleCondition {
             o.countryCode = countryCode;
             o.countryName = countryName;
             o.cpuUsage = cpuUsage;
+            o.datagroup = datagroup;
             o.deviceMake = deviceMake;
             o.deviceModel = deviceModel;
             o.domain = domain;

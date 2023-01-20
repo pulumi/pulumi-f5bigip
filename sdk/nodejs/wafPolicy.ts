@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -10,6 +11,8 @@ import * as utilities from "./utilities";
  * It outputs an up-to-date WAF Policy in a JSON format
  *
  * * [Declarative WAF documentation](https://clouddocs.f5.com/products/waf-declarative-policy/declarative_policy_v16_1.html)
+ *
+ * > **NOTE** This Resource Requires F5 BIG-IP v16.x above version, and ASM need to be provisioned.
  *
  * ## Example Usage
  *
@@ -154,7 +157,7 @@ export class WafPolicy extends pulumi.CustomResource {
     /**
      * Exported WAF policy deployed on BIGIP.
      */
-    public readonly policyExportJson!: pulumi.Output<string>;
+    public /*out*/ readonly policyExportJson!: pulumi.Output<string>;
     /**
      * The id of the A.WAF Policy as it would be calculated on the BIG-IP.
      */
@@ -254,7 +257,6 @@ export class WafPolicy extends pulumi.CustomResource {
             resourceInputs["parameters"] = args ? args.parameters : undefined;
             resourceInputs["partition"] = args ? args.partition : undefined;
             resourceInputs["policyBuilders"] = args ? args.policyBuilders : undefined;
-            resourceInputs["policyExportJson"] = args ? args.policyExportJson : undefined;
             resourceInputs["policyId"] = args ? args.policyId : undefined;
             resourceInputs["policyImportJson"] = args ? args.policyImportJson : undefined;
             resourceInputs["protocolIndependent"] = args ? args.protocolIndependent : undefined;
@@ -265,6 +267,7 @@ export class WafPolicy extends pulumi.CustomResource {
             resourceInputs["templateName"] = args ? args.templateName : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["urls"] = args ? args.urls : undefined;
+            resourceInputs["policyExportJson"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(WafPolicy.__pulumiType, name, resourceInputs, opts);
@@ -439,10 +442,6 @@ export interface WafPolicyArgs {
      * See policy builder below for more details.
      */
     policyBuilders?: pulumi.Input<pulumi.Input<inputs.WafPolicyPolicyBuilder>[]>;
-    /**
-     * Exported WAF policy deployed on BIGIP.
-     */
-    policyExportJson?: pulumi.Input<string>;
     /**
      * The id of the A.WAF Policy as it would be calculated on the BIG-IP.
      */

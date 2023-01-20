@@ -16,7 +16,7 @@ public final class FastTcpAppVirtualServer {
      */
     private String ip;
     /**
-     * @return -(Optional , `int`) Port number to used for accessing virtual server/application
+     * @return Port number to used for accessing virtual server/application
      * 
      */
     private Integer port;
@@ -30,7 +30,7 @@ public final class FastTcpAppVirtualServer {
         return this.ip;
     }
     /**
-     * @return -(Optional , `int`) Port number to used for accessing virtual server/application
+     * @return Port number to used for accessing virtual server/application
      * 
      */
     public Integer port() {

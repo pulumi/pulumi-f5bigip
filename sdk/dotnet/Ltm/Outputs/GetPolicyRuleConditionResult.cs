@@ -30,6 +30,7 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
         public readonly bool CountryCode;
         public readonly bool CountryName;
         public readonly bool CpuUsage;
+        public readonly string Datagroup;
         public readonly bool DeviceMake;
         public readonly bool DeviceModel;
         public readonly bool Domain;
@@ -139,6 +140,8 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
             bool countryName,
 
             bool cpuUsage,
+
+            string datagroup,
 
             bool deviceMake,
 
@@ -303,6 +306,7 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
             CountryCode = countryCode;
             CountryName = countryName;
             CpuUsage = cpuUsage;
+            Datagroup = datagroup;
             DeviceMake = deviceMake;
             DeviceModel = deviceModel;
             Domain = domain;

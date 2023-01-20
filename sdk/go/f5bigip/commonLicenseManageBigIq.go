@@ -155,6 +155,29 @@ func NewCommonLicenseManageBigIq(ctx *pulumi.Context,
 	if args.LicensePoolname == nil {
 		return nil, errors.New("invalid value for required argument 'LicensePoolname'")
 	}
+	if args.BigiqLoginRef != nil {
+		args.BigiqLoginRef = pulumi.ToSecret(args.BigiqLoginRef).(pulumi.StringPtrInput)
+	}
+	if args.BigiqPassword != nil {
+		args.BigiqPassword = pulumi.ToSecret(args.BigiqPassword).(pulumi.StringInput)
+	}
+	if args.BigiqPort != nil {
+		args.BigiqPort = pulumi.ToSecret(args.BigiqPort).(pulumi.StringPtrInput)
+	}
+	if args.BigiqTokenAuth != nil {
+		args.BigiqTokenAuth = pulumi.ToSecret(args.BigiqTokenAuth).(pulumi.BoolPtrInput)
+	}
+	if args.BigiqUser != nil {
+		args.BigiqUser = pulumi.ToSecret(args.BigiqUser).(pulumi.StringInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"bigiqLoginRef",
+		"bigiqPassword",
+		"bigiqPort",
+		"bigiqTokenAuth",
+		"bigiqUser",
+	})
+	opts = append(opts, secrets)
 	var resource CommonLicenseManageBigIq
 	err := ctx.RegisterResource("f5bigip:index/commonLicenseManageBigIq:CommonLicenseManageBigIq", name, args, &resource, opts...)
 	if err != nil {

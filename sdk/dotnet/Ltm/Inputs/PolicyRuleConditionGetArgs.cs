@@ -39,6 +39,9 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
         [Input("cipherBits")]
         public Input<bool>? CipherBits { get; set; }
 
+        [Input("clientAccepted")]
+        public Input<bool>? ClientAccepted { get; set; }
+
         [Input("clientSsl")]
         public Input<bool>? ClientSsl { get; set; }
 
@@ -62,6 +65,9 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
 
         [Input("cpuUsage")]
         public Input<bool>? CpuUsage { get; set; }
+
+        [Input("datagroup")]
+        public Input<string>? Datagroup { get; set; }
 
         [Input("deviceMake")]
         public Input<bool>? DeviceMake { get; set; }

@@ -245,6 +245,21 @@ public final class ProfileServerSslState extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+     * 
+     */
+    @Import(name="cipherGroup")
+    private @Nullable Output<String> cipherGroup;
+
+    /**
+     * @return Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+     * 
+     */
+    public Optional<Output<String>> cipherGroup() {
+        return Optional.ofNullable(this.cipherGroup);
+    }
+
+    /**
      * Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
      * 
      */
@@ -799,6 +814,7 @@ public final class ProfileServerSslState extends com.pulumi.resources.ResourceAr
         this.cacheTimeout = $.cacheTimeout;
         this.cert = $.cert;
         this.chain = $.chain;
+        this.cipherGroup = $.cipherGroup;
         this.ciphers = $.ciphers;
         this.defaultsFrom = $.defaultsFrom;
         this.expireCertResponseControl = $.expireCertResponseControl;
@@ -1189,6 +1205,27 @@ public final class ProfileServerSslState extends com.pulumi.resources.ResourceAr
          */
         public Builder chain(String chain) {
             return chain(Output.of(chain));
+        }
+
+        /**
+         * @param cipherGroup Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cipherGroup(@Nullable Output<String> cipherGroup) {
+            $.cipherGroup = cipherGroup;
+            return this;
+        }
+
+        /**
+         * @param cipherGroup Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cipherGroup(String cipherGroup) {
+            return cipherGroup(Output.of(cipherGroup));
         }
 
         /**

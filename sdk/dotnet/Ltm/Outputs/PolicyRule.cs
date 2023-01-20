@@ -13,10 +13,16 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
     [OutputType]
     public sealed class PolicyRule
     {
+        /// <summary>
+        /// Block type. See action block for more details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.PolicyRuleAction> Actions;
+        /// <summary>
+        /// Block type. See condition block for more details.
+        /// </summary>
         public readonly ImmutableArray<Outputs.PolicyRuleCondition> Conditions;
         /// <summary>
-        /// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+        /// Name of Rule to be applied in policy.
         /// </summary>
         public readonly string Name;
 

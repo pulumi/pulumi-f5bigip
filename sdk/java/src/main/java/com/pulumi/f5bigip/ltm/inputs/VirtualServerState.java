@@ -86,6 +86,21 @@ public final class VirtualServerState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
+     * Applies the specified AFM policy to the virtual in an enforcing way,when creating a new virtual, if this parameter is not specified, the enforced is disabled.This should be in full path ex: `/Common/afm-test-policy`.
+     * 
+     */
+    @Import(name="firewallEnforcedPolicy")
+    private @Nullable Output<String> firewallEnforcedPolicy;
+
+    /**
+     * @return Applies the specified AFM policy to the virtual in an enforcing way,when creating a new virtual, if this parameter is not specified, the enforced is disabled.This should be in full path ex: `/Common/afm-test-policy`.
+     * 
+     */
+    public Optional<Output<String>> firewallEnforcedPolicy() {
+        return Optional.ofNullable(this.firewallEnforcedPolicy);
+    }
+
+    /**
      * Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
      * 
      */
@@ -250,14 +265,14 @@ public final class VirtualServerState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
+     * Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs.
      * 
      */
     @Import(name="snatpool")
     private @Nullable Output<String> snatpool;
 
     /**
-     * @return Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
+     * @return Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs.
      * 
      */
     public Optional<Output<String>> snatpool() {
@@ -280,18 +295,33 @@ public final class VirtualServerState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Can be either omitted for none or the values automap or snat
+     * Can be either omitted for `none` or the values `automap` options : [`snat`,`automap`,`none`].
      * 
      */
     @Import(name="sourceAddressTranslation")
     private @Nullable Output<String> sourceAddressTranslation;
 
     /**
-     * @return Can be either omitted for none or the values automap or snat
+     * @return Can be either omitted for `none` or the values `automap` options : [`snat`,`automap`,`none`].
      * 
      */
     public Optional<Output<String>> sourceAddressTranslation() {
         return Optional.ofNullable(this.sourceAddressTranslation);
+    }
+
+    /**
+     * Specifies whether the system preserves the source port of the connection. The default is `preserve`.
+     * 
+     */
+    @Import(name="sourcePort")
+    private @Nullable Output<String> sourcePort;
+
+    /**
+     * @return Specifies whether the system preserves the source port of the connection. The default is `preserve`.
+     * 
+     */
+    public Optional<Output<String>> sourcePort() {
+        return Optional.ofNullable(this.sourcePort);
     }
 
     /**
@@ -307,6 +337,21 @@ public final class VirtualServerState extends com.pulumi.resources.ResourceArgs 
      */
     public Optional<Output<String>> state() {
         return Optional.ofNullable(this.state);
+    }
+
+    /**
+     * Specifies destination traffic matching information to which the virtual server sends traffic
+     * 
+     */
+    @Import(name="trafficmatchingCriteria")
+    private @Nullable Output<String> trafficmatchingCriteria;
+
+    /**
+     * @return Specifies destination traffic matching information to which the virtual server sends traffic
+     * 
+     */
+    public Optional<Output<String>> trafficmatchingCriteria() {
+        return Optional.ofNullable(this.trafficmatchingCriteria);
     }
 
     /**
@@ -379,6 +424,7 @@ public final class VirtualServerState extends com.pulumi.resources.ResourceArgs 
         this.description = $.description;
         this.destination = $.destination;
         this.fallbackPersistenceProfile = $.fallbackPersistenceProfile;
+        this.firewallEnforcedPolicy = $.firewallEnforcedPolicy;
         this.ipProtocol = $.ipProtocol;
         this.irules = $.irules;
         this.mask = $.mask;
@@ -394,7 +440,9 @@ public final class VirtualServerState extends com.pulumi.resources.ResourceArgs 
         this.snatpool = $.snatpool;
         this.source = $.source;
         this.sourceAddressTranslation = $.sourceAddressTranslation;
+        this.sourcePort = $.sourcePort;
         this.state = $.state;
+        this.trafficmatchingCriteria = $.trafficmatchingCriteria;
         this.translateAddress = $.translateAddress;
         this.translatePort = $.translatePort;
         this.vlans = $.vlans;
@@ -520,6 +568,27 @@ public final class VirtualServerState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder fallbackPersistenceProfile(String fallbackPersistenceProfile) {
             return fallbackPersistenceProfile(Output.of(fallbackPersistenceProfile));
+        }
+
+        /**
+         * @param firewallEnforcedPolicy Applies the specified AFM policy to the virtual in an enforcing way,when creating a new virtual, if this parameter is not specified, the enforced is disabled.This should be in full path ex: `/Common/afm-test-policy`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder firewallEnforcedPolicy(@Nullable Output<String> firewallEnforcedPolicy) {
+            $.firewallEnforcedPolicy = firewallEnforcedPolicy;
+            return this;
+        }
+
+        /**
+         * @param firewallEnforcedPolicy Applies the specified AFM policy to the virtual in an enforcing way,when creating a new virtual, if this parameter is not specified, the enforced is disabled.This should be in full path ex: `/Common/afm-test-policy`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder firewallEnforcedPolicy(String firewallEnforcedPolicy) {
+            return firewallEnforcedPolicy(Output.of(firewallEnforcedPolicy));
         }
 
         /**
@@ -805,7 +874,7 @@ public final class VirtualServerState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param snatpool Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
+         * @param snatpool Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs.
          * 
          * @return builder
          * 
@@ -816,7 +885,7 @@ public final class VirtualServerState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param snatpool Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
+         * @param snatpool Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs.
          * 
          * @return builder
          * 
@@ -847,7 +916,7 @@ public final class VirtualServerState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sourceAddressTranslation Can be either omitted for none or the values automap or snat
+         * @param sourceAddressTranslation Can be either omitted for `none` or the values `automap` options : [`snat`,`automap`,`none`].
          * 
          * @return builder
          * 
@@ -858,13 +927,34 @@ public final class VirtualServerState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sourceAddressTranslation Can be either omitted for none or the values automap or snat
+         * @param sourceAddressTranslation Can be either omitted for `none` or the values `automap` options : [`snat`,`automap`,`none`].
          * 
          * @return builder
          * 
          */
         public Builder sourceAddressTranslation(String sourceAddressTranslation) {
             return sourceAddressTranslation(Output.of(sourceAddressTranslation));
+        }
+
+        /**
+         * @param sourcePort Specifies whether the system preserves the source port of the connection. The default is `preserve`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sourcePort(@Nullable Output<String> sourcePort) {
+            $.sourcePort = sourcePort;
+            return this;
+        }
+
+        /**
+         * @param sourcePort Specifies whether the system preserves the source port of the connection. The default is `preserve`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sourcePort(String sourcePort) {
+            return sourcePort(Output.of(sourcePort));
         }
 
         /**
@@ -886,6 +976,27 @@ public final class VirtualServerState extends com.pulumi.resources.ResourceArgs 
          */
         public Builder state(String state) {
             return state(Output.of(state));
+        }
+
+        /**
+         * @param trafficmatchingCriteria Specifies destination traffic matching information to which the virtual server sends traffic
+         * 
+         * @return builder
+         * 
+         */
+        public Builder trafficmatchingCriteria(@Nullable Output<String> trafficmatchingCriteria) {
+            $.trafficmatchingCriteria = trafficmatchingCriteria;
+            return this;
+        }
+
+        /**
+         * @param trafficmatchingCriteria Specifies destination traffic matching information to which the virtual server sends traffic
+         * 
+         * @return builder
+         * 
+         */
+        public Builder trafficmatchingCriteria(String trafficmatchingCriteria) {
+            return trafficmatchingCriteria(Output.of(trafficmatchingCriteria));
         }
 
         /**

@@ -17,7 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * `f5bigip.sys.Dns` Configures DNS server on F5 BIG-IP
+ * `f5bigip.sys.Dns` Configures DNS Name server on F5 BIG-IP
  * 
  * ## Example Usage
  * ```java
@@ -44,7 +44,6 @@ import javax.annotation.Nullable;
  *         var dns1 = new Dns(&#34;dns1&#34;, DnsArgs.builder()        
  *             .description(&#34;/Common/DNS1&#34;)
  *             .nameServers(&#34;1.1.1.1&#34;)
- *             .numberOfDots(2)
  *             .searches(&#34;f5.com&#34;)
  *             .build());
  * 
@@ -70,42 +69,42 @@ public class Dns extends com.pulumi.resources.CustomResource {
         return this.description;
     }
     /**
-     * Name or IP address of the DNS server
+     * Specifies the name servers that the system uses to validate DNS lookups, and resolve host names.
      * 
      */
     @Export(name="nameServers", type=List.class, parameters={String.class})
-    private Output</* @Nullable */ List<String>> nameServers;
+    private Output<List<String>> nameServers;
 
     /**
-     * @return Name or IP address of the DNS server
+     * @return Specifies the name servers that the system uses to validate DNS lookups, and resolve host names.
      * 
      */
-    public Output<Optional<List<String>>> nameServers() {
-        return Codegen.optional(this.nameServers);
+    public Output<List<String>> nameServers() {
+        return this.nameServers;
     }
     /**
      * Configures the number of dots needed in a name before an initial absolute query will be made.
      * 
      */
     @Export(name="numberOfDots", type=Integer.class, parameters={})
-    private Output</* @Nullable */ Integer> numberOfDots;
+    private Output<Integer> numberOfDots;
 
     /**
      * @return Configures the number of dots needed in a name before an initial absolute query will be made.
      * 
      */
-    public Output<Optional<Integer>> numberOfDots() {
-        return Codegen.optional(this.numberOfDots);
+    public Output<Integer> numberOfDots() {
+        return this.numberOfDots;
     }
     /**
-     * Specify what domains you want to search
+     * Specifies the domains that the system searches for local domain lookups, to resolve local host names.
      * 
      */
     @Export(name="searches", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> searches;
 
     /**
-     * @return Specify what domains you want to search
+     * @return Specifies the domains that the system searches for local domain lookups, to resolve local host names.
      * 
      */
     public Output<Optional<List<String>>> searches() {

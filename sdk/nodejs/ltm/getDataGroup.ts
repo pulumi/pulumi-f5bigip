@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -14,18 +15,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const dG_TC3 = pulumi.output(f5bigip.ltm.getDataGroup({
+ * const dG-TC3 = f5bigip.ltm.getDataGroup({
  *     name: "test-dg",
  *     partition: "Common",
- * }));
+ * });
  * ```
  */
 export function getDataGroup(args: GetDataGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDataGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("f5bigip:ltm/getDataGroup:getDataGroup", {
         "name": args.name,
         "partition": args.partition,
@@ -75,9 +73,23 @@ export interface GetDataGroupResult {
      */
     readonly type: string;
 }
-
+/**
+ * Use this data source (`f5bigip.ltm.DataGroup`) to get the data group details available on BIG-IP
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const dG-TC3 = f5bigip.ltm.getDataGroup({
+ *     name: "test-dg",
+ *     partition: "Common",
+ * });
+ * ```
+ */
 export function getDataGroupOutput(args: GetDataGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataGroupResult> {
-    return pulumi.output(args).apply(a => getDataGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getDataGroup(a, opts))
 }
 
 /**

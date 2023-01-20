@@ -10,8 +10,8 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.f5bigip.FastTcpAppArgs;
 import com.pulumi.f5bigip.Utilities;
 import com.pulumi.f5bigip.inputs.FastTcpAppState;
-import com.pulumi.f5bigip.outputs.FastTcpAppFastCreateMonitor;
-import com.pulumi.f5bigip.outputs.FastTcpAppFastCreatePoolMember;
+import com.pulumi.f5bigip.outputs.FastTcpAppMonitor;
+import com.pulumi.f5bigip.outputs.FastTcpAppPoolMember;
 import com.pulumi.f5bigip.outputs.FastTcpAppVirtualServer;
 import java.lang.Integer;
 import java.lang.String;
@@ -31,7 +31,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.f5bigip.FastTcpApp;
  * import com.pulumi.f5bigip.FastTcpAppArgs;
- * import com.pulumi.f5bigip.inputs.FastTcpAppFastCreatePoolMemberArgs;
+ * import com.pulumi.f5bigip.inputs.FastTcpAppPoolMemberArgs;
  * import com.pulumi.f5bigip.inputs.FastTcpAppVirtualServerArgs;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -48,7 +48,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var fast_tcp_app = new FastTcpApp(&#34;fast-tcp-app&#34;, FastTcpAppArgs.builder()        
  *             .application(&#34;tcp_app_2&#34;)
- *             .fastCreatePoolMembers(FastTcpAppFastCreatePoolMemberArgs.builder()
+ *             .poolMembers(FastTcpAppPoolMemberArgs.builder()
  *                 .addresses(                
  *                     &#34;10.11.34.65&#34;,
  *                     &#34;56.43.23.76&#34;)
@@ -86,20 +86,6 @@ public class FastTcpApp extends com.pulumi.resources.CustomResource {
         return this.application;
     }
     /**
-     * Name of an existing BIG-IP pool.
-     * 
-     */
-    @Export(name="existPoolName", type=String.class, parameters={})
-    private Output</* @Nullable */ String> existPoolName;
-
-    /**
-     * @return Name of an existing BIG-IP pool.
-     * 
-     */
-    public Output<Optional<String>> existPoolName() {
-        return Codegen.optional(this.existPoolName);
-    }
-    /**
      * Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
      * 
      */
@@ -114,6 +100,20 @@ public class FastTcpApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.existingMonitor);
     }
     /**
+     * Name of an existing BIG-IP pool.
+     * 
+     */
+    @Export(name="existingPool", type=String.class, parameters={})
+    private Output</* @Nullable */ String> existingPool;
+
+    /**
+     * @return Name of an existing BIG-IP pool.
+     * 
+     */
+    public Output<Optional<String>> existingPool() {
+        return Codegen.optional(this.existingPool);
+    }
+    /**
      * Name of an existing BIG-IP SNAT pool.
      * 
      */
@@ -126,52 +126,6 @@ public class FastTcpApp extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> existingSnatPool() {
         return Codegen.optional(this.existingSnatPool);
-    }
-    /**
-     * `fast_create_monitor` block takes input for FAST-Generated Pool Monitor.
-     * See Pool Monitor below for more details.
-     * 
-     */
-    @Export(name="fastCreateMonitor", type=FastTcpAppFastCreateMonitor.class, parameters={})
-    private Output</* @Nullable */ FastTcpAppFastCreateMonitor> fastCreateMonitor;
-
-    /**
-     * @return `fast_create_monitor` block takes input for FAST-Generated Pool Monitor.
-     * See Pool Monitor below for more details.
-     * 
-     */
-    public Output<Optional<FastTcpAppFastCreateMonitor>> fastCreateMonitor() {
-        return Codegen.optional(this.fastCreateMonitor);
-    }
-    /**
-     * `fast_create_pool_members` block takes input for FAST-Generated Pool.
-     * See Pool Members below for more details.
-     * 
-     */
-    @Export(name="fastCreatePoolMembers", type=List.class, parameters={FastTcpAppFastCreatePoolMember.class})
-    private Output</* @Nullable */ List<FastTcpAppFastCreatePoolMember>> fastCreatePoolMembers;
-
-    /**
-     * @return `fast_create_pool_members` block takes input for FAST-Generated Pool.
-     * See Pool Members below for more details.
-     * 
-     */
-    public Output<Optional<List<FastTcpAppFastCreatePoolMember>>> fastCreatePoolMembers() {
-        return Codegen.optional(this.fastCreatePoolMembers);
-    }
-    /**
-     * List of address to be used for FAST-Generated SNAT Pool.
-     * 
-     */
-    @Export(name="fastCreateSnatPoolAddresses", type=List.class, parameters={String.class})
-    private Output</* @Nullable */ List<String>> fastCreateSnatPoolAddresses;
-
-    /**
-     * @return List of address to be used for FAST-Generated SNAT Pool.
-     * 
-     */
-    public Output<Optional<List<String>>> fastCreateSnatPoolAddresses() {
-        return Codegen.optional(this.fastCreateSnatPoolAddresses);
     }
     /**
      * Json payload for FAST TCP application.
@@ -202,6 +156,38 @@ public class FastTcpApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.loadBalancingMode);
     }
     /**
+     * `monitor` block takes input for FAST-Generated Pool Monitor.
+     * See Pool Monitor below for more details.
+     * 
+     */
+    @Export(name="monitor", type=FastTcpAppMonitor.class, parameters={})
+    private Output</* @Nullable */ FastTcpAppMonitor> monitor;
+
+    /**
+     * @return `monitor` block takes input for FAST-Generated Pool Monitor.
+     * See Pool Monitor below for more details.
+     * 
+     */
+    public Output<Optional<FastTcpAppMonitor>> monitor() {
+        return Codegen.optional(this.monitor);
+    }
+    /**
+     * `pool_members` block takes input for FAST-Generated Pool.
+     * See Pool Members below for more details.
+     * 
+     */
+    @Export(name="poolMembers", type=List.class, parameters={FastTcpAppPoolMember.class})
+    private Output</* @Nullable */ List<FastTcpAppPoolMember>> poolMembers;
+
+    /**
+     * @return `pool_members` block takes input for FAST-Generated Pool.
+     * See Pool Members below for more details.
+     * 
+     */
+    public Output<Optional<List<FastTcpAppPoolMember>>> poolMembers() {
+        return Codegen.optional(this.poolMembers);
+    }
+    /**
      * Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
      * 
      */
@@ -214,6 +200,20 @@ public class FastTcpApp extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Integer>> slowRampTime() {
         return Codegen.optional(this.slowRampTime);
+    }
+    /**
+     * List of address to be used for FAST-Generated SNAT Pool.
+     * 
+     */
+    @Export(name="snatPoolAddresses", type=List.class, parameters={String.class})
+    private Output</* @Nullable */ List<String>> snatPoolAddresses;
+
+    /**
+     * @return List of address to be used for FAST-Generated SNAT Pool.
+     * 
+     */
+    public Output<Optional<List<String>>> snatPoolAddresses() {
+        return Codegen.optional(this.snatPoolAddresses);
     }
     /**
      * Name of the FAST TCP application tenant.

@@ -23,10 +23,15 @@ class ProfileFastL4Args:
                  iptos_toclient: Optional[pulumi.Input[str]] = None,
                  iptos_toserver: Optional[pulumi.Input[str]] = None,
                  keepalive_interval: Optional[pulumi.Input[str]] = None,
-                 partition: Optional[pulumi.Input[str]] = None):
+                 late_binding: Optional[pulumi.Input[str]] = None,
+                 loose_close: Optional[pulumi.Input[str]] = None,
+                 loose_initiation: Optional[pulumi.Input[str]] = None,
+                 partition: Optional[pulumi.Input[str]] = None,
+                 receive_windowsize: Optional[pulumi.Input[int]] = None,
+                 tcp_handshake_timeout: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ProfileFastL4 resource.
-        :param pulumi.Input[str] name: Name of the profile_fastl4
+        :param pulumi.Input[str] name: Name of the LTM fastL4 Profile.The full path is the combination of the `partition + name` of the resource (For example `/Common/my-fastl4profile`) or  `partition + directory + name` of the resource  (example: `/Common/test/my-fastl4profile`)
         :param pulumi.Input[int] client_timeout: Specifies late binding client timeout in seconds. This setting specifies the number of seconds allowed for a client to transmit enough data to select a server when late binding is enabled. If it expires timeout-recovery mode will dictate what action to take.
         :param pulumi.Input[str] defaults_from: Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         :param pulumi.Input[str] explicitflow_migration: Enables or disables late binding explicit flow migration that allows iRules to control when flows move from software to hardware. Explicit flow migration is disabled by default hence BIG-IP automatically migrates flows from software to hardware.
@@ -35,7 +40,12 @@ class ProfileFastL4Args:
         :param pulumi.Input[str] iptos_toclient: Specifies an IP ToS number for the client side. This option specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to clients. The default value is 65535 (pass-through), which indicates, do not modify.
         :param pulumi.Input[str] iptos_toserver: Specifies an IP ToS number for the server side. This setting specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to servers. The default value is 65535 (pass-through), which indicates, do not modify.
         :param pulumi.Input[str] keepalive_interval: Specifies the keep alive probe interval, in seconds. The default value is disabled (0 seconds).
-        :param pulumi.Input[str] partition: Displays the administrative partition within which this profile resides
+        :param pulumi.Input[str] late_binding: Enables intelligent selection of a back-end server or pool, using an iRule to make the selection. The default is `disabled`.
+        :param pulumi.Input[str] loose_close: Specifies, when checked (enabled), that the system closes a loosely-initiated connection when the system receives the first FIN packet from either the client or the server. The default is disabled.
+        :param pulumi.Input[str] loose_initiation: Specifies, when checked (enabled), that the system initializes a connection when it receives any TCP packet, rather that requiring a SYN packet for connection initiation. The default is disabled. We recommend that if you enable the Loose Initiation option, you also enable the Loose Close option.
+        :param pulumi.Input[str] partition: name of partition
+        :param pulumi.Input[int] receive_windowsize: Specifies the amount of data the BIG-IP system can accept without acknowledging the server. The default is 0 (zero).
+        :param pulumi.Input[str] tcp_handshake_timeout: Specifies the acceptable duration for a TCP handshake, that is, the maximum idle time between a client synchronization (SYN) and a client acknowledgment (ACK).The default is `5 seconds`.
         """
         pulumi.set(__self__, "name", name)
         if client_timeout is not None:
@@ -54,14 +64,24 @@ class ProfileFastL4Args:
             pulumi.set(__self__, "iptos_toserver", iptos_toserver)
         if keepalive_interval is not None:
             pulumi.set(__self__, "keepalive_interval", keepalive_interval)
+        if late_binding is not None:
+            pulumi.set(__self__, "late_binding", late_binding)
+        if loose_close is not None:
+            pulumi.set(__self__, "loose_close", loose_close)
+        if loose_initiation is not None:
+            pulumi.set(__self__, "loose_initiation", loose_initiation)
         if partition is not None:
             pulumi.set(__self__, "partition", partition)
+        if receive_windowsize is not None:
+            pulumi.set(__self__, "receive_windowsize", receive_windowsize)
+        if tcp_handshake_timeout is not None:
+            pulumi.set(__self__, "tcp_handshake_timeout", tcp_handshake_timeout)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Name of the profile_fastl4
+        Name of the LTM fastL4 Profile.The full path is the combination of the `partition + name` of the resource (For example `/Common/my-fastl4profile`) or  `partition + directory + name` of the resource  (example: `/Common/test/my-fastl4profile`)
         """
         return pulumi.get(self, "name")
 
@@ -166,16 +186,76 @@ class ProfileFastL4Args:
         pulumi.set(self, "keepalive_interval", value)
 
     @property
+    @pulumi.getter(name="lateBinding")
+    def late_binding(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enables intelligent selection of a back-end server or pool, using an iRule to make the selection. The default is `disabled`.
+        """
+        return pulumi.get(self, "late_binding")
+
+    @late_binding.setter
+    def late_binding(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "late_binding", value)
+
+    @property
+    @pulumi.getter(name="looseClose")
+    def loose_close(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies, when checked (enabled), that the system closes a loosely-initiated connection when the system receives the first FIN packet from either the client or the server. The default is disabled.
+        """
+        return pulumi.get(self, "loose_close")
+
+    @loose_close.setter
+    def loose_close(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "loose_close", value)
+
+    @property
+    @pulumi.getter(name="looseInitiation")
+    def loose_initiation(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies, when checked (enabled), that the system initializes a connection when it receives any TCP packet, rather that requiring a SYN packet for connection initiation. The default is disabled. We recommend that if you enable the Loose Initiation option, you also enable the Loose Close option.
+        """
+        return pulumi.get(self, "loose_initiation")
+
+    @loose_initiation.setter
+    def loose_initiation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "loose_initiation", value)
+
+    @property
     @pulumi.getter
     def partition(self) -> Optional[pulumi.Input[str]]:
         """
-        Displays the administrative partition within which this profile resides
+        name of partition
         """
         return pulumi.get(self, "partition")
 
     @partition.setter
     def partition(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "partition", value)
+
+    @property
+    @pulumi.getter(name="receiveWindowsize")
+    def receive_windowsize(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the amount of data the BIG-IP system can accept without acknowledging the server. The default is 0 (zero).
+        """
+        return pulumi.get(self, "receive_windowsize")
+
+    @receive_windowsize.setter
+    def receive_windowsize(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "receive_windowsize", value)
+
+    @property
+    @pulumi.getter(name="tcpHandshakeTimeout")
+    def tcp_handshake_timeout(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the acceptable duration for a TCP handshake, that is, the maximum idle time between a client synchronization (SYN) and a client acknowledgment (ACK).The default is `5 seconds`.
+        """
+        return pulumi.get(self, "tcp_handshake_timeout")
+
+    @tcp_handshake_timeout.setter
+    def tcp_handshake_timeout(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tcp_handshake_timeout", value)
 
 
 @pulumi.input_type
@@ -189,8 +269,13 @@ class _ProfileFastL4State:
                  iptos_toclient: Optional[pulumi.Input[str]] = None,
                  iptos_toserver: Optional[pulumi.Input[str]] = None,
                  keepalive_interval: Optional[pulumi.Input[str]] = None,
+                 late_binding: Optional[pulumi.Input[str]] = None,
+                 loose_close: Optional[pulumi.Input[str]] = None,
+                 loose_initiation: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 partition: Optional[pulumi.Input[str]] = None):
+                 partition: Optional[pulumi.Input[str]] = None,
+                 receive_windowsize: Optional[pulumi.Input[int]] = None,
+                 tcp_handshake_timeout: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ProfileFastL4 resources.
         :param pulumi.Input[int] client_timeout: Specifies late binding client timeout in seconds. This setting specifies the number of seconds allowed for a client to transmit enough data to select a server when late binding is enabled. If it expires timeout-recovery mode will dictate what action to take.
@@ -201,8 +286,13 @@ class _ProfileFastL4State:
         :param pulumi.Input[str] iptos_toclient: Specifies an IP ToS number for the client side. This option specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to clients. The default value is 65535 (pass-through), which indicates, do not modify.
         :param pulumi.Input[str] iptos_toserver: Specifies an IP ToS number for the server side. This setting specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to servers. The default value is 65535 (pass-through), which indicates, do not modify.
         :param pulumi.Input[str] keepalive_interval: Specifies the keep alive probe interval, in seconds. The default value is disabled (0 seconds).
-        :param pulumi.Input[str] name: Name of the profile_fastl4
-        :param pulumi.Input[str] partition: Displays the administrative partition within which this profile resides
+        :param pulumi.Input[str] late_binding: Enables intelligent selection of a back-end server or pool, using an iRule to make the selection. The default is `disabled`.
+        :param pulumi.Input[str] loose_close: Specifies, when checked (enabled), that the system closes a loosely-initiated connection when the system receives the first FIN packet from either the client or the server. The default is disabled.
+        :param pulumi.Input[str] loose_initiation: Specifies, when checked (enabled), that the system initializes a connection when it receives any TCP packet, rather that requiring a SYN packet for connection initiation. The default is disabled. We recommend that if you enable the Loose Initiation option, you also enable the Loose Close option.
+        :param pulumi.Input[str] name: Name of the LTM fastL4 Profile.The full path is the combination of the `partition + name` of the resource (For example `/Common/my-fastl4profile`) or  `partition + directory + name` of the resource  (example: `/Common/test/my-fastl4profile`)
+        :param pulumi.Input[str] partition: name of partition
+        :param pulumi.Input[int] receive_windowsize: Specifies the amount of data the BIG-IP system can accept without acknowledging the server. The default is 0 (zero).
+        :param pulumi.Input[str] tcp_handshake_timeout: Specifies the acceptable duration for a TCP handshake, that is, the maximum idle time between a client synchronization (SYN) and a client acknowledgment (ACK).The default is `5 seconds`.
         """
         if client_timeout is not None:
             pulumi.set(__self__, "client_timeout", client_timeout)
@@ -220,10 +310,20 @@ class _ProfileFastL4State:
             pulumi.set(__self__, "iptos_toserver", iptos_toserver)
         if keepalive_interval is not None:
             pulumi.set(__self__, "keepalive_interval", keepalive_interval)
+        if late_binding is not None:
+            pulumi.set(__self__, "late_binding", late_binding)
+        if loose_close is not None:
+            pulumi.set(__self__, "loose_close", loose_close)
+        if loose_initiation is not None:
+            pulumi.set(__self__, "loose_initiation", loose_initiation)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if partition is not None:
             pulumi.set(__self__, "partition", partition)
+        if receive_windowsize is not None:
+            pulumi.set(__self__, "receive_windowsize", receive_windowsize)
+        if tcp_handshake_timeout is not None:
+            pulumi.set(__self__, "tcp_handshake_timeout", tcp_handshake_timeout)
 
     @property
     @pulumi.getter(name="clientTimeout")
@@ -322,10 +422,46 @@ class _ProfileFastL4State:
         pulumi.set(self, "keepalive_interval", value)
 
     @property
+    @pulumi.getter(name="lateBinding")
+    def late_binding(self) -> Optional[pulumi.Input[str]]:
+        """
+        Enables intelligent selection of a back-end server or pool, using an iRule to make the selection. The default is `disabled`.
+        """
+        return pulumi.get(self, "late_binding")
+
+    @late_binding.setter
+    def late_binding(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "late_binding", value)
+
+    @property
+    @pulumi.getter(name="looseClose")
+    def loose_close(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies, when checked (enabled), that the system closes a loosely-initiated connection when the system receives the first FIN packet from either the client or the server. The default is disabled.
+        """
+        return pulumi.get(self, "loose_close")
+
+    @loose_close.setter
+    def loose_close(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "loose_close", value)
+
+    @property
+    @pulumi.getter(name="looseInitiation")
+    def loose_initiation(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies, when checked (enabled), that the system initializes a connection when it receives any TCP packet, rather that requiring a SYN packet for connection initiation. The default is disabled. We recommend that if you enable the Loose Initiation option, you also enable the Loose Close option.
+        """
+        return pulumi.get(self, "loose_initiation")
+
+    @loose_initiation.setter
+    def loose_initiation(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "loose_initiation", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the profile_fastl4
+        Name of the LTM fastL4 Profile.The full path is the combination of the `partition + name` of the resource (For example `/Common/my-fastl4profile`) or  `partition + directory + name` of the resource  (example: `/Common/test/my-fastl4profile`)
         """
         return pulumi.get(self, "name")
 
@@ -337,13 +473,37 @@ class _ProfileFastL4State:
     @pulumi.getter
     def partition(self) -> Optional[pulumi.Input[str]]:
         """
-        Displays the administrative partition within which this profile resides
+        name of partition
         """
         return pulumi.get(self, "partition")
 
     @partition.setter
     def partition(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "partition", value)
+
+    @property
+    @pulumi.getter(name="receiveWindowsize")
+    def receive_windowsize(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the amount of data the BIG-IP system can accept without acknowledging the server. The default is 0 (zero).
+        """
+        return pulumi.get(self, "receive_windowsize")
+
+    @receive_windowsize.setter
+    def receive_windowsize(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "receive_windowsize", value)
+
+    @property
+    @pulumi.getter(name="tcpHandshakeTimeout")
+    def tcp_handshake_timeout(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the acceptable duration for a TCP handshake, that is, the maximum idle time between a client synchronization (SYN) and a client acknowledgment (ACK).The default is `5 seconds`.
+        """
+        return pulumi.get(self, "tcp_handshake_timeout")
+
+    @tcp_handshake_timeout.setter
+    def tcp_handshake_timeout(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "tcp_handshake_timeout", value)
 
 
 class ProfileFastL4(pulumi.CustomResource):
@@ -359,13 +519,18 @@ class ProfileFastL4(pulumi.CustomResource):
                  iptos_toclient: Optional[pulumi.Input[str]] = None,
                  iptos_toserver: Optional[pulumi.Input[str]] = None,
                  keepalive_interval: Optional[pulumi.Input[str]] = None,
+                 late_binding: Optional[pulumi.Input[str]] = None,
+                 loose_close: Optional[pulumi.Input[str]] = None,
+                 loose_initiation: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  partition: Optional[pulumi.Input[str]] = None,
+                 receive_windowsize: Optional[pulumi.Input[int]] = None,
+                 tcp_handshake_timeout: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        `ltm.ProfileFastL4` Configures a custom profile_fastl4 for use by health checks.
+        `ltm.ProfileFastL4` Configures a custom LTM fastL4 profile for use by health checks.
 
-        For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+        Resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource (For example `/Common/my-fastl4profile`) or  `partition + directory + name` of the resource  (example: `/Common/test/my-fastl4profile`)
 
         ## Example Usage
 
@@ -403,8 +568,13 @@ class ProfileFastL4(pulumi.CustomResource):
         :param pulumi.Input[str] iptos_toclient: Specifies an IP ToS number for the client side. This option specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to clients. The default value is 65535 (pass-through), which indicates, do not modify.
         :param pulumi.Input[str] iptos_toserver: Specifies an IP ToS number for the server side. This setting specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to servers. The default value is 65535 (pass-through), which indicates, do not modify.
         :param pulumi.Input[str] keepalive_interval: Specifies the keep alive probe interval, in seconds. The default value is disabled (0 seconds).
-        :param pulumi.Input[str] name: Name of the profile_fastl4
-        :param pulumi.Input[str] partition: Displays the administrative partition within which this profile resides
+        :param pulumi.Input[str] late_binding: Enables intelligent selection of a back-end server or pool, using an iRule to make the selection. The default is `disabled`.
+        :param pulumi.Input[str] loose_close: Specifies, when checked (enabled), that the system closes a loosely-initiated connection when the system receives the first FIN packet from either the client or the server. The default is disabled.
+        :param pulumi.Input[str] loose_initiation: Specifies, when checked (enabled), that the system initializes a connection when it receives any TCP packet, rather that requiring a SYN packet for connection initiation. The default is disabled. We recommend that if you enable the Loose Initiation option, you also enable the Loose Close option.
+        :param pulumi.Input[str] name: Name of the LTM fastL4 Profile.The full path is the combination of the `partition + name` of the resource (For example `/Common/my-fastl4profile`) or  `partition + directory + name` of the resource  (example: `/Common/test/my-fastl4profile`)
+        :param pulumi.Input[str] partition: name of partition
+        :param pulumi.Input[int] receive_windowsize: Specifies the amount of data the BIG-IP system can accept without acknowledging the server. The default is 0 (zero).
+        :param pulumi.Input[str] tcp_handshake_timeout: Specifies the acceptable duration for a TCP handshake, that is, the maximum idle time between a client synchronization (SYN) and a client acknowledgment (ACK).The default is `5 seconds`.
         """
         ...
     @overload
@@ -413,9 +583,9 @@ class ProfileFastL4(pulumi.CustomResource):
                  args: ProfileFastL4Args,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        `ltm.ProfileFastL4` Configures a custom profile_fastl4 for use by health checks.
+        `ltm.ProfileFastL4` Configures a custom LTM fastL4 profile for use by health checks.
 
-        For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+        Resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource (For example `/Common/my-fastl4profile`) or  `partition + directory + name` of the resource  (example: `/Common/test/my-fastl4profile`)
 
         ## Example Usage
 
@@ -466,8 +636,13 @@ class ProfileFastL4(pulumi.CustomResource):
                  iptos_toclient: Optional[pulumi.Input[str]] = None,
                  iptos_toserver: Optional[pulumi.Input[str]] = None,
                  keepalive_interval: Optional[pulumi.Input[str]] = None,
+                 late_binding: Optional[pulumi.Input[str]] = None,
+                 loose_close: Optional[pulumi.Input[str]] = None,
+                 loose_initiation: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  partition: Optional[pulumi.Input[str]] = None,
+                 receive_windowsize: Optional[pulumi.Input[int]] = None,
+                 tcp_handshake_timeout: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -485,10 +660,15 @@ class ProfileFastL4(pulumi.CustomResource):
             __props__.__dict__["iptos_toclient"] = iptos_toclient
             __props__.__dict__["iptos_toserver"] = iptos_toserver
             __props__.__dict__["keepalive_interval"] = keepalive_interval
+            __props__.__dict__["late_binding"] = late_binding
+            __props__.__dict__["loose_close"] = loose_close
+            __props__.__dict__["loose_initiation"] = loose_initiation
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["partition"] = partition
+            __props__.__dict__["receive_windowsize"] = receive_windowsize
+            __props__.__dict__["tcp_handshake_timeout"] = tcp_handshake_timeout
         super(ProfileFastL4, __self__).__init__(
             'f5bigip:ltm/profileFastL4:ProfileFastL4',
             resource_name,
@@ -507,8 +687,13 @@ class ProfileFastL4(pulumi.CustomResource):
             iptos_toclient: Optional[pulumi.Input[str]] = None,
             iptos_toserver: Optional[pulumi.Input[str]] = None,
             keepalive_interval: Optional[pulumi.Input[str]] = None,
+            late_binding: Optional[pulumi.Input[str]] = None,
+            loose_close: Optional[pulumi.Input[str]] = None,
+            loose_initiation: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            partition: Optional[pulumi.Input[str]] = None) -> 'ProfileFastL4':
+            partition: Optional[pulumi.Input[str]] = None,
+            receive_windowsize: Optional[pulumi.Input[int]] = None,
+            tcp_handshake_timeout: Optional[pulumi.Input[str]] = None) -> 'ProfileFastL4':
         """
         Get an existing ProfileFastL4 resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -524,8 +709,13 @@ class ProfileFastL4(pulumi.CustomResource):
         :param pulumi.Input[str] iptos_toclient: Specifies an IP ToS number for the client side. This option specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to clients. The default value is 65535 (pass-through), which indicates, do not modify.
         :param pulumi.Input[str] iptos_toserver: Specifies an IP ToS number for the server side. This setting specifies the Type of Service level that the traffic management system assigns to IP packets when sending them to servers. The default value is 65535 (pass-through), which indicates, do not modify.
         :param pulumi.Input[str] keepalive_interval: Specifies the keep alive probe interval, in seconds. The default value is disabled (0 seconds).
-        :param pulumi.Input[str] name: Name of the profile_fastl4
-        :param pulumi.Input[str] partition: Displays the administrative partition within which this profile resides
+        :param pulumi.Input[str] late_binding: Enables intelligent selection of a back-end server or pool, using an iRule to make the selection. The default is `disabled`.
+        :param pulumi.Input[str] loose_close: Specifies, when checked (enabled), that the system closes a loosely-initiated connection when the system receives the first FIN packet from either the client or the server. The default is disabled.
+        :param pulumi.Input[str] loose_initiation: Specifies, when checked (enabled), that the system initializes a connection when it receives any TCP packet, rather that requiring a SYN packet for connection initiation. The default is disabled. We recommend that if you enable the Loose Initiation option, you also enable the Loose Close option.
+        :param pulumi.Input[str] name: Name of the LTM fastL4 Profile.The full path is the combination of the `partition + name` of the resource (For example `/Common/my-fastl4profile`) or  `partition + directory + name` of the resource  (example: `/Common/test/my-fastl4profile`)
+        :param pulumi.Input[str] partition: name of partition
+        :param pulumi.Input[int] receive_windowsize: Specifies the amount of data the BIG-IP system can accept without acknowledging the server. The default is 0 (zero).
+        :param pulumi.Input[str] tcp_handshake_timeout: Specifies the acceptable duration for a TCP handshake, that is, the maximum idle time between a client synchronization (SYN) and a client acknowledgment (ACK).The default is `5 seconds`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -539,8 +729,13 @@ class ProfileFastL4(pulumi.CustomResource):
         __props__.__dict__["iptos_toclient"] = iptos_toclient
         __props__.__dict__["iptos_toserver"] = iptos_toserver
         __props__.__dict__["keepalive_interval"] = keepalive_interval
+        __props__.__dict__["late_binding"] = late_binding
+        __props__.__dict__["loose_close"] = loose_close
+        __props__.__dict__["loose_initiation"] = loose_initiation
         __props__.__dict__["name"] = name
         __props__.__dict__["partition"] = partition
+        __props__.__dict__["receive_windowsize"] = receive_windowsize
+        __props__.__dict__["tcp_handshake_timeout"] = tcp_handshake_timeout
         return ProfileFastL4(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -608,10 +803,34 @@ class ProfileFastL4(pulumi.CustomResource):
         return pulumi.get(self, "keepalive_interval")
 
     @property
+    @pulumi.getter(name="lateBinding")
+    def late_binding(self) -> pulumi.Output[str]:
+        """
+        Enables intelligent selection of a back-end server or pool, using an iRule to make the selection. The default is `disabled`.
+        """
+        return pulumi.get(self, "late_binding")
+
+    @property
+    @pulumi.getter(name="looseClose")
+    def loose_close(self) -> pulumi.Output[str]:
+        """
+        Specifies, when checked (enabled), that the system closes a loosely-initiated connection when the system receives the first FIN packet from either the client or the server. The default is disabled.
+        """
+        return pulumi.get(self, "loose_close")
+
+    @property
+    @pulumi.getter(name="looseInitiation")
+    def loose_initiation(self) -> pulumi.Output[str]:
+        """
+        Specifies, when checked (enabled), that the system initializes a connection when it receives any TCP packet, rather that requiring a SYN packet for connection initiation. The default is disabled. We recommend that if you enable the Loose Initiation option, you also enable the Loose Close option.
+        """
+        return pulumi.get(self, "loose_initiation")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the profile_fastl4
+        Name of the LTM fastL4 Profile.The full path is the combination of the `partition + name` of the resource (For example `/Common/my-fastl4profile`) or  `partition + directory + name` of the resource  (example: `/Common/test/my-fastl4profile`)
         """
         return pulumi.get(self, "name")
 
@@ -619,7 +838,23 @@ class ProfileFastL4(pulumi.CustomResource):
     @pulumi.getter
     def partition(self) -> pulumi.Output[str]:
         """
-        Displays the administrative partition within which this profile resides
+        name of partition
         """
         return pulumi.get(self, "partition")
+
+    @property
+    @pulumi.getter(name="receiveWindowsize")
+    def receive_windowsize(self) -> pulumi.Output[int]:
+        """
+        Specifies the amount of data the BIG-IP system can accept without acknowledging the server. The default is 0 (zero).
+        """
+        return pulumi.get(self, "receive_windowsize")
+
+    @property
+    @pulumi.getter(name="tcpHandshakeTimeout")
+    def tcp_handshake_timeout(self) -> pulumi.Output[str]:
+        """
+        Specifies the acceptable duration for a TCP handshake, that is, the maximum idle time between a client synchronization (SYN) and a client acknowledgment (ACK).The default is `5 seconds`.
+        """
+        return pulumi.get(self, "tcp_handshake_timeout")
 

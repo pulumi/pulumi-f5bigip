@@ -33,14 +33,14 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+     * Name of Rule to be applied in policy.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+     * @return Name of Rule to be applied in policy.
      * 
      */
     public Optional<Output<String>> name() {
@@ -78,14 +78,14 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Rules can be applied using the policy
+     * List of Rules can be applied using the policy. Each rule is block type with following arguments.
      * 
      */
     @Import(name="rules")
     private @Nullable Output<List<PolicyRuleArgs>> rules;
 
     /**
-     * @return Rules can be applied using the policy
+     * @return List of Rules can be applied using the policy. Each rule is block type with following arguments.
      * 
      */
     public Optional<Output<List<PolicyRuleArgs>>> rules() {
@@ -168,7 +168,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+         * @param name Name of Rule to be applied in policy.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+         * @param name Name of Rule to be applied in policy.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rules Rules can be applied using the policy
+         * @param rules List of Rules can be applied using the policy. Each rule is block type with following arguments.
          * 
          * @return builder
          * 
@@ -252,7 +252,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rules Rules can be applied using the policy
+         * @param rules List of Rules can be applied using the policy. Each rule is block type with following arguments.
          * 
          * @return builder
          * 
@@ -262,7 +262,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rules Rules can be applied using the policy
+         * @param rules List of Rules can be applied using the policy. Each rule is block type with following arguments.
          * 
          * @return builder
          * 

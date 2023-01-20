@@ -46,6 +46,10 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly tokenValue!: pulumi.Output<string | undefined>;
     /**
+     * Valid Trusted Certificate path
+     */
+    public readonly trustedCertPath!: pulumi.Output<string | undefined>;
+    /**
      * Username with API access to the BigIP
      */
     public readonly username!: pulumi.Output<string | undefined>;
@@ -68,7 +72,9 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["teemDisable"] = pulumi.output(args ? args.teemDisable : undefined).apply(JSON.stringify);
             resourceInputs["tokenAuth"] = pulumi.output(args ? args.tokenAuth : undefined).apply(JSON.stringify);
             resourceInputs["tokenValue"] = args ? args.tokenValue : undefined;
+            resourceInputs["trustedCertPath"] = args ? args.trustedCertPath : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["validateCertsDisable"] = pulumi.output(args ? args.validateCertsDisable : undefined).apply(JSON.stringify);
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
@@ -108,7 +114,15 @@ export interface ProviderArgs {
      */
     tokenValue?: pulumi.Input<string>;
     /**
+     * Valid Trusted Certificate path
+     */
+    trustedCertPath?: pulumi.Input<string>;
+    /**
      * Username with API access to the BigIP
      */
     username?: pulumi.Input<string>;
+    /**
+     * If set to true, Disables TLS certificate check on BIG-IP. Default : True
+     */
+    validateCertsDisable?: pulumi.Input<boolean>;
 }

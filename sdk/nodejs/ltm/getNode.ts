@@ -2,18 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
  * Use this data source (`f5bigip.ltm.Node`) to get the ltm node details available on BIG-IP
  */
 export function getNode(args: GetNodeArgs, opts?: pulumi.InvokeOptions): Promise<GetNodeResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("f5bigip:ltm/getNode:getNode", {
         "address": args.address,
         "description": args.description,
@@ -100,9 +98,11 @@ export interface GetNodeResult {
      */
     readonly state: string;
 }
-
+/**
+ * Use this data source (`f5bigip.ltm.Node`) to get the ltm node details available on BIG-IP
+ */
 export function getNodeOutput(args: GetNodeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNodeResult> {
-    return pulumi.output(args).apply(a => getNode(a, opts))
+    return pulumi.output(args).apply((a: any) => getNode(a, opts))
 }
 
 /**

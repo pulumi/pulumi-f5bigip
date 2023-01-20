@@ -11,16 +11,22 @@ from . import _utilities
 
 __all__ = [
     'EventServiceDiscoveryNode',
-    'FastHttpAppFastCreateMonitor',
-    'FastHttpAppFastCreatePoolMember',
+    'FastHttpAppMonitor',
+    'FastHttpAppPoolMember',
     'FastHttpAppVirtualServer',
-    'FastHttpsAppCreateTlsServerProfile',
-    'FastHttpsAppFastCreateMonitor',
-    'FastHttpsAppFastCreatePoolMember',
+    'FastHttpAppWafSecurityPolicy',
+    'FastHttpsAppMonitor',
+    'FastHttpsAppPoolMember',
+    'FastHttpsAppTlsClientProfile',
+    'FastHttpsAppTlsServerProfile',
     'FastHttpsAppVirtualServer',
-    'FastTcpAppFastCreateMonitor',
-    'FastTcpAppFastCreatePoolMember',
+    'FastHttpsAppWafSecurityPolicy',
+    'FastTcpAppMonitor',
+    'FastTcpAppPoolMember',
     'FastTcpAppVirtualServer',
+    'FastUdpAppMonitor',
+    'FastUdpAppPoolMember',
+    'FastUdpAppVirtualServer',
     'WafPolicyFileType',
     'WafPolicyGraphqlProfile',
     'WafPolicyPolicyBuilder',
@@ -57,7 +63,7 @@ class EventServiceDiscoveryNode(dict):
 
 
 @pulumi.output_type
-class FastHttpAppFastCreateMonitor(dict):
+class FastHttpAppMonitor(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -67,14 +73,14 @@ class FastHttpAppFastCreateMonitor(dict):
             suggest = "send_string"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FastHttpAppFastCreateMonitor. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in FastHttpAppMonitor. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        FastHttpAppFastCreateMonitor.__key_warning(key)
+        FastHttpAppMonitor.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        FastHttpAppFastCreateMonitor.__key_warning(key)
+        FastHttpAppMonitor.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -155,7 +161,7 @@ class FastHttpAppFastCreateMonitor(dict):
 
 
 @pulumi.output_type
-class FastHttpAppFastCreatePoolMember(dict):
+class FastHttpAppPoolMember(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -167,14 +173,14 @@ class FastHttpAppFastCreatePoolMember(dict):
             suggest = "share_nodes"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FastHttpAppFastCreatePoolMember. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in FastHttpAppPoolMember. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        FastHttpAppFastCreatePoolMember.__key_warning(key)
+        FastHttpAppPoolMember.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        FastHttpAppFastCreatePoolMember.__key_warning(key)
+        FastHttpAppPoolMember.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -248,7 +254,7 @@ class FastHttpAppVirtualServer(dict):
                  port: int):
         """
         :param str ip: IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
-        :param int port: -(Optional , `int`) Port number to used for accessing virtual server/application
+        :param int port: Port number to used for accessing virtual server/application
         """
         pulumi.set(__self__, "ip", ip)
         pulumi.set(__self__, "port", port)
@@ -265,61 +271,31 @@ class FastHttpAppVirtualServer(dict):
     @pulumi.getter
     def port(self) -> int:
         """
-        -(Optional , `int`) Port number to used for accessing virtual server/application
+        Port number to used for accessing virtual server/application
         """
         return pulumi.get(self, "port")
 
 
 @pulumi.output_type
-class FastHttpsAppCreateTlsServerProfile(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "tlsCertName":
-            suggest = "tls_cert_name"
-        elif key == "tlsKeyName":
-            suggest = "tls_key_name"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FastHttpsAppCreateTlsServerProfile. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        FastHttpsAppCreateTlsServerProfile.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        FastHttpsAppCreateTlsServerProfile.__key_warning(key)
-        return super().get(key, default)
-
+class FastHttpAppWafSecurityPolicy(dict):
     def __init__(__self__, *,
-                 tls_cert_name: str,
-                 tls_key_name: str):
+                 enable: bool):
         """
-        :param str tls_cert_name: Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
-        :param str tls_key_name: Name of existing BIG-IP SSL Key to be used for FAST-Generated TLS Server Profile.
+        :param bool enable: Setting `true` will enable FAST to create WAF Security Policy.
         """
-        pulumi.set(__self__, "tls_cert_name", tls_cert_name)
-        pulumi.set(__self__, "tls_key_name", tls_key_name)
+        pulumi.set(__self__, "enable", enable)
 
     @property
-    @pulumi.getter(name="tlsCertName")
-    def tls_cert_name(self) -> str:
+    @pulumi.getter
+    def enable(self) -> bool:
         """
-        Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
+        Setting `true` will enable FAST to create WAF Security Policy.
         """
-        return pulumi.get(self, "tls_cert_name")
-
-    @property
-    @pulumi.getter(name="tlsKeyName")
-    def tls_key_name(self) -> str:
-        """
-        Name of existing BIG-IP SSL Key to be used for FAST-Generated TLS Server Profile.
-        """
-        return pulumi.get(self, "tls_key_name")
+        return pulumi.get(self, "enable")
 
 
 @pulumi.output_type
-class FastHttpsAppFastCreateMonitor(dict):
+class FastHttpsAppMonitor(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -329,14 +305,14 @@ class FastHttpsAppFastCreateMonitor(dict):
             suggest = "send_string"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FastHttpsAppFastCreateMonitor. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in FastHttpsAppMonitor. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        FastHttpsAppFastCreateMonitor.__key_warning(key)
+        FastHttpsAppMonitor.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        FastHttpsAppFastCreateMonitor.__key_warning(key)
+        FastHttpsAppMonitor.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -417,7 +393,7 @@ class FastHttpsAppFastCreateMonitor(dict):
 
 
 @pulumi.output_type
-class FastHttpsAppFastCreatePoolMember(dict):
+class FastHttpsAppPoolMember(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -429,14 +405,14 @@ class FastHttpsAppFastCreatePoolMember(dict):
             suggest = "share_nodes"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FastHttpsAppFastCreatePoolMember. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in FastHttpsAppPoolMember. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        FastHttpsAppFastCreatePoolMember.__key_warning(key)
+        FastHttpsAppPoolMember.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        FastHttpsAppFastCreatePoolMember.__key_warning(key)
+        FastHttpsAppPoolMember.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -504,13 +480,109 @@ class FastHttpsAppFastCreatePoolMember(dict):
 
 
 @pulumi.output_type
+class FastHttpsAppTlsClientProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tlsCertName":
+            suggest = "tls_cert_name"
+        elif key == "tlsKeyName":
+            suggest = "tls_key_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FastHttpsAppTlsClientProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FastHttpsAppTlsClientProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FastHttpsAppTlsClientProfile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tls_cert_name: str,
+                 tls_key_name: str):
+        """
+        :param str tls_cert_name: Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
+        :param str tls_key_name: Name of existing BIG-IP SSL Key to be used for FAST-Generated TLS Server Profile.
+        """
+        pulumi.set(__self__, "tls_cert_name", tls_cert_name)
+        pulumi.set(__self__, "tls_key_name", tls_key_name)
+
+    @property
+    @pulumi.getter(name="tlsCertName")
+    def tls_cert_name(self) -> str:
+        """
+        Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
+        """
+        return pulumi.get(self, "tls_cert_name")
+
+    @property
+    @pulumi.getter(name="tlsKeyName")
+    def tls_key_name(self) -> str:
+        """
+        Name of existing BIG-IP SSL Key to be used for FAST-Generated TLS Server Profile.
+        """
+        return pulumi.get(self, "tls_key_name")
+
+
+@pulumi.output_type
+class FastHttpsAppTlsServerProfile(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tlsCertName":
+            suggest = "tls_cert_name"
+        elif key == "tlsKeyName":
+            suggest = "tls_key_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FastHttpsAppTlsServerProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FastHttpsAppTlsServerProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FastHttpsAppTlsServerProfile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tls_cert_name: str,
+                 tls_key_name: str):
+        """
+        :param str tls_cert_name: Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
+        :param str tls_key_name: Name of existing BIG-IP SSL Key to be used for FAST-Generated TLS Server Profile.
+        """
+        pulumi.set(__self__, "tls_cert_name", tls_cert_name)
+        pulumi.set(__self__, "tls_key_name", tls_key_name)
+
+    @property
+    @pulumi.getter(name="tlsCertName")
+    def tls_cert_name(self) -> str:
+        """
+        Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
+        """
+        return pulumi.get(self, "tls_cert_name")
+
+    @property
+    @pulumi.getter(name="tlsKeyName")
+    def tls_key_name(self) -> str:
+        """
+        Name of existing BIG-IP SSL Key to be used for FAST-Generated TLS Server Profile.
+        """
+        return pulumi.get(self, "tls_key_name")
+
+
+@pulumi.output_type
 class FastHttpsAppVirtualServer(dict):
     def __init__(__self__, *,
                  ip: str,
                  port: int):
         """
         :param str ip: IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
-        :param int port: -(Optional , `int`) Port number to used for accessing virtual server/application
+        :param int port: Port number to used for accessing virtual server/application
         """
         pulumi.set(__self__, "ip", ip)
         pulumi.set(__self__, "port", port)
@@ -527,13 +599,31 @@ class FastHttpsAppVirtualServer(dict):
     @pulumi.getter
     def port(self) -> int:
         """
-        -(Optional , `int`) Port number to used for accessing virtual server/application
+        Port number to used for accessing virtual server/application
         """
         return pulumi.get(self, "port")
 
 
 @pulumi.output_type
-class FastTcpAppFastCreateMonitor(dict):
+class FastHttpsAppWafSecurityPolicy(dict):
+    def __init__(__self__, *,
+                 enable: bool):
+        """
+        :param bool enable: Setting `true` will enable FAST to create WAF Security Policy.
+        """
+        pulumi.set(__self__, "enable", enable)
+
+    @property
+    @pulumi.getter
+    def enable(self) -> bool:
+        """
+        Setting `true` will enable FAST to create WAF Security Policy.
+        """
+        return pulumi.get(self, "enable")
+
+
+@pulumi.output_type
+class FastTcpAppMonitor(dict):
     def __init__(__self__, *,
                  interval: Optional[int] = None):
         """
@@ -552,7 +642,7 @@ class FastTcpAppFastCreateMonitor(dict):
 
 
 @pulumi.output_type
-class FastTcpAppFastCreatePoolMember(dict):
+class FastTcpAppPoolMember(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -564,14 +654,14 @@ class FastTcpAppFastCreatePoolMember(dict):
             suggest = "share_nodes"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in FastTcpAppFastCreatePoolMember. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in FastTcpAppPoolMember. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        FastTcpAppFastCreatePoolMember.__key_warning(key)
+        FastTcpAppPoolMember.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        FastTcpAppFastCreatePoolMember.__key_warning(key)
+        FastTcpAppPoolMember.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -645,7 +735,7 @@ class FastTcpAppVirtualServer(dict):
                  port: int):
         """
         :param str ip: IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
-        :param int port: -(Optional , `int`) Port number to used for accessing virtual server/application
+        :param int port: Port number to used for accessing virtual server/application
         """
         pulumi.set(__self__, "ip", ip)
         pulumi.set(__self__, "port", port)
@@ -662,7 +752,185 @@ class FastTcpAppVirtualServer(dict):
     @pulumi.getter
     def port(self) -> int:
         """
-        -(Optional , `int`) Port number to used for accessing virtual server/application
+        Port number to used for accessing virtual server/application
+        """
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class FastUdpAppMonitor(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "expectedResponse":
+            suggest = "expected_response"
+        elif key == "sendString":
+            suggest = "send_string"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FastUdpAppMonitor. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FastUdpAppMonitor.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FastUdpAppMonitor.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 expected_response: Optional[str] = None,
+                 interval: Optional[int] = None,
+                 send_string: Optional[str] = None):
+        """
+        :param str expected_response: The presence of this optional string is required in the response, if specified it confirms availability.
+        :param int interval: Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
+        :param str send_string: Optional data to be sent during each health check.
+        """
+        if expected_response is not None:
+            pulumi.set(__self__, "expected_response", expected_response)
+        if interval is not None:
+            pulumi.set(__self__, "interval", interval)
+        if send_string is not None:
+            pulumi.set(__self__, "send_string", send_string)
+
+    @property
+    @pulumi.getter(name="expectedResponse")
+    def expected_response(self) -> Optional[str]:
+        """
+        The presence of this optional string is required in the response, if specified it confirms availability.
+        """
+        return pulumi.get(self, "expected_response")
+
+    @property
+    @pulumi.getter
+    def interval(self) -> Optional[int]:
+        """
+        Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
+        """
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter(name="sendString")
+    def send_string(self) -> Optional[str]:
+        """
+        Optional data to be sent during each health check.
+        """
+        return pulumi.get(self, "send_string")
+
+
+@pulumi.output_type
+class FastUdpAppPoolMember(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionLimit":
+            suggest = "connection_limit"
+        elif key == "priorityGroup":
+            suggest = "priority_group"
+        elif key == "shareNodes":
+            suggest = "share_nodes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FastUdpAppPoolMember. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FastUdpAppPoolMember.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FastUdpAppPoolMember.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 addresses: Sequence[str],
+                 connection_limit: Optional[int] = None,
+                 port: Optional[int] = None,
+                 priority_group: Optional[int] = None,
+                 share_nodes: Optional[bool] = None):
+        """
+        :param Sequence[str] addresses: List of server address to be used for FAST-Generated Pool.
+        :param int connection_limit: connectionLimit value to be used for FAST-Generated Pool.
+        :param int port: port number of serviceport to be used for FAST-Generated Pool.
+        :param int priority_group: priorityGroup value to be used for FAST-Generated Pool.
+        :param bool share_nodes: shareNodes value to be used for FAST-Generated Pool.
+        """
+        pulumi.set(__self__, "addresses", addresses)
+        if connection_limit is not None:
+            pulumi.set(__self__, "connection_limit", connection_limit)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if priority_group is not None:
+            pulumi.set(__self__, "priority_group", priority_group)
+        if share_nodes is not None:
+            pulumi.set(__self__, "share_nodes", share_nodes)
+
+    @property
+    @pulumi.getter
+    def addresses(self) -> Sequence[str]:
+        """
+        List of server address to be used for FAST-Generated Pool.
+        """
+        return pulumi.get(self, "addresses")
+
+    @property
+    @pulumi.getter(name="connectionLimit")
+    def connection_limit(self) -> Optional[int]:
+        """
+        connectionLimit value to be used for FAST-Generated Pool.
+        """
+        return pulumi.get(self, "connection_limit")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        port number of serviceport to be used for FAST-Generated Pool.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="priorityGroup")
+    def priority_group(self) -> Optional[int]:
+        """
+        priorityGroup value to be used for FAST-Generated Pool.
+        """
+        return pulumi.get(self, "priority_group")
+
+    @property
+    @pulumi.getter(name="shareNodes")
+    def share_nodes(self) -> Optional[bool]:
+        """
+        shareNodes value to be used for FAST-Generated Pool.
+        """
+        return pulumi.get(self, "share_nodes")
+
+
+@pulumi.output_type
+class FastUdpAppVirtualServer(dict):
+    def __init__(__self__, *,
+                 ip: str,
+                 port: int):
+        """
+        :param str ip: IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
+        :param int port: Port number to used for accessing virtual server/application
+        """
+        pulumi.set(__self__, "ip", ip)
+        pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter
+    def ip(self) -> str:
+        """
+        IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
+        """
+        return pulumi.get(self, "ip")
+
+    @property
+    @pulumi.getter
+    def port(self) -> int:
+        """
+        Port number to used for accessing virtual server/application
         """
         return pulumi.get(self, "port")
 

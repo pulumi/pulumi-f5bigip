@@ -5,9 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * `f5bigip.ltm.ProfileFastL4` Configures a custom profileFastl4 for use by health checks.
+ * `f5bigip.ltm.ProfileFastL4` Configures a custom LTM fastL4 profile for use by health checks.
  *
- * For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+ * Resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource (For example `/Common/my-fastl4profile`) or  `partition + directory + name` of the resource  (example: `/Common/test/my-fastl4profile`)
  *
  * ## Example Usage
  *
@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const profileFastl4 = new f5bigip.ltm.ProfileFastL4("profile_fastl4", {
+ * const profileFastl4 = new f5bigip.ltm.ProfileFastL4("profileFastl4", {
  *     clientTimeout: 40,
  *     defaultsFrom: "/Common/fastL4",
  *     explicitflowMigration: "enabled",
@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     idleTimeout: "200",
  *     iptosToclient: "pass-through",
  *     iptosToserver: "pass-through",
- *     keepaliveInterval: "disabled", //This cannot take enabled
+ *     keepaliveInterval: "disabled",
  *     name: "/Common/sjfastl4profile",
  * });
  * ```
@@ -97,13 +97,33 @@ export class ProfileFastL4 extends pulumi.CustomResource {
      */
     public readonly keepaliveInterval!: pulumi.Output<string>;
     /**
-     * Name of the profile_fastl4
+     * Enables intelligent selection of a back-end server or pool, using an iRule to make the selection. The default is `disabled`.
+     */
+    public readonly lateBinding!: pulumi.Output<string>;
+    /**
+     * Specifies, when checked (enabled), that the system closes a loosely-initiated connection when the system receives the first FIN packet from either the client or the server. The default is disabled.
+     */
+    public readonly looseClose!: pulumi.Output<string>;
+    /**
+     * Specifies, when checked (enabled), that the system initializes a connection when it receives any TCP packet, rather that requiring a SYN packet for connection initiation. The default is disabled. We recommend that if you enable the Loose Initiation option, you also enable the Loose Close option.
+     */
+    public readonly looseInitiation!: pulumi.Output<string>;
+    /**
+     * Name of the LTM fastL4 Profile.The full path is the combination of the `partition + name` of the resource (For example `/Common/my-fastl4profile`) or  `partition + directory + name` of the resource  (example: `/Common/test/my-fastl4profile`)
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Displays the administrative partition within which this profile resides
+     * name of partition
      */
     public readonly partition!: pulumi.Output<string>;
+    /**
+     * Specifies the amount of data the BIG-IP system can accept without acknowledging the server. The default is 0 (zero).
+     */
+    public readonly receiveWindowsize!: pulumi.Output<number>;
+    /**
+     * Specifies the acceptable duration for a TCP handshake, that is, the maximum idle time between a client synchronization (SYN) and a client acknowledgment (ACK).The default is `5 seconds`.
+     */
+    public readonly tcpHandshakeTimeout!: pulumi.Output<string>;
 
     /**
      * Create a ProfileFastL4 resource with the given unique name, arguments, and options.
@@ -126,8 +146,13 @@ export class ProfileFastL4 extends pulumi.CustomResource {
             resourceInputs["iptosToclient"] = state ? state.iptosToclient : undefined;
             resourceInputs["iptosToserver"] = state ? state.iptosToserver : undefined;
             resourceInputs["keepaliveInterval"] = state ? state.keepaliveInterval : undefined;
+            resourceInputs["lateBinding"] = state ? state.lateBinding : undefined;
+            resourceInputs["looseClose"] = state ? state.looseClose : undefined;
+            resourceInputs["looseInitiation"] = state ? state.looseInitiation : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["partition"] = state ? state.partition : undefined;
+            resourceInputs["receiveWindowsize"] = state ? state.receiveWindowsize : undefined;
+            resourceInputs["tcpHandshakeTimeout"] = state ? state.tcpHandshakeTimeout : undefined;
         } else {
             const args = argsOrState as ProfileFastL4Args | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -141,8 +166,13 @@ export class ProfileFastL4 extends pulumi.CustomResource {
             resourceInputs["iptosToclient"] = args ? args.iptosToclient : undefined;
             resourceInputs["iptosToserver"] = args ? args.iptosToserver : undefined;
             resourceInputs["keepaliveInterval"] = args ? args.keepaliveInterval : undefined;
+            resourceInputs["lateBinding"] = args ? args.lateBinding : undefined;
+            resourceInputs["looseClose"] = args ? args.looseClose : undefined;
+            resourceInputs["looseInitiation"] = args ? args.looseInitiation : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["partition"] = args ? args.partition : undefined;
+            resourceInputs["receiveWindowsize"] = args ? args.receiveWindowsize : undefined;
+            resourceInputs["tcpHandshakeTimeout"] = args ? args.tcpHandshakeTimeout : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ProfileFastL4.__pulumiType, name, resourceInputs, opts);
@@ -186,13 +216,33 @@ export interface ProfileFastL4State {
      */
     keepaliveInterval?: pulumi.Input<string>;
     /**
-     * Name of the profile_fastl4
+     * Enables intelligent selection of a back-end server or pool, using an iRule to make the selection. The default is `disabled`.
+     */
+    lateBinding?: pulumi.Input<string>;
+    /**
+     * Specifies, when checked (enabled), that the system closes a loosely-initiated connection when the system receives the first FIN packet from either the client or the server. The default is disabled.
+     */
+    looseClose?: pulumi.Input<string>;
+    /**
+     * Specifies, when checked (enabled), that the system initializes a connection when it receives any TCP packet, rather that requiring a SYN packet for connection initiation. The default is disabled. We recommend that if you enable the Loose Initiation option, you also enable the Loose Close option.
+     */
+    looseInitiation?: pulumi.Input<string>;
+    /**
+     * Name of the LTM fastL4 Profile.The full path is the combination of the `partition + name` of the resource (For example `/Common/my-fastl4profile`) or  `partition + directory + name` of the resource  (example: `/Common/test/my-fastl4profile`)
      */
     name?: pulumi.Input<string>;
     /**
-     * Displays the administrative partition within which this profile resides
+     * name of partition
      */
     partition?: pulumi.Input<string>;
+    /**
+     * Specifies the amount of data the BIG-IP system can accept without acknowledging the server. The default is 0 (zero).
+     */
+    receiveWindowsize?: pulumi.Input<number>;
+    /**
+     * Specifies the acceptable duration for a TCP handshake, that is, the maximum idle time between a client synchronization (SYN) and a client acknowledgment (ACK).The default is `5 seconds`.
+     */
+    tcpHandshakeTimeout?: pulumi.Input<string>;
 }
 
 /**
@@ -232,11 +282,31 @@ export interface ProfileFastL4Args {
      */
     keepaliveInterval?: pulumi.Input<string>;
     /**
-     * Name of the profile_fastl4
+     * Enables intelligent selection of a back-end server or pool, using an iRule to make the selection. The default is `disabled`.
+     */
+    lateBinding?: pulumi.Input<string>;
+    /**
+     * Specifies, when checked (enabled), that the system closes a loosely-initiated connection when the system receives the first FIN packet from either the client or the server. The default is disabled.
+     */
+    looseClose?: pulumi.Input<string>;
+    /**
+     * Specifies, when checked (enabled), that the system initializes a connection when it receives any TCP packet, rather that requiring a SYN packet for connection initiation. The default is disabled. We recommend that if you enable the Loose Initiation option, you also enable the Loose Close option.
+     */
+    looseInitiation?: pulumi.Input<string>;
+    /**
+     * Name of the LTM fastL4 Profile.The full path is the combination of the `partition + name` of the resource (For example `/Common/my-fastl4profile`) or  `partition + directory + name` of the resource  (example: `/Common/test/my-fastl4profile`)
      */
     name: pulumi.Input<string>;
     /**
-     * Displays the administrative partition within which this profile resides
+     * name of partition
      */
     partition?: pulumi.Input<string>;
+    /**
+     * Specifies the amount of data the BIG-IP system can accept without acknowledging the server. The default is 0 (zero).
+     */
+    receiveWindowsize?: pulumi.Input<number>;
+    /**
+     * Specifies the acceptable duration for a TCP handshake, that is, the maximum idle time between a client synchronization (SYN) and a client acknowledgment (ACK).The default is `5 seconds`.
+     */
+    tcpHandshakeTimeout?: pulumi.Input<string>;
 }

@@ -10,9 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Ltm
 {
     /// <summary>
-    /// `f5bigip.ltm.ProfileTcp` Configures a custom profile_tcp for use by health checks.
+    /// `f5bigip.ltm.ProfileTcp` Configures a custom TCP LTM Profile for use by health checks.
     /// 
-    /// Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )
+    /// Resources should be named with their `full path`. The full path is the combination of the `partition + name` (example: /Common/my-pool ) or  `partition + directory + name` of the resource  (example: /Common/test/my-pool )
     /// 
     /// ## Example Usage
     /// 
@@ -48,6 +48,12 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<int> CloseWaitTimeout { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the algorithm to use to share network resources among competing users to reduce congestion. The default is High Speed.
+        /// </summary>
+        [Output("congestionControl")]
+        public Output<string?> CongestionControl { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         /// </summary>
         [Output("defaultsFrom")]
@@ -60,7 +66,19 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> DeferredAccept { get; private set; } = null!;
 
         /// <summary>
-        /// When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet.
+        /// Specifies, when checked (enabled), that the system can send fewer than one ACK (acknowledgment) segment per data segment received. By default, this setting is enabled.
+        /// </summary>
+        [Output("delayedAcks")]
+        public Output<string?> DelayedAcks { get; private set; } = null!;
+
+        /// <summary>
+        /// Enabling this setting allows TCP to assume a packet is lost after fewer than the standard number of duplicate ACKs, if there is no way to send new data and generate more duplicate ACKs.
+        /// </summary>
+        [Output("earlyRetransmit")]
+        public Output<string?> EarlyRetransmit { get; private set; } = null!;
+
+        /// <summary>
+        /// When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet. Default is `enabled`. If `fast_open` set to `enabled`, argument `verified_accept` can't be set to `enabled`.
         /// </summary>
         [Output("fastOpen")]
         public Output<string> FastOpen { get; private set; } = null!;
@@ -84,22 +102,76 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<int> IdleTimeout { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the initial congestion window size for connections to this destination. Actual window size is this value multiplied by the MSS (Maximum Segment Size) for the same connection. The default is 10. Valid values range from 0 to 64.
+        /// </summary>
+        [Output("initialCongestionWindowsize")]
+        public Output<int?> InitialCongestionWindowsize { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the keep alive probe interval, in seconds. The default value is 1800 seconds.
         /// </summary>
         [Output("keepaliveInterval")]
         public Output<int> KeepaliveInterval { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the profile_tcp
+        /// Specifies whether the system applies Nagle's algorithm to reduce the number of short segments on the network.If you select Auto, the system determines whether to use Nagle's algorithm based on network conditions. By default, this setting is disabled.
+        /// </summary>
+        [Output("nagle")]
+        public Output<string?> Nagle { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of the LTM TCP Profile,name should be `full path`. The full path is the combination of the `partition + name` (example: /Common/my-pool ) or  `partition + directory + name` of the resource  (example: /Common/test/my-pool )
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Displays the administrative partition within which this profile resides
+        /// name of partition
         /// </summary>
         [Output("partition")]
         public Output<string?> Partition { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the proxy buffer level, in bytes, at which the receive window is closed.
+        /// </summary>
+        [Output("proxybufferHigh")]
+        public Output<int?> ProxybufferHigh { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the maximum advertised RECEIVE window size. This value represents the maximum number of bytes to which the RECEIVE window can scale. The default is 65535 bytes.
+        /// </summary>
+        [Output("receiveWindowsize")]
+        public Output<int?> ReceiveWindowsize { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the SEND window size. The default is 131072 bytes.
+        /// </summary>
+        [Output("sendBuffersize")]
+        public Output<int?> SendBuffersize { get; private set; } = null!;
+
+        /// <summary>
+        /// Enabling this setting allows TCP to send a probe segment to trigger fast recovery instead of recovering a loss via a retransmission timeout,By default, this setting is enabled.
+        /// </summary>
+        [Output("taillossProbe")]
+        public Output<string?> TaillossProbe { get; private set; } = null!;
+
+        /// <summary>
+        /// Using this setting enabled, the system can recycle a wait-state connection immediately upon receipt of a new connection request instead of having to wait until the connection times out of the wait state. By default, this setting is enabled.
+        /// </summary>
+        [Output("timewaitRecycle")]
+        public Output<string?> TimewaitRecycle { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies, when checked (enabled), that the system can actually communicate with the server before establishing a client connection. To determine this, the system sends the server a SYN packet before responding to the client's SYN with a SYN-ACK. When unchecked, the system accepts the client connection before selecting a server to talk to. By default, this setting is `disabled`.
+        /// </summary>
+        [Output("verifiedAccept")]
+        public Output<string?> VerifiedAccept { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the timeout in milliseconds for terminating a connection with an effective zero length TCP transmit window.
+        /// </summary>
+        [Output("zerowindowTimeout")]
+        public Output<int?> ZerowindowTimeout { get; private set; } = null!;
 
 
         /// <summary>
@@ -154,6 +226,12 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<int>? CloseWaitTimeout { get; set; }
 
         /// <summary>
+        /// Specifies the algorithm to use to share network resources among competing users to reduce congestion. The default is High Speed.
+        /// </summary>
+        [Input("congestionControl")]
+        public Input<string>? CongestionControl { get; set; }
+
+        /// <summary>
         /// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         /// </summary>
         [Input("defaultsFrom")]
@@ -166,7 +244,19 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? DeferredAccept { get; set; }
 
         /// <summary>
-        /// When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet.
+        /// Specifies, when checked (enabled), that the system can send fewer than one ACK (acknowledgment) segment per data segment received. By default, this setting is enabled.
+        /// </summary>
+        [Input("delayedAcks")]
+        public Input<string>? DelayedAcks { get; set; }
+
+        /// <summary>
+        /// Enabling this setting allows TCP to assume a packet is lost after fewer than the standard number of duplicate ACKs, if there is no way to send new data and generate more duplicate ACKs.
+        /// </summary>
+        [Input("earlyRetransmit")]
+        public Input<string>? EarlyRetransmit { get; set; }
+
+        /// <summary>
+        /// When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet. Default is `enabled`. If `fast_open` set to `enabled`, argument `verified_accept` can't be set to `enabled`.
         /// </summary>
         [Input("fastOpen")]
         public Input<string>? FastOpen { get; set; }
@@ -190,22 +280,76 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<int>? IdleTimeout { get; set; }
 
         /// <summary>
+        /// Specifies the initial congestion window size for connections to this destination. Actual window size is this value multiplied by the MSS (Maximum Segment Size) for the same connection. The default is 10. Valid values range from 0 to 64.
+        /// </summary>
+        [Input("initialCongestionWindowsize")]
+        public Input<int>? InitialCongestionWindowsize { get; set; }
+
+        /// <summary>
         /// Specifies the keep alive probe interval, in seconds. The default value is 1800 seconds.
         /// </summary>
         [Input("keepaliveInterval")]
         public Input<int>? KeepaliveInterval { get; set; }
 
         /// <summary>
-        /// Name of the profile_tcp
+        /// Specifies whether the system applies Nagle's algorithm to reduce the number of short segments on the network.If you select Auto, the system determines whether to use Nagle's algorithm based on network conditions. By default, this setting is disabled.
+        /// </summary>
+        [Input("nagle")]
+        public Input<string>? Nagle { get; set; }
+
+        /// <summary>
+        /// Name of the LTM TCP Profile,name should be `full path`. The full path is the combination of the `partition + name` (example: /Common/my-pool ) or  `partition + directory + name` of the resource  (example: /Common/test/my-pool )
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Displays the administrative partition within which this profile resides
+        /// name of partition
         /// </summary>
         [Input("partition")]
         public Input<string>? Partition { get; set; }
+
+        /// <summary>
+        /// Specifies the proxy buffer level, in bytes, at which the receive window is closed.
+        /// </summary>
+        [Input("proxybufferHigh")]
+        public Input<int>? ProxybufferHigh { get; set; }
+
+        /// <summary>
+        /// Specifies the maximum advertised RECEIVE window size. This value represents the maximum number of bytes to which the RECEIVE window can scale. The default is 65535 bytes.
+        /// </summary>
+        [Input("receiveWindowsize")]
+        public Input<int>? ReceiveWindowsize { get; set; }
+
+        /// <summary>
+        /// Specifies the SEND window size. The default is 131072 bytes.
+        /// </summary>
+        [Input("sendBuffersize")]
+        public Input<int>? SendBuffersize { get; set; }
+
+        /// <summary>
+        /// Enabling this setting allows TCP to send a probe segment to trigger fast recovery instead of recovering a loss via a retransmission timeout,By default, this setting is enabled.
+        /// </summary>
+        [Input("taillossProbe")]
+        public Input<string>? TaillossProbe { get; set; }
+
+        /// <summary>
+        /// Using this setting enabled, the system can recycle a wait-state connection immediately upon receipt of a new connection request instead of having to wait until the connection times out of the wait state. By default, this setting is enabled.
+        /// </summary>
+        [Input("timewaitRecycle")]
+        public Input<string>? TimewaitRecycle { get; set; }
+
+        /// <summary>
+        /// Specifies, when checked (enabled), that the system can actually communicate with the server before establishing a client connection. To determine this, the system sends the server a SYN packet before responding to the client's SYN with a SYN-ACK. When unchecked, the system accepts the client connection before selecting a server to talk to. By default, this setting is `disabled`.
+        /// </summary>
+        [Input("verifiedAccept")]
+        public Input<string>? VerifiedAccept { get; set; }
+
+        /// <summary>
+        /// Specifies the timeout in milliseconds for terminating a connection with an effective zero length TCP transmit window.
+        /// </summary>
+        [Input("zerowindowTimeout")]
+        public Input<int>? ZerowindowTimeout { get; set; }
 
         public ProfileTcpArgs()
         {
@@ -222,6 +366,12 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<int>? CloseWaitTimeout { get; set; }
 
         /// <summary>
+        /// Specifies the algorithm to use to share network resources among competing users to reduce congestion. The default is High Speed.
+        /// </summary>
+        [Input("congestionControl")]
+        public Input<string>? CongestionControl { get; set; }
+
+        /// <summary>
         /// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         /// </summary>
         [Input("defaultsFrom")]
@@ -234,7 +384,19 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? DeferredAccept { get; set; }
 
         /// <summary>
-        /// When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet.
+        /// Specifies, when checked (enabled), that the system can send fewer than one ACK (acknowledgment) segment per data segment received. By default, this setting is enabled.
+        /// </summary>
+        [Input("delayedAcks")]
+        public Input<string>? DelayedAcks { get; set; }
+
+        /// <summary>
+        /// Enabling this setting allows TCP to assume a packet is lost after fewer than the standard number of duplicate ACKs, if there is no way to send new data and generate more duplicate ACKs.
+        /// </summary>
+        [Input("earlyRetransmit")]
+        public Input<string>? EarlyRetransmit { get; set; }
+
+        /// <summary>
+        /// When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet. Default is `enabled`. If `fast_open` set to `enabled`, argument `verified_accept` can't be set to `enabled`.
         /// </summary>
         [Input("fastOpen")]
         public Input<string>? FastOpen { get; set; }
@@ -258,22 +420,76 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<int>? IdleTimeout { get; set; }
 
         /// <summary>
+        /// Specifies the initial congestion window size for connections to this destination. Actual window size is this value multiplied by the MSS (Maximum Segment Size) for the same connection. The default is 10. Valid values range from 0 to 64.
+        /// </summary>
+        [Input("initialCongestionWindowsize")]
+        public Input<int>? InitialCongestionWindowsize { get; set; }
+
+        /// <summary>
         /// Specifies the keep alive probe interval, in seconds. The default value is 1800 seconds.
         /// </summary>
         [Input("keepaliveInterval")]
         public Input<int>? KeepaliveInterval { get; set; }
 
         /// <summary>
-        /// Name of the profile_tcp
+        /// Specifies whether the system applies Nagle's algorithm to reduce the number of short segments on the network.If you select Auto, the system determines whether to use Nagle's algorithm based on network conditions. By default, this setting is disabled.
+        /// </summary>
+        [Input("nagle")]
+        public Input<string>? Nagle { get; set; }
+
+        /// <summary>
+        /// Name of the LTM TCP Profile,name should be `full path`. The full path is the combination of the `partition + name` (example: /Common/my-pool ) or  `partition + directory + name` of the resource  (example: /Common/test/my-pool )
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Displays the administrative partition within which this profile resides
+        /// name of partition
         /// </summary>
         [Input("partition")]
         public Input<string>? Partition { get; set; }
+
+        /// <summary>
+        /// Specifies the proxy buffer level, in bytes, at which the receive window is closed.
+        /// </summary>
+        [Input("proxybufferHigh")]
+        public Input<int>? ProxybufferHigh { get; set; }
+
+        /// <summary>
+        /// Specifies the maximum advertised RECEIVE window size. This value represents the maximum number of bytes to which the RECEIVE window can scale. The default is 65535 bytes.
+        /// </summary>
+        [Input("receiveWindowsize")]
+        public Input<int>? ReceiveWindowsize { get; set; }
+
+        /// <summary>
+        /// Specifies the SEND window size. The default is 131072 bytes.
+        /// </summary>
+        [Input("sendBuffersize")]
+        public Input<int>? SendBuffersize { get; set; }
+
+        /// <summary>
+        /// Enabling this setting allows TCP to send a probe segment to trigger fast recovery instead of recovering a loss via a retransmission timeout,By default, this setting is enabled.
+        /// </summary>
+        [Input("taillossProbe")]
+        public Input<string>? TaillossProbe { get; set; }
+
+        /// <summary>
+        /// Using this setting enabled, the system can recycle a wait-state connection immediately upon receipt of a new connection request instead of having to wait until the connection times out of the wait state. By default, this setting is enabled.
+        /// </summary>
+        [Input("timewaitRecycle")]
+        public Input<string>? TimewaitRecycle { get; set; }
+
+        /// <summary>
+        /// Specifies, when checked (enabled), that the system can actually communicate with the server before establishing a client connection. To determine this, the system sends the server a SYN packet before responding to the client's SYN with a SYN-ACK. When unchecked, the system accepts the client connection before selecting a server to talk to. By default, this setting is `disabled`.
+        /// </summary>
+        [Input("verifiedAccept")]
+        public Input<string>? VerifiedAccept { get; set; }
+
+        /// <summary>
+        /// Specifies the timeout in milliseconds for terminating a connection with an effective zero length TCP transmit window.
+        /// </summary>
+        [Input("zerowindowTimeout")]
+        public Input<int>? ZerowindowTimeout { get; set; }
 
         public ProfileTcpState()
         {

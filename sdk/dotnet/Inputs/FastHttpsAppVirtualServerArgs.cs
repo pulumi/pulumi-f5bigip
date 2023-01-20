@@ -19,7 +19,7 @@ namespace Pulumi.F5BigIP.Inputs
         public Input<string> Ip { get; set; } = null!;
 
         /// <summary>
-        /// -(Optional , `int`) Port number to used for accessing virtual server/application
+        /// Port number to used for accessing virtual server/application
         /// </summary>
         [Input("port", required: true)]
         public Input<int> Port { get; set; } = null!;

@@ -402,9 +402,9 @@ class Do(pulumi.CustomResource):
             __props__ = DoArgs.__new__(DoArgs)
 
             __props__.__dict__["bigip_address"] = bigip_address
-            __props__.__dict__["bigip_password"] = bigip_password
+            __props__.__dict__["bigip_password"] = None if bigip_password is None else pulumi.Output.secret(bigip_password)
             __props__.__dict__["bigip_port"] = bigip_port
-            __props__.__dict__["bigip_token_auth"] = bigip_token_auth
+            __props__.__dict__["bigip_token_auth"] = None if bigip_token_auth is None else pulumi.Output.secret(bigip_token_auth)
             __props__.__dict__["bigip_user"] = bigip_user
             if do_json is None and not opts.urn:
                 raise TypeError("Missing required property 'do_json'")
@@ -414,6 +414,8 @@ class Do(pulumi.CustomResource):
                 pulumi.log.warn("""tenant_name is deprecated: this attribute is no longer in use""")
             __props__.__dict__["tenant_name"] = tenant_name
             __props__.__dict__["timeout"] = timeout
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["bigipPassword", "bigipTokenAuth"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Do, __self__).__init__(
             'f5bigip:index/do:Do',
             resource_name,

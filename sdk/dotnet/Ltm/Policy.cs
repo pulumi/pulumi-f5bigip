@@ -80,7 +80,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<ImmutableArray<string>> Controls { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+        /// Name of Rule to be applied in policy.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -98,7 +98,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<ImmutableArray<string>> Requires { get; private set; } = null!;
 
         /// <summary>
-        /// Rules can be applied using the policy
+        /// List of Rules can be applied using the policy. Each rule is block type with following arguments.
         /// </summary>
         [Output("rules")]
         public Output<ImmutableArray<Outputs.PolicyRule>> Rules { get; private set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+        /// Name of Rule to be applied in policy.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.F5BigIP.Ltm
         private InputList<Inputs.PolicyRuleArgs>? _rules;
 
         /// <summary>
-        /// Rules can be applied using the policy
+        /// List of Rules can be applied using the policy. Each rule is block type with following arguments.
         /// </summary>
         public InputList<Inputs.PolicyRuleArgs> Rules
         {
@@ -230,7 +230,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+        /// Name of Rule to be applied in policy.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -257,7 +257,7 @@ namespace Pulumi.F5BigIP.Ltm
         private InputList<Inputs.PolicyRuleGetArgs>? _rules;
 
         /// <summary>
-        /// Rules can be applied using the policy
+        /// List of Rules can be applied using the policy. Each rule is block type with following arguments.
         /// </summary>
         public InputList<Inputs.PolicyRuleGetArgs> Rules
         {

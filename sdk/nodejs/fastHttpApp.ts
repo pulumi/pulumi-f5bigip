@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -16,7 +17,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const fastHttpApp = new f5bigip.FastHttpApp("fast_http_app", {
+ * const fastHttpApp = new f5bigip.FastHttpApp("fastHttpApp", {
  *     application: "fasthttpapp",
  *     tenant: "fasthttptenant",
  *     virtualServer: {
@@ -59,39 +60,55 @@ export class FastHttpApp extends pulumi.CustomResource {
      */
     public readonly application!: pulumi.Output<string>;
     /**
-     * Name of an existing BIG-IP pool.
+     * List of LTM Policies to be applied FAST HTTP Application.
      */
-    public readonly existPoolName!: pulumi.Output<string | undefined>;
+    public readonly endpointLtmPolicies!: pulumi.Output<string[] | undefined>;
     /**
      * Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
      */
     public readonly existingMonitor!: pulumi.Output<string | undefined>;
     /**
+     * Select an existing BIG-IP Pool
+     */
+    public readonly existingPool!: pulumi.Output<string | undefined>;
+    /**
      * Name of an existing BIG-IP SNAT pool.
      */
     public readonly existingSnatPool!: pulumi.Output<string | undefined>;
     /**
-     * `fastCreateMonitor` block takes input for FAST-Generated Pool Monitor.
-     * See Pool Monitor below for more details.
+     * Name of an existing WAF Security policy.
      */
-    public readonly fastCreateMonitor!: pulumi.Output<outputs.FastHttpAppFastCreateMonitor | undefined>;
+    public readonly existingWafSecurityPolicy!: pulumi.Output<string | undefined>;
     /**
-     * `fastCreatePoolMembers` block takes input for FAST-Generated Pool.
-     * See Pool Members below for more details.
+     * Json payload for FAST HTTP application.
      */
-    public readonly fastCreatePoolMembers!: pulumi.Output<outputs.FastHttpAppFastCreatePoolMember[] | undefined>;
-    /**
-     * List of address to be used for FAST-Generated SNAT Pool.
-     */
-    public readonly fastCreateSnatPoolAddresses!: pulumi.Output<string[] | undefined>;
+    public /*out*/ readonly fastHttpJson!: pulumi.Output<string>;
     /**
      * A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
      */
     public readonly loadBalancingMode!: pulumi.Output<string | undefined>;
     /**
+     * `monitor` block takes input for FAST-Generated Pool Monitor.
+     * See Pool Monitor below for more details.
+     */
+    public readonly monitor!: pulumi.Output<outputs.FastHttpAppMonitor | undefined>;
+    /**
+     * `poolMembers` block takes input for FAST-Generated Pool.
+     * See Pool Members below for more details.
+     */
+    public readonly poolMembers!: pulumi.Output<outputs.FastHttpAppPoolMember[] | undefined>;
+    /**
+     * List of security log profiles to be used for FAST application
+     */
+    public readonly securityLogProfiles!: pulumi.Output<string[] | undefined>;
+    /**
      * Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
      */
     public readonly slowRampTime!: pulumi.Output<number | undefined>;
+    /**
+     * List of address to be used for FAST-Generated SNAT Pool.
+     */
+    public readonly snatPoolAddresses!: pulumi.Output<string[] | undefined>;
     /**
      * Name of the FAST HTTPS application tenant.
      */
@@ -101,6 +118,11 @@ export class FastHttpApp extends pulumi.CustomResource {
      * See virtual server below for more details.
      */
     public readonly virtualServer!: pulumi.Output<outputs.FastHttpAppVirtualServer | undefined>;
+    /**
+     * `wafSecurityPolicy` block takes input for FAST-Generated WAF Security Policy.
+     * See WAF Security Policy below for more details.
+     */
+    public readonly wafSecurityPolicy!: pulumi.Output<outputs.FastHttpAppWafSecurityPolicy | undefined>;
 
     /**
      * Create a FastHttpApp resource with the given unique name, arguments, and options.
@@ -116,16 +138,21 @@ export class FastHttpApp extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as FastHttpAppState | undefined;
             resourceInputs["application"] = state ? state.application : undefined;
-            resourceInputs["existPoolName"] = state ? state.existPoolName : undefined;
+            resourceInputs["endpointLtmPolicies"] = state ? state.endpointLtmPolicies : undefined;
             resourceInputs["existingMonitor"] = state ? state.existingMonitor : undefined;
+            resourceInputs["existingPool"] = state ? state.existingPool : undefined;
             resourceInputs["existingSnatPool"] = state ? state.existingSnatPool : undefined;
-            resourceInputs["fastCreateMonitor"] = state ? state.fastCreateMonitor : undefined;
-            resourceInputs["fastCreatePoolMembers"] = state ? state.fastCreatePoolMembers : undefined;
-            resourceInputs["fastCreateSnatPoolAddresses"] = state ? state.fastCreateSnatPoolAddresses : undefined;
+            resourceInputs["existingWafSecurityPolicy"] = state ? state.existingWafSecurityPolicy : undefined;
+            resourceInputs["fastHttpJson"] = state ? state.fastHttpJson : undefined;
             resourceInputs["loadBalancingMode"] = state ? state.loadBalancingMode : undefined;
+            resourceInputs["monitor"] = state ? state.monitor : undefined;
+            resourceInputs["poolMembers"] = state ? state.poolMembers : undefined;
+            resourceInputs["securityLogProfiles"] = state ? state.securityLogProfiles : undefined;
             resourceInputs["slowRampTime"] = state ? state.slowRampTime : undefined;
+            resourceInputs["snatPoolAddresses"] = state ? state.snatPoolAddresses : undefined;
             resourceInputs["tenant"] = state ? state.tenant : undefined;
             resourceInputs["virtualServer"] = state ? state.virtualServer : undefined;
+            resourceInputs["wafSecurityPolicy"] = state ? state.wafSecurityPolicy : undefined;
         } else {
             const args = argsOrState as FastHttpAppArgs | undefined;
             if ((!args || args.application === undefined) && !opts.urn) {
@@ -135,16 +162,21 @@ export class FastHttpApp extends pulumi.CustomResource {
                 throw new Error("Missing required property 'tenant'");
             }
             resourceInputs["application"] = args ? args.application : undefined;
-            resourceInputs["existPoolName"] = args ? args.existPoolName : undefined;
+            resourceInputs["endpointLtmPolicies"] = args ? args.endpointLtmPolicies : undefined;
             resourceInputs["existingMonitor"] = args ? args.existingMonitor : undefined;
+            resourceInputs["existingPool"] = args ? args.existingPool : undefined;
             resourceInputs["existingSnatPool"] = args ? args.existingSnatPool : undefined;
-            resourceInputs["fastCreateMonitor"] = args ? args.fastCreateMonitor : undefined;
-            resourceInputs["fastCreatePoolMembers"] = args ? args.fastCreatePoolMembers : undefined;
-            resourceInputs["fastCreateSnatPoolAddresses"] = args ? args.fastCreateSnatPoolAddresses : undefined;
+            resourceInputs["existingWafSecurityPolicy"] = args ? args.existingWafSecurityPolicy : undefined;
             resourceInputs["loadBalancingMode"] = args ? args.loadBalancingMode : undefined;
+            resourceInputs["monitor"] = args ? args.monitor : undefined;
+            resourceInputs["poolMembers"] = args ? args.poolMembers : undefined;
+            resourceInputs["securityLogProfiles"] = args ? args.securityLogProfiles : undefined;
             resourceInputs["slowRampTime"] = args ? args.slowRampTime : undefined;
+            resourceInputs["snatPoolAddresses"] = args ? args.snatPoolAddresses : undefined;
             resourceInputs["tenant"] = args ? args.tenant : undefined;
             resourceInputs["virtualServer"] = args ? args.virtualServer : undefined;
+            resourceInputs["wafSecurityPolicy"] = args ? args.wafSecurityPolicy : undefined;
+            resourceInputs["fastHttpJson"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(FastHttpApp.__pulumiType, name, resourceInputs, opts);
@@ -160,39 +192,55 @@ export interface FastHttpAppState {
      */
     application?: pulumi.Input<string>;
     /**
-     * Name of an existing BIG-IP pool.
+     * List of LTM Policies to be applied FAST HTTP Application.
      */
-    existPoolName?: pulumi.Input<string>;
+    endpointLtmPolicies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
      */
     existingMonitor?: pulumi.Input<string>;
     /**
+     * Select an existing BIG-IP Pool
+     */
+    existingPool?: pulumi.Input<string>;
+    /**
      * Name of an existing BIG-IP SNAT pool.
      */
     existingSnatPool?: pulumi.Input<string>;
     /**
-     * `fastCreateMonitor` block takes input for FAST-Generated Pool Monitor.
-     * See Pool Monitor below for more details.
+     * Name of an existing WAF Security policy.
      */
-    fastCreateMonitor?: pulumi.Input<inputs.FastHttpAppFastCreateMonitor>;
+    existingWafSecurityPolicy?: pulumi.Input<string>;
     /**
-     * `fastCreatePoolMembers` block takes input for FAST-Generated Pool.
-     * See Pool Members below for more details.
+     * Json payload for FAST HTTP application.
      */
-    fastCreatePoolMembers?: pulumi.Input<pulumi.Input<inputs.FastHttpAppFastCreatePoolMember>[]>;
-    /**
-     * List of address to be used for FAST-Generated SNAT Pool.
-     */
-    fastCreateSnatPoolAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    fastHttpJson?: pulumi.Input<string>;
     /**
      * A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
      */
     loadBalancingMode?: pulumi.Input<string>;
     /**
+     * `monitor` block takes input for FAST-Generated Pool Monitor.
+     * See Pool Monitor below for more details.
+     */
+    monitor?: pulumi.Input<inputs.FastHttpAppMonitor>;
+    /**
+     * `poolMembers` block takes input for FAST-Generated Pool.
+     * See Pool Members below for more details.
+     */
+    poolMembers?: pulumi.Input<pulumi.Input<inputs.FastHttpAppPoolMember>[]>;
+    /**
+     * List of security log profiles to be used for FAST application
+     */
+    securityLogProfiles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
      */
     slowRampTime?: pulumi.Input<number>;
+    /**
+     * List of address to be used for FAST-Generated SNAT Pool.
+     */
+    snatPoolAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of the FAST HTTPS application tenant.
      */
@@ -202,6 +250,11 @@ export interface FastHttpAppState {
      * See virtual server below for more details.
      */
     virtualServer?: pulumi.Input<inputs.FastHttpAppVirtualServer>;
+    /**
+     * `wafSecurityPolicy` block takes input for FAST-Generated WAF Security Policy.
+     * See WAF Security Policy below for more details.
+     */
+    wafSecurityPolicy?: pulumi.Input<inputs.FastHttpAppWafSecurityPolicy>;
 }
 
 /**
@@ -213,39 +266,51 @@ export interface FastHttpAppArgs {
      */
     application: pulumi.Input<string>;
     /**
-     * Name of an existing BIG-IP pool.
+     * List of LTM Policies to be applied FAST HTTP Application.
      */
-    existPoolName?: pulumi.Input<string>;
+    endpointLtmPolicies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
      */
     existingMonitor?: pulumi.Input<string>;
     /**
+     * Select an existing BIG-IP Pool
+     */
+    existingPool?: pulumi.Input<string>;
+    /**
      * Name of an existing BIG-IP SNAT pool.
      */
     existingSnatPool?: pulumi.Input<string>;
     /**
-     * `fastCreateMonitor` block takes input for FAST-Generated Pool Monitor.
-     * See Pool Monitor below for more details.
+     * Name of an existing WAF Security policy.
      */
-    fastCreateMonitor?: pulumi.Input<inputs.FastHttpAppFastCreateMonitor>;
-    /**
-     * `fastCreatePoolMembers` block takes input for FAST-Generated Pool.
-     * See Pool Members below for more details.
-     */
-    fastCreatePoolMembers?: pulumi.Input<pulumi.Input<inputs.FastHttpAppFastCreatePoolMember>[]>;
-    /**
-     * List of address to be used for FAST-Generated SNAT Pool.
-     */
-    fastCreateSnatPoolAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    existingWafSecurityPolicy?: pulumi.Input<string>;
     /**
      * A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
      */
     loadBalancingMode?: pulumi.Input<string>;
     /**
+     * `monitor` block takes input for FAST-Generated Pool Monitor.
+     * See Pool Monitor below for more details.
+     */
+    monitor?: pulumi.Input<inputs.FastHttpAppMonitor>;
+    /**
+     * `poolMembers` block takes input for FAST-Generated Pool.
+     * See Pool Members below for more details.
+     */
+    poolMembers?: pulumi.Input<pulumi.Input<inputs.FastHttpAppPoolMember>[]>;
+    /**
+     * List of security log profiles to be used for FAST application
+     */
+    securityLogProfiles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
      */
     slowRampTime?: pulumi.Input<number>;
+    /**
+     * List of address to be used for FAST-Generated SNAT Pool.
+     */
+    snatPoolAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Name of the FAST HTTPS application tenant.
      */
@@ -255,4 +320,9 @@ export interface FastHttpAppArgs {
      * See virtual server below for more details.
      */
     virtualServer?: pulumi.Input<inputs.FastHttpAppVirtualServer>;
+    /**
+     * `wafSecurityPolicy` block takes input for FAST-Generated WAF Security Policy.
+     * See WAF Security Policy below for more details.
+     */
+    wafSecurityPolicy?: pulumi.Input<inputs.FastHttpAppWafSecurityPolicy>;
 }

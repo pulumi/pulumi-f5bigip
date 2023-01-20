@@ -137,14 +137,59 @@ public final class ProfileFastL4Args extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the profile_fastl4
+     * Enables intelligent selection of a back-end server or pool, using an iRule to make the selection. The default is `disabled`.
+     * 
+     */
+    @Import(name="lateBinding")
+    private @Nullable Output<String> lateBinding;
+
+    /**
+     * @return Enables intelligent selection of a back-end server or pool, using an iRule to make the selection. The default is `disabled`.
+     * 
+     */
+    public Optional<Output<String>> lateBinding() {
+        return Optional.ofNullable(this.lateBinding);
+    }
+
+    /**
+     * Specifies, when checked (enabled), that the system closes a loosely-initiated connection when the system receives the first FIN packet from either the client or the server. The default is disabled.
+     * 
+     */
+    @Import(name="looseClose")
+    private @Nullable Output<String> looseClose;
+
+    /**
+     * @return Specifies, when checked (enabled), that the system closes a loosely-initiated connection when the system receives the first FIN packet from either the client or the server. The default is disabled.
+     * 
+     */
+    public Optional<Output<String>> looseClose() {
+        return Optional.ofNullable(this.looseClose);
+    }
+
+    /**
+     * Specifies, when checked (enabled), that the system initializes a connection when it receives any TCP packet, rather that requiring a SYN packet for connection initiation. The default is disabled. We recommend that if you enable the Loose Initiation option, you also enable the Loose Close option.
+     * 
+     */
+    @Import(name="looseInitiation")
+    private @Nullable Output<String> looseInitiation;
+
+    /**
+     * @return Specifies, when checked (enabled), that the system initializes a connection when it receives any TCP packet, rather that requiring a SYN packet for connection initiation. The default is disabled. We recommend that if you enable the Loose Initiation option, you also enable the Loose Close option.
+     * 
+     */
+    public Optional<Output<String>> looseInitiation() {
+        return Optional.ofNullable(this.looseInitiation);
+    }
+
+    /**
+     * Name of the LTM fastL4 Profile.The full path is the combination of the `partition + name` of the resource (For example `/Common/my-fastl4profile`) or  `partition + directory + name` of the resource  (example: `/Common/test/my-fastl4profile`)
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the profile_fastl4
+     * @return Name of the LTM fastL4 Profile.The full path is the combination of the `partition + name` of the resource (For example `/Common/my-fastl4profile`) or  `partition + directory + name` of the resource  (example: `/Common/test/my-fastl4profile`)
      * 
      */
     public Output<String> name() {
@@ -152,18 +197,48 @@ public final class ProfileFastL4Args extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Displays the administrative partition within which this profile resides
+     * name of partition
      * 
      */
     @Import(name="partition")
     private @Nullable Output<String> partition;
 
     /**
-     * @return Displays the administrative partition within which this profile resides
+     * @return name of partition
      * 
      */
     public Optional<Output<String>> partition() {
         return Optional.ofNullable(this.partition);
+    }
+
+    /**
+     * Specifies the amount of data the BIG-IP system can accept without acknowledging the server. The default is 0 (zero).
+     * 
+     */
+    @Import(name="receiveWindowsize")
+    private @Nullable Output<Integer> receiveWindowsize;
+
+    /**
+     * @return Specifies the amount of data the BIG-IP system can accept without acknowledging the server. The default is 0 (zero).
+     * 
+     */
+    public Optional<Output<Integer>> receiveWindowsize() {
+        return Optional.ofNullable(this.receiveWindowsize);
+    }
+
+    /**
+     * Specifies the acceptable duration for a TCP handshake, that is, the maximum idle time between a client synchronization (SYN) and a client acknowledgment (ACK).The default is `5 seconds`.
+     * 
+     */
+    @Import(name="tcpHandshakeTimeout")
+    private @Nullable Output<String> tcpHandshakeTimeout;
+
+    /**
+     * @return Specifies the acceptable duration for a TCP handshake, that is, the maximum idle time between a client synchronization (SYN) and a client acknowledgment (ACK).The default is `5 seconds`.
+     * 
+     */
+    public Optional<Output<String>> tcpHandshakeTimeout() {
+        return Optional.ofNullable(this.tcpHandshakeTimeout);
     }
 
     private ProfileFastL4Args() {}
@@ -177,8 +252,13 @@ public final class ProfileFastL4Args extends com.pulumi.resources.ResourceArgs {
         this.iptosToclient = $.iptosToclient;
         this.iptosToserver = $.iptosToserver;
         this.keepaliveInterval = $.keepaliveInterval;
+        this.lateBinding = $.lateBinding;
+        this.looseClose = $.looseClose;
+        this.looseInitiation = $.looseInitiation;
         this.name = $.name;
         this.partition = $.partition;
+        this.receiveWindowsize = $.receiveWindowsize;
+        this.tcpHandshakeTimeout = $.tcpHandshakeTimeout;
     }
 
     public static Builder builder() {
@@ -368,7 +448,70 @@ public final class ProfileFastL4Args extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the profile_fastl4
+         * @param lateBinding Enables intelligent selection of a back-end server or pool, using an iRule to make the selection. The default is `disabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lateBinding(@Nullable Output<String> lateBinding) {
+            $.lateBinding = lateBinding;
+            return this;
+        }
+
+        /**
+         * @param lateBinding Enables intelligent selection of a back-end server or pool, using an iRule to make the selection. The default is `disabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder lateBinding(String lateBinding) {
+            return lateBinding(Output.of(lateBinding));
+        }
+
+        /**
+         * @param looseClose Specifies, when checked (enabled), that the system closes a loosely-initiated connection when the system receives the first FIN packet from either the client or the server. The default is disabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder looseClose(@Nullable Output<String> looseClose) {
+            $.looseClose = looseClose;
+            return this;
+        }
+
+        /**
+         * @param looseClose Specifies, when checked (enabled), that the system closes a loosely-initiated connection when the system receives the first FIN packet from either the client or the server. The default is disabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder looseClose(String looseClose) {
+            return looseClose(Output.of(looseClose));
+        }
+
+        /**
+         * @param looseInitiation Specifies, when checked (enabled), that the system initializes a connection when it receives any TCP packet, rather that requiring a SYN packet for connection initiation. The default is disabled. We recommend that if you enable the Loose Initiation option, you also enable the Loose Close option.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder looseInitiation(@Nullable Output<String> looseInitiation) {
+            $.looseInitiation = looseInitiation;
+            return this;
+        }
+
+        /**
+         * @param looseInitiation Specifies, when checked (enabled), that the system initializes a connection when it receives any TCP packet, rather that requiring a SYN packet for connection initiation. The default is disabled. We recommend that if you enable the Loose Initiation option, you also enable the Loose Close option.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder looseInitiation(String looseInitiation) {
+            return looseInitiation(Output.of(looseInitiation));
+        }
+
+        /**
+         * @param name Name of the LTM fastL4 Profile.The full path is the combination of the `partition + name` of the resource (For example `/Common/my-fastl4profile`) or  `partition + directory + name` of the resource  (example: `/Common/test/my-fastl4profile`)
          * 
          * @return builder
          * 
@@ -379,7 +522,7 @@ public final class ProfileFastL4Args extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the profile_fastl4
+         * @param name Name of the LTM fastL4 Profile.The full path is the combination of the `partition + name` of the resource (For example `/Common/my-fastl4profile`) or  `partition + directory + name` of the resource  (example: `/Common/test/my-fastl4profile`)
          * 
          * @return builder
          * 
@@ -389,7 +532,7 @@ public final class ProfileFastL4Args extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param partition Displays the administrative partition within which this profile resides
+         * @param partition name of partition
          * 
          * @return builder
          * 
@@ -400,13 +543,55 @@ public final class ProfileFastL4Args extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param partition Displays the administrative partition within which this profile resides
+         * @param partition name of partition
          * 
          * @return builder
          * 
          */
         public Builder partition(String partition) {
             return partition(Output.of(partition));
+        }
+
+        /**
+         * @param receiveWindowsize Specifies the amount of data the BIG-IP system can accept without acknowledging the server. The default is 0 (zero).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder receiveWindowsize(@Nullable Output<Integer> receiveWindowsize) {
+            $.receiveWindowsize = receiveWindowsize;
+            return this;
+        }
+
+        /**
+         * @param receiveWindowsize Specifies the amount of data the BIG-IP system can accept without acknowledging the server. The default is 0 (zero).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder receiveWindowsize(Integer receiveWindowsize) {
+            return receiveWindowsize(Output.of(receiveWindowsize));
+        }
+
+        /**
+         * @param tcpHandshakeTimeout Specifies the acceptable duration for a TCP handshake, that is, the maximum idle time between a client synchronization (SYN) and a client acknowledgment (ACK).The default is `5 seconds`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tcpHandshakeTimeout(@Nullable Output<String> tcpHandshakeTimeout) {
+            $.tcpHandshakeTimeout = tcpHandshakeTimeout;
+            return this;
+        }
+
+        /**
+         * @param tcpHandshakeTimeout Specifies the acceptable duration for a TCP handshake, that is, the maximum idle time between a client synchronization (SYN) and a client acknowledgment (ACK).The default is `5 seconds`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tcpHandshakeTimeout(String tcpHandshakeTimeout) {
+            return tcpHandshakeTimeout(Output.of(tcpHandshakeTimeout));
         }
 
         public ProfileFastL4Args build() {

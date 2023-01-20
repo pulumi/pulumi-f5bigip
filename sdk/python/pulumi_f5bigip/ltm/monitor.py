@@ -981,7 +981,7 @@ class Monitor(pulumi.CustomResource):
             if parent is None and not opts.urn:
                 raise TypeError("Missing required property 'parent'")
             __props__.__dict__["parent"] = parent
-            __props__.__dict__["password"] = password
+            __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
             __props__.__dict__["receive"] = receive
             __props__.__dict__["receive_disable"] = receive_disable
             __props__.__dict__["reverse"] = reverse
@@ -992,6 +992,8 @@ class Monitor(pulumi.CustomResource):
             __props__.__dict__["transparent"] = transparent
             __props__.__dict__["up_interval"] = up_interval
             __props__.__dict__["username"] = username
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Monitor, __self__).__init__(
             'f5bigip:ltm/monitor:Monitor',
             resource_name,

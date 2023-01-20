@@ -63,6 +63,9 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
         [Input("cpuUsage", required: true)]
         public Input<bool> CpuUsage { get; set; } = null!;
 
+        [Input("datagroup", required: true)]
+        public Input<string> Datagroup { get; set; } = null!;
+
         [Input("deviceMake", required: true)]
         public Input<bool> DeviceMake { get; set; } = null!;
 

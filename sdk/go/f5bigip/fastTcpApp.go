@@ -29,8 +29,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := f5bigip.NewFastTcpApp(ctx, "fast-tcp-app", &f5bigip.FastTcpAppArgs{
 //				Application: pulumi.String("tcp_app_2"),
-//				FastCreatePoolMembers: FastTcpAppFastCreatePoolMemberArray{
-//					&FastTcpAppFastCreatePoolMemberArgs{
+//				PoolMembers: f5bigip.FastTcpAppPoolMemberArray{
+//					&f5bigip.FastTcpAppPoolMemberArgs{
 //						Addresses: pulumi.StringArray{
 //							pulumi.String("10.11.34.65"),
 //							pulumi.String("56.43.23.76"),
@@ -42,7 +42,7 @@ import (
 //					},
 //				},
 //				Tenant: pulumi.String("tcp_app_tenant"),
-//				VirtualServer: &FastTcpAppVirtualServerArgs{
+//				VirtualServer: &f5bigip.FastTcpAppVirtualServerArgs{
 //					Ip:   pulumi.String("11.12.16.30"),
 //					Port: pulumi.Int(443),
 //				},
@@ -60,26 +60,26 @@ type FastTcpApp struct {
 
 	// Name of the FAST TCP application.
 	Application pulumi.StringOutput `pulumi:"application"`
-	// Name of an existing BIG-IP pool.
-	ExistPoolName pulumi.StringPtrOutput `pulumi:"existPoolName"`
 	// Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
 	ExistingMonitor pulumi.StringPtrOutput `pulumi:"existingMonitor"`
+	// Name of an existing BIG-IP pool.
+	ExistingPool pulumi.StringPtrOutput `pulumi:"existingPool"`
 	// Name of an existing BIG-IP SNAT pool.
 	ExistingSnatPool pulumi.StringPtrOutput `pulumi:"existingSnatPool"`
-	// `fastCreateMonitor` block takes input for FAST-Generated Pool Monitor.
-	// See Pool Monitor below for more details.
-	FastCreateMonitor FastTcpAppFastCreateMonitorPtrOutput `pulumi:"fastCreateMonitor"`
-	// `fastCreatePoolMembers` block takes input for FAST-Generated Pool.
-	// See Pool Members below for more details.
-	FastCreatePoolMembers FastTcpAppFastCreatePoolMemberArrayOutput `pulumi:"fastCreatePoolMembers"`
-	// List of address to be used for FAST-Generated SNAT Pool.
-	FastCreateSnatPoolAddresses pulumi.StringArrayOutput `pulumi:"fastCreateSnatPoolAddresses"`
 	// Json payload for FAST TCP application.
 	FastTcpJson pulumi.StringOutput `pulumi:"fastTcpJson"`
 	// A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
 	LoadBalancingMode pulumi.StringPtrOutput `pulumi:"loadBalancingMode"`
+	// `monitor` block takes input for FAST-Generated Pool Monitor.
+	// See Pool Monitor below for more details.
+	Monitor FastTcpAppMonitorPtrOutput `pulumi:"monitor"`
+	// `poolMembers` block takes input for FAST-Generated Pool.
+	// See Pool Members below for more details.
+	PoolMembers FastTcpAppPoolMemberArrayOutput `pulumi:"poolMembers"`
 	// Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
 	SlowRampTime pulumi.IntPtrOutput `pulumi:"slowRampTime"`
+	// List of address to be used for FAST-Generated SNAT Pool.
+	SnatPoolAddresses pulumi.StringArrayOutput `pulumi:"snatPoolAddresses"`
 	// Name of the FAST TCP application tenant.
 	Tenant pulumi.StringOutput `pulumi:"tenant"`
 	// `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
@@ -124,26 +124,26 @@ func GetFastTcpApp(ctx *pulumi.Context,
 type fastTcpAppState struct {
 	// Name of the FAST TCP application.
 	Application *string `pulumi:"application"`
-	// Name of an existing BIG-IP pool.
-	ExistPoolName *string `pulumi:"existPoolName"`
 	// Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
 	ExistingMonitor *string `pulumi:"existingMonitor"`
+	// Name of an existing BIG-IP pool.
+	ExistingPool *string `pulumi:"existingPool"`
 	// Name of an existing BIG-IP SNAT pool.
 	ExistingSnatPool *string `pulumi:"existingSnatPool"`
-	// `fastCreateMonitor` block takes input for FAST-Generated Pool Monitor.
-	// See Pool Monitor below for more details.
-	FastCreateMonitor *FastTcpAppFastCreateMonitor `pulumi:"fastCreateMonitor"`
-	// `fastCreatePoolMembers` block takes input for FAST-Generated Pool.
-	// See Pool Members below for more details.
-	FastCreatePoolMembers []FastTcpAppFastCreatePoolMember `pulumi:"fastCreatePoolMembers"`
-	// List of address to be used for FAST-Generated SNAT Pool.
-	FastCreateSnatPoolAddresses []string `pulumi:"fastCreateSnatPoolAddresses"`
 	// Json payload for FAST TCP application.
 	FastTcpJson *string `pulumi:"fastTcpJson"`
 	// A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
 	LoadBalancingMode *string `pulumi:"loadBalancingMode"`
+	// `monitor` block takes input for FAST-Generated Pool Monitor.
+	// See Pool Monitor below for more details.
+	Monitor *FastTcpAppMonitor `pulumi:"monitor"`
+	// `poolMembers` block takes input for FAST-Generated Pool.
+	// See Pool Members below for more details.
+	PoolMembers []FastTcpAppPoolMember `pulumi:"poolMembers"`
 	// Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
 	SlowRampTime *int `pulumi:"slowRampTime"`
+	// List of address to be used for FAST-Generated SNAT Pool.
+	SnatPoolAddresses []string `pulumi:"snatPoolAddresses"`
 	// Name of the FAST TCP application tenant.
 	Tenant *string `pulumi:"tenant"`
 	// `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
@@ -154,26 +154,26 @@ type fastTcpAppState struct {
 type FastTcpAppState struct {
 	// Name of the FAST TCP application.
 	Application pulumi.StringPtrInput
-	// Name of an existing BIG-IP pool.
-	ExistPoolName pulumi.StringPtrInput
 	// Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
 	ExistingMonitor pulumi.StringPtrInput
+	// Name of an existing BIG-IP pool.
+	ExistingPool pulumi.StringPtrInput
 	// Name of an existing BIG-IP SNAT pool.
 	ExistingSnatPool pulumi.StringPtrInput
-	// `fastCreateMonitor` block takes input for FAST-Generated Pool Monitor.
-	// See Pool Monitor below for more details.
-	FastCreateMonitor FastTcpAppFastCreateMonitorPtrInput
-	// `fastCreatePoolMembers` block takes input for FAST-Generated Pool.
-	// See Pool Members below for more details.
-	FastCreatePoolMembers FastTcpAppFastCreatePoolMemberArrayInput
-	// List of address to be used for FAST-Generated SNAT Pool.
-	FastCreateSnatPoolAddresses pulumi.StringArrayInput
 	// Json payload for FAST TCP application.
 	FastTcpJson pulumi.StringPtrInput
 	// A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
 	LoadBalancingMode pulumi.StringPtrInput
+	// `monitor` block takes input for FAST-Generated Pool Monitor.
+	// See Pool Monitor below for more details.
+	Monitor FastTcpAppMonitorPtrInput
+	// `poolMembers` block takes input for FAST-Generated Pool.
+	// See Pool Members below for more details.
+	PoolMembers FastTcpAppPoolMemberArrayInput
 	// Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
 	SlowRampTime pulumi.IntPtrInput
+	// List of address to be used for FAST-Generated SNAT Pool.
+	SnatPoolAddresses pulumi.StringArrayInput
 	// Name of the FAST TCP application tenant.
 	Tenant pulumi.StringPtrInput
 	// `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
@@ -188,24 +188,24 @@ func (FastTcpAppState) ElementType() reflect.Type {
 type fastTcpAppArgs struct {
 	// Name of the FAST TCP application.
 	Application string `pulumi:"application"`
-	// Name of an existing BIG-IP pool.
-	ExistPoolName *string `pulumi:"existPoolName"`
 	// Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
 	ExistingMonitor *string `pulumi:"existingMonitor"`
+	// Name of an existing BIG-IP pool.
+	ExistingPool *string `pulumi:"existingPool"`
 	// Name of an existing BIG-IP SNAT pool.
 	ExistingSnatPool *string `pulumi:"existingSnatPool"`
-	// `fastCreateMonitor` block takes input for FAST-Generated Pool Monitor.
-	// See Pool Monitor below for more details.
-	FastCreateMonitor *FastTcpAppFastCreateMonitor `pulumi:"fastCreateMonitor"`
-	// `fastCreatePoolMembers` block takes input for FAST-Generated Pool.
-	// See Pool Members below for more details.
-	FastCreatePoolMembers []FastTcpAppFastCreatePoolMember `pulumi:"fastCreatePoolMembers"`
-	// List of address to be used for FAST-Generated SNAT Pool.
-	FastCreateSnatPoolAddresses []string `pulumi:"fastCreateSnatPoolAddresses"`
 	// A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
 	LoadBalancingMode *string `pulumi:"loadBalancingMode"`
+	// `monitor` block takes input for FAST-Generated Pool Monitor.
+	// See Pool Monitor below for more details.
+	Monitor *FastTcpAppMonitor `pulumi:"monitor"`
+	// `poolMembers` block takes input for FAST-Generated Pool.
+	// See Pool Members below for more details.
+	PoolMembers []FastTcpAppPoolMember `pulumi:"poolMembers"`
 	// Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
 	SlowRampTime *int `pulumi:"slowRampTime"`
+	// List of address to be used for FAST-Generated SNAT Pool.
+	SnatPoolAddresses []string `pulumi:"snatPoolAddresses"`
 	// Name of the FAST TCP application tenant.
 	Tenant string `pulumi:"tenant"`
 	// `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
@@ -217,24 +217,24 @@ type fastTcpAppArgs struct {
 type FastTcpAppArgs struct {
 	// Name of the FAST TCP application.
 	Application pulumi.StringInput
-	// Name of an existing BIG-IP pool.
-	ExistPoolName pulumi.StringPtrInput
 	// Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
 	ExistingMonitor pulumi.StringPtrInput
+	// Name of an existing BIG-IP pool.
+	ExistingPool pulumi.StringPtrInput
 	// Name of an existing BIG-IP SNAT pool.
 	ExistingSnatPool pulumi.StringPtrInput
-	// `fastCreateMonitor` block takes input for FAST-Generated Pool Monitor.
-	// See Pool Monitor below for more details.
-	FastCreateMonitor FastTcpAppFastCreateMonitorPtrInput
-	// `fastCreatePoolMembers` block takes input for FAST-Generated Pool.
-	// See Pool Members below for more details.
-	FastCreatePoolMembers FastTcpAppFastCreatePoolMemberArrayInput
-	// List of address to be used for FAST-Generated SNAT Pool.
-	FastCreateSnatPoolAddresses pulumi.StringArrayInput
 	// A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
 	LoadBalancingMode pulumi.StringPtrInput
+	// `monitor` block takes input for FAST-Generated Pool Monitor.
+	// See Pool Monitor below for more details.
+	Monitor FastTcpAppMonitorPtrInput
+	// `poolMembers` block takes input for FAST-Generated Pool.
+	// See Pool Members below for more details.
+	PoolMembers FastTcpAppPoolMemberArrayInput
 	// Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
 	SlowRampTime pulumi.IntPtrInput
+	// List of address to be used for FAST-Generated SNAT Pool.
+	SnatPoolAddresses pulumi.StringArrayInput
 	// Name of the FAST TCP application tenant.
 	Tenant pulumi.StringInput
 	// `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
@@ -334,36 +334,19 @@ func (o FastTcpAppOutput) Application() pulumi.StringOutput {
 	return o.ApplyT(func(v *FastTcpApp) pulumi.StringOutput { return v.Application }).(pulumi.StringOutput)
 }
 
-// Name of an existing BIG-IP pool.
-func (o FastTcpAppOutput) ExistPoolName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FastTcpApp) pulumi.StringPtrOutput { return v.ExistPoolName }).(pulumi.StringPtrOutput)
-}
-
 // Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
 func (o FastTcpAppOutput) ExistingMonitor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FastTcpApp) pulumi.StringPtrOutput { return v.ExistingMonitor }).(pulumi.StringPtrOutput)
 }
 
+// Name of an existing BIG-IP pool.
+func (o FastTcpAppOutput) ExistingPool() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FastTcpApp) pulumi.StringPtrOutput { return v.ExistingPool }).(pulumi.StringPtrOutput)
+}
+
 // Name of an existing BIG-IP SNAT pool.
 func (o FastTcpAppOutput) ExistingSnatPool() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FastTcpApp) pulumi.StringPtrOutput { return v.ExistingSnatPool }).(pulumi.StringPtrOutput)
-}
-
-// `fastCreateMonitor` block takes input for FAST-Generated Pool Monitor.
-// See Pool Monitor below for more details.
-func (o FastTcpAppOutput) FastCreateMonitor() FastTcpAppFastCreateMonitorPtrOutput {
-	return o.ApplyT(func(v *FastTcpApp) FastTcpAppFastCreateMonitorPtrOutput { return v.FastCreateMonitor }).(FastTcpAppFastCreateMonitorPtrOutput)
-}
-
-// `fastCreatePoolMembers` block takes input for FAST-Generated Pool.
-// See Pool Members below for more details.
-func (o FastTcpAppOutput) FastCreatePoolMembers() FastTcpAppFastCreatePoolMemberArrayOutput {
-	return o.ApplyT(func(v *FastTcpApp) FastTcpAppFastCreatePoolMemberArrayOutput { return v.FastCreatePoolMembers }).(FastTcpAppFastCreatePoolMemberArrayOutput)
-}
-
-// List of address to be used for FAST-Generated SNAT Pool.
-func (o FastTcpAppOutput) FastCreateSnatPoolAddresses() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *FastTcpApp) pulumi.StringArrayOutput { return v.FastCreateSnatPoolAddresses }).(pulumi.StringArrayOutput)
 }
 
 // Json payload for FAST TCP application.
@@ -376,9 +359,26 @@ func (o FastTcpAppOutput) LoadBalancingMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FastTcpApp) pulumi.StringPtrOutput { return v.LoadBalancingMode }).(pulumi.StringPtrOutput)
 }
 
+// `monitor` block takes input for FAST-Generated Pool Monitor.
+// See Pool Monitor below for more details.
+func (o FastTcpAppOutput) Monitor() FastTcpAppMonitorPtrOutput {
+	return o.ApplyT(func(v *FastTcpApp) FastTcpAppMonitorPtrOutput { return v.Monitor }).(FastTcpAppMonitorPtrOutput)
+}
+
+// `poolMembers` block takes input for FAST-Generated Pool.
+// See Pool Members below for more details.
+func (o FastTcpAppOutput) PoolMembers() FastTcpAppPoolMemberArrayOutput {
+	return o.ApplyT(func(v *FastTcpApp) FastTcpAppPoolMemberArrayOutput { return v.PoolMembers }).(FastTcpAppPoolMemberArrayOutput)
+}
+
 // Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
 func (o FastTcpAppOutput) SlowRampTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FastTcpApp) pulumi.IntPtrOutput { return v.SlowRampTime }).(pulumi.IntPtrOutput)
+}
+
+// List of address to be used for FAST-Generated SNAT Pool.
+func (o FastTcpAppOutput) SnatPoolAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FastTcpApp) pulumi.StringArrayOutput { return v.SnatPoolAddresses }).(pulumi.StringArrayOutput)
 }
 
 // Name of the FAST TCP application tenant.

@@ -87,6 +87,17 @@ func NewDo(ctx *pulumi.Context,
 	if args.DoJson == nil {
 		return nil, errors.New("invalid value for required argument 'DoJson'")
 	}
+	if args.BigipPassword != nil {
+		args.BigipPassword = pulumi.ToSecret(args.BigipPassword).(pulumi.StringPtrInput)
+	}
+	if args.BigipTokenAuth != nil {
+		args.BigipTokenAuth = pulumi.ToSecret(args.BigipTokenAuth).(pulumi.BoolPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"bigipPassword",
+		"bigipTokenAuth",
+	})
+	opts = append(opts, secrets)
 	var resource Do
 	err := ctx.RegisterResource("f5bigip:index/do:Do", name, args, &resource, opts...)
 	if err != nil {

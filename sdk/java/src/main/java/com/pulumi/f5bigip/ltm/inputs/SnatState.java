@@ -19,14 +19,14 @@ public final class SnatState extends com.pulumi.resources.ResourceArgs {
     public static final SnatState Empty = new SnatState();
 
     /**
-     * -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level&#39;s default.
+     * Specifies whether to automatically map last hop for pools or not. The default is to use next level&#39;s default.
      * 
      */
     @Import(name="autolasthop")
     private @Nullable Output<String> autolasthop;
 
     /**
-     * @return -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level&#39;s default.
+     * @return Specifies whether to automatically map last hop for pools or not. The default is to use next level&#39;s default.
      * 
      */
     public Optional<Output<String>> autolasthop() {
@@ -218,7 +218,7 @@ public final class SnatState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autolasthop -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level&#39;s default.
+         * @param autolasthop Specifies whether to automatically map last hop for pools or not. The default is to use next level&#39;s default.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class SnatState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autolasthop -(Optional) Specifies whether to automatically map last hop for pools or not. The default is to use next level&#39;s default.
+         * @param autolasthop Specifies whether to automatically map last hop for pools or not. The default is to use next level&#39;s default.
          * 
          * @return builder
          * 

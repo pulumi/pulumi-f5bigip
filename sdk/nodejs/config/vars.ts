@@ -85,12 +85,34 @@ Object.defineProperty(exports, "tokenValue", {
 });
 
 /**
+ * Valid Trusted Certificate path
+ */
+export declare const trustedCertPath: string | undefined;
+Object.defineProperty(exports, "trustedCertPath", {
+    get() {
+        return __config.get("trustedCertPath");
+    },
+    enumerable: true,
+});
+
+/**
  * Username with API access to the BigIP
  */
 export declare const username: string | undefined;
 Object.defineProperty(exports, "username", {
     get() {
         return __config.get("username");
+    },
+    enumerable: true,
+});
+
+/**
+ * If set to true, Disables TLS certificate check on BIG-IP. Default : True
+ */
+export declare const validateCertsDisable: boolean | undefined;
+Object.defineProperty(exports, "validateCertsDisable", {
+    get() {
+        return __config.getObject<boolean>("validateCertsDisable");
     },
     enumerable: true,
 });

@@ -11,6 +11,7 @@ import com.pulumi.f5bigip.Utilities;
 import com.pulumi.f5bigip.ssl.KeyArgs;
 import com.pulumi.f5bigip.ssl.inputs.KeyState;
 import java.lang.String;
+import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
@@ -109,6 +110,20 @@ public class Key extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> partition() {
         return Codegen.optional(this.partition);
     }
+    /**
+     * Passphrase on key.
+     * 
+     */
+    @Export(name="passphrase", type=String.class, parameters={})
+    private Output</* @Nullable */ String> passphrase;
+
+    /**
+     * @return Passphrase on key.
+     * 
+     */
+    public Output<Optional<String>> passphrase() {
+        return Codegen.optional(this.passphrase);
+    }
 
     /**
      *
@@ -142,6 +157,10 @@ public class Key extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "content",
+                "passphrase"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

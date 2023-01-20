@@ -22,6 +22,7 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
         public readonly bool? CaseSensitive;
         public readonly bool? Cipher;
         public readonly bool? CipherBits;
+        public readonly bool? ClientAccepted;
         public readonly bool? ClientSsl;
         public readonly bool? Code;
         public readonly bool? CommonName;
@@ -30,6 +31,7 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
         public readonly bool? CountryCode;
         public readonly bool? CountryName;
         public readonly bool? CpuUsage;
+        public readonly string? Datagroup;
         public readonly bool? DeviceMake;
         public readonly bool? DeviceModel;
         public readonly bool? Domain;
@@ -125,6 +127,8 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
 
             bool? cipherBits,
 
+            bool? clientAccepted,
+
             bool? clientSsl,
 
             bool? code,
@@ -140,6 +144,8 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
             bool? countryName,
 
             bool? cpuUsage,
+
+            string? datagroup,
 
             bool? deviceMake,
 
@@ -298,6 +304,7 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
             CaseSensitive = caseSensitive;
             Cipher = cipher;
             CipherBits = cipherBits;
+            ClientAccepted = clientAccepted;
             ClientSsl = clientSsl;
             Code = code;
             CommonName = commonName;
@@ -306,6 +313,7 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
             CountryCode = countryCode;
             CountryName = countryName;
             CpuUsage = cpuUsage;
+            Datagroup = datagroup;
             DeviceMake = deviceMake;
             DeviceModel = deviceModel;
             Domain = domain;

@@ -33,18 +33,18 @@ public final class DnsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name or IP address of the DNS server
+     * Specifies the name servers that the system uses to validate DNS lookups, and resolve host names.
      * 
      */
-    @Import(name="nameServers")
-    private @Nullable Output<List<String>> nameServers;
+    @Import(name="nameServers", required=true)
+    private Output<List<String>> nameServers;
 
     /**
-     * @return Name or IP address of the DNS server
+     * @return Specifies the name servers that the system uses to validate DNS lookups, and resolve host names.
      * 
      */
-    public Optional<Output<List<String>>> nameServers() {
-        return Optional.ofNullable(this.nameServers);
+    public Output<List<String>> nameServers() {
+        return this.nameServers;
     }
 
     /**
@@ -63,14 +63,14 @@ public final class DnsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specify what domains you want to search
+     * Specifies the domains that the system searches for local domain lookups, to resolve local host names.
      * 
      */
     @Import(name="searches")
     private @Nullable Output<List<String>> searches;
 
     /**
-     * @return Specify what domains you want to search
+     * @return Specifies the domains that the system searches for local domain lookups, to resolve local host names.
      * 
      */
     public Optional<Output<List<String>>> searches() {
@@ -126,18 +126,18 @@ public final class DnsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nameServers Name or IP address of the DNS server
+         * @param nameServers Specifies the name servers that the system uses to validate DNS lookups, and resolve host names.
          * 
          * @return builder
          * 
          */
-        public Builder nameServers(@Nullable Output<List<String>> nameServers) {
+        public Builder nameServers(Output<List<String>> nameServers) {
             $.nameServers = nameServers;
             return this;
         }
 
         /**
-         * @param nameServers Name or IP address of the DNS server
+         * @param nameServers Specifies the name servers that the system uses to validate DNS lookups, and resolve host names.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class DnsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nameServers Name or IP address of the DNS server
+         * @param nameServers Specifies the name servers that the system uses to validate DNS lookups, and resolve host names.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class DnsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param searches Specify what domains you want to search
+         * @param searches Specifies the domains that the system searches for local domain lookups, to resolve local host names.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class DnsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param searches Specify what domains you want to search
+         * @param searches Specifies the domains that the system searches for local domain lookups, to resolve local host names.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class DnsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param searches Specify what domains you want to search
+         * @param searches Specifies the domains that the system searches for local domain lookups, to resolve local host names.
          * 
          * @return builder
          * 
@@ -210,6 +210,7 @@ public final class DnsArgs extends com.pulumi.resources.ResourceArgs {
 
         public DnsArgs build() {
             $.description = Objects.requireNonNull($.description, "expected parameter 'description' to be non-null");
+            $.nameServers = Objects.requireNonNull($.nameServers, "expected parameter 'nameServers' to be non-null");
             return $;
         }
     }

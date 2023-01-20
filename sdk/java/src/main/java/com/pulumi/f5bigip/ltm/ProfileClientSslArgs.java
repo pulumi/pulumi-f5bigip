@@ -200,11 +200,23 @@ public final class ProfileClientSslArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.certExtensionIncludes);
     }
 
-    @Import(name="certKeyChains")
-    private @Nullable Output<List<ProfileClientSslCertKeyChainArgs>> certKeyChains;
+    /**
+     * @deprecated
+     * This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
+     * 
+     */
+    @Deprecated /* This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute. */
+    @Import(name="certKeyChain")
+    private @Nullable Output<ProfileClientSslCertKeyChainArgs> certKeyChain;
 
-    public Optional<Output<List<ProfileClientSslCertKeyChainArgs>>> certKeyChains() {
-        return Optional.ofNullable(this.certKeyChains);
+    /**
+     * @deprecated
+     * This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
+     * 
+     */
+    @Deprecated /* This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute. */
+    public Optional<Output<ProfileClientSslCertKeyChainArgs>> certKeyChain() {
+        return Optional.ofNullable(this.certKeyChain);
     }
 
     /**
@@ -250,6 +262,21 @@ public final class ProfileClientSslArgs extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<String>> chain() {
         return Optional.ofNullable(this.chain);
+    }
+
+    /**
+     * Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+     * 
+     */
+    @Import(name="cipherGroup")
+    private @Nullable Output<String> cipherGroup;
+
+    /**
+     * @return Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+     * 
+     */
+    public Optional<Output<String>> cipherGroup() {
+        return Optional.ofNullable(this.cipherGroup);
     }
 
     /**
@@ -862,10 +889,11 @@ public final class ProfileClientSslArgs extends com.pulumi.resources.ResourceArg
         this.cacheTimeout = $.cacheTimeout;
         this.cert = $.cert;
         this.certExtensionIncludes = $.certExtensionIncludes;
-        this.certKeyChains = $.certKeyChains;
+        this.certKeyChain = $.certKeyChain;
         this.certLifeSpan = $.certLifeSpan;
         this.certLookupByIpaddrPort = $.certLookupByIpaddrPort;
         this.chain = $.chain;
+        this.cipherGroup = $.cipherGroup;
         this.ciphers = $.ciphers;
         this.clientCertCa = $.clientCertCa;
         this.crlFile = $.crlFile;
@@ -1189,17 +1217,29 @@ public final class ProfileClientSslArgs extends com.pulumi.resources.ResourceArg
             return certExtensionIncludes(List.of(certExtensionIncludes));
         }
 
-        public Builder certKeyChains(@Nullable Output<List<ProfileClientSslCertKeyChainArgs>> certKeyChains) {
-            $.certKeyChains = certKeyChains;
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
+         * 
+         */
+        @Deprecated /* This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute. */
+        public Builder certKeyChain(@Nullable Output<ProfileClientSslCertKeyChainArgs> certKeyChain) {
+            $.certKeyChain = certKeyChain;
             return this;
         }
 
-        public Builder certKeyChains(List<ProfileClientSslCertKeyChainArgs> certKeyChains) {
-            return certKeyChains(Output.of(certKeyChains));
-        }
-
-        public Builder certKeyChains(ProfileClientSslCertKeyChainArgs... certKeyChains) {
-            return certKeyChains(List.of(certKeyChains));
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
+         * 
+         */
+        @Deprecated /* This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute. */
+        public Builder certKeyChain(ProfileClientSslCertKeyChainArgs certKeyChain) {
+            return certKeyChain(Output.of(certKeyChain));
         }
 
         /**
@@ -1263,6 +1303,27 @@ public final class ProfileClientSslArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder chain(String chain) {
             return chain(Output.of(chain));
+        }
+
+        /**
+         * @param cipherGroup Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cipherGroup(@Nullable Output<String> cipherGroup) {
+            $.cipherGroup = cipherGroup;
+            return this;
+        }
+
+        /**
+         * @param cipherGroup Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cipherGroup(String cipherGroup) {
+            return cipherGroup(Output.of(cipherGroup));
         }
 
         /**

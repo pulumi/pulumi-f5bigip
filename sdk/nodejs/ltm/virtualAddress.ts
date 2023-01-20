@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const vsVa = new f5bigip.ltm.VirtualAddress("vs_va", {
+ * const vsVa = new f5bigip.ltm.VirtualAddress("vsVa", {
  *     advertizeRoute: "enabled",
  *     name: "/Common/xxxxx",
  * });
