@@ -38,7 +38,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("f5bigip:ltm/getPool:getPool", args ?? new GetPoolArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("f5bigip:ltm/getPool:getPool", args ?? new GetPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source (`f5bigip.ltm.Pool`) to get the ltm monitor details available on BIG-IP
@@ -67,7 +67,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPoolResult>("f5bigip:ltm/getPool:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("f5bigip:ltm/getPool:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
     }
 
 

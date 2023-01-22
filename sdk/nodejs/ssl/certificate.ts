@@ -92,12 +92,14 @@ export class Certificate extends pulumi.CustomResource {
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["content"] = args ? args.content : undefined;
+            resourceInputs["content"] = args?.content ? pulumi.secret(args.content) : undefined;
             resourceInputs["fullPath"] = args ? args.fullPath : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["partition"] = args ? args.partition : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["content"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Certificate.__pulumiType, name, resourceInputs, opts);
     }
 }

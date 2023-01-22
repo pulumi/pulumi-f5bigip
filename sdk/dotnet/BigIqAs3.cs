@@ -116,6 +116,14 @@ namespace Pulumi.F5BigIP
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "bigiqLoginRef",
+                    "bigiqPassword",
+                    "bigiqPort",
+                    "bigiqTokenAuth",
+                    "bigiqUser",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -151,35 +159,85 @@ namespace Pulumi.F5BigIP
         [Input("bigiqAddress", required: true)]
         public Input<string> BigiqAddress { get; set; } = null!;
 
+        [Input("bigiqLoginRef")]
+        private Input<string>? _bigiqLoginRef;
+
         /// <summary>
         /// BIGIQ Login reference for token authentication
         /// </summary>
-        [Input("bigiqLoginRef")]
-        public Input<string>? BigiqLoginRef { get; set; }
+        public Input<string>? BigiqLoginRef
+        {
+            get => _bigiqLoginRef;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _bigiqLoginRef = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("bigiqPassword", required: true)]
+        private Input<string>? _bigiqPassword;
 
         /// <summary>
         /// Password of the BIG-IQ to which your targer BIG-IP is attached
         /// </summary>
-        [Input("bigiqPassword", required: true)]
-        public Input<string> BigiqPassword { get; set; } = null!;
+        public Input<string>? BigiqPassword
+        {
+            get => _bigiqPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _bigiqPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("bigiqPort")]
+        private Input<string>? _bigiqPort;
 
         /// <summary>
         /// type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
         /// </summary>
-        [Input("bigiqPort")]
-        public Input<string>? BigiqPort { get; set; }
+        public Input<string>? BigiqPort
+        {
+            get => _bigiqPort;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _bigiqPort = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("bigiqTokenAuth")]
+        private Input<bool>? _bigiqTokenAuth;
 
         /// <summary>
         /// type `bool`, if set to `true` enables Token based Authentication,default is `false`
         /// </summary>
-        [Input("bigiqTokenAuth")]
-        public Input<bool>? BigiqTokenAuth { get; set; }
+        public Input<bool>? BigiqTokenAuth
+        {
+            get => _bigiqTokenAuth;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _bigiqTokenAuth = Output.Tuple<Input<bool>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("bigiqUser", required: true)]
+        private Input<string>? _bigiqUser;
 
         /// <summary>
         /// User name  of the BIG-IQ to which your targer BIG-IP is attached
         /// </summary>
-        [Input("bigiqUser", required: true)]
-        public Input<string> BigiqUser { get; set; } = null!;
+        public Input<string>? BigiqUser
+        {
+            get => _bigiqUser;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _bigiqUser = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Set True if you want to ignore metadata changes during update. By default it is set to `true`
@@ -213,35 +271,85 @@ namespace Pulumi.F5BigIP
         [Input("bigiqAddress")]
         public Input<string>? BigiqAddress { get; set; }
 
+        [Input("bigiqLoginRef")]
+        private Input<string>? _bigiqLoginRef;
+
         /// <summary>
         /// BIGIQ Login reference for token authentication
         /// </summary>
-        [Input("bigiqLoginRef")]
-        public Input<string>? BigiqLoginRef { get; set; }
+        public Input<string>? BigiqLoginRef
+        {
+            get => _bigiqLoginRef;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _bigiqLoginRef = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("bigiqPassword")]
+        private Input<string>? _bigiqPassword;
 
         /// <summary>
         /// Password of the BIG-IQ to which your targer BIG-IP is attached
         /// </summary>
-        [Input("bigiqPassword")]
-        public Input<string>? BigiqPassword { get; set; }
+        public Input<string>? BigiqPassword
+        {
+            get => _bigiqPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _bigiqPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("bigiqPort")]
+        private Input<string>? _bigiqPort;
 
         /// <summary>
         /// type `int`, BIGIQ License Manager Port number, specify if port is other than `443`
         /// </summary>
-        [Input("bigiqPort")]
-        public Input<string>? BigiqPort { get; set; }
+        public Input<string>? BigiqPort
+        {
+            get => _bigiqPort;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _bigiqPort = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("bigiqTokenAuth")]
+        private Input<bool>? _bigiqTokenAuth;
 
         /// <summary>
         /// type `bool`, if set to `true` enables Token based Authentication,default is `false`
         /// </summary>
-        [Input("bigiqTokenAuth")]
-        public Input<bool>? BigiqTokenAuth { get; set; }
+        public Input<bool>? BigiqTokenAuth
+        {
+            get => _bigiqTokenAuth;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _bigiqTokenAuth = Output.Tuple<Input<bool>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("bigiqUser")]
+        private Input<string>? _bigiqUser;
 
         /// <summary>
         /// User name  of the BIG-IQ to which your targer BIG-IP is attached
         /// </summary>
-        [Input("bigiqUser")]
-        public Input<string>? BigiqUser { get; set; }
+        public Input<string>? BigiqUser
+        {
+            get => _bigiqUser;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _bigiqUser = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Set True if you want to ignore metadata changes during update. By default it is set to `true`

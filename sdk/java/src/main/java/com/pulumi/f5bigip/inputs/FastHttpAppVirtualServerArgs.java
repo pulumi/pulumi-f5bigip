@@ -30,14 +30,14 @@ public final class FastHttpAppVirtualServerArgs extends com.pulumi.resources.Res
     }
 
     /**
-     * -(Optional , `int`) Port number to used for accessing virtual server/application
+     * Port number to used for accessing virtual server/application
      * 
      */
     @Import(name="port", required=true)
     private Output<Integer> port;
 
     /**
-     * @return -(Optional , `int`) Port number to used for accessing virtual server/application
+     * @return Port number to used for accessing virtual server/application
      * 
      */
     public Output<Integer> port() {
@@ -91,7 +91,7 @@ public final class FastHttpAppVirtualServerArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param port -(Optional , `int`) Port number to used for accessing virtual server/application
+         * @param port Port number to used for accessing virtual server/application
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class FastHttpAppVirtualServerArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param port -(Optional , `int`) Port number to used for accessing virtual server/application
+         * @param port Port number to used for accessing virtual server/application
          * 
          * @return builder
          * 

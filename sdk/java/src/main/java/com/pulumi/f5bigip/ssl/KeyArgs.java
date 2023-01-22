@@ -75,6 +75,21 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.partition);
     }
 
+    /**
+     * Passphrase on key.
+     * 
+     */
+    @Import(name="passphrase")
+    private @Nullable Output<String> passphrase;
+
+    /**
+     * @return Passphrase on key.
+     * 
+     */
+    public Optional<Output<String>> passphrase() {
+        return Optional.ofNullable(this.passphrase);
+    }
+
     private KeyArgs() {}
 
     private KeyArgs(KeyArgs $) {
@@ -82,6 +97,7 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
         this.fullPath = $.fullPath;
         this.name = $.name;
         this.partition = $.partition;
+        this.passphrase = $.passphrase;
     }
 
     public static Builder builder() {
@@ -184,6 +200,27 @@ public final class KeyArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder partition(String partition) {
             return partition(Output.of(partition));
+        }
+
+        /**
+         * @param passphrase Passphrase on key.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passphrase(@Nullable Output<String> passphrase) {
+            $.passphrase = passphrase;
+            return this;
+        }
+
+        /**
+         * @param passphrase Passphrase on key.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passphrase(String passphrase) {
+            return passphrase(Output.of(passphrase));
         }
 
         public KeyArgs build() {

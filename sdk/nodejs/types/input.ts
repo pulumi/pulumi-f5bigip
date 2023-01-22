@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 
 export interface EventServiceDiscoveryNode {
     id?: pulumi.Input<string>;
@@ -10,7 +11,7 @@ export interface EventServiceDiscoveryNode {
     port?: pulumi.Input<number>;
 }
 
-export interface FastHttpAppFastCreateMonitor {
+export interface FastHttpAppMonitor {
     /**
      * Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
      */
@@ -37,7 +38,7 @@ export interface FastHttpAppFastCreateMonitor {
     username?: pulumi.Input<string>;
 }
 
-export interface FastHttpAppFastCreatePoolMember {
+export interface FastHttpAppPoolMember {
     /**
      * List of server address to be used for FAST-Generated Pool.
      */
@@ -66,23 +67,19 @@ export interface FastHttpAppVirtualServer {
      */
     ip: pulumi.Input<string>;
     /**
-     * -(Optional , `int`) Port number to used for accessing virtual server/application
+     * Port number to used for accessing virtual server/application
      */
     port: pulumi.Input<number>;
 }
 
-export interface FastHttpsAppCreateTlsServerProfile {
+export interface FastHttpAppWafSecurityPolicy {
     /**
-     * Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
+     * Setting `true` will enable FAST to create WAF Security Policy.
      */
-    tlsCertName: pulumi.Input<string>;
-    /**
-     * Name of existing BIG-IP SSL Key to be used for FAST-Generated TLS Server Profile.
-     */
-    tlsKeyName: pulumi.Input<string>;
+    enable: pulumi.Input<boolean>;
 }
 
-export interface FastHttpsAppFastCreateMonitor {
+export interface FastHttpsAppMonitor {
     /**
      * Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
      */
@@ -109,7 +106,7 @@ export interface FastHttpsAppFastCreateMonitor {
     username?: pulumi.Input<string>;
 }
 
-export interface FastHttpsAppFastCreatePoolMember {
+export interface FastHttpsAppPoolMember {
     /**
      * List of server address to be used for FAST-Generated Pool.
      */
@@ -132,25 +129,54 @@ export interface FastHttpsAppFastCreatePoolMember {
     shareNodes?: pulumi.Input<boolean>;
 }
 
+export interface FastHttpsAppTlsClientProfile {
+    /**
+     * Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
+     */
+    tlsCertName: pulumi.Input<string>;
+    /**
+     * Name of existing BIG-IP SSL Key to be used for FAST-Generated TLS Server Profile.
+     */
+    tlsKeyName: pulumi.Input<string>;
+}
+
+export interface FastHttpsAppTlsServerProfile {
+    /**
+     * Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
+     */
+    tlsCertName: pulumi.Input<string>;
+    /**
+     * Name of existing BIG-IP SSL Key to be used for FAST-Generated TLS Server Profile.
+     */
+    tlsKeyName: pulumi.Input<string>;
+}
+
 export interface FastHttpsAppVirtualServer {
     /**
      * IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
      */
     ip: pulumi.Input<string>;
     /**
-     * -(Optional , `int`) Port number to used for accessing virtual server/application
+     * Port number to used for accessing virtual server/application
      */
     port: pulumi.Input<number>;
 }
 
-export interface FastTcpAppFastCreateMonitor {
+export interface FastHttpsAppWafSecurityPolicy {
+    /**
+     * Setting `true` will enable FAST to create WAF Security Policy.
+     */
+    enable: pulumi.Input<boolean>;
+}
+
+export interface FastTcpAppMonitor {
     /**
      * Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
      */
     interval?: pulumi.Input<number>;
 }
 
-export interface FastTcpAppFastCreatePoolMember {
+export interface FastTcpAppPoolMember {
     /**
      * List of server address to be used for FAST-Generated Pool.
      */
@@ -179,7 +205,56 @@ export interface FastTcpAppVirtualServer {
      */
     ip: pulumi.Input<string>;
     /**
-     * -(Optional , `int`) Port number to used for accessing virtual server/application
+     * Port number to used for accessing virtual server/application
+     */
+    port: pulumi.Input<number>;
+}
+
+export interface FastUdpAppMonitor {
+    /**
+     * The presence of this optional string is required in the response, if specified it confirms availability.
+     */
+    expectedResponse?: pulumi.Input<string>;
+    /**
+     * Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
+     */
+    interval?: pulumi.Input<number>;
+    /**
+     * Optional data to be sent during each health check.
+     */
+    sendString?: pulumi.Input<string>;
+}
+
+export interface FastUdpAppPoolMember {
+    /**
+     * List of server address to be used for FAST-Generated Pool.
+     */
+    addresses: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * connectionLimit value to be used for FAST-Generated Pool.
+     */
+    connectionLimit?: pulumi.Input<number>;
+    /**
+     * port number of serviceport to be used for FAST-Generated Pool.
+     */
+    port?: pulumi.Input<number>;
+    /**
+     * priorityGroup value to be used for FAST-Generated Pool.
+     */
+    priorityGroup?: pulumi.Input<number>;
+    /**
+     * shareNodes value to be used for FAST-Generated Pool.
+     */
+    shareNodes?: pulumi.Input<boolean>;
+}
+
+export interface FastUdpAppVirtualServer {
+    /**
+     * IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
+     */
+    ip: pulumi.Input<string>;
+    /**
+     * Port number to used for accessing virtual server/application
      */
     port: pulumi.Input<number>;
 }
@@ -235,14 +310,6 @@ export namespace ltm {
         name: pulumi.Input<string>;
     }
 
-    export interface GetDataGroupRecordArgs {
-        data?: pulumi.Input<string>;
-        /**
-         * Name of the datagroup
-         */
-        name: pulumi.Input<string>;
-    }
-
     export interface GetDataGroupRecord {
         data?: string;
         /**
@@ -251,27 +318,12 @@ export namespace ltm {
         name: string;
     }
 
-    export interface GetNodeFqdnArgs {
+    export interface GetDataGroupRecordArgs {
+        data?: pulumi.Input<string>;
         /**
-         * The FQDN node's address family.
+         * Name of the datagroup
          */
-        addressFamily?: pulumi.Input<string>;
-        /**
-         * Specifies if the node should scale to the IP address set returned by DNS.
-         */
-        autopopulate?: pulumi.Input<string>;
-        /**
-         * The number of attempts to resolve a domain name.
-         */
-        downinterval?: pulumi.Input<number>;
-        /**
-         * The amount of time before sending the next DNS query.
-         */
-        interval?: pulumi.Input<string>;
-        /**
-         * Name of the node.
-         */
-        name?: pulumi.Input<string>;
+        name: pulumi.Input<string>;
     }
 
     export interface GetNodeFqdn {
@@ -295,6 +347,29 @@ export namespace ltm {
          * Name of the node.
          */
         name?: string;
+    }
+
+    export interface GetNodeFqdnArgs {
+        /**
+         * The FQDN node's address family.
+         */
+        addressFamily?: pulumi.Input<string>;
+        /**
+         * Specifies if the node should scale to the IP address set returned by DNS.
+         */
+        autopopulate?: pulumi.Input<string>;
+        /**
+         * The number of attempts to resolve a domain name.
+         */
+        downinterval?: pulumi.Input<number>;
+        /**
+         * The amount of time before sending the next DNS query.
+         */
+        interval?: pulumi.Input<string>;
+        /**
+         * Name of the node.
+         */
+        name?: pulumi.Input<string>;
     }
 
     export interface GetPolicyRule {
@@ -547,6 +622,7 @@ export namespace ltm {
         countryCode?: boolean;
         countryName?: boolean;
         cpuUsage?: boolean;
+        datagroup?: string;
         deviceMake?: boolean;
         deviceModel?: boolean;
         domain?: boolean;
@@ -640,6 +716,7 @@ export namespace ltm {
         countryCode?: pulumi.Input<boolean>;
         countryName?: pulumi.Input<boolean>;
         cpuUsage?: pulumi.Input<boolean>;
+        datagroup?: pulumi.Input<string>;
         deviceMake?: pulumi.Input<boolean>;
         deviceModel?: pulumi.Input<boolean>;
         domain?: pulumi.Input<boolean>;
@@ -733,10 +810,16 @@ export namespace ltm {
     }
 
     export interface PolicyRule {
+        /**
+         * Block type. See action block for more details.
+         */
         actions?: pulumi.Input<pulumi.Input<inputs.ltm.PolicyRuleAction>[]>;
+        /**
+         * Block type. See condition block for more details.
+         */
         conditions?: pulumi.Input<pulumi.Input<inputs.ltm.PolicyRuleCondition>[]>;
         /**
-         * Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+         * Name of Rule to be applied in policy.
          */
         name: pulumi.Input<string>;
     }
@@ -867,6 +950,7 @@ export namespace ltm {
         caseSensitive?: pulumi.Input<boolean>;
         cipher?: pulumi.Input<boolean>;
         cipherBits?: pulumi.Input<boolean>;
+        clientAccepted?: pulumi.Input<boolean>;
         clientSsl?: pulumi.Input<boolean>;
         code?: pulumi.Input<boolean>;
         commonName?: pulumi.Input<boolean>;
@@ -875,6 +959,7 @@ export namespace ltm {
         countryCode?: pulumi.Input<boolean>;
         countryName?: pulumi.Input<boolean>;
         cpuUsage?: pulumi.Input<boolean>;
+        datagroup?: pulumi.Input<string>;
         deviceMake?: pulumi.Input<boolean>;
         deviceModel?: pulumi.Input<boolean>;
         domain?: pulumi.Input<boolean>;
@@ -978,7 +1063,6 @@ export namespace ltm {
          */
         name?: pulumi.Input<string>;
     }
-
 }
 
 export namespace net {
@@ -995,6 +1079,20 @@ export namespace net {
 }
 
 export namespace ssl {
+    export interface GetWafEntityParameterUrl {
+        method: string;
+        name: string;
+        protocol: string;
+        type: string;
+    }
+
+    export interface GetWafEntityParameterUrlArgs {
+        method: pulumi.Input<string>;
+        name: pulumi.Input<string>;
+        protocol: pulumi.Input<string>;
+        type: pulumi.Input<string>;
+    }
+
     export interface GetWafEntityUrlMethodOverride {
         /**
          * Specifies that the system allows or disallows a method for this URL

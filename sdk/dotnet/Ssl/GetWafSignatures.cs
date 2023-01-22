@@ -37,7 +37,7 @@ namespace Pulumi.F5BigIP.Ssl
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetWafSignaturesResult> InvokeAsync(GetWafSignaturesArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWafSignaturesResult>("f5bigip:ssl/getWafSignatures:getWafSignatures", args ?? new GetWafSignaturesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWafSignaturesResult>("f5bigip:ssl/getWafSignatures:getWafSignatures", args ?? new GetWafSignaturesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source (`f5bigip.ssl.getWafSignatures`) to get the details of attack signatures available on BIG-IP WAF
@@ -65,7 +65,7 @@ namespace Pulumi.F5BigIP.Ssl
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetWafSignaturesResult> Invoke(GetWafSignaturesInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWafSignaturesResult>("f5bigip:ssl/getWafSignatures:getWafSignatures", args ?? new GetWafSignaturesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWafSignaturesResult>("f5bigip:ssl/getWafSignatures:getWafSignatures", args ?? new GetWafSignaturesInvokeArgs(), options.WithDefaults());
     }
 
 

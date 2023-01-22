@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 
 export interface EventServiceDiscoveryNode {
     id?: string;
@@ -10,7 +11,7 @@ export interface EventServiceDiscoveryNode {
     port?: number;
 }
 
-export interface FastHttpAppFastCreateMonitor {
+export interface FastHttpAppMonitor {
     /**
      * Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
      */
@@ -37,7 +38,7 @@ export interface FastHttpAppFastCreateMonitor {
     username?: string;
 }
 
-export interface FastHttpAppFastCreatePoolMember {
+export interface FastHttpAppPoolMember {
     /**
      * List of server address to be used for FAST-Generated Pool.
      */
@@ -66,23 +67,19 @@ export interface FastHttpAppVirtualServer {
      */
     ip: string;
     /**
-     * -(Optional , `int`) Port number to used for accessing virtual server/application
+     * Port number to used for accessing virtual server/application
      */
     port: number;
 }
 
-export interface FastHttpsAppCreateTlsServerProfile {
+export interface FastHttpAppWafSecurityPolicy {
     /**
-     * Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
+     * Setting `true` will enable FAST to create WAF Security Policy.
      */
-    tlsCertName: string;
-    /**
-     * Name of existing BIG-IP SSL Key to be used for FAST-Generated TLS Server Profile.
-     */
-    tlsKeyName: string;
+    enable: boolean;
 }
 
-export interface FastHttpsAppFastCreateMonitor {
+export interface FastHttpsAppMonitor {
     /**
      * Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
      */
@@ -109,7 +106,7 @@ export interface FastHttpsAppFastCreateMonitor {
     username?: string;
 }
 
-export interface FastHttpsAppFastCreatePoolMember {
+export interface FastHttpsAppPoolMember {
     /**
      * List of server address to be used for FAST-Generated Pool.
      */
@@ -132,25 +129,54 @@ export interface FastHttpsAppFastCreatePoolMember {
     shareNodes?: boolean;
 }
 
+export interface FastHttpsAppTlsClientProfile {
+    /**
+     * Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
+     */
+    tlsCertName: string;
+    /**
+     * Name of existing BIG-IP SSL Key to be used for FAST-Generated TLS Server Profile.
+     */
+    tlsKeyName: string;
+}
+
+export interface FastHttpsAppTlsServerProfile {
+    /**
+     * Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
+     */
+    tlsCertName: string;
+    /**
+     * Name of existing BIG-IP SSL Key to be used for FAST-Generated TLS Server Profile.
+     */
+    tlsKeyName: string;
+}
+
 export interface FastHttpsAppVirtualServer {
     /**
      * IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
      */
     ip: string;
     /**
-     * -(Optional , `int`) Port number to used for accessing virtual server/application
+     * Port number to used for accessing virtual server/application
      */
     port: number;
 }
 
-export interface FastTcpAppFastCreateMonitor {
+export interface FastHttpsAppWafSecurityPolicy {
+    /**
+     * Setting `true` will enable FAST to create WAF Security Policy.
+     */
+    enable: boolean;
+}
+
+export interface FastTcpAppMonitor {
     /**
      * Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
      */
     interval?: number;
 }
 
-export interface FastTcpAppFastCreatePoolMember {
+export interface FastTcpAppPoolMember {
     /**
      * List of server address to be used for FAST-Generated Pool.
      */
@@ -179,7 +205,56 @@ export interface FastTcpAppVirtualServer {
      */
     ip: string;
     /**
-     * -(Optional , `int`) Port number to used for accessing virtual server/application
+     * Port number to used for accessing virtual server/application
+     */
+    port: number;
+}
+
+export interface FastUdpAppMonitor {
+    /**
+     * The presence of this optional string is required in the response, if specified it confirms availability.
+     */
+    expectedResponse?: string;
+    /**
+     * Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
+     */
+    interval?: number;
+    /**
+     * Optional data to be sent during each health check.
+     */
+    sendString?: string;
+}
+
+export interface FastUdpAppPoolMember {
+    /**
+     * List of server address to be used for FAST-Generated Pool.
+     */
+    addresses: string[];
+    /**
+     * connectionLimit value to be used for FAST-Generated Pool.
+     */
+    connectionLimit?: number;
+    /**
+     * port number of serviceport to be used for FAST-Generated Pool.
+     */
+    port?: number;
+    /**
+     * priorityGroup value to be used for FAST-Generated Pool.
+     */
+    priorityGroup?: number;
+    /**
+     * shareNodes value to be used for FAST-Generated Pool.
+     */
+    shareNodes?: boolean;
+}
+
+export interface FastUdpAppVirtualServer {
+    /**
+     * IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
+     */
+    ip: string;
+    /**
+     * Port number to used for accessing virtual server/application
      */
     port: number;
 }
@@ -402,6 +477,7 @@ export namespace ltm {
         countryCode: boolean;
         countryName: boolean;
         cpuUsage: boolean;
+        datagroup: string;
         deviceMake: boolean;
         deviceModel: boolean;
         domain: boolean;
@@ -495,10 +571,16 @@ export namespace ltm {
     }
 
     export interface PolicyRule {
+        /**
+         * Block type. See action block for more details.
+         */
         actions?: outputs.ltm.PolicyRuleAction[];
+        /**
+         * Block type. See condition block for more details.
+         */
         conditions?: outputs.ltm.PolicyRuleCondition[];
         /**
-         * Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+         * Name of Rule to be applied in policy.
          */
         name: string;
     }
@@ -629,6 +711,7 @@ export namespace ltm {
         caseSensitive: boolean;
         cipher: boolean;
         cipherBits: boolean;
+        clientAccepted: boolean;
         clientSsl: boolean;
         code: boolean;
         commonName: boolean;
@@ -637,6 +720,7 @@ export namespace ltm {
         countryCode: boolean;
         countryName: boolean;
         cpuUsage: boolean;
+        datagroup?: string;
         deviceMake: boolean;
         deviceModel: boolean;
         domain: boolean;
@@ -730,7 +814,7 @@ export namespace ltm {
          * Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
          */
         name?: string;
-        passphrase?: string;
+        passphrase: string;
     }
 
     export interface SnatOrigin {
@@ -740,6 +824,7 @@ export namespace ltm {
          */
         name?: string;
     }
+
 }
 
 export namespace net {
@@ -757,6 +842,13 @@ export namespace net {
 }
 
 export namespace ssl {
+    export interface GetWafEntityParameterUrl {
+        method: string;
+        name: string;
+        protocol: string;
+        type: string;
+    }
+
     export interface GetWafEntityUrlMethodOverride {
         /**
          * Specifies that the system allows or disallows a method for this URL

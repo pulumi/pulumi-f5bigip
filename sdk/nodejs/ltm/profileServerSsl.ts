@@ -107,11 +107,15 @@ export class ProfileServerSsl extends pulumi.CustomResource {
     /**
      * Specifies the name of the certificate that the system uses for server-side SSL processing.
      */
-    public readonly cert!: pulumi.Output<string>;
+    public readonly cert!: pulumi.Output<string | undefined>;
     /**
      * Specifies the certificates-key chain to associate with the SSL profile
      */
-    public readonly chain!: pulumi.Output<string>;
+    public readonly chain!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+     */
+    public readonly cipherGroup!: pulumi.Output<string | undefined>;
     /**
      * Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
      */
@@ -143,7 +147,7 @@ export class ProfileServerSsl extends pulumi.CustomResource {
     /**
      * Specifies the file name of the SSL key.
      */
-    public readonly key!: pulumi.Output<string>;
+    public readonly key!: pulumi.Output<string | undefined>;
     /**
      * ModSSL Methods enabled / disabled. Default is disabled.
      */
@@ -287,6 +291,7 @@ export class ProfileServerSsl extends pulumi.CustomResource {
             resourceInputs["cacheTimeout"] = state ? state.cacheTimeout : undefined;
             resourceInputs["cert"] = state ? state.cert : undefined;
             resourceInputs["chain"] = state ? state.chain : undefined;
+            resourceInputs["cipherGroup"] = state ? state.cipherGroup : undefined;
             resourceInputs["ciphers"] = state ? state.ciphers : undefined;
             resourceInputs["defaultsFrom"] = state ? state.defaultsFrom : undefined;
             resourceInputs["expireCertResponseControl"] = state ? state.expireCertResponseControl : undefined;
@@ -342,6 +347,7 @@ export class ProfileServerSsl extends pulumi.CustomResource {
             resourceInputs["cacheTimeout"] = args ? args.cacheTimeout : undefined;
             resourceInputs["cert"] = args ? args.cert : undefined;
             resourceInputs["chain"] = args ? args.chain : undefined;
+            resourceInputs["cipherGroup"] = args ? args.cipherGroup : undefined;
             resourceInputs["ciphers"] = args ? args.ciphers : undefined;
             resourceInputs["defaultsFrom"] = args ? args.defaultsFrom : undefined;
             resourceInputs["expireCertResponseControl"] = args ? args.expireCertResponseControl : undefined;
@@ -354,7 +360,7 @@ export class ProfileServerSsl extends pulumi.CustomResource {
             resourceInputs["mode"] = args ? args.mode : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["partition"] = args ? args.partition : undefined;
-            resourceInputs["passphrase"] = args ? args.passphrase : undefined;
+            resourceInputs["passphrase"] = args?.passphrase ? pulumi.secret(args.passphrase) : undefined;
             resourceInputs["peerCertMode"] = args ? args.peerCertMode : undefined;
             resourceInputs["proxyCaCert"] = args ? args.proxyCaCert : undefined;
             resourceInputs["proxyCaKey"] = args ? args.proxyCaKey : undefined;
@@ -379,6 +385,8 @@ export class ProfileServerSsl extends pulumi.CustomResource {
             resourceInputs["untrustedCertResponseControl"] = args ? args.untrustedCertResponseControl : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["passphrase"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ProfileServerSsl.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -448,6 +456,10 @@ export interface ProfileServerSslState {
      * Specifies the certificates-key chain to associate with the SSL profile
      */
     chain?: pulumi.Input<string>;
+    /**
+     * Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+     */
+    cipherGroup?: pulumi.Input<string>;
     /**
      * Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
      */
@@ -661,6 +673,10 @@ export interface ProfileServerSslArgs {
      * Specifies the certificates-key chain to associate with the SSL profile
      */
     chain?: pulumi.Input<string>;
+    /**
+     * Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+     */
+    cipherGroup?: pulumi.Input<string>;
     /**
      * Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
      */

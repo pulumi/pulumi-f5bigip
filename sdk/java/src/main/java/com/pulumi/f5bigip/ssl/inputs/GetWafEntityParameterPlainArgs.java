@@ -4,6 +4,7 @@
 package com.pulumi.f5bigip.ssl.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.f5bigip.ssl.inputs.GetWafEntityParameterUrl;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -164,6 +165,13 @@ public final class GetWafEntityParameterPlainArgs extends com.pulumi.resources.I
         return Optional.ofNullable(this.type);
     }
 
+    @Import(name="url")
+    private @Nullable GetWafEntityParameterUrl url;
+
+    public Optional<GetWafEntityParameterUrl> url() {
+        return Optional.ofNullable(this.url);
+    }
+
     @Import(name="valueType")
     private @Nullable String valueType;
 
@@ -195,6 +203,7 @@ public final class GetWafEntityParameterPlainArgs extends com.pulumi.resources.I
         this.sensitiveParameter = $.sensitiveParameter;
         this.signatureOverridesDisables = $.signatureOverridesDisables;
         this.type = $.type;
+        this.url = $.url;
         this.valueType = $.valueType;
     }
 
@@ -322,6 +331,11 @@ public final class GetWafEntityParameterPlainArgs extends com.pulumi.resources.I
 
         public Builder type(@Nullable String type) {
             $.type = type;
+            return this;
+        }
+
+        public Builder url(@Nullable GetWafEntityParameterUrl url) {
+            $.url = url;
             return this;
         }
 

@@ -75,13 +75,13 @@ type Policy struct {
 
 	// Specifies the controls
 	Controls pulumi.StringArrayOutput `pulumi:"controls"`
-	// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+	// Name of Rule to be applied in policy.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// If you want to publish the policy else it will be deployed in Drafts mode.
 	PublishedCopy pulumi.StringPtrOutput `pulumi:"publishedCopy"`
 	// Specifies the protocol
 	Requires pulumi.StringArrayOutput `pulumi:"requires"`
-	// Rules can be applied using the policy
+	// List of Rules can be applied using the policy. Each rule is block type with following arguments.
 	Rules PolicyRuleArrayOutput `pulumi:"rules"`
 	// Specifies the match strategy
 	Strategy pulumi.StringPtrOutput `pulumi:"strategy"`
@@ -121,13 +121,13 @@ func GetPolicy(ctx *pulumi.Context,
 type policyState struct {
 	// Specifies the controls
 	Controls []string `pulumi:"controls"`
-	// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+	// Name of Rule to be applied in policy.
 	Name *string `pulumi:"name"`
 	// If you want to publish the policy else it will be deployed in Drafts mode.
 	PublishedCopy *string `pulumi:"publishedCopy"`
 	// Specifies the protocol
 	Requires []string `pulumi:"requires"`
-	// Rules can be applied using the policy
+	// List of Rules can be applied using the policy. Each rule is block type with following arguments.
 	Rules []PolicyRule `pulumi:"rules"`
 	// Specifies the match strategy
 	Strategy *string `pulumi:"strategy"`
@@ -136,13 +136,13 @@ type policyState struct {
 type PolicyState struct {
 	// Specifies the controls
 	Controls pulumi.StringArrayInput
-	// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+	// Name of Rule to be applied in policy.
 	Name pulumi.StringPtrInput
 	// If you want to publish the policy else it will be deployed in Drafts mode.
 	PublishedCopy pulumi.StringPtrInput
 	// Specifies the protocol
 	Requires pulumi.StringArrayInput
-	// Rules can be applied using the policy
+	// List of Rules can be applied using the policy. Each rule is block type with following arguments.
 	Rules PolicyRuleArrayInput
 	// Specifies the match strategy
 	Strategy pulumi.StringPtrInput
@@ -155,13 +155,13 @@ func (PolicyState) ElementType() reflect.Type {
 type policyArgs struct {
 	// Specifies the controls
 	Controls []string `pulumi:"controls"`
-	// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+	// Name of Rule to be applied in policy.
 	Name string `pulumi:"name"`
 	// If you want to publish the policy else it will be deployed in Drafts mode.
 	PublishedCopy *string `pulumi:"publishedCopy"`
 	// Specifies the protocol
 	Requires []string `pulumi:"requires"`
-	// Rules can be applied using the policy
+	// List of Rules can be applied using the policy. Each rule is block type with following arguments.
 	Rules []PolicyRule `pulumi:"rules"`
 	// Specifies the match strategy
 	Strategy *string `pulumi:"strategy"`
@@ -171,13 +171,13 @@ type policyArgs struct {
 type PolicyArgs struct {
 	// Specifies the controls
 	Controls pulumi.StringArrayInput
-	// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+	// Name of Rule to be applied in policy.
 	Name pulumi.StringInput
 	// If you want to publish the policy else it will be deployed in Drafts mode.
 	PublishedCopy pulumi.StringPtrInput
 	// Specifies the protocol
 	Requires pulumi.StringArrayInput
-	// Rules can be applied using the policy
+	// List of Rules can be applied using the policy. Each rule is block type with following arguments.
 	Rules PolicyRuleArrayInput
 	// Specifies the match strategy
 	Strategy pulumi.StringPtrInput
@@ -275,7 +275,7 @@ func (o PolicyOutput) Controls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringArrayOutput { return v.Controls }).(pulumi.StringArrayOutput)
 }
 
-// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+// Name of Rule to be applied in policy.
 func (o PolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -290,7 +290,7 @@ func (o PolicyOutput) Requires() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringArrayOutput { return v.Requires }).(pulumi.StringArrayOutput)
 }
 
-// Rules can be applied using the policy
+// List of Rules can be applied using the policy. Each rule is block type with following arguments.
 func (o PolicyOutput) Rules() PolicyRuleArrayOutput {
 	return o.ApplyT(func(v *Policy) PolicyRuleArrayOutput { return v.Rules }).(PolicyRuleArrayOutput)
 }

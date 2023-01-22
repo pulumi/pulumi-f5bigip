@@ -41,7 +41,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("f5bigip:ltm/getPolicy:getPolicy", args ?? new GetPolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("f5bigip:ltm/getPolicy:getPolicy", args ?? new GetPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source (`f5bigip.ltm.Policy`) to get the ltm policy details available on BIG-IP
@@ -73,7 +73,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetPolicyResult> Invoke(GetPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("f5bigip:ltm/getPolicy:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("f5bigip:ltm/getPolicy:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

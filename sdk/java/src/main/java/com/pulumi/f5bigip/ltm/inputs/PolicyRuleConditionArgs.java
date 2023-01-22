@@ -81,6 +81,13 @@ public final class PolicyRuleConditionArgs extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.cipherBits);
     }
 
+    @Import(name="clientAccepted")
+    private @Nullable Output<Boolean> clientAccepted;
+
+    public Optional<Output<Boolean>> clientAccepted() {
+        return Optional.ofNullable(this.clientAccepted);
+    }
+
     @Import(name="clientSsl")
     private @Nullable Output<Boolean> clientSsl;
 
@@ -135,6 +142,13 @@ public final class PolicyRuleConditionArgs extends com.pulumi.resources.Resource
 
     public Optional<Output<Boolean>> cpuUsage() {
         return Optional.ofNullable(this.cpuUsage);
+    }
+
+    @Import(name="datagroup")
+    private @Nullable Output<String> datagroup;
+
+    public Optional<Output<String>> datagroup() {
+        return Optional.ofNullable(this.datagroup);
     }
 
     @Import(name="deviceMake")
@@ -667,6 +681,7 @@ public final class PolicyRuleConditionArgs extends com.pulumi.resources.Resource
         this.caseSensitive = $.caseSensitive;
         this.cipher = $.cipher;
         this.cipherBits = $.cipherBits;
+        this.clientAccepted = $.clientAccepted;
         this.clientSsl = $.clientSsl;
         this.code = $.code;
         this.commonName = $.commonName;
@@ -675,6 +690,7 @@ public final class PolicyRuleConditionArgs extends com.pulumi.resources.Resource
         this.countryCode = $.countryCode;
         this.countryName = $.countryName;
         this.cpuUsage = $.cpuUsage;
+        this.datagroup = $.datagroup;
         this.deviceMake = $.deviceMake;
         this.deviceModel = $.deviceModel;
         this.domain = $.domain;
@@ -850,6 +866,15 @@ public final class PolicyRuleConditionArgs extends com.pulumi.resources.Resource
             return cipherBits(Output.of(cipherBits));
         }
 
+        public Builder clientAccepted(@Nullable Output<Boolean> clientAccepted) {
+            $.clientAccepted = clientAccepted;
+            return this;
+        }
+
+        public Builder clientAccepted(Boolean clientAccepted) {
+            return clientAccepted(Output.of(clientAccepted));
+        }
+
         public Builder clientSsl(@Nullable Output<Boolean> clientSsl) {
             $.clientSsl = clientSsl;
             return this;
@@ -920,6 +945,15 @@ public final class PolicyRuleConditionArgs extends com.pulumi.resources.Resource
 
         public Builder cpuUsage(Boolean cpuUsage) {
             return cpuUsage(Output.of(cpuUsage));
+        }
+
+        public Builder datagroup(@Nullable Output<String> datagroup) {
+            $.datagroup = datagroup;
+            return this;
+        }
+
+        public Builder datagroup(String datagroup) {
+            return datagroup(Output.of(datagroup));
         }
 
         public Builder deviceMake(@Nullable Output<Boolean> deviceMake) {

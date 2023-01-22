@@ -16,6 +16,8 @@ import (
 //
 // * [Declarative WAF documentation](https://clouddocs.f5.com/products/waf-declarative-policy/declarative_policy_v16_1.html)
 //
+// > **NOTE** This Resource Requires F5 BIG-IP v16.x above version, and ASM need to be provisioned.
+//
 // ## Example Usage
 //
 // ```go
@@ -74,12 +76,12 @@ import (
 //					pulumi.String("MongoDB"),
 //				},
 //				Parameters: pulumi.StringArray{
-//					pulumi.String(param1.Json),
-//					pulumi.String(param2.Json),
+//					*pulumi.String(param1.Json),
+//					*pulumi.String(param2.Json),
 //				},
 //				Urls: pulumi.StringArray{
-//					pulumi.String(uRL.Json),
-//					pulumi.String(uRL2.Json),
+//					*pulumi.String(uRL.Json),
+//					*pulumi.String(uRL2.Json),
 //				},
 //			})
 //			if err != nil {
@@ -340,8 +342,6 @@ type wafPolicyArgs struct {
 	// `policyBuilder` block will provide `learningMode` options to be used for policy builder.
 	// See policy builder below for more details.
 	PolicyBuilders []WafPolicyPolicyBuilder `pulumi:"policyBuilders"`
-	// Exported WAF policy deployed on BIGIP.
-	PolicyExportJson *string `pulumi:"policyExportJson"`
 	// The id of the A.WAF Policy as it would be calculated on the BIG-IP.
 	PolicyId *string `pulumi:"policyId"`
 	// The payload of the WAF Policy to be used for IMPORT on to BIG-IP.
@@ -397,8 +397,6 @@ type WafPolicyArgs struct {
 	// `policyBuilder` block will provide `learningMode` options to be used for policy builder.
 	// See policy builder below for more details.
 	PolicyBuilders WafPolicyPolicyBuilderArrayInput
-	// Exported WAF policy deployed on BIGIP.
-	PolicyExportJson pulumi.StringPtrInput
 	// The id of the A.WAF Policy as it would be calculated on the BIG-IP.
 	PolicyId pulumi.StringPtrInput
 	// The payload of the WAF Policy to be used for IMPORT on to BIG-IP.

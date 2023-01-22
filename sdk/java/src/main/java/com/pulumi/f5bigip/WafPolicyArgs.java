@@ -227,21 +227,6 @@ public final class WafPolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Exported WAF policy deployed on BIGIP.
-     * 
-     */
-    @Import(name="policyExportJson")
-    private @Nullable Output<String> policyExportJson;
-
-    /**
-     * @return Exported WAF policy deployed on BIGIP.
-     * 
-     */
-    public Optional<Output<String>> policyExportJson() {
-        return Optional.ofNullable(this.policyExportJson);
-    }
-
-    /**
      * The id of the A.WAF Policy as it would be calculated on the BIG-IP.
      * 
      */
@@ -407,7 +392,6 @@ public final class WafPolicyArgs extends com.pulumi.resources.ResourceArgs {
         this.parameters = $.parameters;
         this.partition = $.partition;
         this.policyBuilders = $.policyBuilders;
-        this.policyExportJson = $.policyExportJson;
         this.policyId = $.policyId;
         this.policyImportJson = $.policyImportJson;
         this.protocolIndependent = $.protocolIndependent;
@@ -784,27 +768,6 @@ public final class WafPolicyArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder policyBuilders(WafPolicyPolicyBuilderArgs... policyBuilders) {
             return policyBuilders(List.of(policyBuilders));
-        }
-
-        /**
-         * @param policyExportJson Exported WAF policy deployed on BIGIP.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder policyExportJson(@Nullable Output<String> policyExportJson) {
-            $.policyExportJson = policyExportJson;
-            return this;
-        }
-
-        /**
-         * @param policyExportJson Exported WAF policy deployed on BIGIP.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder policyExportJson(String policyExportJson) {
-            return policyExportJson(Output.of(policyExportJson));
         }
 
         /**

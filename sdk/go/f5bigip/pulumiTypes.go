@@ -116,7 +116,7 @@ func (o EventServiceDiscoveryNodeArrayOutput) Index(i pulumi.IntInput) EventServ
 	}).(EventServiceDiscoveryNodeOutput)
 }
 
-type FastHttpAppFastCreateMonitor struct {
+type FastHttpAppMonitor struct {
 	// Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
 	Interval *int `pulumi:"interval"`
 	// set `true` if the servers require login credentials for web access on FAST-Generated Pool Monitor. default is `false`.
@@ -131,18 +131,18 @@ type FastHttpAppFastCreateMonitor struct {
 	Username *string `pulumi:"username"`
 }
 
-// FastHttpAppFastCreateMonitorInput is an input type that accepts FastHttpAppFastCreateMonitorArgs and FastHttpAppFastCreateMonitorOutput values.
-// You can construct a concrete instance of `FastHttpAppFastCreateMonitorInput` via:
+// FastHttpAppMonitorInput is an input type that accepts FastHttpAppMonitorArgs and FastHttpAppMonitorOutput values.
+// You can construct a concrete instance of `FastHttpAppMonitorInput` via:
 //
-//	FastHttpAppFastCreateMonitorArgs{...}
-type FastHttpAppFastCreateMonitorInput interface {
+//	FastHttpAppMonitorArgs{...}
+type FastHttpAppMonitorInput interface {
 	pulumi.Input
 
-	ToFastHttpAppFastCreateMonitorOutput() FastHttpAppFastCreateMonitorOutput
-	ToFastHttpAppFastCreateMonitorOutputWithContext(context.Context) FastHttpAppFastCreateMonitorOutput
+	ToFastHttpAppMonitorOutput() FastHttpAppMonitorOutput
+	ToFastHttpAppMonitorOutputWithContext(context.Context) FastHttpAppMonitorOutput
 }
 
-type FastHttpAppFastCreateMonitorArgs struct {
+type FastHttpAppMonitorArgs struct {
 	// Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
 	// set `true` if the servers require login credentials for web access on FAST-Generated Pool Monitor. default is `false`.
@@ -157,140 +157,140 @@ type FastHttpAppFastCreateMonitorArgs struct {
 	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
-func (FastHttpAppFastCreateMonitorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FastHttpAppFastCreateMonitor)(nil)).Elem()
+func (FastHttpAppMonitorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FastHttpAppMonitor)(nil)).Elem()
 }
 
-func (i FastHttpAppFastCreateMonitorArgs) ToFastHttpAppFastCreateMonitorOutput() FastHttpAppFastCreateMonitorOutput {
-	return i.ToFastHttpAppFastCreateMonitorOutputWithContext(context.Background())
+func (i FastHttpAppMonitorArgs) ToFastHttpAppMonitorOutput() FastHttpAppMonitorOutput {
+	return i.ToFastHttpAppMonitorOutputWithContext(context.Background())
 }
 
-func (i FastHttpAppFastCreateMonitorArgs) ToFastHttpAppFastCreateMonitorOutputWithContext(ctx context.Context) FastHttpAppFastCreateMonitorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FastHttpAppFastCreateMonitorOutput)
+func (i FastHttpAppMonitorArgs) ToFastHttpAppMonitorOutputWithContext(ctx context.Context) FastHttpAppMonitorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastHttpAppMonitorOutput)
 }
 
-func (i FastHttpAppFastCreateMonitorArgs) ToFastHttpAppFastCreateMonitorPtrOutput() FastHttpAppFastCreateMonitorPtrOutput {
-	return i.ToFastHttpAppFastCreateMonitorPtrOutputWithContext(context.Background())
+func (i FastHttpAppMonitorArgs) ToFastHttpAppMonitorPtrOutput() FastHttpAppMonitorPtrOutput {
+	return i.ToFastHttpAppMonitorPtrOutputWithContext(context.Background())
 }
 
-func (i FastHttpAppFastCreateMonitorArgs) ToFastHttpAppFastCreateMonitorPtrOutputWithContext(ctx context.Context) FastHttpAppFastCreateMonitorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FastHttpAppFastCreateMonitorOutput).ToFastHttpAppFastCreateMonitorPtrOutputWithContext(ctx)
+func (i FastHttpAppMonitorArgs) ToFastHttpAppMonitorPtrOutputWithContext(ctx context.Context) FastHttpAppMonitorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastHttpAppMonitorOutput).ToFastHttpAppMonitorPtrOutputWithContext(ctx)
 }
 
-// FastHttpAppFastCreateMonitorPtrInput is an input type that accepts FastHttpAppFastCreateMonitorArgs, FastHttpAppFastCreateMonitorPtr and FastHttpAppFastCreateMonitorPtrOutput values.
-// You can construct a concrete instance of `FastHttpAppFastCreateMonitorPtrInput` via:
+// FastHttpAppMonitorPtrInput is an input type that accepts FastHttpAppMonitorArgs, FastHttpAppMonitorPtr and FastHttpAppMonitorPtrOutput values.
+// You can construct a concrete instance of `FastHttpAppMonitorPtrInput` via:
 //
-//	        FastHttpAppFastCreateMonitorArgs{...}
+//	        FastHttpAppMonitorArgs{...}
 //
 //	or:
 //
 //	        nil
-type FastHttpAppFastCreateMonitorPtrInput interface {
+type FastHttpAppMonitorPtrInput interface {
 	pulumi.Input
 
-	ToFastHttpAppFastCreateMonitorPtrOutput() FastHttpAppFastCreateMonitorPtrOutput
-	ToFastHttpAppFastCreateMonitorPtrOutputWithContext(context.Context) FastHttpAppFastCreateMonitorPtrOutput
+	ToFastHttpAppMonitorPtrOutput() FastHttpAppMonitorPtrOutput
+	ToFastHttpAppMonitorPtrOutputWithContext(context.Context) FastHttpAppMonitorPtrOutput
 }
 
-type fastHttpAppFastCreateMonitorPtrType FastHttpAppFastCreateMonitorArgs
+type fastHttpAppMonitorPtrType FastHttpAppMonitorArgs
 
-func FastHttpAppFastCreateMonitorPtr(v *FastHttpAppFastCreateMonitorArgs) FastHttpAppFastCreateMonitorPtrInput {
-	return (*fastHttpAppFastCreateMonitorPtrType)(v)
+func FastHttpAppMonitorPtr(v *FastHttpAppMonitorArgs) FastHttpAppMonitorPtrInput {
+	return (*fastHttpAppMonitorPtrType)(v)
 }
 
-func (*fastHttpAppFastCreateMonitorPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FastHttpAppFastCreateMonitor)(nil)).Elem()
+func (*fastHttpAppMonitorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FastHttpAppMonitor)(nil)).Elem()
 }
 
-func (i *fastHttpAppFastCreateMonitorPtrType) ToFastHttpAppFastCreateMonitorPtrOutput() FastHttpAppFastCreateMonitorPtrOutput {
-	return i.ToFastHttpAppFastCreateMonitorPtrOutputWithContext(context.Background())
+func (i *fastHttpAppMonitorPtrType) ToFastHttpAppMonitorPtrOutput() FastHttpAppMonitorPtrOutput {
+	return i.ToFastHttpAppMonitorPtrOutputWithContext(context.Background())
 }
 
-func (i *fastHttpAppFastCreateMonitorPtrType) ToFastHttpAppFastCreateMonitorPtrOutputWithContext(ctx context.Context) FastHttpAppFastCreateMonitorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FastHttpAppFastCreateMonitorPtrOutput)
+func (i *fastHttpAppMonitorPtrType) ToFastHttpAppMonitorPtrOutputWithContext(ctx context.Context) FastHttpAppMonitorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastHttpAppMonitorPtrOutput)
 }
 
-type FastHttpAppFastCreateMonitorOutput struct{ *pulumi.OutputState }
+type FastHttpAppMonitorOutput struct{ *pulumi.OutputState }
 
-func (FastHttpAppFastCreateMonitorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FastHttpAppFastCreateMonitor)(nil)).Elem()
+func (FastHttpAppMonitorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FastHttpAppMonitor)(nil)).Elem()
 }
 
-func (o FastHttpAppFastCreateMonitorOutput) ToFastHttpAppFastCreateMonitorOutput() FastHttpAppFastCreateMonitorOutput {
+func (o FastHttpAppMonitorOutput) ToFastHttpAppMonitorOutput() FastHttpAppMonitorOutput {
 	return o
 }
 
-func (o FastHttpAppFastCreateMonitorOutput) ToFastHttpAppFastCreateMonitorOutputWithContext(ctx context.Context) FastHttpAppFastCreateMonitorOutput {
+func (o FastHttpAppMonitorOutput) ToFastHttpAppMonitorOutputWithContext(ctx context.Context) FastHttpAppMonitorOutput {
 	return o
 }
 
-func (o FastHttpAppFastCreateMonitorOutput) ToFastHttpAppFastCreateMonitorPtrOutput() FastHttpAppFastCreateMonitorPtrOutput {
-	return o.ToFastHttpAppFastCreateMonitorPtrOutputWithContext(context.Background())
+func (o FastHttpAppMonitorOutput) ToFastHttpAppMonitorPtrOutput() FastHttpAppMonitorPtrOutput {
+	return o.ToFastHttpAppMonitorPtrOutputWithContext(context.Background())
 }
 
-func (o FastHttpAppFastCreateMonitorOutput) ToFastHttpAppFastCreateMonitorPtrOutputWithContext(ctx context.Context) FastHttpAppFastCreateMonitorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FastHttpAppFastCreateMonitor) *FastHttpAppFastCreateMonitor {
+func (o FastHttpAppMonitorOutput) ToFastHttpAppMonitorPtrOutputWithContext(ctx context.Context) FastHttpAppMonitorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FastHttpAppMonitor) *FastHttpAppMonitor {
 		return &v
-	}).(FastHttpAppFastCreateMonitorPtrOutput)
+	}).(FastHttpAppMonitorPtrOutput)
 }
 
 // Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
-func (o FastHttpAppFastCreateMonitorOutput) Interval() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FastHttpAppFastCreateMonitor) *int { return v.Interval }).(pulumi.IntPtrOutput)
+func (o FastHttpAppMonitorOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FastHttpAppMonitor) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
 // set `true` if the servers require login credentials for web access on FAST-Generated Pool Monitor. default is `false`.
-func (o FastHttpAppFastCreateMonitorOutput) MonitorAuth() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v FastHttpAppFastCreateMonitor) *bool { return v.MonitorAuth }).(pulumi.BoolPtrOutput)
+func (o FastHttpAppMonitorOutput) MonitorAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FastHttpAppMonitor) *bool { return v.MonitorAuth }).(pulumi.BoolPtrOutput)
 }
 
 // password for web access on FAST-Generated Pool Monitor.
-func (o FastHttpAppFastCreateMonitorOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FastHttpAppFastCreateMonitor) *string { return v.Password }).(pulumi.StringPtrOutput)
+func (o FastHttpAppMonitorOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpAppMonitor) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 // The presence of this string anywhere in the HTTP response implies availability.
-func (o FastHttpAppFastCreateMonitorOutput) Response() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FastHttpAppFastCreateMonitor) *string { return v.Response }).(pulumi.StringPtrOutput)
+func (o FastHttpAppMonitorOutput) Response() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpAppMonitor) *string { return v.Response }).(pulumi.StringPtrOutput)
 }
 
 // Specify data to be sent during each health check for FAST-Generated Pool Monitor.
-func (o FastHttpAppFastCreateMonitorOutput) SendString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FastHttpAppFastCreateMonitor) *string { return v.SendString }).(pulumi.StringPtrOutput)
+func (o FastHttpAppMonitorOutput) SendString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpAppMonitor) *string { return v.SendString }).(pulumi.StringPtrOutput)
 }
 
 // username for web access on FAST-Generated Pool Monitor.
-func (o FastHttpAppFastCreateMonitorOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FastHttpAppFastCreateMonitor) *string { return v.Username }).(pulumi.StringPtrOutput)
+func (o FastHttpAppMonitorOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpAppMonitor) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-type FastHttpAppFastCreateMonitorPtrOutput struct{ *pulumi.OutputState }
+type FastHttpAppMonitorPtrOutput struct{ *pulumi.OutputState }
 
-func (FastHttpAppFastCreateMonitorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FastHttpAppFastCreateMonitor)(nil)).Elem()
+func (FastHttpAppMonitorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FastHttpAppMonitor)(nil)).Elem()
 }
 
-func (o FastHttpAppFastCreateMonitorPtrOutput) ToFastHttpAppFastCreateMonitorPtrOutput() FastHttpAppFastCreateMonitorPtrOutput {
+func (o FastHttpAppMonitorPtrOutput) ToFastHttpAppMonitorPtrOutput() FastHttpAppMonitorPtrOutput {
 	return o
 }
 
-func (o FastHttpAppFastCreateMonitorPtrOutput) ToFastHttpAppFastCreateMonitorPtrOutputWithContext(ctx context.Context) FastHttpAppFastCreateMonitorPtrOutput {
+func (o FastHttpAppMonitorPtrOutput) ToFastHttpAppMonitorPtrOutputWithContext(ctx context.Context) FastHttpAppMonitorPtrOutput {
 	return o
 }
 
-func (o FastHttpAppFastCreateMonitorPtrOutput) Elem() FastHttpAppFastCreateMonitorOutput {
-	return o.ApplyT(func(v *FastHttpAppFastCreateMonitor) FastHttpAppFastCreateMonitor {
+func (o FastHttpAppMonitorPtrOutput) Elem() FastHttpAppMonitorOutput {
+	return o.ApplyT(func(v *FastHttpAppMonitor) FastHttpAppMonitor {
 		if v != nil {
 			return *v
 		}
-		var ret FastHttpAppFastCreateMonitor
+		var ret FastHttpAppMonitor
 		return ret
-	}).(FastHttpAppFastCreateMonitorOutput)
+	}).(FastHttpAppMonitorOutput)
 }
 
 // Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
-func (o FastHttpAppFastCreateMonitorPtrOutput) Interval() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *FastHttpAppFastCreateMonitor) *int {
+func (o FastHttpAppMonitorPtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FastHttpAppMonitor) *int {
 		if v == nil {
 			return nil
 		}
@@ -299,8 +299,8 @@ func (o FastHttpAppFastCreateMonitorPtrOutput) Interval() pulumi.IntPtrOutput {
 }
 
 // set `true` if the servers require login credentials for web access on FAST-Generated Pool Monitor. default is `false`.
-func (o FastHttpAppFastCreateMonitorPtrOutput) MonitorAuth() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *FastHttpAppFastCreateMonitor) *bool {
+func (o FastHttpAppMonitorPtrOutput) MonitorAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FastHttpAppMonitor) *bool {
 		if v == nil {
 			return nil
 		}
@@ -309,8 +309,8 @@ func (o FastHttpAppFastCreateMonitorPtrOutput) MonitorAuth() pulumi.BoolPtrOutpu
 }
 
 // password for web access on FAST-Generated Pool Monitor.
-func (o FastHttpAppFastCreateMonitorPtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FastHttpAppFastCreateMonitor) *string {
+func (o FastHttpAppMonitorPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FastHttpAppMonitor) *string {
 		if v == nil {
 			return nil
 		}
@@ -319,8 +319,8 @@ func (o FastHttpAppFastCreateMonitorPtrOutput) Password() pulumi.StringPtrOutput
 }
 
 // The presence of this string anywhere in the HTTP response implies availability.
-func (o FastHttpAppFastCreateMonitorPtrOutput) Response() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FastHttpAppFastCreateMonitor) *string {
+func (o FastHttpAppMonitorPtrOutput) Response() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FastHttpAppMonitor) *string {
 		if v == nil {
 			return nil
 		}
@@ -329,8 +329,8 @@ func (o FastHttpAppFastCreateMonitorPtrOutput) Response() pulumi.StringPtrOutput
 }
 
 // Specify data to be sent during each health check for FAST-Generated Pool Monitor.
-func (o FastHttpAppFastCreateMonitorPtrOutput) SendString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FastHttpAppFastCreateMonitor) *string {
+func (o FastHttpAppMonitorPtrOutput) SendString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FastHttpAppMonitor) *string {
 		if v == nil {
 			return nil
 		}
@@ -339,8 +339,8 @@ func (o FastHttpAppFastCreateMonitorPtrOutput) SendString() pulumi.StringPtrOutp
 }
 
 // username for web access on FAST-Generated Pool Monitor.
-func (o FastHttpAppFastCreateMonitorPtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FastHttpAppFastCreateMonitor) *string {
+func (o FastHttpAppMonitorPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FastHttpAppMonitor) *string {
 		if v == nil {
 			return nil
 		}
@@ -348,7 +348,7 @@ func (o FastHttpAppFastCreateMonitorPtrOutput) Username() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-type FastHttpAppFastCreatePoolMember struct {
+type FastHttpAppPoolMember struct {
 	// List of server address to be used for FAST-Generated Pool.
 	Addresses []string `pulumi:"addresses"`
 	// connectionLimit value to be used for FAST-Generated Pool.
@@ -361,18 +361,18 @@ type FastHttpAppFastCreatePoolMember struct {
 	ShareNodes *bool `pulumi:"shareNodes"`
 }
 
-// FastHttpAppFastCreatePoolMemberInput is an input type that accepts FastHttpAppFastCreatePoolMemberArgs and FastHttpAppFastCreatePoolMemberOutput values.
-// You can construct a concrete instance of `FastHttpAppFastCreatePoolMemberInput` via:
+// FastHttpAppPoolMemberInput is an input type that accepts FastHttpAppPoolMemberArgs and FastHttpAppPoolMemberOutput values.
+// You can construct a concrete instance of `FastHttpAppPoolMemberInput` via:
 //
-//	FastHttpAppFastCreatePoolMemberArgs{...}
-type FastHttpAppFastCreatePoolMemberInput interface {
+//	FastHttpAppPoolMemberArgs{...}
+type FastHttpAppPoolMemberInput interface {
 	pulumi.Input
 
-	ToFastHttpAppFastCreatePoolMemberOutput() FastHttpAppFastCreatePoolMemberOutput
-	ToFastHttpAppFastCreatePoolMemberOutputWithContext(context.Context) FastHttpAppFastCreatePoolMemberOutput
+	ToFastHttpAppPoolMemberOutput() FastHttpAppPoolMemberOutput
+	ToFastHttpAppPoolMemberOutputWithContext(context.Context) FastHttpAppPoolMemberOutput
 }
 
-type FastHttpAppFastCreatePoolMemberArgs struct {
+type FastHttpAppPoolMemberArgs struct {
 	// List of server address to be used for FAST-Generated Pool.
 	Addresses pulumi.StringArrayInput `pulumi:"addresses"`
 	// connectionLimit value to be used for FAST-Generated Pool.
@@ -385,106 +385,106 @@ type FastHttpAppFastCreatePoolMemberArgs struct {
 	ShareNodes pulumi.BoolPtrInput `pulumi:"shareNodes"`
 }
 
-func (FastHttpAppFastCreatePoolMemberArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FastHttpAppFastCreatePoolMember)(nil)).Elem()
+func (FastHttpAppPoolMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FastHttpAppPoolMember)(nil)).Elem()
 }
 
-func (i FastHttpAppFastCreatePoolMemberArgs) ToFastHttpAppFastCreatePoolMemberOutput() FastHttpAppFastCreatePoolMemberOutput {
-	return i.ToFastHttpAppFastCreatePoolMemberOutputWithContext(context.Background())
+func (i FastHttpAppPoolMemberArgs) ToFastHttpAppPoolMemberOutput() FastHttpAppPoolMemberOutput {
+	return i.ToFastHttpAppPoolMemberOutputWithContext(context.Background())
 }
 
-func (i FastHttpAppFastCreatePoolMemberArgs) ToFastHttpAppFastCreatePoolMemberOutputWithContext(ctx context.Context) FastHttpAppFastCreatePoolMemberOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FastHttpAppFastCreatePoolMemberOutput)
+func (i FastHttpAppPoolMemberArgs) ToFastHttpAppPoolMemberOutputWithContext(ctx context.Context) FastHttpAppPoolMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastHttpAppPoolMemberOutput)
 }
 
-// FastHttpAppFastCreatePoolMemberArrayInput is an input type that accepts FastHttpAppFastCreatePoolMemberArray and FastHttpAppFastCreatePoolMemberArrayOutput values.
-// You can construct a concrete instance of `FastHttpAppFastCreatePoolMemberArrayInput` via:
+// FastHttpAppPoolMemberArrayInput is an input type that accepts FastHttpAppPoolMemberArray and FastHttpAppPoolMemberArrayOutput values.
+// You can construct a concrete instance of `FastHttpAppPoolMemberArrayInput` via:
 //
-//	FastHttpAppFastCreatePoolMemberArray{ FastHttpAppFastCreatePoolMemberArgs{...} }
-type FastHttpAppFastCreatePoolMemberArrayInput interface {
+//	FastHttpAppPoolMemberArray{ FastHttpAppPoolMemberArgs{...} }
+type FastHttpAppPoolMemberArrayInput interface {
 	pulumi.Input
 
-	ToFastHttpAppFastCreatePoolMemberArrayOutput() FastHttpAppFastCreatePoolMemberArrayOutput
-	ToFastHttpAppFastCreatePoolMemberArrayOutputWithContext(context.Context) FastHttpAppFastCreatePoolMemberArrayOutput
+	ToFastHttpAppPoolMemberArrayOutput() FastHttpAppPoolMemberArrayOutput
+	ToFastHttpAppPoolMemberArrayOutputWithContext(context.Context) FastHttpAppPoolMemberArrayOutput
 }
 
-type FastHttpAppFastCreatePoolMemberArray []FastHttpAppFastCreatePoolMemberInput
+type FastHttpAppPoolMemberArray []FastHttpAppPoolMemberInput
 
-func (FastHttpAppFastCreatePoolMemberArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FastHttpAppFastCreatePoolMember)(nil)).Elem()
+func (FastHttpAppPoolMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FastHttpAppPoolMember)(nil)).Elem()
 }
 
-func (i FastHttpAppFastCreatePoolMemberArray) ToFastHttpAppFastCreatePoolMemberArrayOutput() FastHttpAppFastCreatePoolMemberArrayOutput {
-	return i.ToFastHttpAppFastCreatePoolMemberArrayOutputWithContext(context.Background())
+func (i FastHttpAppPoolMemberArray) ToFastHttpAppPoolMemberArrayOutput() FastHttpAppPoolMemberArrayOutput {
+	return i.ToFastHttpAppPoolMemberArrayOutputWithContext(context.Background())
 }
 
-func (i FastHttpAppFastCreatePoolMemberArray) ToFastHttpAppFastCreatePoolMemberArrayOutputWithContext(ctx context.Context) FastHttpAppFastCreatePoolMemberArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FastHttpAppFastCreatePoolMemberArrayOutput)
+func (i FastHttpAppPoolMemberArray) ToFastHttpAppPoolMemberArrayOutputWithContext(ctx context.Context) FastHttpAppPoolMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastHttpAppPoolMemberArrayOutput)
 }
 
-type FastHttpAppFastCreatePoolMemberOutput struct{ *pulumi.OutputState }
+type FastHttpAppPoolMemberOutput struct{ *pulumi.OutputState }
 
-func (FastHttpAppFastCreatePoolMemberOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FastHttpAppFastCreatePoolMember)(nil)).Elem()
+func (FastHttpAppPoolMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FastHttpAppPoolMember)(nil)).Elem()
 }
 
-func (o FastHttpAppFastCreatePoolMemberOutput) ToFastHttpAppFastCreatePoolMemberOutput() FastHttpAppFastCreatePoolMemberOutput {
+func (o FastHttpAppPoolMemberOutput) ToFastHttpAppPoolMemberOutput() FastHttpAppPoolMemberOutput {
 	return o
 }
 
-func (o FastHttpAppFastCreatePoolMemberOutput) ToFastHttpAppFastCreatePoolMemberOutputWithContext(ctx context.Context) FastHttpAppFastCreatePoolMemberOutput {
+func (o FastHttpAppPoolMemberOutput) ToFastHttpAppPoolMemberOutputWithContext(ctx context.Context) FastHttpAppPoolMemberOutput {
 	return o
 }
 
 // List of server address to be used for FAST-Generated Pool.
-func (o FastHttpAppFastCreatePoolMemberOutput) Addresses() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v FastHttpAppFastCreatePoolMember) []string { return v.Addresses }).(pulumi.StringArrayOutput)
+func (o FastHttpAppPoolMemberOutput) Addresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FastHttpAppPoolMember) []string { return v.Addresses }).(pulumi.StringArrayOutput)
 }
 
 // connectionLimit value to be used for FAST-Generated Pool.
-func (o FastHttpAppFastCreatePoolMemberOutput) ConnectionLimit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FastHttpAppFastCreatePoolMember) *int { return v.ConnectionLimit }).(pulumi.IntPtrOutput)
+func (o FastHttpAppPoolMemberOutput) ConnectionLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FastHttpAppPoolMember) *int { return v.ConnectionLimit }).(pulumi.IntPtrOutput)
 }
 
 // port number of serviceport to be used for FAST-Generated Pool.
-func (o FastHttpAppFastCreatePoolMemberOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FastHttpAppFastCreatePoolMember) *int { return v.Port }).(pulumi.IntPtrOutput)
+func (o FastHttpAppPoolMemberOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FastHttpAppPoolMember) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
 // priorityGroup value to be used for FAST-Generated Pool.
-func (o FastHttpAppFastCreatePoolMemberOutput) PriorityGroup() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FastHttpAppFastCreatePoolMember) *int { return v.PriorityGroup }).(pulumi.IntPtrOutput)
+func (o FastHttpAppPoolMemberOutput) PriorityGroup() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FastHttpAppPoolMember) *int { return v.PriorityGroup }).(pulumi.IntPtrOutput)
 }
 
 // shareNodes value to be used for FAST-Generated Pool.
-func (o FastHttpAppFastCreatePoolMemberOutput) ShareNodes() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v FastHttpAppFastCreatePoolMember) *bool { return v.ShareNodes }).(pulumi.BoolPtrOutput)
+func (o FastHttpAppPoolMemberOutput) ShareNodes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FastHttpAppPoolMember) *bool { return v.ShareNodes }).(pulumi.BoolPtrOutput)
 }
 
-type FastHttpAppFastCreatePoolMemberArrayOutput struct{ *pulumi.OutputState }
+type FastHttpAppPoolMemberArrayOutput struct{ *pulumi.OutputState }
 
-func (FastHttpAppFastCreatePoolMemberArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FastHttpAppFastCreatePoolMember)(nil)).Elem()
+func (FastHttpAppPoolMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FastHttpAppPoolMember)(nil)).Elem()
 }
 
-func (o FastHttpAppFastCreatePoolMemberArrayOutput) ToFastHttpAppFastCreatePoolMemberArrayOutput() FastHttpAppFastCreatePoolMemberArrayOutput {
+func (o FastHttpAppPoolMemberArrayOutput) ToFastHttpAppPoolMemberArrayOutput() FastHttpAppPoolMemberArrayOutput {
 	return o
 }
 
-func (o FastHttpAppFastCreatePoolMemberArrayOutput) ToFastHttpAppFastCreatePoolMemberArrayOutputWithContext(ctx context.Context) FastHttpAppFastCreatePoolMemberArrayOutput {
+func (o FastHttpAppPoolMemberArrayOutput) ToFastHttpAppPoolMemberArrayOutputWithContext(ctx context.Context) FastHttpAppPoolMemberArrayOutput {
 	return o
 }
 
-func (o FastHttpAppFastCreatePoolMemberArrayOutput) Index(i pulumi.IntInput) FastHttpAppFastCreatePoolMemberOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FastHttpAppFastCreatePoolMember {
-		return vs[0].([]FastHttpAppFastCreatePoolMember)[vs[1].(int)]
-	}).(FastHttpAppFastCreatePoolMemberOutput)
+func (o FastHttpAppPoolMemberArrayOutput) Index(i pulumi.IntInput) FastHttpAppPoolMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FastHttpAppPoolMember {
+		return vs[0].([]FastHttpAppPoolMember)[vs[1].(int)]
+	}).(FastHttpAppPoolMemberOutput)
 }
 
 type FastHttpAppVirtualServer struct {
 	// IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
 	Ip string `pulumi:"ip"`
-	// -(Optional , `int`) Port number to used for accessing virtual server/application
+	// Port number to used for accessing virtual server/application
 	Port int `pulumi:"port"`
 }
 
@@ -502,7 +502,7 @@ type FastHttpAppVirtualServerInput interface {
 type FastHttpAppVirtualServerArgs struct {
 	// IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
 	Ip pulumi.StringInput `pulumi:"ip"`
-	// -(Optional , `int`) Port number to used for accessing virtual server/application
+	// Port number to used for accessing virtual server/application
 	Port pulumi.IntInput `pulumi:"port"`
 }
 
@@ -588,7 +588,7 @@ func (o FastHttpAppVirtualServerOutput) Ip() pulumi.StringOutput {
 	return o.ApplyT(func(v FastHttpAppVirtualServer) string { return v.Ip }).(pulumi.StringOutput)
 }
 
-// -(Optional , `int`) Port number to used for accessing virtual server/application
+// Port number to used for accessing virtual server/application
 func (o FastHttpAppVirtualServerOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v FastHttpAppVirtualServer) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -627,7 +627,7 @@ func (o FastHttpAppVirtualServerPtrOutput) Ip() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// -(Optional , `int`) Port number to used for accessing virtual server/application
+// Port number to used for accessing virtual server/application
 func (o FastHttpAppVirtualServerPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FastHttpAppVirtualServer) *int {
 		if v == nil {
@@ -637,163 +637,144 @@ func (o FastHttpAppVirtualServerPtrOutput) Port() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-type FastHttpsAppCreateTlsServerProfile struct {
-	// Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
-	TlsCertName string `pulumi:"tlsCertName"`
-	// Name of existing BIG-IP SSL Key to be used for FAST-Generated TLS Server Profile.
-	TlsKeyName string `pulumi:"tlsKeyName"`
+type FastHttpAppWafSecurityPolicy struct {
+	// Setting `true` will enable FAST to create WAF Security Policy.
+	Enable bool `pulumi:"enable"`
 }
 
-// FastHttpsAppCreateTlsServerProfileInput is an input type that accepts FastHttpsAppCreateTlsServerProfileArgs and FastHttpsAppCreateTlsServerProfileOutput values.
-// You can construct a concrete instance of `FastHttpsAppCreateTlsServerProfileInput` via:
+// FastHttpAppWafSecurityPolicyInput is an input type that accepts FastHttpAppWafSecurityPolicyArgs and FastHttpAppWafSecurityPolicyOutput values.
+// You can construct a concrete instance of `FastHttpAppWafSecurityPolicyInput` via:
 //
-//	FastHttpsAppCreateTlsServerProfileArgs{...}
-type FastHttpsAppCreateTlsServerProfileInput interface {
+//	FastHttpAppWafSecurityPolicyArgs{...}
+type FastHttpAppWafSecurityPolicyInput interface {
 	pulumi.Input
 
-	ToFastHttpsAppCreateTlsServerProfileOutput() FastHttpsAppCreateTlsServerProfileOutput
-	ToFastHttpsAppCreateTlsServerProfileOutputWithContext(context.Context) FastHttpsAppCreateTlsServerProfileOutput
+	ToFastHttpAppWafSecurityPolicyOutput() FastHttpAppWafSecurityPolicyOutput
+	ToFastHttpAppWafSecurityPolicyOutputWithContext(context.Context) FastHttpAppWafSecurityPolicyOutput
 }
 
-type FastHttpsAppCreateTlsServerProfileArgs struct {
-	// Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
-	TlsCertName pulumi.StringInput `pulumi:"tlsCertName"`
-	// Name of existing BIG-IP SSL Key to be used for FAST-Generated TLS Server Profile.
-	TlsKeyName pulumi.StringInput `pulumi:"tlsKeyName"`
+type FastHttpAppWafSecurityPolicyArgs struct {
+	// Setting `true` will enable FAST to create WAF Security Policy.
+	Enable pulumi.BoolInput `pulumi:"enable"`
 }
 
-func (FastHttpsAppCreateTlsServerProfileArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FastHttpsAppCreateTlsServerProfile)(nil)).Elem()
+func (FastHttpAppWafSecurityPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FastHttpAppWafSecurityPolicy)(nil)).Elem()
 }
 
-func (i FastHttpsAppCreateTlsServerProfileArgs) ToFastHttpsAppCreateTlsServerProfileOutput() FastHttpsAppCreateTlsServerProfileOutput {
-	return i.ToFastHttpsAppCreateTlsServerProfileOutputWithContext(context.Background())
+func (i FastHttpAppWafSecurityPolicyArgs) ToFastHttpAppWafSecurityPolicyOutput() FastHttpAppWafSecurityPolicyOutput {
+	return i.ToFastHttpAppWafSecurityPolicyOutputWithContext(context.Background())
 }
 
-func (i FastHttpsAppCreateTlsServerProfileArgs) ToFastHttpsAppCreateTlsServerProfileOutputWithContext(ctx context.Context) FastHttpsAppCreateTlsServerProfileOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FastHttpsAppCreateTlsServerProfileOutput)
+func (i FastHttpAppWafSecurityPolicyArgs) ToFastHttpAppWafSecurityPolicyOutputWithContext(ctx context.Context) FastHttpAppWafSecurityPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastHttpAppWafSecurityPolicyOutput)
 }
 
-func (i FastHttpsAppCreateTlsServerProfileArgs) ToFastHttpsAppCreateTlsServerProfilePtrOutput() FastHttpsAppCreateTlsServerProfilePtrOutput {
-	return i.ToFastHttpsAppCreateTlsServerProfilePtrOutputWithContext(context.Background())
+func (i FastHttpAppWafSecurityPolicyArgs) ToFastHttpAppWafSecurityPolicyPtrOutput() FastHttpAppWafSecurityPolicyPtrOutput {
+	return i.ToFastHttpAppWafSecurityPolicyPtrOutputWithContext(context.Background())
 }
 
-func (i FastHttpsAppCreateTlsServerProfileArgs) ToFastHttpsAppCreateTlsServerProfilePtrOutputWithContext(ctx context.Context) FastHttpsAppCreateTlsServerProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FastHttpsAppCreateTlsServerProfileOutput).ToFastHttpsAppCreateTlsServerProfilePtrOutputWithContext(ctx)
+func (i FastHttpAppWafSecurityPolicyArgs) ToFastHttpAppWafSecurityPolicyPtrOutputWithContext(ctx context.Context) FastHttpAppWafSecurityPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastHttpAppWafSecurityPolicyOutput).ToFastHttpAppWafSecurityPolicyPtrOutputWithContext(ctx)
 }
 
-// FastHttpsAppCreateTlsServerProfilePtrInput is an input type that accepts FastHttpsAppCreateTlsServerProfileArgs, FastHttpsAppCreateTlsServerProfilePtr and FastHttpsAppCreateTlsServerProfilePtrOutput values.
-// You can construct a concrete instance of `FastHttpsAppCreateTlsServerProfilePtrInput` via:
+// FastHttpAppWafSecurityPolicyPtrInput is an input type that accepts FastHttpAppWafSecurityPolicyArgs, FastHttpAppWafSecurityPolicyPtr and FastHttpAppWafSecurityPolicyPtrOutput values.
+// You can construct a concrete instance of `FastHttpAppWafSecurityPolicyPtrInput` via:
 //
-//	        FastHttpsAppCreateTlsServerProfileArgs{...}
+//	        FastHttpAppWafSecurityPolicyArgs{...}
 //
 //	or:
 //
 //	        nil
-type FastHttpsAppCreateTlsServerProfilePtrInput interface {
+type FastHttpAppWafSecurityPolicyPtrInput interface {
 	pulumi.Input
 
-	ToFastHttpsAppCreateTlsServerProfilePtrOutput() FastHttpsAppCreateTlsServerProfilePtrOutput
-	ToFastHttpsAppCreateTlsServerProfilePtrOutputWithContext(context.Context) FastHttpsAppCreateTlsServerProfilePtrOutput
+	ToFastHttpAppWafSecurityPolicyPtrOutput() FastHttpAppWafSecurityPolicyPtrOutput
+	ToFastHttpAppWafSecurityPolicyPtrOutputWithContext(context.Context) FastHttpAppWafSecurityPolicyPtrOutput
 }
 
-type fastHttpsAppCreateTlsServerProfilePtrType FastHttpsAppCreateTlsServerProfileArgs
+type fastHttpAppWafSecurityPolicyPtrType FastHttpAppWafSecurityPolicyArgs
 
-func FastHttpsAppCreateTlsServerProfilePtr(v *FastHttpsAppCreateTlsServerProfileArgs) FastHttpsAppCreateTlsServerProfilePtrInput {
-	return (*fastHttpsAppCreateTlsServerProfilePtrType)(v)
+func FastHttpAppWafSecurityPolicyPtr(v *FastHttpAppWafSecurityPolicyArgs) FastHttpAppWafSecurityPolicyPtrInput {
+	return (*fastHttpAppWafSecurityPolicyPtrType)(v)
 }
 
-func (*fastHttpsAppCreateTlsServerProfilePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FastHttpsAppCreateTlsServerProfile)(nil)).Elem()
+func (*fastHttpAppWafSecurityPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FastHttpAppWafSecurityPolicy)(nil)).Elem()
 }
 
-func (i *fastHttpsAppCreateTlsServerProfilePtrType) ToFastHttpsAppCreateTlsServerProfilePtrOutput() FastHttpsAppCreateTlsServerProfilePtrOutput {
-	return i.ToFastHttpsAppCreateTlsServerProfilePtrOutputWithContext(context.Background())
+func (i *fastHttpAppWafSecurityPolicyPtrType) ToFastHttpAppWafSecurityPolicyPtrOutput() FastHttpAppWafSecurityPolicyPtrOutput {
+	return i.ToFastHttpAppWafSecurityPolicyPtrOutputWithContext(context.Background())
 }
 
-func (i *fastHttpsAppCreateTlsServerProfilePtrType) ToFastHttpsAppCreateTlsServerProfilePtrOutputWithContext(ctx context.Context) FastHttpsAppCreateTlsServerProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FastHttpsAppCreateTlsServerProfilePtrOutput)
+func (i *fastHttpAppWafSecurityPolicyPtrType) ToFastHttpAppWafSecurityPolicyPtrOutputWithContext(ctx context.Context) FastHttpAppWafSecurityPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastHttpAppWafSecurityPolicyPtrOutput)
 }
 
-type FastHttpsAppCreateTlsServerProfileOutput struct{ *pulumi.OutputState }
+type FastHttpAppWafSecurityPolicyOutput struct{ *pulumi.OutputState }
 
-func (FastHttpsAppCreateTlsServerProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FastHttpsAppCreateTlsServerProfile)(nil)).Elem()
+func (FastHttpAppWafSecurityPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FastHttpAppWafSecurityPolicy)(nil)).Elem()
 }
 
-func (o FastHttpsAppCreateTlsServerProfileOutput) ToFastHttpsAppCreateTlsServerProfileOutput() FastHttpsAppCreateTlsServerProfileOutput {
+func (o FastHttpAppWafSecurityPolicyOutput) ToFastHttpAppWafSecurityPolicyOutput() FastHttpAppWafSecurityPolicyOutput {
 	return o
 }
 
-func (o FastHttpsAppCreateTlsServerProfileOutput) ToFastHttpsAppCreateTlsServerProfileOutputWithContext(ctx context.Context) FastHttpsAppCreateTlsServerProfileOutput {
+func (o FastHttpAppWafSecurityPolicyOutput) ToFastHttpAppWafSecurityPolicyOutputWithContext(ctx context.Context) FastHttpAppWafSecurityPolicyOutput {
 	return o
 }
 
-func (o FastHttpsAppCreateTlsServerProfileOutput) ToFastHttpsAppCreateTlsServerProfilePtrOutput() FastHttpsAppCreateTlsServerProfilePtrOutput {
-	return o.ToFastHttpsAppCreateTlsServerProfilePtrOutputWithContext(context.Background())
+func (o FastHttpAppWafSecurityPolicyOutput) ToFastHttpAppWafSecurityPolicyPtrOutput() FastHttpAppWafSecurityPolicyPtrOutput {
+	return o.ToFastHttpAppWafSecurityPolicyPtrOutputWithContext(context.Background())
 }
 
-func (o FastHttpsAppCreateTlsServerProfileOutput) ToFastHttpsAppCreateTlsServerProfilePtrOutputWithContext(ctx context.Context) FastHttpsAppCreateTlsServerProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FastHttpsAppCreateTlsServerProfile) *FastHttpsAppCreateTlsServerProfile {
+func (o FastHttpAppWafSecurityPolicyOutput) ToFastHttpAppWafSecurityPolicyPtrOutputWithContext(ctx context.Context) FastHttpAppWafSecurityPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FastHttpAppWafSecurityPolicy) *FastHttpAppWafSecurityPolicy {
 		return &v
-	}).(FastHttpsAppCreateTlsServerProfilePtrOutput)
+	}).(FastHttpAppWafSecurityPolicyPtrOutput)
 }
 
-// Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
-func (o FastHttpsAppCreateTlsServerProfileOutput) TlsCertName() pulumi.StringOutput {
-	return o.ApplyT(func(v FastHttpsAppCreateTlsServerProfile) string { return v.TlsCertName }).(pulumi.StringOutput)
+// Setting `true` will enable FAST to create WAF Security Policy.
+func (o FastHttpAppWafSecurityPolicyOutput) Enable() pulumi.BoolOutput {
+	return o.ApplyT(func(v FastHttpAppWafSecurityPolicy) bool { return v.Enable }).(pulumi.BoolOutput)
 }
 
-// Name of existing BIG-IP SSL Key to be used for FAST-Generated TLS Server Profile.
-func (o FastHttpsAppCreateTlsServerProfileOutput) TlsKeyName() pulumi.StringOutput {
-	return o.ApplyT(func(v FastHttpsAppCreateTlsServerProfile) string { return v.TlsKeyName }).(pulumi.StringOutput)
+type FastHttpAppWafSecurityPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (FastHttpAppWafSecurityPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FastHttpAppWafSecurityPolicy)(nil)).Elem()
 }
 
-type FastHttpsAppCreateTlsServerProfilePtrOutput struct{ *pulumi.OutputState }
-
-func (FastHttpsAppCreateTlsServerProfilePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FastHttpsAppCreateTlsServerProfile)(nil)).Elem()
-}
-
-func (o FastHttpsAppCreateTlsServerProfilePtrOutput) ToFastHttpsAppCreateTlsServerProfilePtrOutput() FastHttpsAppCreateTlsServerProfilePtrOutput {
+func (o FastHttpAppWafSecurityPolicyPtrOutput) ToFastHttpAppWafSecurityPolicyPtrOutput() FastHttpAppWafSecurityPolicyPtrOutput {
 	return o
 }
 
-func (o FastHttpsAppCreateTlsServerProfilePtrOutput) ToFastHttpsAppCreateTlsServerProfilePtrOutputWithContext(ctx context.Context) FastHttpsAppCreateTlsServerProfilePtrOutput {
+func (o FastHttpAppWafSecurityPolicyPtrOutput) ToFastHttpAppWafSecurityPolicyPtrOutputWithContext(ctx context.Context) FastHttpAppWafSecurityPolicyPtrOutput {
 	return o
 }
 
-func (o FastHttpsAppCreateTlsServerProfilePtrOutput) Elem() FastHttpsAppCreateTlsServerProfileOutput {
-	return o.ApplyT(func(v *FastHttpsAppCreateTlsServerProfile) FastHttpsAppCreateTlsServerProfile {
+func (o FastHttpAppWafSecurityPolicyPtrOutput) Elem() FastHttpAppWafSecurityPolicyOutput {
+	return o.ApplyT(func(v *FastHttpAppWafSecurityPolicy) FastHttpAppWafSecurityPolicy {
 		if v != nil {
 			return *v
 		}
-		var ret FastHttpsAppCreateTlsServerProfile
+		var ret FastHttpAppWafSecurityPolicy
 		return ret
-	}).(FastHttpsAppCreateTlsServerProfileOutput)
+	}).(FastHttpAppWafSecurityPolicyOutput)
 }
 
-// Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
-func (o FastHttpsAppCreateTlsServerProfilePtrOutput) TlsCertName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FastHttpsAppCreateTlsServerProfile) *string {
+// Setting `true` will enable FAST to create WAF Security Policy.
+func (o FastHttpAppWafSecurityPolicyPtrOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FastHttpAppWafSecurityPolicy) *bool {
 		if v == nil {
 			return nil
 		}
-		return &v.TlsCertName
-	}).(pulumi.StringPtrOutput)
+		return &v.Enable
+	}).(pulumi.BoolPtrOutput)
 }
 
-// Name of existing BIG-IP SSL Key to be used for FAST-Generated TLS Server Profile.
-func (o FastHttpsAppCreateTlsServerProfilePtrOutput) TlsKeyName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FastHttpsAppCreateTlsServerProfile) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TlsKeyName
-	}).(pulumi.StringPtrOutput)
-}
-
-type FastHttpsAppFastCreateMonitor struct {
+type FastHttpsAppMonitor struct {
 	// Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
 	Interval *int `pulumi:"interval"`
 	// set `true` if the servers require login credentials for web access on FAST-Generated Pool Monitor. default is `false`.
@@ -808,18 +789,18 @@ type FastHttpsAppFastCreateMonitor struct {
 	Username *string `pulumi:"username"`
 }
 
-// FastHttpsAppFastCreateMonitorInput is an input type that accepts FastHttpsAppFastCreateMonitorArgs and FastHttpsAppFastCreateMonitorOutput values.
-// You can construct a concrete instance of `FastHttpsAppFastCreateMonitorInput` via:
+// FastHttpsAppMonitorInput is an input type that accepts FastHttpsAppMonitorArgs and FastHttpsAppMonitorOutput values.
+// You can construct a concrete instance of `FastHttpsAppMonitorInput` via:
 //
-//	FastHttpsAppFastCreateMonitorArgs{...}
-type FastHttpsAppFastCreateMonitorInput interface {
+//	FastHttpsAppMonitorArgs{...}
+type FastHttpsAppMonitorInput interface {
 	pulumi.Input
 
-	ToFastHttpsAppFastCreateMonitorOutput() FastHttpsAppFastCreateMonitorOutput
-	ToFastHttpsAppFastCreateMonitorOutputWithContext(context.Context) FastHttpsAppFastCreateMonitorOutput
+	ToFastHttpsAppMonitorOutput() FastHttpsAppMonitorOutput
+	ToFastHttpsAppMonitorOutputWithContext(context.Context) FastHttpsAppMonitorOutput
 }
 
-type FastHttpsAppFastCreateMonitorArgs struct {
+type FastHttpsAppMonitorArgs struct {
 	// Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
 	Interval pulumi.IntPtrInput `pulumi:"interval"`
 	// set `true` if the servers require login credentials for web access on FAST-Generated Pool Monitor. default is `false`.
@@ -834,140 +815,140 @@ type FastHttpsAppFastCreateMonitorArgs struct {
 	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
-func (FastHttpsAppFastCreateMonitorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FastHttpsAppFastCreateMonitor)(nil)).Elem()
+func (FastHttpsAppMonitorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FastHttpsAppMonitor)(nil)).Elem()
 }
 
-func (i FastHttpsAppFastCreateMonitorArgs) ToFastHttpsAppFastCreateMonitorOutput() FastHttpsAppFastCreateMonitorOutput {
-	return i.ToFastHttpsAppFastCreateMonitorOutputWithContext(context.Background())
+func (i FastHttpsAppMonitorArgs) ToFastHttpsAppMonitorOutput() FastHttpsAppMonitorOutput {
+	return i.ToFastHttpsAppMonitorOutputWithContext(context.Background())
 }
 
-func (i FastHttpsAppFastCreateMonitorArgs) ToFastHttpsAppFastCreateMonitorOutputWithContext(ctx context.Context) FastHttpsAppFastCreateMonitorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FastHttpsAppFastCreateMonitorOutput)
+func (i FastHttpsAppMonitorArgs) ToFastHttpsAppMonitorOutputWithContext(ctx context.Context) FastHttpsAppMonitorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastHttpsAppMonitorOutput)
 }
 
-func (i FastHttpsAppFastCreateMonitorArgs) ToFastHttpsAppFastCreateMonitorPtrOutput() FastHttpsAppFastCreateMonitorPtrOutput {
-	return i.ToFastHttpsAppFastCreateMonitorPtrOutputWithContext(context.Background())
+func (i FastHttpsAppMonitorArgs) ToFastHttpsAppMonitorPtrOutput() FastHttpsAppMonitorPtrOutput {
+	return i.ToFastHttpsAppMonitorPtrOutputWithContext(context.Background())
 }
 
-func (i FastHttpsAppFastCreateMonitorArgs) ToFastHttpsAppFastCreateMonitorPtrOutputWithContext(ctx context.Context) FastHttpsAppFastCreateMonitorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FastHttpsAppFastCreateMonitorOutput).ToFastHttpsAppFastCreateMonitorPtrOutputWithContext(ctx)
+func (i FastHttpsAppMonitorArgs) ToFastHttpsAppMonitorPtrOutputWithContext(ctx context.Context) FastHttpsAppMonitorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastHttpsAppMonitorOutput).ToFastHttpsAppMonitorPtrOutputWithContext(ctx)
 }
 
-// FastHttpsAppFastCreateMonitorPtrInput is an input type that accepts FastHttpsAppFastCreateMonitorArgs, FastHttpsAppFastCreateMonitorPtr and FastHttpsAppFastCreateMonitorPtrOutput values.
-// You can construct a concrete instance of `FastHttpsAppFastCreateMonitorPtrInput` via:
+// FastHttpsAppMonitorPtrInput is an input type that accepts FastHttpsAppMonitorArgs, FastHttpsAppMonitorPtr and FastHttpsAppMonitorPtrOutput values.
+// You can construct a concrete instance of `FastHttpsAppMonitorPtrInput` via:
 //
-//	        FastHttpsAppFastCreateMonitorArgs{...}
+//	        FastHttpsAppMonitorArgs{...}
 //
 //	or:
 //
 //	        nil
-type FastHttpsAppFastCreateMonitorPtrInput interface {
+type FastHttpsAppMonitorPtrInput interface {
 	pulumi.Input
 
-	ToFastHttpsAppFastCreateMonitorPtrOutput() FastHttpsAppFastCreateMonitorPtrOutput
-	ToFastHttpsAppFastCreateMonitorPtrOutputWithContext(context.Context) FastHttpsAppFastCreateMonitorPtrOutput
+	ToFastHttpsAppMonitorPtrOutput() FastHttpsAppMonitorPtrOutput
+	ToFastHttpsAppMonitorPtrOutputWithContext(context.Context) FastHttpsAppMonitorPtrOutput
 }
 
-type fastHttpsAppFastCreateMonitorPtrType FastHttpsAppFastCreateMonitorArgs
+type fastHttpsAppMonitorPtrType FastHttpsAppMonitorArgs
 
-func FastHttpsAppFastCreateMonitorPtr(v *FastHttpsAppFastCreateMonitorArgs) FastHttpsAppFastCreateMonitorPtrInput {
-	return (*fastHttpsAppFastCreateMonitorPtrType)(v)
+func FastHttpsAppMonitorPtr(v *FastHttpsAppMonitorArgs) FastHttpsAppMonitorPtrInput {
+	return (*fastHttpsAppMonitorPtrType)(v)
 }
 
-func (*fastHttpsAppFastCreateMonitorPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FastHttpsAppFastCreateMonitor)(nil)).Elem()
+func (*fastHttpsAppMonitorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FastHttpsAppMonitor)(nil)).Elem()
 }
 
-func (i *fastHttpsAppFastCreateMonitorPtrType) ToFastHttpsAppFastCreateMonitorPtrOutput() FastHttpsAppFastCreateMonitorPtrOutput {
-	return i.ToFastHttpsAppFastCreateMonitorPtrOutputWithContext(context.Background())
+func (i *fastHttpsAppMonitorPtrType) ToFastHttpsAppMonitorPtrOutput() FastHttpsAppMonitorPtrOutput {
+	return i.ToFastHttpsAppMonitorPtrOutputWithContext(context.Background())
 }
 
-func (i *fastHttpsAppFastCreateMonitorPtrType) ToFastHttpsAppFastCreateMonitorPtrOutputWithContext(ctx context.Context) FastHttpsAppFastCreateMonitorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FastHttpsAppFastCreateMonitorPtrOutput)
+func (i *fastHttpsAppMonitorPtrType) ToFastHttpsAppMonitorPtrOutputWithContext(ctx context.Context) FastHttpsAppMonitorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastHttpsAppMonitorPtrOutput)
 }
 
-type FastHttpsAppFastCreateMonitorOutput struct{ *pulumi.OutputState }
+type FastHttpsAppMonitorOutput struct{ *pulumi.OutputState }
 
-func (FastHttpsAppFastCreateMonitorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FastHttpsAppFastCreateMonitor)(nil)).Elem()
+func (FastHttpsAppMonitorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FastHttpsAppMonitor)(nil)).Elem()
 }
 
-func (o FastHttpsAppFastCreateMonitorOutput) ToFastHttpsAppFastCreateMonitorOutput() FastHttpsAppFastCreateMonitorOutput {
+func (o FastHttpsAppMonitorOutput) ToFastHttpsAppMonitorOutput() FastHttpsAppMonitorOutput {
 	return o
 }
 
-func (o FastHttpsAppFastCreateMonitorOutput) ToFastHttpsAppFastCreateMonitorOutputWithContext(ctx context.Context) FastHttpsAppFastCreateMonitorOutput {
+func (o FastHttpsAppMonitorOutput) ToFastHttpsAppMonitorOutputWithContext(ctx context.Context) FastHttpsAppMonitorOutput {
 	return o
 }
 
-func (o FastHttpsAppFastCreateMonitorOutput) ToFastHttpsAppFastCreateMonitorPtrOutput() FastHttpsAppFastCreateMonitorPtrOutput {
-	return o.ToFastHttpsAppFastCreateMonitorPtrOutputWithContext(context.Background())
+func (o FastHttpsAppMonitorOutput) ToFastHttpsAppMonitorPtrOutput() FastHttpsAppMonitorPtrOutput {
+	return o.ToFastHttpsAppMonitorPtrOutputWithContext(context.Background())
 }
 
-func (o FastHttpsAppFastCreateMonitorOutput) ToFastHttpsAppFastCreateMonitorPtrOutputWithContext(ctx context.Context) FastHttpsAppFastCreateMonitorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FastHttpsAppFastCreateMonitor) *FastHttpsAppFastCreateMonitor {
+func (o FastHttpsAppMonitorOutput) ToFastHttpsAppMonitorPtrOutputWithContext(ctx context.Context) FastHttpsAppMonitorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FastHttpsAppMonitor) *FastHttpsAppMonitor {
 		return &v
-	}).(FastHttpsAppFastCreateMonitorPtrOutput)
+	}).(FastHttpsAppMonitorPtrOutput)
 }
 
 // Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
-func (o FastHttpsAppFastCreateMonitorOutput) Interval() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FastHttpsAppFastCreateMonitor) *int { return v.Interval }).(pulumi.IntPtrOutput)
+func (o FastHttpsAppMonitorOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FastHttpsAppMonitor) *int { return v.Interval }).(pulumi.IntPtrOutput)
 }
 
 // set `true` if the servers require login credentials for web access on FAST-Generated Pool Monitor. default is `false`.
-func (o FastHttpsAppFastCreateMonitorOutput) MonitorAuth() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v FastHttpsAppFastCreateMonitor) *bool { return v.MonitorAuth }).(pulumi.BoolPtrOutput)
+func (o FastHttpsAppMonitorOutput) MonitorAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FastHttpsAppMonitor) *bool { return v.MonitorAuth }).(pulumi.BoolPtrOutput)
 }
 
 // password for web access on FAST-Generated Pool Monitor.
-func (o FastHttpsAppFastCreateMonitorOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FastHttpsAppFastCreateMonitor) *string { return v.Password }).(pulumi.StringPtrOutput)
+func (o FastHttpsAppMonitorOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpsAppMonitor) *string { return v.Password }).(pulumi.StringPtrOutput)
 }
 
 // The presence of this string anywhere in the HTTP response implies availability.
-func (o FastHttpsAppFastCreateMonitorOutput) Response() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FastHttpsAppFastCreateMonitor) *string { return v.Response }).(pulumi.StringPtrOutput)
+func (o FastHttpsAppMonitorOutput) Response() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpsAppMonitor) *string { return v.Response }).(pulumi.StringPtrOutput)
 }
 
 // Specify data to be sent during each health check for FAST-Generated Pool Monitor.
-func (o FastHttpsAppFastCreateMonitorOutput) SendString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FastHttpsAppFastCreateMonitor) *string { return v.SendString }).(pulumi.StringPtrOutput)
+func (o FastHttpsAppMonitorOutput) SendString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpsAppMonitor) *string { return v.SendString }).(pulumi.StringPtrOutput)
 }
 
 // username for web access on FAST-Generated Pool Monitor.
-func (o FastHttpsAppFastCreateMonitorOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v FastHttpsAppFastCreateMonitor) *string { return v.Username }).(pulumi.StringPtrOutput)
+func (o FastHttpsAppMonitorOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpsAppMonitor) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
-type FastHttpsAppFastCreateMonitorPtrOutput struct{ *pulumi.OutputState }
+type FastHttpsAppMonitorPtrOutput struct{ *pulumi.OutputState }
 
-func (FastHttpsAppFastCreateMonitorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FastHttpsAppFastCreateMonitor)(nil)).Elem()
+func (FastHttpsAppMonitorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FastHttpsAppMonitor)(nil)).Elem()
 }
 
-func (o FastHttpsAppFastCreateMonitorPtrOutput) ToFastHttpsAppFastCreateMonitorPtrOutput() FastHttpsAppFastCreateMonitorPtrOutput {
+func (o FastHttpsAppMonitorPtrOutput) ToFastHttpsAppMonitorPtrOutput() FastHttpsAppMonitorPtrOutput {
 	return o
 }
 
-func (o FastHttpsAppFastCreateMonitorPtrOutput) ToFastHttpsAppFastCreateMonitorPtrOutputWithContext(ctx context.Context) FastHttpsAppFastCreateMonitorPtrOutput {
+func (o FastHttpsAppMonitorPtrOutput) ToFastHttpsAppMonitorPtrOutputWithContext(ctx context.Context) FastHttpsAppMonitorPtrOutput {
 	return o
 }
 
-func (o FastHttpsAppFastCreateMonitorPtrOutput) Elem() FastHttpsAppFastCreateMonitorOutput {
-	return o.ApplyT(func(v *FastHttpsAppFastCreateMonitor) FastHttpsAppFastCreateMonitor {
+func (o FastHttpsAppMonitorPtrOutput) Elem() FastHttpsAppMonitorOutput {
+	return o.ApplyT(func(v *FastHttpsAppMonitor) FastHttpsAppMonitor {
 		if v != nil {
 			return *v
 		}
-		var ret FastHttpsAppFastCreateMonitor
+		var ret FastHttpsAppMonitor
 		return ret
-	}).(FastHttpsAppFastCreateMonitorOutput)
+	}).(FastHttpsAppMonitorOutput)
 }
 
 // Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
-func (o FastHttpsAppFastCreateMonitorPtrOutput) Interval() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *FastHttpsAppFastCreateMonitor) *int {
+func (o FastHttpsAppMonitorPtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FastHttpsAppMonitor) *int {
 		if v == nil {
 			return nil
 		}
@@ -976,8 +957,8 @@ func (o FastHttpsAppFastCreateMonitorPtrOutput) Interval() pulumi.IntPtrOutput {
 }
 
 // set `true` if the servers require login credentials for web access on FAST-Generated Pool Monitor. default is `false`.
-func (o FastHttpsAppFastCreateMonitorPtrOutput) MonitorAuth() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *FastHttpsAppFastCreateMonitor) *bool {
+func (o FastHttpsAppMonitorPtrOutput) MonitorAuth() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FastHttpsAppMonitor) *bool {
 		if v == nil {
 			return nil
 		}
@@ -986,8 +967,8 @@ func (o FastHttpsAppFastCreateMonitorPtrOutput) MonitorAuth() pulumi.BoolPtrOutp
 }
 
 // password for web access on FAST-Generated Pool Monitor.
-func (o FastHttpsAppFastCreateMonitorPtrOutput) Password() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FastHttpsAppFastCreateMonitor) *string {
+func (o FastHttpsAppMonitorPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FastHttpsAppMonitor) *string {
 		if v == nil {
 			return nil
 		}
@@ -996,8 +977,8 @@ func (o FastHttpsAppFastCreateMonitorPtrOutput) Password() pulumi.StringPtrOutpu
 }
 
 // The presence of this string anywhere in the HTTP response implies availability.
-func (o FastHttpsAppFastCreateMonitorPtrOutput) Response() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FastHttpsAppFastCreateMonitor) *string {
+func (o FastHttpsAppMonitorPtrOutput) Response() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FastHttpsAppMonitor) *string {
 		if v == nil {
 			return nil
 		}
@@ -1006,8 +987,8 @@ func (o FastHttpsAppFastCreateMonitorPtrOutput) Response() pulumi.StringPtrOutpu
 }
 
 // Specify data to be sent during each health check for FAST-Generated Pool Monitor.
-func (o FastHttpsAppFastCreateMonitorPtrOutput) SendString() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FastHttpsAppFastCreateMonitor) *string {
+func (o FastHttpsAppMonitorPtrOutput) SendString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FastHttpsAppMonitor) *string {
 		if v == nil {
 			return nil
 		}
@@ -1016,8 +997,8 @@ func (o FastHttpsAppFastCreateMonitorPtrOutput) SendString() pulumi.StringPtrOut
 }
 
 // username for web access on FAST-Generated Pool Monitor.
-func (o FastHttpsAppFastCreateMonitorPtrOutput) Username() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FastHttpsAppFastCreateMonitor) *string {
+func (o FastHttpsAppMonitorPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FastHttpsAppMonitor) *string {
 		if v == nil {
 			return nil
 		}
@@ -1025,7 +1006,7 @@ func (o FastHttpsAppFastCreateMonitorPtrOutput) Username() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-type FastHttpsAppFastCreatePoolMember struct {
+type FastHttpsAppPoolMember struct {
 	// List of server address to be used for FAST-Generated Pool.
 	Addresses []string `pulumi:"addresses"`
 	// connectionLimit value to be used for FAST-Generated Pool.
@@ -1038,18 +1019,18 @@ type FastHttpsAppFastCreatePoolMember struct {
 	ShareNodes *bool `pulumi:"shareNodes"`
 }
 
-// FastHttpsAppFastCreatePoolMemberInput is an input type that accepts FastHttpsAppFastCreatePoolMemberArgs and FastHttpsAppFastCreatePoolMemberOutput values.
-// You can construct a concrete instance of `FastHttpsAppFastCreatePoolMemberInput` via:
+// FastHttpsAppPoolMemberInput is an input type that accepts FastHttpsAppPoolMemberArgs and FastHttpsAppPoolMemberOutput values.
+// You can construct a concrete instance of `FastHttpsAppPoolMemberInput` via:
 //
-//	FastHttpsAppFastCreatePoolMemberArgs{...}
-type FastHttpsAppFastCreatePoolMemberInput interface {
+//	FastHttpsAppPoolMemberArgs{...}
+type FastHttpsAppPoolMemberInput interface {
 	pulumi.Input
 
-	ToFastHttpsAppFastCreatePoolMemberOutput() FastHttpsAppFastCreatePoolMemberOutput
-	ToFastHttpsAppFastCreatePoolMemberOutputWithContext(context.Context) FastHttpsAppFastCreatePoolMemberOutput
+	ToFastHttpsAppPoolMemberOutput() FastHttpsAppPoolMemberOutput
+	ToFastHttpsAppPoolMemberOutputWithContext(context.Context) FastHttpsAppPoolMemberOutput
 }
 
-type FastHttpsAppFastCreatePoolMemberArgs struct {
+type FastHttpsAppPoolMemberArgs struct {
 	// List of server address to be used for FAST-Generated Pool.
 	Addresses pulumi.StringArrayInput `pulumi:"addresses"`
 	// connectionLimit value to be used for FAST-Generated Pool.
@@ -1062,106 +1043,418 @@ type FastHttpsAppFastCreatePoolMemberArgs struct {
 	ShareNodes pulumi.BoolPtrInput `pulumi:"shareNodes"`
 }
 
-func (FastHttpsAppFastCreatePoolMemberArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FastHttpsAppFastCreatePoolMember)(nil)).Elem()
+func (FastHttpsAppPoolMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FastHttpsAppPoolMember)(nil)).Elem()
 }
 
-func (i FastHttpsAppFastCreatePoolMemberArgs) ToFastHttpsAppFastCreatePoolMemberOutput() FastHttpsAppFastCreatePoolMemberOutput {
-	return i.ToFastHttpsAppFastCreatePoolMemberOutputWithContext(context.Background())
+func (i FastHttpsAppPoolMemberArgs) ToFastHttpsAppPoolMemberOutput() FastHttpsAppPoolMemberOutput {
+	return i.ToFastHttpsAppPoolMemberOutputWithContext(context.Background())
 }
 
-func (i FastHttpsAppFastCreatePoolMemberArgs) ToFastHttpsAppFastCreatePoolMemberOutputWithContext(ctx context.Context) FastHttpsAppFastCreatePoolMemberOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FastHttpsAppFastCreatePoolMemberOutput)
+func (i FastHttpsAppPoolMemberArgs) ToFastHttpsAppPoolMemberOutputWithContext(ctx context.Context) FastHttpsAppPoolMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastHttpsAppPoolMemberOutput)
 }
 
-// FastHttpsAppFastCreatePoolMemberArrayInput is an input type that accepts FastHttpsAppFastCreatePoolMemberArray and FastHttpsAppFastCreatePoolMemberArrayOutput values.
-// You can construct a concrete instance of `FastHttpsAppFastCreatePoolMemberArrayInput` via:
+// FastHttpsAppPoolMemberArrayInput is an input type that accepts FastHttpsAppPoolMemberArray and FastHttpsAppPoolMemberArrayOutput values.
+// You can construct a concrete instance of `FastHttpsAppPoolMemberArrayInput` via:
 //
-//	FastHttpsAppFastCreatePoolMemberArray{ FastHttpsAppFastCreatePoolMemberArgs{...} }
-type FastHttpsAppFastCreatePoolMemberArrayInput interface {
+//	FastHttpsAppPoolMemberArray{ FastHttpsAppPoolMemberArgs{...} }
+type FastHttpsAppPoolMemberArrayInput interface {
 	pulumi.Input
 
-	ToFastHttpsAppFastCreatePoolMemberArrayOutput() FastHttpsAppFastCreatePoolMemberArrayOutput
-	ToFastHttpsAppFastCreatePoolMemberArrayOutputWithContext(context.Context) FastHttpsAppFastCreatePoolMemberArrayOutput
+	ToFastHttpsAppPoolMemberArrayOutput() FastHttpsAppPoolMemberArrayOutput
+	ToFastHttpsAppPoolMemberArrayOutputWithContext(context.Context) FastHttpsAppPoolMemberArrayOutput
 }
 
-type FastHttpsAppFastCreatePoolMemberArray []FastHttpsAppFastCreatePoolMemberInput
+type FastHttpsAppPoolMemberArray []FastHttpsAppPoolMemberInput
 
-func (FastHttpsAppFastCreatePoolMemberArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FastHttpsAppFastCreatePoolMember)(nil)).Elem()
+func (FastHttpsAppPoolMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FastHttpsAppPoolMember)(nil)).Elem()
 }
 
-func (i FastHttpsAppFastCreatePoolMemberArray) ToFastHttpsAppFastCreatePoolMemberArrayOutput() FastHttpsAppFastCreatePoolMemberArrayOutput {
-	return i.ToFastHttpsAppFastCreatePoolMemberArrayOutputWithContext(context.Background())
+func (i FastHttpsAppPoolMemberArray) ToFastHttpsAppPoolMemberArrayOutput() FastHttpsAppPoolMemberArrayOutput {
+	return i.ToFastHttpsAppPoolMemberArrayOutputWithContext(context.Background())
 }
 
-func (i FastHttpsAppFastCreatePoolMemberArray) ToFastHttpsAppFastCreatePoolMemberArrayOutputWithContext(ctx context.Context) FastHttpsAppFastCreatePoolMemberArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FastHttpsAppFastCreatePoolMemberArrayOutput)
+func (i FastHttpsAppPoolMemberArray) ToFastHttpsAppPoolMemberArrayOutputWithContext(ctx context.Context) FastHttpsAppPoolMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastHttpsAppPoolMemberArrayOutput)
 }
 
-type FastHttpsAppFastCreatePoolMemberOutput struct{ *pulumi.OutputState }
+type FastHttpsAppPoolMemberOutput struct{ *pulumi.OutputState }
 
-func (FastHttpsAppFastCreatePoolMemberOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FastHttpsAppFastCreatePoolMember)(nil)).Elem()
+func (FastHttpsAppPoolMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FastHttpsAppPoolMember)(nil)).Elem()
 }
 
-func (o FastHttpsAppFastCreatePoolMemberOutput) ToFastHttpsAppFastCreatePoolMemberOutput() FastHttpsAppFastCreatePoolMemberOutput {
+func (o FastHttpsAppPoolMemberOutput) ToFastHttpsAppPoolMemberOutput() FastHttpsAppPoolMemberOutput {
 	return o
 }
 
-func (o FastHttpsAppFastCreatePoolMemberOutput) ToFastHttpsAppFastCreatePoolMemberOutputWithContext(ctx context.Context) FastHttpsAppFastCreatePoolMemberOutput {
+func (o FastHttpsAppPoolMemberOutput) ToFastHttpsAppPoolMemberOutputWithContext(ctx context.Context) FastHttpsAppPoolMemberOutput {
 	return o
 }
 
 // List of server address to be used for FAST-Generated Pool.
-func (o FastHttpsAppFastCreatePoolMemberOutput) Addresses() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v FastHttpsAppFastCreatePoolMember) []string { return v.Addresses }).(pulumi.StringArrayOutput)
+func (o FastHttpsAppPoolMemberOutput) Addresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FastHttpsAppPoolMember) []string { return v.Addresses }).(pulumi.StringArrayOutput)
 }
 
 // connectionLimit value to be used for FAST-Generated Pool.
-func (o FastHttpsAppFastCreatePoolMemberOutput) ConnectionLimit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FastHttpsAppFastCreatePoolMember) *int { return v.ConnectionLimit }).(pulumi.IntPtrOutput)
+func (o FastHttpsAppPoolMemberOutput) ConnectionLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FastHttpsAppPoolMember) *int { return v.ConnectionLimit }).(pulumi.IntPtrOutput)
 }
 
 // port number of serviceport to be used for FAST-Generated Pool.
-func (o FastHttpsAppFastCreatePoolMemberOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FastHttpsAppFastCreatePoolMember) *int { return v.Port }).(pulumi.IntPtrOutput)
+func (o FastHttpsAppPoolMemberOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FastHttpsAppPoolMember) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
 // priorityGroup value to be used for FAST-Generated Pool.
-func (o FastHttpsAppFastCreatePoolMemberOutput) PriorityGroup() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FastHttpsAppFastCreatePoolMember) *int { return v.PriorityGroup }).(pulumi.IntPtrOutput)
+func (o FastHttpsAppPoolMemberOutput) PriorityGroup() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FastHttpsAppPoolMember) *int { return v.PriorityGroup }).(pulumi.IntPtrOutput)
 }
 
 // shareNodes value to be used for FAST-Generated Pool.
-func (o FastHttpsAppFastCreatePoolMemberOutput) ShareNodes() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v FastHttpsAppFastCreatePoolMember) *bool { return v.ShareNodes }).(pulumi.BoolPtrOutput)
+func (o FastHttpsAppPoolMemberOutput) ShareNodes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FastHttpsAppPoolMember) *bool { return v.ShareNodes }).(pulumi.BoolPtrOutput)
 }
 
-type FastHttpsAppFastCreatePoolMemberArrayOutput struct{ *pulumi.OutputState }
+type FastHttpsAppPoolMemberArrayOutput struct{ *pulumi.OutputState }
 
-func (FastHttpsAppFastCreatePoolMemberArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FastHttpsAppFastCreatePoolMember)(nil)).Elem()
+func (FastHttpsAppPoolMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FastHttpsAppPoolMember)(nil)).Elem()
 }
 
-func (o FastHttpsAppFastCreatePoolMemberArrayOutput) ToFastHttpsAppFastCreatePoolMemberArrayOutput() FastHttpsAppFastCreatePoolMemberArrayOutput {
+func (o FastHttpsAppPoolMemberArrayOutput) ToFastHttpsAppPoolMemberArrayOutput() FastHttpsAppPoolMemberArrayOutput {
 	return o
 }
 
-func (o FastHttpsAppFastCreatePoolMemberArrayOutput) ToFastHttpsAppFastCreatePoolMemberArrayOutputWithContext(ctx context.Context) FastHttpsAppFastCreatePoolMemberArrayOutput {
+func (o FastHttpsAppPoolMemberArrayOutput) ToFastHttpsAppPoolMemberArrayOutputWithContext(ctx context.Context) FastHttpsAppPoolMemberArrayOutput {
 	return o
 }
 
-func (o FastHttpsAppFastCreatePoolMemberArrayOutput) Index(i pulumi.IntInput) FastHttpsAppFastCreatePoolMemberOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FastHttpsAppFastCreatePoolMember {
-		return vs[0].([]FastHttpsAppFastCreatePoolMember)[vs[1].(int)]
-	}).(FastHttpsAppFastCreatePoolMemberOutput)
+func (o FastHttpsAppPoolMemberArrayOutput) Index(i pulumi.IntInput) FastHttpsAppPoolMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FastHttpsAppPoolMember {
+		return vs[0].([]FastHttpsAppPoolMember)[vs[1].(int)]
+	}).(FastHttpsAppPoolMemberOutput)
+}
+
+type FastHttpsAppTlsClientProfile struct {
+	// Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
+	TlsCertName string `pulumi:"tlsCertName"`
+	// Name of existing BIG-IP SSL Key to be used for FAST-Generated TLS Server Profile.
+	TlsKeyName string `pulumi:"tlsKeyName"`
+}
+
+// FastHttpsAppTlsClientProfileInput is an input type that accepts FastHttpsAppTlsClientProfileArgs and FastHttpsAppTlsClientProfileOutput values.
+// You can construct a concrete instance of `FastHttpsAppTlsClientProfileInput` via:
+//
+//	FastHttpsAppTlsClientProfileArgs{...}
+type FastHttpsAppTlsClientProfileInput interface {
+	pulumi.Input
+
+	ToFastHttpsAppTlsClientProfileOutput() FastHttpsAppTlsClientProfileOutput
+	ToFastHttpsAppTlsClientProfileOutputWithContext(context.Context) FastHttpsAppTlsClientProfileOutput
+}
+
+type FastHttpsAppTlsClientProfileArgs struct {
+	// Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
+	TlsCertName pulumi.StringInput `pulumi:"tlsCertName"`
+	// Name of existing BIG-IP SSL Key to be used for FAST-Generated TLS Server Profile.
+	TlsKeyName pulumi.StringInput `pulumi:"tlsKeyName"`
+}
+
+func (FastHttpsAppTlsClientProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FastHttpsAppTlsClientProfile)(nil)).Elem()
+}
+
+func (i FastHttpsAppTlsClientProfileArgs) ToFastHttpsAppTlsClientProfileOutput() FastHttpsAppTlsClientProfileOutput {
+	return i.ToFastHttpsAppTlsClientProfileOutputWithContext(context.Background())
+}
+
+func (i FastHttpsAppTlsClientProfileArgs) ToFastHttpsAppTlsClientProfileOutputWithContext(ctx context.Context) FastHttpsAppTlsClientProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastHttpsAppTlsClientProfileOutput)
+}
+
+func (i FastHttpsAppTlsClientProfileArgs) ToFastHttpsAppTlsClientProfilePtrOutput() FastHttpsAppTlsClientProfilePtrOutput {
+	return i.ToFastHttpsAppTlsClientProfilePtrOutputWithContext(context.Background())
+}
+
+func (i FastHttpsAppTlsClientProfileArgs) ToFastHttpsAppTlsClientProfilePtrOutputWithContext(ctx context.Context) FastHttpsAppTlsClientProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastHttpsAppTlsClientProfileOutput).ToFastHttpsAppTlsClientProfilePtrOutputWithContext(ctx)
+}
+
+// FastHttpsAppTlsClientProfilePtrInput is an input type that accepts FastHttpsAppTlsClientProfileArgs, FastHttpsAppTlsClientProfilePtr and FastHttpsAppTlsClientProfilePtrOutput values.
+// You can construct a concrete instance of `FastHttpsAppTlsClientProfilePtrInput` via:
+//
+//	        FastHttpsAppTlsClientProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type FastHttpsAppTlsClientProfilePtrInput interface {
+	pulumi.Input
+
+	ToFastHttpsAppTlsClientProfilePtrOutput() FastHttpsAppTlsClientProfilePtrOutput
+	ToFastHttpsAppTlsClientProfilePtrOutputWithContext(context.Context) FastHttpsAppTlsClientProfilePtrOutput
+}
+
+type fastHttpsAppTlsClientProfilePtrType FastHttpsAppTlsClientProfileArgs
+
+func FastHttpsAppTlsClientProfilePtr(v *FastHttpsAppTlsClientProfileArgs) FastHttpsAppTlsClientProfilePtrInput {
+	return (*fastHttpsAppTlsClientProfilePtrType)(v)
+}
+
+func (*fastHttpsAppTlsClientProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FastHttpsAppTlsClientProfile)(nil)).Elem()
+}
+
+func (i *fastHttpsAppTlsClientProfilePtrType) ToFastHttpsAppTlsClientProfilePtrOutput() FastHttpsAppTlsClientProfilePtrOutput {
+	return i.ToFastHttpsAppTlsClientProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *fastHttpsAppTlsClientProfilePtrType) ToFastHttpsAppTlsClientProfilePtrOutputWithContext(ctx context.Context) FastHttpsAppTlsClientProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastHttpsAppTlsClientProfilePtrOutput)
+}
+
+type FastHttpsAppTlsClientProfileOutput struct{ *pulumi.OutputState }
+
+func (FastHttpsAppTlsClientProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FastHttpsAppTlsClientProfile)(nil)).Elem()
+}
+
+func (o FastHttpsAppTlsClientProfileOutput) ToFastHttpsAppTlsClientProfileOutput() FastHttpsAppTlsClientProfileOutput {
+	return o
+}
+
+func (o FastHttpsAppTlsClientProfileOutput) ToFastHttpsAppTlsClientProfileOutputWithContext(ctx context.Context) FastHttpsAppTlsClientProfileOutput {
+	return o
+}
+
+func (o FastHttpsAppTlsClientProfileOutput) ToFastHttpsAppTlsClientProfilePtrOutput() FastHttpsAppTlsClientProfilePtrOutput {
+	return o.ToFastHttpsAppTlsClientProfilePtrOutputWithContext(context.Background())
+}
+
+func (o FastHttpsAppTlsClientProfileOutput) ToFastHttpsAppTlsClientProfilePtrOutputWithContext(ctx context.Context) FastHttpsAppTlsClientProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FastHttpsAppTlsClientProfile) *FastHttpsAppTlsClientProfile {
+		return &v
+	}).(FastHttpsAppTlsClientProfilePtrOutput)
+}
+
+// Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
+func (o FastHttpsAppTlsClientProfileOutput) TlsCertName() pulumi.StringOutput {
+	return o.ApplyT(func(v FastHttpsAppTlsClientProfile) string { return v.TlsCertName }).(pulumi.StringOutput)
+}
+
+// Name of existing BIG-IP SSL Key to be used for FAST-Generated TLS Server Profile.
+func (o FastHttpsAppTlsClientProfileOutput) TlsKeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v FastHttpsAppTlsClientProfile) string { return v.TlsKeyName }).(pulumi.StringOutput)
+}
+
+type FastHttpsAppTlsClientProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (FastHttpsAppTlsClientProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FastHttpsAppTlsClientProfile)(nil)).Elem()
+}
+
+func (o FastHttpsAppTlsClientProfilePtrOutput) ToFastHttpsAppTlsClientProfilePtrOutput() FastHttpsAppTlsClientProfilePtrOutput {
+	return o
+}
+
+func (o FastHttpsAppTlsClientProfilePtrOutput) ToFastHttpsAppTlsClientProfilePtrOutputWithContext(ctx context.Context) FastHttpsAppTlsClientProfilePtrOutput {
+	return o
+}
+
+func (o FastHttpsAppTlsClientProfilePtrOutput) Elem() FastHttpsAppTlsClientProfileOutput {
+	return o.ApplyT(func(v *FastHttpsAppTlsClientProfile) FastHttpsAppTlsClientProfile {
+		if v != nil {
+			return *v
+		}
+		var ret FastHttpsAppTlsClientProfile
+		return ret
+	}).(FastHttpsAppTlsClientProfileOutput)
+}
+
+// Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
+func (o FastHttpsAppTlsClientProfilePtrOutput) TlsCertName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FastHttpsAppTlsClientProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TlsCertName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of existing BIG-IP SSL Key to be used for FAST-Generated TLS Server Profile.
+func (o FastHttpsAppTlsClientProfilePtrOutput) TlsKeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FastHttpsAppTlsClientProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TlsKeyName
+	}).(pulumi.StringPtrOutput)
+}
+
+type FastHttpsAppTlsServerProfile struct {
+	// Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
+	TlsCertName string `pulumi:"tlsCertName"`
+	// Name of existing BIG-IP SSL Key to be used for FAST-Generated TLS Server Profile.
+	TlsKeyName string `pulumi:"tlsKeyName"`
+}
+
+// FastHttpsAppTlsServerProfileInput is an input type that accepts FastHttpsAppTlsServerProfileArgs and FastHttpsAppTlsServerProfileOutput values.
+// You can construct a concrete instance of `FastHttpsAppTlsServerProfileInput` via:
+//
+//	FastHttpsAppTlsServerProfileArgs{...}
+type FastHttpsAppTlsServerProfileInput interface {
+	pulumi.Input
+
+	ToFastHttpsAppTlsServerProfileOutput() FastHttpsAppTlsServerProfileOutput
+	ToFastHttpsAppTlsServerProfileOutputWithContext(context.Context) FastHttpsAppTlsServerProfileOutput
+}
+
+type FastHttpsAppTlsServerProfileArgs struct {
+	// Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
+	TlsCertName pulumi.StringInput `pulumi:"tlsCertName"`
+	// Name of existing BIG-IP SSL Key to be used for FAST-Generated TLS Server Profile.
+	TlsKeyName pulumi.StringInput `pulumi:"tlsKeyName"`
+}
+
+func (FastHttpsAppTlsServerProfileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FastHttpsAppTlsServerProfile)(nil)).Elem()
+}
+
+func (i FastHttpsAppTlsServerProfileArgs) ToFastHttpsAppTlsServerProfileOutput() FastHttpsAppTlsServerProfileOutput {
+	return i.ToFastHttpsAppTlsServerProfileOutputWithContext(context.Background())
+}
+
+func (i FastHttpsAppTlsServerProfileArgs) ToFastHttpsAppTlsServerProfileOutputWithContext(ctx context.Context) FastHttpsAppTlsServerProfileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastHttpsAppTlsServerProfileOutput)
+}
+
+func (i FastHttpsAppTlsServerProfileArgs) ToFastHttpsAppTlsServerProfilePtrOutput() FastHttpsAppTlsServerProfilePtrOutput {
+	return i.ToFastHttpsAppTlsServerProfilePtrOutputWithContext(context.Background())
+}
+
+func (i FastHttpsAppTlsServerProfileArgs) ToFastHttpsAppTlsServerProfilePtrOutputWithContext(ctx context.Context) FastHttpsAppTlsServerProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastHttpsAppTlsServerProfileOutput).ToFastHttpsAppTlsServerProfilePtrOutputWithContext(ctx)
+}
+
+// FastHttpsAppTlsServerProfilePtrInput is an input type that accepts FastHttpsAppTlsServerProfileArgs, FastHttpsAppTlsServerProfilePtr and FastHttpsAppTlsServerProfilePtrOutput values.
+// You can construct a concrete instance of `FastHttpsAppTlsServerProfilePtrInput` via:
+//
+//	        FastHttpsAppTlsServerProfileArgs{...}
+//
+//	or:
+//
+//	        nil
+type FastHttpsAppTlsServerProfilePtrInput interface {
+	pulumi.Input
+
+	ToFastHttpsAppTlsServerProfilePtrOutput() FastHttpsAppTlsServerProfilePtrOutput
+	ToFastHttpsAppTlsServerProfilePtrOutputWithContext(context.Context) FastHttpsAppTlsServerProfilePtrOutput
+}
+
+type fastHttpsAppTlsServerProfilePtrType FastHttpsAppTlsServerProfileArgs
+
+func FastHttpsAppTlsServerProfilePtr(v *FastHttpsAppTlsServerProfileArgs) FastHttpsAppTlsServerProfilePtrInput {
+	return (*fastHttpsAppTlsServerProfilePtrType)(v)
+}
+
+func (*fastHttpsAppTlsServerProfilePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FastHttpsAppTlsServerProfile)(nil)).Elem()
+}
+
+func (i *fastHttpsAppTlsServerProfilePtrType) ToFastHttpsAppTlsServerProfilePtrOutput() FastHttpsAppTlsServerProfilePtrOutput {
+	return i.ToFastHttpsAppTlsServerProfilePtrOutputWithContext(context.Background())
+}
+
+func (i *fastHttpsAppTlsServerProfilePtrType) ToFastHttpsAppTlsServerProfilePtrOutputWithContext(ctx context.Context) FastHttpsAppTlsServerProfilePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastHttpsAppTlsServerProfilePtrOutput)
+}
+
+type FastHttpsAppTlsServerProfileOutput struct{ *pulumi.OutputState }
+
+func (FastHttpsAppTlsServerProfileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FastHttpsAppTlsServerProfile)(nil)).Elem()
+}
+
+func (o FastHttpsAppTlsServerProfileOutput) ToFastHttpsAppTlsServerProfileOutput() FastHttpsAppTlsServerProfileOutput {
+	return o
+}
+
+func (o FastHttpsAppTlsServerProfileOutput) ToFastHttpsAppTlsServerProfileOutputWithContext(ctx context.Context) FastHttpsAppTlsServerProfileOutput {
+	return o
+}
+
+func (o FastHttpsAppTlsServerProfileOutput) ToFastHttpsAppTlsServerProfilePtrOutput() FastHttpsAppTlsServerProfilePtrOutput {
+	return o.ToFastHttpsAppTlsServerProfilePtrOutputWithContext(context.Background())
+}
+
+func (o FastHttpsAppTlsServerProfileOutput) ToFastHttpsAppTlsServerProfilePtrOutputWithContext(ctx context.Context) FastHttpsAppTlsServerProfilePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FastHttpsAppTlsServerProfile) *FastHttpsAppTlsServerProfile {
+		return &v
+	}).(FastHttpsAppTlsServerProfilePtrOutput)
+}
+
+// Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
+func (o FastHttpsAppTlsServerProfileOutput) TlsCertName() pulumi.StringOutput {
+	return o.ApplyT(func(v FastHttpsAppTlsServerProfile) string { return v.TlsCertName }).(pulumi.StringOutput)
+}
+
+// Name of existing BIG-IP SSL Key to be used for FAST-Generated TLS Server Profile.
+func (o FastHttpsAppTlsServerProfileOutput) TlsKeyName() pulumi.StringOutput {
+	return o.ApplyT(func(v FastHttpsAppTlsServerProfile) string { return v.TlsKeyName }).(pulumi.StringOutput)
+}
+
+type FastHttpsAppTlsServerProfilePtrOutput struct{ *pulumi.OutputState }
+
+func (FastHttpsAppTlsServerProfilePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FastHttpsAppTlsServerProfile)(nil)).Elem()
+}
+
+func (o FastHttpsAppTlsServerProfilePtrOutput) ToFastHttpsAppTlsServerProfilePtrOutput() FastHttpsAppTlsServerProfilePtrOutput {
+	return o
+}
+
+func (o FastHttpsAppTlsServerProfilePtrOutput) ToFastHttpsAppTlsServerProfilePtrOutputWithContext(ctx context.Context) FastHttpsAppTlsServerProfilePtrOutput {
+	return o
+}
+
+func (o FastHttpsAppTlsServerProfilePtrOutput) Elem() FastHttpsAppTlsServerProfileOutput {
+	return o.ApplyT(func(v *FastHttpsAppTlsServerProfile) FastHttpsAppTlsServerProfile {
+		if v != nil {
+			return *v
+		}
+		var ret FastHttpsAppTlsServerProfile
+		return ret
+	}).(FastHttpsAppTlsServerProfileOutput)
+}
+
+// Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
+func (o FastHttpsAppTlsServerProfilePtrOutput) TlsCertName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FastHttpsAppTlsServerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TlsCertName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of existing BIG-IP SSL Key to be used for FAST-Generated TLS Server Profile.
+func (o FastHttpsAppTlsServerProfilePtrOutput) TlsKeyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FastHttpsAppTlsServerProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TlsKeyName
+	}).(pulumi.StringPtrOutput)
 }
 
 type FastHttpsAppVirtualServer struct {
 	// IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
 	Ip string `pulumi:"ip"`
-	// -(Optional , `int`) Port number to used for accessing virtual server/application
+	// Port number to used for accessing virtual server/application
 	Port int `pulumi:"port"`
 }
 
@@ -1179,7 +1472,7 @@ type FastHttpsAppVirtualServerInput interface {
 type FastHttpsAppVirtualServerArgs struct {
 	// IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
 	Ip pulumi.StringInput `pulumi:"ip"`
-	// -(Optional , `int`) Port number to used for accessing virtual server/application
+	// Port number to used for accessing virtual server/application
 	Port pulumi.IntInput `pulumi:"port"`
 }
 
@@ -1265,7 +1558,7 @@ func (o FastHttpsAppVirtualServerOutput) Ip() pulumi.StringOutput {
 	return o.ApplyT(func(v FastHttpsAppVirtualServer) string { return v.Ip }).(pulumi.StringOutput)
 }
 
-// -(Optional , `int`) Port number to used for accessing virtual server/application
+// Port number to used for accessing virtual server/application
 func (o FastHttpsAppVirtualServerOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v FastHttpsAppVirtualServer) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -1304,7 +1597,7 @@ func (o FastHttpsAppVirtualServerPtrOutput) Ip() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// -(Optional , `int`) Port number to used for accessing virtual server/application
+// Port number to used for accessing virtual server/application
 func (o FastHttpsAppVirtualServerPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FastHttpsAppVirtualServer) *int {
 		if v == nil {
@@ -1314,136 +1607,273 @@ func (o FastHttpsAppVirtualServerPtrOutput) Port() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-type FastTcpAppFastCreateMonitor struct {
-	// Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
-	Interval *int `pulumi:"interval"`
+type FastHttpsAppWafSecurityPolicy struct {
+	// Setting `true` will enable FAST to create WAF Security Policy.
+	Enable bool `pulumi:"enable"`
 }
 
-// FastTcpAppFastCreateMonitorInput is an input type that accepts FastTcpAppFastCreateMonitorArgs and FastTcpAppFastCreateMonitorOutput values.
-// You can construct a concrete instance of `FastTcpAppFastCreateMonitorInput` via:
+// FastHttpsAppWafSecurityPolicyInput is an input type that accepts FastHttpsAppWafSecurityPolicyArgs and FastHttpsAppWafSecurityPolicyOutput values.
+// You can construct a concrete instance of `FastHttpsAppWafSecurityPolicyInput` via:
 //
-//	FastTcpAppFastCreateMonitorArgs{...}
-type FastTcpAppFastCreateMonitorInput interface {
+//	FastHttpsAppWafSecurityPolicyArgs{...}
+type FastHttpsAppWafSecurityPolicyInput interface {
 	pulumi.Input
 
-	ToFastTcpAppFastCreateMonitorOutput() FastTcpAppFastCreateMonitorOutput
-	ToFastTcpAppFastCreateMonitorOutputWithContext(context.Context) FastTcpAppFastCreateMonitorOutput
+	ToFastHttpsAppWafSecurityPolicyOutput() FastHttpsAppWafSecurityPolicyOutput
+	ToFastHttpsAppWafSecurityPolicyOutputWithContext(context.Context) FastHttpsAppWafSecurityPolicyOutput
 }
 
-type FastTcpAppFastCreateMonitorArgs struct {
-	// Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
-	Interval pulumi.IntPtrInput `pulumi:"interval"`
+type FastHttpsAppWafSecurityPolicyArgs struct {
+	// Setting `true` will enable FAST to create WAF Security Policy.
+	Enable pulumi.BoolInput `pulumi:"enable"`
 }
 
-func (FastTcpAppFastCreateMonitorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FastTcpAppFastCreateMonitor)(nil)).Elem()
+func (FastHttpsAppWafSecurityPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FastHttpsAppWafSecurityPolicy)(nil)).Elem()
 }
 
-func (i FastTcpAppFastCreateMonitorArgs) ToFastTcpAppFastCreateMonitorOutput() FastTcpAppFastCreateMonitorOutput {
-	return i.ToFastTcpAppFastCreateMonitorOutputWithContext(context.Background())
+func (i FastHttpsAppWafSecurityPolicyArgs) ToFastHttpsAppWafSecurityPolicyOutput() FastHttpsAppWafSecurityPolicyOutput {
+	return i.ToFastHttpsAppWafSecurityPolicyOutputWithContext(context.Background())
 }
 
-func (i FastTcpAppFastCreateMonitorArgs) ToFastTcpAppFastCreateMonitorOutputWithContext(ctx context.Context) FastTcpAppFastCreateMonitorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FastTcpAppFastCreateMonitorOutput)
+func (i FastHttpsAppWafSecurityPolicyArgs) ToFastHttpsAppWafSecurityPolicyOutputWithContext(ctx context.Context) FastHttpsAppWafSecurityPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastHttpsAppWafSecurityPolicyOutput)
 }
 
-func (i FastTcpAppFastCreateMonitorArgs) ToFastTcpAppFastCreateMonitorPtrOutput() FastTcpAppFastCreateMonitorPtrOutput {
-	return i.ToFastTcpAppFastCreateMonitorPtrOutputWithContext(context.Background())
+func (i FastHttpsAppWafSecurityPolicyArgs) ToFastHttpsAppWafSecurityPolicyPtrOutput() FastHttpsAppWafSecurityPolicyPtrOutput {
+	return i.ToFastHttpsAppWafSecurityPolicyPtrOutputWithContext(context.Background())
 }
 
-func (i FastTcpAppFastCreateMonitorArgs) ToFastTcpAppFastCreateMonitorPtrOutputWithContext(ctx context.Context) FastTcpAppFastCreateMonitorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FastTcpAppFastCreateMonitorOutput).ToFastTcpAppFastCreateMonitorPtrOutputWithContext(ctx)
+func (i FastHttpsAppWafSecurityPolicyArgs) ToFastHttpsAppWafSecurityPolicyPtrOutputWithContext(ctx context.Context) FastHttpsAppWafSecurityPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastHttpsAppWafSecurityPolicyOutput).ToFastHttpsAppWafSecurityPolicyPtrOutputWithContext(ctx)
 }
 
-// FastTcpAppFastCreateMonitorPtrInput is an input type that accepts FastTcpAppFastCreateMonitorArgs, FastTcpAppFastCreateMonitorPtr and FastTcpAppFastCreateMonitorPtrOutput values.
-// You can construct a concrete instance of `FastTcpAppFastCreateMonitorPtrInput` via:
+// FastHttpsAppWafSecurityPolicyPtrInput is an input type that accepts FastHttpsAppWafSecurityPolicyArgs, FastHttpsAppWafSecurityPolicyPtr and FastHttpsAppWafSecurityPolicyPtrOutput values.
+// You can construct a concrete instance of `FastHttpsAppWafSecurityPolicyPtrInput` via:
 //
-//	        FastTcpAppFastCreateMonitorArgs{...}
+//	        FastHttpsAppWafSecurityPolicyArgs{...}
 //
 //	or:
 //
 //	        nil
-type FastTcpAppFastCreateMonitorPtrInput interface {
+type FastHttpsAppWafSecurityPolicyPtrInput interface {
 	pulumi.Input
 
-	ToFastTcpAppFastCreateMonitorPtrOutput() FastTcpAppFastCreateMonitorPtrOutput
-	ToFastTcpAppFastCreateMonitorPtrOutputWithContext(context.Context) FastTcpAppFastCreateMonitorPtrOutput
+	ToFastHttpsAppWafSecurityPolicyPtrOutput() FastHttpsAppWafSecurityPolicyPtrOutput
+	ToFastHttpsAppWafSecurityPolicyPtrOutputWithContext(context.Context) FastHttpsAppWafSecurityPolicyPtrOutput
 }
 
-type fastTcpAppFastCreateMonitorPtrType FastTcpAppFastCreateMonitorArgs
+type fastHttpsAppWafSecurityPolicyPtrType FastHttpsAppWafSecurityPolicyArgs
 
-func FastTcpAppFastCreateMonitorPtr(v *FastTcpAppFastCreateMonitorArgs) FastTcpAppFastCreateMonitorPtrInput {
-	return (*fastTcpAppFastCreateMonitorPtrType)(v)
+func FastHttpsAppWafSecurityPolicyPtr(v *FastHttpsAppWafSecurityPolicyArgs) FastHttpsAppWafSecurityPolicyPtrInput {
+	return (*fastHttpsAppWafSecurityPolicyPtrType)(v)
 }
 
-func (*fastTcpAppFastCreateMonitorPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FastTcpAppFastCreateMonitor)(nil)).Elem()
+func (*fastHttpsAppWafSecurityPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FastHttpsAppWafSecurityPolicy)(nil)).Elem()
 }
 
-func (i *fastTcpAppFastCreateMonitorPtrType) ToFastTcpAppFastCreateMonitorPtrOutput() FastTcpAppFastCreateMonitorPtrOutput {
-	return i.ToFastTcpAppFastCreateMonitorPtrOutputWithContext(context.Background())
+func (i *fastHttpsAppWafSecurityPolicyPtrType) ToFastHttpsAppWafSecurityPolicyPtrOutput() FastHttpsAppWafSecurityPolicyPtrOutput {
+	return i.ToFastHttpsAppWafSecurityPolicyPtrOutputWithContext(context.Background())
 }
 
-func (i *fastTcpAppFastCreateMonitorPtrType) ToFastTcpAppFastCreateMonitorPtrOutputWithContext(ctx context.Context) FastTcpAppFastCreateMonitorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FastTcpAppFastCreateMonitorPtrOutput)
+func (i *fastHttpsAppWafSecurityPolicyPtrType) ToFastHttpsAppWafSecurityPolicyPtrOutputWithContext(ctx context.Context) FastHttpsAppWafSecurityPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastHttpsAppWafSecurityPolicyPtrOutput)
 }
 
-type FastTcpAppFastCreateMonitorOutput struct{ *pulumi.OutputState }
+type FastHttpsAppWafSecurityPolicyOutput struct{ *pulumi.OutputState }
 
-func (FastTcpAppFastCreateMonitorOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FastTcpAppFastCreateMonitor)(nil)).Elem()
+func (FastHttpsAppWafSecurityPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FastHttpsAppWafSecurityPolicy)(nil)).Elem()
 }
 
-func (o FastTcpAppFastCreateMonitorOutput) ToFastTcpAppFastCreateMonitorOutput() FastTcpAppFastCreateMonitorOutput {
+func (o FastHttpsAppWafSecurityPolicyOutput) ToFastHttpsAppWafSecurityPolicyOutput() FastHttpsAppWafSecurityPolicyOutput {
 	return o
 }
 
-func (o FastTcpAppFastCreateMonitorOutput) ToFastTcpAppFastCreateMonitorOutputWithContext(ctx context.Context) FastTcpAppFastCreateMonitorOutput {
+func (o FastHttpsAppWafSecurityPolicyOutput) ToFastHttpsAppWafSecurityPolicyOutputWithContext(ctx context.Context) FastHttpsAppWafSecurityPolicyOutput {
 	return o
 }
 
-func (o FastTcpAppFastCreateMonitorOutput) ToFastTcpAppFastCreateMonitorPtrOutput() FastTcpAppFastCreateMonitorPtrOutput {
-	return o.ToFastTcpAppFastCreateMonitorPtrOutputWithContext(context.Background())
+func (o FastHttpsAppWafSecurityPolicyOutput) ToFastHttpsAppWafSecurityPolicyPtrOutput() FastHttpsAppWafSecurityPolicyPtrOutput {
+	return o.ToFastHttpsAppWafSecurityPolicyPtrOutputWithContext(context.Background())
 }
 
-func (o FastTcpAppFastCreateMonitorOutput) ToFastTcpAppFastCreateMonitorPtrOutputWithContext(ctx context.Context) FastTcpAppFastCreateMonitorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FastTcpAppFastCreateMonitor) *FastTcpAppFastCreateMonitor {
+func (o FastHttpsAppWafSecurityPolicyOutput) ToFastHttpsAppWafSecurityPolicyPtrOutputWithContext(ctx context.Context) FastHttpsAppWafSecurityPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FastHttpsAppWafSecurityPolicy) *FastHttpsAppWafSecurityPolicy {
 		return &v
-	}).(FastTcpAppFastCreateMonitorPtrOutput)
+	}).(FastHttpsAppWafSecurityPolicyPtrOutput)
 }
 
-// Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
-func (o FastTcpAppFastCreateMonitorOutput) Interval() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FastTcpAppFastCreateMonitor) *int { return v.Interval }).(pulumi.IntPtrOutput)
+// Setting `true` will enable FAST to create WAF Security Policy.
+func (o FastHttpsAppWafSecurityPolicyOutput) Enable() pulumi.BoolOutput {
+	return o.ApplyT(func(v FastHttpsAppWafSecurityPolicy) bool { return v.Enable }).(pulumi.BoolOutput)
 }
 
-type FastTcpAppFastCreateMonitorPtrOutput struct{ *pulumi.OutputState }
+type FastHttpsAppWafSecurityPolicyPtrOutput struct{ *pulumi.OutputState }
 
-func (FastTcpAppFastCreateMonitorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FastTcpAppFastCreateMonitor)(nil)).Elem()
+func (FastHttpsAppWafSecurityPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FastHttpsAppWafSecurityPolicy)(nil)).Elem()
 }
 
-func (o FastTcpAppFastCreateMonitorPtrOutput) ToFastTcpAppFastCreateMonitorPtrOutput() FastTcpAppFastCreateMonitorPtrOutput {
+func (o FastHttpsAppWafSecurityPolicyPtrOutput) ToFastHttpsAppWafSecurityPolicyPtrOutput() FastHttpsAppWafSecurityPolicyPtrOutput {
 	return o
 }
 
-func (o FastTcpAppFastCreateMonitorPtrOutput) ToFastTcpAppFastCreateMonitorPtrOutputWithContext(ctx context.Context) FastTcpAppFastCreateMonitorPtrOutput {
+func (o FastHttpsAppWafSecurityPolicyPtrOutput) ToFastHttpsAppWafSecurityPolicyPtrOutputWithContext(ctx context.Context) FastHttpsAppWafSecurityPolicyPtrOutput {
 	return o
 }
 
-func (o FastTcpAppFastCreateMonitorPtrOutput) Elem() FastTcpAppFastCreateMonitorOutput {
-	return o.ApplyT(func(v *FastTcpAppFastCreateMonitor) FastTcpAppFastCreateMonitor {
+func (o FastHttpsAppWafSecurityPolicyPtrOutput) Elem() FastHttpsAppWafSecurityPolicyOutput {
+	return o.ApplyT(func(v *FastHttpsAppWafSecurityPolicy) FastHttpsAppWafSecurityPolicy {
 		if v != nil {
 			return *v
 		}
-		var ret FastTcpAppFastCreateMonitor
+		var ret FastHttpsAppWafSecurityPolicy
 		return ret
-	}).(FastTcpAppFastCreateMonitorOutput)
+	}).(FastHttpsAppWafSecurityPolicyOutput)
+}
+
+// Setting `true` will enable FAST to create WAF Security Policy.
+func (o FastHttpsAppWafSecurityPolicyPtrOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FastHttpsAppWafSecurityPolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enable
+	}).(pulumi.BoolPtrOutput)
+}
+
+type FastTcpAppMonitor struct {
+	// Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
+	Interval *int `pulumi:"interval"`
+}
+
+// FastTcpAppMonitorInput is an input type that accepts FastTcpAppMonitorArgs and FastTcpAppMonitorOutput values.
+// You can construct a concrete instance of `FastTcpAppMonitorInput` via:
+//
+//	FastTcpAppMonitorArgs{...}
+type FastTcpAppMonitorInput interface {
+	pulumi.Input
+
+	ToFastTcpAppMonitorOutput() FastTcpAppMonitorOutput
+	ToFastTcpAppMonitorOutputWithContext(context.Context) FastTcpAppMonitorOutput
+}
+
+type FastTcpAppMonitorArgs struct {
+	// Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+}
+
+func (FastTcpAppMonitorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FastTcpAppMonitor)(nil)).Elem()
+}
+
+func (i FastTcpAppMonitorArgs) ToFastTcpAppMonitorOutput() FastTcpAppMonitorOutput {
+	return i.ToFastTcpAppMonitorOutputWithContext(context.Background())
+}
+
+func (i FastTcpAppMonitorArgs) ToFastTcpAppMonitorOutputWithContext(ctx context.Context) FastTcpAppMonitorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastTcpAppMonitorOutput)
+}
+
+func (i FastTcpAppMonitorArgs) ToFastTcpAppMonitorPtrOutput() FastTcpAppMonitorPtrOutput {
+	return i.ToFastTcpAppMonitorPtrOutputWithContext(context.Background())
+}
+
+func (i FastTcpAppMonitorArgs) ToFastTcpAppMonitorPtrOutputWithContext(ctx context.Context) FastTcpAppMonitorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastTcpAppMonitorOutput).ToFastTcpAppMonitorPtrOutputWithContext(ctx)
+}
+
+// FastTcpAppMonitorPtrInput is an input type that accepts FastTcpAppMonitorArgs, FastTcpAppMonitorPtr and FastTcpAppMonitorPtrOutput values.
+// You can construct a concrete instance of `FastTcpAppMonitorPtrInput` via:
+//
+//	        FastTcpAppMonitorArgs{...}
+//
+//	or:
+//
+//	        nil
+type FastTcpAppMonitorPtrInput interface {
+	pulumi.Input
+
+	ToFastTcpAppMonitorPtrOutput() FastTcpAppMonitorPtrOutput
+	ToFastTcpAppMonitorPtrOutputWithContext(context.Context) FastTcpAppMonitorPtrOutput
+}
+
+type fastTcpAppMonitorPtrType FastTcpAppMonitorArgs
+
+func FastTcpAppMonitorPtr(v *FastTcpAppMonitorArgs) FastTcpAppMonitorPtrInput {
+	return (*fastTcpAppMonitorPtrType)(v)
+}
+
+func (*fastTcpAppMonitorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FastTcpAppMonitor)(nil)).Elem()
+}
+
+func (i *fastTcpAppMonitorPtrType) ToFastTcpAppMonitorPtrOutput() FastTcpAppMonitorPtrOutput {
+	return i.ToFastTcpAppMonitorPtrOutputWithContext(context.Background())
+}
+
+func (i *fastTcpAppMonitorPtrType) ToFastTcpAppMonitorPtrOutputWithContext(ctx context.Context) FastTcpAppMonitorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastTcpAppMonitorPtrOutput)
+}
+
+type FastTcpAppMonitorOutput struct{ *pulumi.OutputState }
+
+func (FastTcpAppMonitorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FastTcpAppMonitor)(nil)).Elem()
+}
+
+func (o FastTcpAppMonitorOutput) ToFastTcpAppMonitorOutput() FastTcpAppMonitorOutput {
+	return o
+}
+
+func (o FastTcpAppMonitorOutput) ToFastTcpAppMonitorOutputWithContext(ctx context.Context) FastTcpAppMonitorOutput {
+	return o
+}
+
+func (o FastTcpAppMonitorOutput) ToFastTcpAppMonitorPtrOutput() FastTcpAppMonitorPtrOutput {
+	return o.ToFastTcpAppMonitorPtrOutputWithContext(context.Background())
+}
+
+func (o FastTcpAppMonitorOutput) ToFastTcpAppMonitorPtrOutputWithContext(ctx context.Context) FastTcpAppMonitorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FastTcpAppMonitor) *FastTcpAppMonitor {
+		return &v
+	}).(FastTcpAppMonitorPtrOutput)
 }
 
 // Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
-func (o FastTcpAppFastCreateMonitorPtrOutput) Interval() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *FastTcpAppFastCreateMonitor) *int {
+func (o FastTcpAppMonitorOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FastTcpAppMonitor) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+type FastTcpAppMonitorPtrOutput struct{ *pulumi.OutputState }
+
+func (FastTcpAppMonitorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FastTcpAppMonitor)(nil)).Elem()
+}
+
+func (o FastTcpAppMonitorPtrOutput) ToFastTcpAppMonitorPtrOutput() FastTcpAppMonitorPtrOutput {
+	return o
+}
+
+func (o FastTcpAppMonitorPtrOutput) ToFastTcpAppMonitorPtrOutputWithContext(ctx context.Context) FastTcpAppMonitorPtrOutput {
+	return o
+}
+
+func (o FastTcpAppMonitorPtrOutput) Elem() FastTcpAppMonitorOutput {
+	return o.ApplyT(func(v *FastTcpAppMonitor) FastTcpAppMonitor {
+		if v != nil {
+			return *v
+		}
+		var ret FastTcpAppMonitor
+		return ret
+	}).(FastTcpAppMonitorOutput)
+}
+
+// Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
+func (o FastTcpAppMonitorPtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FastTcpAppMonitor) *int {
 		if v == nil {
 			return nil
 		}
@@ -1451,7 +1881,7 @@ func (o FastTcpAppFastCreateMonitorPtrOutput) Interval() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-type FastTcpAppFastCreatePoolMember struct {
+type FastTcpAppPoolMember struct {
 	// List of server address to be used for FAST-Generated Pool.
 	Addresses []string `pulumi:"addresses"`
 	// connectionLimit value to be used for FAST-Generated Pool.
@@ -1464,18 +1894,18 @@ type FastTcpAppFastCreatePoolMember struct {
 	ShareNodes *bool `pulumi:"shareNodes"`
 }
 
-// FastTcpAppFastCreatePoolMemberInput is an input type that accepts FastTcpAppFastCreatePoolMemberArgs and FastTcpAppFastCreatePoolMemberOutput values.
-// You can construct a concrete instance of `FastTcpAppFastCreatePoolMemberInput` via:
+// FastTcpAppPoolMemberInput is an input type that accepts FastTcpAppPoolMemberArgs and FastTcpAppPoolMemberOutput values.
+// You can construct a concrete instance of `FastTcpAppPoolMemberInput` via:
 //
-//	FastTcpAppFastCreatePoolMemberArgs{...}
-type FastTcpAppFastCreatePoolMemberInput interface {
+//	FastTcpAppPoolMemberArgs{...}
+type FastTcpAppPoolMemberInput interface {
 	pulumi.Input
 
-	ToFastTcpAppFastCreatePoolMemberOutput() FastTcpAppFastCreatePoolMemberOutput
-	ToFastTcpAppFastCreatePoolMemberOutputWithContext(context.Context) FastTcpAppFastCreatePoolMemberOutput
+	ToFastTcpAppPoolMemberOutput() FastTcpAppPoolMemberOutput
+	ToFastTcpAppPoolMemberOutputWithContext(context.Context) FastTcpAppPoolMemberOutput
 }
 
-type FastTcpAppFastCreatePoolMemberArgs struct {
+type FastTcpAppPoolMemberArgs struct {
 	// List of server address to be used for FAST-Generated Pool.
 	Addresses pulumi.StringArrayInput `pulumi:"addresses"`
 	// connectionLimit value to be used for FAST-Generated Pool.
@@ -1488,106 +1918,106 @@ type FastTcpAppFastCreatePoolMemberArgs struct {
 	ShareNodes pulumi.BoolPtrInput `pulumi:"shareNodes"`
 }
 
-func (FastTcpAppFastCreatePoolMemberArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FastTcpAppFastCreatePoolMember)(nil)).Elem()
+func (FastTcpAppPoolMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FastTcpAppPoolMember)(nil)).Elem()
 }
 
-func (i FastTcpAppFastCreatePoolMemberArgs) ToFastTcpAppFastCreatePoolMemberOutput() FastTcpAppFastCreatePoolMemberOutput {
-	return i.ToFastTcpAppFastCreatePoolMemberOutputWithContext(context.Background())
+func (i FastTcpAppPoolMemberArgs) ToFastTcpAppPoolMemberOutput() FastTcpAppPoolMemberOutput {
+	return i.ToFastTcpAppPoolMemberOutputWithContext(context.Background())
 }
 
-func (i FastTcpAppFastCreatePoolMemberArgs) ToFastTcpAppFastCreatePoolMemberOutputWithContext(ctx context.Context) FastTcpAppFastCreatePoolMemberOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FastTcpAppFastCreatePoolMemberOutput)
+func (i FastTcpAppPoolMemberArgs) ToFastTcpAppPoolMemberOutputWithContext(ctx context.Context) FastTcpAppPoolMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastTcpAppPoolMemberOutput)
 }
 
-// FastTcpAppFastCreatePoolMemberArrayInput is an input type that accepts FastTcpAppFastCreatePoolMemberArray and FastTcpAppFastCreatePoolMemberArrayOutput values.
-// You can construct a concrete instance of `FastTcpAppFastCreatePoolMemberArrayInput` via:
+// FastTcpAppPoolMemberArrayInput is an input type that accepts FastTcpAppPoolMemberArray and FastTcpAppPoolMemberArrayOutput values.
+// You can construct a concrete instance of `FastTcpAppPoolMemberArrayInput` via:
 //
-//	FastTcpAppFastCreatePoolMemberArray{ FastTcpAppFastCreatePoolMemberArgs{...} }
-type FastTcpAppFastCreatePoolMemberArrayInput interface {
+//	FastTcpAppPoolMemberArray{ FastTcpAppPoolMemberArgs{...} }
+type FastTcpAppPoolMemberArrayInput interface {
 	pulumi.Input
 
-	ToFastTcpAppFastCreatePoolMemberArrayOutput() FastTcpAppFastCreatePoolMemberArrayOutput
-	ToFastTcpAppFastCreatePoolMemberArrayOutputWithContext(context.Context) FastTcpAppFastCreatePoolMemberArrayOutput
+	ToFastTcpAppPoolMemberArrayOutput() FastTcpAppPoolMemberArrayOutput
+	ToFastTcpAppPoolMemberArrayOutputWithContext(context.Context) FastTcpAppPoolMemberArrayOutput
 }
 
-type FastTcpAppFastCreatePoolMemberArray []FastTcpAppFastCreatePoolMemberInput
+type FastTcpAppPoolMemberArray []FastTcpAppPoolMemberInput
 
-func (FastTcpAppFastCreatePoolMemberArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FastTcpAppFastCreatePoolMember)(nil)).Elem()
+func (FastTcpAppPoolMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FastTcpAppPoolMember)(nil)).Elem()
 }
 
-func (i FastTcpAppFastCreatePoolMemberArray) ToFastTcpAppFastCreatePoolMemberArrayOutput() FastTcpAppFastCreatePoolMemberArrayOutput {
-	return i.ToFastTcpAppFastCreatePoolMemberArrayOutputWithContext(context.Background())
+func (i FastTcpAppPoolMemberArray) ToFastTcpAppPoolMemberArrayOutput() FastTcpAppPoolMemberArrayOutput {
+	return i.ToFastTcpAppPoolMemberArrayOutputWithContext(context.Background())
 }
 
-func (i FastTcpAppFastCreatePoolMemberArray) ToFastTcpAppFastCreatePoolMemberArrayOutputWithContext(ctx context.Context) FastTcpAppFastCreatePoolMemberArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FastTcpAppFastCreatePoolMemberArrayOutput)
+func (i FastTcpAppPoolMemberArray) ToFastTcpAppPoolMemberArrayOutputWithContext(ctx context.Context) FastTcpAppPoolMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastTcpAppPoolMemberArrayOutput)
 }
 
-type FastTcpAppFastCreatePoolMemberOutput struct{ *pulumi.OutputState }
+type FastTcpAppPoolMemberOutput struct{ *pulumi.OutputState }
 
-func (FastTcpAppFastCreatePoolMemberOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FastTcpAppFastCreatePoolMember)(nil)).Elem()
+func (FastTcpAppPoolMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FastTcpAppPoolMember)(nil)).Elem()
 }
 
-func (o FastTcpAppFastCreatePoolMemberOutput) ToFastTcpAppFastCreatePoolMemberOutput() FastTcpAppFastCreatePoolMemberOutput {
+func (o FastTcpAppPoolMemberOutput) ToFastTcpAppPoolMemberOutput() FastTcpAppPoolMemberOutput {
 	return o
 }
 
-func (o FastTcpAppFastCreatePoolMemberOutput) ToFastTcpAppFastCreatePoolMemberOutputWithContext(ctx context.Context) FastTcpAppFastCreatePoolMemberOutput {
+func (o FastTcpAppPoolMemberOutput) ToFastTcpAppPoolMemberOutputWithContext(ctx context.Context) FastTcpAppPoolMemberOutput {
 	return o
 }
 
 // List of server address to be used for FAST-Generated Pool.
-func (o FastTcpAppFastCreatePoolMemberOutput) Addresses() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v FastTcpAppFastCreatePoolMember) []string { return v.Addresses }).(pulumi.StringArrayOutput)
+func (o FastTcpAppPoolMemberOutput) Addresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FastTcpAppPoolMember) []string { return v.Addresses }).(pulumi.StringArrayOutput)
 }
 
 // connectionLimit value to be used for FAST-Generated Pool.
-func (o FastTcpAppFastCreatePoolMemberOutput) ConnectionLimit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FastTcpAppFastCreatePoolMember) *int { return v.ConnectionLimit }).(pulumi.IntPtrOutput)
+func (o FastTcpAppPoolMemberOutput) ConnectionLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FastTcpAppPoolMember) *int { return v.ConnectionLimit }).(pulumi.IntPtrOutput)
 }
 
 // port number of serviceport to be used for FAST-Generated Pool.
-func (o FastTcpAppFastCreatePoolMemberOutput) Port() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FastTcpAppFastCreatePoolMember) *int { return v.Port }).(pulumi.IntPtrOutput)
+func (o FastTcpAppPoolMemberOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FastTcpAppPoolMember) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
 // priorityGroup value to be used for FAST-Generated Pool.
-func (o FastTcpAppFastCreatePoolMemberOutput) PriorityGroup() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v FastTcpAppFastCreatePoolMember) *int { return v.PriorityGroup }).(pulumi.IntPtrOutput)
+func (o FastTcpAppPoolMemberOutput) PriorityGroup() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FastTcpAppPoolMember) *int { return v.PriorityGroup }).(pulumi.IntPtrOutput)
 }
 
 // shareNodes value to be used for FAST-Generated Pool.
-func (o FastTcpAppFastCreatePoolMemberOutput) ShareNodes() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v FastTcpAppFastCreatePoolMember) *bool { return v.ShareNodes }).(pulumi.BoolPtrOutput)
+func (o FastTcpAppPoolMemberOutput) ShareNodes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FastTcpAppPoolMember) *bool { return v.ShareNodes }).(pulumi.BoolPtrOutput)
 }
 
-type FastTcpAppFastCreatePoolMemberArrayOutput struct{ *pulumi.OutputState }
+type FastTcpAppPoolMemberArrayOutput struct{ *pulumi.OutputState }
 
-func (FastTcpAppFastCreatePoolMemberArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FastTcpAppFastCreatePoolMember)(nil)).Elem()
+func (FastTcpAppPoolMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FastTcpAppPoolMember)(nil)).Elem()
 }
 
-func (o FastTcpAppFastCreatePoolMemberArrayOutput) ToFastTcpAppFastCreatePoolMemberArrayOutput() FastTcpAppFastCreatePoolMemberArrayOutput {
+func (o FastTcpAppPoolMemberArrayOutput) ToFastTcpAppPoolMemberArrayOutput() FastTcpAppPoolMemberArrayOutput {
 	return o
 }
 
-func (o FastTcpAppFastCreatePoolMemberArrayOutput) ToFastTcpAppFastCreatePoolMemberArrayOutputWithContext(ctx context.Context) FastTcpAppFastCreatePoolMemberArrayOutput {
+func (o FastTcpAppPoolMemberArrayOutput) ToFastTcpAppPoolMemberArrayOutputWithContext(ctx context.Context) FastTcpAppPoolMemberArrayOutput {
 	return o
 }
 
-func (o FastTcpAppFastCreatePoolMemberArrayOutput) Index(i pulumi.IntInput) FastTcpAppFastCreatePoolMemberOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FastTcpAppFastCreatePoolMember {
-		return vs[0].([]FastTcpAppFastCreatePoolMember)[vs[1].(int)]
-	}).(FastTcpAppFastCreatePoolMemberOutput)
+func (o FastTcpAppPoolMemberArrayOutput) Index(i pulumi.IntInput) FastTcpAppPoolMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FastTcpAppPoolMember {
+		return vs[0].([]FastTcpAppPoolMember)[vs[1].(int)]
+	}).(FastTcpAppPoolMemberOutput)
 }
 
 type FastTcpAppVirtualServer struct {
 	// IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
 	Ip string `pulumi:"ip"`
-	// -(Optional , `int`) Port number to used for accessing virtual server/application
+	// Port number to used for accessing virtual server/application
 	Port int `pulumi:"port"`
 }
 
@@ -1605,7 +2035,7 @@ type FastTcpAppVirtualServerInput interface {
 type FastTcpAppVirtualServerArgs struct {
 	// IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
 	Ip pulumi.StringInput `pulumi:"ip"`
-	// -(Optional , `int`) Port number to used for accessing virtual server/application
+	// Port number to used for accessing virtual server/application
 	Port pulumi.IntInput `pulumi:"port"`
 }
 
@@ -1691,7 +2121,7 @@ func (o FastTcpAppVirtualServerOutput) Ip() pulumi.StringOutput {
 	return o.ApplyT(func(v FastTcpAppVirtualServer) string { return v.Ip }).(pulumi.StringOutput)
 }
 
-// -(Optional , `int`) Port number to used for accessing virtual server/application
+// Port number to used for accessing virtual server/application
 func (o FastTcpAppVirtualServerOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v FastTcpAppVirtualServer) int { return v.Port }).(pulumi.IntOutput)
 }
@@ -1730,9 +2160,473 @@ func (o FastTcpAppVirtualServerPtrOutput) Ip() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// -(Optional , `int`) Port number to used for accessing virtual server/application
+// Port number to used for accessing virtual server/application
 func (o FastTcpAppVirtualServerPtrOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FastTcpAppVirtualServer) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+type FastUdpAppMonitor struct {
+	// The presence of this optional string is required in the response, if specified it confirms availability.
+	ExpectedResponse *string `pulumi:"expectedResponse"`
+	// Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
+	Interval *int `pulumi:"interval"`
+	// Optional data to be sent during each health check.
+	SendString *string `pulumi:"sendString"`
+}
+
+// FastUdpAppMonitorInput is an input type that accepts FastUdpAppMonitorArgs and FastUdpAppMonitorOutput values.
+// You can construct a concrete instance of `FastUdpAppMonitorInput` via:
+//
+//	FastUdpAppMonitorArgs{...}
+type FastUdpAppMonitorInput interface {
+	pulumi.Input
+
+	ToFastUdpAppMonitorOutput() FastUdpAppMonitorOutput
+	ToFastUdpAppMonitorOutputWithContext(context.Context) FastUdpAppMonitorOutput
+}
+
+type FastUdpAppMonitorArgs struct {
+	// The presence of this optional string is required in the response, if specified it confirms availability.
+	ExpectedResponse pulumi.StringPtrInput `pulumi:"expectedResponse"`
+	// Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+	// Optional data to be sent during each health check.
+	SendString pulumi.StringPtrInput `pulumi:"sendString"`
+}
+
+func (FastUdpAppMonitorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FastUdpAppMonitor)(nil)).Elem()
+}
+
+func (i FastUdpAppMonitorArgs) ToFastUdpAppMonitorOutput() FastUdpAppMonitorOutput {
+	return i.ToFastUdpAppMonitorOutputWithContext(context.Background())
+}
+
+func (i FastUdpAppMonitorArgs) ToFastUdpAppMonitorOutputWithContext(ctx context.Context) FastUdpAppMonitorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastUdpAppMonitorOutput)
+}
+
+func (i FastUdpAppMonitorArgs) ToFastUdpAppMonitorPtrOutput() FastUdpAppMonitorPtrOutput {
+	return i.ToFastUdpAppMonitorPtrOutputWithContext(context.Background())
+}
+
+func (i FastUdpAppMonitorArgs) ToFastUdpAppMonitorPtrOutputWithContext(ctx context.Context) FastUdpAppMonitorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastUdpAppMonitorOutput).ToFastUdpAppMonitorPtrOutputWithContext(ctx)
+}
+
+// FastUdpAppMonitorPtrInput is an input type that accepts FastUdpAppMonitorArgs, FastUdpAppMonitorPtr and FastUdpAppMonitorPtrOutput values.
+// You can construct a concrete instance of `FastUdpAppMonitorPtrInput` via:
+//
+//	        FastUdpAppMonitorArgs{...}
+//
+//	or:
+//
+//	        nil
+type FastUdpAppMonitorPtrInput interface {
+	pulumi.Input
+
+	ToFastUdpAppMonitorPtrOutput() FastUdpAppMonitorPtrOutput
+	ToFastUdpAppMonitorPtrOutputWithContext(context.Context) FastUdpAppMonitorPtrOutput
+}
+
+type fastUdpAppMonitorPtrType FastUdpAppMonitorArgs
+
+func FastUdpAppMonitorPtr(v *FastUdpAppMonitorArgs) FastUdpAppMonitorPtrInput {
+	return (*fastUdpAppMonitorPtrType)(v)
+}
+
+func (*fastUdpAppMonitorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FastUdpAppMonitor)(nil)).Elem()
+}
+
+func (i *fastUdpAppMonitorPtrType) ToFastUdpAppMonitorPtrOutput() FastUdpAppMonitorPtrOutput {
+	return i.ToFastUdpAppMonitorPtrOutputWithContext(context.Background())
+}
+
+func (i *fastUdpAppMonitorPtrType) ToFastUdpAppMonitorPtrOutputWithContext(ctx context.Context) FastUdpAppMonitorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastUdpAppMonitorPtrOutput)
+}
+
+type FastUdpAppMonitorOutput struct{ *pulumi.OutputState }
+
+func (FastUdpAppMonitorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FastUdpAppMonitor)(nil)).Elem()
+}
+
+func (o FastUdpAppMonitorOutput) ToFastUdpAppMonitorOutput() FastUdpAppMonitorOutput {
+	return o
+}
+
+func (o FastUdpAppMonitorOutput) ToFastUdpAppMonitorOutputWithContext(ctx context.Context) FastUdpAppMonitorOutput {
+	return o
+}
+
+func (o FastUdpAppMonitorOutput) ToFastUdpAppMonitorPtrOutput() FastUdpAppMonitorPtrOutput {
+	return o.ToFastUdpAppMonitorPtrOutputWithContext(context.Background())
+}
+
+func (o FastUdpAppMonitorOutput) ToFastUdpAppMonitorPtrOutputWithContext(ctx context.Context) FastUdpAppMonitorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FastUdpAppMonitor) *FastUdpAppMonitor {
+		return &v
+	}).(FastUdpAppMonitorPtrOutput)
+}
+
+// The presence of this optional string is required in the response, if specified it confirms availability.
+func (o FastUdpAppMonitorOutput) ExpectedResponse() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastUdpAppMonitor) *string { return v.ExpectedResponse }).(pulumi.StringPtrOutput)
+}
+
+// Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
+func (o FastUdpAppMonitorOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FastUdpAppMonitor) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+// Optional data to be sent during each health check.
+func (o FastUdpAppMonitorOutput) SendString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastUdpAppMonitor) *string { return v.SendString }).(pulumi.StringPtrOutput)
+}
+
+type FastUdpAppMonitorPtrOutput struct{ *pulumi.OutputState }
+
+func (FastUdpAppMonitorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FastUdpAppMonitor)(nil)).Elem()
+}
+
+func (o FastUdpAppMonitorPtrOutput) ToFastUdpAppMonitorPtrOutput() FastUdpAppMonitorPtrOutput {
+	return o
+}
+
+func (o FastUdpAppMonitorPtrOutput) ToFastUdpAppMonitorPtrOutputWithContext(ctx context.Context) FastUdpAppMonitorPtrOutput {
+	return o
+}
+
+func (o FastUdpAppMonitorPtrOutput) Elem() FastUdpAppMonitorOutput {
+	return o.ApplyT(func(v *FastUdpAppMonitor) FastUdpAppMonitor {
+		if v != nil {
+			return *v
+		}
+		var ret FastUdpAppMonitor
+		return ret
+	}).(FastUdpAppMonitorOutput)
+}
+
+// The presence of this optional string is required in the response, if specified it confirms availability.
+func (o FastUdpAppMonitorPtrOutput) ExpectedResponse() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FastUdpAppMonitor) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExpectedResponse
+	}).(pulumi.StringPtrOutput)
+}
+
+// Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
+func (o FastUdpAppMonitorPtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FastUdpAppMonitor) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+// Optional data to be sent during each health check.
+func (o FastUdpAppMonitorPtrOutput) SendString() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FastUdpAppMonitor) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SendString
+	}).(pulumi.StringPtrOutput)
+}
+
+type FastUdpAppPoolMember struct {
+	// List of server address to be used for FAST-Generated Pool.
+	Addresses []string `pulumi:"addresses"`
+	// connectionLimit value to be used for FAST-Generated Pool.
+	ConnectionLimit *int `pulumi:"connectionLimit"`
+	// port number of serviceport to be used for FAST-Generated Pool.
+	Port *int `pulumi:"port"`
+	// priorityGroup value to be used for FAST-Generated Pool.
+	PriorityGroup *int `pulumi:"priorityGroup"`
+	// shareNodes value to be used for FAST-Generated Pool.
+	ShareNodes *bool `pulumi:"shareNodes"`
+}
+
+// FastUdpAppPoolMemberInput is an input type that accepts FastUdpAppPoolMemberArgs and FastUdpAppPoolMemberOutput values.
+// You can construct a concrete instance of `FastUdpAppPoolMemberInput` via:
+//
+//	FastUdpAppPoolMemberArgs{...}
+type FastUdpAppPoolMemberInput interface {
+	pulumi.Input
+
+	ToFastUdpAppPoolMemberOutput() FastUdpAppPoolMemberOutput
+	ToFastUdpAppPoolMemberOutputWithContext(context.Context) FastUdpAppPoolMemberOutput
+}
+
+type FastUdpAppPoolMemberArgs struct {
+	// List of server address to be used for FAST-Generated Pool.
+	Addresses pulumi.StringArrayInput `pulumi:"addresses"`
+	// connectionLimit value to be used for FAST-Generated Pool.
+	ConnectionLimit pulumi.IntPtrInput `pulumi:"connectionLimit"`
+	// port number of serviceport to be used for FAST-Generated Pool.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// priorityGroup value to be used for FAST-Generated Pool.
+	PriorityGroup pulumi.IntPtrInput `pulumi:"priorityGroup"`
+	// shareNodes value to be used for FAST-Generated Pool.
+	ShareNodes pulumi.BoolPtrInput `pulumi:"shareNodes"`
+}
+
+func (FastUdpAppPoolMemberArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FastUdpAppPoolMember)(nil)).Elem()
+}
+
+func (i FastUdpAppPoolMemberArgs) ToFastUdpAppPoolMemberOutput() FastUdpAppPoolMemberOutput {
+	return i.ToFastUdpAppPoolMemberOutputWithContext(context.Background())
+}
+
+func (i FastUdpAppPoolMemberArgs) ToFastUdpAppPoolMemberOutputWithContext(ctx context.Context) FastUdpAppPoolMemberOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastUdpAppPoolMemberOutput)
+}
+
+// FastUdpAppPoolMemberArrayInput is an input type that accepts FastUdpAppPoolMemberArray and FastUdpAppPoolMemberArrayOutput values.
+// You can construct a concrete instance of `FastUdpAppPoolMemberArrayInput` via:
+//
+//	FastUdpAppPoolMemberArray{ FastUdpAppPoolMemberArgs{...} }
+type FastUdpAppPoolMemberArrayInput interface {
+	pulumi.Input
+
+	ToFastUdpAppPoolMemberArrayOutput() FastUdpAppPoolMemberArrayOutput
+	ToFastUdpAppPoolMemberArrayOutputWithContext(context.Context) FastUdpAppPoolMemberArrayOutput
+}
+
+type FastUdpAppPoolMemberArray []FastUdpAppPoolMemberInput
+
+func (FastUdpAppPoolMemberArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FastUdpAppPoolMember)(nil)).Elem()
+}
+
+func (i FastUdpAppPoolMemberArray) ToFastUdpAppPoolMemberArrayOutput() FastUdpAppPoolMemberArrayOutput {
+	return i.ToFastUdpAppPoolMemberArrayOutputWithContext(context.Background())
+}
+
+func (i FastUdpAppPoolMemberArray) ToFastUdpAppPoolMemberArrayOutputWithContext(ctx context.Context) FastUdpAppPoolMemberArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastUdpAppPoolMemberArrayOutput)
+}
+
+type FastUdpAppPoolMemberOutput struct{ *pulumi.OutputState }
+
+func (FastUdpAppPoolMemberOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FastUdpAppPoolMember)(nil)).Elem()
+}
+
+func (o FastUdpAppPoolMemberOutput) ToFastUdpAppPoolMemberOutput() FastUdpAppPoolMemberOutput {
+	return o
+}
+
+func (o FastUdpAppPoolMemberOutput) ToFastUdpAppPoolMemberOutputWithContext(ctx context.Context) FastUdpAppPoolMemberOutput {
+	return o
+}
+
+// List of server address to be used for FAST-Generated Pool.
+func (o FastUdpAppPoolMemberOutput) Addresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FastUdpAppPoolMember) []string { return v.Addresses }).(pulumi.StringArrayOutput)
+}
+
+// connectionLimit value to be used for FAST-Generated Pool.
+func (o FastUdpAppPoolMemberOutput) ConnectionLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FastUdpAppPoolMember) *int { return v.ConnectionLimit }).(pulumi.IntPtrOutput)
+}
+
+// port number of serviceport to be used for FAST-Generated Pool.
+func (o FastUdpAppPoolMemberOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FastUdpAppPoolMember) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// priorityGroup value to be used for FAST-Generated Pool.
+func (o FastUdpAppPoolMemberOutput) PriorityGroup() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FastUdpAppPoolMember) *int { return v.PriorityGroup }).(pulumi.IntPtrOutput)
+}
+
+// shareNodes value to be used for FAST-Generated Pool.
+func (o FastUdpAppPoolMemberOutput) ShareNodes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FastUdpAppPoolMember) *bool { return v.ShareNodes }).(pulumi.BoolPtrOutput)
+}
+
+type FastUdpAppPoolMemberArrayOutput struct{ *pulumi.OutputState }
+
+func (FastUdpAppPoolMemberArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FastUdpAppPoolMember)(nil)).Elem()
+}
+
+func (o FastUdpAppPoolMemberArrayOutput) ToFastUdpAppPoolMemberArrayOutput() FastUdpAppPoolMemberArrayOutput {
+	return o
+}
+
+func (o FastUdpAppPoolMemberArrayOutput) ToFastUdpAppPoolMemberArrayOutputWithContext(ctx context.Context) FastUdpAppPoolMemberArrayOutput {
+	return o
+}
+
+func (o FastUdpAppPoolMemberArrayOutput) Index(i pulumi.IntInput) FastUdpAppPoolMemberOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FastUdpAppPoolMember {
+		return vs[0].([]FastUdpAppPoolMember)[vs[1].(int)]
+	}).(FastUdpAppPoolMemberOutput)
+}
+
+type FastUdpAppVirtualServer struct {
+	// IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
+	Ip string `pulumi:"ip"`
+	// Port number to used for accessing virtual server/application
+	Port int `pulumi:"port"`
+}
+
+// FastUdpAppVirtualServerInput is an input type that accepts FastUdpAppVirtualServerArgs and FastUdpAppVirtualServerOutput values.
+// You can construct a concrete instance of `FastUdpAppVirtualServerInput` via:
+//
+//	FastUdpAppVirtualServerArgs{...}
+type FastUdpAppVirtualServerInput interface {
+	pulumi.Input
+
+	ToFastUdpAppVirtualServerOutput() FastUdpAppVirtualServerOutput
+	ToFastUdpAppVirtualServerOutputWithContext(context.Context) FastUdpAppVirtualServerOutput
+}
+
+type FastUdpAppVirtualServerArgs struct {
+	// IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
+	Ip pulumi.StringInput `pulumi:"ip"`
+	// Port number to used for accessing virtual server/application
+	Port pulumi.IntInput `pulumi:"port"`
+}
+
+func (FastUdpAppVirtualServerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FastUdpAppVirtualServer)(nil)).Elem()
+}
+
+func (i FastUdpAppVirtualServerArgs) ToFastUdpAppVirtualServerOutput() FastUdpAppVirtualServerOutput {
+	return i.ToFastUdpAppVirtualServerOutputWithContext(context.Background())
+}
+
+func (i FastUdpAppVirtualServerArgs) ToFastUdpAppVirtualServerOutputWithContext(ctx context.Context) FastUdpAppVirtualServerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastUdpAppVirtualServerOutput)
+}
+
+func (i FastUdpAppVirtualServerArgs) ToFastUdpAppVirtualServerPtrOutput() FastUdpAppVirtualServerPtrOutput {
+	return i.ToFastUdpAppVirtualServerPtrOutputWithContext(context.Background())
+}
+
+func (i FastUdpAppVirtualServerArgs) ToFastUdpAppVirtualServerPtrOutputWithContext(ctx context.Context) FastUdpAppVirtualServerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastUdpAppVirtualServerOutput).ToFastUdpAppVirtualServerPtrOutputWithContext(ctx)
+}
+
+// FastUdpAppVirtualServerPtrInput is an input type that accepts FastUdpAppVirtualServerArgs, FastUdpAppVirtualServerPtr and FastUdpAppVirtualServerPtrOutput values.
+// You can construct a concrete instance of `FastUdpAppVirtualServerPtrInput` via:
+//
+//	        FastUdpAppVirtualServerArgs{...}
+//
+//	or:
+//
+//	        nil
+type FastUdpAppVirtualServerPtrInput interface {
+	pulumi.Input
+
+	ToFastUdpAppVirtualServerPtrOutput() FastUdpAppVirtualServerPtrOutput
+	ToFastUdpAppVirtualServerPtrOutputWithContext(context.Context) FastUdpAppVirtualServerPtrOutput
+}
+
+type fastUdpAppVirtualServerPtrType FastUdpAppVirtualServerArgs
+
+func FastUdpAppVirtualServerPtr(v *FastUdpAppVirtualServerArgs) FastUdpAppVirtualServerPtrInput {
+	return (*fastUdpAppVirtualServerPtrType)(v)
+}
+
+func (*fastUdpAppVirtualServerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FastUdpAppVirtualServer)(nil)).Elem()
+}
+
+func (i *fastUdpAppVirtualServerPtrType) ToFastUdpAppVirtualServerPtrOutput() FastUdpAppVirtualServerPtrOutput {
+	return i.ToFastUdpAppVirtualServerPtrOutputWithContext(context.Background())
+}
+
+func (i *fastUdpAppVirtualServerPtrType) ToFastUdpAppVirtualServerPtrOutputWithContext(ctx context.Context) FastUdpAppVirtualServerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastUdpAppVirtualServerPtrOutput)
+}
+
+type FastUdpAppVirtualServerOutput struct{ *pulumi.OutputState }
+
+func (FastUdpAppVirtualServerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FastUdpAppVirtualServer)(nil)).Elem()
+}
+
+func (o FastUdpAppVirtualServerOutput) ToFastUdpAppVirtualServerOutput() FastUdpAppVirtualServerOutput {
+	return o
+}
+
+func (o FastUdpAppVirtualServerOutput) ToFastUdpAppVirtualServerOutputWithContext(ctx context.Context) FastUdpAppVirtualServerOutput {
+	return o
+}
+
+func (o FastUdpAppVirtualServerOutput) ToFastUdpAppVirtualServerPtrOutput() FastUdpAppVirtualServerPtrOutput {
+	return o.ToFastUdpAppVirtualServerPtrOutputWithContext(context.Background())
+}
+
+func (o FastUdpAppVirtualServerOutput) ToFastUdpAppVirtualServerPtrOutputWithContext(ctx context.Context) FastUdpAppVirtualServerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FastUdpAppVirtualServer) *FastUdpAppVirtualServer {
+		return &v
+	}).(FastUdpAppVirtualServerPtrOutput)
+}
+
+// IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
+func (o FastUdpAppVirtualServerOutput) Ip() pulumi.StringOutput {
+	return o.ApplyT(func(v FastUdpAppVirtualServer) string { return v.Ip }).(pulumi.StringOutput)
+}
+
+// Port number to used for accessing virtual server/application
+func (o FastUdpAppVirtualServerOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v FastUdpAppVirtualServer) int { return v.Port }).(pulumi.IntOutput)
+}
+
+type FastUdpAppVirtualServerPtrOutput struct{ *pulumi.OutputState }
+
+func (FastUdpAppVirtualServerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FastUdpAppVirtualServer)(nil)).Elem()
+}
+
+func (o FastUdpAppVirtualServerPtrOutput) ToFastUdpAppVirtualServerPtrOutput() FastUdpAppVirtualServerPtrOutput {
+	return o
+}
+
+func (o FastUdpAppVirtualServerPtrOutput) ToFastUdpAppVirtualServerPtrOutputWithContext(ctx context.Context) FastUdpAppVirtualServerPtrOutput {
+	return o
+}
+
+func (o FastUdpAppVirtualServerPtrOutput) Elem() FastUdpAppVirtualServerOutput {
+	return o.ApplyT(func(v *FastUdpAppVirtualServer) FastUdpAppVirtualServer {
+		if v != nil {
+			return *v
+		}
+		var ret FastUdpAppVirtualServer
+		return ret
+	}).(FastUdpAppVirtualServerOutput)
+}
+
+// IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
+func (o FastUdpAppVirtualServerPtrOutput) Ip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FastUdpAppVirtualServer) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Ip
+	}).(pulumi.StringPtrOutput)
+}
+
+// Port number to used for accessing virtual server/application
+func (o FastUdpAppVirtualServerPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FastUdpAppVirtualServer) *int {
 		if v == nil {
 			return nil
 		}
@@ -2143,26 +3037,38 @@ func (o WafPolicySignaturesSettingArrayOutput) Index(i pulumi.IntInput) WafPolic
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventServiceDiscoveryNodeInput)(nil)).Elem(), EventServiceDiscoveryNodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventServiceDiscoveryNodeArrayInput)(nil)).Elem(), EventServiceDiscoveryNodeArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpAppFastCreateMonitorInput)(nil)).Elem(), FastHttpAppFastCreateMonitorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpAppFastCreateMonitorPtrInput)(nil)).Elem(), FastHttpAppFastCreateMonitorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpAppFastCreatePoolMemberInput)(nil)).Elem(), FastHttpAppFastCreatePoolMemberArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpAppFastCreatePoolMemberArrayInput)(nil)).Elem(), FastHttpAppFastCreatePoolMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpAppMonitorInput)(nil)).Elem(), FastHttpAppMonitorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpAppMonitorPtrInput)(nil)).Elem(), FastHttpAppMonitorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpAppPoolMemberInput)(nil)).Elem(), FastHttpAppPoolMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpAppPoolMemberArrayInput)(nil)).Elem(), FastHttpAppPoolMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpAppVirtualServerInput)(nil)).Elem(), FastHttpAppVirtualServerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpAppVirtualServerPtrInput)(nil)).Elem(), FastHttpAppVirtualServerArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpsAppCreateTlsServerProfileInput)(nil)).Elem(), FastHttpsAppCreateTlsServerProfileArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpsAppCreateTlsServerProfilePtrInput)(nil)).Elem(), FastHttpsAppCreateTlsServerProfileArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpsAppFastCreateMonitorInput)(nil)).Elem(), FastHttpsAppFastCreateMonitorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpsAppFastCreateMonitorPtrInput)(nil)).Elem(), FastHttpsAppFastCreateMonitorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpsAppFastCreatePoolMemberInput)(nil)).Elem(), FastHttpsAppFastCreatePoolMemberArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpsAppFastCreatePoolMemberArrayInput)(nil)).Elem(), FastHttpsAppFastCreatePoolMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpAppWafSecurityPolicyInput)(nil)).Elem(), FastHttpAppWafSecurityPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpAppWafSecurityPolicyPtrInput)(nil)).Elem(), FastHttpAppWafSecurityPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpsAppMonitorInput)(nil)).Elem(), FastHttpsAppMonitorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpsAppMonitorPtrInput)(nil)).Elem(), FastHttpsAppMonitorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpsAppPoolMemberInput)(nil)).Elem(), FastHttpsAppPoolMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpsAppPoolMemberArrayInput)(nil)).Elem(), FastHttpsAppPoolMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpsAppTlsClientProfileInput)(nil)).Elem(), FastHttpsAppTlsClientProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpsAppTlsClientProfilePtrInput)(nil)).Elem(), FastHttpsAppTlsClientProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpsAppTlsServerProfileInput)(nil)).Elem(), FastHttpsAppTlsServerProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpsAppTlsServerProfilePtrInput)(nil)).Elem(), FastHttpsAppTlsServerProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpsAppVirtualServerInput)(nil)).Elem(), FastHttpsAppVirtualServerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpsAppVirtualServerPtrInput)(nil)).Elem(), FastHttpsAppVirtualServerArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FastTcpAppFastCreateMonitorInput)(nil)).Elem(), FastTcpAppFastCreateMonitorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FastTcpAppFastCreateMonitorPtrInput)(nil)).Elem(), FastTcpAppFastCreateMonitorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FastTcpAppFastCreatePoolMemberInput)(nil)).Elem(), FastTcpAppFastCreatePoolMemberArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FastTcpAppFastCreatePoolMemberArrayInput)(nil)).Elem(), FastTcpAppFastCreatePoolMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpsAppWafSecurityPolicyInput)(nil)).Elem(), FastHttpsAppWafSecurityPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpsAppWafSecurityPolicyPtrInput)(nil)).Elem(), FastHttpsAppWafSecurityPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastTcpAppMonitorInput)(nil)).Elem(), FastTcpAppMonitorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastTcpAppMonitorPtrInput)(nil)).Elem(), FastTcpAppMonitorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastTcpAppPoolMemberInput)(nil)).Elem(), FastTcpAppPoolMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastTcpAppPoolMemberArrayInput)(nil)).Elem(), FastTcpAppPoolMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FastTcpAppVirtualServerInput)(nil)).Elem(), FastTcpAppVirtualServerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FastTcpAppVirtualServerPtrInput)(nil)).Elem(), FastTcpAppVirtualServerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastUdpAppMonitorInput)(nil)).Elem(), FastUdpAppMonitorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastUdpAppMonitorPtrInput)(nil)).Elem(), FastUdpAppMonitorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastUdpAppPoolMemberInput)(nil)).Elem(), FastUdpAppPoolMemberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastUdpAppPoolMemberArrayInput)(nil)).Elem(), FastUdpAppPoolMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastUdpAppVirtualServerInput)(nil)).Elem(), FastUdpAppVirtualServerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastUdpAppVirtualServerPtrInput)(nil)).Elem(), FastUdpAppVirtualServerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WafPolicyFileTypeInput)(nil)).Elem(), WafPolicyFileTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WafPolicyFileTypeArrayInput)(nil)).Elem(), WafPolicyFileTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WafPolicyGraphqlProfileInput)(nil)).Elem(), WafPolicyGraphqlProfileArgs{})
@@ -2173,26 +3079,38 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WafPolicySignaturesSettingArrayInput)(nil)).Elem(), WafPolicySignaturesSettingArray{})
 	pulumi.RegisterOutputType(EventServiceDiscoveryNodeOutput{})
 	pulumi.RegisterOutputType(EventServiceDiscoveryNodeArrayOutput{})
-	pulumi.RegisterOutputType(FastHttpAppFastCreateMonitorOutput{})
-	pulumi.RegisterOutputType(FastHttpAppFastCreateMonitorPtrOutput{})
-	pulumi.RegisterOutputType(FastHttpAppFastCreatePoolMemberOutput{})
-	pulumi.RegisterOutputType(FastHttpAppFastCreatePoolMemberArrayOutput{})
+	pulumi.RegisterOutputType(FastHttpAppMonitorOutput{})
+	pulumi.RegisterOutputType(FastHttpAppMonitorPtrOutput{})
+	pulumi.RegisterOutputType(FastHttpAppPoolMemberOutput{})
+	pulumi.RegisterOutputType(FastHttpAppPoolMemberArrayOutput{})
 	pulumi.RegisterOutputType(FastHttpAppVirtualServerOutput{})
 	pulumi.RegisterOutputType(FastHttpAppVirtualServerPtrOutput{})
-	pulumi.RegisterOutputType(FastHttpsAppCreateTlsServerProfileOutput{})
-	pulumi.RegisterOutputType(FastHttpsAppCreateTlsServerProfilePtrOutput{})
-	pulumi.RegisterOutputType(FastHttpsAppFastCreateMonitorOutput{})
-	pulumi.RegisterOutputType(FastHttpsAppFastCreateMonitorPtrOutput{})
-	pulumi.RegisterOutputType(FastHttpsAppFastCreatePoolMemberOutput{})
-	pulumi.RegisterOutputType(FastHttpsAppFastCreatePoolMemberArrayOutput{})
+	pulumi.RegisterOutputType(FastHttpAppWafSecurityPolicyOutput{})
+	pulumi.RegisterOutputType(FastHttpAppWafSecurityPolicyPtrOutput{})
+	pulumi.RegisterOutputType(FastHttpsAppMonitorOutput{})
+	pulumi.RegisterOutputType(FastHttpsAppMonitorPtrOutput{})
+	pulumi.RegisterOutputType(FastHttpsAppPoolMemberOutput{})
+	pulumi.RegisterOutputType(FastHttpsAppPoolMemberArrayOutput{})
+	pulumi.RegisterOutputType(FastHttpsAppTlsClientProfileOutput{})
+	pulumi.RegisterOutputType(FastHttpsAppTlsClientProfilePtrOutput{})
+	pulumi.RegisterOutputType(FastHttpsAppTlsServerProfileOutput{})
+	pulumi.RegisterOutputType(FastHttpsAppTlsServerProfilePtrOutput{})
 	pulumi.RegisterOutputType(FastHttpsAppVirtualServerOutput{})
 	pulumi.RegisterOutputType(FastHttpsAppVirtualServerPtrOutput{})
-	pulumi.RegisterOutputType(FastTcpAppFastCreateMonitorOutput{})
-	pulumi.RegisterOutputType(FastTcpAppFastCreateMonitorPtrOutput{})
-	pulumi.RegisterOutputType(FastTcpAppFastCreatePoolMemberOutput{})
-	pulumi.RegisterOutputType(FastTcpAppFastCreatePoolMemberArrayOutput{})
+	pulumi.RegisterOutputType(FastHttpsAppWafSecurityPolicyOutput{})
+	pulumi.RegisterOutputType(FastHttpsAppWafSecurityPolicyPtrOutput{})
+	pulumi.RegisterOutputType(FastTcpAppMonitorOutput{})
+	pulumi.RegisterOutputType(FastTcpAppMonitorPtrOutput{})
+	pulumi.RegisterOutputType(FastTcpAppPoolMemberOutput{})
+	pulumi.RegisterOutputType(FastTcpAppPoolMemberArrayOutput{})
 	pulumi.RegisterOutputType(FastTcpAppVirtualServerOutput{})
 	pulumi.RegisterOutputType(FastTcpAppVirtualServerPtrOutput{})
+	pulumi.RegisterOutputType(FastUdpAppMonitorOutput{})
+	pulumi.RegisterOutputType(FastUdpAppMonitorPtrOutput{})
+	pulumi.RegisterOutputType(FastUdpAppPoolMemberOutput{})
+	pulumi.RegisterOutputType(FastUdpAppPoolMemberArrayOutput{})
+	pulumi.RegisterOutputType(FastUdpAppVirtualServerOutput{})
+	pulumi.RegisterOutputType(FastUdpAppVirtualServerPtrOutput{})
 	pulumi.RegisterOutputType(WafPolicyFileTypeOutput{})
 	pulumi.RegisterOutputType(WafPolicyFileTypeArrayOutput{})
 	pulumi.RegisterOutputType(WafPolicyGraphqlProfileOutput{})

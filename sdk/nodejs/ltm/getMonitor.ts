@@ -13,18 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const monitor_TC1 = pulumi.output(f5bigip.ltm.getMonitor({
+ * const monitor-TC1 = f5bigip.ltm.getMonitor({
  *     name: "test-monitor",
  *     partition: "Common",
- * }));
+ * });
  * ```
  */
 export function getMonitor(args: GetMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("f5bigip:ltm/getMonitor:getMonitor", {
         "name": args.name,
         "partition": args.partition,
@@ -96,9 +93,23 @@ export interface GetMonitorResult {
     readonly transparent: string;
     readonly username: string;
 }
-
+/**
+ * Use this data source (`f5bigip.ltm.Monitor`) to get the ltm monitor details available on BIG-IP
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const monitor-TC1 = f5bigip.ltm.getMonitor({
+ *     name: "test-monitor",
+ *     partition: "Common",
+ * });
+ * ```
+ */
 export function getMonitorOutput(args: GetMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitorResult> {
-    return pulumi.output(args).apply(a => getMonitor(a, opts))
+    return pulumi.output(args).apply((a: any) => getMonitor(a, opts))
 }
 
 /**

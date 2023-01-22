@@ -62,6 +62,8 @@ type Key struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Partition of ssl certificate key
 	Partition pulumi.StringPtrOutput `pulumi:"partition"`
+	// Passphrase on key.
+	Passphrase pulumi.StringPtrOutput `pulumi:"passphrase"`
 }
 
 // NewKey registers a new resource with the given unique name, arguments, and options.
@@ -77,6 +79,17 @@ func NewKey(ctx *pulumi.Context,
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
+	if args.Content != nil {
+		args.Content = pulumi.ToSecret(args.Content).(pulumi.StringInput)
+	}
+	if args.Passphrase != nil {
+		args.Passphrase = pulumi.ToSecret(args.Passphrase).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"content",
+		"passphrase",
+	})
+	opts = append(opts, secrets)
 	var resource Key
 	err := ctx.RegisterResource("f5bigip:ssl/key:Key", name, args, &resource, opts...)
 	if err != nil {
@@ -107,6 +120,8 @@ type keyState struct {
 	Name *string `pulumi:"name"`
 	// Partition of ssl certificate key
 	Partition *string `pulumi:"partition"`
+	// Passphrase on key.
+	Passphrase *string `pulumi:"passphrase"`
 }
 
 type KeyState struct {
@@ -118,6 +133,8 @@ type KeyState struct {
 	Name pulumi.StringPtrInput
 	// Partition of ssl certificate key
 	Partition pulumi.StringPtrInput
+	// Passphrase on key.
+	Passphrase pulumi.StringPtrInput
 }
 
 func (KeyState) ElementType() reflect.Type {
@@ -133,6 +150,8 @@ type keyArgs struct {
 	Name string `pulumi:"name"`
 	// Partition of ssl certificate key
 	Partition *string `pulumi:"partition"`
+	// Passphrase on key.
+	Passphrase *string `pulumi:"passphrase"`
 }
 
 // The set of arguments for constructing a Key resource.
@@ -145,6 +164,8 @@ type KeyArgs struct {
 	Name pulumi.StringInput
 	// Partition of ssl certificate key
 	Partition pulumi.StringPtrInput
+	// Passphrase on key.
+	Passphrase pulumi.StringPtrInput
 }
 
 func (KeyArgs) ElementType() reflect.Type {
@@ -252,6 +273,11 @@ func (o KeyOutput) Name() pulumi.StringOutput {
 // Partition of ssl certificate key
 func (o KeyOutput) Partition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Key) pulumi.StringPtrOutput { return v.Partition }).(pulumi.StringPtrOutput)
+}
+
+// Passphrase on key.
+func (o KeyOutput) Passphrase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Key) pulumi.StringPtrOutput { return v.Passphrase }).(pulumi.StringPtrOutput)
 }
 
 type KeyArrayOutput struct{ *pulumi.OutputState }

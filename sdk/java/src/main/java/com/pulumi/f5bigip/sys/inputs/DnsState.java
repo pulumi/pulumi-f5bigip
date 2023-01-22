@@ -33,14 +33,14 @@ public final class DnsState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name or IP address of the DNS server
+     * Specifies the name servers that the system uses to validate DNS lookups, and resolve host names.
      * 
      */
     @Import(name="nameServers")
     private @Nullable Output<List<String>> nameServers;
 
     /**
-     * @return Name or IP address of the DNS server
+     * @return Specifies the name servers that the system uses to validate DNS lookups, and resolve host names.
      * 
      */
     public Optional<Output<List<String>>> nameServers() {
@@ -63,14 +63,14 @@ public final class DnsState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specify what domains you want to search
+     * Specifies the domains that the system searches for local domain lookups, to resolve local host names.
      * 
      */
     @Import(name="searches")
     private @Nullable Output<List<String>> searches;
 
     /**
-     * @return Specify what domains you want to search
+     * @return Specifies the domains that the system searches for local domain lookups, to resolve local host names.
      * 
      */
     public Optional<Output<List<String>>> searches() {
@@ -126,7 +126,7 @@ public final class DnsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nameServers Name or IP address of the DNS server
+         * @param nameServers Specifies the name servers that the system uses to validate DNS lookups, and resolve host names.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class DnsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nameServers Name or IP address of the DNS server
+         * @param nameServers Specifies the name servers that the system uses to validate DNS lookups, and resolve host names.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class DnsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nameServers Name or IP address of the DNS server
+         * @param nameServers Specifies the name servers that the system uses to validate DNS lookups, and resolve host names.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class DnsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param searches Specify what domains you want to search
+         * @param searches Specifies the domains that the system searches for local domain lookups, to resolve local host names.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class DnsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param searches Specify what domains you want to search
+         * @param searches Specifies the domains that the system searches for local domain lookups, to resolve local host names.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class DnsState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param searches Specify what domains you want to search
+         * @param searches Specifies the domains that the system searches for local domain lookups, to resolve local host names.
          * 
          * @return builder
          * 

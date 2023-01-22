@@ -5,64 +5,161 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./dataGroup";
-export * from "./getDataGroup";
-export * from "./getIrule";
-export * from "./getMonitor";
-export * from "./getNode";
-export * from "./getPolicy";
-export * from "./getPool";
-export * from "./irule";
-export * from "./monitor";
-export * from "./node";
-export * from "./persistenceProfileCookie";
-export * from "./persistenceProfileDstAddr";
-export * from "./persistenceProfileSrcAddr";
-export * from "./persistenceProfileSsl";
-export * from "./policy";
-export * from "./pool";
-export * from "./poolAttachment";
-export * from "./profileClientSsl";
-export * from "./profileFastHttp";
-export * from "./profileFastL4";
-export * from "./profileFtp";
-export * from "./profileHttp";
-export * from "./profileHttp2";
-export * from "./profileHttpCompress";
-export * from "./profileOneConnect";
-export * from "./profileServerSsl";
-export * from "./profileTcp";
-export * from "./snat";
-export * from "./snatPool";
-export * from "./virtualAddress";
-export * from "./virtualServer";
+export { DataGroupArgs, DataGroupState } from "./dataGroup";
+export type DataGroup = import("./dataGroup").DataGroup;
+export const DataGroup: typeof import("./dataGroup").DataGroup = null as any;
+utilities.lazyLoad(exports, ["DataGroup"], () => require("./dataGroup"));
 
-// Import resources to register:
-import { DataGroup } from "./dataGroup";
-import { IRule } from "./irule";
-import { Monitor } from "./monitor";
-import { Node } from "./node";
-import { PersistenceProfileCookie } from "./persistenceProfileCookie";
-import { PersistenceProfileDstAddr } from "./persistenceProfileDstAddr";
-import { PersistenceProfileSrcAddr } from "./persistenceProfileSrcAddr";
-import { PersistenceProfileSsl } from "./persistenceProfileSsl";
-import { Policy } from "./policy";
-import { Pool } from "./pool";
-import { PoolAttachment } from "./poolAttachment";
-import { ProfileClientSsl } from "./profileClientSsl";
-import { ProfileFastHttp } from "./profileFastHttp";
-import { ProfileFastL4 } from "./profileFastL4";
-import { ProfileFtp } from "./profileFtp";
-import { ProfileHttp2 } from "./profileHttp2";
-import { ProfileHttp } from "./profileHttp";
-import { ProfileHttpCompress } from "./profileHttpCompress";
-import { ProfileOneConnect } from "./profileOneConnect";
-import { ProfileServerSsl } from "./profileServerSsl";
-import { ProfileTcp } from "./profileTcp";
-import { Snat } from "./snat";
-import { SnatPool } from "./snatPool";
-import { VirtualAddress } from "./virtualAddress";
-import { VirtualServer } from "./virtualServer";
+export { GetDataGroupArgs, GetDataGroupResult, GetDataGroupOutputArgs } from "./getDataGroup";
+export const getDataGroup: typeof import("./getDataGroup").getDataGroup = null as any;
+export const getDataGroupOutput: typeof import("./getDataGroup").getDataGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getDataGroup","getDataGroupOutput"], () => require("./getDataGroup"));
+
+export { GetIruleArgs, GetIruleResult, GetIruleOutputArgs } from "./getIrule";
+export const getIrule: typeof import("./getIrule").getIrule = null as any;
+export const getIruleOutput: typeof import("./getIrule").getIruleOutput = null as any;
+utilities.lazyLoad(exports, ["getIrule","getIruleOutput"], () => require("./getIrule"));
+
+export { GetMonitorArgs, GetMonitorResult, GetMonitorOutputArgs } from "./getMonitor";
+export const getMonitor: typeof import("./getMonitor").getMonitor = null as any;
+export const getMonitorOutput: typeof import("./getMonitor").getMonitorOutput = null as any;
+utilities.lazyLoad(exports, ["getMonitor","getMonitorOutput"], () => require("./getMonitor"));
+
+export { GetNodeArgs, GetNodeResult, GetNodeOutputArgs } from "./getNode";
+export const getNode: typeof import("./getNode").getNode = null as any;
+export const getNodeOutput: typeof import("./getNode").getNodeOutput = null as any;
+utilities.lazyLoad(exports, ["getNode","getNodeOutput"], () => require("./getNode"));
+
+export { GetPolicyArgs, GetPolicyResult, GetPolicyOutputArgs } from "./getPolicy";
+export const getPolicy: typeof import("./getPolicy").getPolicy = null as any;
+export const getPolicyOutput: typeof import("./getPolicy").getPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getPolicy","getPolicyOutput"], () => require("./getPolicy"));
+
+export { GetPoolArgs, GetPoolResult, GetPoolOutputArgs } from "./getPool";
+export const getPool: typeof import("./getPool").getPool = null as any;
+export const getPoolOutput: typeof import("./getPool").getPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getPool","getPoolOutput"], () => require("./getPool"));
+
+export { IRuleArgs, IRuleState } from "./irule";
+export type IRule = import("./irule").IRule;
+export const IRule: typeof import("./irule").IRule = null as any;
+utilities.lazyLoad(exports, ["IRule"], () => require("./irule"));
+
+export { MonitorArgs, MonitorState } from "./monitor";
+export type Monitor = import("./monitor").Monitor;
+export const Monitor: typeof import("./monitor").Monitor = null as any;
+utilities.lazyLoad(exports, ["Monitor"], () => require("./monitor"));
+
+export { NodeArgs, NodeState } from "./node";
+export type Node = import("./node").Node;
+export const Node: typeof import("./node").Node = null as any;
+utilities.lazyLoad(exports, ["Node"], () => require("./node"));
+
+export { PersistenceProfileCookieArgs, PersistenceProfileCookieState } from "./persistenceProfileCookie";
+export type PersistenceProfileCookie = import("./persistenceProfileCookie").PersistenceProfileCookie;
+export const PersistenceProfileCookie: typeof import("./persistenceProfileCookie").PersistenceProfileCookie = null as any;
+utilities.lazyLoad(exports, ["PersistenceProfileCookie"], () => require("./persistenceProfileCookie"));
+
+export { PersistenceProfileDstAddrArgs, PersistenceProfileDstAddrState } from "./persistenceProfileDstAddr";
+export type PersistenceProfileDstAddr = import("./persistenceProfileDstAddr").PersistenceProfileDstAddr;
+export const PersistenceProfileDstAddr: typeof import("./persistenceProfileDstAddr").PersistenceProfileDstAddr = null as any;
+utilities.lazyLoad(exports, ["PersistenceProfileDstAddr"], () => require("./persistenceProfileDstAddr"));
+
+export { PersistenceProfileSrcAddrArgs, PersistenceProfileSrcAddrState } from "./persistenceProfileSrcAddr";
+export type PersistenceProfileSrcAddr = import("./persistenceProfileSrcAddr").PersistenceProfileSrcAddr;
+export const PersistenceProfileSrcAddr: typeof import("./persistenceProfileSrcAddr").PersistenceProfileSrcAddr = null as any;
+utilities.lazyLoad(exports, ["PersistenceProfileSrcAddr"], () => require("./persistenceProfileSrcAddr"));
+
+export { PersistenceProfileSslArgs, PersistenceProfileSslState } from "./persistenceProfileSsl";
+export type PersistenceProfileSsl = import("./persistenceProfileSsl").PersistenceProfileSsl;
+export const PersistenceProfileSsl: typeof import("./persistenceProfileSsl").PersistenceProfileSsl = null as any;
+utilities.lazyLoad(exports, ["PersistenceProfileSsl"], () => require("./persistenceProfileSsl"));
+
+export { PolicyArgs, PolicyState } from "./policy";
+export type Policy = import("./policy").Policy;
+export const Policy: typeof import("./policy").Policy = null as any;
+utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
+
+export { PoolArgs, PoolState } from "./pool";
+export type Pool = import("./pool").Pool;
+export const Pool: typeof import("./pool").Pool = null as any;
+utilities.lazyLoad(exports, ["Pool"], () => require("./pool"));
+
+export { PoolAttachmentArgs, PoolAttachmentState } from "./poolAttachment";
+export type PoolAttachment = import("./poolAttachment").PoolAttachment;
+export const PoolAttachment: typeof import("./poolAttachment").PoolAttachment = null as any;
+utilities.lazyLoad(exports, ["PoolAttachment"], () => require("./poolAttachment"));
+
+export { ProfileClientSslArgs, ProfileClientSslState } from "./profileClientSsl";
+export type ProfileClientSsl = import("./profileClientSsl").ProfileClientSsl;
+export const ProfileClientSsl: typeof import("./profileClientSsl").ProfileClientSsl = null as any;
+utilities.lazyLoad(exports, ["ProfileClientSsl"], () => require("./profileClientSsl"));
+
+export { ProfileFastHttpArgs, ProfileFastHttpState } from "./profileFastHttp";
+export type ProfileFastHttp = import("./profileFastHttp").ProfileFastHttp;
+export const ProfileFastHttp: typeof import("./profileFastHttp").ProfileFastHttp = null as any;
+utilities.lazyLoad(exports, ["ProfileFastHttp"], () => require("./profileFastHttp"));
+
+export { ProfileFastL4Args, ProfileFastL4State } from "./profileFastL4";
+export type ProfileFastL4 = import("./profileFastL4").ProfileFastL4;
+export const ProfileFastL4: typeof import("./profileFastL4").ProfileFastL4 = null as any;
+utilities.lazyLoad(exports, ["ProfileFastL4"], () => require("./profileFastL4"));
+
+export { ProfileFtpArgs, ProfileFtpState } from "./profileFtp";
+export type ProfileFtp = import("./profileFtp").ProfileFtp;
+export const ProfileFtp: typeof import("./profileFtp").ProfileFtp = null as any;
+utilities.lazyLoad(exports, ["ProfileFtp"], () => require("./profileFtp"));
+
+export { ProfileHttpArgs, ProfileHttpState } from "./profileHttp";
+export type ProfileHttp = import("./profileHttp").ProfileHttp;
+export const ProfileHttp: typeof import("./profileHttp").ProfileHttp = null as any;
+utilities.lazyLoad(exports, ["ProfileHttp"], () => require("./profileHttp"));
+
+export { ProfileHttp2Args, ProfileHttp2State } from "./profileHttp2";
+export type ProfileHttp2 = import("./profileHttp2").ProfileHttp2;
+export const ProfileHttp2: typeof import("./profileHttp2").ProfileHttp2 = null as any;
+utilities.lazyLoad(exports, ["ProfileHttp2"], () => require("./profileHttp2"));
+
+export { ProfileHttpCompressArgs, ProfileHttpCompressState } from "./profileHttpCompress";
+export type ProfileHttpCompress = import("./profileHttpCompress").ProfileHttpCompress;
+export const ProfileHttpCompress: typeof import("./profileHttpCompress").ProfileHttpCompress = null as any;
+utilities.lazyLoad(exports, ["ProfileHttpCompress"], () => require("./profileHttpCompress"));
+
+export { ProfileOneConnectArgs, ProfileOneConnectState } from "./profileOneConnect";
+export type ProfileOneConnect = import("./profileOneConnect").ProfileOneConnect;
+export const ProfileOneConnect: typeof import("./profileOneConnect").ProfileOneConnect = null as any;
+utilities.lazyLoad(exports, ["ProfileOneConnect"], () => require("./profileOneConnect"));
+
+export { ProfileServerSslArgs, ProfileServerSslState } from "./profileServerSsl";
+export type ProfileServerSsl = import("./profileServerSsl").ProfileServerSsl;
+export const ProfileServerSsl: typeof import("./profileServerSsl").ProfileServerSsl = null as any;
+utilities.lazyLoad(exports, ["ProfileServerSsl"], () => require("./profileServerSsl"));
+
+export { ProfileTcpArgs, ProfileTcpState } from "./profileTcp";
+export type ProfileTcp = import("./profileTcp").ProfileTcp;
+export const ProfileTcp: typeof import("./profileTcp").ProfileTcp = null as any;
+utilities.lazyLoad(exports, ["ProfileTcp"], () => require("./profileTcp"));
+
+export { SnatArgs, SnatState } from "./snat";
+export type Snat = import("./snat").Snat;
+export const Snat: typeof import("./snat").Snat = null as any;
+utilities.lazyLoad(exports, ["Snat"], () => require("./snat"));
+
+export { SnatPoolArgs, SnatPoolState } from "./snatPool";
+export type SnatPool = import("./snatPool").SnatPool;
+export const SnatPool: typeof import("./snatPool").SnatPool = null as any;
+utilities.lazyLoad(exports, ["SnatPool"], () => require("./snatPool"));
+
+export { VirtualAddressArgs, VirtualAddressState } from "./virtualAddress";
+export type VirtualAddress = import("./virtualAddress").VirtualAddress;
+export const VirtualAddress: typeof import("./virtualAddress").VirtualAddress = null as any;
+utilities.lazyLoad(exports, ["VirtualAddress"], () => require("./virtualAddress"));
+
+export { VirtualServerArgs, VirtualServerState } from "./virtualServer";
+export type VirtualServer = import("./virtualServer").VirtualServer;
+export const VirtualServer: typeof import("./virtualServer").VirtualServer = null as any;
+utilities.lazyLoad(exports, ["VirtualServer"], () => require("./virtualServer"));
+
 
 const _module = {
     version: utilities.getVersion(),

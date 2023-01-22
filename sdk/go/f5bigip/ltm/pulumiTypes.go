@@ -322,9 +322,11 @@ func (o NodeFqdnPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type PolicyRule struct {
-	Actions    []PolicyRuleAction    `pulumi:"actions"`
+	// Block type. See action block for more details.
+	Actions []PolicyRuleAction `pulumi:"actions"`
+	// Block type. See condition block for more details.
 	Conditions []PolicyRuleCondition `pulumi:"conditions"`
-	// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+	// Name of Rule to be applied in policy.
 	Name string `pulumi:"name"`
 }
 
@@ -340,9 +342,11 @@ type PolicyRuleInput interface {
 }
 
 type PolicyRuleArgs struct {
-	Actions    PolicyRuleActionArrayInput    `pulumi:"actions"`
+	// Block type. See action block for more details.
+	Actions PolicyRuleActionArrayInput `pulumi:"actions"`
+	// Block type. See condition block for more details.
 	Conditions PolicyRuleConditionArrayInput `pulumi:"conditions"`
-	// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+	// Name of Rule to be applied in policy.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -397,15 +401,17 @@ func (o PolicyRuleOutput) ToPolicyRuleOutputWithContext(ctx context.Context) Pol
 	return o
 }
 
+// Block type. See action block for more details.
 func (o PolicyRuleOutput) Actions() PolicyRuleActionArrayOutput {
 	return o.ApplyT(func(v PolicyRule) []PolicyRuleAction { return v.Actions }).(PolicyRuleActionArrayOutput)
 }
 
+// Block type. See condition block for more details.
 func (o PolicyRuleOutput) Conditions() PolicyRuleConditionArrayOutput {
 	return o.ApplyT(func(v PolicyRule) []PolicyRuleCondition { return v.Conditions }).(PolicyRuleConditionArrayOutput)
 }
 
-// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+// Name of Rule to be applied in policy.
 func (o PolicyRuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicyRule) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1161,6 +1167,7 @@ type PolicyRuleCondition struct {
 	CaseSensitive         *bool    `pulumi:"caseSensitive"`
 	Cipher                *bool    `pulumi:"cipher"`
 	CipherBits            *bool    `pulumi:"cipherBits"`
+	ClientAccepted        *bool    `pulumi:"clientAccepted"`
 	ClientSsl             *bool    `pulumi:"clientSsl"`
 	Code                  *bool    `pulumi:"code"`
 	CommonName            *bool    `pulumi:"commonName"`
@@ -1169,6 +1176,7 @@ type PolicyRuleCondition struct {
 	CountryCode           *bool    `pulumi:"countryCode"`
 	CountryName           *bool    `pulumi:"countryName"`
 	CpuUsage              *bool    `pulumi:"cpuUsage"`
+	Datagroup             *string  `pulumi:"datagroup"`
 	DeviceMake            *bool    `pulumi:"deviceMake"`
 	DeviceModel           *bool    `pulumi:"deviceModel"`
 	Domain                *bool    `pulumi:"domain"`
@@ -1266,6 +1274,7 @@ type PolicyRuleConditionArgs struct {
 	CaseSensitive         pulumi.BoolPtrInput     `pulumi:"caseSensitive"`
 	Cipher                pulumi.BoolPtrInput     `pulumi:"cipher"`
 	CipherBits            pulumi.BoolPtrInput     `pulumi:"cipherBits"`
+	ClientAccepted        pulumi.BoolPtrInput     `pulumi:"clientAccepted"`
 	ClientSsl             pulumi.BoolPtrInput     `pulumi:"clientSsl"`
 	Code                  pulumi.BoolPtrInput     `pulumi:"code"`
 	CommonName            pulumi.BoolPtrInput     `pulumi:"commonName"`
@@ -1274,6 +1283,7 @@ type PolicyRuleConditionArgs struct {
 	CountryCode           pulumi.BoolPtrInput     `pulumi:"countryCode"`
 	CountryName           pulumi.BoolPtrInput     `pulumi:"countryName"`
 	CpuUsage              pulumi.BoolPtrInput     `pulumi:"cpuUsage"`
+	Datagroup             pulumi.StringPtrInput   `pulumi:"datagroup"`
 	DeviceMake            pulumi.BoolPtrInput     `pulumi:"deviceMake"`
 	DeviceModel           pulumi.BoolPtrInput     `pulumi:"deviceModel"`
 	Domain                pulumi.BoolPtrInput     `pulumi:"domain"`
@@ -1437,6 +1447,10 @@ func (o PolicyRuleConditionOutput) CipherBits() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.CipherBits }).(pulumi.BoolPtrOutput)
 }
 
+func (o PolicyRuleConditionOutput) ClientAccepted() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.ClientAccepted }).(pulumi.BoolPtrOutput)
+}
+
 func (o PolicyRuleConditionOutput) ClientSsl() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.ClientSsl }).(pulumi.BoolPtrOutput)
 }
@@ -1467,6 +1481,10 @@ func (o PolicyRuleConditionOutput) CountryName() pulumi.BoolPtrOutput {
 
 func (o PolicyRuleConditionOutput) CpuUsage() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyRuleCondition) *bool { return v.CpuUsage }).(pulumi.BoolPtrOutput)
+}
+
+func (o PolicyRuleConditionOutput) Datagroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyRuleCondition) *string { return v.Datagroup }).(pulumi.StringPtrOutput)
 }
 
 func (o PolicyRuleConditionOutput) DeviceMake() pulumi.BoolPtrOutput {
@@ -1832,29 +1850,45 @@ func (i ProfileClientSslCertKeyChainArgs) ToProfileClientSslCertKeyChainOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileClientSslCertKeyChainOutput)
 }
 
-// ProfileClientSslCertKeyChainArrayInput is an input type that accepts ProfileClientSslCertKeyChainArray and ProfileClientSslCertKeyChainArrayOutput values.
-// You can construct a concrete instance of `ProfileClientSslCertKeyChainArrayInput` via:
+func (i ProfileClientSslCertKeyChainArgs) ToProfileClientSslCertKeyChainPtrOutput() ProfileClientSslCertKeyChainPtrOutput {
+	return i.ToProfileClientSslCertKeyChainPtrOutputWithContext(context.Background())
+}
+
+func (i ProfileClientSslCertKeyChainArgs) ToProfileClientSslCertKeyChainPtrOutputWithContext(ctx context.Context) ProfileClientSslCertKeyChainPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileClientSslCertKeyChainOutput).ToProfileClientSslCertKeyChainPtrOutputWithContext(ctx)
+}
+
+// ProfileClientSslCertKeyChainPtrInput is an input type that accepts ProfileClientSslCertKeyChainArgs, ProfileClientSslCertKeyChainPtr and ProfileClientSslCertKeyChainPtrOutput values.
+// You can construct a concrete instance of `ProfileClientSslCertKeyChainPtrInput` via:
 //
-//	ProfileClientSslCertKeyChainArray{ ProfileClientSslCertKeyChainArgs{...} }
-type ProfileClientSslCertKeyChainArrayInput interface {
+//	        ProfileClientSslCertKeyChainArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProfileClientSslCertKeyChainPtrInput interface {
 	pulumi.Input
 
-	ToProfileClientSslCertKeyChainArrayOutput() ProfileClientSslCertKeyChainArrayOutput
-	ToProfileClientSslCertKeyChainArrayOutputWithContext(context.Context) ProfileClientSslCertKeyChainArrayOutput
+	ToProfileClientSslCertKeyChainPtrOutput() ProfileClientSslCertKeyChainPtrOutput
+	ToProfileClientSslCertKeyChainPtrOutputWithContext(context.Context) ProfileClientSslCertKeyChainPtrOutput
 }
 
-type ProfileClientSslCertKeyChainArray []ProfileClientSslCertKeyChainInput
+type profileClientSslCertKeyChainPtrType ProfileClientSslCertKeyChainArgs
 
-func (ProfileClientSslCertKeyChainArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProfileClientSslCertKeyChain)(nil)).Elem()
+func ProfileClientSslCertKeyChainPtr(v *ProfileClientSslCertKeyChainArgs) ProfileClientSslCertKeyChainPtrInput {
+	return (*profileClientSslCertKeyChainPtrType)(v)
 }
 
-func (i ProfileClientSslCertKeyChainArray) ToProfileClientSslCertKeyChainArrayOutput() ProfileClientSslCertKeyChainArrayOutput {
-	return i.ToProfileClientSslCertKeyChainArrayOutputWithContext(context.Background())
+func (*profileClientSslCertKeyChainPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProfileClientSslCertKeyChain)(nil)).Elem()
 }
 
-func (i ProfileClientSslCertKeyChainArray) ToProfileClientSslCertKeyChainArrayOutputWithContext(ctx context.Context) ProfileClientSslCertKeyChainArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProfileClientSslCertKeyChainArrayOutput)
+func (i *profileClientSslCertKeyChainPtrType) ToProfileClientSslCertKeyChainPtrOutput() ProfileClientSslCertKeyChainPtrOutput {
+	return i.ToProfileClientSslCertKeyChainPtrOutputWithContext(context.Background())
+}
+
+func (i *profileClientSslCertKeyChainPtrType) ToProfileClientSslCertKeyChainPtrOutputWithContext(ctx context.Context) ProfileClientSslCertKeyChainPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileClientSslCertKeyChainPtrOutput)
 }
 
 type ProfileClientSslCertKeyChainOutput struct{ *pulumi.OutputState }
@@ -1869,6 +1903,16 @@ func (o ProfileClientSslCertKeyChainOutput) ToProfileClientSslCertKeyChainOutput
 
 func (o ProfileClientSslCertKeyChainOutput) ToProfileClientSslCertKeyChainOutputWithContext(ctx context.Context) ProfileClientSslCertKeyChainOutput {
 	return o
+}
+
+func (o ProfileClientSslCertKeyChainOutput) ToProfileClientSslCertKeyChainPtrOutput() ProfileClientSslCertKeyChainPtrOutput {
+	return o.ToProfileClientSslCertKeyChainPtrOutputWithContext(context.Background())
+}
+
+func (o ProfileClientSslCertKeyChainOutput) ToProfileClientSslCertKeyChainPtrOutputWithContext(ctx context.Context) ProfileClientSslCertKeyChainPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProfileClientSslCertKeyChain) *ProfileClientSslCertKeyChain {
+		return &v
+	}).(ProfileClientSslCertKeyChainPtrOutput)
 }
 
 // Specifies a cert name for use.
@@ -1895,24 +1939,77 @@ func (o ProfileClientSslCertKeyChainOutput) Passphrase() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v ProfileClientSslCertKeyChain) *string { return v.Passphrase }).(pulumi.StringPtrOutput)
 }
 
-type ProfileClientSslCertKeyChainArrayOutput struct{ *pulumi.OutputState }
+type ProfileClientSslCertKeyChainPtrOutput struct{ *pulumi.OutputState }
 
-func (ProfileClientSslCertKeyChainArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProfileClientSslCertKeyChain)(nil)).Elem()
+func (ProfileClientSslCertKeyChainPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProfileClientSslCertKeyChain)(nil)).Elem()
 }
 
-func (o ProfileClientSslCertKeyChainArrayOutput) ToProfileClientSslCertKeyChainArrayOutput() ProfileClientSslCertKeyChainArrayOutput {
+func (o ProfileClientSslCertKeyChainPtrOutput) ToProfileClientSslCertKeyChainPtrOutput() ProfileClientSslCertKeyChainPtrOutput {
 	return o
 }
 
-func (o ProfileClientSslCertKeyChainArrayOutput) ToProfileClientSslCertKeyChainArrayOutputWithContext(ctx context.Context) ProfileClientSslCertKeyChainArrayOutput {
+func (o ProfileClientSslCertKeyChainPtrOutput) ToProfileClientSslCertKeyChainPtrOutputWithContext(ctx context.Context) ProfileClientSslCertKeyChainPtrOutput {
 	return o
 }
 
-func (o ProfileClientSslCertKeyChainArrayOutput) Index(i pulumi.IntInput) ProfileClientSslCertKeyChainOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProfileClientSslCertKeyChain {
-		return vs[0].([]ProfileClientSslCertKeyChain)[vs[1].(int)]
+func (o ProfileClientSslCertKeyChainPtrOutput) Elem() ProfileClientSslCertKeyChainOutput {
+	return o.ApplyT(func(v *ProfileClientSslCertKeyChain) ProfileClientSslCertKeyChain {
+		if v != nil {
+			return *v
+		}
+		var ret ProfileClientSslCertKeyChain
+		return ret
 	}).(ProfileClientSslCertKeyChainOutput)
+}
+
+// Specifies a cert name for use.
+func (o ProfileClientSslCertKeyChainPtrOutput) Cert() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfileClientSslCertKeyChain) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Cert
+	}).(pulumi.StringPtrOutput)
+}
+
+// Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+func (o ProfileClientSslCertKeyChainPtrOutput) Chain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfileClientSslCertKeyChain) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Chain
+	}).(pulumi.StringPtrOutput)
+}
+
+// Contains a key name
+func (o ProfileClientSslCertKeyChainPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfileClientSslCertKeyChain) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
+func (o ProfileClientSslCertKeyChainPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfileClientSslCertKeyChain) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ProfileClientSslCertKeyChainPtrOutput) Passphrase() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfileClientSslCertKeyChain) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Passphrase
+	}).(pulumi.StringPtrOutput)
 }
 
 type SnatOrigin struct {
@@ -3173,6 +3270,7 @@ type GetPolicyRuleCondition struct {
 	CountryCode           bool     `pulumi:"countryCode"`
 	CountryName           bool     `pulumi:"countryName"`
 	CpuUsage              bool     `pulumi:"cpuUsage"`
+	Datagroup             string   `pulumi:"datagroup"`
 	DeviceMake            bool     `pulumi:"deviceMake"`
 	DeviceModel           bool     `pulumi:"deviceModel"`
 	Domain                bool     `pulumi:"domain"`
@@ -3277,6 +3375,7 @@ type GetPolicyRuleConditionArgs struct {
 	CountryCode           pulumi.BoolInput        `pulumi:"countryCode"`
 	CountryName           pulumi.BoolInput        `pulumi:"countryName"`
 	CpuUsage              pulumi.BoolInput        `pulumi:"cpuUsage"`
+	Datagroup             pulumi.StringInput      `pulumi:"datagroup"`
 	DeviceMake            pulumi.BoolInput        `pulumi:"deviceMake"`
 	DeviceModel           pulumi.BoolInput        `pulumi:"deviceModel"`
 	Domain                pulumi.BoolInput        `pulumi:"domain"`
@@ -3469,6 +3568,10 @@ func (o GetPolicyRuleConditionOutput) CountryName() pulumi.BoolOutput {
 
 func (o GetPolicyRuleConditionOutput) CpuUsage() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetPolicyRuleCondition) bool { return v.CpuUsage }).(pulumi.BoolOutput)
+}
+
+func (o GetPolicyRuleConditionOutput) Datagroup() pulumi.StringOutput {
+	return o.ApplyT(func(v GetPolicyRuleCondition) string { return v.Datagroup }).(pulumi.StringOutput)
 }
 
 func (o GetPolicyRuleConditionOutput) DeviceMake() pulumi.BoolOutput {
@@ -3795,7 +3898,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyRuleConditionInput)(nil)).Elem(), PolicyRuleConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyRuleConditionArrayInput)(nil)).Elem(), PolicyRuleConditionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileClientSslCertKeyChainInput)(nil)).Elem(), ProfileClientSslCertKeyChainArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProfileClientSslCertKeyChainArrayInput)(nil)).Elem(), ProfileClientSslCertKeyChainArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfileClientSslCertKeyChainPtrInput)(nil)).Elem(), ProfileClientSslCertKeyChainArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnatOriginInput)(nil)).Elem(), SnatOriginArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnatOriginArrayInput)(nil)).Elem(), SnatOriginArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataGroupRecordInput)(nil)).Elem(), GetDataGroupRecordArgs{})
@@ -3819,7 +3922,7 @@ func init() {
 	pulumi.RegisterOutputType(PolicyRuleConditionOutput{})
 	pulumi.RegisterOutputType(PolicyRuleConditionArrayOutput{})
 	pulumi.RegisterOutputType(ProfileClientSslCertKeyChainOutput{})
-	pulumi.RegisterOutputType(ProfileClientSslCertKeyChainArrayOutput{})
+	pulumi.RegisterOutputType(ProfileClientSslCertKeyChainPtrOutput{})
 	pulumi.RegisterOutputType(SnatOriginOutput{})
 	pulumi.RegisterOutputType(SnatOriginArrayOutput{})
 	pulumi.RegisterOutputType(GetDataGroupRecordOutput{})

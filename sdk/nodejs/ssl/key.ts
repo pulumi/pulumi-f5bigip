@@ -66,6 +66,10 @@ export class Key extends pulumi.CustomResource {
      * Partition of ssl certificate key
      */
     public readonly partition!: pulumi.Output<string | undefined>;
+    /**
+     * Passphrase on key.
+     */
+    public readonly passphrase!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Key resource with the given unique name, arguments, and options.
@@ -84,6 +88,7 @@ export class Key extends pulumi.CustomResource {
             resourceInputs["fullPath"] = state ? state.fullPath : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["partition"] = state ? state.partition : undefined;
+            resourceInputs["passphrase"] = state ? state.passphrase : undefined;
         } else {
             const args = argsOrState as KeyArgs | undefined;
             if ((!args || args.content === undefined) && !opts.urn) {
@@ -92,12 +97,15 @@ export class Key extends pulumi.CustomResource {
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            resourceInputs["content"] = args ? args.content : undefined;
+            resourceInputs["content"] = args?.content ? pulumi.secret(args.content) : undefined;
             resourceInputs["fullPath"] = args ? args.fullPath : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["partition"] = args ? args.partition : undefined;
+            resourceInputs["passphrase"] = args?.passphrase ? pulumi.secret(args.passphrase) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["content", "passphrase"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Key.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -122,6 +130,10 @@ export interface KeyState {
      * Partition of ssl certificate key
      */
     partition?: pulumi.Input<string>;
+    /**
+     * Passphrase on key.
+     */
+    passphrase?: pulumi.Input<string>;
 }
 
 /**
@@ -144,4 +156,8 @@ export interface KeyArgs {
      * Partition of ssl certificate key
      */
     partition?: pulumi.Input<string>;
+    /**
+     * Passphrase on key.
+     */
+    passphrase?: pulumi.Input<string>;
 }

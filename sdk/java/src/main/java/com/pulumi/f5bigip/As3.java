@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  * 
  *  bigip_as3.testImporting from ID &#34;Sample_http_01&#34;... bigip_as3.testImport prepared!
  * 
- *  Prepared bigip_as3 for import bigip_as3.testRefreshing state... [id=Sample_http_01] Import successful! The resources that were imported are shown above. These resources are now in your Terraform state and will henceforth be managed by Terraform. $ terraform show # bigip_as3.testresource &#34;bigip_as3&#34; &#34;test&#34; {
+ *  Prepared bigip_as3 for import bigip_as3.testRefreshing state... [id=Sample_http_01] Import successful! The resources that were imported are shown above. These resources are now in your Terraform state and will henceforth be managed by Terraform. $ terraform show bigip_as3.testresource &#34;bigip_as3&#34; &#34;test&#34; {
  * 
  *  as3_json
  * 
@@ -243,7 +243,7 @@ import javax.annotation.Nullable;
  * 
  *  bigip_as3.testImporting from ID &#34;Sample_http_01,Sample_non_http_01&#34;... bigip_as3.testImport prepared!
  * 
- *  Prepared bigip_as3 for import bigip_as3.testRefreshing state... [id=Sample_http_01,Sample_non_http_01] Import successful! The resources that were imported are shown above. These resources are now in your Terraform state and will henceforth be managed by Terraform. $ terraform show # bigip_as3.testresource &#34;bigip_as3&#34; &#34;test&#34; {
+ *  Prepared bigip_as3 for import bigip_as3.testRefreshing state... [id=Sample_http_01,Sample_non_http_01] Import successful! The resources that were imported are shown above. These resources are now in your Terraform state and will henceforth be managed by Terraform. $ terraform show bigip_as3.testresource &#34;bigip_as3&#34; &#34;test&#34; {
  * 
  *  as3_json
  * 

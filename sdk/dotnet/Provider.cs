@@ -49,6 +49,12 @@ namespace Pulumi.F5BigIP
         public Output<string?> TokenValue { get; private set; } = null!;
 
         /// <summary>
+        /// Valid Trusted Certificate path
+        /// </summary>
+        [Output("trustedCertPath")]
+        public Output<string?> TrustedCertPath { get; private set; } = null!;
+
+        /// <summary>
         /// Username with API access to the BigIP
         /// </summary>
         [Output("username")]
@@ -125,10 +131,22 @@ namespace Pulumi.F5BigIP
         public Input<string>? TokenValue { get; set; }
 
         /// <summary>
+        /// Valid Trusted Certificate path
+        /// </summary>
+        [Input("trustedCertPath")]
+        public Input<string>? TrustedCertPath { get; set; }
+
+        /// <summary>
         /// Username with API access to the BigIP
         /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
+
+        /// <summary>
+        /// If set to true, Disables TLS certificate check on BIG-IP. Default : True
+        /// </summary>
+        [Input("validateCertsDisable", json: true)]
+        public Input<bool>? ValidateCertsDisable { get; set; }
 
         public ProviderArgs()
         {

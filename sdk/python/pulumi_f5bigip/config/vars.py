@@ -65,9 +65,23 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('tokenValue')
 
     @property
+    def trusted_cert_path(self) -> Optional[str]:
+        """
+        Valid Trusted Certificate path
+        """
+        return __config__.get('trustedCertPath')
+
+    @property
     def username(self) -> Optional[str]:
         """
         Username with API access to the BigIP
         """
         return __config__.get('username')
+
+    @property
+    def validate_certs_disable(self) -> Optional[bool]:
+        """
+        If set to true, Disables TLS certificate check on BIG-IP. Default : True
+        """
+        return __config__.get_bool('validateCertsDisable')
 

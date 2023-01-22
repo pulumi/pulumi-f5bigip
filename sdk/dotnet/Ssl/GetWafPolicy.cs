@@ -36,7 +36,7 @@ namespace Pulumi.F5BigIP.Ssl
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetWafPolicyResult> InvokeAsync(GetWafPolicyArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWafPolicyResult>("f5bigip:ssl/getWafPolicy:getWafPolicy", args ?? new GetWafPolicyArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWafPolicyResult>("f5bigip:ssl/getWafPolicy:getWafPolicy", args ?? new GetWafPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source (`f5bigip.WafPolicy`) to get the details of exist WAF policy BIG-IP.
@@ -63,7 +63,7 @@ namespace Pulumi.F5BigIP.Ssl
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetWafPolicyResult> Invoke(GetWafPolicyInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWafPolicyResult>("f5bigip:ssl/getWafPolicy:getWafPolicy", args ?? new GetWafPolicyInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWafPolicyResult>("f5bigip:ssl/getWafPolicy:getWafPolicy", args ?? new GetWafPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

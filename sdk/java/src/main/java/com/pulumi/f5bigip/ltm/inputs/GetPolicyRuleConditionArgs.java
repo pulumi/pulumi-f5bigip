@@ -135,6 +135,13 @@ public final class GetPolicyRuleConditionArgs extends com.pulumi.resources.Resou
         return this.cpuUsage;
     }
 
+    @Import(name="datagroup", required=true)
+    private Output<String> datagroup;
+
+    public Output<String> datagroup() {
+        return this.datagroup;
+    }
+
     @Import(name="deviceMake", required=true)
     private Output<Boolean> deviceMake;
 
@@ -666,6 +673,7 @@ public final class GetPolicyRuleConditionArgs extends com.pulumi.resources.Resou
         this.countryCode = $.countryCode;
         this.countryName = $.countryName;
         this.cpuUsage = $.cpuUsage;
+        this.datagroup = $.datagroup;
         this.deviceMake = $.deviceMake;
         this.deviceModel = $.deviceModel;
         this.domain = $.domain;
@@ -910,6 +918,15 @@ public final class GetPolicyRuleConditionArgs extends com.pulumi.resources.Resou
 
         public Builder cpuUsage(Boolean cpuUsage) {
             return cpuUsage(Output.of(cpuUsage));
+        }
+
+        public Builder datagroup(Output<String> datagroup) {
+            $.datagroup = datagroup;
+            return this;
+        }
+
+        public Builder datagroup(String datagroup) {
+            return datagroup(Output.of(datagroup));
         }
 
         public Builder deviceMake(Output<Boolean> deviceMake) {
@@ -1591,6 +1608,7 @@ public final class GetPolicyRuleConditionArgs extends com.pulumi.resources.Resou
             $.countryCode = Objects.requireNonNull($.countryCode, "expected parameter 'countryCode' to be non-null");
             $.countryName = Objects.requireNonNull($.countryName, "expected parameter 'countryName' to be non-null");
             $.cpuUsage = Objects.requireNonNull($.cpuUsage, "expected parameter 'cpuUsage' to be non-null");
+            $.datagroup = Objects.requireNonNull($.datagroup, "expected parameter 'datagroup' to be non-null");
             $.deviceMake = Objects.requireNonNull($.deviceMake, "expected parameter 'deviceMake' to be non-null");
             $.deviceModel = Objects.requireNonNull($.deviceModel, "expected parameter 'deviceModel' to be non-null");
             $.domain = Objects.requireNonNull($.domain, "expected parameter 'domain' to be non-null");

@@ -26,6 +26,8 @@ import javax.annotation.Nullable;
  * 
  * * [Declarative WAF documentation](https://clouddocs.f5.com/products/waf-declarative-policy/declarative_policy_v16_1.html)
  * 
+ * &gt; **NOTE** This Resource Requires F5 BIG-IP v16.x above version, and ASM need to be provisioned.
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;

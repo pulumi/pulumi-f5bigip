@@ -15,9 +15,9 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * `f5bigip.ltm.ProfileFastL4` Configures a custom profile_fastl4 for use by health checks.
+ * `f5bigip.ltm.ProfileFastL4` Configures a custom LTM fastL4 profile for use by health checks.
  * 
- * For resources should be named with their &#34;full path&#34;. The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+ * Resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource (For example `/Common/my-fastl4profile`) or  `partition + directory + name` of the resource  (example: `/Common/test/my-fastl4profile`)
  * 
  * ## Example Usage
  * ```java
@@ -181,32 +181,102 @@ public class ProfileFastL4 extends com.pulumi.resources.CustomResource {
         return this.keepaliveInterval;
     }
     /**
-     * Name of the profile_fastl4
+     * Enables intelligent selection of a back-end server or pool, using an iRule to make the selection. The default is `disabled`.
+     * 
+     */
+    @Export(name="lateBinding", type=String.class, parameters={})
+    private Output<String> lateBinding;
+
+    /**
+     * @return Enables intelligent selection of a back-end server or pool, using an iRule to make the selection. The default is `disabled`.
+     * 
+     */
+    public Output<String> lateBinding() {
+        return this.lateBinding;
+    }
+    /**
+     * Specifies, when checked (enabled), that the system closes a loosely-initiated connection when the system receives the first FIN packet from either the client or the server. The default is disabled.
+     * 
+     */
+    @Export(name="looseClose", type=String.class, parameters={})
+    private Output<String> looseClose;
+
+    /**
+     * @return Specifies, when checked (enabled), that the system closes a loosely-initiated connection when the system receives the first FIN packet from either the client or the server. The default is disabled.
+     * 
+     */
+    public Output<String> looseClose() {
+        return this.looseClose;
+    }
+    /**
+     * Specifies, when checked (enabled), that the system initializes a connection when it receives any TCP packet, rather that requiring a SYN packet for connection initiation. The default is disabled. We recommend that if you enable the Loose Initiation option, you also enable the Loose Close option.
+     * 
+     */
+    @Export(name="looseInitiation", type=String.class, parameters={})
+    private Output<String> looseInitiation;
+
+    /**
+     * @return Specifies, when checked (enabled), that the system initializes a connection when it receives any TCP packet, rather that requiring a SYN packet for connection initiation. The default is disabled. We recommend that if you enable the Loose Initiation option, you also enable the Loose Close option.
+     * 
+     */
+    public Output<String> looseInitiation() {
+        return this.looseInitiation;
+    }
+    /**
+     * Name of the LTM fastL4 Profile.The full path is the combination of the `partition + name` of the resource (For example `/Common/my-fastl4profile`) or  `partition + directory + name` of the resource  (example: `/Common/test/my-fastl4profile`)
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Name of the profile_fastl4
+     * @return Name of the LTM fastL4 Profile.The full path is the combination of the `partition + name` of the resource (For example `/Common/my-fastl4profile`) or  `partition + directory + name` of the resource  (example: `/Common/test/my-fastl4profile`)
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Displays the administrative partition within which this profile resides
+     * name of partition
      * 
      */
     @Export(name="partition", type=String.class, parameters={})
     private Output<String> partition;
 
     /**
-     * @return Displays the administrative partition within which this profile resides
+     * @return name of partition
      * 
      */
     public Output<String> partition() {
         return this.partition;
+    }
+    /**
+     * Specifies the amount of data the BIG-IP system can accept without acknowledging the server. The default is 0 (zero).
+     * 
+     */
+    @Export(name="receiveWindowsize", type=Integer.class, parameters={})
+    private Output<Integer> receiveWindowsize;
+
+    /**
+     * @return Specifies the amount of data the BIG-IP system can accept without acknowledging the server. The default is 0 (zero).
+     * 
+     */
+    public Output<Integer> receiveWindowsize() {
+        return this.receiveWindowsize;
+    }
+    /**
+     * Specifies the acceptable duration for a TCP handshake, that is, the maximum idle time between a client synchronization (SYN) and a client acknowledgment (ACK).The default is `5 seconds`.
+     * 
+     */
+    @Export(name="tcpHandshakeTimeout", type=String.class, parameters={})
+    private Output<String> tcpHandshakeTimeout;
+
+    /**
+     * @return Specifies the acceptable duration for a TCP handshake, that is, the maximum idle time between a client synchronization (SYN) and a client acknowledgment (ACK).The default is `5 seconds`.
+     * 
+     */
+    public Output<String> tcpHandshakeTimeout() {
+        return this.tcpHandshakeTimeout;
     }
 
     /**

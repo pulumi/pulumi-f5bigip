@@ -5,19 +5,51 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./certificate";
-export * from "./getCertificate";
-export * from "./getVWanConfig";
-export * from "./getWafEntityParameter";
-export * from "./getWafEntityUrl";
-export * from "./getWafPbSuggestions";
-export * from "./getWafPolicy";
-export * from "./getWafSignatures";
-export * from "./key";
+export { CertificateArgs, CertificateState } from "./certificate";
+export type Certificate = import("./certificate").Certificate;
+export const Certificate: typeof import("./certificate").Certificate = null as any;
+utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
 
-// Import resources to register:
-import { Certificate } from "./certificate";
-import { Key } from "./key";
+export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
+export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
+export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
+
+export { GetVWanConfigArgs, GetVWanConfigResult, GetVWanConfigOutputArgs } from "./getVWanConfig";
+export const getVWanConfig: typeof import("./getVWanConfig").getVWanConfig = null as any;
+export const getVWanConfigOutput: typeof import("./getVWanConfig").getVWanConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getVWanConfig","getVWanConfigOutput"], () => require("./getVWanConfig"));
+
+export { GetWafEntityParameterArgs, GetWafEntityParameterResult, GetWafEntityParameterOutputArgs } from "./getWafEntityParameter";
+export const getWafEntityParameter: typeof import("./getWafEntityParameter").getWafEntityParameter = null as any;
+export const getWafEntityParameterOutput: typeof import("./getWafEntityParameter").getWafEntityParameterOutput = null as any;
+utilities.lazyLoad(exports, ["getWafEntityParameter","getWafEntityParameterOutput"], () => require("./getWafEntityParameter"));
+
+export { GetWafEntityUrlArgs, GetWafEntityUrlResult, GetWafEntityUrlOutputArgs } from "./getWafEntityUrl";
+export const getWafEntityUrl: typeof import("./getWafEntityUrl").getWafEntityUrl = null as any;
+export const getWafEntityUrlOutput: typeof import("./getWafEntityUrl").getWafEntityUrlOutput = null as any;
+utilities.lazyLoad(exports, ["getWafEntityUrl","getWafEntityUrlOutput"], () => require("./getWafEntityUrl"));
+
+export { GetWafPbSuggestionsArgs, GetWafPbSuggestionsResult, GetWafPbSuggestionsOutputArgs } from "./getWafPbSuggestions";
+export const getWafPbSuggestions: typeof import("./getWafPbSuggestions").getWafPbSuggestions = null as any;
+export const getWafPbSuggestionsOutput: typeof import("./getWafPbSuggestions").getWafPbSuggestionsOutput = null as any;
+utilities.lazyLoad(exports, ["getWafPbSuggestions","getWafPbSuggestionsOutput"], () => require("./getWafPbSuggestions"));
+
+export { GetWafPolicyArgs, GetWafPolicyResult, GetWafPolicyOutputArgs } from "./getWafPolicy";
+export const getWafPolicy: typeof import("./getWafPolicy").getWafPolicy = null as any;
+export const getWafPolicyOutput: typeof import("./getWafPolicy").getWafPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getWafPolicy","getWafPolicyOutput"], () => require("./getWafPolicy"));
+
+export { GetWafSignaturesArgs, GetWafSignaturesResult, GetWafSignaturesOutputArgs } from "./getWafSignatures";
+export const getWafSignatures: typeof import("./getWafSignatures").getWafSignatures = null as any;
+export const getWafSignaturesOutput: typeof import("./getWafSignatures").getWafSignaturesOutput = null as any;
+utilities.lazyLoad(exports, ["getWafSignatures","getWafSignaturesOutput"], () => require("./getWafSignatures"));
+
+export { KeyArgs, KeyState } from "./key";
+export type Key = import("./key").Key;
+export const Key: typeof import("./key").Key = null as any;
+utilities.lazyLoad(exports, ["Key"], () => require("./key"));
+
 
 const _module = {
     version: utilities.getVersion(),

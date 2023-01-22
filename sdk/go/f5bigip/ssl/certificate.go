@@ -77,6 +77,13 @@ func NewCertificate(ctx *pulumi.Context,
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
+	if args.Content != nil {
+		args.Content = pulumi.ToSecret(args.Content).(pulumi.StringInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"content",
+	})
+	opts = append(opts, secrets)
 	var resource Certificate
 	err := ctx.RegisterResource("f5bigip:ssl/certificate:Certificate", name, args, &resource, opts...)
 	if err != nil {

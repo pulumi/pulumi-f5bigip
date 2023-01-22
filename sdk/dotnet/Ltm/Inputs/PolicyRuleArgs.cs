@@ -14,6 +14,10 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
     {
         [Input("actions")]
         private InputList<Inputs.PolicyRuleActionArgs>? _actions;
+
+        /// <summary>
+        /// Block type. See action block for more details.
+        /// </summary>
         public InputList<Inputs.PolicyRuleActionArgs> Actions
         {
             get => _actions ?? (_actions = new InputList<Inputs.PolicyRuleActionArgs>());
@@ -22,6 +26,10 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
 
         [Input("conditions")]
         private InputList<Inputs.PolicyRuleConditionArgs>? _conditions;
+
+        /// <summary>
+        /// Block type. See condition block for more details.
+        /// </summary>
         public InputList<Inputs.PolicyRuleConditionArgs> Conditions
         {
             get => _conditions ?? (_conditions = new InputList<Inputs.PolicyRuleConditionArgs>());
@@ -29,7 +37,7 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
         }
 
         /// <summary>
-        /// Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+        /// Name of Rule to be applied in policy.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

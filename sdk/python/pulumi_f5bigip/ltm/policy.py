@@ -24,11 +24,11 @@ class PolicyArgs:
                  strategy: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Policy resource.
-        :param pulumi.Input[str] name: Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+        :param pulumi.Input[str] name: Name of Rule to be applied in policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] controls: Specifies the controls
         :param pulumi.Input[str] published_copy: If you want to publish the policy else it will be deployed in Drafts mode.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] requires: Specifies the protocol
-        :param pulumi.Input[Sequence[pulumi.Input['PolicyRuleArgs']]] rules: Rules can be applied using the policy
+        :param pulumi.Input[Sequence[pulumi.Input['PolicyRuleArgs']]] rules: List of Rules can be applied using the policy. Each rule is block type with following arguments.
         :param pulumi.Input[str] strategy: Specifies the match strategy
         """
         pulumi.set(__self__, "name", name)
@@ -47,7 +47,7 @@ class PolicyArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+        Name of Rule to be applied in policy.
         """
         return pulumi.get(self, "name")
 
@@ -95,7 +95,7 @@ class PolicyArgs:
     @pulumi.getter
     def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleArgs']]]]:
         """
-        Rules can be applied using the policy
+        List of Rules can be applied using the policy. Each rule is block type with following arguments.
         """
         return pulumi.get(self, "rules")
 
@@ -128,10 +128,10 @@ class _PolicyState:
         """
         Input properties used for looking up and filtering Policy resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] controls: Specifies the controls
-        :param pulumi.Input[str] name: Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+        :param pulumi.Input[str] name: Name of Rule to be applied in policy.
         :param pulumi.Input[str] published_copy: If you want to publish the policy else it will be deployed in Drafts mode.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] requires: Specifies the protocol
-        :param pulumi.Input[Sequence[pulumi.Input['PolicyRuleArgs']]] rules: Rules can be applied using the policy
+        :param pulumi.Input[Sequence[pulumi.Input['PolicyRuleArgs']]] rules: List of Rules can be applied using the policy. Each rule is block type with following arguments.
         :param pulumi.Input[str] strategy: Specifies the match strategy
         """
         if controls is not None:
@@ -163,7 +163,7 @@ class _PolicyState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+        Name of Rule to be applied in policy.
         """
         return pulumi.get(self, "name")
 
@@ -199,7 +199,7 @@ class _PolicyState:
     @pulumi.getter
     def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleArgs']]]]:
         """
-        Rules can be applied using the policy
+        List of Rules can be applied using the policy. Each rule is block type with following arguments.
         """
         return pulumi.get(self, "rules")
 
@@ -267,10 +267,10 @@ class Policy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] controls: Specifies the controls
-        :param pulumi.Input[str] name: Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+        :param pulumi.Input[str] name: Name of Rule to be applied in policy.
         :param pulumi.Input[str] published_copy: If you want to publish the policy else it will be deployed in Drafts mode.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] requires: Specifies the protocol
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyRuleArgs']]]] rules: Rules can be applied using the policy
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyRuleArgs']]]] rules: List of Rules can be applied using the policy. Each rule is block type with following arguments.
         :param pulumi.Input[str] strategy: Specifies the match strategy
         """
         ...
@@ -373,10 +373,10 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] controls: Specifies the controls
-        :param pulumi.Input[str] name: Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+        :param pulumi.Input[str] name: Name of Rule to be applied in policy.
         :param pulumi.Input[str] published_copy: If you want to publish the policy else it will be deployed in Drafts mode.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] requires: Specifies the protocol
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyRuleArgs']]]] rules: Rules can be applied using the policy
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyRuleArgs']]]] rules: List of Rules can be applied using the policy. Each rule is block type with following arguments.
         :param pulumi.Input[str] strategy: Specifies the match strategy
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -403,7 +403,7 @@ class Policy(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+        Name of Rule to be applied in policy.
         """
         return pulumi.get(self, "name")
 
@@ -427,7 +427,7 @@ class Policy(pulumi.CustomResource):
     @pulumi.getter
     def rules(self) -> pulumi.Output[Optional[Sequence['outputs.PolicyRule']]]:
         """
-        Rules can be applied using the policy
+        List of Rules can be applied using the policy. Each rule is block type with following arguments.
         """
         return pulumi.get(self, "rules")
 

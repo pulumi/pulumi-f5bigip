@@ -5,6 +5,7 @@ package com.pulumi.f5bigip.ltm;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -15,6 +16,21 @@ import javax.annotation.Nullable;
 public final class ProfileHttpCompressArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final ProfileHttpCompressArgs Empty = new ProfileHttpCompressArgs();
+
+    /**
+     * Specifies the maximum number of compressed bytes that the system buffers before inserting a Content-Length header (which specifies the compressed size) into the response. The default is `4096` bytes.
+     * 
+     */
+    @Import(name="compressionBuffersize")
+    private @Nullable Output<Integer> compressionBuffersize;
+
+    /**
+     * @return Specifies the maximum number of compressed bytes that the system buffers before inserting a Content-Length header (which specifies the compressed size) into the response. The default is `4096` bytes.
+     * 
+     */
+    public Optional<Output<Integer>> compressionBuffersize() {
+        return Optional.ofNullable(this.compressionBuffersize);
+    }
 
     /**
      * Excludes a specified list of content types from compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
@@ -47,6 +63,21 @@ public final class ProfileHttpCompressArgs extends com.pulumi.resources.Resource
     }
 
     /**
+     * Specifies, when checked (enabled), that the system monitors the percent CPU usage and adjusts compression rates automatically when the CPU usage reaches either the CPU Saver High Threshold or the CPU Saver Low Threshold. The default is `enabled`.
+     * 
+     */
+    @Import(name="cpuSaver")
+    private @Nullable Output<String> cpuSaver;
+
+    /**
+     * @return Specifies, when checked (enabled), that the system monitors the percent CPU usage and adjusts compression rates automatically when the CPU usage reaches either the CPU Saver High Threshold or the CPU Saver Low Threshold. The default is `enabled`.
+     * 
+     */
+    public Optional<Output<String>> cpuSaver() {
+        return Optional.ofNullable(this.cpuSaver);
+    }
+
+    /**
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      * 
      */
@@ -62,14 +93,74 @@ public final class ProfileHttpCompressArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Name of the profile_httpcompress
+     * Specifies the degree to which the system compresses the content. Higher compression levels cause the compression process to be slower. The default is 1 - Least Compression (Fastest)
+     * 
+     */
+    @Import(name="gzipCompressionLevel")
+    private @Nullable Output<Integer> gzipCompressionLevel;
+
+    /**
+     * @return Specifies the degree to which the system compresses the content. Higher compression levels cause the compression process to be slower. The default is 1 - Least Compression (Fastest)
+     * 
+     */
+    public Optional<Output<Integer>> gzipCompressionLevel() {
+        return Optional.ofNullable(this.gzipCompressionLevel);
+    }
+
+    /**
+     * Specifies the number of bytes of memory that the system uses for internal compression buffers when compressing a server response. The default is `8 kilobytes/8192 bytes`.
+     * 
+     */
+    @Import(name="gzipMemoryLevel")
+    private @Nullable Output<Integer> gzipMemoryLevel;
+
+    /**
+     * @return Specifies the number of bytes of memory that the system uses for internal compression buffers when compressing a server response. The default is `8 kilobytes/8192 bytes`.
+     * 
+     */
+    public Optional<Output<Integer>> gzipMemoryLevel() {
+        return Optional.ofNullable(this.gzipMemoryLevel);
+    }
+
+    /**
+     * Specifies the number of kilobytes in the window size that the system uses when compressing a server response. The default is `16` kilobytes
+     * 
+     */
+    @Import(name="gzipWindowSize")
+    private @Nullable Output<Integer> gzipWindowSize;
+
+    /**
+     * @return Specifies the number of kilobytes in the window size that the system uses when compressing a server response. The default is `16` kilobytes
+     * 
+     */
+    public Optional<Output<Integer>> gzipWindowSize() {
+        return Optional.ofNullable(this.gzipWindowSize);
+    }
+
+    /**
+     * Specifies, when checked (enabled), that the system does not remove the Accept-Encoding: header from an HTTP request. The default is `disabled`.
+     * 
+     */
+    @Import(name="keepAcceptEncoding")
+    private @Nullable Output<String> keepAcceptEncoding;
+
+    /**
+     * @return Specifies, when checked (enabled), that the system does not remove the Accept-Encoding: header from an HTTP request. The default is `disabled`.
+     * 
+     */
+    public Optional<Output<String>> keepAcceptEncoding() {
+        return Optional.ofNullable(this.keepAcceptEncoding);
+    }
+
+    /**
+     * Name of the LTM http compress profile,named with their `full path`.The full path is the combination of the `partition + name` (example: `/Common/my-httpcompresprofile` ) or  `partition + directory + name` of the resource  (example: `my-httpcompresprofile`)
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the profile_httpcompress
+     * @return Name of the LTM http compress profile,named with their `full path`.The full path is the combination of the `partition + name` (example: `/Common/my-httpcompresprofile` ) or  `partition + directory + name` of the resource  (example: `my-httpcompresprofile`)
      * 
      */
     public Output<String> name() {
@@ -106,15 +197,37 @@ public final class ProfileHttpCompressArgs extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.uriIncludes);
     }
 
+    /**
+     * Specifies, when checked (enabled), that the system inserts a Vary header into cacheable server responses. The default is `enabled`.
+     * 
+     */
+    @Import(name="varyHeader")
+    private @Nullable Output<String> varyHeader;
+
+    /**
+     * @return Specifies, when checked (enabled), that the system inserts a Vary header into cacheable server responses. The default is `enabled`.
+     * 
+     */
+    public Optional<Output<String>> varyHeader() {
+        return Optional.ofNullable(this.varyHeader);
+    }
+
     private ProfileHttpCompressArgs() {}
 
     private ProfileHttpCompressArgs(ProfileHttpCompressArgs $) {
+        this.compressionBuffersize = $.compressionBuffersize;
         this.contentTypeExcludes = $.contentTypeExcludes;
         this.contentTypeIncludes = $.contentTypeIncludes;
+        this.cpuSaver = $.cpuSaver;
         this.defaultsFrom = $.defaultsFrom;
+        this.gzipCompressionLevel = $.gzipCompressionLevel;
+        this.gzipMemoryLevel = $.gzipMemoryLevel;
+        this.gzipWindowSize = $.gzipWindowSize;
+        this.keepAcceptEncoding = $.keepAcceptEncoding;
         this.name = $.name;
         this.uriExcludes = $.uriExcludes;
         this.uriIncludes = $.uriIncludes;
+        this.varyHeader = $.varyHeader;
     }
 
     public static Builder builder() {
@@ -133,6 +246,27 @@ public final class ProfileHttpCompressArgs extends com.pulumi.resources.Resource
 
         public Builder(ProfileHttpCompressArgs defaults) {
             $ = new ProfileHttpCompressArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param compressionBuffersize Specifies the maximum number of compressed bytes that the system buffers before inserting a Content-Length header (which specifies the compressed size) into the response. The default is `4096` bytes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder compressionBuffersize(@Nullable Output<Integer> compressionBuffersize) {
+            $.compressionBuffersize = compressionBuffersize;
+            return this;
+        }
+
+        /**
+         * @param compressionBuffersize Specifies the maximum number of compressed bytes that the system buffers before inserting a Content-Length header (which specifies the compressed size) into the response. The default is `4096` bytes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder compressionBuffersize(Integer compressionBuffersize) {
+            return compressionBuffersize(Output.of(compressionBuffersize));
         }
 
         /**
@@ -198,6 +332,27 @@ public final class ProfileHttpCompressArgs extends com.pulumi.resources.Resource
         }
 
         /**
+         * @param cpuSaver Specifies, when checked (enabled), that the system monitors the percent CPU usage and adjusts compression rates automatically when the CPU usage reaches either the CPU Saver High Threshold or the CPU Saver Low Threshold. The default is `enabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cpuSaver(@Nullable Output<String> cpuSaver) {
+            $.cpuSaver = cpuSaver;
+            return this;
+        }
+
+        /**
+         * @param cpuSaver Specifies, when checked (enabled), that the system monitors the percent CPU usage and adjusts compression rates automatically when the CPU usage reaches either the CPU Saver High Threshold or the CPU Saver Low Threshold. The default is `enabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cpuSaver(String cpuSaver) {
+            return cpuSaver(Output.of(cpuSaver));
+        }
+
+        /**
          * @param defaultsFrom Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
          * 
          * @return builder
@@ -219,7 +374,91 @@ public final class ProfileHttpCompressArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name Name of the profile_httpcompress
+         * @param gzipCompressionLevel Specifies the degree to which the system compresses the content. Higher compression levels cause the compression process to be slower. The default is 1 - Least Compression (Fastest)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gzipCompressionLevel(@Nullable Output<Integer> gzipCompressionLevel) {
+            $.gzipCompressionLevel = gzipCompressionLevel;
+            return this;
+        }
+
+        /**
+         * @param gzipCompressionLevel Specifies the degree to which the system compresses the content. Higher compression levels cause the compression process to be slower. The default is 1 - Least Compression (Fastest)
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gzipCompressionLevel(Integer gzipCompressionLevel) {
+            return gzipCompressionLevel(Output.of(gzipCompressionLevel));
+        }
+
+        /**
+         * @param gzipMemoryLevel Specifies the number of bytes of memory that the system uses for internal compression buffers when compressing a server response. The default is `8 kilobytes/8192 bytes`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gzipMemoryLevel(@Nullable Output<Integer> gzipMemoryLevel) {
+            $.gzipMemoryLevel = gzipMemoryLevel;
+            return this;
+        }
+
+        /**
+         * @param gzipMemoryLevel Specifies the number of bytes of memory that the system uses for internal compression buffers when compressing a server response. The default is `8 kilobytes/8192 bytes`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gzipMemoryLevel(Integer gzipMemoryLevel) {
+            return gzipMemoryLevel(Output.of(gzipMemoryLevel));
+        }
+
+        /**
+         * @param gzipWindowSize Specifies the number of kilobytes in the window size that the system uses when compressing a server response. The default is `16` kilobytes
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gzipWindowSize(@Nullable Output<Integer> gzipWindowSize) {
+            $.gzipWindowSize = gzipWindowSize;
+            return this;
+        }
+
+        /**
+         * @param gzipWindowSize Specifies the number of kilobytes in the window size that the system uses when compressing a server response. The default is `16` kilobytes
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gzipWindowSize(Integer gzipWindowSize) {
+            return gzipWindowSize(Output.of(gzipWindowSize));
+        }
+
+        /**
+         * @param keepAcceptEncoding Specifies, when checked (enabled), that the system does not remove the Accept-Encoding: header from an HTTP request. The default is `disabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keepAcceptEncoding(@Nullable Output<String> keepAcceptEncoding) {
+            $.keepAcceptEncoding = keepAcceptEncoding;
+            return this;
+        }
+
+        /**
+         * @param keepAcceptEncoding Specifies, when checked (enabled), that the system does not remove the Accept-Encoding: header from an HTTP request. The default is `disabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder keepAcceptEncoding(String keepAcceptEncoding) {
+            return keepAcceptEncoding(Output.of(keepAcceptEncoding));
+        }
+
+        /**
+         * @param name Name of the LTM http compress profile,named with their `full path`.The full path is the combination of the `partition + name` (example: `/Common/my-httpcompresprofile` ) or  `partition + directory + name` of the resource  (example: `my-httpcompresprofile`)
          * 
          * @return builder
          * 
@@ -230,7 +469,7 @@ public final class ProfileHttpCompressArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name Name of the profile_httpcompress
+         * @param name Name of the LTM http compress profile,named with their `full path`.The full path is the combination of the `partition + name` (example: `/Common/my-httpcompresprofile` ) or  `partition + directory + name` of the resource  (example: `my-httpcompresprofile`)
          * 
          * @return builder
          * 
@@ -299,6 +538,27 @@ public final class ProfileHttpCompressArgs extends com.pulumi.resources.Resource
          */
         public Builder uriIncludes(String... uriIncludes) {
             return uriIncludes(List.of(uriIncludes));
+        }
+
+        /**
+         * @param varyHeader Specifies, when checked (enabled), that the system inserts a Vary header into cacheable server responses. The default is `enabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder varyHeader(@Nullable Output<String> varyHeader) {
+            $.varyHeader = varyHeader;
+            return this;
+        }
+
+        /**
+         * @param varyHeader Specifies, when checked (enabled), that the system inserts a Vary header into cacheable server responses. The default is `enabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder varyHeader(String varyHeader) {
+            return varyHeader(Output.of(varyHeader));
         }
 
         public ProfileHttpCompressArgs build() {

@@ -47,17 +47,10 @@ namespace Pulumi.F5BigIP
         public Output<string> Application { get; private set; } = null!;
 
         /// <summary>
-        /// `create_tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
-        /// See TLS Server Profile below for more details.
+        /// List of LTM Policies to be applied FAST HTTPS Application.
         /// </summary>
-        [Output("createTlsServerProfile")]
-        public Output<Outputs.FastHttpsAppCreateTlsServerProfile?> CreateTlsServerProfile { get; private set; } = null!;
-
-        /// <summary>
-        /// Name of an existing BIG-IP pool.
-        /// </summary>
-        [Output("existPoolName")]
-        public Output<string?> ExistPoolName { get; private set; } = null!;
+        [Output("endpointLtmPolicies")]
+        public Output<ImmutableArray<string>> EndpointLtmPolicies { get; private set; } = null!;
 
         /// <summary>
         /// Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
@@ -66,30 +59,40 @@ namespace Pulumi.F5BigIP
         public Output<string?> ExistingMonitor { get; private set; } = null!;
 
         /// <summary>
+        /// Name of an existing BIG-IP pool.
+        /// </summary>
+        [Output("existingPool")]
+        public Output<string?> ExistingPool { get; private set; } = null!;
+
+        /// <summary>
         /// Name of an existing BIG-IP SNAT pool.
         /// </summary>
         [Output("existingSnatPool")]
         public Output<string?> ExistingSnatPool { get; private set; } = null!;
 
         /// <summary>
-        /// `fast_create_monitor` block takes input for FAST-Generated Pool Monitor.
-        /// See Pool Monitor below for more details.
+        /// Name of an existing TLS client profile.
         /// </summary>
-        [Output("fastCreateMonitor")]
-        public Output<Outputs.FastHttpsAppFastCreateMonitor?> FastCreateMonitor { get; private set; } = null!;
+        [Output("existingTlsClientProfile")]
+        public Output<string?> ExistingTlsClientProfile { get; private set; } = null!;
 
         /// <summary>
-        /// `fast_create_pool_members` block takes input for FAST-Generated Pool.
-        /// See Pool Members below for more details.
+        /// Name of an existing TLS server profile.
         /// </summary>
-        [Output("fastCreatePoolMembers")]
-        public Output<ImmutableArray<Outputs.FastHttpsAppFastCreatePoolMember>> FastCreatePoolMembers { get; private set; } = null!;
+        [Output("existingTlsServerProfile")]
+        public Output<string?> ExistingTlsServerProfile { get; private set; } = null!;
 
         /// <summary>
-        /// List of address to be used for FAST-Generated SNAT Pool.
+        /// Name of an existing WAF Security policy.
         /// </summary>
-        [Output("fastCreateSnatPoolAddresses")]
-        public Output<ImmutableArray<string>> FastCreateSnatPoolAddresses { get; private set; } = null!;
+        [Output("existingWafSecurityPolicy")]
+        public Output<string?> ExistingWafSecurityPolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// Json payload for FAST HTTPS application.
+        /// </summary>
+        [Output("fastHttpsJson")]
+        public Output<string> FastHttpsJson { get; private set; } = null!;
 
         /// <summary>
         /// A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
@@ -98,10 +101,36 @@ namespace Pulumi.F5BigIP
         public Output<string?> LoadBalancingMode { get; private set; } = null!;
 
         /// <summary>
+        /// `monitor` block takes input for FAST-Generated Pool Monitor.
+        /// See Pool Monitor below for more details.
+        /// </summary>
+        [Output("monitor")]
+        public Output<Outputs.FastHttpsAppMonitor?> Monitor { get; private set; } = null!;
+
+        /// <summary>
+        /// `pool_members` block takes input for FAST-Generated Pool.
+        /// See Pool Members below for more details.
+        /// </summary>
+        [Output("poolMembers")]
+        public Output<ImmutableArray<Outputs.FastHttpsAppPoolMember>> PoolMembers { get; private set; } = null!;
+
+        /// <summary>
+        /// List of security log profiles to be used for FAST application
+        /// </summary>
+        [Output("securityLogProfiles")]
+        public Output<ImmutableArray<string>> SecurityLogProfiles { get; private set; } = null!;
+
+        /// <summary>
         /// Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
         /// </summary>
         [Output("slowRampTime")]
         public Output<int?> SlowRampTime { get; private set; } = null!;
+
+        /// <summary>
+        /// List of address to be used for FAST-Generated SNAT Pool.
+        /// </summary>
+        [Output("snatPoolAddresses")]
+        public Output<ImmutableArray<string>> SnatPoolAddresses { get; private set; } = null!;
 
         /// <summary>
         /// Name of the FAST HTTPS application tenant.
@@ -110,10 +139,18 @@ namespace Pulumi.F5BigIP
         public Output<string> Tenant { get; private set; } = null!;
 
         /// <summary>
-        /// Name of an existing TLS server profile.
+        /// `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
+        /// See TLS Client Profile below for more details.
         /// </summary>
-        [Output("tlsServerProfileName")]
-        public Output<string?> TlsServerProfileName { get; private set; } = null!;
+        [Output("tlsClientProfile")]
+        public Output<Outputs.FastHttpsAppTlsClientProfile?> TlsClientProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
+        /// See TLS Server Profile below for more details.
+        /// </summary>
+        [Output("tlsServerProfile")]
+        public Output<Outputs.FastHttpsAppTlsServerProfile?> TlsServerProfile { get; private set; } = null!;
 
         /// <summary>
         /// `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
@@ -121,6 +158,13 @@ namespace Pulumi.F5BigIP
         /// </summary>
         [Output("virtualServer")]
         public Output<Outputs.FastHttpsAppVirtualServer?> VirtualServer { get; private set; } = null!;
+
+        /// <summary>
+        /// `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+        /// See WAF Security Policy below for more details.
+        /// </summary>
+        [Output("wafSecurityPolicy")]
+        public Output<Outputs.FastHttpsAppWafSecurityPolicy?> WafSecurityPolicy { get; private set; } = null!;
 
 
         /// <summary>
@@ -174,18 +218,17 @@ namespace Pulumi.F5BigIP
         [Input("application", required: true)]
         public Input<string> Application { get; set; } = null!;
 
-        /// <summary>
-        /// `create_tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
-        /// See TLS Server Profile below for more details.
-        /// </summary>
-        [Input("createTlsServerProfile")]
-        public Input<Inputs.FastHttpsAppCreateTlsServerProfileArgs>? CreateTlsServerProfile { get; set; }
+        [Input("endpointLtmPolicies")]
+        private InputList<string>? _endpointLtmPolicies;
 
         /// <summary>
-        /// Name of an existing BIG-IP pool.
+        /// List of LTM Policies to be applied FAST HTTPS Application.
         /// </summary>
-        [Input("existPoolName")]
-        public Input<string>? ExistPoolName { get; set; }
+        public InputList<string> EndpointLtmPolicies
+        {
+            get => _endpointLtmPolicies ?? (_endpointLtmPolicies = new InputList<string>());
+            set => _endpointLtmPolicies = value;
+        }
 
         /// <summary>
         /// Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
@@ -194,42 +237,34 @@ namespace Pulumi.F5BigIP
         public Input<string>? ExistingMonitor { get; set; }
 
         /// <summary>
+        /// Name of an existing BIG-IP pool.
+        /// </summary>
+        [Input("existingPool")]
+        public Input<string>? ExistingPool { get; set; }
+
+        /// <summary>
         /// Name of an existing BIG-IP SNAT pool.
         /// </summary>
         [Input("existingSnatPool")]
         public Input<string>? ExistingSnatPool { get; set; }
 
         /// <summary>
-        /// `fast_create_monitor` block takes input for FAST-Generated Pool Monitor.
-        /// See Pool Monitor below for more details.
+        /// Name of an existing TLS client profile.
         /// </summary>
-        [Input("fastCreateMonitor")]
-        public Input<Inputs.FastHttpsAppFastCreateMonitorArgs>? FastCreateMonitor { get; set; }
-
-        [Input("fastCreatePoolMembers")]
-        private InputList<Inputs.FastHttpsAppFastCreatePoolMemberArgs>? _fastCreatePoolMembers;
+        [Input("existingTlsClientProfile")]
+        public Input<string>? ExistingTlsClientProfile { get; set; }
 
         /// <summary>
-        /// `fast_create_pool_members` block takes input for FAST-Generated Pool.
-        /// See Pool Members below for more details.
+        /// Name of an existing TLS server profile.
         /// </summary>
-        public InputList<Inputs.FastHttpsAppFastCreatePoolMemberArgs> FastCreatePoolMembers
-        {
-            get => _fastCreatePoolMembers ?? (_fastCreatePoolMembers = new InputList<Inputs.FastHttpsAppFastCreatePoolMemberArgs>());
-            set => _fastCreatePoolMembers = value;
-        }
-
-        [Input("fastCreateSnatPoolAddresses")]
-        private InputList<string>? _fastCreateSnatPoolAddresses;
+        [Input("existingTlsServerProfile")]
+        public Input<string>? ExistingTlsServerProfile { get; set; }
 
         /// <summary>
-        /// List of address to be used for FAST-Generated SNAT Pool.
+        /// Name of an existing WAF Security policy.
         /// </summary>
-        public InputList<string> FastCreateSnatPoolAddresses
-        {
-            get => _fastCreateSnatPoolAddresses ?? (_fastCreateSnatPoolAddresses = new InputList<string>());
-            set => _fastCreateSnatPoolAddresses = value;
-        }
+        [Input("existingWafSecurityPolicy")]
+        public Input<string>? ExistingWafSecurityPolicy { get; set; }
 
         /// <summary>
         /// A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
@@ -238,10 +273,54 @@ namespace Pulumi.F5BigIP
         public Input<string>? LoadBalancingMode { get; set; }
 
         /// <summary>
+        /// `monitor` block takes input for FAST-Generated Pool Monitor.
+        /// See Pool Monitor below for more details.
+        /// </summary>
+        [Input("monitor")]
+        public Input<Inputs.FastHttpsAppMonitorArgs>? Monitor { get; set; }
+
+        [Input("poolMembers")]
+        private InputList<Inputs.FastHttpsAppPoolMemberArgs>? _poolMembers;
+
+        /// <summary>
+        /// `pool_members` block takes input for FAST-Generated Pool.
+        /// See Pool Members below for more details.
+        /// </summary>
+        public InputList<Inputs.FastHttpsAppPoolMemberArgs> PoolMembers
+        {
+            get => _poolMembers ?? (_poolMembers = new InputList<Inputs.FastHttpsAppPoolMemberArgs>());
+            set => _poolMembers = value;
+        }
+
+        [Input("securityLogProfiles")]
+        private InputList<string>? _securityLogProfiles;
+
+        /// <summary>
+        /// List of security log profiles to be used for FAST application
+        /// </summary>
+        public InputList<string> SecurityLogProfiles
+        {
+            get => _securityLogProfiles ?? (_securityLogProfiles = new InputList<string>());
+            set => _securityLogProfiles = value;
+        }
+
+        /// <summary>
         /// Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
         /// </summary>
         [Input("slowRampTime")]
         public Input<int>? SlowRampTime { get; set; }
+
+        [Input("snatPoolAddresses")]
+        private InputList<string>? _snatPoolAddresses;
+
+        /// <summary>
+        /// List of address to be used for FAST-Generated SNAT Pool.
+        /// </summary>
+        public InputList<string> SnatPoolAddresses
+        {
+            get => _snatPoolAddresses ?? (_snatPoolAddresses = new InputList<string>());
+            set => _snatPoolAddresses = value;
+        }
 
         /// <summary>
         /// Name of the FAST HTTPS application tenant.
@@ -250,10 +329,18 @@ namespace Pulumi.F5BigIP
         public Input<string> Tenant { get; set; } = null!;
 
         /// <summary>
-        /// Name of an existing TLS server profile.
+        /// `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
+        /// See TLS Client Profile below for more details.
         /// </summary>
-        [Input("tlsServerProfileName")]
-        public Input<string>? TlsServerProfileName { get; set; }
+        [Input("tlsClientProfile")]
+        public Input<Inputs.FastHttpsAppTlsClientProfileArgs>? TlsClientProfile { get; set; }
+
+        /// <summary>
+        /// `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
+        /// See TLS Server Profile below for more details.
+        /// </summary>
+        [Input("tlsServerProfile")]
+        public Input<Inputs.FastHttpsAppTlsServerProfileArgs>? TlsServerProfile { get; set; }
 
         /// <summary>
         /// `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
@@ -261,6 +348,13 @@ namespace Pulumi.F5BigIP
         /// </summary>
         [Input("virtualServer")]
         public Input<Inputs.FastHttpsAppVirtualServerArgs>? VirtualServer { get; set; }
+
+        /// <summary>
+        /// `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+        /// See WAF Security Policy below for more details.
+        /// </summary>
+        [Input("wafSecurityPolicy")]
+        public Input<Inputs.FastHttpsAppWafSecurityPolicyArgs>? WafSecurityPolicy { get; set; }
 
         public FastHttpsAppArgs()
         {
@@ -276,18 +370,17 @@ namespace Pulumi.F5BigIP
         [Input("application")]
         public Input<string>? Application { get; set; }
 
-        /// <summary>
-        /// `create_tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
-        /// See TLS Server Profile below for more details.
-        /// </summary>
-        [Input("createTlsServerProfile")]
-        public Input<Inputs.FastHttpsAppCreateTlsServerProfileGetArgs>? CreateTlsServerProfile { get; set; }
+        [Input("endpointLtmPolicies")]
+        private InputList<string>? _endpointLtmPolicies;
 
         /// <summary>
-        /// Name of an existing BIG-IP pool.
+        /// List of LTM Policies to be applied FAST HTTPS Application.
         /// </summary>
-        [Input("existPoolName")]
-        public Input<string>? ExistPoolName { get; set; }
+        public InputList<string> EndpointLtmPolicies
+        {
+            get => _endpointLtmPolicies ?? (_endpointLtmPolicies = new InputList<string>());
+            set => _endpointLtmPolicies = value;
+        }
 
         /// <summary>
         /// Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
@@ -296,42 +389,40 @@ namespace Pulumi.F5BigIP
         public Input<string>? ExistingMonitor { get; set; }
 
         /// <summary>
+        /// Name of an existing BIG-IP pool.
+        /// </summary>
+        [Input("existingPool")]
+        public Input<string>? ExistingPool { get; set; }
+
+        /// <summary>
         /// Name of an existing BIG-IP SNAT pool.
         /// </summary>
         [Input("existingSnatPool")]
         public Input<string>? ExistingSnatPool { get; set; }
 
         /// <summary>
-        /// `fast_create_monitor` block takes input for FAST-Generated Pool Monitor.
-        /// See Pool Monitor below for more details.
+        /// Name of an existing TLS client profile.
         /// </summary>
-        [Input("fastCreateMonitor")]
-        public Input<Inputs.FastHttpsAppFastCreateMonitorGetArgs>? FastCreateMonitor { get; set; }
-
-        [Input("fastCreatePoolMembers")]
-        private InputList<Inputs.FastHttpsAppFastCreatePoolMemberGetArgs>? _fastCreatePoolMembers;
+        [Input("existingTlsClientProfile")]
+        public Input<string>? ExistingTlsClientProfile { get; set; }
 
         /// <summary>
-        /// `fast_create_pool_members` block takes input for FAST-Generated Pool.
-        /// See Pool Members below for more details.
+        /// Name of an existing TLS server profile.
         /// </summary>
-        public InputList<Inputs.FastHttpsAppFastCreatePoolMemberGetArgs> FastCreatePoolMembers
-        {
-            get => _fastCreatePoolMembers ?? (_fastCreatePoolMembers = new InputList<Inputs.FastHttpsAppFastCreatePoolMemberGetArgs>());
-            set => _fastCreatePoolMembers = value;
-        }
-
-        [Input("fastCreateSnatPoolAddresses")]
-        private InputList<string>? _fastCreateSnatPoolAddresses;
+        [Input("existingTlsServerProfile")]
+        public Input<string>? ExistingTlsServerProfile { get; set; }
 
         /// <summary>
-        /// List of address to be used for FAST-Generated SNAT Pool.
+        /// Name of an existing WAF Security policy.
         /// </summary>
-        public InputList<string> FastCreateSnatPoolAddresses
-        {
-            get => _fastCreateSnatPoolAddresses ?? (_fastCreateSnatPoolAddresses = new InputList<string>());
-            set => _fastCreateSnatPoolAddresses = value;
-        }
+        [Input("existingWafSecurityPolicy")]
+        public Input<string>? ExistingWafSecurityPolicy { get; set; }
+
+        /// <summary>
+        /// Json payload for FAST HTTPS application.
+        /// </summary>
+        [Input("fastHttpsJson")]
+        public Input<string>? FastHttpsJson { get; set; }
 
         /// <summary>
         /// A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
@@ -340,10 +431,54 @@ namespace Pulumi.F5BigIP
         public Input<string>? LoadBalancingMode { get; set; }
 
         /// <summary>
+        /// `monitor` block takes input for FAST-Generated Pool Monitor.
+        /// See Pool Monitor below for more details.
+        /// </summary>
+        [Input("monitor")]
+        public Input<Inputs.FastHttpsAppMonitorGetArgs>? Monitor { get; set; }
+
+        [Input("poolMembers")]
+        private InputList<Inputs.FastHttpsAppPoolMemberGetArgs>? _poolMembers;
+
+        /// <summary>
+        /// `pool_members` block takes input for FAST-Generated Pool.
+        /// See Pool Members below for more details.
+        /// </summary>
+        public InputList<Inputs.FastHttpsAppPoolMemberGetArgs> PoolMembers
+        {
+            get => _poolMembers ?? (_poolMembers = new InputList<Inputs.FastHttpsAppPoolMemberGetArgs>());
+            set => _poolMembers = value;
+        }
+
+        [Input("securityLogProfiles")]
+        private InputList<string>? _securityLogProfiles;
+
+        /// <summary>
+        /// List of security log profiles to be used for FAST application
+        /// </summary>
+        public InputList<string> SecurityLogProfiles
+        {
+            get => _securityLogProfiles ?? (_securityLogProfiles = new InputList<string>());
+            set => _securityLogProfiles = value;
+        }
+
+        /// <summary>
         /// Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
         /// </summary>
         [Input("slowRampTime")]
         public Input<int>? SlowRampTime { get; set; }
+
+        [Input("snatPoolAddresses")]
+        private InputList<string>? _snatPoolAddresses;
+
+        /// <summary>
+        /// List of address to be used for FAST-Generated SNAT Pool.
+        /// </summary>
+        public InputList<string> SnatPoolAddresses
+        {
+            get => _snatPoolAddresses ?? (_snatPoolAddresses = new InputList<string>());
+            set => _snatPoolAddresses = value;
+        }
 
         /// <summary>
         /// Name of the FAST HTTPS application tenant.
@@ -352,10 +487,18 @@ namespace Pulumi.F5BigIP
         public Input<string>? Tenant { get; set; }
 
         /// <summary>
-        /// Name of an existing TLS server profile.
+        /// `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
+        /// See TLS Client Profile below for more details.
         /// </summary>
-        [Input("tlsServerProfileName")]
-        public Input<string>? TlsServerProfileName { get; set; }
+        [Input("tlsClientProfile")]
+        public Input<Inputs.FastHttpsAppTlsClientProfileGetArgs>? TlsClientProfile { get; set; }
+
+        /// <summary>
+        /// `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
+        /// See TLS Server Profile below for more details.
+        /// </summary>
+        [Input("tlsServerProfile")]
+        public Input<Inputs.FastHttpsAppTlsServerProfileGetArgs>? TlsServerProfile { get; set; }
 
         /// <summary>
         /// `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
@@ -363,6 +506,13 @@ namespace Pulumi.F5BigIP
         /// </summary>
         [Input("virtualServer")]
         public Input<Inputs.FastHttpsAppVirtualServerGetArgs>? VirtualServer { get; set; }
+
+        /// <summary>
+        /// `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+        /// See WAF Security Policy below for more details.
+        /// </summary>
+        [Input("wafSecurityPolicy")]
+        public Input<Inputs.FastHttpsAppWafSecurityPolicyGetArgs>? WafSecurityPolicy { get; set; }
 
         public FastHttpsAppState()
         {

@@ -24,9 +24,9 @@ namespace Pulumi.F5BigIP
     ///     var fast_tcp_app = new F5BigIP.FastTcpApp("fast-tcp-app", new()
     ///     {
     ///         Application = "tcp_app_2",
-    ///         FastCreatePoolMembers = new[]
+    ///         PoolMembers = new[]
     ///         {
-    ///             new F5BigIP.Inputs.FastTcpAppFastCreatePoolMemberArgs
+    ///             new F5BigIP.Inputs.FastTcpAppPoolMemberArgs
     ///             {
     ///                 Addresses = new[]
     ///                 {
@@ -60,42 +60,22 @@ namespace Pulumi.F5BigIP
         public Output<string> Application { get; private set; } = null!;
 
         /// <summary>
-        /// Name of an existing BIG-IP pool.
-        /// </summary>
-        [Output("existPoolName")]
-        public Output<string?> ExistPoolName { get; private set; } = null!;
-
-        /// <summary>
         /// Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
         /// </summary>
         [Output("existingMonitor")]
         public Output<string?> ExistingMonitor { get; private set; } = null!;
 
         /// <summary>
+        /// Name of an existing BIG-IP pool.
+        /// </summary>
+        [Output("existingPool")]
+        public Output<string?> ExistingPool { get; private set; } = null!;
+
+        /// <summary>
         /// Name of an existing BIG-IP SNAT pool.
         /// </summary>
         [Output("existingSnatPool")]
         public Output<string?> ExistingSnatPool { get; private set; } = null!;
-
-        /// <summary>
-        /// `fast_create_monitor` block takes input for FAST-Generated Pool Monitor.
-        /// See Pool Monitor below for more details.
-        /// </summary>
-        [Output("fastCreateMonitor")]
-        public Output<Outputs.FastTcpAppFastCreateMonitor?> FastCreateMonitor { get; private set; } = null!;
-
-        /// <summary>
-        /// `fast_create_pool_members` block takes input for FAST-Generated Pool.
-        /// See Pool Members below for more details.
-        /// </summary>
-        [Output("fastCreatePoolMembers")]
-        public Output<ImmutableArray<Outputs.FastTcpAppFastCreatePoolMember>> FastCreatePoolMembers { get; private set; } = null!;
-
-        /// <summary>
-        /// List of address to be used for FAST-Generated SNAT Pool.
-        /// </summary>
-        [Output("fastCreateSnatPoolAddresses")]
-        public Output<ImmutableArray<string>> FastCreateSnatPoolAddresses { get; private set; } = null!;
 
         /// <summary>
         /// Json payload for FAST TCP application.
@@ -110,10 +90,30 @@ namespace Pulumi.F5BigIP
         public Output<string?> LoadBalancingMode { get; private set; } = null!;
 
         /// <summary>
+        /// `monitor` block takes input for FAST-Generated Pool Monitor.
+        /// See Pool Monitor below for more details.
+        /// </summary>
+        [Output("monitor")]
+        public Output<Outputs.FastTcpAppMonitor?> Monitor { get; private set; } = null!;
+
+        /// <summary>
+        /// `pool_members` block takes input for FAST-Generated Pool.
+        /// See Pool Members below for more details.
+        /// </summary>
+        [Output("poolMembers")]
+        public Output<ImmutableArray<Outputs.FastTcpAppPoolMember>> PoolMembers { get; private set; } = null!;
+
+        /// <summary>
         /// Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
         /// </summary>
         [Output("slowRampTime")]
         public Output<int?> SlowRampTime { get; private set; } = null!;
+
+        /// <summary>
+        /// List of address to be used for FAST-Generated SNAT Pool.
+        /// </summary>
+        [Output("snatPoolAddresses")]
+        public Output<ImmutableArray<string>> SnatPoolAddresses { get; private set; } = null!;
 
         /// <summary>
         /// Name of the FAST TCP application tenant.
@@ -181,16 +181,16 @@ namespace Pulumi.F5BigIP
         public Input<string> Application { get; set; } = null!;
 
         /// <summary>
-        /// Name of an existing BIG-IP pool.
-        /// </summary>
-        [Input("existPoolName")]
-        public Input<string>? ExistPoolName { get; set; }
-
-        /// <summary>
         /// Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
         /// </summary>
         [Input("existingMonitor")]
         public Input<string>? ExistingMonitor { get; set; }
+
+        /// <summary>
+        /// Name of an existing BIG-IP pool.
+        /// </summary>
+        [Input("existingPool")]
+        public Input<string>? ExistingPool { get; set; }
 
         /// <summary>
         /// Name of an existing BIG-IP SNAT pool.
@@ -199,48 +199,48 @@ namespace Pulumi.F5BigIP
         public Input<string>? ExistingSnatPool { get; set; }
 
         /// <summary>
-        /// `fast_create_monitor` block takes input for FAST-Generated Pool Monitor.
-        /// See Pool Monitor below for more details.
-        /// </summary>
-        [Input("fastCreateMonitor")]
-        public Input<Inputs.FastTcpAppFastCreateMonitorArgs>? FastCreateMonitor { get; set; }
-
-        [Input("fastCreatePoolMembers")]
-        private InputList<Inputs.FastTcpAppFastCreatePoolMemberArgs>? _fastCreatePoolMembers;
-
-        /// <summary>
-        /// `fast_create_pool_members` block takes input for FAST-Generated Pool.
-        /// See Pool Members below for more details.
-        /// </summary>
-        public InputList<Inputs.FastTcpAppFastCreatePoolMemberArgs> FastCreatePoolMembers
-        {
-            get => _fastCreatePoolMembers ?? (_fastCreatePoolMembers = new InputList<Inputs.FastTcpAppFastCreatePoolMemberArgs>());
-            set => _fastCreatePoolMembers = value;
-        }
-
-        [Input("fastCreateSnatPoolAddresses")]
-        private InputList<string>? _fastCreateSnatPoolAddresses;
-
-        /// <summary>
-        /// List of address to be used for FAST-Generated SNAT Pool.
-        /// </summary>
-        public InputList<string> FastCreateSnatPoolAddresses
-        {
-            get => _fastCreateSnatPoolAddresses ?? (_fastCreateSnatPoolAddresses = new InputList<string>());
-            set => _fastCreateSnatPoolAddresses = value;
-        }
-
-        /// <summary>
         /// A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
         /// </summary>
         [Input("loadBalancingMode")]
         public Input<string>? LoadBalancingMode { get; set; }
 
         /// <summary>
+        /// `monitor` block takes input for FAST-Generated Pool Monitor.
+        /// See Pool Monitor below for more details.
+        /// </summary>
+        [Input("monitor")]
+        public Input<Inputs.FastTcpAppMonitorArgs>? Monitor { get; set; }
+
+        [Input("poolMembers")]
+        private InputList<Inputs.FastTcpAppPoolMemberArgs>? _poolMembers;
+
+        /// <summary>
+        /// `pool_members` block takes input for FAST-Generated Pool.
+        /// See Pool Members below for more details.
+        /// </summary>
+        public InputList<Inputs.FastTcpAppPoolMemberArgs> PoolMembers
+        {
+            get => _poolMembers ?? (_poolMembers = new InputList<Inputs.FastTcpAppPoolMemberArgs>());
+            set => _poolMembers = value;
+        }
+
+        /// <summary>
         /// Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
         /// </summary>
         [Input("slowRampTime")]
         public Input<int>? SlowRampTime { get; set; }
+
+        [Input("snatPoolAddresses")]
+        private InputList<string>? _snatPoolAddresses;
+
+        /// <summary>
+        /// List of address to be used for FAST-Generated SNAT Pool.
+        /// </summary>
+        public InputList<string> SnatPoolAddresses
+        {
+            get => _snatPoolAddresses ?? (_snatPoolAddresses = new InputList<string>());
+            set => _snatPoolAddresses = value;
+        }
 
         /// <summary>
         /// Name of the FAST TCP application tenant.
@@ -270,54 +270,22 @@ namespace Pulumi.F5BigIP
         public Input<string>? Application { get; set; }
 
         /// <summary>
-        /// Name of an existing BIG-IP pool.
-        /// </summary>
-        [Input("existPoolName")]
-        public Input<string>? ExistPoolName { get; set; }
-
-        /// <summary>
         /// Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
         /// </summary>
         [Input("existingMonitor")]
         public Input<string>? ExistingMonitor { get; set; }
 
         /// <summary>
+        /// Name of an existing BIG-IP pool.
+        /// </summary>
+        [Input("existingPool")]
+        public Input<string>? ExistingPool { get; set; }
+
+        /// <summary>
         /// Name of an existing BIG-IP SNAT pool.
         /// </summary>
         [Input("existingSnatPool")]
         public Input<string>? ExistingSnatPool { get; set; }
-
-        /// <summary>
-        /// `fast_create_monitor` block takes input for FAST-Generated Pool Monitor.
-        /// See Pool Monitor below for more details.
-        /// </summary>
-        [Input("fastCreateMonitor")]
-        public Input<Inputs.FastTcpAppFastCreateMonitorGetArgs>? FastCreateMonitor { get; set; }
-
-        [Input("fastCreatePoolMembers")]
-        private InputList<Inputs.FastTcpAppFastCreatePoolMemberGetArgs>? _fastCreatePoolMembers;
-
-        /// <summary>
-        /// `fast_create_pool_members` block takes input for FAST-Generated Pool.
-        /// See Pool Members below for more details.
-        /// </summary>
-        public InputList<Inputs.FastTcpAppFastCreatePoolMemberGetArgs> FastCreatePoolMembers
-        {
-            get => _fastCreatePoolMembers ?? (_fastCreatePoolMembers = new InputList<Inputs.FastTcpAppFastCreatePoolMemberGetArgs>());
-            set => _fastCreatePoolMembers = value;
-        }
-
-        [Input("fastCreateSnatPoolAddresses")]
-        private InputList<string>? _fastCreateSnatPoolAddresses;
-
-        /// <summary>
-        /// List of address to be used for FAST-Generated SNAT Pool.
-        /// </summary>
-        public InputList<string> FastCreateSnatPoolAddresses
-        {
-            get => _fastCreateSnatPoolAddresses ?? (_fastCreateSnatPoolAddresses = new InputList<string>());
-            set => _fastCreateSnatPoolAddresses = value;
-        }
 
         /// <summary>
         /// Json payload for FAST TCP application.
@@ -332,10 +300,42 @@ namespace Pulumi.F5BigIP
         public Input<string>? LoadBalancingMode { get; set; }
 
         /// <summary>
+        /// `monitor` block takes input for FAST-Generated Pool Monitor.
+        /// See Pool Monitor below for more details.
+        /// </summary>
+        [Input("monitor")]
+        public Input<Inputs.FastTcpAppMonitorGetArgs>? Monitor { get; set; }
+
+        [Input("poolMembers")]
+        private InputList<Inputs.FastTcpAppPoolMemberGetArgs>? _poolMembers;
+
+        /// <summary>
+        /// `pool_members` block takes input for FAST-Generated Pool.
+        /// See Pool Members below for more details.
+        /// </summary>
+        public InputList<Inputs.FastTcpAppPoolMemberGetArgs> PoolMembers
+        {
+            get => _poolMembers ?? (_poolMembers = new InputList<Inputs.FastTcpAppPoolMemberGetArgs>());
+            set => _poolMembers = value;
+        }
+
+        /// <summary>
         /// Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
         /// </summary>
         [Input("slowRampTime")]
         public Input<int>? SlowRampTime { get; set; }
+
+        [Input("snatPoolAddresses")]
+        private InputList<string>? _snatPoolAddresses;
+
+        /// <summary>
+        /// List of address to be used for FAST-Generated SNAT Pool.
+        /// </summary>
+        public InputList<string> SnatPoolAddresses
+        {
+            get => _snatPoolAddresses ?? (_snatPoolAddresses = new InputList<string>());
+            set => _snatPoolAddresses = value;
+        }
 
         /// <summary>
         /// Name of the FAST TCP application tenant.

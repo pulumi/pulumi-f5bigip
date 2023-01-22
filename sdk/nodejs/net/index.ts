@@ -5,14 +5,21 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./route";
-export * from "./selfIp";
-export * from "./vlan";
+export { RouteArgs, RouteState } from "./route";
+export type Route = import("./route").Route;
+export const Route: typeof import("./route").Route = null as any;
+utilities.lazyLoad(exports, ["Route"], () => require("./route"));
 
-// Import resources to register:
-import { Route } from "./route";
-import { SelfIp } from "./selfIp";
-import { Vlan } from "./vlan";
+export { SelfIpArgs, SelfIpState } from "./selfIp";
+export type SelfIp = import("./selfIp").SelfIp;
+export const SelfIp: typeof import("./selfIp").SelfIp = null as any;
+utilities.lazyLoad(exports, ["SelfIp"], () => require("./selfIp"));
+
+export { VlanArgs, VlanState } from "./vlan";
+export type Vlan = import("./vlan").Vlan;
+export const Vlan: typeof import("./vlan").Vlan = null as any;
+utilities.lazyLoad(exports, ["Vlan"], () => require("./vlan"));
+
 
 const _module = {
     version: utilities.getVersion(),

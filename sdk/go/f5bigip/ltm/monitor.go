@@ -147,6 +147,13 @@ func NewMonitor(ctx *pulumi.Context,
 	if args.Parent == nil {
 		return nil, errors.New("invalid value for required argument 'Parent'")
 	}
+	if args.Password != nil {
+		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"password",
+	})
+	opts = append(opts, secrets)
 	var resource Monitor
 	err := ctx.RegisterResource("f5bigip:ltm/monitor:Monitor", name, args, &resource, opts...)
 	if err != nil {

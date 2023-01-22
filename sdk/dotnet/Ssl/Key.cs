@@ -60,6 +60,12 @@ namespace Pulumi.F5BigIP.Ssl
         [Output("partition")]
         public Output<string?> Partition { get; private set; } = null!;
 
+        /// <summary>
+        /// Passphrase on key.
+        /// </summary>
+        [Output("passphrase")]
+        public Output<string?> Passphrase { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Key resource with the given unique name, arguments, and options.
@@ -83,6 +89,11 @@ namespace Pulumi.F5BigIP.Ssl
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "content",
+                    "passphrase",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -106,11 +117,21 @@ namespace Pulumi.F5BigIP.Ssl
 
     public sealed class KeyArgs : global::Pulumi.ResourceArgs
     {
+        [Input("content", required: true)]
+        private Input<string>? _content;
+
         /// <summary>
         /// Content of SSL certificate key present on local Disk
         /// </summary>
-        [Input("content", required: true)]
-        public Input<string> Content { get; set; } = null!;
+        public Input<string>? Content
+        {
+            get => _content;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _content = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Full Path Name of ssl key
@@ -130,6 +151,22 @@ namespace Pulumi.F5BigIP.Ssl
         [Input("partition")]
         public Input<string>? Partition { get; set; }
 
+        [Input("passphrase")]
+        private Input<string>? _passphrase;
+
+        /// <summary>
+        /// Passphrase on key.
+        /// </summary>
+        public Input<string>? Passphrase
+        {
+            get => _passphrase;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _passphrase = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
         public KeyArgs()
         {
         }
@@ -138,11 +175,21 @@ namespace Pulumi.F5BigIP.Ssl
 
     public sealed class KeyState : global::Pulumi.ResourceArgs
     {
+        [Input("content")]
+        private Input<string>? _content;
+
         /// <summary>
         /// Content of SSL certificate key present on local Disk
         /// </summary>
-        [Input("content")]
-        public Input<string>? Content { get; set; }
+        public Input<string>? Content
+        {
+            get => _content;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _content = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Full Path Name of ssl key
@@ -161,6 +208,22 @@ namespace Pulumi.F5BigIP.Ssl
         /// </summary>
         [Input("partition")]
         public Input<string>? Partition { get; set; }
+
+        [Input("passphrase")]
+        private Input<string>? _passphrase;
+
+        /// <summary>
+        /// Passphrase on key.
+        /// </summary>
+        public Input<string>? Passphrase
+        {
+            get => _passphrase;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _passphrase = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public KeyState()
         {

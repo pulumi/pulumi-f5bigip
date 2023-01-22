@@ -12,7 +12,7 @@ namespace Pulumi.F5BigIP.Ltm
     /// <summary>
     /// `f5bigip.ltm.ProfileHttpCompress`  Virtual server HTTP compression profile configuration
     /// 
-    /// Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )
+    /// Resources should be named with their `full path`.The full path is the combination of the `partition + name` (example: `/Common/my-httpcompresprofile` ) or  `partition + directory + name` of the resource  (example: `/Common/test/my-httpcompresprofile`)
     /// 
     /// ## Example Usage
     /// 
@@ -48,10 +48,24 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// });
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// BIG-IP LTM HTTP Compress profiles can be imported using the `name`, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import f5bigip:ltm/profileHttpCompress:ProfileHttpCompress test-httpcomprs_import /Common/test-httpcomprs
+    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/profileHttpCompress:ProfileHttpCompress")]
     public partial class ProfileHttpCompress : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Specifies the maximum number of compressed bytes that the system buffers before inserting a Content-Length header (which specifies the compressed size) into the response. The default is `4096` bytes.
+        /// </summary>
+        [Output("compressionBuffersize")]
+        public Output<int> CompressionBuffersize { get; private set; } = null!;
+
         /// <summary>
         /// Excludes a specified list of content types from compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
         /// </summary>
@@ -65,13 +79,43 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<ImmutableArray<string>> ContentTypeIncludes { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies, when checked (enabled), that the system monitors the percent CPU usage and adjusts compression rates automatically when the CPU usage reaches either the CPU Saver High Threshold or the CPU Saver Low Threshold. The default is `enabled`.
+        /// </summary>
+        [Output("cpuSaver")]
+        public Output<string> CpuSaver { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         /// </summary>
         [Output("defaultsFrom")]
         public Output<string> DefaultsFrom { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the profile_httpcompress
+        /// Specifies the degree to which the system compresses the content. Higher compression levels cause the compression process to be slower. The default is 1 - Least Compression (Fastest)
+        /// </summary>
+        [Output("gzipCompressionLevel")]
+        public Output<int> GzipCompressionLevel { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the number of bytes of memory that the system uses for internal compression buffers when compressing a server response. The default is `8 kilobytes/8192 bytes`.
+        /// </summary>
+        [Output("gzipMemoryLevel")]
+        public Output<int> GzipMemoryLevel { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the number of kilobytes in the window size that the system uses when compressing a server response. The default is `16` kilobytes
+        /// </summary>
+        [Output("gzipWindowSize")]
+        public Output<int> GzipWindowSize { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies, when checked (enabled), that the system does not remove the Accept-Encoding: header from an HTTP request. The default is `disabled`.
+        /// </summary>
+        [Output("keepAcceptEncoding")]
+        public Output<string> KeepAcceptEncoding { get; private set; } = null!;
+
+        /// <summary>
+        /// Name of the LTM http compress profile,named with their `full path`.The full path is the combination of the `partition + name` (example: `/Common/my-httpcompresprofile` ) or  `partition + directory + name` of the resource  (example: `my-httpcompresprofile`)
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -87,6 +131,12 @@ namespace Pulumi.F5BigIP.Ltm
         /// </summary>
         [Output("uriIncludes")]
         public Output<ImmutableArray<string>> UriIncludes { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies, when checked (enabled), that the system inserts a Vary header into cacheable server responses. The default is `enabled`.
+        /// </summary>
+        [Output("varyHeader")]
+        public Output<string> VaryHeader { get; private set; } = null!;
 
 
         /// <summary>
@@ -134,6 +184,12 @@ namespace Pulumi.F5BigIP.Ltm
 
     public sealed class ProfileHttpCompressArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the maximum number of compressed bytes that the system buffers before inserting a Content-Length header (which specifies the compressed size) into the response. The default is `4096` bytes.
+        /// </summary>
+        [Input("compressionBuffersize")]
+        public Input<int>? CompressionBuffersize { get; set; }
+
         [Input("contentTypeExcludes")]
         private InputList<string>? _contentTypeExcludes;
 
@@ -159,13 +215,43 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
+        /// Specifies, when checked (enabled), that the system monitors the percent CPU usage and adjusts compression rates automatically when the CPU usage reaches either the CPU Saver High Threshold or the CPU Saver Low Threshold. The default is `enabled`.
+        /// </summary>
+        [Input("cpuSaver")]
+        public Input<string>? CpuSaver { get; set; }
+
+        /// <summary>
         /// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         /// </summary>
         [Input("defaultsFrom")]
         public Input<string>? DefaultsFrom { get; set; }
 
         /// <summary>
-        /// Name of the profile_httpcompress
+        /// Specifies the degree to which the system compresses the content. Higher compression levels cause the compression process to be slower. The default is 1 - Least Compression (Fastest)
+        /// </summary>
+        [Input("gzipCompressionLevel")]
+        public Input<int>? GzipCompressionLevel { get; set; }
+
+        /// <summary>
+        /// Specifies the number of bytes of memory that the system uses for internal compression buffers when compressing a server response. The default is `8 kilobytes/8192 bytes`.
+        /// </summary>
+        [Input("gzipMemoryLevel")]
+        public Input<int>? GzipMemoryLevel { get; set; }
+
+        /// <summary>
+        /// Specifies the number of kilobytes in the window size that the system uses when compressing a server response. The default is `16` kilobytes
+        /// </summary>
+        [Input("gzipWindowSize")]
+        public Input<int>? GzipWindowSize { get; set; }
+
+        /// <summary>
+        /// Specifies, when checked (enabled), that the system does not remove the Accept-Encoding: header from an HTTP request. The default is `disabled`.
+        /// </summary>
+        [Input("keepAcceptEncoding")]
+        public Input<string>? KeepAcceptEncoding { get; set; }
+
+        /// <summary>
+        /// Name of the LTM http compress profile,named with their `full path`.The full path is the combination of the `partition + name` (example: `/Common/my-httpcompresprofile` ) or  `partition + directory + name` of the resource  (example: `my-httpcompresprofile`)
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -194,6 +280,12 @@ namespace Pulumi.F5BigIP.Ltm
             set => _uriIncludes = value;
         }
 
+        /// <summary>
+        /// Specifies, when checked (enabled), that the system inserts a Vary header into cacheable server responses. The default is `enabled`.
+        /// </summary>
+        [Input("varyHeader")]
+        public Input<string>? VaryHeader { get; set; }
+
         public ProfileHttpCompressArgs()
         {
         }
@@ -202,6 +294,12 @@ namespace Pulumi.F5BigIP.Ltm
 
     public sealed class ProfileHttpCompressState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the maximum number of compressed bytes that the system buffers before inserting a Content-Length header (which specifies the compressed size) into the response. The default is `4096` bytes.
+        /// </summary>
+        [Input("compressionBuffersize")]
+        public Input<int>? CompressionBuffersize { get; set; }
+
         [Input("contentTypeExcludes")]
         private InputList<string>? _contentTypeExcludes;
 
@@ -227,13 +325,43 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
+        /// Specifies, when checked (enabled), that the system monitors the percent CPU usage and adjusts compression rates automatically when the CPU usage reaches either the CPU Saver High Threshold or the CPU Saver Low Threshold. The default is `enabled`.
+        /// </summary>
+        [Input("cpuSaver")]
+        public Input<string>? CpuSaver { get; set; }
+
+        /// <summary>
         /// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
         /// </summary>
         [Input("defaultsFrom")]
         public Input<string>? DefaultsFrom { get; set; }
 
         /// <summary>
-        /// Name of the profile_httpcompress
+        /// Specifies the degree to which the system compresses the content. Higher compression levels cause the compression process to be slower. The default is 1 - Least Compression (Fastest)
+        /// </summary>
+        [Input("gzipCompressionLevel")]
+        public Input<int>? GzipCompressionLevel { get; set; }
+
+        /// <summary>
+        /// Specifies the number of bytes of memory that the system uses for internal compression buffers when compressing a server response. The default is `8 kilobytes/8192 bytes`.
+        /// </summary>
+        [Input("gzipMemoryLevel")]
+        public Input<int>? GzipMemoryLevel { get; set; }
+
+        /// <summary>
+        /// Specifies the number of kilobytes in the window size that the system uses when compressing a server response. The default is `16` kilobytes
+        /// </summary>
+        [Input("gzipWindowSize")]
+        public Input<int>? GzipWindowSize { get; set; }
+
+        /// <summary>
+        /// Specifies, when checked (enabled), that the system does not remove the Accept-Encoding: header from an HTTP request. The default is `disabled`.
+        /// </summary>
+        [Input("keepAcceptEncoding")]
+        public Input<string>? KeepAcceptEncoding { get; set; }
+
+        /// <summary>
+        /// Name of the LTM http compress profile,named with their `full path`.The full path is the combination of the `partition + name` (example: `/Common/my-httpcompresprofile` ) or  `partition + directory + name` of the resource  (example: `my-httpcompresprofile`)
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -261,6 +389,12 @@ namespace Pulumi.F5BigIP.Ltm
             get => _uriIncludes ?? (_uriIncludes = new InputList<string>());
             set => _uriIncludes = value;
         }
+
+        /// <summary>
+        /// Specifies, when checked (enabled), that the system inserts a Vary header into cacheable server responses. The default is `enabled`.
+        /// </summary>
+        [Input("varyHeader")]
+        public Input<string>? VaryHeader { get; set; }
 
         public ProfileHttpCompressState()
         {

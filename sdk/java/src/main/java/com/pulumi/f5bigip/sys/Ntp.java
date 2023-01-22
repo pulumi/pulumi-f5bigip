@@ -16,9 +16,8 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * `f5bigip.sys.Ntp` provides details about a specific bigip
+ * `f5bigip.sys.Ntp` resource is helpful when configuring NTP server on the BIG-IP.
  * 
- * This resource is helpful when configuring NTP server on the BIG-IP.
  * ## Example Usage
  * ```java
  * package generated_program;
@@ -55,32 +54,32 @@ import javax.annotation.Nullable;
 @ResourceType(type="f5bigip:sys/ntp:Ntp")
 public class Ntp extends com.pulumi.resources.CustomResource {
     /**
-     * Name of the ntp Servers
+     * User defined description.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output<String> description;
 
     /**
-     * @return Name of the ntp Servers
+     * @return User defined description.
      * 
      */
     public Output<String> description() {
         return this.description;
     }
     /**
-     * Adds NTP servers to or deletes NTP servers from the BIG-IP system.
+     * Specifies the time servers that the system uses to update the system time.
      * 
      */
     @Export(name="servers", type=List.class, parameters={String.class})
-    private Output</* @Nullable */ List<String>> servers;
+    private Output<List<String>> servers;
 
     /**
-     * @return Adds NTP servers to or deletes NTP servers from the BIG-IP system.
+     * @return Specifies the time servers that the system uses to update the system time.
      * 
      */
-    public Output<Optional<List<String>>> servers() {
-        return Codegen.optional(this.servers);
+    public Output<List<String>> servers() {
+        return this.servers;
     }
     /**
      * Specifies the time zone that you want to use for the system time.

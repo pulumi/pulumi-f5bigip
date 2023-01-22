@@ -12,10 +12,10 @@ namespace Pulumi.F5BigIP.Ssl
     public static class GetWafEntityParameter
     {
         public static Task<GetWafEntityParameterResult> InvokeAsync(GetWafEntityParameterArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWafEntityParameterResult>("f5bigip:ssl/getWafEntityParameter:getWafEntityParameter", args ?? new GetWafEntityParameterArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWafEntityParameterResult>("f5bigip:ssl/getWafEntityParameter:getWafEntityParameter", args ?? new GetWafEntityParameterArgs(), options.WithDefaults());
 
         public static Output<GetWafEntityParameterResult> Invoke(GetWafEntityParameterInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWafEntityParameterResult>("f5bigip:ssl/getWafEntityParameter:getWafEntityParameter", args ?? new GetWafEntityParameterInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWafEntityParameterResult>("f5bigip:ssl/getWafEntityParameter:getWafEntityParameter", args ?? new GetWafEntityParameterInvokeArgs(), options.WithDefaults());
     }
 
 
@@ -88,6 +88,9 @@ namespace Pulumi.F5BigIP.Ssl
 
         [Input("type")]
         public string? Type { get; set; }
+
+        [Input("url")]
+        public Inputs.GetWafEntityParameterUrlArgs? Url { get; set; }
 
         [Input("valueType")]
         public string? ValueType { get; set; }
@@ -168,6 +171,9 @@ namespace Pulumi.F5BigIP.Ssl
         [Input("type")]
         public Input<string>? Type { get; set; }
 
+        [Input("url")]
+        public Input<Inputs.GetWafEntityParameterUrlInputArgs>? Url { get; set; }
+
         [Input("valueType")]
         public Input<string>? ValueType { get; set; }
 
@@ -206,6 +212,7 @@ namespace Pulumi.F5BigIP.Ssl
         public readonly bool? SensitiveParameter;
         public readonly ImmutableArray<int> SignatureOverridesDisables;
         public readonly string? Type;
+        public readonly Outputs.GetWafEntityParameterUrlResult? Url;
         public readonly string? ValueType;
 
         [OutputConstructor]
@@ -254,6 +261,8 @@ namespace Pulumi.F5BigIP.Ssl
 
             string? type,
 
+            Outputs.GetWafEntityParameterUrlResult? url,
+
             string? valueType)
         {
             AllowEmptyType = allowEmptyType;
@@ -278,6 +287,7 @@ namespace Pulumi.F5BigIP.Ssl
             SensitiveParameter = sensitiveParameter;
             SignatureOverridesDisables = signatureOverridesDisables;
             Type = type;
+            Url = url;
             ValueType = valueType;
         }
     }

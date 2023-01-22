@@ -30,6 +30,7 @@ class ProfileServerSslArgs:
                  cache_timeout: Optional[pulumi.Input[int]] = None,
                  cert: Optional[pulumi.Input[str]] = None,
                  chain: Optional[pulumi.Input[str]] = None,
+                 cipher_group: Optional[pulumi.Input[str]] = None,
                  ciphers: Optional[pulumi.Input[str]] = None,
                  defaults_from: Optional[pulumi.Input[str]] = None,
                  expire_cert_response_control: Optional[pulumi.Input[str]] = None,
@@ -83,6 +84,7 @@ class ProfileServerSslArgs:
         :param pulumi.Input[int] cache_timeout: Cache time out
         :param pulumi.Input[str] cert: Specifies the name of the certificate that the system uses for server-side SSL processing.
         :param pulumi.Input[str] chain: Specifies the certificates-key chain to associate with the SSL profile
+        :param pulumi.Input[str] cipher_group: Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
         :param pulumi.Input[str] ciphers: Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
         :param pulumi.Input[str] defaults_from: The parent template of this monitor template. Once this value has been set, it cannot be changed. By default, this value is `/Common/serverssl`.
         :param pulumi.Input[str] expire_cert_response_control: Response if the cert is expired (drop / ignore).
@@ -155,6 +157,8 @@ class ProfileServerSslArgs:
             pulumi.set(__self__, "cert", cert)
         if chain is not None:
             pulumi.set(__self__, "chain", chain)
+        if cipher_group is not None:
+            pulumi.set(__self__, "cipher_group", cipher_group)
         if ciphers is not None:
             pulumi.set(__self__, "ciphers", ciphers)
         if defaults_from is not None:
@@ -416,6 +420,18 @@ class ProfileServerSslArgs:
     @chain.setter
     def chain(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "chain", value)
+
+    @property
+    @pulumi.getter(name="cipherGroup")
+    def cipher_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+        """
+        return pulumi.get(self, "cipher_group")
+
+    @cipher_group.setter
+    def cipher_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cipher_group", value)
 
     @property
     @pulumi.getter
@@ -850,6 +866,7 @@ class _ProfileServerSslState:
                  cache_timeout: Optional[pulumi.Input[int]] = None,
                  cert: Optional[pulumi.Input[str]] = None,
                  chain: Optional[pulumi.Input[str]] = None,
+                 cipher_group: Optional[pulumi.Input[str]] = None,
                  ciphers: Optional[pulumi.Input[str]] = None,
                  defaults_from: Optional[pulumi.Input[str]] = None,
                  expire_cert_response_control: Optional[pulumi.Input[str]] = None,
@@ -903,6 +920,7 @@ class _ProfileServerSslState:
         :param pulumi.Input[int] cache_timeout: Cache time out
         :param pulumi.Input[str] cert: Specifies the name of the certificate that the system uses for server-side SSL processing.
         :param pulumi.Input[str] chain: Specifies the certificates-key chain to associate with the SSL profile
+        :param pulumi.Input[str] cipher_group: Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
         :param pulumi.Input[str] ciphers: Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
         :param pulumi.Input[str] defaults_from: The parent template of this monitor template. Once this value has been set, it cannot be changed. By default, this value is `/Common/serverssl`.
         :param pulumi.Input[str] expire_cert_response_control: Response if the cert is expired (drop / ignore).
@@ -975,6 +993,8 @@ class _ProfileServerSslState:
             pulumi.set(__self__, "cert", cert)
         if chain is not None:
             pulumi.set(__self__, "chain", chain)
+        if cipher_group is not None:
+            pulumi.set(__self__, "cipher_group", cipher_group)
         if ciphers is not None:
             pulumi.set(__self__, "ciphers", ciphers)
         if defaults_from is not None:
@@ -1226,6 +1246,18 @@ class _ProfileServerSslState:
     @chain.setter
     def chain(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "chain", value)
+
+    @property
+    @pulumi.getter(name="cipherGroup")
+    def cipher_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+        """
+        return pulumi.get(self, "cipher_group")
+
+    @cipher_group.setter
+    def cipher_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cipher_group", value)
 
     @property
     @pulumi.getter
@@ -1674,6 +1706,7 @@ class ProfileServerSsl(pulumi.CustomResource):
                  cache_timeout: Optional[pulumi.Input[int]] = None,
                  cert: Optional[pulumi.Input[str]] = None,
                  chain: Optional[pulumi.Input[str]] = None,
+                 cipher_group: Optional[pulumi.Input[str]] = None,
                  ciphers: Optional[pulumi.Input[str]] = None,
                  defaults_from: Optional[pulumi.Input[str]] = None,
                  expire_cert_response_control: Optional[pulumi.Input[str]] = None,
@@ -1746,6 +1779,7 @@ class ProfileServerSsl(pulumi.CustomResource):
         :param pulumi.Input[int] cache_timeout: Cache time out
         :param pulumi.Input[str] cert: Specifies the name of the certificate that the system uses for server-side SSL processing.
         :param pulumi.Input[str] chain: Specifies the certificates-key chain to associate with the SSL profile
+        :param pulumi.Input[str] cipher_group: Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
         :param pulumi.Input[str] ciphers: Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
         :param pulumi.Input[str] defaults_from: The parent template of this monitor template. Once this value has been set, it cannot be changed. By default, this value is `/Common/serverssl`.
         :param pulumi.Input[str] expire_cert_response_control: Response if the cert is expired (drop / ignore).
@@ -1842,6 +1876,7 @@ class ProfileServerSsl(pulumi.CustomResource):
                  cache_timeout: Optional[pulumi.Input[int]] = None,
                  cert: Optional[pulumi.Input[str]] = None,
                  chain: Optional[pulumi.Input[str]] = None,
+                 cipher_group: Optional[pulumi.Input[str]] = None,
                  ciphers: Optional[pulumi.Input[str]] = None,
                  defaults_from: Optional[pulumi.Input[str]] = None,
                  expire_cert_response_control: Optional[pulumi.Input[str]] = None,
@@ -1901,6 +1936,7 @@ class ProfileServerSsl(pulumi.CustomResource):
             __props__.__dict__["cache_timeout"] = cache_timeout
             __props__.__dict__["cert"] = cert
             __props__.__dict__["chain"] = chain
+            __props__.__dict__["cipher_group"] = cipher_group
             __props__.__dict__["ciphers"] = ciphers
             __props__.__dict__["defaults_from"] = defaults_from
             __props__.__dict__["expire_cert_response_control"] = expire_cert_response_control
@@ -1915,7 +1951,7 @@ class ProfileServerSsl(pulumi.CustomResource):
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["partition"] = partition
-            __props__.__dict__["passphrase"] = passphrase
+            __props__.__dict__["passphrase"] = None if passphrase is None else pulumi.Output.secret(passphrase)
             __props__.__dict__["peer_cert_mode"] = peer_cert_mode
             __props__.__dict__["proxy_ca_cert"] = proxy_ca_cert
             __props__.__dict__["proxy_ca_key"] = proxy_ca_key
@@ -1938,6 +1974,8 @@ class ProfileServerSsl(pulumi.CustomResource):
             __props__.__dict__["tm_options"] = tm_options
             __props__.__dict__["unclean_shutdown"] = unclean_shutdown
             __props__.__dict__["untrusted_cert_response_control"] = untrusted_cert_response_control
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["passphrase"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ProfileServerSsl, __self__).__init__(
             'f5bigip:ltm/profileServerSsl:ProfileServerSsl',
             resource_name,
@@ -1963,6 +2001,7 @@ class ProfileServerSsl(pulumi.CustomResource):
             cache_timeout: Optional[pulumi.Input[int]] = None,
             cert: Optional[pulumi.Input[str]] = None,
             chain: Optional[pulumi.Input[str]] = None,
+            cipher_group: Optional[pulumi.Input[str]] = None,
             ciphers: Optional[pulumi.Input[str]] = None,
             defaults_from: Optional[pulumi.Input[str]] = None,
             expire_cert_response_control: Optional[pulumi.Input[str]] = None,
@@ -2021,6 +2060,7 @@ class ProfileServerSsl(pulumi.CustomResource):
         :param pulumi.Input[int] cache_timeout: Cache time out
         :param pulumi.Input[str] cert: Specifies the name of the certificate that the system uses for server-side SSL processing.
         :param pulumi.Input[str] chain: Specifies the certificates-key chain to associate with the SSL profile
+        :param pulumi.Input[str] cipher_group: Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
         :param pulumi.Input[str] ciphers: Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
         :param pulumi.Input[str] defaults_from: The parent template of this monitor template. Once this value has been set, it cannot be changed. By default, this value is `/Common/serverssl`.
         :param pulumi.Input[str] expire_cert_response_control: Response if the cert is expired (drop / ignore).
@@ -2082,6 +2122,7 @@ class ProfileServerSsl(pulumi.CustomResource):
         __props__.__dict__["cache_timeout"] = cache_timeout
         __props__.__dict__["cert"] = cert
         __props__.__dict__["chain"] = chain
+        __props__.__dict__["cipher_group"] = cipher_group
         __props__.__dict__["ciphers"] = ciphers
         __props__.__dict__["defaults_from"] = defaults_from
         __props__.__dict__["expire_cert_response_control"] = expire_cert_response_control
@@ -2226,7 +2267,7 @@ class ProfileServerSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def cert(self) -> pulumi.Output[str]:
+    def cert(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the name of the certificate that the system uses for server-side SSL processing.
         """
@@ -2234,11 +2275,19 @@ class ProfileServerSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def chain(self) -> pulumi.Output[str]:
+    def chain(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the certificates-key chain to associate with the SSL profile
         """
         return pulumi.get(self, "chain")
+
+    @property
+    @pulumi.getter(name="cipherGroup")
+    def cipher_group(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+        """
+        return pulumi.get(self, "cipher_group")
 
     @property
     @pulumi.getter
@@ -2298,7 +2347,7 @@ class ProfileServerSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def key(self) -> pulumi.Output[str]:
+    def key(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies the file name of the SSL key.
         """

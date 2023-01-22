@@ -17,14 +17,14 @@ public final class NtpState extends com.pulumi.resources.ResourceArgs {
     public static final NtpState Empty = new NtpState();
 
     /**
-     * Name of the ntp Servers
+     * User defined description.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Name of the ntp Servers
+     * @return User defined description.
      * 
      */
     public Optional<Output<String>> description() {
@@ -32,14 +32,14 @@ public final class NtpState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Adds NTP servers to or deletes NTP servers from the BIG-IP system.
+     * Specifies the time servers that the system uses to update the system time.
      * 
      */
     @Import(name="servers")
     private @Nullable Output<List<String>> servers;
 
     /**
-     * @return Adds NTP servers to or deletes NTP servers from the BIG-IP system.
+     * @return Specifies the time servers that the system uses to update the system time.
      * 
      */
     public Optional<Output<List<String>>> servers() {
@@ -88,7 +88,7 @@ public final class NtpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Name of the ntp Servers
+         * @param description User defined description.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class NtpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Name of the ntp Servers
+         * @param description User defined description.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class NtpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param servers Adds NTP servers to or deletes NTP servers from the BIG-IP system.
+         * @param servers Specifies the time servers that the system uses to update the system time.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class NtpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param servers Adds NTP servers to or deletes NTP servers from the BIG-IP system.
+         * @param servers Specifies the time servers that the system uses to update the system time.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class NtpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param servers Adds NTP servers to or deletes NTP servers from the BIG-IP system.
+         * @param servers Specifies the time servers that the system uses to update the system time.
          * 
          * @return builder
          * 

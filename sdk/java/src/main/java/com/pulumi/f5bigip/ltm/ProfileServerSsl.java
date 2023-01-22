@@ -246,28 +246,42 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="cert", type=String.class, parameters={})
-    private Output<String> cert;
+    private Output</* @Nullable */ String> cert;
 
     /**
      * @return Specifies the name of the certificate that the system uses for server-side SSL processing.
      * 
      */
-    public Output<String> cert() {
-        return this.cert;
+    public Output<Optional<String>> cert() {
+        return Codegen.optional(this.cert);
     }
     /**
      * Specifies the certificates-key chain to associate with the SSL profile
      * 
      */
     @Export(name="chain", type=String.class, parameters={})
-    private Output<String> chain;
+    private Output</* @Nullable */ String> chain;
 
     /**
      * @return Specifies the certificates-key chain to associate with the SSL profile
      * 
      */
-    public Output<String> chain() {
-        return this.chain;
+    public Output<Optional<String>> chain() {
+        return Codegen.optional(this.chain);
+    }
+    /**
+     * Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+     * 
+     */
+    @Export(name="cipherGroup", type=String.class, parameters={})
+    private Output</* @Nullable */ String> cipherGroup;
+
+    /**
+     * @return Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+     * 
+     */
+    public Output<Optional<String>> cipherGroup() {
+        return Codegen.optional(this.cipherGroup);
     }
     /**
      * Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
@@ -372,14 +386,14 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="key", type=String.class, parameters={})
-    private Output<String> key;
+    private Output</* @Nullable */ String> key;
 
     /**
      * @return Specifies the file name of the SSL key.
      * 
      */
-    public Output<String> key() {
-        return this.key;
+    public Output<Optional<String>> key() {
+        return Codegen.optional(this.key);
     }
     /**
      * ModSSL Methods enabled / disabled. Default is disabled.
@@ -804,6 +818,9 @@ public class ProfileServerSsl extends com.pulumi.resources.CustomResource {
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "passphrase"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

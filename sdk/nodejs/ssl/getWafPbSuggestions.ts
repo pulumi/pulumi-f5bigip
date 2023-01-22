@@ -13,19 +13,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as f5bigip from "@pulumi/f5bigip";
  *
- * const pBWAF1 = pulumi.output(f5bigip.ssl.getWafPbSuggestions({
+ * const pBWAF1 = f5bigip.ssl.getWafPbSuggestions({
  *     minimumLearningScore: 20,
  *     partition: "Common",
  *     policyName: "protect_me_policy",
- * }));
+ * });
  * ```
  */
 export function getWafPbSuggestions(args: GetWafPbSuggestionsArgs, opts?: pulumi.InvokeOptions): Promise<GetWafPbSuggestionsResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("f5bigip:ssl/getWafPbSuggestions:getWafPbSuggestions", {
         "minimumLearningScore": args.minimumLearningScore,
         "partition": args.partition,
@@ -76,9 +73,24 @@ export interface GetWafPbSuggestionsResult {
     readonly policyId: string;
     readonly policyName: string;
 }
-
+/**
+ * Use this data source (`f5bigip.ssl.getWafPbSuggestions`) to export PB suggestions from an existing WAF policy.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const pBWAF1 = f5bigip.ssl.getWafPbSuggestions({
+ *     minimumLearningScore: 20,
+ *     partition: "Common",
+ *     policyName: "protect_me_policy",
+ * });
+ * ```
+ */
 export function getWafPbSuggestionsOutput(args: GetWafPbSuggestionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWafPbSuggestionsResult> {
-    return pulumi.output(args).apply(a => getWafPbSuggestions(a, opts))
+    return pulumi.output(args).apply((a: any) => getWafPbSuggestions(a, opts))
 }
 
 /**

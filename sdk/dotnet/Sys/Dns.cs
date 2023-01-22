@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Sys
 {
     /// <summary>
-    /// `f5bigip.sys.Dns` Configures DNS server on F5 BIG-IP
+    /// `f5bigip.sys.Dns` Configures DNS Name server on F5 BIG-IP
     /// 
     /// ## Example Usage
     /// 
@@ -28,7 +28,6 @@ namespace Pulumi.F5BigIP.Sys
     ///         {
     ///             "1.1.1.1",
     ///         },
-    ///         NumberOfDots = 2,
     ///         Searches = new[]
     ///         {
     ///             "f5.com",
@@ -48,7 +47,7 @@ namespace Pulumi.F5BigIP.Sys
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Name or IP address of the DNS server
+        /// Specifies the name servers that the system uses to validate DNS lookups, and resolve host names.
         /// </summary>
         [Output("nameServers")]
         public Output<ImmutableArray<string>> NameServers { get; private set; } = null!;
@@ -57,10 +56,10 @@ namespace Pulumi.F5BigIP.Sys
         /// Configures the number of dots needed in a name before an initial absolute query will be made.
         /// </summary>
         [Output("numberOfDots")]
-        public Output<int?> NumberOfDots { get; private set; } = null!;
+        public Output<int> NumberOfDots { get; private set; } = null!;
 
         /// <summary>
-        /// Specify what domains you want to search
+        /// Specifies the domains that the system searches for local domain lookups, to resolve local host names.
         /// </summary>
         [Output("searches")]
         public Output<ImmutableArray<string>> Searches { get; private set; } = null!;
@@ -117,11 +116,11 @@ namespace Pulumi.F5BigIP.Sys
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
 
-        [Input("nameServers")]
+        [Input("nameServers", required: true)]
         private InputList<string>? _nameServers;
 
         /// <summary>
-        /// Name or IP address of the DNS server
+        /// Specifies the name servers that the system uses to validate DNS lookups, and resolve host names.
         /// </summary>
         public InputList<string> NameServers
         {
@@ -139,7 +138,7 @@ namespace Pulumi.F5BigIP.Sys
         private InputList<string>? _searches;
 
         /// <summary>
-        /// Specify what domains you want to search
+        /// Specifies the domains that the system searches for local domain lookups, to resolve local host names.
         /// </summary>
         public InputList<string> Searches
         {
@@ -165,7 +164,7 @@ namespace Pulumi.F5BigIP.Sys
         private InputList<string>? _nameServers;
 
         /// <summary>
-        /// Name or IP address of the DNS server
+        /// Specifies the name servers that the system uses to validate DNS lookups, and resolve host names.
         /// </summary>
         public InputList<string> NameServers
         {
@@ -183,7 +182,7 @@ namespace Pulumi.F5BigIP.Sys
         private InputList<string>? _searches;
 
         /// <summary>
-        /// Specify what domains you want to search
+        /// Specifies the domains that the system searches for local domain lookups, to resolve local host names.
         /// </summary>
         public InputList<string> Searches
         {

@@ -100,10 +100,10 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.clientProfiles);
     }
     @Export(name="defaultPersistenceProfile", type=String.class, parameters={})
-    private Output</* @Nullable */ String> defaultPersistenceProfile;
+    private Output<String> defaultPersistenceProfile;
 
-    public Output<Optional<String>> defaultPersistenceProfile() {
-        return Codegen.optional(this.defaultPersistenceProfile);
+    public Output<String> defaultPersistenceProfile() {
+        return this.defaultPersistenceProfile;
     }
     /**
      * Description of Virtual server
@@ -124,14 +124,14 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="destination", type=String.class, parameters={})
-    private Output<String> destination;
+    private Output</* @Nullable */ String> destination;
 
     /**
      * @return Destination IP
      * 
      */
-    public Output<String> destination() {
-        return this.destination;
+    public Output<Optional<String>> destination() {
+        return Codegen.optional(this.destination);
     }
     /**
      * Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
@@ -148,18 +148,32 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
         return this.fallbackPersistenceProfile;
     }
     /**
+     * Applies the specified AFM policy to the virtual in an enforcing way,when creating a new virtual, if this parameter is not specified, the enforced is disabled.This should be in full path ex: `/Common/afm-test-policy`.
+     * 
+     */
+    @Export(name="firewallEnforcedPolicy", type=String.class, parameters={})
+    private Output<String> firewallEnforcedPolicy;
+
+    /**
+     * @return Applies the specified AFM policy to the virtual in an enforcing way,when creating a new virtual, if this parameter is not specified, the enforced is disabled.This should be in full path ex: `/Common/afm-test-policy`.
+     * 
+     */
+    public Output<String> firewallEnforcedPolicy() {
+        return this.firewallEnforcedPolicy;
+    }
+    /**
      * Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
      * 
      */
     @Export(name="ipProtocol", type=String.class, parameters={})
-    private Output<String> ipProtocol;
+    private Output</* @Nullable */ String> ipProtocol;
 
     /**
      * @return Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
      * 
      */
-    public Output<String> ipProtocol() {
-        return this.ipProtocol;
+    public Output<Optional<String>> ipProtocol() {
+        return Codegen.optional(this.ipProtocol);
     }
     /**
      * The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
@@ -300,14 +314,14 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.serverProfiles);
     }
     /**
-     * Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
+     * Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs.
      * 
      */
     @Export(name="snatpool", type=String.class, parameters={})
     private Output<String> snatpool;
 
     /**
-     * @return Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
+     * @return Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs.
      * 
      */
     public Output<String> snatpool() {
@@ -328,18 +342,32 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
         return this.source;
     }
     /**
-     * Can be either omitted for none or the values automap or snat
+     * Can be either omitted for `none` or the values `automap` options : [`snat`,`automap`,`none`].
      * 
      */
     @Export(name="sourceAddressTranslation", type=String.class, parameters={})
-    private Output<String> sourceAddressTranslation;
+    private Output</* @Nullable */ String> sourceAddressTranslation;
 
     /**
-     * @return Can be either omitted for none or the values automap or snat
+     * @return Can be either omitted for `none` or the values `automap` options : [`snat`,`automap`,`none`].
      * 
      */
-    public Output<String> sourceAddressTranslation() {
-        return this.sourceAddressTranslation;
+    public Output<Optional<String>> sourceAddressTranslation() {
+        return Codegen.optional(this.sourceAddressTranslation);
+    }
+    /**
+     * Specifies whether the system preserves the source port of the connection. The default is `preserve`.
+     * 
+     */
+    @Export(name="sourcePort", type=String.class, parameters={})
+    private Output<String> sourcePort;
+
+    /**
+     * @return Specifies whether the system preserves the source port of the connection. The default is `preserve`.
+     * 
+     */
+    public Output<String> sourcePort() {
+        return this.sourcePort;
     }
     /**
      * Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
@@ -356,32 +384,46 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.state);
     }
     /**
+     * Specifies destination traffic matching information to which the virtual server sends traffic
+     * 
+     */
+    @Export(name="trafficmatchingCriteria", type=String.class, parameters={})
+    private Output<String> trafficmatchingCriteria;
+
+    /**
+     * @return Specifies destination traffic matching information to which the virtual server sends traffic
+     * 
+     */
+    public Output<String> trafficmatchingCriteria() {
+        return this.trafficmatchingCriteria;
+    }
+    /**
      * Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
      * 
      */
     @Export(name="translateAddress", type=String.class, parameters={})
-    private Output<String> translateAddress;
+    private Output</* @Nullable */ String> translateAddress;
 
     /**
      * @return Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
      * 
      */
-    public Output<String> translateAddress() {
-        return this.translateAddress;
+    public Output<Optional<String>> translateAddress() {
+        return Codegen.optional(this.translateAddress);
     }
     /**
      * Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
      * 
      */
     @Export(name="translatePort", type=String.class, parameters={})
-    private Output<String> translatePort;
+    private Output</* @Nullable */ String> translatePort;
 
     /**
      * @return Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
      * 
      */
-    public Output<String> translatePort() {
-        return this.translatePort;
+    public Output<Optional<String>> translatePort() {
+        return Codegen.optional(this.translatePort);
     }
     /**
      * The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlan_enabled`

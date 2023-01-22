@@ -18,29 +18,45 @@ public final class PolicyRuleArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final PolicyRuleArgs Empty = new PolicyRuleArgs();
 
+    /**
+     * Block type. See action block for more details.
+     * 
+     */
     @Import(name="actions")
     private @Nullable Output<List<PolicyRuleActionArgs>> actions;
 
+    /**
+     * @return Block type. See action block for more details.
+     * 
+     */
     public Optional<Output<List<PolicyRuleActionArgs>>> actions() {
         return Optional.ofNullable(this.actions);
     }
 
+    /**
+     * Block type. See condition block for more details.
+     * 
+     */
     @Import(name="conditions")
     private @Nullable Output<List<PolicyRuleConditionArgs>> conditions;
 
+    /**
+     * @return Block type. See condition block for more details.
+     * 
+     */
     public Optional<Output<List<PolicyRuleConditionArgs>>> conditions() {
         return Optional.ofNullable(this.conditions);
     }
 
     /**
-     * Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+     * Name of Rule to be applied in policy.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+     * @return Name of Rule to be applied in policy.
      * 
      */
     public Output<String> name() {
@@ -73,34 +89,70 @@ public final class PolicyRuleArgs extends com.pulumi.resources.ResourceArgs {
             $ = new PolicyRuleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param actions Block type. See action block for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder actions(@Nullable Output<List<PolicyRuleActionArgs>> actions) {
             $.actions = actions;
             return this;
         }
 
+        /**
+         * @param actions Block type. See action block for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder actions(List<PolicyRuleActionArgs> actions) {
             return actions(Output.of(actions));
         }
 
+        /**
+         * @param actions Block type. See action block for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder actions(PolicyRuleActionArgs... actions) {
             return actions(List.of(actions));
         }
 
+        /**
+         * @param conditions Block type. See condition block for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder conditions(@Nullable Output<List<PolicyRuleConditionArgs>> conditions) {
             $.conditions = conditions;
             return this;
         }
 
+        /**
+         * @param conditions Block type. See condition block for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder conditions(List<PolicyRuleConditionArgs> conditions) {
             return conditions(Output.of(conditions));
         }
 
+        /**
+         * @param conditions Block type. See condition block for more details.
+         * 
+         * @return builder
+         * 
+         */
         public Builder conditions(PolicyRuleConditionArgs... conditions) {
             return conditions(List.of(conditions));
         }
 
         /**
-         * @param name Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+         * @param name Name of Rule to be applied in policy.
          * 
          * @return builder
          * 
@@ -111,7 +163,7 @@ public final class PolicyRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+         * @param name Name of Rule to be applied in policy.
          * 
          * @return builder
          * 

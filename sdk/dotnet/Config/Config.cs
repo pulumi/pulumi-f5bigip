@@ -30,7 +30,7 @@ namespace Pulumi.F5BigIP
             }
         }
 
-        private static readonly Pulumi.Config __config = new Pulumi.Config("f5bigip");
+        private static readonly global::Pulumi.Config __config = new global::Pulumi.Config("f5bigip");
 
         private static readonly __Value<string?> _address = new __Value<string?>(() => __config.Get("address"));
         /// <summary>
@@ -102,6 +102,16 @@ namespace Pulumi.F5BigIP
             set => _tokenValue.Set(value);
         }
 
+        private static readonly __Value<string?> _trustedCertPath = new __Value<string?>(() => __config.Get("trustedCertPath"));
+        /// <summary>
+        /// Valid Trusted Certificate path
+        /// </summary>
+        public static string? TrustedCertPath
+        {
+            get => _trustedCertPath.Get();
+            set => _trustedCertPath.Set(value);
+        }
+
         private static readonly __Value<string?> _username = new __Value<string?>(() => __config.Get("username"));
         /// <summary>
         /// Username with API access to the BigIP
@@ -110,6 +120,16 @@ namespace Pulumi.F5BigIP
         {
             get => _username.Get();
             set => _username.Set(value);
+        }
+
+        private static readonly __Value<bool?> _validateCertsDisable = new __Value<bool?>(() => __config.GetBoolean("validateCertsDisable"));
+        /// <summary>
+        /// If set to true, Disables TLS certificate check on BIG-IP. Default : True
+        /// </summary>
+        public static bool? ValidateCertsDisable
+        {
+            get => _validateCertsDisable.Get();
+            set => _validateCertsDisable.Set(value);
         }
 
     }

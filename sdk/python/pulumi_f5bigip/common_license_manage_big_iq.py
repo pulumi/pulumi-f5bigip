@@ -741,15 +741,15 @@ class CommonLicenseManageBigIq(pulumi.CustomResource):
             if bigiq_address is None and not opts.urn:
                 raise TypeError("Missing required property 'bigiq_address'")
             __props__.__dict__["bigiq_address"] = bigiq_address
-            __props__.__dict__["bigiq_login_ref"] = bigiq_login_ref
+            __props__.__dict__["bigiq_login_ref"] = None if bigiq_login_ref is None else pulumi.Output.secret(bigiq_login_ref)
             if bigiq_password is None and not opts.urn:
                 raise TypeError("Missing required property 'bigiq_password'")
-            __props__.__dict__["bigiq_password"] = bigiq_password
-            __props__.__dict__["bigiq_port"] = bigiq_port
-            __props__.__dict__["bigiq_token_auth"] = bigiq_token_auth
+            __props__.__dict__["bigiq_password"] = None if bigiq_password is None else pulumi.Output.secret(bigiq_password)
+            __props__.__dict__["bigiq_port"] = None if bigiq_port is None else pulumi.Output.secret(bigiq_port)
+            __props__.__dict__["bigiq_token_auth"] = None if bigiq_token_auth is None else pulumi.Output.secret(bigiq_token_auth)
             if bigiq_user is None and not opts.urn:
                 raise TypeError("Missing required property 'bigiq_user'")
-            __props__.__dict__["bigiq_user"] = bigiq_user
+            __props__.__dict__["bigiq_user"] = None if bigiq_user is None else pulumi.Output.secret(bigiq_user)
             __props__.__dict__["device_license_status"] = device_license_status
             __props__.__dict__["hypervisor"] = hypervisor
             __props__.__dict__["key"] = key
@@ -761,6 +761,8 @@ class CommonLicenseManageBigIq(pulumi.CustomResource):
             __props__.__dict__["skukeyword2"] = skukeyword2
             __props__.__dict__["tenant"] = tenant
             __props__.__dict__["unit_of_measure"] = unit_of_measure
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["bigiqLoginRef", "bigiqPassword", "bigiqPort", "bigiqTokenAuth", "bigiqUser"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(CommonLicenseManageBigIq, __self__).__init__(
             'f5bigip:index/commonLicenseManageBigIq:CommonLicenseManageBigIq',
             resource_name,

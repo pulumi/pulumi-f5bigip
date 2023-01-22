@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * import * as fs from "fs";
  *
  * const do_example = new f5bigip.Do("do-example", {
- *     doJson: fs.readFileSync("example.json", "utf-8"),
+ *     doJson: fs.readFileSync("example.json"),
  *     timeout: 15,
  * });
  * ```
@@ -115,15 +115,17 @@ export class Do extends pulumi.CustomResource {
                 throw new Error("Missing required property 'doJson'");
             }
             resourceInputs["bigipAddress"] = args ? args.bigipAddress : undefined;
-            resourceInputs["bigipPassword"] = args ? args.bigipPassword : undefined;
+            resourceInputs["bigipPassword"] = args?.bigipPassword ? pulumi.secret(args.bigipPassword) : undefined;
             resourceInputs["bigipPort"] = args ? args.bigipPort : undefined;
-            resourceInputs["bigipTokenAuth"] = args ? args.bigipTokenAuth : undefined;
+            resourceInputs["bigipTokenAuth"] = args?.bigipTokenAuth ? pulumi.secret(args.bigipTokenAuth) : undefined;
             resourceInputs["bigipUser"] = args ? args.bigipUser : undefined;
             resourceInputs["doJson"] = args ? args.doJson : undefined;
             resourceInputs["tenantName"] = args ? args.tenantName : undefined;
             resourceInputs["timeout"] = args ? args.timeout : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["bigipPassword", "bigipTokenAuth"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Do.__pulumiType, name, resourceInputs, opts);
     }
 }

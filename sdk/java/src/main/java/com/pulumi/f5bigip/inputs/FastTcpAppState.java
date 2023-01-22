@@ -5,8 +5,8 @@ package com.pulumi.f5bigip.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.f5bigip.inputs.FastTcpAppFastCreateMonitorArgs;
-import com.pulumi.f5bigip.inputs.FastTcpAppFastCreatePoolMemberArgs;
+import com.pulumi.f5bigip.inputs.FastTcpAppMonitorArgs;
+import com.pulumi.f5bigip.inputs.FastTcpAppPoolMemberArgs;
 import com.pulumi.f5bigip.inputs.FastTcpAppVirtualServerArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -36,21 +36,6 @@ public final class FastTcpAppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of an existing BIG-IP pool.
-     * 
-     */
-    @Import(name="existPoolName")
-    private @Nullable Output<String> existPoolName;
-
-    /**
-     * @return Name of an existing BIG-IP pool.
-     * 
-     */
-    public Optional<Output<String>> existPoolName() {
-        return Optional.ofNullable(this.existPoolName);
-    }
-
-    /**
      * Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
      * 
      */
@@ -66,6 +51,21 @@ public final class FastTcpAppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Name of an existing BIG-IP pool.
+     * 
+     */
+    @Import(name="existingPool")
+    private @Nullable Output<String> existingPool;
+
+    /**
+     * @return Name of an existing BIG-IP pool.
+     * 
+     */
+    public Optional<Output<String>> existingPool() {
+        return Optional.ofNullable(this.existingPool);
+    }
+
+    /**
      * Name of an existing BIG-IP SNAT pool.
      * 
      */
@@ -78,55 +78,6 @@ public final class FastTcpAppState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> existingSnatPool() {
         return Optional.ofNullable(this.existingSnatPool);
-    }
-
-    /**
-     * `fast_create_monitor` block takes input for FAST-Generated Pool Monitor.
-     * See Pool Monitor below for more details.
-     * 
-     */
-    @Import(name="fastCreateMonitor")
-    private @Nullable Output<FastTcpAppFastCreateMonitorArgs> fastCreateMonitor;
-
-    /**
-     * @return `fast_create_monitor` block takes input for FAST-Generated Pool Monitor.
-     * See Pool Monitor below for more details.
-     * 
-     */
-    public Optional<Output<FastTcpAppFastCreateMonitorArgs>> fastCreateMonitor() {
-        return Optional.ofNullable(this.fastCreateMonitor);
-    }
-
-    /**
-     * `fast_create_pool_members` block takes input for FAST-Generated Pool.
-     * See Pool Members below for more details.
-     * 
-     */
-    @Import(name="fastCreatePoolMembers")
-    private @Nullable Output<List<FastTcpAppFastCreatePoolMemberArgs>> fastCreatePoolMembers;
-
-    /**
-     * @return `fast_create_pool_members` block takes input for FAST-Generated Pool.
-     * See Pool Members below for more details.
-     * 
-     */
-    public Optional<Output<List<FastTcpAppFastCreatePoolMemberArgs>>> fastCreatePoolMembers() {
-        return Optional.ofNullable(this.fastCreatePoolMembers);
-    }
-
-    /**
-     * List of address to be used for FAST-Generated SNAT Pool.
-     * 
-     */
-    @Import(name="fastCreateSnatPoolAddresses")
-    private @Nullable Output<List<String>> fastCreateSnatPoolAddresses;
-
-    /**
-     * @return List of address to be used for FAST-Generated SNAT Pool.
-     * 
-     */
-    public Optional<Output<List<String>>> fastCreateSnatPoolAddresses() {
-        return Optional.ofNullable(this.fastCreateSnatPoolAddresses);
     }
 
     /**
@@ -160,6 +111,40 @@ public final class FastTcpAppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * `monitor` block takes input for FAST-Generated Pool Monitor.
+     * See Pool Monitor below for more details.
+     * 
+     */
+    @Import(name="monitor")
+    private @Nullable Output<FastTcpAppMonitorArgs> monitor;
+
+    /**
+     * @return `monitor` block takes input for FAST-Generated Pool Monitor.
+     * See Pool Monitor below for more details.
+     * 
+     */
+    public Optional<Output<FastTcpAppMonitorArgs>> monitor() {
+        return Optional.ofNullable(this.monitor);
+    }
+
+    /**
+     * `pool_members` block takes input for FAST-Generated Pool.
+     * See Pool Members below for more details.
+     * 
+     */
+    @Import(name="poolMembers")
+    private @Nullable Output<List<FastTcpAppPoolMemberArgs>> poolMembers;
+
+    /**
+     * @return `pool_members` block takes input for FAST-Generated Pool.
+     * See Pool Members below for more details.
+     * 
+     */
+    public Optional<Output<List<FastTcpAppPoolMemberArgs>>> poolMembers() {
+        return Optional.ofNullable(this.poolMembers);
+    }
+
+    /**
      * Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
      * 
      */
@@ -172,6 +157,21 @@ public final class FastTcpAppState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Integer>> slowRampTime() {
         return Optional.ofNullable(this.slowRampTime);
+    }
+
+    /**
+     * List of address to be used for FAST-Generated SNAT Pool.
+     * 
+     */
+    @Import(name="snatPoolAddresses")
+    private @Nullable Output<List<String>> snatPoolAddresses;
+
+    /**
+     * @return List of address to be used for FAST-Generated SNAT Pool.
+     * 
+     */
+    public Optional<Output<List<String>>> snatPoolAddresses() {
+        return Optional.ofNullable(this.snatPoolAddresses);
     }
 
     /**
@@ -210,15 +210,15 @@ public final class FastTcpAppState extends com.pulumi.resources.ResourceArgs {
 
     private FastTcpAppState(FastTcpAppState $) {
         this.application = $.application;
-        this.existPoolName = $.existPoolName;
         this.existingMonitor = $.existingMonitor;
+        this.existingPool = $.existingPool;
         this.existingSnatPool = $.existingSnatPool;
-        this.fastCreateMonitor = $.fastCreateMonitor;
-        this.fastCreatePoolMembers = $.fastCreatePoolMembers;
-        this.fastCreateSnatPoolAddresses = $.fastCreateSnatPoolAddresses;
         this.fastTcpJson = $.fastTcpJson;
         this.loadBalancingMode = $.loadBalancingMode;
+        this.monitor = $.monitor;
+        this.poolMembers = $.poolMembers;
         this.slowRampTime = $.slowRampTime;
+        this.snatPoolAddresses = $.snatPoolAddresses;
         this.tenant = $.tenant;
         this.virtualServer = $.virtualServer;
     }
@@ -263,27 +263,6 @@ public final class FastTcpAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param existPoolName Name of an existing BIG-IP pool.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder existPoolName(@Nullable Output<String> existPoolName) {
-            $.existPoolName = existPoolName;
-            return this;
-        }
-
-        /**
-         * @param existPoolName Name of an existing BIG-IP pool.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder existPoolName(String existPoolName) {
-            return existPoolName(Output.of(existPoolName));
-        }
-
-        /**
          * @param existingMonitor Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
          * 
          * @return builder
@@ -305,6 +284,27 @@ public final class FastTcpAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param existingPool Name of an existing BIG-IP pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder existingPool(@Nullable Output<String> existingPool) {
+            $.existingPool = existingPool;
+            return this;
+        }
+
+        /**
+         * @param existingPool Name of an existing BIG-IP pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder existingPool(String existingPool) {
+            return existingPool(Output.of(existingPool));
+        }
+
+        /**
          * @param existingSnatPool Name of an existing BIG-IP SNAT pool.
          * 
          * @return builder
@@ -323,94 +323,6 @@ public final class FastTcpAppState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder existingSnatPool(String existingSnatPool) {
             return existingSnatPool(Output.of(existingSnatPool));
-        }
-
-        /**
-         * @param fastCreateMonitor `fast_create_monitor` block takes input for FAST-Generated Pool Monitor.
-         * See Pool Monitor below for more details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder fastCreateMonitor(@Nullable Output<FastTcpAppFastCreateMonitorArgs> fastCreateMonitor) {
-            $.fastCreateMonitor = fastCreateMonitor;
-            return this;
-        }
-
-        /**
-         * @param fastCreateMonitor `fast_create_monitor` block takes input for FAST-Generated Pool Monitor.
-         * See Pool Monitor below for more details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder fastCreateMonitor(FastTcpAppFastCreateMonitorArgs fastCreateMonitor) {
-            return fastCreateMonitor(Output.of(fastCreateMonitor));
-        }
-
-        /**
-         * @param fastCreatePoolMembers `fast_create_pool_members` block takes input for FAST-Generated Pool.
-         * See Pool Members below for more details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder fastCreatePoolMembers(@Nullable Output<List<FastTcpAppFastCreatePoolMemberArgs>> fastCreatePoolMembers) {
-            $.fastCreatePoolMembers = fastCreatePoolMembers;
-            return this;
-        }
-
-        /**
-         * @param fastCreatePoolMembers `fast_create_pool_members` block takes input for FAST-Generated Pool.
-         * See Pool Members below for more details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder fastCreatePoolMembers(List<FastTcpAppFastCreatePoolMemberArgs> fastCreatePoolMembers) {
-            return fastCreatePoolMembers(Output.of(fastCreatePoolMembers));
-        }
-
-        /**
-         * @param fastCreatePoolMembers `fast_create_pool_members` block takes input for FAST-Generated Pool.
-         * See Pool Members below for more details.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder fastCreatePoolMembers(FastTcpAppFastCreatePoolMemberArgs... fastCreatePoolMembers) {
-            return fastCreatePoolMembers(List.of(fastCreatePoolMembers));
-        }
-
-        /**
-         * @param fastCreateSnatPoolAddresses List of address to be used for FAST-Generated SNAT Pool.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder fastCreateSnatPoolAddresses(@Nullable Output<List<String>> fastCreateSnatPoolAddresses) {
-            $.fastCreateSnatPoolAddresses = fastCreateSnatPoolAddresses;
-            return this;
-        }
-
-        /**
-         * @param fastCreateSnatPoolAddresses List of address to be used for FAST-Generated SNAT Pool.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder fastCreateSnatPoolAddresses(List<String> fastCreateSnatPoolAddresses) {
-            return fastCreateSnatPoolAddresses(Output.of(fastCreateSnatPoolAddresses));
-        }
-
-        /**
-         * @param fastCreateSnatPoolAddresses List of address to be used for FAST-Generated SNAT Pool.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder fastCreateSnatPoolAddresses(String... fastCreateSnatPoolAddresses) {
-            return fastCreateSnatPoolAddresses(List.of(fastCreateSnatPoolAddresses));
         }
 
         /**
@@ -456,6 +368,63 @@ public final class FastTcpAppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param monitor `monitor` block takes input for FAST-Generated Pool Monitor.
+         * See Pool Monitor below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitor(@Nullable Output<FastTcpAppMonitorArgs> monitor) {
+            $.monitor = monitor;
+            return this;
+        }
+
+        /**
+         * @param monitor `monitor` block takes input for FAST-Generated Pool Monitor.
+         * See Pool Monitor below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitor(FastTcpAppMonitorArgs monitor) {
+            return monitor(Output.of(monitor));
+        }
+
+        /**
+         * @param poolMembers `pool_members` block takes input for FAST-Generated Pool.
+         * See Pool Members below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder poolMembers(@Nullable Output<List<FastTcpAppPoolMemberArgs>> poolMembers) {
+            $.poolMembers = poolMembers;
+            return this;
+        }
+
+        /**
+         * @param poolMembers `pool_members` block takes input for FAST-Generated Pool.
+         * See Pool Members below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder poolMembers(List<FastTcpAppPoolMemberArgs> poolMembers) {
+            return poolMembers(Output.of(poolMembers));
+        }
+
+        /**
+         * @param poolMembers `pool_members` block takes input for FAST-Generated Pool.
+         * See Pool Members below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder poolMembers(FastTcpAppPoolMemberArgs... poolMembers) {
+            return poolMembers(List.of(poolMembers));
+        }
+
+        /**
          * @param slowRampTime Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
          * 
          * @return builder
@@ -474,6 +443,37 @@ public final class FastTcpAppState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder slowRampTime(Integer slowRampTime) {
             return slowRampTime(Output.of(slowRampTime));
+        }
+
+        /**
+         * @param snatPoolAddresses List of address to be used for FAST-Generated SNAT Pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder snatPoolAddresses(@Nullable Output<List<String>> snatPoolAddresses) {
+            $.snatPoolAddresses = snatPoolAddresses;
+            return this;
+        }
+
+        /**
+         * @param snatPoolAddresses List of address to be used for FAST-Generated SNAT Pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder snatPoolAddresses(List<String> snatPoolAddresses) {
+            return snatPoolAddresses(Output.of(snatPoolAddresses));
+        }
+
+        /**
+         * @param snatPoolAddresses List of address to be used for FAST-Generated SNAT Pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder snatPoolAddresses(String... snatPoolAddresses) {
+            return snatPoolAddresses(List.of(snatPoolAddresses));
         }
 
         /**

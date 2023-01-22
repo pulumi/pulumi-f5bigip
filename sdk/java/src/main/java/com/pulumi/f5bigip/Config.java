@@ -61,10 +61,24 @@ public final class Config {
         return Codegen.stringProp("tokenValue").config(config).get();
     }
 /**
+ * Valid Trusted Certificate path
+ * 
+ */
+    public Optional<String> trustedCertPath() {
+        return Codegen.stringProp("trustedCertPath").config(config).get();
+    }
+/**
  * Username with API access to the BigIP
  * 
  */
     public Optional<String> username() {
         return Codegen.stringProp("username").config(config).get();
+    }
+/**
+ * If set to true, Disables TLS certificate check on BIG-IP. Default : True
+ * 
+ */
+    public Optional<Boolean> validateCertsDisable() {
+        return Codegen.booleanProp("validateCertsDisable").config(config).get();
     }
 }

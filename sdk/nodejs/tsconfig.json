@@ -29,6 +29,7 @@
         "fastHttpsApp.ts",
         "fastTcpApp.ts",
         "fastTemplate.ts",
+        "fastUdpApp.ts",
         "index.ts",
         "ipsecPolicy.ts",
         "ipsecProfile.ts",
@@ -94,6 +95,8 @@
         "types/input.ts",
         "types/output.ts",
         "utilities.ts",
+        "vcmp/guest.ts",
+        "vcmp/index.ts",
         "wafPolicy.ts"
     ]
 }

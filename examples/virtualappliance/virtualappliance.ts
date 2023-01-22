@@ -2,51 +2,50 @@ import * as pulumi from "@pulumi/pulumi";
 import * as aws from "@pulumi/aws";
 import * as random from "@pulumi/random";
 
-import * as fs from "fs";
-
-const config = new pulumi.Config();
-
-const bigIpAdminPassword = new random.RandomString("password", { 
-    special: false,
-    length: 20 
+const bigIpAdminPassword = new random.RandomString("password", {
+  special: false,
+  length: 20,
 });
 
 const baseTags = {
-    project: `${pulumi.getProject()}-${pulumi.getStack()}`,
+  project: `${pulumi.getProject()}-${pulumi.getStack()}`,
 };
 
 const firewall = new aws.ec2.SecurityGroup("bigIp", {
-    description: "admin access",
-    ingress: [
-        // Admin access
-        { protocol: "tcp", fromPort: 8443, toPort: 8443, cidrBlocks: ["0.0.0.0/0"] },
-        // Client access
-        { protocol: "tcp", fromPort: 80, toPort: 80, cidrBlocks: ["0.0.0.0/0"] },
-    ],
-    egress: [
-        { protocol: "-1", fromPort: 0, toPort: 0, cidrBlocks: ["0.0.0.0/0"] },
-    ],
-    tags: baseTags,
+  description: "admin access",
+  ingress: [
+    // Admin access
+    {
+      protocol: "tcp",
+      fromPort: 8443,
+      toPort: 8443,
+      cidrBlocks: ["0.0.0.0/0"],
+    },
+    // Client access
+    { protocol: "tcp", fromPort: 80, toPort: 80, cidrBlocks: ["0.0.0.0/0"] },
+  ],
+  egress: [
+    { protocol: "-1", fromPort: 0, toPort: 0, cidrBlocks: ["0.0.0.0/0"] },
+  ],
+  tags: baseTags,
 });
 
 /*
-    NOTE: We pin to a specific AMI Name because later versions seem to never complete startup - even without our userdata script.
-    https://aws.amazon.com/marketplace/pp/B079C44MFH?qid=1546534998240&sr=0-13
-    aws ec2 describe-images \
-        --filters "Name=product-code,Values=8esk90vx7v713sa0muq2skw3j" \
-        --filters "Name=name,Values='F5 Networks BIGIP-14.0.0.1-0.0.2 PAYG - Good 25Mbps *'"
-*/
+ * NOTE: Performing this test requires that the CI AWS account subscribe to:
+ * https://aws.amazon.com/marketplace/pp/B079C44MFH?qid=1546534998240&sr=0-13
+ *
+ * If the subscription is missing, the test will fail with a helpful error message and a
+ * link to subscribe.
+ */
 const bigIpAmiId = aws.getAmi({
-    mostRecent: true,
-    owners: ["679593333241"],
-    filters: [
-        { name: "product-code", values: ["8esk90vx7v713sa0muq2skw3j"] },
-        { name: "name", values: ["F5 Networks BIGIP-14.0.0.1-0.0.2 PAYG - Good 25Mbps *"] },
-    ]
-}).then(ami => ami.id);
+  mostRecent: true,
+  owners: ["679593333241"],
+  filters: [
+    { name: "product-code", values: ["6gxrih3enhavyxlj11or9z9ht"] },
+  ],
+}).then((ami) => ami.id);
 
-const bigIpUserData = 
-    pulumi.interpolate`#!/bin/bash
+const bigIpUserData = pulumi.interpolate`#!/bin/bash
 
 # Adapted from https://github.com/f5devcentral/f5-terraform/blob/master/modules/providers/aws/infrastructure/proxy/standalone/1nic/byol/user_data.tpl.
 # Script must be non-blocking or run in the background.
@@ -78,14 +77,16 @@ nohup /tmp/pulumi-startup-script.sh &> /tmp/pulumi-startup-script.out &
 `;
 
 const f5BigIpInstance = new aws.ec2.Instance("bigIp", {
-    ami: bigIpAmiId,
-    instanceType: "t2.medium",
-    tags: Object.assign({ Name: "bigIp" }, baseTags),
-    userData: bigIpUserData,
+  ami: bigIpAmiId,
+  instanceType: "t2.medium",
+  tags: Object.assign({ Name: "bigIp" }, baseTags),
+  userData: bigIpUserData,
 
-    vpcSecurityGroupIds: [firewall.id],
+  vpcSecurityGroupIds: [firewall.id],
 });
 
-export const f5Address = f5BigIpInstance.publicIp.apply(x => `https://${x}:8443`);
+export const f5Address = f5BigIpInstance.publicIp.apply((x) =>
+  `https://${x}:8443`
+);
 export const f5PrivateIp = f5BigIpInstance.privateIp;
 export const f5Password = bigIpAdminPassword.result;

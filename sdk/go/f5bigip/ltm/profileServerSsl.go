@@ -74,9 +74,11 @@ type ProfileServerSsl struct {
 	// Cache time out
 	CacheTimeout pulumi.IntOutput `pulumi:"cacheTimeout"`
 	// Specifies the name of the certificate that the system uses for server-side SSL processing.
-	Cert pulumi.StringOutput `pulumi:"cert"`
+	Cert pulumi.StringPtrOutput `pulumi:"cert"`
 	// Specifies the certificates-key chain to associate with the SSL profile
-	Chain pulumi.StringOutput `pulumi:"chain"`
+	Chain pulumi.StringPtrOutput `pulumi:"chain"`
+	// Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+	CipherGroup pulumi.StringPtrOutput `pulumi:"cipherGroup"`
 	// Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
 	Ciphers pulumi.StringOutput `pulumi:"ciphers"`
 	// The parent template of this monitor template. Once this value has been set, it cannot be changed. By default, this value is `/Common/serverssl`.
@@ -92,7 +94,7 @@ type ProfileServerSsl struct {
 	// Handshake time out (seconds)
 	HandshakeTimeout pulumi.StringOutput `pulumi:"handshakeTimeout"`
 	// Specifies the file name of the SSL key.
-	Key pulumi.StringOutput `pulumi:"key"`
+	Key pulumi.StringPtrOutput `pulumi:"key"`
 	// ModSSL Methods enabled / disabled. Default is disabled.
 	ModSslMethods pulumi.StringOutput `pulumi:"modSslMethods"`
 	// ModSSL Methods enabled / disabled. Default is disabled.
@@ -165,6 +167,13 @@ func NewProfileServerSsl(ctx *pulumi.Context,
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
+	if args.Passphrase != nil {
+		args.Passphrase = pulumi.ToSecret(args.Passphrase).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"passphrase",
+	})
+	opts = append(opts, secrets)
 	var resource ProfileServerSsl
 	err := ctx.RegisterResource("f5bigip:ltm/profileServerSsl:ProfileServerSsl", name, args, &resource, opts...)
 	if err != nil {
@@ -218,6 +227,8 @@ type profileServerSslState struct {
 	Cert *string `pulumi:"cert"`
 	// Specifies the certificates-key chain to associate with the SSL profile
 	Chain *string `pulumi:"chain"`
+	// Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+	CipherGroup *string `pulumi:"cipherGroup"`
 	// Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
 	Ciphers *string `pulumi:"ciphers"`
 	// The parent template of this monitor template. Once this value has been set, it cannot be changed. By default, this value is `/Common/serverssl`.
@@ -328,6 +339,8 @@ type ProfileServerSslState struct {
 	Cert pulumi.StringPtrInput
 	// Specifies the certificates-key chain to associate with the SSL profile
 	Chain pulumi.StringPtrInput
+	// Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+	CipherGroup pulumi.StringPtrInput
 	// Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
 	Ciphers pulumi.StringPtrInput
 	// The parent template of this monitor template. Once this value has been set, it cannot be changed. By default, this value is `/Common/serverssl`.
@@ -442,6 +455,8 @@ type profileServerSslArgs struct {
 	Cert *string `pulumi:"cert"`
 	// Specifies the certificates-key chain to associate with the SSL profile
 	Chain *string `pulumi:"chain"`
+	// Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+	CipherGroup *string `pulumi:"cipherGroup"`
 	// Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
 	Ciphers *string `pulumi:"ciphers"`
 	// The parent template of this monitor template. Once this value has been set, it cannot be changed. By default, this value is `/Common/serverssl`.
@@ -553,6 +568,8 @@ type ProfileServerSslArgs struct {
 	Cert pulumi.StringPtrInput
 	// Specifies the certificates-key chain to associate with the SSL profile
 	Chain pulumi.StringPtrInput
+	// Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+	CipherGroup pulumi.StringPtrInput
 	// Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
 	Ciphers pulumi.StringPtrInput
 	// The parent template of this monitor template. Once this value has been set, it cannot be changed. By default, this value is `/Common/serverssl`.
@@ -785,13 +802,18 @@ func (o ProfileServerSslOutput) CacheTimeout() pulumi.IntOutput {
 }
 
 // Specifies the name of the certificate that the system uses for server-side SSL processing.
-func (o ProfileServerSslOutput) Cert() pulumi.StringOutput {
-	return o.ApplyT(func(v *ProfileServerSsl) pulumi.StringOutput { return v.Cert }).(pulumi.StringOutput)
+func (o ProfileServerSslOutput) Cert() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfileServerSsl) pulumi.StringPtrOutput { return v.Cert }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the certificates-key chain to associate with the SSL profile
-func (o ProfileServerSslOutput) Chain() pulumi.StringOutput {
-	return o.ApplyT(func(v *ProfileServerSsl) pulumi.StringOutput { return v.Chain }).(pulumi.StringOutput)
+func (o ProfileServerSslOutput) Chain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfileServerSsl) pulumi.StringPtrOutput { return v.Chain }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+func (o ProfileServerSslOutput) CipherGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfileServerSsl) pulumi.StringPtrOutput { return v.CipherGroup }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
@@ -830,8 +852,8 @@ func (o ProfileServerSslOutput) HandshakeTimeout() pulumi.StringOutput {
 }
 
 // Specifies the file name of the SSL key.
-func (o ProfileServerSslOutput) Key() pulumi.StringOutput {
-	return o.ApplyT(func(v *ProfileServerSsl) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
+func (o ProfileServerSslOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfileServerSsl) pulumi.StringPtrOutput { return v.Key }).(pulumi.StringPtrOutput)
 }
 
 // ModSSL Methods enabled / disabled. Default is disabled.

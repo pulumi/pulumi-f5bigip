@@ -59,7 +59,7 @@ namespace Pulumi.F5BigIP.Ssl
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetWafEntityUrlResult> InvokeAsync(GetWafEntityUrlArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetWafEntityUrlResult>("f5bigip:ssl/getWafEntityUrl:getWafEntityUrl", args ?? new GetWafEntityUrlArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetWafEntityUrlResult>("f5bigip:ssl/getWafEntityUrl:getWafEntityUrl", args ?? new GetWafEntityUrlArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source (`f5bigip.ssl.getWafPbSuggestions`) to create JSON for WAF URL to later use with an existing WAF policy.
@@ -109,7 +109,7 @@ namespace Pulumi.F5BigIP.Ssl
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetWafEntityUrlResult> Invoke(GetWafEntityUrlInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetWafEntityUrlResult>("f5bigip:ssl/getWafEntityUrl:getWafEntityUrl", args ?? new GetWafEntityUrlInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetWafEntityUrlResult>("f5bigip:ssl/getWafEntityUrl:getWafEntityUrl", args ?? new GetWafEntityUrlInvokeArgs(), options.WithDefaults());
     }
 
 

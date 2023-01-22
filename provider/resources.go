@@ -36,6 +36,7 @@ const (
 	netMod     = "Net"   // Network
 	sysMod     = "Sys"   // System
 	sslMod     = "Ssl"   // Ssl
+	vcmpMod    = "VCMP"  // Virtual Clustered Multiprocessing (VCMP)
 	mainMod    = "Index" // Index
 
 )
@@ -123,25 +124,31 @@ func Provider() tfbridge.ProviderInfo {
 					Markdown: []byte(" "),
 				},
 			},
-			"bigip_ssl_certificate":             {Tok: makeResource(sslMod, "Certificate")},
-			"bigip_ssl_key":                     {Tok: makeResource(sslMod, "Key")},
+
+			// VCMP
+			"bigip_vcmp_guest": {Tok: makeResource(vcmpMod, "Guest")},
+
+			// Index
 			"bigip_as3":                         {Tok: makeResource(mainMod, "As3")},
-			"bigip_do":                          {Tok: makeResource(mainMod, "Do")},
 			"bigip_bigiq_as3":                   {Tok: makeResource(mainMod, "BigIqAs3")},
 			"bigip_command":                     {Tok: makeResource(mainMod, "Command")},
 			"bigip_common_license_manage_bigiq": {Tok: makeResource(mainMod, "CommonLicenseManageBigIq")},
+			"bigip_do":                          {Tok: makeResource(mainMod, "Do")},
 			"bigip_event_service_discovery":     {Tok: makeResource(mainMod, "EventServiceDiscovery")},
-			"bigip_ipsec_policy":                {Tok: makeResource(mainMod, "IpsecPolicy")},
-			"bigip_net_tunnel":                  {Tok: makeResource(mainMod, "NetTunnel")},
-			"bigip_net_ike_peer":                {Tok: makeResource(mainMod, "NetIkePeer")},
-			"bigip_traffic_selector":            {Tok: makeResource(mainMod, "TrafficSelector")},
-			"bigip_fast_template":               {Tok: makeResource(mainMod, "FastTemplate")},
 			"bigip_fast_application":            {Tok: makeResource(mainMod, "FastApplication")},
-			"bigip_ipsec_profile":               {Tok: makeResource(mainMod, "IpsecProfile")},
-			"bigip_waf_policy":                  {Tok: makeResource(mainMod, "WafPolicy")},
 			"bigip_fast_http_app":               {Tok: makeResource(mainMod, "FastHttpApp")},
 			"bigip_fast_https_app":              {Tok: makeResource(mainMod, "FastHttpsApp")},
 			"bigip_fast_tcp_app":                {Tok: makeResource(mainMod, "FastTcpApp")},
+			"bigip_fast_template":               {Tok: makeResource(mainMod, "FastTemplate")},
+			"bigip_fast_udp_app":                {Tok: makeResource(mainMod, "FastUdpApp")},
+			"bigip_ipsec_policy":                {Tok: makeResource(mainMod, "IpsecPolicy")},
+			"bigip_ipsec_profile":               {Tok: makeResource(mainMod, "IpsecProfile")},
+			"bigip_net_ike_peer":                {Tok: makeResource(mainMod, "NetIkePeer")},
+			"bigip_net_tunnel":                  {Tok: makeResource(mainMod, "NetTunnel")},
+			"bigip_ssl_certificate":             {Tok: makeResource(sslMod, "Certificate")},
+			"bigip_ssl_key":                     {Tok: makeResource(sslMod, "Key")},
+			"bigip_traffic_selector":            {Tok: makeResource(mainMod, "TrafficSelector")},
+			"bigip_waf_policy":                  {Tok: makeResource(mainMod, "WafPolicy")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"bigip_ltm_datagroup":   {Tok: makeDataSource(ltmMod, "getDataGroup")},

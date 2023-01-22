@@ -13,7 +13,7 @@ import (
 
 // `ltm.ProfileHttpCompress`  Virtual server HTTP compression profile configuration
 //
-// Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )
+// Resources should be named with their `full path`.The full path is the combination of the `partition + name` (example: `/Common/my-httpcompresprofile` ) or  `partition + directory + name` of the resource  (example: `/Common/test/my-httpcompresprofile`)
 //
 // ## Example Usage
 //
@@ -54,21 +54,45 @@ import (
 //	}
 //
 // ```
+//
+// ## Import
+//
+// BIG-IP LTM HTTP Compress profiles can be imported using the `name`, e.g.
+//
+// ```sh
+//
+//	$ pulumi import f5bigip:ltm/profileHttpCompress:ProfileHttpCompress test-httpcomprs_import /Common/test-httpcomprs
+//
+// ```
 type ProfileHttpCompress struct {
 	pulumi.CustomResourceState
 
+	// Specifies the maximum number of compressed bytes that the system buffers before inserting a Content-Length header (which specifies the compressed size) into the response. The default is `4096` bytes.
+	CompressionBuffersize pulumi.IntOutput `pulumi:"compressionBuffersize"`
 	// Excludes a specified list of content types from compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
 	ContentTypeExcludes pulumi.StringArrayOutput `pulumi:"contentTypeExcludes"`
 	// Specifies a list of content types for compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
 	ContentTypeIncludes pulumi.StringArrayOutput `pulumi:"contentTypeIncludes"`
+	// Specifies, when checked (enabled), that the system monitors the percent CPU usage and adjusts compression rates automatically when the CPU usage reaches either the CPU Saver High Threshold or the CPU Saver Low Threshold. The default is `enabled`.
+	CpuSaver pulumi.StringOutput `pulumi:"cpuSaver"`
 	// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
 	DefaultsFrom pulumi.StringOutput `pulumi:"defaultsFrom"`
-	// Name of the profile_httpcompress
+	// Specifies the degree to which the system compresses the content. Higher compression levels cause the compression process to be slower. The default is 1 - Least Compression (Fastest)
+	GzipCompressionLevel pulumi.IntOutput `pulumi:"gzipCompressionLevel"`
+	// Specifies the number of bytes of memory that the system uses for internal compression buffers when compressing a server response. The default is `8 kilobytes/8192 bytes`.
+	GzipMemoryLevel pulumi.IntOutput `pulumi:"gzipMemoryLevel"`
+	// Specifies the number of kilobytes in the window size that the system uses when compressing a server response. The default is `16` kilobytes
+	GzipWindowSize pulumi.IntOutput `pulumi:"gzipWindowSize"`
+	// Specifies, when checked (enabled), that the system does not remove the Accept-Encoding: header from an HTTP request. The default is `disabled`.
+	KeepAcceptEncoding pulumi.StringOutput `pulumi:"keepAcceptEncoding"`
+	// Name of the LTM http compress profile,named with their `full path`.The full path is the combination of the `partition + name` (example: `/Common/my-httpcompresprofile` ) or  `partition + directory + name` of the resource  (example: `my-httpcompresprofile`)
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Disables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you do not want to compress.
 	UriExcludes pulumi.StringArrayOutput `pulumi:"uriExcludes"`
 	// Enables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you want to compress.
 	UriIncludes pulumi.StringArrayOutput `pulumi:"uriIncludes"`
+	// Specifies, when checked (enabled), that the system inserts a Vary header into cacheable server responses. The default is `enabled`.
+	VaryHeader pulumi.StringOutput `pulumi:"varyHeader"`
 }
 
 // NewProfileHttpCompress registers a new resource with the given unique name, arguments, and options.
@@ -103,33 +127,61 @@ func GetProfileHttpCompress(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProfileHttpCompress resources.
 type profileHttpCompressState struct {
+	// Specifies the maximum number of compressed bytes that the system buffers before inserting a Content-Length header (which specifies the compressed size) into the response. The default is `4096` bytes.
+	CompressionBuffersize *int `pulumi:"compressionBuffersize"`
 	// Excludes a specified list of content types from compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
 	ContentTypeExcludes []string `pulumi:"contentTypeExcludes"`
 	// Specifies a list of content types for compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
 	ContentTypeIncludes []string `pulumi:"contentTypeIncludes"`
+	// Specifies, when checked (enabled), that the system monitors the percent CPU usage and adjusts compression rates automatically when the CPU usage reaches either the CPU Saver High Threshold or the CPU Saver Low Threshold. The default is `enabled`.
+	CpuSaver *string `pulumi:"cpuSaver"`
 	// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
 	DefaultsFrom *string `pulumi:"defaultsFrom"`
-	// Name of the profile_httpcompress
+	// Specifies the degree to which the system compresses the content. Higher compression levels cause the compression process to be slower. The default is 1 - Least Compression (Fastest)
+	GzipCompressionLevel *int `pulumi:"gzipCompressionLevel"`
+	// Specifies the number of bytes of memory that the system uses for internal compression buffers when compressing a server response. The default is `8 kilobytes/8192 bytes`.
+	GzipMemoryLevel *int `pulumi:"gzipMemoryLevel"`
+	// Specifies the number of kilobytes in the window size that the system uses when compressing a server response. The default is `16` kilobytes
+	GzipWindowSize *int `pulumi:"gzipWindowSize"`
+	// Specifies, when checked (enabled), that the system does not remove the Accept-Encoding: header from an HTTP request. The default is `disabled`.
+	KeepAcceptEncoding *string `pulumi:"keepAcceptEncoding"`
+	// Name of the LTM http compress profile,named with their `full path`.The full path is the combination of the `partition + name` (example: `/Common/my-httpcompresprofile` ) or  `partition + directory + name` of the resource  (example: `my-httpcompresprofile`)
 	Name *string `pulumi:"name"`
 	// Disables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you do not want to compress.
 	UriExcludes []string `pulumi:"uriExcludes"`
 	// Enables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you want to compress.
 	UriIncludes []string `pulumi:"uriIncludes"`
+	// Specifies, when checked (enabled), that the system inserts a Vary header into cacheable server responses. The default is `enabled`.
+	VaryHeader *string `pulumi:"varyHeader"`
 }
 
 type ProfileHttpCompressState struct {
+	// Specifies the maximum number of compressed bytes that the system buffers before inserting a Content-Length header (which specifies the compressed size) into the response. The default is `4096` bytes.
+	CompressionBuffersize pulumi.IntPtrInput
 	// Excludes a specified list of content types from compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
 	ContentTypeExcludes pulumi.StringArrayInput
 	// Specifies a list of content types for compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
 	ContentTypeIncludes pulumi.StringArrayInput
+	// Specifies, when checked (enabled), that the system monitors the percent CPU usage and adjusts compression rates automatically when the CPU usage reaches either the CPU Saver High Threshold or the CPU Saver Low Threshold. The default is `enabled`.
+	CpuSaver pulumi.StringPtrInput
 	// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
 	DefaultsFrom pulumi.StringPtrInput
-	// Name of the profile_httpcompress
+	// Specifies the degree to which the system compresses the content. Higher compression levels cause the compression process to be slower. The default is 1 - Least Compression (Fastest)
+	GzipCompressionLevel pulumi.IntPtrInput
+	// Specifies the number of bytes of memory that the system uses for internal compression buffers when compressing a server response. The default is `8 kilobytes/8192 bytes`.
+	GzipMemoryLevel pulumi.IntPtrInput
+	// Specifies the number of kilobytes in the window size that the system uses when compressing a server response. The default is `16` kilobytes
+	GzipWindowSize pulumi.IntPtrInput
+	// Specifies, when checked (enabled), that the system does not remove the Accept-Encoding: header from an HTTP request. The default is `disabled`.
+	KeepAcceptEncoding pulumi.StringPtrInput
+	// Name of the LTM http compress profile,named with their `full path`.The full path is the combination of the `partition + name` (example: `/Common/my-httpcompresprofile` ) or  `partition + directory + name` of the resource  (example: `my-httpcompresprofile`)
 	Name pulumi.StringPtrInput
 	// Disables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you do not want to compress.
 	UriExcludes pulumi.StringArrayInput
 	// Enables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you want to compress.
 	UriIncludes pulumi.StringArrayInput
+	// Specifies, when checked (enabled), that the system inserts a Vary header into cacheable server responses. The default is `enabled`.
+	VaryHeader pulumi.StringPtrInput
 }
 
 func (ProfileHttpCompressState) ElementType() reflect.Type {
@@ -137,34 +189,62 @@ func (ProfileHttpCompressState) ElementType() reflect.Type {
 }
 
 type profileHttpCompressArgs struct {
+	// Specifies the maximum number of compressed bytes that the system buffers before inserting a Content-Length header (which specifies the compressed size) into the response. The default is `4096` bytes.
+	CompressionBuffersize *int `pulumi:"compressionBuffersize"`
 	// Excludes a specified list of content types from compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
 	ContentTypeExcludes []string `pulumi:"contentTypeExcludes"`
 	// Specifies a list of content types for compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
 	ContentTypeIncludes []string `pulumi:"contentTypeIncludes"`
+	// Specifies, when checked (enabled), that the system monitors the percent CPU usage and adjusts compression rates automatically when the CPU usage reaches either the CPU Saver High Threshold or the CPU Saver Low Threshold. The default is `enabled`.
+	CpuSaver *string `pulumi:"cpuSaver"`
 	// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
 	DefaultsFrom *string `pulumi:"defaultsFrom"`
-	// Name of the profile_httpcompress
+	// Specifies the degree to which the system compresses the content. Higher compression levels cause the compression process to be slower. The default is 1 - Least Compression (Fastest)
+	GzipCompressionLevel *int `pulumi:"gzipCompressionLevel"`
+	// Specifies the number of bytes of memory that the system uses for internal compression buffers when compressing a server response. The default is `8 kilobytes/8192 bytes`.
+	GzipMemoryLevel *int `pulumi:"gzipMemoryLevel"`
+	// Specifies the number of kilobytes in the window size that the system uses when compressing a server response. The default is `16` kilobytes
+	GzipWindowSize *int `pulumi:"gzipWindowSize"`
+	// Specifies, when checked (enabled), that the system does not remove the Accept-Encoding: header from an HTTP request. The default is `disabled`.
+	KeepAcceptEncoding *string `pulumi:"keepAcceptEncoding"`
+	// Name of the LTM http compress profile,named with their `full path`.The full path is the combination of the `partition + name` (example: `/Common/my-httpcompresprofile` ) or  `partition + directory + name` of the resource  (example: `my-httpcompresprofile`)
 	Name string `pulumi:"name"`
 	// Disables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you do not want to compress.
 	UriExcludes []string `pulumi:"uriExcludes"`
 	// Enables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you want to compress.
 	UriIncludes []string `pulumi:"uriIncludes"`
+	// Specifies, when checked (enabled), that the system inserts a Vary header into cacheable server responses. The default is `enabled`.
+	VaryHeader *string `pulumi:"varyHeader"`
 }
 
 // The set of arguments for constructing a ProfileHttpCompress resource.
 type ProfileHttpCompressArgs struct {
+	// Specifies the maximum number of compressed bytes that the system buffers before inserting a Content-Length header (which specifies the compressed size) into the response. The default is `4096` bytes.
+	CompressionBuffersize pulumi.IntPtrInput
 	// Excludes a specified list of content types from compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
 	ContentTypeExcludes pulumi.StringArrayInput
 	// Specifies a list of content types for compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
 	ContentTypeIncludes pulumi.StringArrayInput
+	// Specifies, when checked (enabled), that the system monitors the percent CPU usage and adjusts compression rates automatically when the CPU usage reaches either the CPU Saver High Threshold or the CPU Saver Low Threshold. The default is `enabled`.
+	CpuSaver pulumi.StringPtrInput
 	// Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
 	DefaultsFrom pulumi.StringPtrInput
-	// Name of the profile_httpcompress
+	// Specifies the degree to which the system compresses the content. Higher compression levels cause the compression process to be slower. The default is 1 - Least Compression (Fastest)
+	GzipCompressionLevel pulumi.IntPtrInput
+	// Specifies the number of bytes of memory that the system uses for internal compression buffers when compressing a server response. The default is `8 kilobytes/8192 bytes`.
+	GzipMemoryLevel pulumi.IntPtrInput
+	// Specifies the number of kilobytes in the window size that the system uses when compressing a server response. The default is `16` kilobytes
+	GzipWindowSize pulumi.IntPtrInput
+	// Specifies, when checked (enabled), that the system does not remove the Accept-Encoding: header from an HTTP request. The default is `disabled`.
+	KeepAcceptEncoding pulumi.StringPtrInput
+	// Name of the LTM http compress profile,named with their `full path`.The full path is the combination of the `partition + name` (example: `/Common/my-httpcompresprofile` ) or  `partition + directory + name` of the resource  (example: `my-httpcompresprofile`)
 	Name pulumi.StringInput
 	// Disables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you do not want to compress.
 	UriExcludes pulumi.StringArrayInput
 	// Enables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you want to compress.
 	UriIncludes pulumi.StringArrayInput
+	// Specifies, when checked (enabled), that the system inserts a Vary header into cacheable server responses. The default is `enabled`.
+	VaryHeader pulumi.StringPtrInput
 }
 
 func (ProfileHttpCompressArgs) ElementType() reflect.Type {
@@ -254,6 +334,11 @@ func (o ProfileHttpCompressOutput) ToProfileHttpCompressOutputWithContext(ctx co
 	return o
 }
 
+// Specifies the maximum number of compressed bytes that the system buffers before inserting a Content-Length header (which specifies the compressed size) into the response. The default is `4096` bytes.
+func (o ProfileHttpCompressOutput) CompressionBuffersize() pulumi.IntOutput {
+	return o.ApplyT(func(v *ProfileHttpCompress) pulumi.IntOutput { return v.CompressionBuffersize }).(pulumi.IntOutput)
+}
+
 // Excludes a specified list of content types from compression of HTTP Content-Type responses. Use a string list to specify a list of content types you want to compress.
 func (o ProfileHttpCompressOutput) ContentTypeExcludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ProfileHttpCompress) pulumi.StringArrayOutput { return v.ContentTypeExcludes }).(pulumi.StringArrayOutput)
@@ -264,12 +349,37 @@ func (o ProfileHttpCompressOutput) ContentTypeIncludes() pulumi.StringArrayOutpu
 	return o.ApplyT(func(v *ProfileHttpCompress) pulumi.StringArrayOutput { return v.ContentTypeIncludes }).(pulumi.StringArrayOutput)
 }
 
+// Specifies, when checked (enabled), that the system monitors the percent CPU usage and adjusts compression rates automatically when the CPU usage reaches either the CPU Saver High Threshold or the CPU Saver Low Threshold. The default is `enabled`.
+func (o ProfileHttpCompressOutput) CpuSaver() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileHttpCompress) pulumi.StringOutput { return v.CpuSaver }).(pulumi.StringOutput)
+}
+
 // Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
 func (o ProfileHttpCompressOutput) DefaultsFrom() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileHttpCompress) pulumi.StringOutput { return v.DefaultsFrom }).(pulumi.StringOutput)
 }
 
-// Name of the profile_httpcompress
+// Specifies the degree to which the system compresses the content. Higher compression levels cause the compression process to be slower. The default is 1 - Least Compression (Fastest)
+func (o ProfileHttpCompressOutput) GzipCompressionLevel() pulumi.IntOutput {
+	return o.ApplyT(func(v *ProfileHttpCompress) pulumi.IntOutput { return v.GzipCompressionLevel }).(pulumi.IntOutput)
+}
+
+// Specifies the number of bytes of memory that the system uses for internal compression buffers when compressing a server response. The default is `8 kilobytes/8192 bytes`.
+func (o ProfileHttpCompressOutput) GzipMemoryLevel() pulumi.IntOutput {
+	return o.ApplyT(func(v *ProfileHttpCompress) pulumi.IntOutput { return v.GzipMemoryLevel }).(pulumi.IntOutput)
+}
+
+// Specifies the number of kilobytes in the window size that the system uses when compressing a server response. The default is `16` kilobytes
+func (o ProfileHttpCompressOutput) GzipWindowSize() pulumi.IntOutput {
+	return o.ApplyT(func(v *ProfileHttpCompress) pulumi.IntOutput { return v.GzipWindowSize }).(pulumi.IntOutput)
+}
+
+// Specifies, when checked (enabled), that the system does not remove the Accept-Encoding: header from an HTTP request. The default is `disabled`.
+func (o ProfileHttpCompressOutput) KeepAcceptEncoding() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileHttpCompress) pulumi.StringOutput { return v.KeepAcceptEncoding }).(pulumi.StringOutput)
+}
+
+// Name of the LTM http compress profile,named with their `full path`.The full path is the combination of the `partition + name` (example: `/Common/my-httpcompresprofile` ) or  `partition + directory + name` of the resource  (example: `my-httpcompresprofile`)
 func (o ProfileHttpCompressOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileHttpCompress) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -282,6 +392,11 @@ func (o ProfileHttpCompressOutput) UriExcludes() pulumi.StringArrayOutput {
 // Enables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you want to compress.
 func (o ProfileHttpCompressOutput) UriIncludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ProfileHttpCompress) pulumi.StringArrayOutput { return v.UriIncludes }).(pulumi.StringArrayOutput)
+}
+
+// Specifies, when checked (enabled), that the system inserts a Vary header into cacheable server responses. The default is `enabled`.
+func (o ProfileHttpCompressOutput) VaryHeader() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileHttpCompress) pulumi.StringOutput { return v.VaryHeader }).(pulumi.StringOutput)
 }
 
 type ProfileHttpCompressArrayOutput struct{ *pulumi.OutputState }

@@ -10,9 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.F5BigIP.Sys
 {
     /// <summary>
-    /// `f5bigip.sys.Ntp` provides details about a specific bigip
+    /// `f5bigip.sys.Ntp` resource is helpful when configuring NTP server on the BIG-IP.
     /// 
-    /// This resource is helpful when configuring NTP server on the BIG-IP.
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -39,13 +38,13 @@ namespace Pulumi.F5BigIP.Sys
     public partial class Ntp : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Name of the ntp Servers
+        /// User defined description.
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Adds NTP servers to or deletes NTP servers from the BIG-IP system.
+        /// Specifies the time servers that the system uses to update the system time.
         /// </summary>
         [Output("servers")]
         public Output<ImmutableArray<string>> Servers { get; private set; } = null!;
@@ -103,16 +102,16 @@ namespace Pulumi.F5BigIP.Sys
     public sealed class NtpArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the ntp Servers
+        /// User defined description.
         /// </summary>
         [Input("description", required: true)]
         public Input<string> Description { get; set; } = null!;
 
-        [Input("servers")]
+        [Input("servers", required: true)]
         private InputList<string>? _servers;
 
         /// <summary>
-        /// Adds NTP servers to or deletes NTP servers from the BIG-IP system.
+        /// Specifies the time servers that the system uses to update the system time.
         /// </summary>
         public InputList<string> Servers
         {
@@ -135,7 +134,7 @@ namespace Pulumi.F5BigIP.Sys
     public sealed class NtpState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the ntp Servers
+        /// User defined description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -144,7 +143,7 @@ namespace Pulumi.F5BigIP.Sys
         private InputList<string>? _servers;
 
         /// <summary>
-        /// Adds NTP servers to or deletes NTP servers from the BIG-IP system.
+        /// Specifies the time servers that the system uses to update the system time.
         /// </summary>
         public InputList<string> Servers
         {

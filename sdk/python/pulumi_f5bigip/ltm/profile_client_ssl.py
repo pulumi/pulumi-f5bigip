@@ -29,10 +29,11 @@ class ProfileClientSslArgs:
                  cache_timeout: Optional[pulumi.Input[int]] = None,
                  cert: Optional[pulumi.Input[str]] = None,
                  cert_extension_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 cert_key_chains: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileClientSslCertKeyChainArgs']]]] = None,
+                 cert_key_chain: Optional[pulumi.Input['ProfileClientSslCertKeyChainArgs']] = None,
                  cert_life_span: Optional[pulumi.Input[int]] = None,
                  cert_lookup_by_ipaddr_port: Optional[pulumi.Input[str]] = None,
                  chain: Optional[pulumi.Input[str]] = None,
+                 cipher_group: Optional[pulumi.Input[str]] = None,
                  ciphers: Optional[pulumi.Input[str]] = None,
                  client_cert_ca: Optional[pulumi.Input[str]] = None,
                  crl_file: Optional[pulumi.Input[str]] = None,
@@ -90,6 +91,7 @@ class ProfileClientSslArgs:
         :param pulumi.Input[int] cert_life_span: Life span of the certificate in days for ssl forward proxy
         :param pulumi.Input[str] cert_lookup_by_ipaddr_port: Cert lookup by ip address and port enabled / disabled
         :param pulumi.Input[str] chain: Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+        :param pulumi.Input[str] cipher_group: Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
         :param pulumi.Input[str] ciphers: Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
         :param pulumi.Input[str] client_cert_ca: client certificate name
         :param pulumi.Input[str] crl_file: Certificate revocation file name
@@ -159,14 +161,19 @@ class ProfileClientSslArgs:
             pulumi.set(__self__, "cert", cert)
         if cert_extension_includes is not None:
             pulumi.set(__self__, "cert_extension_includes", cert_extension_includes)
-        if cert_key_chains is not None:
-            pulumi.set(__self__, "cert_key_chains", cert_key_chains)
+        if cert_key_chain is not None:
+            warnings.warn("""This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.""", DeprecationWarning)
+            pulumi.log.warn("""cert_key_chain is deprecated: This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.""")
+        if cert_key_chain is not None:
+            pulumi.set(__self__, "cert_key_chain", cert_key_chain)
         if cert_life_span is not None:
             pulumi.set(__self__, "cert_life_span", cert_life_span)
         if cert_lookup_by_ipaddr_port is not None:
             pulumi.set(__self__, "cert_lookup_by_ipaddr_port", cert_lookup_by_ipaddr_port)
         if chain is not None:
             pulumi.set(__self__, "chain", chain)
+        if cipher_group is not None:
+            pulumi.set(__self__, "cipher_group", cipher_group)
         if ciphers is not None:
             pulumi.set(__self__, "ciphers", ciphers)
         if client_cert_ca is not None:
@@ -402,13 +409,13 @@ class ProfileClientSslArgs:
         pulumi.set(self, "cert_extension_includes", value)
 
     @property
-    @pulumi.getter(name="certKeyChains")
-    def cert_key_chains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProfileClientSslCertKeyChainArgs']]]]:
-        return pulumi.get(self, "cert_key_chains")
+    @pulumi.getter(name="certKeyChain")
+    def cert_key_chain(self) -> Optional[pulumi.Input['ProfileClientSslCertKeyChainArgs']]:
+        return pulumi.get(self, "cert_key_chain")
 
-    @cert_key_chains.setter
-    def cert_key_chains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileClientSslCertKeyChainArgs']]]]):
-        pulumi.set(self, "cert_key_chains", value)
+    @cert_key_chain.setter
+    def cert_key_chain(self, value: Optional[pulumi.Input['ProfileClientSslCertKeyChainArgs']]):
+        pulumi.set(self, "cert_key_chain", value)
 
     @property
     @pulumi.getter(name="certLifeSpan")
@@ -445,6 +452,18 @@ class ProfileClientSslArgs:
     @chain.setter
     def chain(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "chain", value)
+
+    @property
+    @pulumi.getter(name="cipherGroup")
+    def cipher_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+        """
+        return pulumi.get(self, "cipher_group")
+
+    @cipher_group.setter
+    def cipher_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cipher_group", value)
 
     @property
     @pulumi.getter
@@ -923,10 +942,11 @@ class _ProfileClientSslState:
                  cache_timeout: Optional[pulumi.Input[int]] = None,
                  cert: Optional[pulumi.Input[str]] = None,
                  cert_extension_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 cert_key_chains: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileClientSslCertKeyChainArgs']]]] = None,
+                 cert_key_chain: Optional[pulumi.Input['ProfileClientSslCertKeyChainArgs']] = None,
                  cert_life_span: Optional[pulumi.Input[int]] = None,
                  cert_lookup_by_ipaddr_port: Optional[pulumi.Input[str]] = None,
                  chain: Optional[pulumi.Input[str]] = None,
+                 cipher_group: Optional[pulumi.Input[str]] = None,
                  ciphers: Optional[pulumi.Input[str]] = None,
                  client_cert_ca: Optional[pulumi.Input[str]] = None,
                  crl_file: Optional[pulumi.Input[str]] = None,
@@ -984,6 +1004,7 @@ class _ProfileClientSslState:
         :param pulumi.Input[int] cert_life_span: Life span of the certificate in days for ssl forward proxy
         :param pulumi.Input[str] cert_lookup_by_ipaddr_port: Cert lookup by ip address and port enabled / disabled
         :param pulumi.Input[str] chain: Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+        :param pulumi.Input[str] cipher_group: Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
         :param pulumi.Input[str] ciphers: Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
         :param pulumi.Input[str] client_cert_ca: client certificate name
         :param pulumi.Input[str] crl_file: Certificate revocation file name
@@ -1053,14 +1074,19 @@ class _ProfileClientSslState:
             pulumi.set(__self__, "cert", cert)
         if cert_extension_includes is not None:
             pulumi.set(__self__, "cert_extension_includes", cert_extension_includes)
-        if cert_key_chains is not None:
-            pulumi.set(__self__, "cert_key_chains", cert_key_chains)
+        if cert_key_chain is not None:
+            warnings.warn("""This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.""", DeprecationWarning)
+            pulumi.log.warn("""cert_key_chain is deprecated: This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.""")
+        if cert_key_chain is not None:
+            pulumi.set(__self__, "cert_key_chain", cert_key_chain)
         if cert_life_span is not None:
             pulumi.set(__self__, "cert_life_span", cert_life_span)
         if cert_lookup_by_ipaddr_port is not None:
             pulumi.set(__self__, "cert_lookup_by_ipaddr_port", cert_lookup_by_ipaddr_port)
         if chain is not None:
             pulumi.set(__self__, "chain", chain)
+        if cipher_group is not None:
+            pulumi.set(__self__, "cipher_group", cipher_group)
         if ciphers is not None:
             pulumi.set(__self__, "ciphers", ciphers)
         if client_cert_ca is not None:
@@ -1286,13 +1312,13 @@ class _ProfileClientSslState:
         pulumi.set(self, "cert_extension_includes", value)
 
     @property
-    @pulumi.getter(name="certKeyChains")
-    def cert_key_chains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProfileClientSslCertKeyChainArgs']]]]:
-        return pulumi.get(self, "cert_key_chains")
+    @pulumi.getter(name="certKeyChain")
+    def cert_key_chain(self) -> Optional[pulumi.Input['ProfileClientSslCertKeyChainArgs']]:
+        return pulumi.get(self, "cert_key_chain")
 
-    @cert_key_chains.setter
-    def cert_key_chains(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileClientSslCertKeyChainArgs']]]]):
-        pulumi.set(self, "cert_key_chains", value)
+    @cert_key_chain.setter
+    def cert_key_chain(self, value: Optional[pulumi.Input['ProfileClientSslCertKeyChainArgs']]):
+        pulumi.set(self, "cert_key_chain", value)
 
     @property
     @pulumi.getter(name="certLifeSpan")
@@ -1329,6 +1355,18 @@ class _ProfileClientSslState:
     @chain.setter
     def chain(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "chain", value)
+
+    @property
+    @pulumi.getter(name="cipherGroup")
+    def cipher_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+        """
+        return pulumi.get(self, "cipher_group")
+
+    @cipher_group.setter
+    def cipher_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cipher_group", value)
 
     @property
     @pulumi.getter
@@ -1821,10 +1859,11 @@ class ProfileClientSsl(pulumi.CustomResource):
                  cache_timeout: Optional[pulumi.Input[int]] = None,
                  cert: Optional[pulumi.Input[str]] = None,
                  cert_extension_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 cert_key_chains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileClientSslCertKeyChainArgs']]]]] = None,
+                 cert_key_chain: Optional[pulumi.Input[pulumi.InputType['ProfileClientSslCertKeyChainArgs']]] = None,
                  cert_life_span: Optional[pulumi.Input[int]] = None,
                  cert_lookup_by_ipaddr_port: Optional[pulumi.Input[str]] = None,
                  chain: Optional[pulumi.Input[str]] = None,
+                 cipher_group: Optional[pulumi.Input[str]] = None,
                  ciphers: Optional[pulumi.Input[str]] = None,
                  client_cert_ca: Optional[pulumi.Input[str]] = None,
                  crl_file: Optional[pulumi.Input[str]] = None,
@@ -1901,6 +1940,7 @@ class ProfileClientSsl(pulumi.CustomResource):
         :param pulumi.Input[int] cert_life_span: Life span of the certificate in days for ssl forward proxy
         :param pulumi.Input[str] cert_lookup_by_ipaddr_port: Cert lookup by ip address and port enabled / disabled
         :param pulumi.Input[str] chain: Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+        :param pulumi.Input[str] cipher_group: Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
         :param pulumi.Input[str] ciphers: Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
         :param pulumi.Input[str] client_cert_ca: client certificate name
         :param pulumi.Input[str] crl_file: Certificate revocation file name
@@ -1997,10 +2037,11 @@ class ProfileClientSsl(pulumi.CustomResource):
                  cache_timeout: Optional[pulumi.Input[int]] = None,
                  cert: Optional[pulumi.Input[str]] = None,
                  cert_extension_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 cert_key_chains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileClientSslCertKeyChainArgs']]]]] = None,
+                 cert_key_chain: Optional[pulumi.Input[pulumi.InputType['ProfileClientSslCertKeyChainArgs']]] = None,
                  cert_life_span: Optional[pulumi.Input[int]] = None,
                  cert_lookup_by_ipaddr_port: Optional[pulumi.Input[str]] = None,
                  chain: Optional[pulumi.Input[str]] = None,
+                 cipher_group: Optional[pulumi.Input[str]] = None,
                  ciphers: Optional[pulumi.Input[str]] = None,
                  client_cert_ca: Optional[pulumi.Input[str]] = None,
                  crl_file: Optional[pulumi.Input[str]] = None,
@@ -2061,10 +2102,14 @@ class ProfileClientSsl(pulumi.CustomResource):
             __props__.__dict__["cache_timeout"] = cache_timeout
             __props__.__dict__["cert"] = cert
             __props__.__dict__["cert_extension_includes"] = cert_extension_includes
-            __props__.__dict__["cert_key_chains"] = cert_key_chains
+            if cert_key_chain is not None and not opts.urn:
+                warnings.warn("""This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.""", DeprecationWarning)
+                pulumi.log.warn("""cert_key_chain is deprecated: This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.""")
+            __props__.__dict__["cert_key_chain"] = cert_key_chain
             __props__.__dict__["cert_life_span"] = cert_life_span
             __props__.__dict__["cert_lookup_by_ipaddr_port"] = cert_lookup_by_ipaddr_port
             __props__.__dict__["chain"] = chain
+            __props__.__dict__["cipher_group"] = cipher_group
             __props__.__dict__["ciphers"] = ciphers
             __props__.__dict__["client_cert_ca"] = client_cert_ca
             __props__.__dict__["crl_file"] = crl_file
@@ -2082,7 +2127,7 @@ class ProfileClientSsl(pulumi.CustomResource):
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["partition"] = partition
-            __props__.__dict__["passphrase"] = passphrase
+            __props__.__dict__["passphrase"] = None if passphrase is None else pulumi.Output.secret(passphrase)
             __props__.__dict__["peer_cert_mode"] = peer_cert_mode
             __props__.__dict__["proxy_ca_cert"] = proxy_ca_cert
             __props__.__dict__["proxy_ca_key"] = proxy_ca_key
@@ -2106,6 +2151,8 @@ class ProfileClientSsl(pulumi.CustomResource):
             __props__.__dict__["strict_resume"] = strict_resume
             __props__.__dict__["tm_options"] = tm_options
             __props__.__dict__["unclean_shutdown"] = unclean_shutdown
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["passphrase"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ProfileClientSsl, __self__).__init__(
             'f5bigip:ltm/profileClientSsl:ProfileClientSsl',
             resource_name,
@@ -2128,10 +2175,11 @@ class ProfileClientSsl(pulumi.CustomResource):
             cache_timeout: Optional[pulumi.Input[int]] = None,
             cert: Optional[pulumi.Input[str]] = None,
             cert_extension_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-            cert_key_chains: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileClientSslCertKeyChainArgs']]]]] = None,
+            cert_key_chain: Optional[pulumi.Input[pulumi.InputType['ProfileClientSslCertKeyChainArgs']]] = None,
             cert_life_span: Optional[pulumi.Input[int]] = None,
             cert_lookup_by_ipaddr_port: Optional[pulumi.Input[str]] = None,
             chain: Optional[pulumi.Input[str]] = None,
+            cipher_group: Optional[pulumi.Input[str]] = None,
             ciphers: Optional[pulumi.Input[str]] = None,
             client_cert_ca: Optional[pulumi.Input[str]] = None,
             crl_file: Optional[pulumi.Input[str]] = None,
@@ -2194,6 +2242,7 @@ class ProfileClientSsl(pulumi.CustomResource):
         :param pulumi.Input[int] cert_life_span: Life span of the certificate in days for ssl forward proxy
         :param pulumi.Input[str] cert_lookup_by_ipaddr_port: Cert lookup by ip address and port enabled / disabled
         :param pulumi.Input[str] chain: Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
+        :param pulumi.Input[str] cipher_group: Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
         :param pulumi.Input[str] ciphers: Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
         :param pulumi.Input[str] client_cert_ca: client certificate name
         :param pulumi.Input[str] crl_file: Certificate revocation file name
@@ -2255,10 +2304,11 @@ class ProfileClientSsl(pulumi.CustomResource):
         __props__.__dict__["cache_timeout"] = cache_timeout
         __props__.__dict__["cert"] = cert
         __props__.__dict__["cert_extension_includes"] = cert_extension_includes
-        __props__.__dict__["cert_key_chains"] = cert_key_chains
+        __props__.__dict__["cert_key_chain"] = cert_key_chain
         __props__.__dict__["cert_life_span"] = cert_life_span
         __props__.__dict__["cert_lookup_by_ipaddr_port"] = cert_lookup_by_ipaddr_port
         __props__.__dict__["chain"] = chain
+        __props__.__dict__["cipher_group"] = cipher_group
         __props__.__dict__["ciphers"] = ciphers
         __props__.__dict__["client_cert_ca"] = client_cert_ca
         __props__.__dict__["crl_file"] = crl_file
@@ -2383,7 +2433,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def cert(self) -> pulumi.Output[str]:
+    def cert(self) -> pulumi.Output[Optional[str]]:
         """
         Specifies a cert name for use.
         """
@@ -2398,9 +2448,9 @@ class ProfileClientSsl(pulumi.CustomResource):
         return pulumi.get(self, "cert_extension_includes")
 
     @property
-    @pulumi.getter(name="certKeyChains")
-    def cert_key_chains(self) -> pulumi.Output[Sequence['outputs.ProfileClientSslCertKeyChain']]:
-        return pulumi.get(self, "cert_key_chains")
+    @pulumi.getter(name="certKeyChain")
+    def cert_key_chain(self) -> pulumi.Output[Optional['outputs.ProfileClientSslCertKeyChain']]:
+        return pulumi.get(self, "cert_key_chain")
 
     @property
     @pulumi.getter(name="certLifeSpan")
@@ -2420,11 +2470,19 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def chain(self) -> pulumi.Output[str]:
+    def chain(self) -> pulumi.Output[Optional[str]]:
         """
         Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
         """
         return pulumi.get(self, "chain")
+
+    @property
+    @pulumi.getter(name="cipherGroup")
+    def cipher_group(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+        """
+        return pulumi.get(self, "cipher_group")
 
     @property
     @pulumi.getter
@@ -2508,7 +2566,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def key(self) -> pulumi.Output[str]:
+    def key(self) -> pulumi.Output[Optional[str]]:
         """
         Contains a key name
         """

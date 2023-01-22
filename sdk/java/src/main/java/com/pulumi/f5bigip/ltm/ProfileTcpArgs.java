@@ -32,6 +32,21 @@ public final class ProfileTcpArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the algorithm to use to share network resources among competing users to reduce congestion. The default is High Speed.
+     * 
+     */
+    @Import(name="congestionControl")
+    private @Nullable Output<String> congestionControl;
+
+    /**
+     * @return Specifies the algorithm to use to share network resources among competing users to reduce congestion. The default is High Speed.
+     * 
+     */
+    public Optional<Output<String>> congestionControl() {
+        return Optional.ofNullable(this.congestionControl);
+    }
+
+    /**
      * Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
      * 
      */
@@ -62,14 +77,44 @@ public final class ProfileTcpArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet.
+     * Specifies, when checked (enabled), that the system can send fewer than one ACK (acknowledgment) segment per data segment received. By default, this setting is enabled.
+     * 
+     */
+    @Import(name="delayedAcks")
+    private @Nullable Output<String> delayedAcks;
+
+    /**
+     * @return Specifies, when checked (enabled), that the system can send fewer than one ACK (acknowledgment) segment per data segment received. By default, this setting is enabled.
+     * 
+     */
+    public Optional<Output<String>> delayedAcks() {
+        return Optional.ofNullable(this.delayedAcks);
+    }
+
+    /**
+     * Enabling this setting allows TCP to assume a packet is lost after fewer than the standard number of duplicate ACKs, if there is no way to send new data and generate more duplicate ACKs.
+     * 
+     */
+    @Import(name="earlyRetransmit")
+    private @Nullable Output<String> earlyRetransmit;
+
+    /**
+     * @return Enabling this setting allows TCP to assume a packet is lost after fewer than the standard number of duplicate ACKs, if there is no way to send new data and generate more duplicate ACKs.
+     * 
+     */
+    public Optional<Output<String>> earlyRetransmit() {
+        return Optional.ofNullable(this.earlyRetransmit);
+    }
+
+    /**
+     * When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet. Default is `enabled`. If `fast_open` set to `enabled`, argument `verified_accept` can&#39;t be set to `enabled`.
      * 
      */
     @Import(name="fastOpen")
     private @Nullable Output<String> fastOpen;
 
     /**
-     * @return When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet.
+     * @return When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet. Default is `enabled`. If `fast_open` set to `enabled`, argument `verified_accept` can&#39;t be set to `enabled`.
      * 
      */
     public Optional<Output<String>> fastOpen() {
@@ -122,6 +167,21 @@ public final class ProfileTcpArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the initial congestion window size for connections to this destination. Actual window size is this value multiplied by the MSS (Maximum Segment Size) for the same connection. The default is 10. Valid values range from 0 to 64.
+     * 
+     */
+    @Import(name="initialCongestionWindowsize")
+    private @Nullable Output<Integer> initialCongestionWindowsize;
+
+    /**
+     * @return Specifies the initial congestion window size for connections to this destination. Actual window size is this value multiplied by the MSS (Maximum Segment Size) for the same connection. The default is 10. Valid values range from 0 to 64.
+     * 
+     */
+    public Optional<Output<Integer>> initialCongestionWindowsize() {
+        return Optional.ofNullable(this.initialCongestionWindowsize);
+    }
+
+    /**
      * Specifies the keep alive probe interval, in seconds. The default value is 1800 seconds.
      * 
      */
@@ -137,14 +197,29 @@ public final class ProfileTcpArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the profile_tcp
+     * Specifies whether the system applies Nagle&#39;s algorithm to reduce the number of short segments on the network.If you select Auto, the system determines whether to use Nagle&#39;s algorithm based on network conditions. By default, this setting is disabled.
+     * 
+     */
+    @Import(name="nagle")
+    private @Nullable Output<String> nagle;
+
+    /**
+     * @return Specifies whether the system applies Nagle&#39;s algorithm to reduce the number of short segments on the network.If you select Auto, the system determines whether to use Nagle&#39;s algorithm based on network conditions. By default, this setting is disabled.
+     * 
+     */
+    public Optional<Output<String>> nagle() {
+        return Optional.ofNullable(this.nagle);
+    }
+
+    /**
+     * Name of the LTM TCP Profile,name should be `full path`. The full path is the combination of the `partition + name` (example: /Common/my-pool ) or  `partition + directory + name` of the resource  (example: /Common/test/my-pool )
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return Name of the profile_tcp
+     * @return Name of the LTM TCP Profile,name should be `full path`. The full path is the combination of the `partition + name` (example: /Common/my-pool ) or  `partition + directory + name` of the resource  (example: /Common/test/my-pool )
      * 
      */
     public Output<String> name() {
@@ -152,33 +227,150 @@ public final class ProfileTcpArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Displays the administrative partition within which this profile resides
+     * name of partition
      * 
      */
     @Import(name="partition")
     private @Nullable Output<String> partition;
 
     /**
-     * @return Displays the administrative partition within which this profile resides
+     * @return name of partition
      * 
      */
     public Optional<Output<String>> partition() {
         return Optional.ofNullable(this.partition);
     }
 
+    /**
+     * Specifies the proxy buffer level, in bytes, at which the receive window is closed.
+     * 
+     */
+    @Import(name="proxybufferHigh")
+    private @Nullable Output<Integer> proxybufferHigh;
+
+    /**
+     * @return Specifies the proxy buffer level, in bytes, at which the receive window is closed.
+     * 
+     */
+    public Optional<Output<Integer>> proxybufferHigh() {
+        return Optional.ofNullable(this.proxybufferHigh);
+    }
+
+    /**
+     * Specifies the maximum advertised RECEIVE window size. This value represents the maximum number of bytes to which the RECEIVE window can scale. The default is 65535 bytes.
+     * 
+     */
+    @Import(name="receiveWindowsize")
+    private @Nullable Output<Integer> receiveWindowsize;
+
+    /**
+     * @return Specifies the maximum advertised RECEIVE window size. This value represents the maximum number of bytes to which the RECEIVE window can scale. The default is 65535 bytes.
+     * 
+     */
+    public Optional<Output<Integer>> receiveWindowsize() {
+        return Optional.ofNullable(this.receiveWindowsize);
+    }
+
+    /**
+     * Specifies the SEND window size. The default is 131072 bytes.
+     * 
+     */
+    @Import(name="sendBuffersize")
+    private @Nullable Output<Integer> sendBuffersize;
+
+    /**
+     * @return Specifies the SEND window size. The default is 131072 bytes.
+     * 
+     */
+    public Optional<Output<Integer>> sendBuffersize() {
+        return Optional.ofNullable(this.sendBuffersize);
+    }
+
+    /**
+     * Enabling this setting allows TCP to send a probe segment to trigger fast recovery instead of recovering a loss via a retransmission timeout,By default, this setting is enabled.
+     * 
+     */
+    @Import(name="taillossProbe")
+    private @Nullable Output<String> taillossProbe;
+
+    /**
+     * @return Enabling this setting allows TCP to send a probe segment to trigger fast recovery instead of recovering a loss via a retransmission timeout,By default, this setting is enabled.
+     * 
+     */
+    public Optional<Output<String>> taillossProbe() {
+        return Optional.ofNullable(this.taillossProbe);
+    }
+
+    /**
+     * Using this setting enabled, the system can recycle a wait-state connection immediately upon receipt of a new connection request instead of having to wait until the connection times out of the wait state. By default, this setting is enabled.
+     * 
+     */
+    @Import(name="timewaitRecycle")
+    private @Nullable Output<String> timewaitRecycle;
+
+    /**
+     * @return Using this setting enabled, the system can recycle a wait-state connection immediately upon receipt of a new connection request instead of having to wait until the connection times out of the wait state. By default, this setting is enabled.
+     * 
+     */
+    public Optional<Output<String>> timewaitRecycle() {
+        return Optional.ofNullable(this.timewaitRecycle);
+    }
+
+    /**
+     * Specifies, when checked (enabled), that the system can actually communicate with the server before establishing a client connection. To determine this, the system sends the server a SYN packet before responding to the client&#39;s SYN with a SYN-ACK. When unchecked, the system accepts the client connection before selecting a server to talk to. By default, this setting is `disabled`.
+     * 
+     */
+    @Import(name="verifiedAccept")
+    private @Nullable Output<String> verifiedAccept;
+
+    /**
+     * @return Specifies, when checked (enabled), that the system can actually communicate with the server before establishing a client connection. To determine this, the system sends the server a SYN packet before responding to the client&#39;s SYN with a SYN-ACK. When unchecked, the system accepts the client connection before selecting a server to talk to. By default, this setting is `disabled`.
+     * 
+     */
+    public Optional<Output<String>> verifiedAccept() {
+        return Optional.ofNullable(this.verifiedAccept);
+    }
+
+    /**
+     * Specifies the timeout in milliseconds for terminating a connection with an effective zero length TCP transmit window.
+     * 
+     */
+    @Import(name="zerowindowTimeout")
+    private @Nullable Output<Integer> zerowindowTimeout;
+
+    /**
+     * @return Specifies the timeout in milliseconds for terminating a connection with an effective zero length TCP transmit window.
+     * 
+     */
+    public Optional<Output<Integer>> zerowindowTimeout() {
+        return Optional.ofNullable(this.zerowindowTimeout);
+    }
+
     private ProfileTcpArgs() {}
 
     private ProfileTcpArgs(ProfileTcpArgs $) {
         this.closeWaitTimeout = $.closeWaitTimeout;
+        this.congestionControl = $.congestionControl;
         this.defaultsFrom = $.defaultsFrom;
         this.deferredAccept = $.deferredAccept;
+        this.delayedAcks = $.delayedAcks;
+        this.earlyRetransmit = $.earlyRetransmit;
         this.fastOpen = $.fastOpen;
         this.finwait2timeout = $.finwait2timeout;
         this.finwaitTimeout = $.finwaitTimeout;
         this.idleTimeout = $.idleTimeout;
+        this.initialCongestionWindowsize = $.initialCongestionWindowsize;
         this.keepaliveInterval = $.keepaliveInterval;
+        this.nagle = $.nagle;
         this.name = $.name;
         this.partition = $.partition;
+        this.proxybufferHigh = $.proxybufferHigh;
+        this.receiveWindowsize = $.receiveWindowsize;
+        this.sendBuffersize = $.sendBuffersize;
+        this.taillossProbe = $.taillossProbe;
+        this.timewaitRecycle = $.timewaitRecycle;
+        this.verifiedAccept = $.verifiedAccept;
+        this.zerowindowTimeout = $.zerowindowTimeout;
     }
 
     public static Builder builder() {
@@ -218,6 +410,27 @@ public final class ProfileTcpArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder closeWaitTimeout(Integer closeWaitTimeout) {
             return closeWaitTimeout(Output.of(closeWaitTimeout));
+        }
+
+        /**
+         * @param congestionControl Specifies the algorithm to use to share network resources among competing users to reduce congestion. The default is High Speed.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder congestionControl(@Nullable Output<String> congestionControl) {
+            $.congestionControl = congestionControl;
+            return this;
+        }
+
+        /**
+         * @param congestionControl Specifies the algorithm to use to share network resources among competing users to reduce congestion. The default is High Speed.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder congestionControl(String congestionControl) {
+            return congestionControl(Output.of(congestionControl));
         }
 
         /**
@@ -263,7 +476,49 @@ public final class ProfileTcpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fastOpen When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet.
+         * @param delayedAcks Specifies, when checked (enabled), that the system can send fewer than one ACK (acknowledgment) segment per data segment received. By default, this setting is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder delayedAcks(@Nullable Output<String> delayedAcks) {
+            $.delayedAcks = delayedAcks;
+            return this;
+        }
+
+        /**
+         * @param delayedAcks Specifies, when checked (enabled), that the system can send fewer than one ACK (acknowledgment) segment per data segment received. By default, this setting is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder delayedAcks(String delayedAcks) {
+            return delayedAcks(Output.of(delayedAcks));
+        }
+
+        /**
+         * @param earlyRetransmit Enabling this setting allows TCP to assume a packet is lost after fewer than the standard number of duplicate ACKs, if there is no way to send new data and generate more duplicate ACKs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder earlyRetransmit(@Nullable Output<String> earlyRetransmit) {
+            $.earlyRetransmit = earlyRetransmit;
+            return this;
+        }
+
+        /**
+         * @param earlyRetransmit Enabling this setting allows TCP to assume a packet is lost after fewer than the standard number of duplicate ACKs, if there is no way to send new data and generate more duplicate ACKs.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder earlyRetransmit(String earlyRetransmit) {
+            return earlyRetransmit(Output.of(earlyRetransmit));
+        }
+
+        /**
+         * @param fastOpen When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet. Default is `enabled`. If `fast_open` set to `enabled`, argument `verified_accept` can&#39;t be set to `enabled`.
          * 
          * @return builder
          * 
@@ -274,7 +529,7 @@ public final class ProfileTcpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fastOpen When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet.
+         * @param fastOpen When enabled, permits TCP Fast Open, allowing properly equipped TCP clients to send data with the SYN packet. Default is `enabled`. If `fast_open` set to `enabled`, argument `verified_accept` can&#39;t be set to `enabled`.
          * 
          * @return builder
          * 
@@ -347,6 +602,27 @@ public final class ProfileTcpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param initialCongestionWindowsize Specifies the initial congestion window size for connections to this destination. Actual window size is this value multiplied by the MSS (Maximum Segment Size) for the same connection. The default is 10. Valid values range from 0 to 64.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder initialCongestionWindowsize(@Nullable Output<Integer> initialCongestionWindowsize) {
+            $.initialCongestionWindowsize = initialCongestionWindowsize;
+            return this;
+        }
+
+        /**
+         * @param initialCongestionWindowsize Specifies the initial congestion window size for connections to this destination. Actual window size is this value multiplied by the MSS (Maximum Segment Size) for the same connection. The default is 10. Valid values range from 0 to 64.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder initialCongestionWindowsize(Integer initialCongestionWindowsize) {
+            return initialCongestionWindowsize(Output.of(initialCongestionWindowsize));
+        }
+
+        /**
          * @param keepaliveInterval Specifies the keep alive probe interval, in seconds. The default value is 1800 seconds.
          * 
          * @return builder
@@ -368,7 +644,28 @@ public final class ProfileTcpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the profile_tcp
+         * @param nagle Specifies whether the system applies Nagle&#39;s algorithm to reduce the number of short segments on the network.If you select Auto, the system determines whether to use Nagle&#39;s algorithm based on network conditions. By default, this setting is disabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nagle(@Nullable Output<String> nagle) {
+            $.nagle = nagle;
+            return this;
+        }
+
+        /**
+         * @param nagle Specifies whether the system applies Nagle&#39;s algorithm to reduce the number of short segments on the network.If you select Auto, the system determines whether to use Nagle&#39;s algorithm based on network conditions. By default, this setting is disabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder nagle(String nagle) {
+            return nagle(Output.of(nagle));
+        }
+
+        /**
+         * @param name Name of the LTM TCP Profile,name should be `full path`. The full path is the combination of the `partition + name` (example: /Common/my-pool ) or  `partition + directory + name` of the resource  (example: /Common/test/my-pool )
          * 
          * @return builder
          * 
@@ -379,7 +676,7 @@ public final class ProfileTcpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Name of the profile_tcp
+         * @param name Name of the LTM TCP Profile,name should be `full path`. The full path is the combination of the `partition + name` (example: /Common/my-pool ) or  `partition + directory + name` of the resource  (example: /Common/test/my-pool )
          * 
          * @return builder
          * 
@@ -389,7 +686,7 @@ public final class ProfileTcpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param partition Displays the administrative partition within which this profile resides
+         * @param partition name of partition
          * 
          * @return builder
          * 
@@ -400,13 +697,160 @@ public final class ProfileTcpArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param partition Displays the administrative partition within which this profile resides
+         * @param partition name of partition
          * 
          * @return builder
          * 
          */
         public Builder partition(String partition) {
             return partition(Output.of(partition));
+        }
+
+        /**
+         * @param proxybufferHigh Specifies the proxy buffer level, in bytes, at which the receive window is closed.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder proxybufferHigh(@Nullable Output<Integer> proxybufferHigh) {
+            $.proxybufferHigh = proxybufferHigh;
+            return this;
+        }
+
+        /**
+         * @param proxybufferHigh Specifies the proxy buffer level, in bytes, at which the receive window is closed.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder proxybufferHigh(Integer proxybufferHigh) {
+            return proxybufferHigh(Output.of(proxybufferHigh));
+        }
+
+        /**
+         * @param receiveWindowsize Specifies the maximum advertised RECEIVE window size. This value represents the maximum number of bytes to which the RECEIVE window can scale. The default is 65535 bytes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder receiveWindowsize(@Nullable Output<Integer> receiveWindowsize) {
+            $.receiveWindowsize = receiveWindowsize;
+            return this;
+        }
+
+        /**
+         * @param receiveWindowsize Specifies the maximum advertised RECEIVE window size. This value represents the maximum number of bytes to which the RECEIVE window can scale. The default is 65535 bytes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder receiveWindowsize(Integer receiveWindowsize) {
+            return receiveWindowsize(Output.of(receiveWindowsize));
+        }
+
+        /**
+         * @param sendBuffersize Specifies the SEND window size. The default is 131072 bytes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sendBuffersize(@Nullable Output<Integer> sendBuffersize) {
+            $.sendBuffersize = sendBuffersize;
+            return this;
+        }
+
+        /**
+         * @param sendBuffersize Specifies the SEND window size. The default is 131072 bytes.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sendBuffersize(Integer sendBuffersize) {
+            return sendBuffersize(Output.of(sendBuffersize));
+        }
+
+        /**
+         * @param taillossProbe Enabling this setting allows TCP to send a probe segment to trigger fast recovery instead of recovering a loss via a retransmission timeout,By default, this setting is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder taillossProbe(@Nullable Output<String> taillossProbe) {
+            $.taillossProbe = taillossProbe;
+            return this;
+        }
+
+        /**
+         * @param taillossProbe Enabling this setting allows TCP to send a probe segment to trigger fast recovery instead of recovering a loss via a retransmission timeout,By default, this setting is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder taillossProbe(String taillossProbe) {
+            return taillossProbe(Output.of(taillossProbe));
+        }
+
+        /**
+         * @param timewaitRecycle Using this setting enabled, the system can recycle a wait-state connection immediately upon receipt of a new connection request instead of having to wait until the connection times out of the wait state. By default, this setting is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder timewaitRecycle(@Nullable Output<String> timewaitRecycle) {
+            $.timewaitRecycle = timewaitRecycle;
+            return this;
+        }
+
+        /**
+         * @param timewaitRecycle Using this setting enabled, the system can recycle a wait-state connection immediately upon receipt of a new connection request instead of having to wait until the connection times out of the wait state. By default, this setting is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder timewaitRecycle(String timewaitRecycle) {
+            return timewaitRecycle(Output.of(timewaitRecycle));
+        }
+
+        /**
+         * @param verifiedAccept Specifies, when checked (enabled), that the system can actually communicate with the server before establishing a client connection. To determine this, the system sends the server a SYN packet before responding to the client&#39;s SYN with a SYN-ACK. When unchecked, the system accepts the client connection before selecting a server to talk to. By default, this setting is `disabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder verifiedAccept(@Nullable Output<String> verifiedAccept) {
+            $.verifiedAccept = verifiedAccept;
+            return this;
+        }
+
+        /**
+         * @param verifiedAccept Specifies, when checked (enabled), that the system can actually communicate with the server before establishing a client connection. To determine this, the system sends the server a SYN packet before responding to the client&#39;s SYN with a SYN-ACK. When unchecked, the system accepts the client connection before selecting a server to talk to. By default, this setting is `disabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder verifiedAccept(String verifiedAccept) {
+            return verifiedAccept(Output.of(verifiedAccept));
+        }
+
+        /**
+         * @param zerowindowTimeout Specifies the timeout in milliseconds for terminating a connection with an effective zero length TCP transmit window.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zerowindowTimeout(@Nullable Output<Integer> zerowindowTimeout) {
+            $.zerowindowTimeout = zerowindowTimeout;
+            return this;
+        }
+
+        /**
+         * @param zerowindowTimeout Specifies the timeout in milliseconds for terminating a connection with an effective zero length TCP transmit window.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder zerowindowTimeout(Integer zerowindowTimeout) {
+            return zerowindowTimeout(Output.of(zerowindowTimeout));
         }
 
         public ProfileTcpArgs build() {

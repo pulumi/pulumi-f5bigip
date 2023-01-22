@@ -95,6 +95,29 @@ func NewBigIqAs3(ctx *pulumi.Context,
 	if args.BigiqUser == nil {
 		return nil, errors.New("invalid value for required argument 'BigiqUser'")
 	}
+	if args.BigiqLoginRef != nil {
+		args.BigiqLoginRef = pulumi.ToSecret(args.BigiqLoginRef).(pulumi.StringPtrInput)
+	}
+	if args.BigiqPassword != nil {
+		args.BigiqPassword = pulumi.ToSecret(args.BigiqPassword).(pulumi.StringInput)
+	}
+	if args.BigiqPort != nil {
+		args.BigiqPort = pulumi.ToSecret(args.BigiqPort).(pulumi.StringPtrInput)
+	}
+	if args.BigiqTokenAuth != nil {
+		args.BigiqTokenAuth = pulumi.ToSecret(args.BigiqTokenAuth).(pulumi.BoolPtrInput)
+	}
+	if args.BigiqUser != nil {
+		args.BigiqUser = pulumi.ToSecret(args.BigiqUser).(pulumi.StringInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"bigiqLoginRef",
+		"bigiqPassword",
+		"bigiqPort",
+		"bigiqTokenAuth",
+		"bigiqUser",
+	})
+	opts = append(opts, secrets)
 	var resource BigIqAs3
 	err := ctx.RegisterResource("f5bigip:index/bigIqAs3:BigIqAs3", name, args, &resource, opts...)
 	if err != nil {

@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as fs from "fs";
  *
  * const foo_app = new f5bigip.FastApplication("foo-app", {
- *     fastJson: fs.readFileSync("new_fast_app.json", "utf-8"),
+ *     fastJson: fs.readFileSync("new_fast_app.json"),
  *     template: "examples/simple_http",
  * });
  * ```

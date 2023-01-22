@@ -10,10 +10,12 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.f5bigip.FastHttpsAppArgs;
 import com.pulumi.f5bigip.Utilities;
 import com.pulumi.f5bigip.inputs.FastHttpsAppState;
-import com.pulumi.f5bigip.outputs.FastHttpsAppCreateTlsServerProfile;
-import com.pulumi.f5bigip.outputs.FastHttpsAppFastCreateMonitor;
-import com.pulumi.f5bigip.outputs.FastHttpsAppFastCreatePoolMember;
+import com.pulumi.f5bigip.outputs.FastHttpsAppMonitor;
+import com.pulumi.f5bigip.outputs.FastHttpsAppPoolMember;
+import com.pulumi.f5bigip.outputs.FastHttpsAppTlsClientProfile;
+import com.pulumi.f5bigip.outputs.FastHttpsAppTlsServerProfile;
 import com.pulumi.f5bigip.outputs.FastHttpsAppVirtualServer;
+import com.pulumi.f5bigip.outputs.FastHttpsAppWafSecurityPolicy;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -79,34 +81,18 @@ public class FastHttpsApp extends com.pulumi.resources.CustomResource {
         return this.application;
     }
     /**
-     * `create_tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
-     * See TLS Server Profile below for more details.
+     * List of LTM Policies to be applied FAST HTTPS Application.
      * 
      */
-    @Export(name="createTlsServerProfile", type=FastHttpsAppCreateTlsServerProfile.class, parameters={})
-    private Output</* @Nullable */ FastHttpsAppCreateTlsServerProfile> createTlsServerProfile;
+    @Export(name="endpointLtmPolicies", type=List.class, parameters={String.class})
+    private Output</* @Nullable */ List<String>> endpointLtmPolicies;
 
     /**
-     * @return `create_tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
-     * See TLS Server Profile below for more details.
+     * @return List of LTM Policies to be applied FAST HTTPS Application.
      * 
      */
-    public Output<Optional<FastHttpsAppCreateTlsServerProfile>> createTlsServerProfile() {
-        return Codegen.optional(this.createTlsServerProfile);
-    }
-    /**
-     * Name of an existing BIG-IP pool.
-     * 
-     */
-    @Export(name="existPoolName", type=String.class, parameters={})
-    private Output</* @Nullable */ String> existPoolName;
-
-    /**
-     * @return Name of an existing BIG-IP pool.
-     * 
-     */
-    public Output<Optional<String>> existPoolName() {
-        return Codegen.optional(this.existPoolName);
+    public Output<Optional<List<String>>> endpointLtmPolicies() {
+        return Codegen.optional(this.endpointLtmPolicies);
     }
     /**
      * Name of an existing BIG-IP HTTPS pool monitor. Monitors are used to determine the health of the application on each server.
@@ -123,6 +109,20 @@ public class FastHttpsApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.existingMonitor);
     }
     /**
+     * Name of an existing BIG-IP pool.
+     * 
+     */
+    @Export(name="existingPool", type=String.class, parameters={})
+    private Output</* @Nullable */ String> existingPool;
+
+    /**
+     * @return Name of an existing BIG-IP pool.
+     * 
+     */
+    public Output<Optional<String>> existingPool() {
+        return Codegen.optional(this.existingPool);
+    }
+    /**
      * Name of an existing BIG-IP SNAT pool.
      * 
      */
@@ -137,50 +137,60 @@ public class FastHttpsApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.existingSnatPool);
     }
     /**
-     * `fast_create_monitor` block takes input for FAST-Generated Pool Monitor.
-     * See Pool Monitor below for more details.
+     * Name of an existing TLS client profile.
      * 
      */
-    @Export(name="fastCreateMonitor", type=FastHttpsAppFastCreateMonitor.class, parameters={})
-    private Output</* @Nullable */ FastHttpsAppFastCreateMonitor> fastCreateMonitor;
+    @Export(name="existingTlsClientProfile", type=String.class, parameters={})
+    private Output</* @Nullable */ String> existingTlsClientProfile;
 
     /**
-     * @return `fast_create_monitor` block takes input for FAST-Generated Pool Monitor.
-     * See Pool Monitor below for more details.
+     * @return Name of an existing TLS client profile.
      * 
      */
-    public Output<Optional<FastHttpsAppFastCreateMonitor>> fastCreateMonitor() {
-        return Codegen.optional(this.fastCreateMonitor);
+    public Output<Optional<String>> existingTlsClientProfile() {
+        return Codegen.optional(this.existingTlsClientProfile);
     }
     /**
-     * `fast_create_pool_members` block takes input for FAST-Generated Pool.
-     * See Pool Members below for more details.
+     * Name of an existing TLS server profile.
      * 
      */
-    @Export(name="fastCreatePoolMembers", type=List.class, parameters={FastHttpsAppFastCreatePoolMember.class})
-    private Output</* @Nullable */ List<FastHttpsAppFastCreatePoolMember>> fastCreatePoolMembers;
+    @Export(name="existingTlsServerProfile", type=String.class, parameters={})
+    private Output</* @Nullable */ String> existingTlsServerProfile;
 
     /**
-     * @return `fast_create_pool_members` block takes input for FAST-Generated Pool.
-     * See Pool Members below for more details.
+     * @return Name of an existing TLS server profile.
      * 
      */
-    public Output<Optional<List<FastHttpsAppFastCreatePoolMember>>> fastCreatePoolMembers() {
-        return Codegen.optional(this.fastCreatePoolMembers);
+    public Output<Optional<String>> existingTlsServerProfile() {
+        return Codegen.optional(this.existingTlsServerProfile);
     }
     /**
-     * List of address to be used for FAST-Generated SNAT Pool.
+     * Name of an existing WAF Security policy.
      * 
      */
-    @Export(name="fastCreateSnatPoolAddresses", type=List.class, parameters={String.class})
-    private Output</* @Nullable */ List<String>> fastCreateSnatPoolAddresses;
+    @Export(name="existingWafSecurityPolicy", type=String.class, parameters={})
+    private Output</* @Nullable */ String> existingWafSecurityPolicy;
 
     /**
-     * @return List of address to be used for FAST-Generated SNAT Pool.
+     * @return Name of an existing WAF Security policy.
      * 
      */
-    public Output<Optional<List<String>>> fastCreateSnatPoolAddresses() {
-        return Codegen.optional(this.fastCreateSnatPoolAddresses);
+    public Output<Optional<String>> existingWafSecurityPolicy() {
+        return Codegen.optional(this.existingWafSecurityPolicy);
+    }
+    /**
+     * Json payload for FAST HTTPS application.
+     * 
+     */
+    @Export(name="fastHttpsJson", type=String.class, parameters={})
+    private Output<String> fastHttpsJson;
+
+    /**
+     * @return Json payload for FAST HTTPS application.
+     * 
+     */
+    public Output<String> fastHttpsJson() {
+        return this.fastHttpsJson;
     }
     /**
      * A `load balancing method` is an algorithm that the BIG-IP system uses to select a pool member for processing a request. F5 recommends the Least Connections load balancing method
@@ -197,6 +207,52 @@ public class FastHttpsApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.loadBalancingMode);
     }
     /**
+     * `monitor` block takes input for FAST-Generated Pool Monitor.
+     * See Pool Monitor below for more details.
+     * 
+     */
+    @Export(name="monitor", type=FastHttpsAppMonitor.class, parameters={})
+    private Output</* @Nullable */ FastHttpsAppMonitor> monitor;
+
+    /**
+     * @return `monitor` block takes input for FAST-Generated Pool Monitor.
+     * See Pool Monitor below for more details.
+     * 
+     */
+    public Output<Optional<FastHttpsAppMonitor>> monitor() {
+        return Codegen.optional(this.monitor);
+    }
+    /**
+     * `pool_members` block takes input for FAST-Generated Pool.
+     * See Pool Members below for more details.
+     * 
+     */
+    @Export(name="poolMembers", type=List.class, parameters={FastHttpsAppPoolMember.class})
+    private Output</* @Nullable */ List<FastHttpsAppPoolMember>> poolMembers;
+
+    /**
+     * @return `pool_members` block takes input for FAST-Generated Pool.
+     * See Pool Members below for more details.
+     * 
+     */
+    public Output<Optional<List<FastHttpsAppPoolMember>>> poolMembers() {
+        return Codegen.optional(this.poolMembers);
+    }
+    /**
+     * List of security log profiles to be used for FAST application
+     * 
+     */
+    @Export(name="securityLogProfiles", type=List.class, parameters={String.class})
+    private Output</* @Nullable */ List<String>> securityLogProfiles;
+
+    /**
+     * @return List of security log profiles to be used for FAST application
+     * 
+     */
+    public Output<Optional<List<String>>> securityLogProfiles() {
+        return Codegen.optional(this.securityLogProfiles);
+    }
+    /**
      * Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
      * 
      */
@@ -209,6 +265,20 @@ public class FastHttpsApp extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Integer>> slowRampTime() {
         return Codegen.optional(this.slowRampTime);
+    }
+    /**
+     * List of address to be used for FAST-Generated SNAT Pool.
+     * 
+     */
+    @Export(name="snatPoolAddresses", type=List.class, parameters={String.class})
+    private Output</* @Nullable */ List<String>> snatPoolAddresses;
+
+    /**
+     * @return List of address to be used for FAST-Generated SNAT Pool.
+     * 
+     */
+    public Output<Optional<List<String>>> snatPoolAddresses() {
+        return Codegen.optional(this.snatPoolAddresses);
     }
     /**
      * Name of the FAST HTTPS application tenant.
@@ -225,18 +295,36 @@ public class FastHttpsApp extends com.pulumi.resources.CustomResource {
         return this.tenant;
     }
     /**
-     * Name of an existing TLS server profile.
+     * `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
+     * See TLS Client Profile below for more details.
      * 
      */
-    @Export(name="tlsServerProfileName", type=String.class, parameters={})
-    private Output</* @Nullable */ String> tlsServerProfileName;
+    @Export(name="tlsClientProfile", type=FastHttpsAppTlsClientProfile.class, parameters={})
+    private Output</* @Nullable */ FastHttpsAppTlsClientProfile> tlsClientProfile;
 
     /**
-     * @return Name of an existing TLS server profile.
+     * @return `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
+     * See TLS Client Profile below for more details.
      * 
      */
-    public Output<Optional<String>> tlsServerProfileName() {
-        return Codegen.optional(this.tlsServerProfileName);
+    public Output<Optional<FastHttpsAppTlsClientProfile>> tlsClientProfile() {
+        return Codegen.optional(this.tlsClientProfile);
+    }
+    /**
+     * `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
+     * See TLS Server Profile below for more details.
+     * 
+     */
+    @Export(name="tlsServerProfile", type=FastHttpsAppTlsServerProfile.class, parameters={})
+    private Output</* @Nullable */ FastHttpsAppTlsServerProfile> tlsServerProfile;
+
+    /**
+     * @return `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
+     * See TLS Server Profile below for more details.
+     * 
+     */
+    public Output<Optional<FastHttpsAppTlsServerProfile>> tlsServerProfile() {
+        return Codegen.optional(this.tlsServerProfile);
     }
     /**
      * `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
@@ -253,6 +341,22 @@ public class FastHttpsApp extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<FastHttpsAppVirtualServer>> virtualServer() {
         return Codegen.optional(this.virtualServer);
+    }
+    /**
+     * `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+     * See WAF Security Policy below for more details.
+     * 
+     */
+    @Export(name="wafSecurityPolicy", type=FastHttpsAppWafSecurityPolicy.class, parameters={})
+    private Output</* @Nullable */ FastHttpsAppWafSecurityPolicy> wafSecurityPolicy;
+
+    /**
+     * @return `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
+     * See WAF Security Policy below for more details.
+     * 
+     */
+    public Output<Optional<FastHttpsAppWafSecurityPolicy>> wafSecurityPolicy() {
+        return Codegen.optional(this.wafSecurityPolicy);
     }
 
     /**

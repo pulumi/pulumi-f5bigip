@@ -11,9 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// `sys.Ntp` provides details about a specific bigip
+// `sys.Ntp` resource is helpful when configuring NTP server on the BIG-IP.
 //
-// This resource is helpful when configuring NTP server on the BIG-IP.
 // ## Example Usage
 //
 // ```go
@@ -46,9 +45,9 @@ import (
 type Ntp struct {
 	pulumi.CustomResourceState
 
-	// Name of the ntp Servers
+	// User defined description.
 	Description pulumi.StringOutput `pulumi:"description"`
-	// Adds NTP servers to or deletes NTP servers from the BIG-IP system.
+	// Specifies the time servers that the system uses to update the system time.
 	Servers pulumi.StringArrayOutput `pulumi:"servers"`
 	// Specifies the time zone that you want to use for the system time.
 	Timezone pulumi.StringPtrOutput `pulumi:"timezone"`
@@ -63,6 +62,9 @@ func NewNtp(ctx *pulumi.Context,
 
 	if args.Description == nil {
 		return nil, errors.New("invalid value for required argument 'Description'")
+	}
+	if args.Servers == nil {
+		return nil, errors.New("invalid value for required argument 'Servers'")
 	}
 	var resource Ntp
 	err := ctx.RegisterResource("f5bigip:sys/ntp:Ntp", name, args, &resource, opts...)
@@ -86,18 +88,18 @@ func GetNtp(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Ntp resources.
 type ntpState struct {
-	// Name of the ntp Servers
+	// User defined description.
 	Description *string `pulumi:"description"`
-	// Adds NTP servers to or deletes NTP servers from the BIG-IP system.
+	// Specifies the time servers that the system uses to update the system time.
 	Servers []string `pulumi:"servers"`
 	// Specifies the time zone that you want to use for the system time.
 	Timezone *string `pulumi:"timezone"`
 }
 
 type NtpState struct {
-	// Name of the ntp Servers
+	// User defined description.
 	Description pulumi.StringPtrInput
-	// Adds NTP servers to or deletes NTP servers from the BIG-IP system.
+	// Specifies the time servers that the system uses to update the system time.
 	Servers pulumi.StringArrayInput
 	// Specifies the time zone that you want to use for the system time.
 	Timezone pulumi.StringPtrInput
@@ -108,9 +110,9 @@ func (NtpState) ElementType() reflect.Type {
 }
 
 type ntpArgs struct {
-	// Name of the ntp Servers
+	// User defined description.
 	Description string `pulumi:"description"`
-	// Adds NTP servers to or deletes NTP servers from the BIG-IP system.
+	// Specifies the time servers that the system uses to update the system time.
 	Servers []string `pulumi:"servers"`
 	// Specifies the time zone that you want to use for the system time.
 	Timezone *string `pulumi:"timezone"`
@@ -118,9 +120,9 @@ type ntpArgs struct {
 
 // The set of arguments for constructing a Ntp resource.
 type NtpArgs struct {
-	// Name of the ntp Servers
+	// User defined description.
 	Description pulumi.StringInput
-	// Adds NTP servers to or deletes NTP servers from the BIG-IP system.
+	// Specifies the time servers that the system uses to update the system time.
 	Servers pulumi.StringArrayInput
 	// Specifies the time zone that you want to use for the system time.
 	Timezone pulumi.StringPtrInput
@@ -213,12 +215,12 @@ func (o NtpOutput) ToNtpOutputWithContext(ctx context.Context) NtpOutput {
 	return o
 }
 
-// Name of the ntp Servers
+// User defined description.
 func (o NtpOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ntp) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// Adds NTP servers to or deletes NTP servers from the BIG-IP system.
+// Specifies the time servers that the system uses to update the system time.
 func (o NtpOutput) Servers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Ntp) pulumi.StringArrayOutput { return v.Servers }).(pulumi.StringArrayOutput)
 }

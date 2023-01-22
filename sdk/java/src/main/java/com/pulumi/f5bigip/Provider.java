@@ -93,6 +93,20 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.tokenValue);
     }
     /**
+     * Valid Trusted Certificate path
+     * 
+     */
+    @Export(name="trustedCertPath", type=String.class, parameters={})
+    private Output</* @Nullable */ String> trustedCertPath;
+
+    /**
+     * @return Valid Trusted Certificate path
+     * 
+     */
+    public Output<Optional<String>> trustedCertPath() {
+        return Codegen.optional(this.trustedCertPath);
+    }
+    /**
      * Username with API access to the BigIP
      * 
      */

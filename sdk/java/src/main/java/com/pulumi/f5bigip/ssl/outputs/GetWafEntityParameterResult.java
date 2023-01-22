@@ -4,6 +4,7 @@
 package com.pulumi.f5bigip.ssl.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.f5bigip.ssl.outputs.GetWafEntityParameterUrl;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -40,6 +41,7 @@ public final class GetWafEntityParameterResult {
     private @Nullable Boolean sensitiveParameter;
     private @Nullable List<Integer> signatureOverridesDisables;
     private @Nullable String type;
+    private @Nullable GetWafEntityParameterUrl url;
     private @Nullable String valueType;
 
     private GetWafEntityParameterResult() {}
@@ -113,6 +115,9 @@ public final class GetWafEntityParameterResult {
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }
+    public Optional<GetWafEntityParameterUrl> url() {
+        return Optional.ofNullable(this.url);
+    }
     public Optional<String> valueType() {
         return Optional.ofNullable(this.valueType);
     }
@@ -148,6 +153,7 @@ public final class GetWafEntityParameterResult {
         private @Nullable Boolean sensitiveParameter;
         private @Nullable List<Integer> signatureOverridesDisables;
         private @Nullable String type;
+        private @Nullable GetWafEntityParameterUrl url;
         private @Nullable String valueType;
         public Builder() {}
         public Builder(GetWafEntityParameterResult defaults) {
@@ -174,6 +180,7 @@ public final class GetWafEntityParameterResult {
     	      this.sensitiveParameter = defaults.sensitiveParameter;
     	      this.signatureOverridesDisables = defaults.signatureOverridesDisables;
     	      this.type = defaults.type;
+    	      this.url = defaults.url;
     	      this.valueType = defaults.valueType;
         }
 
@@ -291,6 +298,11 @@ public final class GetWafEntityParameterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder url(@Nullable GetWafEntityParameterUrl url) {
+            this.url = url;
+            return this;
+        }
+        @CustomType.Setter
         public Builder valueType(@Nullable String valueType) {
             this.valueType = valueType;
             return this;
@@ -319,6 +331,7 @@ public final class GetWafEntityParameterResult {
             o.sensitiveParameter = sensitiveParameter;
             o.signatureOverridesDisables = signatureOverridesDisables;
             o.type = type;
+            o.url = url;
             o.valueType = valueType;
             return o;
         }

@@ -208,11 +208,11 @@ export class CommonLicenseManageBigIq extends pulumi.CustomResource {
             }
             resourceInputs["assignmentType"] = args ? args.assignmentType : undefined;
             resourceInputs["bigiqAddress"] = args ? args.bigiqAddress : undefined;
-            resourceInputs["bigiqLoginRef"] = args ? args.bigiqLoginRef : undefined;
-            resourceInputs["bigiqPassword"] = args ? args.bigiqPassword : undefined;
-            resourceInputs["bigiqPort"] = args ? args.bigiqPort : undefined;
-            resourceInputs["bigiqTokenAuth"] = args ? args.bigiqTokenAuth : undefined;
-            resourceInputs["bigiqUser"] = args ? args.bigiqUser : undefined;
+            resourceInputs["bigiqLoginRef"] = args?.bigiqLoginRef ? pulumi.secret(args.bigiqLoginRef) : undefined;
+            resourceInputs["bigiqPassword"] = args?.bigiqPassword ? pulumi.secret(args.bigiqPassword) : undefined;
+            resourceInputs["bigiqPort"] = args?.bigiqPort ? pulumi.secret(args.bigiqPort) : undefined;
+            resourceInputs["bigiqTokenAuth"] = args?.bigiqTokenAuth ? pulumi.secret(args.bigiqTokenAuth) : undefined;
+            resourceInputs["bigiqUser"] = args?.bigiqUser ? pulumi.secret(args.bigiqUser) : undefined;
             resourceInputs["deviceLicenseStatus"] = args ? args.deviceLicenseStatus : undefined;
             resourceInputs["hypervisor"] = args ? args.hypervisor : undefined;
             resourceInputs["key"] = args ? args.key : undefined;
@@ -224,6 +224,8 @@ export class CommonLicenseManageBigIq extends pulumi.CustomResource {
             resourceInputs["unitOfMeasure"] = args ? args.unitOfMeasure : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["bigiqLoginRef", "bigiqPassword", "bigiqPort", "bigiqTokenAuth", "bigiqUser"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(CommonLicenseManageBigIq.__pulumiType, name, resourceInputs, opts);
     }
 }

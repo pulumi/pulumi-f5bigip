@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -96,12 +97,15 @@ export class ProfileClientSsl extends pulumi.CustomResource {
     /**
      * Specifies a cert name for use.
      */
-    public readonly cert!: pulumi.Output<string>;
+    public readonly cert!: pulumi.Output<string | undefined>;
     /**
      * Cert extension includes for ssl forward proxy
      */
     public readonly certExtensionIncludes!: pulumi.Output<string[]>;
-    public readonly certKeyChains!: pulumi.Output<outputs.ltm.ProfileClientSslCertKeyChain[]>;
+    /**
+     * @deprecated This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
+     */
+    public readonly certKeyChain!: pulumi.Output<outputs.ltm.ProfileClientSslCertKeyChain | undefined>;
     /**
      * Life span of the certificate in days for ssl forward proxy
      */
@@ -113,7 +117,11 @@ export class ProfileClientSsl extends pulumi.CustomResource {
     /**
      * Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
      */
-    public readonly chain!: pulumi.Output<string>;
+    public readonly chain!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+     */
+    public readonly cipherGroup!: pulumi.Output<string | undefined>;
     /**
      * Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
      */
@@ -157,7 +165,7 @@ export class ProfileClientSsl extends pulumi.CustomResource {
     /**
      * Contains a key name
      */
-    public readonly key!: pulumi.Output<string>;
+    public readonly key!: pulumi.Output<string | undefined>;
     /**
      * ModSSL Methods enabled / disabled. Default is disabled.
      */
@@ -301,10 +309,11 @@ export class ProfileClientSsl extends pulumi.CustomResource {
             resourceInputs["cacheTimeout"] = state ? state.cacheTimeout : undefined;
             resourceInputs["cert"] = state ? state.cert : undefined;
             resourceInputs["certExtensionIncludes"] = state ? state.certExtensionIncludes : undefined;
-            resourceInputs["certKeyChains"] = state ? state.certKeyChains : undefined;
+            resourceInputs["certKeyChain"] = state ? state.certKeyChain : undefined;
             resourceInputs["certLifeSpan"] = state ? state.certLifeSpan : undefined;
             resourceInputs["certLookupByIpaddrPort"] = state ? state.certLookupByIpaddrPort : undefined;
             resourceInputs["chain"] = state ? state.chain : undefined;
+            resourceInputs["cipherGroup"] = state ? state.cipherGroup : undefined;
             resourceInputs["ciphers"] = state ? state.ciphers : undefined;
             resourceInputs["clientCertCa"] = state ? state.clientCertCa : undefined;
             resourceInputs["crlFile"] = state ? state.crlFile : undefined;
@@ -361,10 +370,11 @@ export class ProfileClientSsl extends pulumi.CustomResource {
             resourceInputs["cacheTimeout"] = args ? args.cacheTimeout : undefined;
             resourceInputs["cert"] = args ? args.cert : undefined;
             resourceInputs["certExtensionIncludes"] = args ? args.certExtensionIncludes : undefined;
-            resourceInputs["certKeyChains"] = args ? args.certKeyChains : undefined;
+            resourceInputs["certKeyChain"] = args ? args.certKeyChain : undefined;
             resourceInputs["certLifeSpan"] = args ? args.certLifeSpan : undefined;
             resourceInputs["certLookupByIpaddrPort"] = args ? args.certLookupByIpaddrPort : undefined;
             resourceInputs["chain"] = args ? args.chain : undefined;
+            resourceInputs["cipherGroup"] = args ? args.cipherGroup : undefined;
             resourceInputs["ciphers"] = args ? args.ciphers : undefined;
             resourceInputs["clientCertCa"] = args ? args.clientCertCa : undefined;
             resourceInputs["crlFile"] = args ? args.crlFile : undefined;
@@ -380,7 +390,7 @@ export class ProfileClientSsl extends pulumi.CustomResource {
             resourceInputs["mode"] = args ? args.mode : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["partition"] = args ? args.partition : undefined;
-            resourceInputs["passphrase"] = args ? args.passphrase : undefined;
+            resourceInputs["passphrase"] = args?.passphrase ? pulumi.secret(args.passphrase) : undefined;
             resourceInputs["peerCertMode"] = args ? args.peerCertMode : undefined;
             resourceInputs["proxyCaCert"] = args ? args.proxyCaCert : undefined;
             resourceInputs["proxyCaKey"] = args ? args.proxyCaKey : undefined;
@@ -406,6 +416,8 @@ export class ProfileClientSsl extends pulumi.CustomResource {
             resourceInputs["uncleanShutdown"] = args ? args.uncleanShutdown : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["passphrase"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ProfileClientSsl.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -463,7 +475,10 @@ export interface ProfileClientSslState {
      * Cert extension includes for ssl forward proxy
      */
     certExtensionIncludes?: pulumi.Input<pulumi.Input<string>[]>;
-    certKeyChains?: pulumi.Input<pulumi.Input<inputs.ltm.ProfileClientSslCertKeyChain>[]>;
+    /**
+     * @deprecated This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
+     */
+    certKeyChain?: pulumi.Input<inputs.ltm.ProfileClientSslCertKeyChain>;
     /**
      * Life span of the certificate in days for ssl forward proxy
      */
@@ -476,6 +491,10 @@ export interface ProfileClientSslState {
      * Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
      */
     chain?: pulumi.Input<string>;
+    /**
+     * Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+     */
+    cipherGroup?: pulumi.Input<string>;
     /**
      * Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
      */
@@ -692,7 +711,10 @@ export interface ProfileClientSslArgs {
      * Cert extension includes for ssl forward proxy
      */
     certExtensionIncludes?: pulumi.Input<pulumi.Input<string>[]>;
-    certKeyChains?: pulumi.Input<pulumi.Input<inputs.ltm.ProfileClientSslCertKeyChain>[]>;
+    /**
+     * @deprecated This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
+     */
+    certKeyChain?: pulumi.Input<inputs.ltm.ProfileClientSslCertKeyChain>;
     /**
      * Life span of the certificate in days for ssl forward proxy
      */
@@ -705,6 +727,10 @@ export interface ProfileClientSslArgs {
      * Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
      */
     chain?: pulumi.Input<string>;
+    /**
+     * Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
+     */
+    cipherGroup?: pulumi.Input<string>;
     /**
      * Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
      */

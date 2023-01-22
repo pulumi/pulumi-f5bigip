@@ -421,17 +421,19 @@ class BigIqAs3(pulumi.CustomResource):
             if bigiq_address is None and not opts.urn:
                 raise TypeError("Missing required property 'bigiq_address'")
             __props__.__dict__["bigiq_address"] = bigiq_address
-            __props__.__dict__["bigiq_login_ref"] = bigiq_login_ref
+            __props__.__dict__["bigiq_login_ref"] = None if bigiq_login_ref is None else pulumi.Output.secret(bigiq_login_ref)
             if bigiq_password is None and not opts.urn:
                 raise TypeError("Missing required property 'bigiq_password'")
-            __props__.__dict__["bigiq_password"] = bigiq_password
-            __props__.__dict__["bigiq_port"] = bigiq_port
-            __props__.__dict__["bigiq_token_auth"] = bigiq_token_auth
+            __props__.__dict__["bigiq_password"] = None if bigiq_password is None else pulumi.Output.secret(bigiq_password)
+            __props__.__dict__["bigiq_port"] = None if bigiq_port is None else pulumi.Output.secret(bigiq_port)
+            __props__.__dict__["bigiq_token_auth"] = None if bigiq_token_auth is None else pulumi.Output.secret(bigiq_token_auth)
             if bigiq_user is None and not opts.urn:
                 raise TypeError("Missing required property 'bigiq_user'")
-            __props__.__dict__["bigiq_user"] = bigiq_user
+            __props__.__dict__["bigiq_user"] = None if bigiq_user is None else pulumi.Output.secret(bigiq_user)
             __props__.__dict__["ignore_metadata"] = ignore_metadata
             __props__.__dict__["tenant_list"] = tenant_list
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["bigiqLoginRef", "bigiqPassword", "bigiqPort", "bigiqTokenAuth", "bigiqUser"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(BigIqAs3, __self__).__init__(
             'f5bigip:index/bigIqAs3:BigIqAs3',
             resource_name,

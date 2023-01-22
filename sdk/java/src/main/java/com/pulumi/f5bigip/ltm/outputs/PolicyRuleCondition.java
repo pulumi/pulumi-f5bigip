@@ -23,6 +23,7 @@ public final class PolicyRuleCondition {
     private @Nullable Boolean caseSensitive;
     private @Nullable Boolean cipher;
     private @Nullable Boolean cipherBits;
+    private @Nullable Boolean clientAccepted;
     private @Nullable Boolean clientSsl;
     private @Nullable Boolean code;
     private @Nullable Boolean commonName;
@@ -31,6 +32,7 @@ public final class PolicyRuleCondition {
     private @Nullable Boolean countryCode;
     private @Nullable Boolean countryName;
     private @Nullable Boolean cpuUsage;
+    private @Nullable String datagroup;
     private @Nullable Boolean deviceMake;
     private @Nullable Boolean deviceModel;
     private @Nullable Boolean domain;
@@ -134,6 +136,9 @@ public final class PolicyRuleCondition {
     public Optional<Boolean> cipherBits() {
         return Optional.ofNullable(this.cipherBits);
     }
+    public Optional<Boolean> clientAccepted() {
+        return Optional.ofNullable(this.clientAccepted);
+    }
     public Optional<Boolean> clientSsl() {
         return Optional.ofNullable(this.clientSsl);
     }
@@ -157,6 +162,9 @@ public final class PolicyRuleCondition {
     }
     public Optional<Boolean> cpuUsage() {
         return Optional.ofNullable(this.cpuUsage);
+    }
+    public Optional<String> datagroup() {
+        return Optional.ofNullable(this.datagroup);
     }
     public Optional<Boolean> deviceMake() {
         return Optional.ofNullable(this.deviceMake);
@@ -399,6 +407,7 @@ public final class PolicyRuleCondition {
         private @Nullable Boolean caseSensitive;
         private @Nullable Boolean cipher;
         private @Nullable Boolean cipherBits;
+        private @Nullable Boolean clientAccepted;
         private @Nullable Boolean clientSsl;
         private @Nullable Boolean code;
         private @Nullable Boolean commonName;
@@ -407,6 +416,7 @@ public final class PolicyRuleCondition {
         private @Nullable Boolean countryCode;
         private @Nullable Boolean countryName;
         private @Nullable Boolean cpuUsage;
+        private @Nullable String datagroup;
         private @Nullable Boolean deviceMake;
         private @Nullable Boolean deviceModel;
         private @Nullable Boolean domain;
@@ -493,6 +503,7 @@ public final class PolicyRuleCondition {
     	      this.caseSensitive = defaults.caseSensitive;
     	      this.cipher = defaults.cipher;
     	      this.cipherBits = defaults.cipherBits;
+    	      this.clientAccepted = defaults.clientAccepted;
     	      this.clientSsl = defaults.clientSsl;
     	      this.code = defaults.code;
     	      this.commonName = defaults.commonName;
@@ -501,6 +512,7 @@ public final class PolicyRuleCondition {
     	      this.countryCode = defaults.countryCode;
     	      this.countryName = defaults.countryName;
     	      this.cpuUsage = defaults.cpuUsage;
+    	      this.datagroup = defaults.datagroup;
     	      this.deviceMake = defaults.deviceMake;
     	      this.deviceModel = defaults.deviceModel;
     	      this.domain = defaults.domain;
@@ -623,6 +635,11 @@ public final class PolicyRuleCondition {
             return this;
         }
         @CustomType.Setter
+        public Builder clientAccepted(@Nullable Boolean clientAccepted) {
+            this.clientAccepted = clientAccepted;
+            return this;
+        }
+        @CustomType.Setter
         public Builder clientSsl(@Nullable Boolean clientSsl) {
             this.clientSsl = clientSsl;
             return this;
@@ -660,6 +677,11 @@ public final class PolicyRuleCondition {
         @CustomType.Setter
         public Builder cpuUsage(@Nullable Boolean cpuUsage) {
             this.cpuUsage = cpuUsage;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder datagroup(@Nullable String datagroup) {
+            this.datagroup = datagroup;
             return this;
         }
         @CustomType.Setter
@@ -1046,6 +1068,7 @@ public final class PolicyRuleCondition {
             o.caseSensitive = caseSensitive;
             o.cipher = cipher;
             o.cipherBits = cipherBits;
+            o.clientAccepted = clientAccepted;
             o.clientSsl = clientSsl;
             o.code = code;
             o.commonName = commonName;
@@ -1054,6 +1077,7 @@ public final class PolicyRuleCondition {
             o.countryCode = countryCode;
             o.countryName = countryName;
             o.cpuUsage = cpuUsage;
+            o.datagroup = datagroup;
             o.deviceMake = deviceMake;
             o.deviceModel = deviceModel;
             o.domain = domain;

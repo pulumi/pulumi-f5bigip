@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -21,11 +22,8 @@ import * as utilities from "../utilities";
  * ```
  */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("f5bigip:ltm/getPolicy:getPolicy", {
         "controls": args.controls,
         "name": args.name,
@@ -93,9 +91,23 @@ export interface GetPolicyResult {
      */
     readonly strategy?: string;
 }
-
+/**
+ * Use this data source (`f5bigip.ltm.Policy`) to get the ltm policy details available on BIG-IP
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const test = f5bigip.ltm.getPolicy({
+ *     name: "/Common/test-policy",
+ * });
+ * export const bigipPolicy = test.then(test => test.rules);
+ * ```
+ */
 export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
-    return pulumi.output(args).apply(a => getPolicy(a, opts))
+    return pulumi.output(args).apply((a: any) => getPolicy(a, opts))
 }
 
 /**

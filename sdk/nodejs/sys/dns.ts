@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * `f5bigip.sys.Dns` Configures DNS server on F5 BIG-IP
+ * `f5bigip.sys.Dns` Configures DNS Name server on F5 BIG-IP
  *
  * ## Example Usage
  *
@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  * const dns1 = new f5bigip.sys.Dns("dns1", {
  *     description: "/Common/DNS1",
  *     nameServers: ["1.1.1.1"],
- *     numberOfDots: 2,
  *     searches: ["f5.com"],
  * });
  * ```
@@ -54,15 +53,15 @@ export class Dns extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string>;
     /**
-     * Name or IP address of the DNS server
+     * Specifies the name servers that the system uses to validate DNS lookups, and resolve host names.
      */
-    public readonly nameServers!: pulumi.Output<string[] | undefined>;
+    public readonly nameServers!: pulumi.Output<string[]>;
     /**
      * Configures the number of dots needed in a name before an initial absolute query will be made.
      */
-    public readonly numberOfDots!: pulumi.Output<number | undefined>;
+    public readonly numberOfDots!: pulumi.Output<number>;
     /**
-     * Specify what domains you want to search
+     * Specifies the domains that the system searches for local domain lookups, to resolve local host names.
      */
     public readonly searches!: pulumi.Output<string[] | undefined>;
 
@@ -88,6 +87,9 @@ export class Dns extends pulumi.CustomResource {
             if ((!args || args.description === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
+            if ((!args || args.nameServers === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'nameServers'");
+            }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["nameServers"] = args ? args.nameServers : undefined;
             resourceInputs["numberOfDots"] = args ? args.numberOfDots : undefined;
@@ -107,7 +109,7 @@ export interface DnsState {
      */
     description?: pulumi.Input<string>;
     /**
-     * Name or IP address of the DNS server
+     * Specifies the name servers that the system uses to validate DNS lookups, and resolve host names.
      */
     nameServers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -115,7 +117,7 @@ export interface DnsState {
      */
     numberOfDots?: pulumi.Input<number>;
     /**
-     * Specify what domains you want to search
+     * Specifies the domains that the system searches for local domain lookups, to resolve local host names.
      */
     searches?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -129,15 +131,15 @@ export interface DnsArgs {
      */
     description: pulumi.Input<string>;
     /**
-     * Name or IP address of the DNS server
+     * Specifies the name servers that the system uses to validate DNS lookups, and resolve host names.
      */
-    nameServers?: pulumi.Input<pulumi.Input<string>[]>;
+    nameServers: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Configures the number of dots needed in a name before an initial absolute query will be made.
      */
     numberOfDots?: pulumi.Input<number>;
     /**
-     * Specify what domains you want to search
+     * Specifies the domains that the system searches for local domain lookups, to resolve local host names.
      */
     searches?: pulumi.Input<pulumi.Input<string>[]>;
 }

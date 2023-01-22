@@ -21,7 +21,9 @@ class ProviderArgs:
                  teem_disable: Optional[pulumi.Input[bool]] = None,
                  token_auth: Optional[pulumi.Input[bool]] = None,
                  token_value: Optional[pulumi.Input[str]] = None,
-                 username: Optional[pulumi.Input[str]] = None):
+                 trusted_cert_path: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None,
+                 validate_certs_disable: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a Provider resource.
         :param pulumi.Input[str] address: Domain name/IP of the BigIP
@@ -31,7 +33,9 @@ class ProviderArgs:
         :param pulumi.Input[bool] teem_disable: If this flag set to true,sending telemetry data to TEEM will be disabled
         :param pulumi.Input[bool] token_auth: Enable to use an external authentication source (LDAP, TACACS, etc)
         :param pulumi.Input[str] token_value: A token generated outside the provider, in place of password
+        :param pulumi.Input[str] trusted_cert_path: Valid Trusted Certificate path
         :param pulumi.Input[str] username: Username with API access to the BigIP
+        :param pulumi.Input[bool] validate_certs_disable: If set to true, Disables TLS certificate check on BIG-IP. Default : True
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -47,8 +51,12 @@ class ProviderArgs:
             pulumi.set(__self__, "token_auth", token_auth)
         if token_value is not None:
             pulumi.set(__self__, "token_value", token_value)
+        if trusted_cert_path is not None:
+            pulumi.set(__self__, "trusted_cert_path", trusted_cert_path)
         if username is not None:
             pulumi.set(__self__, "username", username)
+        if validate_certs_disable is not None:
+            pulumi.set(__self__, "validate_certs_disable", validate_certs_disable)
 
     @property
     @pulumi.getter
@@ -135,6 +143,18 @@ class ProviderArgs:
         pulumi.set(self, "token_value", value)
 
     @property
+    @pulumi.getter(name="trustedCertPath")
+    def trusted_cert_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Valid Trusted Certificate path
+        """
+        return pulumi.get(self, "trusted_cert_path")
+
+    @trusted_cert_path.setter
+    def trusted_cert_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "trusted_cert_path", value)
+
+    @property
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
         """
@@ -145,6 +165,18 @@ class ProviderArgs:
     @username.setter
     def username(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "username", value)
+
+    @property
+    @pulumi.getter(name="validateCertsDisable")
+    def validate_certs_disable(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to true, Disables TLS certificate check on BIG-IP. Default : True
+        """
+        return pulumi.get(self, "validate_certs_disable")
+
+    @validate_certs_disable.setter
+    def validate_certs_disable(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "validate_certs_disable", value)
 
 
 class Provider(pulumi.ProviderResource):
@@ -159,7 +191,9 @@ class Provider(pulumi.ProviderResource):
                  teem_disable: Optional[pulumi.Input[bool]] = None,
                  token_auth: Optional[pulumi.Input[bool]] = None,
                  token_value: Optional[pulumi.Input[str]] = None,
+                 trusted_cert_path: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
+                 validate_certs_disable: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
         The provider type for the bigip package. By default, resources use package-wide configuration
@@ -176,7 +210,9 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[bool] teem_disable: If this flag set to true,sending telemetry data to TEEM will be disabled
         :param pulumi.Input[bool] token_auth: Enable to use an external authentication source (LDAP, TACACS, etc)
         :param pulumi.Input[str] token_value: A token generated outside the provider, in place of password
+        :param pulumi.Input[str] trusted_cert_path: Valid Trusted Certificate path
         :param pulumi.Input[str] username: Username with API access to the BigIP
+        :param pulumi.Input[bool] validate_certs_disable: If set to true, Disables TLS certificate check on BIG-IP. Default : True
         """
         ...
     @overload
@@ -212,7 +248,9 @@ class Provider(pulumi.ProviderResource):
                  teem_disable: Optional[pulumi.Input[bool]] = None,
                  token_auth: Optional[pulumi.Input[bool]] = None,
                  token_value: Optional[pulumi.Input[str]] = None,
+                 trusted_cert_path: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None,
+                 validate_certs_disable: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -229,7 +267,9 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["teem_disable"] = pulumi.Output.from_input(teem_disable).apply(pulumi.runtime.to_json) if teem_disable is not None else None
             __props__.__dict__["token_auth"] = pulumi.Output.from_input(token_auth).apply(pulumi.runtime.to_json) if token_auth is not None else None
             __props__.__dict__["token_value"] = token_value
+            __props__.__dict__["trusted_cert_path"] = trusted_cert_path
             __props__.__dict__["username"] = username
+            __props__.__dict__["validate_certs_disable"] = pulumi.Output.from_input(validate_certs_disable).apply(pulumi.runtime.to_json) if validate_certs_disable is not None else None
         super(Provider, __self__).__init__(
             'f5bigip',
             resource_name,
@@ -275,6 +315,14 @@ class Provider(pulumi.ProviderResource):
         A token generated outside the provider, in place of password
         """
         return pulumi.get(self, "token_value")
+
+    @property
+    @pulumi.getter(name="trustedCertPath")
+    def trusted_cert_path(self) -> pulumi.Output[Optional[str]]:
+        """
+        Valid Trusted Certificate path
+        """
+        return pulumi.get(self, "trusted_cert_path")
 
     @property
     @pulumi.getter

@@ -83,7 +83,7 @@ export class VirtualServer extends pulumi.CustomResource {
      * List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
      */
     public readonly clientProfiles!: pulumi.Output<string[] | undefined>;
-    public readonly defaultPersistenceProfile!: pulumi.Output<string | undefined>;
+    public readonly defaultPersistenceProfile!: pulumi.Output<string>;
     /**
      * Description of Virtual server
      */
@@ -91,15 +91,19 @@ export class VirtualServer extends pulumi.CustomResource {
     /**
      * Destination IP
      */
-    public readonly destination!: pulumi.Output<string>;
+    public readonly destination!: pulumi.Output<string | undefined>;
     /**
      * Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
      */
     public readonly fallbackPersistenceProfile!: pulumi.Output<string>;
     /**
+     * Applies the specified AFM policy to the virtual in an enforcing way,when creating a new virtual, if this parameter is not specified, the enforced is disabled.This should be in full path ex: `/Common/afm-test-policy`.
+     */
+    public readonly firewallEnforcedPolicy!: pulumi.Output<string>;
+    /**
      * Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
      */
-    public readonly ipProtocol!: pulumi.Output<string>;
+    public readonly ipProtocol!: pulumi.Output<string | undefined>;
     /**
      * The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
      */
@@ -139,7 +143,7 @@ export class VirtualServer extends pulumi.CustomResource {
      */
     public readonly serverProfiles!: pulumi.Output<string[] | undefined>;
     /**
-     * Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
+     * Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs.
      */
     public readonly snatpool!: pulumi.Output<string>;
     /**
@@ -147,21 +151,29 @@ export class VirtualServer extends pulumi.CustomResource {
      */
     public readonly source!: pulumi.Output<string>;
     /**
-     * Can be either omitted for none or the values automap or snat
+     * Can be either omitted for `none` or the values `automap` options : [`snat`,`automap`,`none`].
      */
-    public readonly sourceAddressTranslation!: pulumi.Output<string>;
+    public readonly sourceAddressTranslation!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies whether the system preserves the source port of the connection. The default is `preserve`.
+     */
+    public readonly sourcePort!: pulumi.Output<string>;
     /**
      * Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
      */
     public readonly state!: pulumi.Output<string | undefined>;
     /**
+     * Specifies destination traffic matching information to which the virtual server sends traffic
+     */
+    public readonly trafficmatchingCriteria!: pulumi.Output<string>;
+    /**
      * Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
      */
-    public readonly translateAddress!: pulumi.Output<string>;
+    public readonly translateAddress!: pulumi.Output<string | undefined>;
     /**
      * Enables or disables port translation. Turn port translation off for a virtual server if you want to use the virtual server to load balance connections to any service
      */
-    public readonly translatePort!: pulumi.Output<string>;
+    public readonly translatePort!: pulumi.Output<string | undefined>;
     /**
      * The virtual server is enabled/disabled on this set of VLANs,enable/disabled will be desided by attribute `vlanEnabled`
      */
@@ -190,6 +202,7 @@ export class VirtualServer extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["destination"] = state ? state.destination : undefined;
             resourceInputs["fallbackPersistenceProfile"] = state ? state.fallbackPersistenceProfile : undefined;
+            resourceInputs["firewallEnforcedPolicy"] = state ? state.firewallEnforcedPolicy : undefined;
             resourceInputs["ipProtocol"] = state ? state.ipProtocol : undefined;
             resourceInputs["irules"] = state ? state.irules : undefined;
             resourceInputs["mask"] = state ? state.mask : undefined;
@@ -205,27 +218,24 @@ export class VirtualServer extends pulumi.CustomResource {
             resourceInputs["snatpool"] = state ? state.snatpool : undefined;
             resourceInputs["source"] = state ? state.source : undefined;
             resourceInputs["sourceAddressTranslation"] = state ? state.sourceAddressTranslation : undefined;
+            resourceInputs["sourcePort"] = state ? state.sourcePort : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["trafficmatchingCriteria"] = state ? state.trafficmatchingCriteria : undefined;
             resourceInputs["translateAddress"] = state ? state.translateAddress : undefined;
             resourceInputs["translatePort"] = state ? state.translatePort : undefined;
             resourceInputs["vlans"] = state ? state.vlans : undefined;
             resourceInputs["vlansEnabled"] = state ? state.vlansEnabled : undefined;
         } else {
             const args = argsOrState as VirtualServerArgs | undefined;
-            if ((!args || args.destination === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'destination'");
-            }
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
-            }
-            if ((!args || args.port === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'port'");
             }
             resourceInputs["clientProfiles"] = args ? args.clientProfiles : undefined;
             resourceInputs["defaultPersistenceProfile"] = args ? args.defaultPersistenceProfile : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["destination"] = args ? args.destination : undefined;
             resourceInputs["fallbackPersistenceProfile"] = args ? args.fallbackPersistenceProfile : undefined;
+            resourceInputs["firewallEnforcedPolicy"] = args ? args.firewallEnforcedPolicy : undefined;
             resourceInputs["ipProtocol"] = args ? args.ipProtocol : undefined;
             resourceInputs["irules"] = args ? args.irules : undefined;
             resourceInputs["mask"] = args ? args.mask : undefined;
@@ -241,7 +251,9 @@ export class VirtualServer extends pulumi.CustomResource {
             resourceInputs["snatpool"] = args ? args.snatpool : undefined;
             resourceInputs["source"] = args ? args.source : undefined;
             resourceInputs["sourceAddressTranslation"] = args ? args.sourceAddressTranslation : undefined;
+            resourceInputs["sourcePort"] = args ? args.sourcePort : undefined;
             resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["trafficmatchingCriteria"] = args ? args.trafficmatchingCriteria : undefined;
             resourceInputs["translateAddress"] = args ? args.translateAddress : undefined;
             resourceInputs["translatePort"] = args ? args.translatePort : undefined;
             resourceInputs["vlans"] = args ? args.vlans : undefined;
@@ -273,6 +285,10 @@ export interface VirtualServerState {
      * Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
      */
     fallbackPersistenceProfile?: pulumi.Input<string>;
+    /**
+     * Applies the specified AFM policy to the virtual in an enforcing way,when creating a new virtual, if this parameter is not specified, the enforced is disabled.This should be in full path ex: `/Common/afm-test-policy`.
+     */
+    firewallEnforcedPolicy?: pulumi.Input<string>;
     /**
      * Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
      */
@@ -316,7 +332,7 @@ export interface VirtualServerState {
      */
     serverProfiles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
+     * Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs.
      */
     snatpool?: pulumi.Input<string>;
     /**
@@ -324,13 +340,21 @@ export interface VirtualServerState {
      */
     source?: pulumi.Input<string>;
     /**
-     * Can be either omitted for none or the values automap or snat
+     * Can be either omitted for `none` or the values `automap` options : [`snat`,`automap`,`none`].
      */
     sourceAddressTranslation?: pulumi.Input<string>;
+    /**
+     * Specifies whether the system preserves the source port of the connection. The default is `preserve`.
+     */
+    sourcePort?: pulumi.Input<string>;
     /**
      * Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
      */
     state?: pulumi.Input<string>;
+    /**
+     * Specifies destination traffic matching information to which the virtual server sends traffic
+     */
+    trafficmatchingCriteria?: pulumi.Input<string>;
     /**
      * Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
      */
@@ -366,11 +390,15 @@ export interface VirtualServerArgs {
     /**
      * Destination IP
      */
-    destination: pulumi.Input<string>;
+    destination?: pulumi.Input<string>;
     /**
      * Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
      */
     fallbackPersistenceProfile?: pulumi.Input<string>;
+    /**
+     * Applies the specified AFM policy to the virtual in an enforcing way,when creating a new virtual, if this parameter is not specified, the enforced is disabled.This should be in full path ex: `/Common/afm-test-policy`.
+     */
+    firewallEnforcedPolicy?: pulumi.Input<string>;
     /**
      * Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
      */
@@ -400,7 +428,7 @@ export interface VirtualServerArgs {
     /**
      * Listen port for the virtual server
      */
-    port: pulumi.Input<number>;
+    port?: pulumi.Input<number>;
     /**
      * List of profiles associated both client and server contexts on the virtual server. This includes protocol, ssl, http, etc.
      */
@@ -414,7 +442,7 @@ export interface VirtualServerArgs {
      */
     serverProfiles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs. DEPRECATED - see Virtual Server Property Groups source-address-translation
+     * Specifies the name of an existing SNAT pool that you want the virtual server to use to implement selective and intelligent SNATs.
      */
     snatpool?: pulumi.Input<string>;
     /**
@@ -422,13 +450,21 @@ export interface VirtualServerArgs {
      */
     source?: pulumi.Input<string>;
     /**
-     * Can be either omitted for none or the values automap or snat
+     * Can be either omitted for `none` or the values `automap` options : [`snat`,`automap`,`none`].
      */
     sourceAddressTranslation?: pulumi.Input<string>;
+    /**
+     * Specifies whether the system preserves the source port of the connection. The default is `preserve`.
+     */
+    sourcePort?: pulumi.Input<string>;
     /**
      * Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
      */
     state?: pulumi.Input<string>;
+    /**
+     * Specifies destination traffic matching information to which the virtual server sends traffic
+     */
+    trafficmatchingCriteria?: pulumi.Input<string>;
     /**
      * Enables or disables address translation for the virtual server. Turn address translation off for a virtual server if you want to use the virtual server to load balance connections to any address. This option is useful when the system is load balancing devices that have the same IP address.
      */

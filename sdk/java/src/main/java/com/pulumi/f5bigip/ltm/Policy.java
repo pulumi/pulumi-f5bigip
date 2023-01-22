@@ -93,14 +93,14 @@ public class Policy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.controls);
     }
     /**
-     * Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+     * Name of Rule to be applied in policy.
      * 
      */
     @Export(name="name", type=String.class, parameters={})
     private Output<String> name;
 
     /**
-     * @return Name of the Policy ( policy name should be in full path which is combination of partition and policy name )
+     * @return Name of Rule to be applied in policy.
      * 
      */
     public Output<String> name() {
@@ -135,14 +135,14 @@ public class Policy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.requires);
     }
     /**
-     * Rules can be applied using the policy
+     * List of Rules can be applied using the policy. Each rule is block type with following arguments.
      * 
      */
     @Export(name="rules", type=List.class, parameters={PolicyRule.class})
     private Output</* @Nullable */ List<PolicyRule>> rules;
 
     /**
-     * @return Rules can be applied using the policy
+     * @return List of Rules can be applied using the policy. Each rule is block type with following arguments.
      * 
      */
     public Output<Optional<List<PolicyRule>>> rules() {
