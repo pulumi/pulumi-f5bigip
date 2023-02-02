@@ -2,10 +2,8 @@ module github.com/pulumi/pulumi-f5bigip/provider/v3
 
 go 1.18
 
-replace github.com/F5Networks/terraform-provider-bigip => github.com/pulumi/terraform-provider-bigip v1.1.1-0.20221222064343-a10637b19c50
-
 require (
-	github.com/F5Networks/terraform-provider-bigip v1.3.3
+	github.com/F5Networks/terraform-provider-bigip v1.16.1
 	github.com/hashicorp/terraform-plugin-sdk v1.7.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.38.0
 	github.com/pulumi/pulumi/sdk/v3 v3.51.0
@@ -25,7 +23,7 @@ require (
 	github.com/Azure/azure-sdk-for-go/sdk/azidentity v1.0.0 // indirect
 	github.com/Azure/azure-sdk-for-go/sdk/internal v1.0.0 // indirect
 	github.com/Azure/azure-sdk-for-go/sdk/storage/azblob v0.4.1 // indirect
-	github.com/Azure/azure-storage-blob-go v0.14.0 // indirect
+	github.com/Azure/azure-storage-blob-go v0.13.0 // indirect
 	github.com/Azure/go-autorest v14.2.0+incompatible // indirect
 	github.com/Azure/go-autorest/autorest v0.11.28 // indirect
 	github.com/Azure/go-autorest/autorest/adal v0.9.21 // indirect
