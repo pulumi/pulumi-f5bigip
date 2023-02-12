@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,8 +22,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -36,7 +34,7 @@ import (
 //				Interval:    pulumi.Int(998),
 //				Name:        pulumi.String("/Common/terraform_monitor"),
 //				Parent:      pulumi.String("/Common/http"),
-//				Send:        pulumi.String(fmt.Sprintf("GET /some/path\n\n")),
+//				Send:        pulumi.String("GET /some/path\n\n"),
 //				Timeout:     pulumi.Int(999),
 //			})
 //			if err != nil {
@@ -46,7 +44,7 @@ import (
 //				Interval:   pulumi.Int(999),
 //				Name:       pulumi.String("/Common/terraform_monitor"),
 //				Parent:     pulumi.String("/Common/http"),
-//				Send:       pulumi.String(fmt.Sprintf("GET /some/path\n\n")),
+//				Send:       pulumi.String("GET /some/path\n\n"),
 //				SslProfile: pulumi.String("/Common/serverssl"),
 //				Timeout:    pulumi.Int(1000),
 //			})

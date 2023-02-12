@@ -62,6 +62,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="f5bigip:net/vlan:Vlan")
 public class Vlan extends com.pulumi.resources.CustomResource {
     /**
+     * Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
+     * 
+     */
+    @Export(name="cmpHash", type=String.class, parameters={})
+    private Output<String> cmpHash;
+
+    /**
+     * @return Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
+     * 
+     */
+    public Output<String> cmpHash() {
+        return this.cmpHash;
+    }
+    /**
      * Specifies which interfaces you want this VLAN to use for traffic management.
      * 
      */

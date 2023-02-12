@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -132,8 +132,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/net"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -143,7 +141,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := net.NewSelfIp(ctx, "selfip1", &net.SelfIpArgs{
 //				Name:         pulumi.String("/Common/internalselfIP"),
-//				Ip:           pulumi.String(fmt.Sprintf("11.1.1.1%v4/24", "%")),
+//				Ip:           pulumi.String("11.1.1.1%4/24"),
 //				Vlan:         pulumi.String("/Common/internal"),
 //				TrafficGroup: pulumi.String("traffic-group-1"),
 //				PortLockdowns: pulumi.StringArray{

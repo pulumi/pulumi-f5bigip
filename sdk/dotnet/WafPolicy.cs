@@ -137,6 +137,12 @@ namespace Pulumi.F5BigIP
         public Output<ImmutableArray<Outputs.WafPolicyGraphqlProfile>> GraphqlProfiles { get; private set; } = null!;
 
         /// <summary>
+        /// specify the list of host name that is used to access the application
+        /// </summary>
+        [Output("hostNames")]
+        public Output<ImmutableArray<Outputs.WafPolicyHostName>> HostNames { get; private set; } = null!;
+
+        /// <summary>
         /// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
         /// section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
         /// provided by the BIG-IP.
@@ -222,6 +228,12 @@ namespace Pulumi.F5BigIP
         /// </summary>
         [Output("signaturesSettings")]
         public Output<ImmutableArray<Outputs.WafPolicySignaturesSetting>> SignaturesSettings { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the Link of the template used for the policy creation.
+        /// </summary>
+        [Output("templateLink")]
+        public Output<string?> TemplateLink { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the name of the template used for the policy creation.
@@ -341,6 +353,18 @@ namespace Pulumi.F5BigIP
         {
             get => _graphqlProfiles ?? (_graphqlProfiles = new InputList<Inputs.WafPolicyGraphqlProfileArgs>());
             set => _graphqlProfiles = value;
+        }
+
+        [Input("hostNames")]
+        private InputList<Inputs.WafPolicyHostNameArgs>? _hostNames;
+
+        /// <summary>
+        /// specify the list of host name that is used to access the application
+        /// </summary>
+        public InputList<Inputs.WafPolicyHostNameArgs> HostNames
+        {
+            get => _hostNames ?? (_hostNames = new InputList<Inputs.WafPolicyHostNameArgs>());
+            set => _hostNames = value;
         }
 
         [Input("modifications")]
@@ -473,6 +497,12 @@ namespace Pulumi.F5BigIP
         }
 
         /// <summary>
+        /// Specifies the Link of the template used for the policy creation.
+        /// </summary>
+        [Input("templateLink")]
+        public Input<string>? TemplateLink { get; set; }
+
+        /// <summary>
         /// Specifies the name of the template used for the policy creation.
         /// </summary>
         [Input("templateName", required: true)]
@@ -558,6 +588,18 @@ namespace Pulumi.F5BigIP
         {
             get => _graphqlProfiles ?? (_graphqlProfiles = new InputList<Inputs.WafPolicyGraphqlProfileGetArgs>());
             set => _graphqlProfiles = value;
+        }
+
+        [Input("hostNames")]
+        private InputList<Inputs.WafPolicyHostNameGetArgs>? _hostNames;
+
+        /// <summary>
+        /// specify the list of host name that is used to access the application
+        /// </summary>
+        public InputList<Inputs.WafPolicyHostNameGetArgs> HostNames
+        {
+            get => _hostNames ?? (_hostNames = new InputList<Inputs.WafPolicyHostNameGetArgs>());
+            set => _hostNames = value;
         }
 
         [Input("modifications")]
@@ -694,6 +736,12 @@ namespace Pulumi.F5BigIP
             get => _signaturesSettings ?? (_signaturesSettings = new InputList<Inputs.WafPolicySignaturesSettingGetArgs>());
             set => _signaturesSettings = value;
         }
+
+        /// <summary>
+        /// Specifies the Link of the template used for the policy creation.
+        /// </summary>
+        [Input("templateLink")]
+        public Input<string>? TemplateLink { get; set; }
 
         /// <summary>
         /// Specifies the name of the template used for the policy creation.

@@ -140,7 +140,7 @@ def get_waf_entity_url(description: Optional[str] = None,
                        type: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWafEntityUrlResult:
     """
-    Use this data source (`ssl.get_waf_pb_suggestions`) to create JSON for WAF URL to later use with an existing WAF policy.
+    Use this data source (_ssl_get_waf_pb_suggestions_) to create JSON for WAF URL to later use with an existing WAF policy.
 
     ## Example Usage
 
@@ -215,7 +215,7 @@ def get_waf_entity_url_output(description: Optional[pulumi.Input[Optional[str]]]
                               type: Optional[pulumi.Input[Optional[str]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWafEntityUrlResult]:
     """
-    Use this data source (`ssl.get_waf_pb_suggestions`) to create JSON for WAF URL to later use with an existing WAF policy.
+    Use this data source (_ssl_get_waf_pb_suggestions_) to create JSON for WAF URL to later use with an existing WAF policy.
 
     ## Example Usage
 

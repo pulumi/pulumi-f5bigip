@@ -319,20 +319,7 @@ class Do(pulumi.CustomResource):
                  timeout: Optional[pulumi.Input[int]] = None,
                  __props__=None):
         """
-        `Do` provides details about bigip do resource
-
-        This resource is helpful to configure do declarative JSON on BIG-IP.
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        do_example = f5bigip.Do("do-example",
-            do_json=(lambda path: open(path).read())("example.json"),
-            timeout=15)
-        ```
-
+        Create a Do resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bigip_address: IP Address of BIGIP Host to be used for this resource,this is optional parameter.
@@ -355,20 +342,7 @@ class Do(pulumi.CustomResource):
                  args: DoArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        `Do` provides details about bigip do resource
-
-        This resource is helpful to configure do declarative JSON on BIG-IP.
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        do_example = f5bigip.Do("do-example",
-            do_json=(lambda path: open(path).read())("example.json"),
-            timeout=15)
-        ```
-
+        Create a Do resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DoArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

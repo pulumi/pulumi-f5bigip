@@ -50,7 +50,7 @@ class VirtualServerArgs:
         :param pulumi.Input[str] destination: Destination IP
         :param pulumi.Input[str] fallback_persistence_profile: Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
         :param pulumi.Input[str] firewall_enforced_policy: Applies the specified AFM policy to the virtual in an enforcing way,when creating a new virtual, if this parameter is not specified, the enforced is disabled.This should be in full path ex: `/Common/afm-test-policy`.
-        :param pulumi.Input[str] ip_protocol: Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
+        :param pulumi.Input[str] ip_protocol: Specifies a network protocol name you want the system to use to direct traffic on this virtual server. The default is `tcp`. valid options are [`any`,`udp`,`tcp`]
         :param pulumi.Input[Sequence[pulumi.Input[str]]] irules: The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
         :param pulumi.Input[str] mask: Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
         :param pulumi.Input[Sequence[pulumi.Input[str]]] persistence_profiles: List of persistence profiles associated with the Virtual Server.
@@ -212,7 +212,7 @@ class VirtualServerArgs:
     @pulumi.getter(name="ipProtocol")
     def ip_protocol(self) -> Optional[pulumi.Input[str]]:
         """
-        Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
+        Specifies a network protocol name you want the system to use to direct traffic on this virtual server. The default is `tcp`. valid options are [`any`,`udp`,`tcp`]
         """
         return pulumi.get(self, "ip_protocol")
 
@@ -494,7 +494,7 @@ class _VirtualServerState:
         :param pulumi.Input[str] destination: Destination IP
         :param pulumi.Input[str] fallback_persistence_profile: Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
         :param pulumi.Input[str] firewall_enforced_policy: Applies the specified AFM policy to the virtual in an enforcing way,when creating a new virtual, if this parameter is not specified, the enforced is disabled.This should be in full path ex: `/Common/afm-test-policy`.
-        :param pulumi.Input[str] ip_protocol: Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
+        :param pulumi.Input[str] ip_protocol: Specifies a network protocol name you want the system to use to direct traffic on this virtual server. The default is `tcp`. valid options are [`any`,`udp`,`tcp`]
         :param pulumi.Input[Sequence[pulumi.Input[str]]] irules: The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
         :param pulumi.Input[str] mask: Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
         :param pulumi.Input[str] name: Name of the virtual server
@@ -646,7 +646,7 @@ class _VirtualServerState:
     @pulumi.getter(name="ipProtocol")
     def ip_protocol(self) -> Optional[pulumi.Input[str]]:
         """
-        Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
+        Specifies a network protocol name you want the system to use to direct traffic on this virtual server. The default is `tcp`. valid options are [`any`,`udp`,`tcp`]
         """
         return pulumi.get(self, "ip_protocol")
 
@@ -987,7 +987,7 @@ class VirtualServer(pulumi.CustomResource):
         :param pulumi.Input[str] destination: Destination IP
         :param pulumi.Input[str] fallback_persistence_profile: Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
         :param pulumi.Input[str] firewall_enforced_policy: Applies the specified AFM policy to the virtual in an enforcing way,when creating a new virtual, if this parameter is not specified, the enforced is disabled.This should be in full path ex: `/Common/afm-test-policy`.
-        :param pulumi.Input[str] ip_protocol: Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
+        :param pulumi.Input[str] ip_protocol: Specifies a network protocol name you want the system to use to direct traffic on this virtual server. The default is `tcp`. valid options are [`any`,`udp`,`tcp`]
         :param pulumi.Input[Sequence[pulumi.Input[str]]] irules: The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
         :param pulumi.Input[str] mask: Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
         :param pulumi.Input[str] name: Name of the virtual server
@@ -1191,7 +1191,7 @@ class VirtualServer(pulumi.CustomResource):
         :param pulumi.Input[str] destination: Destination IP
         :param pulumi.Input[str] fallback_persistence_profile: Specifies a fallback persistence profile for the Virtual Server to use when the default persistence profile is not available.
         :param pulumi.Input[str] firewall_enforced_policy: Applies the specified AFM policy to the virtual in an enforcing way,when creating a new virtual, if this parameter is not specified, the enforced is disabled.This should be in full path ex: `/Common/afm-test-policy`.
-        :param pulumi.Input[str] ip_protocol: Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
+        :param pulumi.Input[str] ip_protocol: Specifies a network protocol name you want the system to use to direct traffic on this virtual server. The default is `tcp`. valid options are [`any`,`udp`,`tcp`]
         :param pulumi.Input[Sequence[pulumi.Input[str]]] irules: The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
         :param pulumi.Input[str] mask: Mask can either be in CIDR notation or decimal, i.e.: 24 or 255.255.255.0. A CIDR mask of 0 is the same as 0.0.0.0
         :param pulumi.Input[str] name: Name of the virtual server
@@ -1296,7 +1296,7 @@ class VirtualServer(pulumi.CustomResource):
     @pulumi.getter(name="ipProtocol")
     def ip_protocol(self) -> pulumi.Output[Optional[str]]:
         """
-        Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
+        Specifies a network protocol name you want the system to use to direct traffic on this virtual server. The default is `tcp`. valid options are [`any`,`udp`,`tcp`]
         """
         return pulumi.get(self, "ip_protocol")
 
@@ -1400,7 +1400,7 @@ class VirtualServer(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sourceAddressTranslation")
-    def source_address_translation(self) -> pulumi.Output[Optional[str]]:
+    def source_address_translation(self) -> pulumi.Output[str]:
         """
         Can be either omitted for `none` or the values `automap` options : [`snat`,`automap`,`none`].
         """

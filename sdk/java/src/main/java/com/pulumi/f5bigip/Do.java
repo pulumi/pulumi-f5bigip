@@ -17,42 +17,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * `f5bigip.Do` provides details about bigip do resource
- * 
- * This resource is helpful to configure do declarative JSON on BIG-IP.
- * ## Example Usage
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.f5bigip.Do;
- * import com.pulumi.f5bigip.DoArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var do_example = new Do(&#34;do-example&#34;, DoArgs.builder()        
- *             .doJson(Files.readString(Paths.get(&#34;example.json&#34;)))
- *             .timeout(15)
- *             .build());
- * 
- *     }
- * }
- * ```
- * 
- */
 @ResourceType(type="f5bigip:index/do:Do")
 public class Do extends com.pulumi.resources.CustomResource {
     /**
