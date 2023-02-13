@@ -9,6 +9,9 @@ require (
 	github.com/pulumi/pulumi/sdk/v3 v3.54.0
 )
 
+// Fixes build issues on windows: https://github.com/mattn/go-ieproxy/issues/45
+replace github.com/mattn/go-ieproxy => github.com/mattn/go-ieproxy v0.0.7
+
 require (
 	cloud.google.com/go v0.109.0 // indirect
 	cloud.google.com/go/compute v1.18.0 // indirect
