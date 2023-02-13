@@ -136,7 +136,7 @@ def get_v_wan_config(azure_vwan_name: Optional[str] = None,
                      azure_vwan_vpnsite: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetVWanConfigResult:
     """
-    Use this data source (`ssl.get_v_wan_config`) to get the vWAN site config from Azure VWAN Site
+    Use this data source (_ssl_get_v_wan_config_) to get the vWAN site config from Azure VWAN Site
 
     ## Example Usage
 
@@ -192,7 +192,7 @@ def get_v_wan_config_output(azure_vwan_name: Optional[pulumi.Input[str]] = None,
                             azure_vwan_vpnsite: Optional[pulumi.Input[str]] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVWanConfigResult]:
     """
-    Use this data source (`ssl.get_v_wan_config`) to get the vWAN site config from Azure VWAN Site
+    Use this data source (_ssl_get_v_wan_config_) to get the vWAN site config from Azure VWAN Site
 
     ## Example Usage
 

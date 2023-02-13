@@ -56,6 +56,10 @@ export class Vlan extends pulumi.CustomResource {
     }
 
     /**
+     * Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
+     */
+    public readonly cmpHash!: pulumi.Output<string>;
+    /**
      * Specifies which interfaces you want this VLAN to use for traffic management.
      */
     public readonly interfaces!: pulumi.Output<outputs.net.VlanInterface[] | undefined>;
@@ -81,6 +85,7 @@ export class Vlan extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VlanState | undefined;
+            resourceInputs["cmpHash"] = state ? state.cmpHash : undefined;
             resourceInputs["interfaces"] = state ? state.interfaces : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["tag"] = state ? state.tag : undefined;
@@ -89,6 +94,7 @@ export class Vlan extends pulumi.CustomResource {
             if ((!args || args.name === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
+            resourceInputs["cmpHash"] = args ? args.cmpHash : undefined;
             resourceInputs["interfaces"] = args ? args.interfaces : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["tag"] = args ? args.tag : undefined;
@@ -102,6 +108,10 @@ export class Vlan extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Vlan resources.
  */
 export interface VlanState {
+    /**
+     * Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
+     */
+    cmpHash?: pulumi.Input<string>;
     /**
      * Specifies which interfaces you want this VLAN to use for traffic management.
      */
@@ -120,6 +130,10 @@ export interface VlanState {
  * The set of arguments for constructing a Vlan resource.
  */
 export interface VlanArgs {
+    /**
+     * Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
+     */
+    cmpHash?: pulumi.Input<string>;
     /**
      * Specifies which interfaces you want this VLAN to use for traffic management.
      */

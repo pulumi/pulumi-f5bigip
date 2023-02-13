@@ -101,14 +101,14 @@ public final class VirtualServerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
+     * Specifies a network protocol name you want the system to use to direct traffic on this virtual server. The default is `tcp`. valid options are [`any`,`udp`,`tcp`]
      * 
      */
     @Import(name="ipProtocol")
     private @Nullable Output<String> ipProtocol;
 
     /**
-     * @return Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
+     * @return Specifies a network protocol name you want the system to use to direct traffic on this virtual server. The default is `tcp`. valid options are [`any`,`udp`,`tcp`]
      * 
      */
     public Optional<Output<String>> ipProtocol() {
@@ -592,7 +592,7 @@ public final class VirtualServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipProtocol Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
+         * @param ipProtocol Specifies a network protocol name you want the system to use to direct traffic on this virtual server. The default is `tcp`. valid options are [`any`,`udp`,`tcp`]
          * 
          * @return builder
          * 
@@ -603,7 +603,7 @@ public final class VirtualServerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ipProtocol Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
+         * @param ipProtocol Specifies a network protocol name you want the system to use to direct traffic on this virtual server. The default is `tcp`. valid options are [`any`,`udp`,`tcp`]
          * 
          * @return builder
          * 

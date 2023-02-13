@@ -12,6 +12,7 @@ import com.pulumi.f5bigip.WafPolicyArgs;
 import com.pulumi.f5bigip.inputs.WafPolicyState;
 import com.pulumi.f5bigip.outputs.WafPolicyFileType;
 import com.pulumi.f5bigip.outputs.WafPolicyGraphqlProfile;
+import com.pulumi.f5bigip.outputs.WafPolicyHostName;
 import com.pulumi.f5bigip.outputs.WafPolicyPolicyBuilder;
 import com.pulumi.f5bigip.outputs.WafPolicySignaturesSetting;
 import java.lang.Boolean;
@@ -210,6 +211,20 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<WafPolicyGraphqlProfile>>> graphqlProfiles() {
         return Codegen.optional(this.graphqlProfiles);
+    }
+    /**
+     * specify the list of host name that is used to access the application
+     * 
+     */
+    @Export(name="hostNames", type=List.class, parameters={WafPolicyHostName.class})
+    private Output</* @Nullable */ List<WafPolicyHostName>> hostNames;
+
+    /**
+     * @return specify the list of host name that is used to access the application
+     * 
+     */
+    public Output<Optional<List<WafPolicyHostName>>> hostNames() {
+        return Codegen.optional(this.hostNames);
     }
     /**
      * the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
@@ -412,6 +427,20 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<WafPolicySignaturesSetting>>> signaturesSettings() {
         return Codegen.optional(this.signaturesSettings);
+    }
+    /**
+     * Specifies the Link of the template used for the policy creation.
+     * 
+     */
+    @Export(name="templateLink", type=String.class, parameters={})
+    private Output</* @Nullable */ String> templateLink;
+
+    /**
+     * @return Specifies the Link of the template used for the policy creation.
+     * 
+     */
+    public Output<Optional<String>> templateLink() {
+        return Codegen.optional(this.templateLink);
     }
     /**
      * Specifies the name of the template used for the policy creation.

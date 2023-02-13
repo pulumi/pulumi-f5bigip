@@ -128,6 +128,10 @@ export class WafPolicy extends pulumi.CustomResource {
      */
     public readonly graphqlProfiles!: pulumi.Output<outputs.WafPolicyGraphqlProfile[] | undefined>;
     /**
+     * specify the list of host name that is used to access the application
+     */
+    public readonly hostNames!: pulumi.Output<outputs.WafPolicyHostName[] | undefined>;
+    /**
      * the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
      * section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
      * provided by the BIG-IP.
@@ -187,6 +191,10 @@ export class WafPolicy extends pulumi.CustomResource {
      */
     public readonly signaturesSettings!: pulumi.Output<outputs.WafPolicySignaturesSetting[] | undefined>;
     /**
+     * Specifies the Link of the template used for the policy creation.
+     */
+    public readonly templateLink!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the name of the template used for the policy creation.
      */
     public readonly templateName!: pulumi.Output<string>;
@@ -219,6 +227,7 @@ export class WafPolicy extends pulumi.CustomResource {
             resourceInputs["enforcementMode"] = state ? state.enforcementMode : undefined;
             resourceInputs["fileTypes"] = state ? state.fileTypes : undefined;
             resourceInputs["graphqlProfiles"] = state ? state.graphqlProfiles : undefined;
+            resourceInputs["hostNames"] = state ? state.hostNames : undefined;
             resourceInputs["modifications"] = state ? state.modifications : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["openApiFiles"] = state ? state.openApiFiles : undefined;
@@ -233,6 +242,7 @@ export class WafPolicy extends pulumi.CustomResource {
             resourceInputs["signatureSets"] = state ? state.signatureSets : undefined;
             resourceInputs["signatures"] = state ? state.signatures : undefined;
             resourceInputs["signaturesSettings"] = state ? state.signaturesSettings : undefined;
+            resourceInputs["templateLink"] = state ? state.templateLink : undefined;
             resourceInputs["templateName"] = state ? state.templateName : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
             resourceInputs["urls"] = state ? state.urls : undefined;
@@ -251,6 +261,7 @@ export class WafPolicy extends pulumi.CustomResource {
             resourceInputs["enforcementMode"] = args ? args.enforcementMode : undefined;
             resourceInputs["fileTypes"] = args ? args.fileTypes : undefined;
             resourceInputs["graphqlProfiles"] = args ? args.graphqlProfiles : undefined;
+            resourceInputs["hostNames"] = args ? args.hostNames : undefined;
             resourceInputs["modifications"] = args ? args.modifications : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["openApiFiles"] = args ? args.openApiFiles : undefined;
@@ -264,6 +275,7 @@ export class WafPolicy extends pulumi.CustomResource {
             resourceInputs["signatureSets"] = args ? args.signatureSets : undefined;
             resourceInputs["signatures"] = args ? args.signatures : undefined;
             resourceInputs["signaturesSettings"] = args ? args.signaturesSettings : undefined;
+            resourceInputs["templateLink"] = args ? args.templateLink : undefined;
             resourceInputs["templateName"] = args ? args.templateName : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["urls"] = args ? args.urls : undefined;
@@ -308,6 +320,10 @@ export interface WafPolicyState {
      * See graphql profiles below for more details.
      */
     graphqlProfiles?: pulumi.Input<pulumi.Input<inputs.WafPolicyGraphqlProfile>[]>;
+    /**
+     * specify the list of host name that is used to access the application
+     */
+    hostNames?: pulumi.Input<pulumi.Input<inputs.WafPolicyHostName>[]>;
     /**
      * the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
      * section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
@@ -368,6 +384,10 @@ export interface WafPolicyState {
      */
     signaturesSettings?: pulumi.Input<pulumi.Input<inputs.WafPolicySignaturesSetting>[]>;
     /**
+     * Specifies the Link of the template used for the policy creation.
+     */
+    templateLink?: pulumi.Input<string>;
+    /**
      * Specifies the name of the template used for the policy creation.
      */
     templateName?: pulumi.Input<string>;
@@ -415,6 +435,10 @@ export interface WafPolicyArgs {
      * See graphql profiles below for more details.
      */
     graphqlProfiles?: pulumi.Input<pulumi.Input<inputs.WafPolicyGraphqlProfile>[]>;
+    /**
+     * specify the list of host name that is used to access the application
+     */
+    hostNames?: pulumi.Input<pulumi.Input<inputs.WafPolicyHostName>[]>;
     /**
      * the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
      * section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
@@ -470,6 +494,10 @@ export interface WafPolicyArgs {
      * bulk signature setting
      */
     signaturesSettings?: pulumi.Input<pulumi.Input<inputs.WafPolicySignaturesSetting>[]>;
+    /**
+     * Specifies the Link of the template used for the policy creation.
+     */
+    templateLink?: pulumi.Input<string>;
     /**
      * Specifies the name of the template used for the policy creation.
      */

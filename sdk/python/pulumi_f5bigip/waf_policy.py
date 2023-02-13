@@ -25,6 +25,7 @@ class WafPolicyArgs:
                  enforcement_mode: Optional[pulumi.Input[str]] = None,
                  file_types: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyFileTypeArgs']]]] = None,
                  graphql_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyGraphqlProfileArgs']]]] = None,
+                 host_names: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyHostNameArgs']]]] = None,
                  modifications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  open_api_files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -37,6 +38,7 @@ class WafPolicyArgs:
                  signature_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  signatures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  signatures_settings: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicySignaturesSettingArgs']]]] = None,
+                 template_link: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -52,6 +54,7 @@ class WafPolicyArgs:
                See file types below for more details.
         :param pulumi.Input[Sequence[pulumi.Input['WafPolicyGraphqlProfileArgs']]] graphql_profiles: `graphql_profiles` takes list of graphql profile options to be used for policy builder.
                See graphql profiles below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['WafPolicyHostNameArgs']]] host_names: specify the list of host name that is used to access the application
         :param pulumi.Input[Sequence[pulumi.Input[str]]] modifications: the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
                section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
                provided by the BIG-IP.
@@ -67,6 +70,7 @@ class WafPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] signature_sets: Defines behavior when signatures found within a signature-set are detected in a request. Settings are culmulative, so if a signature is found in any set with block enabled, that signature will have block enabled.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] signatures: This section defines the properties of a signature on the policy.
         :param pulumi.Input[Sequence[pulumi.Input['WafPolicySignaturesSettingArgs']]] signatures_settings: bulk signature setting
+        :param pulumi.Input[str] template_link: Specifies the Link of the template used for the policy creation.
         :param pulumi.Input[str] type: The type of policy you want to create. The default policy type is `security`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] urls: In a security policy, you can manually specify the HTTP URLs that are allowed (or disallowed) in traffic to the web application being protected. If you are using automatic policy building (and the policy includes learning URLs), the system can determine which URLs to add, based on legitimate traffic.
         """
@@ -86,6 +90,8 @@ class WafPolicyArgs:
             pulumi.set(__self__, "file_types", file_types)
         if graphql_profiles is not None:
             pulumi.set(__self__, "graphql_profiles", graphql_profiles)
+        if host_names is not None:
+            pulumi.set(__self__, "host_names", host_names)
         if modifications is not None:
             pulumi.set(__self__, "modifications", modifications)
         if open_api_files is not None:
@@ -110,6 +116,8 @@ class WafPolicyArgs:
             pulumi.set(__self__, "signatures", signatures)
         if signatures_settings is not None:
             pulumi.set(__self__, "signatures_settings", signatures_settings)
+        if template_link is not None:
+            pulumi.set(__self__, "template_link", template_link)
         if type is not None:
             pulumi.set(__self__, "type", type)
         if urls is not None:
@@ -224,6 +232,18 @@ class WafPolicyArgs:
     @graphql_profiles.setter
     def graphql_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyGraphqlProfileArgs']]]]):
         pulumi.set(self, "graphql_profiles", value)
+
+    @property
+    @pulumi.getter(name="hostNames")
+    def host_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyHostNameArgs']]]]:
+        """
+        specify the list of host name that is used to access the application
+        """
+        return pulumi.get(self, "host_names")
+
+    @host_names.setter
+    def host_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyHostNameArgs']]]]):
+        pulumi.set(self, "host_names", value)
 
     @property
     @pulumi.getter
@@ -373,6 +393,18 @@ class WafPolicyArgs:
         pulumi.set(self, "signatures_settings", value)
 
     @property
+    @pulumi.getter(name="templateLink")
+    def template_link(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Link of the template used for the policy creation.
+        """
+        return pulumi.get(self, "template_link")
+
+    @template_link.setter
+    def template_link(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "template_link", value)
+
+    @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
@@ -407,6 +439,7 @@ class _WafPolicyState:
                  enforcement_mode: Optional[pulumi.Input[str]] = None,
                  file_types: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyFileTypeArgs']]]] = None,
                  graphql_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyGraphqlProfileArgs']]]] = None,
+                 host_names: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyHostNameArgs']]]] = None,
                  modifications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  open_api_files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -421,6 +454,7 @@ class _WafPolicyState:
                  signature_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  signatures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  signatures_settings: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicySignaturesSettingArgs']]]] = None,
+                 template_link: Optional[pulumi.Input[str]] = None,
                  template_name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -435,6 +469,7 @@ class _WafPolicyState:
                See file types below for more details.
         :param pulumi.Input[Sequence[pulumi.Input['WafPolicyGraphqlProfileArgs']]] graphql_profiles: `graphql_profiles` takes list of graphql profile options to be used for policy builder.
                See graphql profiles below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['WafPolicyHostNameArgs']]] host_names: specify the list of host name that is used to access the application
         :param pulumi.Input[Sequence[pulumi.Input[str]]] modifications: the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
                section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
                provided by the BIG-IP.
@@ -452,6 +487,7 @@ class _WafPolicyState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] signature_sets: Defines behavior when signatures found within a signature-set are detected in a request. Settings are culmulative, so if a signature is found in any set with block enabled, that signature will have block enabled.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] signatures: This section defines the properties of a signature on the policy.
         :param pulumi.Input[Sequence[pulumi.Input['WafPolicySignaturesSettingArgs']]] signatures_settings: bulk signature setting
+        :param pulumi.Input[str] template_link: Specifies the Link of the template used for the policy creation.
         :param pulumi.Input[str] template_name: Specifies the name of the template used for the policy creation.
         :param pulumi.Input[str] type: The type of policy you want to create. The default policy type is `security`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] urls: In a security policy, you can manually specify the HTTP URLs that are allowed (or disallowed) in traffic to the web application being protected. If you are using automatic policy building (and the policy includes learning URLs), the system can determine which URLs to add, based on legitimate traffic.
@@ -470,6 +506,8 @@ class _WafPolicyState:
             pulumi.set(__self__, "file_types", file_types)
         if graphql_profiles is not None:
             pulumi.set(__self__, "graphql_profiles", graphql_profiles)
+        if host_names is not None:
+            pulumi.set(__self__, "host_names", host_names)
         if modifications is not None:
             pulumi.set(__self__, "modifications", modifications)
         if name is not None:
@@ -498,6 +536,8 @@ class _WafPolicyState:
             pulumi.set(__self__, "signatures", signatures)
         if signatures_settings is not None:
             pulumi.set(__self__, "signatures_settings", signatures_settings)
+        if template_link is not None:
+            pulumi.set(__self__, "template_link", template_link)
         if template_name is not None:
             pulumi.set(__self__, "template_name", template_name)
         if type is not None:
@@ -590,6 +630,18 @@ class _WafPolicyState:
     @graphql_profiles.setter
     def graphql_profiles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyGraphqlProfileArgs']]]]):
         pulumi.set(self, "graphql_profiles", value)
+
+    @property
+    @pulumi.getter(name="hostNames")
+    def host_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyHostNameArgs']]]]:
+        """
+        specify the list of host name that is used to access the application
+        """
+        return pulumi.get(self, "host_names")
+
+    @host_names.setter
+    def host_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyHostNameArgs']]]]):
+        pulumi.set(self, "host_names", value)
 
     @property
     @pulumi.getter
@@ -763,6 +815,18 @@ class _WafPolicyState:
         pulumi.set(self, "signatures_settings", value)
 
     @property
+    @pulumi.getter(name="templateLink")
+    def template_link(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the Link of the template used for the policy creation.
+        """
+        return pulumi.get(self, "template_link")
+
+    @template_link.setter
+    def template_link(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "template_link", value)
+
+    @property
     @pulumi.getter(name="templateName")
     def template_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -811,6 +875,7 @@ class WafPolicy(pulumi.CustomResource):
                  enforcement_mode: Optional[pulumi.Input[str]] = None,
                  file_types: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyFileTypeArgs']]]]] = None,
                  graphql_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyGraphqlProfileArgs']]]]] = None,
+                 host_names: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyHostNameArgs']]]]] = None,
                  modifications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  open_api_files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -824,6 +889,7 @@ class WafPolicy(pulumi.CustomResource):
                  signature_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  signatures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  signatures_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicySignaturesSettingArgs']]]]] = None,
+                 template_link: Optional[pulumi.Input[str]] = None,
                  template_name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -893,6 +959,7 @@ class WafPolicy(pulumi.CustomResource):
                See file types below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyGraphqlProfileArgs']]]] graphql_profiles: `graphql_profiles` takes list of graphql profile options to be used for policy builder.
                See graphql profiles below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyHostNameArgs']]]] host_names: specify the list of host name that is used to access the application
         :param pulumi.Input[Sequence[pulumi.Input[str]]] modifications: the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
                section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
                provided by the BIG-IP.
@@ -909,6 +976,7 @@ class WafPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] signature_sets: Defines behavior when signatures found within a signature-set are detected in a request. Settings are culmulative, so if a signature is found in any set with block enabled, that signature will have block enabled.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] signatures: This section defines the properties of a signature on the policy.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicySignaturesSettingArgs']]]] signatures_settings: bulk signature setting
+        :param pulumi.Input[str] template_link: Specifies the Link of the template used for the policy creation.
         :param pulumi.Input[str] template_name: Specifies the name of the template used for the policy creation.
         :param pulumi.Input[str] type: The type of policy you want to create. The default policy type is `security`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] urls: In a security policy, you can manually specify the HTTP URLs that are allowed (or disallowed) in traffic to the web application being protected. If you are using automatic policy building (and the policy includes learning URLs), the system can determine which URLs to add, based on legitimate traffic.
@@ -995,6 +1063,7 @@ class WafPolicy(pulumi.CustomResource):
                  enforcement_mode: Optional[pulumi.Input[str]] = None,
                  file_types: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyFileTypeArgs']]]]] = None,
                  graphql_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyGraphqlProfileArgs']]]]] = None,
+                 host_names: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyHostNameArgs']]]]] = None,
                  modifications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  open_api_files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1008,6 +1077,7 @@ class WafPolicy(pulumi.CustomResource):
                  signature_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  signatures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  signatures_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicySignaturesSettingArgs']]]]] = None,
+                 template_link: Optional[pulumi.Input[str]] = None,
                  template_name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1027,6 +1097,7 @@ class WafPolicy(pulumi.CustomResource):
             __props__.__dict__["enforcement_mode"] = enforcement_mode
             __props__.__dict__["file_types"] = file_types
             __props__.__dict__["graphql_profiles"] = graphql_profiles
+            __props__.__dict__["host_names"] = host_names
             __props__.__dict__["modifications"] = modifications
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
@@ -1042,6 +1113,7 @@ class WafPolicy(pulumi.CustomResource):
             __props__.__dict__["signature_sets"] = signature_sets
             __props__.__dict__["signatures"] = signatures
             __props__.__dict__["signatures_settings"] = signatures_settings
+            __props__.__dict__["template_link"] = template_link
             if template_name is None and not opts.urn:
                 raise TypeError("Missing required property 'template_name'")
             __props__.__dict__["template_name"] = template_name
@@ -1065,6 +1137,7 @@ class WafPolicy(pulumi.CustomResource):
             enforcement_mode: Optional[pulumi.Input[str]] = None,
             file_types: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyFileTypeArgs']]]]] = None,
             graphql_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyGraphqlProfileArgs']]]]] = None,
+            host_names: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyHostNameArgs']]]]] = None,
             modifications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             open_api_files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1079,6 +1152,7 @@ class WafPolicy(pulumi.CustomResource):
             signature_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             signatures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             signatures_settings: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicySignaturesSettingArgs']]]]] = None,
+            template_link: Optional[pulumi.Input[str]] = None,
             template_name: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None,
             urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'WafPolicy':
@@ -1098,6 +1172,7 @@ class WafPolicy(pulumi.CustomResource):
                See file types below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyGraphqlProfileArgs']]]] graphql_profiles: `graphql_profiles` takes list of graphql profile options to be used for policy builder.
                See graphql profiles below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyHostNameArgs']]]] host_names: specify the list of host name that is used to access the application
         :param pulumi.Input[Sequence[pulumi.Input[str]]] modifications: the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
                section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
                provided by the BIG-IP.
@@ -1115,6 +1190,7 @@ class WafPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] signature_sets: Defines behavior when signatures found within a signature-set are detected in a request. Settings are culmulative, so if a signature is found in any set with block enabled, that signature will have block enabled.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] signatures: This section defines the properties of a signature on the policy.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicySignaturesSettingArgs']]]] signatures_settings: bulk signature setting
+        :param pulumi.Input[str] template_link: Specifies the Link of the template used for the policy creation.
         :param pulumi.Input[str] template_name: Specifies the name of the template used for the policy creation.
         :param pulumi.Input[str] type: The type of policy you want to create. The default policy type is `security`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] urls: In a security policy, you can manually specify the HTTP URLs that are allowed (or disallowed) in traffic to the web application being protected. If you are using automatic policy building (and the policy includes learning URLs), the system can determine which URLs to add, based on legitimate traffic.
@@ -1130,6 +1206,7 @@ class WafPolicy(pulumi.CustomResource):
         __props__.__dict__["enforcement_mode"] = enforcement_mode
         __props__.__dict__["file_types"] = file_types
         __props__.__dict__["graphql_profiles"] = graphql_profiles
+        __props__.__dict__["host_names"] = host_names
         __props__.__dict__["modifications"] = modifications
         __props__.__dict__["name"] = name
         __props__.__dict__["open_api_files"] = open_api_files
@@ -1144,6 +1221,7 @@ class WafPolicy(pulumi.CustomResource):
         __props__.__dict__["signature_sets"] = signature_sets
         __props__.__dict__["signatures"] = signatures
         __props__.__dict__["signatures_settings"] = signatures_settings
+        __props__.__dict__["template_link"] = template_link
         __props__.__dict__["template_name"] = template_name
         __props__.__dict__["type"] = type
         __props__.__dict__["urls"] = urls
@@ -1206,6 +1284,14 @@ class WafPolicy(pulumi.CustomResource):
         See graphql profiles below for more details.
         """
         return pulumi.get(self, "graphql_profiles")
+
+    @property
+    @pulumi.getter(name="hostNames")
+    def host_names(self) -> pulumi.Output[Optional[Sequence['outputs.WafPolicyHostName']]]:
+        """
+        specify the list of host name that is used to access the application
+        """
+        return pulumi.get(self, "host_names")
 
     @property
     @pulumi.getter
@@ -1321,6 +1407,14 @@ class WafPolicy(pulumi.CustomResource):
         bulk signature setting
         """
         return pulumi.get(self, "signatures_settings")
+
+    @property
+    @pulumi.getter(name="templateLink")
+    def template_link(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the Link of the template used for the policy creation.
+        """
+        return pulumi.get(self, "template_link")
 
     @property
     @pulumi.getter(name="templateName")

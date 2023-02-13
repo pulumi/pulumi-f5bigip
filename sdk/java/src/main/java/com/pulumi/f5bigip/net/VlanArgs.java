@@ -19,6 +19,21 @@ public final class VlanArgs extends com.pulumi.resources.ResourceArgs {
     public static final VlanArgs Empty = new VlanArgs();
 
     /**
+     * Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
+     * 
+     */
+    @Import(name="cmpHash")
+    private @Nullable Output<String> cmpHash;
+
+    /**
+     * @return Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
+     * 
+     */
+    public Optional<Output<String>> cmpHash() {
+        return Optional.ofNullable(this.cmpHash);
+    }
+
+    /**
      * Specifies which interfaces you want this VLAN to use for traffic management.
      * 
      */
@@ -66,6 +81,7 @@ public final class VlanArgs extends com.pulumi.resources.ResourceArgs {
     private VlanArgs() {}
 
     private VlanArgs(VlanArgs $) {
+        this.cmpHash = $.cmpHash;
         this.interfaces = $.interfaces;
         this.name = $.name;
         this.tag = $.tag;
@@ -87,6 +103,27 @@ public final class VlanArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder(VlanArgs defaults) {
             $ = new VlanArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param cmpHash Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cmpHash(@Nullable Output<String> cmpHash) {
+            $.cmpHash = cmpHash;
+            return this;
+        }
+
+        /**
+         * @param cmpHash Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cmpHash(String cmpHash) {
+            return cmpHash(Output.of(cmpHash));
         }
 
         /**

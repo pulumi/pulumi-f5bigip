@@ -2837,6 +2837,103 @@ func (o WafPolicyGraphqlProfileArrayOutput) Index(i pulumi.IntInput) WafPolicyGr
 	}).(WafPolicyGraphqlProfileOutput)
 }
 
+type WafPolicyHostName struct {
+	// The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
+	Name *string `pulumi:"name"`
+}
+
+// WafPolicyHostNameInput is an input type that accepts WafPolicyHostNameArgs and WafPolicyHostNameOutput values.
+// You can construct a concrete instance of `WafPolicyHostNameInput` via:
+//
+//	WafPolicyHostNameArgs{...}
+type WafPolicyHostNameInput interface {
+	pulumi.Input
+
+	ToWafPolicyHostNameOutput() WafPolicyHostNameOutput
+	ToWafPolicyHostNameOutputWithContext(context.Context) WafPolicyHostNameOutput
+}
+
+type WafPolicyHostNameArgs struct {
+	// The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (WafPolicyHostNameArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WafPolicyHostName)(nil)).Elem()
+}
+
+func (i WafPolicyHostNameArgs) ToWafPolicyHostNameOutput() WafPolicyHostNameOutput {
+	return i.ToWafPolicyHostNameOutputWithContext(context.Background())
+}
+
+func (i WafPolicyHostNameArgs) ToWafPolicyHostNameOutputWithContext(ctx context.Context) WafPolicyHostNameOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WafPolicyHostNameOutput)
+}
+
+// WafPolicyHostNameArrayInput is an input type that accepts WafPolicyHostNameArray and WafPolicyHostNameArrayOutput values.
+// You can construct a concrete instance of `WafPolicyHostNameArrayInput` via:
+//
+//	WafPolicyHostNameArray{ WafPolicyHostNameArgs{...} }
+type WafPolicyHostNameArrayInput interface {
+	pulumi.Input
+
+	ToWafPolicyHostNameArrayOutput() WafPolicyHostNameArrayOutput
+	ToWafPolicyHostNameArrayOutputWithContext(context.Context) WafPolicyHostNameArrayOutput
+}
+
+type WafPolicyHostNameArray []WafPolicyHostNameInput
+
+func (WafPolicyHostNameArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WafPolicyHostName)(nil)).Elem()
+}
+
+func (i WafPolicyHostNameArray) ToWafPolicyHostNameArrayOutput() WafPolicyHostNameArrayOutput {
+	return i.ToWafPolicyHostNameArrayOutputWithContext(context.Background())
+}
+
+func (i WafPolicyHostNameArray) ToWafPolicyHostNameArrayOutputWithContext(ctx context.Context) WafPolicyHostNameArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WafPolicyHostNameArrayOutput)
+}
+
+type WafPolicyHostNameOutput struct{ *pulumi.OutputState }
+
+func (WafPolicyHostNameOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WafPolicyHostName)(nil)).Elem()
+}
+
+func (o WafPolicyHostNameOutput) ToWafPolicyHostNameOutput() WafPolicyHostNameOutput {
+	return o
+}
+
+func (o WafPolicyHostNameOutput) ToWafPolicyHostNameOutputWithContext(ctx context.Context) WafPolicyHostNameOutput {
+	return o
+}
+
+// The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
+func (o WafPolicyHostNameOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WafPolicyHostName) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type WafPolicyHostNameArrayOutput struct{ *pulumi.OutputState }
+
+func (WafPolicyHostNameArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WafPolicyHostName)(nil)).Elem()
+}
+
+func (o WafPolicyHostNameArrayOutput) ToWafPolicyHostNameArrayOutput() WafPolicyHostNameArrayOutput {
+	return o
+}
+
+func (o WafPolicyHostNameArrayOutput) ToWafPolicyHostNameArrayOutputWithContext(ctx context.Context) WafPolicyHostNameArrayOutput {
+	return o
+}
+
+func (o WafPolicyHostNameArrayOutput) Index(i pulumi.IntInput) WafPolicyHostNameOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WafPolicyHostName {
+		return vs[0].([]WafPolicyHostName)[vs[1].(int)]
+	}).(WafPolicyHostNameOutput)
+}
+
 type WafPolicyPolicyBuilder struct {
 	// learning mode setting for policy-builder, possible options: [`automatic`,`disabled`, `manual`]
 	LearningMode *string `pulumi:"learningMode"`
@@ -3073,6 +3170,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WafPolicyFileTypeArrayInput)(nil)).Elem(), WafPolicyFileTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WafPolicyGraphqlProfileInput)(nil)).Elem(), WafPolicyGraphqlProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WafPolicyGraphqlProfileArrayInput)(nil)).Elem(), WafPolicyGraphqlProfileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WafPolicyHostNameInput)(nil)).Elem(), WafPolicyHostNameArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WafPolicyHostNameArrayInput)(nil)).Elem(), WafPolicyHostNameArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WafPolicyPolicyBuilderInput)(nil)).Elem(), WafPolicyPolicyBuilderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WafPolicyPolicyBuilderArrayInput)(nil)).Elem(), WafPolicyPolicyBuilderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WafPolicySignaturesSettingInput)(nil)).Elem(), WafPolicySignaturesSettingArgs{})
@@ -3115,6 +3214,8 @@ func init() {
 	pulumi.RegisterOutputType(WafPolicyFileTypeArrayOutput{})
 	pulumi.RegisterOutputType(WafPolicyGraphqlProfileOutput{})
 	pulumi.RegisterOutputType(WafPolicyGraphqlProfileArrayOutput{})
+	pulumi.RegisterOutputType(WafPolicyHostNameOutput{})
+	pulumi.RegisterOutputType(WafPolicyHostNameArrayOutput{})
 	pulumi.RegisterOutputType(WafPolicyPolicyBuilderOutput{})
 	pulumi.RegisterOutputType(WafPolicyPolicyBuilderArrayOutput{})
 	pulumi.RegisterOutputType(WafPolicySignaturesSettingOutput{})

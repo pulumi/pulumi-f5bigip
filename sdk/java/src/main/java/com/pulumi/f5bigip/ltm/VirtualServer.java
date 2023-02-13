@@ -162,14 +162,14 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
         return this.firewallEnforcedPolicy;
     }
     /**
-     * Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
+     * Specifies a network protocol name you want the system to use to direct traffic on this virtual server. The default is `tcp`. valid options are [`any`,`udp`,`tcp`]
      * 
      */
     @Export(name="ipProtocol", type=String.class, parameters={})
     private Output</* @Nullable */ String> ipProtocol;
 
     /**
-     * @return Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
+     * @return Specifies a network protocol name you want the system to use to direct traffic on this virtual server. The default is `tcp`. valid options are [`any`,`udp`,`tcp`]
      * 
      */
     public Output<Optional<String>> ipProtocol() {
@@ -346,14 +346,14 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="sourceAddressTranslation", type=String.class, parameters={})
-    private Output</* @Nullable */ String> sourceAddressTranslation;
+    private Output<String> sourceAddressTranslation;
 
     /**
      * @return Can be either omitted for `none` or the values `automap` options : [`snat`,`automap`,`none`].
      * 
      */
-    public Output<Optional<String>> sourceAddressTranslation() {
-        return Codegen.optional(this.sourceAddressTranslation);
+    public Output<String> sourceAddressTranslation() {
+        return this.sourceAddressTranslation;
     }
     /**
      * Specifies whether the system preserves the source port of the connection. The default is `preserve`.

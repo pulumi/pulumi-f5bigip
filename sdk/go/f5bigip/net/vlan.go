@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -50,6 +50,8 @@ import (
 type Vlan struct {
 	pulumi.CustomResourceState
 
+	// Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
+	CmpHash pulumi.StringOutput `pulumi:"cmpHash"`
 	// Specifies which interfaces you want this VLAN to use for traffic management.
 	Interfaces VlanInterfaceArrayOutput `pulumi:"interfaces"`
 	// Name of the vlan
@@ -90,6 +92,8 @@ func GetVlan(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Vlan resources.
 type vlanState struct {
+	// Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
+	CmpHash *string `pulumi:"cmpHash"`
 	// Specifies which interfaces you want this VLAN to use for traffic management.
 	Interfaces []VlanInterface `pulumi:"interfaces"`
 	// Name of the vlan
@@ -99,6 +103,8 @@ type vlanState struct {
 }
 
 type VlanState struct {
+	// Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
+	CmpHash pulumi.StringPtrInput
 	// Specifies which interfaces you want this VLAN to use for traffic management.
 	Interfaces VlanInterfaceArrayInput
 	// Name of the vlan
@@ -112,6 +118,8 @@ func (VlanState) ElementType() reflect.Type {
 }
 
 type vlanArgs struct {
+	// Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
+	CmpHash *string `pulumi:"cmpHash"`
 	// Specifies which interfaces you want this VLAN to use for traffic management.
 	Interfaces []VlanInterface `pulumi:"interfaces"`
 	// Name of the vlan
@@ -122,6 +130,8 @@ type vlanArgs struct {
 
 // The set of arguments for constructing a Vlan resource.
 type VlanArgs struct {
+	// Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
+	CmpHash pulumi.StringPtrInput
 	// Specifies which interfaces you want this VLAN to use for traffic management.
 	Interfaces VlanInterfaceArrayInput
 	// Name of the vlan
@@ -215,6 +225,11 @@ func (o VlanOutput) ToVlanOutput() VlanOutput {
 
 func (o VlanOutput) ToVlanOutputWithContext(ctx context.Context) VlanOutput {
 	return o
+}
+
+// Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
+func (o VlanOutput) CmpHash() pulumi.StringOutput {
+	return o.ApplyT(func(v *Vlan) pulumi.StringOutput { return v.CmpHash }).(pulumi.StringOutput)
 }
 
 // Specifies which interfaces you want this VLAN to use for traffic management.

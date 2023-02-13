@@ -75,7 +75,7 @@ import * as utilities from "../utilities";
  *
  * const selfip1 = new f5bigip.net.SelfIp("selfip1", {
  *     name: "/Common/internalselfIP",
- *     ip: `11.1.1.1%4/24`,
+ *     ip: "11.1.1.1%4/24",
  *     vlan: "/Common/internal",
  *     trafficGroup: "traffic-group-1",
  *     portLockdowns: ["none"],

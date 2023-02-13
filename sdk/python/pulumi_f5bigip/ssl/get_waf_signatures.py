@@ -176,7 +176,7 @@ def get_waf_signatures(accuracy: Optional[str] = None,
                        type: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWafSignaturesResult:
     """
-    Use this data source (`ssl.get_waf_signatures`) to get the details of attack signatures available on BIG-IP WAF
+    Use this data source (_ssl_get_waf_signatures_) to get the details of attack signatures available on BIG-IP WAF
 
     ## Example Usage
 
@@ -238,7 +238,7 @@ def get_waf_signatures_output(accuracy: Optional[pulumi.Input[Optional[str]]] = 
                               type: Optional[pulumi.Input[Optional[str]]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWafSignaturesResult]:
     """
-    Use this data source (`ssl.get_waf_signatures`) to get the details of attack signatures available on BIG-IP WAF
+    Use this data source (_ssl_get_waf_signatures_) to get the details of attack signatures available on BIG-IP WAF
 
     ## Example Usage
 

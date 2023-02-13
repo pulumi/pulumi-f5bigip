@@ -17,15 +17,19 @@ __all__ = ['VlanArgs', 'Vlan']
 class VlanArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
+                 cmp_hash: Optional[pulumi.Input[str]] = None,
                  interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['VlanInterfaceArgs']]]] = None,
                  tag: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a Vlan resource.
         :param pulumi.Input[str] name: Name of the vlan
+        :param pulumi.Input[str] cmp_hash: Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
         :param pulumi.Input[Sequence[pulumi.Input['VlanInterfaceArgs']]] interfaces: Specifies which interfaces you want this VLAN to use for traffic management.
         :param pulumi.Input[int] tag: Specifies a number that the system adds into the header of any frame passing through the VLAN.
         """
         pulumi.set(__self__, "name", name)
+        if cmp_hash is not None:
+            pulumi.set(__self__, "cmp_hash", cmp_hash)
         if interfaces is not None:
             pulumi.set(__self__, "interfaces", interfaces)
         if tag is not None:
@@ -42,6 +46,18 @@ class VlanArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="cmpHash")
+    def cmp_hash(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
+        """
+        return pulumi.get(self, "cmp_hash")
+
+    @cmp_hash.setter
+    def cmp_hash(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cmp_hash", value)
 
     @property
     @pulumi.getter
@@ -71,21 +87,37 @@ class VlanArgs:
 @pulumi.input_type
 class _VlanState:
     def __init__(__self__, *,
+                 cmp_hash: Optional[pulumi.Input[str]] = None,
                  interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['VlanInterfaceArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tag: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering Vlan resources.
+        :param pulumi.Input[str] cmp_hash: Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
         :param pulumi.Input[Sequence[pulumi.Input['VlanInterfaceArgs']]] interfaces: Specifies which interfaces you want this VLAN to use for traffic management.
         :param pulumi.Input[str] name: Name of the vlan
         :param pulumi.Input[int] tag: Specifies a number that the system adds into the header of any frame passing through the VLAN.
         """
+        if cmp_hash is not None:
+            pulumi.set(__self__, "cmp_hash", cmp_hash)
         if interfaces is not None:
             pulumi.set(__self__, "interfaces", interfaces)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tag is not None:
             pulumi.set(__self__, "tag", tag)
+
+    @property
+    @pulumi.getter(name="cmpHash")
+    def cmp_hash(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
+        """
+        return pulumi.get(self, "cmp_hash")
+
+    @cmp_hash.setter
+    def cmp_hash(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cmp_hash", value)
 
     @property
     @pulumi.getter
@@ -129,6 +161,7 @@ class Vlan(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cmp_hash: Optional[pulumi.Input[str]] = None,
                  interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VlanInterfaceArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tag: Optional[pulumi.Input[int]] = None,
@@ -155,6 +188,7 @@ class Vlan(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cmp_hash: Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VlanInterfaceArgs']]]] interfaces: Specifies which interfaces you want this VLAN to use for traffic management.
         :param pulumi.Input[str] name: Name of the vlan
         :param pulumi.Input[int] tag: Specifies a number that the system adds into the header of any frame passing through the VLAN.
@@ -200,6 +234,7 @@ class Vlan(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cmp_hash: Optional[pulumi.Input[str]] = None,
                  interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VlanInterfaceArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tag: Optional[pulumi.Input[int]] = None,
@@ -212,6 +247,7 @@ class Vlan(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VlanArgs.__new__(VlanArgs)
 
+            __props__.__dict__["cmp_hash"] = cmp_hash
             __props__.__dict__["interfaces"] = interfaces
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
@@ -227,6 +263,7 @@ class Vlan(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            cmp_hash: Optional[pulumi.Input[str]] = None,
             interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VlanInterfaceArgs']]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             tag: Optional[pulumi.Input[int]] = None) -> 'Vlan':
@@ -237,6 +274,7 @@ class Vlan(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cmp_hash: Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VlanInterfaceArgs']]]] interfaces: Specifies which interfaces you want this VLAN to use for traffic management.
         :param pulumi.Input[str] name: Name of the vlan
         :param pulumi.Input[int] tag: Specifies a number that the system adds into the header of any frame passing through the VLAN.
@@ -245,10 +283,19 @@ class Vlan(pulumi.CustomResource):
 
         __props__ = _VlanState.__new__(_VlanState)
 
+        __props__.__dict__["cmp_hash"] = cmp_hash
         __props__.__dict__["interfaces"] = interfaces
         __props__.__dict__["name"] = name
         __props__.__dict__["tag"] = tag
         return Vlan(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="cmpHash")
+    def cmp_hash(self) -> pulumi.Output[str]:
+        """
+        Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
+        """
+        return pulumi.get(self, "cmp_hash")
 
     @property
     @pulumi.getter

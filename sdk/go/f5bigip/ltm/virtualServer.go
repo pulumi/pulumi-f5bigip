@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -95,7 +95,7 @@ type VirtualServer struct {
 	FallbackPersistenceProfile pulumi.StringOutput `pulumi:"fallbackPersistenceProfile"`
 	// Applies the specified AFM policy to the virtual in an enforcing way,when creating a new virtual, if this parameter is not specified, the enforced is disabled.This should be in full path ex: `/Common/afm-test-policy`.
 	FirewallEnforcedPolicy pulumi.StringOutput `pulumi:"firewallEnforcedPolicy"`
-	// Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
+	// Specifies a network protocol name you want the system to use to direct traffic on this virtual server. The default is `tcp`. valid options are [`any`,`udp`,`tcp`]
 	IpProtocol pulumi.StringPtrOutput `pulumi:"ipProtocol"`
 	// The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
 	Irules pulumi.StringArrayOutput `pulumi:"irules"`
@@ -122,7 +122,7 @@ type VirtualServer struct {
 	// Specifies an IP address or network from which the virtual server will accept traffic.
 	Source pulumi.StringOutput `pulumi:"source"`
 	// Can be either omitted for `none` or the values `automap` options : [`snat`,`automap`,`none`].
-	SourceAddressTranslation pulumi.StringPtrOutput `pulumi:"sourceAddressTranslation"`
+	SourceAddressTranslation pulumi.StringOutput `pulumi:"sourceAddressTranslation"`
 	// Specifies whether the system preserves the source port of the connection. The default is `preserve`.
 	SourcePort pulumi.StringOutput `pulumi:"sourcePort"`
 	// Specifies whether the virtual server and its resources are available for load balancing. The default is Enabled
@@ -183,7 +183,7 @@ type virtualServerState struct {
 	FallbackPersistenceProfile *string `pulumi:"fallbackPersistenceProfile"`
 	// Applies the specified AFM policy to the virtual in an enforcing way,when creating a new virtual, if this parameter is not specified, the enforced is disabled.This should be in full path ex: `/Common/afm-test-policy`.
 	FirewallEnforcedPolicy *string `pulumi:"firewallEnforcedPolicy"`
-	// Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
+	// Specifies a network protocol name you want the system to use to direct traffic on this virtual server. The default is `tcp`. valid options are [`any`,`udp`,`tcp`]
 	IpProtocol *string `pulumi:"ipProtocol"`
 	// The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
 	Irules []string `pulumi:"irules"`
@@ -240,7 +240,7 @@ type VirtualServerState struct {
 	FallbackPersistenceProfile pulumi.StringPtrInput
 	// Applies the specified AFM policy to the virtual in an enforcing way,when creating a new virtual, if this parameter is not specified, the enforced is disabled.This should be in full path ex: `/Common/afm-test-policy`.
 	FirewallEnforcedPolicy pulumi.StringPtrInput
-	// Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
+	// Specifies a network protocol name you want the system to use to direct traffic on this virtual server. The default is `tcp`. valid options are [`any`,`udp`,`tcp`]
 	IpProtocol pulumi.StringPtrInput
 	// The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
 	Irules pulumi.StringArrayInput
@@ -301,7 +301,7 @@ type virtualServerArgs struct {
 	FallbackPersistenceProfile *string `pulumi:"fallbackPersistenceProfile"`
 	// Applies the specified AFM policy to the virtual in an enforcing way,when creating a new virtual, if this parameter is not specified, the enforced is disabled.This should be in full path ex: `/Common/afm-test-policy`.
 	FirewallEnforcedPolicy *string `pulumi:"firewallEnforcedPolicy"`
-	// Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
+	// Specifies a network protocol name you want the system to use to direct traffic on this virtual server. The default is `tcp`. valid options are [`any`,`udp`,`tcp`]
 	IpProtocol *string `pulumi:"ipProtocol"`
 	// The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
 	Irules []string `pulumi:"irules"`
@@ -359,7 +359,7 @@ type VirtualServerArgs struct {
 	FallbackPersistenceProfile pulumi.StringPtrInput
 	// Applies the specified AFM policy to the virtual in an enforcing way,when creating a new virtual, if this parameter is not specified, the enforced is disabled.This should be in full path ex: `/Common/afm-test-policy`.
 	FirewallEnforcedPolicy pulumi.StringPtrInput
-	// Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
+	// Specifies a network protocol name you want the system to use to direct traffic on this virtual server. The default is `tcp`. valid options are [`any`,`udp`,`tcp`]
 	IpProtocol pulumi.StringPtrInput
 	// The iRules list you want run on this virtual server. iRules help automate the intercepting, processing, and routing of application traffic.
 	Irules pulumi.StringArrayInput
@@ -520,7 +520,7 @@ func (o VirtualServerOutput) FirewallEnforcedPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualServer) pulumi.StringOutput { return v.FirewallEnforcedPolicy }).(pulumi.StringOutput)
 }
 
-// Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
+// Specifies a network protocol name you want the system to use to direct traffic on this virtual server. The default is `tcp`. valid options are [`any`,`udp`,`tcp`]
 func (o VirtualServerOutput) IpProtocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VirtualServer) pulumi.StringPtrOutput { return v.IpProtocol }).(pulumi.StringPtrOutput)
 }
@@ -589,8 +589,8 @@ func (o VirtualServerOutput) Source() pulumi.StringOutput {
 }
 
 // Can be either omitted for `none` or the values `automap` options : [`snat`,`automap`,`none`].
-func (o VirtualServerOutput) SourceAddressTranslation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VirtualServer) pulumi.StringPtrOutput { return v.SourceAddressTranslation }).(pulumi.StringPtrOutput)
+func (o VirtualServerOutput) SourceAddressTranslation() pulumi.StringOutput {
+	return o.ApplyT(func(v *VirtualServer) pulumi.StringOutput { return v.SourceAddressTranslation }).(pulumi.StringOutput)
 }
 
 // Specifies whether the system preserves the source port of the connection. The default is `preserve`.

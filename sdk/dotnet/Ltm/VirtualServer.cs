@@ -113,7 +113,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> FirewallEnforcedPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
+        /// Specifies a network protocol name you want the system to use to direct traffic on this virtual server. The default is `tcp`. valid options are [`any`,`udp`,`tcp`]
         /// </summary>
         [Output("ipProtocol")]
         public Output<string?> IpProtocol { get; private set; } = null!;
@@ -194,7 +194,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// Can be either omitted for `none` or the values `automap` options : [`snat`,`automap`,`none`].
         /// </summary>
         [Output("sourceAddressTranslation")]
-        public Output<string?> SourceAddressTranslation { get; private set; } = null!;
+        public Output<string> SourceAddressTranslation { get; private set; } = null!;
 
         /// <summary>
         /// Specifies whether the system preserves the source port of the connection. The default is `preserve`.
@@ -325,7 +325,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? FirewallEnforcedPolicy { get; set; }
 
         /// <summary>
-        /// Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
+        /// Specifies a network protocol name you want the system to use to direct traffic on this virtual server. The default is `tcp`. valid options are [`any`,`udp`,`tcp`]
         /// </summary>
         [Input("ipProtocol")]
         public Input<string>? IpProtocol { get; set; }
@@ -540,7 +540,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? FirewallEnforcedPolicy { get; set; }
 
         /// <summary>
-        /// Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
+        /// Specifies a network protocol name you want the system to use to direct traffic on this virtual server. The default is `tcp`. valid options are [`any`,`udp`,`tcp`]
         /// </summary>
         [Input("ipProtocol")]
         public Input<string>? IpProtocol { get; set; }

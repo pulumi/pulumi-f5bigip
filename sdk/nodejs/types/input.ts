@@ -277,6 +277,13 @@ export interface WafPolicyGraphqlProfile {
     name?: pulumi.Input<string>;
 }
 
+export interface WafPolicyHostName {
+    /**
+     * The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
+     */
+    name?: pulumi.Input<string>;
+}
+
 export interface WafPolicyPolicyBuilder {
     /**
      * learning mode setting for policy-builder, possible options: [`automatic`,`disabled`, `manual`]

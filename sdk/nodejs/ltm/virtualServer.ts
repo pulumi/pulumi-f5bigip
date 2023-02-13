@@ -101,7 +101,7 @@ export class VirtualServer extends pulumi.CustomResource {
      */
     public readonly firewallEnforcedPolicy!: pulumi.Output<string>;
     /**
-     * Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
+     * Specifies a network protocol name you want the system to use to direct traffic on this virtual server. The default is `tcp`. valid options are [`any`,`udp`,`tcp`]
      */
     public readonly ipProtocol!: pulumi.Output<string | undefined>;
     /**
@@ -153,7 +153,7 @@ export class VirtualServer extends pulumi.CustomResource {
     /**
      * Can be either omitted for `none` or the values `automap` options : [`snat`,`automap`,`none`].
      */
-    public readonly sourceAddressTranslation!: pulumi.Output<string | undefined>;
+    public readonly sourceAddressTranslation!: pulumi.Output<string>;
     /**
      * Specifies whether the system preserves the source port of the connection. The default is `preserve`.
      */
@@ -290,7 +290,7 @@ export interface VirtualServerState {
      */
     firewallEnforcedPolicy?: pulumi.Input<string>;
     /**
-     * Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
+     * Specifies a network protocol name you want the system to use to direct traffic on this virtual server. The default is `tcp`. valid options are [`any`,`udp`,`tcp`]
      */
     ipProtocol?: pulumi.Input<string>;
     /**
@@ -400,7 +400,7 @@ export interface VirtualServerArgs {
      */
     firewallEnforcedPolicy?: pulumi.Input<string>;
     /**
-     * Specify the IP protocol to use with the the virtual server (all, tcp, or udp are valid)
+     * Specifies a network protocol name you want the system to use to direct traffic on this virtual server. The default is `tcp`. valid options are [`any`,`udp`,`tcp`]
      */
     ipProtocol?: pulumi.Input<string>;
     /**

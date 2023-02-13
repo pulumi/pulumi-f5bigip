@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.f5bigip.inputs.WafPolicyFileTypeArgs;
 import com.pulumi.f5bigip.inputs.WafPolicyGraphqlProfileArgs;
+import com.pulumi.f5bigip.inputs.WafPolicyHostNameArgs;
 import com.pulumi.f5bigip.inputs.WafPolicyPolicyBuilderArgs;
 import com.pulumi.f5bigip.inputs.WafPolicySignaturesSettingArgs;
 import java.lang.Boolean;
@@ -128,6 +129,21 @@ public final class WafPolicyState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<WafPolicyGraphqlProfileArgs>>> graphqlProfiles() {
         return Optional.ofNullable(this.graphqlProfiles);
+    }
+
+    /**
+     * specify the list of host name that is used to access the application
+     * 
+     */
+    @Import(name="hostNames")
+    private @Nullable Output<List<WafPolicyHostNameArgs>> hostNames;
+
+    /**
+     * @return specify the list of host name that is used to access the application
+     * 
+     */
+    public Optional<Output<List<WafPolicyHostNameArgs>>> hostNames() {
+        return Optional.ofNullable(this.hostNames);
     }
 
     /**
@@ -347,6 +363,21 @@ public final class WafPolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the Link of the template used for the policy creation.
+     * 
+     */
+    @Import(name="templateLink")
+    private @Nullable Output<String> templateLink;
+
+    /**
+     * @return Specifies the Link of the template used for the policy creation.
+     * 
+     */
+    public Optional<Output<String>> templateLink() {
+        return Optional.ofNullable(this.templateLink);
+    }
+
+    /**
      * Specifies the name of the template used for the policy creation.
      * 
      */
@@ -401,6 +432,7 @@ public final class WafPolicyState extends com.pulumi.resources.ResourceArgs {
         this.enforcementMode = $.enforcementMode;
         this.fileTypes = $.fileTypes;
         this.graphqlProfiles = $.graphqlProfiles;
+        this.hostNames = $.hostNames;
         this.modifications = $.modifications;
         this.name = $.name;
         this.openApiFiles = $.openApiFiles;
@@ -415,6 +447,7 @@ public final class WafPolicyState extends com.pulumi.resources.ResourceArgs {
         this.signatureSets = $.signatureSets;
         this.signatures = $.signatures;
         this.signaturesSettings = $.signaturesSettings;
+        this.templateLink = $.templateLink;
         this.templateName = $.templateName;
         this.type = $.type;
         this.urls = $.urls;
@@ -609,6 +642,37 @@ public final class WafPolicyState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder graphqlProfiles(WafPolicyGraphqlProfileArgs... graphqlProfiles) {
             return graphqlProfiles(List.of(graphqlProfiles));
+        }
+
+        /**
+         * @param hostNames specify the list of host name that is used to access the application
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hostNames(@Nullable Output<List<WafPolicyHostNameArgs>> hostNames) {
+            $.hostNames = hostNames;
+            return this;
+        }
+
+        /**
+         * @param hostNames specify the list of host name that is used to access the application
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hostNames(List<WafPolicyHostNameArgs> hostNames) {
+            return hostNames(Output.of(hostNames));
+        }
+
+        /**
+         * @param hostNames specify the list of host name that is used to access the application
+         * 
+         * @return builder
+         * 
+         */
+        public Builder hostNames(WafPolicyHostNameArgs... hostNames) {
+            return hostNames(List.of(hostNames));
         }
 
         /**
@@ -992,6 +1056,27 @@ public final class WafPolicyState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder signaturesSettings(WafPolicySignaturesSettingArgs... signaturesSettings) {
             return signaturesSettings(List.of(signaturesSettings));
+        }
+
+        /**
+         * @param templateLink Specifies the Link of the template used for the policy creation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder templateLink(@Nullable Output<String> templateLink) {
+            $.templateLink = templateLink;
+            return this;
+        }
+
+        /**
+         * @param templateLink Specifies the Link of the template used for the policy creation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder templateLink(String templateLink) {
+            return templateLink(Output.of(templateLink));
         }
 
         /**

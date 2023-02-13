@@ -29,6 +29,7 @@ __all__ = [
     'FastUdpAppVirtualServerArgs',
     'WafPolicyFileTypeArgs',
     'WafPolicyGraphqlProfileArgs',
+    'WafPolicyHostNameArgs',
     'WafPolicyPolicyBuilderArgs',
     'WafPolicySignaturesSettingArgs',
 ]
@@ -1009,6 +1010,29 @@ class WafPolicyFileTypeArgs:
 
 @pulumi.input_type
 class WafPolicyGraphqlProfileArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] name: The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class WafPolicyHostNameArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None):
         """

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -121,6 +121,8 @@ type WafPolicy struct {
 	// `graphqlProfiles` takes list of graphql profile options to be used for policy builder.
 	// See graphql profiles below for more details.
 	GraphqlProfiles WafPolicyGraphqlProfileArrayOutput `pulumi:"graphqlProfiles"`
+	// specify the list of host name that is used to access the application
+	HostNames WafPolicyHostNameArrayOutput `pulumi:"hostNames"`
 	// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
 	// section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
 	// provided by the BIG-IP.
@@ -152,6 +154,8 @@ type WafPolicy struct {
 	Signatures pulumi.StringArrayOutput `pulumi:"signatures"`
 	// bulk signature setting
 	SignaturesSettings WafPolicySignaturesSettingArrayOutput `pulumi:"signaturesSettings"`
+	// Specifies the Link of the template used for the policy creation.
+	TemplateLink pulumi.StringPtrOutput `pulumi:"templateLink"`
 	// Specifies the name of the template used for the policy creation.
 	TemplateName pulumi.StringOutput `pulumi:"templateName"`
 	// The type of policy you want to create. The default policy type is `security`.
@@ -211,6 +215,8 @@ type wafPolicyState struct {
 	// `graphqlProfiles` takes list of graphql profile options to be used for policy builder.
 	// See graphql profiles below for more details.
 	GraphqlProfiles []WafPolicyGraphqlProfile `pulumi:"graphqlProfiles"`
+	// specify the list of host name that is used to access the application
+	HostNames []WafPolicyHostName `pulumi:"hostNames"`
 	// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
 	// section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
 	// provided by the BIG-IP.
@@ -242,6 +248,8 @@ type wafPolicyState struct {
 	Signatures []string `pulumi:"signatures"`
 	// bulk signature setting
 	SignaturesSettings []WafPolicySignaturesSetting `pulumi:"signaturesSettings"`
+	// Specifies the Link of the template used for the policy creation.
+	TemplateLink *string `pulumi:"templateLink"`
 	// Specifies the name of the template used for the policy creation.
 	TemplateName *string `pulumi:"templateName"`
 	// The type of policy you want to create. The default policy type is `security`.
@@ -267,6 +275,8 @@ type WafPolicyState struct {
 	// `graphqlProfiles` takes list of graphql profile options to be used for policy builder.
 	// See graphql profiles below for more details.
 	GraphqlProfiles WafPolicyGraphqlProfileArrayInput
+	// specify the list of host name that is used to access the application
+	HostNames WafPolicyHostNameArrayInput
 	// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
 	// section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
 	// provided by the BIG-IP.
@@ -298,6 +308,8 @@ type WafPolicyState struct {
 	Signatures pulumi.StringArrayInput
 	// bulk signature setting
 	SignaturesSettings WafPolicySignaturesSettingArrayInput
+	// Specifies the Link of the template used for the policy creation.
+	TemplateLink pulumi.StringPtrInput
 	// Specifies the name of the template used for the policy creation.
 	TemplateName pulumi.StringPtrInput
 	// The type of policy you want to create. The default policy type is `security`.
@@ -327,6 +339,8 @@ type wafPolicyArgs struct {
 	// `graphqlProfiles` takes list of graphql profile options to be used for policy builder.
 	// See graphql profiles below for more details.
 	GraphqlProfiles []WafPolicyGraphqlProfile `pulumi:"graphqlProfiles"`
+	// specify the list of host name that is used to access the application
+	HostNames []WafPolicyHostName `pulumi:"hostNames"`
 	// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
 	// section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
 	// provided by the BIG-IP.
@@ -356,6 +370,8 @@ type wafPolicyArgs struct {
 	Signatures []string `pulumi:"signatures"`
 	// bulk signature setting
 	SignaturesSettings []WafPolicySignaturesSetting `pulumi:"signaturesSettings"`
+	// Specifies the Link of the template used for the policy creation.
+	TemplateLink *string `pulumi:"templateLink"`
 	// Specifies the name of the template used for the policy creation.
 	TemplateName string `pulumi:"templateName"`
 	// The type of policy you want to create. The default policy type is `security`.
@@ -382,6 +398,8 @@ type WafPolicyArgs struct {
 	// `graphqlProfiles` takes list of graphql profile options to be used for policy builder.
 	// See graphql profiles below for more details.
 	GraphqlProfiles WafPolicyGraphqlProfileArrayInput
+	// specify the list of host name that is used to access the application
+	HostNames WafPolicyHostNameArrayInput
 	// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
 	// section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
 	// provided by the BIG-IP.
@@ -411,6 +429,8 @@ type WafPolicyArgs struct {
 	Signatures pulumi.StringArrayInput
 	// bulk signature setting
 	SignaturesSettings WafPolicySignaturesSettingArrayInput
+	// Specifies the Link of the template used for the policy creation.
+	TemplateLink pulumi.StringPtrInput
 	// Specifies the name of the template used for the policy creation.
 	TemplateName pulumi.StringInput
 	// The type of policy you want to create. The default policy type is `security`.
@@ -543,6 +563,11 @@ func (o WafPolicyOutput) GraphqlProfiles() WafPolicyGraphqlProfileArrayOutput {
 	return o.ApplyT(func(v *WafPolicy) WafPolicyGraphqlProfileArrayOutput { return v.GraphqlProfiles }).(WafPolicyGraphqlProfileArrayOutput)
 }
 
+// specify the list of host name that is used to access the application
+func (o WafPolicyOutput) HostNames() WafPolicyHostNameArrayOutput {
+	return o.ApplyT(func(v *WafPolicy) WafPolicyHostNameArrayOutput { return v.HostNames }).(WafPolicyHostNameArrayOutput)
+}
+
 // the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
 // section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
 // provided by the BIG-IP.
@@ -614,6 +639,11 @@ func (o WafPolicyOutput) Signatures() pulumi.StringArrayOutput {
 // bulk signature setting
 func (o WafPolicyOutput) SignaturesSettings() WafPolicySignaturesSettingArrayOutput {
 	return o.ApplyT(func(v *WafPolicy) WafPolicySignaturesSettingArrayOutput { return v.SignaturesSettings }).(WafPolicySignaturesSettingArrayOutput)
+}
+
+// Specifies the Link of the template used for the policy creation.
+func (o WafPolicyOutput) TemplateLink() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.StringPtrOutput { return v.TemplateLink }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the name of the template used for the policy creation.
