@@ -10,7 +10,7 @@ require (
 )
 
 // Fixes build issues on windows: https://github.com/mattn/go-ieproxy/issues/45
-replace github.com/mattn/go-ieproxy => github.com/mattn/go-ieproxy v0.0.7
+replace github.com/mattn/go-ieproxy => github.com/mattn/go-ieproxy v0.0.1
 
 require (
 	cloud.google.com/go v0.109.0 // indirect
