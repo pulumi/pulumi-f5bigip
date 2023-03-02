@@ -47,7 +47,7 @@ jobs:
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v3
       with:
         go-version: ${{ env.GOVERSION }}
     - name: Install pulumictl
@@ -75,6 +75,10 @@ jobs:
         cache: gradle
         distribution: temurin
         java-version: ${{ env.JAVAVERSION }}
+    - name: Setup Gradle
+      uses: gradle/gradle-build-action@v2
+      with:
+        gradle-version: "7.6"
     - name: Download provider + tfgen binaries
       uses: actions/download-artifact@v2
       with:
@@ -138,7 +142,7 @@ jobs:
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v3
       with:
         go-version: ${{ env.GOVERSION }}
     - name: Install pulumictl
@@ -174,7 +178,7 @@ jobs:
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v3
       with:
         go-version: ${{ env.GOVERSION }}
     - name: Install pulumictl
@@ -205,7 +209,7 @@ jobs:
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v3
       with:
         go-version: ${{ env.GOVERSION }}
     - name: Install pulumictl
@@ -264,7 +268,7 @@ jobs:
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v3
       with:
         go-version: ${{ env.GOVERSION }}
     - name: Install pulumictl
@@ -315,7 +319,7 @@ jobs:
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v3
       with:
         go-version: ${{ env.GOVERSION }}
     - name: Install pulumictl
@@ -330,6 +334,10 @@ jobs:
         cache: gradle
         distribution: temurin
         java-version: ${{ env.JAVAVERSION }}
+    - name: Setup Gradle
+      uses: gradle/gradle-build-action@v2
+      with:
+        gradle-version: "7.6"
     - name: Download java SDK
       uses: actions/download-artifact@v2
       with:
@@ -362,7 +370,7 @@ jobs:
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v3
       with:
         go-version: ${{ env.GOVERSION }}
     - name: Install pulumictl
@@ -438,7 +446,7 @@ jobs:
     - name: Unshallow clone for tags
       run: git fetch --prune --unshallow --tags
     - name: Install Go
-      uses: actions/setup-go@v2
+      uses: actions/setup-go@v3
       with:
         go-version: ${{ env.GOVERSION }}
     - name: Install pulumictl
@@ -466,6 +474,10 @@ jobs:
         cache: gradle
         distribution: temurin
         java-version: ${{ env.JAVAVERSION }}
+    - name: Setup Gradle
+      uses: gradle/gradle-build-action@v2
+      with:
+        gradle-version: "7.6"
     - name: Download provider + tfgen binaries
       uses: actions/download-artifact@v2
       with:
