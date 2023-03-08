@@ -202,14 +202,28 @@ func Provider() tfbridge.ProviderInfo {
 		},
 	}
 
-	err := x.ComputeDefaults(&prov, x.TokensKnownModules("f5bigip_", mainMod, []string{
-		"CM_",
-		"Ltm_",
-		"Net_",
-		"Sys_",
-		"Ssl_",
-		"VCMP_",
-	}, x.MakeStandardToken(f5BigIPPkg)))
+	// The set of modules that x.TokensKnownModules is aware of.
+	mappedMods := map[string]string{
+		"cm":   cmMod,
+		"ltm":  ltmMod,
+		"net":  netMod,
+		"sys":  sysMod,
+		"ssk":  sslMod,
+		"vcmp": vcmpMod,
+	}
+
+	mappedModKeys := make([]string, 0, len(mappedMods))
+	for k := range mappedMods {
+		mappedModKeys = append(mappedModKeys, k)
+	}
+
+	moduleNameMap := make(map[string]string, len(mappedMods))
+	for _, v := range mappedMods {
+		moduleNameMap[strings.ToLower(v)] = v
+	}
+
+	err := x.ComputeDefaults(&prov, x.TokensKnownModules("alicloud_", "", mappedModKeys,
+		x.MakeStandardToken(f5BigIPPkg)))
 	contract.AssertNoError(err)
 
 	return prov
