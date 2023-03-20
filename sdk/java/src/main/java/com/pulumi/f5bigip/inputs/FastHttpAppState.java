@@ -7,6 +7,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.f5bigip.inputs.FastHttpAppMonitorArgs;
 import com.pulumi.f5bigip.inputs.FastHttpAppPoolMemberArgs;
+import com.pulumi.f5bigip.inputs.FastHttpAppServiceDiscoveryArgs;
 import com.pulumi.f5bigip.inputs.FastHttpAppVirtualServerArgs;
 import com.pulumi.f5bigip.inputs.FastHttpAppWafSecurityPolicyArgs;
 import java.lang.Integer;
@@ -191,6 +192,23 @@ public final class FastHttpAppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * `service_discovery` block to Automatically Discover Pool Members with Service Discovery.
+     * See Service Discovery below for more details.
+     * 
+     */
+    @Import(name="serviceDiscoveries")
+    private @Nullable Output<List<FastHttpAppServiceDiscoveryArgs>> serviceDiscoveries;
+
+    /**
+     * @return `service_discovery` block to Automatically Discover Pool Members with Service Discovery.
+     * See Service Discovery below for more details.
+     * 
+     */
+    public Optional<Output<List<FastHttpAppServiceDiscoveryArgs>>> serviceDiscoveries() {
+        return Optional.ofNullable(this.serviceDiscoveries);
+    }
+
+    /**
      * Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
      * 
      */
@@ -283,6 +301,7 @@ public final class FastHttpAppState extends com.pulumi.resources.ResourceArgs {
         this.monitor = $.monitor;
         this.poolMembers = $.poolMembers;
         this.securityLogProfiles = $.securityLogProfiles;
+        this.serviceDiscoveries = $.serviceDiscoveries;
         this.slowRampTime = $.slowRampTime;
         this.snatPoolAddresses = $.snatPoolAddresses;
         this.tenant = $.tenant;
@@ -572,6 +591,40 @@ public final class FastHttpAppState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder securityLogProfiles(String... securityLogProfiles) {
             return securityLogProfiles(List.of(securityLogProfiles));
+        }
+
+        /**
+         * @param serviceDiscoveries `service_discovery` block to Automatically Discover Pool Members with Service Discovery.
+         * See Service Discovery below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceDiscoveries(@Nullable Output<List<FastHttpAppServiceDiscoveryArgs>> serviceDiscoveries) {
+            $.serviceDiscoveries = serviceDiscoveries;
+            return this;
+        }
+
+        /**
+         * @param serviceDiscoveries `service_discovery` block to Automatically Discover Pool Members with Service Discovery.
+         * See Service Discovery below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceDiscoveries(List<FastHttpAppServiceDiscoveryArgs> serviceDiscoveries) {
+            return serviceDiscoveries(Output.of(serviceDiscoveries));
+        }
+
+        /**
+         * @param serviceDiscoveries `service_discovery` block to Automatically Discover Pool Members with Service Discovery.
+         * See Service Discovery below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceDiscoveries(FastHttpAppServiceDiscoveryArgs... serviceDiscoveries) {
+            return serviceDiscoveries(List.of(serviceDiscoveries));
         }
 
         /**

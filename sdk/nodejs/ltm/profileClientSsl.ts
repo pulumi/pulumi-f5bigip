@@ -97,13 +97,13 @@ export class ProfileClientSsl extends pulumi.CustomResource {
     /**
      * Specifies a cert name for use.
      */
-    public readonly cert!: pulumi.Output<string | undefined>;
+    public readonly cert!: pulumi.Output<string>;
     /**
      * Cert extension includes for ssl forward proxy
      */
     public readonly certExtensionIncludes!: pulumi.Output<string[]>;
     /**
-     * @deprecated This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
+     * @deprecated This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
      */
     public readonly certKeyChain!: pulumi.Output<outputs.ltm.ProfileClientSslCertKeyChain | undefined>;
     /**
@@ -117,7 +117,7 @@ export class ProfileClientSsl extends pulumi.CustomResource {
     /**
      * Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
      */
-    public readonly chain!: pulumi.Output<string | undefined>;
+    public readonly chain!: pulumi.Output<string>;
     /**
      * Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
      */
@@ -165,7 +165,7 @@ export class ProfileClientSsl extends pulumi.CustomResource {
     /**
      * Contains a key name
      */
-    public readonly key!: pulumi.Output<string | undefined>;
+    public readonly key!: pulumi.Output<string>;
     /**
      * ModSSL Methods enabled / disabled. Default is disabled.
      */
@@ -476,7 +476,7 @@ export interface ProfileClientSslState {
      */
     certExtensionIncludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * @deprecated This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
+     * @deprecated This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
      */
     certKeyChain?: pulumi.Input<inputs.ltm.ProfileClientSslCertKeyChain>;
     /**
@@ -712,7 +712,7 @@ export interface ProfileClientSslArgs {
      */
     certExtensionIncludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * @deprecated This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
+     * @deprecated This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
      */
     certKeyChain?: pulumi.Input<inputs.ltm.ProfileClientSslCertKeyChain>;
     /**

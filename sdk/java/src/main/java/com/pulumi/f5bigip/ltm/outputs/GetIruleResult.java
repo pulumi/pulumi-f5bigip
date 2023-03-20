@@ -6,6 +6,8 @@ package com.pulumi.f5bigip.ltm.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetIruleResult {
@@ -18,7 +20,7 @@ public final class GetIruleResult {
      * @return Irule configured on bigip
      * 
      */
-    private String irule;
+    private @Nullable String irule;
     /**
      * @return Name of irule configured on bigip with full path
      * 
@@ -42,8 +44,8 @@ public final class GetIruleResult {
      * @return Irule configured on bigip
      * 
      */
-    public String irule() {
-        return this.irule;
+    public Optional<String> irule() {
+        return Optional.ofNullable(this.irule);
     }
     /**
      * @return Name of irule configured on bigip with full path
@@ -70,7 +72,7 @@ public final class GetIruleResult {
     @CustomType.Builder
     public static final class Builder {
         private String id;
-        private String irule;
+        private @Nullable String irule;
         private String name;
         private String partition;
         public Builder() {}
@@ -88,8 +90,8 @@ public final class GetIruleResult {
             return this;
         }
         @CustomType.Setter
-        public Builder irule(String irule) {
-            this.irule = Objects.requireNonNull(irule);
+        public Builder irule(@Nullable String irule) {
+            this.irule = irule;
             return this;
         }
         @CustomType.Setter

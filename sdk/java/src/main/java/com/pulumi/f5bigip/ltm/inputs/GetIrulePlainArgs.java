@@ -6,11 +6,28 @@ package com.pulumi.f5bigip.ltm.inputs;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetIrulePlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetIrulePlainArgs Empty = new GetIrulePlainArgs();
+
+    /**
+     * Irule configured on bigip
+     * 
+     */
+    @Import(name="irule")
+    private @Nullable String irule;
+
+    /**
+     * @return Irule configured on bigip
+     * 
+     */
+    public Optional<String> irule() {
+        return Optional.ofNullable(this.irule);
+    }
 
     /**
      * Name of the irule
@@ -45,6 +62,7 @@ public final class GetIrulePlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetIrulePlainArgs() {}
 
     private GetIrulePlainArgs(GetIrulePlainArgs $) {
+        this.irule = $.irule;
         this.name = $.name;
         this.partition = $.partition;
     }
@@ -65,6 +83,17 @@ public final class GetIrulePlainArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetIrulePlainArgs defaults) {
             $ = new GetIrulePlainArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param irule Irule configured on bigip
+         * 
+         * @return builder
+         * 
+         */
+        public Builder irule(@Nullable String irule) {
+            $.irule = irule;
+            return this;
         }
 
         /**

@@ -162,8 +162,8 @@ class ProfileClientSslArgs:
         if cert_extension_includes is not None:
             pulumi.set(__self__, "cert_extension_includes", cert_extension_includes)
         if cert_key_chain is not None:
-            warnings.warn("""This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.""", DeprecationWarning)
-            pulumi.log.warn("""cert_key_chain is deprecated: This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.""")
+            warnings.warn("""This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.""", DeprecationWarning)
+            pulumi.log.warn("""cert_key_chain is deprecated: This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.""")
         if cert_key_chain is not None:
             pulumi.set(__self__, "cert_key_chain", cert_key_chain)
         if cert_life_span is not None:
@@ -1075,8 +1075,8 @@ class _ProfileClientSslState:
         if cert_extension_includes is not None:
             pulumi.set(__self__, "cert_extension_includes", cert_extension_includes)
         if cert_key_chain is not None:
-            warnings.warn("""This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.""", DeprecationWarning)
-            pulumi.log.warn("""cert_key_chain is deprecated: This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.""")
+            warnings.warn("""This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.""", DeprecationWarning)
+            pulumi.log.warn("""cert_key_chain is deprecated: This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.""")
         if cert_key_chain is not None:
             pulumi.set(__self__, "cert_key_chain", cert_key_chain)
         if cert_life_span is not None:
@@ -2103,8 +2103,8 @@ class ProfileClientSsl(pulumi.CustomResource):
             __props__.__dict__["cert"] = cert
             __props__.__dict__["cert_extension_includes"] = cert_extension_includes
             if cert_key_chain is not None and not opts.urn:
-                warnings.warn("""This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.""", DeprecationWarning)
-                pulumi.log.warn("""cert_key_chain is deprecated: This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.""")
+                warnings.warn("""This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.""", DeprecationWarning)
+                pulumi.log.warn("""cert_key_chain is deprecated: This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.""")
             __props__.__dict__["cert_key_chain"] = cert_key_chain
             __props__.__dict__["cert_life_span"] = cert_life_span
             __props__.__dict__["cert_lookup_by_ipaddr_port"] = cert_lookup_by_ipaddr_port
@@ -2433,7 +2433,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def cert(self) -> pulumi.Output[Optional[str]]:
+    def cert(self) -> pulumi.Output[str]:
         """
         Specifies a cert name for use.
         """
@@ -2470,7 +2470,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def chain(self) -> pulumi.Output[Optional[str]]:
+    def chain(self) -> pulumi.Output[str]:
         """
         Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
         """
@@ -2566,7 +2566,7 @@ class ProfileClientSsl(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def key(self) -> pulumi.Output[Optional[str]]:
+    def key(self) -> pulumi.Output[str]:
         """
         Contains a key name
         """

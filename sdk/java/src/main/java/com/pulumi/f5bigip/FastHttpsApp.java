@@ -12,6 +12,7 @@ import com.pulumi.f5bigip.Utilities;
 import com.pulumi.f5bigip.inputs.FastHttpsAppState;
 import com.pulumi.f5bigip.outputs.FastHttpsAppMonitor;
 import com.pulumi.f5bigip.outputs.FastHttpsAppPoolMember;
+import com.pulumi.f5bigip.outputs.FastHttpsAppServiceDiscovery;
 import com.pulumi.f5bigip.outputs.FastHttpsAppTlsClientProfile;
 import com.pulumi.f5bigip.outputs.FastHttpsAppTlsServerProfile;
 import com.pulumi.f5bigip.outputs.FastHttpsAppVirtualServer;
@@ -228,15 +229,15 @@ public class FastHttpsApp extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="poolMembers", type=List.class, parameters={FastHttpsAppPoolMember.class})
-    private Output</* @Nullable */ List<FastHttpsAppPoolMember>> poolMembers;
+    private Output<List<FastHttpsAppPoolMember>> poolMembers;
 
     /**
      * @return `pool_members` block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      * 
      */
-    public Output<Optional<List<FastHttpsAppPoolMember>>> poolMembers() {
-        return Codegen.optional(this.poolMembers);
+    public Output<List<FastHttpsAppPoolMember>> poolMembers() {
+        return this.poolMembers;
     }
     /**
      * List of security log profiles to be used for FAST application
@@ -251,6 +252,22 @@ public class FastHttpsApp extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<String>>> securityLogProfiles() {
         return Codegen.optional(this.securityLogProfiles);
+    }
+    /**
+     * `service_discovery` block to Automatically Discover Pool Members with Service Discovery.
+     * See Service Discovery below for more details.
+     * 
+     */
+    @Export(name="serviceDiscoveries", type=List.class, parameters={FastHttpsAppServiceDiscovery.class})
+    private Output</* @Nullable */ List<FastHttpsAppServiceDiscovery>> serviceDiscoveries;
+
+    /**
+     * @return `service_discovery` block to Automatically Discover Pool Members with Service Discovery.
+     * See Service Discovery below for more details.
+     * 
+     */
+    public Output<Optional<List<FastHttpsAppServiceDiscovery>>> serviceDiscoveries() {
+        return Codegen.optional(this.serviceDiscoveries);
     }
     /**
      * Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds

@@ -61,6 +61,81 @@ export interface FastHttpAppPoolMember {
     shareNodes?: pulumi.Input<boolean>;
 }
 
+export interface FastHttpAppServiceDiscovery {
+    /**
+     * Specifies whether to look for public or private IP addresses. Default :`private`
+     */
+    sdAddressRealm?: pulumi.Input<string>;
+    /**
+     * Information for discovering AWS nodes that are not in the same region as your BIG-IP.
+     */
+    sdAwsAccessKey?: pulumi.Input<string>;
+    /**
+     * Empty string (default) means region in which ADC is running.
+     */
+    sdAwsRegion?: pulumi.Input<string>;
+    /**
+     * Will be stored in the declaration as an encrypted string.
+     */
+    sdAwsSecretAccessKey?: pulumi.Input<string>;
+    /**
+     * The tag key associated with the node to add to this pool.
+     */
+    sdAwsTagKey?: pulumi.Input<string>;
+    /**
+     * The tag value associated with the node to add to this pool.
+     */
+    sdAwsTagVal?: pulumi.Input<string>;
+    /**
+     * Azure Active Directory ID (AKA tenant ID).
+     */
+    sdAzureDirectoryId?: pulumi.Input<string>;
+    /**
+     * Azure Resource Group name.
+     */
+    sdAzureResourceGroup?: pulumi.Input<string>;
+    /**
+     * ID of resource to find nodes by.
+     */
+    sdAzureResourceId?: pulumi.Input<string>;
+    /**
+     * Azure subscription ID.
+     */
+    sdAzureSubscriptionId?: pulumi.Input<string>;
+    /**
+     * The tag key associated with the node to add to this pool.
+     */
+    sdAzureTagKey?: pulumi.Input<string>;
+    /**
+     * The tag value associated with the node to add to this pool.
+     */
+    sdAzureTagVal?: pulumi.Input<string>;
+    /**
+     * Empty string (default) means region in which ADC is running.
+     */
+    sdGceRegion?: pulumi.Input<string>;
+    /**
+     * The tag key associated with the node to add to this pool
+     */
+    sdGceTagKey?: pulumi.Input<string>;
+    /**
+     * The tag value associated with the node to add to this pool.
+     */
+    sdGceTagVal?: pulumi.Input<string>;
+    /**
+     * port number of serviceport to be used for FAST-Generated Pool.
+     */
+    sdPort: pulumi.Input<number>;
+    /**
+     * service discovery account type, options [`aws`,`azure`,`gce`]
+     */
+    sdType: pulumi.Input<string>;
+    /**
+     * Action to take when node cannot be detected. Default `remove`.
+     */
+    sdUndetectableAction?: pulumi.Input<string>;
+}
+
 export interface FastHttpAppVirtualServer {
     /**
      * IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
@@ -127,6 +202,81 @@ export interface FastHttpsAppPoolMember {
      * shareNodes value to be used for FAST-Generated Pool.
      */
     shareNodes?: pulumi.Input<boolean>;
+}
+
+export interface FastHttpsAppServiceDiscovery {
+    /**
+     * Specifies whether to look for public or private IP addresses. Default :`private`
+     */
+    sdAddressRealm?: pulumi.Input<string>;
+    /**
+     * Information for discovering AWS nodes that are not in the same region as your BIG-IP.
+     */
+    sdAwsAccessKey?: pulumi.Input<string>;
+    /**
+     * Empty string (default) means region in which ADC is running.
+     */
+    sdAwsRegion?: pulumi.Input<string>;
+    /**
+     * Will be stored in the declaration as an encrypted string.
+     */
+    sdAwsSecretAccessKey?: pulumi.Input<string>;
+    /**
+     * The tag key associated with the node to add to this pool.
+     */
+    sdAwsTagKey?: pulumi.Input<string>;
+    /**
+     * The tag value associated with the node to add to this pool.
+     */
+    sdAwsTagVal?: pulumi.Input<string>;
+    /**
+     * Azure Active Directory ID (AKA tenant ID).
+     */
+    sdAzureDirectoryId?: pulumi.Input<string>;
+    /**
+     * Azure Resource Group name.
+     */
+    sdAzureResourceGroup?: pulumi.Input<string>;
+    /**
+     * ID of resource to find nodes by.
+     */
+    sdAzureResourceId?: pulumi.Input<string>;
+    /**
+     * Azure subscription ID.
+     */
+    sdAzureSubscriptionId?: pulumi.Input<string>;
+    /**
+     * The tag key associated with the node to add to this pool.
+     */
+    sdAzureTagKey?: pulumi.Input<string>;
+    /**
+     * The tag value associated with the node to add to this pool.
+     */
+    sdAzureTagVal?: pulumi.Input<string>;
+    /**
+     * Empty string (default) means region in which ADC is running.
+     */
+    sdGceRegion?: pulumi.Input<string>;
+    /**
+     * The tag key associated with the node to add to this pool
+     */
+    sdGceTagKey?: pulumi.Input<string>;
+    /**
+     * The tag value associated with the node to add to this pool.
+     */
+    sdGceTagVal?: pulumi.Input<string>;
+    /**
+     * port number of serviceport to be used for FAST-Generated Pool.
+     */
+    sdPort: pulumi.Input<number>;
+    /**
+     * service discovery account type, options [`aws`,`azure`,`gce`]
+     */
+    sdType: pulumi.Input<string>;
+    /**
+     * Action to take when node cannot be detected. Default `remove`.
+     */
+    sdUndetectableAction?: pulumi.Input<string>;
 }
 
 export interface FastHttpsAppTlsClientProfile {

@@ -68,17 +68,17 @@ type ProfileClientSsl struct {
 	// Cache time out
 	CacheTimeout pulumi.IntOutput `pulumi:"cacheTimeout"`
 	// Specifies a cert name for use.
-	Cert pulumi.StringPtrOutput `pulumi:"cert"`
+	Cert pulumi.StringOutput `pulumi:"cert"`
 	// Cert extension includes for ssl forward proxy
 	CertExtensionIncludes pulumi.StringArrayOutput `pulumi:"certExtensionIncludes"`
-	// Deprecated: This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
+	// Deprecated: This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
 	CertKeyChain ProfileClientSslCertKeyChainPtrOutput `pulumi:"certKeyChain"`
 	// Life span of the certificate in days for ssl forward proxy
 	CertLifeSpan pulumi.IntOutput `pulumi:"certLifeSpan"`
 	// Cert lookup by ip address and port enabled / disabled
 	CertLookupByIpaddrPort pulumi.StringOutput `pulumi:"certLookupByIpaddrPort"`
 	// Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
-	Chain pulumi.StringPtrOutput `pulumi:"chain"`
+	Chain pulumi.StringOutput `pulumi:"chain"`
 	// Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
 	CipherGroup pulumi.StringPtrOutput `pulumi:"cipherGroup"`
 	// Specifies the list of ciphers that the system supports. When creating a new profile, the default cipher list is provided by the parent profile.
@@ -102,7 +102,7 @@ type ProfileClientSsl struct {
 	// Inherit cert key chain
 	InheritCertKeychain pulumi.StringOutput `pulumi:"inheritCertKeychain"`
 	// Contains a key name
-	Key pulumi.StringPtrOutput `pulumi:"key"`
+	Key pulumi.StringOutput `pulumi:"key"`
 	// ModSSL Methods enabled / disabled. Default is disabled.
 	ModSslMethods pulumi.StringOutput `pulumi:"modSslMethods"`
 	// ModSSL Methods enabled / disabled. Default is disabled.
@@ -230,7 +230,7 @@ type profileClientSslState struct {
 	Cert *string `pulumi:"cert"`
 	// Cert extension includes for ssl forward proxy
 	CertExtensionIncludes []string `pulumi:"certExtensionIncludes"`
-	// Deprecated: This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
+	// Deprecated: This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
 	CertKeyChain *ProfileClientSslCertKeyChain `pulumi:"certKeyChain"`
 	// Life span of the certificate in days for ssl forward proxy
 	CertLifeSpan *int `pulumi:"certLifeSpan"`
@@ -351,7 +351,7 @@ type ProfileClientSslState struct {
 	Cert pulumi.StringPtrInput
 	// Cert extension includes for ssl forward proxy
 	CertExtensionIncludes pulumi.StringArrayInput
-	// Deprecated: This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
+	// Deprecated: This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
 	CertKeyChain ProfileClientSslCertKeyChainPtrInput
 	// Life span of the certificate in days for ssl forward proxy
 	CertLifeSpan pulumi.IntPtrInput
@@ -476,7 +476,7 @@ type profileClientSslArgs struct {
 	Cert *string `pulumi:"cert"`
 	// Cert extension includes for ssl forward proxy
 	CertExtensionIncludes []string `pulumi:"certExtensionIncludes"`
-	// Deprecated: This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
+	// Deprecated: This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
 	CertKeyChain *ProfileClientSslCertKeyChain `pulumi:"certKeyChain"`
 	// Life span of the certificate in days for ssl forward proxy
 	CertLifeSpan *int `pulumi:"certLifeSpan"`
@@ -598,7 +598,7 @@ type ProfileClientSslArgs struct {
 	Cert pulumi.StringPtrInput
 	// Cert extension includes for ssl forward proxy
 	CertExtensionIncludes pulumi.StringArrayInput
-	// Deprecated: This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
+	// Deprecated: This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
 	CertKeyChain ProfileClientSslCertKeyChainPtrInput
 	// Life span of the certificate in days for ssl forward proxy
 	CertLifeSpan pulumi.IntPtrInput
@@ -832,8 +832,8 @@ func (o ProfileClientSslOutput) CacheTimeout() pulumi.IntOutput {
 }
 
 // Specifies a cert name for use.
-func (o ProfileClientSslOutput) Cert() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringPtrOutput { return v.Cert }).(pulumi.StringPtrOutput)
+func (o ProfileClientSslOutput) Cert() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.Cert }).(pulumi.StringOutput)
 }
 
 // Cert extension includes for ssl forward proxy
@@ -841,7 +841,7 @@ func (o ProfileClientSslOutput) CertExtensionIncludes() pulumi.StringArrayOutput
 	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringArrayOutput { return v.CertExtensionIncludes }).(pulumi.StringArrayOutput)
 }
 
-// Deprecated: This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
+// Deprecated: This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
 func (o ProfileClientSslOutput) CertKeyChain() ProfileClientSslCertKeyChainPtrOutput {
 	return o.ApplyT(func(v *ProfileClientSsl) ProfileClientSslCertKeyChainPtrOutput { return v.CertKeyChain }).(ProfileClientSslCertKeyChainPtrOutput)
 }
@@ -857,8 +857,8 @@ func (o ProfileClientSslOutput) CertLookupByIpaddrPort() pulumi.StringOutput {
 }
 
 // Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
-func (o ProfileClientSslOutput) Chain() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringPtrOutput { return v.Chain }).(pulumi.StringPtrOutput)
+func (o ProfileClientSslOutput) Chain() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.Chain }).(pulumi.StringOutput)
 }
 
 // Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
@@ -917,8 +917,8 @@ func (o ProfileClientSslOutput) InheritCertKeychain() pulumi.StringOutput {
 }
 
 // Contains a key name
-func (o ProfileClientSslOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringPtrOutput { return v.Key }).(pulumi.StringPtrOutput)
+func (o ProfileClientSslOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
 
 // ModSSL Methods enabled / disabled. Default is disabled.

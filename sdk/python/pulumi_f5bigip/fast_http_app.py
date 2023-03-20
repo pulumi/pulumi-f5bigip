@@ -27,6 +27,7 @@ class FastHttpAppArgs:
                  monitor: Optional[pulumi.Input['FastHttpAppMonitorArgs']] = None,
                  pool_members: Optional[pulumi.Input[Sequence[pulumi.Input['FastHttpAppPoolMemberArgs']]]] = None,
                  security_log_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 service_discoveries: Optional[pulumi.Input[Sequence[pulumi.Input['FastHttpAppServiceDiscoveryArgs']]]] = None,
                  slow_ramp_time: Optional[pulumi.Input[int]] = None,
                  snat_pool_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  virtual_server: Optional[pulumi.Input['FastHttpAppVirtualServerArgs']] = None,
@@ -46,6 +47,8 @@ class FastHttpAppArgs:
         :param pulumi.Input[Sequence[pulumi.Input['FastHttpAppPoolMemberArgs']]] pool_members: `pool_members` block takes input for FAST-Generated Pool.
                See Pool Members below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_log_profiles: List of security log profiles to be used for FAST application
+        :param pulumi.Input[Sequence[pulumi.Input['FastHttpAppServiceDiscoveryArgs']]] service_discoveries: `service_discovery` block to Automatically Discover Pool Members with Service Discovery.
+               See Service Discovery below for more details.
         :param pulumi.Input[int] slow_ramp_time: Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
         :param pulumi.Input[Sequence[pulumi.Input[str]]] snat_pool_addresses: List of address to be used for FAST-Generated SNAT Pool.
         :param pulumi.Input['FastHttpAppVirtualServerArgs'] virtual_server: `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
@@ -73,6 +76,8 @@ class FastHttpAppArgs:
             pulumi.set(__self__, "pool_members", pool_members)
         if security_log_profiles is not None:
             pulumi.set(__self__, "security_log_profiles", security_log_profiles)
+        if service_discoveries is not None:
+            pulumi.set(__self__, "service_discoveries", service_discoveries)
         if slow_ramp_time is not None:
             pulumi.set(__self__, "slow_ramp_time", slow_ramp_time)
         if snat_pool_addresses is not None:
@@ -217,6 +222,19 @@ class FastHttpAppArgs:
         pulumi.set(self, "security_log_profiles", value)
 
     @property
+    @pulumi.getter(name="serviceDiscoveries")
+    def service_discoveries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FastHttpAppServiceDiscoveryArgs']]]]:
+        """
+        `service_discovery` block to Automatically Discover Pool Members with Service Discovery.
+        See Service Discovery below for more details.
+        """
+        return pulumi.get(self, "service_discoveries")
+
+    @service_discoveries.setter
+    def service_discoveries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FastHttpAppServiceDiscoveryArgs']]]]):
+        pulumi.set(self, "service_discoveries", value)
+
+    @property
     @pulumi.getter(name="slowRampTime")
     def slow_ramp_time(self) -> Optional[pulumi.Input[int]]:
         """
@@ -281,6 +299,7 @@ class _FastHttpAppState:
                  monitor: Optional[pulumi.Input['FastHttpAppMonitorArgs']] = None,
                  pool_members: Optional[pulumi.Input[Sequence[pulumi.Input['FastHttpAppPoolMemberArgs']]]] = None,
                  security_log_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 service_discoveries: Optional[pulumi.Input[Sequence[pulumi.Input['FastHttpAppServiceDiscoveryArgs']]]] = None,
                  slow_ramp_time: Optional[pulumi.Input[int]] = None,
                  snat_pool_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tenant: Optional[pulumi.Input[str]] = None,
@@ -301,6 +320,8 @@ class _FastHttpAppState:
         :param pulumi.Input[Sequence[pulumi.Input['FastHttpAppPoolMemberArgs']]] pool_members: `pool_members` block takes input for FAST-Generated Pool.
                See Pool Members below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_log_profiles: List of security log profiles to be used for FAST application
+        :param pulumi.Input[Sequence[pulumi.Input['FastHttpAppServiceDiscoveryArgs']]] service_discoveries: `service_discovery` block to Automatically Discover Pool Members with Service Discovery.
+               See Service Discovery below for more details.
         :param pulumi.Input[int] slow_ramp_time: Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
         :param pulumi.Input[Sequence[pulumi.Input[str]]] snat_pool_addresses: List of address to be used for FAST-Generated SNAT Pool.
         :param pulumi.Input[str] tenant: Name of the FAST HTTPS application tenant.
@@ -331,6 +352,8 @@ class _FastHttpAppState:
             pulumi.set(__self__, "pool_members", pool_members)
         if security_log_profiles is not None:
             pulumi.set(__self__, "security_log_profiles", security_log_profiles)
+        if service_discoveries is not None:
+            pulumi.set(__self__, "service_discoveries", service_discoveries)
         if slow_ramp_time is not None:
             pulumi.set(__self__, "slow_ramp_time", slow_ramp_time)
         if snat_pool_addresses is not None:
@@ -477,6 +500,19 @@ class _FastHttpAppState:
         pulumi.set(self, "security_log_profiles", value)
 
     @property
+    @pulumi.getter(name="serviceDiscoveries")
+    def service_discoveries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FastHttpAppServiceDiscoveryArgs']]]]:
+        """
+        `service_discovery` block to Automatically Discover Pool Members with Service Discovery.
+        See Service Discovery below for more details.
+        """
+        return pulumi.get(self, "service_discoveries")
+
+    @service_discoveries.setter
+    def service_discoveries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FastHttpAppServiceDiscoveryArgs']]]]):
+        pulumi.set(self, "service_discoveries", value)
+
+    @property
     @pulumi.getter(name="slowRampTime")
     def slow_ramp_time(self) -> Optional[pulumi.Input[int]]:
         """
@@ -554,6 +590,7 @@ class FastHttpApp(pulumi.CustomResource):
                  monitor: Optional[pulumi.Input[pulumi.InputType['FastHttpAppMonitorArgs']]] = None,
                  pool_members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastHttpAppPoolMemberArgs']]]]] = None,
                  security_log_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 service_discoveries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastHttpAppServiceDiscoveryArgs']]]]] = None,
                  slow_ramp_time: Optional[pulumi.Input[int]] = None,
                  snat_pool_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tenant: Optional[pulumi.Input[str]] = None,
@@ -594,6 +631,8 @@ class FastHttpApp(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastHttpAppPoolMemberArgs']]]] pool_members: `pool_members` block takes input for FAST-Generated Pool.
                See Pool Members below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_log_profiles: List of security log profiles to be used for FAST application
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastHttpAppServiceDiscoveryArgs']]]] service_discoveries: `service_discovery` block to Automatically Discover Pool Members with Service Discovery.
+               See Service Discovery below for more details.
         :param pulumi.Input[int] slow_ramp_time: Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
         :param pulumi.Input[Sequence[pulumi.Input[str]]] snat_pool_addresses: List of address to be used for FAST-Generated SNAT Pool.
         :param pulumi.Input[str] tenant: Name of the FAST HTTPS application tenant.
@@ -653,6 +692,7 @@ class FastHttpApp(pulumi.CustomResource):
                  monitor: Optional[pulumi.Input[pulumi.InputType['FastHttpAppMonitorArgs']]] = None,
                  pool_members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastHttpAppPoolMemberArgs']]]]] = None,
                  security_log_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 service_discoveries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastHttpAppServiceDiscoveryArgs']]]]] = None,
                  slow_ramp_time: Optional[pulumi.Input[int]] = None,
                  snat_pool_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  tenant: Optional[pulumi.Input[str]] = None,
@@ -679,6 +719,7 @@ class FastHttpApp(pulumi.CustomResource):
             __props__.__dict__["monitor"] = monitor
             __props__.__dict__["pool_members"] = pool_members
             __props__.__dict__["security_log_profiles"] = security_log_profiles
+            __props__.__dict__["service_discoveries"] = service_discoveries
             __props__.__dict__["slow_ramp_time"] = slow_ramp_time
             __props__.__dict__["snat_pool_addresses"] = snat_pool_addresses
             if tenant is None and not opts.urn:
@@ -708,6 +749,7 @@ class FastHttpApp(pulumi.CustomResource):
             monitor: Optional[pulumi.Input[pulumi.InputType['FastHttpAppMonitorArgs']]] = None,
             pool_members: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastHttpAppPoolMemberArgs']]]]] = None,
             security_log_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            service_discoveries: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastHttpAppServiceDiscoveryArgs']]]]] = None,
             slow_ramp_time: Optional[pulumi.Input[int]] = None,
             snat_pool_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             tenant: Optional[pulumi.Input[str]] = None,
@@ -733,6 +775,8 @@ class FastHttpApp(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastHttpAppPoolMemberArgs']]]] pool_members: `pool_members` block takes input for FAST-Generated Pool.
                See Pool Members below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_log_profiles: List of security log profiles to be used for FAST application
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FastHttpAppServiceDiscoveryArgs']]]] service_discoveries: `service_discovery` block to Automatically Discover Pool Members with Service Discovery.
+               See Service Discovery below for more details.
         :param pulumi.Input[int] slow_ramp_time: Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
         :param pulumi.Input[Sequence[pulumi.Input[str]]] snat_pool_addresses: List of address to be used for FAST-Generated SNAT Pool.
         :param pulumi.Input[str] tenant: Name of the FAST HTTPS application tenant.
@@ -756,6 +800,7 @@ class FastHttpApp(pulumi.CustomResource):
         __props__.__dict__["monitor"] = monitor
         __props__.__dict__["pool_members"] = pool_members
         __props__.__dict__["security_log_profiles"] = security_log_profiles
+        __props__.__dict__["service_discoveries"] = service_discoveries
         __props__.__dict__["slow_ramp_time"] = slow_ramp_time
         __props__.__dict__["snat_pool_addresses"] = snat_pool_addresses
         __props__.__dict__["tenant"] = tenant
@@ -838,7 +883,7 @@ class FastHttpApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="poolMembers")
-    def pool_members(self) -> pulumi.Output[Optional[Sequence['outputs.FastHttpAppPoolMember']]]:
+    def pool_members(self) -> pulumi.Output[Sequence['outputs.FastHttpAppPoolMember']]:
         """
         `pool_members` block takes input for FAST-Generated Pool.
         See Pool Members below for more details.
@@ -852,6 +897,15 @@ class FastHttpApp(pulumi.CustomResource):
         List of security log profiles to be used for FAST application
         """
         return pulumi.get(self, "security_log_profiles")
+
+    @property
+    @pulumi.getter(name="serviceDiscoveries")
+    def service_discoveries(self) -> pulumi.Output[Optional[Sequence['outputs.FastHttpAppServiceDiscovery']]]:
+        """
+        `service_discovery` block to Automatically Discover Pool Members with Service Discovery.
+        See Service Discovery below for more details.
+        """
+        return pulumi.get(self, "service_discoveries")
 
     @property
     @pulumi.getter(name="slowRampTime")

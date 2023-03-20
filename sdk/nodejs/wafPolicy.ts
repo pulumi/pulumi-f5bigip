@@ -108,7 +108,7 @@ export class WafPolicy extends pulumi.CustomResource {
     /**
      * Specifies the description of the policy.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    public readonly description!: pulumi.Output<string>;
     /**
      * Passive Mode allows the policy to be associated with a Performance L4 Virtual Server (using a FastL4 profile). With FastL4, traffic is analyzed but is not modified in any way.
      */

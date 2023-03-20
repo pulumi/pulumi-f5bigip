@@ -143,14 +143,14 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="description", type=String.class, parameters={})
-    private Output</* @Nullable */ String> description;
+    private Output<String> description;
 
     /**
      * @return Specifies the description of the policy.
      * 
      */
-    public Output<Optional<String>> description() {
-        return Codegen.optional(this.description);
+    public Output<String> description() {
+        return this.description;
     }
     /**
      * Passive Mode allows the policy to be associated with a Performance L4 Virtual Server (using a FastL4 profile). With FastL4, traffic is analyzed but is not modified in any way.

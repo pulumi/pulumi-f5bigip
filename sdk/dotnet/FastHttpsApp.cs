@@ -121,6 +121,13 @@ namespace Pulumi.F5BigIP
         public Output<ImmutableArray<string>> SecurityLogProfiles { get; private set; } = null!;
 
         /// <summary>
+        /// `service_discovery` block to Automatically Discover Pool Members with Service Discovery.
+        /// See Service Discovery below for more details.
+        /// </summary>
+        [Output("serviceDiscoveries")]
+        public Output<ImmutableArray<Outputs.FastHttpsAppServiceDiscovery>> ServiceDiscoveries { get; private set; } = null!;
+
+        /// <summary>
         /// Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
         /// </summary>
         [Output("slowRampTime")]
@@ -304,6 +311,19 @@ namespace Pulumi.F5BigIP
             set => _securityLogProfiles = value;
         }
 
+        [Input("serviceDiscoveries")]
+        private InputList<Inputs.FastHttpsAppServiceDiscoveryArgs>? _serviceDiscoveries;
+
+        /// <summary>
+        /// `service_discovery` block to Automatically Discover Pool Members with Service Discovery.
+        /// See Service Discovery below for more details.
+        /// </summary>
+        public InputList<Inputs.FastHttpsAppServiceDiscoveryArgs> ServiceDiscoveries
+        {
+            get => _serviceDiscoveries ?? (_serviceDiscoveries = new InputList<Inputs.FastHttpsAppServiceDiscoveryArgs>());
+            set => _serviceDiscoveries = value;
+        }
+
         /// <summary>
         /// Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
         /// </summary>
@@ -460,6 +480,19 @@ namespace Pulumi.F5BigIP
         {
             get => _securityLogProfiles ?? (_securityLogProfiles = new InputList<string>());
             set => _securityLogProfiles = value;
+        }
+
+        [Input("serviceDiscoveries")]
+        private InputList<Inputs.FastHttpsAppServiceDiscoveryGetArgs>? _serviceDiscoveries;
+
+        /// <summary>
+        /// `service_discovery` block to Automatically Discover Pool Members with Service Discovery.
+        /// See Service Discovery below for more details.
+        /// </summary>
+        public InputList<Inputs.FastHttpsAppServiceDiscoveryGetArgs> ServiceDiscoveries
+        {
+            get => _serviceDiscoveries ?? (_serviceDiscoveries = new InputList<Inputs.FastHttpsAppServiceDiscoveryGetArgs>());
+            set => _serviceDiscoveries = value;
         }
 
         /// <summary>

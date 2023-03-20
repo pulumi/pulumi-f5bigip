@@ -205,14 +205,14 @@ public class ProfileClientSsl extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="cert", type=String.class, parameters={})
-    private Output</* @Nullable */ String> cert;
+    private Output<String> cert;
 
     /**
      * @return Specifies a cert name for use.
      * 
      */
-    public Output<Optional<String>> cert() {
-        return Codegen.optional(this.cert);
+    public Output<String> cert() {
+        return this.cert;
     }
     /**
      * Cert extension includes for ssl forward proxy
@@ -230,10 +230,10 @@ public class ProfileClientSsl extends com.pulumi.resources.CustomResource {
     }
     /**
      * @deprecated
-     * This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
+     * This Field &#39;cert_key_chain&#39; going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
      * 
      */
-    @Deprecated /* This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute. */
+    @Deprecated /* This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute. */
     @Export(name="certKeyChain", type=ProfileClientSslCertKeyChain.class, parameters={})
     private Output</* @Nullable */ ProfileClientSslCertKeyChain> certKeyChain;
 
@@ -273,14 +273,14 @@ public class ProfileClientSsl extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="chain", type=String.class, parameters={})
-    private Output</* @Nullable */ String> chain;
+    private Output<String> chain;
 
     /**
      * @return Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
      * 
      */
-    public Output<Optional<String>> chain() {
-        return Codegen.optional(this.chain);
+    public Output<String> chain() {
+        return this.chain;
     }
     /**
      * Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
@@ -441,14 +441,14 @@ public class ProfileClientSsl extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="key", type=String.class, parameters={})
-    private Output</* @Nullable */ String> key;
+    private Output<String> key;
 
     /**
      * @return Contains a key name
      * 
      */
-    public Output<Optional<String>> key() {
-        return Codegen.optional(this.key);
+    public Output<String> key() {
+        return this.key;
     }
     /**
      * ModSSL Methods enabled / disabled. Default is disabled.

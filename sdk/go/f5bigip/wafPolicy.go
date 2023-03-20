@@ -110,7 +110,7 @@ type WafPolicy struct {
 	// Specifies whether the security policy treats microservice URLs, file types, URLs, and parameters as case sensitive or not. When this setting is enabled, the system stores these security policy elements in lowercase in the security policy configuration
 	CaseInsensitive pulumi.BoolPtrOutput `pulumi:"caseInsensitive"`
 	// Specifies the description of the policy.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Description pulumi.StringOutput `pulumi:"description"`
 	// Passive Mode allows the policy to be associated with a Performance L4 Virtual Server (using a FastL4 profile). With FastL4, traffic is analyzed but is not modified in any way.
 	EnablePassivemode pulumi.BoolPtrOutput `pulumi:"enablePassivemode"`
 	// How the system processes a request that triggers a security policy violation
@@ -537,8 +537,8 @@ func (o WafPolicyOutput) CaseInsensitive() pulumi.BoolPtrOutput {
 }
 
 // Specifies the description of the policy.
-func (o WafPolicyOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WafPolicy) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+func (o WafPolicyOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v *WafPolicy) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
 // Passive Mode allows the policy to be associated with a Performance L4 Virtual Server (using a FastL4 profile). With FastL4, traffic is analyzed but is not modified in any way.

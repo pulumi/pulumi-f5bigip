@@ -13,10 +13,12 @@ __all__ = [
     'EventServiceDiscoveryNodeArgs',
     'FastHttpAppMonitorArgs',
     'FastHttpAppPoolMemberArgs',
+    'FastHttpAppServiceDiscoveryArgs',
     'FastHttpAppVirtualServerArgs',
     'FastHttpAppWafSecurityPolicyArgs',
     'FastHttpsAppMonitorArgs',
     'FastHttpsAppPoolMemberArgs',
+    'FastHttpsAppServiceDiscoveryArgs',
     'FastHttpsAppTlsClientProfileArgs',
     'FastHttpsAppTlsServerProfileArgs',
     'FastHttpsAppVirtualServerArgs',
@@ -265,6 +267,299 @@ class FastHttpAppPoolMemberArgs:
 
 
 @pulumi.input_type
+class FastHttpAppServiceDiscoveryArgs:
+    def __init__(__self__, *,
+                 sd_port: pulumi.Input[int],
+                 sd_type: pulumi.Input[str],
+                 sd_address_realm: Optional[pulumi.Input[str]] = None,
+                 sd_aws_access_key: Optional[pulumi.Input[str]] = None,
+                 sd_aws_region: Optional[pulumi.Input[str]] = None,
+                 sd_aws_secret_access_key: Optional[pulumi.Input[str]] = None,
+                 sd_aws_tag_key: Optional[pulumi.Input[str]] = None,
+                 sd_aws_tag_val: Optional[pulumi.Input[str]] = None,
+                 sd_azure_directory_id: Optional[pulumi.Input[str]] = None,
+                 sd_azure_resource_group: Optional[pulumi.Input[str]] = None,
+                 sd_azure_resource_id: Optional[pulumi.Input[str]] = None,
+                 sd_azure_subscription_id: Optional[pulumi.Input[str]] = None,
+                 sd_azure_tag_key: Optional[pulumi.Input[str]] = None,
+                 sd_azure_tag_val: Optional[pulumi.Input[str]] = None,
+                 sd_gce_region: Optional[pulumi.Input[str]] = None,
+                 sd_gce_tag_key: Optional[pulumi.Input[str]] = None,
+                 sd_gce_tag_val: Optional[pulumi.Input[str]] = None,
+                 sd_undetectable_action: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] sd_port: port number of serviceport to be used for FAST-Generated Pool.
+        :param pulumi.Input[str] sd_type: service discovery account type, options [`aws`,`azure`,`gce`]
+        :param pulumi.Input[str] sd_address_realm: Specifies whether to look for public or private IP addresses. Default :`private`
+        :param pulumi.Input[str] sd_aws_access_key: Information for discovering AWS nodes that are not in the same region as your BIG-IP.
+        :param pulumi.Input[str] sd_aws_region: Empty string (default) means region in which ADC is running.
+        :param pulumi.Input[str] sd_aws_secret_access_key: Will be stored in the declaration as an encrypted string.
+        :param pulumi.Input[str] sd_aws_tag_key: The tag key associated with the node to add to this pool.
+        :param pulumi.Input[str] sd_aws_tag_val: The tag value associated with the node to add to this pool.
+        :param pulumi.Input[str] sd_azure_directory_id: Azure Active Directory ID (AKA tenant ID).
+        :param pulumi.Input[str] sd_azure_resource_group: Azure Resource Group name.
+        :param pulumi.Input[str] sd_azure_resource_id: ID of resource to find nodes by.
+        :param pulumi.Input[str] sd_azure_subscription_id: Azure subscription ID.
+        :param pulumi.Input[str] sd_azure_tag_key: The tag key associated with the node to add to this pool.
+        :param pulumi.Input[str] sd_azure_tag_val: The tag value associated with the node to add to this pool.
+        :param pulumi.Input[str] sd_gce_region: Empty string (default) means region in which ADC is running.
+        :param pulumi.Input[str] sd_gce_tag_key: The tag key associated with the node to add to this pool
+        :param pulumi.Input[str] sd_gce_tag_val: The tag value associated with the node to add to this pool.
+        :param pulumi.Input[str] sd_undetectable_action: Action to take when node cannot be detected. Default `remove`.
+        """
+        pulumi.set(__self__, "sd_port", sd_port)
+        pulumi.set(__self__, "sd_type", sd_type)
+        if sd_address_realm is not None:
+            pulumi.set(__self__, "sd_address_realm", sd_address_realm)
+        if sd_aws_access_key is not None:
+            pulumi.set(__self__, "sd_aws_access_key", sd_aws_access_key)
+        if sd_aws_region is not None:
+            pulumi.set(__self__, "sd_aws_region", sd_aws_region)
+        if sd_aws_secret_access_key is not None:
+            pulumi.set(__self__, "sd_aws_secret_access_key", sd_aws_secret_access_key)
+        if sd_aws_tag_key is not None:
+            pulumi.set(__self__, "sd_aws_tag_key", sd_aws_tag_key)
+        if sd_aws_tag_val is not None:
+            pulumi.set(__self__, "sd_aws_tag_val", sd_aws_tag_val)
+        if sd_azure_directory_id is not None:
+            pulumi.set(__self__, "sd_azure_directory_id", sd_azure_directory_id)
+        if sd_azure_resource_group is not None:
+            pulumi.set(__self__, "sd_azure_resource_group", sd_azure_resource_group)
+        if sd_azure_resource_id is not None:
+            pulumi.set(__self__, "sd_azure_resource_id", sd_azure_resource_id)
+        if sd_azure_subscription_id is not None:
+            pulumi.set(__self__, "sd_azure_subscription_id", sd_azure_subscription_id)
+        if sd_azure_tag_key is not None:
+            pulumi.set(__self__, "sd_azure_tag_key", sd_azure_tag_key)
+        if sd_azure_tag_val is not None:
+            pulumi.set(__self__, "sd_azure_tag_val", sd_azure_tag_val)
+        if sd_gce_region is not None:
+            pulumi.set(__self__, "sd_gce_region", sd_gce_region)
+        if sd_gce_tag_key is not None:
+            pulumi.set(__self__, "sd_gce_tag_key", sd_gce_tag_key)
+        if sd_gce_tag_val is not None:
+            pulumi.set(__self__, "sd_gce_tag_val", sd_gce_tag_val)
+        if sd_undetectable_action is not None:
+            pulumi.set(__self__, "sd_undetectable_action", sd_undetectable_action)
+
+    @property
+    @pulumi.getter(name="sdPort")
+    def sd_port(self) -> pulumi.Input[int]:
+        """
+        port number of serviceport to be used for FAST-Generated Pool.
+        """
+        return pulumi.get(self, "sd_port")
+
+    @sd_port.setter
+    def sd_port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "sd_port", value)
+
+    @property
+    @pulumi.getter(name="sdType")
+    def sd_type(self) -> pulumi.Input[str]:
+        """
+        service discovery account type, options [`aws`,`azure`,`gce`]
+        """
+        return pulumi.get(self, "sd_type")
+
+    @sd_type.setter
+    def sd_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sd_type", value)
+
+    @property
+    @pulumi.getter(name="sdAddressRealm")
+    def sd_address_realm(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether to look for public or private IP addresses. Default :`private`
+        """
+        return pulumi.get(self, "sd_address_realm")
+
+    @sd_address_realm.setter
+    def sd_address_realm(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sd_address_realm", value)
+
+    @property
+    @pulumi.getter(name="sdAwsAccessKey")
+    def sd_aws_access_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Information for discovering AWS nodes that are not in the same region as your BIG-IP.
+        """
+        return pulumi.get(self, "sd_aws_access_key")
+
+    @sd_aws_access_key.setter
+    def sd_aws_access_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sd_aws_access_key", value)
+
+    @property
+    @pulumi.getter(name="sdAwsRegion")
+    def sd_aws_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        Empty string (default) means region in which ADC is running.
+        """
+        return pulumi.get(self, "sd_aws_region")
+
+    @sd_aws_region.setter
+    def sd_aws_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sd_aws_region", value)
+
+    @property
+    @pulumi.getter(name="sdAwsSecretAccessKey")
+    def sd_aws_secret_access_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Will be stored in the declaration as an encrypted string.
+        """
+        return pulumi.get(self, "sd_aws_secret_access_key")
+
+    @sd_aws_secret_access_key.setter
+    def sd_aws_secret_access_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sd_aws_secret_access_key", value)
+
+    @property
+    @pulumi.getter(name="sdAwsTagKey")
+    def sd_aws_tag_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tag key associated with the node to add to this pool.
+        """
+        return pulumi.get(self, "sd_aws_tag_key")
+
+    @sd_aws_tag_key.setter
+    def sd_aws_tag_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sd_aws_tag_key", value)
+
+    @property
+    @pulumi.getter(name="sdAwsTagVal")
+    def sd_aws_tag_val(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tag value associated with the node to add to this pool.
+        """
+        return pulumi.get(self, "sd_aws_tag_val")
+
+    @sd_aws_tag_val.setter
+    def sd_aws_tag_val(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sd_aws_tag_val", value)
+
+    @property
+    @pulumi.getter(name="sdAzureDirectoryId")
+    def sd_azure_directory_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Azure Active Directory ID (AKA tenant ID).
+        """
+        return pulumi.get(self, "sd_azure_directory_id")
+
+    @sd_azure_directory_id.setter
+    def sd_azure_directory_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sd_azure_directory_id", value)
+
+    @property
+    @pulumi.getter(name="sdAzureResourceGroup")
+    def sd_azure_resource_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        Azure Resource Group name.
+        """
+        return pulumi.get(self, "sd_azure_resource_group")
+
+    @sd_azure_resource_group.setter
+    def sd_azure_resource_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sd_azure_resource_group", value)
+
+    @property
+    @pulumi.getter(name="sdAzureResourceId")
+    def sd_azure_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of resource to find nodes by.
+        """
+        return pulumi.get(self, "sd_azure_resource_id")
+
+    @sd_azure_resource_id.setter
+    def sd_azure_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sd_azure_resource_id", value)
+
+    @property
+    @pulumi.getter(name="sdAzureSubscriptionId")
+    def sd_azure_subscription_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Azure subscription ID.
+        """
+        return pulumi.get(self, "sd_azure_subscription_id")
+
+    @sd_azure_subscription_id.setter
+    def sd_azure_subscription_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sd_azure_subscription_id", value)
+
+    @property
+    @pulumi.getter(name="sdAzureTagKey")
+    def sd_azure_tag_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tag key associated with the node to add to this pool.
+        """
+        return pulumi.get(self, "sd_azure_tag_key")
+
+    @sd_azure_tag_key.setter
+    def sd_azure_tag_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sd_azure_tag_key", value)
+
+    @property
+    @pulumi.getter(name="sdAzureTagVal")
+    def sd_azure_tag_val(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tag value associated with the node to add to this pool.
+        """
+        return pulumi.get(self, "sd_azure_tag_val")
+
+    @sd_azure_tag_val.setter
+    def sd_azure_tag_val(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sd_azure_tag_val", value)
+
+    @property
+    @pulumi.getter(name="sdGceRegion")
+    def sd_gce_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        Empty string (default) means region in which ADC is running.
+        """
+        return pulumi.get(self, "sd_gce_region")
+
+    @sd_gce_region.setter
+    def sd_gce_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sd_gce_region", value)
+
+    @property
+    @pulumi.getter(name="sdGceTagKey")
+    def sd_gce_tag_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tag key associated with the node to add to this pool
+        """
+        return pulumi.get(self, "sd_gce_tag_key")
+
+    @sd_gce_tag_key.setter
+    def sd_gce_tag_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sd_gce_tag_key", value)
+
+    @property
+    @pulumi.getter(name="sdGceTagVal")
+    def sd_gce_tag_val(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tag value associated with the node to add to this pool.
+        """
+        return pulumi.get(self, "sd_gce_tag_val")
+
+    @sd_gce_tag_val.setter
+    def sd_gce_tag_val(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sd_gce_tag_val", value)
+
+    @property
+    @pulumi.getter(name="sdUndetectableAction")
+    def sd_undetectable_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        Action to take when node cannot be detected. Default `remove`.
+        """
+        return pulumi.get(self, "sd_undetectable_action")
+
+    @sd_undetectable_action.setter
+    def sd_undetectable_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sd_undetectable_action", value)
+
+
+@pulumi.input_type
 class FastHttpAppVirtualServerArgs:
     def __init__(__self__, *,
                  ip: pulumi.Input[str],
@@ -510,6 +805,299 @@ class FastHttpsAppPoolMemberArgs:
     @share_nodes.setter
     def share_nodes(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "share_nodes", value)
+
+
+@pulumi.input_type
+class FastHttpsAppServiceDiscoveryArgs:
+    def __init__(__self__, *,
+                 sd_port: pulumi.Input[int],
+                 sd_type: pulumi.Input[str],
+                 sd_address_realm: Optional[pulumi.Input[str]] = None,
+                 sd_aws_access_key: Optional[pulumi.Input[str]] = None,
+                 sd_aws_region: Optional[pulumi.Input[str]] = None,
+                 sd_aws_secret_access_key: Optional[pulumi.Input[str]] = None,
+                 sd_aws_tag_key: Optional[pulumi.Input[str]] = None,
+                 sd_aws_tag_val: Optional[pulumi.Input[str]] = None,
+                 sd_azure_directory_id: Optional[pulumi.Input[str]] = None,
+                 sd_azure_resource_group: Optional[pulumi.Input[str]] = None,
+                 sd_azure_resource_id: Optional[pulumi.Input[str]] = None,
+                 sd_azure_subscription_id: Optional[pulumi.Input[str]] = None,
+                 sd_azure_tag_key: Optional[pulumi.Input[str]] = None,
+                 sd_azure_tag_val: Optional[pulumi.Input[str]] = None,
+                 sd_gce_region: Optional[pulumi.Input[str]] = None,
+                 sd_gce_tag_key: Optional[pulumi.Input[str]] = None,
+                 sd_gce_tag_val: Optional[pulumi.Input[str]] = None,
+                 sd_undetectable_action: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] sd_port: port number of serviceport to be used for FAST-Generated Pool.
+        :param pulumi.Input[str] sd_type: service discovery account type, options [`aws`,`azure`,`gce`]
+        :param pulumi.Input[str] sd_address_realm: Specifies whether to look for public or private IP addresses. Default :`private`
+        :param pulumi.Input[str] sd_aws_access_key: Information for discovering AWS nodes that are not in the same region as your BIG-IP.
+        :param pulumi.Input[str] sd_aws_region: Empty string (default) means region in which ADC is running.
+        :param pulumi.Input[str] sd_aws_secret_access_key: Will be stored in the declaration as an encrypted string.
+        :param pulumi.Input[str] sd_aws_tag_key: The tag key associated with the node to add to this pool.
+        :param pulumi.Input[str] sd_aws_tag_val: The tag value associated with the node to add to this pool.
+        :param pulumi.Input[str] sd_azure_directory_id: Azure Active Directory ID (AKA tenant ID).
+        :param pulumi.Input[str] sd_azure_resource_group: Azure Resource Group name.
+        :param pulumi.Input[str] sd_azure_resource_id: ID of resource to find nodes by.
+        :param pulumi.Input[str] sd_azure_subscription_id: Azure subscription ID.
+        :param pulumi.Input[str] sd_azure_tag_key: The tag key associated with the node to add to this pool.
+        :param pulumi.Input[str] sd_azure_tag_val: The tag value associated with the node to add to this pool.
+        :param pulumi.Input[str] sd_gce_region: Empty string (default) means region in which ADC is running.
+        :param pulumi.Input[str] sd_gce_tag_key: The tag key associated with the node to add to this pool
+        :param pulumi.Input[str] sd_gce_tag_val: The tag value associated with the node to add to this pool.
+        :param pulumi.Input[str] sd_undetectable_action: Action to take when node cannot be detected. Default `remove`.
+        """
+        pulumi.set(__self__, "sd_port", sd_port)
+        pulumi.set(__self__, "sd_type", sd_type)
+        if sd_address_realm is not None:
+            pulumi.set(__self__, "sd_address_realm", sd_address_realm)
+        if sd_aws_access_key is not None:
+            pulumi.set(__self__, "sd_aws_access_key", sd_aws_access_key)
+        if sd_aws_region is not None:
+            pulumi.set(__self__, "sd_aws_region", sd_aws_region)
+        if sd_aws_secret_access_key is not None:
+            pulumi.set(__self__, "sd_aws_secret_access_key", sd_aws_secret_access_key)
+        if sd_aws_tag_key is not None:
+            pulumi.set(__self__, "sd_aws_tag_key", sd_aws_tag_key)
+        if sd_aws_tag_val is not None:
+            pulumi.set(__self__, "sd_aws_tag_val", sd_aws_tag_val)
+        if sd_azure_directory_id is not None:
+            pulumi.set(__self__, "sd_azure_directory_id", sd_azure_directory_id)
+        if sd_azure_resource_group is not None:
+            pulumi.set(__self__, "sd_azure_resource_group", sd_azure_resource_group)
+        if sd_azure_resource_id is not None:
+            pulumi.set(__self__, "sd_azure_resource_id", sd_azure_resource_id)
+        if sd_azure_subscription_id is not None:
+            pulumi.set(__self__, "sd_azure_subscription_id", sd_azure_subscription_id)
+        if sd_azure_tag_key is not None:
+            pulumi.set(__self__, "sd_azure_tag_key", sd_azure_tag_key)
+        if sd_azure_tag_val is not None:
+            pulumi.set(__self__, "sd_azure_tag_val", sd_azure_tag_val)
+        if sd_gce_region is not None:
+            pulumi.set(__self__, "sd_gce_region", sd_gce_region)
+        if sd_gce_tag_key is not None:
+            pulumi.set(__self__, "sd_gce_tag_key", sd_gce_tag_key)
+        if sd_gce_tag_val is not None:
+            pulumi.set(__self__, "sd_gce_tag_val", sd_gce_tag_val)
+        if sd_undetectable_action is not None:
+            pulumi.set(__self__, "sd_undetectable_action", sd_undetectable_action)
+
+    @property
+    @pulumi.getter(name="sdPort")
+    def sd_port(self) -> pulumi.Input[int]:
+        """
+        port number of serviceport to be used for FAST-Generated Pool.
+        """
+        return pulumi.get(self, "sd_port")
+
+    @sd_port.setter
+    def sd_port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "sd_port", value)
+
+    @property
+    @pulumi.getter(name="sdType")
+    def sd_type(self) -> pulumi.Input[str]:
+        """
+        service discovery account type, options [`aws`,`azure`,`gce`]
+        """
+        return pulumi.get(self, "sd_type")
+
+    @sd_type.setter
+    def sd_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sd_type", value)
+
+    @property
+    @pulumi.getter(name="sdAddressRealm")
+    def sd_address_realm(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether to look for public or private IP addresses. Default :`private`
+        """
+        return pulumi.get(self, "sd_address_realm")
+
+    @sd_address_realm.setter
+    def sd_address_realm(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sd_address_realm", value)
+
+    @property
+    @pulumi.getter(name="sdAwsAccessKey")
+    def sd_aws_access_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Information for discovering AWS nodes that are not in the same region as your BIG-IP.
+        """
+        return pulumi.get(self, "sd_aws_access_key")
+
+    @sd_aws_access_key.setter
+    def sd_aws_access_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sd_aws_access_key", value)
+
+    @property
+    @pulumi.getter(name="sdAwsRegion")
+    def sd_aws_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        Empty string (default) means region in which ADC is running.
+        """
+        return pulumi.get(self, "sd_aws_region")
+
+    @sd_aws_region.setter
+    def sd_aws_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sd_aws_region", value)
+
+    @property
+    @pulumi.getter(name="sdAwsSecretAccessKey")
+    def sd_aws_secret_access_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        Will be stored in the declaration as an encrypted string.
+        """
+        return pulumi.get(self, "sd_aws_secret_access_key")
+
+    @sd_aws_secret_access_key.setter
+    def sd_aws_secret_access_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sd_aws_secret_access_key", value)
+
+    @property
+    @pulumi.getter(name="sdAwsTagKey")
+    def sd_aws_tag_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tag key associated with the node to add to this pool.
+        """
+        return pulumi.get(self, "sd_aws_tag_key")
+
+    @sd_aws_tag_key.setter
+    def sd_aws_tag_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sd_aws_tag_key", value)
+
+    @property
+    @pulumi.getter(name="sdAwsTagVal")
+    def sd_aws_tag_val(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tag value associated with the node to add to this pool.
+        """
+        return pulumi.get(self, "sd_aws_tag_val")
+
+    @sd_aws_tag_val.setter
+    def sd_aws_tag_val(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sd_aws_tag_val", value)
+
+    @property
+    @pulumi.getter(name="sdAzureDirectoryId")
+    def sd_azure_directory_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Azure Active Directory ID (AKA tenant ID).
+        """
+        return pulumi.get(self, "sd_azure_directory_id")
+
+    @sd_azure_directory_id.setter
+    def sd_azure_directory_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sd_azure_directory_id", value)
+
+    @property
+    @pulumi.getter(name="sdAzureResourceGroup")
+    def sd_azure_resource_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        Azure Resource Group name.
+        """
+        return pulumi.get(self, "sd_azure_resource_group")
+
+    @sd_azure_resource_group.setter
+    def sd_azure_resource_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sd_azure_resource_group", value)
+
+    @property
+    @pulumi.getter(name="sdAzureResourceId")
+    def sd_azure_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of resource to find nodes by.
+        """
+        return pulumi.get(self, "sd_azure_resource_id")
+
+    @sd_azure_resource_id.setter
+    def sd_azure_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sd_azure_resource_id", value)
+
+    @property
+    @pulumi.getter(name="sdAzureSubscriptionId")
+    def sd_azure_subscription_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Azure subscription ID.
+        """
+        return pulumi.get(self, "sd_azure_subscription_id")
+
+    @sd_azure_subscription_id.setter
+    def sd_azure_subscription_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sd_azure_subscription_id", value)
+
+    @property
+    @pulumi.getter(name="sdAzureTagKey")
+    def sd_azure_tag_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tag key associated with the node to add to this pool.
+        """
+        return pulumi.get(self, "sd_azure_tag_key")
+
+    @sd_azure_tag_key.setter
+    def sd_azure_tag_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sd_azure_tag_key", value)
+
+    @property
+    @pulumi.getter(name="sdAzureTagVal")
+    def sd_azure_tag_val(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tag value associated with the node to add to this pool.
+        """
+        return pulumi.get(self, "sd_azure_tag_val")
+
+    @sd_azure_tag_val.setter
+    def sd_azure_tag_val(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sd_azure_tag_val", value)
+
+    @property
+    @pulumi.getter(name="sdGceRegion")
+    def sd_gce_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        Empty string (default) means region in which ADC is running.
+        """
+        return pulumi.get(self, "sd_gce_region")
+
+    @sd_gce_region.setter
+    def sd_gce_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sd_gce_region", value)
+
+    @property
+    @pulumi.getter(name="sdGceTagKey")
+    def sd_gce_tag_key(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tag key associated with the node to add to this pool
+        """
+        return pulumi.get(self, "sd_gce_tag_key")
+
+    @sd_gce_tag_key.setter
+    def sd_gce_tag_key(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sd_gce_tag_key", value)
+
+    @property
+    @pulumi.getter(name="sdGceTagVal")
+    def sd_gce_tag_val(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tag value associated with the node to add to this pool.
+        """
+        return pulumi.get(self, "sd_gce_tag_val")
+
+    @sd_gce_tag_val.setter
+    def sd_gce_tag_val(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sd_gce_tag_val", value)
+
+    @property
+    @pulumi.getter(name="sdUndetectableAction")
+    def sd_undetectable_action(self) -> Optional[pulumi.Input[str]]:
+        """
+        Action to take when node cannot be detected. Default `remove`.
+        """
+        return pulumi.get(self, "sd_undetectable_action")
+
+    @sd_undetectable_action.setter
+    def sd_undetectable_action(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sd_undetectable_action", value)
 
 
 @pulumi.input_type

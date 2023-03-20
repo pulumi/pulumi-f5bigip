@@ -1245,7 +1245,7 @@ class WafPolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[Optional[str]]:
+    def description(self) -> pulumi.Output[str]:
         """
         Specifies the description of the policy.
         """

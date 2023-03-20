@@ -481,6 +481,256 @@ func (o FastHttpAppPoolMemberArrayOutput) Index(i pulumi.IntInput) FastHttpAppPo
 	}).(FastHttpAppPoolMemberOutput)
 }
 
+type FastHttpAppServiceDiscovery struct {
+	// Specifies whether to look for public or private IP addresses. Default :`private`
+	SdAddressRealm *string `pulumi:"sdAddressRealm"`
+	// Information for discovering AWS nodes that are not in the same region as your BIG-IP.
+	SdAwsAccessKey *string `pulumi:"sdAwsAccessKey"`
+	// Empty string (default) means region in which ADC is running.
+	SdAwsRegion *string `pulumi:"sdAwsRegion"`
+	// Will be stored in the declaration as an encrypted string.
+	SdAwsSecretAccessKey *string `pulumi:"sdAwsSecretAccessKey"`
+	// The tag key associated with the node to add to this pool.
+	SdAwsTagKey *string `pulumi:"sdAwsTagKey"`
+	// The tag value associated with the node to add to this pool.
+	SdAwsTagVal *string `pulumi:"sdAwsTagVal"`
+	// Azure Active Directory ID (AKA tenant ID).
+	SdAzureDirectoryId *string `pulumi:"sdAzureDirectoryId"`
+	// Azure Resource Group name.
+	SdAzureResourceGroup *string `pulumi:"sdAzureResourceGroup"`
+	// ID of resource to find nodes by.
+	SdAzureResourceId *string `pulumi:"sdAzureResourceId"`
+	// Azure subscription ID.
+	SdAzureSubscriptionId *string `pulumi:"sdAzureSubscriptionId"`
+	// The tag key associated with the node to add to this pool.
+	SdAzureTagKey *string `pulumi:"sdAzureTagKey"`
+	// The tag value associated with the node to add to this pool.
+	SdAzureTagVal *string `pulumi:"sdAzureTagVal"`
+	// Empty string (default) means region in which ADC is running.
+	SdGceRegion *string `pulumi:"sdGceRegion"`
+	// The tag key associated with the node to add to this pool
+	SdGceTagKey *string `pulumi:"sdGceTagKey"`
+	// The tag value associated with the node to add to this pool.
+	SdGceTagVal *string `pulumi:"sdGceTagVal"`
+	// port number of serviceport to be used for FAST-Generated Pool.
+	SdPort int `pulumi:"sdPort"`
+	// service discovery account type, options [`aws`,`azure`,`gce`]
+	SdType string `pulumi:"sdType"`
+	// Action to take when node cannot be detected. Default `remove`.
+	SdUndetectableAction *string `pulumi:"sdUndetectableAction"`
+}
+
+// FastHttpAppServiceDiscoveryInput is an input type that accepts FastHttpAppServiceDiscoveryArgs and FastHttpAppServiceDiscoveryOutput values.
+// You can construct a concrete instance of `FastHttpAppServiceDiscoveryInput` via:
+//
+//	FastHttpAppServiceDiscoveryArgs{...}
+type FastHttpAppServiceDiscoveryInput interface {
+	pulumi.Input
+
+	ToFastHttpAppServiceDiscoveryOutput() FastHttpAppServiceDiscoveryOutput
+	ToFastHttpAppServiceDiscoveryOutputWithContext(context.Context) FastHttpAppServiceDiscoveryOutput
+}
+
+type FastHttpAppServiceDiscoveryArgs struct {
+	// Specifies whether to look for public or private IP addresses. Default :`private`
+	SdAddressRealm pulumi.StringPtrInput `pulumi:"sdAddressRealm"`
+	// Information for discovering AWS nodes that are not in the same region as your BIG-IP.
+	SdAwsAccessKey pulumi.StringPtrInput `pulumi:"sdAwsAccessKey"`
+	// Empty string (default) means region in which ADC is running.
+	SdAwsRegion pulumi.StringPtrInput `pulumi:"sdAwsRegion"`
+	// Will be stored in the declaration as an encrypted string.
+	SdAwsSecretAccessKey pulumi.StringPtrInput `pulumi:"sdAwsSecretAccessKey"`
+	// The tag key associated with the node to add to this pool.
+	SdAwsTagKey pulumi.StringPtrInput `pulumi:"sdAwsTagKey"`
+	// The tag value associated with the node to add to this pool.
+	SdAwsTagVal pulumi.StringPtrInput `pulumi:"sdAwsTagVal"`
+	// Azure Active Directory ID (AKA tenant ID).
+	SdAzureDirectoryId pulumi.StringPtrInput `pulumi:"sdAzureDirectoryId"`
+	// Azure Resource Group name.
+	SdAzureResourceGroup pulumi.StringPtrInput `pulumi:"sdAzureResourceGroup"`
+	// ID of resource to find nodes by.
+	SdAzureResourceId pulumi.StringPtrInput `pulumi:"sdAzureResourceId"`
+	// Azure subscription ID.
+	SdAzureSubscriptionId pulumi.StringPtrInput `pulumi:"sdAzureSubscriptionId"`
+	// The tag key associated with the node to add to this pool.
+	SdAzureTagKey pulumi.StringPtrInput `pulumi:"sdAzureTagKey"`
+	// The tag value associated with the node to add to this pool.
+	SdAzureTagVal pulumi.StringPtrInput `pulumi:"sdAzureTagVal"`
+	// Empty string (default) means region in which ADC is running.
+	SdGceRegion pulumi.StringPtrInput `pulumi:"sdGceRegion"`
+	// The tag key associated with the node to add to this pool
+	SdGceTagKey pulumi.StringPtrInput `pulumi:"sdGceTagKey"`
+	// The tag value associated with the node to add to this pool.
+	SdGceTagVal pulumi.StringPtrInput `pulumi:"sdGceTagVal"`
+	// port number of serviceport to be used for FAST-Generated Pool.
+	SdPort pulumi.IntInput `pulumi:"sdPort"`
+	// service discovery account type, options [`aws`,`azure`,`gce`]
+	SdType pulumi.StringInput `pulumi:"sdType"`
+	// Action to take when node cannot be detected. Default `remove`.
+	SdUndetectableAction pulumi.StringPtrInput `pulumi:"sdUndetectableAction"`
+}
+
+func (FastHttpAppServiceDiscoveryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FastHttpAppServiceDiscovery)(nil)).Elem()
+}
+
+func (i FastHttpAppServiceDiscoveryArgs) ToFastHttpAppServiceDiscoveryOutput() FastHttpAppServiceDiscoveryOutput {
+	return i.ToFastHttpAppServiceDiscoveryOutputWithContext(context.Background())
+}
+
+func (i FastHttpAppServiceDiscoveryArgs) ToFastHttpAppServiceDiscoveryOutputWithContext(ctx context.Context) FastHttpAppServiceDiscoveryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastHttpAppServiceDiscoveryOutput)
+}
+
+// FastHttpAppServiceDiscoveryArrayInput is an input type that accepts FastHttpAppServiceDiscoveryArray and FastHttpAppServiceDiscoveryArrayOutput values.
+// You can construct a concrete instance of `FastHttpAppServiceDiscoveryArrayInput` via:
+//
+//	FastHttpAppServiceDiscoveryArray{ FastHttpAppServiceDiscoveryArgs{...} }
+type FastHttpAppServiceDiscoveryArrayInput interface {
+	pulumi.Input
+
+	ToFastHttpAppServiceDiscoveryArrayOutput() FastHttpAppServiceDiscoveryArrayOutput
+	ToFastHttpAppServiceDiscoveryArrayOutputWithContext(context.Context) FastHttpAppServiceDiscoveryArrayOutput
+}
+
+type FastHttpAppServiceDiscoveryArray []FastHttpAppServiceDiscoveryInput
+
+func (FastHttpAppServiceDiscoveryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FastHttpAppServiceDiscovery)(nil)).Elem()
+}
+
+func (i FastHttpAppServiceDiscoveryArray) ToFastHttpAppServiceDiscoveryArrayOutput() FastHttpAppServiceDiscoveryArrayOutput {
+	return i.ToFastHttpAppServiceDiscoveryArrayOutputWithContext(context.Background())
+}
+
+func (i FastHttpAppServiceDiscoveryArray) ToFastHttpAppServiceDiscoveryArrayOutputWithContext(ctx context.Context) FastHttpAppServiceDiscoveryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastHttpAppServiceDiscoveryArrayOutput)
+}
+
+type FastHttpAppServiceDiscoveryOutput struct{ *pulumi.OutputState }
+
+func (FastHttpAppServiceDiscoveryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FastHttpAppServiceDiscovery)(nil)).Elem()
+}
+
+func (o FastHttpAppServiceDiscoveryOutput) ToFastHttpAppServiceDiscoveryOutput() FastHttpAppServiceDiscoveryOutput {
+	return o
+}
+
+func (o FastHttpAppServiceDiscoveryOutput) ToFastHttpAppServiceDiscoveryOutputWithContext(ctx context.Context) FastHttpAppServiceDiscoveryOutput {
+	return o
+}
+
+// Specifies whether to look for public or private IP addresses. Default :`private`
+func (o FastHttpAppServiceDiscoveryOutput) SdAddressRealm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpAppServiceDiscovery) *string { return v.SdAddressRealm }).(pulumi.StringPtrOutput)
+}
+
+// Information for discovering AWS nodes that are not in the same region as your BIG-IP.
+func (o FastHttpAppServiceDiscoveryOutput) SdAwsAccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpAppServiceDiscovery) *string { return v.SdAwsAccessKey }).(pulumi.StringPtrOutput)
+}
+
+// Empty string (default) means region in which ADC is running.
+func (o FastHttpAppServiceDiscoveryOutput) SdAwsRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpAppServiceDiscovery) *string { return v.SdAwsRegion }).(pulumi.StringPtrOutput)
+}
+
+// Will be stored in the declaration as an encrypted string.
+func (o FastHttpAppServiceDiscoveryOutput) SdAwsSecretAccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpAppServiceDiscovery) *string { return v.SdAwsSecretAccessKey }).(pulumi.StringPtrOutput)
+}
+
+// The tag key associated with the node to add to this pool.
+func (o FastHttpAppServiceDiscoveryOutput) SdAwsTagKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpAppServiceDiscovery) *string { return v.SdAwsTagKey }).(pulumi.StringPtrOutput)
+}
+
+// The tag value associated with the node to add to this pool.
+func (o FastHttpAppServiceDiscoveryOutput) SdAwsTagVal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpAppServiceDiscovery) *string { return v.SdAwsTagVal }).(pulumi.StringPtrOutput)
+}
+
+// Azure Active Directory ID (AKA tenant ID).
+func (o FastHttpAppServiceDiscoveryOutput) SdAzureDirectoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpAppServiceDiscovery) *string { return v.SdAzureDirectoryId }).(pulumi.StringPtrOutput)
+}
+
+// Azure Resource Group name.
+func (o FastHttpAppServiceDiscoveryOutput) SdAzureResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpAppServiceDiscovery) *string { return v.SdAzureResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+// ID of resource to find nodes by.
+func (o FastHttpAppServiceDiscoveryOutput) SdAzureResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpAppServiceDiscovery) *string { return v.SdAzureResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Azure subscription ID.
+func (o FastHttpAppServiceDiscoveryOutput) SdAzureSubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpAppServiceDiscovery) *string { return v.SdAzureSubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// The tag key associated with the node to add to this pool.
+func (o FastHttpAppServiceDiscoveryOutput) SdAzureTagKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpAppServiceDiscovery) *string { return v.SdAzureTagKey }).(pulumi.StringPtrOutput)
+}
+
+// The tag value associated with the node to add to this pool.
+func (o FastHttpAppServiceDiscoveryOutput) SdAzureTagVal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpAppServiceDiscovery) *string { return v.SdAzureTagVal }).(pulumi.StringPtrOutput)
+}
+
+// Empty string (default) means region in which ADC is running.
+func (o FastHttpAppServiceDiscoveryOutput) SdGceRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpAppServiceDiscovery) *string { return v.SdGceRegion }).(pulumi.StringPtrOutput)
+}
+
+// The tag key associated with the node to add to this pool
+func (o FastHttpAppServiceDiscoveryOutput) SdGceTagKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpAppServiceDiscovery) *string { return v.SdGceTagKey }).(pulumi.StringPtrOutput)
+}
+
+// The tag value associated with the node to add to this pool.
+func (o FastHttpAppServiceDiscoveryOutput) SdGceTagVal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpAppServiceDiscovery) *string { return v.SdGceTagVal }).(pulumi.StringPtrOutput)
+}
+
+// port number of serviceport to be used for FAST-Generated Pool.
+func (o FastHttpAppServiceDiscoveryOutput) SdPort() pulumi.IntOutput {
+	return o.ApplyT(func(v FastHttpAppServiceDiscovery) int { return v.SdPort }).(pulumi.IntOutput)
+}
+
+// service discovery account type, options [`aws`,`azure`,`gce`]
+func (o FastHttpAppServiceDiscoveryOutput) SdType() pulumi.StringOutput {
+	return o.ApplyT(func(v FastHttpAppServiceDiscovery) string { return v.SdType }).(pulumi.StringOutput)
+}
+
+// Action to take when node cannot be detected. Default `remove`.
+func (o FastHttpAppServiceDiscoveryOutput) SdUndetectableAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpAppServiceDiscovery) *string { return v.SdUndetectableAction }).(pulumi.StringPtrOutput)
+}
+
+type FastHttpAppServiceDiscoveryArrayOutput struct{ *pulumi.OutputState }
+
+func (FastHttpAppServiceDiscoveryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FastHttpAppServiceDiscovery)(nil)).Elem()
+}
+
+func (o FastHttpAppServiceDiscoveryArrayOutput) ToFastHttpAppServiceDiscoveryArrayOutput() FastHttpAppServiceDiscoveryArrayOutput {
+	return o
+}
+
+func (o FastHttpAppServiceDiscoveryArrayOutput) ToFastHttpAppServiceDiscoveryArrayOutputWithContext(ctx context.Context) FastHttpAppServiceDiscoveryArrayOutput {
+	return o
+}
+
+func (o FastHttpAppServiceDiscoveryArrayOutput) Index(i pulumi.IntInput) FastHttpAppServiceDiscoveryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FastHttpAppServiceDiscovery {
+		return vs[0].([]FastHttpAppServiceDiscovery)[vs[1].(int)]
+	}).(FastHttpAppServiceDiscoveryOutput)
+}
+
 type FastHttpAppVirtualServer struct {
 	// IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
 	Ip string `pulumi:"ip"`
@@ -1137,6 +1387,256 @@ func (o FastHttpsAppPoolMemberArrayOutput) Index(i pulumi.IntInput) FastHttpsApp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FastHttpsAppPoolMember {
 		return vs[0].([]FastHttpsAppPoolMember)[vs[1].(int)]
 	}).(FastHttpsAppPoolMemberOutput)
+}
+
+type FastHttpsAppServiceDiscovery struct {
+	// Specifies whether to look for public or private IP addresses. Default :`private`
+	SdAddressRealm *string `pulumi:"sdAddressRealm"`
+	// Information for discovering AWS nodes that are not in the same region as your BIG-IP.
+	SdAwsAccessKey *string `pulumi:"sdAwsAccessKey"`
+	// Empty string (default) means region in which ADC is running.
+	SdAwsRegion *string `pulumi:"sdAwsRegion"`
+	// Will be stored in the declaration as an encrypted string.
+	SdAwsSecretAccessKey *string `pulumi:"sdAwsSecretAccessKey"`
+	// The tag key associated with the node to add to this pool.
+	SdAwsTagKey *string `pulumi:"sdAwsTagKey"`
+	// The tag value associated with the node to add to this pool.
+	SdAwsTagVal *string `pulumi:"sdAwsTagVal"`
+	// Azure Active Directory ID (AKA tenant ID).
+	SdAzureDirectoryId *string `pulumi:"sdAzureDirectoryId"`
+	// Azure Resource Group name.
+	SdAzureResourceGroup *string `pulumi:"sdAzureResourceGroup"`
+	// ID of resource to find nodes by.
+	SdAzureResourceId *string `pulumi:"sdAzureResourceId"`
+	// Azure subscription ID.
+	SdAzureSubscriptionId *string `pulumi:"sdAzureSubscriptionId"`
+	// The tag key associated with the node to add to this pool.
+	SdAzureTagKey *string `pulumi:"sdAzureTagKey"`
+	// The tag value associated with the node to add to this pool.
+	SdAzureTagVal *string `pulumi:"sdAzureTagVal"`
+	// Empty string (default) means region in which ADC is running.
+	SdGceRegion *string `pulumi:"sdGceRegion"`
+	// The tag key associated with the node to add to this pool
+	SdGceTagKey *string `pulumi:"sdGceTagKey"`
+	// The tag value associated with the node to add to this pool.
+	SdGceTagVal *string `pulumi:"sdGceTagVal"`
+	// port number of serviceport to be used for FAST-Generated Pool.
+	SdPort int `pulumi:"sdPort"`
+	// service discovery account type, options [`aws`,`azure`,`gce`]
+	SdType string `pulumi:"sdType"`
+	// Action to take when node cannot be detected. Default `remove`.
+	SdUndetectableAction *string `pulumi:"sdUndetectableAction"`
+}
+
+// FastHttpsAppServiceDiscoveryInput is an input type that accepts FastHttpsAppServiceDiscoveryArgs and FastHttpsAppServiceDiscoveryOutput values.
+// You can construct a concrete instance of `FastHttpsAppServiceDiscoveryInput` via:
+//
+//	FastHttpsAppServiceDiscoveryArgs{...}
+type FastHttpsAppServiceDiscoveryInput interface {
+	pulumi.Input
+
+	ToFastHttpsAppServiceDiscoveryOutput() FastHttpsAppServiceDiscoveryOutput
+	ToFastHttpsAppServiceDiscoveryOutputWithContext(context.Context) FastHttpsAppServiceDiscoveryOutput
+}
+
+type FastHttpsAppServiceDiscoveryArgs struct {
+	// Specifies whether to look for public or private IP addresses. Default :`private`
+	SdAddressRealm pulumi.StringPtrInput `pulumi:"sdAddressRealm"`
+	// Information for discovering AWS nodes that are not in the same region as your BIG-IP.
+	SdAwsAccessKey pulumi.StringPtrInput `pulumi:"sdAwsAccessKey"`
+	// Empty string (default) means region in which ADC is running.
+	SdAwsRegion pulumi.StringPtrInput `pulumi:"sdAwsRegion"`
+	// Will be stored in the declaration as an encrypted string.
+	SdAwsSecretAccessKey pulumi.StringPtrInput `pulumi:"sdAwsSecretAccessKey"`
+	// The tag key associated with the node to add to this pool.
+	SdAwsTagKey pulumi.StringPtrInput `pulumi:"sdAwsTagKey"`
+	// The tag value associated with the node to add to this pool.
+	SdAwsTagVal pulumi.StringPtrInput `pulumi:"sdAwsTagVal"`
+	// Azure Active Directory ID (AKA tenant ID).
+	SdAzureDirectoryId pulumi.StringPtrInput `pulumi:"sdAzureDirectoryId"`
+	// Azure Resource Group name.
+	SdAzureResourceGroup pulumi.StringPtrInput `pulumi:"sdAzureResourceGroup"`
+	// ID of resource to find nodes by.
+	SdAzureResourceId pulumi.StringPtrInput `pulumi:"sdAzureResourceId"`
+	// Azure subscription ID.
+	SdAzureSubscriptionId pulumi.StringPtrInput `pulumi:"sdAzureSubscriptionId"`
+	// The tag key associated with the node to add to this pool.
+	SdAzureTagKey pulumi.StringPtrInput `pulumi:"sdAzureTagKey"`
+	// The tag value associated with the node to add to this pool.
+	SdAzureTagVal pulumi.StringPtrInput `pulumi:"sdAzureTagVal"`
+	// Empty string (default) means region in which ADC is running.
+	SdGceRegion pulumi.StringPtrInput `pulumi:"sdGceRegion"`
+	// The tag key associated with the node to add to this pool
+	SdGceTagKey pulumi.StringPtrInput `pulumi:"sdGceTagKey"`
+	// The tag value associated with the node to add to this pool.
+	SdGceTagVal pulumi.StringPtrInput `pulumi:"sdGceTagVal"`
+	// port number of serviceport to be used for FAST-Generated Pool.
+	SdPort pulumi.IntInput `pulumi:"sdPort"`
+	// service discovery account type, options [`aws`,`azure`,`gce`]
+	SdType pulumi.StringInput `pulumi:"sdType"`
+	// Action to take when node cannot be detected. Default `remove`.
+	SdUndetectableAction pulumi.StringPtrInput `pulumi:"sdUndetectableAction"`
+}
+
+func (FastHttpsAppServiceDiscoveryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FastHttpsAppServiceDiscovery)(nil)).Elem()
+}
+
+func (i FastHttpsAppServiceDiscoveryArgs) ToFastHttpsAppServiceDiscoveryOutput() FastHttpsAppServiceDiscoveryOutput {
+	return i.ToFastHttpsAppServiceDiscoveryOutputWithContext(context.Background())
+}
+
+func (i FastHttpsAppServiceDiscoveryArgs) ToFastHttpsAppServiceDiscoveryOutputWithContext(ctx context.Context) FastHttpsAppServiceDiscoveryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastHttpsAppServiceDiscoveryOutput)
+}
+
+// FastHttpsAppServiceDiscoveryArrayInput is an input type that accepts FastHttpsAppServiceDiscoveryArray and FastHttpsAppServiceDiscoveryArrayOutput values.
+// You can construct a concrete instance of `FastHttpsAppServiceDiscoveryArrayInput` via:
+//
+//	FastHttpsAppServiceDiscoveryArray{ FastHttpsAppServiceDiscoveryArgs{...} }
+type FastHttpsAppServiceDiscoveryArrayInput interface {
+	pulumi.Input
+
+	ToFastHttpsAppServiceDiscoveryArrayOutput() FastHttpsAppServiceDiscoveryArrayOutput
+	ToFastHttpsAppServiceDiscoveryArrayOutputWithContext(context.Context) FastHttpsAppServiceDiscoveryArrayOutput
+}
+
+type FastHttpsAppServiceDiscoveryArray []FastHttpsAppServiceDiscoveryInput
+
+func (FastHttpsAppServiceDiscoveryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FastHttpsAppServiceDiscovery)(nil)).Elem()
+}
+
+func (i FastHttpsAppServiceDiscoveryArray) ToFastHttpsAppServiceDiscoveryArrayOutput() FastHttpsAppServiceDiscoveryArrayOutput {
+	return i.ToFastHttpsAppServiceDiscoveryArrayOutputWithContext(context.Background())
+}
+
+func (i FastHttpsAppServiceDiscoveryArray) ToFastHttpsAppServiceDiscoveryArrayOutputWithContext(ctx context.Context) FastHttpsAppServiceDiscoveryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FastHttpsAppServiceDiscoveryArrayOutput)
+}
+
+type FastHttpsAppServiceDiscoveryOutput struct{ *pulumi.OutputState }
+
+func (FastHttpsAppServiceDiscoveryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FastHttpsAppServiceDiscovery)(nil)).Elem()
+}
+
+func (o FastHttpsAppServiceDiscoveryOutput) ToFastHttpsAppServiceDiscoveryOutput() FastHttpsAppServiceDiscoveryOutput {
+	return o
+}
+
+func (o FastHttpsAppServiceDiscoveryOutput) ToFastHttpsAppServiceDiscoveryOutputWithContext(ctx context.Context) FastHttpsAppServiceDiscoveryOutput {
+	return o
+}
+
+// Specifies whether to look for public or private IP addresses. Default :`private`
+func (o FastHttpsAppServiceDiscoveryOutput) SdAddressRealm() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpsAppServiceDiscovery) *string { return v.SdAddressRealm }).(pulumi.StringPtrOutput)
+}
+
+// Information for discovering AWS nodes that are not in the same region as your BIG-IP.
+func (o FastHttpsAppServiceDiscoveryOutput) SdAwsAccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpsAppServiceDiscovery) *string { return v.SdAwsAccessKey }).(pulumi.StringPtrOutput)
+}
+
+// Empty string (default) means region in which ADC is running.
+func (o FastHttpsAppServiceDiscoveryOutput) SdAwsRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpsAppServiceDiscovery) *string { return v.SdAwsRegion }).(pulumi.StringPtrOutput)
+}
+
+// Will be stored in the declaration as an encrypted string.
+func (o FastHttpsAppServiceDiscoveryOutput) SdAwsSecretAccessKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpsAppServiceDiscovery) *string { return v.SdAwsSecretAccessKey }).(pulumi.StringPtrOutput)
+}
+
+// The tag key associated with the node to add to this pool.
+func (o FastHttpsAppServiceDiscoveryOutput) SdAwsTagKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpsAppServiceDiscovery) *string { return v.SdAwsTagKey }).(pulumi.StringPtrOutput)
+}
+
+// The tag value associated with the node to add to this pool.
+func (o FastHttpsAppServiceDiscoveryOutput) SdAwsTagVal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpsAppServiceDiscovery) *string { return v.SdAwsTagVal }).(pulumi.StringPtrOutput)
+}
+
+// Azure Active Directory ID (AKA tenant ID).
+func (o FastHttpsAppServiceDiscoveryOutput) SdAzureDirectoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpsAppServiceDiscovery) *string { return v.SdAzureDirectoryId }).(pulumi.StringPtrOutput)
+}
+
+// Azure Resource Group name.
+func (o FastHttpsAppServiceDiscoveryOutput) SdAzureResourceGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpsAppServiceDiscovery) *string { return v.SdAzureResourceGroup }).(pulumi.StringPtrOutput)
+}
+
+// ID of resource to find nodes by.
+func (o FastHttpsAppServiceDiscoveryOutput) SdAzureResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpsAppServiceDiscovery) *string { return v.SdAzureResourceId }).(pulumi.StringPtrOutput)
+}
+
+// Azure subscription ID.
+func (o FastHttpsAppServiceDiscoveryOutput) SdAzureSubscriptionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpsAppServiceDiscovery) *string { return v.SdAzureSubscriptionId }).(pulumi.StringPtrOutput)
+}
+
+// The tag key associated with the node to add to this pool.
+func (o FastHttpsAppServiceDiscoveryOutput) SdAzureTagKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpsAppServiceDiscovery) *string { return v.SdAzureTagKey }).(pulumi.StringPtrOutput)
+}
+
+// The tag value associated with the node to add to this pool.
+func (o FastHttpsAppServiceDiscoveryOutput) SdAzureTagVal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpsAppServiceDiscovery) *string { return v.SdAzureTagVal }).(pulumi.StringPtrOutput)
+}
+
+// Empty string (default) means region in which ADC is running.
+func (o FastHttpsAppServiceDiscoveryOutput) SdGceRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpsAppServiceDiscovery) *string { return v.SdGceRegion }).(pulumi.StringPtrOutput)
+}
+
+// The tag key associated with the node to add to this pool
+func (o FastHttpsAppServiceDiscoveryOutput) SdGceTagKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpsAppServiceDiscovery) *string { return v.SdGceTagKey }).(pulumi.StringPtrOutput)
+}
+
+// The tag value associated with the node to add to this pool.
+func (o FastHttpsAppServiceDiscoveryOutput) SdGceTagVal() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpsAppServiceDiscovery) *string { return v.SdGceTagVal }).(pulumi.StringPtrOutput)
+}
+
+// port number of serviceport to be used for FAST-Generated Pool.
+func (o FastHttpsAppServiceDiscoveryOutput) SdPort() pulumi.IntOutput {
+	return o.ApplyT(func(v FastHttpsAppServiceDiscovery) int { return v.SdPort }).(pulumi.IntOutput)
+}
+
+// service discovery account type, options [`aws`,`azure`,`gce`]
+func (o FastHttpsAppServiceDiscoveryOutput) SdType() pulumi.StringOutput {
+	return o.ApplyT(func(v FastHttpsAppServiceDiscovery) string { return v.SdType }).(pulumi.StringOutput)
+}
+
+// Action to take when node cannot be detected. Default `remove`.
+func (o FastHttpsAppServiceDiscoveryOutput) SdUndetectableAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FastHttpsAppServiceDiscovery) *string { return v.SdUndetectableAction }).(pulumi.StringPtrOutput)
+}
+
+type FastHttpsAppServiceDiscoveryArrayOutput struct{ *pulumi.OutputState }
+
+func (FastHttpsAppServiceDiscoveryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FastHttpsAppServiceDiscovery)(nil)).Elem()
+}
+
+func (o FastHttpsAppServiceDiscoveryArrayOutput) ToFastHttpsAppServiceDiscoveryArrayOutput() FastHttpsAppServiceDiscoveryArrayOutput {
+	return o
+}
+
+func (o FastHttpsAppServiceDiscoveryArrayOutput) ToFastHttpsAppServiceDiscoveryArrayOutputWithContext(ctx context.Context) FastHttpsAppServiceDiscoveryArrayOutput {
+	return o
+}
+
+func (o FastHttpsAppServiceDiscoveryArrayOutput) Index(i pulumi.IntInput) FastHttpsAppServiceDiscoveryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FastHttpsAppServiceDiscovery {
+		return vs[0].([]FastHttpsAppServiceDiscovery)[vs[1].(int)]
+	}).(FastHttpsAppServiceDiscoveryOutput)
 }
 
 type FastHttpsAppTlsClientProfile struct {
@@ -3138,6 +3638,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpAppMonitorPtrInput)(nil)).Elem(), FastHttpAppMonitorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpAppPoolMemberInput)(nil)).Elem(), FastHttpAppPoolMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpAppPoolMemberArrayInput)(nil)).Elem(), FastHttpAppPoolMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpAppServiceDiscoveryInput)(nil)).Elem(), FastHttpAppServiceDiscoveryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpAppServiceDiscoveryArrayInput)(nil)).Elem(), FastHttpAppServiceDiscoveryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpAppVirtualServerInput)(nil)).Elem(), FastHttpAppVirtualServerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpAppVirtualServerPtrInput)(nil)).Elem(), FastHttpAppVirtualServerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpAppWafSecurityPolicyInput)(nil)).Elem(), FastHttpAppWafSecurityPolicyArgs{})
@@ -3146,6 +3648,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpsAppMonitorPtrInput)(nil)).Elem(), FastHttpsAppMonitorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpsAppPoolMemberInput)(nil)).Elem(), FastHttpsAppPoolMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpsAppPoolMemberArrayInput)(nil)).Elem(), FastHttpsAppPoolMemberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpsAppServiceDiscoveryInput)(nil)).Elem(), FastHttpsAppServiceDiscoveryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpsAppServiceDiscoveryArrayInput)(nil)).Elem(), FastHttpsAppServiceDiscoveryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpsAppTlsClientProfileInput)(nil)).Elem(), FastHttpsAppTlsClientProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpsAppTlsClientProfilePtrInput)(nil)).Elem(), FastHttpsAppTlsClientProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FastHttpsAppTlsServerProfileInput)(nil)).Elem(), FastHttpsAppTlsServerProfileArgs{})
@@ -3182,6 +3686,8 @@ func init() {
 	pulumi.RegisterOutputType(FastHttpAppMonitorPtrOutput{})
 	pulumi.RegisterOutputType(FastHttpAppPoolMemberOutput{})
 	pulumi.RegisterOutputType(FastHttpAppPoolMemberArrayOutput{})
+	pulumi.RegisterOutputType(FastHttpAppServiceDiscoveryOutput{})
+	pulumi.RegisterOutputType(FastHttpAppServiceDiscoveryArrayOutput{})
 	pulumi.RegisterOutputType(FastHttpAppVirtualServerOutput{})
 	pulumi.RegisterOutputType(FastHttpAppVirtualServerPtrOutput{})
 	pulumi.RegisterOutputType(FastHttpAppWafSecurityPolicyOutput{})
@@ -3190,6 +3696,8 @@ func init() {
 	pulumi.RegisterOutputType(FastHttpsAppMonitorPtrOutput{})
 	pulumi.RegisterOutputType(FastHttpsAppPoolMemberOutput{})
 	pulumi.RegisterOutputType(FastHttpsAppPoolMemberArrayOutput{})
+	pulumi.RegisterOutputType(FastHttpsAppServiceDiscoveryOutput{})
+	pulumi.RegisterOutputType(FastHttpsAppServiceDiscoveryArrayOutput{})
 	pulumi.RegisterOutputType(FastHttpsAppTlsClientProfileOutput{})
 	pulumi.RegisterOutputType(FastHttpsAppTlsClientProfilePtrOutput{})
 	pulumi.RegisterOutputType(FastHttpsAppTlsServerProfileOutput{})

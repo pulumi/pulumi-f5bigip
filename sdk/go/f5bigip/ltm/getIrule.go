@@ -50,6 +50,8 @@ func GetIrule(ctx *pulumi.Context, args *GetIruleArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getIrule.
 type GetIruleArgs struct {
+	// Irule configured on bigip
+	Irule *string `pulumi:"irule"`
 	// Name of the irule
 	Name string `pulumi:"name"`
 	// partition of the ltm irule
@@ -61,7 +63,7 @@ type GetIruleResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// Irule configured on bigip
-	Irule string `pulumi:"irule"`
+	Irule *string `pulumi:"irule"`
 	// Name of irule configured on bigip with full path
 	Name string `pulumi:"name"`
 	// Bigip partition in which rule is configured
@@ -83,6 +85,8 @@ func GetIruleOutput(ctx *pulumi.Context, args GetIruleOutputArgs, opts ...pulumi
 
 // A collection of arguments for invoking getIrule.
 type GetIruleOutputArgs struct {
+	// Irule configured on bigip
+	Irule pulumi.StringPtrInput `pulumi:"irule"`
 	// Name of the irule
 	Name pulumi.StringInput `pulumi:"name"`
 	// partition of the ltm irule
@@ -114,8 +118,8 @@ func (o GetIruleResultOutput) Id() pulumi.StringOutput {
 }
 
 // Irule configured on bigip
-func (o GetIruleResultOutput) Irule() pulumi.StringOutput {
-	return o.ApplyT(func(v GetIruleResult) string { return v.Irule }).(pulumi.StringOutput)
+func (o GetIruleResultOutput) Irule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetIruleResult) *string { return v.Irule }).(pulumi.StringPtrOutput)
 }
 
 // Name of irule configured on bigip with full path

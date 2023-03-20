@@ -46,7 +46,7 @@ export interface FastHttpAppPoolMember {
     /**
      * connectionLimit value to be used for FAST-Generated Pool.
      */
-    connectionLimit?: number;
+    connectionLimit: number;
     /**
      * port number of serviceport to be used for FAST-Generated Pool.
      */
@@ -54,11 +54,86 @@ export interface FastHttpAppPoolMember {
     /**
      * priorityGroup value to be used for FAST-Generated Pool.
      */
-    priorityGroup?: number;
+    priorityGroup: number;
     /**
      * shareNodes value to be used for FAST-Generated Pool.
      */
-    shareNodes?: boolean;
+    shareNodes: boolean;
+}
+
+export interface FastHttpAppServiceDiscovery {
+    /**
+     * Specifies whether to look for public or private IP addresses. Default :`private`
+     */
+    sdAddressRealm?: string;
+    /**
+     * Information for discovering AWS nodes that are not in the same region as your BIG-IP.
+     */
+    sdAwsAccessKey: string;
+    /**
+     * Empty string (default) means region in which ADC is running.
+     */
+    sdAwsRegion: string;
+    /**
+     * Will be stored in the declaration as an encrypted string.
+     */
+    sdAwsSecretAccessKey: string;
+    /**
+     * The tag key associated with the node to add to this pool.
+     */
+    sdAwsTagKey: string;
+    /**
+     * The tag value associated with the node to add to this pool.
+     */
+    sdAwsTagVal: string;
+    /**
+     * Azure Active Directory ID (AKA tenant ID).
+     */
+    sdAzureDirectoryId: string;
+    /**
+     * Azure Resource Group name.
+     */
+    sdAzureResourceGroup: string;
+    /**
+     * ID of resource to find nodes by.
+     */
+    sdAzureResourceId: string;
+    /**
+     * Azure subscription ID.
+     */
+    sdAzureSubscriptionId: string;
+    /**
+     * The tag key associated with the node to add to this pool.
+     */
+    sdAzureTagKey: string;
+    /**
+     * The tag value associated with the node to add to this pool.
+     */
+    sdAzureTagVal: string;
+    /**
+     * Empty string (default) means region in which ADC is running.
+     */
+    sdGceRegion: string;
+    /**
+     * The tag key associated with the node to add to this pool
+     */
+    sdGceTagKey: string;
+    /**
+     * The tag value associated with the node to add to this pool.
+     */
+    sdGceTagVal: string;
+    /**
+     * port number of serviceport to be used for FAST-Generated Pool.
+     */
+    sdPort: number;
+    /**
+     * service discovery account type, options [`aws`,`azure`,`gce`]
+     */
+    sdType: string;
+    /**
+     * Action to take when node cannot be detected. Default `remove`.
+     */
+    sdUndetectableAction?: string;
 }
 
 export interface FastHttpAppVirtualServer {
@@ -114,7 +189,7 @@ export interface FastHttpsAppPoolMember {
     /**
      * connectionLimit value to be used for FAST-Generated Pool.
      */
-    connectionLimit?: number;
+    connectionLimit: number;
     /**
      * port number of serviceport to be used for FAST-Generated Pool.
      */
@@ -122,11 +197,86 @@ export interface FastHttpsAppPoolMember {
     /**
      * priorityGroup value to be used for FAST-Generated Pool.
      */
-    priorityGroup?: number;
+    priorityGroup: number;
     /**
      * shareNodes value to be used for FAST-Generated Pool.
      */
-    shareNodes?: boolean;
+    shareNodes: boolean;
+}
+
+export interface FastHttpsAppServiceDiscovery {
+    /**
+     * Specifies whether to look for public or private IP addresses. Default :`private`
+     */
+    sdAddressRealm?: string;
+    /**
+     * Information for discovering AWS nodes that are not in the same region as your BIG-IP.
+     */
+    sdAwsAccessKey: string;
+    /**
+     * Empty string (default) means region in which ADC is running.
+     */
+    sdAwsRegion: string;
+    /**
+     * Will be stored in the declaration as an encrypted string.
+     */
+    sdAwsSecretAccessKey: string;
+    /**
+     * The tag key associated with the node to add to this pool.
+     */
+    sdAwsTagKey: string;
+    /**
+     * The tag value associated with the node to add to this pool.
+     */
+    sdAwsTagVal: string;
+    /**
+     * Azure Active Directory ID (AKA tenant ID).
+     */
+    sdAzureDirectoryId: string;
+    /**
+     * Azure Resource Group name.
+     */
+    sdAzureResourceGroup: string;
+    /**
+     * ID of resource to find nodes by.
+     */
+    sdAzureResourceId: string;
+    /**
+     * Azure subscription ID.
+     */
+    sdAzureSubscriptionId: string;
+    /**
+     * The tag key associated with the node to add to this pool.
+     */
+    sdAzureTagKey: string;
+    /**
+     * The tag value associated with the node to add to this pool.
+     */
+    sdAzureTagVal: string;
+    /**
+     * Empty string (default) means region in which ADC is running.
+     */
+    sdGceRegion: string;
+    /**
+     * The tag key associated with the node to add to this pool
+     */
+    sdGceTagKey: string;
+    /**
+     * The tag value associated with the node to add to this pool.
+     */
+    sdGceTagVal: string;
+    /**
+     * port number of serviceport to be used for FAST-Generated Pool.
+     */
+    sdPort: number;
+    /**
+     * service discovery account type, options [`aws`,`azure`,`gce`]
+     */
+    sdType: string;
+    /**
+     * Action to take when node cannot be detected. Default `remove`.
+     */
+    sdUndetectableAction?: string;
 }
 
 export interface FastHttpsAppTlsClientProfile {
@@ -564,7 +714,7 @@ export namespace ltm {
         /**
          * Specifies the node's address family. The default is 'unspecified', or IP-agnostic. This needs to be specified inside the fqdn (fully qualified domain name).
          */
-        addressFamily?: string;
+        addressFamily: string;
         autopopulate: string;
         downinterval: number;
         /**

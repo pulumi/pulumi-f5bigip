@@ -76,6 +76,9 @@ type FastHttpsApp struct {
 	PoolMembers FastHttpsAppPoolMemberArrayOutput `pulumi:"poolMembers"`
 	// List of security log profiles to be used for FAST application
 	SecurityLogProfiles pulumi.StringArrayOutput `pulumi:"securityLogProfiles"`
+	// `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery.
+	// See Service Discovery below for more details.
+	ServiceDiscoveries FastHttpsAppServiceDiscoveryArrayOutput `pulumi:"serviceDiscoveries"`
 	// Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
 	SlowRampTime pulumi.IntPtrOutput `pulumi:"slowRampTime"`
 	// List of address to be used for FAST-Generated SNAT Pool.
@@ -159,6 +162,9 @@ type fastHttpsAppState struct {
 	PoolMembers []FastHttpsAppPoolMember `pulumi:"poolMembers"`
 	// List of security log profiles to be used for FAST application
 	SecurityLogProfiles []string `pulumi:"securityLogProfiles"`
+	// `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery.
+	// See Service Discovery below for more details.
+	ServiceDiscoveries []FastHttpsAppServiceDiscovery `pulumi:"serviceDiscoveries"`
 	// Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
 	SlowRampTime *int `pulumi:"slowRampTime"`
 	// List of address to be used for FAST-Generated SNAT Pool.
@@ -208,6 +214,9 @@ type FastHttpsAppState struct {
 	PoolMembers FastHttpsAppPoolMemberArrayInput
 	// List of security log profiles to be used for FAST application
 	SecurityLogProfiles pulumi.StringArrayInput
+	// `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery.
+	// See Service Discovery below for more details.
+	ServiceDiscoveries FastHttpsAppServiceDiscoveryArrayInput
 	// Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
 	SlowRampTime pulumi.IntPtrInput
 	// List of address to be used for FAST-Generated SNAT Pool.
@@ -259,6 +268,9 @@ type fastHttpsAppArgs struct {
 	PoolMembers []FastHttpsAppPoolMember `pulumi:"poolMembers"`
 	// List of security log profiles to be used for FAST application
 	SecurityLogProfiles []string `pulumi:"securityLogProfiles"`
+	// `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery.
+	// See Service Discovery below for more details.
+	ServiceDiscoveries []FastHttpsAppServiceDiscovery `pulumi:"serviceDiscoveries"`
 	// Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
 	SlowRampTime *int `pulumi:"slowRampTime"`
 	// List of address to be used for FAST-Generated SNAT Pool.
@@ -307,6 +319,9 @@ type FastHttpsAppArgs struct {
 	PoolMembers FastHttpsAppPoolMemberArrayInput
 	// List of security log profiles to be used for FAST application
 	SecurityLogProfiles pulumi.StringArrayInput
+	// `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery.
+	// See Service Discovery below for more details.
+	ServiceDiscoveries FastHttpsAppServiceDiscoveryArrayInput
 	// Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
 	SlowRampTime pulumi.IntPtrInput
 	// List of address to be used for FAST-Generated SNAT Pool.
@@ -479,6 +494,12 @@ func (o FastHttpsAppOutput) PoolMembers() FastHttpsAppPoolMemberArrayOutput {
 // List of security log profiles to be used for FAST application
 func (o FastHttpsAppOutput) SecurityLogProfiles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FastHttpsApp) pulumi.StringArrayOutput { return v.SecurityLogProfiles }).(pulumi.StringArrayOutput)
+}
+
+// `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery.
+// See Service Discovery below for more details.
+func (o FastHttpsAppOutput) ServiceDiscoveries() FastHttpsAppServiceDiscoveryArrayOutput {
+	return o.ApplyT(func(v *FastHttpsApp) FastHttpsAppServiceDiscoveryArrayOutput { return v.ServiceDiscoveries }).(FastHttpsAppServiceDiscoveryArrayOutput)
 }
 
 // Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
