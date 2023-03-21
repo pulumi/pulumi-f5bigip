@@ -102,7 +102,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// Specifies a cert name for use.
         /// </summary>
         [Output("cert")]
-        public Output<string?> Cert { get; private set; } = null!;
+        public Output<string> Cert { get; private set; } = null!;
 
         /// <summary>
         /// Cert extension includes for ssl forward proxy
@@ -129,7 +129,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// Contains a certificate chain that is relevant to the certificate and key mentioned earlier.This key is optional
         /// </summary>
         [Output("chain")]
-        public Output<string?> Chain { get; private set; } = null!;
+        public Output<string> Chain { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the cipher group for the SSL server profile. It is mutually exclusive with the argument, `ciphers`. The default value is `none`.
@@ -201,7 +201,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// Contains a key name
         /// </summary>
         [Output("key")]
-        public Output<string?> Key { get; private set; } = null!;
+        public Output<string> Key { get; private set; } = null!;
 
         /// <summary>
         /// ModSSL Methods enabled / disabled. Default is disabled.

@@ -82,6 +82,12 @@ namespace Pulumi.F5BigIP.Ltm
     public sealed class GetIruleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Irule configured on bigip
+        /// </summary>
+        [Input("irule")]
+        public string? Irule { get; set; }
+
+        /// <summary>
         /// Name of the irule
         /// </summary>
         [Input("name", required: true)]
@@ -101,6 +107,12 @@ namespace Pulumi.F5BigIP.Ltm
 
     public sealed class GetIruleInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Irule configured on bigip
+        /// </summary>
+        [Input("irule")]
+        public Input<string>? Irule { get; set; }
+
         /// <summary>
         /// Name of the irule
         /// </summary>
@@ -130,7 +142,7 @@ namespace Pulumi.F5BigIP.Ltm
         /// <summary>
         /// Irule configured on bigip
         /// </summary>
-        public readonly string Irule;
+        public readonly string? Irule;
         /// <summary>
         /// Name of irule configured on bigip with full path
         /// </summary>
@@ -144,7 +156,7 @@ namespace Pulumi.F5BigIP.Ltm
         private GetIruleResult(
             string id,
 
-            string irule,
+            string? irule,
 
             string name,
 

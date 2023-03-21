@@ -24,6 +24,7 @@ export function getIrule(args: GetIruleArgs, opts?: pulumi.InvokeOptions): Promi
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("f5bigip:ltm/getIrule:getIrule", {
+        "irule": args.irule,
         "name": args.name,
         "partition": args.partition,
     }, opts);
@@ -33,6 +34,10 @@ export function getIrule(args: GetIruleArgs, opts?: pulumi.InvokeOptions): Promi
  * A collection of arguments for invoking getIrule.
  */
 export interface GetIruleArgs {
+    /**
+     * Irule configured on bigip
+     */
+    irule?: string;
     /**
      * Name of the irule
      */
@@ -54,7 +59,7 @@ export interface GetIruleResult {
     /**
      * Irule configured on bigip
      */
-    readonly irule: string;
+    readonly irule?: string;
     /**
      * Name of irule configured on bigip with full path
      */
@@ -88,6 +93,10 @@ export function getIruleOutput(args: GetIruleOutputArgs, opts?: pulumi.InvokeOpt
  * A collection of arguments for invoking getIrule.
  */
 export interface GetIruleOutputArgs {
+    /**
+     * Irule configured on bigip
+     */
+    irule?: pulumi.Input<string>;
     /**
      * Name of the irule
      */

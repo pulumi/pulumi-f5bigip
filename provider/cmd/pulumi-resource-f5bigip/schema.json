@@ -267,7 +267,210 @@
             "type": "object",
             "required": [
                 "addresses"
-            ]
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "addresses",
+                        "connectionLimit",
+                        "priorityGroup",
+                        "shareNodes"
+                    ]
+                }
+            }
+        },
+        "f5bigip:index/FastHttpAppServiceDiscovery:FastHttpAppServiceDiscovery": {
+            "properties": {
+                "sdAddressRealm": {
+                    "type": "string",
+                    "description": "Specifies whether to look for public or private IP addresses. Default :`private`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sdAwsAccessKey": {
+                    "type": "string",
+                    "description": "Information for discovering AWS nodes that are not in the same region as your BIG-IP.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sdAwsRegion": {
+                    "type": "string",
+                    "description": "Empty string (default) means region in which ADC is running.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sdAwsSecretAccessKey": {
+                    "type": "string",
+                    "description": "Will be stored in the declaration as an encrypted string.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sdAwsTagKey": {
+                    "type": "string",
+                    "description": "The tag key associated with the node to add to this pool.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sdAwsTagVal": {
+                    "type": "string",
+                    "description": "The tag value associated with the node to add to this pool.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sdAzureDirectoryId": {
+                    "type": "string",
+                    "description": "Azure Active Directory ID (AKA tenant ID).\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sdAzureResourceGroup": {
+                    "type": "string",
+                    "description": "Azure Resource Group name.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sdAzureResourceId": {
+                    "type": "string",
+                    "description": "ID of resource to find nodes by.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sdAzureSubscriptionId": {
+                    "type": "string",
+                    "description": "Azure subscription ID.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sdAzureTagKey": {
+                    "type": "string",
+                    "description": "The tag key associated with the node to add to this pool.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sdAzureTagVal": {
+                    "type": "string",
+                    "description": "The tag value associated with the node to add to this pool.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sdGceRegion": {
+                    "type": "string",
+                    "description": "Empty string (default) means region in which ADC is running.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sdGceTagKey": {
+                    "type": "string",
+                    "description": "The tag key associated with the node to add to this pool\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sdGceTagVal": {
+                    "type": "string",
+                    "description": "The tag value associated with the node to add to this pool.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sdPort": {
+                    "type": "integer",
+                    "description": "port number of serviceport to be used for FAST-Generated Pool.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sdType": {
+                    "type": "string",
+                    "description": "service discovery account type, options [`aws`,`azure`,`gce`]\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sdUndetectableAction": {
+                    "type": "string",
+                    "description": "Action to take when node cannot be detected. Default `remove`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "sdPort",
+                "sdType"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "sdAwsAccessKey",
+                        "sdAwsRegion",
+                        "sdAwsSecretAccessKey",
+                        "sdAwsTagKey",
+                        "sdAwsTagVal",
+                        "sdAzureDirectoryId",
+                        "sdAzureResourceGroup",
+                        "sdAzureResourceId",
+                        "sdAzureSubscriptionId",
+                        "sdAzureTagKey",
+                        "sdAzureTagVal",
+                        "sdGceRegion",
+                        "sdGceTagKey",
+                        "sdGceTagVal",
+                        "sdPort",
+                        "sdType"
+                    ]
+                }
+            }
         },
         "f5bigip:index/FastHttpAppVirtualServer:FastHttpAppVirtualServer": {
             "properties": {
@@ -427,7 +630,210 @@
             "type": "object",
             "required": [
                 "addresses"
-            ]
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "addresses",
+                        "connectionLimit",
+                        "priorityGroup",
+                        "shareNodes"
+                    ]
+                }
+            }
+        },
+        "f5bigip:index/FastHttpsAppServiceDiscovery:FastHttpsAppServiceDiscovery": {
+            "properties": {
+                "sdAddressRealm": {
+                    "type": "string",
+                    "description": "Specifies whether to look for public or private IP addresses. Default :`private`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sdAwsAccessKey": {
+                    "type": "string",
+                    "description": "Information for discovering AWS nodes that are not in the same region as your BIG-IP.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sdAwsRegion": {
+                    "type": "string",
+                    "description": "Empty string (default) means region in which ADC is running.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sdAwsSecretAccessKey": {
+                    "type": "string",
+                    "description": "Will be stored in the declaration as an encrypted string.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sdAwsTagKey": {
+                    "type": "string",
+                    "description": "The tag key associated with the node to add to this pool.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sdAwsTagVal": {
+                    "type": "string",
+                    "description": "The tag value associated with the node to add to this pool.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sdAzureDirectoryId": {
+                    "type": "string",
+                    "description": "Azure Active Directory ID (AKA tenant ID).\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sdAzureResourceGroup": {
+                    "type": "string",
+                    "description": "Azure Resource Group name.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sdAzureResourceId": {
+                    "type": "string",
+                    "description": "ID of resource to find nodes by.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sdAzureSubscriptionId": {
+                    "type": "string",
+                    "description": "Azure subscription ID.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sdAzureTagKey": {
+                    "type": "string",
+                    "description": "The tag key associated with the node to add to this pool.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sdAzureTagVal": {
+                    "type": "string",
+                    "description": "The tag value associated with the node to add to this pool.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sdGceRegion": {
+                    "type": "string",
+                    "description": "Empty string (default) means region in which ADC is running.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sdGceTagKey": {
+                    "type": "string",
+                    "description": "The tag key associated with the node to add to this pool\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sdGceTagVal": {
+                    "type": "string",
+                    "description": "The tag value associated with the node to add to this pool.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sdPort": {
+                    "type": "integer",
+                    "description": "port number of serviceport to be used for FAST-Generated Pool.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sdType": {
+                    "type": "string",
+                    "description": "service discovery account type, options [`aws`,`azure`,`gce`]\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sdUndetectableAction": {
+                    "type": "string",
+                    "description": "Action to take when node cannot be detected. Default `remove`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "sdPort",
+                "sdType"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "sdAwsAccessKey",
+                        "sdAwsRegion",
+                        "sdAwsSecretAccessKey",
+                        "sdAwsTagKey",
+                        "sdAwsTagVal",
+                        "sdAzureDirectoryId",
+                        "sdAzureResourceGroup",
+                        "sdAzureResourceId",
+                        "sdAzureSubscriptionId",
+                        "sdAzureTagKey",
+                        "sdAzureTagVal",
+                        "sdGceRegion",
+                        "sdGceTagKey",
+                        "sdGceTagVal",
+                        "sdPort",
+                        "sdType"
+                    ]
+                }
+            }
         },
         "f5bigip:index/FastHttpsAppTlsClientProfile:FastHttpsAppTlsClientProfile": {
             "properties": {
@@ -901,6 +1307,7 @@
             "language": {
                 "nodejs": {
                     "requiredOutputs": [
+                        "addressFamily",
                         "autopopulate",
                         "downinterval",
                         "interval"
@@ -6107,6 +6514,13 @@
                     },
                     "description": "List of security log profiles to be used for FAST application\n"
                 },
+                "serviceDiscoveries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/f5bigip:index/FastHttpAppServiceDiscovery:FastHttpAppServiceDiscovery"
+                    },
+                    "description": "`service_discovery` block to Automatically Discover Pool Members with Service Discovery.\nSee Service Discovery below for more details.\n"
+                },
                 "slowRampTime": {
                     "type": "integer",
                     "description": "Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds\n"
@@ -6134,6 +6548,7 @@
             "required": [
                 "application",
                 "fastHttpJson",
+                "poolMembers",
                 "tenant"
             ],
             "inputProperties": {
@@ -6186,6 +6601,13 @@
                         "type": "string"
                     },
                     "description": "List of security log profiles to be used for FAST application\n"
+                },
+                "serviceDiscoveries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/f5bigip:index/FastHttpAppServiceDiscovery:FastHttpAppServiceDiscovery"
+                    },
+                    "description": "`service_discovery` block to Automatically Discover Pool Members with Service Discovery.\nSee Service Discovery below for more details.\n"
                 },
                 "slowRampTime": {
                     "type": "integer",
@@ -6272,6 +6694,13 @@
                             "type": "string"
                         },
                         "description": "List of security log profiles to be used for FAST application\n"
+                    },
+                    "serviceDiscoveries": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/f5bigip:index/FastHttpAppServiceDiscovery:FastHttpAppServiceDiscovery"
+                        },
+                        "description": "`service_discovery` block to Automatically Discover Pool Members with Service Discovery.\nSee Service Discovery below for more details.\n"
                     },
                     "slowRampTime": {
                         "type": "integer",
@@ -6365,6 +6794,13 @@
                     },
                     "description": "List of security log profiles to be used for FAST application\n"
                 },
+                "serviceDiscoveries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/f5bigip:index/FastHttpsAppServiceDiscovery:FastHttpsAppServiceDiscovery"
+                    },
+                    "description": "`service_discovery` block to Automatically Discover Pool Members with Service Discovery.\nSee Service Discovery below for more details.\n"
+                },
                 "slowRampTime": {
                     "type": "integer",
                     "description": "Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds\n"
@@ -6400,6 +6836,7 @@
             "required": [
                 "application",
                 "fastHttpsJson",
+                "poolMembers",
                 "tenant"
             ],
             "inputProperties": {
@@ -6460,6 +6897,13 @@
                         "type": "string"
                     },
                     "description": "List of security log profiles to be used for FAST application\n"
+                },
+                "serviceDiscoveries": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/f5bigip:index/FastHttpsAppServiceDiscovery:FastHttpsAppServiceDiscovery"
+                    },
+                    "description": "`service_discovery` block to Automatically Discover Pool Members with Service Discovery.\nSee Service Discovery below for more details.\n"
                 },
                 "slowRampTime": {
                     "type": "integer",
@@ -6562,6 +7006,13 @@
                             "type": "string"
                         },
                         "description": "List of security log profiles to be used for FAST application\n"
+                    },
+                    "serviceDiscoveries": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/f5bigip:index/FastHttpsAppServiceDiscovery:FastHttpsAppServiceDiscovery"
+                        },
+                        "description": "`service_discovery` block to Automatically Discover Pool Members with Service Discovery.\nSee Service Discovery below for more details.\n"
                     },
                     "slowRampTime": {
                         "type": "integer",
@@ -8424,6 +8875,7 @@
                 }
             },
             "required": [
+                "description",
                 "name",
                 "policyExportJson",
                 "policyId",
@@ -10518,7 +10970,7 @@
                 },
                 "certKeyChain": {
                     "$ref": "#/types/f5bigip:ltm/ProfileClientSslCertKeyChain:ProfileClientSslCertKeyChain",
-                    "deprecationMessage": "This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute."
+                    "deprecationMessage": "This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute."
                 },
                 "certLifeSpan": {
                     "type": "integer",
@@ -10708,9 +11160,11 @@
                 "caFile",
                 "cacheSize",
                 "cacheTimeout",
+                "cert",
                 "certExtensionIncludes",
                 "certLifeSpan",
                 "certLookupByIpaddrPort",
+                "chain",
                 "ciphers",
                 "clientCertCa",
                 "crlFile",
@@ -10720,6 +11174,7 @@
                 "genericAlert",
                 "handshakeTimeout",
                 "inheritCertKeychain",
+                "key",
                 "modSslMethods",
                 "mode",
                 "name",
@@ -10803,7 +11258,7 @@
                 },
                 "certKeyChain": {
                     "$ref": "#/types/f5bigip:ltm/ProfileClientSslCertKeyChain:ProfileClientSslCertKeyChain",
-                    "deprecationMessage": "This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute."
+                    "deprecationMessage": "This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute."
                 },
                 "certLifeSpan": {
                     "type": "integer",
@@ -11042,7 +11497,7 @@
                     },
                     "certKeyChain": {
                         "$ref": "#/types/f5bigip:ltm/ProfileClientSslCertKeyChain:ProfileClientSslCertKeyChain",
-                        "deprecationMessage": "This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute."
+                        "deprecationMessage": "This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute."
                     },
                     "certLifeSpan": {
                         "type": "integer",
@@ -16064,6 +16519,10 @@
             "inputs": {
                 "description": "A collection of arguments for invoking getIrule.\n",
                 "properties": {
+                    "irule": {
+                        "type": "string",
+                        "description": "Irule configured on bigip\n"
+                    },
                     "name": {
                         "type": "string",
                         "description": "Name of the irule\n"
@@ -16101,7 +16560,6 @@
                 },
                 "type": "object",
                 "required": [
-                    "irule",
                     "name",
                     "partition",
                     "id"

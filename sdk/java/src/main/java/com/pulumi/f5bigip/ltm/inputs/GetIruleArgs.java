@@ -7,11 +7,28 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetIruleArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetIruleArgs Empty = new GetIruleArgs();
+
+    /**
+     * Irule configured on bigip
+     * 
+     */
+    @Import(name="irule")
+    private @Nullable Output<String> irule;
+
+    /**
+     * @return Irule configured on bigip
+     * 
+     */
+    public Optional<Output<String>> irule() {
+        return Optional.ofNullable(this.irule);
+    }
 
     /**
      * Name of the irule
@@ -46,6 +63,7 @@ public final class GetIruleArgs extends com.pulumi.resources.InvokeArgs {
     private GetIruleArgs() {}
 
     private GetIruleArgs(GetIruleArgs $) {
+        this.irule = $.irule;
         this.name = $.name;
         this.partition = $.partition;
     }
@@ -66,6 +84,27 @@ public final class GetIruleArgs extends com.pulumi.resources.InvokeArgs {
 
         public Builder(GetIruleArgs defaults) {
             $ = new GetIruleArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param irule Irule configured on bigip
+         * 
+         * @return builder
+         * 
+         */
+        public Builder irule(@Nullable Output<String> irule) {
+            $.irule = irule;
+            return this;
+        }
+
+        /**
+         * @param irule Irule configured on bigip
+         * 
+         * @return builder
+         * 
+         */
+        public Builder irule(String irule) {
+            return irule(Output.of(irule));
         }
 
         /**

@@ -96,11 +96,16 @@ export class FastHttpApp extends pulumi.CustomResource {
      * `poolMembers` block takes input for FAST-Generated Pool.
      * See Pool Members below for more details.
      */
-    public readonly poolMembers!: pulumi.Output<outputs.FastHttpAppPoolMember[] | undefined>;
+    public readonly poolMembers!: pulumi.Output<outputs.FastHttpAppPoolMember[]>;
     /**
      * List of security log profiles to be used for FAST application
      */
     public readonly securityLogProfiles!: pulumi.Output<string[] | undefined>;
+    /**
+     * `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery.
+     * See Service Discovery below for more details.
+     */
+    public readonly serviceDiscoveries!: pulumi.Output<outputs.FastHttpAppServiceDiscovery[] | undefined>;
     /**
      * Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
      */
@@ -148,6 +153,7 @@ export class FastHttpApp extends pulumi.CustomResource {
             resourceInputs["monitor"] = state ? state.monitor : undefined;
             resourceInputs["poolMembers"] = state ? state.poolMembers : undefined;
             resourceInputs["securityLogProfiles"] = state ? state.securityLogProfiles : undefined;
+            resourceInputs["serviceDiscoveries"] = state ? state.serviceDiscoveries : undefined;
             resourceInputs["slowRampTime"] = state ? state.slowRampTime : undefined;
             resourceInputs["snatPoolAddresses"] = state ? state.snatPoolAddresses : undefined;
             resourceInputs["tenant"] = state ? state.tenant : undefined;
@@ -171,6 +177,7 @@ export class FastHttpApp extends pulumi.CustomResource {
             resourceInputs["monitor"] = args ? args.monitor : undefined;
             resourceInputs["poolMembers"] = args ? args.poolMembers : undefined;
             resourceInputs["securityLogProfiles"] = args ? args.securityLogProfiles : undefined;
+            resourceInputs["serviceDiscoveries"] = args ? args.serviceDiscoveries : undefined;
             resourceInputs["slowRampTime"] = args ? args.slowRampTime : undefined;
             resourceInputs["snatPoolAddresses"] = args ? args.snatPoolAddresses : undefined;
             resourceInputs["tenant"] = args ? args.tenant : undefined;
@@ -233,6 +240,11 @@ export interface FastHttpAppState {
      * List of security log profiles to be used for FAST application
      */
     securityLogProfiles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery.
+     * See Service Discovery below for more details.
+     */
+    serviceDiscoveries?: pulumi.Input<pulumi.Input<inputs.FastHttpAppServiceDiscovery>[]>;
     /**
      * Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
      */
@@ -303,6 +315,11 @@ export interface FastHttpAppArgs {
      * List of security log profiles to be used for FAST application
      */
     securityLogProfiles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery.
+     * See Service Discovery below for more details.
+     */
+    serviceDiscoveries?: pulumi.Input<pulumi.Input<inputs.FastHttpAppServiceDiscovery>[]>;
     /**
      * Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
      */

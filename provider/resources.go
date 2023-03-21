@@ -21,11 +21,10 @@ import (
 	"unicode"
 
 	"github.com/F5Networks/terraform-provider-bigip/bigip"
-	"github.com/hashicorp/terraform-plugin-sdk/helper/schema"
 	"github.com/pulumi/pulumi-f5bigip/provider/v3/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
-	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v1"
+	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
@@ -74,7 +73,7 @@ func makeDataSource(mod string, res string) tokens.ModuleMember {
 // Provider returns additional overlaid schema and metadata associated with the F5 BigIP package.
 func Provider() tfbridge.ProviderInfo {
 	prov := tfbridge.ProviderInfo{
-		P:           shimv1.NewProvider(bigip.Provider().(*schema.Provider)),
+		P:           shimv2.NewProvider(bigip.Provider()),
 		Name:        "bigip",
 		Description: "A Pulumi package for creating and managing F5 BigIP resources.",
 		Keywords:    []string{"pulumi", "f5", "bigip"},

@@ -202,19 +202,19 @@ public final class ProfileClientSslArgs extends com.pulumi.resources.ResourceArg
 
     /**
      * @deprecated
-     * This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
+     * This Field &#39;cert_key_chain&#39; going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
      * 
      */
-    @Deprecated /* This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute. */
+    @Deprecated /* This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute. */
     @Import(name="certKeyChain")
     private @Nullable Output<ProfileClientSslCertKeyChainArgs> certKeyChain;
 
     /**
      * @deprecated
-     * This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
+     * This Field &#39;cert_key_chain&#39; going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
      * 
      */
-    @Deprecated /* This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute. */
+    @Deprecated /* This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute. */
     public Optional<Output<ProfileClientSslCertKeyChainArgs>> certKeyChain() {
         return Optional.ofNullable(this.certKeyChain);
     }
@@ -1221,10 +1221,10 @@ public final class ProfileClientSslArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          * @deprecated
-         * This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
+         * This Field &#39;cert_key_chain&#39; going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
          * 
          */
-        @Deprecated /* This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute. */
+        @Deprecated /* This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute. */
         public Builder certKeyChain(@Nullable Output<ProfileClientSslCertKeyChainArgs> certKeyChain) {
             $.certKeyChain = certKeyChain;
             return this;
@@ -1234,10 +1234,10 @@ public final class ProfileClientSslArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          * @deprecated
-         * This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
+         * This Field &#39;cert_key_chain&#39; going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.
          * 
          */
-        @Deprecated /* This Field going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute. */
+        @Deprecated /* This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute. */
         public Builder certKeyChain(ProfileClientSslCertKeyChainArgs certKeyChain) {
             return certKeyChain(Output.of(certKeyChain));
         }

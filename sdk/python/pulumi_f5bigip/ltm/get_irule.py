@@ -45,7 +45,7 @@ class GetIruleResult:
 
     @property
     @pulumi.getter
-    def irule(self) -> str:
+    def irule(self) -> Optional[str]:
         """
         Irule configured on bigip
         """
@@ -80,7 +80,8 @@ class AwaitableGetIruleResult(GetIruleResult):
             partition=self.partition)
 
 
-def get_irule(name: Optional[str] = None,
+def get_irule(irule: Optional[str] = None,
+              name: Optional[str] = None,
               partition: Optional[str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIruleResult:
     """
@@ -98,10 +99,12 @@ def get_irule(name: Optional[str] = None,
     ```
 
 
+    :param str irule: Irule configured on bigip
     :param str name: Name of the irule
     :param str partition: partition of the ltm irule
     """
     __args__ = dict()
+    __args__['irule'] = irule
     __args__['name'] = name
     __args__['partition'] = partition
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -115,7 +118,8 @@ def get_irule(name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_irule)
-def get_irule_output(name: Optional[pulumi.Input[str]] = None,
+def get_irule_output(irule: Optional[pulumi.Input[Optional[str]]] = None,
+                     name: Optional[pulumi.Input[str]] = None,
                      partition: Optional[pulumi.Input[str]] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIruleResult]:
     """
@@ -133,6 +137,7 @@ def get_irule_output(name: Optional[pulumi.Input[str]] = None,
     ```
 
 
+    :param str irule: Irule configured on bigip
     :param str name: Name of the irule
     :param str partition: partition of the ltm irule
     """
