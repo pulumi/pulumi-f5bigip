@@ -229,6 +229,8 @@ func Provider() tfbridge.ProviderInfo {
 	err := x.ComputeDefaults(&prov, x.TokensKnownModules("bigip_", "", mappedModKeys,
 		x.MakeStandardToken(f5BigIPPkg)))
 	contract.AssertNoErrorf(err, "failed to apply auto token mapping")
+	err = x.AutoAliasing(&prov, prov.GetMetadata())
+	contract.AssertNoErrorf(err, "failed to apply auto aliasing")
 
 	return prov
 }

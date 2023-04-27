@@ -33,6 +33,8 @@ if typing.TYPE_CHECKING:
     cm = __cm
     import pulumi_f5bigip.config as __config
     config = __config
+    import pulumi_f5bigip.fast as __fast
+    fast = __fast
     import pulumi_f5bigip.ltm as __ltm
     ltm = __ltm
     import pulumi_f5bigip.net as __net
@@ -46,6 +48,7 @@ if typing.TYPE_CHECKING:
 else:
     cm = _utilities.lazy_import('pulumi_f5bigip.cm')
     config = _utilities.lazy_import('pulumi_f5bigip.config')
+    fast = _utilities.lazy_import('pulumi_f5bigip.fast')
     ltm = _utilities.lazy_import('pulumi_f5bigip.ltm')
     net = _utilities.lazy_import('pulumi_f5bigip.net')
     ssl = _utilities.lazy_import('pulumi_f5bigip.ssl')

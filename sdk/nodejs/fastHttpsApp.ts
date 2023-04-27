@@ -26,6 +26,44 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
+ * ### With Service Discovery
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const tC3AzureServiceDiscovery = f5bigip.fast.getAzureServiceDiscovery({
+ *     resourceGroup: "testazurerg",
+ *     subscriptionId: "testazuresid",
+ *     tagKey: "testazuretag",
+ *     tagValue: "testazurevalue",
+ * });
+ * const tC3GceServiceDiscovery = f5bigip.fast.getGceServiceDiscovery({
+ *     tagKey: "testgcetag",
+ *     tagValue: "testgcevalue",
+ *     region: "testgceregion",
+ * });
+ * const fastHttpsApp = new f5bigip.FastHttpsApp("fastHttpsApp", {
+ *     tenant: "fasthttpstenant",
+ *     application: "fasthttpsapp",
+ *     virtualServer: {
+ *         ip: "10.30.40.44",
+ *         port: 443,
+ *     },
+ *     poolMembers: [{
+ *         addresses: [
+ *             "10.11.40.120",
+ *             "10.11.30.121",
+ *             "10.11.30.122",
+ *         ],
+ *         port: 80,
+ *     }],
+ *     serviceDiscoveries: [
+ *         tC3GceServiceDiscovery.then(tC3GceServiceDiscovery => tC3GceServiceDiscovery.gceSdJson),
+ *         tC3AzureServiceDiscovery.then(tC3AzureServiceDiscovery => tC3AzureServiceDiscovery.azureSdJson),
+ *     ],
+ * });
+ * ```
  */
 export class FastHttpsApp extends pulumi.CustomResource {
     /**
@@ -110,10 +148,9 @@ export class FastHttpsApp extends pulumi.CustomResource {
      */
     public readonly securityLogProfiles!: pulumi.Output<string[] | undefined>;
     /**
-     * `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery.
-     * See Service Discovery below for more details.
+     * List of different cloud service discovery config provided as string, provided `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
      */
-    public readonly serviceDiscoveries!: pulumi.Output<outputs.FastHttpsAppServiceDiscovery[] | undefined>;
+    public readonly serviceDiscoveries!: pulumi.Output<string[]>;
     /**
      * Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
      */
@@ -275,10 +312,9 @@ export interface FastHttpsAppState {
      */
     securityLogProfiles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery.
-     * See Service Discovery below for more details.
+     * List of different cloud service discovery config provided as string, provided `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
      */
-    serviceDiscoveries?: pulumi.Input<pulumi.Input<inputs.FastHttpsAppServiceDiscovery>[]>;
+    serviceDiscoveries?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
      */
@@ -368,10 +404,9 @@ export interface FastHttpsAppArgs {
      */
     securityLogProfiles?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery.
-     * See Service Discovery below for more details.
+     * List of different cloud service discovery config provided as string, provided `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
      */
-    serviceDiscoveries?: pulumi.Input<pulumi.Input<inputs.FastHttpsAppServiceDiscovery>[]>;
+    serviceDiscoveries?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
      */

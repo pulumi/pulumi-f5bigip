@@ -45,6 +45,68 @@ import (
 //	}
 //
 // ```
+// ### With Service Discovery
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/fast"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tC3AzureServiceDiscovery, err := fast.GetAzureServiceDiscovery(ctx, &fast.GetAzureServiceDiscoveryArgs{
+//				ResourceGroup:  "testazurerg",
+//				SubscriptionId: "testazuresid",
+//				TagKey:         pulumi.StringRef("testazuretag"),
+//				TagValue:       pulumi.StringRef("testazurevalue"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			tC3GceServiceDiscovery, err := fast.GetGceServiceDiscovery(ctx, &fast.GetGceServiceDiscoveryArgs{
+//				TagKey:   "testgcetag",
+//				TagValue: "testgcevalue",
+//				Region:   "testgceregion",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = f5bigip.NewFastHttpsApp(ctx, "fastHttpsApp", &f5bigip.FastHttpsAppArgs{
+//				Tenant:      pulumi.String("fasthttpstenant"),
+//				Application: pulumi.String("fasthttpsapp"),
+//				VirtualServer: &f5bigip.FastHttpsAppVirtualServerArgs{
+//					Ip:   pulumi.String("10.30.40.44"),
+//					Port: pulumi.Int(443),
+//				},
+//				PoolMembers: f5bigip.FastHttpsAppPoolMemberArray{
+//					&f5bigip.FastHttpsAppPoolMemberArgs{
+//						Addresses: pulumi.StringArray{
+//							pulumi.String("10.11.40.120"),
+//							pulumi.String("10.11.30.121"),
+//							pulumi.String("10.11.30.122"),
+//						},
+//						Port: pulumi.Int(80),
+//					},
+//				},
+//				ServiceDiscoveries: pulumi.StringArray{
+//					*pulumi.String(tC3GceServiceDiscovery.GceSdJson),
+//					*pulumi.String(tC3AzureServiceDiscovery.AzureSdJson),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type FastHttpsApp struct {
 	pulumi.CustomResourceState
 
@@ -76,9 +138,8 @@ type FastHttpsApp struct {
 	PoolMembers FastHttpsAppPoolMemberArrayOutput `pulumi:"poolMembers"`
 	// List of security log profiles to be used for FAST application
 	SecurityLogProfiles pulumi.StringArrayOutput `pulumi:"securityLogProfiles"`
-	// `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery.
-	// See Service Discovery below for more details.
-	ServiceDiscoveries FastHttpsAppServiceDiscoveryArrayOutput `pulumi:"serviceDiscoveries"`
+	// List of different cloud service discovery config provided as string, provided `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
+	ServiceDiscoveries pulumi.StringArrayOutput `pulumi:"serviceDiscoveries"`
 	// Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
 	SlowRampTime pulumi.IntPtrOutput `pulumi:"slowRampTime"`
 	// List of address to be used for FAST-Generated SNAT Pool.
@@ -162,9 +223,8 @@ type fastHttpsAppState struct {
 	PoolMembers []FastHttpsAppPoolMember `pulumi:"poolMembers"`
 	// List of security log profiles to be used for FAST application
 	SecurityLogProfiles []string `pulumi:"securityLogProfiles"`
-	// `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery.
-	// See Service Discovery below for more details.
-	ServiceDiscoveries []FastHttpsAppServiceDiscovery `pulumi:"serviceDiscoveries"`
+	// List of different cloud service discovery config provided as string, provided `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
+	ServiceDiscoveries []string `pulumi:"serviceDiscoveries"`
 	// Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
 	SlowRampTime *int `pulumi:"slowRampTime"`
 	// List of address to be used for FAST-Generated SNAT Pool.
@@ -214,9 +274,8 @@ type FastHttpsAppState struct {
 	PoolMembers FastHttpsAppPoolMemberArrayInput
 	// List of security log profiles to be used for FAST application
 	SecurityLogProfiles pulumi.StringArrayInput
-	// `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery.
-	// See Service Discovery below for more details.
-	ServiceDiscoveries FastHttpsAppServiceDiscoveryArrayInput
+	// List of different cloud service discovery config provided as string, provided `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
+	ServiceDiscoveries pulumi.StringArrayInput
 	// Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
 	SlowRampTime pulumi.IntPtrInput
 	// List of address to be used for FAST-Generated SNAT Pool.
@@ -268,9 +327,8 @@ type fastHttpsAppArgs struct {
 	PoolMembers []FastHttpsAppPoolMember `pulumi:"poolMembers"`
 	// List of security log profiles to be used for FAST application
 	SecurityLogProfiles []string `pulumi:"securityLogProfiles"`
-	// `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery.
-	// See Service Discovery below for more details.
-	ServiceDiscoveries []FastHttpsAppServiceDiscovery `pulumi:"serviceDiscoveries"`
+	// List of different cloud service discovery config provided as string, provided `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
+	ServiceDiscoveries []string `pulumi:"serviceDiscoveries"`
 	// Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
 	SlowRampTime *int `pulumi:"slowRampTime"`
 	// List of address to be used for FAST-Generated SNAT Pool.
@@ -319,9 +377,8 @@ type FastHttpsAppArgs struct {
 	PoolMembers FastHttpsAppPoolMemberArrayInput
 	// List of security log profiles to be used for FAST application
 	SecurityLogProfiles pulumi.StringArrayInput
-	// `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery.
-	// See Service Discovery below for more details.
-	ServiceDiscoveries FastHttpsAppServiceDiscoveryArrayInput
+	// List of different cloud service discovery config provided as string, provided `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
+	ServiceDiscoveries pulumi.StringArrayInput
 	// Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
 	SlowRampTime pulumi.IntPtrInput
 	// List of address to be used for FAST-Generated SNAT Pool.
@@ -496,10 +553,9 @@ func (o FastHttpsAppOutput) SecurityLogProfiles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FastHttpsApp) pulumi.StringArrayOutput { return v.SecurityLogProfiles }).(pulumi.StringArrayOutput)
 }
 
-// `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery.
-// See Service Discovery below for more details.
-func (o FastHttpsAppOutput) ServiceDiscoveries() FastHttpsAppServiceDiscoveryArrayOutput {
-	return o.ApplyT(func(v *FastHttpsApp) FastHttpsAppServiceDiscoveryArrayOutput { return v.ServiceDiscoveries }).(FastHttpsAppServiceDiscoveryArrayOutput)
+// List of different cloud service discovery config provided as string, provided `serviceDiscovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
+func (o FastHttpsAppOutput) ServiceDiscoveries() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *FastHttpsApp) pulumi.StringArrayOutput { return v.ServiceDiscoveries }).(pulumi.StringArrayOutput)
 }
 
 // Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
