@@ -15,6 +15,8 @@
 package f5bigip
 
 import (
+	// embed is used to store bridge-metadata.json in the compiled binary
+	_ "embed"
 	"fmt"
 	"path/filepath"
 	"strings"
@@ -199,6 +201,7 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			Namespaces: namespaceMap,
 		},
+		MetadataInfo: tfbridge.NewProviderMetadata(metadata),
 	}
 
 	// The set of modules that x.TokensKnownModules is aware of.
@@ -209,6 +212,7 @@ func Provider() tfbridge.ProviderInfo {
 		"sys":  sysMod,
 		"ssk":  sslMod,
 		"vcmp": vcmpMod,
+		"fast": "Fast",
 	}
 
 	mappedModKeys := make([]string, 0, len(mappedMods))
@@ -221,9 +225,14 @@ func Provider() tfbridge.ProviderInfo {
 		moduleNameMap[strings.ToLower(v)] = v
 	}
 
-	err := x.ComputeDefaults(&prov, x.TokensKnownModules("alicloud_", "", mappedModKeys,
+	err := x.ComputeDefaults(&prov, x.TokensKnownModules("bigip_", "", mappedModKeys,
 		x.MakeStandardToken(f5BigIPPkg)))
-	contract.AssertNoError(err)
+	contract.AssertNoErrorf(err, "auto token mapping failed")
+	err = x.AutoAliasing(&prov, prov.GetMetadata())
+	contract.AssertNoErrorf(err, "auto aliasing failed")
 
 	return prov
 }
+
+//go:embed cmd/pulumi-resource-f5bigip/bridge-metadata.json
+var metadata []byte
