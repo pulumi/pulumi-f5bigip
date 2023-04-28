@@ -101,7 +101,7 @@ def get_waf_pb_suggestions(minimum_learning_score: Optional[int] = None,
                            policy_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWafPbSuggestionsResult:
     """
-    Use this data source (_ssl_get_waf_pb_suggestions_) to export PB suggestions from an existing WAF policy.
+    Use this data source (`ssl_get_waf_pb_suggestions`) to export PB suggestions from an existing WAF policy.
 
     ## Example Usage
 
@@ -144,7 +144,7 @@ def get_waf_pb_suggestions_output(minimum_learning_score: Optional[pulumi.Input[
                                   policy_name: Optional[pulumi.Input[str]] = None,
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWafPbSuggestionsResult]:
     """
-    Use this data source (_ssl_get_waf_pb_suggestions_) to export PB suggestions from an existing WAF policy.
+    Use this data source (`ssl_get_waf_pb_suggestions`) to export PB suggestions from an existing WAF policy.
 
     ## Example Usage
 

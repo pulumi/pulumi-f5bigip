@@ -20,6 +20,7 @@ namespace Pulumi.F5BigIP.Ssl
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using F5BigIP = Pulumi.F5BigIP;
         /// 
@@ -47,6 +48,7 @@ namespace Pulumi.F5BigIP.Ssl
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using F5BigIP = Pulumi.F5BigIP;
         /// 

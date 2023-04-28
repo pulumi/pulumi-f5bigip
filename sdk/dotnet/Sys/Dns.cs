@@ -16,6 +16,7 @@ namespace Pulumi.F5BigIP.Sys
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 

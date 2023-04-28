@@ -12,7 +12,6 @@ import com.pulumi.f5bigip.Utilities;
 import com.pulumi.f5bigip.inputs.FastHttpsAppState;
 import com.pulumi.f5bigip.outputs.FastHttpsAppMonitor;
 import com.pulumi.f5bigip.outputs.FastHttpsAppPoolMember;
-import com.pulumi.f5bigip.outputs.FastHttpsAppServiceDiscovery;
 import com.pulumi.f5bigip.outputs.FastHttpsAppTlsClientProfile;
 import com.pulumi.f5bigip.outputs.FastHttpsAppTlsServerProfile;
 import com.pulumi.f5bigip.outputs.FastHttpsAppVirtualServer;
@@ -58,6 +57,68 @@ import javax.annotation.Nullable;
  *                 .ip(&#34;10.30.40.44&#34;)
  *                 .port(443)
  *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### With Service Discovery
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.f5bigip.fast.FastFunctions;
+ * import com.pulumi.f5bigip.fast.inputs.GetAzureServiceDiscoveryArgs;
+ * import com.pulumi.f5bigip.fast.inputs.GetGceServiceDiscoveryArgs;
+ * import com.pulumi.f5bigip.FastHttpsApp;
+ * import com.pulumi.f5bigip.FastHttpsAppArgs;
+ * import com.pulumi.f5bigip.inputs.FastHttpsAppVirtualServerArgs;
+ * import com.pulumi.f5bigip.inputs.FastHttpsAppPoolMemberArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var tC3AzureServiceDiscovery = FastFunctions.getAzureServiceDiscovery(GetAzureServiceDiscoveryArgs.builder()
+ *             .resourceGroup(&#34;testazurerg&#34;)
+ *             .subscriptionId(&#34;testazuresid&#34;)
+ *             .tagKey(&#34;testazuretag&#34;)
+ *             .tagValue(&#34;testazurevalue&#34;)
+ *             .build());
+ * 
+ *         final var tC3GceServiceDiscovery = FastFunctions.getGceServiceDiscovery(GetGceServiceDiscoveryArgs.builder()
+ *             .tagKey(&#34;testgcetag&#34;)
+ *             .tagValue(&#34;testgcevalue&#34;)
+ *             .region(&#34;testgceregion&#34;)
+ *             .build());
+ * 
+ *         var fastHttpsApp = new FastHttpsApp(&#34;fastHttpsApp&#34;, FastHttpsAppArgs.builder()        
+ *             .tenant(&#34;fasthttpstenant&#34;)
+ *             .application(&#34;fasthttpsapp&#34;)
+ *             .virtualServer(FastHttpsAppVirtualServerArgs.builder()
+ *                 .ip(&#34;10.30.40.44&#34;)
+ *                 .port(443)
+ *                 .build())
+ *             .poolMembers(FastHttpsAppPoolMemberArgs.builder()
+ *                 .addresses(                
+ *                     &#34;10.11.40.120&#34;,
+ *                     &#34;10.11.30.121&#34;,
+ *                     &#34;10.11.30.122&#34;)
+ *                 .port(80)
+ *                 .build())
+ *             .serviceDiscoveries(            
+ *                 tC3GceServiceDiscovery.applyValue(getGceServiceDiscoveryResult -&gt; getGceServiceDiscoveryResult.gceSdJson()),
+ *                 tC3AzureServiceDiscovery.applyValue(getAzureServiceDiscoveryResult -&gt; getAzureServiceDiscoveryResult.azureSdJson()))
  *             .build());
  * 
  *     }
@@ -254,20 +315,18 @@ public class FastHttpsApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.securityLogProfiles);
     }
     /**
-     * `service_discovery` block to Automatically Discover Pool Members with Service Discovery.
-     * See Service Discovery below for more details.
+     * List of different cloud service discovery config provided as string, provided `service_discovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
      * 
      */
-    @Export(name="serviceDiscoveries", type=List.class, parameters={FastHttpsAppServiceDiscovery.class})
-    private Output</* @Nullable */ List<FastHttpsAppServiceDiscovery>> serviceDiscoveries;
+    @Export(name="serviceDiscoveries", type=List.class, parameters={String.class})
+    private Output<List<String>> serviceDiscoveries;
 
     /**
-     * @return `service_discovery` block to Automatically Discover Pool Members with Service Discovery.
-     * See Service Discovery below for more details.
+     * @return List of different cloud service discovery config provided as string, provided `service_discovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
      * 
      */
-    public Output<Optional<List<FastHttpsAppServiceDiscovery>>> serviceDiscoveries() {
-        return Codegen.optional(this.serviceDiscoveries);
+    public Output<List<String>> serviceDiscoveries() {
+        return this.serviceDiscoveries;
     }
     /**
      * Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds

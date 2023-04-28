@@ -38,6 +38,7 @@ def readme():
 
 
 setup(name='pulumi_f5bigip',
+      python_requires='>=3.7',
       version=VERSION,
       description="A Pulumi package for creating and managing F5 BigIP resources.",
       long_description=readme(),

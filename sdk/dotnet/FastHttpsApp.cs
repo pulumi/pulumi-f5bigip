@@ -18,6 +18,7 @@ namespace Pulumi.F5BigIP
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
@@ -31,6 +32,62 @@ namespace Pulumi.F5BigIP
     ///         {
     ///             Ip = "10.30.40.44",
     ///             Port = 443,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### With Service Discovery
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var tC3AzureServiceDiscovery = F5BigIP.Fast.GetAzureServiceDiscovery.Invoke(new()
+    ///     {
+    ///         ResourceGroup = "testazurerg",
+    ///         SubscriptionId = "testazuresid",
+    ///         TagKey = "testazuretag",
+    ///         TagValue = "testazurevalue",
+    ///     });
+    /// 
+    ///     var tC3GceServiceDiscovery = F5BigIP.Fast.GetGceServiceDiscovery.Invoke(new()
+    ///     {
+    ///         TagKey = "testgcetag",
+    ///         TagValue = "testgcevalue",
+    ///         Region = "testgceregion",
+    ///     });
+    /// 
+    ///     var fastHttpsApp = new F5BigIP.FastHttpsApp("fastHttpsApp", new()
+    ///     {
+    ///         Tenant = "fasthttpstenant",
+    ///         Application = "fasthttpsapp",
+    ///         VirtualServer = new F5BigIP.Inputs.FastHttpsAppVirtualServerArgs
+    ///         {
+    ///             Ip = "10.30.40.44",
+    ///             Port = 443,
+    ///         },
+    ///         PoolMembers = new[]
+    ///         {
+    ///             new F5BigIP.Inputs.FastHttpsAppPoolMemberArgs
+    ///             {
+    ///                 Addresses = new[]
+    ///                 {
+    ///                     "10.11.40.120",
+    ///                     "10.11.30.121",
+    ///                     "10.11.30.122",
+    ///                 },
+    ///                 Port = 80,
+    ///             },
+    ///         },
+    ///         ServiceDiscoveries = new[]
+    ///         {
+    ///             tC3GceServiceDiscovery.Apply(getGceServiceDiscoveryResult =&gt; getGceServiceDiscoveryResult.GceSdJson),
+    ///             tC3AzureServiceDiscovery.Apply(getAzureServiceDiscoveryResult =&gt; getAzureServiceDiscoveryResult.AzureSdJson),
     ///         },
     ///     });
     /// 
@@ -121,11 +178,10 @@ namespace Pulumi.F5BigIP
         public Output<ImmutableArray<string>> SecurityLogProfiles { get; private set; } = null!;
 
         /// <summary>
-        /// `service_discovery` block to Automatically Discover Pool Members with Service Discovery.
-        /// See Service Discovery below for more details.
+        /// List of different cloud service discovery config provided as string, provided `service_discovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
         /// </summary>
         [Output("serviceDiscoveries")]
-        public Output<ImmutableArray<Outputs.FastHttpsAppServiceDiscovery>> ServiceDiscoveries { get; private set; } = null!;
+        public Output<ImmutableArray<string>> ServiceDiscoveries { get; private set; } = null!;
 
         /// <summary>
         /// Slow ramp temporarily throttles the number of connections to a new pool member. The recommended value is 300 seconds
@@ -312,15 +368,14 @@ namespace Pulumi.F5BigIP
         }
 
         [Input("serviceDiscoveries")]
-        private InputList<Inputs.FastHttpsAppServiceDiscoveryArgs>? _serviceDiscoveries;
+        private InputList<string>? _serviceDiscoveries;
 
         /// <summary>
-        /// `service_discovery` block to Automatically Discover Pool Members with Service Discovery.
-        /// See Service Discovery below for more details.
+        /// List of different cloud service discovery config provided as string, provided `service_discovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
         /// </summary>
-        public InputList<Inputs.FastHttpsAppServiceDiscoveryArgs> ServiceDiscoveries
+        public InputList<string> ServiceDiscoveries
         {
-            get => _serviceDiscoveries ?? (_serviceDiscoveries = new InputList<Inputs.FastHttpsAppServiceDiscoveryArgs>());
+            get => _serviceDiscoveries ?? (_serviceDiscoveries = new InputList<string>());
             set => _serviceDiscoveries = value;
         }
 
@@ -483,15 +538,14 @@ namespace Pulumi.F5BigIP
         }
 
         [Input("serviceDiscoveries")]
-        private InputList<Inputs.FastHttpsAppServiceDiscoveryGetArgs>? _serviceDiscoveries;
+        private InputList<string>? _serviceDiscoveries;
 
         /// <summary>
-        /// `service_discovery` block to Automatically Discover Pool Members with Service Discovery.
-        /// See Service Discovery below for more details.
+        /// List of different cloud service discovery config provided as string, provided `service_discovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
         /// </summary>
-        public InputList<Inputs.FastHttpsAppServiceDiscoveryGetArgs> ServiceDiscoveries
+        public InputList<string> ServiceDiscoveries
         {
-            get => _serviceDiscoveries ?? (_serviceDiscoveries = new InputList<Inputs.FastHttpsAppServiceDiscoveryGetArgs>());
+            get => _serviceDiscoveries ?? (_serviceDiscoveries = new InputList<string>());
             set => _serviceDiscoveries = value;
         }
 

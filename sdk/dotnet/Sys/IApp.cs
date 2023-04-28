@@ -17,6 +17,7 @@ namespace Pulumi.F5BigIP.Sys
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.IO;
+    /// using System.Linq;
     /// using Pulumi;
     /// using F5BigIP = Pulumi.F5BigIP;
     /// 
@@ -33,6 +34,7 @@ namespace Pulumi.F5BigIP.Sys
     /// ### Json File
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
