@@ -104,6 +104,7 @@ utilities.lazyLoad(exports, ["WafPolicy"], () => require("./wafPolicy"));
 // Export sub-modules:
 import * as cm from "./cm";
 import * as config from "./config";
+import * as fast from "./fast";
 import * as ltm from "./ltm";
 import * as net from "./net";
 import * as ssl from "./ssl";
@@ -114,6 +115,7 @@ import * as vcmp from "./vcmp";
 export {
     cm,
     config,
+    fast,
     ltm,
     net,
     ssl,

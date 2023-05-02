@@ -7,7 +7,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.f5bigip.inputs.FastHttpAppMonitorArgs;
 import com.pulumi.f5bigip.inputs.FastHttpAppPoolMemberArgs;
-import com.pulumi.f5bigip.inputs.FastHttpAppServiceDiscoveryArgs;
 import com.pulumi.f5bigip.inputs.FastHttpAppVirtualServerArgs;
 import com.pulumi.f5bigip.inputs.FastHttpAppWafSecurityPolicyArgs;
 import java.lang.Integer;
@@ -177,19 +176,17 @@ public final class FastHttpAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * `service_discovery` block to Automatically Discover Pool Members with Service Discovery.
-     * See Service Discovery below for more details.
+     * List of different cloud service discovery config provided as string, provided `service_discovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
      * 
      */
     @Import(name="serviceDiscoveries")
-    private @Nullable Output<List<FastHttpAppServiceDiscoveryArgs>> serviceDiscoveries;
+    private @Nullable Output<List<String>> serviceDiscoveries;
 
     /**
-     * @return `service_discovery` block to Automatically Discover Pool Members with Service Discovery.
-     * See Service Discovery below for more details.
+     * @return List of different cloud service discovery config provided as string, provided `service_discovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
      * 
      */
-    public Optional<Output<List<FastHttpAppServiceDiscoveryArgs>>> serviceDiscoveries() {
+    public Optional<Output<List<String>>> serviceDiscoveries() {
         return Optional.ofNullable(this.serviceDiscoveries);
     }
 
@@ -557,36 +554,33 @@ public final class FastHttpAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceDiscoveries `service_discovery` block to Automatically Discover Pool Members with Service Discovery.
-         * See Service Discovery below for more details.
+         * @param serviceDiscoveries List of different cloud service discovery config provided as string, provided `service_discovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
          * 
          * @return builder
          * 
          */
-        public Builder serviceDiscoveries(@Nullable Output<List<FastHttpAppServiceDiscoveryArgs>> serviceDiscoveries) {
+        public Builder serviceDiscoveries(@Nullable Output<List<String>> serviceDiscoveries) {
             $.serviceDiscoveries = serviceDiscoveries;
             return this;
         }
 
         /**
-         * @param serviceDiscoveries `service_discovery` block to Automatically Discover Pool Members with Service Discovery.
-         * See Service Discovery below for more details.
+         * @param serviceDiscoveries List of different cloud service discovery config provided as string, provided `service_discovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
          * 
          * @return builder
          * 
          */
-        public Builder serviceDiscoveries(List<FastHttpAppServiceDiscoveryArgs> serviceDiscoveries) {
+        public Builder serviceDiscoveries(List<String> serviceDiscoveries) {
             return serviceDiscoveries(Output.of(serviceDiscoveries));
         }
 
         /**
-         * @param serviceDiscoveries `service_discovery` block to Automatically Discover Pool Members with Service Discovery.
-         * See Service Discovery below for more details.
+         * @param serviceDiscoveries List of different cloud service discovery config provided as string, provided `service_discovery` block to Automatically Discover Pool Members with Service Discovery on different clouds.
          * 
          * @return builder
          * 
          */
-        public Builder serviceDiscoveries(FastHttpAppServiceDiscoveryArgs... serviceDiscoveries) {
+        public Builder serviceDiscoveries(String... serviceDiscoveries) {
             return serviceDiscoveries(List.of(serviceDiscoveries));
         }
 
