@@ -58,8 +58,12 @@ class FastHttpsAppArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] snat_pool_addresses: List of address to be used for FAST-Generated SNAT Pool.
         :param pulumi.Input['FastHttpsAppTlsClientProfileArgs'] tls_client_profile: `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
                See TLS Client Profile below for more details.
+               
+               > **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.
         :param pulumi.Input['FastHttpsAppTlsServerProfileArgs'] tls_server_profile: `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
                See TLS Server Profile below for more details.
+               
+               > **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.
         :param pulumi.Input['FastHttpsAppVirtualServerArgs'] virtual_server: `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
                See virtual server below for more details.
         :param pulumi.Input['FastHttpsAppWafSecurityPolicyArgs'] waf_security_policy: `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
@@ -304,6 +308,8 @@ class FastHttpsAppArgs:
         """
         `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
         See TLS Client Profile below for more details.
+
+        > **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.
         """
         return pulumi.get(self, "tls_client_profile")
 
@@ -317,6 +323,8 @@ class FastHttpsAppArgs:
         """
         `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
         See TLS Server Profile below for more details.
+
+        > **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.
         """
         return pulumi.get(self, "tls_server_profile")
 
@@ -398,8 +406,12 @@ class _FastHttpsAppState:
         :param pulumi.Input[str] tenant: Name of the FAST HTTPS application tenant.
         :param pulumi.Input['FastHttpsAppTlsClientProfileArgs'] tls_client_profile: `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
                See TLS Client Profile below for more details.
+               
+               > **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.
         :param pulumi.Input['FastHttpsAppTlsServerProfileArgs'] tls_server_profile: `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
                See TLS Server Profile below for more details.
+               
+               > **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.
         :param pulumi.Input['FastHttpsAppVirtualServerArgs'] virtual_server: `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
                See virtual server below for more details.
         :param pulumi.Input['FastHttpsAppWafSecurityPolicyArgs'] waf_security_policy: `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
@@ -660,6 +672,8 @@ class _FastHttpsAppState:
         """
         `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
         See TLS Client Profile below for more details.
+
+        > **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.
         """
         return pulumi.get(self, "tls_client_profile")
 
@@ -673,6 +687,8 @@ class _FastHttpsAppState:
         """
         `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
         See TLS Server Profile below for more details.
+
+        > **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.
         """
         return pulumi.get(self, "tls_server_profile")
 
@@ -808,8 +824,12 @@ class FastHttpsApp(pulumi.CustomResource):
         :param pulumi.Input[str] tenant: Name of the FAST HTTPS application tenant.
         :param pulumi.Input[pulumi.InputType['FastHttpsAppTlsClientProfileArgs']] tls_client_profile: `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
                See TLS Client Profile below for more details.
+               
+               > **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.
         :param pulumi.Input[pulumi.InputType['FastHttpsAppTlsServerProfileArgs']] tls_server_profile: `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
                See TLS Server Profile below for more details.
+               
+               > **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.
         :param pulumi.Input[pulumi.InputType['FastHttpsAppVirtualServerArgs']] virtual_server: `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
                See virtual server below for more details.
         :param pulumi.Input[pulumi.InputType['FastHttpsAppWafSecurityPolicyArgs']] waf_security_policy: `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
@@ -1002,8 +1022,12 @@ class FastHttpsApp(pulumi.CustomResource):
         :param pulumi.Input[str] tenant: Name of the FAST HTTPS application tenant.
         :param pulumi.Input[pulumi.InputType['FastHttpsAppTlsClientProfileArgs']] tls_client_profile: `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
                See TLS Client Profile below for more details.
+               
+               > **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.
         :param pulumi.Input[pulumi.InputType['FastHttpsAppTlsServerProfileArgs']] tls_server_profile: `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
                See TLS Server Profile below for more details.
+               
+               > **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.
         :param pulumi.Input[pulumi.InputType['FastHttpsAppVirtualServerArgs']] virtual_server: `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
                See virtual server below for more details.
         :param pulumi.Input[pulumi.InputType['FastHttpsAppWafSecurityPolicyArgs']] waf_security_policy: `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
@@ -1180,6 +1204,8 @@ class FastHttpsApp(pulumi.CustomResource):
         """
         `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
         See TLS Client Profile below for more details.
+
+        > **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.
         """
         return pulumi.get(self, "tls_client_profile")
 
@@ -1189,6 +1215,8 @@ class FastHttpsApp(pulumi.CustomResource):
         """
         `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
         See TLS Server Profile below for more details.
+
+        > **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.
         """
         return pulumi.get(self, "tls_server_profile")
 

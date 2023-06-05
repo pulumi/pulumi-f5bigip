@@ -503,6 +503,17 @@ export class As3 extends pulumi.CustomResource {
     public readonly as3Json!: pulumi.Output<string | undefined>;
     /**
      * Set True if you want to ignore metadata changes during update. By default it is set to false
+     *
+     * * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
+     * * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     public readonly ignoreMetadata!: pulumi.Output<boolean | undefined>;
     /**
@@ -573,6 +584,17 @@ export interface As3State {
     as3Json?: pulumi.Input<string>;
     /**
      * Set True if you want to ignore metadata changes during update. By default it is set to false
+     *
+     * * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
+     * * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     ignoreMetadata?: pulumi.Input<boolean>;
     /**
@@ -609,6 +631,17 @@ export interface As3Args {
     as3Json?: pulumi.Input<string>;
     /**
      * Set True if you want to ignore metadata changes during update. By default it is set to false
+     *
+     * * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
+     * * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     ignoreMetadata?: pulumi.Input<boolean>;
     /**

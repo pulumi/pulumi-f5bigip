@@ -20,8 +20,7 @@ namespace Pulumi.F5BigIP
         public Output<string?> BigipAddress { get; private set; } = null!;
 
         /// <summary>
-        /// Password of  BIGIP host to be used for this resource,this is optional parameter.
-        /// whenever we specify this parameter it gets overwrite provider configuration
+        /// Password of BIGIP host to be used for this resource
         /// </summary>
         [Output("bigipPassword")]
         public Output<string?> BigipPassword { get; private set; } = null!;
@@ -126,8 +125,7 @@ namespace Pulumi.F5BigIP
         private Input<string>? _bigipPassword;
 
         /// <summary>
-        /// Password of  BIGIP host to be used for this resource,this is optional parameter.
-        /// whenever we specify this parameter it gets overwrite provider configuration
+        /// Password of BIGIP host to be used for this resource
         /// </summary>
         public Input<string>? BigipPassword
         {
@@ -206,8 +204,7 @@ namespace Pulumi.F5BigIP
         private Input<string>? _bigipPassword;
 
         /// <summary>
-        /// Password of  BIGIP host to be used for this resource,this is optional parameter.
-        /// whenever we specify this parameter it gets overwrite provider configuration
+        /// Password of BIGIP host to be used for this resource
         /// </summary>
         public Input<string>? BigipPassword
         {

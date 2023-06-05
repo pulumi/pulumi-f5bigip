@@ -39,6 +39,8 @@ class NodeArgs:
         :param pulumi.Input[int] ratio: Sets the ratio number for the node.
         :param pulumi.Input[str] session: Enables or disables the node for new sessions. The default value is user-enabled.
         :param pulumi.Input[str] state: Default is "user-up" you can set to "user-down" if you want to disable
+               
+               > *NOTE* Below attributes needs to be configured under fqdn option.
         """
         pulumi.set(__self__, "address", address)
         pulumi.set(__self__, "name", name)
@@ -183,6 +185,8 @@ class NodeArgs:
     def state(self) -> Optional[pulumi.Input[str]]:
         """
         Default is "user-up" you can set to "user-down" if you want to disable
+
+        > *NOTE* Below attributes needs to be configured under fqdn option.
         """
         return pulumi.get(self, "state")
 
@@ -217,6 +221,8 @@ class _NodeState:
         :param pulumi.Input[int] ratio: Sets the ratio number for the node.
         :param pulumi.Input[str] session: Enables or disables the node for new sessions. The default value is user-enabled.
         :param pulumi.Input[str] state: Default is "user-up" you can set to "user-down" if you want to disable
+               
+               > *NOTE* Below attributes needs to be configured under fqdn option.
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -363,6 +369,8 @@ class _NodeState:
     def state(self) -> Optional[pulumi.Input[str]]:
         """
         Default is "user-up" you can set to "user-down" if you want to disable
+
+        > *NOTE* Below attributes needs to be configured under fqdn option.
         """
         return pulumi.get(self, "state")
 
@@ -426,6 +434,8 @@ class Node(pulumi.CustomResource):
         :param pulumi.Input[int] ratio: Sets the ratio number for the node.
         :param pulumi.Input[str] session: Enables or disables the node for new sessions. The default value is user-enabled.
         :param pulumi.Input[str] state: Default is "user-up" you can set to "user-down" if you want to disable
+               
+               > *NOTE* Below attributes needs to be configured under fqdn option.
         """
         ...
     @overload
@@ -547,6 +557,8 @@ class Node(pulumi.CustomResource):
         :param pulumi.Input[int] ratio: Sets the ratio number for the node.
         :param pulumi.Input[str] session: Enables or disables the node for new sessions. The default value is user-enabled.
         :param pulumi.Input[str] state: Default is "user-up" you can set to "user-down" if you want to disable
+               
+               > *NOTE* Below attributes needs to be configured under fqdn option.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -647,6 +659,8 @@ class Node(pulumi.CustomResource):
     def state(self) -> pulumi.Output[str]:
         """
         Default is "user-up" you can set to "user-down" if you want to disable
+
+        > *NOTE* Below attributes needs to be configured under fqdn option.
         """
         return pulumi.get(self, "state")
 

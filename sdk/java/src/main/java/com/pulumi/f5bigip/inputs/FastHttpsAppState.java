@@ -286,6 +286,8 @@ public final class FastHttpsAppState extends com.pulumi.resources.ResourceArgs {
      * `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
      * See TLS Client Profile below for more details.
      * 
+     * &gt; **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.
+     * 
      */
     @Import(name="tlsClientProfile")
     private @Nullable Output<FastHttpsAppTlsClientProfileArgs> tlsClientProfile;
@@ -293,6 +295,8 @@ public final class FastHttpsAppState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
      * See TLS Client Profile below for more details.
+     * 
+     * &gt; **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.
      * 
      */
     public Optional<Output<FastHttpsAppTlsClientProfileArgs>> tlsClientProfile() {
@@ -303,6 +307,8 @@ public final class FastHttpsAppState extends com.pulumi.resources.ResourceArgs {
      * `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
      * See TLS Server Profile below for more details.
      * 
+     * &gt; **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.
+     * 
      */
     @Import(name="tlsServerProfile")
     private @Nullable Output<FastHttpsAppTlsServerProfileArgs> tlsServerProfile;
@@ -310,6 +316,8 @@ public final class FastHttpsAppState extends com.pulumi.resources.ResourceArgs {
     /**
      * @return `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
      * See TLS Server Profile below for more details.
+     * 
+     * &gt; **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.
      * 
      */
     public Optional<Output<FastHttpsAppTlsServerProfileArgs>> tlsServerProfile() {
@@ -810,6 +818,8 @@ public final class FastHttpsAppState extends com.pulumi.resources.ResourceArgs {
          * @param tlsClientProfile `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
          * See TLS Client Profile below for more details.
          * 
+         * &gt; **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.
+         * 
          * @return builder
          * 
          */
@@ -822,6 +832,8 @@ public final class FastHttpsAppState extends com.pulumi.resources.ResourceArgs {
          * @param tlsClientProfile `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
          * See TLS Client Profile below for more details.
          * 
+         * &gt; **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.
+         * 
          * @return builder
          * 
          */
@@ -832,6 +844,8 @@ public final class FastHttpsAppState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tlsServerProfile `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
          * See TLS Server Profile below for more details.
+         * 
+         * &gt; **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.
          * 
          * @return builder
          * 
@@ -844,6 +858,8 @@ public final class FastHttpsAppState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param tlsServerProfile `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
          * See TLS Server Profile below for more details.
+         * 
+         * &gt; **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.
          * 
          * @return builder
          * 

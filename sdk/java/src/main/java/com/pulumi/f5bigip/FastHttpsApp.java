@@ -374,6 +374,8 @@ public class FastHttpsApp extends com.pulumi.resources.CustomResource {
      * `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
      * See TLS Client Profile below for more details.
      * 
+     * &gt; **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.
+     * 
      */
     @Export(name="tlsClientProfile", type=FastHttpsAppTlsClientProfile.class, parameters={})
     private Output</* @Nullable */ FastHttpsAppTlsClientProfile> tlsClientProfile;
@@ -381,6 +383,8 @@ public class FastHttpsApp extends com.pulumi.resources.CustomResource {
     /**
      * @return `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
      * See TLS Client Profile below for more details.
+     * 
+     * &gt; **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.
      * 
      */
     public Output<Optional<FastHttpsAppTlsClientProfile>> tlsClientProfile() {
@@ -390,6 +394,8 @@ public class FastHttpsApp extends com.pulumi.resources.CustomResource {
      * `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
      * See TLS Server Profile below for more details.
      * 
+     * &gt; **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.
+     * 
      */
     @Export(name="tlsServerProfile", type=FastHttpsAppTlsServerProfile.class, parameters={})
     private Output</* @Nullable */ FastHttpsAppTlsServerProfile> tlsServerProfile;
@@ -397,6 +403,8 @@ public class FastHttpsApp extends com.pulumi.resources.CustomResource {
     /**
      * @return `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
      * See TLS Server Profile below for more details.
+     * 
+     * &gt; **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.
      * 
      */
     public Output<Optional<FastHttpsAppTlsServerProfile>> tlsServerProfile() {

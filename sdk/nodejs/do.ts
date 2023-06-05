@@ -38,8 +38,7 @@ export class Do extends pulumi.CustomResource {
      */
     public readonly bigipAddress!: pulumi.Output<string | undefined>;
     /**
-     * Password of  BIGIP host to be used for this resource,this is optional parameter.
-     * whenever we specify this parameter it gets overwrite provider configuration
+     * Password of BIGIP host to be used for this resource
      */
     public readonly bigipPassword!: pulumi.Output<string | undefined>;
     /**
@@ -123,8 +122,7 @@ export interface DoState {
      */
     bigipAddress?: pulumi.Input<string>;
     /**
-     * Password of  BIGIP host to be used for this resource,this is optional parameter.
-     * whenever we specify this parameter it gets overwrite provider configuration
+     * Password of BIGIP host to be used for this resource
      */
     bigipPassword?: pulumi.Input<string>;
     /**
@@ -167,8 +165,7 @@ export interface DoArgs {
      */
     bigipAddress?: pulumi.Input<string>;
     /**
-     * Password of  BIGIP host to be used for this resource,this is optional parameter.
-     * whenever we specify this parameter it gets overwrite provider configuration
+     * Password of BIGIP host to be used for this resource
      */
     bigipPassword?: pulumi.Input<string>;
     /**

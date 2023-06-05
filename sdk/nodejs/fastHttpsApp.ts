@@ -166,11 +166,15 @@ export class FastHttpsApp extends pulumi.CustomResource {
     /**
      * `tlsClientProfile` block takes input for FAST-Generated TLS client Profile.
      * See TLS Client Profile below for more details.
+     *
+     * > **NOTE** Profile provided by `existingTlsClientProfile` or `tlsClientProfile` used for encrypt server-side connections.
      */
     public readonly tlsClientProfile!: pulumi.Output<outputs.FastHttpsAppTlsClientProfile | undefined>;
     /**
      * `tlsServerProfile` block takes input for FAST-Generated TLS Server Profile.
      * See TLS Server Profile below for more details.
+     *
+     * > **NOTE** Profile provided by `existingTlsServerProfile` or `tlsServerProfile` used for decrypt client-side connections.
      */
     public readonly tlsServerProfile!: pulumi.Output<outputs.FastHttpsAppTlsServerProfile | undefined>;
     /**
@@ -330,11 +334,15 @@ export interface FastHttpsAppState {
     /**
      * `tlsClientProfile` block takes input for FAST-Generated TLS client Profile.
      * See TLS Client Profile below for more details.
+     *
+     * > **NOTE** Profile provided by `existingTlsClientProfile` or `tlsClientProfile` used for encrypt server-side connections.
      */
     tlsClientProfile?: pulumi.Input<inputs.FastHttpsAppTlsClientProfile>;
     /**
      * `tlsServerProfile` block takes input for FAST-Generated TLS Server Profile.
      * See TLS Server Profile below for more details.
+     *
+     * > **NOTE** Profile provided by `existingTlsServerProfile` or `tlsServerProfile` used for decrypt client-side connections.
      */
     tlsServerProfile?: pulumi.Input<inputs.FastHttpsAppTlsServerProfile>;
     /**
@@ -422,11 +430,15 @@ export interface FastHttpsAppArgs {
     /**
      * `tlsClientProfile` block takes input for FAST-Generated TLS client Profile.
      * See TLS Client Profile below for more details.
+     *
+     * > **NOTE** Profile provided by `existingTlsClientProfile` or `tlsClientProfile` used for encrypt server-side connections.
      */
     tlsClientProfile?: pulumi.Input<inputs.FastHttpsAppTlsClientProfile>;
     /**
      * `tlsServerProfile` block takes input for FAST-Generated TLS Server Profile.
      * See TLS Server Profile below for more details.
+     *
+     * > **NOTE** Profile provided by `existingTlsServerProfile` or `tlsServerProfile` used for decrypt client-side connections.
      */
     tlsServerProfile?: pulumi.Input<inputs.FastHttpsAppTlsServerProfile>;
     /**

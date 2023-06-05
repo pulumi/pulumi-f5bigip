@@ -106,6 +106,8 @@ namespace Pulumi.F5BigIP.Ltm
 
         /// <summary>
         /// Default is "user-up" you can set to "user-down" if you want to disable
+        /// 
+        /// &gt; *NOTE* Below attributes needs to be configured under fqdn option.
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
@@ -215,6 +217,8 @@ namespace Pulumi.F5BigIP.Ltm
 
         /// <summary>
         /// Default is "user-up" you can set to "user-down" if you want to disable
+        /// 
+        /// &gt; *NOTE* Below attributes needs to be configured under fqdn option.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
@@ -286,6 +290,8 @@ namespace Pulumi.F5BigIP.Ltm
 
         /// <summary>
         /// Default is "user-up" you can set to "user-down" if you want to disable
+        /// 
+        /// &gt; *NOTE* Below attributes needs to be configured under fqdn option.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }

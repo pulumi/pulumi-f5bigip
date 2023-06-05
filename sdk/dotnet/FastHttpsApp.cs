@@ -204,6 +204,8 @@ namespace Pulumi.F5BigIP
         /// <summary>
         /// `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
         /// See TLS Client Profile below for more details.
+        /// 
+        /// &gt; **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.
         /// </summary>
         [Output("tlsClientProfile")]
         public Output<Outputs.FastHttpsAppTlsClientProfile?> TlsClientProfile { get; private set; } = null!;
@@ -211,6 +213,8 @@ namespace Pulumi.F5BigIP
         /// <summary>
         /// `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
         /// See TLS Server Profile below for more details.
+        /// 
+        /// &gt; **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.
         /// </summary>
         [Output("tlsServerProfile")]
         public Output<Outputs.FastHttpsAppTlsServerProfile?> TlsServerProfile { get; private set; } = null!;
@@ -406,6 +410,8 @@ namespace Pulumi.F5BigIP
         /// <summary>
         /// `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
         /// See TLS Client Profile below for more details.
+        /// 
+        /// &gt; **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.
         /// </summary>
         [Input("tlsClientProfile")]
         public Input<Inputs.FastHttpsAppTlsClientProfileArgs>? TlsClientProfile { get; set; }
@@ -413,6 +419,8 @@ namespace Pulumi.F5BigIP
         /// <summary>
         /// `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
         /// See TLS Server Profile below for more details.
+        /// 
+        /// &gt; **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.
         /// </summary>
         [Input("tlsServerProfile")]
         public Input<Inputs.FastHttpsAppTlsServerProfileArgs>? TlsServerProfile { get; set; }
@@ -576,6 +584,8 @@ namespace Pulumi.F5BigIP
         /// <summary>
         /// `tls_client_profile` block takes input for FAST-Generated TLS client Profile.
         /// See TLS Client Profile below for more details.
+        /// 
+        /// &gt; **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.
         /// </summary>
         [Input("tlsClientProfile")]
         public Input<Inputs.FastHttpsAppTlsClientProfileGetArgs>? TlsClientProfile { get; set; }
@@ -583,6 +593,8 @@ namespace Pulumi.F5BigIP
         /// <summary>
         /// `tls_server_profile` block takes input for FAST-Generated TLS Server Profile.
         /// See TLS Server Profile below for more details.
+        /// 
+        /// &gt; **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.
         /// </summary>
         [Input("tlsServerProfile")]
         public Input<Inputs.FastHttpsAppTlsServerProfileGetArgs>? TlsServerProfile { get; set; }

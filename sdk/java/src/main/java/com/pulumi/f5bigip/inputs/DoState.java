@@ -35,16 +35,14 @@ public final class DoState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Password of  BIGIP host to be used for this resource,this is optional parameter.
-     * whenever we specify this parameter it gets overwrite provider configuration
+     * Password of BIGIP host to be used for this resource
      * 
      */
     @Import(name="bigipPassword")
     private @Nullable Output<String> bigipPassword;
 
     /**
-     * @return Password of  BIGIP host to be used for this resource,this is optional parameter.
-     * whenever we specify this parameter it gets overwrite provider configuration
+     * @return Password of BIGIP host to be used for this resource
      * 
      */
     public Optional<Output<String>> bigipPassword() {
@@ -208,8 +206,7 @@ public final class DoState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bigipPassword Password of  BIGIP host to be used for this resource,this is optional parameter.
-         * whenever we specify this parameter it gets overwrite provider configuration
+         * @param bigipPassword Password of BIGIP host to be used for this resource
          * 
          * @return builder
          * 
@@ -220,8 +217,7 @@ public final class DoState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bigipPassword Password of  BIGIP host to be used for this resource,this is optional parameter.
-         * whenever we specify this parameter it gets overwrite provider configuration
+         * @param bigipPassword Password of BIGIP host to be used for this resource
          * 
          * @return builder
          * 
