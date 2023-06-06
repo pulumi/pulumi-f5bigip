@@ -36,16 +36,14 @@ public class Do extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.bigipAddress);
     }
     /**
-     * Password of  BIGIP host to be used for this resource,this is optional parameter.
-     * whenever we specify this parameter it gets overwrite provider configuration
+     * Password of BIGIP host to be used for this resource
      * 
      */
     @Export(name="bigipPassword", type=String.class, parameters={})
     private Output</* @Nullable */ String> bigipPassword;
 
     /**
-     * @return Password of  BIGIP host to be used for this resource,this is optional parameter.
-     * whenever we specify this parameter it gets overwrite provider configuration
+     * @return Password of BIGIP host to be used for this resource
      * 
      */
     public Output<Optional<String>> bigipPassword() {

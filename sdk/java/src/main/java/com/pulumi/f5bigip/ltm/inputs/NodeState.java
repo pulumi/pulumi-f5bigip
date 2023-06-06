@@ -162,12 +162,16 @@ public final class NodeState extends com.pulumi.resources.ResourceArgs {
     /**
      * Default is &#34;user-up&#34; you can set to &#34;user-down&#34; if you want to disable
      * 
+     * &gt; *NOTE* Below attributes needs to be configured under fqdn option.
+     * 
      */
     @Import(name="state")
     private @Nullable Output<String> state;
 
     /**
      * @return Default is &#34;user-up&#34; you can set to &#34;user-down&#34; if you want to disable
+     * 
+     * &gt; *NOTE* Below attributes needs to be configured under fqdn option.
      * 
      */
     public Optional<Output<String>> state() {
@@ -409,6 +413,8 @@ public final class NodeState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param state Default is &#34;user-up&#34; you can set to &#34;user-down&#34; if you want to disable
          * 
+         * &gt; *NOTE* Below attributes needs to be configured under fqdn option.
+         * 
          * @return builder
          * 
          */
@@ -419,6 +425,8 @@ public final class NodeState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param state Default is &#34;user-up&#34; you can set to &#34;user-down&#34; if you want to disable
+         * 
+         * &gt; *NOTE* Below attributes needs to be configured under fqdn option.
          * 
          * @return builder
          * 

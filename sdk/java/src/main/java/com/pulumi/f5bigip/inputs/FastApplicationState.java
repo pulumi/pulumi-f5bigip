@@ -18,12 +18,16 @@ public final class FastApplicationState extends com.pulumi.resources.ResourceArg
     /**
      * A FAST application name.
      * 
+     * * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
+     * 
      */
     @Import(name="application")
     private @Nullable Output<String> application;
 
     /**
      * @return A FAST application name.
+     * 
+     * * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
      * 
      */
     public Optional<Output<String>> application() {
@@ -105,6 +109,8 @@ public final class FastApplicationState extends com.pulumi.resources.ResourceArg
         /**
          * @param application A FAST application name.
          * 
+         * * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
+         * 
          * @return builder
          * 
          */
@@ -115,6 +121,8 @@ public final class FastApplicationState extends com.pulumi.resources.ResourceArg
 
         /**
          * @param application A FAST application name.
+         * 
+         * * `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/
          * 
          * @return builder
          * 

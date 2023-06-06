@@ -74,6 +74,8 @@ type Node struct {
 	// Enables or disables the node for new sessions. The default value is user-enabled.
 	Session pulumi.StringOutput `pulumi:"session"`
 	// Default is "user-up" you can set to "user-down" if you want to disable
+	//
+	// > *NOTE* Below attributes needs to be configured under fqdn option.
 	State pulumi.StringOutput `pulumi:"state"`
 }
 
@@ -132,6 +134,8 @@ type nodeState struct {
 	// Enables or disables the node for new sessions. The default value is user-enabled.
 	Session *string `pulumi:"session"`
 	// Default is "user-up" you can set to "user-down" if you want to disable
+	//
+	// > *NOTE* Below attributes needs to be configured under fqdn option.
 	State *string `pulumi:"state"`
 }
 
@@ -156,6 +160,8 @@ type NodeState struct {
 	// Enables or disables the node for new sessions. The default value is user-enabled.
 	Session pulumi.StringPtrInput
 	// Default is "user-up" you can set to "user-down" if you want to disable
+	//
+	// > *NOTE* Below attributes needs to be configured under fqdn option.
 	State pulumi.StringPtrInput
 }
 
@@ -184,6 +190,8 @@ type nodeArgs struct {
 	// Enables or disables the node for new sessions. The default value is user-enabled.
 	Session *string `pulumi:"session"`
 	// Default is "user-up" you can set to "user-down" if you want to disable
+	//
+	// > *NOTE* Below attributes needs to be configured under fqdn option.
 	State *string `pulumi:"state"`
 }
 
@@ -209,6 +217,8 @@ type NodeArgs struct {
 	// Enables or disables the node for new sessions. The default value is user-enabled.
 	Session pulumi.StringPtrInput
 	// Default is "user-up" you can set to "user-down" if you want to disable
+	//
+	// > *NOTE* Below attributes needs to be configured under fqdn option.
 	State pulumi.StringPtrInput
 }
 
@@ -349,6 +359,8 @@ func (o NodeOutput) Session() pulumi.StringOutput {
 }
 
 // Default is "user-up" you can set to "user-down" if you want to disable
+//
+// > *NOTE* Below attributes needs to be configured under fqdn option.
 func (o NodeOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v *Node) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }

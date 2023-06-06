@@ -84,6 +84,22 @@ namespace Pulumi.F5BigIP
 
         /// <summary>
         /// Set True if you want to ignore metadata changes during update. By default it is set to `true`
+        /// 
+        /// * `bigiq_example.json` - Example  AS3 Declarative JSON file
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        /// });
+        /// ```
+        /// 
+        /// * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
+        /// 
+        /// &gt;  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource
         /// </summary>
         [Output("ignoreMetadata")]
         public Output<bool?> IgnoreMetadata { get; private set; } = null!;
@@ -242,6 +258,22 @@ namespace Pulumi.F5BigIP
 
         /// <summary>
         /// Set True if you want to ignore metadata changes during update. By default it is set to `true`
+        /// 
+        /// * `bigiq_example.json` - Example  AS3 Declarative JSON file
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        /// });
+        /// ```
+        /// 
+        /// * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
+        /// 
+        /// &gt;  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource
         /// </summary>
         [Input("ignoreMetadata")]
         public Input<bool>? IgnoreMetadata { get; set; }
@@ -354,6 +386,22 @@ namespace Pulumi.F5BigIP
 
         /// <summary>
         /// Set True if you want to ignore metadata changes during update. By default it is set to `true`
+        /// 
+        /// * `bigiq_example.json` - Example  AS3 Declarative JSON file
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        /// });
+        /// ```
+        /// 
+        /// * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
+        /// 
+        /// &gt;  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource
         /// </summary>
         [Input("ignoreMetadata")]
         public Input<bool>? IgnoreMetadata { get; set; }

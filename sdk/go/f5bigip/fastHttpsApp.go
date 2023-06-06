@@ -148,9 +148,13 @@ type FastHttpsApp struct {
 	Tenant pulumi.StringOutput `pulumi:"tenant"`
 	// `tlsClientProfile` block takes input for FAST-Generated TLS client Profile.
 	// See TLS Client Profile below for more details.
+	//
+	// > **NOTE** Profile provided by `existingTlsClientProfile` or `tlsClientProfile` used for encrypt server-side connections.
 	TlsClientProfile FastHttpsAppTlsClientProfilePtrOutput `pulumi:"tlsClientProfile"`
 	// `tlsServerProfile` block takes input for FAST-Generated TLS Server Profile.
 	// See TLS Server Profile below for more details.
+	//
+	// > **NOTE** Profile provided by `existingTlsServerProfile` or `tlsServerProfile` used for decrypt client-side connections.
 	TlsServerProfile FastHttpsAppTlsServerProfilePtrOutput `pulumi:"tlsServerProfile"`
 	// `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
 	// See virtual server below for more details.
@@ -233,9 +237,13 @@ type fastHttpsAppState struct {
 	Tenant *string `pulumi:"tenant"`
 	// `tlsClientProfile` block takes input for FAST-Generated TLS client Profile.
 	// See TLS Client Profile below for more details.
+	//
+	// > **NOTE** Profile provided by `existingTlsClientProfile` or `tlsClientProfile` used for encrypt server-side connections.
 	TlsClientProfile *FastHttpsAppTlsClientProfile `pulumi:"tlsClientProfile"`
 	// `tlsServerProfile` block takes input for FAST-Generated TLS Server Profile.
 	// See TLS Server Profile below for more details.
+	//
+	// > **NOTE** Profile provided by `existingTlsServerProfile` or `tlsServerProfile` used for decrypt client-side connections.
 	TlsServerProfile *FastHttpsAppTlsServerProfile `pulumi:"tlsServerProfile"`
 	// `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
 	// See virtual server below for more details.
@@ -284,9 +292,13 @@ type FastHttpsAppState struct {
 	Tenant pulumi.StringPtrInput
 	// `tlsClientProfile` block takes input for FAST-Generated TLS client Profile.
 	// See TLS Client Profile below for more details.
+	//
+	// > **NOTE** Profile provided by `existingTlsClientProfile` or `tlsClientProfile` used for encrypt server-side connections.
 	TlsClientProfile FastHttpsAppTlsClientProfilePtrInput
 	// `tlsServerProfile` block takes input for FAST-Generated TLS Server Profile.
 	// See TLS Server Profile below for more details.
+	//
+	// > **NOTE** Profile provided by `existingTlsServerProfile` or `tlsServerProfile` used for decrypt client-side connections.
 	TlsServerProfile FastHttpsAppTlsServerProfilePtrInput
 	// `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
 	// See virtual server below for more details.
@@ -337,9 +349,13 @@ type fastHttpsAppArgs struct {
 	Tenant string `pulumi:"tenant"`
 	// `tlsClientProfile` block takes input for FAST-Generated TLS client Profile.
 	// See TLS Client Profile below for more details.
+	//
+	// > **NOTE** Profile provided by `existingTlsClientProfile` or `tlsClientProfile` used for encrypt server-side connections.
 	TlsClientProfile *FastHttpsAppTlsClientProfile `pulumi:"tlsClientProfile"`
 	// `tlsServerProfile` block takes input for FAST-Generated TLS Server Profile.
 	// See TLS Server Profile below for more details.
+	//
+	// > **NOTE** Profile provided by `existingTlsServerProfile` or `tlsServerProfile` used for decrypt client-side connections.
 	TlsServerProfile *FastHttpsAppTlsServerProfile `pulumi:"tlsServerProfile"`
 	// `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
 	// See virtual server below for more details.
@@ -387,9 +403,13 @@ type FastHttpsAppArgs struct {
 	Tenant pulumi.StringInput
 	// `tlsClientProfile` block takes input for FAST-Generated TLS client Profile.
 	// See TLS Client Profile below for more details.
+	//
+	// > **NOTE** Profile provided by `existingTlsClientProfile` or `tlsClientProfile` used for encrypt server-side connections.
 	TlsClientProfile FastHttpsAppTlsClientProfilePtrInput
 	// `tlsServerProfile` block takes input for FAST-Generated TLS Server Profile.
 	// See TLS Server Profile below for more details.
+	//
+	// > **NOTE** Profile provided by `existingTlsServerProfile` or `tlsServerProfile` used for decrypt client-side connections.
 	TlsServerProfile FastHttpsAppTlsServerProfilePtrInput
 	// `virtualServer` block will provide `ip` and `port` options to be used for virtual server.
 	// See virtual server below for more details.
@@ -575,12 +595,16 @@ func (o FastHttpsAppOutput) Tenant() pulumi.StringOutput {
 
 // `tlsClientProfile` block takes input for FAST-Generated TLS client Profile.
 // See TLS Client Profile below for more details.
+//
+// > **NOTE** Profile provided by `existingTlsClientProfile` or `tlsClientProfile` used for encrypt server-side connections.
 func (o FastHttpsAppOutput) TlsClientProfile() FastHttpsAppTlsClientProfilePtrOutput {
 	return o.ApplyT(func(v *FastHttpsApp) FastHttpsAppTlsClientProfilePtrOutput { return v.TlsClientProfile }).(FastHttpsAppTlsClientProfilePtrOutput)
 }
 
 // `tlsServerProfile` block takes input for FAST-Generated TLS Server Profile.
 // See TLS Server Profile below for more details.
+//
+// > **NOTE** Profile provided by `existingTlsServerProfile` or `tlsServerProfile` used for decrypt client-side connections.
 func (o FastHttpsAppOutput) TlsServerProfile() FastHttpsAppTlsServerProfilePtrOutput {
 	return o.ApplyT(func(v *FastHttpsApp) FastHttpsAppTlsServerProfilePtrOutput { return v.TlsServerProfile }).(FastHttpsAppTlsServerProfilePtrOutput)
 }

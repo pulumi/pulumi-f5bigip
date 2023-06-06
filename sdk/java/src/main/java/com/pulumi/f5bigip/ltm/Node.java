@@ -201,12 +201,16 @@ public class Node extends com.pulumi.resources.CustomResource {
     /**
      * Default is &#34;user-up&#34; you can set to &#34;user-down&#34; if you want to disable
      * 
+     * &gt; *NOTE* Below attributes needs to be configured under fqdn option.
+     * 
      */
     @Export(name="state", type=String.class, parameters={})
     private Output<String> state;
 
     /**
      * @return Default is &#34;user-up&#34; you can set to &#34;user-down&#34; if you want to disable
+     * 
+     * &gt; *NOTE* Below attributes needs to be configured under fqdn option.
      * 
      */
     public Output<String> state() {

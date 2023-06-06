@@ -100,6 +100,8 @@ export class Node extends pulumi.CustomResource {
     public readonly session!: pulumi.Output<string>;
     /**
      * Default is "user-up" you can set to "user-down" if you want to disable
+     *
+     * > *NOTE* Below attributes needs to be configured under fqdn option.
      */
     public readonly state!: pulumi.Output<string>;
 
@@ -195,6 +197,8 @@ export interface NodeState {
     session?: pulumi.Input<string>;
     /**
      * Default is "user-up" you can set to "user-down" if you want to disable
+     *
+     * > *NOTE* Below attributes needs to be configured under fqdn option.
      */
     state?: pulumi.Input<string>;
 }
@@ -242,6 +246,8 @@ export interface NodeArgs {
     session?: pulumi.Input<string>;
     /**
      * Default is "user-up" you can set to "user-down" if you want to disable
+     *
+     * > *NOTE* Below attributes needs to be configured under fqdn option.
      */
     state?: pulumi.Input<string>;
 }

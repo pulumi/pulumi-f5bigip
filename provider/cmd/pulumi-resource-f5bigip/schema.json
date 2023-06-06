@@ -2782,7 +2782,7 @@
                 },
                 "ignoreMetadata": {
                     "type": "boolean",
-                    "description": "Set True if you want to ignore metadata changes during update. By default it is set to false\n"
+                    "description": "Set True if you want to ignore metadata changes during update. By default it is set to false\n\n* `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n    }\n}\n```\n```yaml\n{}\n```\n* `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n    }\n}\n```\n```yaml\n{}\n```\n"
                 },
                 "taskId": {
                     "type": "string",
@@ -2818,7 +2818,7 @@
                 },
                 "ignoreMetadata": {
                     "type": "boolean",
-                    "description": "Set True if you want to ignore metadata changes during update. By default it is set to false\n"
+                    "description": "Set True if you want to ignore metadata changes during update. By default it is set to false\n\n* `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n    }\n}\n```\n```yaml\n{}\n```\n* `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n    }\n}\n```\n```yaml\n{}\n```\n"
                 },
                 "taskId": {
                     "type": "string",
@@ -2851,7 +2851,7 @@
                     },
                     "ignoreMetadata": {
                         "type": "boolean",
-                        "description": "Set True if you want to ignore metadata changes during update. By default it is set to false\n"
+                        "description": "Set True if you want to ignore metadata changes during update. By default it is set to false\n\n* `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n    }\n}\n```\n```yaml\n{}\n```\n* `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n    }\n}\n```\n```yaml\n{}\n```\n"
                     },
                     "taskId": {
                         "type": "string",
@@ -2912,7 +2912,7 @@
                 },
                 "ignoreMetadata": {
                     "type": "boolean",
-                    "description": "Set True if you want to ignore metadata changes during update. By default it is set to `true`\n"
+                    "description": "Set True if you want to ignore metadata changes during update. By default it is set to `true`\n\n* `bigiq_example.json` - Example  AS3 Declarative JSON file\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n    }\n}\n```\n```yaml\n{}\n```\n\n* `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html\n\n\u003e  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource\n"
                 },
                 "tenantList": {
                     "type": "string",
@@ -2962,7 +2962,7 @@
                 },
                 "ignoreMetadata": {
                     "type": "boolean",
-                    "description": "Set True if you want to ignore metadata changes during update. By default it is set to `true`\n"
+                    "description": "Set True if you want to ignore metadata changes during update. By default it is set to `true`\n\n* `bigiq_example.json` - Example  AS3 Declarative JSON file\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n    }\n}\n```\n```yaml\n{}\n```\n\n* `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html\n\n\u003e  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource\n"
                 },
                 "tenantList": {
                     "type": "string",
@@ -3013,7 +3013,7 @@
                     },
                     "ignoreMetadata": {
                         "type": "boolean",
-                        "description": "Set True if you want to ignore metadata changes during update. By default it is set to `true`\n"
+                        "description": "Set True if you want to ignore metadata changes during update. By default it is set to `true`\n\n* `bigiq_example.json` - Example  AS3 Declarative JSON file\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n    }\n}\n```\n```yaml\n{}\n```\n\n* `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html\n\n\u003e  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource\n"
                     },
                     "tenantList": {
                         "type": "string",
@@ -3337,7 +3337,7 @@
                 },
                 "bigipPassword": {
                     "type": "string",
-                    "description": "Password of  BIGIP host to be used for this resource,this is optional parameter.\nwhenever we specify this parameter it gets overwrite provider configuration\n",
+                    "description": "Password of BIGIP host to be used for this resource\n",
                     "secret": true
                 },
                 "bigipPort": {
@@ -3377,7 +3377,7 @@
                 },
                 "bigipPassword": {
                     "type": "string",
-                    "description": "Password of  BIGIP host to be used for this resource,this is optional parameter.\nwhenever we specify this parameter it gets overwrite provider configuration\n",
+                    "description": "Password of BIGIP host to be used for this resource\n",
                     "secret": true
                 },
                 "bigipPort": {
@@ -3419,7 +3419,7 @@
                     },
                     "bigipPassword": {
                         "type": "string",
-                        "description": "Password of  BIGIP host to be used for this resource,this is optional parameter.\nwhenever we specify this parameter it gets overwrite provider configuration\n",
+                        "description": "Password of BIGIP host to be used for this resource\n",
                         "secret": true
                     },
                     "bigipPort": {
@@ -3460,7 +3460,7 @@
                     "items": {
                         "$ref": "#/types/f5bigip:index/EventServiceDiscoveryNode:EventServiceDiscoveryNode"
                     },
-                    "description": "Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)\n"
+                    "description": "Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)\n\nFor more information, please refer below document\nhttps://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/declarations/discovery.html?highlight=service%20discovery#event-driven-service-discovery\n\nBelow example shows how to use event-driven service discovery, introduced in AS3 3.9.0.\n\nWith event-driven service discovery, you POST a declaration with the addressDiscovery property set to event. This creates a new endpoint which you can use to add nodes that does not require an AS3 declaration, so it can be more efficient than using PATCH or POST to add nodes.\n\nWhen you use the event value for addressDiscovery, the system creates the new endpoint with the following syntax: https://\u003chost\u003e/mgmt/shared/service-discovery/task/~\u003ctenant name\u003e~\u003capplication name\u003e~\u003cpool name\u003e/nodes.\n\nFor example, in the following declaration, assuming 192.0.2.14 is our BIG-IP, the endpoint that is created is: https://192.0.2.14/mgmt/shared/service-discovery/task/~Sample_event_sd~My_app~My_pool/nodes\n\nOnce the endpoint is created( taskid ), you can use it to add nodes to the BIG-IP pool\nFirst we show the initial declaration to POST to the BIG-IP system.\n\n{\n\"class\": \"ADC\",\n\"schemaVersion\": \"3.9.0\",\n\"id\": \"Pool\",\n\"Sample_event_sd\": {\n\"class\": \"Tenant\",\n\"My_app\": {\n\"class\": \"Application\",\n\"My_pool\": {\n\"class\": \"Pool\",\n\"members\": [\n{\n\"servicePort\": 8080,\n\"addressDiscovery\": \"static\",\n\"serverAddresses\": [\n\"192.0.2.2\"\n]\n},\n{\n\"servicePort\": 8080,\n\"addressDiscovery\": \"event\"\n}\n]\n}\n}\n}\n}\n\n\nOnce the declaration has been sent to the BIG-IP, we can use taskid/id ( ~Sample_event_sd~My_app~My_pool\" ) and node list for the resource to dynamically update the node list.\n"
                 },
                 "taskid": {
                     "type": "string",
@@ -3476,7 +3476,7 @@
                     "items": {
                         "$ref": "#/types/f5bigip:index/EventServiceDiscoveryNode:EventServiceDiscoveryNode"
                     },
-                    "description": "Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)\n"
+                    "description": "Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)\n\nFor more information, please refer below document\nhttps://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/declarations/discovery.html?highlight=service%20discovery#event-driven-service-discovery\n\nBelow example shows how to use event-driven service discovery, introduced in AS3 3.9.0.\n\nWith event-driven service discovery, you POST a declaration with the addressDiscovery property set to event. This creates a new endpoint which you can use to add nodes that does not require an AS3 declaration, so it can be more efficient than using PATCH or POST to add nodes.\n\nWhen you use the event value for addressDiscovery, the system creates the new endpoint with the following syntax: https://\u003chost\u003e/mgmt/shared/service-discovery/task/~\u003ctenant name\u003e~\u003capplication name\u003e~\u003cpool name\u003e/nodes.\n\nFor example, in the following declaration, assuming 192.0.2.14 is our BIG-IP, the endpoint that is created is: https://192.0.2.14/mgmt/shared/service-discovery/task/~Sample_event_sd~My_app~My_pool/nodes\n\nOnce the endpoint is created( taskid ), you can use it to add nodes to the BIG-IP pool\nFirst we show the initial declaration to POST to the BIG-IP system.\n\n{\n\"class\": \"ADC\",\n\"schemaVersion\": \"3.9.0\",\n\"id\": \"Pool\",\n\"Sample_event_sd\": {\n\"class\": \"Tenant\",\n\"My_app\": {\n\"class\": \"Application\",\n\"My_pool\": {\n\"class\": \"Pool\",\n\"members\": [\n{\n\"servicePort\": 8080,\n\"addressDiscovery\": \"static\",\n\"serverAddresses\": [\n\"192.0.2.2\"\n]\n},\n{\n\"servicePort\": 8080,\n\"addressDiscovery\": \"event\"\n}\n]\n}\n}\n}\n}\n\n\nOnce the declaration has been sent to the BIG-IP, we can use taskid/id ( ~Sample_event_sd~My_app~My_pool\" ) and node list for the resource to dynamically update the node list.\n"
                 },
                 "taskid": {
                     "type": "string",
@@ -3495,7 +3495,7 @@
                         "items": {
                             "$ref": "#/types/f5bigip:index/EventServiceDiscoveryNode:EventServiceDiscoveryNode"
                         },
-                        "description": "Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)\n"
+                        "description": "Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)\n\nFor more information, please refer below document\nhttps://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/declarations/discovery.html?highlight=service%20discovery#event-driven-service-discovery\n\nBelow example shows how to use event-driven service discovery, introduced in AS3 3.9.0.\n\nWith event-driven service discovery, you POST a declaration with the addressDiscovery property set to event. This creates a new endpoint which you can use to add nodes that does not require an AS3 declaration, so it can be more efficient than using PATCH or POST to add nodes.\n\nWhen you use the event value for addressDiscovery, the system creates the new endpoint with the following syntax: https://\u003chost\u003e/mgmt/shared/service-discovery/task/~\u003ctenant name\u003e~\u003capplication name\u003e~\u003cpool name\u003e/nodes.\n\nFor example, in the following declaration, assuming 192.0.2.14 is our BIG-IP, the endpoint that is created is: https://192.0.2.14/mgmt/shared/service-discovery/task/~Sample_event_sd~My_app~My_pool/nodes\n\nOnce the endpoint is created( taskid ), you can use it to add nodes to the BIG-IP pool\nFirst we show the initial declaration to POST to the BIG-IP system.\n\n{\n\"class\": \"ADC\",\n\"schemaVersion\": \"3.9.0\",\n\"id\": \"Pool\",\n\"Sample_event_sd\": {\n\"class\": \"Tenant\",\n\"My_app\": {\n\"class\": \"Application\",\n\"My_pool\": {\n\"class\": \"Pool\",\n\"members\": [\n{\n\"servicePort\": 8080,\n\"addressDiscovery\": \"static\",\n\"serverAddresses\": [\n\"192.0.2.2\"\n]\n},\n{\n\"servicePort\": 8080,\n\"addressDiscovery\": \"event\"\n}\n]\n}\n}\n}\n}\n\n\nOnce the declaration has been sent to the BIG-IP, we can use taskid/id ( ~Sample_event_sd~My_app~My_pool\" ) and node list for the resource to dynamically update the node list.\n"
                     },
                     "taskid": {
                         "type": "string",
@@ -3511,7 +3511,7 @@
             "properties": {
                 "application": {
                     "type": "string",
-                    "description": "A FAST application name.\n"
+                    "description": "A FAST application name.\n\n\n\n* `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/\n"
                 },
                 "fastJson": {
                     "type": "string",
@@ -3549,7 +3549,7 @@
                 "properties": {
                     "application": {
                         "type": "string",
-                        "description": "A FAST application name.\n"
+                        "description": "A FAST application name.\n\n\n\n* `FAST documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/\n"
                     },
                     "fastJson": {
                         "type": "string",
@@ -3928,11 +3928,11 @@
                 },
                 "tlsClientProfile": {
                     "$ref": "#/types/f5bigip:index/FastHttpsAppTlsClientProfile:FastHttpsAppTlsClientProfile",
-                    "description": "`tls_client_profile` block takes input for FAST-Generated TLS client Profile.\nSee TLS Client Profile below for more details.\n"
+                    "description": "`tls_client_profile` block takes input for FAST-Generated TLS client Profile.\nSee TLS Client Profile below for more details.\n\n\u003e **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.\n"
                 },
                 "tlsServerProfile": {
                     "$ref": "#/types/f5bigip:index/FastHttpsAppTlsServerProfile:FastHttpsAppTlsServerProfile",
-                    "description": "`tls_server_profile` block takes input for FAST-Generated TLS Server Profile.\nSee TLS Server Profile below for more details.\n"
+                    "description": "`tls_server_profile` block takes input for FAST-Generated TLS Server Profile.\nSee TLS Server Profile below for more details.\n\n\u003e **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.\n"
                 },
                 "virtualServer": {
                     "$ref": "#/types/f5bigip:index/FastHttpsAppVirtualServer:FastHttpsAppVirtualServer",
@@ -4034,11 +4034,11 @@
                 },
                 "tlsClientProfile": {
                     "$ref": "#/types/f5bigip:index/FastHttpsAppTlsClientProfile:FastHttpsAppTlsClientProfile",
-                    "description": "`tls_client_profile` block takes input for FAST-Generated TLS client Profile.\nSee TLS Client Profile below for more details.\n"
+                    "description": "`tls_client_profile` block takes input for FAST-Generated TLS client Profile.\nSee TLS Client Profile below for more details.\n\n\u003e **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.\n"
                 },
                 "tlsServerProfile": {
                     "$ref": "#/types/f5bigip:index/FastHttpsAppTlsServerProfile:FastHttpsAppTlsServerProfile",
-                    "description": "`tls_server_profile` block takes input for FAST-Generated TLS Server Profile.\nSee TLS Server Profile below for more details.\n"
+                    "description": "`tls_server_profile` block takes input for FAST-Generated TLS Server Profile.\nSee TLS Server Profile below for more details.\n\n\u003e **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.\n"
                 },
                 "virtualServer": {
                     "$ref": "#/types/f5bigip:index/FastHttpsAppVirtualServer:FastHttpsAppVirtualServer",
@@ -4143,11 +4143,11 @@
                     },
                     "tlsClientProfile": {
                         "$ref": "#/types/f5bigip:index/FastHttpsAppTlsClientProfile:FastHttpsAppTlsClientProfile",
-                        "description": "`tls_client_profile` block takes input for FAST-Generated TLS client Profile.\nSee TLS Client Profile below for more details.\n"
+                        "description": "`tls_client_profile` block takes input for FAST-Generated TLS client Profile.\nSee TLS Client Profile below for more details.\n\n\u003e **NOTE** Profile provided by `existing_tls_client_profile` or `tls_client_profile` used for encrypt server-side connections.\n"
                     },
                     "tlsServerProfile": {
                         "$ref": "#/types/f5bigip:index/FastHttpsAppTlsServerProfile:FastHttpsAppTlsServerProfile",
-                        "description": "`tls_server_profile` block takes input for FAST-Generated TLS Server Profile.\nSee TLS Server Profile below for more details.\n"
+                        "description": "`tls_server_profile` block takes input for FAST-Generated TLS Server Profile.\nSee TLS Server Profile below for more details.\n\n\u003e **NOTE** Profile provided by `existing_tls_server_profile` or `tls_server_profile` used for decrypt client-side connections.\n"
                     },
                     "virtualServer": {
                         "$ref": "#/types/f5bigip:index/FastHttpsAppVirtualServer:FastHttpsAppVirtualServer",
@@ -6789,7 +6789,7 @@
                 },
                 "state": {
                     "type": "string",
-                    "description": "Default is \"user-up\" you can set to \"user-down\" if you want to disable\n"
+                    "description": "Default is \"user-up\" you can set to \"user-down\" if you want to disable\n\n\u003e *NOTE* Below attributes needs to be configured under fqdn option.\n"
                 }
             },
             "required": [
@@ -6846,7 +6846,7 @@
                 },
                 "state": {
                     "type": "string",
-                    "description": "Default is \"user-up\" you can set to \"user-down\" if you want to disable\n"
+                    "description": "Default is \"user-up\" you can set to \"user-down\" if you want to disable\n\n\u003e *NOTE* Below attributes needs to be configured under fqdn option.\n"
                 }
             },
             "requiredInputs": [
@@ -6899,7 +6899,7 @@
                     },
                     "state": {
                         "type": "string",
-                        "description": "Default is \"user-up\" you can set to \"user-down\" if you want to disable\n"
+                        "description": "Default is \"user-up\" you can set to \"user-down\" if you want to disable\n\n\u003e *NOTE* Below attributes needs to be configured under fqdn option.\n"
                     }
                 },
                 "type": "object"
@@ -10384,7 +10384,7 @@
                 },
                 "c3dCaKey": {
                     "type": "string",
-                    "description": "Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.\n"
+                    "description": "Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.\n\n* `c3d-ca-passphrase` (Optional) Specifies the passphrase of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. When selecting this option, type the passphrase corresponding to the selected c3d-ca-key.\n\n* `c3d-cert-extension-custom-oids` (Optional) Specifies the custom extension OID of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation.\n"
                 },
                 "c3dCaPassphrase": {
                     "type": "string",
@@ -10402,7 +10402,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:\n"
+                    "description": "Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:\n\nbasic-constraints\nBasic constraints are used to indicate whether the certificate belongs\nto a CA.\n\nextended-key-usage\nExtended Key Usage is used, typically on a leaf certificate, to\nindicate the purpose of the public key contained in the certificate.\n\nkey-usage\nKey Usage provides a bitmap specifying the cryptographic operations\nwhich may be performed using the public key contained in the\ncertificate; for example, it could indicate that the key should be\nused for signature but not for encipherment.\n\nsubject-alternative-name\nSubject Alternative Name allows identities to be bound to the subject\nof the certificate. These identities may be included in addition to\nor in place of the identity in the subject field of the certificate.\n\n* `c3d-cert-lifespan` Specifies the lifespan of the certificate generated using the SSL client certificate constrained delegation. The default value is 24.\n"
                 },
                 "c3dCertLifespan": {
                     "type": "integer",
@@ -10643,7 +10643,7 @@
                 },
                 "c3dCaKey": {
                     "type": "string",
-                    "description": "Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.\n"
+                    "description": "Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.\n\n* `c3d-ca-passphrase` (Optional) Specifies the passphrase of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. When selecting this option, type the passphrase corresponding to the selected c3d-ca-key.\n\n* `c3d-cert-extension-custom-oids` (Optional) Specifies the custom extension OID of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation.\n"
                 },
                 "c3dCaPassphrase": {
                     "type": "string",
@@ -10661,7 +10661,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:\n"
+                    "description": "Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:\n\nbasic-constraints\nBasic constraints are used to indicate whether the certificate belongs\nto a CA.\n\nextended-key-usage\nExtended Key Usage is used, typically on a leaf certificate, to\nindicate the purpose of the public key contained in the certificate.\n\nkey-usage\nKey Usage provides a bitmap specifying the cryptographic operations\nwhich may be performed using the public key contained in the\ncertificate; for example, it could indicate that the key should be\nused for signature but not for encipherment.\n\nsubject-alternative-name\nSubject Alternative Name allows identities to be bound to the subject\nof the certificate. These identities may be included in addition to\nor in place of the identity in the subject field of the certificate.\n\n* `c3d-cert-lifespan` Specifies the lifespan of the certificate generated using the SSL client certificate constrained delegation. The default value is 24.\n"
                 },
                 "c3dCertLifespan": {
                     "type": "integer",
@@ -10865,7 +10865,7 @@
                     },
                     "c3dCaKey": {
                         "type": "string",
-                        "description": "Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.\n"
+                        "description": "Specifies the name of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. The key should be generated and installed by you on the system. When selecting this option, type a key file name.\n\n* `c3d-ca-passphrase` (Optional) Specifies the passphrase of the key file that is used as the certification authority key when SSL client certificate constrained delegation is enabled. When selecting this option, type the passphrase corresponding to the selected c3d-ca-key.\n\n* `c3d-cert-extension-custom-oids` (Optional) Specifies the custom extension OID of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation.\n"
                     },
                     "c3dCaPassphrase": {
                         "type": "string",
@@ -10883,7 +10883,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:\n"
+                        "description": "Specifies the extensions of the client certificates to be included in the generated certificates using SSL client certificate constrained delegation. For example, { basic-constraints }. The default value is { basic-constraints extended-key-usage key-usage subject-alternative-name }. The extensions are:\n\nbasic-constraints\nBasic constraints are used to indicate whether the certificate belongs\nto a CA.\n\nextended-key-usage\nExtended Key Usage is used, typically on a leaf certificate, to\nindicate the purpose of the public key contained in the certificate.\n\nkey-usage\nKey Usage provides a bitmap specifying the cryptographic operations\nwhich may be performed using the public key contained in the\ncertificate; for example, it could indicate that the key should be\nused for signature but not for encipherment.\n\nsubject-alternative-name\nSubject Alternative Name allows identities to be bound to the subject\nof the certificate. These identities may be included in addition to\nor in place of the identity in the subject field of the certificate.\n\n* `c3d-cert-lifespan` Specifies the lifespan of the certificate generated using the SSL client certificate constrained delegation. The default value is 24.\n"
                     },
                     "c3dCertLifespan": {
                         "type": "integer",
@@ -14819,7 +14819,7 @@
             }
         },
         "f5bigip:ssl/getWafEntityUrl:getWafEntityUrl": {
-            "description": "Use this data source (`f5bigip.ssl.getWafPbSuggestions`) to create JSON for WAF URL to later use with an existing WAF policy.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst wAFURL1 = f5bigip.ssl.getWafEntityUrl({\n    description: \"this is a test\",\n    methodOverrides: [\n        {\n            allow: false,\n            method: \"BCOPY\",\n        },\n        {\n            allow: true,\n            method: \"BDELETE\",\n        },\n    ],\n    name: \"/foobar\",\n    performStaging: true,\n    protocol: \"HTTP\",\n    signatureOverridesDisables: [\n        12345678,\n        87654321,\n    ],\n    type: \"explicit\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nw_afurl1 = f5bigip.ssl.get_waf_entity_url(description=\"this is a test\",\n    method_overrides=[\n        f5bigip.ssl.GetWafEntityUrlMethodOverrideArgs(\n            allow=False,\n            method=\"BCOPY\",\n        ),\n        f5bigip.ssl.GetWafEntityUrlMethodOverrideArgs(\n            allow=True,\n            method=\"BDELETE\",\n        ),\n    ],\n    name=\"/foobar\",\n    perform_staging=True,\n    protocol=\"HTTP\",\n    signature_overrides_disables=[\n        12345678,\n        87654321,\n    ],\n    type=\"explicit\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var wAFURL1 = F5BigIP.Ssl.GetWafEntityUrl.Invoke(new()\n    {\n        Description = \"this is a test\",\n        MethodOverrides = new[]\n        {\n            new F5BigIP.Ssl.Inputs.GetWafEntityUrlMethodOverrideInputArgs\n            {\n                Allow = false,\n                Method = \"BCOPY\",\n            },\n            new F5BigIP.Ssl.Inputs.GetWafEntityUrlMethodOverrideInputArgs\n            {\n                Allow = true,\n                Method = \"BDELETE\",\n            },\n        },\n        Name = \"/foobar\",\n        PerformStaging = true,\n        Protocol = \"HTTP\",\n        SignatureOverridesDisables = new[]\n        {\n            12345678,\n            87654321,\n        },\n        Type = \"explicit\",\n    });\n\n});\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.f5bigip.ssl.SslFunctions;\nimport com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var wAFURL1 = SslFunctions.getWafEntityUrl(GetWafEntityUrlArgs.builder()\n            .description(\"this is a test\")\n            .methodOverrides(            \n                GetWafEntityUrlMethodOverrideArgs.builder()\n                    .allow(false)\n                    .method(\"BCOPY\")\n                    .build(),\n                GetWafEntityUrlMethodOverrideArgs.builder()\n                    .allow(true)\n                    .method(\"BDELETE\")\n                    .build())\n            .name(\"/foobar\")\n            .performStaging(true)\n            .protocol(\"HTTP\")\n            .signatureOverridesDisables(            \n                12345678,\n                87654321)\n            .type(\"explicit\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  wAFURL1:\n    fn::invoke:\n      Function: f5bigip:ssl:getWafEntityUrl\n      Arguments:\n        description: this is a test\n        methodOverrides:\n          - allow: false\n            method: BCOPY\n          - allow: true\n            method: BDELETE\n        name: /foobar\n        performStaging: true\n        protocol: HTTP\n        signatureOverridesDisables:\n          - 1.2345678e+07\n          - 8.7654321e+07\n        type: explicit\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "Use this data source (`f5bigip.ssl.getWafPbSuggestions`) to create JSON for WAF URL to later use with an existing WAF policy.\n\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst wAFURL1 = f5bigip.ssl.getWafEntityUrl({\n    description: \"this is a test\",\n    methodOverrides: [\n        {\n            allow: false,\n            method: \"BCOPY\",\n        },\n        {\n            allow: true,\n            method: \"BDELETE\",\n        },\n    ],\n    name: \"/foobar\",\n    performStaging: true,\n    protocol: \"HTTP\",\n    signatureOverridesDisables: [\n        12345678,\n        87654321,\n    ],\n    type: \"explicit\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nw_afurl1 = f5bigip.ssl.get_waf_entity_url(description=\"this is a test\",\n    method_overrides=[\n        f5bigip.ssl.GetWafEntityUrlMethodOverrideArgs(\n            allow=False,\n            method=\"BCOPY\",\n        ),\n        f5bigip.ssl.GetWafEntityUrlMethodOverrideArgs(\n            allow=True,\n            method=\"BDELETE\",\n        ),\n    ],\n    name=\"/foobar\",\n    perform_staging=True,\n    protocol=\"HTTP\",\n    signature_overrides_disables=[\n        12345678,\n        87654321,\n    ],\n    type=\"explicit\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var wAFURL1 = F5BigIP.Ssl.GetWafEntityUrl.Invoke(new()\n    {\n        Description = \"this is a test\",\n        MethodOverrides = new[]\n        {\n            new F5BigIP.Ssl.Inputs.GetWafEntityUrlMethodOverrideInputArgs\n            {\n                Allow = false,\n                Method = \"BCOPY\",\n            },\n            new F5BigIP.Ssl.Inputs.GetWafEntityUrlMethodOverrideInputArgs\n            {\n                Allow = true,\n                Method = \"BDELETE\",\n            },\n        },\n        Name = \"/foobar\",\n        PerformStaging = true,\n        Protocol = \"HTTP\",\n        SignatureOverridesDisables = new[]\n        {\n            12345678,\n            87654321,\n        },\n        Type = \"explicit\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\n\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ssl\"\n)\nfunc main() {\npulumi.Run(func(ctx *pulumi.Context) error {\n_, err := ssl.GetWafEntityUrl(ctx, \u0026ssl.GetWafEntityUrlArgs{\nDescription: pulumi.StringRef(\"this is a test\"),\nMethodOverrides: []ssl.GetWafEntityUrlMethodOverride{\n{\nAllow: false,\nMethod: \"BCOPY\",\n},\n{\nAllow: true,\nMethod: \"BDELETE\",\n},\n},\nName: \"/foobar\",\nPerformStaging: pulumi.BoolRef(true),\nProtocol: pulumi.StringRef(\"HTTP\"),\nSignatureOverridesDisables: interface{}{\n12345678,\n87654321,\n},\nType: pulumi.StringRef(\"explicit\"),\n}, nil);\nif err != nil {\nreturn err\n}\nreturn nil\n})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.f5bigip.ssl.SslFunctions;\nimport com.pulumi.f5bigip.ssl.inputs.GetWafEntityUrlArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var wAFURL1 = SslFunctions.getWafEntityUrl(GetWafEntityUrlArgs.builder()\n            .description(\"this is a test\")\n            .methodOverrides(            \n                GetWafEntityUrlMethodOverrideArgs.builder()\n                    .allow(false)\n                    .method(\"BCOPY\")\n                    .build(),\n                GetWafEntityUrlMethodOverrideArgs.builder()\n                    .allow(true)\n                    .method(\"BDELETE\")\n                    .build())\n            .name(\"/foobar\")\n            .performStaging(true)\n            .protocol(\"HTTP\")\n            .signatureOverridesDisables(            \n                12345678,\n                87654321)\n            .type(\"explicit\")\n            .build());\n\n    }\n}\n```\n```yaml\nvariables:\n  wAFURL1:\n    fn::invoke:\n      Function: f5bigip:ssl:getWafEntityUrl\n      Arguments:\n        description: this is a test\n        methodOverrides:\n          - allow: false\n            method: BCOPY\n          - allow: true\n            method: BDELETE\n        name: /foobar\n        performStaging: true\n        protocol: HTTP\n        signatureOverridesDisables:\n          - 1.2345678e+07\n          - 8.7654321e+07\n        type: explicit\n```\n{{% /example %}}\n{{% /examples %}}",
             "inputs": {
                 "description": "A collection of arguments for invoking getWafEntityUrl.\n",
                 "properties": {

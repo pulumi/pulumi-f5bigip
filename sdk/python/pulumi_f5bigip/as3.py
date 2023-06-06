@@ -26,6 +26,17 @@ class As3Args:
         :param pulumi.Input[str] application_list: Name of Application
         :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to false
+               
+               * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
+               
+               ```python
+               import pulumi
+               ```
+               * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[str] task_id: ID of AS3 post declaration async task
         :param pulumi.Input[str] tenant_filter: If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
         :param pulumi.Input[str] tenant_list: Name of Tenant
@@ -78,6 +89,17 @@ class As3Args:
     def ignore_metadata(self) -> Optional[pulumi.Input[bool]]:
         """
         Set True if you want to ignore metadata changes during update. By default it is set to false
+
+        * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
+
+        ```python
+        import pulumi
+        ```
+        * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "ignore_metadata")
 
@@ -149,6 +171,17 @@ class _As3State:
         :param pulumi.Input[str] application_list: Name of Application
         :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to false
+               
+               * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
+               
+               ```python
+               import pulumi
+               ```
+               * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[str] task_id: ID of AS3 post declaration async task
         :param pulumi.Input[str] tenant_filter: If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
         :param pulumi.Input[str] tenant_list: Name of Tenant
@@ -201,6 +234,17 @@ class _As3State:
     def ignore_metadata(self) -> Optional[pulumi.Input[bool]]:
         """
         Set True if you want to ignore metadata changes during update. By default it is set to false
+
+        * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
+
+        ```python
+        import pulumi
+        ```
+        * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "ignore_metadata")
 
@@ -734,6 +778,17 @@ class As3(pulumi.CustomResource):
         :param pulumi.Input[str] application_list: Name of Application
         :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to false
+               
+               * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
+               
+               ```python
+               import pulumi
+               ```
+               * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[str] task_id: ID of AS3 post declaration async task
         :param pulumi.Input[str] tenant_filter: If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
         :param pulumi.Input[str] tenant_list: Name of Tenant
@@ -1272,6 +1327,17 @@ class As3(pulumi.CustomResource):
         :param pulumi.Input[str] application_list: Name of Application
         :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
         :param pulumi.Input[bool] ignore_metadata: Set True if you want to ignore metadata changes during update. By default it is set to false
+               
+               * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
+               
+               ```python
+               import pulumi
+               ```
+               * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[str] task_id: ID of AS3 post declaration async task
         :param pulumi.Input[str] tenant_filter: If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
         :param pulumi.Input[str] tenant_list: Name of Tenant
@@ -1311,6 +1377,17 @@ class As3(pulumi.CustomResource):
     def ignore_metadata(self) -> pulumi.Output[Optional[bool]]:
         """
         Set True if you want to ignore metadata changes during update. By default it is set to false
+
+        * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
+
+        ```python
+        import pulumi
+        ```
+        * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "ignore_metadata")
 
