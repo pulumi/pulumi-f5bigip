@@ -486,6 +486,10 @@
         },
         "f5bigip:index/WafPolicyFileType:WafPolicyFileType": {
             "properties": {
+                "allowed": {
+                    "type": "boolean",
+                    "description": "Determines whether the file type is allowed or disallowed. In either of these cases the VIOL_FILETYPE violation is issued (if enabled) for an incoming request- \n* No allowed file type matched the file type of the request.\n* The file type of the request matched a disallowed file type.\n"
+                },
                 "name": {
                     "type": "string",
                     "description": "Specifies the file type name as appearing in the URL extension.\n"
@@ -499,9 +503,56 @@
         },
         "f5bigip:index/WafPolicyGraphqlProfile:WafPolicyGraphqlProfile": {
             "properties": {
+                "attackSignaturesCheck": {
+                    "type": "boolean",
+                    "description": "Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled.\n"
+                },
+                "defenseAttributes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/f5bigip:index/WafPolicyGraphqlProfileDefenseAttribute:WafPolicyGraphqlProfileDefenseAttribute"
+                    },
+                    "description": "`defense_attributes` block settings for GraphQl policy.See defense attributes below for more details.\n"
+                },
+                "metacharElementcheck": {
+                    "type": "boolean",
+                    "description": "Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled.\n"
+                },
                 "name": {
                     "type": "string",
                     "description": "The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "name"
+            ]
+        },
+        "f5bigip:index/WafPolicyGraphqlProfileDefenseAttribute:WafPolicyGraphqlProfileDefenseAttribute": {
+            "properties": {
+                "allowIntrospectionQueries": {
+                    "type": "boolean",
+                    "description": "Introspection queries can also be enforced to prevent attackers from using them to\nunderstand the API structure and potentially breach an application.\n"
+                },
+                "maximumBatchedQueries": {
+                    "type": "string",
+                    "description": "Specifies the highest number of batched queries allowed by the security policy.\n"
+                },
+                "maximumStructureDepth": {
+                    "type": "string",
+                    "description": "Specifies the greatest nesting depth found in the GraphQL structure allowed by the security policy.\n"
+                },
+                "maximumTotalLength": {
+                    "type": "string",
+                    "description": "Specifies the longest length, in bytes, allowed by the security policy of the request payload, or parameter value, where the GraphQL data was found.\n"
+                },
+                "maximumValueLength": {
+                    "type": "string",
+                    "description": "Specifies the longest length (in bytes) of the longest GraphQL element value in the document allowed by the security policy.\n"
+                },
+                "tolerateParsingWarnings": {
+                    "type": "boolean",
+                    "description": "Specifies, when checked (enabled), that the system does not report when the security enforcer encounters warnings while parsing GraphQL content. Specifies when cleared (disabled), that the security policy reports when the security enforcer encounters warnings while parsing GraphQL content. The default setting is disabled.\n"
                 }
             },
             "type": "object"
@@ -514,6 +565,43 @@
                 }
             },
             "type": "object"
+        },
+        "f5bigip:index/WafPolicyIpException:WafPolicyIpException": {
+            "properties": {
+                "blockRequests": {
+                    "type": "string",
+                    "description": "Specifies how the system responds to blocking requests sent from this IP address. Possible options [`always`, `never`, `policy-default`].\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Specifies the description of the policy.\n"
+                },
+                "ignoreAnomalies": {
+                    "type": "boolean",
+                    "description": "Specifies when enabled that the system considers this IP address legitimate and does not take it into account when performing brute force prevention.\n"
+                },
+                "ignoreIpreputation": {
+                    "type": "boolean",
+                    "description": "Specifies when enabled that the system considers this IP address legitimate even if it is found in the IP Intelligence database (a database of questionable IP addresses).\n"
+                },
+                "ipAddress": {
+                    "type": "string",
+                    "description": "Specifies the IP address that you want the system to trust.\n"
+                },
+                "ipMask": {
+                    "type": "string",
+                    "description": "Specifies the netmask of the exceptional IP address. This is an optional field.\n"
+                },
+                "trustedbyPolicybuilder": {
+                    "type": "boolean",
+                    "description": "Specifies when enabled the Policy Builder considers traffic from this IP address as being safe.\n"
+                }
+            },
+            "type": "object",
+            "required": [
+                "ipAddress",
+                "ipMask"
+            ]
         },
         "f5bigip:index/WafPolicyPolicyBuilder:WafPolicyPolicyBuilder": {
             "properties": {
@@ -5885,6 +5973,13 @@
                     },
                     "description": "specify the list of host name that is used to access the application\n"
                 },
+                "ipExceptions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/f5bigip:index/WafPolicyIpException:WafPolicyIpException"
+                    },
+                    "description": "`ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.\nSee IP Exceptions below for more details.\n"
+                },
                 "modifications": {
                     "type": "array",
                     "items": {
@@ -6034,6 +6129,13 @@
                     },
                     "description": "specify the list of host name that is used to access the application\n"
                 },
+                "ipExceptions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/f5bigip:index/WafPolicyIpException:WafPolicyIpException"
+                    },
+                    "description": "`ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.\nSee IP Exceptions below for more details.\n"
+                },
                 "modifications": {
                     "type": "array",
                     "items": {
@@ -6180,6 +6282,13 @@
                             "$ref": "#/types/f5bigip:index/WafPolicyHostName:WafPolicyHostName"
                         },
                         "description": "specify the list of host name that is used to access the application\n"
+                    },
+                    "ipExceptions": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/f5bigip:index/WafPolicyIpException:WafPolicyIpException"
+                        },
+                        "description": "`ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.\nSee IP Exceptions below for more details.\n"
                     },
                     "modifications": {
                         "type": "array",
@@ -6443,6 +6552,10 @@
                     "type": "string",
                     "description": "Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.\n"
                 },
+                "customParent": {
+                    "type": "string",
+                    "description": "Custom parent monitor for the system to use for setting initial values for the new monitor.\n"
+                },
                 "database": {
                     "type": "string",
                     "description": "Specifies the database in which the user is created\n"
@@ -6555,6 +6668,10 @@
                     "type": "string",
                     "description": "Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.\n"
                 },
+                "customParent": {
+                    "type": "string",
+                    "description": "Custom parent monitor for the system to use for setting initial values for the new monitor.\n"
+                },
                 "database": {
                     "type": "string",
                     "description": "Specifies the database in which the user is created\n"
@@ -6657,6 +6774,10 @@
                     "compatibility": {
                         "type": "string",
                         "description": "Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.\n"
+                    },
+                    "customParent": {
+                        "type": "string",
+                        "description": "Custom parent monitor for the system to use for setting initial values for the new monitor.\n"
                     },
                     "database": {
                         "type": "string",
@@ -7916,6 +8037,10 @@
                     "type": "string",
                     "description": "Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled\n"
                 },
+                "monitor": {
+                    "type": "string",
+                    "description": "Specifies the health monitors that the system uses to monitor this pool member,value can be `none` (or) `default` (or) list of monitors joined with and ( ex: `/Common/test_monitor_pa_tc1 and /Common/gateway_icmp`).\n"
+                },
                 "node": {
                     "type": "string",
                     "description": "Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)\n"
@@ -7931,12 +8056,17 @@
                 "ratio": {
                     "type": "integer",
                     "description": "\"Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.\".\n"
+                },
+                "state": {
+                    "type": "string",
+                    "description": "Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forced_offline`).\n"
                 }
             },
             "required": [
                 "connectionLimit",
                 "connectionRateLimit",
                 "dynamicRatio",
+                "monitor",
                 "node",
                 "pool",
                 "priorityGroup",
@@ -7960,6 +8090,10 @@
                     "description": "Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled\n",
                     "willReplaceOnChanges": true
                 },
+                "monitor": {
+                    "type": "string",
+                    "description": "Specifies the health monitors that the system uses to monitor this pool member,value can be `none` (or) `default` (or) list of monitors joined with and ( ex: `/Common/test_monitor_pa_tc1 and /Common/gateway_icmp`).\n"
+                },
                 "node": {
                     "type": "string",
                     "description": "Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)\n",
@@ -7977,6 +8111,10 @@
                 "ratio": {
                     "type": "integer",
                     "description": "\"Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.\".\n"
+                },
+                "state": {
+                    "type": "string",
+                    "description": "Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forced_offline`).\n"
                 }
             },
             "requiredInputs": [
@@ -8003,6 +8141,10 @@
                         "description": "Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled\n",
                         "willReplaceOnChanges": true
                     },
+                    "monitor": {
+                        "type": "string",
+                        "description": "Specifies the health monitors that the system uses to monitor this pool member,value can be `none` (or) `default` (or) list of monitors joined with and ( ex: `/Common/test_monitor_pa_tc1 and /Common/gateway_icmp`).\n"
+                    },
                     "node": {
                         "type": "string",
                         "description": "Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)\n",
@@ -8020,6 +8162,10 @@
                     "ratio": {
                         "type": "integer",
                         "description": "\"Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.\".\n"
+                    },
+                    "state": {
+                        "type": "string",
+                        "description": "Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forced_offline`).\n"
                     }
                 },
                 "type": "object"
@@ -12695,11 +12841,11 @@
             }
         },
         "f5bigip:sys/iApp:IApp": {
-            "description": "`f5bigip.sys.IApp` resource helps you to deploy Application Services template that can be used to automate and orchestrate Layer 4-7 applications service deployments using F5 Network.  \n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\nimport * as fs from \"fs\";\n\nconst simplehttp = new f5bigip.sys.IApp(\"simplehttp\", {\n    name: \"simplehttp\",\n    jsonfile: fs.readFileSync(\"simplehttp.json\"),\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nsimplehttp = f5bigip.sys.IApp(\"simplehttp\",\n    name=\"simplehttp\",\n    jsonfile=(lambda path: open(path).read())(\"simplehttp.json\"))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var simplehttp = new F5BigIP.Sys.IApp(\"simplehttp\", new()\n    {\n        Name = \"simplehttp\",\n        Jsonfile = File.ReadAllText(\"simplehttp.json\"),\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"os\"\n\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/sys\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc readFileOrPanic(path string) pulumi.StringPtrInput {\n\tdata, err := os.ReadFile(path)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\treturn pulumi.String(string(data))\n}\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := sys.NewIApp(ctx, \"simplehttp\", \u0026sys.IAppArgs{\n\t\t\tName:     pulumi.String(\"simplehttp\"),\n\t\t\tJsonfile: readFileOrPanic(\"simplehttp.json\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.f5bigip.sys.IApp;\nimport com.pulumi.f5bigip.sys.IAppArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var simplehttp = new IApp(\"simplehttp\", IAppArgs.builder()        \n            .name(\"simplehttp\")\n            .jsonfile(Files.readString(Paths.get(\"simplehttp.json\")))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  simplehttp:\n    type: f5bigip:sys:IApp\n    properties:\n      name: simplehttp\n      jsonfile:\n        fn::readFile: simplehttp.json\n```\n\n{{% /example %}}\n{{% example %}}\n### Json File\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n    }\n}\n```\n```yaml\n{}\n```\n\n * `description` - User defined description.\n * `deviceGroup` - The name of the device group that the application service is assigned to.\n * `executeAction` - Run the specified template action associated with the application.\n * `inheritedDevicegroup`- Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use 'device-group default' or 'device-group non-default' to set this.\n * `inheritedTrafficGroup` - Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use 'traffic-group default' or 'traffic-group non-default' to set this.\n * `partition` - Displays the administrative partition within which the application resides.\n * `strictUpdates` - Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system's application management interfaces.\n * `template` - The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.\n * `templateModified` - Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.\n * `templatePrerequisiteErrors` - Indicates any missing prerequisites associated with the template that defines this application.\n * `trafficGroup` - The name of the traffic group that the application service is assigned to.\n * `lists` - string values\n * `metadata` - User defined generic data for the application service. It is a name and value pair.\n * `tables` - Values provided like pool name, nodes etc.\n * `variables` - Name, values, encrypted or not\n{{% /example %}}\n{{% /examples %}}",
+            "description": "`f5bigip.sys.IApp` resource helps you to deploy Application Services template that can be used to automate and orchestrate Layer 4-7 applications service deployments using F5 Network.  \n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\nimport * as fs from \"fs\";\n\nconst simplehttp = new f5bigip.sys.IApp(\"simplehttp\", {\n    name: \"simplehttp\",\n    jsonfile: fs.readFileSync(\"simplehttp.json\"),\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nsimplehttp = f5bigip.sys.IApp(\"simplehttp\",\n    name=\"simplehttp\",\n    jsonfile=(lambda path: open(path).read())(\"simplehttp.json\"))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.IO;\nusing System.Linq;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var simplehttp = new F5BigIP.Sys.IApp(\"simplehttp\", new()\n    {\n        Name = \"simplehttp\",\n        Jsonfile = File.ReadAllText(\"simplehttp.json\"),\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"os\"\n\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/sys\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc readFileOrPanic(path string) pulumi.StringPtrInput {\n\tdata, err := os.ReadFile(path)\n\tif err != nil {\n\t\tpanic(err.Error())\n\t}\n\treturn pulumi.String(string(data))\n}\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := sys.NewIApp(ctx, \"simplehttp\", \u0026sys.IAppArgs{\n\t\t\tName:     pulumi.String(\"simplehttp\"),\n\t\t\tJsonfile: readFileOrPanic(\"simplehttp.json\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.f5bigip.sys.IApp;\nimport com.pulumi.f5bigip.sys.IAppArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var simplehttp = new IApp(\"simplehttp\", IAppArgs.builder()        \n            .name(\"simplehttp\")\n            .jsonfile(Files.readString(Paths.get(\"simplehttp.json\")))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  simplehttp:\n    type: f5bigip:sys:IApp\n    properties:\n      name: simplehttp\n      jsonfile:\n        fn::readFile: simplehttp.json\n```\n\n{{% /example %}}\n{{% example %}}\n### Json File\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\n```\n```python\nimport pulumi\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n    }\n}\n```\n```yaml\n{}\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "description": {
                     "type": "string",
-                    "description": "Address of the Iapp which needs to be Iappensed\n"
+                    "description": "User defined description.\n"
                 },
                 "devicegroup": {
                     "type": "string",
@@ -12707,15 +12853,15 @@
                 },
                 "executeAction": {
                     "type": "string",
-                    "description": "BIG-IP password\n"
+                    "description": "Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `execute_action` attribute take precedence over `json` value\n"
                 },
                 "inheritedDevicegroup": {
                     "type": "string",
-                    "description": "BIG-IP password\n"
+                    "description": "Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use 'device-group default' or 'device-group non-default' to set this.\n"
                 },
                 "inheritedTrafficGroup": {
                     "type": "string",
-                    "description": "BIG-IP password\n"
+                    "description": "Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use 'traffic-group default' or 'traffic-group non-default' to set this.\n"
                 },
                 "jsonfile": {
                     "type": "string",
@@ -12725,13 +12871,15 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/f5bigip:sys/IAppList:IAppList"
-                    }
+                    },
+                    "description": "string values\n"
                 },
                 "metadatas": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/f5bigip:sys/IAppMetadata:IAppMetadata"
-                    }
+                    },
+                    "description": "User defined generic data for the application service. It is a name and value pair.\n"
                 },
                 "name": {
                     "type": "string",
@@ -12739,11 +12887,11 @@
                 },
                 "partition": {
                     "type": "string",
-                    "description": "Address of the Iapp which needs to be Iappensed\n"
+                    "description": "Displays the administrative partition within which the application resides.\n"
                 },
                 "strictUpdates": {
                     "type": "string",
-                    "description": "BIG-IP password\n"
+                    "description": "Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system's application management interfaces.\n"
                 },
                 "tables": {
                     "type": "array",
@@ -12753,19 +12901,19 @@
                 },
                 "template": {
                     "type": "string",
-                    "description": "BIG-IP password\n"
+                    "description": "The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.\n"
                 },
                 "templateModified": {
                     "type": "string",
-                    "description": "BIG-IP password\n"
+                    "description": "Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.\n"
                 },
                 "templatePrerequisiteErrors": {
                     "type": "string",
-                    "description": "BIG-IP password\n"
+                    "description": "Indicates any missing prerequisites associated with the template that defines this application.\n"
                 },
                 "trafficGroup": {
                     "type": "string",
-                    "description": "BIG-IP password\n"
+                    "description": "The name of the traffic group that the application service is assigned to.\n"
                 },
                 "variables": {
                     "type": "array",
@@ -12774,10 +12922,16 @@
                     }
                 }
             },
+            "required": [
+                "devicegroup",
+                "executeAction",
+                "jsonfile",
+                "name"
+            ],
             "inputProperties": {
                 "description": {
                     "type": "string",
-                    "description": "Address of the Iapp which needs to be Iappensed\n"
+                    "description": "User defined description.\n"
                 },
                 "devicegroup": {
                     "type": "string",
@@ -12785,15 +12939,15 @@
                 },
                 "executeAction": {
                     "type": "string",
-                    "description": "BIG-IP password\n"
+                    "description": "Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `execute_action` attribute take precedence over `json` value\n"
                 },
                 "inheritedDevicegroup": {
                     "type": "string",
-                    "description": "BIG-IP password\n"
+                    "description": "Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use 'device-group default' or 'device-group non-default' to set this.\n"
                 },
                 "inheritedTrafficGroup": {
                     "type": "string",
-                    "description": "BIG-IP password\n"
+                    "description": "Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use 'traffic-group default' or 'traffic-group non-default' to set this.\n"
                 },
                 "jsonfile": {
                     "type": "string",
@@ -12803,13 +12957,15 @@
                     "type": "array",
                     "items": {
                         "$ref": "#/types/f5bigip:sys/IAppList:IAppList"
-                    }
+                    },
+                    "description": "string values\n"
                 },
                 "metadatas": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/f5bigip:sys/IAppMetadata:IAppMetadata"
-                    }
+                    },
+                    "description": "User defined generic data for the application service. It is a name and value pair.\n"
                 },
                 "name": {
                     "type": "string",
@@ -12817,11 +12973,11 @@
                 },
                 "partition": {
                     "type": "string",
-                    "description": "Address of the Iapp which needs to be Iappensed\n"
+                    "description": "Displays the administrative partition within which the application resides.\n"
                 },
                 "strictUpdates": {
                     "type": "string",
-                    "description": "BIG-IP password\n"
+                    "description": "Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system's application management interfaces.\n"
                 },
                 "tables": {
                     "type": "array",
@@ -12831,19 +12987,19 @@
                 },
                 "template": {
                     "type": "string",
-                    "description": "BIG-IP password\n"
+                    "description": "The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.\n"
                 },
                 "templateModified": {
                     "type": "string",
-                    "description": "BIG-IP password\n"
+                    "description": "Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.\n"
                 },
                 "templatePrerequisiteErrors": {
                     "type": "string",
-                    "description": "BIG-IP password\n"
+                    "description": "Indicates any missing prerequisites associated with the template that defines this application.\n"
                 },
                 "trafficGroup": {
                     "type": "string",
-                    "description": "BIG-IP password\n"
+                    "description": "The name of the traffic group that the application service is assigned to.\n"
                 },
                 "variables": {
                     "type": "array",
@@ -12852,12 +13008,16 @@
                     }
                 }
             },
+            "requiredInputs": [
+                "jsonfile",
+                "name"
+            ],
             "stateInputs": {
                 "description": "Input properties used for looking up and filtering IApp resources.\n",
                 "properties": {
                     "description": {
                         "type": "string",
-                        "description": "Address of the Iapp which needs to be Iappensed\n"
+                        "description": "User defined description.\n"
                     },
                     "devicegroup": {
                         "type": "string",
@@ -12865,15 +13025,15 @@
                     },
                     "executeAction": {
                         "type": "string",
-                        "description": "BIG-IP password\n"
+                        "description": "Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `execute_action` attribute take precedence over `json` value\n"
                     },
                     "inheritedDevicegroup": {
                         "type": "string",
-                        "description": "BIG-IP password\n"
+                        "description": "Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use 'device-group default' or 'device-group non-default' to set this.\n"
                     },
                     "inheritedTrafficGroup": {
                         "type": "string",
-                        "description": "BIG-IP password\n"
+                        "description": "Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use 'traffic-group default' or 'traffic-group non-default' to set this.\n"
                     },
                     "jsonfile": {
                         "type": "string",
@@ -12883,13 +13043,15 @@
                         "type": "array",
                         "items": {
                             "$ref": "#/types/f5bigip:sys/IAppList:IAppList"
-                        }
+                        },
+                        "description": "string values\n"
                     },
                     "metadatas": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/f5bigip:sys/IAppMetadata:IAppMetadata"
-                        }
+                        },
+                        "description": "User defined generic data for the application service. It is a name and value pair.\n"
                     },
                     "name": {
                         "type": "string",
@@ -12897,11 +13059,11 @@
                     },
                     "partition": {
                         "type": "string",
-                        "description": "Address of the Iapp which needs to be Iappensed\n"
+                        "description": "Displays the administrative partition within which the application resides.\n"
                     },
                     "strictUpdates": {
                         "type": "string",
-                        "description": "BIG-IP password\n"
+                        "description": "Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system's application management interfaces.\n"
                     },
                     "tables": {
                         "type": "array",
@@ -12911,19 +13073,19 @@
                     },
                     "template": {
                         "type": "string",
-                        "description": "BIG-IP password\n"
+                        "description": "The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.\n"
                     },
                     "templateModified": {
                         "type": "string",
-                        "description": "BIG-IP password\n"
+                        "description": "Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.\n"
                     },
                     "templatePrerequisiteErrors": {
                         "type": "string",
-                        "description": "BIG-IP password\n"
+                        "description": "Indicates any missing prerequisites associated with the template that defines this application.\n"
                     },
                     "trafficGroup": {
                         "type": "string",
-                        "description": "BIG-IP password\n"
+                        "description": "The name of the traffic group that the application service is assigned to.\n"
                     },
                     "variables": {
                         "type": "array",

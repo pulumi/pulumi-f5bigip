@@ -3,8 +3,8 @@ module github.com/pulumi/pulumi-f5bigip/provider/v3
 go 1.19
 
 require (
-	github.com/F5Networks/terraform-provider-bigip v1.17.1
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.49.0
+	github.com/F5Networks/terraform-provider-bigip v1.18.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.49.1
 	github.com/pulumi/pulumi/sdk/v3 v3.69.0
 )
 
@@ -88,8 +88,8 @@ require (
 	github.com/edsrzf/mmap-go v1.1.0 // indirect
 	github.com/emirpasic/gods v1.18.1 // indirect
 	github.com/ettle/strcase v0.1.1 // indirect
-	github.com/f5devcentral/go-bigip v0.0.0-20230412170344-5684f43111ff // indirect
-	github.com/f5devcentral/go-bigip/f5teem v0.0.0-20230412170344-5684f43111ff // indirect
+	github.com/f5devcentral/go-bigip v0.0.0-20230601082507-5c7c54edf454 // indirect
+	github.com/f5devcentral/go-bigip/f5teem v0.0.0-20230601082507-5c7c54edf454 // indirect
 	github.com/fatih/color v1.14.1 // indirect
 	github.com/gedex/inflector v0.0.0-20170307190818-16278e9db813 // indirect
 	github.com/go-git/gcfg v1.5.0 // indirect

@@ -1652,6 +1652,9 @@
                         "maxItemsOne": false,
                         "elem": {
                             "fields": {
+                                "defense_attributes": {
+                                    "maxItemsOne": false
+                                },
                                 "name": {}
                             }
                         }
@@ -1663,6 +1666,9 @@
                                 "name": {}
                             }
                         }
+                    },
+                    "ip_exceptions": {
+                        "maxItemsOne": false
                     },
                     "modifications": {
                         "maxItemsOne": false,
@@ -1963,6 +1969,27 @@
                 "priorityGroup": "priority_group",
                 "shareNodes": "share_nodes"
             },
+            "f5bigip:index/WafPolicyGraphqlProfile:WafPolicyGraphqlProfile": {
+                "attackSignaturesCheck": "attack_signatures_check",
+                "defenseAttributes": "defense_attributes",
+                "metacharElementcheck": "metachar_elementcheck"
+            },
+            "f5bigip:index/WafPolicyGraphqlProfileDefenseAttribute:WafPolicyGraphqlProfileDefenseAttribute": {
+                "allowIntrospectionQueries": "allow_introspection_queries",
+                "maximumBatchedQueries": "maximum_batched_queries",
+                "maximumStructureDepth": "maximum_structure_depth",
+                "maximumTotalLength": "maximum_total_length",
+                "maximumValueLength": "maximum_value_length",
+                "tolerateParsingWarnings": "tolerate_parsing_warnings"
+            },
+            "f5bigip:index/WafPolicyIpException:WafPolicyIpException": {
+                "blockRequests": "block_requests",
+                "ignoreAnomalies": "ignore_anomalies",
+                "ignoreIpreputation": "ignore_ipreputation",
+                "ipAddress": "ip_address",
+                "ipMask": "ip_mask",
+                "trustedbyPolicybuilder": "trustedby_policybuilder"
+            },
             "f5bigip:index/WafPolicyPolicyBuilder:WafPolicyPolicyBuilder": {
                 "learningMode": "learning_mode"
             },
@@ -2157,6 +2184,7 @@
                 "fileTypes": "file_types",
                 "graphqlProfiles": "graphql_profiles",
                 "hostNames": "host_names",
+                "ipExceptions": "ip_exceptions",
                 "openApiFiles": "open_api_files",
                 "policyBuilders": "policy_builder",
                 "policyExportJson": "policy_export_json",
@@ -2393,6 +2421,7 @@
             },
             "f5bigip:ltm/monitor:Monitor": {
                 "adaptiveLimit": "adaptive_limit",
+                "customParent": "custom_parent",
                 "ipDscp": "ip_dscp",
                 "manualResume": "manual_resume",
                 "receiveDisable": "receive_disable",
