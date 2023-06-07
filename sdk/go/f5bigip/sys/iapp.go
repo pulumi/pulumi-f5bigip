@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -65,53 +66,39 @@ import (
 //	}
 //
 // ```
-//
-//   - `description` - User defined description.
-//   - `deviceGroup` - The name of the device group that the application service is assigned to.
-//   - `executeAction` - Run the specified template action associated with the application.
-//   - `inheritedDevicegroup`- Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use 'device-group default' or 'device-group non-default' to set this.
-//   - `inheritedTrafficGroup` - Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use 'traffic-group default' or 'traffic-group non-default' to set this.
-//   - `partition` - Displays the administrative partition within which the application resides.
-//   - `strictUpdates` - Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system's application management interfaces.
-//   - `template` - The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.
-//   - `templateModified` - Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.
-//   - `templatePrerequisiteErrors` - Indicates any missing prerequisites associated with the template that defines this application.
-//   - `trafficGroup` - The name of the traffic group that the application service is assigned to.
-//   - `lists` - string values
-//   - `metadata` - User defined generic data for the application service. It is a name and value pair.
-//   - `tables` - Values provided like pool name, nodes etc.
-//   - `variables` - Name, values, encrypted or not
 type IApp struct {
 	pulumi.CustomResourceState
 
-	// Address of the Iapp which needs to be Iappensed
+	// User defined description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// BIG-IP password
-	Devicegroup pulumi.StringPtrOutput `pulumi:"devicegroup"`
-	// BIG-IP password
-	ExecuteAction pulumi.StringPtrOutput `pulumi:"executeAction"`
-	// BIG-IP password
+	Devicegroup pulumi.StringOutput `pulumi:"devicegroup"`
+	// Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `executeAction` attribute take precedence over `json` value
+	ExecuteAction pulumi.StringOutput `pulumi:"executeAction"`
+	// Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use 'device-group default' or 'device-group non-default' to set this.
 	InheritedDevicegroup pulumi.StringPtrOutput `pulumi:"inheritedDevicegroup"`
-	// BIG-IP password
+	// Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use 'traffic-group default' or 'traffic-group non-default' to set this.
 	InheritedTrafficGroup pulumi.StringPtrOutput `pulumi:"inheritedTrafficGroup"`
 	// Refer to the Json file which will be deployed on F5 BIG-IP.
-	Jsonfile  pulumi.StringPtrOutput  `pulumi:"jsonfile"`
-	Lists     IAppListArrayOutput     `pulumi:"lists"`
+	Jsonfile pulumi.StringOutput `pulumi:"jsonfile"`
+	// string values
+	Lists IAppListArrayOutput `pulumi:"lists"`
+	// User defined generic data for the application service. It is a name and value pair.
 	Metadatas IAppMetadataArrayOutput `pulumi:"metadatas"`
 	// Name of the iApp.
-	Name pulumi.StringPtrOutput `pulumi:"name"`
-	// Address of the Iapp which needs to be Iappensed
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Displays the administrative partition within which the application resides.
 	Partition pulumi.StringPtrOutput `pulumi:"partition"`
-	// BIG-IP password
+	// Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system's application management interfaces.
 	StrictUpdates pulumi.StringPtrOutput `pulumi:"strictUpdates"`
 	Tables        IAppTableArrayOutput   `pulumi:"tables"`
-	// BIG-IP password
+	// The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.
 	Template pulumi.StringPtrOutput `pulumi:"template"`
-	// BIG-IP password
+	// Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.
 	TemplateModified pulumi.StringPtrOutput `pulumi:"templateModified"`
-	// BIG-IP password
+	// Indicates any missing prerequisites associated with the template that defines this application.
 	TemplatePrerequisiteErrors pulumi.StringPtrOutput `pulumi:"templatePrerequisiteErrors"`
-	// BIG-IP password
+	// The name of the traffic group that the application service is assigned to.
 	TrafficGroup pulumi.StringPtrOutput  `pulumi:"trafficGroup"`
 	Variables    IAppVariableArrayOutput `pulumi:"variables"`
 }
@@ -120,9 +107,15 @@ type IApp struct {
 func NewIApp(ctx *pulumi.Context,
 	name string, args *IAppArgs, opts ...pulumi.ResourceOption) (*IApp, error) {
 	if args == nil {
-		args = &IAppArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Jsonfile == nil {
+		return nil, errors.New("invalid value for required argument 'Jsonfile'")
+	}
+	if args.Name == nil {
+		return nil, errors.New("invalid value for required argument 'Name'")
+	}
 	var resource IApp
 	err := ctx.RegisterResource("f5bigip:sys/iApp:IApp", name, args, &resource, opts...)
 	if err != nil {
@@ -145,67 +138,71 @@ func GetIApp(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IApp resources.
 type iappState struct {
-	// Address of the Iapp which needs to be Iappensed
+	// User defined description.
 	Description *string `pulumi:"description"`
 	// BIG-IP password
 	Devicegroup *string `pulumi:"devicegroup"`
-	// BIG-IP password
+	// Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `executeAction` attribute take precedence over `json` value
 	ExecuteAction *string `pulumi:"executeAction"`
-	// BIG-IP password
+	// Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use 'device-group default' or 'device-group non-default' to set this.
 	InheritedDevicegroup *string `pulumi:"inheritedDevicegroup"`
-	// BIG-IP password
+	// Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use 'traffic-group default' or 'traffic-group non-default' to set this.
 	InheritedTrafficGroup *string `pulumi:"inheritedTrafficGroup"`
 	// Refer to the Json file which will be deployed on F5 BIG-IP.
-	Jsonfile  *string        `pulumi:"jsonfile"`
-	Lists     []IAppList     `pulumi:"lists"`
+	Jsonfile *string `pulumi:"jsonfile"`
+	// string values
+	Lists []IAppList `pulumi:"lists"`
+	// User defined generic data for the application service. It is a name and value pair.
 	Metadatas []IAppMetadata `pulumi:"metadatas"`
 	// Name of the iApp.
 	Name *string `pulumi:"name"`
-	// Address of the Iapp which needs to be Iappensed
+	// Displays the administrative partition within which the application resides.
 	Partition *string `pulumi:"partition"`
-	// BIG-IP password
+	// Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system's application management interfaces.
 	StrictUpdates *string     `pulumi:"strictUpdates"`
 	Tables        []IAppTable `pulumi:"tables"`
-	// BIG-IP password
+	// The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.
 	Template *string `pulumi:"template"`
-	// BIG-IP password
+	// Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.
 	TemplateModified *string `pulumi:"templateModified"`
-	// BIG-IP password
+	// Indicates any missing prerequisites associated with the template that defines this application.
 	TemplatePrerequisiteErrors *string `pulumi:"templatePrerequisiteErrors"`
-	// BIG-IP password
+	// The name of the traffic group that the application service is assigned to.
 	TrafficGroup *string        `pulumi:"trafficGroup"`
 	Variables    []IAppVariable `pulumi:"variables"`
 }
 
 type IAppState struct {
-	// Address of the Iapp which needs to be Iappensed
+	// User defined description.
 	Description pulumi.StringPtrInput
 	// BIG-IP password
 	Devicegroup pulumi.StringPtrInput
-	// BIG-IP password
+	// Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `executeAction` attribute take precedence over `json` value
 	ExecuteAction pulumi.StringPtrInput
-	// BIG-IP password
+	// Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use 'device-group default' or 'device-group non-default' to set this.
 	InheritedDevicegroup pulumi.StringPtrInput
-	// BIG-IP password
+	// Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use 'traffic-group default' or 'traffic-group non-default' to set this.
 	InheritedTrafficGroup pulumi.StringPtrInput
 	// Refer to the Json file which will be deployed on F5 BIG-IP.
-	Jsonfile  pulumi.StringPtrInput
-	Lists     IAppListArrayInput
+	Jsonfile pulumi.StringPtrInput
+	// string values
+	Lists IAppListArrayInput
+	// User defined generic data for the application service. It is a name and value pair.
 	Metadatas IAppMetadataArrayInput
 	// Name of the iApp.
 	Name pulumi.StringPtrInput
-	// Address of the Iapp which needs to be Iappensed
+	// Displays the administrative partition within which the application resides.
 	Partition pulumi.StringPtrInput
-	// BIG-IP password
+	// Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system's application management interfaces.
 	StrictUpdates pulumi.StringPtrInput
 	Tables        IAppTableArrayInput
-	// BIG-IP password
+	// The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.
 	Template pulumi.StringPtrInput
-	// BIG-IP password
+	// Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.
 	TemplateModified pulumi.StringPtrInput
-	// BIG-IP password
+	// Indicates any missing prerequisites associated with the template that defines this application.
 	TemplatePrerequisiteErrors pulumi.StringPtrInput
-	// BIG-IP password
+	// The name of the traffic group that the application service is assigned to.
 	TrafficGroup pulumi.StringPtrInput
 	Variables    IAppVariableArrayInput
 }
@@ -215,68 +212,72 @@ func (IAppState) ElementType() reflect.Type {
 }
 
 type iappArgs struct {
-	// Address of the Iapp which needs to be Iappensed
+	// User defined description.
 	Description *string `pulumi:"description"`
 	// BIG-IP password
 	Devicegroup *string `pulumi:"devicegroup"`
-	// BIG-IP password
+	// Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `executeAction` attribute take precedence over `json` value
 	ExecuteAction *string `pulumi:"executeAction"`
-	// BIG-IP password
+	// Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use 'device-group default' or 'device-group non-default' to set this.
 	InheritedDevicegroup *string `pulumi:"inheritedDevicegroup"`
-	// BIG-IP password
+	// Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use 'traffic-group default' or 'traffic-group non-default' to set this.
 	InheritedTrafficGroup *string `pulumi:"inheritedTrafficGroup"`
 	// Refer to the Json file which will be deployed on F5 BIG-IP.
-	Jsonfile  *string        `pulumi:"jsonfile"`
-	Lists     []IAppList     `pulumi:"lists"`
+	Jsonfile string `pulumi:"jsonfile"`
+	// string values
+	Lists []IAppList `pulumi:"lists"`
+	// User defined generic data for the application service. It is a name and value pair.
 	Metadatas []IAppMetadata `pulumi:"metadatas"`
 	// Name of the iApp.
-	Name *string `pulumi:"name"`
-	// Address of the Iapp which needs to be Iappensed
+	Name string `pulumi:"name"`
+	// Displays the administrative partition within which the application resides.
 	Partition *string `pulumi:"partition"`
-	// BIG-IP password
+	// Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system's application management interfaces.
 	StrictUpdates *string     `pulumi:"strictUpdates"`
 	Tables        []IAppTable `pulumi:"tables"`
-	// BIG-IP password
+	// The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.
 	Template *string `pulumi:"template"`
-	// BIG-IP password
+	// Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.
 	TemplateModified *string `pulumi:"templateModified"`
-	// BIG-IP password
+	// Indicates any missing prerequisites associated with the template that defines this application.
 	TemplatePrerequisiteErrors *string `pulumi:"templatePrerequisiteErrors"`
-	// BIG-IP password
+	// The name of the traffic group that the application service is assigned to.
 	TrafficGroup *string        `pulumi:"trafficGroup"`
 	Variables    []IAppVariable `pulumi:"variables"`
 }
 
 // The set of arguments for constructing a IApp resource.
 type IAppArgs struct {
-	// Address of the Iapp which needs to be Iappensed
+	// User defined description.
 	Description pulumi.StringPtrInput
 	// BIG-IP password
 	Devicegroup pulumi.StringPtrInput
-	// BIG-IP password
+	// Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `executeAction` attribute take precedence over `json` value
 	ExecuteAction pulumi.StringPtrInput
-	// BIG-IP password
+	// Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use 'device-group default' or 'device-group non-default' to set this.
 	InheritedDevicegroup pulumi.StringPtrInput
-	// BIG-IP password
+	// Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use 'traffic-group default' or 'traffic-group non-default' to set this.
 	InheritedTrafficGroup pulumi.StringPtrInput
 	// Refer to the Json file which will be deployed on F5 BIG-IP.
-	Jsonfile  pulumi.StringPtrInput
-	Lists     IAppListArrayInput
+	Jsonfile pulumi.StringInput
+	// string values
+	Lists IAppListArrayInput
+	// User defined generic data for the application service. It is a name and value pair.
 	Metadatas IAppMetadataArrayInput
 	// Name of the iApp.
-	Name pulumi.StringPtrInput
-	// Address of the Iapp which needs to be Iappensed
+	Name pulumi.StringInput
+	// Displays the administrative partition within which the application resides.
 	Partition pulumi.StringPtrInput
-	// BIG-IP password
+	// Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system's application management interfaces.
 	StrictUpdates pulumi.StringPtrInput
 	Tables        IAppTableArrayInput
-	// BIG-IP password
+	// The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.
 	Template pulumi.StringPtrInput
-	// BIG-IP password
+	// Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.
 	TemplateModified pulumi.StringPtrInput
-	// BIG-IP password
+	// Indicates any missing prerequisites associated with the template that defines this application.
 	TemplatePrerequisiteErrors pulumi.StringPtrInput
-	// BIG-IP password
+	// The name of the traffic group that the application service is assigned to.
 	TrafficGroup pulumi.StringPtrInput
 	Variables    IAppVariableArrayInput
 }
@@ -368,55 +369,57 @@ func (o IAppOutput) ToIAppOutputWithContext(ctx context.Context) IAppOutput {
 	return o
 }
 
-// Address of the Iapp which needs to be Iappensed
+// User defined description.
 func (o IAppOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // BIG-IP password
-func (o IAppOutput) Devicegroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.Devicegroup }).(pulumi.StringPtrOutput)
+func (o IAppOutput) Devicegroup() pulumi.StringOutput {
+	return o.ApplyT(func(v *IApp) pulumi.StringOutput { return v.Devicegroup }).(pulumi.StringOutput)
 }
 
-// BIG-IP password
-func (o IAppOutput) ExecuteAction() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.ExecuteAction }).(pulumi.StringPtrOutput)
+// Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `executeAction` attribute take precedence over `json` value
+func (o IAppOutput) ExecuteAction() pulumi.StringOutput {
+	return o.ApplyT(func(v *IApp) pulumi.StringOutput { return v.ExecuteAction }).(pulumi.StringOutput)
 }
 
-// BIG-IP password
+// Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use 'device-group default' or 'device-group non-default' to set this.
 func (o IAppOutput) InheritedDevicegroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.InheritedDevicegroup }).(pulumi.StringPtrOutput)
 }
 
-// BIG-IP password
+// Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use 'traffic-group default' or 'traffic-group non-default' to set this.
 func (o IAppOutput) InheritedTrafficGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.InheritedTrafficGroup }).(pulumi.StringPtrOutput)
 }
 
 // Refer to the Json file which will be deployed on F5 BIG-IP.
-func (o IAppOutput) Jsonfile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.Jsonfile }).(pulumi.StringPtrOutput)
+func (o IAppOutput) Jsonfile() pulumi.StringOutput {
+	return o.ApplyT(func(v *IApp) pulumi.StringOutput { return v.Jsonfile }).(pulumi.StringOutput)
 }
 
+// string values
 func (o IAppOutput) Lists() IAppListArrayOutput {
 	return o.ApplyT(func(v *IApp) IAppListArrayOutput { return v.Lists }).(IAppListArrayOutput)
 }
 
+// User defined generic data for the application service. It is a name and value pair.
 func (o IAppOutput) Metadatas() IAppMetadataArrayOutput {
 	return o.ApplyT(func(v *IApp) IAppMetadataArrayOutput { return v.Metadatas }).(IAppMetadataArrayOutput)
 }
 
 // Name of the iApp.
-func (o IAppOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+func (o IAppOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *IApp) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Address of the Iapp which needs to be Iappensed
+// Displays the administrative partition within which the application resides.
 func (o IAppOutput) Partition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.Partition }).(pulumi.StringPtrOutput)
 }
 
-// BIG-IP password
+// Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system's application management interfaces.
 func (o IAppOutput) StrictUpdates() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.StrictUpdates }).(pulumi.StringPtrOutput)
 }
@@ -425,22 +428,22 @@ func (o IAppOutput) Tables() IAppTableArrayOutput {
 	return o.ApplyT(func(v *IApp) IAppTableArrayOutput { return v.Tables }).(IAppTableArrayOutput)
 }
 
-// BIG-IP password
+// The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.
 func (o IAppOutput) Template() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.Template }).(pulumi.StringPtrOutput)
 }
 
-// BIG-IP password
+// Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.
 func (o IAppOutput) TemplateModified() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.TemplateModified }).(pulumi.StringPtrOutput)
 }
 
-// BIG-IP password
+// Indicates any missing prerequisites associated with the template that defines this application.
 func (o IAppOutput) TemplatePrerequisiteErrors() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.TemplatePrerequisiteErrors }).(pulumi.StringPtrOutput)
 }
 
-// BIG-IP password
+// The name of the traffic group that the application service is assigned to.
 func (o IAppOutput) TrafficGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IApp) pulumi.StringPtrOutput { return v.TrafficGroup }).(pulumi.StringPtrOutput)
 }

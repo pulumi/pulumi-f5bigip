@@ -193,6 +193,20 @@ public class PoolAttachment extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.fqdnAutopopulate);
     }
     /**
+     * Specifies the health monitors that the system uses to monitor this pool member,value can be `none` (or) `default` (or) list of monitors joined with and ( ex: `/Common/test_monitor_pa_tc1 and /Common/gateway_icmp`).
+     * 
+     */
+    @Export(name="monitor", type=String.class, parameters={})
+    private Output<String> monitor;
+
+    /**
+     * @return Specifies the health monitors that the system uses to monitor this pool member,value can be `none` (or) `default` (or) list of monitors joined with and ( ex: `/Common/test_monitor_pa_tc1 and /Common/gateway_icmp`).
+     * 
+     */
+    public Output<String> monitor() {
+        return this.monitor;
+    }
+    /**
      * Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
      * 
      */
@@ -247,6 +261,20 @@ public class PoolAttachment extends com.pulumi.resources.CustomResource {
      */
     public Output<Integer> ratio() {
         return this.ratio;
+    }
+    /**
+     * Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forced_offline`).
+     * 
+     */
+    @Export(name="state", type=String.class, parameters={})
+    private Output</* @Nullable */ String> state;
+
+    /**
+     * @return Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forced_offline`).
+     * 
+     */
+    public Output<Optional<String>> state() {
+        return Codegen.optional(this.state);
     }
 
     /**

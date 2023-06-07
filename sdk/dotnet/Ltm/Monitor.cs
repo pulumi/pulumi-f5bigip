@@ -96,6 +96,12 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string?> Compatibility { get; private set; } = null!;
 
         /// <summary>
+        /// Custom parent monitor for the system to use for setting initial values for the new monitor.
+        /// </summary>
+        [Output("customParent")]
+        public Output<string?> CustomParent { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the database in which the user is created
         /// </summary>
         [Output("database")]
@@ -284,6 +290,12 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Compatibility { get; set; }
 
         /// <summary>
+        /// Custom parent monitor for the system to use for setting initial values for the new monitor.
+        /// </summary>
+        [Input("customParent")]
+        public Input<string>? CustomParent { get; set; }
+
+        /// <summary>
         /// Specifies the database in which the user is created
         /// </summary>
         [Input("database")]
@@ -438,6 +450,12 @@ namespace Pulumi.F5BigIP.Ltm
         /// </summary>
         [Input("compatibility")]
         public Input<string>? Compatibility { get; set; }
+
+        /// <summary>
+        /// Custom parent monitor for the system to use for setting initial values for the new monitor.
+        /// </summary>
+        [Input("customParent")]
+        public Input<string>? CustomParent { get; set; }
 
         /// <summary>
         /// Specifies the database in which the user is created

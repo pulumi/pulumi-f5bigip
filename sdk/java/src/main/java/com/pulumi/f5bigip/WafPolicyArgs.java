@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.f5bigip.inputs.WafPolicyFileTypeArgs;
 import com.pulumi.f5bigip.inputs.WafPolicyGraphqlProfileArgs;
 import com.pulumi.f5bigip.inputs.WafPolicyHostNameArgs;
+import com.pulumi.f5bigip.inputs.WafPolicyIpExceptionArgs;
 import com.pulumi.f5bigip.inputs.WafPolicyPolicyBuilderArgs;
 import com.pulumi.f5bigip.inputs.WafPolicySignaturesSettingArgs;
 import java.lang.Boolean;
@@ -144,6 +145,23 @@ public final class WafPolicyArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<WafPolicyHostNameArgs>>> hostNames() {
         return Optional.ofNullable(this.hostNames);
+    }
+
+    /**
+     * `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+     * See IP Exceptions below for more details.
+     * 
+     */
+    @Import(name="ipExceptions")
+    private @Nullable Output<List<WafPolicyIpExceptionArgs>> ipExceptions;
+
+    /**
+     * @return `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+     * See IP Exceptions below for more details.
+     * 
+     */
+    public Optional<Output<List<WafPolicyIpExceptionArgs>>> ipExceptions() {
+        return Optional.ofNullable(this.ipExceptions);
     }
 
     /**
@@ -418,6 +436,7 @@ public final class WafPolicyArgs extends com.pulumi.resources.ResourceArgs {
         this.fileTypes = $.fileTypes;
         this.graphqlProfiles = $.graphqlProfiles;
         this.hostNames = $.hostNames;
+        this.ipExceptions = $.ipExceptions;
         this.modifications = $.modifications;
         this.name = $.name;
         this.openApiFiles = $.openApiFiles;
@@ -657,6 +676,40 @@ public final class WafPolicyArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder hostNames(WafPolicyHostNameArgs... hostNames) {
             return hostNames(List.of(hostNames));
+        }
+
+        /**
+         * @param ipExceptions `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+         * See IP Exceptions below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipExceptions(@Nullable Output<List<WafPolicyIpExceptionArgs>> ipExceptions) {
+            $.ipExceptions = ipExceptions;
+            return this;
+        }
+
+        /**
+         * @param ipExceptions `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+         * See IP Exceptions below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipExceptions(List<WafPolicyIpExceptionArgs> ipExceptions) {
+            return ipExceptions(Output.of(ipExceptions));
+        }
+
+        /**
+         * @param ipExceptions `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+         * See IP Exceptions below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipExceptions(WafPolicyIpExceptionArgs... ipExceptions) {
+            return ipExceptions(List.of(ipExceptions));
         }
 
         /**

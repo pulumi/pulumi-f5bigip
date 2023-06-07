@@ -90,6 +90,8 @@ type Monitor struct {
 	AdaptiveLimit pulumi.IntOutput `pulumi:"adaptiveLimit"`
 	// Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
 	Compatibility pulumi.StringPtrOutput `pulumi:"compatibility"`
+	// Custom parent monitor for the system to use for setting initial values for the new monitor.
+	CustomParent pulumi.StringPtrOutput `pulumi:"customParent"`
 	// Specifies the database in which the user is created
 	Database pulumi.StringPtrOutput `pulumi:"database"`
 	// Specify an alias address for monitoring
@@ -180,6 +182,8 @@ type monitorState struct {
 	AdaptiveLimit *int `pulumi:"adaptiveLimit"`
 	// Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
 	Compatibility *string `pulumi:"compatibility"`
+	// Custom parent monitor for the system to use for setting initial values for the new monitor.
+	CustomParent *string `pulumi:"customParent"`
 	// Specifies the database in which the user is created
 	Database *string `pulumi:"database"`
 	// Specify an alias address for monitoring
@@ -229,6 +233,8 @@ type MonitorState struct {
 	AdaptiveLimit pulumi.IntPtrInput
 	// Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
 	Compatibility pulumi.StringPtrInput
+	// Custom parent monitor for the system to use for setting initial values for the new monitor.
+	CustomParent pulumi.StringPtrInput
 	// Specifies the database in which the user is created
 	Database pulumi.StringPtrInput
 	// Specify an alias address for monitoring
@@ -282,6 +288,8 @@ type monitorArgs struct {
 	AdaptiveLimit *int `pulumi:"adaptiveLimit"`
 	// Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
 	Compatibility *string `pulumi:"compatibility"`
+	// Custom parent monitor for the system to use for setting initial values for the new monitor.
+	CustomParent *string `pulumi:"customParent"`
 	// Specifies the database in which the user is created
 	Database *string `pulumi:"database"`
 	// Specify an alias address for monitoring
@@ -332,6 +340,8 @@ type MonitorArgs struct {
 	AdaptiveLimit pulumi.IntPtrInput
 	// Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
 	Compatibility pulumi.StringPtrInput
+	// Custom parent monitor for the system to use for setting initial values for the new monitor.
+	CustomParent pulumi.StringPtrInput
 	// Specifies the database in which the user is created
 	Database pulumi.StringPtrInput
 	// Specify an alias address for monitoring
@@ -474,6 +484,11 @@ func (o MonitorOutput) AdaptiveLimit() pulumi.IntOutput {
 // Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
 func (o MonitorOutput) Compatibility() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.Compatibility }).(pulumi.StringPtrOutput)
+}
+
+// Custom parent monitor for the system to use for setting initial values for the new monitor.
+func (o MonitorOutput) CustomParent() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Monitor) pulumi.StringPtrOutput { return v.CustomParent }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the database in which the user is created

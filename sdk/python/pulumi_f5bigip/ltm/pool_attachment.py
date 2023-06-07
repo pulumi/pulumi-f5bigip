@@ -20,8 +20,10 @@ class PoolAttachmentArgs:
                  connection_rate_limit: Optional[pulumi.Input[str]] = None,
                  dynamic_ratio: Optional[pulumi.Input[int]] = None,
                  fqdn_autopopulate: Optional[pulumi.Input[str]] = None,
+                 monitor: Optional[pulumi.Input[str]] = None,
                  priority_group: Optional[pulumi.Input[int]] = None,
-                 ratio: Optional[pulumi.Input[int]] = None):
+                 ratio: Optional[pulumi.Input[int]] = None,
+                 state: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PoolAttachment resource.
         :param pulumi.Input[str] node: Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
@@ -30,8 +32,10 @@ class PoolAttachmentArgs:
         :param pulumi.Input[str] connection_rate_limit: Specifies the maximum number of connections-per-second allowed for a pool member,The default is 0.
         :param pulumi.Input[int] dynamic_ratio: Specifies the fixed ratio value used for a node during ratio load balancing.
         :param pulumi.Input[str] fqdn_autopopulate: Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled
+        :param pulumi.Input[str] monitor: Specifies the health monitors that the system uses to monitor this pool member,value can be `none` (or) `default` (or) list of monitors joined with and ( ex: `/Common/test_monitor_pa_tc1 and /Common/gateway_icmp`).
         :param pulumi.Input[int] priority_group: Specifies a number representing the priority group for the pool member. The default is 0, meaning that the member has no priority
         :param pulumi.Input[int] ratio: "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
+        :param pulumi.Input[str] state: Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forced_offline`).
         """
         pulumi.set(__self__, "node", node)
         pulumi.set(__self__, "pool", pool)
@@ -43,10 +47,14 @@ class PoolAttachmentArgs:
             pulumi.set(__self__, "dynamic_ratio", dynamic_ratio)
         if fqdn_autopopulate is not None:
             pulumi.set(__self__, "fqdn_autopopulate", fqdn_autopopulate)
+        if monitor is not None:
+            pulumi.set(__self__, "monitor", monitor)
         if priority_group is not None:
             pulumi.set(__self__, "priority_group", priority_group)
         if ratio is not None:
             pulumi.set(__self__, "ratio", ratio)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
 
     @property
     @pulumi.getter
@@ -121,6 +129,18 @@ class PoolAttachmentArgs:
         pulumi.set(self, "fqdn_autopopulate", value)
 
     @property
+    @pulumi.getter
+    def monitor(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the health monitors that the system uses to monitor this pool member,value can be `none` (or) `default` (or) list of monitors joined with and ( ex: `/Common/test_monitor_pa_tc1 and /Common/gateway_icmp`).
+        """
+        return pulumi.get(self, "monitor")
+
+    @monitor.setter
+    def monitor(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "monitor", value)
+
+    @property
     @pulumi.getter(name="priorityGroup")
     def priority_group(self) -> Optional[pulumi.Input[int]]:
         """
@@ -144,6 +164,18 @@ class PoolAttachmentArgs:
     def ratio(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "ratio", value)
 
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forced_offline`).
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "state", value)
+
 
 @pulumi.input_type
 class _PoolAttachmentState:
@@ -152,20 +184,24 @@ class _PoolAttachmentState:
                  connection_rate_limit: Optional[pulumi.Input[str]] = None,
                  dynamic_ratio: Optional[pulumi.Input[int]] = None,
                  fqdn_autopopulate: Optional[pulumi.Input[str]] = None,
+                 monitor: Optional[pulumi.Input[str]] = None,
                  node: Optional[pulumi.Input[str]] = None,
                  pool: Optional[pulumi.Input[str]] = None,
                  priority_group: Optional[pulumi.Input[int]] = None,
-                 ratio: Optional[pulumi.Input[int]] = None):
+                 ratio: Optional[pulumi.Input[int]] = None,
+                 state: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering PoolAttachment resources.
         :param pulumi.Input[int] connection_limit: Specifies a maximum established connection limit for a pool member or node.The default is 0, meaning that there is no limit to the number of connections.
         :param pulumi.Input[str] connection_rate_limit: Specifies the maximum number of connections-per-second allowed for a pool member,The default is 0.
         :param pulumi.Input[int] dynamic_ratio: Specifies the fixed ratio value used for a node during ratio load balancing.
         :param pulumi.Input[str] fqdn_autopopulate: Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled
+        :param pulumi.Input[str] monitor: Specifies the health monitors that the system uses to monitor this pool member,value can be `none` (or) `default` (or) list of monitors joined with and ( ex: `/Common/test_monitor_pa_tc1 and /Common/gateway_icmp`).
         :param pulumi.Input[str] node: Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
         :param pulumi.Input[str] pool: Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`) or partition + directory + name of the pool (For example `/Common/test/my-pool`).When including directory in fullpath we have to make sure it is created in the given partition before using it.
         :param pulumi.Input[int] priority_group: Specifies a number representing the priority group for the pool member. The default is 0, meaning that the member has no priority
         :param pulumi.Input[int] ratio: "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
+        :param pulumi.Input[str] state: Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forced_offline`).
         """
         if connection_limit is not None:
             pulumi.set(__self__, "connection_limit", connection_limit)
@@ -175,6 +211,8 @@ class _PoolAttachmentState:
             pulumi.set(__self__, "dynamic_ratio", dynamic_ratio)
         if fqdn_autopopulate is not None:
             pulumi.set(__self__, "fqdn_autopopulate", fqdn_autopopulate)
+        if monitor is not None:
+            pulumi.set(__self__, "monitor", monitor)
         if node is not None:
             pulumi.set(__self__, "node", node)
         if pool is not None:
@@ -183,6 +221,8 @@ class _PoolAttachmentState:
             pulumi.set(__self__, "priority_group", priority_group)
         if ratio is not None:
             pulumi.set(__self__, "ratio", ratio)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
 
     @property
     @pulumi.getter(name="connectionLimit")
@@ -234,6 +274,18 @@ class _PoolAttachmentState:
 
     @property
     @pulumi.getter
+    def monitor(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the health monitors that the system uses to monitor this pool member,value can be `none` (or) `default` (or) list of monitors joined with and ( ex: `/Common/test_monitor_pa_tc1 and /Common/gateway_icmp`).
+        """
+        return pulumi.get(self, "monitor")
+
+    @monitor.setter
+    def monitor(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "monitor", value)
+
+    @property
+    @pulumi.getter
     def node(self) -> Optional[pulumi.Input[str]]:
         """
         Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
@@ -280,6 +332,18 @@ class _PoolAttachmentState:
     def ratio(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "ratio", value)
 
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forced_offline`).
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "state", value)
+
 
 class PoolAttachment(pulumi.CustomResource):
     @overload
@@ -290,10 +354,12 @@ class PoolAttachment(pulumi.CustomResource):
                  connection_rate_limit: Optional[pulumi.Input[str]] = None,
                  dynamic_ratio: Optional[pulumi.Input[int]] = None,
                  fqdn_autopopulate: Optional[pulumi.Input[str]] = None,
+                 monitor: Optional[pulumi.Input[str]] = None,
                  node: Optional[pulumi.Input[str]] = None,
                  pool: Optional[pulumi.Input[str]] = None,
                  priority_group: Optional[pulumi.Input[int]] = None,
                  ratio: Optional[pulumi.Input[int]] = None,
+                 state: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         `ltm.PoolAttachment` Manages nodes membership in pools
@@ -355,10 +421,12 @@ class PoolAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] connection_rate_limit: Specifies the maximum number of connections-per-second allowed for a pool member,The default is 0.
         :param pulumi.Input[int] dynamic_ratio: Specifies the fixed ratio value used for a node during ratio load balancing.
         :param pulumi.Input[str] fqdn_autopopulate: Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled
+        :param pulumi.Input[str] monitor: Specifies the health monitors that the system uses to monitor this pool member,value can be `none` (or) `default` (or) list of monitors joined with and ( ex: `/Common/test_monitor_pa_tc1 and /Common/gateway_icmp`).
         :param pulumi.Input[str] node: Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
         :param pulumi.Input[str] pool: Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`) or partition + directory + name of the pool (For example `/Common/test/my-pool`).When including directory in fullpath we have to make sure it is created in the given partition before using it.
         :param pulumi.Input[int] priority_group: Specifies a number representing the priority group for the pool member. The default is 0, meaning that the member has no priority
         :param pulumi.Input[int] ratio: "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
+        :param pulumi.Input[str] state: Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forced_offline`).
         """
         ...
     @overload
@@ -439,10 +507,12 @@ class PoolAttachment(pulumi.CustomResource):
                  connection_rate_limit: Optional[pulumi.Input[str]] = None,
                  dynamic_ratio: Optional[pulumi.Input[int]] = None,
                  fqdn_autopopulate: Optional[pulumi.Input[str]] = None,
+                 monitor: Optional[pulumi.Input[str]] = None,
                  node: Optional[pulumi.Input[str]] = None,
                  pool: Optional[pulumi.Input[str]] = None,
                  priority_group: Optional[pulumi.Input[int]] = None,
                  ratio: Optional[pulumi.Input[int]] = None,
+                 state: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -456,6 +526,7 @@ class PoolAttachment(pulumi.CustomResource):
             __props__.__dict__["connection_rate_limit"] = connection_rate_limit
             __props__.__dict__["dynamic_ratio"] = dynamic_ratio
             __props__.__dict__["fqdn_autopopulate"] = fqdn_autopopulate
+            __props__.__dict__["monitor"] = monitor
             if node is None and not opts.urn:
                 raise TypeError("Missing required property 'node'")
             __props__.__dict__["node"] = node
@@ -464,6 +535,7 @@ class PoolAttachment(pulumi.CustomResource):
             __props__.__dict__["pool"] = pool
             __props__.__dict__["priority_group"] = priority_group
             __props__.__dict__["ratio"] = ratio
+            __props__.__dict__["state"] = state
         super(PoolAttachment, __self__).__init__(
             'f5bigip:ltm/poolAttachment:PoolAttachment',
             resource_name,
@@ -478,10 +550,12 @@ class PoolAttachment(pulumi.CustomResource):
             connection_rate_limit: Optional[pulumi.Input[str]] = None,
             dynamic_ratio: Optional[pulumi.Input[int]] = None,
             fqdn_autopopulate: Optional[pulumi.Input[str]] = None,
+            monitor: Optional[pulumi.Input[str]] = None,
             node: Optional[pulumi.Input[str]] = None,
             pool: Optional[pulumi.Input[str]] = None,
             priority_group: Optional[pulumi.Input[int]] = None,
-            ratio: Optional[pulumi.Input[int]] = None) -> 'PoolAttachment':
+            ratio: Optional[pulumi.Input[int]] = None,
+            state: Optional[pulumi.Input[str]] = None) -> 'PoolAttachment':
         """
         Get an existing PoolAttachment resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -493,10 +567,12 @@ class PoolAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] connection_rate_limit: Specifies the maximum number of connections-per-second allowed for a pool member,The default is 0.
         :param pulumi.Input[int] dynamic_ratio: Specifies the fixed ratio value used for a node during ratio load balancing.
         :param pulumi.Input[str] fqdn_autopopulate: Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled
+        :param pulumi.Input[str] monitor: Specifies the health monitors that the system uses to monitor this pool member,value can be `none` (or) `default` (or) list of monitors joined with and ( ex: `/Common/test_monitor_pa_tc1 and /Common/gateway_icmp`).
         :param pulumi.Input[str] node: Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
         :param pulumi.Input[str] pool: Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`) or partition + directory + name of the pool (For example `/Common/test/my-pool`).When including directory in fullpath we have to make sure it is created in the given partition before using it.
         :param pulumi.Input[int] priority_group: Specifies a number representing the priority group for the pool member. The default is 0, meaning that the member has no priority
         :param pulumi.Input[int] ratio: "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
+        :param pulumi.Input[str] state: Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forced_offline`).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -506,10 +582,12 @@ class PoolAttachment(pulumi.CustomResource):
         __props__.__dict__["connection_rate_limit"] = connection_rate_limit
         __props__.__dict__["dynamic_ratio"] = dynamic_ratio
         __props__.__dict__["fqdn_autopopulate"] = fqdn_autopopulate
+        __props__.__dict__["monitor"] = monitor
         __props__.__dict__["node"] = node
         __props__.__dict__["pool"] = pool
         __props__.__dict__["priority_group"] = priority_group
         __props__.__dict__["ratio"] = ratio
+        __props__.__dict__["state"] = state
         return PoolAttachment(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -546,6 +624,14 @@ class PoolAttachment(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def monitor(self) -> pulumi.Output[str]:
+        """
+        Specifies the health monitors that the system uses to monitor this pool member,value can be `none` (or) `default` (or) list of monitors joined with and ( ex: `/Common/test_monitor_pa_tc1 and /Common/gateway_icmp`).
+        """
+        return pulumi.get(self, "monitor")
+
+    @property
+    @pulumi.getter
     def node(self) -> pulumi.Output[str]:
         """
         Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
@@ -575,4 +661,12 @@ class PoolAttachment(pulumi.CustomResource):
         "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
         """
         return pulumi.get(self, "ratio")
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forced_offline`).
+        """
+        return pulumi.get(self, "state")
 

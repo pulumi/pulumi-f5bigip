@@ -76,34 +76,18 @@ import javax.annotation.Nullable;
  * }
  * ```
  * 
- *  * `description` - User defined description.
- *  * `deviceGroup` - The name of the device group that the application service is assigned to.
- *  * `executeAction` - Run the specified template action associated with the application.
- *  * `inheritedDevicegroup`- Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use &#39;device-group default&#39; or &#39;device-group non-default&#39; to set this.
- *  * `inheritedTrafficGroup` - Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use &#39;traffic-group default&#39; or &#39;traffic-group non-default&#39; to set this.
- *  * `partition` - Displays the administrative partition within which the application resides.
- *  * `strictUpdates` - Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system&#39;s application management interfaces.
- *  * `template` - The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.
- *  * `templateModified` - Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.
- *  * `templatePrerequisiteErrors` - Indicates any missing prerequisites associated with the template that defines this application.
- *  * `trafficGroup` - The name of the traffic group that the application service is assigned to.
- *  * `lists` - string values
- *  * `metadata` - User defined generic data for the application service. It is a name and value pair.
- *  * `tables` - Values provided like pool name, nodes etc.
- *  * `variables` - Name, values, encrypted or not
- * 
  */
 @ResourceType(type="f5bigip:sys/iApp:IApp")
 public class IApp extends com.pulumi.resources.CustomResource {
     /**
-     * Address of the Iapp which needs to be Iappensed
+     * User defined description.
      * 
      */
     @Export(name="description", type=String.class, parameters={})
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return Address of the Iapp which needs to be Iappensed
+     * @return User defined description.
      * 
      */
     public Output<Optional<String>> description() {
@@ -114,52 +98,52 @@ public class IApp extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="devicegroup", type=String.class, parameters={})
-    private Output</* @Nullable */ String> devicegroup;
+    private Output<String> devicegroup;
 
     /**
      * @return BIG-IP password
      * 
      */
-    public Output<Optional<String>> devicegroup() {
-        return Codegen.optional(this.devicegroup);
+    public Output<String> devicegroup() {
+        return this.devicegroup;
     }
     /**
-     * BIG-IP password
+     * Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `execute_action` attribute take precedence over `json` value
      * 
      */
     @Export(name="executeAction", type=String.class, parameters={})
-    private Output</* @Nullable */ String> executeAction;
+    private Output<String> executeAction;
 
     /**
-     * @return BIG-IP password
+     * @return Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `execute_action` attribute take precedence over `json` value
      * 
      */
-    public Output<Optional<String>> executeAction() {
-        return Codegen.optional(this.executeAction);
+    public Output<String> executeAction() {
+        return this.executeAction;
     }
     /**
-     * BIG-IP password
+     * Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use &#39;device-group default&#39; or &#39;device-group non-default&#39; to set this.
      * 
      */
     @Export(name="inheritedDevicegroup", type=String.class, parameters={})
     private Output</* @Nullable */ String> inheritedDevicegroup;
 
     /**
-     * @return BIG-IP password
+     * @return Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use &#39;device-group default&#39; or &#39;device-group non-default&#39; to set this.
      * 
      */
     public Output<Optional<String>> inheritedDevicegroup() {
         return Codegen.optional(this.inheritedDevicegroup);
     }
     /**
-     * BIG-IP password
+     * Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use &#39;traffic-group default&#39; or &#39;traffic-group non-default&#39; to set this.
      * 
      */
     @Export(name="inheritedTrafficGroup", type=String.class, parameters={})
     private Output</* @Nullable */ String> inheritedTrafficGroup;
 
     /**
-     * @return BIG-IP password
+     * @return Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use &#39;traffic-group default&#39; or &#39;traffic-group non-default&#39; to set this.
      * 
      */
     public Output<Optional<String>> inheritedTrafficGroup() {
@@ -170,24 +154,40 @@ public class IApp extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="jsonfile", type=String.class, parameters={})
-    private Output</* @Nullable */ String> jsonfile;
+    private Output<String> jsonfile;
 
     /**
      * @return Refer to the Json file which will be deployed on F5 BIG-IP.
      * 
      */
-    public Output<Optional<String>> jsonfile() {
-        return Codegen.optional(this.jsonfile);
+    public Output<String> jsonfile() {
+        return this.jsonfile;
     }
+    /**
+     * string values
+     * 
+     */
     @Export(name="lists", type=List.class, parameters={IAppList.class})
     private Output</* @Nullable */ List<IAppList>> lists;
 
+    /**
+     * @return string values
+     * 
+     */
     public Output<Optional<List<IAppList>>> lists() {
         return Codegen.optional(this.lists);
     }
+    /**
+     * User defined generic data for the application service. It is a name and value pair.
+     * 
+     */
     @Export(name="metadatas", type=List.class, parameters={IAppMetadata.class})
     private Output</* @Nullable */ List<IAppMetadata>> metadatas;
 
+    /**
+     * @return User defined generic data for the application service. It is a name and value pair.
+     * 
+     */
     public Output<Optional<List<IAppMetadata>>> metadatas() {
         return Codegen.optional(this.metadatas);
     }
@@ -196,38 +196,38 @@ public class IApp extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="name", type=String.class, parameters={})
-    private Output</* @Nullable */ String> name;
+    private Output<String> name;
 
     /**
      * @return Name of the iApp.
      * 
      */
-    public Output<Optional<String>> name() {
-        return Codegen.optional(this.name);
+    public Output<String> name() {
+        return this.name;
     }
     /**
-     * Address of the Iapp which needs to be Iappensed
+     * Displays the administrative partition within which the application resides.
      * 
      */
     @Export(name="partition", type=String.class, parameters={})
     private Output</* @Nullable */ String> partition;
 
     /**
-     * @return Address of the Iapp which needs to be Iappensed
+     * @return Displays the administrative partition within which the application resides.
      * 
      */
     public Output<Optional<String>> partition() {
         return Codegen.optional(this.partition);
     }
     /**
-     * BIG-IP password
+     * Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system&#39;s application management interfaces.
      * 
      */
     @Export(name="strictUpdates", type=String.class, parameters={})
     private Output</* @Nullable */ String> strictUpdates;
 
     /**
-     * @return BIG-IP password
+     * @return Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system&#39;s application management interfaces.
      * 
      */
     public Output<Optional<String>> strictUpdates() {
@@ -240,56 +240,56 @@ public class IApp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tables);
     }
     /**
-     * BIG-IP password
+     * The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.
      * 
      */
     @Export(name="template", type=String.class, parameters={})
     private Output</* @Nullable */ String> template;
 
     /**
-     * @return BIG-IP password
+     * @return The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.
      * 
      */
     public Output<Optional<String>> template() {
         return Codegen.optional(this.template);
     }
     /**
-     * BIG-IP password
+     * Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.
      * 
      */
     @Export(name="templateModified", type=String.class, parameters={})
     private Output</* @Nullable */ String> templateModified;
 
     /**
-     * @return BIG-IP password
+     * @return Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.
      * 
      */
     public Output<Optional<String>> templateModified() {
         return Codegen.optional(this.templateModified);
     }
     /**
-     * BIG-IP password
+     * Indicates any missing prerequisites associated with the template that defines this application.
      * 
      */
     @Export(name="templatePrerequisiteErrors", type=String.class, parameters={})
     private Output</* @Nullable */ String> templatePrerequisiteErrors;
 
     /**
-     * @return BIG-IP password
+     * @return Indicates any missing prerequisites associated with the template that defines this application.
      * 
      */
     public Output<Optional<String>> templatePrerequisiteErrors() {
         return Codegen.optional(this.templatePrerequisiteErrors);
     }
     /**
-     * BIG-IP password
+     * The name of the traffic group that the application service is assigned to.
      * 
      */
     @Export(name="trafficGroup", type=String.class, parameters={})
     private Output</* @Nullable */ String> trafficGroup;
 
     /**
-     * @return BIG-IP password
+     * @return The name of the traffic group that the application service is assigned to.
      * 
      */
     public Output<Optional<String>> trafficGroup() {
@@ -314,7 +314,7 @@ public class IApp extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public IApp(String name, @Nullable IAppArgs args) {
+    public IApp(String name, IAppArgs args) {
         this(name, args, null);
     }
     /**
@@ -323,7 +323,7 @@ public class IApp extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public IApp(String name, @Nullable IAppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public IApp(String name, IAppArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("f5bigip:sys/iApp:IApp", name, args == null ? IAppArgs.Empty : args, makeResourceOptions(options, Codegen.empty()));
     }
 

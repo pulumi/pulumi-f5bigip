@@ -291,8 +291,8 @@ github.com/BurntSushi/toml v1.2.1 h1:9F2/+DoOYIOksmaJFPw1tGFy1eDnIJXg+UHjuD8lTak
 github.com/BurntSushi/toml v1.2.1/go.mod h1:CxXYINrC8qIiEnFrOxCa7Jy5BFHlXnUU2pbicEuybxQ=
 github.com/BurntSushi/xgb v0.0.0-20160522181843-27f122750802/go.mod h1:IVnqGOEym/WlBOVXweHU+Q+/VP0lqqI8lqeDx9IjBqo=
 github.com/DataDog/datadog-go v3.2.0+incompatible/go.mod h1:LButxg5PwREeZtORoXG3tL4fMGNddJ+vMq1mwgfaqoQ=
-github.com/F5Networks/terraform-provider-bigip v1.17.1 h1:rJzedyslcscVBqDdLmEpwB47p0/3NmUTQ8RnHq/MfDk=
-github.com/F5Networks/terraform-provider-bigip v1.17.1/go.mod h1:bOTlEUFH41J+JICNW3FZrgvMkPSx0A/eYUVfQU9jkNc=
+github.com/F5Networks/terraform-provider-bigip v1.18.0 h1:BRcl1Db4G8Mhh1hzLkhzqqLMh95DiaQQ3Fq34DWCahc=
+github.com/F5Networks/terraform-provider-bigip v1.18.0/go.mod h1:8xqdvy+zFGEhOZ4gCYp9PvR4ORZb6F+YmWVus7F9/zY=
 github.com/GoogleCloudPlatform/cloudsql-proxy v1.31.2/go.mod h1:qR6jVnZTKDCW3j+fC9mOEPHm++1nKDMkqbbkD6KNsfo=
 github.com/HdrHistogram/hdrhistogram-go v1.1.2 h1:5IcZpTvzydCQeHzK4Ef/D5rrSqwxob0t8PQPMybUNFM=
 github.com/Knetic/govaluate v3.0.1-0.20171022003610-9aa49832a739+incompatible/go.mod h1:r7JcOSlj0wfOMncg0iLm8Leh48TZaKVeNIfJntJ2wa0=
@@ -746,10 +746,10 @@ github.com/evanphx/json-patch v4.9.0+incompatible/go.mod h1:50XU6AFN0ol/bzJsmQLi
 github.com/evanphx/json-patch v4.11.0+incompatible/go.mod h1:50XU6AFN0ol/bzJsmQLiYLvXMP4fmwYFNcr97nuDLSk=
 github.com/evanphx/json-patch v4.12.0+incompatible/go.mod h1:50XU6AFN0ol/bzJsmQLiYLvXMP4fmwYFNcr97nuDLSk=
 github.com/evanphx/json-patch/v5 v5.5.0/go.mod h1:G79N1coSVB93tBe7j6PhzjmR3/2VvlbKOFpnXhI9Bw4=
-github.com/f5devcentral/go-bigip v0.0.0-20230412170344-5684f43111ff h1:RYgX78kLCG7ub8BApQTSmDS/mzzyd+qlbvXyRSlcNgo=
-github.com/f5devcentral/go-bigip v0.0.0-20230412170344-5684f43111ff/go.mod h1:JZj/iVxDmEnGPyEwuNj7x0fuH2CtUBbD2J48MMp/SE8=
-github.com/f5devcentral/go-bigip/f5teem v0.0.0-20230412170344-5684f43111ff h1:6HSKYFaBgx9YPt/RKj8ZAVaAnOunkIcI1biNmO3Ci14=
-github.com/f5devcentral/go-bigip/f5teem v0.0.0-20230412170344-5684f43111ff/go.mod h1:r7o5I22EvO+fps2u10bz4ZUlTlNHopQSWzVcW19hK3U=
+github.com/f5devcentral/go-bigip v0.0.0-20230601082507-5c7c54edf454 h1:ibWb+MBcVi856on71OeauwJjCP+8+5mD+fcU/P2bvOU=
+github.com/f5devcentral/go-bigip v0.0.0-20230601082507-5c7c54edf454/go.mod h1:JZj/iVxDmEnGPyEwuNj7x0fuH2CtUBbD2J48MMp/SE8=
+github.com/f5devcentral/go-bigip/f5teem v0.0.0-20230601082507-5c7c54edf454 h1:CjjDHhbhLihsBaP3+CcQ1APJv2zMFBgO14OqFKYDLSY=
+github.com/f5devcentral/go-bigip/f5teem v0.0.0-20230601082507-5c7c54edf454/go.mod h1:r7o5I22EvO+fps2u10bz4ZUlTlNHopQSWzVcW19hK3U=
 github.com/fatih/color v1.7.0/go.mod h1:Zm6kSWBoL9eyXnKyktHP6abPY2pDugNf5KwzbycvMj4=
 github.com/fatih/color v1.9.0/go.mod h1:eQcE1qtQxscV5RaZvpXrrb8Drkc3/DdQ+uUYCNjL+zU=
 github.com/fatih/color v1.10.0/go.mod h1:ELkj/draVOlAH/xkhN6mQ50Qd0MPOk5AAr3maGEBuJM=
@@ -1717,8 +1717,8 @@ github.com/prometheus/tsdb v0.7.1/go.mod h1:qhTCs0VvXwvX/y3TZrWD7rabWM+ijKTux40T
 github.com/pulumi/pulumi-java/pkg v0.9.2 h1:fpBwf1NHf3j5YuigOWsXPvJCAFivEp1D6aOlYIrSbr0=
 github.com/pulumi/pulumi-java/pkg v0.9.2/go.mod h1:+5V4jggi3063hksi28zYvLm42UWVg3VqpR6qGZraIdM=
 github.com/pulumi/pulumi-terraform-bridge/testing v0.0.1 h1:SCg1gjfY9N4yn8U8peIUYATifjoDABkyR7H9lmefsfc=
-github.com/pulumi/pulumi-terraform-bridge/v3 v3.49.0 h1:bjPwHGfMFdX/UjEX0VCjuQAD6eQvn1tI42atlixECC8=
-github.com/pulumi/pulumi-terraform-bridge/v3 v3.49.0/go.mod h1:QdMHrg7J/OnXdm68lQROGLivbJlwMpHq75kdnigDSWw=
+github.com/pulumi/pulumi-terraform-bridge/v3 v3.49.1 h1:XYOuSt3cdwZnnhvmPRVJ+fBiBFMUabWcbrbQsrSM3o8=
+github.com/pulumi/pulumi-terraform-bridge/v3 v3.49.1/go.mod h1:QdMHrg7J/OnXdm68lQROGLivbJlwMpHq75kdnigDSWw=
 github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.4 h1:rIzMmtcVpPX8ynaz6/nW5AHNY63DiNfCohqmxWvMpM4=
 github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.4/go.mod h1:Kt8RIZWa/N8rW3+0g6NrqCBmF3o+HuIhFaZpssEkG6w=
 github.com/pulumi/pulumi-yaml v1.1.1 h1:8pyBNIU8+ym0wYpjhsCqN+cutygfK1XbhY2YEeNfyXY=

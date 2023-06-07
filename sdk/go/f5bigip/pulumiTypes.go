@@ -2635,6 +2635,10 @@ func (o FastUdpAppVirtualServerPtrOutput) Port() pulumi.IntPtrOutput {
 }
 
 type WafPolicyFileType struct {
+	// Determines whether the file type is allowed or disallowed. In either of these cases the VIOL_FILETYPE violation is issued (if enabled) for an incoming request-
+	// * No allowed file type matched the file type of the request.
+	// * The file type of the request matched a disallowed file type.
+	Allowed *bool `pulumi:"allowed"`
 	// Specifies the file type name as appearing in the URL extension.
 	Name *string `pulumi:"name"`
 	// Determines the type of the name attribute. Only when setting the type to `wildcard` will the special wildcard characters in the name be interpreted as such
@@ -2653,6 +2657,10 @@ type WafPolicyFileTypeInput interface {
 }
 
 type WafPolicyFileTypeArgs struct {
+	// Determines whether the file type is allowed or disallowed. In either of these cases the VIOL_FILETYPE violation is issued (if enabled) for an incoming request-
+	// * No allowed file type matched the file type of the request.
+	// * The file type of the request matched a disallowed file type.
+	Allowed pulumi.BoolPtrInput `pulumi:"allowed"`
 	// Specifies the file type name as appearing in the URL extension.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Determines the type of the name attribute. Only when setting the type to `wildcard` will the special wildcard characters in the name be interpreted as such
@@ -2710,6 +2718,13 @@ func (o WafPolicyFileTypeOutput) ToWafPolicyFileTypeOutputWithContext(ctx contex
 	return o
 }
 
+// Determines whether the file type is allowed or disallowed. In either of these cases the VIOL_FILETYPE violation is issued (if enabled) for an incoming request-
+// * No allowed file type matched the file type of the request.
+// * The file type of the request matched a disallowed file type.
+func (o WafPolicyFileTypeOutput) Allowed() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WafPolicyFileType) *bool { return v.Allowed }).(pulumi.BoolPtrOutput)
+}
+
 // Specifies the file type name as appearing in the URL extension.
 func (o WafPolicyFileTypeOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WafPolicyFileType) *string { return v.Name }).(pulumi.StringPtrOutput)
@@ -2741,8 +2756,14 @@ func (o WafPolicyFileTypeArrayOutput) Index(i pulumi.IntInput) WafPolicyFileType
 }
 
 type WafPolicyGraphqlProfile struct {
+	// Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled.
+	AttackSignaturesCheck *bool `pulumi:"attackSignaturesCheck"`
+	// `defenseAttributes` block settings for GraphQl policy.See defense attributes below for more details.
+	DefenseAttributes []WafPolicyGraphqlProfileDefenseAttribute `pulumi:"defenseAttributes"`
+	// Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled.
+	MetacharElementcheck *bool `pulumi:"metacharElementcheck"`
 	// The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
-	Name *string `pulumi:"name"`
+	Name string `pulumi:"name"`
 }
 
 // WafPolicyGraphqlProfileInput is an input type that accepts WafPolicyGraphqlProfileArgs and WafPolicyGraphqlProfileOutput values.
@@ -2757,8 +2778,14 @@ type WafPolicyGraphqlProfileInput interface {
 }
 
 type WafPolicyGraphqlProfileArgs struct {
+	// Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled.
+	AttackSignaturesCheck pulumi.BoolPtrInput `pulumi:"attackSignaturesCheck"`
+	// `defenseAttributes` block settings for GraphQl policy.See defense attributes below for more details.
+	DefenseAttributes WafPolicyGraphqlProfileDefenseAttributeArrayInput `pulumi:"defenseAttributes"`
+	// Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled.
+	MetacharElementcheck pulumi.BoolPtrInput `pulumi:"metacharElementcheck"`
 	// The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
-	Name pulumi.StringPtrInput `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
 }
 
 func (WafPolicyGraphqlProfileArgs) ElementType() reflect.Type {
@@ -2812,9 +2839,24 @@ func (o WafPolicyGraphqlProfileOutput) ToWafPolicyGraphqlProfileOutputWithContex
 	return o
 }
 
+// Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled.
+func (o WafPolicyGraphqlProfileOutput) AttackSignaturesCheck() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WafPolicyGraphqlProfile) *bool { return v.AttackSignaturesCheck }).(pulumi.BoolPtrOutput)
+}
+
+// `defenseAttributes` block settings for GraphQl policy.See defense attributes below for more details.
+func (o WafPolicyGraphqlProfileOutput) DefenseAttributes() WafPolicyGraphqlProfileDefenseAttributeArrayOutput {
+	return o.ApplyT(func(v WafPolicyGraphqlProfile) []WafPolicyGraphqlProfileDefenseAttribute { return v.DefenseAttributes }).(WafPolicyGraphqlProfileDefenseAttributeArrayOutput)
+}
+
+// Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled.
+func (o WafPolicyGraphqlProfileOutput) MetacharElementcheck() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WafPolicyGraphqlProfile) *bool { return v.MetacharElementcheck }).(pulumi.BoolPtrOutput)
+}
+
 // The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
-func (o WafPolicyGraphqlProfileOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v WafPolicyGraphqlProfile) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o WafPolicyGraphqlProfileOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v WafPolicyGraphqlProfile) string { return v.Name }).(pulumi.StringOutput)
 }
 
 type WafPolicyGraphqlProfileArrayOutput struct{ *pulumi.OutputState }
@@ -2835,6 +2877,151 @@ func (o WafPolicyGraphqlProfileArrayOutput) Index(i pulumi.IntInput) WafPolicyGr
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WafPolicyGraphqlProfile {
 		return vs[0].([]WafPolicyGraphqlProfile)[vs[1].(int)]
 	}).(WafPolicyGraphqlProfileOutput)
+}
+
+type WafPolicyGraphqlProfileDefenseAttribute struct {
+	// Introspection queries can also be enforced to prevent attackers from using them to
+	// understand the API structure and potentially breach an application.
+	AllowIntrospectionQueries *bool `pulumi:"allowIntrospectionQueries"`
+	// Specifies the highest number of batched queries allowed by the security policy.
+	MaximumBatchedQueries *string `pulumi:"maximumBatchedQueries"`
+	// Specifies the greatest nesting depth found in the GraphQL structure allowed by the security policy.
+	MaximumStructureDepth *string `pulumi:"maximumStructureDepth"`
+	// Specifies the longest length, in bytes, allowed by the security policy of the request payload, or parameter value, where the GraphQL data was found.
+	MaximumTotalLength *string `pulumi:"maximumTotalLength"`
+	// Specifies the longest length (in bytes) of the longest GraphQL element value in the document allowed by the security policy.
+	MaximumValueLength *string `pulumi:"maximumValueLength"`
+	// Specifies, when checked (enabled), that the system does not report when the security enforcer encounters warnings while parsing GraphQL content. Specifies when cleared (disabled), that the security policy reports when the security enforcer encounters warnings while parsing GraphQL content. The default setting is disabled.
+	TolerateParsingWarnings *bool `pulumi:"tolerateParsingWarnings"`
+}
+
+// WafPolicyGraphqlProfileDefenseAttributeInput is an input type that accepts WafPolicyGraphqlProfileDefenseAttributeArgs and WafPolicyGraphqlProfileDefenseAttributeOutput values.
+// You can construct a concrete instance of `WafPolicyGraphqlProfileDefenseAttributeInput` via:
+//
+//	WafPolicyGraphqlProfileDefenseAttributeArgs{...}
+type WafPolicyGraphqlProfileDefenseAttributeInput interface {
+	pulumi.Input
+
+	ToWafPolicyGraphqlProfileDefenseAttributeOutput() WafPolicyGraphqlProfileDefenseAttributeOutput
+	ToWafPolicyGraphqlProfileDefenseAttributeOutputWithContext(context.Context) WafPolicyGraphqlProfileDefenseAttributeOutput
+}
+
+type WafPolicyGraphqlProfileDefenseAttributeArgs struct {
+	// Introspection queries can also be enforced to prevent attackers from using them to
+	// understand the API structure and potentially breach an application.
+	AllowIntrospectionQueries pulumi.BoolPtrInput `pulumi:"allowIntrospectionQueries"`
+	// Specifies the highest number of batched queries allowed by the security policy.
+	MaximumBatchedQueries pulumi.StringPtrInput `pulumi:"maximumBatchedQueries"`
+	// Specifies the greatest nesting depth found in the GraphQL structure allowed by the security policy.
+	MaximumStructureDepth pulumi.StringPtrInput `pulumi:"maximumStructureDepth"`
+	// Specifies the longest length, in bytes, allowed by the security policy of the request payload, or parameter value, where the GraphQL data was found.
+	MaximumTotalLength pulumi.StringPtrInput `pulumi:"maximumTotalLength"`
+	// Specifies the longest length (in bytes) of the longest GraphQL element value in the document allowed by the security policy.
+	MaximumValueLength pulumi.StringPtrInput `pulumi:"maximumValueLength"`
+	// Specifies, when checked (enabled), that the system does not report when the security enforcer encounters warnings while parsing GraphQL content. Specifies when cleared (disabled), that the security policy reports when the security enforcer encounters warnings while parsing GraphQL content. The default setting is disabled.
+	TolerateParsingWarnings pulumi.BoolPtrInput `pulumi:"tolerateParsingWarnings"`
+}
+
+func (WafPolicyGraphqlProfileDefenseAttributeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WafPolicyGraphqlProfileDefenseAttribute)(nil)).Elem()
+}
+
+func (i WafPolicyGraphqlProfileDefenseAttributeArgs) ToWafPolicyGraphqlProfileDefenseAttributeOutput() WafPolicyGraphqlProfileDefenseAttributeOutput {
+	return i.ToWafPolicyGraphqlProfileDefenseAttributeOutputWithContext(context.Background())
+}
+
+func (i WafPolicyGraphqlProfileDefenseAttributeArgs) ToWafPolicyGraphqlProfileDefenseAttributeOutputWithContext(ctx context.Context) WafPolicyGraphqlProfileDefenseAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WafPolicyGraphqlProfileDefenseAttributeOutput)
+}
+
+// WafPolicyGraphqlProfileDefenseAttributeArrayInput is an input type that accepts WafPolicyGraphqlProfileDefenseAttributeArray and WafPolicyGraphqlProfileDefenseAttributeArrayOutput values.
+// You can construct a concrete instance of `WafPolicyGraphqlProfileDefenseAttributeArrayInput` via:
+//
+//	WafPolicyGraphqlProfileDefenseAttributeArray{ WafPolicyGraphqlProfileDefenseAttributeArgs{...} }
+type WafPolicyGraphqlProfileDefenseAttributeArrayInput interface {
+	pulumi.Input
+
+	ToWafPolicyGraphqlProfileDefenseAttributeArrayOutput() WafPolicyGraphqlProfileDefenseAttributeArrayOutput
+	ToWafPolicyGraphqlProfileDefenseAttributeArrayOutputWithContext(context.Context) WafPolicyGraphqlProfileDefenseAttributeArrayOutput
+}
+
+type WafPolicyGraphqlProfileDefenseAttributeArray []WafPolicyGraphqlProfileDefenseAttributeInput
+
+func (WafPolicyGraphqlProfileDefenseAttributeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WafPolicyGraphqlProfileDefenseAttribute)(nil)).Elem()
+}
+
+func (i WafPolicyGraphqlProfileDefenseAttributeArray) ToWafPolicyGraphqlProfileDefenseAttributeArrayOutput() WafPolicyGraphqlProfileDefenseAttributeArrayOutput {
+	return i.ToWafPolicyGraphqlProfileDefenseAttributeArrayOutputWithContext(context.Background())
+}
+
+func (i WafPolicyGraphqlProfileDefenseAttributeArray) ToWafPolicyGraphqlProfileDefenseAttributeArrayOutputWithContext(ctx context.Context) WafPolicyGraphqlProfileDefenseAttributeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WafPolicyGraphqlProfileDefenseAttributeArrayOutput)
+}
+
+type WafPolicyGraphqlProfileDefenseAttributeOutput struct{ *pulumi.OutputState }
+
+func (WafPolicyGraphqlProfileDefenseAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WafPolicyGraphqlProfileDefenseAttribute)(nil)).Elem()
+}
+
+func (o WafPolicyGraphqlProfileDefenseAttributeOutput) ToWafPolicyGraphqlProfileDefenseAttributeOutput() WafPolicyGraphqlProfileDefenseAttributeOutput {
+	return o
+}
+
+func (o WafPolicyGraphqlProfileDefenseAttributeOutput) ToWafPolicyGraphqlProfileDefenseAttributeOutputWithContext(ctx context.Context) WafPolicyGraphqlProfileDefenseAttributeOutput {
+	return o
+}
+
+// Introspection queries can also be enforced to prevent attackers from using them to
+// understand the API structure and potentially breach an application.
+func (o WafPolicyGraphqlProfileDefenseAttributeOutput) AllowIntrospectionQueries() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WafPolicyGraphqlProfileDefenseAttribute) *bool { return v.AllowIntrospectionQueries }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the highest number of batched queries allowed by the security policy.
+func (o WafPolicyGraphqlProfileDefenseAttributeOutput) MaximumBatchedQueries() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WafPolicyGraphqlProfileDefenseAttribute) *string { return v.MaximumBatchedQueries }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the greatest nesting depth found in the GraphQL structure allowed by the security policy.
+func (o WafPolicyGraphqlProfileDefenseAttributeOutput) MaximumStructureDepth() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WafPolicyGraphqlProfileDefenseAttribute) *string { return v.MaximumStructureDepth }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the longest length, in bytes, allowed by the security policy of the request payload, or parameter value, where the GraphQL data was found.
+func (o WafPolicyGraphqlProfileDefenseAttributeOutput) MaximumTotalLength() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WafPolicyGraphqlProfileDefenseAttribute) *string { return v.MaximumTotalLength }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the longest length (in bytes) of the longest GraphQL element value in the document allowed by the security policy.
+func (o WafPolicyGraphqlProfileDefenseAttributeOutput) MaximumValueLength() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WafPolicyGraphqlProfileDefenseAttribute) *string { return v.MaximumValueLength }).(pulumi.StringPtrOutput)
+}
+
+// Specifies, when checked (enabled), that the system does not report when the security enforcer encounters warnings while parsing GraphQL content. Specifies when cleared (disabled), that the security policy reports when the security enforcer encounters warnings while parsing GraphQL content. The default setting is disabled.
+func (o WafPolicyGraphqlProfileDefenseAttributeOutput) TolerateParsingWarnings() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WafPolicyGraphqlProfileDefenseAttribute) *bool { return v.TolerateParsingWarnings }).(pulumi.BoolPtrOutput)
+}
+
+type WafPolicyGraphqlProfileDefenseAttributeArrayOutput struct{ *pulumi.OutputState }
+
+func (WafPolicyGraphqlProfileDefenseAttributeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WafPolicyGraphqlProfileDefenseAttribute)(nil)).Elem()
+}
+
+func (o WafPolicyGraphqlProfileDefenseAttributeArrayOutput) ToWafPolicyGraphqlProfileDefenseAttributeArrayOutput() WafPolicyGraphqlProfileDefenseAttributeArrayOutput {
+	return o
+}
+
+func (o WafPolicyGraphqlProfileDefenseAttributeArrayOutput) ToWafPolicyGraphqlProfileDefenseAttributeArrayOutputWithContext(ctx context.Context) WafPolicyGraphqlProfileDefenseAttributeArrayOutput {
+	return o
+}
+
+func (o WafPolicyGraphqlProfileDefenseAttributeArrayOutput) Index(i pulumi.IntInput) WafPolicyGraphqlProfileDefenseAttributeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WafPolicyGraphqlProfileDefenseAttribute {
+		return vs[0].([]WafPolicyGraphqlProfileDefenseAttribute)[vs[1].(int)]
+	}).(WafPolicyGraphqlProfileDefenseAttributeOutput)
 }
 
 type WafPolicyHostName struct {
@@ -2932,6 +3119,157 @@ func (o WafPolicyHostNameArrayOutput) Index(i pulumi.IntInput) WafPolicyHostName
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WafPolicyHostName {
 		return vs[0].([]WafPolicyHostName)[vs[1].(int)]
 	}).(WafPolicyHostNameOutput)
+}
+
+type WafPolicyIpException struct {
+	// Specifies how the system responds to blocking requests sent from this IP address. Possible options [`always`, `never`, `policy-default`].
+	BlockRequests *string `pulumi:"blockRequests"`
+	// Specifies the description of the policy.
+	Description *string `pulumi:"description"`
+	// Specifies when enabled that the system considers this IP address legitimate and does not take it into account when performing brute force prevention.
+	IgnoreAnomalies *bool `pulumi:"ignoreAnomalies"`
+	// Specifies when enabled that the system considers this IP address legitimate even if it is found in the IP Intelligence database (a database of questionable IP addresses).
+	IgnoreIpreputation *bool `pulumi:"ignoreIpreputation"`
+	// Specifies the IP address that you want the system to trust.
+	IpAddress string `pulumi:"ipAddress"`
+	// Specifies the netmask of the exceptional IP address. This is an optional field.
+	IpMask string `pulumi:"ipMask"`
+	// Specifies when enabled the Policy Builder considers traffic from this IP address as being safe.
+	TrustedbyPolicybuilder *bool `pulumi:"trustedbyPolicybuilder"`
+}
+
+// WafPolicyIpExceptionInput is an input type that accepts WafPolicyIpExceptionArgs and WafPolicyIpExceptionOutput values.
+// You can construct a concrete instance of `WafPolicyIpExceptionInput` via:
+//
+//	WafPolicyIpExceptionArgs{...}
+type WafPolicyIpExceptionInput interface {
+	pulumi.Input
+
+	ToWafPolicyIpExceptionOutput() WafPolicyIpExceptionOutput
+	ToWafPolicyIpExceptionOutputWithContext(context.Context) WafPolicyIpExceptionOutput
+}
+
+type WafPolicyIpExceptionArgs struct {
+	// Specifies how the system responds to blocking requests sent from this IP address. Possible options [`always`, `never`, `policy-default`].
+	BlockRequests pulumi.StringPtrInput `pulumi:"blockRequests"`
+	// Specifies the description of the policy.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Specifies when enabled that the system considers this IP address legitimate and does not take it into account when performing brute force prevention.
+	IgnoreAnomalies pulumi.BoolPtrInput `pulumi:"ignoreAnomalies"`
+	// Specifies when enabled that the system considers this IP address legitimate even if it is found in the IP Intelligence database (a database of questionable IP addresses).
+	IgnoreIpreputation pulumi.BoolPtrInput `pulumi:"ignoreIpreputation"`
+	// Specifies the IP address that you want the system to trust.
+	IpAddress pulumi.StringInput `pulumi:"ipAddress"`
+	// Specifies the netmask of the exceptional IP address. This is an optional field.
+	IpMask pulumi.StringInput `pulumi:"ipMask"`
+	// Specifies when enabled the Policy Builder considers traffic from this IP address as being safe.
+	TrustedbyPolicybuilder pulumi.BoolPtrInput `pulumi:"trustedbyPolicybuilder"`
+}
+
+func (WafPolicyIpExceptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WafPolicyIpException)(nil)).Elem()
+}
+
+func (i WafPolicyIpExceptionArgs) ToWafPolicyIpExceptionOutput() WafPolicyIpExceptionOutput {
+	return i.ToWafPolicyIpExceptionOutputWithContext(context.Background())
+}
+
+func (i WafPolicyIpExceptionArgs) ToWafPolicyIpExceptionOutputWithContext(ctx context.Context) WafPolicyIpExceptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WafPolicyIpExceptionOutput)
+}
+
+// WafPolicyIpExceptionArrayInput is an input type that accepts WafPolicyIpExceptionArray and WafPolicyIpExceptionArrayOutput values.
+// You can construct a concrete instance of `WafPolicyIpExceptionArrayInput` via:
+//
+//	WafPolicyIpExceptionArray{ WafPolicyIpExceptionArgs{...} }
+type WafPolicyIpExceptionArrayInput interface {
+	pulumi.Input
+
+	ToWafPolicyIpExceptionArrayOutput() WafPolicyIpExceptionArrayOutput
+	ToWafPolicyIpExceptionArrayOutputWithContext(context.Context) WafPolicyIpExceptionArrayOutput
+}
+
+type WafPolicyIpExceptionArray []WafPolicyIpExceptionInput
+
+func (WafPolicyIpExceptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WafPolicyIpException)(nil)).Elem()
+}
+
+func (i WafPolicyIpExceptionArray) ToWafPolicyIpExceptionArrayOutput() WafPolicyIpExceptionArrayOutput {
+	return i.ToWafPolicyIpExceptionArrayOutputWithContext(context.Background())
+}
+
+func (i WafPolicyIpExceptionArray) ToWafPolicyIpExceptionArrayOutputWithContext(ctx context.Context) WafPolicyIpExceptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WafPolicyIpExceptionArrayOutput)
+}
+
+type WafPolicyIpExceptionOutput struct{ *pulumi.OutputState }
+
+func (WafPolicyIpExceptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WafPolicyIpException)(nil)).Elem()
+}
+
+func (o WafPolicyIpExceptionOutput) ToWafPolicyIpExceptionOutput() WafPolicyIpExceptionOutput {
+	return o
+}
+
+func (o WafPolicyIpExceptionOutput) ToWafPolicyIpExceptionOutputWithContext(ctx context.Context) WafPolicyIpExceptionOutput {
+	return o
+}
+
+// Specifies how the system responds to blocking requests sent from this IP address. Possible options [`always`, `never`, `policy-default`].
+func (o WafPolicyIpExceptionOutput) BlockRequests() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WafPolicyIpException) *string { return v.BlockRequests }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the description of the policy.
+func (o WafPolicyIpExceptionOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WafPolicyIpException) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Specifies when enabled that the system considers this IP address legitimate and does not take it into account when performing brute force prevention.
+func (o WafPolicyIpExceptionOutput) IgnoreAnomalies() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WafPolicyIpException) *bool { return v.IgnoreAnomalies }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies when enabled that the system considers this IP address legitimate even if it is found in the IP Intelligence database (a database of questionable IP addresses).
+func (o WafPolicyIpExceptionOutput) IgnoreIpreputation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WafPolicyIpException) *bool { return v.IgnoreIpreputation }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the IP address that you want the system to trust.
+func (o WafPolicyIpExceptionOutput) IpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v WafPolicyIpException) string { return v.IpAddress }).(pulumi.StringOutput)
+}
+
+// Specifies the netmask of the exceptional IP address. This is an optional field.
+func (o WafPolicyIpExceptionOutput) IpMask() pulumi.StringOutput {
+	return o.ApplyT(func(v WafPolicyIpException) string { return v.IpMask }).(pulumi.StringOutput)
+}
+
+// Specifies when enabled the Policy Builder considers traffic from this IP address as being safe.
+func (o WafPolicyIpExceptionOutput) TrustedbyPolicybuilder() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v WafPolicyIpException) *bool { return v.TrustedbyPolicybuilder }).(pulumi.BoolPtrOutput)
+}
+
+type WafPolicyIpExceptionArrayOutput struct{ *pulumi.OutputState }
+
+func (WafPolicyIpExceptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]WafPolicyIpException)(nil)).Elem()
+}
+
+func (o WafPolicyIpExceptionArrayOutput) ToWafPolicyIpExceptionArrayOutput() WafPolicyIpExceptionArrayOutput {
+	return o
+}
+
+func (o WafPolicyIpExceptionArrayOutput) ToWafPolicyIpExceptionArrayOutputWithContext(ctx context.Context) WafPolicyIpExceptionArrayOutput {
+	return o
+}
+
+func (o WafPolicyIpExceptionArrayOutput) Index(i pulumi.IntInput) WafPolicyIpExceptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WafPolicyIpException {
+		return vs[0].([]WafPolicyIpException)[vs[1].(int)]
+	}).(WafPolicyIpExceptionOutput)
 }
 
 type WafPolicyPolicyBuilder struct {
@@ -3170,8 +3508,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WafPolicyFileTypeArrayInput)(nil)).Elem(), WafPolicyFileTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WafPolicyGraphqlProfileInput)(nil)).Elem(), WafPolicyGraphqlProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WafPolicyGraphqlProfileArrayInput)(nil)).Elem(), WafPolicyGraphqlProfileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WafPolicyGraphqlProfileDefenseAttributeInput)(nil)).Elem(), WafPolicyGraphqlProfileDefenseAttributeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WafPolicyGraphqlProfileDefenseAttributeArrayInput)(nil)).Elem(), WafPolicyGraphqlProfileDefenseAttributeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WafPolicyHostNameInput)(nil)).Elem(), WafPolicyHostNameArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WafPolicyHostNameArrayInput)(nil)).Elem(), WafPolicyHostNameArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WafPolicyIpExceptionInput)(nil)).Elem(), WafPolicyIpExceptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WafPolicyIpExceptionArrayInput)(nil)).Elem(), WafPolicyIpExceptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WafPolicyPolicyBuilderInput)(nil)).Elem(), WafPolicyPolicyBuilderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WafPolicyPolicyBuilderArrayInput)(nil)).Elem(), WafPolicyPolicyBuilderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WafPolicySignaturesSettingInput)(nil)).Elem(), WafPolicySignaturesSettingArgs{})
@@ -3214,8 +3556,12 @@ func init() {
 	pulumi.RegisterOutputType(WafPolicyFileTypeArrayOutput{})
 	pulumi.RegisterOutputType(WafPolicyGraphqlProfileOutput{})
 	pulumi.RegisterOutputType(WafPolicyGraphqlProfileArrayOutput{})
+	pulumi.RegisterOutputType(WafPolicyGraphqlProfileDefenseAttributeOutput{})
+	pulumi.RegisterOutputType(WafPolicyGraphqlProfileDefenseAttributeArrayOutput{})
 	pulumi.RegisterOutputType(WafPolicyHostNameOutput{})
 	pulumi.RegisterOutputType(WafPolicyHostNameArrayOutput{})
+	pulumi.RegisterOutputType(WafPolicyIpExceptionOutput{})
+	pulumi.RegisterOutputType(WafPolicyIpExceptionArrayOutput{})
 	pulumi.RegisterOutputType(WafPolicyPolicyBuilderOutput{})
 	pulumi.RegisterOutputType(WafPolicyPolicyBuilderArrayOutput{})
 	pulumi.RegisterOutputType(WafPolicySignaturesSettingOutput{})

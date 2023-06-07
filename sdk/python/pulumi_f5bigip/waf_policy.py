@@ -26,6 +26,7 @@ class WafPolicyArgs:
                  file_types: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyFileTypeArgs']]]] = None,
                  graphql_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyGraphqlProfileArgs']]]] = None,
                  host_names: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyHostNameArgs']]]] = None,
+                 ip_exceptions: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyIpExceptionArgs']]]] = None,
                  modifications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  open_api_files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  parameters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -55,6 +56,8 @@ class WafPolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input['WafPolicyGraphqlProfileArgs']]] graphql_profiles: `graphql_profiles` takes list of graphql profile options to be used for policy builder.
                See graphql profiles below for more details.
         :param pulumi.Input[Sequence[pulumi.Input['WafPolicyHostNameArgs']]] host_names: specify the list of host name that is used to access the application
+        :param pulumi.Input[Sequence[pulumi.Input['WafPolicyIpExceptionArgs']]] ip_exceptions: `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+               See IP Exceptions below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] modifications: the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
                section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
                provided by the BIG-IP.
@@ -92,6 +95,8 @@ class WafPolicyArgs:
             pulumi.set(__self__, "graphql_profiles", graphql_profiles)
         if host_names is not None:
             pulumi.set(__self__, "host_names", host_names)
+        if ip_exceptions is not None:
+            pulumi.set(__self__, "ip_exceptions", ip_exceptions)
         if modifications is not None:
             pulumi.set(__self__, "modifications", modifications)
         if open_api_files is not None:
@@ -244,6 +249,19 @@ class WafPolicyArgs:
     @host_names.setter
     def host_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyHostNameArgs']]]]):
         pulumi.set(self, "host_names", value)
+
+    @property
+    @pulumi.getter(name="ipExceptions")
+    def ip_exceptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyIpExceptionArgs']]]]:
+        """
+        `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+        See IP Exceptions below for more details.
+        """
+        return pulumi.get(self, "ip_exceptions")
+
+    @ip_exceptions.setter
+    def ip_exceptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyIpExceptionArgs']]]]):
+        pulumi.set(self, "ip_exceptions", value)
 
     @property
     @pulumi.getter
@@ -440,6 +458,7 @@ class _WafPolicyState:
                  file_types: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyFileTypeArgs']]]] = None,
                  graphql_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyGraphqlProfileArgs']]]] = None,
                  host_names: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyHostNameArgs']]]] = None,
+                 ip_exceptions: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyIpExceptionArgs']]]] = None,
                  modifications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  open_api_files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -470,6 +489,8 @@ class _WafPolicyState:
         :param pulumi.Input[Sequence[pulumi.Input['WafPolicyGraphqlProfileArgs']]] graphql_profiles: `graphql_profiles` takes list of graphql profile options to be used for policy builder.
                See graphql profiles below for more details.
         :param pulumi.Input[Sequence[pulumi.Input['WafPolicyHostNameArgs']]] host_names: specify the list of host name that is used to access the application
+        :param pulumi.Input[Sequence[pulumi.Input['WafPolicyIpExceptionArgs']]] ip_exceptions: `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+               See IP Exceptions below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] modifications: the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
                section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
                provided by the BIG-IP.
@@ -508,6 +529,8 @@ class _WafPolicyState:
             pulumi.set(__self__, "graphql_profiles", graphql_profiles)
         if host_names is not None:
             pulumi.set(__self__, "host_names", host_names)
+        if ip_exceptions is not None:
+            pulumi.set(__self__, "ip_exceptions", ip_exceptions)
         if modifications is not None:
             pulumi.set(__self__, "modifications", modifications)
         if name is not None:
@@ -642,6 +665,19 @@ class _WafPolicyState:
     @host_names.setter
     def host_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyHostNameArgs']]]]):
         pulumi.set(self, "host_names", value)
+
+    @property
+    @pulumi.getter(name="ipExceptions")
+    def ip_exceptions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyIpExceptionArgs']]]]:
+        """
+        `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+        See IP Exceptions below for more details.
+        """
+        return pulumi.get(self, "ip_exceptions")
+
+    @ip_exceptions.setter
+    def ip_exceptions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyIpExceptionArgs']]]]):
+        pulumi.set(self, "ip_exceptions", value)
 
     @property
     @pulumi.getter
@@ -876,6 +912,7 @@ class WafPolicy(pulumi.CustomResource):
                  file_types: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyFileTypeArgs']]]]] = None,
                  graphql_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyGraphqlProfileArgs']]]]] = None,
                  host_names: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyHostNameArgs']]]]] = None,
+                 ip_exceptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyIpExceptionArgs']]]]] = None,
                  modifications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  open_api_files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -960,6 +997,8 @@ class WafPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyGraphqlProfileArgs']]]] graphql_profiles: `graphql_profiles` takes list of graphql profile options to be used for policy builder.
                See graphql profiles below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyHostNameArgs']]]] host_names: specify the list of host name that is used to access the application
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyIpExceptionArgs']]]] ip_exceptions: `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+               See IP Exceptions below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] modifications: the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
                section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
                provided by the BIG-IP.
@@ -1064,6 +1103,7 @@ class WafPolicy(pulumi.CustomResource):
                  file_types: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyFileTypeArgs']]]]] = None,
                  graphql_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyGraphqlProfileArgs']]]]] = None,
                  host_names: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyHostNameArgs']]]]] = None,
+                 ip_exceptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyIpExceptionArgs']]]]] = None,
                  modifications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  open_api_files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1098,6 +1138,7 @@ class WafPolicy(pulumi.CustomResource):
             __props__.__dict__["file_types"] = file_types
             __props__.__dict__["graphql_profiles"] = graphql_profiles
             __props__.__dict__["host_names"] = host_names
+            __props__.__dict__["ip_exceptions"] = ip_exceptions
             __props__.__dict__["modifications"] = modifications
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
@@ -1138,6 +1179,7 @@ class WafPolicy(pulumi.CustomResource):
             file_types: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyFileTypeArgs']]]]] = None,
             graphql_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyGraphqlProfileArgs']]]]] = None,
             host_names: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyHostNameArgs']]]]] = None,
+            ip_exceptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyIpExceptionArgs']]]]] = None,
             modifications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             open_api_files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1173,6 +1215,8 @@ class WafPolicy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyGraphqlProfileArgs']]]] graphql_profiles: `graphql_profiles` takes list of graphql profile options to be used for policy builder.
                See graphql profiles below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyHostNameArgs']]]] host_names: specify the list of host name that is used to access the application
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WafPolicyIpExceptionArgs']]]] ip_exceptions: `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+               See IP Exceptions below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] modifications: the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
                section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
                provided by the BIG-IP.
@@ -1207,6 +1251,7 @@ class WafPolicy(pulumi.CustomResource):
         __props__.__dict__["file_types"] = file_types
         __props__.__dict__["graphql_profiles"] = graphql_profiles
         __props__.__dict__["host_names"] = host_names
+        __props__.__dict__["ip_exceptions"] = ip_exceptions
         __props__.__dict__["modifications"] = modifications
         __props__.__dict__["name"] = name
         __props__.__dict__["open_api_files"] = open_api_files
@@ -1292,6 +1337,15 @@ class WafPolicy(pulumi.CustomResource):
         specify the list of host name that is used to access the application
         """
         return pulumi.get(self, "host_names")
+
+    @property
+    @pulumi.getter(name="ipExceptions")
+    def ip_exceptions(self) -> pulumi.Output[Optional[Sequence['outputs.WafPolicyIpException']]]:
+        """
+        `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+        See IP Exceptions below for more details.
+        """
+        return pulumi.get(self, "ip_exceptions")
 
     @property
     @pulumi.getter

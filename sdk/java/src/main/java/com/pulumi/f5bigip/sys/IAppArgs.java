@@ -21,14 +21,14 @@ public final class IAppArgs extends com.pulumi.resources.ResourceArgs {
     public static final IAppArgs Empty = new IAppArgs();
 
     /**
-     * Address of the Iapp which needs to be Iappensed
+     * User defined description.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Address of the Iapp which needs to be Iappensed
+     * @return User defined description.
      * 
      */
     public Optional<Output<String>> description() {
@@ -51,14 +51,14 @@ public final class IAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * BIG-IP password
+     * Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `execute_action` attribute take precedence over `json` value
      * 
      */
     @Import(name="executeAction")
     private @Nullable Output<String> executeAction;
 
     /**
-     * @return BIG-IP password
+     * @return Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `execute_action` attribute take precedence over `json` value
      * 
      */
     public Optional<Output<String>> executeAction() {
@@ -66,14 +66,14 @@ public final class IAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * BIG-IP password
+     * Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use &#39;device-group default&#39; or &#39;device-group non-default&#39; to set this.
      * 
      */
     @Import(name="inheritedDevicegroup")
     private @Nullable Output<String> inheritedDevicegroup;
 
     /**
-     * @return BIG-IP password
+     * @return Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use &#39;device-group default&#39; or &#39;device-group non-default&#39; to set this.
      * 
      */
     public Optional<Output<String>> inheritedDevicegroup() {
@@ -81,14 +81,14 @@ public final class IAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * BIG-IP password
+     * Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use &#39;traffic-group default&#39; or &#39;traffic-group non-default&#39; to set this.
      * 
      */
     @Import(name="inheritedTrafficGroup")
     private @Nullable Output<String> inheritedTrafficGroup;
 
     /**
-     * @return BIG-IP password
+     * @return Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use &#39;traffic-group default&#39; or &#39;traffic-group non-default&#39; to set this.
      * 
      */
     public Optional<Output<String>> inheritedTrafficGroup() {
@@ -99,27 +99,43 @@ public final class IAppArgs extends com.pulumi.resources.ResourceArgs {
      * Refer to the Json file which will be deployed on F5 BIG-IP.
      * 
      */
-    @Import(name="jsonfile")
-    private @Nullable Output<String> jsonfile;
+    @Import(name="jsonfile", required=true)
+    private Output<String> jsonfile;
 
     /**
      * @return Refer to the Json file which will be deployed on F5 BIG-IP.
      * 
      */
-    public Optional<Output<String>> jsonfile() {
-        return Optional.ofNullable(this.jsonfile);
+    public Output<String> jsonfile() {
+        return this.jsonfile;
     }
 
+    /**
+     * string values
+     * 
+     */
     @Import(name="lists")
     private @Nullable Output<List<IAppListArgs>> lists;
 
+    /**
+     * @return string values
+     * 
+     */
     public Optional<Output<List<IAppListArgs>>> lists() {
         return Optional.ofNullable(this.lists);
     }
 
+    /**
+     * User defined generic data for the application service. It is a name and value pair.
+     * 
+     */
     @Import(name="metadatas")
     private @Nullable Output<List<IAppMetadataArgs>> metadatas;
 
+    /**
+     * @return User defined generic data for the application service. It is a name and value pair.
+     * 
+     */
     public Optional<Output<List<IAppMetadataArgs>>> metadatas() {
         return Optional.ofNullable(this.metadatas);
     }
@@ -128,26 +144,26 @@ public final class IAppArgs extends com.pulumi.resources.ResourceArgs {
      * Name of the iApp.
      * 
      */
-    @Import(name="name")
-    private @Nullable Output<String> name;
+    @Import(name="name", required=true)
+    private Output<String> name;
 
     /**
      * @return Name of the iApp.
      * 
      */
-    public Optional<Output<String>> name() {
-        return Optional.ofNullable(this.name);
+    public Output<String> name() {
+        return this.name;
     }
 
     /**
-     * Address of the Iapp which needs to be Iappensed
+     * Displays the administrative partition within which the application resides.
      * 
      */
     @Import(name="partition")
     private @Nullable Output<String> partition;
 
     /**
-     * @return Address of the Iapp which needs to be Iappensed
+     * @return Displays the administrative partition within which the application resides.
      * 
      */
     public Optional<Output<String>> partition() {
@@ -155,14 +171,14 @@ public final class IAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * BIG-IP password
+     * Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system&#39;s application management interfaces.
      * 
      */
     @Import(name="strictUpdates")
     private @Nullable Output<String> strictUpdates;
 
     /**
-     * @return BIG-IP password
+     * @return Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system&#39;s application management interfaces.
      * 
      */
     public Optional<Output<String>> strictUpdates() {
@@ -177,14 +193,14 @@ public final class IAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * BIG-IP password
+     * The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.
      * 
      */
     @Import(name="template")
     private @Nullable Output<String> template;
 
     /**
-     * @return BIG-IP password
+     * @return The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.
      * 
      */
     public Optional<Output<String>> template() {
@@ -192,14 +208,14 @@ public final class IAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * BIG-IP password
+     * Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.
      * 
      */
     @Import(name="templateModified")
     private @Nullable Output<String> templateModified;
 
     /**
-     * @return BIG-IP password
+     * @return Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.
      * 
      */
     public Optional<Output<String>> templateModified() {
@@ -207,14 +223,14 @@ public final class IAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * BIG-IP password
+     * Indicates any missing prerequisites associated with the template that defines this application.
      * 
      */
     @Import(name="templatePrerequisiteErrors")
     private @Nullable Output<String> templatePrerequisiteErrors;
 
     /**
-     * @return BIG-IP password
+     * @return Indicates any missing prerequisites associated with the template that defines this application.
      * 
      */
     public Optional<Output<String>> templatePrerequisiteErrors() {
@@ -222,14 +238,14 @@ public final class IAppArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * BIG-IP password
+     * The name of the traffic group that the application service is assigned to.
      * 
      */
     @Import(name="trafficGroup")
     private @Nullable Output<String> trafficGroup;
 
     /**
-     * @return BIG-IP password
+     * @return The name of the traffic group that the application service is assigned to.
      * 
      */
     public Optional<Output<String>> trafficGroup() {
@@ -284,7 +300,7 @@ public final class IAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Address of the Iapp which needs to be Iappensed
+         * @param description User defined description.
          * 
          * @return builder
          * 
@@ -295,7 +311,7 @@ public final class IAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Address of the Iapp which needs to be Iappensed
+         * @param description User defined description.
          * 
          * @return builder
          * 
@@ -326,7 +342,7 @@ public final class IAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param executeAction BIG-IP password
+         * @param executeAction Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `execute_action` attribute take precedence over `json` value
          * 
          * @return builder
          * 
@@ -337,7 +353,7 @@ public final class IAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param executeAction BIG-IP password
+         * @param executeAction Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `execute_action` attribute take precedence over `json` value
          * 
          * @return builder
          * 
@@ -347,7 +363,7 @@ public final class IAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inheritedDevicegroup BIG-IP password
+         * @param inheritedDevicegroup Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use &#39;device-group default&#39; or &#39;device-group non-default&#39; to set this.
          * 
          * @return builder
          * 
@@ -358,7 +374,7 @@ public final class IAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inheritedDevicegroup BIG-IP password
+         * @param inheritedDevicegroup Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use &#39;device-group default&#39; or &#39;device-group non-default&#39; to set this.
          * 
          * @return builder
          * 
@@ -368,7 +384,7 @@ public final class IAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inheritedTrafficGroup BIG-IP password
+         * @param inheritedTrafficGroup Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use &#39;traffic-group default&#39; or &#39;traffic-group non-default&#39; to set this.
          * 
          * @return builder
          * 
@@ -379,7 +395,7 @@ public final class IAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param inheritedTrafficGroup BIG-IP password
+         * @param inheritedTrafficGroup Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use &#39;traffic-group default&#39; or &#39;traffic-group non-default&#39; to set this.
          * 
          * @return builder
          * 
@@ -394,7 +410,7 @@ public final class IAppArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder jsonfile(@Nullable Output<String> jsonfile) {
+        public Builder jsonfile(Output<String> jsonfile) {
             $.jsonfile = jsonfile;
             return this;
         }
@@ -409,28 +425,64 @@ public final class IAppArgs extends com.pulumi.resources.ResourceArgs {
             return jsonfile(Output.of(jsonfile));
         }
 
+        /**
+         * @param lists string values
+         * 
+         * @return builder
+         * 
+         */
         public Builder lists(@Nullable Output<List<IAppListArgs>> lists) {
             $.lists = lists;
             return this;
         }
 
+        /**
+         * @param lists string values
+         * 
+         * @return builder
+         * 
+         */
         public Builder lists(List<IAppListArgs> lists) {
             return lists(Output.of(lists));
         }
 
+        /**
+         * @param lists string values
+         * 
+         * @return builder
+         * 
+         */
         public Builder lists(IAppListArgs... lists) {
             return lists(List.of(lists));
         }
 
+        /**
+         * @param metadatas User defined generic data for the application service. It is a name and value pair.
+         * 
+         * @return builder
+         * 
+         */
         public Builder metadatas(@Nullable Output<List<IAppMetadataArgs>> metadatas) {
             $.metadatas = metadatas;
             return this;
         }
 
+        /**
+         * @param metadatas User defined generic data for the application service. It is a name and value pair.
+         * 
+         * @return builder
+         * 
+         */
         public Builder metadatas(List<IAppMetadataArgs> metadatas) {
             return metadatas(Output.of(metadatas));
         }
 
+        /**
+         * @param metadatas User defined generic data for the application service. It is a name and value pair.
+         * 
+         * @return builder
+         * 
+         */
         public Builder metadatas(IAppMetadataArgs... metadatas) {
             return metadatas(List.of(metadatas));
         }
@@ -441,7 +493,7 @@ public final class IAppArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder name(@Nullable Output<String> name) {
+        public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
@@ -457,7 +509,7 @@ public final class IAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param partition Address of the Iapp which needs to be Iappensed
+         * @param partition Displays the administrative partition within which the application resides.
          * 
          * @return builder
          * 
@@ -468,7 +520,7 @@ public final class IAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param partition Address of the Iapp which needs to be Iappensed
+         * @param partition Displays the administrative partition within which the application resides.
          * 
          * @return builder
          * 
@@ -478,7 +530,7 @@ public final class IAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param strictUpdates BIG-IP password
+         * @param strictUpdates Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system&#39;s application management interfaces.
          * 
          * @return builder
          * 
@@ -489,7 +541,7 @@ public final class IAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param strictUpdates BIG-IP password
+         * @param strictUpdates Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system&#39;s application management interfaces.
          * 
          * @return builder
          * 
@@ -512,7 +564,7 @@ public final class IAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param template BIG-IP password
+         * @param template The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.
          * 
          * @return builder
          * 
@@ -523,7 +575,7 @@ public final class IAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param template BIG-IP password
+         * @param template The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.
          * 
          * @return builder
          * 
@@ -533,7 +585,7 @@ public final class IAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param templateModified BIG-IP password
+         * @param templateModified Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.
          * 
          * @return builder
          * 
@@ -544,7 +596,7 @@ public final class IAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param templateModified BIG-IP password
+         * @param templateModified Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.
          * 
          * @return builder
          * 
@@ -554,7 +606,7 @@ public final class IAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param templatePrerequisiteErrors BIG-IP password
+         * @param templatePrerequisiteErrors Indicates any missing prerequisites associated with the template that defines this application.
          * 
          * @return builder
          * 
@@ -565,7 +617,7 @@ public final class IAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param templatePrerequisiteErrors BIG-IP password
+         * @param templatePrerequisiteErrors Indicates any missing prerequisites associated with the template that defines this application.
          * 
          * @return builder
          * 
@@ -575,7 +627,7 @@ public final class IAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trafficGroup BIG-IP password
+         * @param trafficGroup The name of the traffic group that the application service is assigned to.
          * 
          * @return builder
          * 
@@ -586,7 +638,7 @@ public final class IAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param trafficGroup BIG-IP password
+         * @param trafficGroup The name of the traffic group that the application service is assigned to.
          * 
          * @return builder
          * 
@@ -609,6 +661,8 @@ public final class IAppArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public IAppArgs build() {
+            $.jsonfile = Objects.requireNonNull($.jsonfile, "expected parameter 'jsonfile' to be non-null");
+            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
             return $;
         }
     }

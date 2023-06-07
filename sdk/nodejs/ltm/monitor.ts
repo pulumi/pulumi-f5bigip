@@ -97,6 +97,10 @@ export class Monitor extends pulumi.CustomResource {
      */
     public readonly compatibility!: pulumi.Output<string | undefined>;
     /**
+     * Custom parent monitor for the system to use for setting initial values for the new monitor.
+     */
+    public readonly customParent!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the database in which the user is created
      */
     public readonly database!: pulumi.Output<string | undefined>;
@@ -193,6 +197,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["adaptive"] = state ? state.adaptive : undefined;
             resourceInputs["adaptiveLimit"] = state ? state.adaptiveLimit : undefined;
             resourceInputs["compatibility"] = state ? state.compatibility : undefined;
+            resourceInputs["customParent"] = state ? state.customParent : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
             resourceInputs["destination"] = state ? state.destination : undefined;
             resourceInputs["filename"] = state ? state.filename : undefined;
@@ -224,6 +229,7 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["adaptive"] = args ? args.adaptive : undefined;
             resourceInputs["adaptiveLimit"] = args ? args.adaptiveLimit : undefined;
             resourceInputs["compatibility"] = args ? args.compatibility : undefined;
+            resourceInputs["customParent"] = args ? args.customParent : undefined;
             resourceInputs["database"] = args ? args.database : undefined;
             resourceInputs["destination"] = args ? args.destination : undefined;
             resourceInputs["filename"] = args ? args.filename : undefined;
@@ -268,6 +274,10 @@ export interface MonitorState {
      * Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
      */
     compatibility?: pulumi.Input<string>;
+    /**
+     * Custom parent monitor for the system to use for setting initial values for the new monitor.
+     */
+    customParent?: pulumi.Input<string>;
     /**
      * Specifies the database in which the user is created
      */
@@ -366,6 +376,10 @@ export interface MonitorArgs {
      * Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
      */
     compatibility?: pulumi.Input<string>;
+    /**
+     * Custom parent monitor for the system to use for setting initial values for the new monitor.
+     */
+    customParent?: pulumi.Input<string>;
     /**
      * Specifies the database in which the user is created
      */

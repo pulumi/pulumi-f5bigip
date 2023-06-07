@@ -77,6 +77,21 @@ public final class PoolAttachmentState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * Specifies the health monitors that the system uses to monitor this pool member,value can be `none` (or) `default` (or) list of monitors joined with and ( ex: `/Common/test_monitor_pa_tc1 and /Common/gateway_icmp`).
+     * 
+     */
+    @Import(name="monitor")
+    private @Nullable Output<String> monitor;
+
+    /**
+     * @return Specifies the health monitors that the system uses to monitor this pool member,value can be `none` (or) `default` (or) list of monitors joined with and ( ex: `/Common/test_monitor_pa_tc1 and /Common/gateway_icmp`).
+     * 
+     */
+    public Optional<Output<String>> monitor() {
+        return Optional.ofNullable(this.monitor);
+    }
+
+    /**
      * Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
      * 
      */
@@ -136,6 +151,21 @@ public final class PoolAttachmentState extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.ratio);
     }
 
+    /**
+     * Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forced_offline`).
+     * 
+     */
+    @Import(name="state")
+    private @Nullable Output<String> state;
+
+    /**
+     * @return Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forced_offline`).
+     * 
+     */
+    public Optional<Output<String>> state() {
+        return Optional.ofNullable(this.state);
+    }
+
     private PoolAttachmentState() {}
 
     private PoolAttachmentState(PoolAttachmentState $) {
@@ -143,10 +173,12 @@ public final class PoolAttachmentState extends com.pulumi.resources.ResourceArgs
         this.connectionRateLimit = $.connectionRateLimit;
         this.dynamicRatio = $.dynamicRatio;
         this.fqdnAutopopulate = $.fqdnAutopopulate;
+        this.monitor = $.monitor;
         this.node = $.node;
         this.pool = $.pool;
         this.priorityGroup = $.priorityGroup;
         this.ratio = $.ratio;
+        this.state = $.state;
     }
 
     public static Builder builder() {
@@ -252,6 +284,27 @@ public final class PoolAttachmentState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
+         * @param monitor Specifies the health monitors that the system uses to monitor this pool member,value can be `none` (or) `default` (or) list of monitors joined with and ( ex: `/Common/test_monitor_pa_tc1 and /Common/gateway_icmp`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitor(@Nullable Output<String> monitor) {
+            $.monitor = monitor;
+            return this;
+        }
+
+        /**
+         * @param monitor Specifies the health monitors that the system uses to monitor this pool member,value can be `none` (or) `default` (or) list of monitors joined with and ( ex: `/Common/test_monitor_pa_tc1 and /Common/gateway_icmp`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitor(String monitor) {
+            return monitor(Output.of(monitor));
+        }
+
+        /**
          * @param node Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
          * 
          * @return builder
@@ -333,6 +386,27 @@ public final class PoolAttachmentState extends com.pulumi.resources.ResourceArgs
          */
         public Builder ratio(Integer ratio) {
             return ratio(Output.of(ratio));
+        }
+
+        /**
+         * @param state Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forced_offline`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder state(@Nullable Output<String> state) {
+            $.state = state;
+            return this;
+        }
+
+        /**
+         * @param state Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forced_offline`).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder state(String state) {
+            return state(Output.of(state));
         }
 
         public PoolAttachmentState build() {

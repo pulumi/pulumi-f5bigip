@@ -138,6 +138,20 @@ public class Monitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.compatibility);
     }
     /**
+     * Custom parent monitor for the system to use for setting initial values for the new monitor.
+     * 
+     */
+    @Export(name="customParent", type=String.class, parameters={})
+    private Output</* @Nullable */ String> customParent;
+
+    /**
+     * @return Custom parent monitor for the system to use for setting initial values for the new monitor.
+     * 
+     */
+    public Output<Optional<String>> customParent() {
+        return Codegen.optional(this.customParent);
+    }
+    /**
      * Specifies the database in which the user is created
      * 
      */

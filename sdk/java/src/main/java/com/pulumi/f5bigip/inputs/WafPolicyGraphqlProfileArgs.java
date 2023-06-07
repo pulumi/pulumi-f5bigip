@@ -5,7 +5,10 @@ package com.pulumi.f5bigip.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.f5bigip.inputs.WafPolicyGraphqlProfileDefenseAttributeArgs;
+import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -16,23 +19,71 @@ public final class WafPolicyGraphqlProfileArgs extends com.pulumi.resources.Reso
     public static final WafPolicyGraphqlProfileArgs Empty = new WafPolicyGraphqlProfileArgs();
 
     /**
+     * Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled.
+     * 
+     */
+    @Import(name="attackSignaturesCheck")
+    private @Nullable Output<Boolean> attackSignaturesCheck;
+
+    /**
+     * @return Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled.
+     * 
+     */
+    public Optional<Output<Boolean>> attackSignaturesCheck() {
+        return Optional.ofNullable(this.attackSignaturesCheck);
+    }
+
+    /**
+     * `defense_attributes` block settings for GraphQl policy.See defense attributes below for more details.
+     * 
+     */
+    @Import(name="defenseAttributes")
+    private @Nullable Output<List<WafPolicyGraphqlProfileDefenseAttributeArgs>> defenseAttributes;
+
+    /**
+     * @return `defense_attributes` block settings for GraphQl policy.See defense attributes below for more details.
+     * 
+     */
+    public Optional<Output<List<WafPolicyGraphqlProfileDefenseAttributeArgs>>> defenseAttributes() {
+        return Optional.ofNullable(this.defenseAttributes);
+    }
+
+    /**
+     * Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled.
+     * 
+     */
+    @Import(name="metacharElementcheck")
+    private @Nullable Output<Boolean> metacharElementcheck;
+
+    /**
+     * @return Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled.
+     * 
+     */
+    public Optional<Output<Boolean>> metacharElementcheck() {
+        return Optional.ofNullable(this.metacharElementcheck);
+    }
+
+    /**
      * The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
      * 
      */
-    @Import(name="name")
-    private @Nullable Output<String> name;
+    @Import(name="name", required=true)
+    private Output<String> name;
 
     /**
      * @return The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
      * 
      */
-    public Optional<Output<String>> name() {
-        return Optional.ofNullable(this.name);
+    public Output<String> name() {
+        return this.name;
     }
 
     private WafPolicyGraphqlProfileArgs() {}
 
     private WafPolicyGraphqlProfileArgs(WafPolicyGraphqlProfileArgs $) {
+        this.attackSignaturesCheck = $.attackSignaturesCheck;
+        this.defenseAttributes = $.defenseAttributes;
+        this.metacharElementcheck = $.metacharElementcheck;
         this.name = $.name;
     }
 
@@ -55,12 +106,85 @@ public final class WafPolicyGraphqlProfileArgs extends com.pulumi.resources.Reso
         }
 
         /**
+         * @param attackSignaturesCheck Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder attackSignaturesCheck(@Nullable Output<Boolean> attackSignaturesCheck) {
+            $.attackSignaturesCheck = attackSignaturesCheck;
+            return this;
+        }
+
+        /**
+         * @param attackSignaturesCheck Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder attackSignaturesCheck(Boolean attackSignaturesCheck) {
+            return attackSignaturesCheck(Output.of(attackSignaturesCheck));
+        }
+
+        /**
+         * @param defenseAttributes `defense_attributes` block settings for GraphQl policy.See defense attributes below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defenseAttributes(@Nullable Output<List<WafPolicyGraphqlProfileDefenseAttributeArgs>> defenseAttributes) {
+            $.defenseAttributes = defenseAttributes;
+            return this;
+        }
+
+        /**
+         * @param defenseAttributes `defense_attributes` block settings for GraphQl policy.See defense attributes below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defenseAttributes(List<WafPolicyGraphqlProfileDefenseAttributeArgs> defenseAttributes) {
+            return defenseAttributes(Output.of(defenseAttributes));
+        }
+
+        /**
+         * @param defenseAttributes `defense_attributes` block settings for GraphQl policy.See defense attributes below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defenseAttributes(WafPolicyGraphqlProfileDefenseAttributeArgs... defenseAttributes) {
+            return defenseAttributes(List.of(defenseAttributes));
+        }
+
+        /**
+         * @param metacharElementcheck Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metacharElementcheck(@Nullable Output<Boolean> metacharElementcheck) {
+            $.metacharElementcheck = metacharElementcheck;
+            return this;
+        }
+
+        /**
+         * @param metacharElementcheck Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metacharElementcheck(Boolean metacharElementcheck) {
+            return metacharElementcheck(Output.of(metacharElementcheck));
+        }
+
+        /**
          * @param name The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
          * 
          * @return builder
          * 
          */
-        public Builder name(@Nullable Output<String> name) {
+        public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
@@ -76,6 +200,7 @@ public final class WafPolicyGraphqlProfileArgs extends com.pulumi.resources.Reso
         }
 
         public WafPolicyGraphqlProfileArgs build() {
+            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
             return $;
         }
     }

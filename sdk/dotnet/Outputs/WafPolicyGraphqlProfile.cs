@@ -14,13 +14,35 @@ namespace Pulumi.F5BigIP.Outputs
     public sealed class WafPolicyGraphqlProfile
     {
         /// <summary>
+        /// Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled.
+        /// </summary>
+        public readonly bool? AttackSignaturesCheck;
+        /// <summary>
+        /// `defense_attributes` block settings for GraphQl policy.See defense attributes below for more details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.WafPolicyGraphqlProfileDefenseAttribute> DefenseAttributes;
+        /// <summary>
+        /// Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled.
+        /// </summary>
+        public readonly bool? MetacharElementcheck;
+        /// <summary>
         /// The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
         /// </summary>
-        public readonly string? Name;
+        public readonly string Name;
 
         [OutputConstructor]
-        private WafPolicyGraphqlProfile(string? name)
+        private WafPolicyGraphqlProfile(
+            bool? attackSignaturesCheck,
+
+            ImmutableArray<Outputs.WafPolicyGraphqlProfileDefenseAttribute> defenseAttributes,
+
+            bool? metacharElementcheck,
+
+            string name)
         {
+            AttackSignaturesCheck = attackSignaturesCheck;
+            DefenseAttributes = defenseAttributes;
+            MetacharElementcheck = metacharElementcheck;
             Name = name;
         }
     }
