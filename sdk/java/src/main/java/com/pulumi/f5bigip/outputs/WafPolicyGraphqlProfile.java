@@ -4,7 +4,10 @@
 package com.pulumi.f5bigip.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.f5bigip.outputs.WafPolicyGraphqlProfileDefenseAttribute;
+import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -12,18 +15,54 @@ import javax.annotation.Nullable;
 @CustomType
 public final class WafPolicyGraphqlProfile {
     /**
-     * @return The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
+     * @return Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled.
      * 
      */
-    private @Nullable String name;
-
-    private WafPolicyGraphqlProfile() {}
+    private @Nullable Boolean attackSignaturesCheck;
+    /**
+     * @return `defense_attributes` block settings for GraphQl policy.See defense attributes below for more details.
+     * 
+     */
+    private @Nullable List<WafPolicyGraphqlProfileDefenseAttribute> defenseAttributes;
+    /**
+     * @return Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled.
+     * 
+     */
+    private @Nullable Boolean metacharElementcheck;
     /**
      * @return The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
      * 
      */
-    public Optional<String> name() {
-        return Optional.ofNullable(this.name);
+    private String name;
+
+    private WafPolicyGraphqlProfile() {}
+    /**
+     * @return Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled.
+     * 
+     */
+    public Optional<Boolean> attackSignaturesCheck() {
+        return Optional.ofNullable(this.attackSignaturesCheck);
+    }
+    /**
+     * @return `defense_attributes` block settings for GraphQl policy.See defense attributes below for more details.
+     * 
+     */
+    public List<WafPolicyGraphqlProfileDefenseAttribute> defenseAttributes() {
+        return this.defenseAttributes == null ? List.of() : this.defenseAttributes;
+    }
+    /**
+     * @return Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled.
+     * 
+     */
+    public Optional<Boolean> metacharElementcheck() {
+        return Optional.ofNullable(this.metacharElementcheck);
+    }
+    /**
+     * @return The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
+     * 
+     */
+    public String name() {
+        return this.name;
     }
 
     public static Builder builder() {
@@ -35,20 +74,47 @@ public final class WafPolicyGraphqlProfile {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String name;
+        private @Nullable Boolean attackSignaturesCheck;
+        private @Nullable List<WafPolicyGraphqlProfileDefenseAttribute> defenseAttributes;
+        private @Nullable Boolean metacharElementcheck;
+        private String name;
         public Builder() {}
         public Builder(WafPolicyGraphqlProfile defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.attackSignaturesCheck = defaults.attackSignaturesCheck;
+    	      this.defenseAttributes = defaults.defenseAttributes;
+    	      this.metacharElementcheck = defaults.metacharElementcheck;
     	      this.name = defaults.name;
         }
 
         @CustomType.Setter
-        public Builder name(@Nullable String name) {
-            this.name = name;
+        public Builder attackSignaturesCheck(@Nullable Boolean attackSignaturesCheck) {
+            this.attackSignaturesCheck = attackSignaturesCheck;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder defenseAttributes(@Nullable List<WafPolicyGraphqlProfileDefenseAttribute> defenseAttributes) {
+            this.defenseAttributes = defenseAttributes;
+            return this;
+        }
+        public Builder defenseAttributes(WafPolicyGraphqlProfileDefenseAttribute... defenseAttributes) {
+            return defenseAttributes(List.of(defenseAttributes));
+        }
+        @CustomType.Setter
+        public Builder metacharElementcheck(@Nullable Boolean metacharElementcheck) {
+            this.metacharElementcheck = metacharElementcheck;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder name(String name) {
+            this.name = Objects.requireNonNull(name);
             return this;
         }
         public WafPolicyGraphqlProfile build() {
             final var o = new WafPolicyGraphqlProfile();
+            o.attackSignaturesCheck = attackSignaturesCheck;
+            o.defenseAttributes = defenseAttributes;
+            o.metacharElementcheck = metacharElementcheck;
             o.name = name;
             return o;
         }

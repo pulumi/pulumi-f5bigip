@@ -5,6 +5,7 @@ package com.pulumi.f5bigip.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -14,6 +15,25 @@ import javax.annotation.Nullable;
 public final class WafPolicyFileTypeArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final WafPolicyFileTypeArgs Empty = new WafPolicyFileTypeArgs();
+
+    /**
+     * Determines whether the file type is allowed or disallowed. In either of these cases the VIOL_FILETYPE violation is issued (if enabled) for an incoming request-
+     * * No allowed file type matched the file type of the request.
+     * * The file type of the request matched a disallowed file type.
+     * 
+     */
+    @Import(name="allowed")
+    private @Nullable Output<Boolean> allowed;
+
+    /**
+     * @return Determines whether the file type is allowed or disallowed. In either of these cases the VIOL_FILETYPE violation is issued (if enabled) for an incoming request-
+     * * No allowed file type matched the file type of the request.
+     * * The file type of the request matched a disallowed file type.
+     * 
+     */
+    public Optional<Output<Boolean>> allowed() {
+        return Optional.ofNullable(this.allowed);
+    }
 
     /**
      * Specifies the file type name as appearing in the URL extension.
@@ -48,6 +68,7 @@ public final class WafPolicyFileTypeArgs extends com.pulumi.resources.ResourceAr
     private WafPolicyFileTypeArgs() {}
 
     private WafPolicyFileTypeArgs(WafPolicyFileTypeArgs $) {
+        this.allowed = $.allowed;
         this.name = $.name;
         this.type = $.type;
     }
@@ -68,6 +89,31 @@ public final class WafPolicyFileTypeArgs extends com.pulumi.resources.ResourceAr
 
         public Builder(WafPolicyFileTypeArgs defaults) {
             $ = new WafPolicyFileTypeArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param allowed Determines whether the file type is allowed or disallowed. In either of these cases the VIOL_FILETYPE violation is issued (if enabled) for an incoming request-
+         * * No allowed file type matched the file type of the request.
+         * * The file type of the request matched a disallowed file type.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowed(@Nullable Output<Boolean> allowed) {
+            $.allowed = allowed;
+            return this;
+        }
+
+        /**
+         * @param allowed Determines whether the file type is allowed or disallowed. In either of these cases the VIOL_FILETYPE violation is issued (if enabled) for an incoming request-
+         * * No allowed file type matched the file type of the request.
+         * * The file type of the request matched a disallowed file type.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowed(Boolean allowed) {
+            return allowed(Output.of(allowed));
         }
 
         /**

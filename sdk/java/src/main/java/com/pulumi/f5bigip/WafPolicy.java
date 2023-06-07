@@ -13,6 +13,7 @@ import com.pulumi.f5bigip.inputs.WafPolicyState;
 import com.pulumi.f5bigip.outputs.WafPolicyFileType;
 import com.pulumi.f5bigip.outputs.WafPolicyGraphqlProfile;
 import com.pulumi.f5bigip.outputs.WafPolicyHostName;
+import com.pulumi.f5bigip.outputs.WafPolicyIpException;
 import com.pulumi.f5bigip.outputs.WafPolicyPolicyBuilder;
 import com.pulumi.f5bigip.outputs.WafPolicySignaturesSetting;
 import java.lang.Boolean;
@@ -225,6 +226,22 @@ public class WafPolicy extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<WafPolicyHostName>>> hostNames() {
         return Codegen.optional(this.hostNames);
+    }
+    /**
+     * `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+     * See IP Exceptions below for more details.
+     * 
+     */
+    @Export(name="ipExceptions", type=List.class, parameters={WafPolicyIpException.class})
+    private Output</* @Nullable */ List<WafPolicyIpException>> ipExceptions;
+
+    /**
+     * @return `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+     * See IP Exceptions below for more details.
+     * 
+     */
+    public Output<Optional<List<WafPolicyIpException>>> ipExceptions() {
+        return Codegen.optional(this.ipExceptions);
     }
     /**
      * the modifications section includes actions that modify the declarative policy as it is defined in the adjustments

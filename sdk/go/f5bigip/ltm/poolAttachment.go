@@ -134,6 +134,8 @@ type PoolAttachment struct {
 	DynamicRatio pulumi.IntOutput `pulumi:"dynamicRatio"`
 	// Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled
 	FqdnAutopopulate pulumi.StringPtrOutput `pulumi:"fqdnAutopopulate"`
+	// Specifies the health monitors that the system uses to monitor this pool member,value can be `none` (or) `default` (or) list of monitors joined with and ( ex: `/Common/test_monitor_pa_tc1 and /Common/gateway_icmp`).
+	Monitor pulumi.StringOutput `pulumi:"monitor"`
 	// Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
 	Node pulumi.StringOutput `pulumi:"node"`
 	// Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`) or partition + directory + name of the pool (For example `/Common/test/my-pool`).When including directory in fullpath we have to make sure it is created in the given partition before using it.
@@ -142,6 +144,8 @@ type PoolAttachment struct {
 	PriorityGroup pulumi.IntOutput `pulumi:"priorityGroup"`
 	// "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
 	Ratio pulumi.IntOutput `pulumi:"ratio"`
+	// Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forcedOffline`).
+	State pulumi.StringPtrOutput `pulumi:"state"`
 }
 
 // NewPoolAttachment registers a new resource with the given unique name, arguments, and options.
@@ -187,6 +191,8 @@ type poolAttachmentState struct {
 	DynamicRatio *int `pulumi:"dynamicRatio"`
 	// Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled
 	FqdnAutopopulate *string `pulumi:"fqdnAutopopulate"`
+	// Specifies the health monitors that the system uses to monitor this pool member,value can be `none` (or) `default` (or) list of monitors joined with and ( ex: `/Common/test_monitor_pa_tc1 and /Common/gateway_icmp`).
+	Monitor *string `pulumi:"monitor"`
 	// Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
 	Node *string `pulumi:"node"`
 	// Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`) or partition + directory + name of the pool (For example `/Common/test/my-pool`).When including directory in fullpath we have to make sure it is created in the given partition before using it.
@@ -195,6 +201,8 @@ type poolAttachmentState struct {
 	PriorityGroup *int `pulumi:"priorityGroup"`
 	// "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
 	Ratio *int `pulumi:"ratio"`
+	// Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forcedOffline`).
+	State *string `pulumi:"state"`
 }
 
 type PoolAttachmentState struct {
@@ -206,6 +214,8 @@ type PoolAttachmentState struct {
 	DynamicRatio pulumi.IntPtrInput
 	// Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled
 	FqdnAutopopulate pulumi.StringPtrInput
+	// Specifies the health monitors that the system uses to monitor this pool member,value can be `none` (or) `default` (or) list of monitors joined with and ( ex: `/Common/test_monitor_pa_tc1 and /Common/gateway_icmp`).
+	Monitor pulumi.StringPtrInput
 	// Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
 	Node pulumi.StringPtrInput
 	// Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`) or partition + directory + name of the pool (For example `/Common/test/my-pool`).When including directory in fullpath we have to make sure it is created in the given partition before using it.
@@ -214,6 +224,8 @@ type PoolAttachmentState struct {
 	PriorityGroup pulumi.IntPtrInput
 	// "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
 	Ratio pulumi.IntPtrInput
+	// Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forcedOffline`).
+	State pulumi.StringPtrInput
 }
 
 func (PoolAttachmentState) ElementType() reflect.Type {
@@ -229,6 +241,8 @@ type poolAttachmentArgs struct {
 	DynamicRatio *int `pulumi:"dynamicRatio"`
 	// Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled
 	FqdnAutopopulate *string `pulumi:"fqdnAutopopulate"`
+	// Specifies the health monitors that the system uses to monitor this pool member,value can be `none` (or) `default` (or) list of monitors joined with and ( ex: `/Common/test_monitor_pa_tc1 and /Common/gateway_icmp`).
+	Monitor *string `pulumi:"monitor"`
 	// Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
 	Node string `pulumi:"node"`
 	// Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`) or partition + directory + name of the pool (For example `/Common/test/my-pool`).When including directory in fullpath we have to make sure it is created in the given partition before using it.
@@ -237,6 +251,8 @@ type poolAttachmentArgs struct {
 	PriorityGroup *int `pulumi:"priorityGroup"`
 	// "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
 	Ratio *int `pulumi:"ratio"`
+	// Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forcedOffline`).
+	State *string `pulumi:"state"`
 }
 
 // The set of arguments for constructing a PoolAttachment resource.
@@ -249,6 +265,8 @@ type PoolAttachmentArgs struct {
 	DynamicRatio pulumi.IntPtrInput
 	// Specifies whether the system automatically creates ephemeral nodes using the IP addresses returned by the resolution of a DNS query for a node defined by an FQDN. The default is enabled
 	FqdnAutopopulate pulumi.StringPtrInput
+	// Specifies the health monitors that the system uses to monitor this pool member,value can be `none` (or) `default` (or) list of monitors joined with and ( ex: `/Common/test_monitor_pa_tc1 and /Common/gateway_icmp`).
+	Monitor pulumi.StringPtrInput
 	// Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
 	Node pulumi.StringInput
 	// Name of the pool to which members should be attached,it should be "full path".The full path is the combination of the partition + name of the pool.(For example `/Common/my-pool`) or partition + directory + name of the pool (For example `/Common/test/my-pool`).When including directory in fullpath we have to make sure it is created in the given partition before using it.
@@ -257,6 +275,8 @@ type PoolAttachmentArgs struct {
 	PriorityGroup pulumi.IntPtrInput
 	// "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
 	Ratio pulumi.IntPtrInput
+	// Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forcedOffline`).
+	State pulumi.StringPtrInput
 }
 
 func (PoolAttachmentArgs) ElementType() reflect.Type {
@@ -366,6 +386,11 @@ func (o PoolAttachmentOutput) FqdnAutopopulate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PoolAttachment) pulumi.StringPtrOutput { return v.FqdnAutopopulate }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the health monitors that the system uses to monitor this pool member,value can be `none` (or) `default` (or) list of monitors joined with and ( ex: `/Common/test_monitor_pa_tc1 and /Common/gateway_icmp`).
+func (o PoolAttachmentOutput) Monitor() pulumi.StringOutput {
+	return o.ApplyT(func(v *PoolAttachment) pulumi.StringOutput { return v.Monitor }).(pulumi.StringOutput)
+}
+
 // Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
 func (o PoolAttachmentOutput) Node() pulumi.StringOutput {
 	return o.ApplyT(func(v *PoolAttachment) pulumi.StringOutput { return v.Node }).(pulumi.StringOutput)
@@ -384,6 +409,11 @@ func (o PoolAttachmentOutput) PriorityGroup() pulumi.IntOutput {
 // "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
 func (o PoolAttachmentOutput) Ratio() pulumi.IntOutput {
 	return o.ApplyT(func(v *PoolAttachment) pulumi.IntOutput { return v.Ratio }).(pulumi.IntOutput)
+}
+
+// Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forcedOffline`).
+func (o PoolAttachmentOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PoolAttachment) pulumi.StringPtrOutput { return v.State }).(pulumi.StringPtrOutput)
 }
 
 type PoolAttachmentArrayOutput struct{ *pulumi.OutputState }

@@ -261,6 +261,12 @@ export interface FastUdpAppVirtualServer {
 
 export interface WafPolicyFileType {
     /**
+     * Determines whether the file type is allowed or disallowed. In either of these cases the VIOL_FILETYPE violation is issued (if enabled) for an incoming request- 
+     * * No allowed file type matched the file type of the request.
+     * * The file type of the request matched a disallowed file type.
+     */
+    allowed?: boolean;
+    /**
      * Specifies the file type name as appearing in the URL extension.
      */
     name?: string;
@@ -272,9 +278,49 @@ export interface WafPolicyFileType {
 
 export interface WafPolicyGraphqlProfile {
     /**
+     * Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled.
+     */
+    attackSignaturesCheck?: boolean;
+    /**
+     * `defenseAttributes` block settings for GraphQl policy.See defense attributes below for more details.
+     */
+    defenseAttributes?: outputs.WafPolicyGraphqlProfileDefenseAttribute[];
+    /**
+     * Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled.
+     */
+    metacharElementcheck?: boolean;
+    /**
      * The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
      */
-    name?: string;
+    name: string;
+}
+
+export interface WafPolicyGraphqlProfileDefenseAttribute {
+    /**
+     * Introspection queries can also be enforced to prevent attackers from using them to
+     * understand the API structure and potentially breach an application.
+     */
+    allowIntrospectionQueries?: boolean;
+    /**
+     * Specifies the highest number of batched queries allowed by the security policy.
+     */
+    maximumBatchedQueries?: string;
+    /**
+     * Specifies the greatest nesting depth found in the GraphQL structure allowed by the security policy.
+     */
+    maximumStructureDepth?: string;
+    /**
+     * Specifies the longest length, in bytes, allowed by the security policy of the request payload, or parameter value, where the GraphQL data was found.
+     */
+    maximumTotalLength?: string;
+    /**
+     * Specifies the longest length (in bytes) of the longest GraphQL element value in the document allowed by the security policy.
+     */
+    maximumValueLength?: string;
+    /**
+     * Specifies, when checked (enabled), that the system does not report when the security enforcer encounters warnings while parsing GraphQL content. Specifies when cleared (disabled), that the security policy reports when the security enforcer encounters warnings while parsing GraphQL content. The default setting is disabled.
+     */
+    tolerateParsingWarnings?: boolean;
 }
 
 export interface WafPolicyHostName {
@@ -282,6 +328,37 @@ export interface WafPolicyHostName {
      * The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
      */
     name?: string;
+}
+
+export interface WafPolicyIpException {
+    /**
+     * Specifies how the system responds to blocking requests sent from this IP address. Possible options [`always`, `never`, `policy-default`].
+     */
+    blockRequests?: string;
+    /**
+     * Specifies the description of the policy.
+     */
+    description?: string;
+    /**
+     * Specifies when enabled that the system considers this IP address legitimate and does not take it into account when performing brute force prevention.
+     */
+    ignoreAnomalies?: boolean;
+    /**
+     * Specifies when enabled that the system considers this IP address legitimate even if it is found in the IP Intelligence database (a database of questionable IP addresses).
+     */
+    ignoreIpreputation?: boolean;
+    /**
+     * Specifies the IP address that you want the system to trust.
+     */
+    ipAddress: string;
+    /**
+     * Specifies the netmask of the exceptional IP address. This is an optional field.
+     */
+    ipMask: string;
+    /**
+     * Specifies when enabled the Policy Builder considers traffic from this IP address as being safe.
+     */
+    trustedbyPolicybuilder?: boolean;
 }
 
 export interface WafPolicyPolicyBuilder {

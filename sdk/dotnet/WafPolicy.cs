@@ -144,6 +144,13 @@ namespace Pulumi.F5BigIP
         public Output<ImmutableArray<Outputs.WafPolicyHostName>> HostNames { get; private set; } = null!;
 
         /// <summary>
+        /// `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+        /// See IP Exceptions below for more details.
+        /// </summary>
+        [Output("ipExceptions")]
+        public Output<ImmutableArray<Outputs.WafPolicyIpException>> IpExceptions { get; private set; } = null!;
+
+        /// <summary>
         /// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
         /// section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
         /// provided by the BIG-IP.
@@ -366,6 +373,19 @@ namespace Pulumi.F5BigIP
         {
             get => _hostNames ?? (_hostNames = new InputList<Inputs.WafPolicyHostNameArgs>());
             set => _hostNames = value;
+        }
+
+        [Input("ipExceptions")]
+        private InputList<Inputs.WafPolicyIpExceptionArgs>? _ipExceptions;
+
+        /// <summary>
+        /// `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+        /// See IP Exceptions below for more details.
+        /// </summary>
+        public InputList<Inputs.WafPolicyIpExceptionArgs> IpExceptions
+        {
+            get => _ipExceptions ?? (_ipExceptions = new InputList<Inputs.WafPolicyIpExceptionArgs>());
+            set => _ipExceptions = value;
         }
 
         [Input("modifications")]
@@ -601,6 +621,19 @@ namespace Pulumi.F5BigIP
         {
             get => _hostNames ?? (_hostNames = new InputList<Inputs.WafPolicyHostNameGetArgs>());
             set => _hostNames = value;
+        }
+
+        [Input("ipExceptions")]
+        private InputList<Inputs.WafPolicyIpExceptionGetArgs>? _ipExceptions;
+
+        /// <summary>
+        /// `ip_exceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+        /// See IP Exceptions below for more details.
+        /// </summary>
+        public InputList<Inputs.WafPolicyIpExceptionGetArgs> IpExceptions
+        {
+            get => _ipExceptions ?? (_ipExceptions = new InputList<Inputs.WafPolicyIpExceptionGetArgs>());
+            set => _ipExceptions = value;
         }
 
         [Input("modifications")]

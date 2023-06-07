@@ -62,6 +62,21 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Custom parent monitor for the system to use for setting initial values for the new monitor.
+     * 
+     */
+    @Import(name="customParent")
+    private @Nullable Output<String> customParent;
+
+    /**
+     * @return Custom parent monitor for the system to use for setting initial values for the new monitor.
+     * 
+     */
+    public Optional<Output<String>> customParent() {
+        return Optional.ofNullable(this.customParent);
+    }
+
+    /**
      * Specifies the database in which the user is created
      * 
      */
@@ -367,6 +382,7 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
         this.adaptive = $.adaptive;
         this.adaptiveLimit = $.adaptiveLimit;
         this.compatibility = $.compatibility;
+        this.customParent = $.customParent;
         this.database = $.database;
         this.destination = $.destination;
         this.filename = $.filename;
@@ -468,6 +484,27 @@ public final class MonitorArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder compatibility(String compatibility) {
             return compatibility(Output.of(compatibility));
+        }
+
+        /**
+         * @param customParent Custom parent monitor for the system to use for setting initial values for the new monitor.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customParent(@Nullable Output<String> customParent) {
+            $.customParent = customParent;
+            return this;
+        }
+
+        /**
+         * @param customParent Custom parent monitor for the system to use for setting initial values for the new monitor.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customParent(String customParent) {
+            return customParent(Output.of(customParent));
         }
 
         /**

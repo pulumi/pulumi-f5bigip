@@ -16,15 +16,15 @@ __all__ = ['IAppArgs', 'IApp']
 @pulumi.input_type
 class IAppArgs:
     def __init__(__self__, *,
+                 jsonfile: pulumi.Input[str],
+                 name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  devicegroup: Optional[pulumi.Input[str]] = None,
                  execute_action: Optional[pulumi.Input[str]] = None,
                  inherited_devicegroup: Optional[pulumi.Input[str]] = None,
                  inherited_traffic_group: Optional[pulumi.Input[str]] = None,
-                 jsonfile: Optional[pulumi.Input[str]] = None,
                  lists: Optional[pulumi.Input[Sequence[pulumi.Input['IAppListArgs']]]] = None,
                  metadatas: Optional[pulumi.Input[Sequence[pulumi.Input['IAppMetadataArgs']]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  partition: Optional[pulumi.Input[str]] = None,
                  strict_updates: Optional[pulumi.Input[str]] = None,
                  tables: Optional[pulumi.Input[Sequence[pulumi.Input['IAppTableArgs']]]] = None,
@@ -35,20 +35,24 @@ class IAppArgs:
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input['IAppVariableArgs']]]] = None):
         """
         The set of arguments for constructing a IApp resource.
-        :param pulumi.Input[str] description: Address of the Iapp which needs to be Iappensed
-        :param pulumi.Input[str] devicegroup: BIG-IP password
-        :param pulumi.Input[str] execute_action: BIG-IP password
-        :param pulumi.Input[str] inherited_devicegroup: BIG-IP password
-        :param pulumi.Input[str] inherited_traffic_group: BIG-IP password
         :param pulumi.Input[str] jsonfile: Refer to the Json file which will be deployed on F5 BIG-IP.
         :param pulumi.Input[str] name: Name of the iApp.
-        :param pulumi.Input[str] partition: Address of the Iapp which needs to be Iappensed
-        :param pulumi.Input[str] strict_updates: BIG-IP password
-        :param pulumi.Input[str] template: BIG-IP password
-        :param pulumi.Input[str] template_modified: BIG-IP password
-        :param pulumi.Input[str] template_prerequisite_errors: BIG-IP password
-        :param pulumi.Input[str] traffic_group: BIG-IP password
+        :param pulumi.Input[str] description: User defined description.
+        :param pulumi.Input[str] devicegroup: BIG-IP password
+        :param pulumi.Input[str] execute_action: Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `execute_action` attribute take precedence over `json` value
+        :param pulumi.Input[str] inherited_devicegroup: Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use 'device-group default' or 'device-group non-default' to set this.
+        :param pulumi.Input[str] inherited_traffic_group: Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use 'traffic-group default' or 'traffic-group non-default' to set this.
+        :param pulumi.Input[Sequence[pulumi.Input['IAppListArgs']]] lists: string values
+        :param pulumi.Input[Sequence[pulumi.Input['IAppMetadataArgs']]] metadatas: User defined generic data for the application service. It is a name and value pair.
+        :param pulumi.Input[str] partition: Displays the administrative partition within which the application resides.
+        :param pulumi.Input[str] strict_updates: Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system's application management interfaces.
+        :param pulumi.Input[str] template: The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.
+        :param pulumi.Input[str] template_modified: Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.
+        :param pulumi.Input[str] template_prerequisite_errors: Indicates any missing prerequisites associated with the template that defines this application.
+        :param pulumi.Input[str] traffic_group: The name of the traffic group that the application service is assigned to.
         """
+        pulumi.set(__self__, "jsonfile", jsonfile)
+        pulumi.set(__self__, "name", name)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if devicegroup is not None:
@@ -59,14 +63,10 @@ class IAppArgs:
             pulumi.set(__self__, "inherited_devicegroup", inherited_devicegroup)
         if inherited_traffic_group is not None:
             pulumi.set(__self__, "inherited_traffic_group", inherited_traffic_group)
-        if jsonfile is not None:
-            pulumi.set(__self__, "jsonfile", jsonfile)
         if lists is not None:
             pulumi.set(__self__, "lists", lists)
         if metadatas is not None:
             pulumi.set(__self__, "metadatas", metadatas)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if partition is not None:
             pulumi.set(__self__, "partition", partition)
         if strict_updates is not None:
@@ -86,9 +86,33 @@ class IAppArgs:
 
     @property
     @pulumi.getter
+    def jsonfile(self) -> pulumi.Input[str]:
+        """
+        Refer to the Json file which will be deployed on F5 BIG-IP.
+        """
+        return pulumi.get(self, "jsonfile")
+
+    @jsonfile.setter
+    def jsonfile(self, value: pulumi.Input[str]):
+        pulumi.set(self, "jsonfile", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of the iApp.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Address of the Iapp which needs to be Iappensed
+        User defined description.
         """
         return pulumi.get(self, "description")
 
@@ -112,7 +136,7 @@ class IAppArgs:
     @pulumi.getter(name="executeAction")
     def execute_action(self) -> Optional[pulumi.Input[str]]:
         """
-        BIG-IP password
+        Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `execute_action` attribute take precedence over `json` value
         """
         return pulumi.get(self, "execute_action")
 
@@ -124,7 +148,7 @@ class IAppArgs:
     @pulumi.getter(name="inheritedDevicegroup")
     def inherited_devicegroup(self) -> Optional[pulumi.Input[str]]:
         """
-        BIG-IP password
+        Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use 'device-group default' or 'device-group non-default' to set this.
         """
         return pulumi.get(self, "inherited_devicegroup")
 
@@ -136,7 +160,7 @@ class IAppArgs:
     @pulumi.getter(name="inheritedTrafficGroup")
     def inherited_traffic_group(self) -> Optional[pulumi.Input[str]]:
         """
-        BIG-IP password
+        Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use 'traffic-group default' or 'traffic-group non-default' to set this.
         """
         return pulumi.get(self, "inherited_traffic_group")
 
@@ -146,19 +170,10 @@ class IAppArgs:
 
     @property
     @pulumi.getter
-    def jsonfile(self) -> Optional[pulumi.Input[str]]:
-        """
-        Refer to the Json file which will be deployed on F5 BIG-IP.
-        """
-        return pulumi.get(self, "jsonfile")
-
-    @jsonfile.setter
-    def jsonfile(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "jsonfile", value)
-
-    @property
-    @pulumi.getter
     def lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IAppListArgs']]]]:
+        """
+        string values
+        """
         return pulumi.get(self, "lists")
 
     @lists.setter
@@ -168,6 +183,9 @@ class IAppArgs:
     @property
     @pulumi.getter
     def metadatas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IAppMetadataArgs']]]]:
+        """
+        User defined generic data for the application service. It is a name and value pair.
+        """
         return pulumi.get(self, "metadatas")
 
     @metadatas.setter
@@ -176,21 +194,9 @@ class IAppArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the iApp.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
     def partition(self) -> Optional[pulumi.Input[str]]:
         """
-        Address of the Iapp which needs to be Iappensed
+        Displays the administrative partition within which the application resides.
         """
         return pulumi.get(self, "partition")
 
@@ -202,7 +208,7 @@ class IAppArgs:
     @pulumi.getter(name="strictUpdates")
     def strict_updates(self) -> Optional[pulumi.Input[str]]:
         """
-        BIG-IP password
+        Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system's application management interfaces.
         """
         return pulumi.get(self, "strict_updates")
 
@@ -223,7 +229,7 @@ class IAppArgs:
     @pulumi.getter
     def template(self) -> Optional[pulumi.Input[str]]:
         """
-        BIG-IP password
+        The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.
         """
         return pulumi.get(self, "template")
 
@@ -235,7 +241,7 @@ class IAppArgs:
     @pulumi.getter(name="templateModified")
     def template_modified(self) -> Optional[pulumi.Input[str]]:
         """
-        BIG-IP password
+        Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.
         """
         return pulumi.get(self, "template_modified")
 
@@ -247,7 +253,7 @@ class IAppArgs:
     @pulumi.getter(name="templatePrerequisiteErrors")
     def template_prerequisite_errors(self) -> Optional[pulumi.Input[str]]:
         """
-        BIG-IP password
+        Indicates any missing prerequisites associated with the template that defines this application.
         """
         return pulumi.get(self, "template_prerequisite_errors")
 
@@ -259,7 +265,7 @@ class IAppArgs:
     @pulumi.getter(name="trafficGroup")
     def traffic_group(self) -> Optional[pulumi.Input[str]]:
         """
-        BIG-IP password
+        The name of the traffic group that the application service is assigned to.
         """
         return pulumi.get(self, "traffic_group")
 
@@ -299,19 +305,21 @@ class _IAppState:
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input['IAppVariableArgs']]]] = None):
         """
         Input properties used for looking up and filtering IApp resources.
-        :param pulumi.Input[str] description: Address of the Iapp which needs to be Iappensed
+        :param pulumi.Input[str] description: User defined description.
         :param pulumi.Input[str] devicegroup: BIG-IP password
-        :param pulumi.Input[str] execute_action: BIG-IP password
-        :param pulumi.Input[str] inherited_devicegroup: BIG-IP password
-        :param pulumi.Input[str] inherited_traffic_group: BIG-IP password
+        :param pulumi.Input[str] execute_action: Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `execute_action` attribute take precedence over `json` value
+        :param pulumi.Input[str] inherited_devicegroup: Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use 'device-group default' or 'device-group non-default' to set this.
+        :param pulumi.Input[str] inherited_traffic_group: Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use 'traffic-group default' or 'traffic-group non-default' to set this.
         :param pulumi.Input[str] jsonfile: Refer to the Json file which will be deployed on F5 BIG-IP.
+        :param pulumi.Input[Sequence[pulumi.Input['IAppListArgs']]] lists: string values
+        :param pulumi.Input[Sequence[pulumi.Input['IAppMetadataArgs']]] metadatas: User defined generic data for the application service. It is a name and value pair.
         :param pulumi.Input[str] name: Name of the iApp.
-        :param pulumi.Input[str] partition: Address of the Iapp which needs to be Iappensed
-        :param pulumi.Input[str] strict_updates: BIG-IP password
-        :param pulumi.Input[str] template: BIG-IP password
-        :param pulumi.Input[str] template_modified: BIG-IP password
-        :param pulumi.Input[str] template_prerequisite_errors: BIG-IP password
-        :param pulumi.Input[str] traffic_group: BIG-IP password
+        :param pulumi.Input[str] partition: Displays the administrative partition within which the application resides.
+        :param pulumi.Input[str] strict_updates: Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system's application management interfaces.
+        :param pulumi.Input[str] template: The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.
+        :param pulumi.Input[str] template_modified: Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.
+        :param pulumi.Input[str] template_prerequisite_errors: Indicates any missing prerequisites associated with the template that defines this application.
+        :param pulumi.Input[str] traffic_group: The name of the traffic group that the application service is assigned to.
         """
         if description is not None:
             pulumi.set(__self__, "description", description)
@@ -352,7 +360,7 @@ class _IAppState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Address of the Iapp which needs to be Iappensed
+        User defined description.
         """
         return pulumi.get(self, "description")
 
@@ -376,7 +384,7 @@ class _IAppState:
     @pulumi.getter(name="executeAction")
     def execute_action(self) -> Optional[pulumi.Input[str]]:
         """
-        BIG-IP password
+        Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `execute_action` attribute take precedence over `json` value
         """
         return pulumi.get(self, "execute_action")
 
@@ -388,7 +396,7 @@ class _IAppState:
     @pulumi.getter(name="inheritedDevicegroup")
     def inherited_devicegroup(self) -> Optional[pulumi.Input[str]]:
         """
-        BIG-IP password
+        Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use 'device-group default' or 'device-group non-default' to set this.
         """
         return pulumi.get(self, "inherited_devicegroup")
 
@@ -400,7 +408,7 @@ class _IAppState:
     @pulumi.getter(name="inheritedTrafficGroup")
     def inherited_traffic_group(self) -> Optional[pulumi.Input[str]]:
         """
-        BIG-IP password
+        Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use 'traffic-group default' or 'traffic-group non-default' to set this.
         """
         return pulumi.get(self, "inherited_traffic_group")
 
@@ -423,6 +431,9 @@ class _IAppState:
     @property
     @pulumi.getter
     def lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IAppListArgs']]]]:
+        """
+        string values
+        """
         return pulumi.get(self, "lists")
 
     @lists.setter
@@ -432,6 +443,9 @@ class _IAppState:
     @property
     @pulumi.getter
     def metadatas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['IAppMetadataArgs']]]]:
+        """
+        User defined generic data for the application service. It is a name and value pair.
+        """
         return pulumi.get(self, "metadatas")
 
     @metadatas.setter
@@ -454,7 +468,7 @@ class _IAppState:
     @pulumi.getter
     def partition(self) -> Optional[pulumi.Input[str]]:
         """
-        Address of the Iapp which needs to be Iappensed
+        Displays the administrative partition within which the application resides.
         """
         return pulumi.get(self, "partition")
 
@@ -466,7 +480,7 @@ class _IAppState:
     @pulumi.getter(name="strictUpdates")
     def strict_updates(self) -> Optional[pulumi.Input[str]]:
         """
-        BIG-IP password
+        Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system's application management interfaces.
         """
         return pulumi.get(self, "strict_updates")
 
@@ -487,7 +501,7 @@ class _IAppState:
     @pulumi.getter
     def template(self) -> Optional[pulumi.Input[str]]:
         """
-        BIG-IP password
+        The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.
         """
         return pulumi.get(self, "template")
 
@@ -499,7 +513,7 @@ class _IAppState:
     @pulumi.getter(name="templateModified")
     def template_modified(self) -> Optional[pulumi.Input[str]]:
         """
-        BIG-IP password
+        Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.
         """
         return pulumi.get(self, "template_modified")
 
@@ -511,7 +525,7 @@ class _IAppState:
     @pulumi.getter(name="templatePrerequisiteErrors")
     def template_prerequisite_errors(self) -> Optional[pulumi.Input[str]]:
         """
-        BIG-IP password
+        Indicates any missing prerequisites associated with the template that defines this application.
         """
         return pulumi.get(self, "template_prerequisite_errors")
 
@@ -523,7 +537,7 @@ class _IAppState:
     @pulumi.getter(name="trafficGroup")
     def traffic_group(self) -> Optional[pulumi.Input[str]]:
         """
-        BIG-IP password
+        The name of the traffic group that the application service is assigned to.
         """
         return pulumi.get(self, "traffic_group")
 
@@ -582,43 +596,29 @@ class IApp(pulumi.CustomResource):
         import pulumi
         ```
 
-         * `description` - User defined description.
-         * `deviceGroup` - The name of the device group that the application service is assigned to.
-         * `executeAction` - Run the specified template action associated with the application.
-         * `inheritedDevicegroup`- Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use 'device-group default' or 'device-group non-default' to set this.
-         * `inheritedTrafficGroup` - Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use 'traffic-group default' or 'traffic-group non-default' to set this.
-         * `partition` - Displays the administrative partition within which the application resides.
-         * `strictUpdates` - Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system's application management interfaces.
-         * `template` - The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.
-         * `templateModified` - Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.
-         * `templatePrerequisiteErrors` - Indicates any missing prerequisites associated with the template that defines this application.
-         * `trafficGroup` - The name of the traffic group that the application service is assigned to.
-         * `lists` - string values
-         * `metadata` - User defined generic data for the application service. It is a name and value pair.
-         * `tables` - Values provided like pool name, nodes etc.
-         * `variables` - Name, values, encrypted or not
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Address of the Iapp which needs to be Iappensed
+        :param pulumi.Input[str] description: User defined description.
         :param pulumi.Input[str] devicegroup: BIG-IP password
-        :param pulumi.Input[str] execute_action: BIG-IP password
-        :param pulumi.Input[str] inherited_devicegroup: BIG-IP password
-        :param pulumi.Input[str] inherited_traffic_group: BIG-IP password
+        :param pulumi.Input[str] execute_action: Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `execute_action` attribute take precedence over `json` value
+        :param pulumi.Input[str] inherited_devicegroup: Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use 'device-group default' or 'device-group non-default' to set this.
+        :param pulumi.Input[str] inherited_traffic_group: Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use 'traffic-group default' or 'traffic-group non-default' to set this.
         :param pulumi.Input[str] jsonfile: Refer to the Json file which will be deployed on F5 BIG-IP.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IAppListArgs']]]] lists: string values
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IAppMetadataArgs']]]] metadatas: User defined generic data for the application service. It is a name and value pair.
         :param pulumi.Input[str] name: Name of the iApp.
-        :param pulumi.Input[str] partition: Address of the Iapp which needs to be Iappensed
-        :param pulumi.Input[str] strict_updates: BIG-IP password
-        :param pulumi.Input[str] template: BIG-IP password
-        :param pulumi.Input[str] template_modified: BIG-IP password
-        :param pulumi.Input[str] template_prerequisite_errors: BIG-IP password
-        :param pulumi.Input[str] traffic_group: BIG-IP password
+        :param pulumi.Input[str] partition: Displays the administrative partition within which the application resides.
+        :param pulumi.Input[str] strict_updates: Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system's application management interfaces.
+        :param pulumi.Input[str] template: The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.
+        :param pulumi.Input[str] template_modified: Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.
+        :param pulumi.Input[str] template_prerequisite_errors: Indicates any missing prerequisites associated with the template that defines this application.
+        :param pulumi.Input[str] traffic_group: The name of the traffic group that the application service is assigned to.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[IAppArgs] = None,
+                 args: IAppArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         `sys.IApp` resource helps you to deploy Application Services template that can be used to automate and orchestrate Layer 4-7 applications service deployments using F5 Network.
@@ -637,22 +637,6 @@ class IApp(pulumi.CustomResource):
         ```python
         import pulumi
         ```
-
-         * `description` - User defined description.
-         * `deviceGroup` - The name of the device group that the application service is assigned to.
-         * `executeAction` - Run the specified template action associated with the application.
-         * `inheritedDevicegroup`- Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use 'device-group default' or 'device-group non-default' to set this.
-         * `inheritedTrafficGroup` - Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use 'traffic-group default' or 'traffic-group non-default' to set this.
-         * `partition` - Displays the administrative partition within which the application resides.
-         * `strictUpdates` - Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system's application management interfaces.
-         * `template` - The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.
-         * `templateModified` - Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.
-         * `templatePrerequisiteErrors` - Indicates any missing prerequisites associated with the template that defines this application.
-         * `trafficGroup` - The name of the traffic group that the application service is assigned to.
-         * `lists` - string values
-         * `metadata` - User defined generic data for the application service. It is a name and value pair.
-         * `tables` - Values provided like pool name, nodes etc.
-         * `variables` - Name, values, encrypted or not
 
         :param str resource_name: The name of the resource.
         :param IAppArgs args: The arguments to use to populate this resource's properties.
@@ -700,9 +684,13 @@ class IApp(pulumi.CustomResource):
             __props__.__dict__["execute_action"] = execute_action
             __props__.__dict__["inherited_devicegroup"] = inherited_devicegroup
             __props__.__dict__["inherited_traffic_group"] = inherited_traffic_group
+            if jsonfile is None and not opts.urn:
+                raise TypeError("Missing required property 'jsonfile'")
             __props__.__dict__["jsonfile"] = jsonfile
             __props__.__dict__["lists"] = lists
             __props__.__dict__["metadatas"] = metadatas
+            if name is None and not opts.urn:
+                raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
             __props__.__dict__["partition"] = partition
             __props__.__dict__["strict_updates"] = strict_updates
@@ -746,19 +734,21 @@ class IApp(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: Address of the Iapp which needs to be Iappensed
+        :param pulumi.Input[str] description: User defined description.
         :param pulumi.Input[str] devicegroup: BIG-IP password
-        :param pulumi.Input[str] execute_action: BIG-IP password
-        :param pulumi.Input[str] inherited_devicegroup: BIG-IP password
-        :param pulumi.Input[str] inherited_traffic_group: BIG-IP password
+        :param pulumi.Input[str] execute_action: Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `execute_action` attribute take precedence over `json` value
+        :param pulumi.Input[str] inherited_devicegroup: Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use 'device-group default' or 'device-group non-default' to set this.
+        :param pulumi.Input[str] inherited_traffic_group: Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use 'traffic-group default' or 'traffic-group non-default' to set this.
         :param pulumi.Input[str] jsonfile: Refer to the Json file which will be deployed on F5 BIG-IP.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IAppListArgs']]]] lists: string values
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IAppMetadataArgs']]]] metadatas: User defined generic data for the application service. It is a name and value pair.
         :param pulumi.Input[str] name: Name of the iApp.
-        :param pulumi.Input[str] partition: Address of the Iapp which needs to be Iappensed
-        :param pulumi.Input[str] strict_updates: BIG-IP password
-        :param pulumi.Input[str] template: BIG-IP password
-        :param pulumi.Input[str] template_modified: BIG-IP password
-        :param pulumi.Input[str] template_prerequisite_errors: BIG-IP password
-        :param pulumi.Input[str] traffic_group: BIG-IP password
+        :param pulumi.Input[str] partition: Displays the administrative partition within which the application resides.
+        :param pulumi.Input[str] strict_updates: Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system's application management interfaces.
+        :param pulumi.Input[str] template: The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.
+        :param pulumi.Input[str] template_modified: Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.
+        :param pulumi.Input[str] template_prerequisite_errors: Indicates any missing prerequisites associated with the template that defines this application.
+        :param pulumi.Input[str] traffic_group: The name of the traffic group that the application service is assigned to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -787,13 +777,13 @@ class IApp(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        Address of the Iapp which needs to be Iappensed
+        User defined description.
         """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter
-    def devicegroup(self) -> pulumi.Output[Optional[str]]:
+    def devicegroup(self) -> pulumi.Output[str]:
         """
         BIG-IP password
         """
@@ -801,9 +791,9 @@ class IApp(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="executeAction")
-    def execute_action(self) -> pulumi.Output[Optional[str]]:
+    def execute_action(self) -> pulumi.Output[str]:
         """
-        BIG-IP password
+        Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `execute_action` attribute take precedence over `json` value
         """
         return pulumi.get(self, "execute_action")
 
@@ -811,7 +801,7 @@ class IApp(pulumi.CustomResource):
     @pulumi.getter(name="inheritedDevicegroup")
     def inherited_devicegroup(self) -> pulumi.Output[Optional[str]]:
         """
-        BIG-IP password
+        Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use 'device-group default' or 'device-group non-default' to set this.
         """
         return pulumi.get(self, "inherited_devicegroup")
 
@@ -819,13 +809,13 @@ class IApp(pulumi.CustomResource):
     @pulumi.getter(name="inheritedTrafficGroup")
     def inherited_traffic_group(self) -> pulumi.Output[Optional[str]]:
         """
-        BIG-IP password
+        Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use 'traffic-group default' or 'traffic-group non-default' to set this.
         """
         return pulumi.get(self, "inherited_traffic_group")
 
     @property
     @pulumi.getter
-    def jsonfile(self) -> pulumi.Output[Optional[str]]:
+    def jsonfile(self) -> pulumi.Output[str]:
         """
         Refer to the Json file which will be deployed on F5 BIG-IP.
         """
@@ -834,16 +824,22 @@ class IApp(pulumi.CustomResource):
     @property
     @pulumi.getter
     def lists(self) -> pulumi.Output[Optional[Sequence['outputs.IAppList']]]:
+        """
+        string values
+        """
         return pulumi.get(self, "lists")
 
     @property
     @pulumi.getter
     def metadatas(self) -> pulumi.Output[Optional[Sequence['outputs.IAppMetadata']]]:
+        """
+        User defined generic data for the application service. It is a name and value pair.
+        """
         return pulumi.get(self, "metadatas")
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[Optional[str]]:
+    def name(self) -> pulumi.Output[str]:
         """
         Name of the iApp.
         """
@@ -853,7 +849,7 @@ class IApp(pulumi.CustomResource):
     @pulumi.getter
     def partition(self) -> pulumi.Output[Optional[str]]:
         """
-        Address of the Iapp which needs to be Iappensed
+        Displays the administrative partition within which the application resides.
         """
         return pulumi.get(self, "partition")
 
@@ -861,7 +857,7 @@ class IApp(pulumi.CustomResource):
     @pulumi.getter(name="strictUpdates")
     def strict_updates(self) -> pulumi.Output[Optional[str]]:
         """
-        BIG-IP password
+        Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system's application management interfaces.
         """
         return pulumi.get(self, "strict_updates")
 
@@ -874,7 +870,7 @@ class IApp(pulumi.CustomResource):
     @pulumi.getter
     def template(self) -> pulumi.Output[Optional[str]]:
         """
-        BIG-IP password
+        The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.
         """
         return pulumi.get(self, "template")
 
@@ -882,7 +878,7 @@ class IApp(pulumi.CustomResource):
     @pulumi.getter(name="templateModified")
     def template_modified(self) -> pulumi.Output[Optional[str]]:
         """
-        BIG-IP password
+        Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.
         """
         return pulumi.get(self, "template_modified")
 
@@ -890,7 +886,7 @@ class IApp(pulumi.CustomResource):
     @pulumi.getter(name="templatePrerequisiteErrors")
     def template_prerequisite_errors(self) -> pulumi.Output[Optional[str]]:
         """
-        BIG-IP password
+        Indicates any missing prerequisites associated with the template that defines this application.
         """
         return pulumi.get(self, "template_prerequisite_errors")
 
@@ -898,7 +894,7 @@ class IApp(pulumi.CustomResource):
     @pulumi.getter(name="trafficGroup")
     def traffic_group(self) -> pulumi.Output[Optional[str]]:
         """
-        BIG-IP password
+        The name of the traffic group that the application service is assigned to.
         """
         return pulumi.get(self, "traffic_group")
 

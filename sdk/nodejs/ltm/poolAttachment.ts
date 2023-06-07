@@ -110,6 +110,10 @@ export class PoolAttachment extends pulumi.CustomResource {
      */
     public readonly fqdnAutopopulate!: pulumi.Output<string | undefined>;
     /**
+     * Specifies the health monitors that the system uses to monitor this pool member,value can be `none` (or) `default` (or) list of monitors joined with and ( ex: `/Common/test_monitor_pa_tc1 and /Common/gateway_icmp`).
+     */
+    public readonly monitor!: pulumi.Output<string>;
+    /**
      * Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
      */
     public readonly node!: pulumi.Output<string>;
@@ -125,6 +129,10 @@ export class PoolAttachment extends pulumi.CustomResource {
      * "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
      */
     public readonly ratio!: pulumi.Output<number>;
+    /**
+     * Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forcedOffline`).
+     */
+    public readonly state!: pulumi.Output<string | undefined>;
 
     /**
      * Create a PoolAttachment resource with the given unique name, arguments, and options.
@@ -143,10 +151,12 @@ export class PoolAttachment extends pulumi.CustomResource {
             resourceInputs["connectionRateLimit"] = state ? state.connectionRateLimit : undefined;
             resourceInputs["dynamicRatio"] = state ? state.dynamicRatio : undefined;
             resourceInputs["fqdnAutopopulate"] = state ? state.fqdnAutopopulate : undefined;
+            resourceInputs["monitor"] = state ? state.monitor : undefined;
             resourceInputs["node"] = state ? state.node : undefined;
             resourceInputs["pool"] = state ? state.pool : undefined;
             resourceInputs["priorityGroup"] = state ? state.priorityGroup : undefined;
             resourceInputs["ratio"] = state ? state.ratio : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
         } else {
             const args = argsOrState as PoolAttachmentArgs | undefined;
             if ((!args || args.node === undefined) && !opts.urn) {
@@ -159,10 +169,12 @@ export class PoolAttachment extends pulumi.CustomResource {
             resourceInputs["connectionRateLimit"] = args ? args.connectionRateLimit : undefined;
             resourceInputs["dynamicRatio"] = args ? args.dynamicRatio : undefined;
             resourceInputs["fqdnAutopopulate"] = args ? args.fqdnAutopopulate : undefined;
+            resourceInputs["monitor"] = args ? args.monitor : undefined;
             resourceInputs["node"] = args ? args.node : undefined;
             resourceInputs["pool"] = args ? args.pool : undefined;
             resourceInputs["priorityGroup"] = args ? args.priorityGroup : undefined;
             resourceInputs["ratio"] = args ? args.ratio : undefined;
+            resourceInputs["state"] = args ? args.state : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(PoolAttachment.__pulumiType, name, resourceInputs, opts);
@@ -190,6 +202,10 @@ export interface PoolAttachmentState {
      */
     fqdnAutopopulate?: pulumi.Input<string>;
     /**
+     * Specifies the health monitors that the system uses to monitor this pool member,value can be `none` (or) `default` (or) list of monitors joined with and ( ex: `/Common/test_monitor_pa_tc1 and /Common/gateway_icmp`).
+     */
+    monitor?: pulumi.Input<string>;
+    /**
      * Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
      */
     node?: pulumi.Input<string>;
@@ -205,6 +221,10 @@ export interface PoolAttachmentState {
      * "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
      */
     ratio?: pulumi.Input<number>;
+    /**
+     * Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forcedOffline`).
+     */
+    state?: pulumi.Input<string>;
 }
 
 /**
@@ -228,6 +248,10 @@ export interface PoolAttachmentArgs {
      */
     fqdnAutopopulate?: pulumi.Input<string>;
     /**
+     * Specifies the health monitors that the system uses to monitor this pool member,value can be `none` (or) `default` (or) list of monitors joined with and ( ex: `/Common/test_monitor_pa_tc1 and /Common/gateway_icmp`).
+     */
+    monitor?: pulumi.Input<string>;
+    /**
      * Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
      */
     node: pulumi.Input<string>;
@@ -243,4 +267,8 @@ export interface PoolAttachmentArgs {
      * "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
      */
     ratio?: pulumi.Input<number>;
+    /**
+     * Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forcedOffline`).
+     */
+    state?: pulumi.Input<string>;
 }

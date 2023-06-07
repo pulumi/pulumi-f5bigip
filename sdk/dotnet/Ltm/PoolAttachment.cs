@@ -130,6 +130,12 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string?> FqdnAutopopulate { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the health monitors that the system uses to monitor this pool member,value can be `none` (or) `default` (or) list of monitors joined with and ( ex: `/Common/test_monitor_pa_tc1 and /Common/gateway_icmp`).
+        /// </summary>
+        [Output("monitor")]
+        public Output<string> Monitor { get; private set; } = null!;
+
+        /// <summary>
         /// Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
         /// </summary>
         [Output("node")]
@@ -152,6 +158,12 @@ namespace Pulumi.F5BigIP.Ltm
         /// </summary>
         [Output("ratio")]
         public Output<int> Ratio { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forced_offline`).
+        /// </summary>
+        [Output("state")]
+        public Output<string?> State { get; private set; } = null!;
 
 
         /// <summary>
@@ -224,6 +236,12 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? FqdnAutopopulate { get; set; }
 
         /// <summary>
+        /// Specifies the health monitors that the system uses to monitor this pool member,value can be `none` (or) `default` (or) list of monitors joined with and ( ex: `/Common/test_monitor_pa_tc1 and /Common/gateway_icmp`).
+        /// </summary>
+        [Input("monitor")]
+        public Input<string>? Monitor { get; set; }
+
+        /// <summary>
         /// Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
         /// </summary>
         [Input("node", required: true)]
@@ -246,6 +264,12 @@ namespace Pulumi.F5BigIP.Ltm
         /// </summary>
         [Input("ratio")]
         public Input<int>? Ratio { get; set; }
+
+        /// <summary>
+        /// Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forced_offline`).
+        /// </summary>
+        [Input("state")]
+        public Input<string>? State { get; set; }
 
         public PoolAttachmentArgs()
         {
@@ -280,6 +304,12 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? FqdnAutopopulate { get; set; }
 
         /// <summary>
+        /// Specifies the health monitors that the system uses to monitor this pool member,value can be `none` (or) `default` (or) list of monitors joined with and ( ex: `/Common/test_monitor_pa_tc1 and /Common/gateway_icmp`).
+        /// </summary>
+        [Input("monitor")]
+        public Input<string>? Monitor { get; set; }
+
+        /// <summary>
         /// Pool member address/fqdn with service port, (ex: `1.1.1.1:80/www.google.com:80`). (Note: Member will be in same partition of Pool)
         /// </summary>
         [Input("node")]
@@ -302,6 +332,12 @@ namespace Pulumi.F5BigIP.Ltm
         /// </summary>
         [Input("ratio")]
         public Input<int>? Ratio { get; set; }
+
+        /// <summary>
+        /// Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forced_offline`).
+        /// </summary>
+        [Input("state")]
+        public Input<string>? State { get; set; }
 
         public PoolAttachmentState()
         {

@@ -41,28 +41,12 @@ namespace Pulumi.F5BigIP.Sys
     /// {
     /// });
     /// ```
-    /// 
-    ///  * `description` - User defined description.
-    ///  * `deviceGroup` - The name of the device group that the application service is assigned to.
-    ///  * `executeAction` - Run the specified template action associated with the application.
-    ///  * `inheritedDevicegroup`- Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use 'device-group default' or 'device-group non-default' to set this.
-    ///  * `inheritedTrafficGroup` - Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use 'traffic-group default' or 'traffic-group non-default' to set this.
-    ///  * `partition` - Displays the administrative partition within which the application resides.
-    ///  * `strictUpdates` - Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system's application management interfaces.
-    ///  * `template` - The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.
-    ///  * `templateModified` - Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.
-    ///  * `templatePrerequisiteErrors` - Indicates any missing prerequisites associated with the template that defines this application.
-    ///  * `trafficGroup` - The name of the traffic group that the application service is assigned to.
-    ///  * `lists` - string values
-    ///  * `metadata` - User defined generic data for the application service. It is a name and value pair.
-    ///  * `tables` - Values provided like pool name, nodes etc.
-    ///  * `variables` - Name, values, encrypted or not
     /// </summary>
     [F5BigIPResourceType("f5bigip:sys/iApp:IApp")]
     public partial class IApp : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Address of the Iapp which needs to be Iappensed
+        /// User defined description.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -71,22 +55,22 @@ namespace Pulumi.F5BigIP.Sys
         /// BIG-IP password
         /// </summary>
         [Output("devicegroup")]
-        public Output<string?> Devicegroup { get; private set; } = null!;
+        public Output<string> Devicegroup { get; private set; } = null!;
 
         /// <summary>
-        /// BIG-IP password
+        /// Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `execute_action` attribute take precedence over `json` value
         /// </summary>
         [Output("executeAction")]
-        public Output<string?> ExecuteAction { get; private set; } = null!;
+        public Output<string> ExecuteAction { get; private set; } = null!;
 
         /// <summary>
-        /// BIG-IP password
+        /// Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use 'device-group default' or 'device-group non-default' to set this.
         /// </summary>
         [Output("inheritedDevicegroup")]
         public Output<string?> InheritedDevicegroup { get; private set; } = null!;
 
         /// <summary>
-        /// BIG-IP password
+        /// Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use 'traffic-group default' or 'traffic-group non-default' to set this.
         /// </summary>
         [Output("inheritedTrafficGroup")]
         public Output<string?> InheritedTrafficGroup { get; private set; } = null!;
@@ -95,11 +79,17 @@ namespace Pulumi.F5BigIP.Sys
         /// Refer to the Json file which will be deployed on F5 BIG-IP.
         /// </summary>
         [Output("jsonfile")]
-        public Output<string?> Jsonfile { get; private set; } = null!;
+        public Output<string> Jsonfile { get; private set; } = null!;
 
+        /// <summary>
+        /// string values
+        /// </summary>
         [Output("lists")]
         public Output<ImmutableArray<Outputs.IAppList>> Lists { get; private set; } = null!;
 
+        /// <summary>
+        /// User defined generic data for the application service. It is a name and value pair.
+        /// </summary>
         [Output("metadatas")]
         public Output<ImmutableArray<Outputs.IAppMetadata>> Metadatas { get; private set; } = null!;
 
@@ -107,16 +97,16 @@ namespace Pulumi.F5BigIP.Sys
         /// Name of the iApp.
         /// </summary>
         [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
+        public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Address of the Iapp which needs to be Iappensed
+        /// Displays the administrative partition within which the application resides.
         /// </summary>
         [Output("partition")]
         public Output<string?> Partition { get; private set; } = null!;
 
         /// <summary>
-        /// BIG-IP password
+        /// Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system's application management interfaces.
         /// </summary>
         [Output("strictUpdates")]
         public Output<string?> StrictUpdates { get; private set; } = null!;
@@ -125,25 +115,25 @@ namespace Pulumi.F5BigIP.Sys
         public Output<ImmutableArray<Outputs.IAppTable>> Tables { get; private set; } = null!;
 
         /// <summary>
-        /// BIG-IP password
+        /// The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.
         /// </summary>
         [Output("template")]
         public Output<string?> Template { get; private set; } = null!;
 
         /// <summary>
-        /// BIG-IP password
+        /// Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.
         /// </summary>
         [Output("templateModified")]
         public Output<string?> TemplateModified { get; private set; } = null!;
 
         /// <summary>
-        /// BIG-IP password
+        /// Indicates any missing prerequisites associated with the template that defines this application.
         /// </summary>
         [Output("templatePrerequisiteErrors")]
         public Output<string?> TemplatePrerequisiteErrors { get; private set; } = null!;
 
         /// <summary>
-        /// BIG-IP password
+        /// The name of the traffic group that the application service is assigned to.
         /// </summary>
         [Output("trafficGroup")]
         public Output<string?> TrafficGroup { get; private set; } = null!;
@@ -159,7 +149,7 @@ namespace Pulumi.F5BigIP.Sys
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public IApp(string name, IAppArgs? args = null, CustomResourceOptions? options = null)
+        public IApp(string name, IAppArgs args, CustomResourceOptions? options = null)
             : base("f5bigip:sys/iApp:IApp", name, args ?? new IAppArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -198,7 +188,7 @@ namespace Pulumi.F5BigIP.Sys
     public sealed class IAppArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Address of the Iapp which needs to be Iappensed
+        /// User defined description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -210,19 +200,19 @@ namespace Pulumi.F5BigIP.Sys
         public Input<string>? Devicegroup { get; set; }
 
         /// <summary>
-        /// BIG-IP password
+        /// Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `execute_action` attribute take precedence over `json` value
         /// </summary>
         [Input("executeAction")]
         public Input<string>? ExecuteAction { get; set; }
 
         /// <summary>
-        /// BIG-IP password
+        /// Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use 'device-group default' or 'device-group non-default' to set this.
         /// </summary>
         [Input("inheritedDevicegroup")]
         public Input<string>? InheritedDevicegroup { get; set; }
 
         /// <summary>
-        /// BIG-IP password
+        /// Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use 'traffic-group default' or 'traffic-group non-default' to set this.
         /// </summary>
         [Input("inheritedTrafficGroup")]
         public Input<string>? InheritedTrafficGroup { get; set; }
@@ -230,11 +220,15 @@ namespace Pulumi.F5BigIP.Sys
         /// <summary>
         /// Refer to the Json file which will be deployed on F5 BIG-IP.
         /// </summary>
-        [Input("jsonfile")]
-        public Input<string>? Jsonfile { get; set; }
+        [Input("jsonfile", required: true)]
+        public Input<string> Jsonfile { get; set; } = null!;
 
         [Input("lists")]
         private InputList<Inputs.IAppListArgs>? _lists;
+
+        /// <summary>
+        /// string values
+        /// </summary>
         public InputList<Inputs.IAppListArgs> Lists
         {
             get => _lists ?? (_lists = new InputList<Inputs.IAppListArgs>());
@@ -243,6 +237,10 @@ namespace Pulumi.F5BigIP.Sys
 
         [Input("metadatas")]
         private InputList<Inputs.IAppMetadataArgs>? _metadatas;
+
+        /// <summary>
+        /// User defined generic data for the application service. It is a name and value pair.
+        /// </summary>
         public InputList<Inputs.IAppMetadataArgs> Metadatas
         {
             get => _metadatas ?? (_metadatas = new InputList<Inputs.IAppMetadataArgs>());
@@ -252,17 +250,17 @@ namespace Pulumi.F5BigIP.Sys
         /// <summary>
         /// Name of the iApp.
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Address of the Iapp which needs to be Iappensed
+        /// Displays the administrative partition within which the application resides.
         /// </summary>
         [Input("partition")]
         public Input<string>? Partition { get; set; }
 
         /// <summary>
-        /// BIG-IP password
+        /// Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system's application management interfaces.
         /// </summary>
         [Input("strictUpdates")]
         public Input<string>? StrictUpdates { get; set; }
@@ -276,25 +274,25 @@ namespace Pulumi.F5BigIP.Sys
         }
 
         /// <summary>
-        /// BIG-IP password
+        /// The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.
         /// </summary>
         [Input("template")]
         public Input<string>? Template { get; set; }
 
         /// <summary>
-        /// BIG-IP password
+        /// Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.
         /// </summary>
         [Input("templateModified")]
         public Input<string>? TemplateModified { get; set; }
 
         /// <summary>
-        /// BIG-IP password
+        /// Indicates any missing prerequisites associated with the template that defines this application.
         /// </summary>
         [Input("templatePrerequisiteErrors")]
         public Input<string>? TemplatePrerequisiteErrors { get; set; }
 
         /// <summary>
-        /// BIG-IP password
+        /// The name of the traffic group that the application service is assigned to.
         /// </summary>
         [Input("trafficGroup")]
         public Input<string>? TrafficGroup { get; set; }
@@ -316,7 +314,7 @@ namespace Pulumi.F5BigIP.Sys
     public sealed class IAppState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Address of the Iapp which needs to be Iappensed
+        /// User defined description.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -328,19 +326,19 @@ namespace Pulumi.F5BigIP.Sys
         public Input<string>? Devicegroup { get; set; }
 
         /// <summary>
-        /// BIG-IP password
+        /// Run the specified template action associated with the application, this option can be specified in `json` with `executeAction`, value specified with `execute_action` attribute take precedence over `json` value
         /// </summary>
         [Input("executeAction")]
         public Input<string>? ExecuteAction { get; set; }
 
         /// <summary>
-        /// BIG-IP password
+        /// Read-only. Shows whether the application folder will automatically remain with the same device-group as its parent folder. Use 'device-group default' or 'device-group non-default' to set this.
         /// </summary>
         [Input("inheritedDevicegroup")]
         public Input<string>? InheritedDevicegroup { get; set; }
 
         /// <summary>
-        /// BIG-IP password
+        /// Read-only. Shows whether the application folder will automatically remain with the same traffic-group as its parent folder. Use 'traffic-group default' or 'traffic-group non-default' to set this.
         /// </summary>
         [Input("inheritedTrafficGroup")]
         public Input<string>? InheritedTrafficGroup { get; set; }
@@ -353,6 +351,10 @@ namespace Pulumi.F5BigIP.Sys
 
         [Input("lists")]
         private InputList<Inputs.IAppListGetArgs>? _lists;
+
+        /// <summary>
+        /// string values
+        /// </summary>
         public InputList<Inputs.IAppListGetArgs> Lists
         {
             get => _lists ?? (_lists = new InputList<Inputs.IAppListGetArgs>());
@@ -361,6 +363,10 @@ namespace Pulumi.F5BigIP.Sys
 
         [Input("metadatas")]
         private InputList<Inputs.IAppMetadataGetArgs>? _metadatas;
+
+        /// <summary>
+        /// User defined generic data for the application service. It is a name and value pair.
+        /// </summary>
         public InputList<Inputs.IAppMetadataGetArgs> Metadatas
         {
             get => _metadatas ?? (_metadatas = new InputList<Inputs.IAppMetadataGetArgs>());
@@ -374,13 +380,13 @@ namespace Pulumi.F5BigIP.Sys
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Address of the Iapp which needs to be Iappensed
+        /// Displays the administrative partition within which the application resides.
         /// </summary>
         [Input("partition")]
         public Input<string>? Partition { get; set; }
 
         /// <summary>
-        /// BIG-IP password
+        /// Specifies whether configuration objects contained in the application may be directly modified, outside the context of the system's application management interfaces.
         /// </summary>
         [Input("strictUpdates")]
         public Input<string>? StrictUpdates { get; set; }
@@ -394,25 +400,25 @@ namespace Pulumi.F5BigIP.Sys
         }
 
         /// <summary>
-        /// BIG-IP password
+        /// The template defines the configuration for the application. This may be changed after the application has been created to move the application to a new template.
         /// </summary>
         [Input("template")]
         public Input<string>? Template { get; set; }
 
         /// <summary>
-        /// BIG-IP password
+        /// Indicates that the application template used to deploy the application has been modified. The application should be updated to make use of the latest changes.
         /// </summary>
         [Input("templateModified")]
         public Input<string>? TemplateModified { get; set; }
 
         /// <summary>
-        /// BIG-IP password
+        /// Indicates any missing prerequisites associated with the template that defines this application.
         /// </summary>
         [Input("templatePrerequisiteErrors")]
         public Input<string>? TemplatePrerequisiteErrors { get; set; }
 
         /// <summary>
-        /// BIG-IP password
+        /// The name of the traffic group that the application service is assigned to.
         /// </summary>
         [Input("trafficGroup")]
         public Input<string>? TrafficGroup { get; set; }

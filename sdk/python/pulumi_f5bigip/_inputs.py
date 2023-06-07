@@ -29,7 +29,9 @@ __all__ = [
     'FastUdpAppVirtualServerArgs',
     'WafPolicyFileTypeArgs',
     'WafPolicyGraphqlProfileArgs',
+    'WafPolicyGraphqlProfileDefenseAttributeArgs',
     'WafPolicyHostNameArgs',
+    'WafPolicyIpExceptionArgs',
     'WafPolicyPolicyBuilderArgs',
     'WafPolicySignaturesSettingArgs',
 ]
@@ -972,16 +974,36 @@ class FastUdpAppVirtualServerArgs:
 @pulumi.input_type
 class WafPolicyFileTypeArgs:
     def __init__(__self__, *,
+                 allowed: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[bool] allowed: Determines whether the file type is allowed or disallowed. In either of these cases the VIOL_FILETYPE violation is issued (if enabled) for an incoming request- 
+               * No allowed file type matched the file type of the request.
+               * The file type of the request matched a disallowed file type.
         :param pulumi.Input[str] name: Specifies the file type name as appearing in the URL extension.
         :param pulumi.Input[str] type: Determines the type of the name attribute. Only when setting the type to `wildcard` will the special wildcard characters in the name be interpreted as such
         """
+        if allowed is not None:
+            pulumi.set(__self__, "allowed", allowed)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if type is not None:
             pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def allowed(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Determines whether the file type is allowed or disallowed. In either of these cases the VIOL_FILETYPE violation is issued (if enabled) for an incoming request- 
+        * No allowed file type matched the file type of the request.
+        * The file type of the request matched a disallowed file type.
+        """
+        return pulumi.get(self, "allowed")
+
+    @allowed.setter
+    def allowed(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allowed", value)
 
     @property
     @pulumi.getter
@@ -1011,24 +1033,176 @@ class WafPolicyFileTypeArgs:
 @pulumi.input_type
 class WafPolicyGraphqlProfileArgs:
     def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: pulumi.Input[str],
+                 attack_signatures_check: Optional[pulumi.Input[bool]] = None,
+                 defense_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyGraphqlProfileDefenseAttributeArgs']]]] = None,
+                 metachar_elementcheck: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] name: The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
+        :param pulumi.Input[bool] attack_signatures_check: Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled.
+        :param pulumi.Input[Sequence[pulumi.Input['WafPolicyGraphqlProfileDefenseAttributeArgs']]] defense_attributes: `defense_attributes` block settings for GraphQl policy.See defense attributes below for more details.
+        :param pulumi.Input[bool] metachar_elementcheck: Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled.
         """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "name", name)
+        if attack_signatures_check is not None:
+            pulumi.set(__self__, "attack_signatures_check", attack_signatures_check)
+        if defense_attributes is not None:
+            pulumi.set(__self__, "defense_attributes", defense_attributes)
+        if metachar_elementcheck is not None:
+            pulumi.set(__self__, "metachar_elementcheck", metachar_elementcheck)
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
+    def name(self) -> pulumi.Input[str]:
         """
         The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
+    def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="attackSignaturesCheck")
+    def attack_signatures_check(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled.
+        """
+        return pulumi.get(self, "attack_signatures_check")
+
+    @attack_signatures_check.setter
+    def attack_signatures_check(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "attack_signatures_check", value)
+
+    @property
+    @pulumi.getter(name="defenseAttributes")
+    def defense_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyGraphqlProfileDefenseAttributeArgs']]]]:
+        """
+        `defense_attributes` block settings for GraphQl policy.See defense attributes below for more details.
+        """
+        return pulumi.get(self, "defense_attributes")
+
+    @defense_attributes.setter
+    def defense_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyGraphqlProfileDefenseAttributeArgs']]]]):
+        pulumi.set(self, "defense_attributes", value)
+
+    @property
+    @pulumi.getter(name="metacharElementcheck")
+    def metachar_elementcheck(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled.
+        """
+        return pulumi.get(self, "metachar_elementcheck")
+
+    @metachar_elementcheck.setter
+    def metachar_elementcheck(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "metachar_elementcheck", value)
+
+
+@pulumi.input_type
+class WafPolicyGraphqlProfileDefenseAttributeArgs:
+    def __init__(__self__, *,
+                 allow_introspection_queries: Optional[pulumi.Input[bool]] = None,
+                 maximum_batched_queries: Optional[pulumi.Input[str]] = None,
+                 maximum_structure_depth: Optional[pulumi.Input[str]] = None,
+                 maximum_total_length: Optional[pulumi.Input[str]] = None,
+                 maximum_value_length: Optional[pulumi.Input[str]] = None,
+                 tolerate_parsing_warnings: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] allow_introspection_queries: Introspection queries can also be enforced to prevent attackers from using them to
+               understand the API structure and potentially breach an application.
+        :param pulumi.Input[str] maximum_batched_queries: Specifies the highest number of batched queries allowed by the security policy.
+        :param pulumi.Input[str] maximum_structure_depth: Specifies the greatest nesting depth found in the GraphQL structure allowed by the security policy.
+        :param pulumi.Input[str] maximum_total_length: Specifies the longest length, in bytes, allowed by the security policy of the request payload, or parameter value, where the GraphQL data was found.
+        :param pulumi.Input[str] maximum_value_length: Specifies the longest length (in bytes) of the longest GraphQL element value in the document allowed by the security policy.
+        :param pulumi.Input[bool] tolerate_parsing_warnings: Specifies, when checked (enabled), that the system does not report when the security enforcer encounters warnings while parsing GraphQL content. Specifies when cleared (disabled), that the security policy reports when the security enforcer encounters warnings while parsing GraphQL content. The default setting is disabled.
+        """
+        if allow_introspection_queries is not None:
+            pulumi.set(__self__, "allow_introspection_queries", allow_introspection_queries)
+        if maximum_batched_queries is not None:
+            pulumi.set(__self__, "maximum_batched_queries", maximum_batched_queries)
+        if maximum_structure_depth is not None:
+            pulumi.set(__self__, "maximum_structure_depth", maximum_structure_depth)
+        if maximum_total_length is not None:
+            pulumi.set(__self__, "maximum_total_length", maximum_total_length)
+        if maximum_value_length is not None:
+            pulumi.set(__self__, "maximum_value_length", maximum_value_length)
+        if tolerate_parsing_warnings is not None:
+            pulumi.set(__self__, "tolerate_parsing_warnings", tolerate_parsing_warnings)
+
+    @property
+    @pulumi.getter(name="allowIntrospectionQueries")
+    def allow_introspection_queries(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Introspection queries can also be enforced to prevent attackers from using them to
+        understand the API structure and potentially breach an application.
+        """
+        return pulumi.get(self, "allow_introspection_queries")
+
+    @allow_introspection_queries.setter
+    def allow_introspection_queries(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_introspection_queries", value)
+
+    @property
+    @pulumi.getter(name="maximumBatchedQueries")
+    def maximum_batched_queries(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the highest number of batched queries allowed by the security policy.
+        """
+        return pulumi.get(self, "maximum_batched_queries")
+
+    @maximum_batched_queries.setter
+    def maximum_batched_queries(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "maximum_batched_queries", value)
+
+    @property
+    @pulumi.getter(name="maximumStructureDepth")
+    def maximum_structure_depth(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the greatest nesting depth found in the GraphQL structure allowed by the security policy.
+        """
+        return pulumi.get(self, "maximum_structure_depth")
+
+    @maximum_structure_depth.setter
+    def maximum_structure_depth(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "maximum_structure_depth", value)
+
+    @property
+    @pulumi.getter(name="maximumTotalLength")
+    def maximum_total_length(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the longest length, in bytes, allowed by the security policy of the request payload, or parameter value, where the GraphQL data was found.
+        """
+        return pulumi.get(self, "maximum_total_length")
+
+    @maximum_total_length.setter
+    def maximum_total_length(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "maximum_total_length", value)
+
+    @property
+    @pulumi.getter(name="maximumValueLength")
+    def maximum_value_length(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the longest length (in bytes) of the longest GraphQL element value in the document allowed by the security policy.
+        """
+        return pulumi.get(self, "maximum_value_length")
+
+    @maximum_value_length.setter
+    def maximum_value_length(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "maximum_value_length", value)
+
+    @property
+    @pulumi.getter(name="tolerateParsingWarnings")
+    def tolerate_parsing_warnings(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies, when checked (enabled), that the system does not report when the security enforcer encounters warnings while parsing GraphQL content. Specifies when cleared (disabled), that the security policy reports when the security enforcer encounters warnings while parsing GraphQL content. The default setting is disabled.
+        """
+        return pulumi.get(self, "tolerate_parsing_warnings")
+
+    @tolerate_parsing_warnings.setter
+    def tolerate_parsing_warnings(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "tolerate_parsing_warnings", value)
 
 
 @pulumi.input_type
@@ -1052,6 +1226,123 @@ class WafPolicyHostNameArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class WafPolicyIpExceptionArgs:
+    def __init__(__self__, *,
+                 ip_address: pulumi.Input[str],
+                 ip_mask: pulumi.Input[str],
+                 block_requests: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 ignore_anomalies: Optional[pulumi.Input[bool]] = None,
+                 ignore_ipreputation: Optional[pulumi.Input[bool]] = None,
+                 trustedby_policybuilder: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] ip_address: Specifies the IP address that you want the system to trust.
+        :param pulumi.Input[str] ip_mask: Specifies the netmask of the exceptional IP address. This is an optional field.
+        :param pulumi.Input[str] block_requests: Specifies how the system responds to blocking requests sent from this IP address. Possible options [`always`, `never`, `policy-default`].
+        :param pulumi.Input[str] description: Specifies the description of the policy.
+        :param pulumi.Input[bool] ignore_anomalies: Specifies when enabled that the system considers this IP address legitimate and does not take it into account when performing brute force prevention.
+        :param pulumi.Input[bool] ignore_ipreputation: Specifies when enabled that the system considers this IP address legitimate even if it is found in the IP Intelligence database (a database of questionable IP addresses).
+        :param pulumi.Input[bool] trustedby_policybuilder: Specifies when enabled the Policy Builder considers traffic from this IP address as being safe.
+        """
+        pulumi.set(__self__, "ip_address", ip_address)
+        pulumi.set(__self__, "ip_mask", ip_mask)
+        if block_requests is not None:
+            pulumi.set(__self__, "block_requests", block_requests)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if ignore_anomalies is not None:
+            pulumi.set(__self__, "ignore_anomalies", ignore_anomalies)
+        if ignore_ipreputation is not None:
+            pulumi.set(__self__, "ignore_ipreputation", ignore_ipreputation)
+        if trustedby_policybuilder is not None:
+            pulumi.set(__self__, "trustedby_policybuilder", trustedby_policybuilder)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> pulumi.Input[str]:
+        """
+        Specifies the IP address that you want the system to trust.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter(name="ipMask")
+    def ip_mask(self) -> pulumi.Input[str]:
+        """
+        Specifies the netmask of the exceptional IP address. This is an optional field.
+        """
+        return pulumi.get(self, "ip_mask")
+
+    @ip_mask.setter
+    def ip_mask(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ip_mask", value)
+
+    @property
+    @pulumi.getter(name="blockRequests")
+    def block_requests(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies how the system responds to blocking requests sent from this IP address. Possible options [`always`, `never`, `policy-default`].
+        """
+        return pulumi.get(self, "block_requests")
+
+    @block_requests.setter
+    def block_requests(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "block_requests", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the description of the policy.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="ignoreAnomalies")
+    def ignore_anomalies(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies when enabled that the system considers this IP address legitimate and does not take it into account when performing brute force prevention.
+        """
+        return pulumi.get(self, "ignore_anomalies")
+
+    @ignore_anomalies.setter
+    def ignore_anomalies(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_anomalies", value)
+
+    @property
+    @pulumi.getter(name="ignoreIpreputation")
+    def ignore_ipreputation(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies when enabled that the system considers this IP address legitimate even if it is found in the IP Intelligence database (a database of questionable IP addresses).
+        """
+        return pulumi.get(self, "ignore_ipreputation")
+
+    @ignore_ipreputation.setter
+    def ignore_ipreputation(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_ipreputation", value)
+
+    @property
+    @pulumi.getter(name="trustedbyPolicybuilder")
+    def trustedby_policybuilder(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies when enabled the Policy Builder considers traffic from this IP address as being safe.
+        """
+        return pulumi.get(self, "trustedby_policybuilder")
+
+    @trustedby_policybuilder.setter
+    def trustedby_policybuilder(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "trustedby_policybuilder", value)
 
 
 @pulumi.input_type

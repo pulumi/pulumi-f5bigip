@@ -4,6 +4,7 @@
 package com.pulumi.f5bigip.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -11,6 +12,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class WafPolicyFileType {
+    /**
+     * @return Determines whether the file type is allowed or disallowed. In either of these cases the VIOL_FILETYPE violation is issued (if enabled) for an incoming request-
+     * * No allowed file type matched the file type of the request.
+     * * The file type of the request matched a disallowed file type.
+     * 
+     */
+    private @Nullable Boolean allowed;
     /**
      * @return Specifies the file type name as appearing in the URL extension.
      * 
@@ -23,6 +31,15 @@ public final class WafPolicyFileType {
     private @Nullable String type;
 
     private WafPolicyFileType() {}
+    /**
+     * @return Determines whether the file type is allowed or disallowed. In either of these cases the VIOL_FILETYPE violation is issued (if enabled) for an incoming request-
+     * * No allowed file type matched the file type of the request.
+     * * The file type of the request matched a disallowed file type.
+     * 
+     */
+    public Optional<Boolean> allowed() {
+        return Optional.ofNullable(this.allowed);
+    }
     /**
      * @return Specifies the file type name as appearing in the URL extension.
      * 
@@ -47,15 +64,22 @@ public final class WafPolicyFileType {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean allowed;
         private @Nullable String name;
         private @Nullable String type;
         public Builder() {}
         public Builder(WafPolicyFileType defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.allowed = defaults.allowed;
     	      this.name = defaults.name;
     	      this.type = defaults.type;
         }
 
+        @CustomType.Setter
+        public Builder allowed(@Nullable Boolean allowed) {
+            this.allowed = allowed;
+            return this;
+        }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
             this.name = name;
@@ -68,6 +92,7 @@ public final class WafPolicyFileType {
         }
         public WafPolicyFileType build() {
             final var o = new WafPolicyFileType();
+            o.allowed = allowed;
             o.name = name;
             o.type = type;
             return o;

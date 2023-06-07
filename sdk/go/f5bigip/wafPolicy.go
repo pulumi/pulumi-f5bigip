@@ -123,6 +123,9 @@ type WafPolicy struct {
 	GraphqlProfiles WafPolicyGraphqlProfileArrayOutput `pulumi:"graphqlProfiles"`
 	// specify the list of host name that is used to access the application
 	HostNames WafPolicyHostNameArrayOutput `pulumi:"hostNames"`
+	// `ipExceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+	// See IP Exceptions below for more details.
+	IpExceptions WafPolicyIpExceptionArrayOutput `pulumi:"ipExceptions"`
 	// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
 	// section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
 	// provided by the BIG-IP.
@@ -217,6 +220,9 @@ type wafPolicyState struct {
 	GraphqlProfiles []WafPolicyGraphqlProfile `pulumi:"graphqlProfiles"`
 	// specify the list of host name that is used to access the application
 	HostNames []WafPolicyHostName `pulumi:"hostNames"`
+	// `ipExceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+	// See IP Exceptions below for more details.
+	IpExceptions []WafPolicyIpException `pulumi:"ipExceptions"`
 	// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
 	// section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
 	// provided by the BIG-IP.
@@ -277,6 +283,9 @@ type WafPolicyState struct {
 	GraphqlProfiles WafPolicyGraphqlProfileArrayInput
 	// specify the list of host name that is used to access the application
 	HostNames WafPolicyHostNameArrayInput
+	// `ipExceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+	// See IP Exceptions below for more details.
+	IpExceptions WafPolicyIpExceptionArrayInput
 	// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
 	// section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
 	// provided by the BIG-IP.
@@ -341,6 +350,9 @@ type wafPolicyArgs struct {
 	GraphqlProfiles []WafPolicyGraphqlProfile `pulumi:"graphqlProfiles"`
 	// specify the list of host name that is used to access the application
 	HostNames []WafPolicyHostName `pulumi:"hostNames"`
+	// `ipExceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+	// See IP Exceptions below for more details.
+	IpExceptions []WafPolicyIpException `pulumi:"ipExceptions"`
 	// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
 	// section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
 	// provided by the BIG-IP.
@@ -400,6 +412,9 @@ type WafPolicyArgs struct {
 	GraphqlProfiles WafPolicyGraphqlProfileArrayInput
 	// specify the list of host name that is used to access the application
 	HostNames WafPolicyHostNameArrayInput
+	// `ipExceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+	// See IP Exceptions below for more details.
+	IpExceptions WafPolicyIpExceptionArrayInput
 	// the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
 	// section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
 	// provided by the BIG-IP.
@@ -566,6 +581,12 @@ func (o WafPolicyOutput) GraphqlProfiles() WafPolicyGraphqlProfileArrayOutput {
 // specify the list of host name that is used to access the application
 func (o WafPolicyOutput) HostNames() WafPolicyHostNameArrayOutput {
 	return o.ApplyT(func(v *WafPolicy) WafPolicyHostNameArrayOutput { return v.HostNames }).(WafPolicyHostNameArrayOutput)
+}
+
+// `ipExceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+// See IP Exceptions below for more details.
+func (o WafPolicyOutput) IpExceptions() WafPolicyIpExceptionArrayOutput {
+	return o.ApplyT(func(v *WafPolicy) WafPolicyIpExceptionArrayOutput { return v.IpExceptions }).(WafPolicyIpExceptionArrayOutput)
 }
 
 // the modifications section includes actions that modify the declarative policy as it is defined in the adjustments

@@ -132,6 +132,11 @@ export class WafPolicy extends pulumi.CustomResource {
      */
     public readonly hostNames!: pulumi.Output<outputs.WafPolicyHostName[] | undefined>;
     /**
+     * `ipExceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+     * See IP Exceptions below for more details.
+     */
+    public readonly ipExceptions!: pulumi.Output<outputs.WafPolicyIpException[] | undefined>;
+    /**
      * the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
      * section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
      * provided by the BIG-IP.
@@ -228,6 +233,7 @@ export class WafPolicy extends pulumi.CustomResource {
             resourceInputs["fileTypes"] = state ? state.fileTypes : undefined;
             resourceInputs["graphqlProfiles"] = state ? state.graphqlProfiles : undefined;
             resourceInputs["hostNames"] = state ? state.hostNames : undefined;
+            resourceInputs["ipExceptions"] = state ? state.ipExceptions : undefined;
             resourceInputs["modifications"] = state ? state.modifications : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["openApiFiles"] = state ? state.openApiFiles : undefined;
@@ -262,6 +268,7 @@ export class WafPolicy extends pulumi.CustomResource {
             resourceInputs["fileTypes"] = args ? args.fileTypes : undefined;
             resourceInputs["graphqlProfiles"] = args ? args.graphqlProfiles : undefined;
             resourceInputs["hostNames"] = args ? args.hostNames : undefined;
+            resourceInputs["ipExceptions"] = args ? args.ipExceptions : undefined;
             resourceInputs["modifications"] = args ? args.modifications : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["openApiFiles"] = args ? args.openApiFiles : undefined;
@@ -324,6 +331,11 @@ export interface WafPolicyState {
      * specify the list of host name that is used to access the application
      */
     hostNames?: pulumi.Input<pulumi.Input<inputs.WafPolicyHostName>[]>;
+    /**
+     * `ipExceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+     * See IP Exceptions below for more details.
+     */
+    ipExceptions?: pulumi.Input<pulumi.Input<inputs.WafPolicyIpException>[]>;
     /**
      * the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
      * section. The modifications section is updated manually, with the changes generally driven by the learning suggestions
@@ -439,6 +451,11 @@ export interface WafPolicyArgs {
      * specify the list of host name that is used to access the application
      */
     hostNames?: pulumi.Input<pulumi.Input<inputs.WafPolicyHostName>[]>;
+    /**
+     * `ipExceptions` takes list of IP address exception,An IP address exception is an IP address that you want the system to treat in a specific way for a security policy.For example, you can specify IP addresses from which the system should always trust traffic.
+     * See IP Exceptions below for more details.
+     */
+    ipExceptions?: pulumi.Input<pulumi.Input<inputs.WafPolicyIpException>[]>;
     /**
      * the modifications section includes actions that modify the declarative policy as it is defined in the adjustments
      * section. The modifications section is updated manually, with the changes generally driven by the learning suggestions

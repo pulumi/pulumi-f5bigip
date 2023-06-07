@@ -19,6 +19,7 @@ class MonitorArgs:
                  adaptive: Optional[pulumi.Input[str]] = None,
                  adaptive_limit: Optional[pulumi.Input[int]] = None,
                  compatibility: Optional[pulumi.Input[str]] = None,
+                 custom_parent: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  destination: Optional[pulumi.Input[str]] = None,
                  filename: Optional[pulumi.Input[str]] = None,
@@ -44,6 +45,7 @@ class MonitorArgs:
         :param pulumi.Input[str] adaptive: Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
         :param pulumi.Input[int] adaptive_limit: Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.
         :param pulumi.Input[str] compatibility: Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
+        :param pulumi.Input[str] custom_parent: Custom parent monitor for the system to use for setting initial values for the new monitor.
         :param pulumi.Input[str] database: Specifies the database in which the user is created
         :param pulumi.Input[str] destination: Specify an alias address for monitoring
         :param pulumi.Input[str] filename: Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
@@ -71,6 +73,8 @@ class MonitorArgs:
             pulumi.set(__self__, "adaptive_limit", adaptive_limit)
         if compatibility is not None:
             pulumi.set(__self__, "compatibility", compatibility)
+        if custom_parent is not None:
+            pulumi.set(__self__, "custom_parent", custom_parent)
         if database is not None:
             pulumi.set(__self__, "database", database)
         if destination is not None:
@@ -167,6 +171,18 @@ class MonitorArgs:
     @compatibility.setter
     def compatibility(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "compatibility", value)
+
+    @property
+    @pulumi.getter(name="customParent")
+    def custom_parent(self) -> Optional[pulumi.Input[str]]:
+        """
+        Custom parent monitor for the system to use for setting initial values for the new monitor.
+        """
+        return pulumi.get(self, "custom_parent")
+
+    @custom_parent.setter
+    def custom_parent(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_parent", value)
 
     @property
     @pulumi.getter
@@ -391,6 +407,7 @@ class _MonitorState:
                  adaptive: Optional[pulumi.Input[str]] = None,
                  adaptive_limit: Optional[pulumi.Input[int]] = None,
                  compatibility: Optional[pulumi.Input[str]] = None,
+                 custom_parent: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  destination: Optional[pulumi.Input[str]] = None,
                  filename: Optional[pulumi.Input[str]] = None,
@@ -416,6 +433,7 @@ class _MonitorState:
         :param pulumi.Input[str] adaptive: Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
         :param pulumi.Input[int] adaptive_limit: Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.
         :param pulumi.Input[str] compatibility: Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
+        :param pulumi.Input[str] custom_parent: Custom parent monitor for the system to use for setting initial values for the new monitor.
         :param pulumi.Input[str] database: Specifies the database in which the user is created
         :param pulumi.Input[str] destination: Specify an alias address for monitoring
         :param pulumi.Input[str] filename: Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
@@ -443,6 +461,8 @@ class _MonitorState:
             pulumi.set(__self__, "adaptive_limit", adaptive_limit)
         if compatibility is not None:
             pulumi.set(__self__, "compatibility", compatibility)
+        if custom_parent is not None:
+            pulumi.set(__self__, "custom_parent", custom_parent)
         if database is not None:
             pulumi.set(__self__, "database", database)
         if destination is not None:
@@ -519,6 +539,18 @@ class _MonitorState:
     @compatibility.setter
     def compatibility(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "compatibility", value)
+
+    @property
+    @pulumi.getter(name="customParent")
+    def custom_parent(self) -> Optional[pulumi.Input[str]]:
+        """
+        Custom parent monitor for the system to use for setting initial values for the new monitor.
+        """
+        return pulumi.get(self, "custom_parent")
+
+    @custom_parent.setter
+    def custom_parent(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_parent", value)
 
     @property
     @pulumi.getter
@@ -769,6 +801,7 @@ class Monitor(pulumi.CustomResource):
                  adaptive: Optional[pulumi.Input[str]] = None,
                  adaptive_limit: Optional[pulumi.Input[int]] = None,
                  compatibility: Optional[pulumi.Input[str]] = None,
+                 custom_parent: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  destination: Optional[pulumi.Input[str]] = None,
                  filename: Optional[pulumi.Input[str]] = None,
@@ -843,6 +876,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] adaptive: Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
         :param pulumi.Input[int] adaptive_limit: Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.
         :param pulumi.Input[str] compatibility: Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
+        :param pulumi.Input[str] custom_parent: Custom parent monitor for the system to use for setting initial values for the new monitor.
         :param pulumi.Input[str] database: Specifies the database in which the user is created
         :param pulumi.Input[str] destination: Specify an alias address for monitoring
         :param pulumi.Input[str] filename: Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
@@ -936,6 +970,7 @@ class Monitor(pulumi.CustomResource):
                  adaptive: Optional[pulumi.Input[str]] = None,
                  adaptive_limit: Optional[pulumi.Input[int]] = None,
                  compatibility: Optional[pulumi.Input[str]] = None,
+                 custom_parent: Optional[pulumi.Input[str]] = None,
                  database: Optional[pulumi.Input[str]] = None,
                  destination: Optional[pulumi.Input[str]] = None,
                  filename: Optional[pulumi.Input[str]] = None,
@@ -968,6 +1003,7 @@ class Monitor(pulumi.CustomResource):
             __props__.__dict__["adaptive"] = adaptive
             __props__.__dict__["adaptive_limit"] = adaptive_limit
             __props__.__dict__["compatibility"] = compatibility
+            __props__.__dict__["custom_parent"] = custom_parent
             __props__.__dict__["database"] = database
             __props__.__dict__["destination"] = destination
             __props__.__dict__["filename"] = filename
@@ -1007,6 +1043,7 @@ class Monitor(pulumi.CustomResource):
             adaptive: Optional[pulumi.Input[str]] = None,
             adaptive_limit: Optional[pulumi.Input[int]] = None,
             compatibility: Optional[pulumi.Input[str]] = None,
+            custom_parent: Optional[pulumi.Input[str]] = None,
             database: Optional[pulumi.Input[str]] = None,
             destination: Optional[pulumi.Input[str]] = None,
             filename: Optional[pulumi.Input[str]] = None,
@@ -1037,6 +1074,7 @@ class Monitor(pulumi.CustomResource):
         :param pulumi.Input[str] adaptive: Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
         :param pulumi.Input[int] adaptive_limit: Specifies the absolute number of milliseconds that may not be exceeded by a monitor probe, regardless of Allowed Divergence.
         :param pulumi.Input[str] compatibility: Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
+        :param pulumi.Input[str] custom_parent: Custom parent monitor for the system to use for setting initial values for the new monitor.
         :param pulumi.Input[str] database: Specifies the database in which the user is created
         :param pulumi.Input[str] destination: Specify an alias address for monitoring
         :param pulumi.Input[str] filename: Specifies the full path and file name of the file that the system attempts to download. The health check is successful if the system can download the file.
@@ -1065,6 +1103,7 @@ class Monitor(pulumi.CustomResource):
         __props__.__dict__["adaptive"] = adaptive
         __props__.__dict__["adaptive_limit"] = adaptive_limit
         __props__.__dict__["compatibility"] = compatibility
+        __props__.__dict__["custom_parent"] = custom_parent
         __props__.__dict__["database"] = database
         __props__.__dict__["destination"] = destination
         __props__.__dict__["filename"] = filename
@@ -1110,6 +1149,14 @@ class Monitor(pulumi.CustomResource):
         Specifies, when enabled, that the SSL options setting (in OpenSSL) is set to ALL. Accepts 'enabled' or 'disabled' values, the default value is 'enabled'.
         """
         return pulumi.get(self, "compatibility")
+
+    @property
+    @pulumi.getter(name="customParent")
+    def custom_parent(self) -> pulumi.Output[Optional[str]]:
+        """
+        Custom parent monitor for the system to use for setting initial values for the new monitor.
+        """
+        return pulumi.get(self, "custom_parent")
 
     @property
     @pulumi.getter
