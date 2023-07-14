@@ -1741,7 +1741,12 @@
                 "current": "f5bigip:fast/getGceServiceDiscovery:getGceServiceDiscovery"
             },
             "bigip_ltm_datagroup": {
-                "current": "f5bigip:ltm/getDataGroup:getDataGroup"
+                "current": "f5bigip:ltm/getDataGroup:getDataGroup",
+                "fields": {
+                    "record": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "bigip_ltm_irule": {
                 "current": "f5bigip:ltm/getIrule:getIrule"
@@ -1750,10 +1755,43 @@
                 "current": "f5bigip:ltm/getMonitor:getMonitor"
             },
             "bigip_ltm_node": {
-                "current": "f5bigip:ltm/getNode:getNode"
+                "current": "f5bigip:ltm/getNode:getNode",
+                "fields": {
+                    "fqdn": {
+                        "maxItemsOne": true
+                    }
+                }
             },
             "bigip_ltm_policy": {
-                "current": "f5bigip:ltm/getPolicy:getPolicy"
+                "current": "f5bigip:ltm/getPolicy:getPolicy",
+                "fields": {
+                    "controls": {
+                        "maxItemsOne": false
+                    },
+                    "requires": {
+                        "maxItemsOne": false
+                    },
+                    "rule": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "action": {
+                                    "maxItemsOne": false
+                                },
+                                "condition": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "values": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             },
             "bigip_ltm_pool": {
                 "current": "f5bigip:ltm/getPool:getPool"
@@ -1762,13 +1800,37 @@
                 "current": "f5bigip:ssl/getCertificate:getCertificate"
             },
             "bigip_vwan_config": {
-                "current": "f5bigip:ssl/getVWanConfig:getVWanConfig"
+                "current": "f5bigip:ssl/getVWanConfig:getVWanConfig",
+                "fields": {
+                    "hub_connected_subnets": {
+                        "maxItemsOne": false
+                    },
+                    "vwan_gw_address": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "bigip_waf_entity_parameter": {
-                "current": "f5bigip:ssl/getWafEntityParameter:getWafEntityParameter"
+                "current": "f5bigip:ssl/getWafEntityParameter:getWafEntityParameter",
+                "fields": {
+                    "signature_overrides_disable": {
+                        "maxItemsOne": false
+                    },
+                    "url": {
+                        "maxItemsOne": true
+                    }
+                }
             },
             "bigip_waf_entity_url": {
-                "current": "f5bigip:ssl/getWafEntityUrl:getWafEntityUrl"
+                "current": "f5bigip:ssl/getWafEntityUrl:getWafEntityUrl",
+                "fields": {
+                    "method_overrides": {
+                        "maxItemsOne": false
+                    },
+                    "signature_overrides_disable": {
+                        "maxItemsOne": false
+                    }
+                }
             },
             "bigip_waf_pb_suggestions": {
                 "current": "f5bigip:ssl/getWafPbSuggestions:getWafPbSuggestions"
