@@ -111,10 +111,10 @@ def get_irule(irule: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('f5bigip:ltm/getIrule:getIrule', __args__, opts=opts, typ=GetIruleResult).value
 
     return AwaitableGetIruleResult(
-        id=__ret__.id,
-        irule=__ret__.irule,
-        name=__ret__.name,
-        partition=__ret__.partition)
+        id=pulumi.get(__ret__, 'id'),
+        irule=pulumi.get(__ret__, 'irule'),
+        name=pulumi.get(__ret__, 'name'),
+        partition=pulumi.get(__ret__, 'partition'))
 
 
 @_utilities.lift_output_func(get_irule)

@@ -91,9 +91,9 @@ def get_waf_policy(policy_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('f5bigip:ssl/getWafPolicy:getWafPolicy', __args__, opts=opts, typ=GetWafPolicyResult).value
 
     return AwaitableGetWafPolicyResult(
-        id=__ret__.id,
-        policy_id=__ret__.policy_id,
-        policy_json=__ret__.policy_json)
+        id=pulumi.get(__ret__, 'id'),
+        policy_id=pulumi.get(__ret__, 'policy_id'),
+        policy_json=pulumi.get(__ret__, 'policy_json'))
 
 
 @_utilities.lift_output_func(get_waf_policy)

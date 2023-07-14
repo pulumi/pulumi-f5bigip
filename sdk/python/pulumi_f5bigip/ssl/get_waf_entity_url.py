@@ -192,16 +192,16 @@ def get_waf_entity_url(description: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('f5bigip:ssl/getWafEntityUrl:getWafEntityUrl', __args__, opts=opts, typ=GetWafEntityUrlResult).value
 
     return AwaitableGetWafEntityUrlResult(
-        description=__ret__.description,
-        id=__ret__.id,
-        json=__ret__.json,
-        method=__ret__.method,
-        method_overrides=__ret__.method_overrides,
-        name=__ret__.name,
-        perform_staging=__ret__.perform_staging,
-        protocol=__ret__.protocol,
-        signature_overrides_disables=__ret__.signature_overrides_disables,
-        type=__ret__.type)
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        json=pulumi.get(__ret__, 'json'),
+        method=pulumi.get(__ret__, 'method'),
+        method_overrides=pulumi.get(__ret__, 'method_overrides'),
+        name=pulumi.get(__ret__, 'name'),
+        perform_staging=pulumi.get(__ret__, 'perform_staging'),
+        protocol=pulumi.get(__ret__, 'protocol'),
+        signature_overrides_disables=pulumi.get(__ret__, 'signature_overrides_disables'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_waf_entity_url)

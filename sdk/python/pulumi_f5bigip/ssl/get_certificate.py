@@ -105,10 +105,10 @@ def get_certificate(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('f5bigip:ssl/getCertificate:getCertificate', __args__, opts=opts, typ=GetCertificateResult).value
 
     return AwaitableGetCertificateResult(
-        certificate=__ret__.certificate,
-        id=__ret__.id,
-        name=__ret__.name,
-        partition=__ret__.partition)
+        certificate=pulumi.get(__ret__, 'certificate'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        partition=pulumi.get(__ret__, 'partition'))
 
 
 @_utilities.lift_output_func(get_certificate)

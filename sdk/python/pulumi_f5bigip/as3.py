@@ -149,6 +149,9 @@ class As3Args:
         """
         Name of Tenant
         """
+        warnings.warn("""this attribute is no longer in use""", DeprecationWarning)
+        pulumi.log.warn("""tenant_name is deprecated: this attribute is no longer in use""")
+
         return pulumi.get(self, "tenant_name")
 
     @tenant_name.setter
@@ -294,6 +297,9 @@ class _As3State:
         """
         Name of Tenant
         """
+        warnings.warn("""this attribute is no longer in use""", DeprecationWarning)
+        pulumi.log.warn("""tenant_name is deprecated: this attribute is no longer in use""")
+
         return pulumi.get(self, "tenant_name")
 
     @tenant_name.setter
@@ -1421,5 +1427,8 @@ class As3(pulumi.CustomResource):
         """
         Name of Tenant
         """
+        warnings.warn("""this attribute is no longer in use""", DeprecationWarning)
+        pulumi.log.warn("""tenant_name is deprecated: this attribute is no longer in use""")
+
         return pulumi.get(self, "tenant_name")
 

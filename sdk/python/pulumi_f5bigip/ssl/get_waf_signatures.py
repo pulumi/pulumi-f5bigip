@@ -211,18 +211,18 @@ def get_waf_signatures(accuracy: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('f5bigip:ssl/getWafSignatures:getWafSignatures', __args__, opts=opts, typ=GetWafSignaturesResult).value
 
     return AwaitableGetWafSignaturesResult(
-        accuracy=__ret__.accuracy,
-        description=__ret__.description,
-        enabled=__ret__.enabled,
-        id=__ret__.id,
-        json=__ret__.json,
-        name=__ret__.name,
-        perform_staging=__ret__.perform_staging,
-        risk=__ret__.risk,
-        signature_id=__ret__.signature_id,
-        system_signature_id=__ret__.system_signature_id,
-        tag=__ret__.tag,
-        type=__ret__.type)
+        accuracy=pulumi.get(__ret__, 'accuracy'),
+        description=pulumi.get(__ret__, 'description'),
+        enabled=pulumi.get(__ret__, 'enabled'),
+        id=pulumi.get(__ret__, 'id'),
+        json=pulumi.get(__ret__, 'json'),
+        name=pulumi.get(__ret__, 'name'),
+        perform_staging=pulumi.get(__ret__, 'perform_staging'),
+        risk=pulumi.get(__ret__, 'risk'),
+        signature_id=pulumi.get(__ret__, 'signature_id'),
+        system_signature_id=pulumi.get(__ret__, 'system_signature_id'),
+        tag=pulumi.get(__ret__, 'tag'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_waf_signatures)

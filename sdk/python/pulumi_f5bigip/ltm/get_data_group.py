@@ -121,11 +121,11 @@ def get_data_group(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('f5bigip:ltm/getDataGroup:getDataGroup', __args__, opts=opts, typ=GetDataGroupResult).value
 
     return AwaitableGetDataGroupResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        partition=__ret__.partition,
-        records=__ret__.records,
-        type=__ret__.type)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        partition=pulumi.get(__ret__, 'partition'),
+        records=pulumi.get(__ret__, 'records'),
+        type=pulumi.get(__ret__, 'type'))
 
 
 @_utilities.lift_output_func(get_data_group)

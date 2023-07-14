@@ -411,6 +411,9 @@ class ProfileClientSslArgs:
     @property
     @pulumi.getter(name="certKeyChain")
     def cert_key_chain(self) -> Optional[pulumi.Input['ProfileClientSslCertKeyChainArgs']]:
+        warnings.warn("""This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.""", DeprecationWarning)
+        pulumi.log.warn("""cert_key_chain is deprecated: This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.""")
+
         return pulumi.get(self, "cert_key_chain")
 
     @cert_key_chain.setter
@@ -1314,6 +1317,9 @@ class _ProfileClientSslState:
     @property
     @pulumi.getter(name="certKeyChain")
     def cert_key_chain(self) -> Optional[pulumi.Input['ProfileClientSslCertKeyChainArgs']]:
+        warnings.warn("""This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.""", DeprecationWarning)
+        pulumi.log.warn("""cert_key_chain is deprecated: This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.""")
+
         return pulumi.get(self, "cert_key_chain")
 
     @cert_key_chain.setter
@@ -2450,6 +2456,9 @@ class ProfileClientSsl(pulumi.CustomResource):
     @property
     @pulumi.getter(name="certKeyChain")
     def cert_key_chain(self) -> pulumi.Output[Optional['outputs.ProfileClientSslCertKeyChain']]:
+        warnings.warn("""This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.""", DeprecationWarning)
+        pulumi.log.warn("""cert_key_chain is deprecated: This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.""")
+
         return pulumi.get(self, "cert_key_chain")
 
     @property

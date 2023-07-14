@@ -221,20 +221,20 @@ def get_gce_service_discovery(address_realm: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('f5bigip:fast/getGceServiceDiscovery:getGceServiceDiscovery', __args__, opts=opts, typ=GetGceServiceDiscoveryResult).value
 
     return AwaitableGetGceServiceDiscoveryResult(
-        address_realm=__ret__.address_realm,
-        credential_update=__ret__.credential_update,
-        encoded_credentials=__ret__.encoded_credentials,
-        gce_sd_json=__ret__.gce_sd_json,
-        id=__ret__.id,
-        minimum_monitors=__ret__.minimum_monitors,
-        port=__ret__.port,
-        project_id=__ret__.project_id,
-        region=__ret__.region,
-        tag_key=__ret__.tag_key,
-        tag_value=__ret__.tag_value,
-        type=__ret__.type,
-        undetectable_action=__ret__.undetectable_action,
-        update_interval=__ret__.update_interval)
+        address_realm=pulumi.get(__ret__, 'address_realm'),
+        credential_update=pulumi.get(__ret__, 'credential_update'),
+        encoded_credentials=pulumi.get(__ret__, 'encoded_credentials'),
+        gce_sd_json=pulumi.get(__ret__, 'gce_sd_json'),
+        id=pulumi.get(__ret__, 'id'),
+        minimum_monitors=pulumi.get(__ret__, 'minimum_monitors'),
+        port=pulumi.get(__ret__, 'port'),
+        project_id=pulumi.get(__ret__, 'project_id'),
+        region=pulumi.get(__ret__, 'region'),
+        tag_key=pulumi.get(__ret__, 'tag_key'),
+        tag_value=pulumi.get(__ret__, 'tag_value'),
+        type=pulumi.get(__ret__, 'type'),
+        undetectable_action=pulumi.get(__ret__, 'undetectable_action'),
+        update_interval=pulumi.get(__ret__, 'update_interval'))
 
 
 @_utilities.lift_output_func(get_gce_service_discovery)

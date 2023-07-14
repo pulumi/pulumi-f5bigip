@@ -153,13 +153,13 @@ def get_policy(controls: Optional[Sequence[str]] = None,
     __ret__ = pulumi.runtime.invoke('f5bigip:ltm/getPolicy:getPolicy', __args__, opts=opts, typ=GetPolicyResult).value
 
     return AwaitableGetPolicyResult(
-        controls=__ret__.controls,
-        id=__ret__.id,
-        name=__ret__.name,
-        published_copy=__ret__.published_copy,
-        requires=__ret__.requires,
-        rules=__ret__.rules,
-        strategy=__ret__.strategy)
+        controls=pulumi.get(__ret__, 'controls'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        published_copy=pulumi.get(__ret__, 'published_copy'),
+        requires=pulumi.get(__ret__, 'requires'),
+        rules=pulumi.get(__ret__, 'rules'),
+        strategy=pulumi.get(__ret__, 'strategy'))
 
 
 @_utilities.lift_output_func(get_policy)

@@ -218,20 +218,20 @@ def get_node(address: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('f5bigip:ltm/getNode:getNode', __args__, opts=opts, typ=GetNodeResult).value
 
     return AwaitableGetNodeResult(
-        address=__ret__.address,
-        connection_limit=__ret__.connection_limit,
-        description=__ret__.description,
-        dynamic_ratio=__ret__.dynamic_ratio,
-        fqdn=__ret__.fqdn,
-        full_path=__ret__.full_path,
-        id=__ret__.id,
-        monitor=__ret__.monitor,
-        name=__ret__.name,
-        partition=__ret__.partition,
-        rate_limit=__ret__.rate_limit,
-        ratio=__ret__.ratio,
-        session=__ret__.session,
-        state=__ret__.state)
+        address=pulumi.get(__ret__, 'address'),
+        connection_limit=pulumi.get(__ret__, 'connection_limit'),
+        description=pulumi.get(__ret__, 'description'),
+        dynamic_ratio=pulumi.get(__ret__, 'dynamic_ratio'),
+        fqdn=pulumi.get(__ret__, 'fqdn'),
+        full_path=pulumi.get(__ret__, 'full_path'),
+        id=pulumi.get(__ret__, 'id'),
+        monitor=pulumi.get(__ret__, 'monitor'),
+        name=pulumi.get(__ret__, 'name'),
+        partition=pulumi.get(__ret__, 'partition'),
+        rate_limit=pulumi.get(__ret__, 'rate_limit'),
+        ratio=pulumi.get(__ret__, 'ratio'),
+        session=pulumi.get(__ret__, 'session'),
+        state=pulumi.get(__ret__, 'state'))
 
 
 @_utilities.lift_output_func(get_node)

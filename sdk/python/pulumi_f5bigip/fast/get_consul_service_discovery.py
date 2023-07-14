@@ -220,20 +220,20 @@ def get_consul_service_discovery(address_realm: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('f5bigip:fast/getConsulServiceDiscovery:getConsulServiceDiscovery', __args__, opts=opts, typ=GetConsulServiceDiscoveryResult).value
 
     return AwaitableGetConsulServiceDiscoveryResult(
-        address_realm=__ret__.address_realm,
-        consul_sd_json=__ret__.consul_sd_json,
-        credential_update=__ret__.credential_update,
-        encoded_token=__ret__.encoded_token,
-        id=__ret__.id,
-        jmes_path_query=__ret__.jmes_path_query,
-        minimum_monitors=__ret__.minimum_monitors,
-        port=__ret__.port,
-        reject_unauthorized=__ret__.reject_unauthorized,
-        trust_ca=__ret__.trust_ca,
-        type=__ret__.type,
-        undetectable_action=__ret__.undetectable_action,
-        update_interval=__ret__.update_interval,
-        uri=__ret__.uri)
+        address_realm=pulumi.get(__ret__, 'address_realm'),
+        consul_sd_json=pulumi.get(__ret__, 'consul_sd_json'),
+        credential_update=pulumi.get(__ret__, 'credential_update'),
+        encoded_token=pulumi.get(__ret__, 'encoded_token'),
+        id=pulumi.get(__ret__, 'id'),
+        jmes_path_query=pulumi.get(__ret__, 'jmes_path_query'),
+        minimum_monitors=pulumi.get(__ret__, 'minimum_monitors'),
+        port=pulumi.get(__ret__, 'port'),
+        reject_unauthorized=pulumi.get(__ret__, 'reject_unauthorized'),
+        trust_ca=pulumi.get(__ret__, 'trust_ca'),
+        type=pulumi.get(__ret__, 'type'),
+        undetectable_action=pulumi.get(__ret__, 'undetectable_action'),
+        update_interval=pulumi.get(__ret__, 'update_interval'),
+        uri=pulumi.get(__ret__, 'uri'))
 
 
 @_utilities.lift_output_func(get_consul_service_discovery)
