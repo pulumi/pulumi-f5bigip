@@ -224,7 +224,7 @@ func Provider() tfbridge.ProviderInfo {
 		moduleNameMap[strings.ToLower(v)] = v
 	}
 
-	prov.MustComputeTokens(tfbridgetokens.KnownModules("bigip_", "", mappedModKeys,
+	prov.MustComputeTokens(tfbridgetokens.KnownModules("bigip_", "index", mappedModKeys,
 		tfbridgetokens.MakeStandard(f5BigIPPkg)))
 	prov.MustApplyAutoAliases()
 
