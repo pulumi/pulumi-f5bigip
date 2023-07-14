@@ -175,15 +175,15 @@ def get_v_wan_config(azure_vwan_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('f5bigip:ssl/getVWanConfig:getVWanConfig', __args__, opts=opts, typ=GetVWanConfigResult).value
 
     return AwaitableGetVWanConfigResult(
-        azure_vwan_name=__ret__.azure_vwan_name,
-        azure_vwan_resourcegroup=__ret__.azure_vwan_resourcegroup,
-        azure_vwan_vpnsite=__ret__.azure_vwan_vpnsite,
-        bigip_gw_ip=__ret__.bigip_gw_ip,
-        hub_address_space=__ret__.hub_address_space,
-        hub_connected_subnets=__ret__.hub_connected_subnets,
-        id=__ret__.id,
-        preshared_key=__ret__.preshared_key,
-        vwan_gw_addresses=__ret__.vwan_gw_addresses)
+        azure_vwan_name=pulumi.get(__ret__, 'azure_vwan_name'),
+        azure_vwan_resourcegroup=pulumi.get(__ret__, 'azure_vwan_resourcegroup'),
+        azure_vwan_vpnsite=pulumi.get(__ret__, 'azure_vwan_vpnsite'),
+        bigip_gw_ip=pulumi.get(__ret__, 'bigip_gw_ip'),
+        hub_address_space=pulumi.get(__ret__, 'hub_address_space'),
+        hub_connected_subnets=pulumi.get(__ret__, 'hub_connected_subnets'),
+        id=pulumi.get(__ret__, 'id'),
+        preshared_key=pulumi.get(__ret__, 'preshared_key'),
+        vwan_gw_addresses=pulumi.get(__ret__, 'vwan_gw_addresses'))
 
 
 @_utilities.lift_output_func(get_v_wan_config)

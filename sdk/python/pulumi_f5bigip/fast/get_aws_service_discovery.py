@@ -244,22 +244,22 @@ def get_aws_service_discovery(address_realm: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('f5bigip:fast/getAwsServiceDiscovery:getAwsServiceDiscovery', __args__, opts=opts, typ=GetAwsServiceDiscoveryResult).value
 
     return AwaitableGetAwsServiceDiscoveryResult(
-        address_realm=__ret__.address_realm,
-        aws_access_key=__ret__.aws_access_key,
-        aws_region=__ret__.aws_region,
-        aws_sd_json=__ret__.aws_sd_json,
-        aws_secret_access_key=__ret__.aws_secret_access_key,
-        credential_update=__ret__.credential_update,
-        external_id=__ret__.external_id,
-        id=__ret__.id,
-        minimum_monitors=__ret__.minimum_monitors,
-        port=__ret__.port,
-        role_arn=__ret__.role_arn,
-        tag_key=__ret__.tag_key,
-        tag_value=__ret__.tag_value,
-        type=__ret__.type,
-        undetectable_action=__ret__.undetectable_action,
-        update_interval=__ret__.update_interval)
+        address_realm=pulumi.get(__ret__, 'address_realm'),
+        aws_access_key=pulumi.get(__ret__, 'aws_access_key'),
+        aws_region=pulumi.get(__ret__, 'aws_region'),
+        aws_sd_json=pulumi.get(__ret__, 'aws_sd_json'),
+        aws_secret_access_key=pulumi.get(__ret__, 'aws_secret_access_key'),
+        credential_update=pulumi.get(__ret__, 'credential_update'),
+        external_id=pulumi.get(__ret__, 'external_id'),
+        id=pulumi.get(__ret__, 'id'),
+        minimum_monitors=pulumi.get(__ret__, 'minimum_monitors'),
+        port=pulumi.get(__ret__, 'port'),
+        role_arn=pulumi.get(__ret__, 'role_arn'),
+        tag_key=pulumi.get(__ret__, 'tag_key'),
+        tag_value=pulumi.get(__ret__, 'tag_value'),
+        type=pulumi.get(__ret__, 'type'),
+        undetectable_action=pulumi.get(__ret__, 'undetectable_action'),
+        update_interval=pulumi.get(__ret__, 'update_interval'))
 
 
 @_utilities.lift_output_func(get_aws_service_discovery)

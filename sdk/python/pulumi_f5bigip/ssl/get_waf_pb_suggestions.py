@@ -129,12 +129,12 @@ def get_waf_pb_suggestions(minimum_learning_score: Optional[int] = None,
     __ret__ = pulumi.runtime.invoke('f5bigip:ssl/getWafPbSuggestions:getWafPbSuggestions', __args__, opts=opts, typ=GetWafPbSuggestionsResult).value
 
     return AwaitableGetWafPbSuggestionsResult(
-        id=__ret__.id,
-        json=__ret__.json,
-        minimum_learning_score=__ret__.minimum_learning_score,
-        partition=__ret__.partition,
-        policy_id=__ret__.policy_id,
-        policy_name=__ret__.policy_name)
+        id=pulumi.get(__ret__, 'id'),
+        json=pulumi.get(__ret__, 'json'),
+        minimum_learning_score=pulumi.get(__ret__, 'minimum_learning_score'),
+        partition=pulumi.get(__ret__, 'partition'),
+        policy_id=pulumi.get(__ret__, 'policy_id'),
+        policy_name=pulumi.get(__ret__, 'policy_name'))
 
 
 @_utilities.lift_output_func(get_waf_pb_suggestions)

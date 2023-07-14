@@ -101,10 +101,10 @@ def get_pool(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('f5bigip:ltm/getPool:getPool', __args__, opts=opts, typ=GetPoolResult).value
 
     return AwaitableGetPoolResult(
-        full_path=__ret__.full_path,
-        id=__ret__.id,
-        name=__ret__.name,
-        partition=__ret__.partition)
+        full_path=pulumi.get(__ret__, 'full_path'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        partition=pulumi.get(__ret__, 'partition'))
 
 
 @_utilities.lift_output_func(get_pool)
