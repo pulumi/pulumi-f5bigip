@@ -1,6 +1,6 @@
 module github.com/pulumi/pulumi-f5bigip/provider/v3
 
-go 1.19
+go 1.20
 
 require (
 	github.com/F5Networks/terraform-provider-bigip v1.18.1
