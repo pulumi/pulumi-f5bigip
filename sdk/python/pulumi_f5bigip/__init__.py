@@ -22,6 +22,7 @@ from .ipsec_profile import *
 from .net_ike_peer import *
 from .net_tunnel import *
 from .provider import *
+from .ssl_key_cert import *
 from .traffic_selector import *
 from .waf_policy import *
 from ._inputs import *
@@ -200,6 +201,14 @@ _utilities.register(
   "fqn": "pulumi_f5bigip",
   "classes": {
    "f5bigip:index/netTunnel:NetTunnel": "NetTunnel"
+  }
+ },
+ {
+  "pkg": "f5bigip",
+  "mod": "index/sslKeyCert",
+  "fqn": "pulumi_f5bigip",
+  "classes": {
+   "f5bigip:index/sslKeyCert:SslKeyCert": "SslKeyCert"
   }
  },
  {

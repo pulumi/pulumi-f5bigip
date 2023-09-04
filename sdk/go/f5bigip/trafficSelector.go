@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -84,6 +85,7 @@ func NewTrafficSelector(ctx *pulumi.Context,
 	if args.SourceAddress == nil {
 		return nil, errors.New("invalid value for required argument 'SourceAddress'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TrafficSelector
 	err := ctx.RegisterResource("f5bigip:index/trafficSelector:TrafficSelector", name, args, &resource, opts...)
 	if err != nil {

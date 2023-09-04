@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -87,6 +88,7 @@ func NewProfileFastHttp(ctx *pulumi.Context,
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ProfileFastHttp
 	err := ctx.RegisterResource("f5bigip:ltm/profileFastHttp:ProfileFastHttp", name, args, &resource, opts...)
 	if err != nil {

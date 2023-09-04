@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -180,6 +181,7 @@ func NewWafPolicy(ctx *pulumi.Context,
 	if args.TemplateName == nil {
 		return nil, errors.New("invalid value for required argument 'TemplateName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource WafPolicy
 	err := ctx.RegisterResource("f5bigip:index/wafPolicy:WafPolicy", name, args, &resource, opts...)
 	if err != nil {

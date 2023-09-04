@@ -33,6 +33,21 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies descriptive text that identifies the irule attached to policy.
+     * 
+     */
+    @Import(name="description")
+    private @Nullable Output<String> description;
+
+    /**
+     * @return Specifies descriptive text that identifies the irule attached to policy.
+     * 
+     */
+    public Optional<Output<String>> description() {
+        return Optional.ofNullable(this.description);
+    }
+
+    /**
      * Name of Rule to be applied in policy.
      * 
      */
@@ -111,6 +126,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
 
     private PolicyArgs(PolicyArgs $) {
         this.controls = $.controls;
+        this.description = $.description;
         this.name = $.name;
         this.publishedCopy = $.publishedCopy;
         this.requires = $.requires;
@@ -165,6 +181,27 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder controls(String... controls) {
             return controls(List.of(controls));
+        }
+
+        /**
+         * @param description Specifies descriptive text that identifies the irule attached to policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(@Nullable Output<String> description) {
+            $.description = description;
+            return this;
+        }
+
+        /**
+         * @param description Specifies descriptive text that identifies the irule attached to policy.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder description(String description) {
+            return description(Output.of(description));
         }
 
         /**

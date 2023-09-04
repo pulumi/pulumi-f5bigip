@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -138,6 +139,7 @@ func NewBigIqAs3(ctx *pulumi.Context,
 		"bigiqUser",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BigIqAs3
 	err := ctx.RegisterResource("f5bigip:index/bigIqAs3:BigIqAs3", name, args, &resource, opts...)
 	if err != nil {

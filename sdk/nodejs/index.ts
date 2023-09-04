@@ -90,6 +90,11 @@ export type Provider = import("./provider").Provider;
 export const Provider: typeof import("./provider").Provider = null as any;
 utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
 
+export { SslKeyCertArgs, SslKeyCertState } from "./sslKeyCert";
+export type SslKeyCert = import("./sslKeyCert").SslKeyCert;
+export const SslKeyCert: typeof import("./sslKeyCert").SslKeyCert = null as any;
+utilities.lazyLoad(exports, ["SslKeyCert"], () => require("./sslKeyCert"));
+
 export { TrafficSelectorArgs, TrafficSelectorState } from "./trafficSelector";
 export type TrafficSelector = import("./trafficSelector").TrafficSelector;
 export const TrafficSelector: typeof import("./trafficSelector").TrafficSelector = null as any;
@@ -160,6 +165,8 @@ const _module = {
                 return new NetIkePeer(name, <any>undefined, { urn })
             case "f5bigip:index/netTunnel:NetTunnel":
                 return new NetTunnel(name, <any>undefined, { urn })
+            case "f5bigip:index/sslKeyCert:SslKeyCert":
+                return new SslKeyCert(name, <any>undefined, { urn })
             case "f5bigip:index/trafficSelector:TrafficSelector":
                 return new TrafficSelector(name, <any>undefined, { urn })
             case "f5bigip:index/wafPolicy:WafPolicy":
@@ -185,6 +192,7 @@ pulumi.runtime.registerResourceModule("f5bigip", "index/ipsecPolicy", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/ipsecProfile", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/netIkePeer", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/netTunnel", _module)
+pulumi.runtime.registerResourceModule("f5bigip", "index/sslKeyCert", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/trafficSelector", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "index/wafPolicy", _module)
 pulumi.runtime.registerResourcePackage("f5bigip", {

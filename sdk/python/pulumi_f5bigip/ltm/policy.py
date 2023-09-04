@@ -18,6 +18,7 @@ class PolicyArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  controls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  published_copy: Optional[pulumi.Input[str]] = None,
                  requires: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleArgs']]]] = None,
@@ -26,6 +27,7 @@ class PolicyArgs:
         The set of arguments for constructing a Policy resource.
         :param pulumi.Input[str] name: Name of Rule to be applied in policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] controls: Specifies the controls
+        :param pulumi.Input[str] description: Specifies descriptive text that identifies the irule attached to policy.
         :param pulumi.Input[str] published_copy: If you want to publish the policy else it will be deployed in Drafts mode.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] requires: Specifies the protocol
         :param pulumi.Input[Sequence[pulumi.Input['PolicyRuleArgs']]] rules: List of Rules can be applied using the policy. Each rule is block type with following arguments.
@@ -34,6 +36,8 @@ class PolicyArgs:
         pulumi.set(__self__, "name", name)
         if controls is not None:
             pulumi.set(__self__, "controls", controls)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if published_copy is not None:
             pulumi.set(__self__, "published_copy", published_copy)
         if requires is not None:
@@ -66,6 +70,18 @@ class PolicyArgs:
     @controls.setter
     def controls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "controls", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies descriptive text that identifies the irule attached to policy.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter(name="publishedCopy")
@@ -120,6 +136,7 @@ class PolicyArgs:
 class _PolicyState:
     def __init__(__self__, *,
                  controls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  published_copy: Optional[pulumi.Input[str]] = None,
                  requires: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -128,6 +145,7 @@ class _PolicyState:
         """
         Input properties used for looking up and filtering Policy resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] controls: Specifies the controls
+        :param pulumi.Input[str] description: Specifies descriptive text that identifies the irule attached to policy.
         :param pulumi.Input[str] name: Name of Rule to be applied in policy.
         :param pulumi.Input[str] published_copy: If you want to publish the policy else it will be deployed in Drafts mode.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] requires: Specifies the protocol
@@ -136,6 +154,8 @@ class _PolicyState:
         """
         if controls is not None:
             pulumi.set(__self__, "controls", controls)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if published_copy is not None:
@@ -158,6 +178,18 @@ class _PolicyState:
     @controls.setter
     def controls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "controls", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies descriptive text that identifies the irule attached to policy.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
     @property
     @pulumi.getter
@@ -226,6 +258,7 @@ class Policy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  controls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  published_copy: Optional[pulumi.Input[str]] = None,
                  requires: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -267,6 +300,7 @@ class Policy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] controls: Specifies the controls
+        :param pulumi.Input[str] description: Specifies descriptive text that identifies the irule attached to policy.
         :param pulumi.Input[str] name: Name of Rule to be applied in policy.
         :param pulumi.Input[str] published_copy: If you want to publish the policy else it will be deployed in Drafts mode.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] requires: Specifies the protocol
@@ -327,6 +361,7 @@ class Policy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  controls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  published_copy: Optional[pulumi.Input[str]] = None,
                  requires: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -342,6 +377,7 @@ class Policy(pulumi.CustomResource):
             __props__ = PolicyArgs.__new__(PolicyArgs)
 
             __props__.__dict__["controls"] = controls
+            __props__.__dict__["description"] = description
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
@@ -360,6 +396,7 @@ class Policy(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             controls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             published_copy: Optional[pulumi.Input[str]] = None,
             requires: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -373,6 +410,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] controls: Specifies the controls
+        :param pulumi.Input[str] description: Specifies descriptive text that identifies the irule attached to policy.
         :param pulumi.Input[str] name: Name of Rule to be applied in policy.
         :param pulumi.Input[str] published_copy: If you want to publish the policy else it will be deployed in Drafts mode.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] requires: Specifies the protocol
@@ -384,6 +422,7 @@ class Policy(pulumi.CustomResource):
         __props__ = _PolicyState.__new__(_PolicyState)
 
         __props__.__dict__["controls"] = controls
+        __props__.__dict__["description"] = description
         __props__.__dict__["name"] = name
         __props__.__dict__["published_copy"] = published_copy
         __props__.__dict__["requires"] = requires
@@ -398,6 +437,14 @@ class Policy(pulumi.CustomResource):
         Specifies the controls
         """
         return pulumi.get(self, "controls")
+
+    @property
+    @pulumi.getter
+    def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies descriptive text that identifies the irule attached to policy.
+        """
+        return pulumi.get(self, "description")
 
     @property
     @pulumi.getter

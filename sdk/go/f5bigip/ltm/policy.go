@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -75,6 +76,8 @@ type Policy struct {
 
 	// Specifies the controls
 	Controls pulumi.StringArrayOutput `pulumi:"controls"`
+	// Specifies descriptive text that identifies the irule attached to policy.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of Rule to be applied in policy.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// If you want to publish the policy else it will be deployed in Drafts mode.
@@ -97,6 +100,7 @@ func NewPolicy(ctx *pulumi.Context,
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Policy
 	err := ctx.RegisterResource("f5bigip:ltm/policy:Policy", name, args, &resource, opts...)
 	if err != nil {
@@ -121,6 +125,8 @@ func GetPolicy(ctx *pulumi.Context,
 type policyState struct {
 	// Specifies the controls
 	Controls []string `pulumi:"controls"`
+	// Specifies descriptive text that identifies the irule attached to policy.
+	Description *string `pulumi:"description"`
 	// Name of Rule to be applied in policy.
 	Name *string `pulumi:"name"`
 	// If you want to publish the policy else it will be deployed in Drafts mode.
@@ -136,6 +142,8 @@ type policyState struct {
 type PolicyState struct {
 	// Specifies the controls
 	Controls pulumi.StringArrayInput
+	// Specifies descriptive text that identifies the irule attached to policy.
+	Description pulumi.StringPtrInput
 	// Name of Rule to be applied in policy.
 	Name pulumi.StringPtrInput
 	// If you want to publish the policy else it will be deployed in Drafts mode.
@@ -155,6 +163,8 @@ func (PolicyState) ElementType() reflect.Type {
 type policyArgs struct {
 	// Specifies the controls
 	Controls []string `pulumi:"controls"`
+	// Specifies descriptive text that identifies the irule attached to policy.
+	Description *string `pulumi:"description"`
 	// Name of Rule to be applied in policy.
 	Name string `pulumi:"name"`
 	// If you want to publish the policy else it will be deployed in Drafts mode.
@@ -171,6 +181,8 @@ type policyArgs struct {
 type PolicyArgs struct {
 	// Specifies the controls
 	Controls pulumi.StringArrayInput
+	// Specifies descriptive text that identifies the irule attached to policy.
+	Description pulumi.StringPtrInput
 	// Name of Rule to be applied in policy.
 	Name pulumi.StringInput
 	// If you want to publish the policy else it will be deployed in Drafts mode.
@@ -273,6 +285,11 @@ func (o PolicyOutput) ToPolicyOutputWithContext(ctx context.Context) PolicyOutpu
 // Specifies the controls
 func (o PolicyOutput) Controls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringArrayOutput { return v.Controls }).(pulumi.StringArrayOutput)
+}
+
+// Specifies descriptive text that identifies the irule attached to policy.
+func (o PolicyOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Name of Rule to be applied in policy.

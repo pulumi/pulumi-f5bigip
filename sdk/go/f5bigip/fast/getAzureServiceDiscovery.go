@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,6 +42,7 @@ import (
 //
 // ```
 func GetAzureServiceDiscovery(ctx *pulumi.Context, args *GetAzureServiceDiscoveryArgs, opts ...pulumi.InvokeOption) (*GetAzureServiceDiscoveryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAzureServiceDiscoveryResult
 	err := ctx.Invoke("f5bigip:fast/getAzureServiceDiscovery:getAzureServiceDiscovery", args, &rv, opts...)
 	if err != nil {

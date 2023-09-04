@@ -136,17 +136,21 @@ class PolicyRule(dict):
     def __init__(__self__, *,
                  name: str,
                  actions: Optional[Sequence['outputs.PolicyRuleAction']] = None,
-                 conditions: Optional[Sequence['outputs.PolicyRuleCondition']] = None):
+                 conditions: Optional[Sequence['outputs.PolicyRuleCondition']] = None,
+                 description: Optional[str] = None):
         """
         :param str name: Name of Rule to be applied in policy.
         :param Sequence['PolicyRuleActionArgs'] actions: Block type. See action block for more details.
         :param Sequence['PolicyRuleConditionArgs'] conditions: Block type. See condition block for more details.
+        :param str description: Specifies descriptive text that identifies the irule attached to policy.
         """
         pulumi.set(__self__, "name", name)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
         if conditions is not None:
             pulumi.set(__self__, "conditions", conditions)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
 
     @property
     @pulumi.getter
@@ -171,6 +175,14 @@ class PolicyRule(dict):
         Block type. See condition block for more details.
         """
         return pulumi.get(self, "conditions")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Specifies descriptive text that identifies the irule attached to policy.
+        """
+        return pulumi.get(self, "description")
 
 
 @pulumi.output_type

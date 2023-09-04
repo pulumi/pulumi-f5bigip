@@ -74,6 +74,10 @@ export class Policy extends pulumi.CustomResource {
      */
     public readonly controls!: pulumi.Output<string[] | undefined>;
     /**
+     * Specifies descriptive text that identifies the irule attached to policy.
+     */
+    public readonly description!: pulumi.Output<string | undefined>;
+    /**
      * Name of Rule to be applied in policy.
      */
     public readonly name!: pulumi.Output<string>;
@@ -108,6 +112,7 @@ export class Policy extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as PolicyState | undefined;
             resourceInputs["controls"] = state ? state.controls : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["publishedCopy"] = state ? state.publishedCopy : undefined;
             resourceInputs["requires"] = state ? state.requires : undefined;
@@ -119,6 +124,7 @@ export class Policy extends pulumi.CustomResource {
                 throw new Error("Missing required property 'name'");
             }
             resourceInputs["controls"] = args ? args.controls : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["publishedCopy"] = args ? args.publishedCopy : undefined;
             resourceInputs["requires"] = args ? args.requires : undefined;
@@ -138,6 +144,10 @@ export interface PolicyState {
      * Specifies the controls
      */
     controls?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies descriptive text that identifies the irule attached to policy.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Name of Rule to be applied in policy.
      */
@@ -168,6 +178,10 @@ export interface PolicyArgs {
      * Specifies the controls
      */
     controls?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies descriptive text that identifies the irule attached to policy.
+     */
+    description?: pulumi.Input<string>;
     /**
      * Name of Rule to be applied in policy.
      */

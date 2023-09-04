@@ -22,6 +22,10 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PolicyRuleCondition> Conditions;
         /// <summary>
+        /// Specifies descriptive text that identifies the irule attached to policy.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// Name of Rule to be applied in policy.
         /// </summary>
         public readonly string Name;
@@ -32,10 +36,13 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
 
             ImmutableArray<Outputs.PolicyRuleCondition> conditions,
 
+            string? description,
+
             string name)
         {
             Actions = actions;
             Conditions = conditions;
+            Description = description;
             Name = name;
         }
     }

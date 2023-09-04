@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type DataGroupRecord struct {
 	// , sets the value of the record's `data` attribute, specifying a value here will create a record in the form of `name := data`
@@ -326,6 +329,8 @@ type PolicyRule struct {
 	Actions []PolicyRuleAction `pulumi:"actions"`
 	// Block type. See condition block for more details.
 	Conditions []PolicyRuleCondition `pulumi:"conditions"`
+	// Specifies descriptive text that identifies the irule attached to policy.
+	Description *string `pulumi:"description"`
 	// Name of Rule to be applied in policy.
 	Name string `pulumi:"name"`
 }
@@ -346,6 +351,8 @@ type PolicyRuleArgs struct {
 	Actions PolicyRuleActionArrayInput `pulumi:"actions"`
 	// Block type. See condition block for more details.
 	Conditions PolicyRuleConditionArrayInput `pulumi:"conditions"`
+	// Specifies descriptive text that identifies the irule attached to policy.
+	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Name of Rule to be applied in policy.
 	Name pulumi.StringInput `pulumi:"name"`
 }
@@ -409,6 +416,11 @@ func (o PolicyRuleOutput) Actions() PolicyRuleActionArrayOutput {
 // Block type. See condition block for more details.
 func (o PolicyRuleOutput) Conditions() PolicyRuleConditionArrayOutput {
 	return o.ApplyT(func(v PolicyRule) []PolicyRuleCondition { return v.Conditions }).(PolicyRuleConditionArrayOutput)
+}
+
+// Specifies descriptive text that identifies the irule attached to policy.
+func (o PolicyRuleOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PolicyRule) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
 // Name of Rule to be applied in policy.

@@ -37,6 +37,12 @@ namespace Pulumi.F5BigIP.Ltm.Inputs
         }
 
         /// <summary>
+        /// Specifies descriptive text that identifies the irule attached to policy.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// Name of Rule to be applied in policy.
         /// </summary>
         [Input("name", required: true)]

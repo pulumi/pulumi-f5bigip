@@ -9,6 +9,7 @@ import com.pulumi.f5bigip.ltm.outputs.PolicyRuleCondition;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -23,6 +24,11 @@ public final class PolicyRule {
      * 
      */
     private @Nullable List<PolicyRuleCondition> conditions;
+    /**
+     * @return Specifies descriptive text that identifies the irule attached to policy.
+     * 
+     */
+    private @Nullable String description;
     /**
      * @return Name of Rule to be applied in policy.
      * 
@@ -45,6 +51,13 @@ public final class PolicyRule {
         return this.conditions == null ? List.of() : this.conditions;
     }
     /**
+     * @return Specifies descriptive text that identifies the irule attached to policy.
+     * 
+     */
+    public Optional<String> description() {
+        return Optional.ofNullable(this.description);
+    }
+    /**
      * @return Name of Rule to be applied in policy.
      * 
      */
@@ -63,12 +76,14 @@ public final class PolicyRule {
     public static final class Builder {
         private @Nullable List<PolicyRuleAction> actions;
         private @Nullable List<PolicyRuleCondition> conditions;
+        private @Nullable String description;
         private String name;
         public Builder() {}
         public Builder(PolicyRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.actions = defaults.actions;
     	      this.conditions = defaults.conditions;
+    	      this.description = defaults.description;
     	      this.name = defaults.name;
         }
 
@@ -89,6 +104,11 @@ public final class PolicyRule {
             return conditions(List.of(conditions));
         }
         @CustomType.Setter
+        public Builder description(@Nullable String description) {
+            this.description = description;
+            return this;
+        }
+        @CustomType.Setter
         public Builder name(String name) {
             this.name = Objects.requireNonNull(name);
             return this;
@@ -97,6 +117,7 @@ public final class PolicyRule {
             final var o = new PolicyRule();
             o.actions = actions;
             o.conditions = conditions;
+            o.description = description;
             o.name = name;
             return o;
         }

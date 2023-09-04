@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 func GetWafEntityParameter(ctx *pulumi.Context, args *GetWafEntityParameterArgs, opts ...pulumi.InvokeOption) (*GetWafEntityParameterResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetWafEntityParameterResult
 	err := ctx.Invoke("f5bigip:ssl/getWafEntityParameter:getWafEntityParameter", args, &rv, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -178,6 +179,7 @@ func NewCommonLicenseManageBigIq(ctx *pulumi.Context,
 		"bigiqUser",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CommonLicenseManageBigIq
 	err := ctx.RegisterResource("f5bigip:index/commonLicenseManageBigIq:CommonLicenseManageBigIq", name, args, &resource, opts...)
 	if err != nil {

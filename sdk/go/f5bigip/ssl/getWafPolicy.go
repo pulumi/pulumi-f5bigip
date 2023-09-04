@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,6 +39,7 @@ import (
 //
 // ```
 func GetWafPolicy(ctx *pulumi.Context, args *GetWafPolicyArgs, opts ...pulumi.InvokeOption) (*GetWafPolicyResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetWafPolicyResult
 	err := ctx.Invoke("f5bigip:ssl/getWafPolicy:getWafPolicy", args, &rv, opts...)
 	if err != nil {
