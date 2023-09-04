@@ -1446,6 +1446,9 @@
                     "passphrase": {}
                 }
             },
+            "bigip_ssl_key_cert": {
+                "current": "f5bigip:index/sslKeyCert:SslKeyCert"
+            },
             "bigip_sys_bigiplicense": {
                 "current": "f5bigip:sys/bigIpLicense:BigIpLicense",
                 "fields": {
@@ -1863,6 +1866,7 @@
             "f5bigip:index/ipsecProfile:IpsecProfile": "bigip_ipsec_profile",
             "f5bigip:index/netIkePeer:NetIkePeer": "bigip_net_ike_peer",
             "f5bigip:index/netTunnel:NetTunnel": "bigip_net_tunnel",
+            "f5bigip:index/sslKeyCert:SslKeyCert": "bigip_ssl_key_cert",
             "f5bigip:index/trafficSelector:TrafficSelector": "bigip_traffic_selector",
             "f5bigip:index/wafPolicy:WafPolicy": "bigip_waf_policy",
             "f5bigip:ltm/dataGroup:DataGroup": "bigip_ltm_datagroup",
@@ -2229,6 +2233,14 @@
                 "secondaryAddress": "secondary_address",
                 "trafficGroup": "traffic_group",
                 "usePmtu": "use_pmtu"
+            },
+            "f5bigip:index/sslKeyCert:SslKeyCert": {
+                "certContent": "cert_content",
+                "certFullPath": "cert_full_path",
+                "certName": "cert_name",
+                "keyContent": "key_content",
+                "keyFullPath": "key_full_path",
+                "keyName": "key_name"
             },
             "f5bigip:index/trafficSelector:TrafficSelector": {
                 "destinationAddress": "destination_address",
