@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -58,6 +59,7 @@ func NewSnmp(ctx *pulumi.Context,
 		args = &SnmpArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Snmp
 	err := ctx.RegisterResource("f5bigip:sys/snmp:Snmp", name, args, &resource, opts...)
 	if err != nil {

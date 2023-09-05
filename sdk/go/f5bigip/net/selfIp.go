@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -189,6 +190,7 @@ func NewSelfIp(ctx *pulumi.Context,
 	if args.Vlan == nil {
 		return nil, errors.New("invalid value for required argument 'Vlan'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource SelfIp
 	err := ctx.RegisterResource("f5bigip:net/selfIp:SelfIp", name, args, &resource, opts...)
 	if err != nil {

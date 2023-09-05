@@ -146,17 +146,21 @@ class PolicyRuleArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  actions: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleActionArgs']]]] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleConditionArgs']]]] = None):
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleConditionArgs']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: Name of Rule to be applied in policy.
         :param pulumi.Input[Sequence[pulumi.Input['PolicyRuleActionArgs']]] actions: Block type. See action block for more details.
         :param pulumi.Input[Sequence[pulumi.Input['PolicyRuleConditionArgs']]] conditions: Block type. See condition block for more details.
+        :param pulumi.Input[str] description: Specifies descriptive text that identifies the irule attached to policy.
         """
         pulumi.set(__self__, "name", name)
         if actions is not None:
             pulumi.set(__self__, "actions", actions)
         if conditions is not None:
             pulumi.set(__self__, "conditions", conditions)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
 
     @property
     @pulumi.getter
@@ -193,6 +197,18 @@ class PolicyRuleArgs:
     @conditions.setter
     def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleConditionArgs']]]]):
         pulumi.set(self, "conditions", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies descriptive text that identifies the irule attached to policy.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
 
 @pulumi.input_type

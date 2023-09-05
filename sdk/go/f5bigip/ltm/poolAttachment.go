@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -161,6 +162,7 @@ func NewPoolAttachment(ctx *pulumi.Context,
 	if args.Pool == nil {
 		return nil, errors.New("invalid value for required argument 'Pool'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PoolAttachment
 	err := ctx.RegisterResource("f5bigip:ltm/poolAttachment:PoolAttachment", name, args, &resource, opts...)
 	if err != nil {

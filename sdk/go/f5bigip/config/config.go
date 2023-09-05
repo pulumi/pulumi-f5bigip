@@ -4,9 +4,12 @@
 package config
 
 import (
+	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 )
+
+var _ = internal.GetEnvOrDefault
 
 // Domain name/IP of the BigIP
 func GetAddress(ctx *pulumi.Context) string {

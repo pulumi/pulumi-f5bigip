@@ -903,6 +903,10 @@ export namespace ltm {
          */
         conditions?: pulumi.Input<pulumi.Input<inputs.ltm.PolicyRuleCondition>[]>;
         /**
+         * Specifies descriptive text that identifies the irule attached to policy.
+         */
+        description?: pulumi.Input<string>;
+        /**
          * Name of Rule to be applied in policy.
          */
         name: pulumi.Input<string>;

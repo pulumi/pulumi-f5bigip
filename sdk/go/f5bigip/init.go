@@ -7,6 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
+	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -52,6 +53,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NetIkePeer{}
 	case "f5bigip:index/netTunnel:NetTunnel":
 		r = &NetTunnel{}
+	case "f5bigip:index/sslKeyCert:SslKeyCert":
+		r = &SslKeyCert{}
 	case "f5bigip:index/trafficSelector:TrafficSelector":
 		r = &TrafficSelector{}
 	case "f5bigip:index/wafPolicy:WafPolicy":
@@ -83,7 +86,10 @@ func (p *pkg) ConstructProvider(ctx *pulumi.Context, name, typ, urn string) (pul
 }
 
 func init() {
-	version, _ := PkgVersion()
+	version, err := internal.PkgVersion()
+	if err != nil {
+		version = semver.Version{Major: 1}
+	}
 	pulumi.RegisterResourceModule(
 		"f5bigip",
 		"index/as3",
@@ -162,6 +168,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"f5bigip",
 		"index/netTunnel",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"f5bigip",
+		"index/sslKeyCert",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

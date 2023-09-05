@@ -7,11 +7,13 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Use this data source (`ltm.Node`) to get the ltm node details available on BIG-IP
 func LookupNode(ctx *pulumi.Context, args *LookupNodeArgs, opts ...pulumi.InvokeOption) (*LookupNodeResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNodeResult
 	err := ctx.Invoke("f5bigip:ltm/getNode:getNode", args, &rv, opts...)
 	if err != nil {

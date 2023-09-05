@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -80,6 +81,7 @@ func NewDeviceGroup(ctx *pulumi.Context,
 		args = &DeviceGroupArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource DeviceGroup
 	err := ctx.RegisterResource("f5bigip:cm/deviceGroup:DeviceGroup", name, args, &resource, opts...)
 	if err != nil {

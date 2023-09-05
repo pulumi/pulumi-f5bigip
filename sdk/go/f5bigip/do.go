@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -58,6 +59,7 @@ func NewDo(ctx *pulumi.Context,
 		"bigipTokenAuth",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Do
 	err := ctx.RegisterResource("f5bigip:index/do:Do", name, args, &resource, opts...)
 	if err != nil {

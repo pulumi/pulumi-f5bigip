@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -91,6 +92,7 @@ func NewSnat(ctx *pulumi.Context,
 	if args.Origins == nil {
 		return nil, errors.New("invalid value for required argument 'Origins'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Snat
 	err := ctx.RegisterResource("f5bigip:ltm/snat:Snat", name, args, &resource, opts...)
 	if err != nil {

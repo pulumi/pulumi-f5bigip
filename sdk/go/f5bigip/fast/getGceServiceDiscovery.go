@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func GetGceServiceDiscovery(ctx *pulumi.Context, args *GetGceServiceDiscoveryArgs, opts ...pulumi.InvokeOption) (*GetGceServiceDiscoveryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetGceServiceDiscoveryResult
 	err := ctx.Invoke("f5bigip:fast/getGceServiceDiscovery:getGceServiceDiscovery", args, &rv, opts...)
 	if err != nil {

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -111,6 +112,7 @@ func NewEventServiceDiscovery(ctx *pulumi.Context,
 	if args.Taskid == nil {
 		return nil, errors.New("invalid value for required argument 'Taskid'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource EventServiceDiscovery
 	err := ctx.RegisterResource("f5bigip:index/eventServiceDiscovery:EventServiceDiscovery", name, args, &resource, opts...)
 	if err != nil {

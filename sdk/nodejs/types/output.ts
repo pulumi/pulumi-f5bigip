@@ -664,6 +664,10 @@ export namespace ltm {
          */
         conditions?: outputs.ltm.PolicyRuleCondition[];
         /**
+         * Specifies descriptive text that identifies the irule attached to policy.
+         */
+        description?: string;
+        /**
          * Name of Rule to be applied in policy.
          */
         name: string;

@@ -93,6 +93,20 @@ public class Policy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.controls);
     }
     /**
+     * Specifies descriptive text that identifies the irule attached to policy.
+     * 
+     */
+    @Export(name="description", type=String.class, parameters={})
+    private Output</* @Nullable */ String> description;
+
+    /**
+     * @return Specifies descriptive text that identifies the irule attached to policy.
+     * 
+     */
+    public Output<Optional<String>> description() {
+        return Codegen.optional(this.description);
+    }
+    /**
      * Name of Rule to be applied in policy.
      * 
      */

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func GetIrule(ctx *pulumi.Context, args *GetIruleArgs, opts ...pulumi.InvokeOption) (*GetIruleResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetIruleResult
 	err := ctx.Invoke("f5bigip:ltm/getIrule:getIrule", args, &rv, opts...)
 	if err != nil {

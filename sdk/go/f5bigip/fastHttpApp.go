@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -163,6 +164,7 @@ func NewFastHttpApp(ctx *pulumi.Context,
 	if args.Tenant == nil {
 		return nil, errors.New("invalid value for required argument 'Tenant'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource FastHttpApp
 	err := ctx.RegisterResource("f5bigip:index/fastHttpApp:FastHttpApp", name, args, &resource, opts...)
 	if err != nil {

@@ -87,6 +87,7 @@
         "ssl/getWafSignatures.ts",
         "ssl/index.ts",
         "ssl/key.ts",
+        "sslKeyCert.ts",
         "sys/bigIpLicense.ts",
         "sys/dns.ts",
         "sys/iapp.ts",

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -95,6 +96,7 @@ func NewNetTunnel(ctx *pulumi.Context,
 	if args.Profile == nil {
 		return nil, errors.New("invalid value for required argument 'Profile'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource NetTunnel
 	err := ctx.RegisterResource("f5bigip:index/netTunnel:NetTunnel", name, args, &resource, opts...)
 	if err != nil {

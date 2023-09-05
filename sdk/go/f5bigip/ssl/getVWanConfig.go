@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -53,6 +54,7 @@ import (
 //
 // * `STORAGE_ACCOUNT_KEY` - (Required) Specifies the storage account key to authenticate,set this Environment variable with account key value.
 func GetVWanConfig(ctx *pulumi.Context, args *GetVWanConfigArgs, opts ...pulumi.InvokeOption) (*GetVWanConfigResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVWanConfigResult
 	err := ctx.Invoke("f5bigip:ssl/getVWanConfig:getVWanConfig", args, &rv, opts...)
 	if err != nil {

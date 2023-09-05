@@ -81,6 +81,12 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<ImmutableArray<string>> Controls { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies descriptive text that identifies the irule attached to policy.
+        /// </summary>
+        [Output("description")]
+        public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
         /// Name of Rule to be applied in policy.
         /// </summary>
         [Output("name")]
@@ -169,6 +175,12 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
+        /// Specifies descriptive text that identifies the irule attached to policy.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
         /// Name of Rule to be applied in policy.
         /// </summary>
         [Input("name", required: true)]
@@ -229,6 +241,12 @@ namespace Pulumi.F5BigIP.Ltm
             get => _controls ?? (_controls = new InputList<string>());
             set => _controls = value;
         }
+
+        /// <summary>
+        /// Specifies descriptive text that identifies the irule attached to policy.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
 
         /// <summary>
         /// Name of Rule to be applied in policy.

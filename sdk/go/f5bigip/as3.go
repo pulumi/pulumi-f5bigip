@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -563,6 +564,7 @@ func NewAs3(ctx *pulumi.Context,
 		args = &As3Args{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource As3
 	err := ctx.RegisterResource("f5bigip:index/as3:As3", name, args, &resource, opts...)
 	if err != nil {
