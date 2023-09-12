@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source (`ltm.Node`) to get the ltm node details available on BIG-IP
@@ -110,6 +111,12 @@ func (o LookupNodeResultOutput) ToLookupNodeResultOutput() LookupNodeResultOutpu
 
 func (o LookupNodeResultOutput) ToLookupNodeResultOutputWithContext(ctx context.Context) LookupNodeResultOutput {
 	return o
+}
+
+func (o LookupNodeResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupNodeResult] {
+	return pulumix.Output[LookupNodeResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The address of the node.

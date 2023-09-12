@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ltm.Snat` Manages a SNAT configuration
@@ -242,6 +243,12 @@ func (i *Snat) ToSnatOutputWithContext(ctx context.Context) SnatOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SnatOutput)
 }
 
+func (i *Snat) ToOutput(ctx context.Context) pulumix.Output[*Snat] {
+	return pulumix.Output[*Snat]{
+		OutputState: i.ToSnatOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SnatArrayInput is an input type that accepts SnatArray and SnatArrayOutput values.
 // You can construct a concrete instance of `SnatArrayInput` via:
 //
@@ -265,6 +272,12 @@ func (i SnatArray) ToSnatArrayOutput() SnatArrayOutput {
 
 func (i SnatArray) ToSnatArrayOutputWithContext(ctx context.Context) SnatArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SnatArrayOutput)
+}
+
+func (i SnatArray) ToOutput(ctx context.Context) pulumix.Output[[]*Snat] {
+	return pulumix.Output[[]*Snat]{
+		OutputState: i.ToSnatArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SnatMapInput is an input type that accepts SnatMap and SnatMapOutput values.
@@ -292,6 +305,12 @@ func (i SnatMap) ToSnatMapOutputWithContext(ctx context.Context) SnatMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SnatMapOutput)
 }
 
+func (i SnatMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Snat] {
+	return pulumix.Output[map[string]*Snat]{
+		OutputState: i.ToSnatMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SnatOutput struct{ *pulumi.OutputState }
 
 func (SnatOutput) ElementType() reflect.Type {
@@ -304,6 +323,12 @@ func (o SnatOutput) ToSnatOutput() SnatOutput {
 
 func (o SnatOutput) ToSnatOutputWithContext(ctx context.Context) SnatOutput {
 	return o
+}
+
+func (o SnatOutput) ToOutput(ctx context.Context) pulumix.Output[*Snat] {
+	return pulumix.Output[*Snat]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
@@ -375,6 +400,12 @@ func (o SnatArrayOutput) ToSnatArrayOutputWithContext(ctx context.Context) SnatA
 	return o
 }
 
+func (o SnatArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Snat] {
+	return pulumix.Output[[]*Snat]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SnatArrayOutput) Index(i pulumi.IntInput) SnatOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Snat {
 		return vs[0].([]*Snat)[vs[1].(int)]
@@ -393,6 +424,12 @@ func (o SnatMapOutput) ToSnatMapOutput() SnatMapOutput {
 
 func (o SnatMapOutput) ToSnatMapOutputWithContext(ctx context.Context) SnatMapOutput {
 	return o
+}
+
+func (o SnatMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Snat] {
+	return pulumix.Output[map[string]*Snat]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SnatMapOutput) MapIndex(k pulumi.StringInput) SnatOutput {

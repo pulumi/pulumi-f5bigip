@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `IpsecPolicy` Manage IPSec policies on a BIG-IP
@@ -262,6 +263,12 @@ func (i *IpsecPolicy) ToIpsecPolicyOutputWithContext(ctx context.Context) IpsecP
 	return pulumi.ToOutputWithContext(ctx, i).(IpsecPolicyOutput)
 }
 
+func (i *IpsecPolicy) ToOutput(ctx context.Context) pulumix.Output[*IpsecPolicy] {
+	return pulumix.Output[*IpsecPolicy]{
+		OutputState: i.ToIpsecPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IpsecPolicyArrayInput is an input type that accepts IpsecPolicyArray and IpsecPolicyArrayOutput values.
 // You can construct a concrete instance of `IpsecPolicyArrayInput` via:
 //
@@ -285,6 +292,12 @@ func (i IpsecPolicyArray) ToIpsecPolicyArrayOutput() IpsecPolicyArrayOutput {
 
 func (i IpsecPolicyArray) ToIpsecPolicyArrayOutputWithContext(ctx context.Context) IpsecPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IpsecPolicyArrayOutput)
+}
+
+func (i IpsecPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*IpsecPolicy] {
+	return pulumix.Output[[]*IpsecPolicy]{
+		OutputState: i.ToIpsecPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // IpsecPolicyMapInput is an input type that accepts IpsecPolicyMap and IpsecPolicyMapOutput values.
@@ -312,6 +325,12 @@ func (i IpsecPolicyMap) ToIpsecPolicyMapOutputWithContext(ctx context.Context) I
 	return pulumi.ToOutputWithContext(ctx, i).(IpsecPolicyMapOutput)
 }
 
+func (i IpsecPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IpsecPolicy] {
+	return pulumix.Output[map[string]*IpsecPolicy]{
+		OutputState: i.ToIpsecPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IpsecPolicyOutput struct{ *pulumi.OutputState }
 
 func (IpsecPolicyOutput) ElementType() reflect.Type {
@@ -324,6 +343,12 @@ func (o IpsecPolicyOutput) ToIpsecPolicyOutput() IpsecPolicyOutput {
 
 func (o IpsecPolicyOutput) ToIpsecPolicyOutputWithContext(ctx context.Context) IpsecPolicyOutput {
 	return o
+}
+
+func (o IpsecPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*IpsecPolicy] {
+	return pulumix.Output[*IpsecPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the algorithm to use for IKE authentication. Valid choices are: `sha1, sha256, sha384, sha512, aes-gcm128,
@@ -403,6 +428,12 @@ func (o IpsecPolicyArrayOutput) ToIpsecPolicyArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o IpsecPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IpsecPolicy] {
+	return pulumix.Output[[]*IpsecPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IpsecPolicyArrayOutput) Index(i pulumi.IntInput) IpsecPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IpsecPolicy {
 		return vs[0].([]*IpsecPolicy)[vs[1].(int)]
@@ -421,6 +452,12 @@ func (o IpsecPolicyMapOutput) ToIpsecPolicyMapOutput() IpsecPolicyMapOutput {
 
 func (o IpsecPolicyMapOutput) ToIpsecPolicyMapOutputWithContext(ctx context.Context) IpsecPolicyMapOutput {
 	return o
+}
+
+func (o IpsecPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IpsecPolicy] {
+	return pulumix.Output[map[string]*IpsecPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IpsecPolicyMapOutput) MapIndex(k pulumi.StringInput) IpsecPolicyOutput {

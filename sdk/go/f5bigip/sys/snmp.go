@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `sys.Snmp` provides details bout how to enable "ilx", "asm" "apm" resource on BIG-IP
@@ -145,6 +146,12 @@ func (i *Snmp) ToSnmpOutputWithContext(ctx context.Context) SnmpOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SnmpOutput)
 }
 
+func (i *Snmp) ToOutput(ctx context.Context) pulumix.Output[*Snmp] {
+	return pulumix.Output[*Snmp]{
+		OutputState: i.ToSnmpOutputWithContext(ctx).OutputState,
+	}
+}
+
 // SnmpArrayInput is an input type that accepts SnmpArray and SnmpArrayOutput values.
 // You can construct a concrete instance of `SnmpArrayInput` via:
 //
@@ -168,6 +175,12 @@ func (i SnmpArray) ToSnmpArrayOutput() SnmpArrayOutput {
 
 func (i SnmpArray) ToSnmpArrayOutputWithContext(ctx context.Context) SnmpArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SnmpArrayOutput)
+}
+
+func (i SnmpArray) ToOutput(ctx context.Context) pulumix.Output[[]*Snmp] {
+	return pulumix.Output[[]*Snmp]{
+		OutputState: i.ToSnmpArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // SnmpMapInput is an input type that accepts SnmpMap and SnmpMapOutput values.
@@ -195,6 +208,12 @@ func (i SnmpMap) ToSnmpMapOutputWithContext(ctx context.Context) SnmpMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SnmpMapOutput)
 }
 
+func (i SnmpMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Snmp] {
+	return pulumix.Output[map[string]*Snmp]{
+		OutputState: i.ToSnmpMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type SnmpOutput struct{ *pulumi.OutputState }
 
 func (SnmpOutput) ElementType() reflect.Type {
@@ -207,6 +226,12 @@ func (o SnmpOutput) ToSnmpOutput() SnmpOutput {
 
 func (o SnmpOutput) ToSnmpOutputWithContext(ctx context.Context) SnmpOutput {
 	return o
+}
+
+func (o SnmpOutput) ToOutput(ctx context.Context) pulumix.Output[*Snmp] {
+	return pulumix.Output[*Snmp]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Configures hosts or networks from which snmpd can accept traffic. Entries go directly into hosts.allow.
@@ -238,6 +263,12 @@ func (o SnmpArrayOutput) ToSnmpArrayOutputWithContext(ctx context.Context) SnmpA
 	return o
 }
 
+func (o SnmpArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Snmp] {
+	return pulumix.Output[[]*Snmp]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o SnmpArrayOutput) Index(i pulumi.IntInput) SnmpOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Snmp {
 		return vs[0].([]*Snmp)[vs[1].(int)]
@@ -256,6 +287,12 @@ func (o SnmpMapOutput) ToSnmpMapOutput() SnmpMapOutput {
 
 func (o SnmpMapOutput) ToSnmpMapOutputWithContext(ctx context.Context) SnmpMapOutput {
 	return o
+}
+
+func (o SnmpMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Snmp] {
+	return pulumix.Output[map[string]*Snmp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o SnmpMapOutput) MapIndex(k pulumi.StringInput) SnmpOutput {

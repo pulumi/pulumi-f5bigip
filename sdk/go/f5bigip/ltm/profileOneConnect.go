@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ltm.ProfileOneConnect` Configures a custom profileOneconnect for use by health checks.
@@ -228,6 +229,12 @@ func (i *ProfileOneConnect) ToProfileOneConnectOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileOneConnectOutput)
 }
 
+func (i *ProfileOneConnect) ToOutput(ctx context.Context) pulumix.Output[*ProfileOneConnect] {
+	return pulumix.Output[*ProfileOneConnect]{
+		OutputState: i.ToProfileOneConnectOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProfileOneConnectArrayInput is an input type that accepts ProfileOneConnectArray and ProfileOneConnectArrayOutput values.
 // You can construct a concrete instance of `ProfileOneConnectArrayInput` via:
 //
@@ -251,6 +258,12 @@ func (i ProfileOneConnectArray) ToProfileOneConnectArrayOutput() ProfileOneConne
 
 func (i ProfileOneConnectArray) ToProfileOneConnectArrayOutputWithContext(ctx context.Context) ProfileOneConnectArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileOneConnectArrayOutput)
+}
+
+func (i ProfileOneConnectArray) ToOutput(ctx context.Context) pulumix.Output[[]*ProfileOneConnect] {
+	return pulumix.Output[[]*ProfileOneConnect]{
+		OutputState: i.ToProfileOneConnectArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ProfileOneConnectMapInput is an input type that accepts ProfileOneConnectMap and ProfileOneConnectMapOutput values.
@@ -278,6 +291,12 @@ func (i ProfileOneConnectMap) ToProfileOneConnectMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileOneConnectMapOutput)
 }
 
+func (i ProfileOneConnectMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProfileOneConnect] {
+	return pulumix.Output[map[string]*ProfileOneConnect]{
+		OutputState: i.ToProfileOneConnectMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProfileOneConnectOutput struct{ *pulumi.OutputState }
 
 func (ProfileOneConnectOutput) ElementType() reflect.Type {
@@ -290,6 +309,12 @@ func (o ProfileOneConnectOutput) ToProfileOneConnectOutput() ProfileOneConnectOu
 
 func (o ProfileOneConnectOutput) ToProfileOneConnectOutputWithContext(ctx context.Context) ProfileOneConnectOutput {
 	return o
+}
+
+func (o ProfileOneConnectOutput) ToOutput(ctx context.Context) pulumix.Output[*ProfileOneConnect] {
+	return pulumix.Output[*ProfileOneConnect]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the profile that you want to use as the parent profile. Your new profile inherits all settings and values from the parent profile specified.
@@ -356,6 +381,12 @@ func (o ProfileOneConnectArrayOutput) ToProfileOneConnectArrayOutputWithContext(
 	return o
 }
 
+func (o ProfileOneConnectArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ProfileOneConnect] {
+	return pulumix.Output[[]*ProfileOneConnect]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProfileOneConnectArrayOutput) Index(i pulumi.IntInput) ProfileOneConnectOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProfileOneConnect {
 		return vs[0].([]*ProfileOneConnect)[vs[1].(int)]
@@ -374,6 +405,12 @@ func (o ProfileOneConnectMapOutput) ToProfileOneConnectMapOutput() ProfileOneCon
 
 func (o ProfileOneConnectMapOutput) ToProfileOneConnectMapOutputWithContext(ctx context.Context) ProfileOneConnectMapOutput {
 	return o
+}
+
+func (o ProfileOneConnectMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProfileOneConnect] {
+	return pulumix.Output[map[string]*ProfileOneConnect]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProfileOneConnectMapOutput) MapIndex(k pulumi.StringInput) ProfileOneConnectOutput {

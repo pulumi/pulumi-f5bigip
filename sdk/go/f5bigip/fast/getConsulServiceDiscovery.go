@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source (`fast.getConsulServiceDiscovery`) to get the Consul Service discovery config to be used for `http`/`https` app deployment in FAST.
@@ -153,6 +154,12 @@ func (o GetConsulServiceDiscoveryResultOutput) ToGetConsulServiceDiscoveryResult
 
 func (o GetConsulServiceDiscoveryResultOutput) ToGetConsulServiceDiscoveryResultOutputWithContext(ctx context.Context) GetConsulServiceDiscoveryResultOutput {
 	return o
+}
+
+func (o GetConsulServiceDiscoveryResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetConsulServiceDiscoveryResult] {
+	return pulumix.Output[GetConsulServiceDiscoveryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetConsulServiceDiscoveryResultOutput) AddressRealm() pulumi.StringPtrOutput {

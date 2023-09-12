@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -48,6 +49,12 @@ func (i DeviceGroupDeviceArgs) ToDeviceGroupDeviceOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceGroupDeviceOutput)
 }
 
+func (i DeviceGroupDeviceArgs) ToOutput(ctx context.Context) pulumix.Output[DeviceGroupDevice] {
+	return pulumix.Output[DeviceGroupDevice]{
+		OutputState: i.ToDeviceGroupDeviceOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DeviceGroupDeviceArrayInput is an input type that accepts DeviceGroupDeviceArray and DeviceGroupDeviceArrayOutput values.
 // You can construct a concrete instance of `DeviceGroupDeviceArrayInput` via:
 //
@@ -73,6 +80,12 @@ func (i DeviceGroupDeviceArray) ToDeviceGroupDeviceArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceGroupDeviceArrayOutput)
 }
 
+func (i DeviceGroupDeviceArray) ToOutput(ctx context.Context) pulumix.Output[[]DeviceGroupDevice] {
+	return pulumix.Output[[]DeviceGroupDevice]{
+		OutputState: i.ToDeviceGroupDeviceArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DeviceGroupDeviceOutput struct{ *pulumi.OutputState }
 
 func (DeviceGroupDeviceOutput) ElementType() reflect.Type {
@@ -85,6 +98,12 @@ func (o DeviceGroupDeviceOutput) ToDeviceGroupDeviceOutput() DeviceGroupDeviceOu
 
 func (o DeviceGroupDeviceOutput) ToDeviceGroupDeviceOutputWithContext(ctx context.Context) DeviceGroupDeviceOutput {
 	return o
+}
+
+func (o DeviceGroupDeviceOutput) ToOutput(ctx context.Context) pulumix.Output[DeviceGroupDevice] {
+	return pulumix.Output[DeviceGroupDevice]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Is the name of the device Group
@@ -108,6 +127,12 @@ func (o DeviceGroupDeviceArrayOutput) ToDeviceGroupDeviceArrayOutput() DeviceGro
 
 func (o DeviceGroupDeviceArrayOutput) ToDeviceGroupDeviceArrayOutputWithContext(ctx context.Context) DeviceGroupDeviceArrayOutput {
 	return o
+}
+
+func (o DeviceGroupDeviceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]DeviceGroupDevice] {
+	return pulumix.Output[[]DeviceGroupDevice]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DeviceGroupDeviceArrayOutput) Index(i pulumi.IntInput) DeviceGroupDeviceOutput {

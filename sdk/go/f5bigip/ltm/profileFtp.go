@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ltm.ProfileFtp` Configures a custom profile_ftp.
@@ -338,6 +339,12 @@ func (i *ProfileFtp) ToProfileFtpOutputWithContext(ctx context.Context) ProfileF
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileFtpOutput)
 }
 
+func (i *ProfileFtp) ToOutput(ctx context.Context) pulumix.Output[*ProfileFtp] {
+	return pulumix.Output[*ProfileFtp]{
+		OutputState: i.ToProfileFtpOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProfileFtpArrayInput is an input type that accepts ProfileFtpArray and ProfileFtpArrayOutput values.
 // You can construct a concrete instance of `ProfileFtpArrayInput` via:
 //
@@ -361,6 +368,12 @@ func (i ProfileFtpArray) ToProfileFtpArrayOutput() ProfileFtpArrayOutput {
 
 func (i ProfileFtpArray) ToProfileFtpArrayOutputWithContext(ctx context.Context) ProfileFtpArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileFtpArrayOutput)
+}
+
+func (i ProfileFtpArray) ToOutput(ctx context.Context) pulumix.Output[[]*ProfileFtp] {
+	return pulumix.Output[[]*ProfileFtp]{
+		OutputState: i.ToProfileFtpArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ProfileFtpMapInput is an input type that accepts ProfileFtpMap and ProfileFtpMapOutput values.
@@ -388,6 +401,12 @@ func (i ProfileFtpMap) ToProfileFtpMapOutputWithContext(ctx context.Context) Pro
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileFtpMapOutput)
 }
 
+func (i ProfileFtpMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProfileFtp] {
+	return pulumix.Output[map[string]*ProfileFtp]{
+		OutputState: i.ToProfileFtpMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProfileFtpOutput struct{ *pulumi.OutputState }
 
 func (ProfileFtpOutput) ElementType() reflect.Type {
@@ -400,6 +419,12 @@ func (o ProfileFtpOutput) ToProfileFtpOutput() ProfileFtpOutput {
 
 func (o ProfileFtpOutput) ToProfileFtpOutputWithContext(ctx context.Context) ProfileFtpOutput {
 	return o
+}
+
+func (o ProfileFtpOutput) ToOutput(ctx context.Context) pulumix.Output[*ProfileFtp] {
+	return pulumix.Output[*ProfileFtp]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies, when selected (enabled), that the system allows FTP Active Transfer mode. The default value is enabled
@@ -498,6 +523,12 @@ func (o ProfileFtpArrayOutput) ToProfileFtpArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o ProfileFtpArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ProfileFtp] {
+	return pulumix.Output[[]*ProfileFtp]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProfileFtpArrayOutput) Index(i pulumi.IntInput) ProfileFtpOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProfileFtp {
 		return vs[0].([]*ProfileFtp)[vs[1].(int)]
@@ -516,6 +547,12 @@ func (o ProfileFtpMapOutput) ToProfileFtpMapOutput() ProfileFtpMapOutput {
 
 func (o ProfileFtpMapOutput) ToProfileFtpMapOutputWithContext(ctx context.Context) ProfileFtpMapOutput {
 	return o
+}
+
+func (o ProfileFtpMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProfileFtp] {
+	return pulumix.Output[map[string]*ProfileFtp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProfileFtpMapOutput) MapIndex(k pulumi.StringInput) ProfileFtpOutput {

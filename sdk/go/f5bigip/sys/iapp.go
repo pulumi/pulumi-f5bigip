@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `sys.IApp` resource helps you to deploy Application Services template that can be used to automate and orchestrate Layer 4-7 applications service deployments using F5 Network.
@@ -307,6 +308,12 @@ func (i *IApp) ToIAppOutputWithContext(ctx context.Context) IAppOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IAppOutput)
 }
 
+func (i *IApp) ToOutput(ctx context.Context) pulumix.Output[*IApp] {
+	return pulumix.Output[*IApp]{
+		OutputState: i.ToIAppOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IAppArrayInput is an input type that accepts IAppArray and IAppArrayOutput values.
 // You can construct a concrete instance of `IAppArrayInput` via:
 //
@@ -330,6 +337,12 @@ func (i IAppArray) ToIAppArrayOutput() IAppArrayOutput {
 
 func (i IAppArray) ToIAppArrayOutputWithContext(ctx context.Context) IAppArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IAppArrayOutput)
+}
+
+func (i IAppArray) ToOutput(ctx context.Context) pulumix.Output[[]*IApp] {
+	return pulumix.Output[[]*IApp]{
+		OutputState: i.ToIAppArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // IAppMapInput is an input type that accepts IAppMap and IAppMapOutput values.
@@ -357,6 +370,12 @@ func (i IAppMap) ToIAppMapOutputWithContext(ctx context.Context) IAppMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IAppMapOutput)
 }
 
+func (i IAppMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IApp] {
+	return pulumix.Output[map[string]*IApp]{
+		OutputState: i.ToIAppMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IAppOutput struct{ *pulumi.OutputState }
 
 func (IAppOutput) ElementType() reflect.Type {
@@ -369,6 +388,12 @@ func (o IAppOutput) ToIAppOutput() IAppOutput {
 
 func (o IAppOutput) ToIAppOutputWithContext(ctx context.Context) IAppOutput {
 	return o
+}
+
+func (o IAppOutput) ToOutput(ctx context.Context) pulumix.Output[*IApp] {
+	return pulumix.Output[*IApp]{
+		OutputState: o.OutputState,
+	}
 }
 
 // User defined description.
@@ -468,6 +493,12 @@ func (o IAppArrayOutput) ToIAppArrayOutputWithContext(ctx context.Context) IAppA
 	return o
 }
 
+func (o IAppArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IApp] {
+	return pulumix.Output[[]*IApp]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IAppArrayOutput) Index(i pulumi.IntInput) IAppOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IApp {
 		return vs[0].([]*IApp)[vs[1].(int)]
@@ -486,6 +517,12 @@ func (o IAppMapOutput) ToIAppMapOutput() IAppMapOutput {
 
 func (o IAppMapOutput) ToIAppMapOutputWithContext(ctx context.Context) IAppMapOutput {
 	return o
+}
+
+func (o IAppMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IApp] {
+	return pulumix.Output[map[string]*IApp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IAppMapOutput) MapIndex(k pulumi.StringInput) IAppOutput {

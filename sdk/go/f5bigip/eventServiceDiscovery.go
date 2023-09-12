@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -366,6 +367,12 @@ func (i *EventServiceDiscovery) ToEventServiceDiscoveryOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(EventServiceDiscoveryOutput)
 }
 
+func (i *EventServiceDiscovery) ToOutput(ctx context.Context) pulumix.Output[*EventServiceDiscovery] {
+	return pulumix.Output[*EventServiceDiscovery]{
+		OutputState: i.ToEventServiceDiscoveryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // EventServiceDiscoveryArrayInput is an input type that accepts EventServiceDiscoveryArray and EventServiceDiscoveryArrayOutput values.
 // You can construct a concrete instance of `EventServiceDiscoveryArrayInput` via:
 //
@@ -389,6 +396,12 @@ func (i EventServiceDiscoveryArray) ToEventServiceDiscoveryArrayOutput() EventSe
 
 func (i EventServiceDiscoveryArray) ToEventServiceDiscoveryArrayOutputWithContext(ctx context.Context) EventServiceDiscoveryArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventServiceDiscoveryArrayOutput)
+}
+
+func (i EventServiceDiscoveryArray) ToOutput(ctx context.Context) pulumix.Output[[]*EventServiceDiscovery] {
+	return pulumix.Output[[]*EventServiceDiscovery]{
+		OutputState: i.ToEventServiceDiscoveryArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // EventServiceDiscoveryMapInput is an input type that accepts EventServiceDiscoveryMap and EventServiceDiscoveryMapOutput values.
@@ -416,6 +429,12 @@ func (i EventServiceDiscoveryMap) ToEventServiceDiscoveryMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(EventServiceDiscoveryMapOutput)
 }
 
+func (i EventServiceDiscoveryMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventServiceDiscovery] {
+	return pulumix.Output[map[string]*EventServiceDiscovery]{
+		OutputState: i.ToEventServiceDiscoveryMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type EventServiceDiscoveryOutput struct{ *pulumi.OutputState }
 
 func (EventServiceDiscoveryOutput) ElementType() reflect.Type {
@@ -428,6 +447,12 @@ func (o EventServiceDiscoveryOutput) ToEventServiceDiscoveryOutput() EventServic
 
 func (o EventServiceDiscoveryOutput) ToEventServiceDiscoveryOutputWithContext(ctx context.Context) EventServiceDiscoveryOutput {
 	return o
+}
+
+func (o EventServiceDiscoveryOutput) ToOutput(ctx context.Context) pulumix.Output[*EventServiceDiscovery] {
+	return pulumix.Output[*EventServiceDiscovery]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
@@ -498,6 +523,12 @@ func (o EventServiceDiscoveryArrayOutput) ToEventServiceDiscoveryArrayOutputWith
 	return o
 }
 
+func (o EventServiceDiscoveryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*EventServiceDiscovery] {
+	return pulumix.Output[[]*EventServiceDiscovery]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o EventServiceDiscoveryArrayOutput) Index(i pulumi.IntInput) EventServiceDiscoveryOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventServiceDiscovery {
 		return vs[0].([]*EventServiceDiscovery)[vs[1].(int)]
@@ -516,6 +547,12 @@ func (o EventServiceDiscoveryMapOutput) ToEventServiceDiscoveryMapOutput() Event
 
 func (o EventServiceDiscoveryMapOutput) ToEventServiceDiscoveryMapOutputWithContext(ctx context.Context) EventServiceDiscoveryMapOutput {
 	return o
+}
+
+func (o EventServiceDiscoveryMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*EventServiceDiscovery] {
+	return pulumix.Output[map[string]*EventServiceDiscovery]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o EventServiceDiscoveryMapOutput) MapIndex(k pulumi.StringInput) EventServiceDiscoveryOutput {

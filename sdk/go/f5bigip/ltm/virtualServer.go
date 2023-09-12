@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ltm.VirtualServer` Configures Virtual Server
@@ -429,6 +430,12 @@ func (i *VirtualServer) ToVirtualServerOutputWithContext(ctx context.Context) Vi
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualServerOutput)
 }
 
+func (i *VirtualServer) ToOutput(ctx context.Context) pulumix.Output[*VirtualServer] {
+	return pulumix.Output[*VirtualServer]{
+		OutputState: i.ToVirtualServerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualServerArrayInput is an input type that accepts VirtualServerArray and VirtualServerArrayOutput values.
 // You can construct a concrete instance of `VirtualServerArrayInput` via:
 //
@@ -452,6 +459,12 @@ func (i VirtualServerArray) ToVirtualServerArrayOutput() VirtualServerArrayOutpu
 
 func (i VirtualServerArray) ToVirtualServerArrayOutputWithContext(ctx context.Context) VirtualServerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualServerArrayOutput)
+}
+
+func (i VirtualServerArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualServer] {
+	return pulumix.Output[[]*VirtualServer]{
+		OutputState: i.ToVirtualServerArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VirtualServerMapInput is an input type that accepts VirtualServerMap and VirtualServerMapOutput values.
@@ -479,6 +492,12 @@ func (i VirtualServerMap) ToVirtualServerMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualServerMapOutput)
 }
 
+func (i VirtualServerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualServer] {
+	return pulumix.Output[map[string]*VirtualServer]{
+		OutputState: i.ToVirtualServerMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualServerOutput struct{ *pulumi.OutputState }
 
 func (VirtualServerOutput) ElementType() reflect.Type {
@@ -491,6 +510,12 @@ func (o VirtualServerOutput) ToVirtualServerOutput() VirtualServerOutput {
 
 func (o VirtualServerOutput) ToVirtualServerOutputWithContext(ctx context.Context) VirtualServerOutput {
 	return o
+}
+
+func (o VirtualServerOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualServer] {
+	return pulumix.Output[*VirtualServer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
@@ -645,6 +670,12 @@ func (o VirtualServerArrayOutput) ToVirtualServerArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o VirtualServerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualServer] {
+	return pulumix.Output[[]*VirtualServer]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualServerArrayOutput) Index(i pulumi.IntInput) VirtualServerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualServer {
 		return vs[0].([]*VirtualServer)[vs[1].(int)]
@@ -663,6 +694,12 @@ func (o VirtualServerMapOutput) ToVirtualServerMapOutput() VirtualServerMapOutpu
 
 func (o VirtualServerMapOutput) ToVirtualServerMapOutputWithContext(ctx context.Context) VirtualServerMapOutput {
 	return o
+}
+
+func (o VirtualServerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualServer] {
+	return pulumix.Output[map[string]*VirtualServer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualServerMapOutput) MapIndex(k pulumi.StringInput) VirtualServerOutput {

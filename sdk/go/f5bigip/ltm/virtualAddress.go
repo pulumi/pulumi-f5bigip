@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ltm.VirtualAddress` Configures Virtual Server
@@ -199,6 +200,12 @@ func (i *VirtualAddress) ToVirtualAddressOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualAddressOutput)
 }
 
+func (i *VirtualAddress) ToOutput(ctx context.Context) pulumix.Output[*VirtualAddress] {
+	return pulumix.Output[*VirtualAddress]{
+		OutputState: i.ToVirtualAddressOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VirtualAddressArrayInput is an input type that accepts VirtualAddressArray and VirtualAddressArrayOutput values.
 // You can construct a concrete instance of `VirtualAddressArrayInput` via:
 //
@@ -222,6 +229,12 @@ func (i VirtualAddressArray) ToVirtualAddressArrayOutput() VirtualAddressArrayOu
 
 func (i VirtualAddressArray) ToVirtualAddressArrayOutputWithContext(ctx context.Context) VirtualAddressArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualAddressArrayOutput)
+}
+
+func (i VirtualAddressArray) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualAddress] {
+	return pulumix.Output[[]*VirtualAddress]{
+		OutputState: i.ToVirtualAddressArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VirtualAddressMapInput is an input type that accepts VirtualAddressMap and VirtualAddressMapOutput values.
@@ -249,6 +262,12 @@ func (i VirtualAddressMap) ToVirtualAddressMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(VirtualAddressMapOutput)
 }
 
+func (i VirtualAddressMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualAddress] {
+	return pulumix.Output[map[string]*VirtualAddress]{
+		OutputState: i.ToVirtualAddressMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VirtualAddressOutput struct{ *pulumi.OutputState }
 
 func (VirtualAddressOutput) ElementType() reflect.Type {
@@ -261,6 +280,12 @@ func (o VirtualAddressOutput) ToVirtualAddressOutput() VirtualAddressOutput {
 
 func (o VirtualAddressOutput) ToVirtualAddressOutputWithContext(ctx context.Context) VirtualAddressOutput {
 	return o
+}
+
+func (o VirtualAddressOutput) ToOutput(ctx context.Context) pulumix.Output[*VirtualAddress] {
+	return pulumix.Output[*VirtualAddress]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )
@@ -317,6 +342,12 @@ func (o VirtualAddressArrayOutput) ToVirtualAddressArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o VirtualAddressArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VirtualAddress] {
+	return pulumix.Output[[]*VirtualAddress]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VirtualAddressArrayOutput) Index(i pulumi.IntInput) VirtualAddressOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VirtualAddress {
 		return vs[0].([]*VirtualAddress)[vs[1].(int)]
@@ -335,6 +366,12 @@ func (o VirtualAddressMapOutput) ToVirtualAddressMapOutput() VirtualAddressMapOu
 
 func (o VirtualAddressMapOutput) ToVirtualAddressMapOutputWithContext(ctx context.Context) VirtualAddressMapOutput {
 	return o
+}
+
+func (o VirtualAddressMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VirtualAddress] {
+	return pulumix.Output[map[string]*VirtualAddress]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VirtualAddressMapOutput) MapIndex(k pulumi.StringInput) VirtualAddressOutput {

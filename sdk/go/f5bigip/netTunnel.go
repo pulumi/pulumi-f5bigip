@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `NetTunnel` Manages a tunnel configuration
@@ -294,6 +295,12 @@ func (i *NetTunnel) ToNetTunnelOutputWithContext(ctx context.Context) NetTunnelO
 	return pulumi.ToOutputWithContext(ctx, i).(NetTunnelOutput)
 }
 
+func (i *NetTunnel) ToOutput(ctx context.Context) pulumix.Output[*NetTunnel] {
+	return pulumix.Output[*NetTunnel]{
+		OutputState: i.ToNetTunnelOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NetTunnelArrayInput is an input type that accepts NetTunnelArray and NetTunnelArrayOutput values.
 // You can construct a concrete instance of `NetTunnelArrayInput` via:
 //
@@ -317,6 +324,12 @@ func (i NetTunnelArray) ToNetTunnelArrayOutput() NetTunnelArrayOutput {
 
 func (i NetTunnelArray) ToNetTunnelArrayOutputWithContext(ctx context.Context) NetTunnelArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetTunnelArrayOutput)
+}
+
+func (i NetTunnelArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetTunnel] {
+	return pulumix.Output[[]*NetTunnel]{
+		OutputState: i.ToNetTunnelArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NetTunnelMapInput is an input type that accepts NetTunnelMap and NetTunnelMapOutput values.
@@ -344,6 +357,12 @@ func (i NetTunnelMap) ToNetTunnelMapOutputWithContext(ctx context.Context) NetTu
 	return pulumi.ToOutputWithContext(ctx, i).(NetTunnelMapOutput)
 }
 
+func (i NetTunnelMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetTunnel] {
+	return pulumix.Output[map[string]*NetTunnel]{
+		OutputState: i.ToNetTunnelMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetTunnelOutput struct{ *pulumi.OutputState }
 
 func (NetTunnelOutput) ElementType() reflect.Type {
@@ -356,6 +375,12 @@ func (o NetTunnelOutput) ToNetTunnelOutput() NetTunnelOutput {
 
 func (o NetTunnelOutput) ToNetTunnelOutputWithContext(ctx context.Context) NetTunnelOutput {
 	return o
+}
+
+func (o NetTunnelOutput) ToOutput(ctx context.Context) pulumix.Output[*NetTunnel] {
+	return pulumix.Output[*NetTunnel]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The application service that the object belongs to
@@ -457,6 +482,12 @@ func (o NetTunnelArrayOutput) ToNetTunnelArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o NetTunnelArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetTunnel] {
+	return pulumix.Output[[]*NetTunnel]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetTunnelArrayOutput) Index(i pulumi.IntInput) NetTunnelOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetTunnel {
 		return vs[0].([]*NetTunnel)[vs[1].(int)]
@@ -475,6 +506,12 @@ func (o NetTunnelMapOutput) ToNetTunnelMapOutput() NetTunnelMapOutput {
 
 func (o NetTunnelMapOutput) ToNetTunnelMapOutputWithContext(ctx context.Context) NetTunnelMapOutput {
 	return o
+}
+
+func (o NetTunnelMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetTunnel] {
+	return pulumix.Output[map[string]*NetTunnel]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetTunnelMapOutput) MapIndex(k pulumi.StringInput) NetTunnelOutput {

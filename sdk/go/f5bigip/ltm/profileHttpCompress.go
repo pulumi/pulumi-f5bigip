@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ltm.ProfileHttpCompress`  Virtual server HTTP compression profile configuration
@@ -272,6 +273,12 @@ func (i *ProfileHttpCompress) ToProfileHttpCompressOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileHttpCompressOutput)
 }
 
+func (i *ProfileHttpCompress) ToOutput(ctx context.Context) pulumix.Output[*ProfileHttpCompress] {
+	return pulumix.Output[*ProfileHttpCompress]{
+		OutputState: i.ToProfileHttpCompressOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProfileHttpCompressArrayInput is an input type that accepts ProfileHttpCompressArray and ProfileHttpCompressArrayOutput values.
 // You can construct a concrete instance of `ProfileHttpCompressArrayInput` via:
 //
@@ -295,6 +302,12 @@ func (i ProfileHttpCompressArray) ToProfileHttpCompressArrayOutput() ProfileHttp
 
 func (i ProfileHttpCompressArray) ToProfileHttpCompressArrayOutputWithContext(ctx context.Context) ProfileHttpCompressArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileHttpCompressArrayOutput)
+}
+
+func (i ProfileHttpCompressArray) ToOutput(ctx context.Context) pulumix.Output[[]*ProfileHttpCompress] {
+	return pulumix.Output[[]*ProfileHttpCompress]{
+		OutputState: i.ToProfileHttpCompressArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ProfileHttpCompressMapInput is an input type that accepts ProfileHttpCompressMap and ProfileHttpCompressMapOutput values.
@@ -322,6 +335,12 @@ func (i ProfileHttpCompressMap) ToProfileHttpCompressMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileHttpCompressMapOutput)
 }
 
+func (i ProfileHttpCompressMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProfileHttpCompress] {
+	return pulumix.Output[map[string]*ProfileHttpCompress]{
+		OutputState: i.ToProfileHttpCompressMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProfileHttpCompressOutput struct{ *pulumi.OutputState }
 
 func (ProfileHttpCompressOutput) ElementType() reflect.Type {
@@ -334,6 +353,12 @@ func (o ProfileHttpCompressOutput) ToProfileHttpCompressOutput() ProfileHttpComp
 
 func (o ProfileHttpCompressOutput) ToProfileHttpCompressOutputWithContext(ctx context.Context) ProfileHttpCompressOutput {
 	return o
+}
+
+func (o ProfileHttpCompressOutput) ToOutput(ctx context.Context) pulumix.Output[*ProfileHttpCompress] {
+	return pulumix.Output[*ProfileHttpCompress]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the maximum number of compressed bytes that the system buffers before inserting a Content-Length header (which specifies the compressed size) into the response. The default is `4096` bytes.
@@ -415,6 +440,12 @@ func (o ProfileHttpCompressArrayOutput) ToProfileHttpCompressArrayOutputWithCont
 	return o
 }
 
+func (o ProfileHttpCompressArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ProfileHttpCompress] {
+	return pulumix.Output[[]*ProfileHttpCompress]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProfileHttpCompressArrayOutput) Index(i pulumi.IntInput) ProfileHttpCompressOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProfileHttpCompress {
 		return vs[0].([]*ProfileHttpCompress)[vs[1].(int)]
@@ -433,6 +464,12 @@ func (o ProfileHttpCompressMapOutput) ToProfileHttpCompressMapOutput() ProfileHt
 
 func (o ProfileHttpCompressMapOutput) ToProfileHttpCompressMapOutputWithContext(ctx context.Context) ProfileHttpCompressMapOutput {
 	return o
+}
+
+func (o ProfileHttpCompressMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProfileHttpCompress] {
+	return pulumix.Output[map[string]*ProfileHttpCompress]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProfileHttpCompressMapOutput) MapIndex(k pulumi.StringInput) ProfileHttpCompressOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ltm.DataGroup` Manages internal (in-line) datagroup configuration
@@ -150,6 +151,12 @@ func (i *DataGroup) ToDataGroupOutputWithContext(ctx context.Context) DataGroupO
 	return pulumi.ToOutputWithContext(ctx, i).(DataGroupOutput)
 }
 
+func (i *DataGroup) ToOutput(ctx context.Context) pulumix.Output[*DataGroup] {
+	return pulumix.Output[*DataGroup]{
+		OutputState: i.ToDataGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // DataGroupArrayInput is an input type that accepts DataGroupArray and DataGroupArrayOutput values.
 // You can construct a concrete instance of `DataGroupArrayInput` via:
 //
@@ -173,6 +180,12 @@ func (i DataGroupArray) ToDataGroupArrayOutput() DataGroupArrayOutput {
 
 func (i DataGroupArray) ToDataGroupArrayOutputWithContext(ctx context.Context) DataGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DataGroupArrayOutput)
+}
+
+func (i DataGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*DataGroup] {
+	return pulumix.Output[[]*DataGroup]{
+		OutputState: i.ToDataGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // DataGroupMapInput is an input type that accepts DataGroupMap and DataGroupMapOutput values.
@@ -200,6 +213,12 @@ func (i DataGroupMap) ToDataGroupMapOutputWithContext(ctx context.Context) DataG
 	return pulumi.ToOutputWithContext(ctx, i).(DataGroupMapOutput)
 }
 
+func (i DataGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataGroup] {
+	return pulumix.Output[map[string]*DataGroup]{
+		OutputState: i.ToDataGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type DataGroupOutput struct{ *pulumi.OutputState }
 
 func (DataGroupOutput) ElementType() reflect.Type {
@@ -212,6 +231,12 @@ func (o DataGroupOutput) ToDataGroupOutput() DataGroupOutput {
 
 func (o DataGroupOutput) ToDataGroupOutputWithContext(ctx context.Context) DataGroupOutput {
 	return o
+}
+
+func (o DataGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*DataGroup] {
+	return pulumix.Output[*DataGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set `false` if you want to Create External Datagroups. default is `true`,means creates internal datagroup.
@@ -254,6 +279,12 @@ func (o DataGroupArrayOutput) ToDataGroupArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o DataGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DataGroup] {
+	return pulumix.Output[[]*DataGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o DataGroupArrayOutput) Index(i pulumi.IntInput) DataGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DataGroup {
 		return vs[0].([]*DataGroup)[vs[1].(int)]
@@ -272,6 +303,12 @@ func (o DataGroupMapOutput) ToDataGroupMapOutput() DataGroupMapOutput {
 
 func (o DataGroupMapOutput) ToDataGroupMapOutputWithContext(ctx context.Context) DataGroupMapOutput {
 	return o
+}
+
+func (o DataGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DataGroup] {
+	return pulumix.Output[map[string]*DataGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o DataGroupMapOutput) MapIndex(k pulumi.StringInput) DataGroupOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ltm.ProfileTcp` Configures a custom TCP LTM Profile for use by health checks.
@@ -345,6 +346,12 @@ func (i *ProfileTcp) ToProfileTcpOutputWithContext(ctx context.Context) ProfileT
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileTcpOutput)
 }
 
+func (i *ProfileTcp) ToOutput(ctx context.Context) pulumix.Output[*ProfileTcp] {
+	return pulumix.Output[*ProfileTcp]{
+		OutputState: i.ToProfileTcpOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProfileTcpArrayInput is an input type that accepts ProfileTcpArray and ProfileTcpArrayOutput values.
 // You can construct a concrete instance of `ProfileTcpArrayInput` via:
 //
@@ -368,6 +375,12 @@ func (i ProfileTcpArray) ToProfileTcpArrayOutput() ProfileTcpArrayOutput {
 
 func (i ProfileTcpArray) ToProfileTcpArrayOutputWithContext(ctx context.Context) ProfileTcpArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileTcpArrayOutput)
+}
+
+func (i ProfileTcpArray) ToOutput(ctx context.Context) pulumix.Output[[]*ProfileTcp] {
+	return pulumix.Output[[]*ProfileTcp]{
+		OutputState: i.ToProfileTcpArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ProfileTcpMapInput is an input type that accepts ProfileTcpMap and ProfileTcpMapOutput values.
@@ -395,6 +408,12 @@ func (i ProfileTcpMap) ToProfileTcpMapOutputWithContext(ctx context.Context) Pro
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileTcpMapOutput)
 }
 
+func (i ProfileTcpMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProfileTcp] {
+	return pulumix.Output[map[string]*ProfileTcp]{
+		OutputState: i.ToProfileTcpMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProfileTcpOutput struct{ *pulumi.OutputState }
 
 func (ProfileTcpOutput) ElementType() reflect.Type {
@@ -407,6 +426,12 @@ func (o ProfileTcpOutput) ToProfileTcpOutput() ProfileTcpOutput {
 
 func (o ProfileTcpOutput) ToProfileTcpOutputWithContext(ctx context.Context) ProfileTcpOutput {
 	return o
+}
+
+func (o ProfileTcpOutput) ToOutput(ctx context.Context) pulumix.Output[*ProfileTcp] {
+	return pulumix.Output[*ProfileTcp]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the number of seconds that a connection remains in a LAST-ACK state before quitting. A value of 0 represents a term of forever (or until the maxrtx of the FIN state). The default value is 5 seconds.
@@ -533,6 +558,12 @@ func (o ProfileTcpArrayOutput) ToProfileTcpArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o ProfileTcpArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ProfileTcp] {
+	return pulumix.Output[[]*ProfileTcp]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProfileTcpArrayOutput) Index(i pulumi.IntInput) ProfileTcpOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProfileTcp {
 		return vs[0].([]*ProfileTcp)[vs[1].(int)]
@@ -551,6 +582,12 @@ func (o ProfileTcpMapOutput) ToProfileTcpMapOutput() ProfileTcpMapOutput {
 
 func (o ProfileTcpMapOutput) ToProfileTcpMapOutputWithContext(ctx context.Context) ProfileTcpMapOutput {
 	return o
+}
+
+func (o ProfileTcpMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProfileTcp] {
+	return pulumix.Output[map[string]*ProfileTcp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProfileTcpMapOutput) MapIndex(k pulumi.StringInput) ProfileTcpOutput {

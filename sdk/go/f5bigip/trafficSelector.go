@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `TrafficSelector` Manage IPSec Traffic Selectors on BIG-IP
@@ -231,6 +232,12 @@ func (i *TrafficSelector) ToTrafficSelectorOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficSelectorOutput)
 }
 
+func (i *TrafficSelector) ToOutput(ctx context.Context) pulumix.Output[*TrafficSelector] {
+	return pulumix.Output[*TrafficSelector]{
+		OutputState: i.ToTrafficSelectorOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TrafficSelectorArrayInput is an input type that accepts TrafficSelectorArray and TrafficSelectorArrayOutput values.
 // You can construct a concrete instance of `TrafficSelectorArrayInput` via:
 //
@@ -254,6 +261,12 @@ func (i TrafficSelectorArray) ToTrafficSelectorArrayOutput() TrafficSelectorArra
 
 func (i TrafficSelectorArray) ToTrafficSelectorArrayOutputWithContext(ctx context.Context) TrafficSelectorArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficSelectorArrayOutput)
+}
+
+func (i TrafficSelectorArray) ToOutput(ctx context.Context) pulumix.Output[[]*TrafficSelector] {
+	return pulumix.Output[[]*TrafficSelector]{
+		OutputState: i.ToTrafficSelectorArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TrafficSelectorMapInput is an input type that accepts TrafficSelectorMap and TrafficSelectorMapOutput values.
@@ -281,6 +294,12 @@ func (i TrafficSelectorMap) ToTrafficSelectorMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(TrafficSelectorMapOutput)
 }
 
+func (i TrafficSelectorMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TrafficSelector] {
+	return pulumix.Output[map[string]*TrafficSelector]{
+		OutputState: i.ToTrafficSelectorMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TrafficSelectorOutput struct{ *pulumi.OutputState }
 
 func (TrafficSelectorOutput) ElementType() reflect.Type {
@@ -293,6 +312,12 @@ func (o TrafficSelectorOutput) ToTrafficSelectorOutput() TrafficSelectorOutput {
 
 func (o TrafficSelectorOutput) ToTrafficSelectorOutputWithContext(ctx context.Context) TrafficSelectorOutput {
 	return o
+}
+
+func (o TrafficSelectorOutput) ToOutput(ctx context.Context) pulumix.Output[*TrafficSelector] {
+	return pulumix.Output[*TrafficSelector]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Description of the traffic selector.
@@ -360,6 +385,12 @@ func (o TrafficSelectorArrayOutput) ToTrafficSelectorArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o TrafficSelectorArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TrafficSelector] {
+	return pulumix.Output[[]*TrafficSelector]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TrafficSelectorArrayOutput) Index(i pulumi.IntInput) TrafficSelectorOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TrafficSelector {
 		return vs[0].([]*TrafficSelector)[vs[1].(int)]
@@ -378,6 +409,12 @@ func (o TrafficSelectorMapOutput) ToTrafficSelectorMapOutput() TrafficSelectorMa
 
 func (o TrafficSelectorMapOutput) ToTrafficSelectorMapOutputWithContext(ctx context.Context) TrafficSelectorMapOutput {
 	return o
+}
+
+func (o TrafficSelectorMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TrafficSelector] {
+	return pulumix.Output[map[string]*TrafficSelector]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TrafficSelectorMapOutput) MapIndex(k pulumi.StringInput) TrafficSelectorOutput {

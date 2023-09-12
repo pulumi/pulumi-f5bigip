@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ltm.ProfileHttp2` Configures a custom profileHttp2 for use by health checks.
@@ -267,6 +268,12 @@ func (i *ProfileHttp2) ToProfileHttp2OutputWithContext(ctx context.Context) Prof
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileHttp2Output)
 }
 
+func (i *ProfileHttp2) ToOutput(ctx context.Context) pulumix.Output[*ProfileHttp2] {
+	return pulumix.Output[*ProfileHttp2]{
+		OutputState: i.ToProfileHttp2OutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProfileHttp2ArrayInput is an input type that accepts ProfileHttp2Array and ProfileHttp2ArrayOutput values.
 // You can construct a concrete instance of `ProfileHttp2ArrayInput` via:
 //
@@ -290,6 +297,12 @@ func (i ProfileHttp2Array) ToProfileHttp2ArrayOutput() ProfileHttp2ArrayOutput {
 
 func (i ProfileHttp2Array) ToProfileHttp2ArrayOutputWithContext(ctx context.Context) ProfileHttp2ArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileHttp2ArrayOutput)
+}
+
+func (i ProfileHttp2Array) ToOutput(ctx context.Context) pulumix.Output[[]*ProfileHttp2] {
+	return pulumix.Output[[]*ProfileHttp2]{
+		OutputState: i.ToProfileHttp2ArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ProfileHttp2MapInput is an input type that accepts ProfileHttp2Map and ProfileHttp2MapOutput values.
@@ -317,6 +330,12 @@ func (i ProfileHttp2Map) ToProfileHttp2MapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileHttp2MapOutput)
 }
 
+func (i ProfileHttp2Map) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProfileHttp2] {
+	return pulumix.Output[map[string]*ProfileHttp2]{
+		OutputState: i.ToProfileHttp2MapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProfileHttp2Output struct{ *pulumi.OutputState }
 
 func (ProfileHttp2Output) ElementType() reflect.Type {
@@ -329,6 +348,12 @@ func (o ProfileHttp2Output) ToProfileHttp2Output() ProfileHttp2Output {
 
 func (o ProfileHttp2Output) ToProfileHttp2OutputWithContext(ctx context.Context) ProfileHttp2Output {
 	return o
+}
+
+func (o ProfileHttp2Output) ToOutput(ctx context.Context) pulumix.Output[*ProfileHttp2] {
+	return pulumix.Output[*ProfileHttp2]{
+		OutputState: o.OutputState,
+	}
 }
 
 // This setting specifies the condition that will cause the BIG-IP system to handle an incoming connection as an HTTP/2 connection, Allowed values : `[“alpn”]` (or) `[“always”]`.
@@ -410,6 +435,12 @@ func (o ProfileHttp2ArrayOutput) ToProfileHttp2ArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o ProfileHttp2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ProfileHttp2] {
+	return pulumix.Output[[]*ProfileHttp2]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProfileHttp2ArrayOutput) Index(i pulumi.IntInput) ProfileHttp2Output {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProfileHttp2 {
 		return vs[0].([]*ProfileHttp2)[vs[1].(int)]
@@ -428,6 +459,12 @@ func (o ProfileHttp2MapOutput) ToProfileHttp2MapOutput() ProfileHttp2MapOutput {
 
 func (o ProfileHttp2MapOutput) ToProfileHttp2MapOutputWithContext(ctx context.Context) ProfileHttp2MapOutput {
 	return o
+}
+
+func (o ProfileHttp2MapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProfileHttp2] {
+	return pulumix.Output[map[string]*ProfileHttp2]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProfileHttp2MapOutput) MapIndex(k pulumi.StringInput) ProfileHttp2Output {

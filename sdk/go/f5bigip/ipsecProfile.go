@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `IpsecProfile` Manage IPSec Profiles on a BIG-IP
@@ -158,6 +159,12 @@ func (i *IpsecProfile) ToIpsecProfileOutputWithContext(ctx context.Context) Ipse
 	return pulumi.ToOutputWithContext(ctx, i).(IpsecProfileOutput)
 }
 
+func (i *IpsecProfile) ToOutput(ctx context.Context) pulumix.Output[*IpsecProfile] {
+	return pulumix.Output[*IpsecProfile]{
+		OutputState: i.ToIpsecProfileOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IpsecProfileArrayInput is an input type that accepts IpsecProfileArray and IpsecProfileArrayOutput values.
 // You can construct a concrete instance of `IpsecProfileArrayInput` via:
 //
@@ -181,6 +188,12 @@ func (i IpsecProfileArray) ToIpsecProfileArrayOutput() IpsecProfileArrayOutput {
 
 func (i IpsecProfileArray) ToIpsecProfileArrayOutputWithContext(ctx context.Context) IpsecProfileArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IpsecProfileArrayOutput)
+}
+
+func (i IpsecProfileArray) ToOutput(ctx context.Context) pulumix.Output[[]*IpsecProfile] {
+	return pulumix.Output[[]*IpsecProfile]{
+		OutputState: i.ToIpsecProfileArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // IpsecProfileMapInput is an input type that accepts IpsecProfileMap and IpsecProfileMapOutput values.
@@ -208,6 +221,12 @@ func (i IpsecProfileMap) ToIpsecProfileMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(IpsecProfileMapOutput)
 }
 
+func (i IpsecProfileMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IpsecProfile] {
+	return pulumix.Output[map[string]*IpsecProfile]{
+		OutputState: i.ToIpsecProfileMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IpsecProfileOutput struct{ *pulumi.OutputState }
 
 func (IpsecProfileOutput) ElementType() reflect.Type {
@@ -220,6 +239,12 @@ func (o IpsecProfileOutput) ToIpsecProfileOutput() IpsecProfileOutput {
 
 func (o IpsecProfileOutput) ToIpsecProfileOutputWithContext(ctx context.Context) IpsecProfileOutput {
 	return o
+}
+
+func (o IpsecProfileOutput) ToOutput(ctx context.Context) pulumix.Output[*IpsecProfile] {
+	return pulumix.Output[*IpsecProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies descriptive text that identifies the IPsec interface tunnel profile.
@@ -256,6 +281,12 @@ func (o IpsecProfileArrayOutput) ToIpsecProfileArrayOutputWithContext(ctx contex
 	return o
 }
 
+func (o IpsecProfileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IpsecProfile] {
+	return pulumix.Output[[]*IpsecProfile]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IpsecProfileArrayOutput) Index(i pulumi.IntInput) IpsecProfileOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IpsecProfile {
 		return vs[0].([]*IpsecProfile)[vs[1].(int)]
@@ -274,6 +305,12 @@ func (o IpsecProfileMapOutput) ToIpsecProfileMapOutput() IpsecProfileMapOutput {
 
 func (o IpsecProfileMapOutput) ToIpsecProfileMapOutputWithContext(ctx context.Context) IpsecProfileMapOutput {
 	return o
+}
+
+func (o IpsecProfileMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IpsecProfile] {
+	return pulumix.Output[map[string]*IpsecProfile]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IpsecProfileMapOutput) MapIndex(k pulumi.StringInput) IpsecProfileOutput {

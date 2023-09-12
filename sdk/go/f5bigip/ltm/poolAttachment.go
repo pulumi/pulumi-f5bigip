@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ltm.PoolAttachment` Manages nodes membership in pools
@@ -304,6 +305,12 @@ func (i *PoolAttachment) ToPoolAttachmentOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(PoolAttachmentOutput)
 }
 
+func (i *PoolAttachment) ToOutput(ctx context.Context) pulumix.Output[*PoolAttachment] {
+	return pulumix.Output[*PoolAttachment]{
+		OutputState: i.ToPoolAttachmentOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PoolAttachmentArrayInput is an input type that accepts PoolAttachmentArray and PoolAttachmentArrayOutput values.
 // You can construct a concrete instance of `PoolAttachmentArrayInput` via:
 //
@@ -327,6 +334,12 @@ func (i PoolAttachmentArray) ToPoolAttachmentArrayOutput() PoolAttachmentArrayOu
 
 func (i PoolAttachmentArray) ToPoolAttachmentArrayOutputWithContext(ctx context.Context) PoolAttachmentArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PoolAttachmentArrayOutput)
+}
+
+func (i PoolAttachmentArray) ToOutput(ctx context.Context) pulumix.Output[[]*PoolAttachment] {
+	return pulumix.Output[[]*PoolAttachment]{
+		OutputState: i.ToPoolAttachmentArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PoolAttachmentMapInput is an input type that accepts PoolAttachmentMap and PoolAttachmentMapOutput values.
@@ -354,6 +367,12 @@ func (i PoolAttachmentMap) ToPoolAttachmentMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(PoolAttachmentMapOutput)
 }
 
+func (i PoolAttachmentMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PoolAttachment] {
+	return pulumix.Output[map[string]*PoolAttachment]{
+		OutputState: i.ToPoolAttachmentMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PoolAttachmentOutput struct{ *pulumi.OutputState }
 
 func (PoolAttachmentOutput) ElementType() reflect.Type {
@@ -366,6 +385,12 @@ func (o PoolAttachmentOutput) ToPoolAttachmentOutput() PoolAttachmentOutput {
 
 func (o PoolAttachmentOutput) ToPoolAttachmentOutputWithContext(ctx context.Context) PoolAttachmentOutput {
 	return o
+}
+
+func (o PoolAttachmentOutput) ToOutput(ctx context.Context) pulumix.Output[*PoolAttachment] {
+	return pulumix.Output[*PoolAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies a maximum established connection limit for a pool member or node.The default is 0, meaning that there is no limit to the number of connections.
@@ -432,6 +457,12 @@ func (o PoolAttachmentArrayOutput) ToPoolAttachmentArrayOutputWithContext(ctx co
 	return o
 }
 
+func (o PoolAttachmentArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PoolAttachment] {
+	return pulumix.Output[[]*PoolAttachment]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PoolAttachmentArrayOutput) Index(i pulumi.IntInput) PoolAttachmentOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PoolAttachment {
 		return vs[0].([]*PoolAttachment)[vs[1].(int)]
@@ -450,6 +481,12 @@ func (o PoolAttachmentMapOutput) ToPoolAttachmentMapOutput() PoolAttachmentMapOu
 
 func (o PoolAttachmentMapOutput) ToPoolAttachmentMapOutputWithContext(ctx context.Context) PoolAttachmentMapOutput {
 	return o
+}
+
+func (o PoolAttachmentMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PoolAttachment] {
+	return pulumix.Output[map[string]*PoolAttachment]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PoolAttachmentMapOutput) MapIndex(k pulumi.StringInput) PoolAttachmentOutput {
