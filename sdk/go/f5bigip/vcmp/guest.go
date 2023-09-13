@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `vcmp.Guest` Manages a vCMP guest configuration
@@ -268,6 +269,12 @@ func (i *Guest) ToGuestOutputWithContext(ctx context.Context) GuestOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GuestOutput)
 }
 
+func (i *Guest) ToOutput(ctx context.Context) pulumix.Output[*Guest] {
+	return pulumix.Output[*Guest]{
+		OutputState: i.ToGuestOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GuestArrayInput is an input type that accepts GuestArray and GuestArrayOutput values.
 // You can construct a concrete instance of `GuestArrayInput` via:
 //
@@ -291,6 +298,12 @@ func (i GuestArray) ToGuestArrayOutput() GuestArrayOutput {
 
 func (i GuestArray) ToGuestArrayOutputWithContext(ctx context.Context) GuestArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GuestArrayOutput)
+}
+
+func (i GuestArray) ToOutput(ctx context.Context) pulumix.Output[[]*Guest] {
+	return pulumix.Output[[]*Guest]{
+		OutputState: i.ToGuestArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // GuestMapInput is an input type that accepts GuestMap and GuestMapOutput values.
@@ -318,6 +331,12 @@ func (i GuestMap) ToGuestMapOutputWithContext(ctx context.Context) GuestMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(GuestMapOutput)
 }
 
+func (i GuestMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Guest] {
+	return pulumix.Output[map[string]*Guest]{
+		OutputState: i.ToGuestMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GuestOutput struct{ *pulumi.OutputState }
 
 func (GuestOutput) ElementType() reflect.Type {
@@ -330,6 +349,12 @@ func (o GuestOutput) ToGuestOutput() GuestOutput {
 
 func (o GuestOutput) ToGuestOutputWithContext(ctx context.Context) GuestOutput {
 	return o
+}
+
+func (o GuestOutput) ToOutput(ctx context.Context) pulumix.Output[*Guest] {
+	return pulumix.Output[*Guest]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Contains those slots to which the guest is allowed to be assigned.
@@ -421,6 +446,12 @@ func (o GuestArrayOutput) ToGuestArrayOutputWithContext(ctx context.Context) Gue
 	return o
 }
 
+func (o GuestArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Guest] {
+	return pulumix.Output[[]*Guest]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GuestArrayOutput) Index(i pulumi.IntInput) GuestOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Guest {
 		return vs[0].([]*Guest)[vs[1].(int)]
@@ -439,6 +470,12 @@ func (o GuestMapOutput) ToGuestMapOutput() GuestMapOutput {
 
 func (o GuestMapOutput) ToGuestMapOutputWithContext(ctx context.Context) GuestMapOutput {
 	return o
+}
+
+func (o GuestMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Guest] {
+	return pulumix.Output[map[string]*Guest]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GuestMapOutput) MapIndex(k pulumi.StringInput) GuestOutput {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -46,6 +47,12 @@ func (i IAppListArgs) ToIAppListOutputWithContext(ctx context.Context) IAppListO
 	return pulumi.ToOutputWithContext(ctx, i).(IAppListOutput)
 }
 
+func (i IAppListArgs) ToOutput(ctx context.Context) pulumix.Output[IAppList] {
+	return pulumix.Output[IAppList]{
+		OutputState: i.ToIAppListOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IAppListArrayInput is an input type that accepts IAppListArray and IAppListArrayOutput values.
 // You can construct a concrete instance of `IAppListArrayInput` via:
 //
@@ -71,6 +78,12 @@ func (i IAppListArray) ToIAppListArrayOutputWithContext(ctx context.Context) IAp
 	return pulumi.ToOutputWithContext(ctx, i).(IAppListArrayOutput)
 }
 
+func (i IAppListArray) ToOutput(ctx context.Context) pulumix.Output[[]IAppList] {
+	return pulumix.Output[[]IAppList]{
+		OutputState: i.ToIAppListArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IAppListOutput struct{ *pulumi.OutputState }
 
 func (IAppListOutput) ElementType() reflect.Type {
@@ -83,6 +96,12 @@ func (o IAppListOutput) ToIAppListOutput() IAppListOutput {
 
 func (o IAppListOutput) ToIAppListOutputWithContext(ctx context.Context) IAppListOutput {
 	return o
+}
+
+func (o IAppListOutput) ToOutput(ctx context.Context) pulumix.Output[IAppList] {
+	return pulumix.Output[IAppList]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IAppListOutput) Encrypted() pulumi.StringPtrOutput {
@@ -105,6 +124,12 @@ func (o IAppListArrayOutput) ToIAppListArrayOutput() IAppListArrayOutput {
 
 func (o IAppListArrayOutput) ToIAppListArrayOutputWithContext(ctx context.Context) IAppListArrayOutput {
 	return o
+}
+
+func (o IAppListArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IAppList] {
+	return pulumix.Output[[]IAppList]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IAppListArrayOutput) Index(i pulumi.IntInput) IAppListOutput {
@@ -146,6 +171,12 @@ func (i IAppMetadataArgs) ToIAppMetadataOutputWithContext(ctx context.Context) I
 	return pulumi.ToOutputWithContext(ctx, i).(IAppMetadataOutput)
 }
 
+func (i IAppMetadataArgs) ToOutput(ctx context.Context) pulumix.Output[IAppMetadata] {
+	return pulumix.Output[IAppMetadata]{
+		OutputState: i.ToIAppMetadataOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IAppMetadataArrayInput is an input type that accepts IAppMetadataArray and IAppMetadataArrayOutput values.
 // You can construct a concrete instance of `IAppMetadataArrayInput` via:
 //
@@ -171,6 +202,12 @@ func (i IAppMetadataArray) ToIAppMetadataArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(IAppMetadataArrayOutput)
 }
 
+func (i IAppMetadataArray) ToOutput(ctx context.Context) pulumix.Output[[]IAppMetadata] {
+	return pulumix.Output[[]IAppMetadata]{
+		OutputState: i.ToIAppMetadataArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IAppMetadataOutput struct{ *pulumi.OutputState }
 
 func (IAppMetadataOutput) ElementType() reflect.Type {
@@ -183,6 +220,12 @@ func (o IAppMetadataOutput) ToIAppMetadataOutput() IAppMetadataOutput {
 
 func (o IAppMetadataOutput) ToIAppMetadataOutputWithContext(ctx context.Context) IAppMetadataOutput {
 	return o
+}
+
+func (o IAppMetadataOutput) ToOutput(ctx context.Context) pulumix.Output[IAppMetadata] {
+	return pulumix.Output[IAppMetadata]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IAppMetadataOutput) Persists() pulumi.StringPtrOutput {
@@ -205,6 +248,12 @@ func (o IAppMetadataArrayOutput) ToIAppMetadataArrayOutput() IAppMetadataArrayOu
 
 func (o IAppMetadataArrayOutput) ToIAppMetadataArrayOutputWithContext(ctx context.Context) IAppMetadataArrayOutput {
 	return o
+}
+
+func (o IAppMetadataArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IAppMetadata] {
+	return pulumix.Output[[]IAppMetadata]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IAppMetadataArrayOutput) Index(i pulumi.IntInput) IAppMetadataOutput {
@@ -252,6 +301,12 @@ func (i IAppTableArgs) ToIAppTableOutputWithContext(ctx context.Context) IAppTab
 	return pulumi.ToOutputWithContext(ctx, i).(IAppTableOutput)
 }
 
+func (i IAppTableArgs) ToOutput(ctx context.Context) pulumix.Output[IAppTable] {
+	return pulumix.Output[IAppTable]{
+		OutputState: i.ToIAppTableOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IAppTableArrayInput is an input type that accepts IAppTableArray and IAppTableArrayOutput values.
 // You can construct a concrete instance of `IAppTableArrayInput` via:
 //
@@ -277,6 +332,12 @@ func (i IAppTableArray) ToIAppTableArrayOutputWithContext(ctx context.Context) I
 	return pulumi.ToOutputWithContext(ctx, i).(IAppTableArrayOutput)
 }
 
+func (i IAppTableArray) ToOutput(ctx context.Context) pulumix.Output[[]IAppTable] {
+	return pulumix.Output[[]IAppTable]{
+		OutputState: i.ToIAppTableArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IAppTableOutput struct{ *pulumi.OutputState }
 
 func (IAppTableOutput) ElementType() reflect.Type {
@@ -289,6 +350,12 @@ func (o IAppTableOutput) ToIAppTableOutput() IAppTableOutput {
 
 func (o IAppTableOutput) ToIAppTableOutputWithContext(ctx context.Context) IAppTableOutput {
 	return o
+}
+
+func (o IAppTableOutput) ToOutput(ctx context.Context) pulumix.Output[IAppTable] {
+	return pulumix.Output[IAppTable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IAppTableOutput) ColumnNames() pulumi.StringArrayOutput {
@@ -320,6 +387,12 @@ func (o IAppTableArrayOutput) ToIAppTableArrayOutput() IAppTableArrayOutput {
 
 func (o IAppTableArrayOutput) ToIAppTableArrayOutputWithContext(ctx context.Context) IAppTableArrayOutput {
 	return o
+}
+
+func (o IAppTableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IAppTable] {
+	return pulumix.Output[[]IAppTable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IAppTableArrayOutput) Index(i pulumi.IntInput) IAppTableOutput {
@@ -359,6 +432,12 @@ func (i IAppTableRowArgs) ToIAppTableRowOutputWithContext(ctx context.Context) I
 	return pulumi.ToOutputWithContext(ctx, i).(IAppTableRowOutput)
 }
 
+func (i IAppTableRowArgs) ToOutput(ctx context.Context) pulumix.Output[IAppTableRow] {
+	return pulumix.Output[IAppTableRow]{
+		OutputState: i.ToIAppTableRowOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IAppTableRowArrayInput is an input type that accepts IAppTableRowArray and IAppTableRowArrayOutput values.
 // You can construct a concrete instance of `IAppTableRowArrayInput` via:
 //
@@ -384,6 +463,12 @@ func (i IAppTableRowArray) ToIAppTableRowArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(IAppTableRowArrayOutput)
 }
 
+func (i IAppTableRowArray) ToOutput(ctx context.Context) pulumix.Output[[]IAppTableRow] {
+	return pulumix.Output[[]IAppTableRow]{
+		OutputState: i.ToIAppTableRowArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IAppTableRowOutput struct{ *pulumi.OutputState }
 
 func (IAppTableRowOutput) ElementType() reflect.Type {
@@ -396,6 +481,12 @@ func (o IAppTableRowOutput) ToIAppTableRowOutput() IAppTableRowOutput {
 
 func (o IAppTableRowOutput) ToIAppTableRowOutputWithContext(ctx context.Context) IAppTableRowOutput {
 	return o
+}
+
+func (o IAppTableRowOutput) ToOutput(ctx context.Context) pulumix.Output[IAppTableRow] {
+	return pulumix.Output[IAppTableRow]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IAppTableRowOutput) Rows() pulumi.StringArrayOutput {
@@ -414,6 +505,12 @@ func (o IAppTableRowArrayOutput) ToIAppTableRowArrayOutput() IAppTableRowArrayOu
 
 func (o IAppTableRowArrayOutput) ToIAppTableRowArrayOutputWithContext(ctx context.Context) IAppTableRowArrayOutput {
 	return o
+}
+
+func (o IAppTableRowArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IAppTableRow] {
+	return pulumix.Output[[]IAppTableRow]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IAppTableRowArrayOutput) Index(i pulumi.IntInput) IAppTableRowOutput {
@@ -459,6 +556,12 @@ func (i IAppVariableArgs) ToIAppVariableOutputWithContext(ctx context.Context) I
 	return pulumi.ToOutputWithContext(ctx, i).(IAppVariableOutput)
 }
 
+func (i IAppVariableArgs) ToOutput(ctx context.Context) pulumix.Output[IAppVariable] {
+	return pulumix.Output[IAppVariable]{
+		OutputState: i.ToIAppVariableOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IAppVariableArrayInput is an input type that accepts IAppVariableArray and IAppVariableArrayOutput values.
 // You can construct a concrete instance of `IAppVariableArrayInput` via:
 //
@@ -484,6 +587,12 @@ func (i IAppVariableArray) ToIAppVariableArrayOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(IAppVariableArrayOutput)
 }
 
+func (i IAppVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]IAppVariable] {
+	return pulumix.Output[[]IAppVariable]{
+		OutputState: i.ToIAppVariableArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IAppVariableOutput struct{ *pulumi.OutputState }
 
 func (IAppVariableOutput) ElementType() reflect.Type {
@@ -496,6 +605,12 @@ func (o IAppVariableOutput) ToIAppVariableOutput() IAppVariableOutput {
 
 func (o IAppVariableOutput) ToIAppVariableOutputWithContext(ctx context.Context) IAppVariableOutput {
 	return o
+}
+
+func (o IAppVariableOutput) ToOutput(ctx context.Context) pulumix.Output[IAppVariable] {
+	return pulumix.Output[IAppVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IAppVariableOutput) Encrypted() pulumi.StringPtrOutput {
@@ -523,6 +638,12 @@ func (o IAppVariableArrayOutput) ToIAppVariableArrayOutput() IAppVariableArrayOu
 
 func (o IAppVariableArrayOutput) ToIAppVariableArrayOutputWithContext(ctx context.Context) IAppVariableArrayOutput {
 	return o
+}
+
+func (o IAppVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]IAppVariable] {
+	return pulumix.Output[[]IAppVariable]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IAppVariableArrayOutput) Index(i pulumi.IntInput) IAppVariableOutput {

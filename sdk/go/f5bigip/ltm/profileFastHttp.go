@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ltm.ProfileFastHttp` Configures a custom profileFasthttp for use by health checks.
@@ -238,6 +239,12 @@ func (i *ProfileFastHttp) ToProfileFastHttpOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileFastHttpOutput)
 }
 
+func (i *ProfileFastHttp) ToOutput(ctx context.Context) pulumix.Output[*ProfileFastHttp] {
+	return pulumix.Output[*ProfileFastHttp]{
+		OutputState: i.ToProfileFastHttpOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProfileFastHttpArrayInput is an input type that accepts ProfileFastHttpArray and ProfileFastHttpArrayOutput values.
 // You can construct a concrete instance of `ProfileFastHttpArrayInput` via:
 //
@@ -261,6 +268,12 @@ func (i ProfileFastHttpArray) ToProfileFastHttpArrayOutput() ProfileFastHttpArra
 
 func (i ProfileFastHttpArray) ToProfileFastHttpArrayOutputWithContext(ctx context.Context) ProfileFastHttpArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileFastHttpArrayOutput)
+}
+
+func (i ProfileFastHttpArray) ToOutput(ctx context.Context) pulumix.Output[[]*ProfileFastHttp] {
+	return pulumix.Output[[]*ProfileFastHttp]{
+		OutputState: i.ToProfileFastHttpArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ProfileFastHttpMapInput is an input type that accepts ProfileFastHttpMap and ProfileFastHttpMapOutput values.
@@ -288,6 +301,12 @@ func (i ProfileFastHttpMap) ToProfileFastHttpMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileFastHttpMapOutput)
 }
 
+func (i ProfileFastHttpMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProfileFastHttp] {
+	return pulumix.Output[map[string]*ProfileFastHttp]{
+		OutputState: i.ToProfileFastHttpMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProfileFastHttpOutput struct{ *pulumi.OutputState }
 
 func (ProfileFastHttpOutput) ElementType() reflect.Type {
@@ -300,6 +319,12 @@ func (o ProfileFastHttpOutput) ToProfileFastHttpOutput() ProfileFastHttpOutput {
 
 func (o ProfileFastHttpOutput) ToProfileFastHttpOutputWithContext(ctx context.Context) ProfileFastHttpOutput {
 	return o
+}
+
+func (o ProfileFastHttpOutput) ToOutput(ctx context.Context) pulumix.Output[*ProfileFastHttp] {
+	return pulumix.Output[*ProfileFastHttp]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the maximum number of times that the system can re-use a current connection. The default value is 0 (zero).
@@ -371,6 +396,12 @@ func (o ProfileFastHttpArrayOutput) ToProfileFastHttpArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o ProfileFastHttpArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ProfileFastHttp] {
+	return pulumix.Output[[]*ProfileFastHttp]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProfileFastHttpArrayOutput) Index(i pulumi.IntInput) ProfileFastHttpOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProfileFastHttp {
 		return vs[0].([]*ProfileFastHttp)[vs[1].(int)]
@@ -389,6 +420,12 @@ func (o ProfileFastHttpMapOutput) ToProfileFastHttpMapOutput() ProfileFastHttpMa
 
 func (o ProfileFastHttpMapOutput) ToProfileFastHttpMapOutputWithContext(ctx context.Context) ProfileFastHttpMapOutput {
 	return o
+}
+
+func (o ProfileFastHttpMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProfileFastHttp] {
+	return pulumix.Output[map[string]*ProfileFastHttp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProfileFastHttpMapOutput) MapIndex(k pulumi.StringInput) ProfileFastHttpOutput {

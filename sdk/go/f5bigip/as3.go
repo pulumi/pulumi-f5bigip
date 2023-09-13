@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `As3` provides details about bigip as3 resource
@@ -814,6 +815,12 @@ func (i *As3) ToAs3OutputWithContext(ctx context.Context) As3Output {
 	return pulumi.ToOutputWithContext(ctx, i).(As3Output)
 }
 
+func (i *As3) ToOutput(ctx context.Context) pulumix.Output[*As3] {
+	return pulumix.Output[*As3]{
+		OutputState: i.ToAs3OutputWithContext(ctx).OutputState,
+	}
+}
+
 // As3ArrayInput is an input type that accepts As3Array and As3ArrayOutput values.
 // You can construct a concrete instance of `As3ArrayInput` via:
 //
@@ -837,6 +844,12 @@ func (i As3Array) ToAs3ArrayOutput() As3ArrayOutput {
 
 func (i As3Array) ToAs3ArrayOutputWithContext(ctx context.Context) As3ArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(As3ArrayOutput)
+}
+
+func (i As3Array) ToOutput(ctx context.Context) pulumix.Output[[]*As3] {
+	return pulumix.Output[[]*As3]{
+		OutputState: i.ToAs3ArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // As3MapInput is an input type that accepts As3Map and As3MapOutput values.
@@ -864,6 +877,12 @@ func (i As3Map) ToAs3MapOutputWithContext(ctx context.Context) As3MapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(As3MapOutput)
 }
 
+func (i As3Map) ToOutput(ctx context.Context) pulumix.Output[map[string]*As3] {
+	return pulumix.Output[map[string]*As3]{
+		OutputState: i.ToAs3MapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type As3Output struct{ *pulumi.OutputState }
 
 func (As3Output) ElementType() reflect.Type {
@@ -876,6 +895,12 @@ func (o As3Output) ToAs3Output() As3Output {
 
 func (o As3Output) ToAs3OutputWithContext(ctx context.Context) As3Output {
 	return o
+}
+
+func (o As3Output) ToOutput(ctx context.Context) pulumix.Output[*As3] {
+	return pulumix.Output[*As3]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of Application
@@ -966,6 +991,12 @@ func (o As3ArrayOutput) ToAs3ArrayOutputWithContext(ctx context.Context) As3Arra
 	return o
 }
 
+func (o As3ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*As3] {
+	return pulumix.Output[[]*As3]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o As3ArrayOutput) Index(i pulumi.IntInput) As3Output {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *As3 {
 		return vs[0].([]*As3)[vs[1].(int)]
@@ -984,6 +1015,12 @@ func (o As3MapOutput) ToAs3MapOutput() As3MapOutput {
 
 func (o As3MapOutput) ToAs3MapOutputWithContext(ctx context.Context) As3MapOutput {
 	return o
+}
+
+func (o As3MapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*As3] {
+	return pulumix.Output[map[string]*As3]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o As3MapOutput) MapIndex(k pulumi.StringInput) As3Output {

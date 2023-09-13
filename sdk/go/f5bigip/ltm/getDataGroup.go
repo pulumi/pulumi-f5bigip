@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source (`ltm.DataGroup`) to get the data group details available on BIG-IP
@@ -115,6 +116,12 @@ func (o LookupDataGroupResultOutput) ToLookupDataGroupResultOutput() LookupDataG
 
 func (o LookupDataGroupResultOutput) ToLookupDataGroupResultOutputWithContext(ctx context.Context) LookupDataGroupResultOutput {
 	return o
+}
+
+func (o LookupDataGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupDataGroupResult] {
+	return pulumix.Output[LookupDataGroupResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

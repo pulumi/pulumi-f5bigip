@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `FastApplication` This resource will create and manage FAST applications on BIG-IP from provided JSON declaration.
@@ -165,6 +166,12 @@ func (i *FastApplication) ToFastApplicationOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(FastApplicationOutput)
 }
 
+func (i *FastApplication) ToOutput(ctx context.Context) pulumix.Output[*FastApplication] {
+	return pulumix.Output[*FastApplication]{
+		OutputState: i.ToFastApplicationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FastApplicationArrayInput is an input type that accepts FastApplicationArray and FastApplicationArrayOutput values.
 // You can construct a concrete instance of `FastApplicationArrayInput` via:
 //
@@ -188,6 +195,12 @@ func (i FastApplicationArray) ToFastApplicationArrayOutput() FastApplicationArra
 
 func (i FastApplicationArray) ToFastApplicationArrayOutputWithContext(ctx context.Context) FastApplicationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FastApplicationArrayOutput)
+}
+
+func (i FastApplicationArray) ToOutput(ctx context.Context) pulumix.Output[[]*FastApplication] {
+	return pulumix.Output[[]*FastApplication]{
+		OutputState: i.ToFastApplicationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FastApplicationMapInput is an input type that accepts FastApplicationMap and FastApplicationMapOutput values.
@@ -215,6 +228,12 @@ func (i FastApplicationMap) ToFastApplicationMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(FastApplicationMapOutput)
 }
 
+func (i FastApplicationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FastApplication] {
+	return pulumix.Output[map[string]*FastApplication]{
+		OutputState: i.ToFastApplicationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FastApplicationOutput struct{ *pulumi.OutputState }
 
 func (FastApplicationOutput) ElementType() reflect.Type {
@@ -227,6 +246,12 @@ func (o FastApplicationOutput) ToFastApplicationOutput() FastApplicationOutput {
 
 func (o FastApplicationOutput) ToFastApplicationOutputWithContext(ctx context.Context) FastApplicationOutput {
 	return o
+}
+
+func (o FastApplicationOutput) ToOutput(ctx context.Context) pulumix.Output[*FastApplication] {
+	return pulumix.Output[*FastApplication]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A FAST application name.
@@ -265,6 +290,12 @@ func (o FastApplicationArrayOutput) ToFastApplicationArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o FastApplicationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FastApplication] {
+	return pulumix.Output[[]*FastApplication]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FastApplicationArrayOutput) Index(i pulumi.IntInput) FastApplicationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FastApplication {
 		return vs[0].([]*FastApplication)[vs[1].(int)]
@@ -283,6 +314,12 @@ func (o FastApplicationMapOutput) ToFastApplicationMapOutput() FastApplicationMa
 
 func (o FastApplicationMapOutput) ToFastApplicationMapOutputWithContext(ctx context.Context) FastApplicationMapOutput {
 	return o
+}
+
+func (o FastApplicationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FastApplication] {
+	return pulumix.Output[map[string]*FastApplication]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FastApplicationMapOutput) MapIndex(k pulumi.StringInput) FastApplicationOutput {

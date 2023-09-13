@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source (`ssl.getWafPbSuggestions`) to create JSON for WAF URL to later use with an existing WAF policy.
@@ -150,6 +151,12 @@ func (o GetWafEntityUrlResultOutput) ToGetWafEntityUrlResultOutput() GetWafEntit
 
 func (o GetWafEntityUrlResultOutput) ToGetWafEntityUrlResultOutputWithContext(ctx context.Context) GetWafEntityUrlResultOutput {
 	return o
+}
+
+func (o GetWafEntityUrlResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetWafEntityUrlResult] {
+	return pulumix.Output[GetWafEntityUrlResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetWafEntityUrlResultOutput) Description() pulumi.StringPtrOutput {

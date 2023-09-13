@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `NetIkePeer` Manages a ikePeer configuration
@@ -433,6 +434,12 @@ func (i *NetIkePeer) ToNetIkePeerOutputWithContext(ctx context.Context) NetIkePe
 	return pulumi.ToOutputWithContext(ctx, i).(NetIkePeerOutput)
 }
 
+func (i *NetIkePeer) ToOutput(ctx context.Context) pulumix.Output[*NetIkePeer] {
+	return pulumix.Output[*NetIkePeer]{
+		OutputState: i.ToNetIkePeerOutputWithContext(ctx).OutputState,
+	}
+}
+
 // NetIkePeerArrayInput is an input type that accepts NetIkePeerArray and NetIkePeerArrayOutput values.
 // You can construct a concrete instance of `NetIkePeerArrayInput` via:
 //
@@ -456,6 +463,12 @@ func (i NetIkePeerArray) ToNetIkePeerArrayOutput() NetIkePeerArrayOutput {
 
 func (i NetIkePeerArray) ToNetIkePeerArrayOutputWithContext(ctx context.Context) NetIkePeerArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NetIkePeerArrayOutput)
+}
+
+func (i NetIkePeerArray) ToOutput(ctx context.Context) pulumix.Output[[]*NetIkePeer] {
+	return pulumix.Output[[]*NetIkePeer]{
+		OutputState: i.ToNetIkePeerArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // NetIkePeerMapInput is an input type that accepts NetIkePeerMap and NetIkePeerMapOutput values.
@@ -483,6 +496,12 @@ func (i NetIkePeerMap) ToNetIkePeerMapOutputWithContext(ctx context.Context) Net
 	return pulumi.ToOutputWithContext(ctx, i).(NetIkePeerMapOutput)
 }
 
+func (i NetIkePeerMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetIkePeer] {
+	return pulumix.Output[map[string]*NetIkePeer]{
+		OutputState: i.ToNetIkePeerMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type NetIkePeerOutput struct{ *pulumi.OutputState }
 
 func (NetIkePeerOutput) ElementType() reflect.Type {
@@ -495,6 +514,12 @@ func (o NetIkePeerOutput) ToNetIkePeerOutput() NetIkePeerOutput {
 
 func (o NetIkePeerOutput) ToNetIkePeerOutputWithContext(ctx context.Context) NetIkePeerOutput {
 	return o
+}
+
+func (o NetIkePeerOutput) ToOutput(ctx context.Context) pulumix.Output[*NetIkePeer] {
+	return pulumix.Output[*NetIkePeer]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The application service that the object belongs to
@@ -681,6 +706,12 @@ func (o NetIkePeerArrayOutput) ToNetIkePeerArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o NetIkePeerArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*NetIkePeer] {
+	return pulumix.Output[[]*NetIkePeer]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o NetIkePeerArrayOutput) Index(i pulumi.IntInput) NetIkePeerOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NetIkePeer {
 		return vs[0].([]*NetIkePeer)[vs[1].(int)]
@@ -699,6 +730,12 @@ func (o NetIkePeerMapOutput) ToNetIkePeerMapOutput() NetIkePeerMapOutput {
 
 func (o NetIkePeerMapOutput) ToNetIkePeerMapOutputWithContext(ctx context.Context) NetIkePeerMapOutput {
 	return o
+}
+
+func (o NetIkePeerMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*NetIkePeer] {
+	return pulumix.Output[map[string]*NetIkePeer]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o NetIkePeerMapOutput) MapIndex(k pulumi.StringInput) NetIkePeerOutput {

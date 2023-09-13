@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source (`fast.getAzureServiceDiscovery`) to get the Azure Service discovery config to be used for `http`/`https` app deployment in FAST.
@@ -150,6 +151,12 @@ func (o GetAzureServiceDiscoveryResultOutput) ToGetAzureServiceDiscoveryResultOu
 
 func (o GetAzureServiceDiscoveryResultOutput) ToGetAzureServiceDiscoveryResultOutputWithContext(ctx context.Context) GetAzureServiceDiscoveryResultOutput {
 	return o
+}
+
+func (o GetAzureServiceDiscoveryResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAzureServiceDiscoveryResult] {
+	return pulumix.Output[GetAzureServiceDiscoveryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetAzureServiceDiscoveryResultOutput) AddressRealm() pulumi.StringPtrOutput {

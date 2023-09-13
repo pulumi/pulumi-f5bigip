@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ltm.ProfileHttp` Configures a custom profileHttp for use by health checks.
@@ -415,6 +416,12 @@ func (i *ProfileHttp) ToProfileHttpOutputWithContext(ctx context.Context) Profil
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileHttpOutput)
 }
 
+func (i *ProfileHttp) ToOutput(ctx context.Context) pulumix.Output[*ProfileHttp] {
+	return pulumix.Output[*ProfileHttp]{
+		OutputState: i.ToProfileHttpOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProfileHttpArrayInput is an input type that accepts ProfileHttpArray and ProfileHttpArrayOutput values.
 // You can construct a concrete instance of `ProfileHttpArrayInput` via:
 //
@@ -438,6 +445,12 @@ func (i ProfileHttpArray) ToProfileHttpArrayOutput() ProfileHttpArrayOutput {
 
 func (i ProfileHttpArray) ToProfileHttpArrayOutputWithContext(ctx context.Context) ProfileHttpArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileHttpArrayOutput)
+}
+
+func (i ProfileHttpArray) ToOutput(ctx context.Context) pulumix.Output[[]*ProfileHttp] {
+	return pulumix.Output[[]*ProfileHttp]{
+		OutputState: i.ToProfileHttpArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ProfileHttpMapInput is an input type that accepts ProfileHttpMap and ProfileHttpMapOutput values.
@@ -465,6 +478,12 @@ func (i ProfileHttpMap) ToProfileHttpMapOutputWithContext(ctx context.Context) P
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileHttpMapOutput)
 }
 
+func (i ProfileHttpMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProfileHttp] {
+	return pulumix.Output[map[string]*ProfileHttp]{
+		OutputState: i.ToProfileHttpMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProfileHttpOutput struct{ *pulumi.OutputState }
 
 func (ProfileHttpOutput) ElementType() reflect.Type {
@@ -477,6 +496,12 @@ func (o ProfileHttpOutput) ToProfileHttpOutput() ProfileHttpOutput {
 
 func (o ProfileHttpOutput) ToProfileHttpOutputWithContext(ctx context.Context) ProfileHttpOutput {
 	return o
+}
+
+func (o ProfileHttpOutput) ToOutput(ctx context.Context) pulumix.Output[*ProfileHttp] {
+	return pulumix.Output[*ProfileHttp]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Enables or disables trusting the client IP address, and statistics from the client IP address, based on the request's XFF (X-forwarded-for) headers, if they exist.
@@ -630,6 +655,12 @@ func (o ProfileHttpArrayOutput) ToProfileHttpArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o ProfileHttpArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ProfileHttp] {
+	return pulumix.Output[[]*ProfileHttp]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProfileHttpArrayOutput) Index(i pulumi.IntInput) ProfileHttpOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProfileHttp {
 		return vs[0].([]*ProfileHttp)[vs[1].(int)]
@@ -648,6 +679,12 @@ func (o ProfileHttpMapOutput) ToProfileHttpMapOutput() ProfileHttpMapOutput {
 
 func (o ProfileHttpMapOutput) ToProfileHttpMapOutputWithContext(ctx context.Context) ProfileHttpMapOutput {
 	return o
+}
+
+func (o ProfileHttpMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProfileHttp] {
+	return pulumix.Output[map[string]*ProfileHttp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProfileHttpMapOutput) MapIndex(k pulumi.StringInput) ProfileHttpOutput {

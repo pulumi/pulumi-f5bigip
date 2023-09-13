@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `WafPolicy` Manages a WAF Policy resource with its adjustments and modifications on a BIG-IP.
@@ -479,6 +480,12 @@ func (i *WafPolicy) ToWafPolicyOutputWithContext(ctx context.Context) WafPolicyO
 	return pulumi.ToOutputWithContext(ctx, i).(WafPolicyOutput)
 }
 
+func (i *WafPolicy) ToOutput(ctx context.Context) pulumix.Output[*WafPolicy] {
+	return pulumix.Output[*WafPolicy]{
+		OutputState: i.ToWafPolicyOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WafPolicyArrayInput is an input type that accepts WafPolicyArray and WafPolicyArrayOutput values.
 // You can construct a concrete instance of `WafPolicyArrayInput` via:
 //
@@ -502,6 +509,12 @@ func (i WafPolicyArray) ToWafPolicyArrayOutput() WafPolicyArrayOutput {
 
 func (i WafPolicyArray) ToWafPolicyArrayOutputWithContext(ctx context.Context) WafPolicyArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WafPolicyArrayOutput)
+}
+
+func (i WafPolicyArray) ToOutput(ctx context.Context) pulumix.Output[[]*WafPolicy] {
+	return pulumix.Output[[]*WafPolicy]{
+		OutputState: i.ToWafPolicyArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // WafPolicyMapInput is an input type that accepts WafPolicyMap and WafPolicyMapOutput values.
@@ -529,6 +542,12 @@ func (i WafPolicyMap) ToWafPolicyMapOutputWithContext(ctx context.Context) WafPo
 	return pulumi.ToOutputWithContext(ctx, i).(WafPolicyMapOutput)
 }
 
+func (i WafPolicyMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*WafPolicy] {
+	return pulumix.Output[map[string]*WafPolicy]{
+		OutputState: i.ToWafPolicyMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WafPolicyOutput struct{ *pulumi.OutputState }
 
 func (WafPolicyOutput) ElementType() reflect.Type {
@@ -541,6 +560,12 @@ func (o WafPolicyOutput) ToWafPolicyOutput() WafPolicyOutput {
 
 func (o WafPolicyOutput) ToWafPolicyOutputWithContext(ctx context.Context) WafPolicyOutput {
 	return o
+}
+
+func (o WafPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[*WafPolicy] {
+	return pulumix.Output[*WafPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The character encoding for the web application. The character encoding determines how the policy processes the character sets. The default is `utf-8`
@@ -698,6 +723,12 @@ func (o WafPolicyArrayOutput) ToWafPolicyArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o WafPolicyArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*WafPolicy] {
+	return pulumix.Output[[]*WafPolicy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WafPolicyArrayOutput) Index(i pulumi.IntInput) WafPolicyOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WafPolicy {
 		return vs[0].([]*WafPolicy)[vs[1].(int)]
@@ -716,6 +747,12 @@ func (o WafPolicyMapOutput) ToWafPolicyMapOutput() WafPolicyMapOutput {
 
 func (o WafPolicyMapOutput) ToWafPolicyMapOutputWithContext(ctx context.Context) WafPolicyMapOutput {
 	return o
+}
+
+func (o WafPolicyMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*WafPolicy] {
+	return pulumix.Output[map[string]*WafPolicy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WafPolicyMapOutput) MapIndex(k pulumi.StringInput) WafPolicyOutput {

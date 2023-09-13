@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source (`ssl.getWafSignatures`) to get the details of attack signatures available on BIG-IP WAF
@@ -144,6 +145,12 @@ func (o GetWafSignaturesResultOutput) ToGetWafSignaturesResultOutput() GetWafSig
 
 func (o GetWafSignaturesResultOutput) ToGetWafSignaturesResultOutputWithContext(ctx context.Context) GetWafSignaturesResultOutput {
 	return o
+}
+
+func (o GetWafSignaturesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetWafSignaturesResult] {
+	return pulumix.Output[GetWafSignaturesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The relative detection accuracy of the signature.

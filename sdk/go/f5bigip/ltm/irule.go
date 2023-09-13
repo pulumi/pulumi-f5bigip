@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ltm.IRule` Creates iRule on BIG-IP F5 device
@@ -115,6 +116,12 @@ func (i *IRule) ToIRuleOutputWithContext(ctx context.Context) IRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IRuleOutput)
 }
 
+func (i *IRule) ToOutput(ctx context.Context) pulumix.Output[*IRule] {
+	return pulumix.Output[*IRule]{
+		OutputState: i.ToIRuleOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IRuleArrayInput is an input type that accepts IRuleArray and IRuleArrayOutput values.
 // You can construct a concrete instance of `IRuleArrayInput` via:
 //
@@ -138,6 +145,12 @@ func (i IRuleArray) ToIRuleArrayOutput() IRuleArrayOutput {
 
 func (i IRuleArray) ToIRuleArrayOutputWithContext(ctx context.Context) IRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IRuleArrayOutput)
+}
+
+func (i IRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*IRule] {
+	return pulumix.Output[[]*IRule]{
+		OutputState: i.ToIRuleArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // IRuleMapInput is an input type that accepts IRuleMap and IRuleMapOutput values.
@@ -165,6 +178,12 @@ func (i IRuleMap) ToIRuleMapOutputWithContext(ctx context.Context) IRuleMapOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(IRuleMapOutput)
 }
 
+func (i IRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IRule] {
+	return pulumix.Output[map[string]*IRule]{
+		OutputState: i.ToIRuleMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IRuleOutput struct{ *pulumi.OutputState }
 
 func (IRuleOutput) ElementType() reflect.Type {
@@ -177,6 +196,12 @@ func (o IRuleOutput) ToIRuleOutput() IRuleOutput {
 
 func (o IRuleOutput) ToIRuleOutputWithContext(ctx context.Context) IRuleOutput {
 	return o
+}
+
+func (o IRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*IRule] {
+	return pulumix.Output[*IRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Body of the iRule
@@ -203,6 +228,12 @@ func (o IRuleArrayOutput) ToIRuleArrayOutputWithContext(ctx context.Context) IRu
 	return o
 }
 
+func (o IRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IRule] {
+	return pulumix.Output[[]*IRule]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IRuleArrayOutput) Index(i pulumi.IntInput) IRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IRule {
 		return vs[0].([]*IRule)[vs[1].(int)]
@@ -221,6 +252,12 @@ func (o IRuleMapOutput) ToIRuleMapOutput() IRuleMapOutput {
 
 func (o IRuleMapOutput) ToIRuleMapOutputWithContext(ctx context.Context) IRuleMapOutput {
 	return o
+}
+
+func (o IRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IRule] {
+	return pulumix.Output[map[string]*IRule]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IRuleMapOutput) MapIndex(k pulumi.StringInput) IRuleOutput {

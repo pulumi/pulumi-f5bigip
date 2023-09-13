@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ltm.ProfileServerSsl` Manages server SSL profiles on a BIG-IP
@@ -798,6 +799,12 @@ func (i *ProfileServerSsl) ToProfileServerSslOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileServerSslOutput)
 }
 
+func (i *ProfileServerSsl) ToOutput(ctx context.Context) pulumix.Output[*ProfileServerSsl] {
+	return pulumix.Output[*ProfileServerSsl]{
+		OutputState: i.ToProfileServerSslOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProfileServerSslArrayInput is an input type that accepts ProfileServerSslArray and ProfileServerSslArrayOutput values.
 // You can construct a concrete instance of `ProfileServerSslArrayInput` via:
 //
@@ -821,6 +828,12 @@ func (i ProfileServerSslArray) ToProfileServerSslArrayOutput() ProfileServerSslA
 
 func (i ProfileServerSslArray) ToProfileServerSslArrayOutputWithContext(ctx context.Context) ProfileServerSslArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileServerSslArrayOutput)
+}
+
+func (i ProfileServerSslArray) ToOutput(ctx context.Context) pulumix.Output[[]*ProfileServerSsl] {
+	return pulumix.Output[[]*ProfileServerSsl]{
+		OutputState: i.ToProfileServerSslArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ProfileServerSslMapInput is an input type that accepts ProfileServerSslMap and ProfileServerSslMapOutput values.
@@ -848,6 +861,12 @@ func (i ProfileServerSslMap) ToProfileServerSslMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileServerSslMapOutput)
 }
 
+func (i ProfileServerSslMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProfileServerSsl] {
+	return pulumix.Output[map[string]*ProfileServerSsl]{
+		OutputState: i.ToProfileServerSslMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProfileServerSslOutput struct{ *pulumi.OutputState }
 
 func (ProfileServerSslOutput) ElementType() reflect.Type {
@@ -860,6 +879,12 @@ func (o ProfileServerSslOutput) ToProfileServerSslOutput() ProfileServerSslOutpu
 
 func (o ProfileServerSslOutput) ToProfileServerSslOutputWithContext(ctx context.Context) ProfileServerSslOutput {
 	return o
+}
+
+func (o ProfileServerSslOutput) ToOutput(ctx context.Context) pulumix.Output[*ProfileServerSsl] {
+	return pulumix.Output[*ProfileServerSsl]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Alert time out
@@ -1163,6 +1188,12 @@ func (o ProfileServerSslArrayOutput) ToProfileServerSslArrayOutputWithContext(ct
 	return o
 }
 
+func (o ProfileServerSslArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ProfileServerSsl] {
+	return pulumix.Output[[]*ProfileServerSsl]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProfileServerSslArrayOutput) Index(i pulumi.IntInput) ProfileServerSslOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProfileServerSsl {
 		return vs[0].([]*ProfileServerSsl)[vs[1].(int)]
@@ -1181,6 +1212,12 @@ func (o ProfileServerSslMapOutput) ToProfileServerSslMapOutput() ProfileServerSs
 
 func (o ProfileServerSslMapOutput) ToProfileServerSslMapOutputWithContext(ctx context.Context) ProfileServerSslMapOutput {
 	return o
+}
+
+func (o ProfileServerSslMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProfileServerSsl] {
+	return pulumix.Output[map[string]*ProfileServerSsl]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProfileServerSslMapOutput) MapIndex(k pulumi.StringInput) ProfileServerSslOutput {

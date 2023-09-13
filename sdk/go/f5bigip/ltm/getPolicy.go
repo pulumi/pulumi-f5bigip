@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source (`ltm.Policy`) to get the ltm policy details available on BIG-IP
@@ -126,6 +127,12 @@ func (o LookupPolicyResultOutput) ToLookupPolicyResultOutput() LookupPolicyResul
 
 func (o LookupPolicyResultOutput) ToLookupPolicyResultOutputWithContext(ctx context.Context) LookupPolicyResultOutput {
 	return o
+}
+
+func (o LookupPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPolicyResult] {
+	return pulumix.Output[LookupPolicyResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the controls.

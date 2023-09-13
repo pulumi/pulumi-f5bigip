@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `FastUdpApp` This resource will create and manage FAST UDP applications on BIG-IP from provided JSON declaration.
@@ -357,6 +358,12 @@ func (i *FastUdpApp) ToFastUdpAppOutputWithContext(ctx context.Context) FastUdpA
 	return pulumi.ToOutputWithContext(ctx, i).(FastUdpAppOutput)
 }
 
+func (i *FastUdpApp) ToOutput(ctx context.Context) pulumix.Output[*FastUdpApp] {
+	return pulumix.Output[*FastUdpApp]{
+		OutputState: i.ToFastUdpAppOutputWithContext(ctx).OutputState,
+	}
+}
+
 // FastUdpAppArrayInput is an input type that accepts FastUdpAppArray and FastUdpAppArrayOutput values.
 // You can construct a concrete instance of `FastUdpAppArrayInput` via:
 //
@@ -380,6 +387,12 @@ func (i FastUdpAppArray) ToFastUdpAppArrayOutput() FastUdpAppArrayOutput {
 
 func (i FastUdpAppArray) ToFastUdpAppArrayOutputWithContext(ctx context.Context) FastUdpAppArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FastUdpAppArrayOutput)
+}
+
+func (i FastUdpAppArray) ToOutput(ctx context.Context) pulumix.Output[[]*FastUdpApp] {
+	return pulumix.Output[[]*FastUdpApp]{
+		OutputState: i.ToFastUdpAppArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // FastUdpAppMapInput is an input type that accepts FastUdpAppMap and FastUdpAppMapOutput values.
@@ -407,6 +420,12 @@ func (i FastUdpAppMap) ToFastUdpAppMapOutputWithContext(ctx context.Context) Fas
 	return pulumi.ToOutputWithContext(ctx, i).(FastUdpAppMapOutput)
 }
 
+func (i FastUdpAppMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FastUdpApp] {
+	return pulumix.Output[map[string]*FastUdpApp]{
+		OutputState: i.ToFastUdpAppMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type FastUdpAppOutput struct{ *pulumi.OutputState }
 
 func (FastUdpAppOutput) ElementType() reflect.Type {
@@ -419,6 +438,12 @@ func (o FastUdpAppOutput) ToFastUdpAppOutput() FastUdpAppOutput {
 
 func (o FastUdpAppOutput) ToFastUdpAppOutputWithContext(ctx context.Context) FastUdpAppOutput {
 	return o
+}
+
+func (o FastUdpAppOutput) ToOutput(ctx context.Context) pulumix.Output[*FastUdpApp] {
+	return pulumix.Output[*FastUdpApp]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Name of the FAST UDP application.
@@ -543,6 +568,12 @@ func (o FastUdpAppArrayOutput) ToFastUdpAppArrayOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o FastUdpAppArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FastUdpApp] {
+	return pulumix.Output[[]*FastUdpApp]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o FastUdpAppArrayOutput) Index(i pulumi.IntInput) FastUdpAppOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FastUdpApp {
 		return vs[0].([]*FastUdpApp)[vs[1].(int)]
@@ -561,6 +592,12 @@ func (o FastUdpAppMapOutput) ToFastUdpAppMapOutput() FastUdpAppMapOutput {
 
 func (o FastUdpAppMapOutput) ToFastUdpAppMapOutputWithContext(ctx context.Context) FastUdpAppMapOutput {
 	return o
+}
+
+func (o FastUdpAppMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FastUdpApp] {
+	return pulumix.Output[map[string]*FastUdpApp]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o FastUdpAppMapOutput) MapIndex(k pulumi.StringInput) FastUdpAppOutput {
