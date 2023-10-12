@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['DoArgs', 'Do']
@@ -36,24 +36,47 @@ class DoArgs:
         :param pulumi.Input[str] tenant_name: unique identifier for DO resource
         :param pulumi.Input[int] timeout: DO json
         """
-        pulumi.set(__self__, "do_json", do_json)
+        DoArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            do_json=do_json,
+            bigip_address=bigip_address,
+            bigip_password=bigip_password,
+            bigip_port=bigip_port,
+            bigip_token_auth=bigip_token_auth,
+            bigip_user=bigip_user,
+            tenant_name=tenant_name,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             do_json: pulumi.Input[str],
+             bigip_address: Optional[pulumi.Input[str]] = None,
+             bigip_password: Optional[pulumi.Input[str]] = None,
+             bigip_port: Optional[pulumi.Input[str]] = None,
+             bigip_token_auth: Optional[pulumi.Input[bool]] = None,
+             bigip_user: Optional[pulumi.Input[str]] = None,
+             tenant_name: Optional[pulumi.Input[str]] = None,
+             timeout: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("do_json", do_json)
         if bigip_address is not None:
-            pulumi.set(__self__, "bigip_address", bigip_address)
+            _setter("bigip_address", bigip_address)
         if bigip_password is not None:
-            pulumi.set(__self__, "bigip_password", bigip_password)
+            _setter("bigip_password", bigip_password)
         if bigip_port is not None:
-            pulumi.set(__self__, "bigip_port", bigip_port)
+            _setter("bigip_port", bigip_port)
         if bigip_token_auth is not None:
-            pulumi.set(__self__, "bigip_token_auth", bigip_token_auth)
+            _setter("bigip_token_auth", bigip_token_auth)
         if bigip_user is not None:
-            pulumi.set(__self__, "bigip_user", bigip_user)
+            _setter("bigip_user", bigip_user)
         if tenant_name is not None:
             warnings.warn("""this attribute is no longer in use""", DeprecationWarning)
             pulumi.log.warn("""tenant_name is deprecated: this attribute is no longer in use""")
         if tenant_name is not None:
-            pulumi.set(__self__, "tenant_name", tenant_name)
+            _setter("tenant_name", tenant_name)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter(name="doJson")
@@ -183,25 +206,48 @@ class _DoState:
         :param pulumi.Input[str] tenant_name: unique identifier for DO resource
         :param pulumi.Input[int] timeout: DO json
         """
+        _DoState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            bigip_address=bigip_address,
+            bigip_password=bigip_password,
+            bigip_port=bigip_port,
+            bigip_token_auth=bigip_token_auth,
+            bigip_user=bigip_user,
+            do_json=do_json,
+            tenant_name=tenant_name,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             bigip_address: Optional[pulumi.Input[str]] = None,
+             bigip_password: Optional[pulumi.Input[str]] = None,
+             bigip_port: Optional[pulumi.Input[str]] = None,
+             bigip_token_auth: Optional[pulumi.Input[bool]] = None,
+             bigip_user: Optional[pulumi.Input[str]] = None,
+             do_json: Optional[pulumi.Input[str]] = None,
+             tenant_name: Optional[pulumi.Input[str]] = None,
+             timeout: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if bigip_address is not None:
-            pulumi.set(__self__, "bigip_address", bigip_address)
+            _setter("bigip_address", bigip_address)
         if bigip_password is not None:
-            pulumi.set(__self__, "bigip_password", bigip_password)
+            _setter("bigip_password", bigip_password)
         if bigip_port is not None:
-            pulumi.set(__self__, "bigip_port", bigip_port)
+            _setter("bigip_port", bigip_port)
         if bigip_token_auth is not None:
-            pulumi.set(__self__, "bigip_token_auth", bigip_token_auth)
+            _setter("bigip_token_auth", bigip_token_auth)
         if bigip_user is not None:
-            pulumi.set(__self__, "bigip_user", bigip_user)
+            _setter("bigip_user", bigip_user)
         if do_json is not None:
-            pulumi.set(__self__, "do_json", do_json)
+            _setter("do_json", do_json)
         if tenant_name is not None:
             warnings.warn("""this attribute is no longer in use""", DeprecationWarning)
             pulumi.log.warn("""tenant_name is deprecated: this attribute is no longer in use""")
         if tenant_name is not None:
-            pulumi.set(__self__, "tenant_name", tenant_name)
+            _setter("tenant_name", tenant_name)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter(name="bigipAddress")
@@ -354,6 +400,10 @@ class Do(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DoArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -384,9 +434,6 @@ class Do(pulumi.CustomResource):
             if do_json is None and not opts.urn:
                 raise TypeError("Missing required property 'do_json'")
             __props__.__dict__["do_json"] = do_json
-            if tenant_name is not None and not opts.urn:
-                warnings.warn("""this attribute is no longer in use""", DeprecationWarning)
-                pulumi.log.warn("""tenant_name is deprecated: this attribute is no longer in use""")
             __props__.__dict__["tenant_name"] = tenant_name
             __props__.__dict__["timeout"] = timeout
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["bigipPassword", "bigipTokenAuth"])

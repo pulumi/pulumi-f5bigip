@@ -17,8 +17,16 @@ import (
 //
 // ## Example Usage
 //
-// There are two ways to use ltmPoolAttachment resource, where we can take node reference from ltmNode or we can specify node directly with ip:port/fqdn:port which will also create node and atach to pool.
-// ### Pool attachment with node directly taking  `ip:port` / `fqdn:port`
+// # There are two ways to use `ltm.PoolAttachment` resource for `node` attribute
+//
+// * It can be reference from `ltm.Node` (or)
+// * It can be specify directly with `ipv4:port`/`fqdn:port`/`ipv6.port` which will also create node and attach member to pool.
+//
+// > For adding IPv6 node/member to pool it should be specific in `node` attribute in format like `ipv6_address.port`.
+// IPv4 should be specified as `ipv4_address:port`
+// ### Usage Pool attachment with node/member directly attaching to pool.
+//
+// node can be specified in format `ipv4:port` / `fqdn:port` / `ipv6.port`
 //
 // ```go
 // package main
@@ -54,9 +62,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = ltm.NewPoolAttachment(ctx, "attachNode", &ltm.PoolAttachmentArgs{
+//			_, err = ltm.NewPoolAttachment(ctx, "ipv4NodeAttach", &ltm.PoolAttachmentArgs{
 //				Pool: pool.Name,
 //				Node: pulumi.String("1.1.1.1:80"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ltm.NewPoolAttachment(ctx, "ipv6NodeAttach", &ltm.PoolAttachmentArgs{
+//				Pool: pool.Name,
+//				Node: pulumi.String("2003::4.80"),
 //			})
 //			if err != nil {
 //				return err
@@ -66,7 +81,7 @@ import (
 //	}
 //
 // ```
-// ### Pool attachment with node referenced from `ltm.Node`
+// ### Usage Pool attachment with node referenced from `ltm.Node`
 //
 // ```go
 // package main

@@ -121,6 +121,9 @@ export class VirtualServer extends pulumi.CustomResource {
      * List of persistence profiles associated with the Virtual Server.
      */
     public readonly persistenceProfiles!: pulumi.Output<string[] | undefined>;
+    /**
+     * Specifies the policies for the virtual server.
+     */
     public readonly policies!: pulumi.Output<string[] | undefined>;
     /**
      * Default pool name
@@ -310,6 +313,9 @@ export interface VirtualServerState {
      * List of persistence profiles associated with the Virtual Server.
      */
     persistenceProfiles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the policies for the virtual server.
+     */
     policies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Default pool name
@@ -420,6 +426,9 @@ export interface VirtualServerArgs {
      * List of persistence profiles associated with the Virtual Server.
      */
     persistenceProfiles?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the policies for the virtual server.
+     */
     policies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Default pool name

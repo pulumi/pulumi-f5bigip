@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -51,38 +51,79 @@ class IAppArgs:
         :param pulumi.Input[str] template_prerequisite_errors: Indicates any missing prerequisites associated with the template that defines this application.
         :param pulumi.Input[str] traffic_group: The name of the traffic group that the application service is assigned to.
         """
-        pulumi.set(__self__, "jsonfile", jsonfile)
-        pulumi.set(__self__, "name", name)
+        IAppArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            jsonfile=jsonfile,
+            name=name,
+            description=description,
+            devicegroup=devicegroup,
+            execute_action=execute_action,
+            inherited_devicegroup=inherited_devicegroup,
+            inherited_traffic_group=inherited_traffic_group,
+            lists=lists,
+            metadatas=metadatas,
+            partition=partition,
+            strict_updates=strict_updates,
+            tables=tables,
+            template=template,
+            template_modified=template_modified,
+            template_prerequisite_errors=template_prerequisite_errors,
+            traffic_group=traffic_group,
+            variables=variables,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             jsonfile: pulumi.Input[str],
+             name: pulumi.Input[str],
+             description: Optional[pulumi.Input[str]] = None,
+             devicegroup: Optional[pulumi.Input[str]] = None,
+             execute_action: Optional[pulumi.Input[str]] = None,
+             inherited_devicegroup: Optional[pulumi.Input[str]] = None,
+             inherited_traffic_group: Optional[pulumi.Input[str]] = None,
+             lists: Optional[pulumi.Input[Sequence[pulumi.Input['IAppListArgs']]]] = None,
+             metadatas: Optional[pulumi.Input[Sequence[pulumi.Input['IAppMetadataArgs']]]] = None,
+             partition: Optional[pulumi.Input[str]] = None,
+             strict_updates: Optional[pulumi.Input[str]] = None,
+             tables: Optional[pulumi.Input[Sequence[pulumi.Input['IAppTableArgs']]]] = None,
+             template: Optional[pulumi.Input[str]] = None,
+             template_modified: Optional[pulumi.Input[str]] = None,
+             template_prerequisite_errors: Optional[pulumi.Input[str]] = None,
+             traffic_group: Optional[pulumi.Input[str]] = None,
+             variables: Optional[pulumi.Input[Sequence[pulumi.Input['IAppVariableArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("jsonfile", jsonfile)
+        _setter("name", name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if devicegroup is not None:
-            pulumi.set(__self__, "devicegroup", devicegroup)
+            _setter("devicegroup", devicegroup)
         if execute_action is not None:
-            pulumi.set(__self__, "execute_action", execute_action)
+            _setter("execute_action", execute_action)
         if inherited_devicegroup is not None:
-            pulumi.set(__self__, "inherited_devicegroup", inherited_devicegroup)
+            _setter("inherited_devicegroup", inherited_devicegroup)
         if inherited_traffic_group is not None:
-            pulumi.set(__self__, "inherited_traffic_group", inherited_traffic_group)
+            _setter("inherited_traffic_group", inherited_traffic_group)
         if lists is not None:
-            pulumi.set(__self__, "lists", lists)
+            _setter("lists", lists)
         if metadatas is not None:
-            pulumi.set(__self__, "metadatas", metadatas)
+            _setter("metadatas", metadatas)
         if partition is not None:
-            pulumi.set(__self__, "partition", partition)
+            _setter("partition", partition)
         if strict_updates is not None:
-            pulumi.set(__self__, "strict_updates", strict_updates)
+            _setter("strict_updates", strict_updates)
         if tables is not None:
-            pulumi.set(__self__, "tables", tables)
+            _setter("tables", tables)
         if template is not None:
-            pulumi.set(__self__, "template", template)
+            _setter("template", template)
         if template_modified is not None:
-            pulumi.set(__self__, "template_modified", template_modified)
+            _setter("template_modified", template_modified)
         if template_prerequisite_errors is not None:
-            pulumi.set(__self__, "template_prerequisite_errors", template_prerequisite_errors)
+            _setter("template_prerequisite_errors", template_prerequisite_errors)
         if traffic_group is not None:
-            pulumi.set(__self__, "traffic_group", traffic_group)
+            _setter("traffic_group", traffic_group)
         if variables is not None:
-            pulumi.set(__self__, "variables", variables)
+            _setter("variables", variables)
 
     @property
     @pulumi.getter
@@ -321,40 +362,81 @@ class _IAppState:
         :param pulumi.Input[str] template_prerequisite_errors: Indicates any missing prerequisites associated with the template that defines this application.
         :param pulumi.Input[str] traffic_group: The name of the traffic group that the application service is assigned to.
         """
+        _IAppState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            devicegroup=devicegroup,
+            execute_action=execute_action,
+            inherited_devicegroup=inherited_devicegroup,
+            inherited_traffic_group=inherited_traffic_group,
+            jsonfile=jsonfile,
+            lists=lists,
+            metadatas=metadatas,
+            name=name,
+            partition=partition,
+            strict_updates=strict_updates,
+            tables=tables,
+            template=template,
+            template_modified=template_modified,
+            template_prerequisite_errors=template_prerequisite_errors,
+            traffic_group=traffic_group,
+            variables=variables,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             devicegroup: Optional[pulumi.Input[str]] = None,
+             execute_action: Optional[pulumi.Input[str]] = None,
+             inherited_devicegroup: Optional[pulumi.Input[str]] = None,
+             inherited_traffic_group: Optional[pulumi.Input[str]] = None,
+             jsonfile: Optional[pulumi.Input[str]] = None,
+             lists: Optional[pulumi.Input[Sequence[pulumi.Input['IAppListArgs']]]] = None,
+             metadatas: Optional[pulumi.Input[Sequence[pulumi.Input['IAppMetadataArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             partition: Optional[pulumi.Input[str]] = None,
+             strict_updates: Optional[pulumi.Input[str]] = None,
+             tables: Optional[pulumi.Input[Sequence[pulumi.Input['IAppTableArgs']]]] = None,
+             template: Optional[pulumi.Input[str]] = None,
+             template_modified: Optional[pulumi.Input[str]] = None,
+             template_prerequisite_errors: Optional[pulumi.Input[str]] = None,
+             traffic_group: Optional[pulumi.Input[str]] = None,
+             variables: Optional[pulumi.Input[Sequence[pulumi.Input['IAppVariableArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if devicegroup is not None:
-            pulumi.set(__self__, "devicegroup", devicegroup)
+            _setter("devicegroup", devicegroup)
         if execute_action is not None:
-            pulumi.set(__self__, "execute_action", execute_action)
+            _setter("execute_action", execute_action)
         if inherited_devicegroup is not None:
-            pulumi.set(__self__, "inherited_devicegroup", inherited_devicegroup)
+            _setter("inherited_devicegroup", inherited_devicegroup)
         if inherited_traffic_group is not None:
-            pulumi.set(__self__, "inherited_traffic_group", inherited_traffic_group)
+            _setter("inherited_traffic_group", inherited_traffic_group)
         if jsonfile is not None:
-            pulumi.set(__self__, "jsonfile", jsonfile)
+            _setter("jsonfile", jsonfile)
         if lists is not None:
-            pulumi.set(__self__, "lists", lists)
+            _setter("lists", lists)
         if metadatas is not None:
-            pulumi.set(__self__, "metadatas", metadatas)
+            _setter("metadatas", metadatas)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if partition is not None:
-            pulumi.set(__self__, "partition", partition)
+            _setter("partition", partition)
         if strict_updates is not None:
-            pulumi.set(__self__, "strict_updates", strict_updates)
+            _setter("strict_updates", strict_updates)
         if tables is not None:
-            pulumi.set(__self__, "tables", tables)
+            _setter("tables", tables)
         if template is not None:
-            pulumi.set(__self__, "template", template)
+            _setter("template", template)
         if template_modified is not None:
-            pulumi.set(__self__, "template_modified", template_modified)
+            _setter("template_modified", template_modified)
         if template_prerequisite_errors is not None:
-            pulumi.set(__self__, "template_prerequisite_errors", template_prerequisite_errors)
+            _setter("template_prerequisite_errors", template_prerequisite_errors)
         if traffic_group is not None:
-            pulumi.set(__self__, "traffic_group", traffic_group)
+            _setter("traffic_group", traffic_group)
         if variables is not None:
-            pulumi.set(__self__, "variables", variables)
+            _setter("variables", variables)
 
     @property
     @pulumi.getter
@@ -648,6 +730,10 @@ class IApp(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IAppArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

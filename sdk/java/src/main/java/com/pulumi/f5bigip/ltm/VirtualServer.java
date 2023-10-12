@@ -237,9 +237,17 @@ public class VirtualServer extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<String>>> persistenceProfiles() {
         return Codegen.optional(this.persistenceProfiles);
     }
+    /**
+     * Specifies the policies for the virtual server.
+     * 
+     */
     @Export(name="policies", type=List.class, parameters={String.class})
     private Output</* @Nullable */ List<String>> policies;
 
+    /**
+     * @return Specifies the policies for the virtual server.
+     * 
+     */
     public Output<Optional<List<String>>> policies() {
         return Codegen.optional(this.policies);
     }

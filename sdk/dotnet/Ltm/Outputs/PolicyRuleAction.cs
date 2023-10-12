@@ -24,9 +24,6 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
         public readonly string? ClonePool;
         public readonly int? Code;
         public readonly bool? Compress;
-        /// <summary>
-        /// This action is set to `true` by default, it needs to be explicitly set to `false` for actions it conflicts with.
-        /// </summary>
         public readonly bool? Connection;
         public readonly string? Content;
         public readonly bool? CookieHash;
@@ -44,9 +41,6 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
         public readonly string? Expression;
         public readonly string? Extension;
         public readonly string? Facility;
-        /// <summary>
-        /// This action will affect forwarding.
-        /// </summary>
         public readonly bool? Forward;
         public readonly string? FromProfile;
         public readonly bool? Hash;
@@ -81,9 +75,6 @@ namespace Pulumi.F5BigIP.Ltm.Outputs
         public readonly bool? Persist;
         public readonly bool? Pin;
         public readonly string? Policy;
-        /// <summary>
-        /// This action will direct the stream to this pool.
-        /// </summary>
         public readonly string? Pool;
         public readonly int? Port;
         public readonly string? Priority;

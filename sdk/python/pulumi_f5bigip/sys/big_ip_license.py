@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['BigIpLicenseArgs', 'BigIpLicense']
@@ -21,8 +21,19 @@ class BigIpLicenseArgs:
         :param pulumi.Input[str] command: Tmsh command to execute tmsh commands like install
         :param pulumi.Input[str] registration_key: A unique Key F5 provides for Licensing BIG-IP
         """
-        pulumi.set(__self__, "command", command)
-        pulumi.set(__self__, "registration_key", registration_key)
+        BigIpLicenseArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            command=command,
+            registration_key=registration_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             command: pulumi.Input[str],
+             registration_key: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("command", command)
+        _setter("registration_key", registration_key)
 
     @property
     @pulumi.getter
@@ -59,10 +70,21 @@ class _BigIpLicenseState:
         :param pulumi.Input[str] command: Tmsh command to execute tmsh commands like install
         :param pulumi.Input[str] registration_key: A unique Key F5 provides for Licensing BIG-IP
         """
+        _BigIpLicenseState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            command=command,
+            registration_key=registration_key,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             command: Optional[pulumi.Input[str]] = None,
+             registration_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if command is not None:
-            pulumi.set(__self__, "command", command)
+            _setter("command", command)
         if registration_key is not None:
-            pulumi.set(__self__, "registration_key", registration_key)
+            _setter("registration_key", registration_key)
 
     @property
     @pulumi.getter
@@ -122,6 +144,10 @@ class BigIpLicense(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BigIpLicenseArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

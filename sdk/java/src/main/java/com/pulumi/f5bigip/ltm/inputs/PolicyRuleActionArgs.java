@@ -94,17 +94,9 @@ public final class PolicyRuleActionArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.compress);
     }
 
-    /**
-     * This action is set to `true` by default, it needs to be explicitly set to `false` for actions it conflicts with.
-     * 
-     */
     @Import(name="connection")
     private @Nullable Output<Boolean> connection;
 
-    /**
-     * @return This action is set to `true` by default, it needs to be explicitly set to `false` for actions it conflicts with.
-     * 
-     */
     public Optional<Output<Boolean>> connection() {
         return Optional.ofNullable(this.connection);
     }
@@ -221,17 +213,9 @@ public final class PolicyRuleActionArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.facility);
     }
 
-    /**
-     * This action will affect forwarding.
-     * 
-     */
     @Import(name="forward")
     private @Nullable Output<Boolean> forward;
 
-    /**
-     * @return This action will affect forwarding.
-     * 
-     */
     public Optional<Output<Boolean>> forward() {
         return Optional.ofNullable(this.forward);
     }
@@ -467,17 +451,9 @@ public final class PolicyRuleActionArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.policy);
     }
 
-    /**
-     * This action will direct the stream to this pool.
-     * 
-     */
     @Import(name="pool")
     private @Nullable Output<String> pool;
 
-    /**
-     * @return This action will direct the stream to this pool.
-     * 
-     */
     public Optional<Output<String>> pool() {
         return Optional.ofNullable(this.pool);
     }
@@ -995,23 +971,11 @@ public final class PolicyRuleActionArgs extends com.pulumi.resources.ResourceArg
             return compress(Output.of(compress));
         }
 
-        /**
-         * @param connection This action is set to `true` by default, it needs to be explicitly set to `false` for actions it conflicts with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connection(@Nullable Output<Boolean> connection) {
             $.connection = connection;
             return this;
         }
 
-        /**
-         * @param connection This action is set to `true` by default, it needs to be explicitly set to `false` for actions it conflicts with.
-         * 
-         * @return builder
-         * 
-         */
         public Builder connection(Boolean connection) {
             return connection(Output.of(connection));
         }
@@ -1160,23 +1124,11 @@ public final class PolicyRuleActionArgs extends com.pulumi.resources.ResourceArg
             return facility(Output.of(facility));
         }
 
-        /**
-         * @param forward This action will affect forwarding.
-         * 
-         * @return builder
-         * 
-         */
         public Builder forward(@Nullable Output<Boolean> forward) {
             $.forward = forward;
             return this;
         }
 
-        /**
-         * @param forward This action will affect forwarding.
-         * 
-         * @return builder
-         * 
-         */
         public Builder forward(Boolean forward) {
             return forward(Output.of(forward));
         }
@@ -1478,23 +1430,11 @@ public final class PolicyRuleActionArgs extends com.pulumi.resources.ResourceArg
             return policy(Output.of(policy));
         }
 
-        /**
-         * @param pool This action will direct the stream to this pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pool(@Nullable Output<String> pool) {
             $.pool = pool;
             return this;
         }
 
-        /**
-         * @param pool This action will direct the stream to this pool.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pool(String pool) {
             return pool(Output.of(pool));
         }

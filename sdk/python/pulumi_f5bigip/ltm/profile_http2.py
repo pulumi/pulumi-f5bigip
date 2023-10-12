@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ProfileHttp2Args', 'ProfileHttp2']
@@ -43,31 +43,64 @@ class ProfileHttp2Args:
         :param pulumi.Input[int] receive_window: The flow-control size for upload streams, in KB. `Default: 32`.
         :param pulumi.Input[int] write_size: The total size of combined data frames, in bytes, that the HTTP/2 protocol sends in a single write function. `Default: 16384`".
         """
-        pulumi.set(__self__, "name", name)
+        ProfileHttp2Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            activation_modes=activation_modes,
+            concurrent_streams_per_connection=concurrent_streams_per_connection,
+            connection_idle_timeout=connection_idle_timeout,
+            defaults_from=defaults_from,
+            enforce_tls_requirements=enforce_tls_requirements,
+            frame_size=frame_size,
+            header_table_size=header_table_size,
+            include_content_length=include_content_length,
+            insert_header=insert_header,
+            insert_header_name=insert_header_name,
+            receive_window=receive_window,
+            write_size=write_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             activation_modes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             concurrent_streams_per_connection: Optional[pulumi.Input[int]] = None,
+             connection_idle_timeout: Optional[pulumi.Input[int]] = None,
+             defaults_from: Optional[pulumi.Input[str]] = None,
+             enforce_tls_requirements: Optional[pulumi.Input[str]] = None,
+             frame_size: Optional[pulumi.Input[int]] = None,
+             header_table_size: Optional[pulumi.Input[int]] = None,
+             include_content_length: Optional[pulumi.Input[str]] = None,
+             insert_header: Optional[pulumi.Input[str]] = None,
+             insert_header_name: Optional[pulumi.Input[str]] = None,
+             receive_window: Optional[pulumi.Input[int]] = None,
+             write_size: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if activation_modes is not None:
-            pulumi.set(__self__, "activation_modes", activation_modes)
+            _setter("activation_modes", activation_modes)
         if concurrent_streams_per_connection is not None:
-            pulumi.set(__self__, "concurrent_streams_per_connection", concurrent_streams_per_connection)
+            _setter("concurrent_streams_per_connection", concurrent_streams_per_connection)
         if connection_idle_timeout is not None:
-            pulumi.set(__self__, "connection_idle_timeout", connection_idle_timeout)
+            _setter("connection_idle_timeout", connection_idle_timeout)
         if defaults_from is not None:
-            pulumi.set(__self__, "defaults_from", defaults_from)
+            _setter("defaults_from", defaults_from)
         if enforce_tls_requirements is not None:
-            pulumi.set(__self__, "enforce_tls_requirements", enforce_tls_requirements)
+            _setter("enforce_tls_requirements", enforce_tls_requirements)
         if frame_size is not None:
-            pulumi.set(__self__, "frame_size", frame_size)
+            _setter("frame_size", frame_size)
         if header_table_size is not None:
-            pulumi.set(__self__, "header_table_size", header_table_size)
+            _setter("header_table_size", header_table_size)
         if include_content_length is not None:
-            pulumi.set(__self__, "include_content_length", include_content_length)
+            _setter("include_content_length", include_content_length)
         if insert_header is not None:
-            pulumi.set(__self__, "insert_header", insert_header)
+            _setter("insert_header", insert_header)
         if insert_header_name is not None:
-            pulumi.set(__self__, "insert_header_name", insert_header_name)
+            _setter("insert_header_name", insert_header_name)
         if receive_window is not None:
-            pulumi.set(__self__, "receive_window", receive_window)
+            _setter("receive_window", receive_window)
         if write_size is not None:
-            pulumi.set(__self__, "write_size", write_size)
+            _setter("write_size", write_size)
 
     @property
     @pulumi.getter
@@ -258,32 +291,65 @@ class _ProfileHttp2State:
         :param pulumi.Input[int] receive_window: The flow-control size for upload streams, in KB. `Default: 32`.
         :param pulumi.Input[int] write_size: The total size of combined data frames, in bytes, that the HTTP/2 protocol sends in a single write function. `Default: 16384`".
         """
+        _ProfileHttp2State._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            activation_modes=activation_modes,
+            concurrent_streams_per_connection=concurrent_streams_per_connection,
+            connection_idle_timeout=connection_idle_timeout,
+            defaults_from=defaults_from,
+            enforce_tls_requirements=enforce_tls_requirements,
+            frame_size=frame_size,
+            header_table_size=header_table_size,
+            include_content_length=include_content_length,
+            insert_header=insert_header,
+            insert_header_name=insert_header_name,
+            name=name,
+            receive_window=receive_window,
+            write_size=write_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             activation_modes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             concurrent_streams_per_connection: Optional[pulumi.Input[int]] = None,
+             connection_idle_timeout: Optional[pulumi.Input[int]] = None,
+             defaults_from: Optional[pulumi.Input[str]] = None,
+             enforce_tls_requirements: Optional[pulumi.Input[str]] = None,
+             frame_size: Optional[pulumi.Input[int]] = None,
+             header_table_size: Optional[pulumi.Input[int]] = None,
+             include_content_length: Optional[pulumi.Input[str]] = None,
+             insert_header: Optional[pulumi.Input[str]] = None,
+             insert_header_name: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             receive_window: Optional[pulumi.Input[int]] = None,
+             write_size: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if activation_modes is not None:
-            pulumi.set(__self__, "activation_modes", activation_modes)
+            _setter("activation_modes", activation_modes)
         if concurrent_streams_per_connection is not None:
-            pulumi.set(__self__, "concurrent_streams_per_connection", concurrent_streams_per_connection)
+            _setter("concurrent_streams_per_connection", concurrent_streams_per_connection)
         if connection_idle_timeout is not None:
-            pulumi.set(__self__, "connection_idle_timeout", connection_idle_timeout)
+            _setter("connection_idle_timeout", connection_idle_timeout)
         if defaults_from is not None:
-            pulumi.set(__self__, "defaults_from", defaults_from)
+            _setter("defaults_from", defaults_from)
         if enforce_tls_requirements is not None:
-            pulumi.set(__self__, "enforce_tls_requirements", enforce_tls_requirements)
+            _setter("enforce_tls_requirements", enforce_tls_requirements)
         if frame_size is not None:
-            pulumi.set(__self__, "frame_size", frame_size)
+            _setter("frame_size", frame_size)
         if header_table_size is not None:
-            pulumi.set(__self__, "header_table_size", header_table_size)
+            _setter("header_table_size", header_table_size)
         if include_content_length is not None:
-            pulumi.set(__self__, "include_content_length", include_content_length)
+            _setter("include_content_length", include_content_length)
         if insert_header is not None:
-            pulumi.set(__self__, "insert_header", insert_header)
+            _setter("insert_header", insert_header)
         if insert_header_name is not None:
-            pulumi.set(__self__, "insert_header_name", insert_header_name)
+            _setter("insert_header_name", insert_header_name)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if receive_window is not None:
-            pulumi.set(__self__, "receive_window", receive_window)
+            _setter("receive_window", receive_window)
         if write_size is not None:
-            pulumi.set(__self__, "write_size", write_size)
+            _setter("write_size", write_size)
 
     @property
     @pulumi.getter(name="activationModes")
@@ -551,6 +617,10 @@ class ProfileHttp2(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProfileHttp2Args._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['IpsecPolicyArgs', 'IpsecPolicy']
@@ -44,29 +44,60 @@ class IpsecPolicyArgs:
         :param pulumi.Input[str] tunnel_local_address: Specifies the local endpoint IP address of the IPsec tunnel. This parameter is only valid when mode is tunnel.
         :param pulumi.Input[str] tunnel_remote_address: Specifies the remote endpoint IP address of the IPsec tunnel. This parameter is only valid when mode is tunnel.
         """
-        pulumi.set(__self__, "name", name)
+        IpsecPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            auth_algorithm=auth_algorithm,
+            description=description,
+            encrypt_algorithm=encrypt_algorithm,
+            ipcomp=ipcomp,
+            kb_lifetime=kb_lifetime,
+            lifetime=lifetime,
+            mode=mode,
+            perfect_forward_secrecy=perfect_forward_secrecy,
+            protocol=protocol,
+            tunnel_local_address=tunnel_local_address,
+            tunnel_remote_address=tunnel_remote_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             auth_algorithm: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             encrypt_algorithm: Optional[pulumi.Input[str]] = None,
+             ipcomp: Optional[pulumi.Input[str]] = None,
+             kb_lifetime: Optional[pulumi.Input[int]] = None,
+             lifetime: Optional[pulumi.Input[int]] = None,
+             mode: Optional[pulumi.Input[str]] = None,
+             perfect_forward_secrecy: Optional[pulumi.Input[str]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             tunnel_local_address: Optional[pulumi.Input[str]] = None,
+             tunnel_remote_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if auth_algorithm is not None:
-            pulumi.set(__self__, "auth_algorithm", auth_algorithm)
+            _setter("auth_algorithm", auth_algorithm)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if encrypt_algorithm is not None:
-            pulumi.set(__self__, "encrypt_algorithm", encrypt_algorithm)
+            _setter("encrypt_algorithm", encrypt_algorithm)
         if ipcomp is not None:
-            pulumi.set(__self__, "ipcomp", ipcomp)
+            _setter("ipcomp", ipcomp)
         if kb_lifetime is not None:
-            pulumi.set(__self__, "kb_lifetime", kb_lifetime)
+            _setter("kb_lifetime", kb_lifetime)
         if lifetime is not None:
-            pulumi.set(__self__, "lifetime", lifetime)
+            _setter("lifetime", lifetime)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if perfect_forward_secrecy is not None:
-            pulumi.set(__self__, "perfect_forward_secrecy", perfect_forward_secrecy)
+            _setter("perfect_forward_secrecy", perfect_forward_secrecy)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if tunnel_local_address is not None:
-            pulumi.set(__self__, "tunnel_local_address", tunnel_local_address)
+            _setter("tunnel_local_address", tunnel_local_address)
         if tunnel_remote_address is not None:
-            pulumi.set(__self__, "tunnel_remote_address", tunnel_remote_address)
+            _setter("tunnel_remote_address", tunnel_remote_address)
 
     @property
     @pulumi.getter
@@ -249,30 +280,61 @@ class _IpsecPolicyState:
         :param pulumi.Input[str] tunnel_local_address: Specifies the local endpoint IP address of the IPsec tunnel. This parameter is only valid when mode is tunnel.
         :param pulumi.Input[str] tunnel_remote_address: Specifies the remote endpoint IP address of the IPsec tunnel. This parameter is only valid when mode is tunnel.
         """
+        _IpsecPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_algorithm=auth_algorithm,
+            description=description,
+            encrypt_algorithm=encrypt_algorithm,
+            ipcomp=ipcomp,
+            kb_lifetime=kb_lifetime,
+            lifetime=lifetime,
+            mode=mode,
+            name=name,
+            perfect_forward_secrecy=perfect_forward_secrecy,
+            protocol=protocol,
+            tunnel_local_address=tunnel_local_address,
+            tunnel_remote_address=tunnel_remote_address,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_algorithm: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             encrypt_algorithm: Optional[pulumi.Input[str]] = None,
+             ipcomp: Optional[pulumi.Input[str]] = None,
+             kb_lifetime: Optional[pulumi.Input[int]] = None,
+             lifetime: Optional[pulumi.Input[int]] = None,
+             mode: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             perfect_forward_secrecy: Optional[pulumi.Input[str]] = None,
+             protocol: Optional[pulumi.Input[str]] = None,
+             tunnel_local_address: Optional[pulumi.Input[str]] = None,
+             tunnel_remote_address: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auth_algorithm is not None:
-            pulumi.set(__self__, "auth_algorithm", auth_algorithm)
+            _setter("auth_algorithm", auth_algorithm)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if encrypt_algorithm is not None:
-            pulumi.set(__self__, "encrypt_algorithm", encrypt_algorithm)
+            _setter("encrypt_algorithm", encrypt_algorithm)
         if ipcomp is not None:
-            pulumi.set(__self__, "ipcomp", ipcomp)
+            _setter("ipcomp", ipcomp)
         if kb_lifetime is not None:
-            pulumi.set(__self__, "kb_lifetime", kb_lifetime)
+            _setter("kb_lifetime", kb_lifetime)
         if lifetime is not None:
-            pulumi.set(__self__, "lifetime", lifetime)
+            _setter("lifetime", lifetime)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if perfect_forward_secrecy is not None:
-            pulumi.set(__self__, "perfect_forward_secrecy", perfect_forward_secrecy)
+            _setter("perfect_forward_secrecy", perfect_forward_secrecy)
         if protocol is not None:
-            pulumi.set(__self__, "protocol", protocol)
+            _setter("protocol", protocol)
         if tunnel_local_address is not None:
-            pulumi.set(__self__, "tunnel_local_address", tunnel_local_address)
+            _setter("tunnel_local_address", tunnel_local_address)
         if tunnel_remote_address is not None:
-            pulumi.set(__self__, "tunnel_remote_address", tunnel_remote_address)
+            _setter("tunnel_remote_address", tunnel_remote_address)
 
     @property
     @pulumi.getter(name="authAlgorithm")
@@ -522,6 +584,10 @@ class IpsecPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IpsecPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

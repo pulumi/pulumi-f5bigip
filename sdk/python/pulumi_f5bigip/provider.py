@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ProviderArgs', 'Provider']
@@ -37,26 +37,53 @@ class ProviderArgs:
         :param pulumi.Input[str] username: Username with API access to the BigIP
         :param pulumi.Input[bool] validate_certs_disable: If set to true, Disables TLS certificate check on BIG-IP. Default : True
         """
+        ProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            address=address,
+            login_ref=login_ref,
+            password=password,
+            port=port,
+            teem_disable=teem_disable,
+            token_auth=token_auth,
+            token_value=token_value,
+            trusted_cert_path=trusted_cert_path,
+            username=username,
+            validate_certs_disable=validate_certs_disable,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             address: Optional[pulumi.Input[str]] = None,
+             login_ref: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[str]] = None,
+             teem_disable: Optional[pulumi.Input[bool]] = None,
+             token_auth: Optional[pulumi.Input[bool]] = None,
+             token_value: Optional[pulumi.Input[str]] = None,
+             trusted_cert_path: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             validate_certs_disable: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if address is not None:
-            pulumi.set(__self__, "address", address)
+            _setter("address", address)
         if login_ref is not None:
-            pulumi.set(__self__, "login_ref", login_ref)
+            _setter("login_ref", login_ref)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if teem_disable is not None:
-            pulumi.set(__self__, "teem_disable", teem_disable)
+            _setter("teem_disable", teem_disable)
         if token_auth is not None:
-            pulumi.set(__self__, "token_auth", token_auth)
+            _setter("token_auth", token_auth)
         if token_value is not None:
-            pulumi.set(__self__, "token_value", token_value)
+            _setter("token_value", token_value)
         if trusted_cert_path is not None:
-            pulumi.set(__self__, "trusted_cert_path", trusted_cert_path)
+            _setter("trusted_cert_path", trusted_cert_path)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
         if validate_certs_disable is not None:
-            pulumi.set(__self__, "validate_certs_disable", validate_certs_disable)
+            _setter("validate_certs_disable", validate_certs_disable)
 
     @property
     @pulumi.getter
@@ -236,6 +263,10 @@ class Provider(pulumi.ProviderResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProviderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

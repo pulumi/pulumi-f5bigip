@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SnmpTrapsArgs', 'SnmpTraps']
@@ -45,34 +45,69 @@ class SnmpTrapsArgs:
         :param pulumi.Input[str] security_name: Security name used in conjunction with SNMPv3.
         :param pulumi.Input[str] version: SNMP version used for sending the trap.
         """
+        SnmpTrapsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_passwordencrypted=auth_passwordencrypted,
+            auth_protocol=auth_protocol,
+            community=community,
+            description=description,
+            engine_id=engine_id,
+            host=host,
+            name=name,
+            port=port,
+            privacy_password=privacy_password,
+            privacy_password_encrypted=privacy_password_encrypted,
+            privacy_protocol=privacy_protocol,
+            security_level=security_level,
+            security_name=security_name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_passwordencrypted: Optional[pulumi.Input[str]] = None,
+             auth_protocol: Optional[pulumi.Input[str]] = None,
+             community: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             engine_id: Optional[pulumi.Input[str]] = None,
+             host: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             privacy_password: Optional[pulumi.Input[str]] = None,
+             privacy_password_encrypted: Optional[pulumi.Input[str]] = None,
+             privacy_protocol: Optional[pulumi.Input[str]] = None,
+             security_level: Optional[pulumi.Input[str]] = None,
+             security_name: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auth_passwordencrypted is not None:
-            pulumi.set(__self__, "auth_passwordencrypted", auth_passwordencrypted)
+            _setter("auth_passwordencrypted", auth_passwordencrypted)
         if auth_protocol is not None:
-            pulumi.set(__self__, "auth_protocol", auth_protocol)
+            _setter("auth_protocol", auth_protocol)
         if community is not None:
-            pulumi.set(__self__, "community", community)
+            _setter("community", community)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if engine_id is not None:
-            pulumi.set(__self__, "engine_id", engine_id)
+            _setter("engine_id", engine_id)
         if host is not None:
-            pulumi.set(__self__, "host", host)
+            _setter("host", host)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if privacy_password is not None:
-            pulumi.set(__self__, "privacy_password", privacy_password)
+            _setter("privacy_password", privacy_password)
         if privacy_password_encrypted is not None:
-            pulumi.set(__self__, "privacy_password_encrypted", privacy_password_encrypted)
+            _setter("privacy_password_encrypted", privacy_password_encrypted)
         if privacy_protocol is not None:
-            pulumi.set(__self__, "privacy_protocol", privacy_protocol)
+            _setter("privacy_protocol", privacy_protocol)
         if security_level is not None:
-            pulumi.set(__self__, "security_level", security_level)
+            _setter("security_level", security_level)
         if security_name is not None:
-            pulumi.set(__self__, "security_name", security_name)
+            _setter("security_name", security_name)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="authPasswordencrypted")
@@ -277,34 +312,69 @@ class _SnmpTrapsState:
         :param pulumi.Input[str] security_name: Security name used in conjunction with SNMPv3.
         :param pulumi.Input[str] version: SNMP version used for sending the trap.
         """
+        _SnmpTrapsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_passwordencrypted=auth_passwordencrypted,
+            auth_protocol=auth_protocol,
+            community=community,
+            description=description,
+            engine_id=engine_id,
+            host=host,
+            name=name,
+            port=port,
+            privacy_password=privacy_password,
+            privacy_password_encrypted=privacy_password_encrypted,
+            privacy_protocol=privacy_protocol,
+            security_level=security_level,
+            security_name=security_name,
+            version=version,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_passwordencrypted: Optional[pulumi.Input[str]] = None,
+             auth_protocol: Optional[pulumi.Input[str]] = None,
+             community: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             engine_id: Optional[pulumi.Input[str]] = None,
+             host: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             privacy_password: Optional[pulumi.Input[str]] = None,
+             privacy_password_encrypted: Optional[pulumi.Input[str]] = None,
+             privacy_protocol: Optional[pulumi.Input[str]] = None,
+             security_level: Optional[pulumi.Input[str]] = None,
+             security_name: Optional[pulumi.Input[str]] = None,
+             version: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if auth_passwordencrypted is not None:
-            pulumi.set(__self__, "auth_passwordencrypted", auth_passwordencrypted)
+            _setter("auth_passwordencrypted", auth_passwordencrypted)
         if auth_protocol is not None:
-            pulumi.set(__self__, "auth_protocol", auth_protocol)
+            _setter("auth_protocol", auth_protocol)
         if community is not None:
-            pulumi.set(__self__, "community", community)
+            _setter("community", community)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if engine_id is not None:
-            pulumi.set(__self__, "engine_id", engine_id)
+            _setter("engine_id", engine_id)
         if host is not None:
-            pulumi.set(__self__, "host", host)
+            _setter("host", host)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if privacy_password is not None:
-            pulumi.set(__self__, "privacy_password", privacy_password)
+            _setter("privacy_password", privacy_password)
         if privacy_password_encrypted is not None:
-            pulumi.set(__self__, "privacy_password_encrypted", privacy_password_encrypted)
+            _setter("privacy_password_encrypted", privacy_password_encrypted)
         if privacy_protocol is not None:
-            pulumi.set(__self__, "privacy_protocol", privacy_protocol)
+            _setter("privacy_protocol", privacy_protocol)
         if security_level is not None:
-            pulumi.set(__self__, "security_level", security_level)
+            _setter("security_level", security_level)
         if security_name is not None:
-            pulumi.set(__self__, "security_name", security_name)
+            _setter("security_name", security_name)
         if version is not None:
-            pulumi.set(__self__, "version", version)
+            _setter("version", version)
 
     @property
     @pulumi.getter(name="authPasswordencrypted")
@@ -560,6 +630,10 @@ class SnmpTraps(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SnmpTrapsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

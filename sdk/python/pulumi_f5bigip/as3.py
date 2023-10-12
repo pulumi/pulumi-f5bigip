@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['As3Args', 'As3']
@@ -42,23 +42,44 @@ class As3Args:
         :param pulumi.Input[str] tenant_list: Name of Tenant
         :param pulumi.Input[str] tenant_name: Name of Tenant
         """
+        As3Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_list=application_list,
+            as3_json=as3_json,
+            ignore_metadata=ignore_metadata,
+            task_id=task_id,
+            tenant_filter=tenant_filter,
+            tenant_list=tenant_list,
+            tenant_name=tenant_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_list: Optional[pulumi.Input[str]] = None,
+             as3_json: Optional[pulumi.Input[str]] = None,
+             ignore_metadata: Optional[pulumi.Input[bool]] = None,
+             task_id: Optional[pulumi.Input[str]] = None,
+             tenant_filter: Optional[pulumi.Input[str]] = None,
+             tenant_list: Optional[pulumi.Input[str]] = None,
+             tenant_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if application_list is not None:
-            pulumi.set(__self__, "application_list", application_list)
+            _setter("application_list", application_list)
         if as3_json is not None:
-            pulumi.set(__self__, "as3_json", as3_json)
+            _setter("as3_json", as3_json)
         if ignore_metadata is not None:
-            pulumi.set(__self__, "ignore_metadata", ignore_metadata)
+            _setter("ignore_metadata", ignore_metadata)
         if task_id is not None:
-            pulumi.set(__self__, "task_id", task_id)
+            _setter("task_id", task_id)
         if tenant_filter is not None:
-            pulumi.set(__self__, "tenant_filter", tenant_filter)
+            _setter("tenant_filter", tenant_filter)
         if tenant_list is not None:
-            pulumi.set(__self__, "tenant_list", tenant_list)
+            _setter("tenant_list", tenant_list)
         if tenant_name is not None:
             warnings.warn("""this attribute is no longer in use""", DeprecationWarning)
             pulumi.log.warn("""tenant_name is deprecated: this attribute is no longer in use""")
         if tenant_name is not None:
-            pulumi.set(__self__, "tenant_name", tenant_name)
+            _setter("tenant_name", tenant_name)
 
     @property
     @pulumi.getter(name="applicationList")
@@ -190,23 +211,44 @@ class _As3State:
         :param pulumi.Input[str] tenant_list: Name of Tenant
         :param pulumi.Input[str] tenant_name: Name of Tenant
         """
+        _As3State._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_list=application_list,
+            as3_json=as3_json,
+            ignore_metadata=ignore_metadata,
+            task_id=task_id,
+            tenant_filter=tenant_filter,
+            tenant_list=tenant_list,
+            tenant_name=tenant_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_list: Optional[pulumi.Input[str]] = None,
+             as3_json: Optional[pulumi.Input[str]] = None,
+             ignore_metadata: Optional[pulumi.Input[bool]] = None,
+             task_id: Optional[pulumi.Input[str]] = None,
+             tenant_filter: Optional[pulumi.Input[str]] = None,
+             tenant_list: Optional[pulumi.Input[str]] = None,
+             tenant_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if application_list is not None:
-            pulumi.set(__self__, "application_list", application_list)
+            _setter("application_list", application_list)
         if as3_json is not None:
-            pulumi.set(__self__, "as3_json", as3_json)
+            _setter("as3_json", as3_json)
         if ignore_metadata is not None:
-            pulumi.set(__self__, "ignore_metadata", ignore_metadata)
+            _setter("ignore_metadata", ignore_metadata)
         if task_id is not None:
-            pulumi.set(__self__, "task_id", task_id)
+            _setter("task_id", task_id)
         if tenant_filter is not None:
-            pulumi.set(__self__, "tenant_filter", tenant_filter)
+            _setter("tenant_filter", tenant_filter)
         if tenant_list is not None:
-            pulumi.set(__self__, "tenant_list", tenant_list)
+            _setter("tenant_list", tenant_list)
         if tenant_name is not None:
             warnings.warn("""this attribute is no longer in use""", DeprecationWarning)
             pulumi.log.warn("""tenant_name is deprecated: this attribute is no longer in use""")
         if tenant_name is not None:
-            pulumi.set(__self__, "tenant_name", tenant_name)
+            _setter("tenant_name", tenant_name)
 
     @property
     @pulumi.getter(name="applicationList")
@@ -1275,6 +1317,10 @@ class As3(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            As3Args._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1302,9 +1348,6 @@ class As3(pulumi.CustomResource):
             __props__.__dict__["task_id"] = task_id
             __props__.__dict__["tenant_filter"] = tenant_filter
             __props__.__dict__["tenant_list"] = tenant_list
-            if tenant_name is not None and not opts.urn:
-                warnings.warn("""this attribute is no longer in use""", DeprecationWarning)
-                pulumi.log.warn("""tenant_name is deprecated: this attribute is no longer in use""")
             __props__.__dict__["tenant_name"] = tenant_name
         super(As3, __self__).__init__(
             'f5bigip:index/as3:As3',

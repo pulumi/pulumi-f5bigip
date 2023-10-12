@@ -85,6 +85,20 @@ public class SslKeyCert extends com.pulumi.resources.CustomResource {
         return this.certFullPath;
     }
     /**
+     * Specifies the type of monitoring used.
+     * 
+     */
+    @Export(name="certMonitoringType", type=String.class, parameters={})
+    private Output</* @Nullable */ String> certMonitoringType;
+
+    /**
+     * @return Specifies the type of monitoring used.
+     * 
+     */
+    public Output<Optional<String>> certMonitoringType() {
+        return Codegen.optional(this.certMonitoringType);
+    }
+    /**
      * Name of the SSL certificate to be Imported on to BIGIP.
      * 
      */
@@ -97,6 +111,34 @@ public class SslKeyCert extends com.pulumi.resources.CustomResource {
      */
     public Output<String> certName() {
         return this.certName;
+    }
+    /**
+     * Specifies the OCSP responder.
+     * 
+     */
+    @Export(name="certOcsp", type=String.class, parameters={})
+    private Output</* @Nullable */ String> certOcsp;
+
+    /**
+     * @return Specifies the OCSP responder.
+     * 
+     */
+    public Output<Optional<String>> certOcsp() {
+        return Codegen.optional(this.certOcsp);
+    }
+    /**
+     * Specifies the issuer certificate.
+     * 
+     */
+    @Export(name="issuerCert", type=String.class, parameters={})
+    private Output</* @Nullable */ String> issuerCert;
+
+    /**
+     * @return Specifies the issuer certificate.
+     * 
+     */
+    public Output<Optional<String>> issuerCert() {
+        return Codegen.optional(this.issuerCert);
     }
     /**
      * The content of the key.

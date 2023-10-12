@@ -146,6 +146,9 @@ namespace Pulumi.F5BigIP.Ltm
         [Output("persistenceProfiles")]
         public Output<ImmutableArray<string>> PersistenceProfiles { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the policies for the virtual server.
+        /// </summary>
         [Output("policies")]
         public Output<ImmutableArray<string>> Policies { get; private set; } = null!;
 
@@ -372,6 +375,10 @@ namespace Pulumi.F5BigIP.Ltm
 
         [Input("policies")]
         private InputList<string>? _policies;
+
+        /// <summary>
+        /// Specifies the policies for the virtual server.
+        /// </summary>
         public InputList<string> Policies
         {
             get => _policies ?? (_policies = new InputList<string>());
@@ -587,6 +594,10 @@ namespace Pulumi.F5BigIP.Ltm
 
         [Input("policies")]
         private InputList<string>? _policies;
+
+        /// <summary>
+        /// Specifies the policies for the virtual server.
+        /// </summary>
         public InputList<string> Policies
         {
             get => _policies ?? (_policies = new InputList<string>());

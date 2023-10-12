@@ -111,6 +111,8 @@ type ProfileClientSsl struct {
 	Mode pulumi.StringOutput `pulumi:"mode"`
 	// Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Specifies whether the system uses OCSP stapling. The default value is `disabled`.
+	OcspStapling pulumi.StringPtrOutput `pulumi:"ocspStapling"`
 	// name of partition
 	Partition pulumi.StringOutput `pulumi:"partition"`
 	// Client Certificate Constrained Delegation CA passphrase
@@ -271,6 +273,8 @@ type profileClientSslState struct {
 	Mode *string `pulumi:"mode"`
 	// Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
 	Name *string `pulumi:"name"`
+	// Specifies whether the system uses OCSP stapling. The default value is `disabled`.
+	OcspStapling *string `pulumi:"ocspStapling"`
 	// name of partition
 	Partition *string `pulumi:"partition"`
 	// Client Certificate Constrained Delegation CA passphrase
@@ -392,6 +396,8 @@ type ProfileClientSslState struct {
 	Mode pulumi.StringPtrInput
 	// Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
 	Name pulumi.StringPtrInput
+	// Specifies whether the system uses OCSP stapling. The default value is `disabled`.
+	OcspStapling pulumi.StringPtrInput
 	// name of partition
 	Partition pulumi.StringPtrInput
 	// Client Certificate Constrained Delegation CA passphrase
@@ -517,6 +523,8 @@ type profileClientSslArgs struct {
 	Mode *string `pulumi:"mode"`
 	// Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
 	Name string `pulumi:"name"`
+	// Specifies whether the system uses OCSP stapling. The default value is `disabled`.
+	OcspStapling *string `pulumi:"ocspStapling"`
 	// name of partition
 	Partition *string `pulumi:"partition"`
 	// Client Certificate Constrained Delegation CA passphrase
@@ -639,6 +647,8 @@ type ProfileClientSslArgs struct {
 	Mode pulumi.StringPtrInput
 	// Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
 	Name pulumi.StringInput
+	// Specifies whether the system uses OCSP stapling. The default value is `disabled`.
+	OcspStapling pulumi.StringPtrInput
 	// name of partition
 	Partition pulumi.StringPtrInput
 	// Client Certificate Constrained Delegation CA passphrase
@@ -961,6 +971,11 @@ func (o ProfileClientSslOutput) Mode() pulumi.StringOutput {
 // Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
 func (o ProfileClientSslOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies whether the system uses OCSP stapling. The default value is `disabled`.
+func (o ProfileClientSslOutput) OcspStapling() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProfileClientSsl) pulumi.StringPtrOutput { return v.OcspStapling }).(pulumi.StringPtrOutput)
 }
 
 // name of partition

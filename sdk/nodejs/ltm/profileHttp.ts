@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
@@ -92,6 +94,10 @@ export class ProfileHttp extends pulumi.CustomResource {
      */
     public readonly encryptCookies!: pulumi.Output<string[] | undefined>;
     /**
+     * See Enforcement below for more details.
+     */
+    public readonly enforcements!: pulumi.Output<outputs.ltm.ProfileHttpEnforcement[]>;
+    /**
      * Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
      */
     public readonly fallbackHost!: pulumi.Output<string>;
@@ -107,6 +113,10 @@ export class ProfileHttp extends pulumi.CustomResource {
      * Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
      */
     public readonly headInsert!: pulumi.Output<string>;
+    /**
+     * See Http_Strict_Transport_Security below for more details.
+     */
+    public readonly httpStrictTransportSecurities!: pulumi.Output<outputs.ltm.ProfileHttpHttpStrictTransportSecurity[] | undefined>;
     /**
      * Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
      */
@@ -149,8 +159,7 @@ export class ProfileHttp extends pulumi.CustomResource {
      */
     public readonly responseHeadersPermitteds!: pulumi.Output<string[]>;
     /**
-     * Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no
-     * string is specified, then no Server header will be added to such responses
+     * Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, "none" string is to be passed.
      */
     public readonly serverAgentName!: pulumi.Output<string>;
     /**
@@ -194,10 +203,12 @@ export class ProfileHttp extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["encryptCookieSecret"] = state ? state.encryptCookieSecret : undefined;
             resourceInputs["encryptCookies"] = state ? state.encryptCookies : undefined;
+            resourceInputs["enforcements"] = state ? state.enforcements : undefined;
             resourceInputs["fallbackHost"] = state ? state.fallbackHost : undefined;
             resourceInputs["fallbackStatusCodes"] = state ? state.fallbackStatusCodes : undefined;
             resourceInputs["headErase"] = state ? state.headErase : undefined;
             resourceInputs["headInsert"] = state ? state.headInsert : undefined;
+            resourceInputs["httpStrictTransportSecurities"] = state ? state.httpStrictTransportSecurities : undefined;
             resourceInputs["insertXforwardedFor"] = state ? state.insertXforwardedFor : undefined;
             resourceInputs["lwsSeparator"] = state ? state.lwsSeparator : undefined;
             resourceInputs["lwsWidth"] = state ? state.lwsWidth : undefined;
@@ -226,10 +237,12 @@ export class ProfileHttp extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["encryptCookieSecret"] = args ? args.encryptCookieSecret : undefined;
             resourceInputs["encryptCookies"] = args ? args.encryptCookies : undefined;
+            resourceInputs["enforcements"] = args ? args.enforcements : undefined;
             resourceInputs["fallbackHost"] = args ? args.fallbackHost : undefined;
             resourceInputs["fallbackStatusCodes"] = args ? args.fallbackStatusCodes : undefined;
             resourceInputs["headErase"] = args ? args.headErase : undefined;
             resourceInputs["headInsert"] = args ? args.headInsert : undefined;
+            resourceInputs["httpStrictTransportSecurities"] = args ? args.httpStrictTransportSecurities : undefined;
             resourceInputs["insertXforwardedFor"] = args ? args.insertXforwardedFor : undefined;
             resourceInputs["lwsSeparator"] = args ? args.lwsSeparator : undefined;
             resourceInputs["lwsWidth"] = args ? args.lwsWidth : undefined;
@@ -285,6 +298,10 @@ export interface ProfileHttpState {
      */
     encryptCookies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * See Enforcement below for more details.
+     */
+    enforcements?: pulumi.Input<pulumi.Input<inputs.ltm.ProfileHttpEnforcement>[]>;
+    /**
      * Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
      */
     fallbackHost?: pulumi.Input<string>;
@@ -300,6 +317,10 @@ export interface ProfileHttpState {
      * Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
      */
     headInsert?: pulumi.Input<string>;
+    /**
+     * See Http_Strict_Transport_Security below for more details.
+     */
+    httpStrictTransportSecurities?: pulumi.Input<pulumi.Input<inputs.ltm.ProfileHttpHttpStrictTransportSecurity>[]>;
     /**
      * Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
      */
@@ -342,8 +363,7 @@ export interface ProfileHttpState {
      */
     responseHeadersPermitteds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no
-     * string is specified, then no Server header will be added to such responses
+     * Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, "none" string is to be passed.
      */
     serverAgentName?: pulumi.Input<string>;
     /**
@@ -401,6 +421,10 @@ export interface ProfileHttpArgs {
      */
     encryptCookies?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * See Enforcement below for more details.
+     */
+    enforcements?: pulumi.Input<pulumi.Input<inputs.ltm.ProfileHttpEnforcement>[]>;
+    /**
      * Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
      */
     fallbackHost?: pulumi.Input<string>;
@@ -416,6 +440,10 @@ export interface ProfileHttpArgs {
      * Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
      */
     headInsert?: pulumi.Input<string>;
+    /**
+     * See Http_Strict_Transport_Security below for more details.
+     */
+    httpStrictTransportSecurities?: pulumi.Input<pulumi.Input<inputs.ltm.ProfileHttpHttpStrictTransportSecurity>[]>;
     /**
      * Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
      */
@@ -458,8 +486,7 @@ export interface ProfileHttpArgs {
      */
     responseHeadersPermitteds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no
-     * string is specified, then no Server header will be added to such responses
+     * Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, "none" string is to be passed.
      */
     serverAgentName?: pulumi.Input<string>;
     /**

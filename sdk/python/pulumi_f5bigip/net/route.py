@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RouteArgs', 'Route']
@@ -27,14 +27,31 @@ class RouteArgs:
         :param pulumi.Input[bool] reject: reject route
         :param pulumi.Input[str] tunnel_ref: tunnel_ref to route traffic
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "network", network)
+        RouteArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            network=network,
+            gw=gw,
+            reject=reject,
+            tunnel_ref=tunnel_ref,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             network: pulumi.Input[str],
+             gw: Optional[pulumi.Input[str]] = None,
+             reject: Optional[pulumi.Input[bool]] = None,
+             tunnel_ref: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("network", network)
         if gw is not None:
-            pulumi.set(__self__, "gw", gw)
+            _setter("gw", gw)
         if reject is not None:
-            pulumi.set(__self__, "reject", reject)
+            _setter("reject", reject)
         if tunnel_ref is not None:
-            pulumi.set(__self__, "tunnel_ref", tunnel_ref)
+            _setter("tunnel_ref", tunnel_ref)
 
     @property
     @pulumi.getter
@@ -113,16 +130,33 @@ class _RouteState:
         :param pulumi.Input[bool] reject: reject route
         :param pulumi.Input[str] tunnel_ref: tunnel_ref to route traffic
         """
+        _RouteState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            gw=gw,
+            name=name,
+            network=network,
+            reject=reject,
+            tunnel_ref=tunnel_ref,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             gw: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             network: Optional[pulumi.Input[str]] = None,
+             reject: Optional[pulumi.Input[bool]] = None,
+             tunnel_ref: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if gw is not None:
-            pulumi.set(__self__, "gw", gw)
+            _setter("gw", gw)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if network is not None:
-            pulumi.set(__self__, "network", network)
+            _setter("network", network)
         if reject is not None:
-            pulumi.set(__self__, "reject", reject)
+            _setter("reject", reject)
         if tunnel_ref is not None:
-            pulumi.set(__self__, "tunnel_ref", tunnel_ref)
+            _setter("tunnel_ref", tunnel_ref)
 
     @property
     @pulumi.getter
@@ -254,6 +288,10 @@ class Route(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RouteArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

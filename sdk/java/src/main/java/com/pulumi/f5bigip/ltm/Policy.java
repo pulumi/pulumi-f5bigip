@@ -121,14 +121,18 @@ public class Policy extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * If you want to publish the policy else it will be deployed in Drafts mode.
+     * If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
+     * 
+     * @deprecated
+     * This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.
      * 
      */
+    @Deprecated /* This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release. */
     @Export(name="publishedCopy", type=String.class, parameters={})
     private Output</* @Nullable */ String> publishedCopy;
 
     /**
-     * @return If you want to publish the policy else it will be deployed in Drafts mode.
+     * @return If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
      * 
      */
     public Output<Optional<String>> publishedCopy() {

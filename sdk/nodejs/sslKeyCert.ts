@@ -61,9 +61,21 @@ export class SslKeyCert extends pulumi.CustomResource {
      */
     public readonly certFullPath!: pulumi.Output<string>;
     /**
+     * Specifies the type of monitoring used.
+     */
+    public readonly certMonitoringType!: pulumi.Output<string | undefined>;
+    /**
      * Name of the SSL certificate to be Imported on to BIGIP.
      */
     public readonly certName!: pulumi.Output<string>;
+    /**
+     * Specifies the OCSP responder.
+     */
+    public readonly certOcsp!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the issuer certificate.
+     */
+    public readonly issuerCert!: pulumi.Output<string | undefined>;
     /**
      * The content of the key.
      */
@@ -100,7 +112,10 @@ export class SslKeyCert extends pulumi.CustomResource {
             const state = argsOrState as SslKeyCertState | undefined;
             resourceInputs["certContent"] = state ? state.certContent : undefined;
             resourceInputs["certFullPath"] = state ? state.certFullPath : undefined;
+            resourceInputs["certMonitoringType"] = state ? state.certMonitoringType : undefined;
             resourceInputs["certName"] = state ? state.certName : undefined;
+            resourceInputs["certOcsp"] = state ? state.certOcsp : undefined;
+            resourceInputs["issuerCert"] = state ? state.issuerCert : undefined;
             resourceInputs["keyContent"] = state ? state.keyContent : undefined;
             resourceInputs["keyFullPath"] = state ? state.keyFullPath : undefined;
             resourceInputs["keyName"] = state ? state.keyName : undefined;
@@ -122,7 +137,10 @@ export class SslKeyCert extends pulumi.CustomResource {
             }
             resourceInputs["certContent"] = args?.certContent ? pulumi.secret(args.certContent) : undefined;
             resourceInputs["certFullPath"] = args ? args.certFullPath : undefined;
+            resourceInputs["certMonitoringType"] = args ? args.certMonitoringType : undefined;
             resourceInputs["certName"] = args ? args.certName : undefined;
+            resourceInputs["certOcsp"] = args ? args.certOcsp : undefined;
+            resourceInputs["issuerCert"] = args ? args.issuerCert : undefined;
             resourceInputs["keyContent"] = args?.keyContent ? pulumi.secret(args.keyContent) : undefined;
             resourceInputs["keyFullPath"] = args ? args.keyFullPath : undefined;
             resourceInputs["keyName"] = args ? args.keyName : undefined;
@@ -149,9 +167,21 @@ export interface SslKeyCertState {
      */
     certFullPath?: pulumi.Input<string>;
     /**
+     * Specifies the type of monitoring used.
+     */
+    certMonitoringType?: pulumi.Input<string>;
+    /**
      * Name of the SSL certificate to be Imported on to BIGIP.
      */
     certName?: pulumi.Input<string>;
+    /**
+     * Specifies the OCSP responder.
+     */
+    certOcsp?: pulumi.Input<string>;
+    /**
+     * Specifies the issuer certificate.
+     */
+    issuerCert?: pulumi.Input<string>;
     /**
      * The content of the key.
      */
@@ -187,9 +217,21 @@ export interface SslKeyCertArgs {
      */
     certFullPath?: pulumi.Input<string>;
     /**
+     * Specifies the type of monitoring used.
+     */
+    certMonitoringType?: pulumi.Input<string>;
+    /**
      * Name of the SSL certificate to be Imported on to BIGIP.
      */
     certName: pulumi.Input<string>;
+    /**
+     * Specifies the OCSP responder.
+     */
+    certOcsp?: pulumi.Input<string>;
+    /**
+     * Specifies the issuer certificate.
+     */
+    issuerCert?: pulumi.Input<string>;
     /**
      * The content of the key.
      */

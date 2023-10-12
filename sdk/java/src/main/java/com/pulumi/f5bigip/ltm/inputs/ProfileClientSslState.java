@@ -490,6 +490,21 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * Specifies whether the system uses OCSP stapling. The default value is `disabled`.
+     * 
+     */
+    @Import(name="ocspStapling")
+    private @Nullable Output<String> ocspStapling;
+
+    /**
+     * @return Specifies whether the system uses OCSP stapling. The default value is `disabled`.
+     * 
+     */
+    public Optional<Output<String>> ocspStapling() {
+        return Optional.ofNullable(this.ocspStapling);
+    }
+
+    /**
      * name of partition
      * 
      */
@@ -908,6 +923,7 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
         this.modSslMethods = $.modSslMethods;
         this.mode = $.mode;
         this.name = $.name;
+        this.ocspStapling = $.ocspStapling;
         this.partition = $.partition;
         this.passphrase = $.passphrase;
         this.peerCertMode = $.peerCertMode;
@@ -1618,6 +1634,27 @@ public final class ProfileClientSslState extends com.pulumi.resources.ResourceAr
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param ocspStapling Specifies whether the system uses OCSP stapling. The default value is `disabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ocspStapling(@Nullable Output<String> ocspStapling) {
+            $.ocspStapling = ocspStapling;
+            return this;
+        }
+
+        /**
+         * @param ocspStapling Specifies whether the system uses OCSP stapling. The default value is `disabled`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ocspStapling(String ocspStapling) {
+            return ocspStapling(Output.of(ocspStapling));
         }
 
         /**

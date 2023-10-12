@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -68,9 +68,20 @@ class EventServiceDiscoveryArgs:
                
                Once the declaration has been sent to the BIG-IP, we can use taskid/id ( ~Sample_event_sd~My_app~My_pool" ) and node list for the resource to dynamically update the node list.
         """
-        pulumi.set(__self__, "taskid", taskid)
+        EventServiceDiscoveryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            taskid=taskid,
+            nodes=nodes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             taskid: pulumi.Input[str],
+             nodes: Optional[pulumi.Input[Sequence[pulumi.Input['EventServiceDiscoveryNodeArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("taskid", taskid)
         if nodes is not None:
-            pulumi.set(__self__, "nodes", nodes)
+            _setter("nodes", nodes)
 
     @property
     @pulumi.getter
@@ -197,10 +208,21 @@ class _EventServiceDiscoveryState:
                Once the declaration has been sent to the BIG-IP, we can use taskid/id ( ~Sample_event_sd~My_app~My_pool" ) and node list for the resource to dynamically update the node list.
         :param pulumi.Input[str] taskid: servicediscovery endpoint ( Below example shows how to create endpoing using AS3 )
         """
+        _EventServiceDiscoveryState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            nodes=nodes,
+            taskid=taskid,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             nodes: Optional[pulumi.Input[Sequence[pulumi.Input['EventServiceDiscoveryNodeArgs']]]] = None,
+             taskid: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if nodes is not None:
-            pulumi.set(__self__, "nodes", nodes)
+            _setter("nodes", nodes)
         if taskid is not None:
-            pulumi.set(__self__, "taskid", taskid)
+            _setter("taskid", taskid)
 
     @property
     @pulumi.getter
@@ -392,6 +414,10 @@ class EventServiceDiscovery(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EventServiceDiscoveryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

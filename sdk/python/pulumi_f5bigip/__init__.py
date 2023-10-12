@@ -229,6 +229,22 @@ _utilities.register(
  },
  {
   "pkg": "f5bigip",
+  "mod": "ltm/cipherGroup",
+  "fqn": "pulumi_f5bigip.ltm",
+  "classes": {
+   "f5bigip:ltm/cipherGroup:CipherGroup": "CipherGroup"
+  }
+ },
+ {
+  "pkg": "f5bigip",
+  "mod": "ltm/cipherRule",
+  "fqn": "pulumi_f5bigip.ltm",
+  "classes": {
+   "f5bigip:ltm/cipherRule:CipherRule": "CipherRule"
+  }
+ },
+ {
+  "pkg": "f5bigip",
   "mod": "ltm/dataGroup",
   "fqn": "pulumi_f5bigip.ltm",
   "classes": {
@@ -497,6 +513,14 @@ _utilities.register(
   "fqn": "pulumi_f5bigip.sys",
   "classes": {
    "f5bigip:sys/ntp:Ntp": "Ntp"
+  }
+ },
+ {
+  "pkg": "f5bigip",
+  "mod": "sys/ocsp",
+  "fqn": "pulumi_f5bigip.sys",
+  "classes": {
+   "f5bigip:sys/ocsp:Ocsp": "Ocsp"
   }
  },
  {

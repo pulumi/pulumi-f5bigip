@@ -20,8 +20,16 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
- * There are two ways to use ltm_pool_attachment resource, where we can take node reference from ltm_node or we can specify node directly with ip:port/fqdn:port which will also create node and atach to pool.
- * ### Pool attachment with node directly taking  `ip:port` / `fqdn:port`
+ * There are two ways to use `f5bigip.ltm.PoolAttachment` resource for `node` attribute
+ * 
+ * * It can be reference from `f5bigip.ltm.Node` (or)
+ * * It can be specify directly with `ipv4:port`/`fqdn:port`/`ipv6.port` which will also create node and attach member to pool.
+ * 
+ * &gt; For adding IPv6 node/member to pool it should be specific in `node` attribute in format like `ipv6_address.port`.
+ * IPv4 should be specified as `ipv4_address:port`
+ * ### Usage Pool attachment with node/member directly attaching to pool.
+ * 
+ * node can be specified in format `ipv4:port` / `fqdn:port` / `ipv6.port`
  * ```java
  * package generated_program;
  * 
@@ -65,15 +73,20 @@ import javax.annotation.Nullable;
  *             .allowNat(&#34;yes&#34;)
  *             .build());
  * 
- *         var attachNode = new PoolAttachment(&#34;attachNode&#34;, PoolAttachmentArgs.builder()        
+ *         var ipv4NodeAttach = new PoolAttachment(&#34;ipv4NodeAttach&#34;, PoolAttachmentArgs.builder()        
  *             .pool(pool.name())
  *             .node(&#34;1.1.1.1:80&#34;)
+ *             .build());
+ * 
+ *         var ipv6NodeAttach = new PoolAttachment(&#34;ipv6NodeAttach&#34;, PoolAttachmentArgs.builder()        
+ *             .pool(pool.name())
+ *             .node(&#34;2003::4.80&#34;)
  *             .build());
  * 
  *     }
  * }
  * ```
- * ### Pool attachment with node referenced from `f5bigip.ltm.Node`
+ * ### Usage Pool attachment with node referenced from `f5bigip.ltm.Node`
  * ```java
  * package generated_program;
  * 

@@ -108,7 +108,8 @@ type VirtualServer struct {
 	PerFlowRequestAccessPolicy pulumi.StringOutput `pulumi:"perFlowRequestAccessPolicy"`
 	// List of persistence profiles associated with the Virtual Server.
 	PersistenceProfiles pulumi.StringArrayOutput `pulumi:"persistenceProfiles"`
-	Policies            pulumi.StringArrayOutput `pulumi:"policies"`
+	// Specifies the policies for the virtual server.
+	Policies pulumi.StringArrayOutput `pulumi:"policies"`
 	// Default pool name
 	Pool pulumi.StringPtrOutput `pulumi:"pool"`
 	// Listen port for the virtual server
@@ -197,7 +198,8 @@ type virtualServerState struct {
 	PerFlowRequestAccessPolicy *string `pulumi:"perFlowRequestAccessPolicy"`
 	// List of persistence profiles associated with the Virtual Server.
 	PersistenceProfiles []string `pulumi:"persistenceProfiles"`
-	Policies            []string `pulumi:"policies"`
+	// Specifies the policies for the virtual server.
+	Policies []string `pulumi:"policies"`
 	// Default pool name
 	Pool *string `pulumi:"pool"`
 	// Listen port for the virtual server
@@ -254,7 +256,8 @@ type VirtualServerState struct {
 	PerFlowRequestAccessPolicy pulumi.StringPtrInput
 	// List of persistence profiles associated with the Virtual Server.
 	PersistenceProfiles pulumi.StringArrayInput
-	Policies            pulumi.StringArrayInput
+	// Specifies the policies for the virtual server.
+	Policies pulumi.StringArrayInput
 	// Default pool name
 	Pool pulumi.StringPtrInput
 	// Listen port for the virtual server
@@ -315,7 +318,8 @@ type virtualServerArgs struct {
 	PerFlowRequestAccessPolicy *string `pulumi:"perFlowRequestAccessPolicy"`
 	// List of persistence profiles associated with the Virtual Server.
 	PersistenceProfiles []string `pulumi:"persistenceProfiles"`
-	Policies            []string `pulumi:"policies"`
+	// Specifies the policies for the virtual server.
+	Policies []string `pulumi:"policies"`
 	// Default pool name
 	Pool *string `pulumi:"pool"`
 	// Listen port for the virtual server
@@ -373,7 +377,8 @@ type VirtualServerArgs struct {
 	PerFlowRequestAccessPolicy pulumi.StringPtrInput
 	// List of persistence profiles associated with the Virtual Server.
 	PersistenceProfiles pulumi.StringArrayInput
-	Policies            pulumi.StringArrayInput
+	// Specifies the policies for the virtual server.
+	Policies pulumi.StringArrayInput
 	// Default pool name
 	Pool pulumi.StringPtrInput
 	// Listen port for the virtual server
@@ -576,6 +581,7 @@ func (o VirtualServerOutput) PersistenceProfiles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualServer) pulumi.StringArrayOutput { return v.PersistenceProfiles }).(pulumi.StringArrayOutput)
 }
 
+// Specifies the policies for the virtual server.
 func (o VirtualServerOutput) Policies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VirtualServer) pulumi.StringArrayOutput { return v.Policies }).(pulumi.StringArrayOutput)
 }

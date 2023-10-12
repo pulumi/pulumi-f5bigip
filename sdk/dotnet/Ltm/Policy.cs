@@ -93,7 +93,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// If you want to publish the policy else it will be deployed in Drafts mode.
+        /// If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
         /// </summary>
         [Output("publishedCopy")]
         public Output<string?> PublishedCopy { get; private set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// If you want to publish the policy else it will be deployed in Drafts mode.
+        /// If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
         /// </summary>
         [Input("publishedCopy")]
         public Input<string>? PublishedCopy { get; set; }
@@ -255,7 +255,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// If you want to publish the policy else it will be deployed in Drafts mode.
+        /// If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
         /// </summary>
         [Input("publishedCopy")]
         public Input<string>? PublishedCopy { get; set; }

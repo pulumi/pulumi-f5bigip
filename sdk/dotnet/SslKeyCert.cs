@@ -52,10 +52,28 @@ namespace Pulumi.F5BigIP
         public Output<string> CertFullPath { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the type of monitoring used.
+        /// </summary>
+        [Output("certMonitoringType")]
+        public Output<string?> CertMonitoringType { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the SSL certificate to be Imported on to BIGIP.
         /// </summary>
         [Output("certName")]
         public Output<string> CertName { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the OCSP responder.
+        /// </summary>
+        [Output("certOcsp")]
+        public Output<string?> CertOcsp { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the issuer certificate.
+        /// </summary>
+        [Output("issuerCert")]
+        public Output<string?> IssuerCert { get; private set; } = null!;
 
         /// <summary>
         /// The content of the key.
@@ -162,10 +180,28 @@ namespace Pulumi.F5BigIP
         public Input<string>? CertFullPath { get; set; }
 
         /// <summary>
+        /// Specifies the type of monitoring used.
+        /// </summary>
+        [Input("certMonitoringType")]
+        public Input<string>? CertMonitoringType { get; set; }
+
+        /// <summary>
         /// Name of the SSL certificate to be Imported on to BIGIP.
         /// </summary>
         [Input("certName", required: true)]
         public Input<string> CertName { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the OCSP responder.
+        /// </summary>
+        [Input("certOcsp")]
+        public Input<string>? CertOcsp { get; set; }
+
+        /// <summary>
+        /// Specifies the issuer certificate.
+        /// </summary>
+        [Input("issuerCert")]
+        public Input<string>? IssuerCert { get; set; }
 
         [Input("keyContent", required: true)]
         private Input<string>? _keyContent;
@@ -248,10 +284,28 @@ namespace Pulumi.F5BigIP
         public Input<string>? CertFullPath { get; set; }
 
         /// <summary>
+        /// Specifies the type of monitoring used.
+        /// </summary>
+        [Input("certMonitoringType")]
+        public Input<string>? CertMonitoringType { get; set; }
+
+        /// <summary>
         /// Name of the SSL certificate to be Imported on to BIGIP.
         /// </summary>
         [Input("certName")]
         public Input<string>? CertName { get; set; }
+
+        /// <summary>
+        /// Specifies the OCSP responder.
+        /// </summary>
+        [Input("certOcsp")]
+        public Input<string>? CertOcsp { get; set; }
+
+        /// <summary>
+        /// Specifies the issuer certificate.
+        /// </summary>
+        [Input("issuerCert")]
+        public Input<string>? IssuerCert { get; set; }
 
         [Input("keyContent")]
         private Input<string>? _keyContent;

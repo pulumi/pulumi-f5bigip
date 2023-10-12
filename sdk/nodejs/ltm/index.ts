@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { CipherGroupArgs, CipherGroupState } from "./cipherGroup";
+export type CipherGroup = import("./cipherGroup").CipherGroup;
+export const CipherGroup: typeof import("./cipherGroup").CipherGroup = null as any;
+utilities.lazyLoad(exports, ["CipherGroup"], () => require("./cipherGroup"));
+
+export { CipherRuleArgs, CipherRuleState } from "./cipherRule";
+export type CipherRule = import("./cipherRule").CipherRule;
+export const CipherRule: typeof import("./cipherRule").CipherRule = null as any;
+utilities.lazyLoad(exports, ["CipherRule"], () => require("./cipherRule"));
+
 export { DataGroupArgs, DataGroupState } from "./dataGroup";
 export type DataGroup = import("./dataGroup").DataGroup;
 export const DataGroup: typeof import("./dataGroup").DataGroup = null as any;
@@ -165,6 +175,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "f5bigip:ltm/cipherGroup:CipherGroup":
+                return new CipherGroup(name, <any>undefined, { urn })
+            case "f5bigip:ltm/cipherRule:CipherRule":
+                return new CipherRule(name, <any>undefined, { urn })
             case "f5bigip:ltm/dataGroup:DataGroup":
                 return new DataGroup(name, <any>undefined, { urn })
             case "f5bigip:ltm/iRule:IRule":
@@ -220,6 +234,8 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("f5bigip", "ltm/cipherGroup", _module)
+pulumi.runtime.registerResourceModule("f5bigip", "ltm/cipherRule", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "ltm/dataGroup", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "ltm/iRule", _module)
 pulumi.runtime.registerResourceModule("f5bigip", "ltm/monitor", _module)

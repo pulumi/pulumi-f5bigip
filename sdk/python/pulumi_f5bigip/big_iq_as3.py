@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['BigIqAs3Args', 'BigIqAs3']
@@ -45,20 +45,45 @@ class BigIqAs3Args:
                >  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource
         :param pulumi.Input[str] tenant_list: Name of Tenant
         """
-        pulumi.set(__self__, "as3_json", as3_json)
-        pulumi.set(__self__, "bigiq_address", bigiq_address)
-        pulumi.set(__self__, "bigiq_password", bigiq_password)
-        pulumi.set(__self__, "bigiq_user", bigiq_user)
+        BigIqAs3Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            as3_json=as3_json,
+            bigiq_address=bigiq_address,
+            bigiq_password=bigiq_password,
+            bigiq_user=bigiq_user,
+            bigiq_login_ref=bigiq_login_ref,
+            bigiq_port=bigiq_port,
+            bigiq_token_auth=bigiq_token_auth,
+            ignore_metadata=ignore_metadata,
+            tenant_list=tenant_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             as3_json: pulumi.Input[str],
+             bigiq_address: pulumi.Input[str],
+             bigiq_password: pulumi.Input[str],
+             bigiq_user: pulumi.Input[str],
+             bigiq_login_ref: Optional[pulumi.Input[str]] = None,
+             bigiq_port: Optional[pulumi.Input[str]] = None,
+             bigiq_token_auth: Optional[pulumi.Input[bool]] = None,
+             ignore_metadata: Optional[pulumi.Input[bool]] = None,
+             tenant_list: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("as3_json", as3_json)
+        _setter("bigiq_address", bigiq_address)
+        _setter("bigiq_password", bigiq_password)
+        _setter("bigiq_user", bigiq_user)
         if bigiq_login_ref is not None:
-            pulumi.set(__self__, "bigiq_login_ref", bigiq_login_ref)
+            _setter("bigiq_login_ref", bigiq_login_ref)
         if bigiq_port is not None:
-            pulumi.set(__self__, "bigiq_port", bigiq_port)
+            _setter("bigiq_port", bigiq_port)
         if bigiq_token_auth is not None:
-            pulumi.set(__self__, "bigiq_token_auth", bigiq_token_auth)
+            _setter("bigiq_token_auth", bigiq_token_auth)
         if ignore_metadata is not None:
-            pulumi.set(__self__, "ignore_metadata", ignore_metadata)
+            _setter("ignore_metadata", ignore_metadata)
         if tenant_list is not None:
-            pulumi.set(__self__, "tenant_list", tenant_list)
+            _setter("tenant_list", tenant_list)
 
     @property
     @pulumi.getter(name="as3Json")
@@ -213,24 +238,49 @@ class _BigIqAs3State:
                >  **Note:** This resource does not support `teanat_filter` parameter as BIG-IP As3 resource
         :param pulumi.Input[str] tenant_list: Name of Tenant
         """
+        _BigIqAs3State._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            as3_json=as3_json,
+            bigiq_address=bigiq_address,
+            bigiq_login_ref=bigiq_login_ref,
+            bigiq_password=bigiq_password,
+            bigiq_port=bigiq_port,
+            bigiq_token_auth=bigiq_token_auth,
+            bigiq_user=bigiq_user,
+            ignore_metadata=ignore_metadata,
+            tenant_list=tenant_list,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             as3_json: Optional[pulumi.Input[str]] = None,
+             bigiq_address: Optional[pulumi.Input[str]] = None,
+             bigiq_login_ref: Optional[pulumi.Input[str]] = None,
+             bigiq_password: Optional[pulumi.Input[str]] = None,
+             bigiq_port: Optional[pulumi.Input[str]] = None,
+             bigiq_token_auth: Optional[pulumi.Input[bool]] = None,
+             bigiq_user: Optional[pulumi.Input[str]] = None,
+             ignore_metadata: Optional[pulumi.Input[bool]] = None,
+             tenant_list: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if as3_json is not None:
-            pulumi.set(__self__, "as3_json", as3_json)
+            _setter("as3_json", as3_json)
         if bigiq_address is not None:
-            pulumi.set(__self__, "bigiq_address", bigiq_address)
+            _setter("bigiq_address", bigiq_address)
         if bigiq_login_ref is not None:
-            pulumi.set(__self__, "bigiq_login_ref", bigiq_login_ref)
+            _setter("bigiq_login_ref", bigiq_login_ref)
         if bigiq_password is not None:
-            pulumi.set(__self__, "bigiq_password", bigiq_password)
+            _setter("bigiq_password", bigiq_password)
         if bigiq_port is not None:
-            pulumi.set(__self__, "bigiq_port", bigiq_port)
+            _setter("bigiq_port", bigiq_port)
         if bigiq_token_auth is not None:
-            pulumi.set(__self__, "bigiq_token_auth", bigiq_token_auth)
+            _setter("bigiq_token_auth", bigiq_token_auth)
         if bigiq_user is not None:
-            pulumi.set(__self__, "bigiq_user", bigiq_user)
+            _setter("bigiq_user", bigiq_user)
         if ignore_metadata is not None:
-            pulumi.set(__self__, "ignore_metadata", ignore_metadata)
+            _setter("ignore_metadata", ignore_metadata)
         if tenant_list is not None:
-            pulumi.set(__self__, "tenant_list", tenant_list)
+            _setter("tenant_list", tenant_list)
 
     @property
     @pulumi.getter(name="as3Json")
@@ -442,6 +492,10 @@ class BigIqAs3(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BigIqAs3Args._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

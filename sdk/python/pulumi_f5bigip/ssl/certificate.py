@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['CertificateArgs', 'Certificate']
@@ -17,20 +17,53 @@ class CertificateArgs:
                  content: pulumi.Input[str],
                  name: pulumi.Input[str],
                  full_path: Optional[pulumi.Input[str]] = None,
+                 issuer_cert: Optional[pulumi.Input[str]] = None,
+                 monitoring_type: Optional[pulumi.Input[str]] = None,
+                 ocsp: Optional[pulumi.Input[str]] = None,
                  partition: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Certificate resource.
         :param pulumi.Input[str] content: Content of certificate on Disk
         :param pulumi.Input[str] name: Name of the SSL Certificate to be Imported on to BIGIP
         :param pulumi.Input[str] full_path: Full Path Name of ssl certificate
+        :param pulumi.Input[str] issuer_cert: Specifies the issuer certificate.
+        :param pulumi.Input[str] monitoring_type: Specifies the type of monitoring used.
+        :param pulumi.Input[str] ocsp: Specifies the OCSP responder.
         :param pulumi.Input[str] partition: Partition of ssl certificate
         """
-        pulumi.set(__self__, "content", content)
-        pulumi.set(__self__, "name", name)
+        CertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            name=name,
+            full_path=full_path,
+            issuer_cert=issuer_cert,
+            monitoring_type=monitoring_type,
+            ocsp=ocsp,
+            partition=partition,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: pulumi.Input[str],
+             name: pulumi.Input[str],
+             full_path: Optional[pulumi.Input[str]] = None,
+             issuer_cert: Optional[pulumi.Input[str]] = None,
+             monitoring_type: Optional[pulumi.Input[str]] = None,
+             ocsp: Optional[pulumi.Input[str]] = None,
+             partition: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("content", content)
+        _setter("name", name)
         if full_path is not None:
-            pulumi.set(__self__, "full_path", full_path)
+            _setter("full_path", full_path)
+        if issuer_cert is not None:
+            _setter("issuer_cert", issuer_cert)
+        if monitoring_type is not None:
+            _setter("monitoring_type", monitoring_type)
+        if ocsp is not None:
+            _setter("ocsp", ocsp)
         if partition is not None:
-            pulumi.set(__self__, "partition", partition)
+            _setter("partition", partition)
 
     @property
     @pulumi.getter
@@ -69,6 +102,42 @@ class CertificateArgs:
         pulumi.set(self, "full_path", value)
 
     @property
+    @pulumi.getter(name="issuerCert")
+    def issuer_cert(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the issuer certificate.
+        """
+        return pulumi.get(self, "issuer_cert")
+
+    @issuer_cert.setter
+    def issuer_cert(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "issuer_cert", value)
+
+    @property
+    @pulumi.getter(name="monitoringType")
+    def monitoring_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the type of monitoring used.
+        """
+        return pulumi.get(self, "monitoring_type")
+
+    @monitoring_type.setter
+    def monitoring_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "monitoring_type", value)
+
+    @property
+    @pulumi.getter
+    def ocsp(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the OCSP responder.
+        """
+        return pulumi.get(self, "ocsp")
+
+    @ocsp.setter
+    def ocsp(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ocsp", value)
+
+    @property
     @pulumi.getter
     def partition(self) -> Optional[pulumi.Input[str]]:
         """
@@ -86,23 +155,56 @@ class _CertificateState:
     def __init__(__self__, *,
                  content: Optional[pulumi.Input[str]] = None,
                  full_path: Optional[pulumi.Input[str]] = None,
+                 issuer_cert: Optional[pulumi.Input[str]] = None,
+                 monitoring_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 ocsp: Optional[pulumi.Input[str]] = None,
                  partition: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Certificate resources.
         :param pulumi.Input[str] content: Content of certificate on Disk
         :param pulumi.Input[str] full_path: Full Path Name of ssl certificate
+        :param pulumi.Input[str] issuer_cert: Specifies the issuer certificate.
+        :param pulumi.Input[str] monitoring_type: Specifies the type of monitoring used.
         :param pulumi.Input[str] name: Name of the SSL Certificate to be Imported on to BIGIP
+        :param pulumi.Input[str] ocsp: Specifies the OCSP responder.
         :param pulumi.Input[str] partition: Partition of ssl certificate
         """
+        _CertificateState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            full_path=full_path,
+            issuer_cert=issuer_cert,
+            monitoring_type=monitoring_type,
+            name=name,
+            ocsp=ocsp,
+            partition=partition,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: Optional[pulumi.Input[str]] = None,
+             full_path: Optional[pulumi.Input[str]] = None,
+             issuer_cert: Optional[pulumi.Input[str]] = None,
+             monitoring_type: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             ocsp: Optional[pulumi.Input[str]] = None,
+             partition: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
         if full_path is not None:
-            pulumi.set(__self__, "full_path", full_path)
+            _setter("full_path", full_path)
+        if issuer_cert is not None:
+            _setter("issuer_cert", issuer_cert)
+        if monitoring_type is not None:
+            _setter("monitoring_type", monitoring_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
+        if ocsp is not None:
+            _setter("ocsp", ocsp)
         if partition is not None:
-            pulumi.set(__self__, "partition", partition)
+            _setter("partition", partition)
 
     @property
     @pulumi.getter
@@ -129,6 +231,30 @@ class _CertificateState:
         pulumi.set(self, "full_path", value)
 
     @property
+    @pulumi.getter(name="issuerCert")
+    def issuer_cert(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the issuer certificate.
+        """
+        return pulumi.get(self, "issuer_cert")
+
+    @issuer_cert.setter
+    def issuer_cert(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "issuer_cert", value)
+
+    @property
+    @pulumi.getter(name="monitoringType")
+    def monitoring_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the type of monitoring used.
+        """
+        return pulumi.get(self, "monitoring_type")
+
+    @monitoring_type.setter
+    def monitoring_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "monitoring_type", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -139,6 +265,18 @@ class _CertificateState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def ocsp(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the OCSP responder.
+        """
+        return pulumi.get(self, "ocsp")
+
+    @ocsp.setter
+    def ocsp(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ocsp", value)
 
     @property
     @pulumi.getter
@@ -160,7 +298,10 @@ class Certificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content: Optional[pulumi.Input[str]] = None,
                  full_path: Optional[pulumi.Input[str]] = None,
+                 issuer_cert: Optional[pulumi.Input[str]] = None,
+                 monitoring_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 ocsp: Optional[pulumi.Input[str]] = None,
                  partition: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -183,7 +324,10 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content: Content of certificate on Disk
         :param pulumi.Input[str] full_path: Full Path Name of ssl certificate
+        :param pulumi.Input[str] issuer_cert: Specifies the issuer certificate.
+        :param pulumi.Input[str] monitoring_type: Specifies the type of monitoring used.
         :param pulumi.Input[str] name: Name of the SSL Certificate to be Imported on to BIGIP
+        :param pulumi.Input[str] ocsp: Specifies the OCSP responder.
         :param pulumi.Input[str] partition: Partition of ssl certificate
         """
         ...
@@ -218,6 +362,10 @@ class Certificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -225,7 +373,10 @@ class Certificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content: Optional[pulumi.Input[str]] = None,
                  full_path: Optional[pulumi.Input[str]] = None,
+                 issuer_cert: Optional[pulumi.Input[str]] = None,
+                 monitoring_type: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 ocsp: Optional[pulumi.Input[str]] = None,
                  partition: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -240,9 +391,12 @@ class Certificate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'content'")
             __props__.__dict__["content"] = None if content is None else pulumi.Output.secret(content)
             __props__.__dict__["full_path"] = full_path
+            __props__.__dict__["issuer_cert"] = issuer_cert
+            __props__.__dict__["monitoring_type"] = monitoring_type
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
+            __props__.__dict__["ocsp"] = ocsp
             __props__.__dict__["partition"] = partition
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["content"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
@@ -258,7 +412,10 @@ class Certificate(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             content: Optional[pulumi.Input[str]] = None,
             full_path: Optional[pulumi.Input[str]] = None,
+            issuer_cert: Optional[pulumi.Input[str]] = None,
+            monitoring_type: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            ocsp: Optional[pulumi.Input[str]] = None,
             partition: Optional[pulumi.Input[str]] = None) -> 'Certificate':
         """
         Get an existing Certificate resource's state with the given name, id, and optional extra
@@ -269,7 +426,10 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content: Content of certificate on Disk
         :param pulumi.Input[str] full_path: Full Path Name of ssl certificate
+        :param pulumi.Input[str] issuer_cert: Specifies the issuer certificate.
+        :param pulumi.Input[str] monitoring_type: Specifies the type of monitoring used.
         :param pulumi.Input[str] name: Name of the SSL Certificate to be Imported on to BIGIP
+        :param pulumi.Input[str] ocsp: Specifies the OCSP responder.
         :param pulumi.Input[str] partition: Partition of ssl certificate
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -278,7 +438,10 @@ class Certificate(pulumi.CustomResource):
 
         __props__.__dict__["content"] = content
         __props__.__dict__["full_path"] = full_path
+        __props__.__dict__["issuer_cert"] = issuer_cert
+        __props__.__dict__["monitoring_type"] = monitoring_type
         __props__.__dict__["name"] = name
+        __props__.__dict__["ocsp"] = ocsp
         __props__.__dict__["partition"] = partition
         return Certificate(resource_name, opts=opts, __props__=__props__)
 
@@ -299,12 +462,36 @@ class Certificate(pulumi.CustomResource):
         return pulumi.get(self, "full_path")
 
     @property
+    @pulumi.getter(name="issuerCert")
+    def issuer_cert(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the issuer certificate.
+        """
+        return pulumi.get(self, "issuer_cert")
+
+    @property
+    @pulumi.getter(name="monitoringType")
+    def monitoring_type(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the type of monitoring used.
+        """
+        return pulumi.get(self, "monitoring_type")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
         Name of the SSL Certificate to be Imported on to BIGIP
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def ocsp(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the OCSP responder.
+        """
+        return pulumi.get(self, "ocsp")
 
     @property
     @pulumi.getter

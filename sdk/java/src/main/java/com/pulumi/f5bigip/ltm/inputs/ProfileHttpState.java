@@ -5,6 +5,8 @@ package com.pulumi.f5bigip.ltm.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.f5bigip.ltm.inputs.ProfileHttpEnforcementArgs;
+import com.pulumi.f5bigip.ltm.inputs.ProfileHttpHttpStrictTransportSecurityArgs;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -123,6 +125,21 @@ public final class ProfileHttpState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * See Enforcement below for more details.
+     * 
+     */
+    @Import(name="enforcements")
+    private @Nullable Output<List<ProfileHttpEnforcementArgs>> enforcements;
+
+    /**
+     * @return See Enforcement below for more details.
+     * 
+     */
+    public Optional<Output<List<ProfileHttpEnforcementArgs>>> enforcements() {
+        return Optional.ofNullable(this.enforcements);
+    }
+
+    /**
      * Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
      * 
      */
@@ -180,6 +197,21 @@ public final class ProfileHttpState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> headInsert() {
         return Optional.ofNullable(this.headInsert);
+    }
+
+    /**
+     * See Http_Strict_Transport_Security below for more details.
+     * 
+     */
+    @Import(name="httpStrictTransportSecurities")
+    private @Nullable Output<List<ProfileHttpHttpStrictTransportSecurityArgs>> httpStrictTransportSecurities;
+
+    /**
+     * @return See Http_Strict_Transport_Security below for more details.
+     * 
+     */
+    public Optional<Output<List<ProfileHttpHttpStrictTransportSecurityArgs>>> httpStrictTransportSecurities() {
+        return Optional.ofNullable(this.httpStrictTransportSecurities);
     }
 
     /**
@@ -335,16 +367,14 @@ public final class ProfileHttpState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no
-     * string is specified, then no Server header will be added to such responses
+     * Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, &#34;none&#34; string is to be passed.
      * 
      */
     @Import(name="serverAgentName")
     private @Nullable Output<String> serverAgentName;
 
     /**
-     * @return Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no
-     * string is specified, then no Server header will be added to such responses
+     * @return Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, &#34;none&#34; string is to be passed.
      * 
      */
     public Optional<Output<String>> serverAgentName() {
@@ -436,10 +466,12 @@ public final class ProfileHttpState extends com.pulumi.resources.ResourceArgs {
         this.description = $.description;
         this.encryptCookieSecret = $.encryptCookieSecret;
         this.encryptCookies = $.encryptCookies;
+        this.enforcements = $.enforcements;
         this.fallbackHost = $.fallbackHost;
         this.fallbackStatusCodes = $.fallbackStatusCodes;
         this.headErase = $.headErase;
         this.headInsert = $.headInsert;
+        this.httpStrictTransportSecurities = $.httpStrictTransportSecurities;
         this.insertXforwardedFor = $.insertXforwardedFor;
         this.lwsSeparator = $.lwsSeparator;
         this.lwsWidth = $.lwsWidth;
@@ -634,6 +666,37 @@ public final class ProfileHttpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param enforcements See Enforcement below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enforcements(@Nullable Output<List<ProfileHttpEnforcementArgs>> enforcements) {
+            $.enforcements = enforcements;
+            return this;
+        }
+
+        /**
+         * @param enforcements See Enforcement below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enforcements(List<ProfileHttpEnforcementArgs> enforcements) {
+            return enforcements(Output.of(enforcements));
+        }
+
+        /**
+         * @param enforcements See Enforcement below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enforcements(ProfileHttpEnforcementArgs... enforcements) {
+            return enforcements(List.of(enforcements));
+        }
+
+        /**
          * @param fallbackHost Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
          * 
          * @return builder
@@ -725,6 +788,37 @@ public final class ProfileHttpState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder headInsert(String headInsert) {
             return headInsert(Output.of(headInsert));
+        }
+
+        /**
+         * @param httpStrictTransportSecurities See Http_Strict_Transport_Security below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpStrictTransportSecurities(@Nullable Output<List<ProfileHttpHttpStrictTransportSecurityArgs>> httpStrictTransportSecurities) {
+            $.httpStrictTransportSecurities = httpStrictTransportSecurities;
+            return this;
+        }
+
+        /**
+         * @param httpStrictTransportSecurities See Http_Strict_Transport_Security below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpStrictTransportSecurities(List<ProfileHttpHttpStrictTransportSecurityArgs> httpStrictTransportSecurities) {
+            return httpStrictTransportSecurities(Output.of(httpStrictTransportSecurities));
+        }
+
+        /**
+         * @param httpStrictTransportSecurities See Http_Strict_Transport_Security below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder httpStrictTransportSecurities(ProfileHttpHttpStrictTransportSecurityArgs... httpStrictTransportSecurities) {
+            return httpStrictTransportSecurities(List.of(httpStrictTransportSecurities));
         }
 
         /**
@@ -950,8 +1044,7 @@ public final class ProfileHttpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverAgentName Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no
-         * string is specified, then no Server header will be added to such responses
+         * @param serverAgentName Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, &#34;none&#34; string is to be passed.
          * 
          * @return builder
          * 
@@ -962,8 +1055,7 @@ public final class ProfileHttpState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serverAgentName Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no
-         * string is specified, then no Server header will be added to such responses
+         * @param serverAgentName Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, &#34;none&#34; string is to be passed.
          * 
          * @return builder
          * 

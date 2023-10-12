@@ -739,8 +739,7 @@
                     "type": "boolean"
                 },
                 "connection": {
-                    "type": "boolean",
-                    "description": "This action is set to `true` by default, it needs to be explicitly set to `false` for actions it conflicts with.\n"
+                    "type": "boolean"
                 },
                 "content": {
                     "type": "string"
@@ -791,8 +790,7 @@
                     "type": "string"
                 },
                 "forward": {
-                    "type": "boolean",
-                    "description": "This action will affect forwarding.\n"
+                    "type": "boolean"
                 },
                 "fromProfile": {
                     "type": "string"
@@ -894,8 +892,7 @@
                     "type": "string"
                 },
                 "pool": {
-                    "type": "string",
-                    "description": "This action will direct the stream to this pool.\n"
+                    "type": "string"
                 },
                 "port": {
                     "type": "integer"
@@ -1545,6 +1542,58 @@
                     ]
                 }
             }
+        },
+        "f5bigip:ltm/ProfileHttpEnforcement:ProfileHttpEnforcement": {
+            "properties": {
+                "knownMethods": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies which HTTP methods count as being known. Removing RFC-defined methods from this list will cause the HTTP filter to not recognize them. Default value is [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK].If no value is specified while creating, then default value will be assigned. In order to remove it, [\"\"]  list is to be passed.\n"
+                },
+                "maxHeaderCount": {
+                    "type": "integer",
+                    "description": "Specifies the maximum number of headers allowed in HTTP request/response. The default is 64 headers.If no value is specified, then default value will be assigned.\n"
+                },
+                "maxHeaderSize": {
+                    "type": "integer",
+                    "description": "Specifies the maximum header size.The default value is 32768.If no string is specified, then default value will be assigned.\n"
+                },
+                "unknownMethod": {
+                    "type": "string",
+                    "description": "Specifies whether to allow, reject or switch to pass-through mode when an unknown HTTP method is parsed. Default value is allow. If no string is specified, then default value will be assigned.\n"
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "knownMethods"
+                    ]
+                }
+            }
+        },
+        "f5bigip:ltm/ProfileHttpHttpStrictTransportSecurity:ProfileHttpHttpStrictTransportSecurity": {
+            "properties": {
+                "includeSubdomains": {
+                    "type": "string",
+                    "description": "Specifies whether to include the includeSubdomains directive in the HSTS header. The default is enabled. If no string is specified, then default value will be assigned.\n"
+                },
+                "maximumAge": {
+                    "type": "integer",
+                    "description": "Specifies the maximum age to assume the connection should remain secure. The default is 16070400 seconds. If no value is specified, then default value will be assigned.\n"
+                },
+                "mode": {
+                    "type": "string",
+                    "description": "Specifies whether to include the HSTS response header. The default is disabled.If no string is specified, then default value will be assigned.\n"
+                },
+                "preload": {
+                    "type": "string",
+                    "description": "Specifies whether to include the preload directive in the HSTS header. The default is disabled. If no string is specified, then default value will be assigned.\n"
+                }
+            },
+            "type": "object"
         },
         "f5bigip:ltm/SnatOrigin:SnatOrigin": {
             "properties": {
@@ -5794,9 +5843,21 @@
                     "type": "string",
                     "description": "full path of the SSL certificate on the BIGIP.\n"
                 },
+                "certMonitoringType": {
+                    "type": "string",
+                    "description": "Specifies the type of monitoring used.\n"
+                },
                 "certName": {
                     "type": "string",
                     "description": "Name of the SSL certificate to be Imported on to BIGIP.\n"
+                },
+                "certOcsp": {
+                    "type": "string",
+                    "description": "Specifies the OCSP responder.\n"
+                },
+                "issuerCert": {
+                    "type": "string",
+                    "description": "Specifies the issuer certificate.\n"
                 },
                 "keyContent": {
                     "type": "string",
@@ -5839,10 +5900,22 @@
                     "type": "string",
                     "description": "full path of the SSL certificate on the BIGIP.\n"
                 },
+                "certMonitoringType": {
+                    "type": "string",
+                    "description": "Specifies the type of monitoring used.\n"
+                },
                 "certName": {
                     "type": "string",
                     "description": "Name of the SSL certificate to be Imported on to BIGIP.\n",
                     "willReplaceOnChanges": true
+                },
+                "certOcsp": {
+                    "type": "string",
+                    "description": "Specifies the OCSP responder.\n"
+                },
+                "issuerCert": {
+                    "type": "string",
+                    "description": "Specifies the issuer certificate.\n"
                 },
                 "keyContent": {
                     "type": "string",
@@ -5885,10 +5958,22 @@
                         "type": "string",
                         "description": "full path of the SSL certificate on the BIGIP.\n"
                     },
+                    "certMonitoringType": {
+                        "type": "string",
+                        "description": "Specifies the type of monitoring used.\n"
+                    },
                     "certName": {
                         "type": "string",
                         "description": "Name of the SSL certificate to be Imported on to BIGIP.\n",
                         "willReplaceOnChanges": true
+                    },
+                    "certOcsp": {
+                        "type": "string",
+                        "description": "Specifies the OCSP responder.\n"
+                    },
+                    "issuerCert": {
+                        "type": "string",
+                        "description": "Specifies the issuer certificate.\n"
                     },
                     "keyContent": {
                         "type": "string",
@@ -6530,6 +6615,191 @@
                             "type": "string"
                         },
                         "description": "In a security policy, you can manually specify the HTTP URLs that are allowed (or disallowed) in traffic to the web application being protected. If you are using automatic policy building (and the policy includes learning URLs), the system can determine which URLs to add, based on legitimate traffic.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "f5bigip:ltm/cipherGroup:CipherGroup": {
+            "description": "`f5bigip.ltm.CipherGroup` Manages F5 BIG-IP LTM cipher group using iControl REST.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst test_cipher_group = new f5bigip.ltm.CipherGroup(\"test-cipher-group\", {\n    allows: [\"/Common/f5-aes\"],\n    name: \"/Common/test-cipher-group-01\",\n    ordering: \"speed\",\n    requires: [\"/Common/f5-quic\"],\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ntest_cipher_group = f5bigip.ltm.CipherGroup(\"test-cipher-group\",\n    allows=[\"/Common/f5-aes\"],\n    name=\"/Common/test-cipher-group-01\",\n    ordering=\"speed\",\n    requires=[\"/Common/f5-quic\"])\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test_cipher_group = new F5BigIP.Ltm.CipherGroup(\"test-cipher-group\", new()\n    {\n        Allows = new[]\n        {\n            \"/Common/f5-aes\",\n        },\n        Name = \"/Common/test-cipher-group-01\",\n        Ordering = \"speed\",\n        Requires = new[]\n        {\n            \"/Common/f5-quic\",\n        },\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewCipherGroup(ctx, \"test-cipher-group\", \u0026ltm.CipherGroupArgs{\n\t\t\tAllows: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"/Common/f5-aes\"),\n\t\t\t},\n\t\t\tName:     pulumi.String(\"/Common/test-cipher-group-01\"),\n\t\t\tOrdering: pulumi.String(\"speed\"),\n\t\t\tRequires: pulumi.StringArray{\n\t\t\t\tpulumi.String(\"/Common/f5-quic\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.f5bigip.ltm.CipherGroup;\nimport com.pulumi.f5bigip.ltm.CipherGroupArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test_cipher_group = new CipherGroup(\"test-cipher-group\", CipherGroupArgs.builder()        \n            .allows(\"/Common/f5-aes\")\n            .name(\"/Common/test-cipher-group-01\")\n            .ordering(\"speed\")\n            .requires(\"/Common/f5-quic\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test-cipher-group:\n    type: f5bigip:ltm:CipherGroup\n    properties:\n      allows:\n        - /Common/f5-aes\n      name: /Common/test-cipher-group-01\n      ordering: speed\n      requires:\n        - /Common/f5-quic\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "allows": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Specifies descriptive text that identifies the cipher rule\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Cipher group. Name should be in pattern `partition` + `cipher_group_name`\n"
+                },
+                "ordering": {
+                    "type": "string",
+                    "description": "Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed.\n"
+                },
+                "requires": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.\n"
+                }
+            },
+            "required": [
+                "name",
+                "ordering"
+            ],
+            "inputProperties": {
+                "allows": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Specifies descriptive text that identifies the cipher rule\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Cipher group. Name should be in pattern `partition` + `cipher_group_name`\n",
+                    "willReplaceOnChanges": true
+                },
+                "ordering": {
+                    "type": "string",
+                    "description": "Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed.\n"
+                },
+                "requires": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.\n"
+                }
+            },
+            "requiredInputs": [
+                "name"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering CipherGroup resources.\n",
+                "properties": {
+                    "allows": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "Specifies descriptive text that identifies the cipher rule\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the Cipher group. Name should be in pattern `partition` + `cipher_group_name`\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "ordering": {
+                        "type": "string",
+                        "description": "Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed.\n"
+                    },
+                    "requires": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "f5bigip:ltm/cipherRule:CipherRule": {
+            "description": "`f5bigip.ltm.CipherRule` Manages F5 BIG-IP LTM cipher rule using iControl REST.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst testCipherRule = new f5bigip.ltm.CipherRule(\"testCipherRule\", {\n    cipher: \"TLS13-AES128-GCM-SHA256:TLS13-AES256-GCM-SHA384\",\n    dhGroups: \"P256:P384:FFDHE2048:FFDHE3072:FFDHE4096\",\n    name: \"/Common/test_cipher_rule\",\n    signatureAlgorithms: \"DEFAULT\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ntest_cipher_rule = f5bigip.ltm.CipherRule(\"testCipherRule\",\n    cipher=\"TLS13-AES128-GCM-SHA256:TLS13-AES256-GCM-SHA384\",\n    dh_groups=\"P256:P384:FFDHE2048:FFDHE3072:FFDHE4096\",\n    name=\"/Common/test_cipher_rule\",\n    signature_algorithms=\"DEFAULT\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var testCipherRule = new F5BigIP.Ltm.CipherRule(\"testCipherRule\", new()\n    {\n        Cipher = \"TLS13-AES128-GCM-SHA256:TLS13-AES256-GCM-SHA384\",\n        DhGroups = \"P256:P384:FFDHE2048:FFDHE3072:FFDHE4096\",\n        Name = \"/Common/test_cipher_rule\",\n        SignatureAlgorithms = \"DEFAULT\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := ltm.NewCipherRule(ctx, \"testCipherRule\", \u0026ltm.CipherRuleArgs{\n\t\t\tCipher:              pulumi.String(\"TLS13-AES128-GCM-SHA256:TLS13-AES256-GCM-SHA384\"),\n\t\t\tDhGroups:            pulumi.String(\"P256:P384:FFDHE2048:FFDHE3072:FFDHE4096\"),\n\t\t\tName:                pulumi.String(\"/Common/test_cipher_rule\"),\n\t\t\tSignatureAlgorithms: pulumi.String(\"DEFAULT\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.f5bigip.ltm.CipherRule;\nimport com.pulumi.f5bigip.ltm.CipherRuleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var testCipherRule = new CipherRule(\"testCipherRule\", CipherRuleArgs.builder()        \n            .cipher(\"TLS13-AES128-GCM-SHA256:TLS13-AES256-GCM-SHA384\")\n            .dhGroups(\"P256:P384:FFDHE2048:FFDHE3072:FFDHE4096\")\n            .name(\"/Common/test_cipher_rule\")\n            .signatureAlgorithms(\"DEFAULT\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  testCipherRule:\n    type: f5bigip:ltm:CipherRule\n    properties:\n      cipher: TLS13-AES128-GCM-SHA256:TLS13-AES256-GCM-SHA384\n      dhGroups: P256:P384:FFDHE2048:FFDHE3072:FFDHE4096\n      name: /Common/test_cipher_rule\n      signatureAlgorithms: DEFAULT\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "cipher": {
+                    "type": "string",
+                    "description": "Specifies one or more Cipher Suites used,this is a colon (:) separated string of cipher suites. example, `TLS13-AES128-GCM-SHA256:TLS13-AES256-GCM-SHA384`.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The Partition in which the Cipher Rule will be created.\n"
+                },
+                "dhGroups": {
+                    "type": "string",
+                    "description": "Specifies the DH Groups algorithms, separated by colons (:).\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Cipher Rule. Name should be in pattern `partition` + `cipher_rule_name`\n"
+                },
+                "signatureAlgorithms": {
+                    "type": "string",
+                    "description": "Specifies the Signature Algorithms, separated by colons (:).\n"
+                }
+            },
+            "required": [
+                "cipher",
+                "dhGroups",
+                "name",
+                "signatureAlgorithms"
+            ],
+            "inputProperties": {
+                "cipher": {
+                    "type": "string",
+                    "description": "Specifies one or more Cipher Suites used,this is a colon (:) separated string of cipher suites. example, `TLS13-AES128-GCM-SHA256:TLS13-AES256-GCM-SHA384`.\n"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The Partition in which the Cipher Rule will be created.\n"
+                },
+                "dhGroups": {
+                    "type": "string",
+                    "description": "Specifies the DH Groups algorithms, separated by colons (:).\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Cipher Rule. Name should be in pattern `partition` + `cipher_rule_name`\n",
+                    "willReplaceOnChanges": true
+                },
+                "signatureAlgorithms": {
+                    "type": "string",
+                    "description": "Specifies the Signature Algorithms, separated by colons (:).\n"
+                }
+            },
+            "requiredInputs": [
+                "cipher",
+                "name"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering CipherRule resources.\n",
+                "properties": {
+                    "cipher": {
+                        "type": "string",
+                        "description": "Specifies one or more Cipher Suites used,this is a colon (:) separated string of cipher suites. example, `TLS13-AES128-GCM-SHA256:TLS13-AES256-GCM-SHA384`.\n"
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The Partition in which the Cipher Rule will be created.\n"
+                    },
+                    "dhGroups": {
+                        "type": "string",
+                        "description": "Specifies the DH Groups algorithms, separated by colons (:).\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the Cipher Rule. Name should be in pattern `partition` + `cipher_rule_name`\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "signatureAlgorithms": {
+                        "type": "string",
+                        "description": "Specifies the Signature Algorithms, separated by colons (:).\n"
                     }
                 },
                 "type": "object"
@@ -7897,7 +8167,8 @@
                 },
                 "publishedCopy": {
                     "type": "string",
-                    "description": "If you want to publish the policy else it will be deployed in Drafts mode.\n"
+                    "description": "If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.\n",
+                    "deprecationMessage": "This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release."
                 },
                 "requires": {
                     "type": "array",
@@ -7940,7 +8211,8 @@
                 },
                 "publishedCopy": {
                     "type": "string",
-                    "description": "If you want to publish the policy else it will be deployed in Drafts mode.\n",
+                    "description": "If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.\n",
+                    "deprecationMessage": "This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.",
                     "willReplaceOnChanges": true
                 },
                 "requires": {
@@ -7986,7 +8258,8 @@
                     },
                     "publishedCopy": {
                         "type": "string",
-                        "description": "If you want to publish the policy else it will be deployed in Drafts mode.\n",
+                        "description": "If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.\n",
+                        "deprecationMessage": "This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.",
                         "willReplaceOnChanges": true
                     },
                     "requires": {
@@ -8170,7 +8443,7 @@
             }
         },
         "f5bigip:ltm/poolAttachment:PoolAttachment": {
-            "description": "`f5bigip.ltm.PoolAttachment` Manages nodes membership in pools\n\n{{% examples %}}\n## Example Usage\n\nThere are two ways to use ltm_pool_attachment resource, where we can take node reference from ltm_node or we can specify node directly with ip:port/fqdn:port which will also create node and atach to pool.\n\n{{% example %}}\n### Pool attachment with node directly taking  `ip:port` / `fqdn:port`\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst monitor = new f5bigip.ltm.Monitor(\"monitor\", {\n    name: \"/Common/terraform_monitor\",\n    parent: \"/Common/http\",\n    send: \"GET /some/path\r\\n\",\n    timeout: 999,\n    interval: 998,\n});\nconst pool = new f5bigip.ltm.Pool(\"pool\", {\n    name: \"/Common/terraform-pool\",\n    loadBalancingMode: \"round-robin\",\n    monitors: [monitor.name],\n    allowSnat: \"yes\",\n    allowNat: \"yes\",\n});\nconst attachNode = new f5bigip.ltm.PoolAttachment(\"attachNode\", {\n    pool: pool.name,\n    node: \"1.1.1.1:80\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nmonitor = f5bigip.ltm.Monitor(\"monitor\",\n    name=\"/Common/terraform_monitor\",\n    parent=\"/Common/http\",\n    send=\"GET /some/path\r\\n\",\n    timeout=999,\n    interval=998)\npool = f5bigip.ltm.Pool(\"pool\",\n    name=\"/Common/terraform-pool\",\n    load_balancing_mode=\"round-robin\",\n    monitors=[monitor.name],\n    allow_snat=\"yes\",\n    allow_nat=\"yes\")\nattach_node = f5bigip.ltm.PoolAttachment(\"attachNode\",\n    pool=pool.name,\n    node=\"1.1.1.1:80\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var monitor = new F5BigIP.Ltm.Monitor(\"monitor\", new()\n    {\n        Name = \"/Common/terraform_monitor\",\n        Parent = \"/Common/http\",\n        Send = @\"GET /some/path\r\n\",\n        Timeout = 999,\n        Interval = 998,\n    });\n\n    var pool = new F5BigIP.Ltm.Pool(\"pool\", new()\n    {\n        Name = \"/Common/terraform-pool\",\n        LoadBalancingMode = \"round-robin\",\n        Monitors = new[]\n        {\n            monitor.Name,\n        },\n        AllowSnat = \"yes\",\n        AllowNat = \"yes\",\n    });\n\n    var attachNode = new F5BigIP.Ltm.PoolAttachment(\"attachNode\", new()\n    {\n        Pool = pool.Name,\n        Node = \"1.1.1.1:80\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmonitor, err := ltm.NewMonitor(ctx, \"monitor\", \u0026ltm.MonitorArgs{\n\t\t\tName:     pulumi.String(\"/Common/terraform_monitor\"),\n\t\t\tParent:   pulumi.String(\"/Common/http\"),\n\t\t\tSend:     pulumi.String(\"GET /some/path\r\\n\"),\n\t\t\tTimeout:  pulumi.Int(999),\n\t\t\tInterval: pulumi.Int(998),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tpool, err := ltm.NewPool(ctx, \"pool\", \u0026ltm.PoolArgs{\n\t\t\tName:              pulumi.String(\"/Common/terraform-pool\"),\n\t\t\tLoadBalancingMode: pulumi.String(\"round-robin\"),\n\t\t\tMonitors: pulumi.StringArray{\n\t\t\t\tmonitor.Name,\n\t\t\t},\n\t\t\tAllowSnat: pulumi.String(\"yes\"),\n\t\t\tAllowNat:  pulumi.String(\"yes\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewPoolAttachment(ctx, \"attachNode\", \u0026ltm.PoolAttachmentArgs{\n\t\t\tPool: pool.Name,\n\t\t\tNode: pulumi.String(\"1.1.1.1:80\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.f5bigip.ltm.Monitor;\nimport com.pulumi.f5bigip.ltm.MonitorArgs;\nimport com.pulumi.f5bigip.ltm.Pool;\nimport com.pulumi.f5bigip.ltm.PoolArgs;\nimport com.pulumi.f5bigip.ltm.PoolAttachment;\nimport com.pulumi.f5bigip.ltm.PoolAttachmentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var monitor = new Monitor(\"monitor\", MonitorArgs.builder()        \n            .name(\"/Common/terraform_monitor\")\n            .parent(\"/Common/http\")\n            .send(\"\"\"\nGET /some/path\r\n            \"\"\")\n            .timeout(\"999\")\n            .interval(\"998\")\n            .build());\n\n        var pool = new Pool(\"pool\", PoolArgs.builder()        \n            .name(\"/Common/terraform-pool\")\n            .loadBalancingMode(\"round-robin\")\n            .monitors(monitor.name())\n            .allowSnat(\"yes\")\n            .allowNat(\"yes\")\n            .build());\n\n        var attachNode = new PoolAttachment(\"attachNode\", PoolAttachmentArgs.builder()        \n            .pool(pool.name())\n            .node(\"1.1.1.1:80\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  monitor:\n    type: f5bigip:ltm:Monitor\n    properties:\n      name: /Common/terraform_monitor\n      parent: /Common/http\n      send: \"GET /some/path\\r\\n\"\n      timeout: '999'\n      interval: '998'\n  pool:\n    type: f5bigip:ltm:Pool\n    properties:\n      name: /Common/terraform-pool\n      loadBalancingMode: round-robin\n      monitors:\n        - ${monitor.name}\n      allowSnat: yes\n      allowNat: yes\n  attachNode:\n    type: f5bigip:ltm:PoolAttachment\n    properties:\n      pool: ${pool.name}\n      node: 1.1.1.1:80\n```\n{{% /example %}}\n{{% example %}}\n### Pool attachment with node referenced from `f5bigip.ltm.Node`\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst monitor = new f5bigip.ltm.Monitor(\"monitor\", {\n    name: \"/Common/terraform_monitor\",\n    parent: \"/Common/http\",\n    send: \"GET /some/path\r\\n\",\n    timeout: 999,\n    interval: 998,\n});\nconst pool = new f5bigip.ltm.Pool(\"pool\", {\n    name: \"/Common/terraform-pool\",\n    loadBalancingMode: \"round-robin\",\n    monitors: [monitor.name],\n    allowSnat: \"yes\",\n    allowNat: \"yes\",\n});\nconst node = new f5bigip.ltm.Node(\"node\", {\n    name: \"/Common/terraform_node\",\n    address: \"192.168.30.2\",\n});\nconst attachNode = new f5bigip.ltm.PoolAttachment(\"attachNode\", {\n    pool: pool.name,\n    node: pulumi.interpolate`${node.name}:80`,\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nmonitor = f5bigip.ltm.Monitor(\"monitor\",\n    name=\"/Common/terraform_monitor\",\n    parent=\"/Common/http\",\n    send=\"GET /some/path\r\\n\",\n    timeout=999,\n    interval=998)\npool = f5bigip.ltm.Pool(\"pool\",\n    name=\"/Common/terraform-pool\",\n    load_balancing_mode=\"round-robin\",\n    monitors=[monitor.name],\n    allow_snat=\"yes\",\n    allow_nat=\"yes\")\nnode = f5bigip.ltm.Node(\"node\",\n    name=\"/Common/terraform_node\",\n    address=\"192.168.30.2\")\nattach_node = f5bigip.ltm.PoolAttachment(\"attachNode\",\n    pool=pool.name,\n    node=node.name.apply(lambda name: f\"{name}:80\"))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var monitor = new F5BigIP.Ltm.Monitor(\"monitor\", new()\n    {\n        Name = \"/Common/terraform_monitor\",\n        Parent = \"/Common/http\",\n        Send = @\"GET /some/path\r\n\",\n        Timeout = 999,\n        Interval = 998,\n    });\n\n    var pool = new F5BigIP.Ltm.Pool(\"pool\", new()\n    {\n        Name = \"/Common/terraform-pool\",\n        LoadBalancingMode = \"round-robin\",\n        Monitors = new[]\n        {\n            monitor.Name,\n        },\n        AllowSnat = \"yes\",\n        AllowNat = \"yes\",\n    });\n\n    var node = new F5BigIP.Ltm.Node(\"node\", new()\n    {\n        Name = \"/Common/terraform_node\",\n        Address = \"192.168.30.2\",\n    });\n\n    var attachNode = new F5BigIP.Ltm.PoolAttachment(\"attachNode\", new()\n    {\n        Pool = pool.Name,\n        Node = node.Name.Apply(name =\u003e $\"{name}:80\"),\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmonitor, err := ltm.NewMonitor(ctx, \"monitor\", \u0026ltm.MonitorArgs{\n\t\t\tName:     pulumi.String(\"/Common/terraform_monitor\"),\n\t\t\tParent:   pulumi.String(\"/Common/http\"),\n\t\t\tSend:     pulumi.String(\"GET /some/path\r\\n\"),\n\t\t\tTimeout:  pulumi.Int(999),\n\t\t\tInterval: pulumi.Int(998),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tpool, err := ltm.NewPool(ctx, \"pool\", \u0026ltm.PoolArgs{\n\t\t\tName:              pulumi.String(\"/Common/terraform-pool\"),\n\t\t\tLoadBalancingMode: pulumi.String(\"round-robin\"),\n\t\t\tMonitors: pulumi.StringArray{\n\t\t\t\tmonitor.Name,\n\t\t\t},\n\t\t\tAllowSnat: pulumi.String(\"yes\"),\n\t\t\tAllowNat:  pulumi.String(\"yes\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tnode, err := ltm.NewNode(ctx, \"node\", \u0026ltm.NodeArgs{\n\t\t\tName:    pulumi.String(\"/Common/terraform_node\"),\n\t\t\tAddress: pulumi.String(\"192.168.30.2\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewPoolAttachment(ctx, \"attachNode\", \u0026ltm.PoolAttachmentArgs{\n\t\t\tPool: pool.Name,\n\t\t\tNode: node.Name.ApplyT(func(name string) (string, error) {\n\t\t\t\treturn fmt.Sprintf(\"%v:80\", name), nil\n\t\t\t}).(pulumi.StringOutput),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.f5bigip.ltm.Monitor;\nimport com.pulumi.f5bigip.ltm.MonitorArgs;\nimport com.pulumi.f5bigip.ltm.Pool;\nimport com.pulumi.f5bigip.ltm.PoolArgs;\nimport com.pulumi.f5bigip.ltm.Node;\nimport com.pulumi.f5bigip.ltm.NodeArgs;\nimport com.pulumi.f5bigip.ltm.PoolAttachment;\nimport com.pulumi.f5bigip.ltm.PoolAttachmentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var monitor = new Monitor(\"monitor\", MonitorArgs.builder()        \n            .name(\"/Common/terraform_monitor\")\n            .parent(\"/Common/http\")\n            .send(\"\"\"\nGET /some/path\r\n            \"\"\")\n            .timeout(\"999\")\n            .interval(\"998\")\n            .build());\n\n        var pool = new Pool(\"pool\", PoolArgs.builder()        \n            .name(\"/Common/terraform-pool\")\n            .loadBalancingMode(\"round-robin\")\n            .monitors(monitor.name())\n            .allowSnat(\"yes\")\n            .allowNat(\"yes\")\n            .build());\n\n        var node = new Node(\"node\", NodeArgs.builder()        \n            .name(\"/Common/terraform_node\")\n            .address(\"192.168.30.2\")\n            .build());\n\n        var attachNode = new PoolAttachment(\"attachNode\", PoolAttachmentArgs.builder()        \n            .pool(pool.name())\n            .node(node.name().applyValue(name -\u003e String.format(\"%s:80\", name)))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  monitor:\n    type: f5bigip:ltm:Monitor\n    properties:\n      name: /Common/terraform_monitor\n      parent: /Common/http\n      send: \"GET /some/path\\r\\n\"\n      timeout: '999'\n      interval: '998'\n  pool:\n    type: f5bigip:ltm:Pool\n    properties:\n      name: /Common/terraform-pool\n      loadBalancingMode: round-robin\n      monitors:\n        - ${monitor.name}\n      allowSnat: yes\n      allowNat: yes\n  node:\n    type: f5bigip:ltm:Node\n    properties:\n      name: /Common/terraform_node\n      address: 192.168.30.2\n  attachNode:\n    type: f5bigip:ltm:PoolAttachment\n    properties:\n      pool: ${pool.name}\n      node: ${node.name}:80\n```\n{{% /example %}}\n{{% /examples %}}",
+            "description": "`f5bigip.ltm.PoolAttachment` Manages nodes membership in pools\n\n{{% examples %}}\n## Example Usage\n\nThere are two ways to use `f5bigip.ltm.PoolAttachment` resource for `node` attribute\n\n* It can be reference from `f5bigip.ltm.Node` (or)\n* It can be specify directly with `ipv4:port`/`fqdn:port`/`ipv6.port` which will also create node and attach member to pool.\n\n\u003e For adding IPv6 node/member to pool it should be specific in `node` attribute in format like `ipv6_address.port`.\nIPv4 should be specified as `ipv4_address:port`\n\n{{% example %}}\n### Usage Pool attachment with node/member directly attaching to pool.\n\nnode can be specified in format `ipv4:port` / `fqdn:port` / `ipv6.port`\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst monitor = new f5bigip.ltm.Monitor(\"monitor\", {\n    name: \"/Common/terraform_monitor\",\n    parent: \"/Common/http\",\n    send: \"GET /some/path\r\\n\",\n    timeout: 999,\n    interval: 998,\n});\nconst pool = new f5bigip.ltm.Pool(\"pool\", {\n    name: \"/Common/terraform-pool\",\n    loadBalancingMode: \"round-robin\",\n    monitors: [monitor.name],\n    allowSnat: \"yes\",\n    allowNat: \"yes\",\n});\n// attaching ipv4 address with service port\nconst ipv4NodeAttach = new f5bigip.ltm.PoolAttachment(\"ipv4NodeAttach\", {\n    pool: pool.name,\n    node: \"1.1.1.1:80\",\n});\n// attaching ipv6 address with service port\nconst ipv6NodeAttach = new f5bigip.ltm.PoolAttachment(\"ipv6NodeAttach\", {\n    pool: pool.name,\n    node: \"2003::4.80\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nmonitor = f5bigip.ltm.Monitor(\"monitor\",\n    name=\"/Common/terraform_monitor\",\n    parent=\"/Common/http\",\n    send=\"GET /some/path\r\\n\",\n    timeout=999,\n    interval=998)\npool = f5bigip.ltm.Pool(\"pool\",\n    name=\"/Common/terraform-pool\",\n    load_balancing_mode=\"round-robin\",\n    monitors=[monitor.name],\n    allow_snat=\"yes\",\n    allow_nat=\"yes\")\n# attaching ipv4 address with service port\nipv4_node_attach = f5bigip.ltm.PoolAttachment(\"ipv4NodeAttach\",\n    pool=pool.name,\n    node=\"1.1.1.1:80\")\n# attaching ipv6 address with service port\nipv6_node_attach = f5bigip.ltm.PoolAttachment(\"ipv6NodeAttach\",\n    pool=pool.name,\n    node=\"2003::4.80\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var monitor = new F5BigIP.Ltm.Monitor(\"monitor\", new()\n    {\n        Name = \"/Common/terraform_monitor\",\n        Parent = \"/Common/http\",\n        Send = @\"GET /some/path\r\n\",\n        Timeout = 999,\n        Interval = 998,\n    });\n\n    var pool = new F5BigIP.Ltm.Pool(\"pool\", new()\n    {\n        Name = \"/Common/terraform-pool\",\n        LoadBalancingMode = \"round-robin\",\n        Monitors = new[]\n        {\n            monitor.Name,\n        },\n        AllowSnat = \"yes\",\n        AllowNat = \"yes\",\n    });\n\n    // attaching ipv4 address with service port\n    var ipv4NodeAttach = new F5BigIP.Ltm.PoolAttachment(\"ipv4NodeAttach\", new()\n    {\n        Pool = pool.Name,\n        Node = \"1.1.1.1:80\",\n    });\n\n    // attaching ipv6 address with service port\n    var ipv6NodeAttach = new F5BigIP.Ltm.PoolAttachment(\"ipv6NodeAttach\", new()\n    {\n        Pool = pool.Name,\n        Node = \"2003::4.80\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmonitor, err := ltm.NewMonitor(ctx, \"monitor\", \u0026ltm.MonitorArgs{\n\t\t\tName:     pulumi.String(\"/Common/terraform_monitor\"),\n\t\t\tParent:   pulumi.String(\"/Common/http\"),\n\t\t\tSend:     pulumi.String(\"GET /some/path\r\\n\"),\n\t\t\tTimeout:  pulumi.Int(999),\n\t\t\tInterval: pulumi.Int(998),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tpool, err := ltm.NewPool(ctx, \"pool\", \u0026ltm.PoolArgs{\n\t\t\tName:              pulumi.String(\"/Common/terraform-pool\"),\n\t\t\tLoadBalancingMode: pulumi.String(\"round-robin\"),\n\t\t\tMonitors: pulumi.StringArray{\n\t\t\t\tmonitor.Name,\n\t\t\t},\n\t\t\tAllowSnat: pulumi.String(\"yes\"),\n\t\t\tAllowNat:  pulumi.String(\"yes\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewPoolAttachment(ctx, \"ipv4NodeAttach\", \u0026ltm.PoolAttachmentArgs{\n\t\t\tPool: pool.Name,\n\t\t\tNode: pulumi.String(\"1.1.1.1:80\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewPoolAttachment(ctx, \"ipv6NodeAttach\", \u0026ltm.PoolAttachmentArgs{\n\t\t\tPool: pool.Name,\n\t\t\tNode: pulumi.String(\"2003::4.80\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.f5bigip.ltm.Monitor;\nimport com.pulumi.f5bigip.ltm.MonitorArgs;\nimport com.pulumi.f5bigip.ltm.Pool;\nimport com.pulumi.f5bigip.ltm.PoolArgs;\nimport com.pulumi.f5bigip.ltm.PoolAttachment;\nimport com.pulumi.f5bigip.ltm.PoolAttachmentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var monitor = new Monitor(\"monitor\", MonitorArgs.builder()        \n            .name(\"/Common/terraform_monitor\")\n            .parent(\"/Common/http\")\n            .send(\"\"\"\nGET /some/path\r\n            \"\"\")\n            .timeout(\"999\")\n            .interval(\"998\")\n            .build());\n\n        var pool = new Pool(\"pool\", PoolArgs.builder()        \n            .name(\"/Common/terraform-pool\")\n            .loadBalancingMode(\"round-robin\")\n            .monitors(monitor.name())\n            .allowSnat(\"yes\")\n            .allowNat(\"yes\")\n            .build());\n\n        var ipv4NodeAttach = new PoolAttachment(\"ipv4NodeAttach\", PoolAttachmentArgs.builder()        \n            .pool(pool.name())\n            .node(\"1.1.1.1:80\")\n            .build());\n\n        var ipv6NodeAttach = new PoolAttachment(\"ipv6NodeAttach\", PoolAttachmentArgs.builder()        \n            .pool(pool.name())\n            .node(\"2003::4.80\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  monitor:\n    type: f5bigip:ltm:Monitor\n    properties:\n      name: /Common/terraform_monitor\n      parent: /Common/http\n      send: \"GET /some/path\\r\\n\"\n      timeout: '999'\n      interval: '998'\n  pool:\n    type: f5bigip:ltm:Pool\n    properties:\n      name: /Common/terraform-pool\n      loadBalancingMode: round-robin\n      monitors:\n        - ${monitor.name}\n      allowSnat: yes\n      allowNat: yes\n  # attaching ipv4 address with service port\n  ipv4NodeAttach:\n    type: f5bigip:ltm:PoolAttachment\n    properties:\n      pool: ${pool.name}\n      node: 1.1.1.1:80\n  # attaching ipv6 address with service port\n  ipv6NodeAttach:\n    type: f5bigip:ltm:PoolAttachment\n    properties:\n      pool: ${pool.name}\n      node: 2003::4.80\n```\n{{% /example %}}\n{{% example %}}\n### Usage Pool attachment with node referenced from `f5bigip.ltm.Node`\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst monitor = new f5bigip.ltm.Monitor(\"monitor\", {\n    name: \"/Common/terraform_monitor\",\n    parent: \"/Common/http\",\n    send: \"GET /some/path\r\\n\",\n    timeout: 999,\n    interval: 998,\n});\nconst pool = new f5bigip.ltm.Pool(\"pool\", {\n    name: \"/Common/terraform-pool\",\n    loadBalancingMode: \"round-robin\",\n    monitors: [monitor.name],\n    allowSnat: \"yes\",\n    allowNat: \"yes\",\n});\nconst node = new f5bigip.ltm.Node(\"node\", {\n    name: \"/Common/terraform_node\",\n    address: \"192.168.30.2\",\n});\nconst attachNode = new f5bigip.ltm.PoolAttachment(\"attachNode\", {\n    pool: pool.name,\n    node: pulumi.interpolate`${node.name}:80`,\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\nmonitor = f5bigip.ltm.Monitor(\"monitor\",\n    name=\"/Common/terraform_monitor\",\n    parent=\"/Common/http\",\n    send=\"GET /some/path\r\\n\",\n    timeout=999,\n    interval=998)\npool = f5bigip.ltm.Pool(\"pool\",\n    name=\"/Common/terraform-pool\",\n    load_balancing_mode=\"round-robin\",\n    monitors=[monitor.name],\n    allow_snat=\"yes\",\n    allow_nat=\"yes\")\nnode = f5bigip.ltm.Node(\"node\",\n    name=\"/Common/terraform_node\",\n    address=\"192.168.30.2\")\nattach_node = f5bigip.ltm.PoolAttachment(\"attachNode\",\n    pool=pool.name,\n    node=node.name.apply(lambda name: f\"{name}:80\"))\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var monitor = new F5BigIP.Ltm.Monitor(\"monitor\", new()\n    {\n        Name = \"/Common/terraform_monitor\",\n        Parent = \"/Common/http\",\n        Send = @\"GET /some/path\r\n\",\n        Timeout = 999,\n        Interval = 998,\n    });\n\n    var pool = new F5BigIP.Ltm.Pool(\"pool\", new()\n    {\n        Name = \"/Common/terraform-pool\",\n        LoadBalancingMode = \"round-robin\",\n        Monitors = new[]\n        {\n            monitor.Name,\n        },\n        AllowSnat = \"yes\",\n        AllowNat = \"yes\",\n    });\n\n    var node = new F5BigIP.Ltm.Node(\"node\", new()\n    {\n        Name = \"/Common/terraform_node\",\n        Address = \"192.168.30.2\",\n    });\n\n    var attachNode = new F5BigIP.Ltm.PoolAttachment(\"attachNode\", new()\n    {\n        Pool = pool.Name,\n        Node = node.Name.Apply(name =\u003e $\"{name}:80\"),\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tmonitor, err := ltm.NewMonitor(ctx, \"monitor\", \u0026ltm.MonitorArgs{\n\t\t\tName:     pulumi.String(\"/Common/terraform_monitor\"),\n\t\t\tParent:   pulumi.String(\"/Common/http\"),\n\t\t\tSend:     pulumi.String(\"GET /some/path\r\\n\"),\n\t\t\tTimeout:  pulumi.Int(999),\n\t\t\tInterval: pulumi.Int(998),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tpool, err := ltm.NewPool(ctx, \"pool\", \u0026ltm.PoolArgs{\n\t\t\tName:              pulumi.String(\"/Common/terraform-pool\"),\n\t\t\tLoadBalancingMode: pulumi.String(\"round-robin\"),\n\t\t\tMonitors: pulumi.StringArray{\n\t\t\t\tmonitor.Name,\n\t\t\t},\n\t\t\tAllowSnat: pulumi.String(\"yes\"),\n\t\t\tAllowNat:  pulumi.String(\"yes\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tnode, err := ltm.NewNode(ctx, \"node\", \u0026ltm.NodeArgs{\n\t\t\tName:    pulumi.String(\"/Common/terraform_node\"),\n\t\t\tAddress: pulumi.String(\"192.168.30.2\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = ltm.NewPoolAttachment(ctx, \"attachNode\", \u0026ltm.PoolAttachmentArgs{\n\t\t\tPool: pool.Name,\n\t\t\tNode: node.Name.ApplyT(func(name string) (string, error) {\n\t\t\t\treturn fmt.Sprintf(\"%v:80\", name), nil\n\t\t\t}).(pulumi.StringOutput),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.f5bigip.ltm.Monitor;\nimport com.pulumi.f5bigip.ltm.MonitorArgs;\nimport com.pulumi.f5bigip.ltm.Pool;\nimport com.pulumi.f5bigip.ltm.PoolArgs;\nimport com.pulumi.f5bigip.ltm.Node;\nimport com.pulumi.f5bigip.ltm.NodeArgs;\nimport com.pulumi.f5bigip.ltm.PoolAttachment;\nimport com.pulumi.f5bigip.ltm.PoolAttachmentArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var monitor = new Monitor(\"monitor\", MonitorArgs.builder()        \n            .name(\"/Common/terraform_monitor\")\n            .parent(\"/Common/http\")\n            .send(\"\"\"\nGET /some/path\r\n            \"\"\")\n            .timeout(\"999\")\n            .interval(\"998\")\n            .build());\n\n        var pool = new Pool(\"pool\", PoolArgs.builder()        \n            .name(\"/Common/terraform-pool\")\n            .loadBalancingMode(\"round-robin\")\n            .monitors(monitor.name())\n            .allowSnat(\"yes\")\n            .allowNat(\"yes\")\n            .build());\n\n        var node = new Node(\"node\", NodeArgs.builder()        \n            .name(\"/Common/terraform_node\")\n            .address(\"192.168.30.2\")\n            .build());\n\n        var attachNode = new PoolAttachment(\"attachNode\", PoolAttachmentArgs.builder()        \n            .pool(pool.name())\n            .node(node.name().applyValue(name -\u003e String.format(\"%s:80\", name)))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  monitor:\n    type: f5bigip:ltm:Monitor\n    properties:\n      name: /Common/terraform_monitor\n      parent: /Common/http\n      send: \"GET /some/path\\r\\n\"\n      timeout: '999'\n      interval: '998'\n  pool:\n    type: f5bigip:ltm:Pool\n    properties:\n      name: /Common/terraform-pool\n      loadBalancingMode: round-robin\n      monitors:\n        - ${monitor.name}\n      allowSnat: yes\n      allowNat: yes\n  node:\n    type: f5bigip:ltm:Node\n    properties:\n      name: /Common/terraform_node\n      address: 192.168.30.2\n  attachNode:\n    type: f5bigip:ltm:PoolAttachment\n    properties:\n      pool: ${pool.name}\n      node: ${node.name}:80\n```\n{{% /example %}}\n{{% /examples %}}",
             "properties": {
                 "connectionLimit": {
                     "type": "integer",
@@ -8451,6 +8724,10 @@
                 "name": {
                     "type": "string",
                     "description": "Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.\n"
+                },
+                "ocspStapling": {
+                    "type": "string",
+                    "description": "Specifies whether the system uses OCSP stapling. The default value is `disabled`.\n"
                 },
                 "partition": {
                     "type": "string",
@@ -8741,6 +9018,10 @@
                     "description": "Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.\n",
                     "willReplaceOnChanges": true
                 },
+                "ocspStapling": {
+                    "type": "string",
+                    "description": "Specifies whether the system uses OCSP stapling. The default value is `disabled`.\n"
+                },
                 "partition": {
                     "type": "string",
                     "description": "name of partition\n"
@@ -8979,6 +9260,10 @@
                         "type": "string",
                         "description": "Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.\n",
                         "willReplaceOnChanges": true
+                    },
+                    "ocspStapling": {
+                        "type": "string",
+                        "description": "Specifies whether the system uses OCSP stapling. The default value is `disabled`.\n"
                     },
                     "partition": {
                         "type": "string",
@@ -9915,6 +10200,13 @@
                     },
                     "description": "Type the cookie names for the system to encrypt.\n"
                 },
+                "enforcements": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/f5bigip:ltm/ProfileHttpEnforcement:ProfileHttpEnforcement"
+                    },
+                    "description": "See Enforcement below for more details.\n"
+                },
                 "fallbackHost": {
                     "type": "string",
                     "description": "Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number\n"
@@ -9933,6 +10225,13 @@
                 "headInsert": {
                     "type": "string",
                     "description": "Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.\n"
+                },
+                "httpStrictTransportSecurities": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/f5bigip:ltm/ProfileHttpHttpStrictTransportSecurity:ProfileHttpHttpStrictTransportSecurity"
+                    },
+                    "description": "See Http_Strict_Transport_Security below for more details.\n"
                 },
                 "insertXforwardedFor": {
                     "type": "string",
@@ -9979,7 +10278,7 @@
                 },
                 "serverAgentName": {
                     "type": "string",
-                    "description": "Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no\nstring is specified, then no Server header will be added to such responses\n"
+                    "description": "Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, \"none\" string is to be passed.\n"
                 },
                 "tmPartition": {
                     "type": "string",
@@ -10010,6 +10309,7 @@
                 "basicAuthRealm",
                 "defaultsFrom",
                 "description",
+                "enforcements",
                 "fallbackHost",
                 "headErase",
                 "headInsert",
@@ -10061,6 +10361,13 @@
                     },
                     "description": "Type the cookie names for the system to encrypt.\n"
                 },
+                "enforcements": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/f5bigip:ltm/ProfileHttpEnforcement:ProfileHttpEnforcement"
+                    },
+                    "description": "See Enforcement below for more details.\n"
+                },
                 "fallbackHost": {
                     "type": "string",
                     "description": "Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number\n"
@@ -10079,6 +10386,13 @@
                 "headInsert": {
                     "type": "string",
                     "description": "Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.\n"
+                },
+                "httpStrictTransportSecurities": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/f5bigip:ltm/ProfileHttpHttpStrictTransportSecurity:ProfileHttpHttpStrictTransportSecurity"
+                    },
+                    "description": "See Http_Strict_Transport_Security below for more details.\n"
                 },
                 "insertXforwardedFor": {
                     "type": "string",
@@ -10127,7 +10441,7 @@
                 },
                 "serverAgentName": {
                     "type": "string",
-                    "description": "Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no\nstring is specified, then no Server header will be added to such responses\n"
+                    "description": "Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, \"none\" string is to be passed.\n"
                 },
                 "tmPartition": {
                     "type": "string",
@@ -10190,6 +10504,13 @@
                         },
                         "description": "Type the cookie names for the system to encrypt.\n"
                     },
+                    "enforcements": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/f5bigip:ltm/ProfileHttpEnforcement:ProfileHttpEnforcement"
+                        },
+                        "description": "See Enforcement below for more details.\n"
+                    },
                     "fallbackHost": {
                         "type": "string",
                         "description": "Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number\n"
@@ -10208,6 +10529,13 @@
                     "headInsert": {
                         "type": "string",
                         "description": "Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.\n"
+                    },
+                    "httpStrictTransportSecurities": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/types/f5bigip:ltm/ProfileHttpHttpStrictTransportSecurity:ProfileHttpHttpStrictTransportSecurity"
+                        },
+                        "description": "See Http_Strict_Transport_Security below for more details.\n"
                     },
                     "insertXforwardedFor": {
                         "type": "string",
@@ -10256,7 +10584,7 @@
                     },
                     "serverAgentName": {
                         "type": "string",
-                        "description": "Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no\nstring is specified, then no Server header will be added to such responses\n"
+                        "description": "Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, \"none\" string is to be passed.\n"
                     },
                     "tmPartition": {
                         "type": "string",
@@ -12066,7 +12394,8 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "Specifies the policies for the virtual server.\n"
                 },
                 "pool": {
                     "type": "string",
@@ -12217,7 +12546,8 @@
                     "type": "array",
                     "items": {
                         "type": "string"
-                    }
+                    },
+                    "description": "Specifies the policies for the virtual server.\n"
                 },
                 "pool": {
                     "type": "string",
@@ -12358,7 +12688,8 @@
                         "type": "array",
                         "items": {
                             "type": "string"
-                        }
+                        },
+                        "description": "Specifies the policies for the virtual server.\n"
                     },
                     "pool": {
                         "type": "string",
@@ -12706,9 +13037,21 @@
                     "type": "string",
                     "description": "Full Path Name of ssl certificate\n"
                 },
+                "issuerCert": {
+                    "type": "string",
+                    "description": "Specifies the issuer certificate.\n"
+                },
+                "monitoringType": {
+                    "type": "string",
+                    "description": "Specifies the type of monitoring used.\n"
+                },
                 "name": {
                     "type": "string",
                     "description": "Name of the SSL Certificate to be Imported on to BIGIP\n"
+                },
+                "ocsp": {
+                    "type": "string",
+                    "description": "Specifies the OCSP responder.\n"
                 },
                 "partition": {
                     "type": "string",
@@ -12730,10 +13073,22 @@
                     "type": "string",
                     "description": "Full Path Name of ssl certificate\n"
                 },
+                "issuerCert": {
+                    "type": "string",
+                    "description": "Specifies the issuer certificate.\n"
+                },
+                "monitoringType": {
+                    "type": "string",
+                    "description": "Specifies the type of monitoring used.\n"
+                },
                 "name": {
                     "type": "string",
                     "description": "Name of the SSL Certificate to be Imported on to BIGIP\n",
                     "willReplaceOnChanges": true
+                },
+                "ocsp": {
+                    "type": "string",
+                    "description": "Specifies the OCSP responder.\n"
                 },
                 "partition": {
                     "type": "string",
@@ -12756,10 +13111,22 @@
                         "type": "string",
                         "description": "Full Path Name of ssl certificate\n"
                     },
+                    "issuerCert": {
+                        "type": "string",
+                        "description": "Specifies the issuer certificate.\n"
+                    },
+                    "monitoringType": {
+                        "type": "string",
+                        "description": "Specifies the type of monitoring used.\n"
+                    },
                     "name": {
                         "type": "string",
                         "description": "Name of the SSL Certificate to be Imported on to BIGIP\n",
                         "willReplaceOnChanges": true
+                    },
+                    "ocsp": {
+                        "type": "string",
+                        "description": "Specifies the OCSP responder.\n"
                     },
                     "partition": {
                         "type": "string",
@@ -13309,6 +13676,232 @@
                     "timezone": {
                         "type": "string",
                         "description": "Specifies the time zone that you want to use for the system time.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "f5bigip:sys/ocsp:Ocsp": {
+            "description": "`f5bigip.sys.Ocsp` Manages F5 BIG-IP OCSP responder using iControl REST.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as f5bigip from \"@pulumi/f5bigip\";\n\nconst test_ocsp = new f5bigip.sys.Ocsp(\"test-ocsp\", {\n    name: \"/Uncommon/test-ocsp\",\n    passphrase: \"testabcdef\",\n    proxyServerPool: \"/Common/test-poolxyz\",\n    signerCert: \"/Common/le-ssl\",\n    signerKey: \"/Common/le-ssl\",\n});\n```\n```python\nimport pulumi\nimport pulumi_f5bigip as f5bigip\n\ntest_ocsp = f5bigip.sys.Ocsp(\"test-ocsp\",\n    name=\"/Uncommon/test-ocsp\",\n    passphrase=\"testabcdef\",\n    proxy_server_pool=\"/Common/test-poolxyz\",\n    signer_cert=\"/Common/le-ssl\",\n    signer_key=\"/Common/le-ssl\")\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing F5BigIP = Pulumi.F5BigIP;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var test_ocsp = new F5BigIP.Sys.Ocsp(\"test-ocsp\", new()\n    {\n        Name = \"/Uncommon/test-ocsp\",\n        Passphrase = \"testabcdef\",\n        ProxyServerPool = \"/Common/test-poolxyz\",\n        SignerCert = \"/Common/le-ssl\",\n        SignerKey = \"/Common/le-ssl\",\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/sys\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := sys.NewOcsp(ctx, \"test-ocsp\", \u0026sys.OcspArgs{\n\t\t\tName:            pulumi.String(\"/Uncommon/test-ocsp\"),\n\t\t\tPassphrase:      pulumi.String(\"testabcdef\"),\n\t\t\tProxyServerPool: pulumi.String(\"/Common/test-poolxyz\"),\n\t\t\tSignerCert:      pulumi.String(\"/Common/le-ssl\"),\n\t\t\tSignerKey:       pulumi.String(\"/Common/le-ssl\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.f5bigip.sys.Ocsp;\nimport com.pulumi.f5bigip.sys.OcspArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var test_ocsp = new Ocsp(\"test-ocsp\", OcspArgs.builder()        \n            .name(\"/Uncommon/test-ocsp\")\n            .passphrase(\"testabcdef\")\n            .proxyServerPool(\"/Common/test-poolxyz\")\n            .signerCert(\"/Common/le-ssl\")\n            .signerKey(\"/Common/le-ssl\")\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  test-ocsp:\n    type: f5bigip:sys:Ocsp\n    properties:\n      name: /Uncommon/test-ocsp\n      passphrase: testabcdef\n      proxyServerPool: /Common/test-poolxyz\n      signerCert: /Common/le-ssl\n      signerKey: /Common/le-ssl\n```\n{{% /example %}}\n{{% /examples %}}",
+            "properties": {
+                "cacheErrorTimeout": {
+                    "type": "integer",
+                    "description": "Specifies the lifetime of an error response in the cache, in seconds. This value must be greater than connection_timeout. The default value is `3600`.\n"
+                },
+                "cacheTimeout": {
+                    "type": "string",
+                    "description": "Specifies the lifetime of the OCSP response in the cache, in seconds. The default value is `indefinite`.\n"
+                },
+                "clockSkew": {
+                    "type": "integer",
+                    "description": "Specifies the time interval that the BIG-IP system allows for clock skew, in seconds. The default value is `300`.\n"
+                },
+                "concurrentConnectionsLimit": {
+                    "type": "integer",
+                    "description": "Specifies the maximum number of connections per second allowed for the OCSP certificate validator. The default value is `50`.\n"
+                },
+                "connectionTimeout": {
+                    "type": "integer",
+                    "description": "Specifies the time interval that the BIG-IP system waits for before ending the connection to the OCSP responder, in seconds. The default value is `8`.\n"
+                },
+                "dnsResolver": {
+                    "type": "string",
+                    "description": "Specifies the internal DNS resolver the BIG-IP system uses to fetch the OCSP response.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the OCSP Responder. Name should be in pattern `/partition/ocsp_name`.\n"
+                },
+                "passphrase": {
+                    "type": "string",
+                    "description": "Specifies a passphrase used to sign an OCSP request.\n",
+                    "secret": true
+                },
+                "proxyServerPool": {
+                    "type": "string",
+                    "description": "Specifies the proxy server pool the BIG-IP system uses to fetch the OCSP response.\n"
+                },
+                "responderUrl": {
+                    "type": "string",
+                    "description": "Specifies the URL of the OCSP responder.\n"
+                },
+                "routeDomain": {
+                    "type": "string",
+                    "description": "Specifies the route domain for the OCSP responder.\n"
+                },
+                "signHash": {
+                    "type": "string",
+                    "description": "Specifies the hash algorithm used to sign the OCSP request. The default value is `sha256`.\n"
+                },
+                "signerCert": {
+                    "type": "string",
+                    "description": "Specifies the certificate used to sign the OCSP request.\n"
+                },
+                "signerKey": {
+                    "type": "string",
+                    "description": "Specifies the key used to sign the OCSP request.\n"
+                },
+                "statusAge": {
+                    "type": "integer",
+                    "description": "Specifies the maximum allowed lag time that the BIG-IP system accepts for the 'thisUpdate' time in the OCSP response, in seconds. The default value is `0`.\n"
+                },
+                "strictRespCertCheck": {
+                    "type": "string",
+                    "description": "Specifies whether the responder's certificate is checked for an OCSP signing extension. The default value is `enabled`.\n"
+                },
+                "trustedResponders": {
+                    "type": "string",
+                    "description": "Specifies the certificates used for validating the OCSP response.\n"
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "inputProperties": {
+                "cacheErrorTimeout": {
+                    "type": "integer",
+                    "description": "Specifies the lifetime of an error response in the cache, in seconds. This value must be greater than connection_timeout. The default value is `3600`.\n"
+                },
+                "cacheTimeout": {
+                    "type": "string",
+                    "description": "Specifies the lifetime of the OCSP response in the cache, in seconds. The default value is `indefinite`.\n"
+                },
+                "clockSkew": {
+                    "type": "integer",
+                    "description": "Specifies the time interval that the BIG-IP system allows for clock skew, in seconds. The default value is `300`.\n"
+                },
+                "concurrentConnectionsLimit": {
+                    "type": "integer",
+                    "description": "Specifies the maximum number of connections per second allowed for the OCSP certificate validator. The default value is `50`.\n"
+                },
+                "connectionTimeout": {
+                    "type": "integer",
+                    "description": "Specifies the time interval that the BIG-IP system waits for before ending the connection to the OCSP responder, in seconds. The default value is `8`.\n"
+                },
+                "dnsResolver": {
+                    "type": "string",
+                    "description": "Specifies the internal DNS resolver the BIG-IP system uses to fetch the OCSP response.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the OCSP Responder. Name should be in pattern `/partition/ocsp_name`.\n"
+                },
+                "passphrase": {
+                    "type": "string",
+                    "description": "Specifies a passphrase used to sign an OCSP request.\n",
+                    "secret": true
+                },
+                "proxyServerPool": {
+                    "type": "string",
+                    "description": "Specifies the proxy server pool the BIG-IP system uses to fetch the OCSP response.\n"
+                },
+                "responderUrl": {
+                    "type": "string",
+                    "description": "Specifies the URL of the OCSP responder.\n"
+                },
+                "routeDomain": {
+                    "type": "string",
+                    "description": "Specifies the route domain for the OCSP responder.\n"
+                },
+                "signHash": {
+                    "type": "string",
+                    "description": "Specifies the hash algorithm used to sign the OCSP request. The default value is `sha256`.\n"
+                },
+                "signerCert": {
+                    "type": "string",
+                    "description": "Specifies the certificate used to sign the OCSP request.\n"
+                },
+                "signerKey": {
+                    "type": "string",
+                    "description": "Specifies the key used to sign the OCSP request.\n"
+                },
+                "statusAge": {
+                    "type": "integer",
+                    "description": "Specifies the maximum allowed lag time that the BIG-IP system accepts for the 'thisUpdate' time in the OCSP response, in seconds. The default value is `0`.\n"
+                },
+                "strictRespCertCheck": {
+                    "type": "string",
+                    "description": "Specifies whether the responder's certificate is checked for an OCSP signing extension. The default value is `enabled`.\n"
+                },
+                "trustedResponders": {
+                    "type": "string",
+                    "description": "Specifies the certificates used for validating the OCSP response.\n"
+                }
+            },
+            "requiredInputs": [
+                "name"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering Ocsp resources.\n",
+                "properties": {
+                    "cacheErrorTimeout": {
+                        "type": "integer",
+                        "description": "Specifies the lifetime of an error response in the cache, in seconds. This value must be greater than connection_timeout. The default value is `3600`.\n"
+                    },
+                    "cacheTimeout": {
+                        "type": "string",
+                        "description": "Specifies the lifetime of the OCSP response in the cache, in seconds. The default value is `indefinite`.\n"
+                    },
+                    "clockSkew": {
+                        "type": "integer",
+                        "description": "Specifies the time interval that the BIG-IP system allows for clock skew, in seconds. The default value is `300`.\n"
+                    },
+                    "concurrentConnectionsLimit": {
+                        "type": "integer",
+                        "description": "Specifies the maximum number of connections per second allowed for the OCSP certificate validator. The default value is `50`.\n"
+                    },
+                    "connectionTimeout": {
+                        "type": "integer",
+                        "description": "Specifies the time interval that the BIG-IP system waits for before ending the connection to the OCSP responder, in seconds. The default value is `8`.\n"
+                    },
+                    "dnsResolver": {
+                        "type": "string",
+                        "description": "Specifies the internal DNS resolver the BIG-IP system uses to fetch the OCSP response.\n"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the OCSP Responder. Name should be in pattern `/partition/ocsp_name`.\n"
+                    },
+                    "passphrase": {
+                        "type": "string",
+                        "description": "Specifies a passphrase used to sign an OCSP request.\n",
+                        "secret": true
+                    },
+                    "proxyServerPool": {
+                        "type": "string",
+                        "description": "Specifies the proxy server pool the BIG-IP system uses to fetch the OCSP response.\n"
+                    },
+                    "responderUrl": {
+                        "type": "string",
+                        "description": "Specifies the URL of the OCSP responder.\n"
+                    },
+                    "routeDomain": {
+                        "type": "string",
+                        "description": "Specifies the route domain for the OCSP responder.\n"
+                    },
+                    "signHash": {
+                        "type": "string",
+                        "description": "Specifies the hash algorithm used to sign the OCSP request. The default value is `sha256`.\n"
+                    },
+                    "signerCert": {
+                        "type": "string",
+                        "description": "Specifies the certificate used to sign the OCSP request.\n"
+                    },
+                    "signerKey": {
+                        "type": "string",
+                        "description": "Specifies the key used to sign the OCSP request.\n"
+                    },
+                    "statusAge": {
+                        "type": "integer",
+                        "description": "Specifies the maximum allowed lag time that the BIG-IP system accepts for the 'thisUpdate' time in the OCSP response, in seconds. The default value is `0`.\n"
+                    },
+                    "strictRespCertCheck": {
+                        "type": "string",
+                        "description": "Specifies whether the responder's certificate is checked for an OCSP signing extension. The default value is `enabled`.\n"
+                    },
+                    "trustedResponders": {
+                        "type": "string",
+                        "description": "Specifies the certificates used for validating the OCSP response.\n"
                     }
                 },
                 "type": "object"
