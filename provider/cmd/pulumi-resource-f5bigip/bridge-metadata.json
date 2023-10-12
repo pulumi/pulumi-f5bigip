@@ -457,6 +457,20 @@
                     "traffic_selector": {}
                 }
             },
+            "bigip_ltm_cipher_group": {
+                "current": "f5bigip:ltm/cipherGroup:CipherGroup",
+                "fields": {
+                    "allow": {
+                        "maxItemsOne": false
+                    },
+                    "require": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "bigip_ltm_cipher_rule": {
+                "current": "f5bigip:ltm/cipherRule:CipherRule"
+            },
             "bigip_ltm_datagroup": {
                 "current": "f5bigip:ltm/dataGroup:DataGroup",
                 "fields": {
@@ -1024,6 +1038,16 @@
                         "maxItemsOne": false,
                         "elem": {}
                     },
+                    "enforcement": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "known_methods": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    },
                     "fallback_host": {},
                     "fallback_status_codes": {
                         "maxItemsOne": false,
@@ -1031,6 +1055,9 @@
                     },
                     "head_erase": {},
                     "head_insert": {},
+                    "http_strict_transport_security": {
+                        "maxItemsOne": false
+                    },
                     "insert_xforwarded_for": {},
                     "lws_separator": {},
                     "lws_width": {},
@@ -1552,6 +1579,9 @@
                     "timezone": {}
                 }
             },
+            "bigip_sys_ocsp": {
+                "current": "f5bigip:sys/ocsp:Ocsp"
+            },
             "bigip_sys_provision": {
                 "current": "f5bigip:sys/provision:Provision",
                 "fields": {
@@ -1869,6 +1899,8 @@
             "f5bigip:index/sslKeyCert:SslKeyCert": "bigip_ssl_key_cert",
             "f5bigip:index/trafficSelector:TrafficSelector": "bigip_traffic_selector",
             "f5bigip:index/wafPolicy:WafPolicy": "bigip_waf_policy",
+            "f5bigip:ltm/cipherGroup:CipherGroup": "bigip_ltm_cipher_group",
+            "f5bigip:ltm/cipherRule:CipherRule": "bigip_ltm_cipher_rule",
             "f5bigip:ltm/dataGroup:DataGroup": "bigip_ltm_datagroup",
             "f5bigip:ltm/iRule:IRule": "bigip_ltm_irule",
             "f5bigip:ltm/monitor:Monitor": "bigip_ltm_monitor",
@@ -1903,6 +1935,7 @@
             "f5bigip:sys/dns:Dns": "bigip_sys_dns",
             "f5bigip:sys/iApp:IApp": "bigip_sys_iapp",
             "f5bigip:sys/ntp:Ntp": "bigip_sys_ntp",
+            "f5bigip:sys/ocsp:Ocsp": "bigip_sys_ocsp",
             "f5bigip:sys/provision:Provision": "bigip_sys_provision",
             "f5bigip:sys/snmp:Snmp": "bigip_sys_snmp",
             "f5bigip:sys/snmpTraps:SnmpTraps": "bigip_sys_snmp_traps",
@@ -2237,7 +2270,10 @@
             "f5bigip:index/sslKeyCert:SslKeyCert": {
                 "certContent": "cert_content",
                 "certFullPath": "cert_full_path",
+                "certMonitoringType": "cert_monitoring_type",
                 "certName": "cert_name",
+                "certOcsp": "cert_ocsp",
+                "issuerCert": "issuer_cert",
                 "keyContent": "key_content",
                 "keyFullPath": "key_full_path",
                 "keyName": "key_name"
@@ -2371,8 +2407,26 @@
                 "userAgentToken": "user_agent_token",
                 "vlanId": "vlan_id"
             },
+            "f5bigip:ltm/ProfileHttpEnforcement:ProfileHttpEnforcement": {
+                "knownMethods": "known_methods",
+                "maxHeaderCount": "max_header_count",
+                "maxHeaderSize": "max_header_size",
+                "unknownMethod": "unknown_method"
+            },
+            "f5bigip:ltm/ProfileHttpHttpStrictTransportSecurity:ProfileHttpHttpStrictTransportSecurity": {
+                "includeSubdomains": "include_subdomains",
+                "maximumAge": "maximum_age"
+            },
             "f5bigip:ltm/SnatOrigin:SnatOrigin": {
                 "appService": "app_service"
+            },
+            "f5bigip:ltm/cipherGroup:CipherGroup": {
+                "allows": "allow",
+                "requires": "require"
+            },
+            "f5bigip:ltm/cipherRule:CipherRule": {
+                "dhGroups": "dh_groups",
+                "signatureAlgorithms": "signature_algorithms"
             },
             "f5bigip:ltm/dataGroup:DataGroup": {
                 "records": "record",
@@ -2593,6 +2647,7 @@
                 "handshakeTimeout": "handshake_timeout",
                 "inheritCertKeychain": "inherit_cert_keychain",
                 "modSslMethods": "mod_ssl_methods",
+                "ocspStapling": "ocsp_stapling",
                 "peerCertMode": "peer_cert_mode",
                 "proxyCaCert": "proxy_ca_cert",
                 "proxyCaKey": "proxy_ca_key",
@@ -2677,10 +2732,12 @@
                 "defaultsFrom": "defaults_from",
                 "encryptCookieSecret": "encrypt_cookie_secret",
                 "encryptCookies": "encrypt_cookies",
+                "enforcements": "enforcement",
                 "fallbackHost": "fallback_host",
                 "fallbackStatusCodes": "fallback_status_codes",
                 "headErase": "head_erase",
                 "headInsert": "head_insert",
+                "httpStrictTransportSecurities": "http_strict_transport_security",
                 "insertXforwardedFor": "insert_xforwarded_for",
                 "lwsSeparator": "lws_separator",
                 "lwsWidth": "lws_width",
@@ -2822,7 +2879,9 @@
                 "cmpHash": "cmp_hash"
             },
             "f5bigip:ssl/certificate:Certificate": {
-                "fullPath": "full_path"
+                "fullPath": "full_path",
+                "issuerCert": "issuer_cert",
+                "monitoringType": "monitoring_type"
             },
             "f5bigip:ssl/getVWanConfig:getVWanConfig": {
                 "azureVwanName": "azure_vwan_name",
@@ -2898,6 +2957,23 @@
                 "templateModified": "template_modified",
                 "templatePrerequisiteErrors": "template_prerequisite_errors",
                 "trafficGroup": "traffic_group"
+            },
+            "f5bigip:sys/ocsp:Ocsp": {
+                "cacheErrorTimeout": "cache_error_timeout",
+                "cacheTimeout": "cache_timeout",
+                "clockSkew": "clock_skew",
+                "concurrentConnectionsLimit": "concurrent_connections_limit",
+                "connectionTimeout": "connection_timeout",
+                "dnsResolver": "dns_resolver",
+                "proxyServerPool": "proxy_server_pool",
+                "responderUrl": "responder_url",
+                "routeDomain": "route_domain",
+                "signHash": "sign_hash",
+                "signerCert": "signer_cert",
+                "signerKey": "signer_key",
+                "statusAge": "status_age",
+                "strictRespCertCheck": "strict_resp_cert_check",
+                "trustedResponders": "trusted_responders"
             },
             "f5bigip:sys/provision:Provision": {
                 "cpuRatio": "cpu_ratio",

@@ -3,9 +3,9 @@ module github.com/pulumi/pulumi-f5bigip/provider/v3
 go 1.21
 
 require (
-	github.com/F5Networks/terraform-provider-bigip v1.19.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.59.0
-	github.com/pulumi/pulumi/sdk/v3 v3.81.0
+	github.com/F5Networks/terraform-provider-bigip v1.20.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.61.0
+	github.com/pulumi/pulumi/sdk/v3 v3.86.0
 )
 
 // Fixes build issues on windows: https://github.com/mattn/go-ieproxy/issues/45
@@ -23,7 +23,7 @@ require (
 	cloud.google.com/go/longrunning v0.5.1 // indirect
 	cloud.google.com/go/storage v1.30.1 // indirect
 	dario.cat/mergo v1.0.0 // indirect
-	github.com/AlecAivazis/survey/v2 v2.0.5 // indirect
+	github.com/AlecAivazis/survey/v2 v2.3.7 // indirect
 	github.com/Azure/azure-pipeline-go v0.2.3 // indirect
 	github.com/Azure/azure-sdk-for-go v68.0.0+incompatible // indirect
 	github.com/Azure/azure-sdk-for-go/sdk/azcore v1.1.1 // indirect
@@ -95,8 +95,8 @@ require (
 	github.com/edsrzf/mmap-go v1.1.0 // indirect
 	github.com/emirpasic/gods v1.18.1 // indirect
 	github.com/ettle/strcase v0.1.1 // indirect
-	github.com/f5devcentral/go-bigip v0.0.0-20230825175646-ebe63e33298c // indirect
-	github.com/f5devcentral/go-bigip/f5teem v0.0.0-20230825175646-ebe63e33298c // indirect
+	github.com/f5devcentral/go-bigip v0.0.0-20231011173025-84b03e0e0bf7 // indirect
+	github.com/f5devcentral/go-bigip/f5teem v0.0.0-20231011173025-84b03e0e0bf7 // indirect
 	github.com/fatih/color v1.14.1 // indirect
 	github.com/gedex/inflector v0.0.0-20170307190818-16278e9db813 // indirect
 	github.com/go-git/gcfg v1.5.1-0.20230307220236-3a3c6141e376 // indirect
@@ -199,7 +199,7 @@ require (
 	github.com/pulumi/pulumi-java/pkg v0.9.6 // indirect
 	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.4 // indirect
 	github.com/pulumi/pulumi-yaml v1.2.2 // indirect
-	github.com/pulumi/pulumi/pkg/v3 v3.81.0 // indirect
+	github.com/pulumi/pulumi/pkg/v3 v3.86.0 // indirect
 	github.com/pulumi/schema-tools v0.1.2 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
@@ -236,13 +236,13 @@ require (
 	go.uber.org/atomic v1.10.0 // indirect
 	gocloud.dev v0.27.0 // indirect
 	gocloud.dev/secrets/hashivault v0.27.0 // indirect
-	golang.org/x/crypto v0.13.0 // indirect
+	golang.org/x/crypto v0.14.0 // indirect
 	golang.org/x/mod v0.12.0 // indirect
-	golang.org/x/net v0.13.0 // indirect
+	golang.org/x/net v0.17.0 // indirect
 	golang.org/x/oauth2 v0.8.0 // indirect
 	golang.org/x/sync v0.2.0 // indirect
-	golang.org/x/sys v0.12.0 // indirect
-	golang.org/x/term v0.12.0 // indirect
+	golang.org/x/sys v0.13.0 // indirect
+	golang.org/x/term v0.13.0 // indirect
 	golang.org/x/text v0.13.0 // indirect
 	golang.org/x/time v0.3.0 // indirect
 	golang.org/x/tools v0.9.3 // indirect
