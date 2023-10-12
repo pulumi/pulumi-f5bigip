@@ -82,7 +82,9 @@ export class Policy extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * If you want to publish the policy else it will be deployed in Drafts mode.
+     * If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
+     *
+     * @deprecated This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.
      */
     public readonly publishedCopy!: pulumi.Output<string | undefined>;
     /**
@@ -153,7 +155,9 @@ export interface PolicyState {
      */
     name?: pulumi.Input<string>;
     /**
-     * If you want to publish the policy else it will be deployed in Drafts mode.
+     * If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
+     *
+     * @deprecated This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.
      */
     publishedCopy?: pulumi.Input<string>;
     /**
@@ -187,7 +191,9 @@ export interface PolicyArgs {
      */
     name: pulumi.Input<string>;
     /**
-     * If you want to publish the policy else it will be deployed in Drafts mode.
+     * If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
+     *
+     * @deprecated This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.
      */
     publishedCopy?: pulumi.Input<string>;
     /**

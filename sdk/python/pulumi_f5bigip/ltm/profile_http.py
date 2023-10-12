@@ -6,8 +6,10 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['ProfileHttpArgs', 'ProfileHttp']
 
@@ -22,10 +24,12 @@ class ProfileHttpArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  encrypt_cookie_secret: Optional[pulumi.Input[str]] = None,
                  encrypt_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 enforcements: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileHttpEnforcementArgs']]]] = None,
                  fallback_host: Optional[pulumi.Input[str]] = None,
                  fallback_status_codes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  head_erase: Optional[pulumi.Input[str]] = None,
                  head_insert: Optional[pulumi.Input[str]] = None,
+                 http_strict_transport_securities: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileHttpHttpStrictTransportSecurityArgs']]]] = None,
                  insert_xforwarded_for: Optional[pulumi.Input[str]] = None,
                  lws_separator: Optional[pulumi.Input[str]] = None,
                  lws_width: Optional[pulumi.Input[int]] = None,
@@ -51,10 +55,12 @@ class ProfileHttpArgs:
         :param pulumi.Input[str] description: Specifies user-defined description.
         :param pulumi.Input[str] encrypt_cookie_secret: Type a passphrase for cookie encryption.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] encrypt_cookies: Type the cookie names for the system to encrypt.
+        :param pulumi.Input[Sequence[pulumi.Input['ProfileHttpEnforcementArgs']]] enforcements: See Enforcement below for more details.
         :param pulumi.Input[str] fallback_host: Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fallback_status_codes: Specifies one or more three-digit status codes that can be returned by an HTTP server,that should trigger a redirection to the fallback host.
         :param pulumi.Input[str] head_erase: Specifies the header string that you want to erase from an HTTP request. Default is `none`.
         :param pulumi.Input[str] head_insert: Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
+        :param pulumi.Input[Sequence[pulumi.Input['ProfileHttpHttpStrictTransportSecurityArgs']]] http_strict_transport_securities: See Http_Strict_Transport_Security below for more details.
         :param pulumi.Input[str] insert_xforwarded_for: Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
         :param pulumi.Input[str] lws_separator: Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
                specify in the LWS Maximum Columns setting.
@@ -65,67 +71,135 @@ class ProfileHttpArgs:
         :param pulumi.Input[str] request_chunking: Specifies how the system handles HTTP content that is chunked by a client. The default is `preserve`.
         :param pulumi.Input[str] response_chunking: Specifies how the system handles HTTP content that is chunked by a server. The default is `selective`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] response_headers_permitteds: Specifies headers that the BIG-IP system allows in an HTTP response.If you are specifying more than one header, separate the headers with a blank space.
-        :param pulumi.Input[str] server_agent_name: Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no
-               string is specified, then no Server header will be added to such responses
+        :param pulumi.Input[str] server_agent_name: Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, "none" string is to be passed.
         :param pulumi.Input[str] tm_partition: Displays the administrative partition within which this profile resides.
         :param pulumi.Input[str] via_host_name: Specifies the hostname to include into Via header
         :param pulumi.Input[str] via_request: Specifies whether to append, remove, or preserve a Via header in an HTTP request
         :param pulumi.Input[str] via_response: Specifies whether to append, remove, or preserve a Via header in an HTTP request
         :param pulumi.Input[Sequence[pulumi.Input[str]]] xff_alternative_names: Specifies alternative XFF headers instead of the default X-forwarded-for header.
         """
-        pulumi.set(__self__, "name", name)
+        ProfileHttpArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            accept_xff=accept_xff,
+            app_service=app_service,
+            basic_auth_realm=basic_auth_realm,
+            defaults_from=defaults_from,
+            description=description,
+            encrypt_cookie_secret=encrypt_cookie_secret,
+            encrypt_cookies=encrypt_cookies,
+            enforcements=enforcements,
+            fallback_host=fallback_host,
+            fallback_status_codes=fallback_status_codes,
+            head_erase=head_erase,
+            head_insert=head_insert,
+            http_strict_transport_securities=http_strict_transport_securities,
+            insert_xforwarded_for=insert_xforwarded_for,
+            lws_separator=lws_separator,
+            lws_width=lws_width,
+            oneconnect_transformations=oneconnect_transformations,
+            proxy_type=proxy_type,
+            redirect_rewrite=redirect_rewrite,
+            request_chunking=request_chunking,
+            response_chunking=response_chunking,
+            response_headers_permitteds=response_headers_permitteds,
+            server_agent_name=server_agent_name,
+            tm_partition=tm_partition,
+            via_host_name=via_host_name,
+            via_request=via_request,
+            via_response=via_response,
+            xff_alternative_names=xff_alternative_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             accept_xff: Optional[pulumi.Input[str]] = None,
+             app_service: Optional[pulumi.Input[str]] = None,
+             basic_auth_realm: Optional[pulumi.Input[str]] = None,
+             defaults_from: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             encrypt_cookie_secret: Optional[pulumi.Input[str]] = None,
+             encrypt_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             enforcements: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileHttpEnforcementArgs']]]] = None,
+             fallback_host: Optional[pulumi.Input[str]] = None,
+             fallback_status_codes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             head_erase: Optional[pulumi.Input[str]] = None,
+             head_insert: Optional[pulumi.Input[str]] = None,
+             http_strict_transport_securities: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileHttpHttpStrictTransportSecurityArgs']]]] = None,
+             insert_xforwarded_for: Optional[pulumi.Input[str]] = None,
+             lws_separator: Optional[pulumi.Input[str]] = None,
+             lws_width: Optional[pulumi.Input[int]] = None,
+             oneconnect_transformations: Optional[pulumi.Input[str]] = None,
+             proxy_type: Optional[pulumi.Input[str]] = None,
+             redirect_rewrite: Optional[pulumi.Input[str]] = None,
+             request_chunking: Optional[pulumi.Input[str]] = None,
+             response_chunking: Optional[pulumi.Input[str]] = None,
+             response_headers_permitteds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             server_agent_name: Optional[pulumi.Input[str]] = None,
+             tm_partition: Optional[pulumi.Input[str]] = None,
+             via_host_name: Optional[pulumi.Input[str]] = None,
+             via_request: Optional[pulumi.Input[str]] = None,
+             via_response: Optional[pulumi.Input[str]] = None,
+             xff_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if accept_xff is not None:
-            pulumi.set(__self__, "accept_xff", accept_xff)
+            _setter("accept_xff", accept_xff)
         if app_service is not None:
-            pulumi.set(__self__, "app_service", app_service)
+            _setter("app_service", app_service)
         if basic_auth_realm is not None:
-            pulumi.set(__self__, "basic_auth_realm", basic_auth_realm)
+            _setter("basic_auth_realm", basic_auth_realm)
         if defaults_from is not None:
-            pulumi.set(__self__, "defaults_from", defaults_from)
+            _setter("defaults_from", defaults_from)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if encrypt_cookie_secret is not None:
-            pulumi.set(__self__, "encrypt_cookie_secret", encrypt_cookie_secret)
+            _setter("encrypt_cookie_secret", encrypt_cookie_secret)
         if encrypt_cookies is not None:
-            pulumi.set(__self__, "encrypt_cookies", encrypt_cookies)
+            _setter("encrypt_cookies", encrypt_cookies)
+        if enforcements is not None:
+            _setter("enforcements", enforcements)
         if fallback_host is not None:
-            pulumi.set(__self__, "fallback_host", fallback_host)
+            _setter("fallback_host", fallback_host)
         if fallback_status_codes is not None:
-            pulumi.set(__self__, "fallback_status_codes", fallback_status_codes)
+            _setter("fallback_status_codes", fallback_status_codes)
         if head_erase is not None:
-            pulumi.set(__self__, "head_erase", head_erase)
+            _setter("head_erase", head_erase)
         if head_insert is not None:
-            pulumi.set(__self__, "head_insert", head_insert)
+            _setter("head_insert", head_insert)
+        if http_strict_transport_securities is not None:
+            _setter("http_strict_transport_securities", http_strict_transport_securities)
         if insert_xforwarded_for is not None:
-            pulumi.set(__self__, "insert_xforwarded_for", insert_xforwarded_for)
+            _setter("insert_xforwarded_for", insert_xforwarded_for)
         if lws_separator is not None:
-            pulumi.set(__self__, "lws_separator", lws_separator)
+            _setter("lws_separator", lws_separator)
         if lws_width is not None:
-            pulumi.set(__self__, "lws_width", lws_width)
+            _setter("lws_width", lws_width)
         if oneconnect_transformations is not None:
-            pulumi.set(__self__, "oneconnect_transformations", oneconnect_transformations)
+            _setter("oneconnect_transformations", oneconnect_transformations)
         if proxy_type is not None:
-            pulumi.set(__self__, "proxy_type", proxy_type)
+            _setter("proxy_type", proxy_type)
         if redirect_rewrite is not None:
-            pulumi.set(__self__, "redirect_rewrite", redirect_rewrite)
+            _setter("redirect_rewrite", redirect_rewrite)
         if request_chunking is not None:
-            pulumi.set(__self__, "request_chunking", request_chunking)
+            _setter("request_chunking", request_chunking)
         if response_chunking is not None:
-            pulumi.set(__self__, "response_chunking", response_chunking)
+            _setter("response_chunking", response_chunking)
         if response_headers_permitteds is not None:
-            pulumi.set(__self__, "response_headers_permitteds", response_headers_permitteds)
+            _setter("response_headers_permitteds", response_headers_permitteds)
         if server_agent_name is not None:
-            pulumi.set(__self__, "server_agent_name", server_agent_name)
+            _setter("server_agent_name", server_agent_name)
         if tm_partition is not None:
-            pulumi.set(__self__, "tm_partition", tm_partition)
+            _setter("tm_partition", tm_partition)
         if via_host_name is not None:
-            pulumi.set(__self__, "via_host_name", via_host_name)
+            _setter("via_host_name", via_host_name)
         if via_request is not None:
-            pulumi.set(__self__, "via_request", via_request)
+            _setter("via_request", via_request)
         if via_response is not None:
-            pulumi.set(__self__, "via_response", via_response)
+            _setter("via_response", via_response)
         if xff_alternative_names is not None:
-            pulumi.set(__self__, "xff_alternative_names", xff_alternative_names)
+            _setter("xff_alternative_names", xff_alternative_names)
 
     @property
     @pulumi.getter
@@ -224,6 +298,18 @@ class ProfileHttpArgs:
         pulumi.set(self, "encrypt_cookies", value)
 
     @property
+    @pulumi.getter
+    def enforcements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProfileHttpEnforcementArgs']]]]:
+        """
+        See Enforcement below for more details.
+        """
+        return pulumi.get(self, "enforcements")
+
+    @enforcements.setter
+    def enforcements(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileHttpEnforcementArgs']]]]):
+        pulumi.set(self, "enforcements", value)
+
+    @property
     @pulumi.getter(name="fallbackHost")
     def fallback_host(self) -> Optional[pulumi.Input[str]]:
         """
@@ -270,6 +356,18 @@ class ProfileHttpArgs:
     @head_insert.setter
     def head_insert(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "head_insert", value)
+
+    @property
+    @pulumi.getter(name="httpStrictTransportSecurities")
+    def http_strict_transport_securities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProfileHttpHttpStrictTransportSecurityArgs']]]]:
+        """
+        See Http_Strict_Transport_Security below for more details.
+        """
+        return pulumi.get(self, "http_strict_transport_securities")
+
+    @http_strict_transport_securities.setter
+    def http_strict_transport_securities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileHttpHttpStrictTransportSecurityArgs']]]]):
+        pulumi.set(self, "http_strict_transport_securities", value)
 
     @property
     @pulumi.getter(name="insertXforwardedFor")
@@ -384,8 +482,7 @@ class ProfileHttpArgs:
     @pulumi.getter(name="serverAgentName")
     def server_agent_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no
-        string is specified, then no Server header will be added to such responses
+        Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, "none" string is to be passed.
         """
         return pulumi.get(self, "server_agent_name")
 
@@ -464,10 +561,12 @@ class _ProfileHttpState:
                  description: Optional[pulumi.Input[str]] = None,
                  encrypt_cookie_secret: Optional[pulumi.Input[str]] = None,
                  encrypt_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 enforcements: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileHttpEnforcementArgs']]]] = None,
                  fallback_host: Optional[pulumi.Input[str]] = None,
                  fallback_status_codes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  head_erase: Optional[pulumi.Input[str]] = None,
                  head_insert: Optional[pulumi.Input[str]] = None,
+                 http_strict_transport_securities: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileHttpHttpStrictTransportSecurityArgs']]]] = None,
                  insert_xforwarded_for: Optional[pulumi.Input[str]] = None,
                  lws_separator: Optional[pulumi.Input[str]] = None,
                  lws_width: Optional[pulumi.Input[int]] = None,
@@ -493,10 +592,12 @@ class _ProfileHttpState:
         :param pulumi.Input[str] description: Specifies user-defined description.
         :param pulumi.Input[str] encrypt_cookie_secret: Type a passphrase for cookie encryption.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] encrypt_cookies: Type the cookie names for the system to encrypt.
+        :param pulumi.Input[Sequence[pulumi.Input['ProfileHttpEnforcementArgs']]] enforcements: See Enforcement below for more details.
         :param pulumi.Input[str] fallback_host: Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fallback_status_codes: Specifies one or more three-digit status codes that can be returned by an HTTP server,that should trigger a redirection to the fallback host.
         :param pulumi.Input[str] head_erase: Specifies the header string that you want to erase from an HTTP request. Default is `none`.
         :param pulumi.Input[str] head_insert: Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
+        :param pulumi.Input[Sequence[pulumi.Input['ProfileHttpHttpStrictTransportSecurityArgs']]] http_strict_transport_securities: See Http_Strict_Transport_Security below for more details.
         :param pulumi.Input[str] insert_xforwarded_for: Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
         :param pulumi.Input[str] lws_separator: Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
                specify in the LWS Maximum Columns setting.
@@ -508,68 +609,136 @@ class _ProfileHttpState:
         :param pulumi.Input[str] request_chunking: Specifies how the system handles HTTP content that is chunked by a client. The default is `preserve`.
         :param pulumi.Input[str] response_chunking: Specifies how the system handles HTTP content that is chunked by a server. The default is `selective`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] response_headers_permitteds: Specifies headers that the BIG-IP system allows in an HTTP response.If you are specifying more than one header, separate the headers with a blank space.
-        :param pulumi.Input[str] server_agent_name: Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no
-               string is specified, then no Server header will be added to such responses
+        :param pulumi.Input[str] server_agent_name: Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, "none" string is to be passed.
         :param pulumi.Input[str] tm_partition: Displays the administrative partition within which this profile resides.
         :param pulumi.Input[str] via_host_name: Specifies the hostname to include into Via header
         :param pulumi.Input[str] via_request: Specifies whether to append, remove, or preserve a Via header in an HTTP request
         :param pulumi.Input[str] via_response: Specifies whether to append, remove, or preserve a Via header in an HTTP request
         :param pulumi.Input[Sequence[pulumi.Input[str]]] xff_alternative_names: Specifies alternative XFF headers instead of the default X-forwarded-for header.
         """
+        _ProfileHttpState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accept_xff=accept_xff,
+            app_service=app_service,
+            basic_auth_realm=basic_auth_realm,
+            defaults_from=defaults_from,
+            description=description,
+            encrypt_cookie_secret=encrypt_cookie_secret,
+            encrypt_cookies=encrypt_cookies,
+            enforcements=enforcements,
+            fallback_host=fallback_host,
+            fallback_status_codes=fallback_status_codes,
+            head_erase=head_erase,
+            head_insert=head_insert,
+            http_strict_transport_securities=http_strict_transport_securities,
+            insert_xforwarded_for=insert_xforwarded_for,
+            lws_separator=lws_separator,
+            lws_width=lws_width,
+            name=name,
+            oneconnect_transformations=oneconnect_transformations,
+            proxy_type=proxy_type,
+            redirect_rewrite=redirect_rewrite,
+            request_chunking=request_chunking,
+            response_chunking=response_chunking,
+            response_headers_permitteds=response_headers_permitteds,
+            server_agent_name=server_agent_name,
+            tm_partition=tm_partition,
+            via_host_name=via_host_name,
+            via_request=via_request,
+            via_response=via_response,
+            xff_alternative_names=xff_alternative_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accept_xff: Optional[pulumi.Input[str]] = None,
+             app_service: Optional[pulumi.Input[str]] = None,
+             basic_auth_realm: Optional[pulumi.Input[str]] = None,
+             defaults_from: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             encrypt_cookie_secret: Optional[pulumi.Input[str]] = None,
+             encrypt_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             enforcements: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileHttpEnforcementArgs']]]] = None,
+             fallback_host: Optional[pulumi.Input[str]] = None,
+             fallback_status_codes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             head_erase: Optional[pulumi.Input[str]] = None,
+             head_insert: Optional[pulumi.Input[str]] = None,
+             http_strict_transport_securities: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileHttpHttpStrictTransportSecurityArgs']]]] = None,
+             insert_xforwarded_for: Optional[pulumi.Input[str]] = None,
+             lws_separator: Optional[pulumi.Input[str]] = None,
+             lws_width: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             oneconnect_transformations: Optional[pulumi.Input[str]] = None,
+             proxy_type: Optional[pulumi.Input[str]] = None,
+             redirect_rewrite: Optional[pulumi.Input[str]] = None,
+             request_chunking: Optional[pulumi.Input[str]] = None,
+             response_chunking: Optional[pulumi.Input[str]] = None,
+             response_headers_permitteds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             server_agent_name: Optional[pulumi.Input[str]] = None,
+             tm_partition: Optional[pulumi.Input[str]] = None,
+             via_host_name: Optional[pulumi.Input[str]] = None,
+             via_request: Optional[pulumi.Input[str]] = None,
+             via_response: Optional[pulumi.Input[str]] = None,
+             xff_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if accept_xff is not None:
-            pulumi.set(__self__, "accept_xff", accept_xff)
+            _setter("accept_xff", accept_xff)
         if app_service is not None:
-            pulumi.set(__self__, "app_service", app_service)
+            _setter("app_service", app_service)
         if basic_auth_realm is not None:
-            pulumi.set(__self__, "basic_auth_realm", basic_auth_realm)
+            _setter("basic_auth_realm", basic_auth_realm)
         if defaults_from is not None:
-            pulumi.set(__self__, "defaults_from", defaults_from)
+            _setter("defaults_from", defaults_from)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if encrypt_cookie_secret is not None:
-            pulumi.set(__self__, "encrypt_cookie_secret", encrypt_cookie_secret)
+            _setter("encrypt_cookie_secret", encrypt_cookie_secret)
         if encrypt_cookies is not None:
-            pulumi.set(__self__, "encrypt_cookies", encrypt_cookies)
+            _setter("encrypt_cookies", encrypt_cookies)
+        if enforcements is not None:
+            _setter("enforcements", enforcements)
         if fallback_host is not None:
-            pulumi.set(__self__, "fallback_host", fallback_host)
+            _setter("fallback_host", fallback_host)
         if fallback_status_codes is not None:
-            pulumi.set(__self__, "fallback_status_codes", fallback_status_codes)
+            _setter("fallback_status_codes", fallback_status_codes)
         if head_erase is not None:
-            pulumi.set(__self__, "head_erase", head_erase)
+            _setter("head_erase", head_erase)
         if head_insert is not None:
-            pulumi.set(__self__, "head_insert", head_insert)
+            _setter("head_insert", head_insert)
+        if http_strict_transport_securities is not None:
+            _setter("http_strict_transport_securities", http_strict_transport_securities)
         if insert_xforwarded_for is not None:
-            pulumi.set(__self__, "insert_xforwarded_for", insert_xforwarded_for)
+            _setter("insert_xforwarded_for", insert_xforwarded_for)
         if lws_separator is not None:
-            pulumi.set(__self__, "lws_separator", lws_separator)
+            _setter("lws_separator", lws_separator)
         if lws_width is not None:
-            pulumi.set(__self__, "lws_width", lws_width)
+            _setter("lws_width", lws_width)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if oneconnect_transformations is not None:
-            pulumi.set(__self__, "oneconnect_transformations", oneconnect_transformations)
+            _setter("oneconnect_transformations", oneconnect_transformations)
         if proxy_type is not None:
-            pulumi.set(__self__, "proxy_type", proxy_type)
+            _setter("proxy_type", proxy_type)
         if redirect_rewrite is not None:
-            pulumi.set(__self__, "redirect_rewrite", redirect_rewrite)
+            _setter("redirect_rewrite", redirect_rewrite)
         if request_chunking is not None:
-            pulumi.set(__self__, "request_chunking", request_chunking)
+            _setter("request_chunking", request_chunking)
         if response_chunking is not None:
-            pulumi.set(__self__, "response_chunking", response_chunking)
+            _setter("response_chunking", response_chunking)
         if response_headers_permitteds is not None:
-            pulumi.set(__self__, "response_headers_permitteds", response_headers_permitteds)
+            _setter("response_headers_permitteds", response_headers_permitteds)
         if server_agent_name is not None:
-            pulumi.set(__self__, "server_agent_name", server_agent_name)
+            _setter("server_agent_name", server_agent_name)
         if tm_partition is not None:
-            pulumi.set(__self__, "tm_partition", tm_partition)
+            _setter("tm_partition", tm_partition)
         if via_host_name is not None:
-            pulumi.set(__self__, "via_host_name", via_host_name)
+            _setter("via_host_name", via_host_name)
         if via_request is not None:
-            pulumi.set(__self__, "via_request", via_request)
+            _setter("via_request", via_request)
         if via_response is not None:
-            pulumi.set(__self__, "via_response", via_response)
+            _setter("via_response", via_response)
         if xff_alternative_names is not None:
-            pulumi.set(__self__, "xff_alternative_names", xff_alternative_names)
+            _setter("xff_alternative_names", xff_alternative_names)
 
     @property
     @pulumi.getter(name="acceptXff")
@@ -656,6 +825,18 @@ class _ProfileHttpState:
         pulumi.set(self, "encrypt_cookies", value)
 
     @property
+    @pulumi.getter
+    def enforcements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProfileHttpEnforcementArgs']]]]:
+        """
+        See Enforcement below for more details.
+        """
+        return pulumi.get(self, "enforcements")
+
+    @enforcements.setter
+    def enforcements(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileHttpEnforcementArgs']]]]):
+        pulumi.set(self, "enforcements", value)
+
+    @property
     @pulumi.getter(name="fallbackHost")
     def fallback_host(self) -> Optional[pulumi.Input[str]]:
         """
@@ -702,6 +883,18 @@ class _ProfileHttpState:
     @head_insert.setter
     def head_insert(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "head_insert", value)
+
+    @property
+    @pulumi.getter(name="httpStrictTransportSecurities")
+    def http_strict_transport_securities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProfileHttpHttpStrictTransportSecurityArgs']]]]:
+        """
+        See Http_Strict_Transport_Security below for more details.
+        """
+        return pulumi.get(self, "http_strict_transport_securities")
+
+    @http_strict_transport_securities.setter
+    def http_strict_transport_securities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileHttpHttpStrictTransportSecurityArgs']]]]):
+        pulumi.set(self, "http_strict_transport_securities", value)
 
     @property
     @pulumi.getter(name="insertXforwardedFor")
@@ -828,8 +1021,7 @@ class _ProfileHttpState:
     @pulumi.getter(name="serverAgentName")
     def server_agent_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no
-        string is specified, then no Server header will be added to such responses
+        Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, "none" string is to be passed.
         """
         return pulumi.get(self, "server_agent_name")
 
@@ -910,10 +1102,12 @@ class ProfileHttp(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  encrypt_cookie_secret: Optional[pulumi.Input[str]] = None,
                  encrypt_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 enforcements: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileHttpEnforcementArgs']]]]] = None,
                  fallback_host: Optional[pulumi.Input[str]] = None,
                  fallback_status_codes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  head_erase: Optional[pulumi.Input[str]] = None,
                  head_insert: Optional[pulumi.Input[str]] = None,
+                 http_strict_transport_securities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileHttpHttpStrictTransportSecurityArgs']]]]] = None,
                  insert_xforwarded_for: Optional[pulumi.Input[str]] = None,
                  lws_separator: Optional[pulumi.Input[str]] = None,
                  lws_width: Optional[pulumi.Input[int]] = None,
@@ -970,10 +1164,12 @@ class ProfileHttp(pulumi.CustomResource):
         :param pulumi.Input[str] description: Specifies user-defined description.
         :param pulumi.Input[str] encrypt_cookie_secret: Type a passphrase for cookie encryption.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] encrypt_cookies: Type the cookie names for the system to encrypt.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileHttpEnforcementArgs']]]] enforcements: See Enforcement below for more details.
         :param pulumi.Input[str] fallback_host: Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fallback_status_codes: Specifies one or more three-digit status codes that can be returned by an HTTP server,that should trigger a redirection to the fallback host.
         :param pulumi.Input[str] head_erase: Specifies the header string that you want to erase from an HTTP request. Default is `none`.
         :param pulumi.Input[str] head_insert: Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileHttpHttpStrictTransportSecurityArgs']]]] http_strict_transport_securities: See Http_Strict_Transport_Security below for more details.
         :param pulumi.Input[str] insert_xforwarded_for: Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
         :param pulumi.Input[str] lws_separator: Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
                specify in the LWS Maximum Columns setting.
@@ -985,8 +1181,7 @@ class ProfileHttp(pulumi.CustomResource):
         :param pulumi.Input[str] request_chunking: Specifies how the system handles HTTP content that is chunked by a client. The default is `preserve`.
         :param pulumi.Input[str] response_chunking: Specifies how the system handles HTTP content that is chunked by a server. The default is `selective`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] response_headers_permitteds: Specifies headers that the BIG-IP system allows in an HTTP response.If you are specifying more than one header, separate the headers with a blank space.
-        :param pulumi.Input[str] server_agent_name: Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no
-               string is specified, then no Server header will be added to such responses
+        :param pulumi.Input[str] server_agent_name: Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, "none" string is to be passed.
         :param pulumi.Input[str] tm_partition: Displays the administrative partition within which this profile resides.
         :param pulumi.Input[str] via_host_name: Specifies the hostname to include into Via header
         :param pulumi.Input[str] via_request: Specifies whether to append, remove, or preserve a Via header in an HTTP request
@@ -1039,6 +1234,10 @@ class ProfileHttp(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProfileHttpArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1051,10 +1250,12 @@ class ProfileHttp(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  encrypt_cookie_secret: Optional[pulumi.Input[str]] = None,
                  encrypt_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 enforcements: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileHttpEnforcementArgs']]]]] = None,
                  fallback_host: Optional[pulumi.Input[str]] = None,
                  fallback_status_codes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  head_erase: Optional[pulumi.Input[str]] = None,
                  head_insert: Optional[pulumi.Input[str]] = None,
+                 http_strict_transport_securities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileHttpHttpStrictTransportSecurityArgs']]]]] = None,
                  insert_xforwarded_for: Optional[pulumi.Input[str]] = None,
                  lws_separator: Optional[pulumi.Input[str]] = None,
                  lws_width: Optional[pulumi.Input[int]] = None,
@@ -1087,10 +1288,12 @@ class ProfileHttp(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["encrypt_cookie_secret"] = encrypt_cookie_secret
             __props__.__dict__["encrypt_cookies"] = encrypt_cookies
+            __props__.__dict__["enforcements"] = enforcements
             __props__.__dict__["fallback_host"] = fallback_host
             __props__.__dict__["fallback_status_codes"] = fallback_status_codes
             __props__.__dict__["head_erase"] = head_erase
             __props__.__dict__["head_insert"] = head_insert
+            __props__.__dict__["http_strict_transport_securities"] = http_strict_transport_securities
             __props__.__dict__["insert_xforwarded_for"] = insert_xforwarded_for
             __props__.__dict__["lws_separator"] = lws_separator
             __props__.__dict__["lws_width"] = lws_width
@@ -1126,10 +1329,12 @@ class ProfileHttp(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             encrypt_cookie_secret: Optional[pulumi.Input[str]] = None,
             encrypt_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+            enforcements: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileHttpEnforcementArgs']]]]] = None,
             fallback_host: Optional[pulumi.Input[str]] = None,
             fallback_status_codes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             head_erase: Optional[pulumi.Input[str]] = None,
             head_insert: Optional[pulumi.Input[str]] = None,
+            http_strict_transport_securities: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileHttpHttpStrictTransportSecurityArgs']]]]] = None,
             insert_xforwarded_for: Optional[pulumi.Input[str]] = None,
             lws_separator: Optional[pulumi.Input[str]] = None,
             lws_width: Optional[pulumi.Input[int]] = None,
@@ -1160,10 +1365,12 @@ class ProfileHttp(pulumi.CustomResource):
         :param pulumi.Input[str] description: Specifies user-defined description.
         :param pulumi.Input[str] encrypt_cookie_secret: Type a passphrase for cookie encryption.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] encrypt_cookies: Type the cookie names for the system to encrypt.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileHttpEnforcementArgs']]]] enforcements: See Enforcement below for more details.
         :param pulumi.Input[str] fallback_host: Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
         :param pulumi.Input[Sequence[pulumi.Input[str]]] fallback_status_codes: Specifies one or more three-digit status codes that can be returned by an HTTP server,that should trigger a redirection to the fallback host.
         :param pulumi.Input[str] head_erase: Specifies the header string that you want to erase from an HTTP request. Default is `none`.
         :param pulumi.Input[str] head_insert: Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProfileHttpHttpStrictTransportSecurityArgs']]]] http_strict_transport_securities: See Http_Strict_Transport_Security below for more details.
         :param pulumi.Input[str] insert_xforwarded_for: Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
         :param pulumi.Input[str] lws_separator: Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
                specify in the LWS Maximum Columns setting.
@@ -1175,8 +1382,7 @@ class ProfileHttp(pulumi.CustomResource):
         :param pulumi.Input[str] request_chunking: Specifies how the system handles HTTP content that is chunked by a client. The default is `preserve`.
         :param pulumi.Input[str] response_chunking: Specifies how the system handles HTTP content that is chunked by a server. The default is `selective`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] response_headers_permitteds: Specifies headers that the BIG-IP system allows in an HTTP response.If you are specifying more than one header, separate the headers with a blank space.
-        :param pulumi.Input[str] server_agent_name: Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no
-               string is specified, then no Server header will be added to such responses
+        :param pulumi.Input[str] server_agent_name: Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, "none" string is to be passed.
         :param pulumi.Input[str] tm_partition: Displays the administrative partition within which this profile resides.
         :param pulumi.Input[str] via_host_name: Specifies the hostname to include into Via header
         :param pulumi.Input[str] via_request: Specifies whether to append, remove, or preserve a Via header in an HTTP request
@@ -1194,10 +1400,12 @@ class ProfileHttp(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["encrypt_cookie_secret"] = encrypt_cookie_secret
         __props__.__dict__["encrypt_cookies"] = encrypt_cookies
+        __props__.__dict__["enforcements"] = enforcements
         __props__.__dict__["fallback_host"] = fallback_host
         __props__.__dict__["fallback_status_codes"] = fallback_status_codes
         __props__.__dict__["head_erase"] = head_erase
         __props__.__dict__["head_insert"] = head_insert
+        __props__.__dict__["http_strict_transport_securities"] = http_strict_transport_securities
         __props__.__dict__["insert_xforwarded_for"] = insert_xforwarded_for
         __props__.__dict__["lws_separator"] = lws_separator
         __props__.__dict__["lws_width"] = lws_width
@@ -1273,6 +1481,14 @@ class ProfileHttp(pulumi.CustomResource):
         return pulumi.get(self, "encrypt_cookies")
 
     @property
+    @pulumi.getter
+    def enforcements(self) -> pulumi.Output[Sequence['outputs.ProfileHttpEnforcement']]:
+        """
+        See Enforcement below for more details.
+        """
+        return pulumi.get(self, "enforcements")
+
+    @property
     @pulumi.getter(name="fallbackHost")
     def fallback_host(self) -> pulumi.Output[str]:
         """
@@ -1303,6 +1519,14 @@ class ProfileHttp(pulumi.CustomResource):
         Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
         """
         return pulumi.get(self, "head_insert")
+
+    @property
+    @pulumi.getter(name="httpStrictTransportSecurities")
+    def http_strict_transport_securities(self) -> pulumi.Output[Optional[Sequence['outputs.ProfileHttpHttpStrictTransportSecurity']]]:
+        """
+        See Http_Strict_Transport_Security below for more details.
+        """
+        return pulumi.get(self, "http_strict_transport_securities")
 
     @property
     @pulumi.getter(name="insertXforwardedFor")
@@ -1389,8 +1613,7 @@ class ProfileHttp(pulumi.CustomResource):
     @pulumi.getter(name="serverAgentName")
     def server_agent_name(self) -> pulumi.Output[str]:
         """
-        Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no
-        string is specified, then no Server header will be added to such responses
+        Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, "none" string is to be passed.
         """
         return pulumi.get(self, "server_agent_name")
 

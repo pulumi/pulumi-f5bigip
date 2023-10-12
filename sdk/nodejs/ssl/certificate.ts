@@ -59,9 +59,21 @@ export class Certificate extends pulumi.CustomResource {
      */
     public readonly fullPath!: pulumi.Output<string>;
     /**
+     * Specifies the issuer certificate.
+     */
+    public readonly issuerCert!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the type of monitoring used.
+     */
+    public readonly monitoringType!: pulumi.Output<string | undefined>;
+    /**
      * Name of the SSL Certificate to be Imported on to BIGIP
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Specifies the OCSP responder.
+     */
+    public readonly ocsp!: pulumi.Output<string | undefined>;
     /**
      * Partition of ssl certificate
      */
@@ -82,7 +94,10 @@ export class Certificate extends pulumi.CustomResource {
             const state = argsOrState as CertificateState | undefined;
             resourceInputs["content"] = state ? state.content : undefined;
             resourceInputs["fullPath"] = state ? state.fullPath : undefined;
+            resourceInputs["issuerCert"] = state ? state.issuerCert : undefined;
+            resourceInputs["monitoringType"] = state ? state.monitoringType : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ocsp"] = state ? state.ocsp : undefined;
             resourceInputs["partition"] = state ? state.partition : undefined;
         } else {
             const args = argsOrState as CertificateArgs | undefined;
@@ -94,7 +109,10 @@ export class Certificate extends pulumi.CustomResource {
             }
             resourceInputs["content"] = args?.content ? pulumi.secret(args.content) : undefined;
             resourceInputs["fullPath"] = args ? args.fullPath : undefined;
+            resourceInputs["issuerCert"] = args ? args.issuerCert : undefined;
+            resourceInputs["monitoringType"] = args ? args.monitoringType : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["ocsp"] = args ? args.ocsp : undefined;
             resourceInputs["partition"] = args ? args.partition : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -117,9 +135,21 @@ export interface CertificateState {
      */
     fullPath?: pulumi.Input<string>;
     /**
+     * Specifies the issuer certificate.
+     */
+    issuerCert?: pulumi.Input<string>;
+    /**
+     * Specifies the type of monitoring used.
+     */
+    monitoringType?: pulumi.Input<string>;
+    /**
      * Name of the SSL Certificate to be Imported on to BIGIP
      */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies the OCSP responder.
+     */
+    ocsp?: pulumi.Input<string>;
     /**
      * Partition of ssl certificate
      */
@@ -139,9 +169,21 @@ export interface CertificateArgs {
      */
     fullPath?: pulumi.Input<string>;
     /**
+     * Specifies the issuer certificate.
+     */
+    issuerCert?: pulumi.Input<string>;
+    /**
+     * Specifies the type of monitoring used.
+     */
+    monitoringType?: pulumi.Input<string>;
+    /**
      * Name of the SSL Certificate to be Imported on to BIGIP
      */
     name: pulumi.Input<string>;
+    /**
+     * Specifies the OCSP responder.
+     */
+    ocsp?: pulumi.Input<string>;
     /**
      * Partition of ssl certificate
      */

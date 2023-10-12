@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -47,6 +47,7 @@ class ProfileClientSslArgs:
                  key: Optional[pulumi.Input[str]] = None,
                  mod_ssl_methods: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
+                 ocsp_stapling: Optional[pulumi.Input[str]] = None,
                  partition: Optional[pulumi.Input[str]] = None,
                  passphrase: Optional[pulumi.Input[str]] = None,
                  peer_cert_mode: Optional[pulumi.Input[str]] = None,
@@ -105,6 +106,7 @@ class ProfileClientSslArgs:
         :param pulumi.Input[str] key: Contains a key name
         :param pulumi.Input[str] mod_ssl_methods: ModSSL Methods enabled / disabled. Default is disabled.
         :param pulumi.Input[str] mode: ModSSL Methods enabled / disabled. Default is disabled.
+        :param pulumi.Input[str] ocsp_stapling: Specifies whether the system uses OCSP stapling. The default value is `disabled`.
         :param pulumi.Input[str] partition: name of partition
         :param pulumi.Input[str] passphrase: Client Certificate Constrained Delegation CA passphrase
         :param pulumi.Input[str] peer_cert_mode: Specifies the way the system handles client certificates.When ignore, specifies that the system ignores certificates from client systems.When require, specifies that the system requires a client to present a valid certificate.When request, specifies that the system requests a valid certificate from a client but always authenticate the client.
@@ -136,120 +138,243 @@ class ProfileClientSslArgs:
                Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = ["dont-insert-empty-fragments","no-tlsv1.3"]
         :param pulumi.Input[str] unclean_shutdown: Unclean Shutdown (enabled / disabled)
         """
-        pulumi.set(__self__, "name", name)
+        ProfileClientSslArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            alert_timeout=alert_timeout,
+            allow_non_ssl=allow_non_ssl,
+            authenticate=authenticate,
+            authenticate_depth=authenticate_depth,
+            c3d_client_fallback_cert=c3d_client_fallback_cert,
+            c3d_drop_unknown_ocsp_status=c3d_drop_unknown_ocsp_status,
+            c3d_ocsp=c3d_ocsp,
+            ca_file=ca_file,
+            cache_size=cache_size,
+            cache_timeout=cache_timeout,
+            cert=cert,
+            cert_extension_includes=cert_extension_includes,
+            cert_key_chain=cert_key_chain,
+            cert_life_span=cert_life_span,
+            cert_lookup_by_ipaddr_port=cert_lookup_by_ipaddr_port,
+            chain=chain,
+            cipher_group=cipher_group,
+            ciphers=ciphers,
+            client_cert_ca=client_cert_ca,
+            crl_file=crl_file,
+            defaults_from=defaults_from,
+            forward_proxy_bypass_default_action=forward_proxy_bypass_default_action,
+            full_path=full_path,
+            generation=generation,
+            generic_alert=generic_alert,
+            handshake_timeout=handshake_timeout,
+            inherit_cert_keychain=inherit_cert_keychain,
+            key=key,
+            mod_ssl_methods=mod_ssl_methods,
+            mode=mode,
+            ocsp_stapling=ocsp_stapling,
+            partition=partition,
+            passphrase=passphrase,
+            peer_cert_mode=peer_cert_mode,
+            proxy_ca_cert=proxy_ca_cert,
+            proxy_ca_key=proxy_ca_key,
+            proxy_ca_passphrase=proxy_ca_passphrase,
+            proxy_ssl=proxy_ssl,
+            proxy_ssl_passthrough=proxy_ssl_passthrough,
+            renegotiate_period=renegotiate_period,
+            renegotiate_size=renegotiate_size,
+            renegotiation=renegotiation,
+            retain_certificate=retain_certificate,
+            secure_renegotiation=secure_renegotiation,
+            server_name=server_name,
+            session_mirroring=session_mirroring,
+            session_ticket=session_ticket,
+            sni_default=sni_default,
+            sni_require=sni_require,
+            ssl_c3d=ssl_c3d,
+            ssl_forward_proxy=ssl_forward_proxy,
+            ssl_forward_proxy_bypass=ssl_forward_proxy_bypass,
+            ssl_sign_hash=ssl_sign_hash,
+            strict_resume=strict_resume,
+            tm_options=tm_options,
+            unclean_shutdown=unclean_shutdown,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             alert_timeout: Optional[pulumi.Input[str]] = None,
+             allow_non_ssl: Optional[pulumi.Input[str]] = None,
+             authenticate: Optional[pulumi.Input[str]] = None,
+             authenticate_depth: Optional[pulumi.Input[int]] = None,
+             c3d_client_fallback_cert: Optional[pulumi.Input[str]] = None,
+             c3d_drop_unknown_ocsp_status: Optional[pulumi.Input[str]] = None,
+             c3d_ocsp: Optional[pulumi.Input[str]] = None,
+             ca_file: Optional[pulumi.Input[str]] = None,
+             cache_size: Optional[pulumi.Input[int]] = None,
+             cache_timeout: Optional[pulumi.Input[int]] = None,
+             cert: Optional[pulumi.Input[str]] = None,
+             cert_extension_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             cert_key_chain: Optional[pulumi.Input['ProfileClientSslCertKeyChainArgs']] = None,
+             cert_life_span: Optional[pulumi.Input[int]] = None,
+             cert_lookup_by_ipaddr_port: Optional[pulumi.Input[str]] = None,
+             chain: Optional[pulumi.Input[str]] = None,
+             cipher_group: Optional[pulumi.Input[str]] = None,
+             ciphers: Optional[pulumi.Input[str]] = None,
+             client_cert_ca: Optional[pulumi.Input[str]] = None,
+             crl_file: Optional[pulumi.Input[str]] = None,
+             defaults_from: Optional[pulumi.Input[str]] = None,
+             forward_proxy_bypass_default_action: Optional[pulumi.Input[str]] = None,
+             full_path: Optional[pulumi.Input[str]] = None,
+             generation: Optional[pulumi.Input[int]] = None,
+             generic_alert: Optional[pulumi.Input[str]] = None,
+             handshake_timeout: Optional[pulumi.Input[str]] = None,
+             inherit_cert_keychain: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             mod_ssl_methods: Optional[pulumi.Input[str]] = None,
+             mode: Optional[pulumi.Input[str]] = None,
+             ocsp_stapling: Optional[pulumi.Input[str]] = None,
+             partition: Optional[pulumi.Input[str]] = None,
+             passphrase: Optional[pulumi.Input[str]] = None,
+             peer_cert_mode: Optional[pulumi.Input[str]] = None,
+             proxy_ca_cert: Optional[pulumi.Input[str]] = None,
+             proxy_ca_key: Optional[pulumi.Input[str]] = None,
+             proxy_ca_passphrase: Optional[pulumi.Input[str]] = None,
+             proxy_ssl: Optional[pulumi.Input[str]] = None,
+             proxy_ssl_passthrough: Optional[pulumi.Input[str]] = None,
+             renegotiate_period: Optional[pulumi.Input[str]] = None,
+             renegotiate_size: Optional[pulumi.Input[str]] = None,
+             renegotiation: Optional[pulumi.Input[str]] = None,
+             retain_certificate: Optional[pulumi.Input[str]] = None,
+             secure_renegotiation: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             session_mirroring: Optional[pulumi.Input[str]] = None,
+             session_ticket: Optional[pulumi.Input[str]] = None,
+             sni_default: Optional[pulumi.Input[str]] = None,
+             sni_require: Optional[pulumi.Input[str]] = None,
+             ssl_c3d: Optional[pulumi.Input[str]] = None,
+             ssl_forward_proxy: Optional[pulumi.Input[str]] = None,
+             ssl_forward_proxy_bypass: Optional[pulumi.Input[str]] = None,
+             ssl_sign_hash: Optional[pulumi.Input[str]] = None,
+             strict_resume: Optional[pulumi.Input[str]] = None,
+             tm_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             unclean_shutdown: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if alert_timeout is not None:
-            pulumi.set(__self__, "alert_timeout", alert_timeout)
+            _setter("alert_timeout", alert_timeout)
         if allow_non_ssl is not None:
-            pulumi.set(__self__, "allow_non_ssl", allow_non_ssl)
+            _setter("allow_non_ssl", allow_non_ssl)
         if authenticate is not None:
-            pulumi.set(__self__, "authenticate", authenticate)
+            _setter("authenticate", authenticate)
         if authenticate_depth is not None:
-            pulumi.set(__self__, "authenticate_depth", authenticate_depth)
+            _setter("authenticate_depth", authenticate_depth)
         if c3d_client_fallback_cert is not None:
-            pulumi.set(__self__, "c3d_client_fallback_cert", c3d_client_fallback_cert)
+            _setter("c3d_client_fallback_cert", c3d_client_fallback_cert)
         if c3d_drop_unknown_ocsp_status is not None:
-            pulumi.set(__self__, "c3d_drop_unknown_ocsp_status", c3d_drop_unknown_ocsp_status)
+            _setter("c3d_drop_unknown_ocsp_status", c3d_drop_unknown_ocsp_status)
         if c3d_ocsp is not None:
-            pulumi.set(__self__, "c3d_ocsp", c3d_ocsp)
+            _setter("c3d_ocsp", c3d_ocsp)
         if ca_file is not None:
-            pulumi.set(__self__, "ca_file", ca_file)
+            _setter("ca_file", ca_file)
         if cache_size is not None:
-            pulumi.set(__self__, "cache_size", cache_size)
+            _setter("cache_size", cache_size)
         if cache_timeout is not None:
-            pulumi.set(__self__, "cache_timeout", cache_timeout)
+            _setter("cache_timeout", cache_timeout)
         if cert is not None:
-            pulumi.set(__self__, "cert", cert)
+            _setter("cert", cert)
         if cert_extension_includes is not None:
-            pulumi.set(__self__, "cert_extension_includes", cert_extension_includes)
+            _setter("cert_extension_includes", cert_extension_includes)
         if cert_key_chain is not None:
             warnings.warn("""This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.""", DeprecationWarning)
             pulumi.log.warn("""cert_key_chain is deprecated: This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.""")
         if cert_key_chain is not None:
-            pulumi.set(__self__, "cert_key_chain", cert_key_chain)
+            _setter("cert_key_chain", cert_key_chain)
         if cert_life_span is not None:
-            pulumi.set(__self__, "cert_life_span", cert_life_span)
+            _setter("cert_life_span", cert_life_span)
         if cert_lookup_by_ipaddr_port is not None:
-            pulumi.set(__self__, "cert_lookup_by_ipaddr_port", cert_lookup_by_ipaddr_port)
+            _setter("cert_lookup_by_ipaddr_port", cert_lookup_by_ipaddr_port)
         if chain is not None:
-            pulumi.set(__self__, "chain", chain)
+            _setter("chain", chain)
         if cipher_group is not None:
-            pulumi.set(__self__, "cipher_group", cipher_group)
+            _setter("cipher_group", cipher_group)
         if ciphers is not None:
-            pulumi.set(__self__, "ciphers", ciphers)
+            _setter("ciphers", ciphers)
         if client_cert_ca is not None:
-            pulumi.set(__self__, "client_cert_ca", client_cert_ca)
+            _setter("client_cert_ca", client_cert_ca)
         if crl_file is not None:
-            pulumi.set(__self__, "crl_file", crl_file)
+            _setter("crl_file", crl_file)
         if defaults_from is not None:
-            pulumi.set(__self__, "defaults_from", defaults_from)
+            _setter("defaults_from", defaults_from)
         if forward_proxy_bypass_default_action is not None:
-            pulumi.set(__self__, "forward_proxy_bypass_default_action", forward_proxy_bypass_default_action)
+            _setter("forward_proxy_bypass_default_action", forward_proxy_bypass_default_action)
         if full_path is not None:
-            pulumi.set(__self__, "full_path", full_path)
+            _setter("full_path", full_path)
         if generation is not None:
-            pulumi.set(__self__, "generation", generation)
+            _setter("generation", generation)
         if generic_alert is not None:
-            pulumi.set(__self__, "generic_alert", generic_alert)
+            _setter("generic_alert", generic_alert)
         if handshake_timeout is not None:
-            pulumi.set(__self__, "handshake_timeout", handshake_timeout)
+            _setter("handshake_timeout", handshake_timeout)
         if inherit_cert_keychain is not None:
-            pulumi.set(__self__, "inherit_cert_keychain", inherit_cert_keychain)
+            _setter("inherit_cert_keychain", inherit_cert_keychain)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if mod_ssl_methods is not None:
-            pulumi.set(__self__, "mod_ssl_methods", mod_ssl_methods)
+            _setter("mod_ssl_methods", mod_ssl_methods)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
+        if ocsp_stapling is not None:
+            _setter("ocsp_stapling", ocsp_stapling)
         if partition is not None:
-            pulumi.set(__self__, "partition", partition)
+            _setter("partition", partition)
         if passphrase is not None:
-            pulumi.set(__self__, "passphrase", passphrase)
+            _setter("passphrase", passphrase)
         if peer_cert_mode is not None:
-            pulumi.set(__self__, "peer_cert_mode", peer_cert_mode)
+            _setter("peer_cert_mode", peer_cert_mode)
         if proxy_ca_cert is not None:
-            pulumi.set(__self__, "proxy_ca_cert", proxy_ca_cert)
+            _setter("proxy_ca_cert", proxy_ca_cert)
         if proxy_ca_key is not None:
-            pulumi.set(__self__, "proxy_ca_key", proxy_ca_key)
+            _setter("proxy_ca_key", proxy_ca_key)
         if proxy_ca_passphrase is not None:
-            pulumi.set(__self__, "proxy_ca_passphrase", proxy_ca_passphrase)
+            _setter("proxy_ca_passphrase", proxy_ca_passphrase)
         if proxy_ssl is not None:
-            pulumi.set(__self__, "proxy_ssl", proxy_ssl)
+            _setter("proxy_ssl", proxy_ssl)
         if proxy_ssl_passthrough is not None:
-            pulumi.set(__self__, "proxy_ssl_passthrough", proxy_ssl_passthrough)
+            _setter("proxy_ssl_passthrough", proxy_ssl_passthrough)
         if renegotiate_period is not None:
-            pulumi.set(__self__, "renegotiate_period", renegotiate_period)
+            _setter("renegotiate_period", renegotiate_period)
         if renegotiate_size is not None:
-            pulumi.set(__self__, "renegotiate_size", renegotiate_size)
+            _setter("renegotiate_size", renegotiate_size)
         if renegotiation is not None:
-            pulumi.set(__self__, "renegotiation", renegotiation)
+            _setter("renegotiation", renegotiation)
         if retain_certificate is not None:
-            pulumi.set(__self__, "retain_certificate", retain_certificate)
+            _setter("retain_certificate", retain_certificate)
         if secure_renegotiation is not None:
-            pulumi.set(__self__, "secure_renegotiation", secure_renegotiation)
+            _setter("secure_renegotiation", secure_renegotiation)
         if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
+            _setter("server_name", server_name)
         if session_mirroring is not None:
-            pulumi.set(__self__, "session_mirroring", session_mirroring)
+            _setter("session_mirroring", session_mirroring)
         if session_ticket is not None:
-            pulumi.set(__self__, "session_ticket", session_ticket)
+            _setter("session_ticket", session_ticket)
         if sni_default is not None:
-            pulumi.set(__self__, "sni_default", sni_default)
+            _setter("sni_default", sni_default)
         if sni_require is not None:
-            pulumi.set(__self__, "sni_require", sni_require)
+            _setter("sni_require", sni_require)
         if ssl_c3d is not None:
-            pulumi.set(__self__, "ssl_c3d", ssl_c3d)
+            _setter("ssl_c3d", ssl_c3d)
         if ssl_forward_proxy is not None:
-            pulumi.set(__self__, "ssl_forward_proxy", ssl_forward_proxy)
+            _setter("ssl_forward_proxy", ssl_forward_proxy)
         if ssl_forward_proxy_bypass is not None:
-            pulumi.set(__self__, "ssl_forward_proxy_bypass", ssl_forward_proxy_bypass)
+            _setter("ssl_forward_proxy_bypass", ssl_forward_proxy_bypass)
         if ssl_sign_hash is not None:
-            pulumi.set(__self__, "ssl_sign_hash", ssl_sign_hash)
+            _setter("ssl_sign_hash", ssl_sign_hash)
         if strict_resume is not None:
-            pulumi.set(__self__, "strict_resume", strict_resume)
+            _setter("strict_resume", strict_resume)
         if tm_options is not None:
-            pulumi.set(__self__, "tm_options", tm_options)
+            _setter("tm_options", tm_options)
         if unclean_shutdown is not None:
-            pulumi.set(__self__, "unclean_shutdown", unclean_shutdown)
+            _setter("unclean_shutdown", unclean_shutdown)
 
     @property
     @pulumi.getter
@@ -625,6 +750,18 @@ class ProfileClientSslArgs:
         pulumi.set(self, "mode", value)
 
     @property
+    @pulumi.getter(name="ocspStapling")
+    def ocsp_stapling(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the system uses OCSP stapling. The default value is `disabled`.
+        """
+        return pulumi.get(self, "ocsp_stapling")
+
+    @ocsp_stapling.setter
+    def ocsp_stapling(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ocsp_stapling", value)
+
+    @property
     @pulumi.getter
     def partition(self) -> Optional[pulumi.Input[str]]:
         """
@@ -964,6 +1101,7 @@ class _ProfileClientSslState:
                  mod_ssl_methods: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 ocsp_stapling: Optional[pulumi.Input[str]] = None,
                  partition: Optional[pulumi.Input[str]] = None,
                  passphrase: Optional[pulumi.Input[str]] = None,
                  peer_cert_mode: Optional[pulumi.Input[str]] = None,
@@ -1022,6 +1160,7 @@ class _ProfileClientSslState:
         :param pulumi.Input[str] mod_ssl_methods: ModSSL Methods enabled / disabled. Default is disabled.
         :param pulumi.Input[str] mode: ModSSL Methods enabled / disabled. Default is disabled.
         :param pulumi.Input[str] name: Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
+        :param pulumi.Input[str] ocsp_stapling: Specifies whether the system uses OCSP stapling. The default value is `disabled`.
         :param pulumi.Input[str] partition: name of partition
         :param pulumi.Input[str] passphrase: Client Certificate Constrained Delegation CA passphrase
         :param pulumi.Input[str] peer_cert_mode: Specifies the way the system handles client certificates.When ignore, specifies that the system ignores certificates from client systems.When require, specifies that the system requires a client to present a valid certificate.When request, specifies that the system requests a valid certificate from a client but always authenticate the client.
@@ -1053,121 +1192,244 @@ class _ProfileClientSslState:
                Don't insert empty fragments and No TLSv1.3 are listed as Enabled Options. `Usage` : tm_options    = ["dont-insert-empty-fragments","no-tlsv1.3"]
         :param pulumi.Input[str] unclean_shutdown: Unclean Shutdown (enabled / disabled)
         """
+        _ProfileClientSslState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            alert_timeout=alert_timeout,
+            allow_non_ssl=allow_non_ssl,
+            authenticate=authenticate,
+            authenticate_depth=authenticate_depth,
+            c3d_client_fallback_cert=c3d_client_fallback_cert,
+            c3d_drop_unknown_ocsp_status=c3d_drop_unknown_ocsp_status,
+            c3d_ocsp=c3d_ocsp,
+            ca_file=ca_file,
+            cache_size=cache_size,
+            cache_timeout=cache_timeout,
+            cert=cert,
+            cert_extension_includes=cert_extension_includes,
+            cert_key_chain=cert_key_chain,
+            cert_life_span=cert_life_span,
+            cert_lookup_by_ipaddr_port=cert_lookup_by_ipaddr_port,
+            chain=chain,
+            cipher_group=cipher_group,
+            ciphers=ciphers,
+            client_cert_ca=client_cert_ca,
+            crl_file=crl_file,
+            defaults_from=defaults_from,
+            forward_proxy_bypass_default_action=forward_proxy_bypass_default_action,
+            full_path=full_path,
+            generation=generation,
+            generic_alert=generic_alert,
+            handshake_timeout=handshake_timeout,
+            inherit_cert_keychain=inherit_cert_keychain,
+            key=key,
+            mod_ssl_methods=mod_ssl_methods,
+            mode=mode,
+            name=name,
+            ocsp_stapling=ocsp_stapling,
+            partition=partition,
+            passphrase=passphrase,
+            peer_cert_mode=peer_cert_mode,
+            proxy_ca_cert=proxy_ca_cert,
+            proxy_ca_key=proxy_ca_key,
+            proxy_ca_passphrase=proxy_ca_passphrase,
+            proxy_ssl=proxy_ssl,
+            proxy_ssl_passthrough=proxy_ssl_passthrough,
+            renegotiate_period=renegotiate_period,
+            renegotiate_size=renegotiate_size,
+            renegotiation=renegotiation,
+            retain_certificate=retain_certificate,
+            secure_renegotiation=secure_renegotiation,
+            server_name=server_name,
+            session_mirroring=session_mirroring,
+            session_ticket=session_ticket,
+            sni_default=sni_default,
+            sni_require=sni_require,
+            ssl_c3d=ssl_c3d,
+            ssl_forward_proxy=ssl_forward_proxy,
+            ssl_forward_proxy_bypass=ssl_forward_proxy_bypass,
+            ssl_sign_hash=ssl_sign_hash,
+            strict_resume=strict_resume,
+            tm_options=tm_options,
+            unclean_shutdown=unclean_shutdown,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             alert_timeout: Optional[pulumi.Input[str]] = None,
+             allow_non_ssl: Optional[pulumi.Input[str]] = None,
+             authenticate: Optional[pulumi.Input[str]] = None,
+             authenticate_depth: Optional[pulumi.Input[int]] = None,
+             c3d_client_fallback_cert: Optional[pulumi.Input[str]] = None,
+             c3d_drop_unknown_ocsp_status: Optional[pulumi.Input[str]] = None,
+             c3d_ocsp: Optional[pulumi.Input[str]] = None,
+             ca_file: Optional[pulumi.Input[str]] = None,
+             cache_size: Optional[pulumi.Input[int]] = None,
+             cache_timeout: Optional[pulumi.Input[int]] = None,
+             cert: Optional[pulumi.Input[str]] = None,
+             cert_extension_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             cert_key_chain: Optional[pulumi.Input['ProfileClientSslCertKeyChainArgs']] = None,
+             cert_life_span: Optional[pulumi.Input[int]] = None,
+             cert_lookup_by_ipaddr_port: Optional[pulumi.Input[str]] = None,
+             chain: Optional[pulumi.Input[str]] = None,
+             cipher_group: Optional[pulumi.Input[str]] = None,
+             ciphers: Optional[pulumi.Input[str]] = None,
+             client_cert_ca: Optional[pulumi.Input[str]] = None,
+             crl_file: Optional[pulumi.Input[str]] = None,
+             defaults_from: Optional[pulumi.Input[str]] = None,
+             forward_proxy_bypass_default_action: Optional[pulumi.Input[str]] = None,
+             full_path: Optional[pulumi.Input[str]] = None,
+             generation: Optional[pulumi.Input[int]] = None,
+             generic_alert: Optional[pulumi.Input[str]] = None,
+             handshake_timeout: Optional[pulumi.Input[str]] = None,
+             inherit_cert_keychain: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             mod_ssl_methods: Optional[pulumi.Input[str]] = None,
+             mode: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             ocsp_stapling: Optional[pulumi.Input[str]] = None,
+             partition: Optional[pulumi.Input[str]] = None,
+             passphrase: Optional[pulumi.Input[str]] = None,
+             peer_cert_mode: Optional[pulumi.Input[str]] = None,
+             proxy_ca_cert: Optional[pulumi.Input[str]] = None,
+             proxy_ca_key: Optional[pulumi.Input[str]] = None,
+             proxy_ca_passphrase: Optional[pulumi.Input[str]] = None,
+             proxy_ssl: Optional[pulumi.Input[str]] = None,
+             proxy_ssl_passthrough: Optional[pulumi.Input[str]] = None,
+             renegotiate_period: Optional[pulumi.Input[str]] = None,
+             renegotiate_size: Optional[pulumi.Input[str]] = None,
+             renegotiation: Optional[pulumi.Input[str]] = None,
+             retain_certificate: Optional[pulumi.Input[str]] = None,
+             secure_renegotiation: Optional[pulumi.Input[str]] = None,
+             server_name: Optional[pulumi.Input[str]] = None,
+             session_mirroring: Optional[pulumi.Input[str]] = None,
+             session_ticket: Optional[pulumi.Input[str]] = None,
+             sni_default: Optional[pulumi.Input[str]] = None,
+             sni_require: Optional[pulumi.Input[str]] = None,
+             ssl_c3d: Optional[pulumi.Input[str]] = None,
+             ssl_forward_proxy: Optional[pulumi.Input[str]] = None,
+             ssl_forward_proxy_bypass: Optional[pulumi.Input[str]] = None,
+             ssl_sign_hash: Optional[pulumi.Input[str]] = None,
+             strict_resume: Optional[pulumi.Input[str]] = None,
+             tm_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             unclean_shutdown: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if alert_timeout is not None:
-            pulumi.set(__self__, "alert_timeout", alert_timeout)
+            _setter("alert_timeout", alert_timeout)
         if allow_non_ssl is not None:
-            pulumi.set(__self__, "allow_non_ssl", allow_non_ssl)
+            _setter("allow_non_ssl", allow_non_ssl)
         if authenticate is not None:
-            pulumi.set(__self__, "authenticate", authenticate)
+            _setter("authenticate", authenticate)
         if authenticate_depth is not None:
-            pulumi.set(__self__, "authenticate_depth", authenticate_depth)
+            _setter("authenticate_depth", authenticate_depth)
         if c3d_client_fallback_cert is not None:
-            pulumi.set(__self__, "c3d_client_fallback_cert", c3d_client_fallback_cert)
+            _setter("c3d_client_fallback_cert", c3d_client_fallback_cert)
         if c3d_drop_unknown_ocsp_status is not None:
-            pulumi.set(__self__, "c3d_drop_unknown_ocsp_status", c3d_drop_unknown_ocsp_status)
+            _setter("c3d_drop_unknown_ocsp_status", c3d_drop_unknown_ocsp_status)
         if c3d_ocsp is not None:
-            pulumi.set(__self__, "c3d_ocsp", c3d_ocsp)
+            _setter("c3d_ocsp", c3d_ocsp)
         if ca_file is not None:
-            pulumi.set(__self__, "ca_file", ca_file)
+            _setter("ca_file", ca_file)
         if cache_size is not None:
-            pulumi.set(__self__, "cache_size", cache_size)
+            _setter("cache_size", cache_size)
         if cache_timeout is not None:
-            pulumi.set(__self__, "cache_timeout", cache_timeout)
+            _setter("cache_timeout", cache_timeout)
         if cert is not None:
-            pulumi.set(__self__, "cert", cert)
+            _setter("cert", cert)
         if cert_extension_includes is not None:
-            pulumi.set(__self__, "cert_extension_includes", cert_extension_includes)
+            _setter("cert_extension_includes", cert_extension_includes)
         if cert_key_chain is not None:
             warnings.warn("""This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.""", DeprecationWarning)
             pulumi.log.warn("""cert_key_chain is deprecated: This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.""")
         if cert_key_chain is not None:
-            pulumi.set(__self__, "cert_key_chain", cert_key_chain)
+            _setter("cert_key_chain", cert_key_chain)
         if cert_life_span is not None:
-            pulumi.set(__self__, "cert_life_span", cert_life_span)
+            _setter("cert_life_span", cert_life_span)
         if cert_lookup_by_ipaddr_port is not None:
-            pulumi.set(__self__, "cert_lookup_by_ipaddr_port", cert_lookup_by_ipaddr_port)
+            _setter("cert_lookup_by_ipaddr_port", cert_lookup_by_ipaddr_port)
         if chain is not None:
-            pulumi.set(__self__, "chain", chain)
+            _setter("chain", chain)
         if cipher_group is not None:
-            pulumi.set(__self__, "cipher_group", cipher_group)
+            _setter("cipher_group", cipher_group)
         if ciphers is not None:
-            pulumi.set(__self__, "ciphers", ciphers)
+            _setter("ciphers", ciphers)
         if client_cert_ca is not None:
-            pulumi.set(__self__, "client_cert_ca", client_cert_ca)
+            _setter("client_cert_ca", client_cert_ca)
         if crl_file is not None:
-            pulumi.set(__self__, "crl_file", crl_file)
+            _setter("crl_file", crl_file)
         if defaults_from is not None:
-            pulumi.set(__self__, "defaults_from", defaults_from)
+            _setter("defaults_from", defaults_from)
         if forward_proxy_bypass_default_action is not None:
-            pulumi.set(__self__, "forward_proxy_bypass_default_action", forward_proxy_bypass_default_action)
+            _setter("forward_proxy_bypass_default_action", forward_proxy_bypass_default_action)
         if full_path is not None:
-            pulumi.set(__self__, "full_path", full_path)
+            _setter("full_path", full_path)
         if generation is not None:
-            pulumi.set(__self__, "generation", generation)
+            _setter("generation", generation)
         if generic_alert is not None:
-            pulumi.set(__self__, "generic_alert", generic_alert)
+            _setter("generic_alert", generic_alert)
         if handshake_timeout is not None:
-            pulumi.set(__self__, "handshake_timeout", handshake_timeout)
+            _setter("handshake_timeout", handshake_timeout)
         if inherit_cert_keychain is not None:
-            pulumi.set(__self__, "inherit_cert_keychain", inherit_cert_keychain)
+            _setter("inherit_cert_keychain", inherit_cert_keychain)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if mod_ssl_methods is not None:
-            pulumi.set(__self__, "mod_ssl_methods", mod_ssl_methods)
+            _setter("mod_ssl_methods", mod_ssl_methods)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
+        if ocsp_stapling is not None:
+            _setter("ocsp_stapling", ocsp_stapling)
         if partition is not None:
-            pulumi.set(__self__, "partition", partition)
+            _setter("partition", partition)
         if passphrase is not None:
-            pulumi.set(__self__, "passphrase", passphrase)
+            _setter("passphrase", passphrase)
         if peer_cert_mode is not None:
-            pulumi.set(__self__, "peer_cert_mode", peer_cert_mode)
+            _setter("peer_cert_mode", peer_cert_mode)
         if proxy_ca_cert is not None:
-            pulumi.set(__self__, "proxy_ca_cert", proxy_ca_cert)
+            _setter("proxy_ca_cert", proxy_ca_cert)
         if proxy_ca_key is not None:
-            pulumi.set(__self__, "proxy_ca_key", proxy_ca_key)
+            _setter("proxy_ca_key", proxy_ca_key)
         if proxy_ca_passphrase is not None:
-            pulumi.set(__self__, "proxy_ca_passphrase", proxy_ca_passphrase)
+            _setter("proxy_ca_passphrase", proxy_ca_passphrase)
         if proxy_ssl is not None:
-            pulumi.set(__self__, "proxy_ssl", proxy_ssl)
+            _setter("proxy_ssl", proxy_ssl)
         if proxy_ssl_passthrough is not None:
-            pulumi.set(__self__, "proxy_ssl_passthrough", proxy_ssl_passthrough)
+            _setter("proxy_ssl_passthrough", proxy_ssl_passthrough)
         if renegotiate_period is not None:
-            pulumi.set(__self__, "renegotiate_period", renegotiate_period)
+            _setter("renegotiate_period", renegotiate_period)
         if renegotiate_size is not None:
-            pulumi.set(__self__, "renegotiate_size", renegotiate_size)
+            _setter("renegotiate_size", renegotiate_size)
         if renegotiation is not None:
-            pulumi.set(__self__, "renegotiation", renegotiation)
+            _setter("renegotiation", renegotiation)
         if retain_certificate is not None:
-            pulumi.set(__self__, "retain_certificate", retain_certificate)
+            _setter("retain_certificate", retain_certificate)
         if secure_renegotiation is not None:
-            pulumi.set(__self__, "secure_renegotiation", secure_renegotiation)
+            _setter("secure_renegotiation", secure_renegotiation)
         if server_name is not None:
-            pulumi.set(__self__, "server_name", server_name)
+            _setter("server_name", server_name)
         if session_mirroring is not None:
-            pulumi.set(__self__, "session_mirroring", session_mirroring)
+            _setter("session_mirroring", session_mirroring)
         if session_ticket is not None:
-            pulumi.set(__self__, "session_ticket", session_ticket)
+            _setter("session_ticket", session_ticket)
         if sni_default is not None:
-            pulumi.set(__self__, "sni_default", sni_default)
+            _setter("sni_default", sni_default)
         if sni_require is not None:
-            pulumi.set(__self__, "sni_require", sni_require)
+            _setter("sni_require", sni_require)
         if ssl_c3d is not None:
-            pulumi.set(__self__, "ssl_c3d", ssl_c3d)
+            _setter("ssl_c3d", ssl_c3d)
         if ssl_forward_proxy is not None:
-            pulumi.set(__self__, "ssl_forward_proxy", ssl_forward_proxy)
+            _setter("ssl_forward_proxy", ssl_forward_proxy)
         if ssl_forward_proxy_bypass is not None:
-            pulumi.set(__self__, "ssl_forward_proxy_bypass", ssl_forward_proxy_bypass)
+            _setter("ssl_forward_proxy_bypass", ssl_forward_proxy_bypass)
         if ssl_sign_hash is not None:
-            pulumi.set(__self__, "ssl_sign_hash", ssl_sign_hash)
+            _setter("ssl_sign_hash", ssl_sign_hash)
         if strict_resume is not None:
-            pulumi.set(__self__, "strict_resume", strict_resume)
+            _setter("strict_resume", strict_resume)
         if tm_options is not None:
-            pulumi.set(__self__, "tm_options", tm_options)
+            _setter("tm_options", tm_options)
         if unclean_shutdown is not None:
-            pulumi.set(__self__, "unclean_shutdown", unclean_shutdown)
+            _setter("unclean_shutdown", unclean_shutdown)
 
     @property
     @pulumi.getter(name="alertTimeout")
@@ -1543,6 +1805,18 @@ class _ProfileClientSslState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="ocspStapling")
+    def ocsp_stapling(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the system uses OCSP stapling. The default value is `disabled`.
+        """
+        return pulumi.get(self, "ocsp_stapling")
+
+    @ocsp_stapling.setter
+    def ocsp_stapling(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ocsp_stapling", value)
+
+    @property
     @pulumi.getter
     def partition(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1884,6 +2158,7 @@ class ProfileClientSsl(pulumi.CustomResource):
                  mod_ssl_methods: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 ocsp_stapling: Optional[pulumi.Input[str]] = None,
                  partition: Optional[pulumi.Input[str]] = None,
                  passphrase: Optional[pulumi.Input[str]] = None,
                  peer_cert_mode: Optional[pulumi.Input[str]] = None,
@@ -1961,6 +2236,7 @@ class ProfileClientSsl(pulumi.CustomResource):
         :param pulumi.Input[str] mod_ssl_methods: ModSSL Methods enabled / disabled. Default is disabled.
         :param pulumi.Input[str] mode: ModSSL Methods enabled / disabled. Default is disabled.
         :param pulumi.Input[str] name: Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
+        :param pulumi.Input[str] ocsp_stapling: Specifies whether the system uses OCSP stapling. The default value is `disabled`.
         :param pulumi.Input[str] partition: name of partition
         :param pulumi.Input[str] passphrase: Client Certificate Constrained Delegation CA passphrase
         :param pulumi.Input[str] peer_cert_mode: Specifies the way the system handles client certificates.When ignore, specifies that the system ignores certificates from client systems.When require, specifies that the system requires a client to present a valid certificate.When request, specifies that the system requests a valid certificate from a client but always authenticate the client.
@@ -2026,6 +2302,10 @@ class ProfileClientSsl(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProfileClientSslArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -2062,6 +2342,7 @@ class ProfileClientSsl(pulumi.CustomResource):
                  mod_ssl_methods: Optional[pulumi.Input[str]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 ocsp_stapling: Optional[pulumi.Input[str]] = None,
                  partition: Optional[pulumi.Input[str]] = None,
                  passphrase: Optional[pulumi.Input[str]] = None,
                  peer_cert_mode: Optional[pulumi.Input[str]] = None,
@@ -2108,9 +2389,11 @@ class ProfileClientSsl(pulumi.CustomResource):
             __props__.__dict__["cache_timeout"] = cache_timeout
             __props__.__dict__["cert"] = cert
             __props__.__dict__["cert_extension_includes"] = cert_extension_includes
-            if cert_key_chain is not None and not opts.urn:
-                warnings.warn("""This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.""", DeprecationWarning)
-                pulumi.log.warn("""cert_key_chain is deprecated: This Field 'cert_key_chain' going to deprecate in future version, please specify with cert,key,chain,passphrase as separate attribute.""")
+            if cert_key_chain is not None and not isinstance(cert_key_chain, ProfileClientSslCertKeyChainArgs):
+                cert_key_chain = cert_key_chain or {}
+                def _setter(key, value):
+                    cert_key_chain[key] = value
+                ProfileClientSslCertKeyChainArgs._configure(_setter, **cert_key_chain)
             __props__.__dict__["cert_key_chain"] = cert_key_chain
             __props__.__dict__["cert_life_span"] = cert_life_span
             __props__.__dict__["cert_lookup_by_ipaddr_port"] = cert_lookup_by_ipaddr_port
@@ -2132,6 +2415,7 @@ class ProfileClientSsl(pulumi.CustomResource):
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
+            __props__.__dict__["ocsp_stapling"] = ocsp_stapling
             __props__.__dict__["partition"] = partition
             __props__.__dict__["passphrase"] = None if passphrase is None else pulumi.Output.secret(passphrase)
             __props__.__dict__["peer_cert_mode"] = peer_cert_mode
@@ -2200,6 +2484,7 @@ class ProfileClientSsl(pulumi.CustomResource):
             mod_ssl_methods: Optional[pulumi.Input[str]] = None,
             mode: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            ocsp_stapling: Optional[pulumi.Input[str]] = None,
             partition: Optional[pulumi.Input[str]] = None,
             passphrase: Optional[pulumi.Input[str]] = None,
             peer_cert_mode: Optional[pulumi.Input[str]] = None,
@@ -2263,6 +2548,7 @@ class ProfileClientSsl(pulumi.CustomResource):
         :param pulumi.Input[str] mod_ssl_methods: ModSSL Methods enabled / disabled. Default is disabled.
         :param pulumi.Input[str] mode: ModSSL Methods enabled / disabled. Default is disabled.
         :param pulumi.Input[str] name: Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
+        :param pulumi.Input[str] ocsp_stapling: Specifies whether the system uses OCSP stapling. The default value is `disabled`.
         :param pulumi.Input[str] partition: name of partition
         :param pulumi.Input[str] passphrase: Client Certificate Constrained Delegation CA passphrase
         :param pulumi.Input[str] peer_cert_mode: Specifies the way the system handles client certificates.When ignore, specifies that the system ignores certificates from client systems.When require, specifies that the system requires a client to present a valid certificate.When request, specifies that the system requests a valid certificate from a client but always authenticate the client.
@@ -2329,6 +2615,7 @@ class ProfileClientSsl(pulumi.CustomResource):
         __props__.__dict__["mod_ssl_methods"] = mod_ssl_methods
         __props__.__dict__["mode"] = mode
         __props__.__dict__["name"] = name
+        __props__.__dict__["ocsp_stapling"] = ocsp_stapling
         __props__.__dict__["partition"] = partition
         __props__.__dict__["passphrase"] = passphrase
         __props__.__dict__["peer_cert_mode"] = peer_cert_mode
@@ -2604,6 +2891,14 @@ class ProfileClientSsl(pulumi.CustomResource):
         Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="ocspStapling")
+    def ocsp_stapling(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies whether the system uses OCSP stapling. The default value is `disabled`.
+        """
+        return pulumi.get(self, "ocsp_stapling")
 
     @property
     @pulumi.getter

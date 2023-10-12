@@ -10,6 +10,8 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.f5bigip.Utilities;
 import com.pulumi.f5bigip.ltm.ProfileHttpArgs;
 import com.pulumi.f5bigip.ltm.inputs.ProfileHttpState;
+import com.pulumi.f5bigip.ltm.outputs.ProfileHttpEnforcement;
+import com.pulumi.f5bigip.ltm.outputs.ProfileHttpHttpStrictTransportSecurity;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -167,6 +169,20 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.encryptCookies);
     }
     /**
+     * See Enforcement below for more details.
+     * 
+     */
+    @Export(name="enforcements", type=List.class, parameters={ProfileHttpEnforcement.class})
+    private Output<List<ProfileHttpEnforcement>> enforcements;
+
+    /**
+     * @return See Enforcement below for more details.
+     * 
+     */
+    public Output<List<ProfileHttpEnforcement>> enforcements() {
+        return this.enforcements;
+    }
+    /**
      * Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
      * 
      */
@@ -221,6 +237,20 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
      */
     public Output<String> headInsert() {
         return this.headInsert;
+    }
+    /**
+     * See Http_Strict_Transport_Security below for more details.
+     * 
+     */
+    @Export(name="httpStrictTransportSecurities", type=List.class, parameters={ProfileHttpHttpStrictTransportSecurity.class})
+    private Output</* @Nullable */ List<ProfileHttpHttpStrictTransportSecurity>> httpStrictTransportSecurities;
+
+    /**
+     * @return See Http_Strict_Transport_Security below for more details.
+     * 
+     */
+    public Output<Optional<List<ProfileHttpHttpStrictTransportSecurity>>> httpStrictTransportSecurities() {
+        return Codegen.optional(this.httpStrictTransportSecurities);
     }
     /**
      * Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
@@ -365,16 +395,14 @@ public class ProfileHttp extends com.pulumi.resources.CustomResource {
         return this.responseHeadersPermitteds;
     }
     /**
-     * Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no
-     * string is specified, then no Server header will be added to such responses
+     * Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, &#34;none&#34; string is to be passed.
      * 
      */
     @Export(name="serverAgentName", type=String.class, parameters={})
     private Output<String> serverAgentName;
 
     /**
-     * @return Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no
-     * string is specified, then no Server header will be added to such responses
+     * @return Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, &#34;none&#34; string is to be passed.
      * 
      */
     public Output<String> serverAgentName() {

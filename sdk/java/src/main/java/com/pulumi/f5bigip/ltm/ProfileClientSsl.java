@@ -493,6 +493,20 @@ public class ProfileClientSsl extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
+     * Specifies whether the system uses OCSP stapling. The default value is `disabled`.
+     * 
+     */
+    @Export(name="ocspStapling", type=String.class, parameters={})
+    private Output</* @Nullable */ String> ocspStapling;
+
+    /**
+     * @return Specifies whether the system uses OCSP stapling. The default value is `disabled`.
+     * 
+     */
+    public Output<Optional<String>> ocspStapling() {
+        return Codegen.optional(this.ocspStapling);
+    }
+    /**
      * name of partition
      * 
      */

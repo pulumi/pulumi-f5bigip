@@ -9,6 +9,7 @@ from .big_ip_license import *
 from .dns import *
 from .i_app import *
 from .ntp import *
+from .ocsp import *
 from .provision import *
 from .snmp import *
 from .snmp_traps import *

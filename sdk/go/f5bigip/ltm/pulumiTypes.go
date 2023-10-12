@@ -522,18 +522,17 @@ func (o PolicyRuleArrayOutput) Index(i pulumi.IntInput) PolicyRuleOutput {
 }
 
 type PolicyRuleAction struct {
-	AppService  *string `pulumi:"appService"`
-	Application *string `pulumi:"application"`
-	Asm         *bool   `pulumi:"asm"`
-	Avr         *bool   `pulumi:"avr"`
-	Cache       *bool   `pulumi:"cache"`
-	Carp        *bool   `pulumi:"carp"`
-	Category    *string `pulumi:"category"`
-	Classify    *bool   `pulumi:"classify"`
-	ClonePool   *string `pulumi:"clonePool"`
-	Code        *int    `pulumi:"code"`
-	Compress    *bool   `pulumi:"compress"`
-	// This action is set to `true` by default, it needs to be explicitly set to `false` for actions it conflicts with.
+	AppService         *string `pulumi:"appService"`
+	Application        *string `pulumi:"application"`
+	Asm                *bool   `pulumi:"asm"`
+	Avr                *bool   `pulumi:"avr"`
+	Cache              *bool   `pulumi:"cache"`
+	Carp               *bool   `pulumi:"carp"`
+	Category           *string `pulumi:"category"`
+	Classify           *bool   `pulumi:"classify"`
+	ClonePool          *string `pulumi:"clonePool"`
+	Code               *int    `pulumi:"code"`
+	Compress           *bool   `pulumi:"compress"`
 	Connection         *bool   `pulumi:"connection"`
 	Content            *string `pulumi:"content"`
 	CookieHash         *bool   `pulumi:"cookieHash"`
@@ -551,42 +550,40 @@ type PolicyRuleAction struct {
 	Expression         *string `pulumi:"expression"`
 	Extension          *string `pulumi:"extension"`
 	Facility           *string `pulumi:"facility"`
-	// This action will affect forwarding.
-	Forward         *bool   `pulumi:"forward"`
-	FromProfile     *string `pulumi:"fromProfile"`
-	Hash            *bool   `pulumi:"hash"`
-	Host            *string `pulumi:"host"`
-	Http            *bool   `pulumi:"http"`
-	HttpBasicAuth   *bool   `pulumi:"httpBasicAuth"`
-	HttpCookie      *bool   `pulumi:"httpCookie"`
-	HttpHeader      *bool   `pulumi:"httpHeader"`
-	HttpHost        *bool   `pulumi:"httpHost"`
-	HttpReferer     *bool   `pulumi:"httpReferer"`
-	HttpReply       *bool   `pulumi:"httpReply"`
-	HttpSetCookie   *bool   `pulumi:"httpSetCookie"`
-	HttpUri         *bool   `pulumi:"httpUri"`
-	Ifile           *string `pulumi:"ifile"`
-	Insert          *bool   `pulumi:"insert"`
-	InternalVirtual *string `pulumi:"internalVirtual"`
-	IpAddress       *string `pulumi:"ipAddress"`
-	Key             *string `pulumi:"key"`
-	L7dos           *bool   `pulumi:"l7dos"`
-	Length          *int    `pulumi:"length"`
-	Location        *string `pulumi:"location"`
-	Log             *bool   `pulumi:"log"`
-	LtmPolicy       *bool   `pulumi:"ltmPolicy"`
-	Member          *string `pulumi:"member"`
-	Message         *string `pulumi:"message"`
-	Netmask         *string `pulumi:"netmask"`
-	Nexthop         *string `pulumi:"nexthop"`
-	Node            *string `pulumi:"node"`
-	Offset          *int    `pulumi:"offset"`
-	Path            *string `pulumi:"path"`
-	Pem             *bool   `pulumi:"pem"`
-	Persist         *bool   `pulumi:"persist"`
-	Pin             *bool   `pulumi:"pin"`
-	Policy          *string `pulumi:"policy"`
-	// This action will direct the stream to this pool.
+	Forward            *bool   `pulumi:"forward"`
+	FromProfile        *string `pulumi:"fromProfile"`
+	Hash               *bool   `pulumi:"hash"`
+	Host               *string `pulumi:"host"`
+	Http               *bool   `pulumi:"http"`
+	HttpBasicAuth      *bool   `pulumi:"httpBasicAuth"`
+	HttpCookie         *bool   `pulumi:"httpCookie"`
+	HttpHeader         *bool   `pulumi:"httpHeader"`
+	HttpHost           *bool   `pulumi:"httpHost"`
+	HttpReferer        *bool   `pulumi:"httpReferer"`
+	HttpReply          *bool   `pulumi:"httpReply"`
+	HttpSetCookie      *bool   `pulumi:"httpSetCookie"`
+	HttpUri            *bool   `pulumi:"httpUri"`
+	Ifile              *string `pulumi:"ifile"`
+	Insert             *bool   `pulumi:"insert"`
+	InternalVirtual    *string `pulumi:"internalVirtual"`
+	IpAddress          *string `pulumi:"ipAddress"`
+	Key                *string `pulumi:"key"`
+	L7dos              *bool   `pulumi:"l7dos"`
+	Length             *int    `pulumi:"length"`
+	Location           *string `pulumi:"location"`
+	Log                *bool   `pulumi:"log"`
+	LtmPolicy          *bool   `pulumi:"ltmPolicy"`
+	Member             *string `pulumi:"member"`
+	Message            *string `pulumi:"message"`
+	Netmask            *string `pulumi:"netmask"`
+	Nexthop            *string `pulumi:"nexthop"`
+	Node               *string `pulumi:"node"`
+	Offset             *int    `pulumi:"offset"`
+	Path               *string `pulumi:"path"`
+	Pem                *bool   `pulumi:"pem"`
+	Persist            *bool   `pulumi:"persist"`
+	Pin                *bool   `pulumi:"pin"`
+	Policy             *string `pulumi:"policy"`
 	Pool               *string `pulumi:"pool"`
 	Port               *int    `pulumi:"port"`
 	Priority           *string `pulumi:"priority"`
@@ -643,18 +640,17 @@ type PolicyRuleActionInput interface {
 }
 
 type PolicyRuleActionArgs struct {
-	AppService  pulumi.StringPtrInput `pulumi:"appService"`
-	Application pulumi.StringPtrInput `pulumi:"application"`
-	Asm         pulumi.BoolPtrInput   `pulumi:"asm"`
-	Avr         pulumi.BoolPtrInput   `pulumi:"avr"`
-	Cache       pulumi.BoolPtrInput   `pulumi:"cache"`
-	Carp        pulumi.BoolPtrInput   `pulumi:"carp"`
-	Category    pulumi.StringPtrInput `pulumi:"category"`
-	Classify    pulumi.BoolPtrInput   `pulumi:"classify"`
-	ClonePool   pulumi.StringPtrInput `pulumi:"clonePool"`
-	Code        pulumi.IntPtrInput    `pulumi:"code"`
-	Compress    pulumi.BoolPtrInput   `pulumi:"compress"`
-	// This action is set to `true` by default, it needs to be explicitly set to `false` for actions it conflicts with.
+	AppService         pulumi.StringPtrInput `pulumi:"appService"`
+	Application        pulumi.StringPtrInput `pulumi:"application"`
+	Asm                pulumi.BoolPtrInput   `pulumi:"asm"`
+	Avr                pulumi.BoolPtrInput   `pulumi:"avr"`
+	Cache              pulumi.BoolPtrInput   `pulumi:"cache"`
+	Carp               pulumi.BoolPtrInput   `pulumi:"carp"`
+	Category           pulumi.StringPtrInput `pulumi:"category"`
+	Classify           pulumi.BoolPtrInput   `pulumi:"classify"`
+	ClonePool          pulumi.StringPtrInput `pulumi:"clonePool"`
+	Code               pulumi.IntPtrInput    `pulumi:"code"`
+	Compress           pulumi.BoolPtrInput   `pulumi:"compress"`
 	Connection         pulumi.BoolPtrInput   `pulumi:"connection"`
 	Content            pulumi.StringPtrInput `pulumi:"content"`
 	CookieHash         pulumi.BoolPtrInput   `pulumi:"cookieHash"`
@@ -672,42 +668,40 @@ type PolicyRuleActionArgs struct {
 	Expression         pulumi.StringPtrInput `pulumi:"expression"`
 	Extension          pulumi.StringPtrInput `pulumi:"extension"`
 	Facility           pulumi.StringPtrInput `pulumi:"facility"`
-	// This action will affect forwarding.
-	Forward         pulumi.BoolPtrInput   `pulumi:"forward"`
-	FromProfile     pulumi.StringPtrInput `pulumi:"fromProfile"`
-	Hash            pulumi.BoolPtrInput   `pulumi:"hash"`
-	Host            pulumi.StringPtrInput `pulumi:"host"`
-	Http            pulumi.BoolPtrInput   `pulumi:"http"`
-	HttpBasicAuth   pulumi.BoolPtrInput   `pulumi:"httpBasicAuth"`
-	HttpCookie      pulumi.BoolPtrInput   `pulumi:"httpCookie"`
-	HttpHeader      pulumi.BoolPtrInput   `pulumi:"httpHeader"`
-	HttpHost        pulumi.BoolPtrInput   `pulumi:"httpHost"`
-	HttpReferer     pulumi.BoolPtrInput   `pulumi:"httpReferer"`
-	HttpReply       pulumi.BoolPtrInput   `pulumi:"httpReply"`
-	HttpSetCookie   pulumi.BoolPtrInput   `pulumi:"httpSetCookie"`
-	HttpUri         pulumi.BoolPtrInput   `pulumi:"httpUri"`
-	Ifile           pulumi.StringPtrInput `pulumi:"ifile"`
-	Insert          pulumi.BoolPtrInput   `pulumi:"insert"`
-	InternalVirtual pulumi.StringPtrInput `pulumi:"internalVirtual"`
-	IpAddress       pulumi.StringPtrInput `pulumi:"ipAddress"`
-	Key             pulumi.StringPtrInput `pulumi:"key"`
-	L7dos           pulumi.BoolPtrInput   `pulumi:"l7dos"`
-	Length          pulumi.IntPtrInput    `pulumi:"length"`
-	Location        pulumi.StringPtrInput `pulumi:"location"`
-	Log             pulumi.BoolPtrInput   `pulumi:"log"`
-	LtmPolicy       pulumi.BoolPtrInput   `pulumi:"ltmPolicy"`
-	Member          pulumi.StringPtrInput `pulumi:"member"`
-	Message         pulumi.StringPtrInput `pulumi:"message"`
-	Netmask         pulumi.StringPtrInput `pulumi:"netmask"`
-	Nexthop         pulumi.StringPtrInput `pulumi:"nexthop"`
-	Node            pulumi.StringPtrInput `pulumi:"node"`
-	Offset          pulumi.IntPtrInput    `pulumi:"offset"`
-	Path            pulumi.StringPtrInput `pulumi:"path"`
-	Pem             pulumi.BoolPtrInput   `pulumi:"pem"`
-	Persist         pulumi.BoolPtrInput   `pulumi:"persist"`
-	Pin             pulumi.BoolPtrInput   `pulumi:"pin"`
-	Policy          pulumi.StringPtrInput `pulumi:"policy"`
-	// This action will direct the stream to this pool.
+	Forward            pulumi.BoolPtrInput   `pulumi:"forward"`
+	FromProfile        pulumi.StringPtrInput `pulumi:"fromProfile"`
+	Hash               pulumi.BoolPtrInput   `pulumi:"hash"`
+	Host               pulumi.StringPtrInput `pulumi:"host"`
+	Http               pulumi.BoolPtrInput   `pulumi:"http"`
+	HttpBasicAuth      pulumi.BoolPtrInput   `pulumi:"httpBasicAuth"`
+	HttpCookie         pulumi.BoolPtrInput   `pulumi:"httpCookie"`
+	HttpHeader         pulumi.BoolPtrInput   `pulumi:"httpHeader"`
+	HttpHost           pulumi.BoolPtrInput   `pulumi:"httpHost"`
+	HttpReferer        pulumi.BoolPtrInput   `pulumi:"httpReferer"`
+	HttpReply          pulumi.BoolPtrInput   `pulumi:"httpReply"`
+	HttpSetCookie      pulumi.BoolPtrInput   `pulumi:"httpSetCookie"`
+	HttpUri            pulumi.BoolPtrInput   `pulumi:"httpUri"`
+	Ifile              pulumi.StringPtrInput `pulumi:"ifile"`
+	Insert             pulumi.BoolPtrInput   `pulumi:"insert"`
+	InternalVirtual    pulumi.StringPtrInput `pulumi:"internalVirtual"`
+	IpAddress          pulumi.StringPtrInput `pulumi:"ipAddress"`
+	Key                pulumi.StringPtrInput `pulumi:"key"`
+	L7dos              pulumi.BoolPtrInput   `pulumi:"l7dos"`
+	Length             pulumi.IntPtrInput    `pulumi:"length"`
+	Location           pulumi.StringPtrInput `pulumi:"location"`
+	Log                pulumi.BoolPtrInput   `pulumi:"log"`
+	LtmPolicy          pulumi.BoolPtrInput   `pulumi:"ltmPolicy"`
+	Member             pulumi.StringPtrInput `pulumi:"member"`
+	Message            pulumi.StringPtrInput `pulumi:"message"`
+	Netmask            pulumi.StringPtrInput `pulumi:"netmask"`
+	Nexthop            pulumi.StringPtrInput `pulumi:"nexthop"`
+	Node               pulumi.StringPtrInput `pulumi:"node"`
+	Offset             pulumi.IntPtrInput    `pulumi:"offset"`
+	Path               pulumi.StringPtrInput `pulumi:"path"`
+	Pem                pulumi.BoolPtrInput   `pulumi:"pem"`
+	Persist            pulumi.BoolPtrInput   `pulumi:"persist"`
+	Pin                pulumi.BoolPtrInput   `pulumi:"pin"`
+	Policy             pulumi.StringPtrInput `pulumi:"policy"`
 	Pool               pulumi.StringPtrInput `pulumi:"pool"`
 	Port               pulumi.IntPtrInput    `pulumi:"port"`
 	Priority           pulumi.StringPtrInput `pulumi:"priority"`
@@ -865,7 +859,6 @@ func (o PolicyRuleActionOutput) Compress() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Compress }).(pulumi.BoolPtrOutput)
 }
 
-// This action is set to `true` by default, it needs to be explicitly set to `false` for actions it conflicts with.
 func (o PolicyRuleActionOutput) Connection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Connection }).(pulumi.BoolPtrOutput)
 }
@@ -934,7 +927,6 @@ func (o PolicyRuleActionOutput) Facility() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Facility }).(pulumi.StringPtrOutput)
 }
 
-// This action will affect forwarding.
 func (o PolicyRuleActionOutput) Forward() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v PolicyRuleAction) *bool { return v.Forward }).(pulumi.BoolPtrOutput)
 }
@@ -1071,7 +1063,6 @@ func (o PolicyRuleActionOutput) Policy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Policy }).(pulumi.StringPtrOutput)
 }
 
-// This action will direct the stream to this pool.
 func (o PolicyRuleActionOutput) Pool() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicyRuleAction) *string { return v.Pool }).(pulumi.StringPtrOutput)
 }
@@ -2167,6 +2158,302 @@ func (o ProfileClientSslCertKeyChainPtrOutput) Passphrase() pulumi.StringPtrOutp
 		}
 		return v.Passphrase
 	}).(pulumi.StringPtrOutput)
+}
+
+type ProfileHttpEnforcement struct {
+	// Specifies which HTTP methods count as being known. Removing RFC-defined methods from this list will cause the HTTP filter to not recognize them. Default value is [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK].If no value is specified while creating, then default value will be assigned. In order to remove it, [""]  list is to be passed.
+	KnownMethods []string `pulumi:"knownMethods"`
+	// Specifies the maximum number of headers allowed in HTTP request/response. The default is 64 headers.If no value is specified, then default value will be assigned.
+	MaxHeaderCount *int `pulumi:"maxHeaderCount"`
+	// Specifies the maximum header size.The default value is 32768.If no string is specified, then default value will be assigned.
+	MaxHeaderSize *int `pulumi:"maxHeaderSize"`
+	// Specifies whether to allow, reject or switch to pass-through mode when an unknown HTTP method is parsed. Default value is allow. If no string is specified, then default value will be assigned.
+	UnknownMethod *string `pulumi:"unknownMethod"`
+}
+
+// ProfileHttpEnforcementInput is an input type that accepts ProfileHttpEnforcementArgs and ProfileHttpEnforcementOutput values.
+// You can construct a concrete instance of `ProfileHttpEnforcementInput` via:
+//
+//	ProfileHttpEnforcementArgs{...}
+type ProfileHttpEnforcementInput interface {
+	pulumi.Input
+
+	ToProfileHttpEnforcementOutput() ProfileHttpEnforcementOutput
+	ToProfileHttpEnforcementOutputWithContext(context.Context) ProfileHttpEnforcementOutput
+}
+
+type ProfileHttpEnforcementArgs struct {
+	// Specifies which HTTP methods count as being known. Removing RFC-defined methods from this list will cause the HTTP filter to not recognize them. Default value is [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK].If no value is specified while creating, then default value will be assigned. In order to remove it, [""]  list is to be passed.
+	KnownMethods pulumi.StringArrayInput `pulumi:"knownMethods"`
+	// Specifies the maximum number of headers allowed in HTTP request/response. The default is 64 headers.If no value is specified, then default value will be assigned.
+	MaxHeaderCount pulumi.IntPtrInput `pulumi:"maxHeaderCount"`
+	// Specifies the maximum header size.The default value is 32768.If no string is specified, then default value will be assigned.
+	MaxHeaderSize pulumi.IntPtrInput `pulumi:"maxHeaderSize"`
+	// Specifies whether to allow, reject or switch to pass-through mode when an unknown HTTP method is parsed. Default value is allow. If no string is specified, then default value will be assigned.
+	UnknownMethod pulumi.StringPtrInput `pulumi:"unknownMethod"`
+}
+
+func (ProfileHttpEnforcementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileHttpEnforcement)(nil)).Elem()
+}
+
+func (i ProfileHttpEnforcementArgs) ToProfileHttpEnforcementOutput() ProfileHttpEnforcementOutput {
+	return i.ToProfileHttpEnforcementOutputWithContext(context.Background())
+}
+
+func (i ProfileHttpEnforcementArgs) ToProfileHttpEnforcementOutputWithContext(ctx context.Context) ProfileHttpEnforcementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileHttpEnforcementOutput)
+}
+
+func (i ProfileHttpEnforcementArgs) ToOutput(ctx context.Context) pulumix.Output[ProfileHttpEnforcement] {
+	return pulumix.Output[ProfileHttpEnforcement]{
+		OutputState: i.ToProfileHttpEnforcementOutputWithContext(ctx).OutputState,
+	}
+}
+
+// ProfileHttpEnforcementArrayInput is an input type that accepts ProfileHttpEnforcementArray and ProfileHttpEnforcementArrayOutput values.
+// You can construct a concrete instance of `ProfileHttpEnforcementArrayInput` via:
+//
+//	ProfileHttpEnforcementArray{ ProfileHttpEnforcementArgs{...} }
+type ProfileHttpEnforcementArrayInput interface {
+	pulumi.Input
+
+	ToProfileHttpEnforcementArrayOutput() ProfileHttpEnforcementArrayOutput
+	ToProfileHttpEnforcementArrayOutputWithContext(context.Context) ProfileHttpEnforcementArrayOutput
+}
+
+type ProfileHttpEnforcementArray []ProfileHttpEnforcementInput
+
+func (ProfileHttpEnforcementArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProfileHttpEnforcement)(nil)).Elem()
+}
+
+func (i ProfileHttpEnforcementArray) ToProfileHttpEnforcementArrayOutput() ProfileHttpEnforcementArrayOutput {
+	return i.ToProfileHttpEnforcementArrayOutputWithContext(context.Background())
+}
+
+func (i ProfileHttpEnforcementArray) ToProfileHttpEnforcementArrayOutputWithContext(ctx context.Context) ProfileHttpEnforcementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileHttpEnforcementArrayOutput)
+}
+
+func (i ProfileHttpEnforcementArray) ToOutput(ctx context.Context) pulumix.Output[[]ProfileHttpEnforcement] {
+	return pulumix.Output[[]ProfileHttpEnforcement]{
+		OutputState: i.ToProfileHttpEnforcementArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ProfileHttpEnforcementOutput struct{ *pulumi.OutputState }
+
+func (ProfileHttpEnforcementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileHttpEnforcement)(nil)).Elem()
+}
+
+func (o ProfileHttpEnforcementOutput) ToProfileHttpEnforcementOutput() ProfileHttpEnforcementOutput {
+	return o
+}
+
+func (o ProfileHttpEnforcementOutput) ToProfileHttpEnforcementOutputWithContext(ctx context.Context) ProfileHttpEnforcementOutput {
+	return o
+}
+
+func (o ProfileHttpEnforcementOutput) ToOutput(ctx context.Context) pulumix.Output[ProfileHttpEnforcement] {
+	return pulumix.Output[ProfileHttpEnforcement]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Specifies which HTTP methods count as being known. Removing RFC-defined methods from this list will cause the HTTP filter to not recognize them. Default value is [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK].If no value is specified while creating, then default value will be assigned. In order to remove it, [""]  list is to be passed.
+func (o ProfileHttpEnforcementOutput) KnownMethods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProfileHttpEnforcement) []string { return v.KnownMethods }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the maximum number of headers allowed in HTTP request/response. The default is 64 headers.If no value is specified, then default value will be assigned.
+func (o ProfileHttpEnforcementOutput) MaxHeaderCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProfileHttpEnforcement) *int { return v.MaxHeaderCount }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the maximum header size.The default value is 32768.If no string is specified, then default value will be assigned.
+func (o ProfileHttpEnforcementOutput) MaxHeaderSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProfileHttpEnforcement) *int { return v.MaxHeaderSize }).(pulumi.IntPtrOutput)
+}
+
+// Specifies whether to allow, reject or switch to pass-through mode when an unknown HTTP method is parsed. Default value is allow. If no string is specified, then default value will be assigned.
+func (o ProfileHttpEnforcementOutput) UnknownMethod() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProfileHttpEnforcement) *string { return v.UnknownMethod }).(pulumi.StringPtrOutput)
+}
+
+type ProfileHttpEnforcementArrayOutput struct{ *pulumi.OutputState }
+
+func (ProfileHttpEnforcementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProfileHttpEnforcement)(nil)).Elem()
+}
+
+func (o ProfileHttpEnforcementArrayOutput) ToProfileHttpEnforcementArrayOutput() ProfileHttpEnforcementArrayOutput {
+	return o
+}
+
+func (o ProfileHttpEnforcementArrayOutput) ToProfileHttpEnforcementArrayOutputWithContext(ctx context.Context) ProfileHttpEnforcementArrayOutput {
+	return o
+}
+
+func (o ProfileHttpEnforcementArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ProfileHttpEnforcement] {
+	return pulumix.Output[[]ProfileHttpEnforcement]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ProfileHttpEnforcementArrayOutput) Index(i pulumi.IntInput) ProfileHttpEnforcementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProfileHttpEnforcement {
+		return vs[0].([]ProfileHttpEnforcement)[vs[1].(int)]
+	}).(ProfileHttpEnforcementOutput)
+}
+
+type ProfileHttpHttpStrictTransportSecurity struct {
+	// Specifies whether to include the includeSubdomains directive in the HSTS header. The default is enabled. If no string is specified, then default value will be assigned.
+	IncludeSubdomains *string `pulumi:"includeSubdomains"`
+	// Specifies the maximum age to assume the connection should remain secure. The default is 16070400 seconds. If no value is specified, then default value will be assigned.
+	MaximumAge *int `pulumi:"maximumAge"`
+	// Specifies whether to include the HSTS response header. The default is disabled.If no string is specified, then default value will be assigned.
+	Mode *string `pulumi:"mode"`
+	// Specifies whether to include the preload directive in the HSTS header. The default is disabled. If no string is specified, then default value will be assigned.
+	Preload *string `pulumi:"preload"`
+}
+
+// ProfileHttpHttpStrictTransportSecurityInput is an input type that accepts ProfileHttpHttpStrictTransportSecurityArgs and ProfileHttpHttpStrictTransportSecurityOutput values.
+// You can construct a concrete instance of `ProfileHttpHttpStrictTransportSecurityInput` via:
+//
+//	ProfileHttpHttpStrictTransportSecurityArgs{...}
+type ProfileHttpHttpStrictTransportSecurityInput interface {
+	pulumi.Input
+
+	ToProfileHttpHttpStrictTransportSecurityOutput() ProfileHttpHttpStrictTransportSecurityOutput
+	ToProfileHttpHttpStrictTransportSecurityOutputWithContext(context.Context) ProfileHttpHttpStrictTransportSecurityOutput
+}
+
+type ProfileHttpHttpStrictTransportSecurityArgs struct {
+	// Specifies whether to include the includeSubdomains directive in the HSTS header. The default is enabled. If no string is specified, then default value will be assigned.
+	IncludeSubdomains pulumi.StringPtrInput `pulumi:"includeSubdomains"`
+	// Specifies the maximum age to assume the connection should remain secure. The default is 16070400 seconds. If no value is specified, then default value will be assigned.
+	MaximumAge pulumi.IntPtrInput `pulumi:"maximumAge"`
+	// Specifies whether to include the HSTS response header. The default is disabled.If no string is specified, then default value will be assigned.
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
+	// Specifies whether to include the preload directive in the HSTS header. The default is disabled. If no string is specified, then default value will be assigned.
+	Preload pulumi.StringPtrInput `pulumi:"preload"`
+}
+
+func (ProfileHttpHttpStrictTransportSecurityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileHttpHttpStrictTransportSecurity)(nil)).Elem()
+}
+
+func (i ProfileHttpHttpStrictTransportSecurityArgs) ToProfileHttpHttpStrictTransportSecurityOutput() ProfileHttpHttpStrictTransportSecurityOutput {
+	return i.ToProfileHttpHttpStrictTransportSecurityOutputWithContext(context.Background())
+}
+
+func (i ProfileHttpHttpStrictTransportSecurityArgs) ToProfileHttpHttpStrictTransportSecurityOutputWithContext(ctx context.Context) ProfileHttpHttpStrictTransportSecurityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileHttpHttpStrictTransportSecurityOutput)
+}
+
+func (i ProfileHttpHttpStrictTransportSecurityArgs) ToOutput(ctx context.Context) pulumix.Output[ProfileHttpHttpStrictTransportSecurity] {
+	return pulumix.Output[ProfileHttpHttpStrictTransportSecurity]{
+		OutputState: i.ToProfileHttpHttpStrictTransportSecurityOutputWithContext(ctx).OutputState,
+	}
+}
+
+// ProfileHttpHttpStrictTransportSecurityArrayInput is an input type that accepts ProfileHttpHttpStrictTransportSecurityArray and ProfileHttpHttpStrictTransportSecurityArrayOutput values.
+// You can construct a concrete instance of `ProfileHttpHttpStrictTransportSecurityArrayInput` via:
+//
+//	ProfileHttpHttpStrictTransportSecurityArray{ ProfileHttpHttpStrictTransportSecurityArgs{...} }
+type ProfileHttpHttpStrictTransportSecurityArrayInput interface {
+	pulumi.Input
+
+	ToProfileHttpHttpStrictTransportSecurityArrayOutput() ProfileHttpHttpStrictTransportSecurityArrayOutput
+	ToProfileHttpHttpStrictTransportSecurityArrayOutputWithContext(context.Context) ProfileHttpHttpStrictTransportSecurityArrayOutput
+}
+
+type ProfileHttpHttpStrictTransportSecurityArray []ProfileHttpHttpStrictTransportSecurityInput
+
+func (ProfileHttpHttpStrictTransportSecurityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProfileHttpHttpStrictTransportSecurity)(nil)).Elem()
+}
+
+func (i ProfileHttpHttpStrictTransportSecurityArray) ToProfileHttpHttpStrictTransportSecurityArrayOutput() ProfileHttpHttpStrictTransportSecurityArrayOutput {
+	return i.ToProfileHttpHttpStrictTransportSecurityArrayOutputWithContext(context.Background())
+}
+
+func (i ProfileHttpHttpStrictTransportSecurityArray) ToProfileHttpHttpStrictTransportSecurityArrayOutputWithContext(ctx context.Context) ProfileHttpHttpStrictTransportSecurityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProfileHttpHttpStrictTransportSecurityArrayOutput)
+}
+
+func (i ProfileHttpHttpStrictTransportSecurityArray) ToOutput(ctx context.Context) pulumix.Output[[]ProfileHttpHttpStrictTransportSecurity] {
+	return pulumix.Output[[]ProfileHttpHttpStrictTransportSecurity]{
+		OutputState: i.ToProfileHttpHttpStrictTransportSecurityArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
+type ProfileHttpHttpStrictTransportSecurityOutput struct{ *pulumi.OutputState }
+
+func (ProfileHttpHttpStrictTransportSecurityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProfileHttpHttpStrictTransportSecurity)(nil)).Elem()
+}
+
+func (o ProfileHttpHttpStrictTransportSecurityOutput) ToProfileHttpHttpStrictTransportSecurityOutput() ProfileHttpHttpStrictTransportSecurityOutput {
+	return o
+}
+
+func (o ProfileHttpHttpStrictTransportSecurityOutput) ToProfileHttpHttpStrictTransportSecurityOutputWithContext(ctx context.Context) ProfileHttpHttpStrictTransportSecurityOutput {
+	return o
+}
+
+func (o ProfileHttpHttpStrictTransportSecurityOutput) ToOutput(ctx context.Context) pulumix.Output[ProfileHttpHttpStrictTransportSecurity] {
+	return pulumix.Output[ProfileHttpHttpStrictTransportSecurity]{
+		OutputState: o.OutputState,
+	}
+}
+
+// Specifies whether to include the includeSubdomains directive in the HSTS header. The default is enabled. If no string is specified, then default value will be assigned.
+func (o ProfileHttpHttpStrictTransportSecurityOutput) IncludeSubdomains() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProfileHttpHttpStrictTransportSecurity) *string { return v.IncludeSubdomains }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the maximum age to assume the connection should remain secure. The default is 16070400 seconds. If no value is specified, then default value will be assigned.
+func (o ProfileHttpHttpStrictTransportSecurityOutput) MaximumAge() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ProfileHttpHttpStrictTransportSecurity) *int { return v.MaximumAge }).(pulumi.IntPtrOutput)
+}
+
+// Specifies whether to include the HSTS response header. The default is disabled.If no string is specified, then default value will be assigned.
+func (o ProfileHttpHttpStrictTransportSecurityOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProfileHttpHttpStrictTransportSecurity) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether to include the preload directive in the HSTS header. The default is disabled. If no string is specified, then default value will be assigned.
+func (o ProfileHttpHttpStrictTransportSecurityOutput) Preload() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProfileHttpHttpStrictTransportSecurity) *string { return v.Preload }).(pulumi.StringPtrOutput)
+}
+
+type ProfileHttpHttpStrictTransportSecurityArrayOutput struct{ *pulumi.OutputState }
+
+func (ProfileHttpHttpStrictTransportSecurityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProfileHttpHttpStrictTransportSecurity)(nil)).Elem()
+}
+
+func (o ProfileHttpHttpStrictTransportSecurityArrayOutput) ToProfileHttpHttpStrictTransportSecurityArrayOutput() ProfileHttpHttpStrictTransportSecurityArrayOutput {
+	return o
+}
+
+func (o ProfileHttpHttpStrictTransportSecurityArrayOutput) ToProfileHttpHttpStrictTransportSecurityArrayOutputWithContext(ctx context.Context) ProfileHttpHttpStrictTransportSecurityArrayOutput {
+	return o
+}
+
+func (o ProfileHttpHttpStrictTransportSecurityArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]ProfileHttpHttpStrictTransportSecurity] {
+	return pulumix.Output[[]ProfileHttpHttpStrictTransportSecurity]{
+		OutputState: o.OutputState,
+	}
+}
+
+func (o ProfileHttpHttpStrictTransportSecurityArrayOutput) Index(i pulumi.IntInput) ProfileHttpHttpStrictTransportSecurityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProfileHttpHttpStrictTransportSecurity {
+		return vs[0].([]ProfileHttpHttpStrictTransportSecurity)[vs[1].(int)]
+	}).(ProfileHttpHttpStrictTransportSecurityOutput)
 }
 
 type SnatOrigin struct {
@@ -4200,6 +4487,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyRuleConditionArrayInput)(nil)).Elem(), PolicyRuleConditionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileClientSslCertKeyChainInput)(nil)).Elem(), ProfileClientSslCertKeyChainArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProfileClientSslCertKeyChainPtrInput)(nil)).Elem(), ProfileClientSslCertKeyChainArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfileHttpEnforcementInput)(nil)).Elem(), ProfileHttpEnforcementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfileHttpEnforcementArrayInput)(nil)).Elem(), ProfileHttpEnforcementArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfileHttpHttpStrictTransportSecurityInput)(nil)).Elem(), ProfileHttpHttpStrictTransportSecurityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProfileHttpHttpStrictTransportSecurityArrayInput)(nil)).Elem(), ProfileHttpHttpStrictTransportSecurityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnatOriginInput)(nil)).Elem(), SnatOriginArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnatOriginArrayInput)(nil)).Elem(), SnatOriginArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDataGroupRecordInput)(nil)).Elem(), GetDataGroupRecordArgs{})
@@ -4224,6 +4515,10 @@ func init() {
 	pulumi.RegisterOutputType(PolicyRuleConditionArrayOutput{})
 	pulumi.RegisterOutputType(ProfileClientSslCertKeyChainOutput{})
 	pulumi.RegisterOutputType(ProfileClientSslCertKeyChainPtrOutput{})
+	pulumi.RegisterOutputType(ProfileHttpEnforcementOutput{})
+	pulumi.RegisterOutputType(ProfileHttpEnforcementArrayOutput{})
+	pulumi.RegisterOutputType(ProfileHttpHttpStrictTransportSecurityOutput{})
+	pulumi.RegisterOutputType(ProfileHttpHttpStrictTransportSecurityArrayOutput{})
 	pulumi.RegisterOutputType(SnatOriginOutput{})
 	pulumi.RegisterOutputType(SnatOriginArrayOutput{})
 	pulumi.RegisterOutputType(GetDataGroupRecordOutput{})

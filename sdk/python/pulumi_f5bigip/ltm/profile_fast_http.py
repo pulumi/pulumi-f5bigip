@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ProfileFastHttpArgs', 'ProfileFastHttp']
@@ -39,27 +39,56 @@ class ProfileFastHttpArgs:
         :param pulumi.Input[int] idle_timeout: Specifies an idle timeout in seconds. This setting specifies the number of seconds that a connection is idle before the connection is eligible for deletion.When you specify an idle timeout for the Fast L4 profile, the value must be greater than the bigdb database variable Pva.Scrub time in msec for it to work properly.The default value is 300 seconds.
         :param pulumi.Input[int] maxheader_size: Specifies the maximum amount of HTTP header data that the system buffers before making a load balancing decision. The default setting is 32768.
         """
-        pulumi.set(__self__, "name", name)
+        ProfileFastHttpArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            connpool_maxreuse=connpool_maxreuse,
+            connpool_maxsize=connpool_maxsize,
+            connpool_minsize=connpool_minsize,
+            connpool_replenish=connpool_replenish,
+            connpool_step=connpool_step,
+            connpoolidle_timeoutoverride=connpoolidle_timeoutoverride,
+            defaults_from=defaults_from,
+            forcehttp10response=forcehttp10response,
+            idle_timeout=idle_timeout,
+            maxheader_size=maxheader_size,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             connpool_maxreuse: Optional[pulumi.Input[int]] = None,
+             connpool_maxsize: Optional[pulumi.Input[int]] = None,
+             connpool_minsize: Optional[pulumi.Input[int]] = None,
+             connpool_replenish: Optional[pulumi.Input[str]] = None,
+             connpool_step: Optional[pulumi.Input[int]] = None,
+             connpoolidle_timeoutoverride: Optional[pulumi.Input[int]] = None,
+             defaults_from: Optional[pulumi.Input[str]] = None,
+             forcehttp10response: Optional[pulumi.Input[str]] = None,
+             idle_timeout: Optional[pulumi.Input[int]] = None,
+             maxheader_size: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if connpool_maxreuse is not None:
-            pulumi.set(__self__, "connpool_maxreuse", connpool_maxreuse)
+            _setter("connpool_maxreuse", connpool_maxreuse)
         if connpool_maxsize is not None:
-            pulumi.set(__self__, "connpool_maxsize", connpool_maxsize)
+            _setter("connpool_maxsize", connpool_maxsize)
         if connpool_minsize is not None:
-            pulumi.set(__self__, "connpool_minsize", connpool_minsize)
+            _setter("connpool_minsize", connpool_minsize)
         if connpool_replenish is not None:
-            pulumi.set(__self__, "connpool_replenish", connpool_replenish)
+            _setter("connpool_replenish", connpool_replenish)
         if connpool_step is not None:
-            pulumi.set(__self__, "connpool_step", connpool_step)
+            _setter("connpool_step", connpool_step)
         if connpoolidle_timeoutoverride is not None:
-            pulumi.set(__self__, "connpoolidle_timeoutoverride", connpoolidle_timeoutoverride)
+            _setter("connpoolidle_timeoutoverride", connpoolidle_timeoutoverride)
         if defaults_from is not None:
-            pulumi.set(__self__, "defaults_from", defaults_from)
+            _setter("defaults_from", defaults_from)
         if forcehttp10response is not None:
-            pulumi.set(__self__, "forcehttp10response", forcehttp10response)
+            _setter("forcehttp10response", forcehttp10response)
         if idle_timeout is not None:
-            pulumi.set(__self__, "idle_timeout", idle_timeout)
+            _setter("idle_timeout", idle_timeout)
         if maxheader_size is not None:
-            pulumi.set(__self__, "maxheader_size", maxheader_size)
+            _setter("maxheader_size", maxheader_size)
 
     @property
     @pulumi.getter
@@ -222,28 +251,57 @@ class _ProfileFastHttpState:
         :param pulumi.Input[int] maxheader_size: Specifies the maximum amount of HTTP header data that the system buffers before making a load balancing decision. The default setting is 32768.
         :param pulumi.Input[str] name: Name of the profile_fasthttp
         """
+        _ProfileFastHttpState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connpool_maxreuse=connpool_maxreuse,
+            connpool_maxsize=connpool_maxsize,
+            connpool_minsize=connpool_minsize,
+            connpool_replenish=connpool_replenish,
+            connpool_step=connpool_step,
+            connpoolidle_timeoutoverride=connpoolidle_timeoutoverride,
+            defaults_from=defaults_from,
+            forcehttp10response=forcehttp10response,
+            idle_timeout=idle_timeout,
+            maxheader_size=maxheader_size,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connpool_maxreuse: Optional[pulumi.Input[int]] = None,
+             connpool_maxsize: Optional[pulumi.Input[int]] = None,
+             connpool_minsize: Optional[pulumi.Input[int]] = None,
+             connpool_replenish: Optional[pulumi.Input[str]] = None,
+             connpool_step: Optional[pulumi.Input[int]] = None,
+             connpoolidle_timeoutoverride: Optional[pulumi.Input[int]] = None,
+             defaults_from: Optional[pulumi.Input[str]] = None,
+             forcehttp10response: Optional[pulumi.Input[str]] = None,
+             idle_timeout: Optional[pulumi.Input[int]] = None,
+             maxheader_size: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if connpool_maxreuse is not None:
-            pulumi.set(__self__, "connpool_maxreuse", connpool_maxreuse)
+            _setter("connpool_maxreuse", connpool_maxreuse)
         if connpool_maxsize is not None:
-            pulumi.set(__self__, "connpool_maxsize", connpool_maxsize)
+            _setter("connpool_maxsize", connpool_maxsize)
         if connpool_minsize is not None:
-            pulumi.set(__self__, "connpool_minsize", connpool_minsize)
+            _setter("connpool_minsize", connpool_minsize)
         if connpool_replenish is not None:
-            pulumi.set(__self__, "connpool_replenish", connpool_replenish)
+            _setter("connpool_replenish", connpool_replenish)
         if connpool_step is not None:
-            pulumi.set(__self__, "connpool_step", connpool_step)
+            _setter("connpool_step", connpool_step)
         if connpoolidle_timeoutoverride is not None:
-            pulumi.set(__self__, "connpoolidle_timeoutoverride", connpoolidle_timeoutoverride)
+            _setter("connpoolidle_timeoutoverride", connpoolidle_timeoutoverride)
         if defaults_from is not None:
-            pulumi.set(__self__, "defaults_from", defaults_from)
+            _setter("defaults_from", defaults_from)
         if forcehttp10response is not None:
-            pulumi.set(__self__, "forcehttp10response", forcehttp10response)
+            _setter("forcehttp10response", forcehttp10response)
         if idle_timeout is not None:
-            pulumi.set(__self__, "idle_timeout", idle_timeout)
+            _setter("idle_timeout", idle_timeout)
         if maxheader_size is not None:
-            pulumi.set(__self__, "maxheader_size", maxheader_size)
+            _setter("maxheader_size", maxheader_size)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="connpoolMaxreuse")
@@ -475,6 +533,10 @@ class ProfileFastHttp(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProfileFastHttpArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

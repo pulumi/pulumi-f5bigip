@@ -21,6 +21,10 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "f5bigip:ltm/cipherGroup:CipherGroup":
+		r = &CipherGroup{}
+	case "f5bigip:ltm/cipherRule:CipherRule":
+		r = &CipherRule{}
 	case "f5bigip:ltm/dataGroup:DataGroup":
 		r = &DataGroup{}
 	case "f5bigip:ltm/iRule:IRule":
@@ -84,6 +88,16 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"f5bigip",
+		"ltm/cipherGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"f5bigip",
+		"ltm/cipherRule",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"f5bigip",
 		"ltm/dataGroup",

@@ -60,8 +60,14 @@ type Certificate struct {
 	Content pulumi.StringOutput `pulumi:"content"`
 	// Full Path Name of ssl certificate
 	FullPath pulumi.StringOutput `pulumi:"fullPath"`
+	// Specifies the issuer certificate.
+	IssuerCert pulumi.StringPtrOutput `pulumi:"issuerCert"`
+	// Specifies the type of monitoring used.
+	MonitoringType pulumi.StringPtrOutput `pulumi:"monitoringType"`
 	// Name of the SSL Certificate to be Imported on to BIGIP
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Specifies the OCSP responder.
+	Ocsp pulumi.StringPtrOutput `pulumi:"ocsp"`
 	// Partition of ssl certificate
 	Partition pulumi.StringPtrOutput `pulumi:"partition"`
 }
@@ -113,8 +119,14 @@ type certificateState struct {
 	Content *string `pulumi:"content"`
 	// Full Path Name of ssl certificate
 	FullPath *string `pulumi:"fullPath"`
+	// Specifies the issuer certificate.
+	IssuerCert *string `pulumi:"issuerCert"`
+	// Specifies the type of monitoring used.
+	MonitoringType *string `pulumi:"monitoringType"`
 	// Name of the SSL Certificate to be Imported on to BIGIP
 	Name *string `pulumi:"name"`
+	// Specifies the OCSP responder.
+	Ocsp *string `pulumi:"ocsp"`
 	// Partition of ssl certificate
 	Partition *string `pulumi:"partition"`
 }
@@ -124,8 +136,14 @@ type CertificateState struct {
 	Content pulumi.StringPtrInput
 	// Full Path Name of ssl certificate
 	FullPath pulumi.StringPtrInput
+	// Specifies the issuer certificate.
+	IssuerCert pulumi.StringPtrInput
+	// Specifies the type of monitoring used.
+	MonitoringType pulumi.StringPtrInput
 	// Name of the SSL Certificate to be Imported on to BIGIP
 	Name pulumi.StringPtrInput
+	// Specifies the OCSP responder.
+	Ocsp pulumi.StringPtrInput
 	// Partition of ssl certificate
 	Partition pulumi.StringPtrInput
 }
@@ -139,8 +157,14 @@ type certificateArgs struct {
 	Content string `pulumi:"content"`
 	// Full Path Name of ssl certificate
 	FullPath *string `pulumi:"fullPath"`
+	// Specifies the issuer certificate.
+	IssuerCert *string `pulumi:"issuerCert"`
+	// Specifies the type of monitoring used.
+	MonitoringType *string `pulumi:"monitoringType"`
 	// Name of the SSL Certificate to be Imported on to BIGIP
 	Name string `pulumi:"name"`
+	// Specifies the OCSP responder.
+	Ocsp *string `pulumi:"ocsp"`
 	// Partition of ssl certificate
 	Partition *string `pulumi:"partition"`
 }
@@ -151,8 +175,14 @@ type CertificateArgs struct {
 	Content pulumi.StringInput
 	// Full Path Name of ssl certificate
 	FullPath pulumi.StringPtrInput
+	// Specifies the issuer certificate.
+	IssuerCert pulumi.StringPtrInput
+	// Specifies the type of monitoring used.
+	MonitoringType pulumi.StringPtrInput
 	// Name of the SSL Certificate to be Imported on to BIGIP
 	Name pulumi.StringInput
+	// Specifies the OCSP responder.
+	Ocsp pulumi.StringPtrInput
 	// Partition of ssl certificate
 	Partition pulumi.StringPtrInput
 }
@@ -278,9 +308,24 @@ func (o CertificateOutput) FullPath() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.FullPath }).(pulumi.StringOutput)
 }
 
+// Specifies the issuer certificate.
+func (o CertificateOutput) IssuerCert() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.IssuerCert }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of monitoring used.
+func (o CertificateOutput) MonitoringType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.MonitoringType }).(pulumi.StringPtrOutput)
+}
+
 // Name of the SSL Certificate to be Imported on to BIGIP
 func (o CertificateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Certificate) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the OCSP responder.
+func (o CertificateOutput) Ocsp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Certificate) pulumi.StringPtrOutput { return v.Ocsp }).(pulumi.StringPtrOutput)
 }
 
 // Partition of ssl certificate

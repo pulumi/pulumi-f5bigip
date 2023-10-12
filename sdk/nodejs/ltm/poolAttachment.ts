@@ -9,8 +9,16 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * There are two ways to use ltmPoolAttachment resource, where we can take node reference from ltmNode or we can specify node directly with ip:port/fqdn:port which will also create node and atach to pool.
- * ### Pool attachment with node directly taking  `ip:port` / `fqdn:port`
+ * There are two ways to use `f5bigip.ltm.PoolAttachment` resource for `node` attribute
+ *
+ * * It can be reference from `f5bigip.ltm.Node` (or)
+ * * It can be specify directly with `ipv4:port`/`fqdn:port`/`ipv6.port` which will also create node and attach member to pool.
+ *
+ * > For adding IPv6 node/member to pool it should be specific in `node` attribute in format like `ipv6_address.port`.
+ * IPv4 should be specified as `ipv4_address:port`
+ * ### Usage Pool attachment with node/member directly attaching to pool.
+ *
+ * node can be specified in format `ipv4:port` / `fqdn:port` / `ipv6.port`
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -30,12 +38,18 @@ import * as utilities from "../utilities";
  *     allowSnat: "yes",
  *     allowNat: "yes",
  * });
- * const attachNode = new f5bigip.ltm.PoolAttachment("attachNode", {
+ * // attaching ipv4 address with service port
+ * const ipv4NodeAttach = new f5bigip.ltm.PoolAttachment("ipv4NodeAttach", {
  *     pool: pool.name,
  *     node: "1.1.1.1:80",
  * });
+ * // attaching ipv6 address with service port
+ * const ipv6NodeAttach = new f5bigip.ltm.PoolAttachment("ipv6NodeAttach", {
+ *     pool: pool.name,
+ *     node: "2003::4.80",
+ * });
  * ```
- * ### Pool attachment with node referenced from `f5bigip.ltm.Node`
+ * ### Usage Pool attachment with node referenced from `f5bigip.ltm.Node`
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PersistenceProfileCookieArgs', 'PersistenceProfileCookie']
@@ -53,40 +53,83 @@ class PersistenceProfileCookieArgs:
                limits remain hard limits and are not overridden.
         :param pulumi.Input[int] timeout: Timeout for persistence of the session
         """
-        pulumi.set(__self__, "defaults_from", defaults_from)
-        pulumi.set(__self__, "name", name)
+        PersistenceProfileCookieArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            defaults_from=defaults_from,
+            name=name,
+            always_send=always_send,
+            app_service=app_service,
+            cookie_encryption=cookie_encryption,
+            cookie_encryption_passphrase=cookie_encryption_passphrase,
+            cookie_name=cookie_name,
+            expiration=expiration,
+            hash_length=hash_length,
+            hash_offset=hash_offset,
+            httponly=httponly,
+            match_across_pools=match_across_pools,
+            match_across_services=match_across_services,
+            match_across_virtuals=match_across_virtuals,
+            method=method,
+            mirror=mirror,
+            override_conn_limit=override_conn_limit,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             defaults_from: pulumi.Input[str],
+             name: pulumi.Input[str],
+             always_send: Optional[pulumi.Input[str]] = None,
+             app_service: Optional[pulumi.Input[str]] = None,
+             cookie_encryption: Optional[pulumi.Input[str]] = None,
+             cookie_encryption_passphrase: Optional[pulumi.Input[str]] = None,
+             cookie_name: Optional[pulumi.Input[str]] = None,
+             expiration: Optional[pulumi.Input[str]] = None,
+             hash_length: Optional[pulumi.Input[int]] = None,
+             hash_offset: Optional[pulumi.Input[int]] = None,
+             httponly: Optional[pulumi.Input[str]] = None,
+             match_across_pools: Optional[pulumi.Input[str]] = None,
+             match_across_services: Optional[pulumi.Input[str]] = None,
+             match_across_virtuals: Optional[pulumi.Input[str]] = None,
+             method: Optional[pulumi.Input[str]] = None,
+             mirror: Optional[pulumi.Input[str]] = None,
+             override_conn_limit: Optional[pulumi.Input[str]] = None,
+             timeout: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("defaults_from", defaults_from)
+        _setter("name", name)
         if always_send is not None:
-            pulumi.set(__self__, "always_send", always_send)
+            _setter("always_send", always_send)
         if app_service is not None:
-            pulumi.set(__self__, "app_service", app_service)
+            _setter("app_service", app_service)
         if cookie_encryption is not None:
-            pulumi.set(__self__, "cookie_encryption", cookie_encryption)
+            _setter("cookie_encryption", cookie_encryption)
         if cookie_encryption_passphrase is not None:
-            pulumi.set(__self__, "cookie_encryption_passphrase", cookie_encryption_passphrase)
+            _setter("cookie_encryption_passphrase", cookie_encryption_passphrase)
         if cookie_name is not None:
-            pulumi.set(__self__, "cookie_name", cookie_name)
+            _setter("cookie_name", cookie_name)
         if expiration is not None:
-            pulumi.set(__self__, "expiration", expiration)
+            _setter("expiration", expiration)
         if hash_length is not None:
-            pulumi.set(__self__, "hash_length", hash_length)
+            _setter("hash_length", hash_length)
         if hash_offset is not None:
-            pulumi.set(__self__, "hash_offset", hash_offset)
+            _setter("hash_offset", hash_offset)
         if httponly is not None:
-            pulumi.set(__self__, "httponly", httponly)
+            _setter("httponly", httponly)
         if match_across_pools is not None:
-            pulumi.set(__self__, "match_across_pools", match_across_pools)
+            _setter("match_across_pools", match_across_pools)
         if match_across_services is not None:
-            pulumi.set(__self__, "match_across_services", match_across_services)
+            _setter("match_across_services", match_across_services)
         if match_across_virtuals is not None:
-            pulumi.set(__self__, "match_across_virtuals", match_across_virtuals)
+            _setter("match_across_virtuals", match_across_virtuals)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if mirror is not None:
-            pulumi.set(__self__, "mirror", mirror)
+            _setter("mirror", mirror)
         if override_conn_limit is not None:
-            pulumi.set(__self__, "override_conn_limit", override_conn_limit)
+            _setter("override_conn_limit", override_conn_limit)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter(name="defaultsFrom")
@@ -345,42 +388,85 @@ class _PersistenceProfileCookieState:
                limits remain hard limits and are not overridden.
         :param pulumi.Input[int] timeout: Timeout for persistence of the session
         """
+        _PersistenceProfileCookieState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            always_send=always_send,
+            app_service=app_service,
+            cookie_encryption=cookie_encryption,
+            cookie_encryption_passphrase=cookie_encryption_passphrase,
+            cookie_name=cookie_name,
+            defaults_from=defaults_from,
+            expiration=expiration,
+            hash_length=hash_length,
+            hash_offset=hash_offset,
+            httponly=httponly,
+            match_across_pools=match_across_pools,
+            match_across_services=match_across_services,
+            match_across_virtuals=match_across_virtuals,
+            method=method,
+            mirror=mirror,
+            name=name,
+            override_conn_limit=override_conn_limit,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             always_send: Optional[pulumi.Input[str]] = None,
+             app_service: Optional[pulumi.Input[str]] = None,
+             cookie_encryption: Optional[pulumi.Input[str]] = None,
+             cookie_encryption_passphrase: Optional[pulumi.Input[str]] = None,
+             cookie_name: Optional[pulumi.Input[str]] = None,
+             defaults_from: Optional[pulumi.Input[str]] = None,
+             expiration: Optional[pulumi.Input[str]] = None,
+             hash_length: Optional[pulumi.Input[int]] = None,
+             hash_offset: Optional[pulumi.Input[int]] = None,
+             httponly: Optional[pulumi.Input[str]] = None,
+             match_across_pools: Optional[pulumi.Input[str]] = None,
+             match_across_services: Optional[pulumi.Input[str]] = None,
+             match_across_virtuals: Optional[pulumi.Input[str]] = None,
+             method: Optional[pulumi.Input[str]] = None,
+             mirror: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             override_conn_limit: Optional[pulumi.Input[str]] = None,
+             timeout: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if always_send is not None:
-            pulumi.set(__self__, "always_send", always_send)
+            _setter("always_send", always_send)
         if app_service is not None:
-            pulumi.set(__self__, "app_service", app_service)
+            _setter("app_service", app_service)
         if cookie_encryption is not None:
-            pulumi.set(__self__, "cookie_encryption", cookie_encryption)
+            _setter("cookie_encryption", cookie_encryption)
         if cookie_encryption_passphrase is not None:
-            pulumi.set(__self__, "cookie_encryption_passphrase", cookie_encryption_passphrase)
+            _setter("cookie_encryption_passphrase", cookie_encryption_passphrase)
         if cookie_name is not None:
-            pulumi.set(__self__, "cookie_name", cookie_name)
+            _setter("cookie_name", cookie_name)
         if defaults_from is not None:
-            pulumi.set(__self__, "defaults_from", defaults_from)
+            _setter("defaults_from", defaults_from)
         if expiration is not None:
-            pulumi.set(__self__, "expiration", expiration)
+            _setter("expiration", expiration)
         if hash_length is not None:
-            pulumi.set(__self__, "hash_length", hash_length)
+            _setter("hash_length", hash_length)
         if hash_offset is not None:
-            pulumi.set(__self__, "hash_offset", hash_offset)
+            _setter("hash_offset", hash_offset)
         if httponly is not None:
-            pulumi.set(__self__, "httponly", httponly)
+            _setter("httponly", httponly)
         if match_across_pools is not None:
-            pulumi.set(__self__, "match_across_pools", match_across_pools)
+            _setter("match_across_pools", match_across_pools)
         if match_across_services is not None:
-            pulumi.set(__self__, "match_across_services", match_across_services)
+            _setter("match_across_services", match_across_services)
         if match_across_virtuals is not None:
-            pulumi.set(__self__, "match_across_virtuals", match_across_virtuals)
+            _setter("match_across_virtuals", match_across_virtuals)
         if method is not None:
-            pulumi.set(__self__, "method", method)
+            _setter("method", method)
         if mirror is not None:
-            pulumi.set(__self__, "mirror", mirror)
+            _setter("mirror", mirror)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if override_conn_limit is not None:
-            pulumi.set(__self__, "override_conn_limit", override_conn_limit)
+            _setter("override_conn_limit", override_conn_limit)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter(name="alwaysSend")
@@ -782,6 +868,10 @@ class PersistenceProfileCookie(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PersistenceProfileCookieArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

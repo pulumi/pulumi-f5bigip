@@ -179,6 +179,10 @@ export class ProfileClientSsl extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * Specifies whether the system uses OCSP stapling. The default value is `disabled`.
+     */
+    public readonly ocspStapling!: pulumi.Output<string | undefined>;
+    /**
      * name of partition
      */
     public readonly partition!: pulumi.Output<string>;
@@ -328,6 +332,7 @@ export class ProfileClientSsl extends pulumi.CustomResource {
             resourceInputs["modSslMethods"] = state ? state.modSslMethods : undefined;
             resourceInputs["mode"] = state ? state.mode : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ocspStapling"] = state ? state.ocspStapling : undefined;
             resourceInputs["partition"] = state ? state.partition : undefined;
             resourceInputs["passphrase"] = state ? state.passphrase : undefined;
             resourceInputs["peerCertMode"] = state ? state.peerCertMode : undefined;
@@ -389,6 +394,7 @@ export class ProfileClientSsl extends pulumi.CustomResource {
             resourceInputs["modSslMethods"] = args ? args.modSslMethods : undefined;
             resourceInputs["mode"] = args ? args.mode : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["ocspStapling"] = args ? args.ocspStapling : undefined;
             resourceInputs["partition"] = args ? args.partition : undefined;
             resourceInputs["passphrase"] = args?.passphrase ? pulumi.secret(args.passphrase) : undefined;
             resourceInputs["peerCertMode"] = args ? args.peerCertMode : undefined;
@@ -551,6 +557,10 @@ export interface ProfileClientSslState {
      * Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Specifies whether the system uses OCSP stapling. The default value is `disabled`.
+     */
+    ocspStapling?: pulumi.Input<string>;
     /**
      * name of partition
      */
@@ -787,6 +797,10 @@ export interface ProfileClientSslArgs {
      * Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
      */
     name: pulumi.Input<string>;
+    /**
+     * Specifies whether the system uses OCSP stapling. The default value is `disabled`.
+     */
+    ocspStapling?: pulumi.Input<string>;
     /**
      * name of partition
      */

@@ -46,6 +46,21 @@ public final class SslKeyCertState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the type of monitoring used.
+     * 
+     */
+    @Import(name="certMonitoringType")
+    private @Nullable Output<String> certMonitoringType;
+
+    /**
+     * @return Specifies the type of monitoring used.
+     * 
+     */
+    public Optional<Output<String>> certMonitoringType() {
+        return Optional.ofNullable(this.certMonitoringType);
+    }
+
+    /**
      * Name of the SSL certificate to be Imported on to BIGIP.
      * 
      */
@@ -58,6 +73,36 @@ public final class SslKeyCertState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> certName() {
         return Optional.ofNullable(this.certName);
+    }
+
+    /**
+     * Specifies the OCSP responder.
+     * 
+     */
+    @Import(name="certOcsp")
+    private @Nullable Output<String> certOcsp;
+
+    /**
+     * @return Specifies the OCSP responder.
+     * 
+     */
+    public Optional<Output<String>> certOcsp() {
+        return Optional.ofNullable(this.certOcsp);
+    }
+
+    /**
+     * Specifies the issuer certificate.
+     * 
+     */
+    @Import(name="issuerCert")
+    private @Nullable Output<String> issuerCert;
+
+    /**
+     * @return Specifies the issuer certificate.
+     * 
+     */
+    public Optional<Output<String>> issuerCert() {
+        return Optional.ofNullable(this.issuerCert);
     }
 
     /**
@@ -140,7 +185,10 @@ public final class SslKeyCertState extends com.pulumi.resources.ResourceArgs {
     private SslKeyCertState(SslKeyCertState $) {
         this.certContent = $.certContent;
         this.certFullPath = $.certFullPath;
+        this.certMonitoringType = $.certMonitoringType;
         this.certName = $.certName;
+        this.certOcsp = $.certOcsp;
+        this.issuerCert = $.issuerCert;
         this.keyContent = $.keyContent;
         this.keyFullPath = $.keyFullPath;
         this.keyName = $.keyName;
@@ -209,6 +257,27 @@ public final class SslKeyCertState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param certMonitoringType Specifies the type of monitoring used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certMonitoringType(@Nullable Output<String> certMonitoringType) {
+            $.certMonitoringType = certMonitoringType;
+            return this;
+        }
+
+        /**
+         * @param certMonitoringType Specifies the type of monitoring used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certMonitoringType(String certMonitoringType) {
+            return certMonitoringType(Output.of(certMonitoringType));
+        }
+
+        /**
          * @param certName Name of the SSL certificate to be Imported on to BIGIP.
          * 
          * @return builder
@@ -227,6 +296,48 @@ public final class SslKeyCertState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder certName(String certName) {
             return certName(Output.of(certName));
+        }
+
+        /**
+         * @param certOcsp Specifies the OCSP responder.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certOcsp(@Nullable Output<String> certOcsp) {
+            $.certOcsp = certOcsp;
+            return this;
+        }
+
+        /**
+         * @param certOcsp Specifies the OCSP responder.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certOcsp(String certOcsp) {
+            return certOcsp(Output.of(certOcsp));
+        }
+
+        /**
+         * @param issuerCert Specifies the issuer certificate.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder issuerCert(@Nullable Output<String> issuerCert) {
+            $.issuerCert = issuerCert;
+            return this;
+        }
+
+        /**
+         * @param issuerCert Specifies the issuer certificate.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder issuerCert(String issuerCert) {
+            return issuerCert(Output.of(issuerCert));
         }
 
         /**

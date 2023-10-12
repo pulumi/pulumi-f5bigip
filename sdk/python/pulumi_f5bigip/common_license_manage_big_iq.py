@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['CommonLicenseManageBigIqArgs', 'CommonLicenseManageBigIq']
@@ -49,33 +49,72 @@ class CommonLicenseManageBigIqArgs:
         :param pulumi.Input[str] tenant: For an unreachable BIG-IP, you can provide an optional description for the assignment in this field.
         :param pulumi.Input[str] unit_of_measure: The units used to measure billing. For example, “hourly” or “daily”. Type `string`
         """
-        pulumi.set(__self__, "assignment_type", assignment_type)
-        pulumi.set(__self__, "bigiq_address", bigiq_address)
-        pulumi.set(__self__, "bigiq_password", bigiq_password)
-        pulumi.set(__self__, "bigiq_user", bigiq_user)
-        pulumi.set(__self__, "license_poolname", license_poolname)
+        CommonLicenseManageBigIqArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assignment_type=assignment_type,
+            bigiq_address=bigiq_address,
+            bigiq_password=bigiq_password,
+            bigiq_user=bigiq_user,
+            license_poolname=license_poolname,
+            bigiq_login_ref=bigiq_login_ref,
+            bigiq_port=bigiq_port,
+            bigiq_token_auth=bigiq_token_auth,
+            device_license_status=device_license_status,
+            hypervisor=hypervisor,
+            key=key,
+            mac_address=mac_address,
+            skukeyword1=skukeyword1,
+            skukeyword2=skukeyword2,
+            tenant=tenant,
+            unit_of_measure=unit_of_measure,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assignment_type: pulumi.Input[str],
+             bigiq_address: pulumi.Input[str],
+             bigiq_password: pulumi.Input[str],
+             bigiq_user: pulumi.Input[str],
+             license_poolname: pulumi.Input[str],
+             bigiq_login_ref: Optional[pulumi.Input[str]] = None,
+             bigiq_port: Optional[pulumi.Input[str]] = None,
+             bigiq_token_auth: Optional[pulumi.Input[bool]] = None,
+             device_license_status: Optional[pulumi.Input[str]] = None,
+             hypervisor: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             mac_address: Optional[pulumi.Input[str]] = None,
+             skukeyword1: Optional[pulumi.Input[str]] = None,
+             skukeyword2: Optional[pulumi.Input[str]] = None,
+             tenant: Optional[pulumi.Input[str]] = None,
+             unit_of_measure: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("assignment_type", assignment_type)
+        _setter("bigiq_address", bigiq_address)
+        _setter("bigiq_password", bigiq_password)
+        _setter("bigiq_user", bigiq_user)
+        _setter("license_poolname", license_poolname)
         if bigiq_login_ref is not None:
-            pulumi.set(__self__, "bigiq_login_ref", bigiq_login_ref)
+            _setter("bigiq_login_ref", bigiq_login_ref)
         if bigiq_port is not None:
-            pulumi.set(__self__, "bigiq_port", bigiq_port)
+            _setter("bigiq_port", bigiq_port)
         if bigiq_token_auth is not None:
-            pulumi.set(__self__, "bigiq_token_auth", bigiq_token_auth)
+            _setter("bigiq_token_auth", bigiq_token_auth)
         if device_license_status is not None:
-            pulumi.set(__self__, "device_license_status", device_license_status)
+            _setter("device_license_status", device_license_status)
         if hypervisor is not None:
-            pulumi.set(__self__, "hypervisor", hypervisor)
+            _setter("hypervisor", hypervisor)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if mac_address is not None:
-            pulumi.set(__self__, "mac_address", mac_address)
+            _setter("mac_address", mac_address)
         if skukeyword1 is not None:
-            pulumi.set(__self__, "skukeyword1", skukeyword1)
+            _setter("skukeyword1", skukeyword1)
         if skukeyword2 is not None:
-            pulumi.set(__self__, "skukeyword2", skukeyword2)
+            _setter("skukeyword2", skukeyword2)
         if tenant is not None:
-            pulumi.set(__self__, "tenant", tenant)
+            _setter("tenant", tenant)
         if unit_of_measure is not None:
-            pulumi.set(__self__, "unit_of_measure", unit_of_measure)
+            _setter("unit_of_measure", unit_of_measure)
 
     @property
     @pulumi.getter(name="assignmentType")
@@ -308,38 +347,77 @@ class _CommonLicenseManageBigIqState:
         :param pulumi.Input[str] tenant: For an unreachable BIG-IP, you can provide an optional description for the assignment in this field.
         :param pulumi.Input[str] unit_of_measure: The units used to measure billing. For example, “hourly” or “daily”. Type `string`
         """
+        _CommonLicenseManageBigIqState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            assignment_type=assignment_type,
+            bigiq_address=bigiq_address,
+            bigiq_login_ref=bigiq_login_ref,
+            bigiq_password=bigiq_password,
+            bigiq_port=bigiq_port,
+            bigiq_token_auth=bigiq_token_auth,
+            bigiq_user=bigiq_user,
+            device_license_status=device_license_status,
+            hypervisor=hypervisor,
+            key=key,
+            license_poolname=license_poolname,
+            mac_address=mac_address,
+            skukeyword1=skukeyword1,
+            skukeyword2=skukeyword2,
+            tenant=tenant,
+            unit_of_measure=unit_of_measure,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             assignment_type: Optional[pulumi.Input[str]] = None,
+             bigiq_address: Optional[pulumi.Input[str]] = None,
+             bigiq_login_ref: Optional[pulumi.Input[str]] = None,
+             bigiq_password: Optional[pulumi.Input[str]] = None,
+             bigiq_port: Optional[pulumi.Input[str]] = None,
+             bigiq_token_auth: Optional[pulumi.Input[bool]] = None,
+             bigiq_user: Optional[pulumi.Input[str]] = None,
+             device_license_status: Optional[pulumi.Input[str]] = None,
+             hypervisor: Optional[pulumi.Input[str]] = None,
+             key: Optional[pulumi.Input[str]] = None,
+             license_poolname: Optional[pulumi.Input[str]] = None,
+             mac_address: Optional[pulumi.Input[str]] = None,
+             skukeyword1: Optional[pulumi.Input[str]] = None,
+             skukeyword2: Optional[pulumi.Input[str]] = None,
+             tenant: Optional[pulumi.Input[str]] = None,
+             unit_of_measure: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if assignment_type is not None:
-            pulumi.set(__self__, "assignment_type", assignment_type)
+            _setter("assignment_type", assignment_type)
         if bigiq_address is not None:
-            pulumi.set(__self__, "bigiq_address", bigiq_address)
+            _setter("bigiq_address", bigiq_address)
         if bigiq_login_ref is not None:
-            pulumi.set(__self__, "bigiq_login_ref", bigiq_login_ref)
+            _setter("bigiq_login_ref", bigiq_login_ref)
         if bigiq_password is not None:
-            pulumi.set(__self__, "bigiq_password", bigiq_password)
+            _setter("bigiq_password", bigiq_password)
         if bigiq_port is not None:
-            pulumi.set(__self__, "bigiq_port", bigiq_port)
+            _setter("bigiq_port", bigiq_port)
         if bigiq_token_auth is not None:
-            pulumi.set(__self__, "bigiq_token_auth", bigiq_token_auth)
+            _setter("bigiq_token_auth", bigiq_token_auth)
         if bigiq_user is not None:
-            pulumi.set(__self__, "bigiq_user", bigiq_user)
+            _setter("bigiq_user", bigiq_user)
         if device_license_status is not None:
-            pulumi.set(__self__, "device_license_status", device_license_status)
+            _setter("device_license_status", device_license_status)
         if hypervisor is not None:
-            pulumi.set(__self__, "hypervisor", hypervisor)
+            _setter("hypervisor", hypervisor)
         if key is not None:
-            pulumi.set(__self__, "key", key)
+            _setter("key", key)
         if license_poolname is not None:
-            pulumi.set(__self__, "license_poolname", license_poolname)
+            _setter("license_poolname", license_poolname)
         if mac_address is not None:
-            pulumi.set(__self__, "mac_address", mac_address)
+            _setter("mac_address", mac_address)
         if skukeyword1 is not None:
-            pulumi.set(__self__, "skukeyword1", skukeyword1)
+            _setter("skukeyword1", skukeyword1)
         if skukeyword2 is not None:
-            pulumi.set(__self__, "skukeyword2", skukeyword2)
+            _setter("skukeyword2", skukeyword2)
         if tenant is not None:
-            pulumi.set(__self__, "tenant", tenant)
+            _setter("tenant", tenant)
         if unit_of_measure is not None:
-            pulumi.set(__self__, "unit_of_measure", unit_of_measure)
+            _setter("unit_of_measure", unit_of_measure)
 
     @property
     @pulumi.getter(name="assignmentType")
@@ -705,6 +783,10 @@ class CommonLicenseManageBigIq(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CommonLicenseManageBigIqArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

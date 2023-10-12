@@ -50,10 +50,28 @@ namespace Pulumi.F5BigIP.Ssl
         public Output<string> FullPath { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the issuer certificate.
+        /// </summary>
+        [Output("issuerCert")]
+        public Output<string?> IssuerCert { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the type of monitoring used.
+        /// </summary>
+        [Output("monitoringType")]
+        public Output<string?> MonitoringType { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the SSL Certificate to be Imported on to BIGIP
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the OCSP responder.
+        /// </summary>
+        [Output("ocsp")]
+        public Output<string?> Ocsp { get; private set; } = null!;
 
         /// <summary>
         /// Partition of ssl certificate
@@ -134,10 +152,28 @@ namespace Pulumi.F5BigIP.Ssl
         public Input<string>? FullPath { get; set; }
 
         /// <summary>
+        /// Specifies the issuer certificate.
+        /// </summary>
+        [Input("issuerCert")]
+        public Input<string>? IssuerCert { get; set; }
+
+        /// <summary>
+        /// Specifies the type of monitoring used.
+        /// </summary>
+        [Input("monitoringType")]
+        public Input<string>? MonitoringType { get; set; }
+
+        /// <summary>
         /// Name of the SSL Certificate to be Imported on to BIGIP
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies the OCSP responder.
+        /// </summary>
+        [Input("ocsp")]
+        public Input<string>? Ocsp { get; set; }
 
         /// <summary>
         /// Partition of ssl certificate
@@ -176,10 +212,28 @@ namespace Pulumi.F5BigIP.Ssl
         public Input<string>? FullPath { get; set; }
 
         /// <summary>
+        /// Specifies the issuer certificate.
+        /// </summary>
+        [Input("issuerCert")]
+        public Input<string>? IssuerCert { get; set; }
+
+        /// <summary>
+        /// Specifies the type of monitoring used.
+        /// </summary>
+        [Input("monitoringType")]
+        public Input<string>? MonitoringType { get; set; }
+
+        /// <summary>
         /// Name of the SSL Certificate to be Imported on to BIGIP
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Specifies the OCSP responder.
+        /// </summary>
+        [Input("ocsp")]
+        public Input<string>? Ocsp { get; set; }
 
         /// <summary>
         /// Partition of ssl certificate

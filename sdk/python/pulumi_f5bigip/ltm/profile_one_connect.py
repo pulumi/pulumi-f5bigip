@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ProfileOneConnectArgs', 'ProfileOneConnect']
@@ -37,25 +37,52 @@ class ProfileOneConnectArgs:
         :param pulumi.Input[str] share_pools: Specify if you want to share the pool, default value is `disabled`.
         :param pulumi.Input[str] source_mask: Specifies a source IP mask. The default value is `0.0.0.0`. The system applies the value of this option to the source address to determine its eligibility for reuse. A mask of 0.0.0.0 causes the system to share reused connections across all clients. A host mask (all 1's in binary), causes the system to share only those reused connections originating from the same client IP address.
         """
-        pulumi.set(__self__, "name", name)
+        ProfileOneConnectArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            defaults_from=defaults_from,
+            idle_timeout_override=idle_timeout_override,
+            limit_type=limit_type,
+            max_age=max_age,
+            max_reuse=max_reuse,
+            max_size=max_size,
+            partition=partition,
+            share_pools=share_pools,
+            source_mask=source_mask,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             defaults_from: Optional[pulumi.Input[str]] = None,
+             idle_timeout_override: Optional[pulumi.Input[str]] = None,
+             limit_type: Optional[pulumi.Input[str]] = None,
+             max_age: Optional[pulumi.Input[int]] = None,
+             max_reuse: Optional[pulumi.Input[int]] = None,
+             max_size: Optional[pulumi.Input[int]] = None,
+             partition: Optional[pulumi.Input[str]] = None,
+             share_pools: Optional[pulumi.Input[str]] = None,
+             source_mask: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if defaults_from is not None:
-            pulumi.set(__self__, "defaults_from", defaults_from)
+            _setter("defaults_from", defaults_from)
         if idle_timeout_override is not None:
-            pulumi.set(__self__, "idle_timeout_override", idle_timeout_override)
+            _setter("idle_timeout_override", idle_timeout_override)
         if limit_type is not None:
-            pulumi.set(__self__, "limit_type", limit_type)
+            _setter("limit_type", limit_type)
         if max_age is not None:
-            pulumi.set(__self__, "max_age", max_age)
+            _setter("max_age", max_age)
         if max_reuse is not None:
-            pulumi.set(__self__, "max_reuse", max_reuse)
+            _setter("max_reuse", max_reuse)
         if max_size is not None:
-            pulumi.set(__self__, "max_size", max_size)
+            _setter("max_size", max_size)
         if partition is not None:
-            pulumi.set(__self__, "partition", partition)
+            _setter("partition", partition)
         if share_pools is not None:
-            pulumi.set(__self__, "share_pools", share_pools)
+            _setter("share_pools", share_pools)
         if source_mask is not None:
-            pulumi.set(__self__, "source_mask", source_mask)
+            _setter("source_mask", source_mask)
 
     @property
     @pulumi.getter
@@ -204,26 +231,53 @@ class _ProfileOneConnectState:
         :param pulumi.Input[str] share_pools: Specify if you want to share the pool, default value is `disabled`.
         :param pulumi.Input[str] source_mask: Specifies a source IP mask. The default value is `0.0.0.0`. The system applies the value of this option to the source address to determine its eligibility for reuse. A mask of 0.0.0.0 causes the system to share reused connections across all clients. A host mask (all 1's in binary), causes the system to share only those reused connections originating from the same client IP address.
         """
+        _ProfileOneConnectState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            defaults_from=defaults_from,
+            idle_timeout_override=idle_timeout_override,
+            limit_type=limit_type,
+            max_age=max_age,
+            max_reuse=max_reuse,
+            max_size=max_size,
+            name=name,
+            partition=partition,
+            share_pools=share_pools,
+            source_mask=source_mask,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             defaults_from: Optional[pulumi.Input[str]] = None,
+             idle_timeout_override: Optional[pulumi.Input[str]] = None,
+             limit_type: Optional[pulumi.Input[str]] = None,
+             max_age: Optional[pulumi.Input[int]] = None,
+             max_reuse: Optional[pulumi.Input[int]] = None,
+             max_size: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             partition: Optional[pulumi.Input[str]] = None,
+             share_pools: Optional[pulumi.Input[str]] = None,
+             source_mask: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if defaults_from is not None:
-            pulumi.set(__self__, "defaults_from", defaults_from)
+            _setter("defaults_from", defaults_from)
         if idle_timeout_override is not None:
-            pulumi.set(__self__, "idle_timeout_override", idle_timeout_override)
+            _setter("idle_timeout_override", idle_timeout_override)
         if limit_type is not None:
-            pulumi.set(__self__, "limit_type", limit_type)
+            _setter("limit_type", limit_type)
         if max_age is not None:
-            pulumi.set(__self__, "max_age", max_age)
+            _setter("max_age", max_age)
         if max_reuse is not None:
-            pulumi.set(__self__, "max_reuse", max_reuse)
+            _setter("max_reuse", max_reuse)
         if max_size is not None:
-            pulumi.set(__self__, "max_size", max_size)
+            _setter("max_size", max_size)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if partition is not None:
-            pulumi.set(__self__, "partition", partition)
+            _setter("partition", partition)
         if share_pools is not None:
-            pulumi.set(__self__, "share_pools", share_pools)
+            _setter("share_pools", share_pools)
         if source_mask is not None:
-            pulumi.set(__self__, "source_mask", source_mask)
+            _setter("source_mask", source_mask)
 
     @property
     @pulumi.getter(name="defaultsFrom")
@@ -435,6 +489,10 @@ class ProfileOneConnect(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProfileOneConnectArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

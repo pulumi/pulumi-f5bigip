@@ -94,6 +94,12 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<ImmutableArray<string>> EncryptCookies { get; private set; } = null!;
 
         /// <summary>
+        /// See Enforcement below for more details.
+        /// </summary>
+        [Output("enforcements")]
+        public Output<ImmutableArray<Outputs.ProfileHttpEnforcement>> Enforcements { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
         /// </summary>
         [Output("fallbackHost")]
@@ -116,6 +122,12 @@ namespace Pulumi.F5BigIP.Ltm
         /// </summary>
         [Output("headInsert")]
         public Output<string> HeadInsert { get; private set; } = null!;
+
+        /// <summary>
+        /// See Http_Strict_Transport_Security below for more details.
+        /// </summary>
+        [Output("httpStrictTransportSecurities")]
+        public Output<ImmutableArray<Outputs.ProfileHttpHttpStrictTransportSecurity>> HttpStrictTransportSecurities { get; private set; } = null!;
 
         /// <summary>
         /// Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
@@ -179,8 +191,7 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<ImmutableArray<string>> ResponseHeadersPermitteds { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no
-        /// string is specified, then no Server header will be added to such responses
+        /// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, "none" string is to be passed.
         /// </summary>
         [Output("serverAgentName")]
         public Output<string> ServerAgentName { get; private set; } = null!;
@@ -309,6 +320,18 @@ namespace Pulumi.F5BigIP.Ltm
             set => _encryptCookies = value;
         }
 
+        [Input("enforcements")]
+        private InputList<Inputs.ProfileHttpEnforcementArgs>? _enforcements;
+
+        /// <summary>
+        /// See Enforcement below for more details.
+        /// </summary>
+        public InputList<Inputs.ProfileHttpEnforcementArgs> Enforcements
+        {
+            get => _enforcements ?? (_enforcements = new InputList<Inputs.ProfileHttpEnforcementArgs>());
+            set => _enforcements = value;
+        }
+
         /// <summary>
         /// Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
         /// </summary>
@@ -338,6 +361,18 @@ namespace Pulumi.F5BigIP.Ltm
         /// </summary>
         [Input("headInsert")]
         public Input<string>? HeadInsert { get; set; }
+
+        [Input("httpStrictTransportSecurities")]
+        private InputList<Inputs.ProfileHttpHttpStrictTransportSecurityArgs>? _httpStrictTransportSecurities;
+
+        /// <summary>
+        /// See Http_Strict_Transport_Security below for more details.
+        /// </summary>
+        public InputList<Inputs.ProfileHttpHttpStrictTransportSecurityArgs> HttpStrictTransportSecurities
+        {
+            get => _httpStrictTransportSecurities ?? (_httpStrictTransportSecurities = new InputList<Inputs.ProfileHttpHttpStrictTransportSecurityArgs>());
+            set => _httpStrictTransportSecurities = value;
+        }
 
         /// <summary>
         /// Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
@@ -407,8 +442,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no
-        /// string is specified, then no Server header will be added to such responses
+        /// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, "none" string is to be passed.
         /// </summary>
         [Input("serverAgentName")]
         public Input<string>? ServerAgentName { get; set; }
@@ -505,6 +539,18 @@ namespace Pulumi.F5BigIP.Ltm
             set => _encryptCookies = value;
         }
 
+        [Input("enforcements")]
+        private InputList<Inputs.ProfileHttpEnforcementGetArgs>? _enforcements;
+
+        /// <summary>
+        /// See Enforcement below for more details.
+        /// </summary>
+        public InputList<Inputs.ProfileHttpEnforcementGetArgs> Enforcements
+        {
+            get => _enforcements ?? (_enforcements = new InputList<Inputs.ProfileHttpEnforcementGetArgs>());
+            set => _enforcements = value;
+        }
+
         /// <summary>
         /// Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
         /// </summary>
@@ -534,6 +580,18 @@ namespace Pulumi.F5BigIP.Ltm
         /// </summary>
         [Input("headInsert")]
         public Input<string>? HeadInsert { get; set; }
+
+        [Input("httpStrictTransportSecurities")]
+        private InputList<Inputs.ProfileHttpHttpStrictTransportSecurityGetArgs>? _httpStrictTransportSecurities;
+
+        /// <summary>
+        /// See Http_Strict_Transport_Security below for more details.
+        /// </summary>
+        public InputList<Inputs.ProfileHttpHttpStrictTransportSecurityGetArgs> HttpStrictTransportSecurities
+        {
+            get => _httpStrictTransportSecurities ?? (_httpStrictTransportSecurities = new InputList<Inputs.ProfileHttpHttpStrictTransportSecurityGetArgs>());
+            set => _httpStrictTransportSecurities = value;
+        }
 
         /// <summary>
         /// Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
@@ -603,8 +661,7 @@ namespace Pulumi.F5BigIP.Ltm
         }
 
         /// <summary>
-        /// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no
-        /// string is specified, then no Server header will be added to such responses
+        /// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, "none" string is to be passed.
         /// </summary>
         [Input("serverAgentName")]
         public Input<string>? ServerAgentName { get; set; }

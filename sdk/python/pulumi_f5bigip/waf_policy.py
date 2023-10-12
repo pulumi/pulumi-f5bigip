@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -77,56 +77,115 @@ class WafPolicyArgs:
         :param pulumi.Input[str] type: The type of policy you want to create. The default policy type is `security`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] urls: In a security policy, you can manually specify the HTTP URLs that are allowed (or disallowed) in traffic to the web application being protected. If you are using automatic policy building (and the policy includes learning URLs), the system can determine which URLs to add, based on legitimate traffic.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "template_name", template_name)
+        WafPolicyArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            template_name=template_name,
+            application_language=application_language,
+            case_insensitive=case_insensitive,
+            description=description,
+            enable_passivemode=enable_passivemode,
+            enforcement_mode=enforcement_mode,
+            file_types=file_types,
+            graphql_profiles=graphql_profiles,
+            host_names=host_names,
+            ip_exceptions=ip_exceptions,
+            modifications=modifications,
+            open_api_files=open_api_files,
+            parameters=parameters,
+            partition=partition,
+            policy_builders=policy_builders,
+            policy_id=policy_id,
+            policy_import_json=policy_import_json,
+            protocol_independent=protocol_independent,
+            server_technologies=server_technologies,
+            signature_sets=signature_sets,
+            signatures=signatures,
+            signatures_settings=signatures_settings,
+            template_link=template_link,
+            type=type,
+            urls=urls,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             template_name: pulumi.Input[str],
+             application_language: Optional[pulumi.Input[str]] = None,
+             case_insensitive: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             enable_passivemode: Optional[pulumi.Input[bool]] = None,
+             enforcement_mode: Optional[pulumi.Input[str]] = None,
+             file_types: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyFileTypeArgs']]]] = None,
+             graphql_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyGraphqlProfileArgs']]]] = None,
+             host_names: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyHostNameArgs']]]] = None,
+             ip_exceptions: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyIpExceptionArgs']]]] = None,
+             modifications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             open_api_files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             parameters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             partition: Optional[pulumi.Input[str]] = None,
+             policy_builders: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyPolicyBuilderArgs']]]] = None,
+             policy_id: Optional[pulumi.Input[str]] = None,
+             policy_import_json: Optional[pulumi.Input[str]] = None,
+             protocol_independent: Optional[pulumi.Input[bool]] = None,
+             server_technologies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             signature_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             signatures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             signatures_settings: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicySignaturesSettingArgs']]]] = None,
+             template_link: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("template_name", template_name)
         if application_language is not None:
-            pulumi.set(__self__, "application_language", application_language)
+            _setter("application_language", application_language)
         if case_insensitive is not None:
-            pulumi.set(__self__, "case_insensitive", case_insensitive)
+            _setter("case_insensitive", case_insensitive)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enable_passivemode is not None:
-            pulumi.set(__self__, "enable_passivemode", enable_passivemode)
+            _setter("enable_passivemode", enable_passivemode)
         if enforcement_mode is not None:
-            pulumi.set(__self__, "enforcement_mode", enforcement_mode)
+            _setter("enforcement_mode", enforcement_mode)
         if file_types is not None:
-            pulumi.set(__self__, "file_types", file_types)
+            _setter("file_types", file_types)
         if graphql_profiles is not None:
-            pulumi.set(__self__, "graphql_profiles", graphql_profiles)
+            _setter("graphql_profiles", graphql_profiles)
         if host_names is not None:
-            pulumi.set(__self__, "host_names", host_names)
+            _setter("host_names", host_names)
         if ip_exceptions is not None:
-            pulumi.set(__self__, "ip_exceptions", ip_exceptions)
+            _setter("ip_exceptions", ip_exceptions)
         if modifications is not None:
-            pulumi.set(__self__, "modifications", modifications)
+            _setter("modifications", modifications)
         if open_api_files is not None:
-            pulumi.set(__self__, "open_api_files", open_api_files)
+            _setter("open_api_files", open_api_files)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if partition is not None:
-            pulumi.set(__self__, "partition", partition)
+            _setter("partition", partition)
         if policy_builders is not None:
-            pulumi.set(__self__, "policy_builders", policy_builders)
+            _setter("policy_builders", policy_builders)
         if policy_id is not None:
-            pulumi.set(__self__, "policy_id", policy_id)
+            _setter("policy_id", policy_id)
         if policy_import_json is not None:
-            pulumi.set(__self__, "policy_import_json", policy_import_json)
+            _setter("policy_import_json", policy_import_json)
         if protocol_independent is not None:
-            pulumi.set(__self__, "protocol_independent", protocol_independent)
+            _setter("protocol_independent", protocol_independent)
         if server_technologies is not None:
-            pulumi.set(__self__, "server_technologies", server_technologies)
+            _setter("server_technologies", server_technologies)
         if signature_sets is not None:
-            pulumi.set(__self__, "signature_sets", signature_sets)
+            _setter("signature_sets", signature_sets)
         if signatures is not None:
-            pulumi.set(__self__, "signatures", signatures)
+            _setter("signatures", signatures)
         if signatures_settings is not None:
-            pulumi.set(__self__, "signatures_settings", signatures_settings)
+            _setter("signatures_settings", signatures_settings)
         if template_link is not None:
-            pulumi.set(__self__, "template_link", template_link)
+            _setter("template_link", template_link)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if urls is not None:
-            pulumi.set(__self__, "urls", urls)
+            _setter("urls", urls)
 
     @property
     @pulumi.getter
@@ -513,60 +572,121 @@ class _WafPolicyState:
         :param pulumi.Input[str] type: The type of policy you want to create. The default policy type is `security`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] urls: In a security policy, you can manually specify the HTTP URLs that are allowed (or disallowed) in traffic to the web application being protected. If you are using automatic policy building (and the policy includes learning URLs), the system can determine which URLs to add, based on legitimate traffic.
         """
+        _WafPolicyState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application_language=application_language,
+            case_insensitive=case_insensitive,
+            description=description,
+            enable_passivemode=enable_passivemode,
+            enforcement_mode=enforcement_mode,
+            file_types=file_types,
+            graphql_profiles=graphql_profiles,
+            host_names=host_names,
+            ip_exceptions=ip_exceptions,
+            modifications=modifications,
+            name=name,
+            open_api_files=open_api_files,
+            parameters=parameters,
+            partition=partition,
+            policy_builders=policy_builders,
+            policy_export_json=policy_export_json,
+            policy_id=policy_id,
+            policy_import_json=policy_import_json,
+            protocol_independent=protocol_independent,
+            server_technologies=server_technologies,
+            signature_sets=signature_sets,
+            signatures=signatures,
+            signatures_settings=signatures_settings,
+            template_link=template_link,
+            template_name=template_name,
+            type=type,
+            urls=urls,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application_language: Optional[pulumi.Input[str]] = None,
+             case_insensitive: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             enable_passivemode: Optional[pulumi.Input[bool]] = None,
+             enforcement_mode: Optional[pulumi.Input[str]] = None,
+             file_types: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyFileTypeArgs']]]] = None,
+             graphql_profiles: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyGraphqlProfileArgs']]]] = None,
+             host_names: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyHostNameArgs']]]] = None,
+             ip_exceptions: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyIpExceptionArgs']]]] = None,
+             modifications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             open_api_files: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             parameters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             partition: Optional[pulumi.Input[str]] = None,
+             policy_builders: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyPolicyBuilderArgs']]]] = None,
+             policy_export_json: Optional[pulumi.Input[str]] = None,
+             policy_id: Optional[pulumi.Input[str]] = None,
+             policy_import_json: Optional[pulumi.Input[str]] = None,
+             protocol_independent: Optional[pulumi.Input[bool]] = None,
+             server_technologies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             signature_sets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             signatures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             signatures_settings: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicySignaturesSettingArgs']]]] = None,
+             template_link: Optional[pulumi.Input[str]] = None,
+             template_name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if application_language is not None:
-            pulumi.set(__self__, "application_language", application_language)
+            _setter("application_language", application_language)
         if case_insensitive is not None:
-            pulumi.set(__self__, "case_insensitive", case_insensitive)
+            _setter("case_insensitive", case_insensitive)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enable_passivemode is not None:
-            pulumi.set(__self__, "enable_passivemode", enable_passivemode)
+            _setter("enable_passivemode", enable_passivemode)
         if enforcement_mode is not None:
-            pulumi.set(__self__, "enforcement_mode", enforcement_mode)
+            _setter("enforcement_mode", enforcement_mode)
         if file_types is not None:
-            pulumi.set(__self__, "file_types", file_types)
+            _setter("file_types", file_types)
         if graphql_profiles is not None:
-            pulumi.set(__self__, "graphql_profiles", graphql_profiles)
+            _setter("graphql_profiles", graphql_profiles)
         if host_names is not None:
-            pulumi.set(__self__, "host_names", host_names)
+            _setter("host_names", host_names)
         if ip_exceptions is not None:
-            pulumi.set(__self__, "ip_exceptions", ip_exceptions)
+            _setter("ip_exceptions", ip_exceptions)
         if modifications is not None:
-            pulumi.set(__self__, "modifications", modifications)
+            _setter("modifications", modifications)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if open_api_files is not None:
-            pulumi.set(__self__, "open_api_files", open_api_files)
+            _setter("open_api_files", open_api_files)
         if parameters is not None:
-            pulumi.set(__self__, "parameters", parameters)
+            _setter("parameters", parameters)
         if partition is not None:
-            pulumi.set(__self__, "partition", partition)
+            _setter("partition", partition)
         if policy_builders is not None:
-            pulumi.set(__self__, "policy_builders", policy_builders)
+            _setter("policy_builders", policy_builders)
         if policy_export_json is not None:
-            pulumi.set(__self__, "policy_export_json", policy_export_json)
+            _setter("policy_export_json", policy_export_json)
         if policy_id is not None:
-            pulumi.set(__self__, "policy_id", policy_id)
+            _setter("policy_id", policy_id)
         if policy_import_json is not None:
-            pulumi.set(__self__, "policy_import_json", policy_import_json)
+            _setter("policy_import_json", policy_import_json)
         if protocol_independent is not None:
-            pulumi.set(__self__, "protocol_independent", protocol_independent)
+            _setter("protocol_independent", protocol_independent)
         if server_technologies is not None:
-            pulumi.set(__self__, "server_technologies", server_technologies)
+            _setter("server_technologies", server_technologies)
         if signature_sets is not None:
-            pulumi.set(__self__, "signature_sets", signature_sets)
+            _setter("signature_sets", signature_sets)
         if signatures is not None:
-            pulumi.set(__self__, "signatures", signatures)
+            _setter("signatures", signatures)
         if signatures_settings is not None:
-            pulumi.set(__self__, "signatures_settings", signatures_settings)
+            _setter("signatures_settings", signatures_settings)
         if template_link is not None:
-            pulumi.set(__self__, "template_link", template_link)
+            _setter("template_link", template_link)
         if template_name is not None:
-            pulumi.set(__self__, "template_name", template_name)
+            _setter("template_name", template_name)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
         if urls is not None:
-            pulumi.set(__self__, "urls", urls)
+            _setter("urls", urls)
 
     @property
     @pulumi.getter(name="applicationLanguage")
@@ -1090,6 +1210,10 @@ class WafPolicy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WafPolicyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

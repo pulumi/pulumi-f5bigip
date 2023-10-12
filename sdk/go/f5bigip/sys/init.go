@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &IApp{}
 	case "f5bigip:sys/ntp:Ntp":
 		r = &Ntp{}
+	case "f5bigip:sys/ocsp:Ocsp":
+		r = &Ocsp{}
 	case "f5bigip:sys/provision:Provision":
 		r = &Provision{}
 	case "f5bigip:sys/snmp:Snmp":
@@ -66,6 +68,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"f5bigip",
 		"sys/ntp",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"f5bigip",
+		"sys/ocsp",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

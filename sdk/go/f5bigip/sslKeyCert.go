@@ -62,8 +62,14 @@ type SslKeyCert struct {
 	CertContent pulumi.StringOutput `pulumi:"certContent"`
 	// full path of the SSL certificate on the BIGIP.
 	CertFullPath pulumi.StringOutput `pulumi:"certFullPath"`
+	// Specifies the type of monitoring used.
+	CertMonitoringType pulumi.StringPtrOutput `pulumi:"certMonitoringType"`
 	// Name of the SSL certificate to be Imported on to BIGIP.
 	CertName pulumi.StringOutput `pulumi:"certName"`
+	// Specifies the OCSP responder.
+	CertOcsp pulumi.StringPtrOutput `pulumi:"certOcsp"`
+	// Specifies the issuer certificate.
+	IssuerCert pulumi.StringPtrOutput `pulumi:"issuerCert"`
 	// The content of the key.
 	KeyContent pulumi.StringOutput `pulumi:"keyContent"`
 	// full path of the SSL key on the BIGIP.
@@ -137,8 +143,14 @@ type sslKeyCertState struct {
 	CertContent *string `pulumi:"certContent"`
 	// full path of the SSL certificate on the BIGIP.
 	CertFullPath *string `pulumi:"certFullPath"`
+	// Specifies the type of monitoring used.
+	CertMonitoringType *string `pulumi:"certMonitoringType"`
 	// Name of the SSL certificate to be Imported on to BIGIP.
 	CertName *string `pulumi:"certName"`
+	// Specifies the OCSP responder.
+	CertOcsp *string `pulumi:"certOcsp"`
+	// Specifies the issuer certificate.
+	IssuerCert *string `pulumi:"issuerCert"`
 	// The content of the key.
 	KeyContent *string `pulumi:"keyContent"`
 	// full path of the SSL key on the BIGIP.
@@ -156,8 +168,14 @@ type SslKeyCertState struct {
 	CertContent pulumi.StringPtrInput
 	// full path of the SSL certificate on the BIGIP.
 	CertFullPath pulumi.StringPtrInput
+	// Specifies the type of monitoring used.
+	CertMonitoringType pulumi.StringPtrInput
 	// Name of the SSL certificate to be Imported on to BIGIP.
 	CertName pulumi.StringPtrInput
+	// Specifies the OCSP responder.
+	CertOcsp pulumi.StringPtrInput
+	// Specifies the issuer certificate.
+	IssuerCert pulumi.StringPtrInput
 	// The content of the key.
 	KeyContent pulumi.StringPtrInput
 	// full path of the SSL key on the BIGIP.
@@ -179,8 +197,14 @@ type sslKeyCertArgs struct {
 	CertContent string `pulumi:"certContent"`
 	// full path of the SSL certificate on the BIGIP.
 	CertFullPath *string `pulumi:"certFullPath"`
+	// Specifies the type of monitoring used.
+	CertMonitoringType *string `pulumi:"certMonitoringType"`
 	// Name of the SSL certificate to be Imported on to BIGIP.
 	CertName string `pulumi:"certName"`
+	// Specifies the OCSP responder.
+	CertOcsp *string `pulumi:"certOcsp"`
+	// Specifies the issuer certificate.
+	IssuerCert *string `pulumi:"issuerCert"`
 	// The content of the key.
 	KeyContent string `pulumi:"keyContent"`
 	// full path of the SSL key on the BIGIP.
@@ -199,8 +223,14 @@ type SslKeyCertArgs struct {
 	CertContent pulumi.StringInput
 	// full path of the SSL certificate on the BIGIP.
 	CertFullPath pulumi.StringPtrInput
+	// Specifies the type of monitoring used.
+	CertMonitoringType pulumi.StringPtrInput
 	// Name of the SSL certificate to be Imported on to BIGIP.
 	CertName pulumi.StringInput
+	// Specifies the OCSP responder.
+	CertOcsp pulumi.StringPtrInput
+	// Specifies the issuer certificate.
+	IssuerCert pulumi.StringPtrInput
 	// The content of the key.
 	KeyContent pulumi.StringInput
 	// full path of the SSL key on the BIGIP.
@@ -334,9 +364,24 @@ func (o SslKeyCertOutput) CertFullPath() pulumi.StringOutput {
 	return o.ApplyT(func(v *SslKeyCert) pulumi.StringOutput { return v.CertFullPath }).(pulumi.StringOutput)
 }
 
+// Specifies the type of monitoring used.
+func (o SslKeyCertOutput) CertMonitoringType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SslKeyCert) pulumi.StringPtrOutput { return v.CertMonitoringType }).(pulumi.StringPtrOutput)
+}
+
 // Name of the SSL certificate to be Imported on to BIGIP.
 func (o SslKeyCertOutput) CertName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SslKeyCert) pulumi.StringOutput { return v.CertName }).(pulumi.StringOutput)
+}
+
+// Specifies the OCSP responder.
+func (o SslKeyCertOutput) CertOcsp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SslKeyCert) pulumi.StringPtrOutput { return v.CertOcsp }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the issuer certificate.
+func (o SslKeyCertOutput) IssuerCert() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SslKeyCert) pulumi.StringPtrOutput { return v.IssuerCert }).(pulumi.StringPtrOutput)
 }
 
 // The content of the key.

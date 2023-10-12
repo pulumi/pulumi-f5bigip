@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IRuleArgs', 'IRule']
@@ -21,8 +21,19 @@ class IRuleArgs:
         :param pulumi.Input[str] irule: Body of the iRule
         :param pulumi.Input[str] name: Name of the iRule
         """
-        pulumi.set(__self__, "irule", irule)
-        pulumi.set(__self__, "name", name)
+        IRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            irule=irule,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             irule: pulumi.Input[str],
+             name: pulumi.Input[str],
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("irule", irule)
+        _setter("name", name)
 
     @property
     @pulumi.getter
@@ -59,10 +70,21 @@ class _IRuleState:
         :param pulumi.Input[str] irule: Body of the iRule
         :param pulumi.Input[str] name: Name of the iRule
         """
+        _IRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            irule=irule,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             irule: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if irule is not None:
-            pulumi.set(__self__, "irule", irule)
+            _setter("irule", irule)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter
@@ -128,6 +150,10 @@ class IRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

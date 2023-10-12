@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PoolAttachmentArgs', 'PoolAttachment']
@@ -37,24 +37,51 @@ class PoolAttachmentArgs:
         :param pulumi.Input[int] ratio: "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
         :param pulumi.Input[str] state: Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forced_offline`).
         """
-        pulumi.set(__self__, "node", node)
-        pulumi.set(__self__, "pool", pool)
+        PoolAttachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            node=node,
+            pool=pool,
+            connection_limit=connection_limit,
+            connection_rate_limit=connection_rate_limit,
+            dynamic_ratio=dynamic_ratio,
+            fqdn_autopopulate=fqdn_autopopulate,
+            monitor=monitor,
+            priority_group=priority_group,
+            ratio=ratio,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             node: pulumi.Input[str],
+             pool: pulumi.Input[str],
+             connection_limit: Optional[pulumi.Input[int]] = None,
+             connection_rate_limit: Optional[pulumi.Input[str]] = None,
+             dynamic_ratio: Optional[pulumi.Input[int]] = None,
+             fqdn_autopopulate: Optional[pulumi.Input[str]] = None,
+             monitor: Optional[pulumi.Input[str]] = None,
+             priority_group: Optional[pulumi.Input[int]] = None,
+             ratio: Optional[pulumi.Input[int]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("node", node)
+        _setter("pool", pool)
         if connection_limit is not None:
-            pulumi.set(__self__, "connection_limit", connection_limit)
+            _setter("connection_limit", connection_limit)
         if connection_rate_limit is not None:
-            pulumi.set(__self__, "connection_rate_limit", connection_rate_limit)
+            _setter("connection_rate_limit", connection_rate_limit)
         if dynamic_ratio is not None:
-            pulumi.set(__self__, "dynamic_ratio", dynamic_ratio)
+            _setter("dynamic_ratio", dynamic_ratio)
         if fqdn_autopopulate is not None:
-            pulumi.set(__self__, "fqdn_autopopulate", fqdn_autopopulate)
+            _setter("fqdn_autopopulate", fqdn_autopopulate)
         if monitor is not None:
-            pulumi.set(__self__, "monitor", monitor)
+            _setter("monitor", monitor)
         if priority_group is not None:
-            pulumi.set(__self__, "priority_group", priority_group)
+            _setter("priority_group", priority_group)
         if ratio is not None:
-            pulumi.set(__self__, "ratio", ratio)
+            _setter("ratio", ratio)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter
@@ -203,26 +230,53 @@ class _PoolAttachmentState:
         :param pulumi.Input[int] ratio: "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
         :param pulumi.Input[str] state: Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forced_offline`).
         """
+        _PoolAttachmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_limit=connection_limit,
+            connection_rate_limit=connection_rate_limit,
+            dynamic_ratio=dynamic_ratio,
+            fqdn_autopopulate=fqdn_autopopulate,
+            monitor=monitor,
+            node=node,
+            pool=pool,
+            priority_group=priority_group,
+            ratio=ratio,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_limit: Optional[pulumi.Input[int]] = None,
+             connection_rate_limit: Optional[pulumi.Input[str]] = None,
+             dynamic_ratio: Optional[pulumi.Input[int]] = None,
+             fqdn_autopopulate: Optional[pulumi.Input[str]] = None,
+             monitor: Optional[pulumi.Input[str]] = None,
+             node: Optional[pulumi.Input[str]] = None,
+             pool: Optional[pulumi.Input[str]] = None,
+             priority_group: Optional[pulumi.Input[int]] = None,
+             ratio: Optional[pulumi.Input[int]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if connection_limit is not None:
-            pulumi.set(__self__, "connection_limit", connection_limit)
+            _setter("connection_limit", connection_limit)
         if connection_rate_limit is not None:
-            pulumi.set(__self__, "connection_rate_limit", connection_rate_limit)
+            _setter("connection_rate_limit", connection_rate_limit)
         if dynamic_ratio is not None:
-            pulumi.set(__self__, "dynamic_ratio", dynamic_ratio)
+            _setter("dynamic_ratio", dynamic_ratio)
         if fqdn_autopopulate is not None:
-            pulumi.set(__self__, "fqdn_autopopulate", fqdn_autopopulate)
+            _setter("fqdn_autopopulate", fqdn_autopopulate)
         if monitor is not None:
-            pulumi.set(__self__, "monitor", monitor)
+            _setter("monitor", monitor)
         if node is not None:
-            pulumi.set(__self__, "node", node)
+            _setter("node", node)
         if pool is not None:
-            pulumi.set(__self__, "pool", pool)
+            _setter("pool", pool)
         if priority_group is not None:
-            pulumi.set(__self__, "priority_group", priority_group)
+            _setter("priority_group", priority_group)
         if ratio is not None:
-            pulumi.set(__self__, "ratio", ratio)
+            _setter("ratio", ratio)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter(name="connectionLimit")
@@ -366,8 +420,16 @@ class PoolAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
-        There are two ways to use ltm_pool_attachment resource, where we can take node reference from ltm_node or we can specify node directly with ip:port/fqdn:port which will also create node and atach to pool.
-        ### Pool attachment with node directly taking  `ip:port` / `fqdn:port`
+        There are two ways to use `ltm.PoolAttachment` resource for `node` attribute
+
+        * It can be reference from `ltm.Node` (or)
+        * It can be specify directly with `ipv4:port`/`fqdn:port`/`ipv6.port` which will also create node and attach member to pool.
+
+        > For adding IPv6 node/member to pool it should be specific in `node` attribute in format like `ipv6_address.port`.
+        IPv4 should be specified as `ipv4_address:port`
+        ### Usage Pool attachment with node/member directly attaching to pool.
+
+        node can be specified in format `ipv4:port` / `fqdn:port` / `ipv6.port`
 
         ```python
         import pulumi
@@ -385,11 +447,16 @@ class PoolAttachment(pulumi.CustomResource):
             monitors=[monitor.name],
             allow_snat="yes",
             allow_nat="yes")
-        attach_node = f5bigip.ltm.PoolAttachment("attachNode",
+        # attaching ipv4 address with service port
+        ipv4_node_attach = f5bigip.ltm.PoolAttachment("ipv4NodeAttach",
             pool=pool.name,
             node="1.1.1.1:80")
+        # attaching ipv6 address with service port
+        ipv6_node_attach = f5bigip.ltm.PoolAttachment("ipv6NodeAttach",
+            pool=pool.name,
+            node="2003::4.80")
         ```
-        ### Pool attachment with node referenced from `ltm.Node`
+        ### Usage Pool attachment with node referenced from `ltm.Node`
 
         ```python
         import pulumi
@@ -439,8 +506,16 @@ class PoolAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
-        There are two ways to use ltm_pool_attachment resource, where we can take node reference from ltm_node or we can specify node directly with ip:port/fqdn:port which will also create node and atach to pool.
-        ### Pool attachment with node directly taking  `ip:port` / `fqdn:port`
+        There are two ways to use `ltm.PoolAttachment` resource for `node` attribute
+
+        * It can be reference from `ltm.Node` (or)
+        * It can be specify directly with `ipv4:port`/`fqdn:port`/`ipv6.port` which will also create node and attach member to pool.
+
+        > For adding IPv6 node/member to pool it should be specific in `node` attribute in format like `ipv6_address.port`.
+        IPv4 should be specified as `ipv4_address:port`
+        ### Usage Pool attachment with node/member directly attaching to pool.
+
+        node can be specified in format `ipv4:port` / `fqdn:port` / `ipv6.port`
 
         ```python
         import pulumi
@@ -458,11 +533,16 @@ class PoolAttachment(pulumi.CustomResource):
             monitors=[monitor.name],
             allow_snat="yes",
             allow_nat="yes")
-        attach_node = f5bigip.ltm.PoolAttachment("attachNode",
+        # attaching ipv4 address with service port
+        ipv4_node_attach = f5bigip.ltm.PoolAttachment("ipv4NodeAttach",
             pool=pool.name,
             node="1.1.1.1:80")
+        # attaching ipv6 address with service port
+        ipv6_node_attach = f5bigip.ltm.PoolAttachment("ipv6NodeAttach",
+            pool=pool.name,
+            node="2003::4.80")
         ```
-        ### Pool attachment with node referenced from `ltm.Node`
+        ### Usage Pool attachment with node referenced from `ltm.Node`
 
         ```python
         import pulumi
@@ -498,6 +578,10 @@ class PoolAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PoolAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

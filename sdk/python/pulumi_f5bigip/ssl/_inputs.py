@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -21,10 +21,25 @@ class GetWafEntityParameterUrlArgs:
                  name: str,
                  protocol: str,
                  type: str):
-        pulumi.set(__self__, "method", method)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "protocol", protocol)
-        pulumi.set(__self__, "type", type)
+        GetWafEntityParameterUrlArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            method=method,
+            name=name,
+            protocol=protocol,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             method: str,
+             name: str,
+             protocol: str,
+             type: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("method", method)
+        _setter("name", name)
+        _setter("protocol", protocol)
+        _setter("type", type)
 
     @property
     @pulumi.getter
@@ -72,8 +87,19 @@ class GetWafEntityUrlMethodOverrideArgs:
         :param bool allow: Specifies that the system allows or disallows a method for this URL
         :param str method: Specifies an HTTP method.
         """
-        pulumi.set(__self__, "allow", allow)
-        pulumi.set(__self__, "method", method)
+        GetWafEntityUrlMethodOverrideArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow=allow,
+            method=method,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow: bool,
+             method: str,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("allow", allow)
+        _setter("method", method)
 
     @property
     @pulumi.getter

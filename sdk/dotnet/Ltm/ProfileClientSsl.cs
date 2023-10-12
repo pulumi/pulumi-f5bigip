@@ -223,6 +223,12 @@ namespace Pulumi.F5BigIP.Ltm
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies whether the system uses OCSP stapling. The default value is `disabled`.
+        /// </summary>
+        [Output("ocspStapling")]
+        public Output<string?> OcspStapling { get; private set; } = null!;
+
+        /// <summary>
         /// name of partition
         /// </summary>
         [Output("partition")]
@@ -618,6 +624,12 @@ namespace Pulumi.F5BigIP.Ltm
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
+        /// Specifies whether the system uses OCSP stapling. The default value is `disabled`.
+        /// </summary>
+        [Input("ocspStapling")]
+        public Input<string>? OcspStapling { get; set; }
+
+        /// <summary>
         /// name of partition
         /// </summary>
         [Input("partition")]
@@ -985,6 +997,12 @@ namespace Pulumi.F5BigIP.Ltm
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Specifies whether the system uses OCSP stapling. The default value is `disabled`.
+        /// </summary>
+        [Input("ocspStapling")]
+        public Input<string>? OcspStapling { get; set; }
 
         /// <summary>
         /// name of partition

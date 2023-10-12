@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DnsArgs', 'Dns']
@@ -25,12 +25,27 @@ class DnsArgs:
         :param pulumi.Input[int] number_of_dots: Configures the number of dots needed in a name before an initial absolute query will be made.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] searches: Specifies the domains that the system searches for local domain lookups, to resolve local host names.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "name_servers", name_servers)
+        DnsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            name_servers=name_servers,
+            number_of_dots=number_of_dots,
+            searches=searches,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: pulumi.Input[str],
+             name_servers: pulumi.Input[Sequence[pulumi.Input[str]]],
+             number_of_dots: Optional[pulumi.Input[int]] = None,
+             searches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("description", description)
+        _setter("name_servers", name_servers)
         if number_of_dots is not None:
-            pulumi.set(__self__, "number_of_dots", number_of_dots)
+            _setter("number_of_dots", number_of_dots)
         if searches is not None:
-            pulumi.set(__self__, "searches", searches)
+            _setter("searches", searches)
 
     @property
     @pulumi.getter
@@ -95,14 +110,29 @@ class _DnsState:
         :param pulumi.Input[int] number_of_dots: Configures the number of dots needed in a name before an initial absolute query will be made.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] searches: Specifies the domains that the system searches for local domain lookups, to resolve local host names.
         """
+        _DnsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            name_servers=name_servers,
+            number_of_dots=number_of_dots,
+            searches=searches,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             number_of_dots: Optional[pulumi.Input[int]] = None,
+             searches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name_servers is not None:
-            pulumi.set(__self__, "name_servers", name_servers)
+            _setter("name_servers", name_servers)
         if number_of_dots is not None:
-            pulumi.set(__self__, "number_of_dots", number_of_dots)
+            _setter("number_of_dots", number_of_dots)
         if searches is not None:
-            pulumi.set(__self__, "searches", searches)
+            _setter("searches", searches)
 
     @property
     @pulumi.getter
@@ -216,6 +246,10 @@ class Dns(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DnsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

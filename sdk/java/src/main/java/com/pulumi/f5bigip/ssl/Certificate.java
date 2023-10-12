@@ -83,6 +83,34 @@ public class Certificate extends com.pulumi.resources.CustomResource {
         return this.fullPath;
     }
     /**
+     * Specifies the issuer certificate.
+     * 
+     */
+    @Export(name="issuerCert", type=String.class, parameters={})
+    private Output</* @Nullable */ String> issuerCert;
+
+    /**
+     * @return Specifies the issuer certificate.
+     * 
+     */
+    public Output<Optional<String>> issuerCert() {
+        return Codegen.optional(this.issuerCert);
+    }
+    /**
+     * Specifies the type of monitoring used.
+     * 
+     */
+    @Export(name="monitoringType", type=String.class, parameters={})
+    private Output</* @Nullable */ String> monitoringType;
+
+    /**
+     * @return Specifies the type of monitoring used.
+     * 
+     */
+    public Output<Optional<String>> monitoringType() {
+        return Codegen.optional(this.monitoringType);
+    }
+    /**
      * Name of the SSL Certificate to be Imported on to BIGIP
      * 
      */
@@ -95,6 +123,20 @@ public class Certificate extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * Specifies the OCSP responder.
+     * 
+     */
+    @Export(name="ocsp", type=String.class, parameters={})
+    private Output</* @Nullable */ String> ocsp;
+
+    /**
+     * @return Specifies the OCSP responder.
+     * 
+     */
+    public Output<Optional<String>> ocsp() {
+        return Codegen.optional(this.ocsp);
     }
     /**
      * Partition of ssl certificate

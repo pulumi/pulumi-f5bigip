@@ -685,9 +685,6 @@ export namespace ltm {
         clonePool: string;
         code: number;
         compress: boolean;
-        /**
-         * This action is set to `true` by default, it needs to be explicitly set to `false` for actions it conflicts with.
-         */
         connection?: boolean;
         content: string;
         cookieHash: boolean;
@@ -705,9 +702,6 @@ export namespace ltm {
         expression: string;
         extension: string;
         facility: string;
-        /**
-         * This action will affect forwarding.
-         */
         forward?: boolean;
         fromProfile: string;
         hash: boolean;
@@ -742,9 +736,6 @@ export namespace ltm {
         persist: boolean;
         pin: boolean;
         policy: string;
-        /**
-         * This action will direct the stream to this pool.
-         */
         pool: string;
         port: number;
         priority: string;
@@ -903,6 +894,44 @@ export namespace ltm {
          */
         name?: string;
         passphrase: string;
+    }
+
+    export interface ProfileHttpEnforcement {
+        /**
+         * Specifies which HTTP methods count as being known. Removing RFC-defined methods from this list will cause the HTTP filter to not recognize them. Default value is [CONNECT DELETE GET HEAD LOCK OPTIONS POST PROPFIND PUT TRACE UNLOCK].If no value is specified while creating, then default value will be assigned. In order to remove it, [""]  list is to be passed.
+         */
+        knownMethods: string[];
+        /**
+         * Specifies the maximum number of headers allowed in HTTP request/response. The default is 64 headers.If no value is specified, then default value will be assigned.
+         */
+        maxHeaderCount?: number;
+        /**
+         * Specifies the maximum header size.The default value is 32768.If no string is specified, then default value will be assigned.
+         */
+        maxHeaderSize?: number;
+        /**
+         * Specifies whether to allow, reject or switch to pass-through mode when an unknown HTTP method is parsed. Default value is allow. If no string is specified, then default value will be assigned.
+         */
+        unknownMethod?: string;
+    }
+
+    export interface ProfileHttpHttpStrictTransportSecurity {
+        /**
+         * Specifies whether to include the includeSubdomains directive in the HSTS header. The default is enabled. If no string is specified, then default value will be assigned.
+         */
+        includeSubdomains?: string;
+        /**
+         * Specifies the maximum age to assume the connection should remain secure. The default is 16070400 seconds. If no value is specified, then default value will be assigned.
+         */
+        maximumAge?: number;
+        /**
+         * Specifies whether to include the HSTS response header. The default is disabled.If no string is specified, then default value will be assigned.
+         */
+        mode?: string;
+        /**
+         * Specifies whether to include the preload directive in the HSTS header. The default is disabled. If no string is specified, then default value will be assigned.
+         */
+        preload?: string;
     }
 
     export interface SnatOrigin {

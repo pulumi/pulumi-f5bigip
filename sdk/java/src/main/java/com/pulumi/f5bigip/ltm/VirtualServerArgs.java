@@ -182,9 +182,17 @@ public final class VirtualServerArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.persistenceProfiles);
     }
 
+    /**
+     * Specifies the policies for the virtual server.
+     * 
+     */
     @Import(name="policies")
     private @Nullable Output<List<String>> policies;
 
+    /**
+     * @return Specifies the policies for the virtual server.
+     * 
+     */
     public Optional<Output<List<String>>> policies() {
         return Optional.ofNullable(this.policies);
     }
@@ -725,15 +733,33 @@ public final class VirtualServerArgs extends com.pulumi.resources.ResourceArgs {
             return persistenceProfiles(List.of(persistenceProfiles));
         }
 
+        /**
+         * @param policies Specifies the policies for the virtual server.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policies(@Nullable Output<List<String>> policies) {
             $.policies = policies;
             return this;
         }
 
+        /**
+         * @param policies Specifies the policies for the virtual server.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policies(List<String> policies) {
             return policies(Output.of(policies));
         }
 
+        /**
+         * @param policies Specifies the policies for the virtual server.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policies(String... policies) {
             return policies(List.of(policies));
         }

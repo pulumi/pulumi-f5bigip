@@ -76,6 +76,8 @@ type ProfileHttp struct {
 	EncryptCookieSecret pulumi.StringPtrOutput `pulumi:"encryptCookieSecret"`
 	// Type the cookie names for the system to encrypt.
 	EncryptCookies pulumi.StringArrayOutput `pulumi:"encryptCookies"`
+	// See Enforcement below for more details.
+	Enforcements ProfileHttpEnforcementArrayOutput `pulumi:"enforcements"`
 	// Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
 	FallbackHost pulumi.StringOutput `pulumi:"fallbackHost"`
 	// Specifies one or more three-digit status codes that can be returned by an HTTP server,that should trigger a redirection to the fallback host.
@@ -84,6 +86,8 @@ type ProfileHttp struct {
 	HeadErase pulumi.StringOutput `pulumi:"headErase"`
 	// Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
 	HeadInsert pulumi.StringOutput `pulumi:"headInsert"`
+	// See Http_Strict_Transport_Security below for more details.
+	HttpStrictTransportSecurities ProfileHttpHttpStrictTransportSecurityArrayOutput `pulumi:"httpStrictTransportSecurities"`
 	// Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
 	InsertXforwardedFor pulumi.StringOutput `pulumi:"insertXforwardedFor"`
 	// Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
@@ -105,8 +109,7 @@ type ProfileHttp struct {
 	ResponseChunking pulumi.StringOutput `pulumi:"responseChunking"`
 	// Specifies headers that the BIG-IP system allows in an HTTP response.If you are specifying more than one header, separate the headers with a blank space.
 	ResponseHeadersPermitteds pulumi.StringArrayOutput `pulumi:"responseHeadersPermitteds"`
-	// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no
-	// string is specified, then no Server header will be added to such responses
+	// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, "none" string is to be passed.
 	ServerAgentName pulumi.StringOutput `pulumi:"serverAgentName"`
 	// Displays the administrative partition within which this profile resides.
 	TmPartition pulumi.StringPtrOutput `pulumi:"tmPartition"`
@@ -167,6 +170,8 @@ type profileHttpState struct {
 	EncryptCookieSecret *string `pulumi:"encryptCookieSecret"`
 	// Type the cookie names for the system to encrypt.
 	EncryptCookies []string `pulumi:"encryptCookies"`
+	// See Enforcement below for more details.
+	Enforcements []ProfileHttpEnforcement `pulumi:"enforcements"`
 	// Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
 	FallbackHost *string `pulumi:"fallbackHost"`
 	// Specifies one or more three-digit status codes that can be returned by an HTTP server,that should trigger a redirection to the fallback host.
@@ -175,6 +180,8 @@ type profileHttpState struct {
 	HeadErase *string `pulumi:"headErase"`
 	// Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
 	HeadInsert *string `pulumi:"headInsert"`
+	// See Http_Strict_Transport_Security below for more details.
+	HttpStrictTransportSecurities []ProfileHttpHttpStrictTransportSecurity `pulumi:"httpStrictTransportSecurities"`
 	// Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
 	InsertXforwardedFor *string `pulumi:"insertXforwardedFor"`
 	// Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
@@ -196,8 +203,7 @@ type profileHttpState struct {
 	ResponseChunking *string `pulumi:"responseChunking"`
 	// Specifies headers that the BIG-IP system allows in an HTTP response.If you are specifying more than one header, separate the headers with a blank space.
 	ResponseHeadersPermitteds []string `pulumi:"responseHeadersPermitteds"`
-	// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no
-	// string is specified, then no Server header will be added to such responses
+	// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, "none" string is to be passed.
 	ServerAgentName *string `pulumi:"serverAgentName"`
 	// Displays the administrative partition within which this profile resides.
 	TmPartition *string `pulumi:"tmPartition"`
@@ -226,6 +232,8 @@ type ProfileHttpState struct {
 	EncryptCookieSecret pulumi.StringPtrInput
 	// Type the cookie names for the system to encrypt.
 	EncryptCookies pulumi.StringArrayInput
+	// See Enforcement below for more details.
+	Enforcements ProfileHttpEnforcementArrayInput
 	// Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
 	FallbackHost pulumi.StringPtrInput
 	// Specifies one or more three-digit status codes that can be returned by an HTTP server,that should trigger a redirection to the fallback host.
@@ -234,6 +242,8 @@ type ProfileHttpState struct {
 	HeadErase pulumi.StringPtrInput
 	// Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
 	HeadInsert pulumi.StringPtrInput
+	// See Http_Strict_Transport_Security below for more details.
+	HttpStrictTransportSecurities ProfileHttpHttpStrictTransportSecurityArrayInput
 	// Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
 	InsertXforwardedFor pulumi.StringPtrInput
 	// Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
@@ -255,8 +265,7 @@ type ProfileHttpState struct {
 	ResponseChunking pulumi.StringPtrInput
 	// Specifies headers that the BIG-IP system allows in an HTTP response.If you are specifying more than one header, separate the headers with a blank space.
 	ResponseHeadersPermitteds pulumi.StringArrayInput
-	// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no
-	// string is specified, then no Server header will be added to such responses
+	// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, "none" string is to be passed.
 	ServerAgentName pulumi.StringPtrInput
 	// Displays the administrative partition within which this profile resides.
 	TmPartition pulumi.StringPtrInput
@@ -289,6 +298,8 @@ type profileHttpArgs struct {
 	EncryptCookieSecret *string `pulumi:"encryptCookieSecret"`
 	// Type the cookie names for the system to encrypt.
 	EncryptCookies []string `pulumi:"encryptCookies"`
+	// See Enforcement below for more details.
+	Enforcements []ProfileHttpEnforcement `pulumi:"enforcements"`
 	// Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
 	FallbackHost *string `pulumi:"fallbackHost"`
 	// Specifies one or more three-digit status codes that can be returned by an HTTP server,that should trigger a redirection to the fallback host.
@@ -297,6 +308,8 @@ type profileHttpArgs struct {
 	HeadErase *string `pulumi:"headErase"`
 	// Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
 	HeadInsert *string `pulumi:"headInsert"`
+	// See Http_Strict_Transport_Security below for more details.
+	HttpStrictTransportSecurities []ProfileHttpHttpStrictTransportSecurity `pulumi:"httpStrictTransportSecurities"`
 	// Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
 	InsertXforwardedFor *string `pulumi:"insertXforwardedFor"`
 	// Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
@@ -318,8 +331,7 @@ type profileHttpArgs struct {
 	ResponseChunking *string `pulumi:"responseChunking"`
 	// Specifies headers that the BIG-IP system allows in an HTTP response.If you are specifying more than one header, separate the headers with a blank space.
 	ResponseHeadersPermitteds []string `pulumi:"responseHeadersPermitteds"`
-	// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no
-	// string is specified, then no Server header will be added to such responses
+	// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, "none" string is to be passed.
 	ServerAgentName *string `pulumi:"serverAgentName"`
 	// Displays the administrative partition within which this profile resides.
 	TmPartition *string `pulumi:"tmPartition"`
@@ -349,6 +361,8 @@ type ProfileHttpArgs struct {
 	EncryptCookieSecret pulumi.StringPtrInput
 	// Type the cookie names for the system to encrypt.
 	EncryptCookies pulumi.StringArrayInput
+	// See Enforcement below for more details.
+	Enforcements ProfileHttpEnforcementArrayInput
 	// Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
 	FallbackHost pulumi.StringPtrInput
 	// Specifies one or more three-digit status codes that can be returned by an HTTP server,that should trigger a redirection to the fallback host.
@@ -357,6 +371,8 @@ type ProfileHttpArgs struct {
 	HeadErase pulumi.StringPtrInput
 	// Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
 	HeadInsert pulumi.StringPtrInput
+	// See Http_Strict_Transport_Security below for more details.
+	HttpStrictTransportSecurities ProfileHttpHttpStrictTransportSecurityArrayInput
 	// Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
 	InsertXforwardedFor pulumi.StringPtrInput
 	// Specifies the linear white space (LWS) separator that the system inserts when a header exceeds the maximum width you
@@ -378,8 +394,7 @@ type ProfileHttpArgs struct {
 	ResponseChunking pulumi.StringPtrInput
 	// Specifies headers that the BIG-IP system allows in an HTTP response.If you are specifying more than one header, separate the headers with a blank space.
 	ResponseHeadersPermitteds pulumi.StringArrayInput
-	// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no
-	// string is specified, then no Server header will be added to such responses
+	// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, "none" string is to be passed.
 	ServerAgentName pulumi.StringPtrInput
 	// Displays the administrative partition within which this profile resides.
 	TmPartition pulumi.StringPtrInput
@@ -539,6 +554,11 @@ func (o ProfileHttpOutput) EncryptCookies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ProfileHttp) pulumi.StringArrayOutput { return v.EncryptCookies }).(pulumi.StringArrayOutput)
 }
 
+// See Enforcement below for more details.
+func (o ProfileHttpOutput) Enforcements() ProfileHttpEnforcementArrayOutput {
+	return o.ApplyT(func(v *ProfileHttp) ProfileHttpEnforcementArrayOutput { return v.Enforcements }).(ProfileHttpEnforcementArrayOutput)
+}
+
 // Specifies an HTTP fallback host. HTTP redirection allows you to redirect HTTP traffic to another protocol identifier, host name, port number
 func (o ProfileHttpOutput) FallbackHost() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileHttp) pulumi.StringOutput { return v.FallbackHost }).(pulumi.StringOutput)
@@ -557,6 +577,13 @@ func (o ProfileHttpOutput) HeadErase() pulumi.StringOutput {
 // Specifies a quoted header string that you want to insert into an HTTP request.Default is `none`.
 func (o ProfileHttpOutput) HeadInsert() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileHttp) pulumi.StringOutput { return v.HeadInsert }).(pulumi.StringOutput)
+}
+
+// See Http_Strict_Transport_Security below for more details.
+func (o ProfileHttpOutput) HttpStrictTransportSecurities() ProfileHttpHttpStrictTransportSecurityArrayOutput {
+	return o.ApplyT(func(v *ProfileHttp) ProfileHttpHttpStrictTransportSecurityArrayOutput {
+		return v.HttpStrictTransportSecurities
+	}).(ProfileHttpHttpStrictTransportSecurityArrayOutput)
 }
 
 // Specifies, when enabled, that the system inserts an X-Forwarded-For header in an HTTP request with the client IP address, to use with connection pooling. The default is `Disabled`.
@@ -610,8 +637,7 @@ func (o ProfileHttpOutput) ResponseHeadersPermitteds() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v *ProfileHttp) pulumi.StringArrayOutput { return v.ResponseHeadersPermitteds }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no
-// string is specified, then no Server header will be added to such responses
+// Specifies the value of the Server header in responses that the BIG-IP itself generates. The default is BigIP. If no string is specified, then default value will be added to such responses. In order to remove it, "none" string is to be passed.
 func (o ProfileHttpOutput) ServerAgentName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProfileHttp) pulumi.StringOutput { return v.ServerAgentName }).(pulumi.StringOutput)
 }

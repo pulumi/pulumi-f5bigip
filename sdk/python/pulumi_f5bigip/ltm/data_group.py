@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -30,14 +30,31 @@ class DataGroupArgs:
         :param pulumi.Input[str] records_src: Path to a file with records in it,The file should be well-formed,it includes records, one per line,that resemble the following format "key separator value". For example, `foo := bar`.
                This should be used in conjunction with `internal` attribute set `false`
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        DataGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            type=type,
+            internal=internal,
+            records=records,
+            records_src=records_src,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             type: pulumi.Input[str],
+             internal: Optional[pulumi.Input[bool]] = None,
+             records: Optional[pulumi.Input[Sequence[pulumi.Input['DataGroupRecordArgs']]]] = None,
+             records_src: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
+        _setter("type", type)
         if internal is not None:
-            pulumi.set(__self__, "internal", internal)
+            _setter("internal", internal)
         if records is not None:
-            pulumi.set(__self__, "records", records)
+            _setter("records", records)
         if records_src is not None:
-            pulumi.set(__self__, "records_src", records_src)
+            _setter("records_src", records_src)
 
     @property
     @pulumi.getter
@@ -118,16 +135,33 @@ class _DataGroupState:
                This should be used in conjunction with `internal` attribute set `false`
         :param pulumi.Input[str] type: datagroup type (applies to the `name` field of the record), supports: `string`, `ip` or `integer`
         """
+        _DataGroupState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            internal=internal,
+            name=name,
+            records=records,
+            records_src=records_src,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             internal: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             records: Optional[pulumi.Input[Sequence[pulumi.Input['DataGroupRecordArgs']]]] = None,
+             records_src: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if internal is not None:
-            pulumi.set(__self__, "internal", internal)
+            _setter("internal", internal)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if records is not None:
-            pulumi.set(__self__, "records", records)
+            _setter("records", records)
         if records_src is not None:
-            pulumi.set(__self__, "records_src", records_src)
+            _setter("records_src", records_src)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -237,6 +271,10 @@ class DataGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DataGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

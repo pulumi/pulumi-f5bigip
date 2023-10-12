@@ -46,6 +46,36 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the issuer certificate.
+     * 
+     */
+    @Import(name="issuerCert")
+    private @Nullable Output<String> issuerCert;
+
+    /**
+     * @return Specifies the issuer certificate.
+     * 
+     */
+    public Optional<Output<String>> issuerCert() {
+        return Optional.ofNullable(this.issuerCert);
+    }
+
+    /**
+     * Specifies the type of monitoring used.
+     * 
+     */
+    @Import(name="monitoringType")
+    private @Nullable Output<String> monitoringType;
+
+    /**
+     * @return Specifies the type of monitoring used.
+     * 
+     */
+    public Optional<Output<String>> monitoringType() {
+        return Optional.ofNullable(this.monitoringType);
+    }
+
+    /**
      * Name of the SSL Certificate to be Imported on to BIGIP
      * 
      */
@@ -58,6 +88,21 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * Specifies the OCSP responder.
+     * 
+     */
+    @Import(name="ocsp")
+    private @Nullable Output<String> ocsp;
+
+    /**
+     * @return Specifies the OCSP responder.
+     * 
+     */
+    public Optional<Output<String>> ocsp() {
+        return Optional.ofNullable(this.ocsp);
     }
 
     /**
@@ -80,7 +125,10 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
     private CertificateState(CertificateState $) {
         this.content = $.content;
         this.fullPath = $.fullPath;
+        this.issuerCert = $.issuerCert;
+        this.monitoringType = $.monitoringType;
         this.name = $.name;
+        this.ocsp = $.ocsp;
         this.partition = $.partition;
     }
 
@@ -145,6 +193,48 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param issuerCert Specifies the issuer certificate.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder issuerCert(@Nullable Output<String> issuerCert) {
+            $.issuerCert = issuerCert;
+            return this;
+        }
+
+        /**
+         * @param issuerCert Specifies the issuer certificate.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder issuerCert(String issuerCert) {
+            return issuerCert(Output.of(issuerCert));
+        }
+
+        /**
+         * @param monitoringType Specifies the type of monitoring used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitoringType(@Nullable Output<String> monitoringType) {
+            $.monitoringType = monitoringType;
+            return this;
+        }
+
+        /**
+         * @param monitoringType Specifies the type of monitoring used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitoringType(String monitoringType) {
+            return monitoringType(Output.of(monitoringType));
+        }
+
+        /**
          * @param name Name of the SSL Certificate to be Imported on to BIGIP
          * 
          * @return builder
@@ -163,6 +253,27 @@ public final class CertificateState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param ocsp Specifies the OCSP responder.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ocsp(@Nullable Output<String> ocsp) {
+            $.ocsp = ocsp;
+            return this;
+        }
+
+        /**
+         * @param ocsp Specifies the OCSP responder.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ocsp(String ocsp) {
+            return ocsp(Output.of(ocsp));
         }
 
         /**

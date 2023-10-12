@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ProfileFastL4Args', 'ProfileFastL4']
@@ -47,35 +47,72 @@ class ProfileFastL4Args:
         :param pulumi.Input[int] receive_windowsize: Specifies the amount of data the BIG-IP system can accept without acknowledging the server. The default is 0 (zero).
         :param pulumi.Input[str] tcp_handshake_timeout: Specifies the acceptable duration for a TCP handshake, that is, the maximum idle time between a client synchronization (SYN) and a client acknowledgment (ACK).The default is `5 seconds`.
         """
-        pulumi.set(__self__, "name", name)
+        ProfileFastL4Args._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            client_timeout=client_timeout,
+            defaults_from=defaults_from,
+            explicitflow_migration=explicitflow_migration,
+            hardware_syncookie=hardware_syncookie,
+            idle_timeout=idle_timeout,
+            iptos_toclient=iptos_toclient,
+            iptos_toserver=iptos_toserver,
+            keepalive_interval=keepalive_interval,
+            late_binding=late_binding,
+            loose_close=loose_close,
+            loose_initiation=loose_initiation,
+            partition=partition,
+            receive_windowsize=receive_windowsize,
+            tcp_handshake_timeout=tcp_handshake_timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: pulumi.Input[str],
+             client_timeout: Optional[pulumi.Input[int]] = None,
+             defaults_from: Optional[pulumi.Input[str]] = None,
+             explicitflow_migration: Optional[pulumi.Input[str]] = None,
+             hardware_syncookie: Optional[pulumi.Input[str]] = None,
+             idle_timeout: Optional[pulumi.Input[str]] = None,
+             iptos_toclient: Optional[pulumi.Input[str]] = None,
+             iptos_toserver: Optional[pulumi.Input[str]] = None,
+             keepalive_interval: Optional[pulumi.Input[str]] = None,
+             late_binding: Optional[pulumi.Input[str]] = None,
+             loose_close: Optional[pulumi.Input[str]] = None,
+             loose_initiation: Optional[pulumi.Input[str]] = None,
+             partition: Optional[pulumi.Input[str]] = None,
+             receive_windowsize: Optional[pulumi.Input[int]] = None,
+             tcp_handshake_timeout: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
+        _setter("name", name)
         if client_timeout is not None:
-            pulumi.set(__self__, "client_timeout", client_timeout)
+            _setter("client_timeout", client_timeout)
         if defaults_from is not None:
-            pulumi.set(__self__, "defaults_from", defaults_from)
+            _setter("defaults_from", defaults_from)
         if explicitflow_migration is not None:
-            pulumi.set(__self__, "explicitflow_migration", explicitflow_migration)
+            _setter("explicitflow_migration", explicitflow_migration)
         if hardware_syncookie is not None:
-            pulumi.set(__self__, "hardware_syncookie", hardware_syncookie)
+            _setter("hardware_syncookie", hardware_syncookie)
         if idle_timeout is not None:
-            pulumi.set(__self__, "idle_timeout", idle_timeout)
+            _setter("idle_timeout", idle_timeout)
         if iptos_toclient is not None:
-            pulumi.set(__self__, "iptos_toclient", iptos_toclient)
+            _setter("iptos_toclient", iptos_toclient)
         if iptos_toserver is not None:
-            pulumi.set(__self__, "iptos_toserver", iptos_toserver)
+            _setter("iptos_toserver", iptos_toserver)
         if keepalive_interval is not None:
-            pulumi.set(__self__, "keepalive_interval", keepalive_interval)
+            _setter("keepalive_interval", keepalive_interval)
         if late_binding is not None:
-            pulumi.set(__self__, "late_binding", late_binding)
+            _setter("late_binding", late_binding)
         if loose_close is not None:
-            pulumi.set(__self__, "loose_close", loose_close)
+            _setter("loose_close", loose_close)
         if loose_initiation is not None:
-            pulumi.set(__self__, "loose_initiation", loose_initiation)
+            _setter("loose_initiation", loose_initiation)
         if partition is not None:
-            pulumi.set(__self__, "partition", partition)
+            _setter("partition", partition)
         if receive_windowsize is not None:
-            pulumi.set(__self__, "receive_windowsize", receive_windowsize)
+            _setter("receive_windowsize", receive_windowsize)
         if tcp_handshake_timeout is not None:
-            pulumi.set(__self__, "tcp_handshake_timeout", tcp_handshake_timeout)
+            _setter("tcp_handshake_timeout", tcp_handshake_timeout)
 
     @property
     @pulumi.getter
@@ -294,36 +331,73 @@ class _ProfileFastL4State:
         :param pulumi.Input[int] receive_windowsize: Specifies the amount of data the BIG-IP system can accept without acknowledging the server. The default is 0 (zero).
         :param pulumi.Input[str] tcp_handshake_timeout: Specifies the acceptable duration for a TCP handshake, that is, the maximum idle time between a client synchronization (SYN) and a client acknowledgment (ACK).The default is `5 seconds`.
         """
+        _ProfileFastL4State._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_timeout=client_timeout,
+            defaults_from=defaults_from,
+            explicitflow_migration=explicitflow_migration,
+            hardware_syncookie=hardware_syncookie,
+            idle_timeout=idle_timeout,
+            iptos_toclient=iptos_toclient,
+            iptos_toserver=iptos_toserver,
+            keepalive_interval=keepalive_interval,
+            late_binding=late_binding,
+            loose_close=loose_close,
+            loose_initiation=loose_initiation,
+            name=name,
+            partition=partition,
+            receive_windowsize=receive_windowsize,
+            tcp_handshake_timeout=tcp_handshake_timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_timeout: Optional[pulumi.Input[int]] = None,
+             defaults_from: Optional[pulumi.Input[str]] = None,
+             explicitflow_migration: Optional[pulumi.Input[str]] = None,
+             hardware_syncookie: Optional[pulumi.Input[str]] = None,
+             idle_timeout: Optional[pulumi.Input[str]] = None,
+             iptos_toclient: Optional[pulumi.Input[str]] = None,
+             iptos_toserver: Optional[pulumi.Input[str]] = None,
+             keepalive_interval: Optional[pulumi.Input[str]] = None,
+             late_binding: Optional[pulumi.Input[str]] = None,
+             loose_close: Optional[pulumi.Input[str]] = None,
+             loose_initiation: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             partition: Optional[pulumi.Input[str]] = None,
+             receive_windowsize: Optional[pulumi.Input[int]] = None,
+             tcp_handshake_timeout: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None):
         if client_timeout is not None:
-            pulumi.set(__self__, "client_timeout", client_timeout)
+            _setter("client_timeout", client_timeout)
         if defaults_from is not None:
-            pulumi.set(__self__, "defaults_from", defaults_from)
+            _setter("defaults_from", defaults_from)
         if explicitflow_migration is not None:
-            pulumi.set(__self__, "explicitflow_migration", explicitflow_migration)
+            _setter("explicitflow_migration", explicitflow_migration)
         if hardware_syncookie is not None:
-            pulumi.set(__self__, "hardware_syncookie", hardware_syncookie)
+            _setter("hardware_syncookie", hardware_syncookie)
         if idle_timeout is not None:
-            pulumi.set(__self__, "idle_timeout", idle_timeout)
+            _setter("idle_timeout", idle_timeout)
         if iptos_toclient is not None:
-            pulumi.set(__self__, "iptos_toclient", iptos_toclient)
+            _setter("iptos_toclient", iptos_toclient)
         if iptos_toserver is not None:
-            pulumi.set(__self__, "iptos_toserver", iptos_toserver)
+            _setter("iptos_toserver", iptos_toserver)
         if keepalive_interval is not None:
-            pulumi.set(__self__, "keepalive_interval", keepalive_interval)
+            _setter("keepalive_interval", keepalive_interval)
         if late_binding is not None:
-            pulumi.set(__self__, "late_binding", late_binding)
+            _setter("late_binding", late_binding)
         if loose_close is not None:
-            pulumi.set(__self__, "loose_close", loose_close)
+            _setter("loose_close", loose_close)
         if loose_initiation is not None:
-            pulumi.set(__self__, "loose_initiation", loose_initiation)
+            _setter("loose_initiation", loose_initiation)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if partition is not None:
-            pulumi.set(__self__, "partition", partition)
+            _setter("partition", partition)
         if receive_windowsize is not None:
-            pulumi.set(__self__, "receive_windowsize", receive_windowsize)
+            _setter("receive_windowsize", receive_windowsize)
         if tcp_handshake_timeout is not None:
-            pulumi.set(__self__, "tcp_handshake_timeout", tcp_handshake_timeout)
+            _setter("tcp_handshake_timeout", tcp_handshake_timeout)
 
     @property
     @pulumi.getter(name="clientTimeout")
@@ -623,6 +697,10 @@ class ProfileFastL4(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProfileFastL4Args._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

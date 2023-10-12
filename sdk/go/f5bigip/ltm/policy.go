@@ -81,7 +81,9 @@ type Policy struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of Rule to be applied in policy.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// If you want to publish the policy else it will be deployed in Drafts mode.
+	// If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
+	//
+	// Deprecated: This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.
 	PublishedCopy pulumi.StringPtrOutput `pulumi:"publishedCopy"`
 	// Specifies the protocol
 	Requires pulumi.StringArrayOutput `pulumi:"requires"`
@@ -130,7 +132,9 @@ type policyState struct {
 	Description *string `pulumi:"description"`
 	// Name of Rule to be applied in policy.
 	Name *string `pulumi:"name"`
-	// If you want to publish the policy else it will be deployed in Drafts mode.
+	// If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
+	//
+	// Deprecated: This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.
 	PublishedCopy *string `pulumi:"publishedCopy"`
 	// Specifies the protocol
 	Requires []string `pulumi:"requires"`
@@ -147,7 +151,9 @@ type PolicyState struct {
 	Description pulumi.StringPtrInput
 	// Name of Rule to be applied in policy.
 	Name pulumi.StringPtrInput
-	// If you want to publish the policy else it will be deployed in Drafts mode.
+	// If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
+	//
+	// Deprecated: This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.
 	PublishedCopy pulumi.StringPtrInput
 	// Specifies the protocol
 	Requires pulumi.StringArrayInput
@@ -168,7 +174,9 @@ type policyArgs struct {
 	Description *string `pulumi:"description"`
 	// Name of Rule to be applied in policy.
 	Name string `pulumi:"name"`
-	// If you want to publish the policy else it will be deployed in Drafts mode.
+	// If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
+	//
+	// Deprecated: This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.
 	PublishedCopy *string `pulumi:"publishedCopy"`
 	// Specifies the protocol
 	Requires []string `pulumi:"requires"`
@@ -186,7 +194,9 @@ type PolicyArgs struct {
 	Description pulumi.StringPtrInput
 	// Name of Rule to be applied in policy.
 	Name pulumi.StringInput
-	// If you want to publish the policy else it will be deployed in Drafts mode.
+	// If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
+	//
+	// Deprecated: This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.
 	PublishedCopy pulumi.StringPtrInput
 	// Specifies the protocol
 	Requires pulumi.StringArrayInput
@@ -322,7 +332,9 @@ func (o PolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// If you want to publish the policy else it will be deployed in Drafts mode.
+// If you want to publish the policy else it will be deployed in Drafts mode. This attribute is deprecated and will be removed in a future release.
+//
+// Deprecated: This attribute is not required anymore because the resource automatically publishes the policy, for that reason this field is deprecated and will be removed in a future release.
 func (o PolicyOutput) PublishedCopy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringPtrOutput { return v.PublishedCopy }).(pulumi.StringPtrOutput)
 }
