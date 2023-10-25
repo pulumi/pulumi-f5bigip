@@ -13,33 +13,6 @@ import (
 )
 
 // Use this data source (`ltm.Policy`) to get the ltm policy details available on BIG-IP
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			test, err := ltm.LookupPolicy(ctx, &ltm.LookupPolicyArgs{
-//				Name: "/Common/test-policy",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("bigipPolicy", test.Rules)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupPolicy(ctx *pulumi.Context, args *LookupPolicyArgs, opts ...pulumi.InvokeOption) (*LookupPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPolicyResult

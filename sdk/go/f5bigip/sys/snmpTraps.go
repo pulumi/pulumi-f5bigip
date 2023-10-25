@@ -13,35 +13,6 @@ import (
 )
 
 // `sys.SnmpTraps` provides details bout how to enable snmpTraps resource on BIG-IP
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/sys"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sys.NewSnmpTraps(ctx, "snmpTraps", &sys.SnmpTrapsArgs{
-//				Community:   pulumi.String("f5community"),
-//				Description: pulumi.String("Setup snmp traps"),
-//				Host:        pulumi.String("195.10.10.1"),
-//				Name:        pulumi.String("snmptraps"),
-//				Port:        pulumi.Int(111),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type SnmpTraps struct {
 	pulumi.CustomResourceState
 

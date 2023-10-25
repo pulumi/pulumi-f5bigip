@@ -8,25 +8,6 @@ import * as utilities from "../utilities";
  * `f5bigip.vcmp.Guest` Manages a vCMP guest configuration
  *
  * Resource does not wait for vCMP guest to reach the desired state, it only ensures that a desired configuration is set on the target device.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- *
- * const vcmp_test = new f5bigip.vcmp.Guest("vcmp-test", {
- *     coresPerSlot: 2,
- *     initialImage: "12.1.2.iso",
- *     mgmtAddress: "10.1.1.1/24",
- *     mgmtNetwork: "bridged",
- *     mgmtRoute: "none",
- *     minNumberOfSlots: 1,
- *     name: "tf_guest",
- *     numberOfSlots: 1,
- *     state: "provisioned",
- * });
- * ```
  */
 export class Guest extends pulumi.CustomResource {
     /**

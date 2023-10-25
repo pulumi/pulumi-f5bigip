@@ -63,13 +63,25 @@ class ProvisionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              cpu_ratio: Optional[pulumi.Input[int]] = None,
              disk_ratio: Optional[pulumi.Input[int]] = None,
              full_path: Optional[pulumi.Input[str]] = None,
              level: Optional[pulumi.Input[str]] = None,
              memory_ratio: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if cpu_ratio is None and 'cpuRatio' in kwargs:
+            cpu_ratio = kwargs['cpuRatio']
+        if disk_ratio is None and 'diskRatio' in kwargs:
+            disk_ratio = kwargs['diskRatio']
+        if full_path is None and 'fullPath' in kwargs:
+            full_path = kwargs['fullPath']
+        if memory_ratio is None and 'memoryRatio' in kwargs:
+            memory_ratio = kwargs['memoryRatio']
+
         _setter("name", name)
         if cpu_ratio is not None:
             _setter("cpu_ratio", cpu_ratio)
@@ -233,7 +245,17 @@ class _ProvisionState:
              level: Optional[pulumi.Input[str]] = None,
              memory_ratio: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cpu_ratio is None and 'cpuRatio' in kwargs:
+            cpu_ratio = kwargs['cpuRatio']
+        if disk_ratio is None and 'diskRatio' in kwargs:
+            disk_ratio = kwargs['diskRatio']
+        if full_path is None and 'fullPath' in kwargs:
+            full_path = kwargs['fullPath']
+        if memory_ratio is None and 'memoryRatio' in kwargs:
+            memory_ratio = kwargs['memoryRatio']
+
         if cpu_ratio is not None:
             _setter("cpu_ratio", cpu_ratio)
         if disk_ratio is not None:
@@ -355,20 +377,6 @@ class Provision(pulumi.CustomResource):
         """
         `sys.Provision` Manage BIG-IP module provisioning. This resource will only provision at the standard levels of Dedicated, Nominal, and Minimum.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        gtm = f5bigip.sys.Provision("gtm",
-            cpu_ratio=0,
-            disk_ratio=0,
-            level="nominal",
-            memory_ratio=0,
-            name="gtm")
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] cpu_ratio: Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
@@ -408,20 +416,6 @@ class Provision(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         `sys.Provision` Manage BIG-IP module provisioning. This resource will only provision at the standard levels of Dedicated, Nominal, and Minimum.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        gtm = f5bigip.sys.Provision("gtm",
-            cpu_ratio=0,
-            disk_ratio=0,
-            level="nominal",
-            memory_ratio=0,
-            name="gtm")
-        ```
 
         :param str resource_name: The name of the resource.
         :param ProvisionArgs args: The arguments to use to populate this resource's properties.

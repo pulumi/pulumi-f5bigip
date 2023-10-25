@@ -6,17 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source (`f5bigip.WafPolicy`) to get the details of exist WAF policy BIG-IP.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- *
- * const existpolicy = f5bigip.ssl.getWafPolicy({
- *     policyId: "xxxxx",
- * });
- * ```
  */
 export function getWafPolicy(args: GetWafPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetWafPolicyResult> {
 
@@ -57,17 +46,6 @@ export interface GetWafPolicyResult {
 }
 /**
  * Use this data source (`f5bigip.WafPolicy`) to get the details of exist WAF policy BIG-IP.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- *
- * const existpolicy = f5bigip.ssl.getWafPolicy({
- *     policyId: "xxxxx",
- * });
- * ```
  */
 export function getWafPolicyOutput(args: GetWafPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWafPolicyResult> {
     return pulumi.output(args).apply((a: any) => getWafPolicy(a, opts))

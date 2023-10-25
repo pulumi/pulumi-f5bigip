@@ -14,32 +14,6 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// Resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource (For example `/Common/my-fastl4profile`) or  `partition + directory + name` of the resource  (example: `/Common/test/my-fastl4profile`)
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using F5BigIP = Pulumi.F5BigIP;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var profileFastl4 = new F5BigIP.Ltm.ProfileFastL4("profileFastl4", new()
-    ///     {
-    ///         ClientTimeout = 40,
-    ///         DefaultsFrom = "/Common/fastL4",
-    ///         ExplicitflowMigration = "enabled",
-    ///         HardwareSyncookie = "enabled",
-    ///         IdleTimeout = "200",
-    ///         IptosToclient = "pass-through",
-    ///         IptosToserver = "pass-through",
-    ///         KeepaliveInterval = "disabled",
-    ///         Name = "/Common/sjfastl4profile",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// BIG-IP LTM fastl4 profiles can be imported using the `name`, e.g.

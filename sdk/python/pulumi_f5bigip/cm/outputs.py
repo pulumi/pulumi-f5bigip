@@ -48,7 +48,11 @@ class DeviceGroupDevice(dict):
              _setter: Callable[[Any, Any], None],
              name: Optional[str] = None,
              set_sync_leader: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if set_sync_leader is None and 'setSyncLeader' in kwargs:
+            set_sync_leader = kwargs['setSyncLeader']
+
         if name is not None:
             _setter("name", name)
         if set_sync_leader is not None:

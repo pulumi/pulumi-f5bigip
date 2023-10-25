@@ -38,12 +38,24 @@ class SelfIpArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ip: pulumi.Input[str],
-             name: pulumi.Input[str],
-             vlan: pulumi.Input[str],
+             ip: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             vlan: Optional[pulumi.Input[str]] = None,
              port_lockdowns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              traffic_group: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ip is None:
+            raise TypeError("Missing 'ip' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if vlan is None:
+            raise TypeError("Missing 'vlan' argument")
+        if port_lockdowns is None and 'portLockdowns' in kwargs:
+            port_lockdowns = kwargs['portLockdowns']
+        if traffic_group is None and 'trafficGroup' in kwargs:
+            traffic_group = kwargs['trafficGroup']
+
         _setter("ip", ip)
         _setter("name", name)
         _setter("vlan", vlan)
@@ -145,7 +157,13 @@ class _SelfIpState:
              port_lockdowns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              traffic_group: Optional[pulumi.Input[str]] = None,
              vlan: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if port_lockdowns is None and 'portLockdowns' in kwargs:
+            port_lockdowns = kwargs['portLockdowns']
+        if traffic_group is None and 'trafficGroup' in kwargs:
+            traffic_group = kwargs['trafficGroup']
+
         if ip is not None:
             _setter("ip", ip)
         if name is not None:
@@ -234,72 +252,6 @@ class SelfIp(pulumi.CustomResource):
 
         Resource should be named with their `full path`. The full path is the combination of the `partition + name of the resource`, for example `/Common/my-selfip`.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        vlan1 = f5bigip.net.Vlan("vlan1",
-            name="/Common/Internal",
-            tag=101,
-            interfaces=[f5bigip.net.VlanInterfaceArgs(
-                vlanport="1.2",
-                tagged=False,
-            )])
-        selfip1 = f5bigip.net.SelfIp("selfip1",
-            name="/Common/internalselfIP",
-            ip="11.1.1.1/24",
-            vlan="/Common/internal",
-            opts=pulumi.ResourceOptions(depends_on=[vlan1]))
-        ```
-        ### Example usage with `port_lockdown`
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        selfip1 = f5bigip.net.SelfIp("selfip1",
-            name="/Common/internalselfIP",
-            ip="11.1.1.1/24",
-            vlan="/Common/internal",
-            traffic_group="traffic-group-1",
-            port_lockdowns=[
-                "tcp:4040",
-                "udp:5050",
-                "egp:0",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[bigip_net_vlan["vlan1"]]))
-        ```
-        ### Example usage with `port_lockdown` set to `["none"]`
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        selfip1 = f5bigip.net.SelfIp("selfip1",
-            name="/Common/internalselfIP",
-            ip="11.1.1.1/24",
-            vlan="/Common/internal",
-            traffic_group="traffic-group-1",
-            port_lockdowns=["none"],
-            opts=pulumi.ResourceOptions(depends_on=[bigip_net_vlan["vlan1"]]))
-        ```
-        ### Example usage with route domain embedded in the `ip`
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        selfip1 = f5bigip.net.SelfIp("selfip1",
-            name="/Common/internalselfIP",
-            ip="11.1.1.1%4/24",
-            vlan="/Common/internal",
-            traffic_group="traffic-group-1",
-            port_lockdowns=["none"],
-            opts=pulumi.ResourceOptions(depends_on=[bigip_net_vlan["vlan1"]]))
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] ip: The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
@@ -318,72 +270,6 @@ class SelfIp(pulumi.CustomResource):
         `net.SelfIp` Manages a selfip configuration
 
         Resource should be named with their `full path`. The full path is the combination of the `partition + name of the resource`, for example `/Common/my-selfip`.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        vlan1 = f5bigip.net.Vlan("vlan1",
-            name="/Common/Internal",
-            tag=101,
-            interfaces=[f5bigip.net.VlanInterfaceArgs(
-                vlanport="1.2",
-                tagged=False,
-            )])
-        selfip1 = f5bigip.net.SelfIp("selfip1",
-            name="/Common/internalselfIP",
-            ip="11.1.1.1/24",
-            vlan="/Common/internal",
-            opts=pulumi.ResourceOptions(depends_on=[vlan1]))
-        ```
-        ### Example usage with `port_lockdown`
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        selfip1 = f5bigip.net.SelfIp("selfip1",
-            name="/Common/internalselfIP",
-            ip="11.1.1.1/24",
-            vlan="/Common/internal",
-            traffic_group="traffic-group-1",
-            port_lockdowns=[
-                "tcp:4040",
-                "udp:5050",
-                "egp:0",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[bigip_net_vlan["vlan1"]]))
-        ```
-        ### Example usage with `port_lockdown` set to `["none"]`
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        selfip1 = f5bigip.net.SelfIp("selfip1",
-            name="/Common/internalselfIP",
-            ip="11.1.1.1/24",
-            vlan="/Common/internal",
-            traffic_group="traffic-group-1",
-            port_lockdowns=["none"],
-            opts=pulumi.ResourceOptions(depends_on=[bigip_net_vlan["vlan1"]]))
-        ```
-        ### Example usage with route domain embedded in the `ip`
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        selfip1 = f5bigip.net.SelfIp("selfip1",
-            name="/Common/internalselfIP",
-            ip="11.1.1.1%4/24",
-            vlan="/Common/internal",
-            traffic_group="traffic-group-1",
-            port_lockdowns=["none"],
-            opts=pulumi.ResourceOptions(depends_on=[bigip_net_vlan["vlan1"]]))
-        ```
 
         :param str resource_name: The name of the resource.
         :param SelfIpArgs args: The arguments to use to populate this resource's properties.

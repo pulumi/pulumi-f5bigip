@@ -11,24 +11,6 @@ import * as utilities from "../utilities";
  *
  * For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- *
- * const sanjose_http = new f5bigip.ltm.ProfileHttp("sanjose-http", {
- *     defaultsFrom: "/Common/http",
- *     fallbackHost: "titanic",
- *     fallbackStatusCodes: [
- *         "400",
- *         "500",
- *         "300",
- *     ],
- *     name: "/Common/sanjose-http",
- * });
- * ```
- *
  * ## Import
  *
  * BIG-IP LTM http profiles can be imported using the `name`, e.g. bash

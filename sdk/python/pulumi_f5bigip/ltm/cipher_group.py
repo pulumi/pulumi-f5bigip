@@ -38,12 +38,16 @@ class CipherGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              allows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              ordering: Optional[pulumi.Input[str]] = None,
              requires: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("name", name)
         if allows is not None:
             _setter("allows", allows)
@@ -147,7 +151,9 @@ class _CipherGroupState:
              name: Optional[pulumi.Input[str]] = None,
              ordering: Optional[pulumi.Input[str]] = None,
              requires: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if allows is not None:
             _setter("allows", allows)
         if description is not None:
@@ -234,19 +240,6 @@ class CipherGroup(pulumi.CustomResource):
         """
         `ltm.CipherGroup` Manages F5 BIG-IP LTM cipher group using iControl REST.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        test_cipher_group = f5bigip.ltm.CipherGroup("test-cipher-group",
-            allows=["/Common/f5-aes"],
-            name="/Common/test-cipher-group-01",
-            ordering="speed",
-            requires=["/Common/f5-quic"])
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allows: Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
@@ -263,19 +256,6 @@ class CipherGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         `ltm.CipherGroup` Manages F5 BIG-IP LTM cipher group using iControl REST.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        test_cipher_group = f5bigip.ltm.CipherGroup("test-cipher-group",
-            allows=["/Common/f5-aes"],
-            name="/Common/test-cipher-group-01",
-            ordering="speed",
-            requires=["/Common/f5-quic"])
-        ```
 
         :param str resource_name: The name of the resource.
         :param CipherGroupArgs args: The arguments to use to populate this resource's properties.

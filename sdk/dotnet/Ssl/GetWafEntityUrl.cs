@@ -13,102 +13,12 @@ namespace Pulumi.F5BigIP.Ssl
     {
         /// <summary>
         /// Use this data source (`f5bigip.ssl.getWafPbSuggestions`) to create JSON for WAF URL to later use with an existing WAF policy.
-        /// 
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using F5BigIP = Pulumi.F5BigIP;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var wAFURL1 = F5BigIP.Ssl.GetWafEntityUrl.Invoke(new()
-        ///     {
-        ///         Description = "this is a test",
-        ///         MethodOverrides = new[]
-        ///         {
-        ///             new F5BigIP.Ssl.Inputs.GetWafEntityUrlMethodOverrideInputArgs
-        ///             {
-        ///                 Allow = false,
-        ///                 Method = "BCOPY",
-        ///             },
-        ///             new F5BigIP.Ssl.Inputs.GetWafEntityUrlMethodOverrideInputArgs
-        ///             {
-        ///                 Allow = true,
-        ///                 Method = "BDELETE",
-        ///             },
-        ///         },
-        ///         Name = "/foobar",
-        ///         PerformStaging = true,
-        ///         Protocol = "HTTP",
-        ///         SignatureOverridesDisables = new[]
-        ///         {
-        ///             12345678,
-        ///             87654321,
-        ///         },
-        ///         Type = "explicit",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetWafEntityUrlResult> InvokeAsync(GetWafEntityUrlArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWafEntityUrlResult>("f5bigip:ssl/getWafEntityUrl:getWafEntityUrl", args ?? new GetWafEntityUrlArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source (`f5bigip.ssl.getWafPbSuggestions`) to create JSON for WAF URL to later use with an existing WAF policy.
-        /// 
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using F5BigIP = Pulumi.F5BigIP;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var wAFURL1 = F5BigIP.Ssl.GetWafEntityUrl.Invoke(new()
-        ///     {
-        ///         Description = "this is a test",
-        ///         MethodOverrides = new[]
-        ///         {
-        ///             new F5BigIP.Ssl.Inputs.GetWafEntityUrlMethodOverrideInputArgs
-        ///             {
-        ///                 Allow = false,
-        ///                 Method = "BCOPY",
-        ///             },
-        ///             new F5BigIP.Ssl.Inputs.GetWafEntityUrlMethodOverrideInputArgs
-        ///             {
-        ///                 Allow = true,
-        ///                 Method = "BDELETE",
-        ///             },
-        ///         },
-        ///         Name = "/foobar",
-        ///         PerformStaging = true,
-        ///         Protocol = "HTTP",
-        ///         SignatureOverridesDisables = new[]
-        ///         {
-        ///             12345678,
-        ///             87654321,
-        ///         },
-        ///         Type = "explicit",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetWafEntityUrlResult> Invoke(GetWafEntityUrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWafEntityUrlResult>("f5bigip:ssl/getWafEntityUrl:getWafEntityUrl", args ?? new GetWafEntityUrlInvokeArgs(), options.WithDefaults());

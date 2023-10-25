@@ -55,7 +55,9 @@ class EventServiceDiscoveryNode(dict):
              id: Optional[str] = None,
              ip: Optional[str] = None,
              port: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if id is not None:
             _setter("id", id)
         if ip is not None:
@@ -133,7 +135,13 @@ class FastHttpAppMonitor(dict):
              response: Optional[str] = None,
              send_string: Optional[str] = None,
              username: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if monitor_auth is None and 'monitorAuth' in kwargs:
+            monitor_auth = kwargs['monitorAuth']
+        if send_string is None and 'sendString' in kwargs:
+            send_string = kwargs['sendString']
+
         if interval is not None:
             _setter("interval", interval)
         if monitor_auth is not None:
@@ -243,12 +251,22 @@ class FastHttpAppPoolMember(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             addresses: Sequence[str],
+             addresses: Optional[Sequence[str]] = None,
              connection_limit: Optional[int] = None,
              port: Optional[int] = None,
              priority_group: Optional[int] = None,
              share_nodes: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if addresses is None:
+            raise TypeError("Missing 'addresses' argument")
+        if connection_limit is None and 'connectionLimit' in kwargs:
+            connection_limit = kwargs['connectionLimit']
+        if priority_group is None and 'priorityGroup' in kwargs:
+            priority_group = kwargs['priorityGroup']
+        if share_nodes is None and 'shareNodes' in kwargs:
+            share_nodes = kwargs['shareNodes']
+
         _setter("addresses", addresses)
         if connection_limit is not None:
             _setter("connection_limit", connection_limit)
@@ -317,9 +335,15 @@ class FastHttpAppVirtualServer(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ip: str,
-             port: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             ip: Optional[str] = None,
+             port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ip is None:
+            raise TypeError("Missing 'ip' argument")
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+
         _setter("ip", ip)
         _setter("port", port)
 
@@ -354,8 +378,12 @@ class FastHttpAppWafSecurityPolicy(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enable: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             enable: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enable is None:
+            raise TypeError("Missing 'enable' argument")
+
         _setter("enable", enable)
 
     @property
@@ -421,7 +449,13 @@ class FastHttpsAppMonitor(dict):
              response: Optional[str] = None,
              send_string: Optional[str] = None,
              username: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if monitor_auth is None and 'monitorAuth' in kwargs:
+            monitor_auth = kwargs['monitorAuth']
+        if send_string is None and 'sendString' in kwargs:
+            send_string = kwargs['sendString']
+
         if interval is not None:
             _setter("interval", interval)
         if monitor_auth is not None:
@@ -531,12 +565,22 @@ class FastHttpsAppPoolMember(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             addresses: Sequence[str],
+             addresses: Optional[Sequence[str]] = None,
              connection_limit: Optional[int] = None,
              port: Optional[int] = None,
              priority_group: Optional[int] = None,
              share_nodes: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if addresses is None:
+            raise TypeError("Missing 'addresses' argument")
+        if connection_limit is None and 'connectionLimit' in kwargs:
+            connection_limit = kwargs['connectionLimit']
+        if priority_group is None and 'priorityGroup' in kwargs:
+            priority_group = kwargs['priorityGroup']
+        if share_nodes is None and 'shareNodes' in kwargs:
+            share_nodes = kwargs['shareNodes']
+
         _setter("addresses", addresses)
         if connection_limit is not None:
             _setter("connection_limit", connection_limit)
@@ -624,9 +668,19 @@ class FastHttpsAppTlsClientProfile(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             tls_cert_name: str,
-             tls_key_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             tls_cert_name: Optional[str] = None,
+             tls_key_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if tls_cert_name is None and 'tlsCertName' in kwargs:
+            tls_cert_name = kwargs['tlsCertName']
+        if tls_cert_name is None:
+            raise TypeError("Missing 'tls_cert_name' argument")
+        if tls_key_name is None and 'tlsKeyName' in kwargs:
+            tls_key_name = kwargs['tlsKeyName']
+        if tls_key_name is None:
+            raise TypeError("Missing 'tls_key_name' argument")
+
         _setter("tls_cert_name", tls_cert_name)
         _setter("tls_key_name", tls_key_name)
 
@@ -683,9 +737,19 @@ class FastHttpsAppTlsServerProfile(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             tls_cert_name: str,
-             tls_key_name: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             tls_cert_name: Optional[str] = None,
+             tls_key_name: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if tls_cert_name is None and 'tlsCertName' in kwargs:
+            tls_cert_name = kwargs['tlsCertName']
+        if tls_cert_name is None:
+            raise TypeError("Missing 'tls_cert_name' argument")
+        if tls_key_name is None and 'tlsKeyName' in kwargs:
+            tls_key_name = kwargs['tlsKeyName']
+        if tls_key_name is None:
+            raise TypeError("Missing 'tls_key_name' argument")
+
         _setter("tls_cert_name", tls_cert_name)
         _setter("tls_key_name", tls_key_name)
 
@@ -723,9 +787,15 @@ class FastHttpsAppVirtualServer(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ip: str,
-             port: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             ip: Optional[str] = None,
+             port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ip is None:
+            raise TypeError("Missing 'ip' argument")
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+
         _setter("ip", ip)
         _setter("port", port)
 
@@ -760,8 +830,12 @@ class FastHttpsAppWafSecurityPolicy(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             enable: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             enable: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enable is None:
+            raise TypeError("Missing 'enable' argument")
+
         _setter("enable", enable)
 
     @property
@@ -788,7 +862,9 @@ class FastTcpAppMonitor(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              interval: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if interval is not None:
             _setter("interval", interval)
 
@@ -848,12 +924,22 @@ class FastTcpAppPoolMember(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             addresses: Sequence[str],
+             addresses: Optional[Sequence[str]] = None,
              connection_limit: Optional[int] = None,
              port: Optional[int] = None,
              priority_group: Optional[int] = None,
              share_nodes: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if addresses is None:
+            raise TypeError("Missing 'addresses' argument")
+        if connection_limit is None and 'connectionLimit' in kwargs:
+            connection_limit = kwargs['connectionLimit']
+        if priority_group is None and 'priorityGroup' in kwargs:
+            priority_group = kwargs['priorityGroup']
+        if share_nodes is None and 'shareNodes' in kwargs:
+            share_nodes = kwargs['shareNodes']
+
         _setter("addresses", addresses)
         if connection_limit is not None:
             _setter("connection_limit", connection_limit)
@@ -922,9 +1008,15 @@ class FastTcpAppVirtualServer(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ip: str,
-             port: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             ip: Optional[str] = None,
+             port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ip is None:
+            raise TypeError("Missing 'ip' argument")
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+
         _setter("ip", ip)
         _setter("port", port)
 
@@ -987,7 +1079,13 @@ class FastUdpAppMonitor(dict):
              expected_response: Optional[str] = None,
              interval: Optional[int] = None,
              send_string: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if expected_response is None and 'expectedResponse' in kwargs:
+            expected_response = kwargs['expectedResponse']
+        if send_string is None and 'sendString' in kwargs:
+            send_string = kwargs['sendString']
+
         if expected_response is not None:
             _setter("expected_response", expected_response)
         if interval is not None:
@@ -1067,12 +1165,22 @@ class FastUdpAppPoolMember(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             addresses: Sequence[str],
+             addresses: Optional[Sequence[str]] = None,
              connection_limit: Optional[int] = None,
              port: Optional[int] = None,
              priority_group: Optional[int] = None,
              share_nodes: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if addresses is None:
+            raise TypeError("Missing 'addresses' argument")
+        if connection_limit is None and 'connectionLimit' in kwargs:
+            connection_limit = kwargs['connectionLimit']
+        if priority_group is None and 'priorityGroup' in kwargs:
+            priority_group = kwargs['priorityGroup']
+        if share_nodes is None and 'shareNodes' in kwargs:
+            share_nodes = kwargs['shareNodes']
+
         _setter("addresses", addresses)
         if connection_limit is not None:
             _setter("connection_limit", connection_limit)
@@ -1141,9 +1249,15 @@ class FastUdpAppVirtualServer(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ip: str,
-             port: int,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             ip: Optional[str] = None,
+             port: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ip is None:
+            raise TypeError("Missing 'ip' argument")
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+
         _setter("ip", ip)
         _setter("port", port)
 
@@ -1189,7 +1303,9 @@ class WafPolicyFileType(dict):
              allowed: Optional[bool] = None,
              name: Optional[str] = None,
              type: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if allowed is not None:
             _setter("allowed", allowed)
         if name is not None:
@@ -1268,11 +1384,21 @@ class WafPolicyGraphqlProfile(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              attack_signatures_check: Optional[bool] = None,
              defense_attributes: Optional[Sequence['outputs.WafPolicyGraphqlProfileDefenseAttribute']] = None,
              metachar_elementcheck: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if attack_signatures_check is None and 'attackSignaturesCheck' in kwargs:
+            attack_signatures_check = kwargs['attackSignaturesCheck']
+        if defense_attributes is None and 'defenseAttributes' in kwargs:
+            defense_attributes = kwargs['defenseAttributes']
+        if metachar_elementcheck is None and 'metacharElementcheck' in kwargs:
+            metachar_elementcheck = kwargs['metacharElementcheck']
+
         _setter("name", name)
         if attack_signatures_check is not None:
             _setter("attack_signatures_check", attack_signatures_check)
@@ -1377,7 +1503,21 @@ class WafPolicyGraphqlProfileDefenseAttribute(dict):
              maximum_total_length: Optional[str] = None,
              maximum_value_length: Optional[str] = None,
              tolerate_parsing_warnings: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allow_introspection_queries is None and 'allowIntrospectionQueries' in kwargs:
+            allow_introspection_queries = kwargs['allowIntrospectionQueries']
+        if maximum_batched_queries is None and 'maximumBatchedQueries' in kwargs:
+            maximum_batched_queries = kwargs['maximumBatchedQueries']
+        if maximum_structure_depth is None and 'maximumStructureDepth' in kwargs:
+            maximum_structure_depth = kwargs['maximumStructureDepth']
+        if maximum_total_length is None and 'maximumTotalLength' in kwargs:
+            maximum_total_length = kwargs['maximumTotalLength']
+        if maximum_value_length is None and 'maximumValueLength' in kwargs:
+            maximum_value_length = kwargs['maximumValueLength']
+        if tolerate_parsing_warnings is None and 'tolerateParsingWarnings' in kwargs:
+            tolerate_parsing_warnings = kwargs['tolerateParsingWarnings']
+
         if allow_introspection_queries is not None:
             _setter("allow_introspection_queries", allow_introspection_queries)
         if maximum_batched_queries is not None:
@@ -1456,7 +1596,9 @@ class WafPolicyHostName(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if name is not None:
             _setter("name", name)
 
@@ -1528,14 +1670,32 @@ class WafPolicyIpException(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             ip_address: str,
-             ip_mask: str,
+             ip_address: Optional[str] = None,
+             ip_mask: Optional[str] = None,
              block_requests: Optional[str] = None,
              description: Optional[str] = None,
              ignore_anomalies: Optional[bool] = None,
              ignore_ipreputation: Optional[bool] = None,
              trustedby_policybuilder: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if ip_address is None:
+            raise TypeError("Missing 'ip_address' argument")
+        if ip_mask is None and 'ipMask' in kwargs:
+            ip_mask = kwargs['ipMask']
+        if ip_mask is None:
+            raise TypeError("Missing 'ip_mask' argument")
+        if block_requests is None and 'blockRequests' in kwargs:
+            block_requests = kwargs['blockRequests']
+        if ignore_anomalies is None and 'ignoreAnomalies' in kwargs:
+            ignore_anomalies = kwargs['ignoreAnomalies']
+        if ignore_ipreputation is None and 'ignoreIpreputation' in kwargs:
+            ignore_ipreputation = kwargs['ignoreIpreputation']
+        if trustedby_policybuilder is None and 'trustedbyPolicybuilder' in kwargs:
+            trustedby_policybuilder = kwargs['trustedbyPolicybuilder']
+
         _setter("ip_address", ip_address)
         _setter("ip_mask", ip_mask)
         if block_requests is not None:
@@ -1638,7 +1798,11 @@ class WafPolicyPolicyBuilder(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              learning_mode: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if learning_mode is None and 'learningMode' in kwargs:
+            learning_mode = kwargs['learningMode']
+
         if learning_mode is not None:
             _setter("learning_mode", learning_mode)
 
@@ -1685,7 +1849,13 @@ class WafPolicySignaturesSetting(dict):
              _setter: Callable[[Any, Any], None],
              placesignatures_in_staging: Optional[bool] = None,
              signature_staging: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if placesignatures_in_staging is None and 'placesignaturesInStaging' in kwargs:
+            placesignatures_in_staging = kwargs['placesignaturesInStaging']
+        if signature_staging is None and 'signatureStaging' in kwargs:
+            signature_staging = kwargs['signatureStaging']
+
         if placesignatures_in_staging is not None:
             _setter("placesignatures_in_staging", placesignatures_in_staging)
         if signature_staging is not None:

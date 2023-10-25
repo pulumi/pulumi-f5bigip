@@ -83,17 +83,6 @@ def get_certificate(name: Optional[str] = None,
     """
     Use this data source (`ssl.Certificate`) to get the ssl-certificate details available on BIG-IP
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_f5bigip as f5bigip
-
-    test = f5bigip.ssl.get_certificate(name="terraform_ssl_certificate",
-        partition="Common")
-    pulumi.export("bigipSslCertificateName", test.name)
-    ```
-
 
     :param str name: Name of the ssl_certificate
     :param str partition: partition of the ltm ssl_certificate
@@ -117,17 +106,6 @@ def get_certificate_output(name: Optional[pulumi.Input[str]] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateResult]:
     """
     Use this data source (`ssl.Certificate`) to get the ssl-certificate details available on BIG-IP
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_f5bigip as f5bigip
-
-    test = f5bigip.ssl.get_certificate(name="terraform_ssl_certificate",
-        partition="Common")
-    pulumi.export("bigipSslCertificateName", test.name)
-    ```
 
 
     :param str name: Name of the ssl_certificate

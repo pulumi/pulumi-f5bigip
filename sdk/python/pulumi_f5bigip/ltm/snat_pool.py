@@ -29,9 +29,15 @@ class SnatPoolArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             members: pulumi.Input[Sequence[pulumi.Input[str]]],
-             name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if members is None:
+            raise TypeError("Missing 'members' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("members", members)
         _setter("name", name)
 
@@ -80,7 +86,9 @@ class _SnatPoolState:
              _setter: Callable[[Any, Any], None],
              members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if members is not None:
             _setter("members", members)
         if name is not None:
@@ -124,20 +132,6 @@ class SnatPool(pulumi.CustomResource):
 
         Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-snatpool.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        snatpool_sanjose = f5bigip.ltm.SnatPool("snatpoolSanjose",
-            members=[
-                "191.1.1.1",
-                "194.2.2.2",
-            ],
-            name="/Common/snatpool_sanjose")
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] members: Specifies a translation address to add to or delete from a SNAT pool (at least one address is required)
@@ -153,20 +147,6 @@ class SnatPool(pulumi.CustomResource):
         `ltm.SnatPool` Collections of SNAT translation addresses
 
         Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-snatpool.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        snatpool_sanjose = f5bigip.ltm.SnatPool("snatpoolSanjose",
-            members=[
-                "191.1.1.1",
-                "194.2.2.2",
-            ],
-            name="/Common/snatpool_sanjose")
-        ```
 
         :param str resource_name: The name of the resource.
         :param SnatPoolArgs args: The arguments to use to populate this resource's properties.

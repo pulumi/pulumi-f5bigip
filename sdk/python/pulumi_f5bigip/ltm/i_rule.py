@@ -29,9 +29,15 @@ class IRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             irule: pulumi.Input[str],
-             name: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             irule: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if irule is None:
+            raise TypeError("Missing 'irule' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("irule", irule)
         _setter("name", name)
 
@@ -80,7 +86,9 @@ class _IRuleState:
              _setter: Callable[[Any, Any], None],
              irule: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if irule is not None:
             _setter("irule", irule)
         if name is not None:

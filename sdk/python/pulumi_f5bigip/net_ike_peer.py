@@ -125,8 +125,8 @@ class NetIkePeerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             remote_address: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             remote_address: Optional[pulumi.Input[str]] = None,
              app_service: Optional[pulumi.Input[str]] = None,
              ca_cert_file: Optional[pulumi.Input[str]] = None,
              crl_file: Optional[pulumi.Input[str]] = None,
@@ -159,7 +159,65 @@ class NetIkePeerArgs:
              traffic_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              verify_cert: Optional[pulumi.Input[str]] = None,
              versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if remote_address is None and 'remoteAddress' in kwargs:
+            remote_address = kwargs['remoteAddress']
+        if remote_address is None:
+            raise TypeError("Missing 'remote_address' argument")
+        if app_service is None and 'appService' in kwargs:
+            app_service = kwargs['appService']
+        if ca_cert_file is None and 'caCertFile' in kwargs:
+            ca_cert_file = kwargs['caCertFile']
+        if crl_file is None and 'crlFile' in kwargs:
+            crl_file = kwargs['crlFile']
+        if dpd_delay is None and 'dpdDelay' in kwargs:
+            dpd_delay = kwargs['dpdDelay']
+        if generate_policy is None and 'generatePolicy' in kwargs:
+            generate_policy = kwargs['generatePolicy']
+        if my_cert_file is None and 'myCertFile' in kwargs:
+            my_cert_file = kwargs['myCertFile']
+        if my_cert_key_file is None and 'myCertKeyFile' in kwargs:
+            my_cert_key_file = kwargs['myCertKeyFile']
+        if my_cert_key_passphrase is None and 'myCertKeyPassphrase' in kwargs:
+            my_cert_key_passphrase = kwargs['myCertKeyPassphrase']
+        if my_id_type is None and 'myIdType' in kwargs:
+            my_id_type = kwargs['myIdType']
+        if my_id_value is None and 'myIdValue' in kwargs:
+            my_id_value = kwargs['myIdValue']
+        if nat_traversal is None and 'natTraversal' in kwargs:
+            nat_traversal = kwargs['natTraversal']
+        if peers_cert_file is None and 'peersCertFile' in kwargs:
+            peers_cert_file = kwargs['peersCertFile']
+        if peers_cert_type is None and 'peersCertType' in kwargs:
+            peers_cert_type = kwargs['peersCertType']
+        if peers_id_type is None and 'peersIdType' in kwargs:
+            peers_id_type = kwargs['peersIdType']
+        if peers_id_value is None and 'peersIdValue' in kwargs:
+            peers_id_value = kwargs['peersIdValue']
+        if phase1_auth_method is None and 'phase1AuthMethod' in kwargs:
+            phase1_auth_method = kwargs['phase1AuthMethod']
+        if phase1_encrypt_algorithm is None and 'phase1EncryptAlgorithm' in kwargs:
+            phase1_encrypt_algorithm = kwargs['phase1EncryptAlgorithm']
+        if phase1_hash_algorithm is None and 'phase1HashAlgorithm' in kwargs:
+            phase1_hash_algorithm = kwargs['phase1HashAlgorithm']
+        if phase1_perfect_forward_secrecy is None and 'phase1PerfectForwardSecrecy' in kwargs:
+            phase1_perfect_forward_secrecy = kwargs['phase1PerfectForwardSecrecy']
+        if preshared_key is None and 'presharedKey' in kwargs:
+            preshared_key = kwargs['presharedKey']
+        if preshared_key_encrypted is None and 'presharedKeyEncrypted' in kwargs:
+            preshared_key_encrypted = kwargs['presharedKeyEncrypted']
+        if proxy_support is None and 'proxySupport' in kwargs:
+            proxy_support = kwargs['proxySupport']
+        if replay_window_size is None and 'replayWindowSize' in kwargs:
+            replay_window_size = kwargs['replayWindowSize']
+        if traffic_selectors is None and 'trafficSelectors' in kwargs:
+            traffic_selectors = kwargs['trafficSelectors']
+        if verify_cert is None and 'verifyCert' in kwargs:
+            verify_cert = kwargs['verifyCert']
+
         _setter("name", name)
         _setter("remote_address", remote_address)
         if app_service is not None:
@@ -784,7 +842,61 @@ class _NetIkePeerState:
              traffic_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              verify_cert: Optional[pulumi.Input[str]] = None,
              versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_service is None and 'appService' in kwargs:
+            app_service = kwargs['appService']
+        if ca_cert_file is None and 'caCertFile' in kwargs:
+            ca_cert_file = kwargs['caCertFile']
+        if crl_file is None and 'crlFile' in kwargs:
+            crl_file = kwargs['crlFile']
+        if dpd_delay is None and 'dpdDelay' in kwargs:
+            dpd_delay = kwargs['dpdDelay']
+        if generate_policy is None and 'generatePolicy' in kwargs:
+            generate_policy = kwargs['generatePolicy']
+        if my_cert_file is None and 'myCertFile' in kwargs:
+            my_cert_file = kwargs['myCertFile']
+        if my_cert_key_file is None and 'myCertKeyFile' in kwargs:
+            my_cert_key_file = kwargs['myCertKeyFile']
+        if my_cert_key_passphrase is None and 'myCertKeyPassphrase' in kwargs:
+            my_cert_key_passphrase = kwargs['myCertKeyPassphrase']
+        if my_id_type is None and 'myIdType' in kwargs:
+            my_id_type = kwargs['myIdType']
+        if my_id_value is None and 'myIdValue' in kwargs:
+            my_id_value = kwargs['myIdValue']
+        if nat_traversal is None and 'natTraversal' in kwargs:
+            nat_traversal = kwargs['natTraversal']
+        if peers_cert_file is None and 'peersCertFile' in kwargs:
+            peers_cert_file = kwargs['peersCertFile']
+        if peers_cert_type is None and 'peersCertType' in kwargs:
+            peers_cert_type = kwargs['peersCertType']
+        if peers_id_type is None and 'peersIdType' in kwargs:
+            peers_id_type = kwargs['peersIdType']
+        if peers_id_value is None and 'peersIdValue' in kwargs:
+            peers_id_value = kwargs['peersIdValue']
+        if phase1_auth_method is None and 'phase1AuthMethod' in kwargs:
+            phase1_auth_method = kwargs['phase1AuthMethod']
+        if phase1_encrypt_algorithm is None and 'phase1EncryptAlgorithm' in kwargs:
+            phase1_encrypt_algorithm = kwargs['phase1EncryptAlgorithm']
+        if phase1_hash_algorithm is None and 'phase1HashAlgorithm' in kwargs:
+            phase1_hash_algorithm = kwargs['phase1HashAlgorithm']
+        if phase1_perfect_forward_secrecy is None and 'phase1PerfectForwardSecrecy' in kwargs:
+            phase1_perfect_forward_secrecy = kwargs['phase1PerfectForwardSecrecy']
+        if preshared_key is None and 'presharedKey' in kwargs:
+            preshared_key = kwargs['presharedKey']
+        if preshared_key_encrypted is None and 'presharedKeyEncrypted' in kwargs:
+            preshared_key_encrypted = kwargs['presharedKeyEncrypted']
+        if proxy_support is None and 'proxySupport' in kwargs:
+            proxy_support = kwargs['proxySupport']
+        if remote_address is None and 'remoteAddress' in kwargs:
+            remote_address = kwargs['remoteAddress']
+        if replay_window_size is None and 'replayWindowSize' in kwargs:
+            replay_window_size = kwargs['replayWindowSize']
+        if traffic_selectors is None and 'trafficSelectors' in kwargs:
+            traffic_selectors = kwargs['trafficSelectors']
+        if verify_cert is None and 'verifyCert' in kwargs:
+            verify_cert = kwargs['verifyCert']
+
         if app_service is not None:
             _setter("app_service", app_service)
         if ca_cert_file is not None:

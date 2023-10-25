@@ -13,33 +13,6 @@ import (
 )
 
 // Use this data source (`fast.getConsulServiceDiscovery`) to get the Consul Service discovery config to be used for `http`/`https` app deployment in FAST.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/fast"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := fast.GetConsulServiceDiscovery(ctx, &fast.GetConsulServiceDiscoveryArgs{
-//				Port: 8080,
-//				Uri:  "https://192.0.2.100:8500/v1/catalog/nodes",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetConsulServiceDiscovery(ctx *pulumi.Context, args *GetConsulServiceDiscoveryArgs, opts ...pulumi.InvokeOption) (*GetConsulServiceDiscoveryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetConsulServiceDiscoveryResult

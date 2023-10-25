@@ -13,66 +13,12 @@ namespace Pulumi.F5BigIP.Ltm
     {
         /// <summary>
         /// Use this data source (`f5bigip.ltm.Policy`) to get the ltm policy details available on BIG-IP
-        /// 
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using F5BigIP = Pulumi.F5BigIP;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = F5BigIP.Ltm.GetPolicy.Invoke(new()
-        ///     {
-        ///         Name = "/Common/test-policy",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["bigipPolicy"] = test.Apply(getPolicyResult =&gt; getPolicyResult.Rules),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetPolicyResult> InvokeAsync(GetPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPolicyResult>("f5bigip:ltm/getPolicy:getPolicy", args ?? new GetPolicyArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source (`f5bigip.ltm.Policy`) to get the ltm policy details available on BIG-IP
-        /// 
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using F5BigIP = Pulumi.F5BigIP;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = F5BigIP.Ltm.GetPolicy.Invoke(new()
-        ///     {
-        ///         Name = "/Common/test-policy",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["bigipPolicy"] = test.Apply(getPolicyResult =&gt; getPolicyResult.Rules),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetPolicyResult> Invoke(GetPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("f5bigip:ltm/getPolicy:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithDefaults());

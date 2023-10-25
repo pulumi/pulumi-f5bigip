@@ -29,9 +29,17 @@ class BigIpLicenseArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             command: pulumi.Input[str],
-             registration_key: pulumi.Input[str],
-             opts: Optional[pulumi.ResourceOptions]=None):
+             command: Optional[pulumi.Input[str]] = None,
+             registration_key: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if command is None:
+            raise TypeError("Missing 'command' argument")
+        if registration_key is None and 'registrationKey' in kwargs:
+            registration_key = kwargs['registrationKey']
+        if registration_key is None:
+            raise TypeError("Missing 'registration_key' argument")
+
         _setter("command", command)
         _setter("registration_key", registration_key)
 
@@ -80,7 +88,11 @@ class _BigIpLicenseState:
              _setter: Callable[[Any, Any], None],
              command: Optional[pulumi.Input[str]] = None,
              registration_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if registration_key is None and 'registrationKey' in kwargs:
+            registration_key = kwargs['registrationKey']
+
         if command is not None:
             _setter("command", command)
         if registration_key is not None:

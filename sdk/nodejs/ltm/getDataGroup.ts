@@ -8,18 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source (`f5bigip.ltm.DataGroup`) to get the data group details available on BIG-IP
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- *
- * const dG-TC3 = f5bigip.ltm.getDataGroup({
- *     name: "test-dg",
- *     partition: "Common",
- * });
- * ```
  */
 export function getDataGroup(args: GetDataGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetDataGroupResult> {
 
@@ -75,18 +63,6 @@ export interface GetDataGroupResult {
 }
 /**
  * Use this data source (`f5bigip.ltm.DataGroup`) to get the data group details available on BIG-IP
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- *
- * const dG-TC3 = f5bigip.ltm.getDataGroup({
- *     name: "test-dg",
- *     partition: "Common",
- * });
- * ```
  */
 export function getDataGroupOutput(args: GetDataGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataGroupResult> {
     return pulumi.output(args).apply((a: any) => getDataGroup(a, opts))

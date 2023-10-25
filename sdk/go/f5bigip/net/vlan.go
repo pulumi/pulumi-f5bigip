@@ -16,39 +16,6 @@ import (
 // `net.Vlan` Manages a vlan configuration
 //
 // For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/net"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := net.NewVlan(ctx, "vlan1", &net.VlanArgs{
-//				Interfaces: net.VlanInterfaceArray{
-//					&net.VlanInterfaceArgs{
-//						Tagged:   pulumi.Bool(false),
-//						Vlanport: pulumi.String("1.2"),
-//					},
-//				},
-//				Name: pulumi.String("/Common/Internal"),
-//				Tag:  pulumi.Int(101),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type Vlan struct {
 	pulumi.CustomResourceState
 

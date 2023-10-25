@@ -13,27 +13,6 @@ namespace Pulumi.F5BigIP.Ltm
     /// `f5bigip.ltm.ProfileClientSsl` Manages client SSL profiles on a BIG-IP
     /// 
     /// Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using F5BigIP = Pulumi.F5BigIP;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test_ClientSsl = new F5BigIP.Ltm.ProfileClientSsl("test-ClientSsl", new()
-    ///     {
-    ///         Authenticate = "always",
-    ///         Ciphers = "DEFAULT",
-    ///         DefaultsFrom = "/Common/clientssl",
-    ///         Name = "/Common/test-ClientSsl",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/profileClientSsl:ProfileClientSsl")]
     public partial class ProfileClientSsl : global::Pulumi.CustomResource

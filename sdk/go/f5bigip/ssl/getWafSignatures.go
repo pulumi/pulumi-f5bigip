@@ -13,32 +13,6 @@ import (
 )
 
 // Use this data source (`ssl.getWafSignatures`) to get the details of attack signatures available on BIG-IP WAF
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ssl"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssl.GetWafSignatures(ctx, &ssl.GetWafSignaturesArgs{
-//				SignatureId: 200104004,
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetWafSignatures(ctx *pulumi.Context, args *GetWafSignaturesArgs, opts ...pulumi.InvokeOption) (*GetWafSignaturesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetWafSignaturesResult

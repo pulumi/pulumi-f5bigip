@@ -35,7 +35,13 @@ class SnmpArgs:
              allowedaddresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              sys_contact: Optional[pulumi.Input[str]] = None,
              sys_location: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if sys_contact is None and 'sysContact' in kwargs:
+            sys_contact = kwargs['sysContact']
+        if sys_location is None and 'sysLocation' in kwargs:
+            sys_location = kwargs['sysLocation']
+
         if allowedaddresses is not None:
             _setter("allowedaddresses", allowedaddresses)
         if sys_contact is not None:
@@ -104,7 +110,13 @@ class _SnmpState:
              allowedaddresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              sys_contact: Optional[pulumi.Input[str]] = None,
              sys_location: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if sys_contact is None and 'sysContact' in kwargs:
+            sys_contact = kwargs['sysContact']
+        if sys_location is None and 'sysLocation' in kwargs:
+            sys_location = kwargs['sysLocation']
+
         if allowedaddresses is not None:
             _setter("allowedaddresses", allowedaddresses)
         if sys_contact is not None:
@@ -160,17 +172,6 @@ class Snmp(pulumi.CustomResource):
                  __props__=None):
         """
         `sys.Snmp` provides details bout how to enable "ilx", "asm" "apm" resource on BIG-IP
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        snmp = f5bigip.sys.Snmp("snmp",
-            allowedaddresses=["202.10.10.2"],
-            sys_contact=" NetOPsAdmin s.shitole@f5.com",
-            sys_location="SeattleHQ")
-        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -186,17 +187,6 @@ class Snmp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         `sys.Snmp` provides details bout how to enable "ilx", "asm" "apm" resource on BIG-IP
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        snmp = f5bigip.sys.Snmp("snmp",
-            allowedaddresses=["202.10.10.2"],
-            sys_contact=" NetOPsAdmin s.shitole@f5.com",
-            sys_location="SeattleHQ")
-        ```
 
         :param str resource_name: The name of the resource.
         :param SnmpArgs args: The arguments to use to populate this resource's properties.

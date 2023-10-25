@@ -53,7 +53,7 @@ class PoolArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              allow_nat: Optional[pulumi.Input[str]] = None,
              allow_snat: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -63,7 +63,25 @@ class PoolArgs:
              reselect_tries: Optional[pulumi.Input[int]] = None,
              service_down_action: Optional[pulumi.Input[str]] = None,
              slow_ramp_time: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if allow_nat is None and 'allowNat' in kwargs:
+            allow_nat = kwargs['allowNat']
+        if allow_snat is None and 'allowSnat' in kwargs:
+            allow_snat = kwargs['allowSnat']
+        if load_balancing_mode is None and 'loadBalancingMode' in kwargs:
+            load_balancing_mode = kwargs['loadBalancingMode']
+        if minimum_active_members is None and 'minimumActiveMembers' in kwargs:
+            minimum_active_members = kwargs['minimumActiveMembers']
+        if reselect_tries is None and 'reselectTries' in kwargs:
+            reselect_tries = kwargs['reselectTries']
+        if service_down_action is None and 'serviceDownAction' in kwargs:
+            service_down_action = kwargs['serviceDownAction']
+        if slow_ramp_time is None and 'slowRampTime' in kwargs:
+            slow_ramp_time = kwargs['slowRampTime']
+
         _setter("name", name)
         if allow_nat is not None:
             _setter("allow_nat", allow_nat)
@@ -257,7 +275,23 @@ class _PoolState:
              reselect_tries: Optional[pulumi.Input[int]] = None,
              service_down_action: Optional[pulumi.Input[str]] = None,
              slow_ramp_time: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allow_nat is None and 'allowNat' in kwargs:
+            allow_nat = kwargs['allowNat']
+        if allow_snat is None and 'allowSnat' in kwargs:
+            allow_snat = kwargs['allowSnat']
+        if load_balancing_mode is None and 'loadBalancingMode' in kwargs:
+            load_balancing_mode = kwargs['loadBalancingMode']
+        if minimum_active_members is None and 'minimumActiveMembers' in kwargs:
+            minimum_active_members = kwargs['minimumActiveMembers']
+        if reselect_tries is None and 'reselectTries' in kwargs:
+            reselect_tries = kwargs['reselectTries']
+        if service_down_action is None and 'serviceDownAction' in kwargs:
+            service_down_action = kwargs['serviceDownAction']
+        if slow_ramp_time is None and 'slowRampTime' in kwargs:
+            slow_ramp_time = kwargs['slowRampTime']
+
         if allow_nat is not None:
             _setter("allow_nat", allow_nat)
         if allow_snat is not None:
@@ -422,22 +456,6 @@ class Pool(pulumi.CustomResource):
         For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource or  `partition + directory + name`.
         For example `/Common/my-pool`.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        monitor = f5bigip.ltm.Monitor("monitor",
-            name="/Common/terraform_monitor",
-            parent="/Common/http")
-        pool = f5bigip.ltm.Pool("pool",
-            name="/Common/Axiom_Environment_APP1_Pool",
-            load_balancing_mode="round-robin",
-            minimum_active_members=1,
-            monitors=[monitor.name])
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] allow_nat: Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].
@@ -462,22 +480,6 @@ class Pool(pulumi.CustomResource):
 
         For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource or  `partition + directory + name`.
         For example `/Common/my-pool`.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        monitor = f5bigip.ltm.Monitor("monitor",
-            name="/Common/terraform_monitor",
-            parent="/Common/http")
-        pool = f5bigip.ltm.Pool("pool",
-            name="/Common/Axiom_Environment_APP1_Pool",
-            load_balancing_mode="round-robin",
-            minimum_active_members=1,
-            monitors=[monitor.name])
-        ```
 
         :param str resource_name: The name of the resource.
         :param PoolArgs args: The arguments to use to populate this resource's properties.

@@ -236,16 +236,6 @@ def get_monitor(name: Optional[str] = None,
     """
     Use this data source (`ltm.Monitor`) to get the ltm monitor details available on BIG-IP
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_f5bigip as f5bigip
-
-    monitor__tc1 = f5bigip.ltm.get_monitor(name="test-monitor",
-        partition="Common")
-    ```
-
 
     :param str name: Name of the ltm monitor
     :param str partition: partition of the ltm monitor
@@ -284,16 +274,6 @@ def get_monitor_output(name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitorResult]:
     """
     Use this data source (`ltm.Monitor`) to get the ltm monitor details available on BIG-IP
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_f5bigip as f5bigip
-
-    monitor__tc1 = f5bigip.ltm.get_monitor(name="test-monitor",
-        partition="Common")
-    ```
 
 
     :param str name: Name of the ltm monitor

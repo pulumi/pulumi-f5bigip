@@ -63,7 +63,21 @@ class ProviderArgs:
              trusted_cert_path: Optional[pulumi.Input[str]] = None,
              username: Optional[pulumi.Input[str]] = None,
              validate_certs_disable: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if login_ref is None and 'loginRef' in kwargs:
+            login_ref = kwargs['loginRef']
+        if teem_disable is None and 'teemDisable' in kwargs:
+            teem_disable = kwargs['teemDisable']
+        if token_auth is None and 'tokenAuth' in kwargs:
+            token_auth = kwargs['tokenAuth']
+        if token_value is None and 'tokenValue' in kwargs:
+            token_value = kwargs['tokenValue']
+        if trusted_cert_path is None and 'trustedCertPath' in kwargs:
+            trusted_cert_path = kwargs['trustedCertPath']
+        if validate_certs_disable is None and 'validateCertsDisable' in kwargs:
+            validate_certs_disable = kwargs['validateCertsDisable']
+
         if address is not None:
             _setter("address", address)
         if login_ref is not None:

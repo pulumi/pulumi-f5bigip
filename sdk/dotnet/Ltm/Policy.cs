@@ -13,63 +13,6 @@ namespace Pulumi.F5BigIP.Ltm
     /// `f5bigip.ltm.Policy` Configures ltm policies to manage traffic assigned to a virtual server
     /// 
     /// For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource. For example `/Common/test-policy`.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using F5BigIP = Pulumi.F5BigIP;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var mypool = new F5BigIP.Ltm.Pool("mypool", new()
-    ///     {
-    ///         Name = "/Common/test-pool",
-    ///         AllowNat = "yes",
-    ///         AllowSnat = "yes",
-    ///         LoadBalancingMode = "round-robin",
-    ///     });
-    /// 
-    ///     var test_policy = new F5BigIP.Ltm.Policy("test-policy", new()
-    ///     {
-    ///         Name = "/Common/test-policy",
-    ///         Strategy = "first-match",
-    ///         Requires = new[]
-    ///         {
-    ///             "http",
-    ///         },
-    ///         Controls = new[]
-    ///         {
-    ///             "forwarding",
-    ///         },
-    ///         Rules = new[]
-    ///         {
-    ///             new F5BigIP.Ltm.Inputs.PolicyRuleArgs
-    ///             {
-    ///                 Name = "rule6",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     new F5BigIP.Ltm.Inputs.PolicyRuleActionArgs
-    ///                     {
-    ///                         Forward = true,
-    ///                         Connection = false,
-    ///                         Pool = mypool.Name,
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             mypool,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/policy:Policy")]
     public partial class Policy : global::Pulumi.CustomResource

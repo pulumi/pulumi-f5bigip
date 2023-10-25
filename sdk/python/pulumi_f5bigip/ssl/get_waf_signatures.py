@@ -178,15 +178,6 @@ def get_waf_signatures(accuracy: Optional[str] = None,
     """
     Use this data source (`ssl_get_waf_signatures`) to get the details of attack signatures available on BIG-IP WAF
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_f5bigip as f5bigip
-
-    w_afsig1 = f5bigip.ssl.get_waf_signatures(signature_id=200104004)
-    ```
-
 
     :param str accuracy: The relative detection accuracy of the signature.
     :param str description: Description of the signature.
@@ -239,15 +230,6 @@ def get_waf_signatures_output(accuracy: Optional[pulumi.Input[Optional[str]]] = 
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWafSignaturesResult]:
     """
     Use this data source (`ssl_get_waf_signatures`) to get the details of attack signatures available on BIG-IP WAF
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_f5bigip as f5bigip
-
-    w_afsig1 = f5bigip.ssl.get_waf_signatures(signature_id=200104004)
-    ```
 
 
     :param str accuracy: The relative detection accuracy of the signature.

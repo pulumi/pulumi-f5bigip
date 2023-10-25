@@ -56,7 +56,7 @@ class ProfileFastHttpArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              connpool_maxreuse: Optional[pulumi.Input[int]] = None,
              connpool_maxsize: Optional[pulumi.Input[int]] = None,
              connpool_minsize: Optional[pulumi.Input[int]] = None,
@@ -67,7 +67,29 @@ class ProfileFastHttpArgs:
              forcehttp10response: Optional[pulumi.Input[str]] = None,
              idle_timeout: Optional[pulumi.Input[int]] = None,
              maxheader_size: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if connpool_maxreuse is None and 'connpoolMaxreuse' in kwargs:
+            connpool_maxreuse = kwargs['connpoolMaxreuse']
+        if connpool_maxsize is None and 'connpoolMaxsize' in kwargs:
+            connpool_maxsize = kwargs['connpoolMaxsize']
+        if connpool_minsize is None and 'connpoolMinsize' in kwargs:
+            connpool_minsize = kwargs['connpoolMinsize']
+        if connpool_replenish is None and 'connpoolReplenish' in kwargs:
+            connpool_replenish = kwargs['connpoolReplenish']
+        if connpool_step is None and 'connpoolStep' in kwargs:
+            connpool_step = kwargs['connpoolStep']
+        if connpoolidle_timeoutoverride is None and 'connpoolidleTimeoutoverride' in kwargs:
+            connpoolidle_timeoutoverride = kwargs['connpoolidleTimeoutoverride']
+        if defaults_from is None and 'defaultsFrom' in kwargs:
+            defaults_from = kwargs['defaultsFrom']
+        if idle_timeout is None and 'idleTimeout' in kwargs:
+            idle_timeout = kwargs['idleTimeout']
+        if maxheader_size is None and 'maxheaderSize' in kwargs:
+            maxheader_size = kwargs['maxheaderSize']
+
         _setter("name", name)
         if connpool_maxreuse is not None:
             _setter("connpool_maxreuse", connpool_maxreuse)
@@ -279,7 +301,27 @@ class _ProfileFastHttpState:
              idle_timeout: Optional[pulumi.Input[int]] = None,
              maxheader_size: Optional[pulumi.Input[int]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connpool_maxreuse is None and 'connpoolMaxreuse' in kwargs:
+            connpool_maxreuse = kwargs['connpoolMaxreuse']
+        if connpool_maxsize is None and 'connpoolMaxsize' in kwargs:
+            connpool_maxsize = kwargs['connpoolMaxsize']
+        if connpool_minsize is None and 'connpoolMinsize' in kwargs:
+            connpool_minsize = kwargs['connpoolMinsize']
+        if connpool_replenish is None and 'connpoolReplenish' in kwargs:
+            connpool_replenish = kwargs['connpoolReplenish']
+        if connpool_step is None and 'connpoolStep' in kwargs:
+            connpool_step = kwargs['connpoolStep']
+        if connpoolidle_timeoutoverride is None and 'connpoolidleTimeoutoverride' in kwargs:
+            connpoolidle_timeoutoverride = kwargs['connpoolidleTimeoutoverride']
+        if defaults_from is None and 'defaultsFrom' in kwargs:
+            defaults_from = kwargs['defaultsFrom']
+        if idle_timeout is None and 'idleTimeout' in kwargs:
+            idle_timeout = kwargs['idleTimeout']
+        if maxheader_size is None and 'maxheaderSize' in kwargs:
+            maxheader_size = kwargs['maxheaderSize']
+
         if connpool_maxreuse is not None:
             _setter("connpool_maxreuse", connpool_maxreuse)
         if connpool_maxsize is not None:
@@ -458,26 +500,6 @@ class ProfileFastHttp(pulumi.CustomResource):
 
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        sjfasthttpprofile = f5bigip.ltm.ProfileFastHttp("sjfasthttpprofile",
-            connpool_maxreuse=2,
-            connpool_maxsize=2048,
-            connpool_minsize=0,
-            connpool_replenish="enabled",
-            connpool_step=4,
-            connpoolidle_timeoutoverride=0,
-            defaults_from="/Common/fasthttp",
-            forcehttp10response="disabled",
-            idle_timeout=300,
-            maxheader_size=32768,
-            name="/Common/sjfasthttpprofile")
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] connpool_maxreuse: Specifies the maximum number of times that the system can re-use a current connection. The default value is 0 (zero).
@@ -502,26 +524,6 @@ class ProfileFastHttp(pulumi.CustomResource):
         `ltm.ProfileFastHttp` Configures a custom profile_fasthttp for use by health checks.
 
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        sjfasthttpprofile = f5bigip.ltm.ProfileFastHttp("sjfasthttpprofile",
-            connpool_maxreuse=2,
-            connpool_maxsize=2048,
-            connpool_minsize=0,
-            connpool_replenish="enabled",
-            connpool_step=4,
-            connpoolidle_timeoutoverride=0,
-            defaults_from="/Common/fasthttp",
-            forcehttp10response="disabled",
-            idle_timeout=300,
-            maxheader_size=32768,
-            name="/Common/sjfasthttpprofile")
-        ```
 
         :param str resource_name: The name of the resource.
         :param ProfileFastHttpArgs args: The arguments to use to populate this resource's properties.

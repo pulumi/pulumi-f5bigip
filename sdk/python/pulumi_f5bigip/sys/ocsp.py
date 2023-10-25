@@ -74,7 +74,7 @@ class OcspArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              cache_error_timeout: Optional[pulumi.Input[int]] = None,
              cache_timeout: Optional[pulumi.Input[str]] = None,
              clock_skew: Optional[pulumi.Input[int]] = None,
@@ -91,7 +91,41 @@ class OcspArgs:
              status_age: Optional[pulumi.Input[int]] = None,
              strict_resp_cert_check: Optional[pulumi.Input[str]] = None,
              trusted_responders: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if cache_error_timeout is None and 'cacheErrorTimeout' in kwargs:
+            cache_error_timeout = kwargs['cacheErrorTimeout']
+        if cache_timeout is None and 'cacheTimeout' in kwargs:
+            cache_timeout = kwargs['cacheTimeout']
+        if clock_skew is None and 'clockSkew' in kwargs:
+            clock_skew = kwargs['clockSkew']
+        if concurrent_connections_limit is None and 'concurrentConnectionsLimit' in kwargs:
+            concurrent_connections_limit = kwargs['concurrentConnectionsLimit']
+        if connection_timeout is None and 'connectionTimeout' in kwargs:
+            connection_timeout = kwargs['connectionTimeout']
+        if dns_resolver is None and 'dnsResolver' in kwargs:
+            dns_resolver = kwargs['dnsResolver']
+        if proxy_server_pool is None and 'proxyServerPool' in kwargs:
+            proxy_server_pool = kwargs['proxyServerPool']
+        if responder_url is None and 'responderUrl' in kwargs:
+            responder_url = kwargs['responderUrl']
+        if route_domain is None and 'routeDomain' in kwargs:
+            route_domain = kwargs['routeDomain']
+        if sign_hash is None and 'signHash' in kwargs:
+            sign_hash = kwargs['signHash']
+        if signer_cert is None and 'signerCert' in kwargs:
+            signer_cert = kwargs['signerCert']
+        if signer_key is None and 'signerKey' in kwargs:
+            signer_key = kwargs['signerKey']
+        if status_age is None and 'statusAge' in kwargs:
+            status_age = kwargs['statusAge']
+        if strict_resp_cert_check is None and 'strictRespCertCheck' in kwargs:
+            strict_resp_cert_check = kwargs['strictRespCertCheck']
+        if trusted_responders is None and 'trustedResponders' in kwargs:
+            trusted_responders = kwargs['trustedResponders']
+
         _setter("name", name)
         if cache_error_timeout is not None:
             _setter("cache_error_timeout", cache_error_timeout)
@@ -411,7 +445,39 @@ class _OcspState:
              status_age: Optional[pulumi.Input[int]] = None,
              strict_resp_cert_check: Optional[pulumi.Input[str]] = None,
              trusted_responders: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cache_error_timeout is None and 'cacheErrorTimeout' in kwargs:
+            cache_error_timeout = kwargs['cacheErrorTimeout']
+        if cache_timeout is None and 'cacheTimeout' in kwargs:
+            cache_timeout = kwargs['cacheTimeout']
+        if clock_skew is None and 'clockSkew' in kwargs:
+            clock_skew = kwargs['clockSkew']
+        if concurrent_connections_limit is None and 'concurrentConnectionsLimit' in kwargs:
+            concurrent_connections_limit = kwargs['concurrentConnectionsLimit']
+        if connection_timeout is None and 'connectionTimeout' in kwargs:
+            connection_timeout = kwargs['connectionTimeout']
+        if dns_resolver is None and 'dnsResolver' in kwargs:
+            dns_resolver = kwargs['dnsResolver']
+        if proxy_server_pool is None and 'proxyServerPool' in kwargs:
+            proxy_server_pool = kwargs['proxyServerPool']
+        if responder_url is None and 'responderUrl' in kwargs:
+            responder_url = kwargs['responderUrl']
+        if route_domain is None and 'routeDomain' in kwargs:
+            route_domain = kwargs['routeDomain']
+        if sign_hash is None and 'signHash' in kwargs:
+            sign_hash = kwargs['signHash']
+        if signer_cert is None and 'signerCert' in kwargs:
+            signer_cert = kwargs['signerCert']
+        if signer_key is None and 'signerKey' in kwargs:
+            signer_key = kwargs['signerKey']
+        if status_age is None and 'statusAge' in kwargs:
+            status_age = kwargs['statusAge']
+        if strict_resp_cert_check is None and 'strictRespCertCheck' in kwargs:
+            strict_resp_cert_check = kwargs['strictRespCertCheck']
+        if trusted_responders is None and 'trustedResponders' in kwargs:
+            trusted_responders = kwargs['trustedResponders']
+
         if cache_error_timeout is not None:
             _setter("cache_error_timeout", cache_error_timeout)
         if cache_timeout is not None:
@@ -678,20 +744,6 @@ class Ocsp(pulumi.CustomResource):
         """
         `sys.Ocsp` Manages F5 BIG-IP OCSP responder using iControl REST.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        test_ocsp = f5bigip.sys.Ocsp("test-ocsp",
-            name="/Uncommon/test-ocsp",
-            passphrase="testabcdef",
-            proxy_server_pool="/Common/test-poolxyz",
-            signer_cert="/Common/le-ssl",
-            signer_key="/Common/le-ssl")
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] cache_error_timeout: Specifies the lifetime of an error response in the cache, in seconds. This value must be greater than connection_timeout. The default value is `3600`.
@@ -720,20 +772,6 @@ class Ocsp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         `sys.Ocsp` Manages F5 BIG-IP OCSP responder using iControl REST.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        test_ocsp = f5bigip.sys.Ocsp("test-ocsp",
-            name="/Uncommon/test-ocsp",
-            passphrase="testabcdef",
-            proxy_server_pool="/Common/test-poolxyz",
-            signer_cert="/Common/le-ssl",
-            signer_key="/Common/le-ssl")
-        ```
 
         :param str resource_name: The name of the resource.
         :param OcspArgs args: The arguments to use to populate this resource's properties.

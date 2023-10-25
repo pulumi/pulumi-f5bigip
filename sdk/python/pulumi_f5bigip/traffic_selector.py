@@ -54,9 +54,9 @@ class TrafficSelectorArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             destination_address: pulumi.Input[str],
-             name: pulumi.Input[str],
-             source_address: pulumi.Input[str],
+             destination_address: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             source_address: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              destination_port: Optional[pulumi.Input[int]] = None,
              direction: Optional[pulumi.Input[str]] = None,
@@ -64,7 +64,27 @@ class TrafficSelectorArgs:
              ipsec_policy: Optional[pulumi.Input[str]] = None,
              order: Optional[pulumi.Input[int]] = None,
              source_port: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_address is None and 'destinationAddress' in kwargs:
+            destination_address = kwargs['destinationAddress']
+        if destination_address is None:
+            raise TypeError("Missing 'destination_address' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if source_address is None and 'sourceAddress' in kwargs:
+            source_address = kwargs['sourceAddress']
+        if source_address is None:
+            raise TypeError("Missing 'source_address' argument")
+        if destination_port is None and 'destinationPort' in kwargs:
+            destination_port = kwargs['destinationPort']
+        if ip_protocol is None and 'ipProtocol' in kwargs:
+            ip_protocol = kwargs['ipProtocol']
+        if ipsec_policy is None and 'ipsecPolicy' in kwargs:
+            ipsec_policy = kwargs['ipsecPolicy']
+        if source_port is None and 'sourcePort' in kwargs:
+            source_port = kwargs['sourcePort']
+
         _setter("destination_address", destination_address)
         _setter("name", name)
         _setter("source_address", source_address)
@@ -258,7 +278,21 @@ class _TrafficSelectorState:
              order: Optional[pulumi.Input[int]] = None,
              source_address: Optional[pulumi.Input[str]] = None,
              source_port: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if destination_address is None and 'destinationAddress' in kwargs:
+            destination_address = kwargs['destinationAddress']
+        if destination_port is None and 'destinationPort' in kwargs:
+            destination_port = kwargs['destinationPort']
+        if ip_protocol is None and 'ipProtocol' in kwargs:
+            ip_protocol = kwargs['ipProtocol']
+        if ipsec_policy is None and 'ipsecPolicy' in kwargs:
+            ipsec_policy = kwargs['ipsecPolicy']
+        if source_address is None and 'sourceAddress' in kwargs:
+            source_address = kwargs['sourceAddress']
+        if source_port is None and 'sourcePort' in kwargs:
+            source_port = kwargs['sourcePort']
+
         if description is not None:
             _setter("description", description)
         if destination_address is not None:
@@ -423,18 +457,6 @@ class TrafficSelector(pulumi.CustomResource):
 
         Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/test-selector)
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        test_selector = f5bigip.TrafficSelector("test-selector",
-            destination_address="3.10.11.2/32",
-            name="/Common/test-selector",
-            source_address="2.10.11.12/32")
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the traffic selector.
@@ -459,18 +481,6 @@ class TrafficSelector(pulumi.CustomResource):
         `TrafficSelector` Manage IPSec Traffic Selectors on BIG-IP
 
         Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/test-selector)
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        test_selector = f5bigip.TrafficSelector("test-selector",
-            destination_address="3.10.11.2/32",
-            name="/Common/test-selector",
-            source_address="2.10.11.12/32")
-        ```
 
         :param str resource_name: The name of the resource.
         :param TrafficSelectorArgs args: The arguments to use to populate this resource's properties.

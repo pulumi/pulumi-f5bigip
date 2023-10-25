@@ -68,7 +68,7 @@ class ProfileFastL4Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              client_timeout: Optional[pulumi.Input[int]] = None,
              defaults_from: Optional[pulumi.Input[str]] = None,
              explicitflow_migration: Optional[pulumi.Input[str]] = None,
@@ -83,7 +83,37 @@ class ProfileFastL4Args:
              partition: Optional[pulumi.Input[str]] = None,
              receive_windowsize: Optional[pulumi.Input[int]] = None,
              tcp_handshake_timeout: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if client_timeout is None and 'clientTimeout' in kwargs:
+            client_timeout = kwargs['clientTimeout']
+        if defaults_from is None and 'defaultsFrom' in kwargs:
+            defaults_from = kwargs['defaultsFrom']
+        if explicitflow_migration is None and 'explicitflowMigration' in kwargs:
+            explicitflow_migration = kwargs['explicitflowMigration']
+        if hardware_syncookie is None and 'hardwareSyncookie' in kwargs:
+            hardware_syncookie = kwargs['hardwareSyncookie']
+        if idle_timeout is None and 'idleTimeout' in kwargs:
+            idle_timeout = kwargs['idleTimeout']
+        if iptos_toclient is None and 'iptosToclient' in kwargs:
+            iptos_toclient = kwargs['iptosToclient']
+        if iptos_toserver is None and 'iptosToserver' in kwargs:
+            iptos_toserver = kwargs['iptosToserver']
+        if keepalive_interval is None and 'keepaliveInterval' in kwargs:
+            keepalive_interval = kwargs['keepaliveInterval']
+        if late_binding is None and 'lateBinding' in kwargs:
+            late_binding = kwargs['lateBinding']
+        if loose_close is None and 'looseClose' in kwargs:
+            loose_close = kwargs['looseClose']
+        if loose_initiation is None and 'looseInitiation' in kwargs:
+            loose_initiation = kwargs['looseInitiation']
+        if receive_windowsize is None and 'receiveWindowsize' in kwargs:
+            receive_windowsize = kwargs['receiveWindowsize']
+        if tcp_handshake_timeout is None and 'tcpHandshakeTimeout' in kwargs:
+            tcp_handshake_timeout = kwargs['tcpHandshakeTimeout']
+
         _setter("name", name)
         if client_timeout is not None:
             _setter("client_timeout", client_timeout)
@@ -367,7 +397,35 @@ class _ProfileFastL4State:
              partition: Optional[pulumi.Input[str]] = None,
              receive_windowsize: Optional[pulumi.Input[int]] = None,
              tcp_handshake_timeout: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_timeout is None and 'clientTimeout' in kwargs:
+            client_timeout = kwargs['clientTimeout']
+        if defaults_from is None and 'defaultsFrom' in kwargs:
+            defaults_from = kwargs['defaultsFrom']
+        if explicitflow_migration is None and 'explicitflowMigration' in kwargs:
+            explicitflow_migration = kwargs['explicitflowMigration']
+        if hardware_syncookie is None and 'hardwareSyncookie' in kwargs:
+            hardware_syncookie = kwargs['hardwareSyncookie']
+        if idle_timeout is None and 'idleTimeout' in kwargs:
+            idle_timeout = kwargs['idleTimeout']
+        if iptos_toclient is None and 'iptosToclient' in kwargs:
+            iptos_toclient = kwargs['iptosToclient']
+        if iptos_toserver is None and 'iptosToserver' in kwargs:
+            iptos_toserver = kwargs['iptosToserver']
+        if keepalive_interval is None and 'keepaliveInterval' in kwargs:
+            keepalive_interval = kwargs['keepaliveInterval']
+        if late_binding is None and 'lateBinding' in kwargs:
+            late_binding = kwargs['lateBinding']
+        if loose_close is None and 'looseClose' in kwargs:
+            loose_close = kwargs['looseClose']
+        if loose_initiation is None and 'looseInitiation' in kwargs:
+            loose_initiation = kwargs['looseInitiation']
+        if receive_windowsize is None and 'receiveWindowsize' in kwargs:
+            receive_windowsize = kwargs['receiveWindowsize']
+        if tcp_handshake_timeout is None and 'tcpHandshakeTimeout' in kwargs:
+            tcp_handshake_timeout = kwargs['tcpHandshakeTimeout']
+
         if client_timeout is not None:
             _setter("client_timeout", client_timeout)
         if defaults_from is not None:
@@ -606,24 +664,6 @@ class ProfileFastL4(pulumi.CustomResource):
 
         Resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource (For example `/Common/my-fastl4profile`) or  `partition + directory + name` of the resource  (example: `/Common/test/my-fastl4profile`)
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        profile_fastl4 = f5bigip.ltm.ProfileFastL4("profileFastl4",
-            client_timeout=40,
-            defaults_from="/Common/fastL4",
-            explicitflow_migration="enabled",
-            hardware_syncookie="enabled",
-            idle_timeout="200",
-            iptos_toclient="pass-through",
-            iptos_toserver="pass-through",
-            keepalive_interval="disabled",
-            name="/Common/sjfastl4profile")
-        ```
-
         ## Import
 
         BIG-IP LTM fastl4 profiles can be imported using the `name`, e.g.
@@ -660,24 +700,6 @@ class ProfileFastL4(pulumi.CustomResource):
         `ltm.ProfileFastL4` Configures a custom LTM fastL4 profile for use by health checks.
 
         Resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource (For example `/Common/my-fastl4profile`) or  `partition + directory + name` of the resource  (example: `/Common/test/my-fastl4profile`)
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        profile_fastl4 = f5bigip.ltm.ProfileFastL4("profileFastl4",
-            client_timeout=40,
-            defaults_from="/Common/fastL4",
-            explicitflow_migration="enabled",
-            hardware_syncookie="enabled",
-            idle_timeout="200",
-            iptos_toclient="pass-through",
-            iptos_toserver="pass-through",
-            keepalive_interval="disabled",
-            name="/Common/sjfastl4profile")
-        ```
 
         ## Import
 

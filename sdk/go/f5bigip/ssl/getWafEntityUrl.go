@@ -13,48 +13,6 @@ import (
 )
 
 // Use this data source (`ssl.getWafPbSuggestions`) to create JSON for WAF URL to later use with an existing WAF policy.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ssl"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := ssl.GetWafEntityUrl(ctx, &ssl.GetWafEntityUrlArgs{
-// Description: pulumi.StringRef("this is a test"),
-// MethodOverrides: []ssl.GetWafEntityUrlMethodOverride{
-// {
-// Allow: false,
-// Method: "BCOPY",
-// },
-// {
-// Allow: true,
-// Method: "BDELETE",
-// },
-// },
-// Name: "/foobar",
-// PerformStaging: pulumi.BoolRef(true),
-// Protocol: pulumi.StringRef("HTTP"),
-// SignatureOverridesDisables: interface{}{
-// 12345678,
-// 87654321,
-// },
-// Type: pulumi.StringRef("explicit"),
-// }, nil);
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// ```
 func GetWafEntityUrl(ctx *pulumi.Context, args *GetWafEntityUrlArgs, opts ...pulumi.InvokeOption) (*GetWafEntityUrlResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetWafEntityUrlResult

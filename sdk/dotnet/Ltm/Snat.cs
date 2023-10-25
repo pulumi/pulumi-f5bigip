@@ -13,38 +13,6 @@ namespace Pulumi.F5BigIP.Ltm
     /// `f5bigip.ltm.Snat` Manages a SNAT configuration
     /// 
     /// For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource.For example `/Common/test-snat`.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using F5BigIP = Pulumi.F5BigIP;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test_snat = new F5BigIP.Ltm.Snat("test-snat", new()
-    ///     {
-    ///         Name = "/Common/test-snat",
-    ///         Origins = new[]
-    ///         {
-    ///             new F5BigIP.Ltm.Inputs.SnatOriginArgs
-    ///             {
-    ///                 Name = "0.0.0.0/0",
-    ///             },
-    ///         },
-    ///         Sourceport = "preserve",
-    ///         Translation = "/Common/136.1.1.2",
-    ///         Vlans = new[]
-    ///         {
-    ///             "/Common/internal",
-    ///         },
-    ///         Vlansdisabled = false,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/snat:Snat")]
     public partial class Snat : global::Pulumi.CustomResource

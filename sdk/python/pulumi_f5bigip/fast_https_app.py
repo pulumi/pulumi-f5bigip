@@ -95,8 +95,8 @@ class FastHttpsAppArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application: pulumi.Input[str],
-             tenant: pulumi.Input[str],
+             application: Optional[pulumi.Input[str]] = None,
+             tenant: Optional[pulumi.Input[str]] = None,
              endpoint_ltm_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              existing_monitor: Optional[pulumi.Input[str]] = None,
              existing_pool: Optional[pulumi.Input[str]] = None,
@@ -115,7 +115,47 @@ class FastHttpsAppArgs:
              tls_server_profile: Optional[pulumi.Input['FastHttpsAppTlsServerProfileArgs']] = None,
              virtual_server: Optional[pulumi.Input['FastHttpsAppVirtualServerArgs']] = None,
              waf_security_policy: Optional[pulumi.Input['FastHttpsAppWafSecurityPolicyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application is None:
+            raise TypeError("Missing 'application' argument")
+        if tenant is None:
+            raise TypeError("Missing 'tenant' argument")
+        if endpoint_ltm_policies is None and 'endpointLtmPolicies' in kwargs:
+            endpoint_ltm_policies = kwargs['endpointLtmPolicies']
+        if existing_monitor is None and 'existingMonitor' in kwargs:
+            existing_monitor = kwargs['existingMonitor']
+        if existing_pool is None and 'existingPool' in kwargs:
+            existing_pool = kwargs['existingPool']
+        if existing_snat_pool is None and 'existingSnatPool' in kwargs:
+            existing_snat_pool = kwargs['existingSnatPool']
+        if existing_tls_client_profile is None and 'existingTlsClientProfile' in kwargs:
+            existing_tls_client_profile = kwargs['existingTlsClientProfile']
+        if existing_tls_server_profile is None and 'existingTlsServerProfile' in kwargs:
+            existing_tls_server_profile = kwargs['existingTlsServerProfile']
+        if existing_waf_security_policy is None and 'existingWafSecurityPolicy' in kwargs:
+            existing_waf_security_policy = kwargs['existingWafSecurityPolicy']
+        if load_balancing_mode is None and 'loadBalancingMode' in kwargs:
+            load_balancing_mode = kwargs['loadBalancingMode']
+        if pool_members is None and 'poolMembers' in kwargs:
+            pool_members = kwargs['poolMembers']
+        if security_log_profiles is None and 'securityLogProfiles' in kwargs:
+            security_log_profiles = kwargs['securityLogProfiles']
+        if service_discoveries is None and 'serviceDiscoveries' in kwargs:
+            service_discoveries = kwargs['serviceDiscoveries']
+        if slow_ramp_time is None and 'slowRampTime' in kwargs:
+            slow_ramp_time = kwargs['slowRampTime']
+        if snat_pool_addresses is None and 'snatPoolAddresses' in kwargs:
+            snat_pool_addresses = kwargs['snatPoolAddresses']
+        if tls_client_profile is None and 'tlsClientProfile' in kwargs:
+            tls_client_profile = kwargs['tlsClientProfile']
+        if tls_server_profile is None and 'tlsServerProfile' in kwargs:
+            tls_server_profile = kwargs['tlsServerProfile']
+        if virtual_server is None and 'virtualServer' in kwargs:
+            virtual_server = kwargs['virtualServer']
+        if waf_security_policy is None and 'wafSecurityPolicy' in kwargs:
+            waf_security_policy = kwargs['wafSecurityPolicy']
+
         _setter("application", application)
         _setter("tenant", tenant)
         if endpoint_ltm_policies is not None:
@@ -512,7 +552,45 @@ class _FastHttpsAppState:
              tls_server_profile: Optional[pulumi.Input['FastHttpsAppTlsServerProfileArgs']] = None,
              virtual_server: Optional[pulumi.Input['FastHttpsAppVirtualServerArgs']] = None,
              waf_security_policy: Optional[pulumi.Input['FastHttpsAppWafSecurityPolicyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint_ltm_policies is None and 'endpointLtmPolicies' in kwargs:
+            endpoint_ltm_policies = kwargs['endpointLtmPolicies']
+        if existing_monitor is None and 'existingMonitor' in kwargs:
+            existing_monitor = kwargs['existingMonitor']
+        if existing_pool is None and 'existingPool' in kwargs:
+            existing_pool = kwargs['existingPool']
+        if existing_snat_pool is None and 'existingSnatPool' in kwargs:
+            existing_snat_pool = kwargs['existingSnatPool']
+        if existing_tls_client_profile is None and 'existingTlsClientProfile' in kwargs:
+            existing_tls_client_profile = kwargs['existingTlsClientProfile']
+        if existing_tls_server_profile is None and 'existingTlsServerProfile' in kwargs:
+            existing_tls_server_profile = kwargs['existingTlsServerProfile']
+        if existing_waf_security_policy is None and 'existingWafSecurityPolicy' in kwargs:
+            existing_waf_security_policy = kwargs['existingWafSecurityPolicy']
+        if fast_https_json is None and 'fastHttpsJson' in kwargs:
+            fast_https_json = kwargs['fastHttpsJson']
+        if load_balancing_mode is None and 'loadBalancingMode' in kwargs:
+            load_balancing_mode = kwargs['loadBalancingMode']
+        if pool_members is None and 'poolMembers' in kwargs:
+            pool_members = kwargs['poolMembers']
+        if security_log_profiles is None and 'securityLogProfiles' in kwargs:
+            security_log_profiles = kwargs['securityLogProfiles']
+        if service_discoveries is None and 'serviceDiscoveries' in kwargs:
+            service_discoveries = kwargs['serviceDiscoveries']
+        if slow_ramp_time is None and 'slowRampTime' in kwargs:
+            slow_ramp_time = kwargs['slowRampTime']
+        if snat_pool_addresses is None and 'snatPoolAddresses' in kwargs:
+            snat_pool_addresses = kwargs['snatPoolAddresses']
+        if tls_client_profile is None and 'tlsClientProfile' in kwargs:
+            tls_client_profile = kwargs['tlsClientProfile']
+        if tls_server_profile is None and 'tlsServerProfile' in kwargs:
+            tls_server_profile = kwargs['tlsServerProfile']
+        if virtual_server is None and 'virtualServer' in kwargs:
+            virtual_server = kwargs['virtualServer']
+        if waf_security_policy is None and 'wafSecurityPolicy' in kwargs:
+            waf_security_policy = kwargs['wafSecurityPolicy']
+
         if application is not None:
             _setter("application", application)
         if endpoint_ltm_policies is not None:
@@ -850,54 +928,6 @@ class FastHttpsApp(pulumi.CustomResource):
 
         [FAST documentation](https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/)
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        fast_https_app = f5bigip.FastHttpsApp("fastHttpsApp",
-            application="fasthttpsapp",
-            tenant="fasthttpstenant",
-            virtual_server=f5bigip.FastHttpsAppVirtualServerArgs(
-                ip="10.30.40.44",
-                port=443,
-            ))
-        ```
-        ### With Service Discovery
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        t_c3_azure_service_discovery = f5bigip.fast.get_azure_service_discovery(resource_group="testazurerg",
-            subscription_id="testazuresid",
-            tag_key="testazuretag",
-            tag_value="testazurevalue")
-        t_c3_gce_service_discovery = f5bigip.fast.get_gce_service_discovery(tag_key="testgcetag",
-            tag_value="testgcevalue",
-            region="testgceregion")
-        fast_https_app = f5bigip.FastHttpsApp("fastHttpsApp",
-            tenant="fasthttpstenant",
-            application="fasthttpsapp",
-            virtual_server=f5bigip.FastHttpsAppVirtualServerArgs(
-                ip="10.30.40.44",
-                port=443,
-            ),
-            pool_members=[f5bigip.FastHttpsAppPoolMemberArgs(
-                addresses=[
-                    "10.11.40.120",
-                    "10.11.30.121",
-                    "10.11.30.122",
-                ],
-                port=80,
-            )],
-            service_discoveries=[
-                t_c3_gce_service_discovery.gce_sd_json,
-                t_c3_azure_service_discovery.azure_sd_json,
-            ])
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application: Name of the FAST HTTPS application.
@@ -941,54 +971,6 @@ class FastHttpsApp(pulumi.CustomResource):
         `FastHttpsApp` This resource will create and manage FAST HTTPS applications on BIG-IP
 
         [FAST documentation](https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/)
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        fast_https_app = f5bigip.FastHttpsApp("fastHttpsApp",
-            application="fasthttpsapp",
-            tenant="fasthttpstenant",
-            virtual_server=f5bigip.FastHttpsAppVirtualServerArgs(
-                ip="10.30.40.44",
-                port=443,
-            ))
-        ```
-        ### With Service Discovery
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        t_c3_azure_service_discovery = f5bigip.fast.get_azure_service_discovery(resource_group="testazurerg",
-            subscription_id="testazuresid",
-            tag_key="testazuretag",
-            tag_value="testazurevalue")
-        t_c3_gce_service_discovery = f5bigip.fast.get_gce_service_discovery(tag_key="testgcetag",
-            tag_value="testgcevalue",
-            region="testgceregion")
-        fast_https_app = f5bigip.FastHttpsApp("fastHttpsApp",
-            tenant="fasthttpstenant",
-            application="fasthttpsapp",
-            virtual_server=f5bigip.FastHttpsAppVirtualServerArgs(
-                ip="10.30.40.44",
-                port=443,
-            ),
-            pool_members=[f5bigip.FastHttpsAppPoolMemberArgs(
-                addresses=[
-                    "10.11.40.120",
-                    "10.11.30.121",
-                    "10.11.30.122",
-                ],
-                port=80,
-            )],
-            service_discoveries=[
-                t_c3_gce_service_discovery.gce_sd_json,
-                t_c3_azure_service_discovery.azure_sd_json,
-            ])
-        ```
 
         :param str resource_name: The name of the resource.
         :param FastHttpsAppArgs args: The arguments to use to populate this resource's properties.
@@ -1049,11 +1031,7 @@ class FastHttpsApp(pulumi.CustomResource):
             __props__.__dict__["existing_tls_server_profile"] = existing_tls_server_profile
             __props__.__dict__["existing_waf_security_policy"] = existing_waf_security_policy
             __props__.__dict__["load_balancing_mode"] = load_balancing_mode
-            if monitor is not None and not isinstance(monitor, FastHttpsAppMonitorArgs):
-                monitor = monitor or {}
-                def _setter(key, value):
-                    monitor[key] = value
-                FastHttpsAppMonitorArgs._configure(_setter, **monitor)
+            monitor = _utilities.configure(monitor, FastHttpsAppMonitorArgs, True)
             __props__.__dict__["monitor"] = monitor
             __props__.__dict__["pool_members"] = pool_members
             __props__.__dict__["security_log_profiles"] = security_log_profiles
@@ -1063,29 +1041,13 @@ class FastHttpsApp(pulumi.CustomResource):
             if tenant is None and not opts.urn:
                 raise TypeError("Missing required property 'tenant'")
             __props__.__dict__["tenant"] = tenant
-            if tls_client_profile is not None and not isinstance(tls_client_profile, FastHttpsAppTlsClientProfileArgs):
-                tls_client_profile = tls_client_profile or {}
-                def _setter(key, value):
-                    tls_client_profile[key] = value
-                FastHttpsAppTlsClientProfileArgs._configure(_setter, **tls_client_profile)
+            tls_client_profile = _utilities.configure(tls_client_profile, FastHttpsAppTlsClientProfileArgs, True)
             __props__.__dict__["tls_client_profile"] = tls_client_profile
-            if tls_server_profile is not None and not isinstance(tls_server_profile, FastHttpsAppTlsServerProfileArgs):
-                tls_server_profile = tls_server_profile or {}
-                def _setter(key, value):
-                    tls_server_profile[key] = value
-                FastHttpsAppTlsServerProfileArgs._configure(_setter, **tls_server_profile)
+            tls_server_profile = _utilities.configure(tls_server_profile, FastHttpsAppTlsServerProfileArgs, True)
             __props__.__dict__["tls_server_profile"] = tls_server_profile
-            if virtual_server is not None and not isinstance(virtual_server, FastHttpsAppVirtualServerArgs):
-                virtual_server = virtual_server or {}
-                def _setter(key, value):
-                    virtual_server[key] = value
-                FastHttpsAppVirtualServerArgs._configure(_setter, **virtual_server)
+            virtual_server = _utilities.configure(virtual_server, FastHttpsAppVirtualServerArgs, True)
             __props__.__dict__["virtual_server"] = virtual_server
-            if waf_security_policy is not None and not isinstance(waf_security_policy, FastHttpsAppWafSecurityPolicyArgs):
-                waf_security_policy = waf_security_policy or {}
-                def _setter(key, value):
-                    waf_security_policy[key] = value
-                FastHttpsAppWafSecurityPolicyArgs._configure(_setter, **waf_security_policy)
+            waf_security_policy = _utilities.configure(waf_security_policy, FastHttpsAppWafSecurityPolicyArgs, True)
             __props__.__dict__["waf_security_policy"] = waf_security_policy
             __props__.__dict__["fast_https_json"] = None
         super(FastHttpsApp, __self__).__init__(

@@ -8,35 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source (`f5bigip.ssl.getWafPbSuggestions`) to create JSON for WAF URL to later use with an existing WAF policy.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- *
- * const wAFURL1 = f5bigip.ssl.getWafEntityUrl({
- *     description: "this is a test",
- *     methodOverrides: [
- *         {
- *             allow: false,
- *             method: "BCOPY",
- *         },
- *         {
- *             allow: true,
- *             method: "BDELETE",
- *         },
- *     ],
- *     name: "/foobar",
- *     performStaging: true,
- *     protocol: "HTTP",
- *     signatureOverridesDisables: [
- *         12345678,
- *         87654321,
- *     ],
- *     type: "explicit",
- * });
- * ```
  */
 export function getWafEntityUrl(args: GetWafEntityUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetWafEntityUrlResult> {
 
@@ -114,35 +85,6 @@ export interface GetWafEntityUrlResult {
 }
 /**
  * Use this data source (`f5bigip.ssl.getWafPbSuggestions`) to create JSON for WAF URL to later use with an existing WAF policy.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- *
- * const wAFURL1 = f5bigip.ssl.getWafEntityUrl({
- *     description: "this is a test",
- *     methodOverrides: [
- *         {
- *             allow: false,
- *             method: "BCOPY",
- *         },
- *         {
- *             allow: true,
- *             method: "BDELETE",
- *         },
- *     ],
- *     name: "/foobar",
- *     performStaging: true,
- *     protocol: "HTTP",
- *     signatureOverridesDisables: [
- *         12345678,
- *         87654321,
- *     ],
- *     type: "explicit",
- * });
- * ```
  */
 export function getWafEntityUrlOutput(args: GetWafEntityUrlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWafEntityUrlResult> {
     return pulumi.output(args).apply((a: any) => getWafEntityUrl(a, opts))

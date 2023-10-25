@@ -13,43 +13,6 @@ import (
 )
 
 // `cm.DeviceGroup` A device group is a collection of BIG-IP devices that are configured to securely synchronize their BIG-IP configuration data, and fail over when needed.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/cm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := cm.NewDeviceGroup(ctx, "myNewDevicegroup", &cm.DeviceGroupArgs{
-//				AutoSync: pulumi.String("enabled"),
-//				Devices: cm.DeviceGroupDeviceArray{
-//					&cm.DeviceGroupDeviceArgs{
-//						Name: pulumi.String("bigip1.cisco.com"),
-//					},
-//					&cm.DeviceGroupDeviceArgs{
-//						Name: pulumi.String("bigip200.f5.com"),
-//					},
-//				},
-//				FullLoadOnSync: pulumi.String("true"),
-//				Name:           pulumi.String("sanjose_devicegroup"),
-//				Type:           pulumi.String("sync-only"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type DeviceGroup struct {
 	pulumi.CustomResourceState
 

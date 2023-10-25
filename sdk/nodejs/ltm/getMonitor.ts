@@ -6,18 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source (`f5bigip.ltm.Monitor`) to get the ltm monitor details available on BIG-IP
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- *
- * const monitor-TC1 = f5bigip.ltm.getMonitor({
- *     name: "test-monitor",
- *     partition: "Common",
- * });
- * ```
  */
 export function getMonitor(args: GetMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetMonitorResult> {
 
@@ -95,18 +83,6 @@ export interface GetMonitorResult {
 }
 /**
  * Use this data source (`f5bigip.ltm.Monitor`) to get the ltm monitor details available on BIG-IP
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- *
- * const monitor-TC1 = f5bigip.ltm.getMonitor({
- *     name: "test-monitor",
- *     partition: "Common",
- * });
- * ```
  */
 export function getMonitorOutput(args: GetMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitorResult> {
     return pulumi.output(args).apply((a: any) => getMonitor(a, opts))

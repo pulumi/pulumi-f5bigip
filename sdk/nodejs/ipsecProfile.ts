@@ -6,19 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * `f5bigip.IpsecProfile` Manage IPSec Profiles on a BIG-IP
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- *
- * const azurevWANProfile = new f5bigip.IpsecProfile("azurevWANProfile", {
- *     description: "mytestipsecprofile",
- *     name: "/Common/Mytestipsecprofile",
- *     trafficSelector: "test-trafficselector",
- * });
- * ```
  */
 export class IpsecProfile extends pulumi.CustomResource {
     /**

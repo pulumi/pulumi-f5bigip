@@ -77,8 +77,8 @@ class PersistenceProfileCookieArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             defaults_from: pulumi.Input[str],
-             name: pulumi.Input[str],
+             defaults_from: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
              always_send: Optional[pulumi.Input[str]] = None,
              app_service: Optional[pulumi.Input[str]] = None,
              cookie_encryption: Optional[pulumi.Input[str]] = None,
@@ -95,7 +95,37 @@ class PersistenceProfileCookieArgs:
              mirror: Optional[pulumi.Input[str]] = None,
              override_conn_limit: Optional[pulumi.Input[str]] = None,
              timeout: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if defaults_from is None and 'defaultsFrom' in kwargs:
+            defaults_from = kwargs['defaultsFrom']
+        if defaults_from is None:
+            raise TypeError("Missing 'defaults_from' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if always_send is None and 'alwaysSend' in kwargs:
+            always_send = kwargs['alwaysSend']
+        if app_service is None and 'appService' in kwargs:
+            app_service = kwargs['appService']
+        if cookie_encryption is None and 'cookieEncryption' in kwargs:
+            cookie_encryption = kwargs['cookieEncryption']
+        if cookie_encryption_passphrase is None and 'cookieEncryptionPassphrase' in kwargs:
+            cookie_encryption_passphrase = kwargs['cookieEncryptionPassphrase']
+        if cookie_name is None and 'cookieName' in kwargs:
+            cookie_name = kwargs['cookieName']
+        if hash_length is None and 'hashLength' in kwargs:
+            hash_length = kwargs['hashLength']
+        if hash_offset is None and 'hashOffset' in kwargs:
+            hash_offset = kwargs['hashOffset']
+        if match_across_pools is None and 'matchAcrossPools' in kwargs:
+            match_across_pools = kwargs['matchAcrossPools']
+        if match_across_services is None and 'matchAcrossServices' in kwargs:
+            match_across_services = kwargs['matchAcrossServices']
+        if match_across_virtuals is None and 'matchAcrossVirtuals' in kwargs:
+            match_across_virtuals = kwargs['matchAcrossVirtuals']
+        if override_conn_limit is None and 'overrideConnLimit' in kwargs:
+            override_conn_limit = kwargs['overrideConnLimit']
+
         _setter("defaults_from", defaults_from)
         _setter("name", name)
         if always_send is not None:
@@ -430,7 +460,33 @@ class _PersistenceProfileCookieState:
              name: Optional[pulumi.Input[str]] = None,
              override_conn_limit: Optional[pulumi.Input[str]] = None,
              timeout: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if always_send is None and 'alwaysSend' in kwargs:
+            always_send = kwargs['alwaysSend']
+        if app_service is None and 'appService' in kwargs:
+            app_service = kwargs['appService']
+        if cookie_encryption is None and 'cookieEncryption' in kwargs:
+            cookie_encryption = kwargs['cookieEncryption']
+        if cookie_encryption_passphrase is None and 'cookieEncryptionPassphrase' in kwargs:
+            cookie_encryption_passphrase = kwargs['cookieEncryptionPassphrase']
+        if cookie_name is None and 'cookieName' in kwargs:
+            cookie_name = kwargs['cookieName']
+        if defaults_from is None and 'defaultsFrom' in kwargs:
+            defaults_from = kwargs['defaultsFrom']
+        if hash_length is None and 'hashLength' in kwargs:
+            hash_length = kwargs['hashLength']
+        if hash_offset is None and 'hashOffset' in kwargs:
+            hash_offset = kwargs['hashOffset']
+        if match_across_pools is None and 'matchAcrossPools' in kwargs:
+            match_across_pools = kwargs['matchAcrossPools']
+        if match_across_services is None and 'matchAcrossServices' in kwargs:
+            match_across_services = kwargs['matchAcrossServices']
+        if match_across_virtuals is None and 'matchAcrossVirtuals' in kwargs:
+            match_across_virtuals = kwargs['matchAcrossVirtuals']
+        if override_conn_limit is None and 'overrideConnLimit' in kwargs:
+            override_conn_limit = kwargs['overrideConnLimit']
+
         if always_send is not None:
             _setter("always_send", always_send)
         if app_service is not None:
@@ -710,28 +766,6 @@ class PersistenceProfileCookie(pulumi.CustomResource):
         """
         Configures a cookie persistence profile
 
-        ## Example
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        test_ppcookie = f5bigip.ltm.PersistenceProfileCookie("testPpcookie",
-            name="/Common/terraform_cookie",
-            defaults_from="/Common/cookie",
-            match_across_pools="enabled",
-            match_across_services="enabled",
-            match_across_virtuals="enabled",
-            timeout=3600,
-            override_conn_limit="enabled",
-            always_send="enabled",
-            cookie_encryption="required",
-            cookie_encryption_passphrase="iam",
-            cookie_name="ham",
-            expiration="1:0:0",
-            hash_length=0)
-        ```
-
         ## Reference
 
         `name` - (Required) Name of the virtual address
@@ -798,28 +832,6 @@ class PersistenceProfileCookie(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Configures a cookie persistence profile
-
-        ## Example
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        test_ppcookie = f5bigip.ltm.PersistenceProfileCookie("testPpcookie",
-            name="/Common/terraform_cookie",
-            defaults_from="/Common/cookie",
-            match_across_pools="enabled",
-            match_across_services="enabled",
-            match_across_virtuals="enabled",
-            timeout=3600,
-            override_conn_limit="enabled",
-            always_send="enabled",
-            cookie_encryption="required",
-            cookie_encryption_passphrase="iam",
-            cookie_name="ham",
-            expiration="1:0:0",
-            hash_length=0)
-        ```
 
         ## Reference
 

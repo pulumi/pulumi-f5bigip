@@ -6,66 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * `f5bigip.CommonLicenseManageBigIq` This Resource is used for BIGIP/Provider License Management from BIGIQ
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- *
- * // MANAGED Regkey Pool
- * const testExampleCommonLicenseManageBigIq = new f5bigip.CommonLicenseManageBigIq("testExampleCommonLicenseManageBigIq", {
- *     bigiqAddress: _var.bigiq,
- *     bigiqUser: _var.bigiq_un,
- *     bigiqPassword: _var.bigiq_pw,
- *     licensePoolname: "regkeypool_name",
- *     assignmentType: "MANAGED",
- * });
- * // UNMANAGED Regkey Pool
- * const testExampleIndex_commonLicenseManageBigIqCommonLicenseManageBigIq = new f5bigip.CommonLicenseManageBigIq("testExampleIndex/commonLicenseManageBigIqCommonLicenseManageBigIq", {
- *     bigiqAddress: _var.bigiq,
- *     bigiqUser: _var.bigiq_un,
- *     bigiqPassword: _var.bigiq_pw,
- *     licensePoolname: "regkeypool_name",
- *     assignmentType: "UNMANAGED",
- * });
- * // UNMANAGED Utility Pool
- * const testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq = new f5bigip.CommonLicenseManageBigIq("testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq", {
- *     bigiqAddress: _var.bigiq,
- *     bigiqUser: _var.bigiq_un,
- *     bigiqPassword: _var.bigiq_pw,
- *     licensePoolname: "utilitypool_name",
- *     assignmentType: "UNMANAGED",
- *     unitOfMeasure: "yearly",
- *     skukeyword1: "BTHSM200M",
- * });
- * // UNREACHABLE Regkey Pool
- * const testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq1 = new f5bigip.CommonLicenseManageBigIq("testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq1", {
- *     bigiqAddress: "xxx.xxx.xxx.xxx",
- *     bigiqUser: "xxxx",
- *     bigiqPassword: "xxxxx",
- *     licensePoolname: "regkey_pool_name",
- *     assignmentType: "UNREACHABLE",
- *     macAddress: "FA:16:3E:1B:6D:32",
- *     hypervisor: "azure",
- * });
- * // MANAGED Purchased Pool
- * const testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq2 = new f5bigip.CommonLicenseManageBigIq("testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq2", {
- *     bigiqAddress: _var.bigiq,
- *     bigiqUser: _var.bigiq_un,
- *     bigiqPassword: _var.bigiq_pw,
- *     licensePoolname: "purchased_pool_name",
- *     assignmentType: "MANAGED",
- * });
- * // UNMANAGED Purchased Pool
- * const testExampleF5bigipIndex_commonLicenseManageBigIqCommonLicenseManageBigIq3 = new f5bigip.CommonLicenseManageBigIq("testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq3", {
- *     bigiqAddress: _var.bigiq,
- *     bigiqUser: _var.bigiq_un,
- *     bigiqPassword: _var.bigiq_pw,
- *     licensePoolname: "purchased_pool_name",
- *     assignmentType: "UNMANAGED",
- * });
- * ```
  */
 export class CommonLicenseManageBigIq extends pulumi.CustomResource {
     /**

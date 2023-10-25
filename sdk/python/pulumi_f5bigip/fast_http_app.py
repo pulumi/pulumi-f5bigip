@@ -77,8 +77,8 @@ class FastHttpAppArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application: pulumi.Input[str],
-             tenant: pulumi.Input[str],
+             application: Optional[pulumi.Input[str]] = None,
+             tenant: Optional[pulumi.Input[str]] = None,
              endpoint_ltm_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              existing_monitor: Optional[pulumi.Input[str]] = None,
              existing_pool: Optional[pulumi.Input[str]] = None,
@@ -93,7 +93,39 @@ class FastHttpAppArgs:
              snat_pool_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              virtual_server: Optional[pulumi.Input['FastHttpAppVirtualServerArgs']] = None,
              waf_security_policy: Optional[pulumi.Input['FastHttpAppWafSecurityPolicyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application is None:
+            raise TypeError("Missing 'application' argument")
+        if tenant is None:
+            raise TypeError("Missing 'tenant' argument")
+        if endpoint_ltm_policies is None and 'endpointLtmPolicies' in kwargs:
+            endpoint_ltm_policies = kwargs['endpointLtmPolicies']
+        if existing_monitor is None and 'existingMonitor' in kwargs:
+            existing_monitor = kwargs['existingMonitor']
+        if existing_pool is None and 'existingPool' in kwargs:
+            existing_pool = kwargs['existingPool']
+        if existing_snat_pool is None and 'existingSnatPool' in kwargs:
+            existing_snat_pool = kwargs['existingSnatPool']
+        if existing_waf_security_policy is None and 'existingWafSecurityPolicy' in kwargs:
+            existing_waf_security_policy = kwargs['existingWafSecurityPolicy']
+        if load_balancing_mode is None and 'loadBalancingMode' in kwargs:
+            load_balancing_mode = kwargs['loadBalancingMode']
+        if pool_members is None and 'poolMembers' in kwargs:
+            pool_members = kwargs['poolMembers']
+        if security_log_profiles is None and 'securityLogProfiles' in kwargs:
+            security_log_profiles = kwargs['securityLogProfiles']
+        if service_discoveries is None and 'serviceDiscoveries' in kwargs:
+            service_discoveries = kwargs['serviceDiscoveries']
+        if slow_ramp_time is None and 'slowRampTime' in kwargs:
+            slow_ramp_time = kwargs['slowRampTime']
+        if snat_pool_addresses is None and 'snatPoolAddresses' in kwargs:
+            snat_pool_addresses = kwargs['snatPoolAddresses']
+        if virtual_server is None and 'virtualServer' in kwargs:
+            virtual_server = kwargs['virtualServer']
+        if waf_security_policy is None and 'wafSecurityPolicy' in kwargs:
+            waf_security_policy = kwargs['wafSecurityPolicy']
+
         _setter("application", application)
         _setter("tenant", tenant)
         if endpoint_ltm_policies is not None:
@@ -406,7 +438,37 @@ class _FastHttpAppState:
              tenant: Optional[pulumi.Input[str]] = None,
              virtual_server: Optional[pulumi.Input['FastHttpAppVirtualServerArgs']] = None,
              waf_security_policy: Optional[pulumi.Input['FastHttpAppWafSecurityPolicyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if endpoint_ltm_policies is None and 'endpointLtmPolicies' in kwargs:
+            endpoint_ltm_policies = kwargs['endpointLtmPolicies']
+        if existing_monitor is None and 'existingMonitor' in kwargs:
+            existing_monitor = kwargs['existingMonitor']
+        if existing_pool is None and 'existingPool' in kwargs:
+            existing_pool = kwargs['existingPool']
+        if existing_snat_pool is None and 'existingSnatPool' in kwargs:
+            existing_snat_pool = kwargs['existingSnatPool']
+        if existing_waf_security_policy is None and 'existingWafSecurityPolicy' in kwargs:
+            existing_waf_security_policy = kwargs['existingWafSecurityPolicy']
+        if fast_http_json is None and 'fastHttpJson' in kwargs:
+            fast_http_json = kwargs['fastHttpJson']
+        if load_balancing_mode is None and 'loadBalancingMode' in kwargs:
+            load_balancing_mode = kwargs['loadBalancingMode']
+        if pool_members is None and 'poolMembers' in kwargs:
+            pool_members = kwargs['poolMembers']
+        if security_log_profiles is None and 'securityLogProfiles' in kwargs:
+            security_log_profiles = kwargs['securityLogProfiles']
+        if service_discoveries is None and 'serviceDiscoveries' in kwargs:
+            service_discoveries = kwargs['serviceDiscoveries']
+        if slow_ramp_time is None and 'slowRampTime' in kwargs:
+            slow_ramp_time = kwargs['slowRampTime']
+        if snat_pool_addresses is None and 'snatPoolAddresses' in kwargs:
+            snat_pool_addresses = kwargs['snatPoolAddresses']
+        if virtual_server is None and 'virtualServer' in kwargs:
+            virtual_server = kwargs['virtualServer']
+        if waf_security_policy is None and 'wafSecurityPolicy' in kwargs:
+            waf_security_policy = kwargs['wafSecurityPolicy']
+
         if application is not None:
             _setter("application", application)
         if endpoint_ltm_policies is not None:
@@ -678,54 +740,6 @@ class FastHttpApp(pulumi.CustomResource):
 
         [FAST documentation](https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/)
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        fast_http_app = f5bigip.FastHttpApp("fastHttpApp",
-            application="fasthttpapp",
-            tenant="fasthttptenant",
-            virtual_server=f5bigip.FastHttpAppVirtualServerArgs(
-                ip="10.30.30.44",
-                port=443,
-            ))
-        ```
-        ### With Service Discovery
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        t_c3_azure_service_discovery = f5bigip.fast.get_azure_service_discovery(resource_group="testazurerg",
-            subscription_id="testazuresid",
-            tag_key="testazuretag",
-            tag_value="testazurevalue")
-        t_c3_gce_service_discovery = f5bigip.fast.get_gce_service_discovery(tag_key="testgcetag",
-            tag_value="testgcevalue",
-            region="testgceregion")
-        fast_https_app = f5bigip.FastHttpApp("fastHttpsApp",
-            tenant="fasthttptenant",
-            application="fasthttpapp",
-            virtual_server=f5bigip.FastHttpAppVirtualServerArgs(
-                ip="10.30.40.44",
-                port=443,
-            ),
-            pool_members=[f5bigip.FastHttpAppPoolMemberArgs(
-                addresses=[
-                    "10.11.40.120",
-                    "10.11.30.121",
-                    "10.11.30.122",
-                ],
-                port=80,
-            )],
-            service_discoveries=[
-                t_c3_gce_service_discovery.gce_sd_json,
-                t_c3_azure_service_discovery.azure_sd_json,
-            ])
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application: Name of the FAST HTTPS application.
@@ -759,54 +773,6 @@ class FastHttpApp(pulumi.CustomResource):
         `FastHttpApp` This resource will create and manage FAST HTTP applications on BIG-IP
 
         [FAST documentation](https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/)
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        fast_http_app = f5bigip.FastHttpApp("fastHttpApp",
-            application="fasthttpapp",
-            tenant="fasthttptenant",
-            virtual_server=f5bigip.FastHttpAppVirtualServerArgs(
-                ip="10.30.30.44",
-                port=443,
-            ))
-        ```
-        ### With Service Discovery
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        t_c3_azure_service_discovery = f5bigip.fast.get_azure_service_discovery(resource_group="testazurerg",
-            subscription_id="testazuresid",
-            tag_key="testazuretag",
-            tag_value="testazurevalue")
-        t_c3_gce_service_discovery = f5bigip.fast.get_gce_service_discovery(tag_key="testgcetag",
-            tag_value="testgcevalue",
-            region="testgceregion")
-        fast_https_app = f5bigip.FastHttpApp("fastHttpsApp",
-            tenant="fasthttptenant",
-            application="fasthttpapp",
-            virtual_server=f5bigip.FastHttpAppVirtualServerArgs(
-                ip="10.30.40.44",
-                port=443,
-            ),
-            pool_members=[f5bigip.FastHttpAppPoolMemberArgs(
-                addresses=[
-                    "10.11.40.120",
-                    "10.11.30.121",
-                    "10.11.30.122",
-                ],
-                port=80,
-            )],
-            service_discoveries=[
-                t_c3_gce_service_discovery.gce_sd_json,
-                t_c3_azure_service_discovery.azure_sd_json,
-            ])
-        ```
 
         :param str resource_name: The name of the resource.
         :param FastHttpAppArgs args: The arguments to use to populate this resource's properties.
@@ -861,11 +827,7 @@ class FastHttpApp(pulumi.CustomResource):
             __props__.__dict__["existing_snat_pool"] = existing_snat_pool
             __props__.__dict__["existing_waf_security_policy"] = existing_waf_security_policy
             __props__.__dict__["load_balancing_mode"] = load_balancing_mode
-            if monitor is not None and not isinstance(monitor, FastHttpAppMonitorArgs):
-                monitor = monitor or {}
-                def _setter(key, value):
-                    monitor[key] = value
-                FastHttpAppMonitorArgs._configure(_setter, **monitor)
+            monitor = _utilities.configure(monitor, FastHttpAppMonitorArgs, True)
             __props__.__dict__["monitor"] = monitor
             __props__.__dict__["pool_members"] = pool_members
             __props__.__dict__["security_log_profiles"] = security_log_profiles
@@ -875,17 +837,9 @@ class FastHttpApp(pulumi.CustomResource):
             if tenant is None and not opts.urn:
                 raise TypeError("Missing required property 'tenant'")
             __props__.__dict__["tenant"] = tenant
-            if virtual_server is not None and not isinstance(virtual_server, FastHttpAppVirtualServerArgs):
-                virtual_server = virtual_server or {}
-                def _setter(key, value):
-                    virtual_server[key] = value
-                FastHttpAppVirtualServerArgs._configure(_setter, **virtual_server)
+            virtual_server = _utilities.configure(virtual_server, FastHttpAppVirtualServerArgs, True)
             __props__.__dict__["virtual_server"] = virtual_server
-            if waf_security_policy is not None and not isinstance(waf_security_policy, FastHttpAppWafSecurityPolicyArgs):
-                waf_security_policy = waf_security_policy or {}
-                def _setter(key, value):
-                    waf_security_policy[key] = value
-                FastHttpAppWafSecurityPolicyArgs._configure(_setter, **waf_security_policy)
+            waf_security_policy = _utilities.configure(waf_security_policy, FastHttpAppWafSecurityPolicyArgs, True)
             __props__.__dict__["waf_security_policy"] = waf_security_policy
             __props__.__dict__["fast_http_json"] = None
         super(FastHttpApp, __self__).__init__(

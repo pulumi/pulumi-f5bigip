@@ -17,40 +17,6 @@ import (
 //
 // Resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource (For example `/Common/my-fastl4profile`) or  `partition + directory + name` of the resource  (example: `/Common/test/my-fastl4profile`)
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ltm.NewProfileFastL4(ctx, "profileFastl4", &ltm.ProfileFastL4Args{
-//				ClientTimeout:         pulumi.Int(40),
-//				DefaultsFrom:          pulumi.String("/Common/fastL4"),
-//				ExplicitflowMigration: pulumi.String("enabled"),
-//				HardwareSyncookie:     pulumi.String("enabled"),
-//				IdleTimeout:           pulumi.String("200"),
-//				IptosToclient:         pulumi.String("pass-through"),
-//				IptosToserver:         pulumi.String("pass-through"),
-//				KeepaliveInterval:     pulumi.String("disabled"),
-//				Name:                  pulumi.String("/Common/sjfastl4profile"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // BIG-IP LTM fastl4 profiles can be imported using the `name`, e.g.

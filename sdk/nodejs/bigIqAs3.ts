@@ -8,22 +8,6 @@ import * as utilities from "./utilities";
  * `f5bigip.BigIqAs3` provides details about bigiq as3 resource
  *
  * This resource is helpful to configure as3 declarative JSON on BIG-IP through BIG-IQ.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- * import * as fs from "fs";
- *
- * // Example Usage for json file
- * const exampletask = new f5bigip.BigIqAs3("exampletask", {
- *     as3Json: fs.readFileSync("bigiq_example.json"),
- *     bigiqAddress: "xx.xx.xxx.xx",
- *     bigiqPassword: "xxxxxxxxx",
- *     bigiqUser: "xxxxx",
- * });
- * ```
  */
 export class BigIqAs3 extends pulumi.CustomResource {
     /**
@@ -86,9 +70,6 @@ export class BigIqAs3 extends pulumi.CustomResource {
      *
      * * `bigiq_example.json` - Example  AS3 Declarative JSON file
      *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
      *
      * * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
      *
@@ -190,9 +171,6 @@ export interface BigIqAs3State {
      *
      * * `bigiq_example.json` - Example  AS3 Declarative JSON file
      *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
      *
      * * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
      *
@@ -242,9 +220,6 @@ export interface BigIqAs3Args {
      *
      * * `bigiq_example.json` - Example  AS3 Declarative JSON file
      *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
      *
      * * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
      *

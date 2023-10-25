@@ -8,18 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source (`f5bigip.ltm.Policy`) to get the ltm policy details available on BIG-IP
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- *
- * const test = f5bigip.ltm.getPolicy({
- *     name: "/Common/test-policy",
- * });
- * export const bigipPolicy = test.then(test => test.rules);
- * ```
  */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
 
@@ -93,18 +81,6 @@ export interface GetPolicyResult {
 }
 /**
  * Use this data source (`f5bigip.ltm.Policy`) to get the ltm policy details available on BIG-IP
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- *
- * const test = f5bigip.ltm.getPolicy({
- *     name: "/Common/test-policy",
- * });
- * export const bigipPolicy = test.then(test => test.rules);
- * ```
  */
 export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
     return pulumi.output(args).apply((a: any) => getPolicy(a, opts))

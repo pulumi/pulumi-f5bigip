@@ -142,33 +142,6 @@ def get_waf_entity_url(description: Optional[str] = None,
     """
     Use this data source (`ssl_get_waf_pb_suggestions`) to create JSON for WAF URL to later use with an existing WAF policy.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_f5bigip as f5bigip
-
-    w_afurl1 = f5bigip.ssl.get_waf_entity_url(description="this is a test",
-        method_overrides=[
-            f5bigip.ssl.GetWafEntityUrlMethodOverrideArgs(
-                allow=False,
-                method="BCOPY",
-            ),
-            f5bigip.ssl.GetWafEntityUrlMethodOverrideArgs(
-                allow=True,
-                method="BDELETE",
-            ),
-        ],
-        name="/foobar",
-        perform_staging=True,
-        protocol="HTTP",
-        signature_overrides_disables=[
-            12345678,
-            87654321,
-        ],
-        type="explicit")
-    ```
-
 
     :param str description: A description of the URL.
     :param str method: Specifies an HTTP method.
@@ -216,33 +189,6 @@ def get_waf_entity_url_output(description: Optional[pulumi.Input[Optional[str]]]
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWafEntityUrlResult]:
     """
     Use this data source (`ssl_get_waf_pb_suggestions`) to create JSON for WAF URL to later use with an existing WAF policy.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_f5bigip as f5bigip
-
-    w_afurl1 = f5bigip.ssl.get_waf_entity_url(description="this is a test",
-        method_overrides=[
-            f5bigip.ssl.GetWafEntityUrlMethodOverrideArgs(
-                allow=False,
-                method="BCOPY",
-            ),
-            f5bigip.ssl.GetWafEntityUrlMethodOverrideArgs(
-                allow=True,
-                method="BDELETE",
-            ),
-        ],
-        name="/foobar",
-        perform_staging=True,
-        protocol="HTTP",
-        signature_overrides_disables=[
-            12345678,
-            87654321,
-        ],
-        type="explicit")
-    ```
 
 
     :param str description: A description of the URL.

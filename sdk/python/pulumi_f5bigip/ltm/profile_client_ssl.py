@@ -201,7 +201,7 @@ class ProfileClientSslArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              alert_timeout: Optional[pulumi.Input[str]] = None,
              allow_non_ssl: Optional[pulumi.Input[str]] = None,
              authenticate: Optional[pulumi.Input[str]] = None,
@@ -258,7 +258,103 @@ class ProfileClientSslArgs:
              strict_resume: Optional[pulumi.Input[str]] = None,
              tm_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              unclean_shutdown: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if alert_timeout is None and 'alertTimeout' in kwargs:
+            alert_timeout = kwargs['alertTimeout']
+        if allow_non_ssl is None and 'allowNonSsl' in kwargs:
+            allow_non_ssl = kwargs['allowNonSsl']
+        if authenticate_depth is None and 'authenticateDepth' in kwargs:
+            authenticate_depth = kwargs['authenticateDepth']
+        if c3d_client_fallback_cert is None and 'c3dClientFallbackCert' in kwargs:
+            c3d_client_fallback_cert = kwargs['c3dClientFallbackCert']
+        if c3d_drop_unknown_ocsp_status is None and 'c3dDropUnknownOcspStatus' in kwargs:
+            c3d_drop_unknown_ocsp_status = kwargs['c3dDropUnknownOcspStatus']
+        if c3d_ocsp is None and 'c3dOcsp' in kwargs:
+            c3d_ocsp = kwargs['c3dOcsp']
+        if ca_file is None and 'caFile' in kwargs:
+            ca_file = kwargs['caFile']
+        if cache_size is None and 'cacheSize' in kwargs:
+            cache_size = kwargs['cacheSize']
+        if cache_timeout is None and 'cacheTimeout' in kwargs:
+            cache_timeout = kwargs['cacheTimeout']
+        if cert_extension_includes is None and 'certExtensionIncludes' in kwargs:
+            cert_extension_includes = kwargs['certExtensionIncludes']
+        if cert_key_chain is None and 'certKeyChain' in kwargs:
+            cert_key_chain = kwargs['certKeyChain']
+        if cert_life_span is None and 'certLifeSpan' in kwargs:
+            cert_life_span = kwargs['certLifeSpan']
+        if cert_lookup_by_ipaddr_port is None and 'certLookupByIpaddrPort' in kwargs:
+            cert_lookup_by_ipaddr_port = kwargs['certLookupByIpaddrPort']
+        if cipher_group is None and 'cipherGroup' in kwargs:
+            cipher_group = kwargs['cipherGroup']
+        if client_cert_ca is None and 'clientCertCa' in kwargs:
+            client_cert_ca = kwargs['clientCertCa']
+        if crl_file is None and 'crlFile' in kwargs:
+            crl_file = kwargs['crlFile']
+        if defaults_from is None and 'defaultsFrom' in kwargs:
+            defaults_from = kwargs['defaultsFrom']
+        if forward_proxy_bypass_default_action is None and 'forwardProxyBypassDefaultAction' in kwargs:
+            forward_proxy_bypass_default_action = kwargs['forwardProxyBypassDefaultAction']
+        if full_path is None and 'fullPath' in kwargs:
+            full_path = kwargs['fullPath']
+        if generic_alert is None and 'genericAlert' in kwargs:
+            generic_alert = kwargs['genericAlert']
+        if handshake_timeout is None and 'handshakeTimeout' in kwargs:
+            handshake_timeout = kwargs['handshakeTimeout']
+        if inherit_cert_keychain is None and 'inheritCertKeychain' in kwargs:
+            inherit_cert_keychain = kwargs['inheritCertKeychain']
+        if mod_ssl_methods is None and 'modSslMethods' in kwargs:
+            mod_ssl_methods = kwargs['modSslMethods']
+        if ocsp_stapling is None and 'ocspStapling' in kwargs:
+            ocsp_stapling = kwargs['ocspStapling']
+        if peer_cert_mode is None and 'peerCertMode' in kwargs:
+            peer_cert_mode = kwargs['peerCertMode']
+        if proxy_ca_cert is None and 'proxyCaCert' in kwargs:
+            proxy_ca_cert = kwargs['proxyCaCert']
+        if proxy_ca_key is None and 'proxyCaKey' in kwargs:
+            proxy_ca_key = kwargs['proxyCaKey']
+        if proxy_ca_passphrase is None and 'proxyCaPassphrase' in kwargs:
+            proxy_ca_passphrase = kwargs['proxyCaPassphrase']
+        if proxy_ssl is None and 'proxySsl' in kwargs:
+            proxy_ssl = kwargs['proxySsl']
+        if proxy_ssl_passthrough is None and 'proxySslPassthrough' in kwargs:
+            proxy_ssl_passthrough = kwargs['proxySslPassthrough']
+        if renegotiate_period is None and 'renegotiatePeriod' in kwargs:
+            renegotiate_period = kwargs['renegotiatePeriod']
+        if renegotiate_size is None and 'renegotiateSize' in kwargs:
+            renegotiate_size = kwargs['renegotiateSize']
+        if retain_certificate is None and 'retainCertificate' in kwargs:
+            retain_certificate = kwargs['retainCertificate']
+        if secure_renegotiation is None and 'secureRenegotiation' in kwargs:
+            secure_renegotiation = kwargs['secureRenegotiation']
+        if server_name is None and 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if session_mirroring is None and 'sessionMirroring' in kwargs:
+            session_mirroring = kwargs['sessionMirroring']
+        if session_ticket is None and 'sessionTicket' in kwargs:
+            session_ticket = kwargs['sessionTicket']
+        if sni_default is None and 'sniDefault' in kwargs:
+            sni_default = kwargs['sniDefault']
+        if sni_require is None and 'sniRequire' in kwargs:
+            sni_require = kwargs['sniRequire']
+        if ssl_c3d is None and 'sslC3d' in kwargs:
+            ssl_c3d = kwargs['sslC3d']
+        if ssl_forward_proxy is None and 'sslForwardProxy' in kwargs:
+            ssl_forward_proxy = kwargs['sslForwardProxy']
+        if ssl_forward_proxy_bypass is None and 'sslForwardProxyBypass' in kwargs:
+            ssl_forward_proxy_bypass = kwargs['sslForwardProxyBypass']
+        if ssl_sign_hash is None and 'sslSignHash' in kwargs:
+            ssl_sign_hash = kwargs['sslSignHash']
+        if strict_resume is None and 'strictResume' in kwargs:
+            strict_resume = kwargs['strictResume']
+        if tm_options is None and 'tmOptions' in kwargs:
+            tm_options = kwargs['tmOptions']
+        if unclean_shutdown is None and 'uncleanShutdown' in kwargs:
+            unclean_shutdown = kwargs['uncleanShutdown']
+
         _setter("name", name)
         if alert_timeout is not None:
             _setter("alert_timeout", alert_timeout)
@@ -1312,7 +1408,101 @@ class _ProfileClientSslState:
              strict_resume: Optional[pulumi.Input[str]] = None,
              tm_options: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              unclean_shutdown: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if alert_timeout is None and 'alertTimeout' in kwargs:
+            alert_timeout = kwargs['alertTimeout']
+        if allow_non_ssl is None and 'allowNonSsl' in kwargs:
+            allow_non_ssl = kwargs['allowNonSsl']
+        if authenticate_depth is None and 'authenticateDepth' in kwargs:
+            authenticate_depth = kwargs['authenticateDepth']
+        if c3d_client_fallback_cert is None and 'c3dClientFallbackCert' in kwargs:
+            c3d_client_fallback_cert = kwargs['c3dClientFallbackCert']
+        if c3d_drop_unknown_ocsp_status is None and 'c3dDropUnknownOcspStatus' in kwargs:
+            c3d_drop_unknown_ocsp_status = kwargs['c3dDropUnknownOcspStatus']
+        if c3d_ocsp is None and 'c3dOcsp' in kwargs:
+            c3d_ocsp = kwargs['c3dOcsp']
+        if ca_file is None and 'caFile' in kwargs:
+            ca_file = kwargs['caFile']
+        if cache_size is None and 'cacheSize' in kwargs:
+            cache_size = kwargs['cacheSize']
+        if cache_timeout is None and 'cacheTimeout' in kwargs:
+            cache_timeout = kwargs['cacheTimeout']
+        if cert_extension_includes is None and 'certExtensionIncludes' in kwargs:
+            cert_extension_includes = kwargs['certExtensionIncludes']
+        if cert_key_chain is None and 'certKeyChain' in kwargs:
+            cert_key_chain = kwargs['certKeyChain']
+        if cert_life_span is None and 'certLifeSpan' in kwargs:
+            cert_life_span = kwargs['certLifeSpan']
+        if cert_lookup_by_ipaddr_port is None and 'certLookupByIpaddrPort' in kwargs:
+            cert_lookup_by_ipaddr_port = kwargs['certLookupByIpaddrPort']
+        if cipher_group is None and 'cipherGroup' in kwargs:
+            cipher_group = kwargs['cipherGroup']
+        if client_cert_ca is None and 'clientCertCa' in kwargs:
+            client_cert_ca = kwargs['clientCertCa']
+        if crl_file is None and 'crlFile' in kwargs:
+            crl_file = kwargs['crlFile']
+        if defaults_from is None and 'defaultsFrom' in kwargs:
+            defaults_from = kwargs['defaultsFrom']
+        if forward_proxy_bypass_default_action is None and 'forwardProxyBypassDefaultAction' in kwargs:
+            forward_proxy_bypass_default_action = kwargs['forwardProxyBypassDefaultAction']
+        if full_path is None and 'fullPath' in kwargs:
+            full_path = kwargs['fullPath']
+        if generic_alert is None and 'genericAlert' in kwargs:
+            generic_alert = kwargs['genericAlert']
+        if handshake_timeout is None and 'handshakeTimeout' in kwargs:
+            handshake_timeout = kwargs['handshakeTimeout']
+        if inherit_cert_keychain is None and 'inheritCertKeychain' in kwargs:
+            inherit_cert_keychain = kwargs['inheritCertKeychain']
+        if mod_ssl_methods is None and 'modSslMethods' in kwargs:
+            mod_ssl_methods = kwargs['modSslMethods']
+        if ocsp_stapling is None and 'ocspStapling' in kwargs:
+            ocsp_stapling = kwargs['ocspStapling']
+        if peer_cert_mode is None and 'peerCertMode' in kwargs:
+            peer_cert_mode = kwargs['peerCertMode']
+        if proxy_ca_cert is None and 'proxyCaCert' in kwargs:
+            proxy_ca_cert = kwargs['proxyCaCert']
+        if proxy_ca_key is None and 'proxyCaKey' in kwargs:
+            proxy_ca_key = kwargs['proxyCaKey']
+        if proxy_ca_passphrase is None and 'proxyCaPassphrase' in kwargs:
+            proxy_ca_passphrase = kwargs['proxyCaPassphrase']
+        if proxy_ssl is None and 'proxySsl' in kwargs:
+            proxy_ssl = kwargs['proxySsl']
+        if proxy_ssl_passthrough is None and 'proxySslPassthrough' in kwargs:
+            proxy_ssl_passthrough = kwargs['proxySslPassthrough']
+        if renegotiate_period is None and 'renegotiatePeriod' in kwargs:
+            renegotiate_period = kwargs['renegotiatePeriod']
+        if renegotiate_size is None and 'renegotiateSize' in kwargs:
+            renegotiate_size = kwargs['renegotiateSize']
+        if retain_certificate is None and 'retainCertificate' in kwargs:
+            retain_certificate = kwargs['retainCertificate']
+        if secure_renegotiation is None and 'secureRenegotiation' in kwargs:
+            secure_renegotiation = kwargs['secureRenegotiation']
+        if server_name is None and 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if session_mirroring is None and 'sessionMirroring' in kwargs:
+            session_mirroring = kwargs['sessionMirroring']
+        if session_ticket is None and 'sessionTicket' in kwargs:
+            session_ticket = kwargs['sessionTicket']
+        if sni_default is None and 'sniDefault' in kwargs:
+            sni_default = kwargs['sniDefault']
+        if sni_require is None and 'sniRequire' in kwargs:
+            sni_require = kwargs['sniRequire']
+        if ssl_c3d is None and 'sslC3d' in kwargs:
+            ssl_c3d = kwargs['sslC3d']
+        if ssl_forward_proxy is None and 'sslForwardProxy' in kwargs:
+            ssl_forward_proxy = kwargs['sslForwardProxy']
+        if ssl_forward_proxy_bypass is None and 'sslForwardProxyBypass' in kwargs:
+            ssl_forward_proxy_bypass = kwargs['sslForwardProxyBypass']
+        if ssl_sign_hash is None and 'sslSignHash' in kwargs:
+            ssl_sign_hash = kwargs['sslSignHash']
+        if strict_resume is None and 'strictResume' in kwargs:
+            strict_resume = kwargs['strictResume']
+        if tm_options is None and 'tmOptions' in kwargs:
+            tm_options = kwargs['tmOptions']
+        if unclean_shutdown is None and 'uncleanShutdown' in kwargs:
+            unclean_shutdown = kwargs['uncleanShutdown']
+
         if alert_timeout is not None:
             _setter("alert_timeout", alert_timeout)
         if allow_non_ssl is not None:
@@ -2190,19 +2380,6 @@ class ProfileClientSsl(pulumi.CustomResource):
 
         Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        test__client_ssl = f5bigip.ltm.ProfileClientSsl("test-ClientSsl",
-            authenticate="always",
-            ciphers="DEFAULT",
-            defaults_from="/Common/clientssl",
-            name="/Common/test-ClientSsl")
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alert_timeout: Alert time out
@@ -2278,19 +2455,6 @@ class ProfileClientSsl(pulumi.CustomResource):
         `ltm.ProfileClientSsl` Manages client SSL profiles on a BIG-IP
 
         Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        test__client_ssl = f5bigip.ltm.ProfileClientSsl("test-ClientSsl",
-            authenticate="always",
-            ciphers="DEFAULT",
-            defaults_from="/Common/clientssl",
-            name="/Common/test-ClientSsl")
-        ```
 
         :param str resource_name: The name of the resource.
         :param ProfileClientSslArgs args: The arguments to use to populate this resource's properties.
@@ -2389,11 +2553,7 @@ class ProfileClientSsl(pulumi.CustomResource):
             __props__.__dict__["cache_timeout"] = cache_timeout
             __props__.__dict__["cert"] = cert
             __props__.__dict__["cert_extension_includes"] = cert_extension_includes
-            if cert_key_chain is not None and not isinstance(cert_key_chain, ProfileClientSslCertKeyChainArgs):
-                cert_key_chain = cert_key_chain or {}
-                def _setter(key, value):
-                    cert_key_chain[key] = value
-                ProfileClientSslCertKeyChainArgs._configure(_setter, **cert_key_chain)
+            cert_key_chain = _utilities.configure(cert_key_chain, ProfileClientSslCertKeyChainArgs, True)
             __props__.__dict__["cert_key_chain"] = cert_key_chain
             __props__.__dict__["cert_life_span"] = cert_life_span
             __props__.__dict__["cert_lookup_by_ipaddr_port"] = cert_lookup_by_ipaddr_port

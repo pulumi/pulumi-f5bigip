@@ -11,33 +11,6 @@ namespace Pulumi.F5BigIP.Ltm
 {
     /// <summary>
     /// `f5bigip.ltm.CipherGroup` Manages F5 BIG-IP LTM cipher group using iControl REST.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using F5BigIP = Pulumi.F5BigIP;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test_cipher_group = new F5BigIP.Ltm.CipherGroup("test-cipher-group", new()
-    ///     {
-    ///         Allows = new[]
-    ///         {
-    ///             "/Common/f5-aes",
-    ///         },
-    ///         Name = "/Common/test-cipher-group-01",
-    ///         Ordering = "speed",
-    ///         Requires = new[]
-    ///         {
-    ///             "/Common/f5-quic",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/cipherGroup:CipherGroup")]
     public partial class CipherGroup : global::Pulumi.CustomResource

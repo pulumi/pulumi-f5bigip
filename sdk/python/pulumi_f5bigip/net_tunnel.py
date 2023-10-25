@@ -74,9 +74,9 @@ class NetTunnelArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             local_address: pulumi.Input[str],
-             name: pulumi.Input[str],
-             profile: pulumi.Input[str],
+             local_address: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             profile: Optional[pulumi.Input[str]] = None,
              app_service: Optional[pulumi.Input[str]] = None,
              auto_last_hop: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -91,7 +91,31 @@ class NetTunnelArgs:
              traffic_group: Optional[pulumi.Input[str]] = None,
              transparent: Optional[pulumi.Input[str]] = None,
              use_pmtu: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if local_address is None and 'localAddress' in kwargs:
+            local_address = kwargs['localAddress']
+        if local_address is None:
+            raise TypeError("Missing 'local_address' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if profile is None:
+            raise TypeError("Missing 'profile' argument")
+        if app_service is None and 'appService' in kwargs:
+            app_service = kwargs['appService']
+        if auto_last_hop is None and 'autoLastHop' in kwargs:
+            auto_last_hop = kwargs['autoLastHop']
+        if idle_timeout is None and 'idleTimeout' in kwargs:
+            idle_timeout = kwargs['idleTimeout']
+        if remote_address is None and 'remoteAddress' in kwargs:
+            remote_address = kwargs['remoteAddress']
+        if secondary_address is None and 'secondaryAddress' in kwargs:
+            secondary_address = kwargs['secondaryAddress']
+        if traffic_group is None and 'trafficGroup' in kwargs:
+            traffic_group = kwargs['trafficGroup']
+        if use_pmtu is None and 'usePmtu' in kwargs:
+            use_pmtu = kwargs['usePmtu']
+
         _setter("local_address", local_address)
         _setter("name", name)
         _setter("profile", profile)
@@ -409,7 +433,25 @@ class _NetTunnelState:
              traffic_group: Optional[pulumi.Input[str]] = None,
              transparent: Optional[pulumi.Input[str]] = None,
              use_pmtu: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_service is None and 'appService' in kwargs:
+            app_service = kwargs['appService']
+        if auto_last_hop is None and 'autoLastHop' in kwargs:
+            auto_last_hop = kwargs['autoLastHop']
+        if idle_timeout is None and 'idleTimeout' in kwargs:
+            idle_timeout = kwargs['idleTimeout']
+        if local_address is None and 'localAddress' in kwargs:
+            local_address = kwargs['localAddress']
+        if remote_address is None and 'remoteAddress' in kwargs:
+            remote_address = kwargs['remoteAddress']
+        if secondary_address is None and 'secondaryAddress' in kwargs:
+            secondary_address = kwargs['secondaryAddress']
+        if traffic_group is None and 'trafficGroup' in kwargs:
+            traffic_group = kwargs['trafficGroup']
+        if use_pmtu is None and 'usePmtu' in kwargs:
+            use_pmtu = kwargs['usePmtu']
+
         if app_service is not None:
             _setter("app_service", app_service)
         if auto_last_hop is not None:
@@ -676,18 +718,6 @@ class NetTunnel(pulumi.CustomResource):
         """
         `NetTunnel` Manages a tunnel configuration
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        example1 = f5bigip.NetTunnel("example1",
-            local_address="192.16.81.240",
-            name="example1",
-            profile="/Common/dslite")
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_service: The application service that the object belongs to
@@ -716,18 +746,6 @@ class NetTunnel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         `NetTunnel` Manages a tunnel configuration
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        example1 = f5bigip.NetTunnel("example1",
-            local_address="192.16.81.240",
-            name="example1",
-            profile="/Common/dslite")
-        ```
 
         :param str resource_name: The name of the resource.
         :param NetTunnelArgs args: The arguments to use to populate this resource's properties.

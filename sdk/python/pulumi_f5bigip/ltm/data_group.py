@@ -41,12 +41,20 @@ class DataGroupArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             type: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
              internal: Optional[pulumi.Input[bool]] = None,
              records: Optional[pulumi.Input[Sequence[pulumi.Input['DataGroupRecordArgs']]]] = None,
              records_src: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if records_src is None and 'recordsSrc' in kwargs:
+            records_src = kwargs['recordsSrc']
+
         _setter("name", name)
         _setter("type", type)
         if internal is not None:
@@ -151,7 +159,11 @@ class _DataGroupState:
              records: Optional[pulumi.Input[Sequence[pulumi.Input['DataGroupRecordArgs']]]] = None,
              records_src: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if records_src is None and 'recordsSrc' in kwargs:
+            records_src = kwargs['recordsSrc']
+
         if internal is not None:
             _setter("internal", internal)
         if name is not None:

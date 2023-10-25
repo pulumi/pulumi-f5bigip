@@ -73,7 +73,7 @@ class ProfileFtpArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              allow_active_mode: Optional[pulumi.Input[str]] = None,
              allow_ftps: Optional[pulumi.Input[str]] = None,
              app_service: Optional[pulumi.Input[str]] = None,
@@ -89,7 +89,33 @@ class ProfileFtpArgs:
              port: Optional[pulumi.Input[int]] = None,
              security: Optional[pulumi.Input[str]] = None,
              translate_extended: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if allow_active_mode is None and 'allowActiveMode' in kwargs:
+            allow_active_mode = kwargs['allowActiveMode']
+        if allow_ftps is None and 'allowFtps' in kwargs:
+            allow_ftps = kwargs['allowFtps']
+        if app_service is None and 'appService' in kwargs:
+            app_service = kwargs['appService']
+        if defaults_from is None and 'defaultsFrom' in kwargs:
+            defaults_from = kwargs['defaultsFrom']
+        if enforce_tlssession_reuse is None and 'enforceTlssessionReuse' in kwargs:
+            enforce_tlssession_reuse = kwargs['enforceTlssessionReuse']
+        if ftps_mode is None and 'ftpsMode' in kwargs:
+            ftps_mode = kwargs['ftpsMode']
+        if inherit_parent_profile is None and 'inheritParentProfile' in kwargs:
+            inherit_parent_profile = kwargs['inheritParentProfile']
+        if inherit_vlan_list is None and 'inheritVlanList' in kwargs:
+            inherit_vlan_list = kwargs['inheritVlanList']
+        if log_profile is None and 'logProfile' in kwargs:
+            log_profile = kwargs['logProfile']
+        if log_publisher is None and 'logPublisher' in kwargs:
+            log_publisher = kwargs['logPublisher']
+        if translate_extended is None and 'translateExtended' in kwargs:
+            translate_extended = kwargs['translateExtended']
+
         _setter("name", name)
         if allow_active_mode is not None:
             _setter("allow_active_mode", allow_active_mode)
@@ -395,7 +421,31 @@ class _ProfileFtpState:
              port: Optional[pulumi.Input[int]] = None,
              security: Optional[pulumi.Input[str]] = None,
              translate_extended: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allow_active_mode is None and 'allowActiveMode' in kwargs:
+            allow_active_mode = kwargs['allowActiveMode']
+        if allow_ftps is None and 'allowFtps' in kwargs:
+            allow_ftps = kwargs['allowFtps']
+        if app_service is None and 'appService' in kwargs:
+            app_service = kwargs['appService']
+        if defaults_from is None and 'defaultsFrom' in kwargs:
+            defaults_from = kwargs['defaultsFrom']
+        if enforce_tlssession_reuse is None and 'enforceTlssessionReuse' in kwargs:
+            enforce_tlssession_reuse = kwargs['enforceTlssessionReuse']
+        if ftps_mode is None and 'ftpsMode' in kwargs:
+            ftps_mode = kwargs['ftpsMode']
+        if inherit_parent_profile is None and 'inheritParentProfile' in kwargs:
+            inherit_parent_profile = kwargs['inheritParentProfile']
+        if inherit_vlan_list is None and 'inheritVlanList' in kwargs:
+            inherit_vlan_list = kwargs['inheritVlanList']
+        if log_profile is None and 'logProfile' in kwargs:
+            log_profile = kwargs['logProfile']
+        if log_publisher is None and 'logPublisher' in kwargs:
+            log_publisher = kwargs['logPublisher']
+        if translate_extended is None and 'translateExtended' in kwargs:
+            translate_extended = kwargs['translateExtended']
+
         if allow_active_mode is not None:
             _setter("allow_active_mode", allow_active_mode)
         if allow_ftps is not None:
@@ -652,35 +702,6 @@ class ProfileFtp(pulumi.CustomResource):
         Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )
 
         ## Example Usage
-        ### For Bigip versions (14.x - 16.x)
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        sanjose_ftp_profile = f5bigip.ltm.ProfileFtp("sanjose-ftp-profile",
-            allow_active_mode="enabled",
-            defaults_from="/Common/ftp",
-            description="test-tftp-profile",
-            enforce_tlssession_reuse="enabled",
-            ftps_mode="allow",
-            name="/Common/sanjose-ftp-profile",
-            port=2020)
-        ```
-        ### For Bigip versions (12.x - 13.x)
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        sanjose_ftp_profile = f5bigip.ltm.ProfileFtp("sanjose-ftp-profile",
-            allow_ftps="enabled",
-            defaults_from="/Common/ftp",
-            description="test-tftp-profile",
-            name="/Common/sanjose-ftp-profile",
-            port=2020,
-            translate_extended="enabled")
-        ```
         ## Common Arguments for all versions
 
         * `security` - (Optional)Specifies, when checked (enabled), that the system inspects FTP traffic for security vulnerabilities using an FTP security profile. This option is available only on systems licensed for BIG-IP ASM.
@@ -728,35 +749,6 @@ class ProfileFtp(pulumi.CustomResource):
         Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )
 
         ## Example Usage
-        ### For Bigip versions (14.x - 16.x)
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        sanjose_ftp_profile = f5bigip.ltm.ProfileFtp("sanjose-ftp-profile",
-            allow_active_mode="enabled",
-            defaults_from="/Common/ftp",
-            description="test-tftp-profile",
-            enforce_tlssession_reuse="enabled",
-            ftps_mode="allow",
-            name="/Common/sanjose-ftp-profile",
-            port=2020)
-        ```
-        ### For Bigip versions (12.x - 13.x)
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        sanjose_ftp_profile = f5bigip.ltm.ProfileFtp("sanjose-ftp-profile",
-            allow_ftps="enabled",
-            defaults_from="/Common/ftp",
-            description="test-tftp-profile",
-            name="/Common/sanjose-ftp-profile",
-            port=2020,
-            translate_extended="enabled")
-        ```
         ## Common Arguments for all versions
 
         * `security` - (Optional)Specifies, when checked (enabled), that the system inspects FTP traffic for security vulnerabilities using an FTP security profile. This option is available only on systems licensed for BIG-IP ASM.

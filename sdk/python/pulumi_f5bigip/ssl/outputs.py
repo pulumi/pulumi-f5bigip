@@ -31,11 +31,21 @@ class GetWafEntityParameterUrlResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             method: str,
-             name: str,
-             protocol: str,
-             type: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             method: Optional[str] = None,
+             name: Optional[str] = None,
+             protocol: Optional[str] = None,
+             type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if method is None:
+            raise TypeError("Missing 'method' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+
         _setter("method", method)
         _setter("name", name)
         _setter("protocol", protocol)
@@ -79,9 +89,15 @@ class GetWafEntityUrlMethodOverrideResult(dict):
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             allow: bool,
-             method: str,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             allow: Optional[bool] = None,
+             method: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allow is None:
+            raise TypeError("Missing 'allow' argument")
+        if method is None:
+            raise TypeError("Missing 'method' argument")
+
         _setter("allow", allow)
         _setter("method", method)
 

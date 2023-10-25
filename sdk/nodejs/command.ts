@@ -8,18 +8,6 @@ import * as utilities from "./utilities";
  * `f5bigip.Command` Run TMSH commands on F5 devices
  *
  * This resource is helpful to send TMSH command to an BIG-IP node and returns the results read from the device
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- *
- * //create ltm node
- * const test_command = new f5bigip.Command("test-command", {
- *     commands: ["delete ltm node 10.10.10.70"],
- *     when: "destroy",
- * });
- * ```
  */
 export class Command extends pulumi.CustomResource {
     /**

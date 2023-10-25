@@ -15,29 +15,6 @@ namespace Pulumi.F5BigIP.Ssl
         /// Use this data source (`f5bigip.ssl.getWafPbSuggestions`) to export PB suggestions from an existing WAF policy.
         ///  
         ///  
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using F5BigIP = Pulumi.F5BigIP;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var pBWAF1 = F5BigIP.Ssl.GetWafPbSuggestions.Invoke(new()
-        ///     {
-        ///         MinimumLearningScore = 20,
-        ///         Partition = "Common",
-        ///         PolicyName = "protect_me_policy",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetWafPbSuggestionsResult> InvokeAsync(GetWafPbSuggestionsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWafPbSuggestionsResult>("f5bigip:ssl/getWafPbSuggestions:getWafPbSuggestions", args ?? new GetWafPbSuggestionsArgs(), options.WithDefaults());
@@ -46,29 +23,6 @@ namespace Pulumi.F5BigIP.Ssl
         /// Use this data source (`f5bigip.ssl.getWafPbSuggestions`) to export PB suggestions from an existing WAF policy.
         ///  
         ///  
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using F5BigIP = Pulumi.F5BigIP;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var pBWAF1 = F5BigIP.Ssl.GetWafPbSuggestions.Invoke(new()
-        ///     {
-        ///         MinimumLearningScore = 20,
-        ///         Partition = "Common",
-        ///         PolicyName = "protect_me_policy",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetWafPbSuggestionsResult> Invoke(GetWafPbSuggestionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWafPbSuggestionsResult>("f5bigip:ssl/getWafPbSuggestions:getWafPbSuggestions", args ?? new GetWafPbSuggestionsInvokeArgs(), options.WithDefaults());

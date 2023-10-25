@@ -62,7 +62,7 @@ class ProfileHttpCompressArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              compression_buffersize: Optional[pulumi.Input[int]] = None,
              content_type_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              content_type_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -75,7 +75,35 @@ class ProfileHttpCompressArgs:
              uri_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              uri_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              vary_header: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if compression_buffersize is None and 'compressionBuffersize' in kwargs:
+            compression_buffersize = kwargs['compressionBuffersize']
+        if content_type_excludes is None and 'contentTypeExcludes' in kwargs:
+            content_type_excludes = kwargs['contentTypeExcludes']
+        if content_type_includes is None and 'contentTypeIncludes' in kwargs:
+            content_type_includes = kwargs['contentTypeIncludes']
+        if cpu_saver is None and 'cpuSaver' in kwargs:
+            cpu_saver = kwargs['cpuSaver']
+        if defaults_from is None and 'defaultsFrom' in kwargs:
+            defaults_from = kwargs['defaultsFrom']
+        if gzip_compression_level is None and 'gzipCompressionLevel' in kwargs:
+            gzip_compression_level = kwargs['gzipCompressionLevel']
+        if gzip_memory_level is None and 'gzipMemoryLevel' in kwargs:
+            gzip_memory_level = kwargs['gzipMemoryLevel']
+        if gzip_window_size is None and 'gzipWindowSize' in kwargs:
+            gzip_window_size = kwargs['gzipWindowSize']
+        if keep_accept_encoding is None and 'keepAcceptEncoding' in kwargs:
+            keep_accept_encoding = kwargs['keepAcceptEncoding']
+        if uri_excludes is None and 'uriExcludes' in kwargs:
+            uri_excludes = kwargs['uriExcludes']
+        if uri_includes is None and 'uriIncludes' in kwargs:
+            uri_includes = kwargs['uriIncludes']
+        if vary_header is None and 'varyHeader' in kwargs:
+            vary_header = kwargs['varyHeader']
+
         _setter("name", name)
         if compression_buffersize is not None:
             _setter("compression_buffersize", compression_buffersize)
@@ -323,7 +351,33 @@ class _ProfileHttpCompressState:
              uri_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              uri_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              vary_header: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if compression_buffersize is None and 'compressionBuffersize' in kwargs:
+            compression_buffersize = kwargs['compressionBuffersize']
+        if content_type_excludes is None and 'contentTypeExcludes' in kwargs:
+            content_type_excludes = kwargs['contentTypeExcludes']
+        if content_type_includes is None and 'contentTypeIncludes' in kwargs:
+            content_type_includes = kwargs['contentTypeIncludes']
+        if cpu_saver is None and 'cpuSaver' in kwargs:
+            cpu_saver = kwargs['cpuSaver']
+        if defaults_from is None and 'defaultsFrom' in kwargs:
+            defaults_from = kwargs['defaultsFrom']
+        if gzip_compression_level is None and 'gzipCompressionLevel' in kwargs:
+            gzip_compression_level = kwargs['gzipCompressionLevel']
+        if gzip_memory_level is None and 'gzipMemoryLevel' in kwargs:
+            gzip_memory_level = kwargs['gzipMemoryLevel']
+        if gzip_window_size is None and 'gzipWindowSize' in kwargs:
+            gzip_window_size = kwargs['gzipWindowSize']
+        if keep_accept_encoding is None and 'keepAcceptEncoding' in kwargs:
+            keep_accept_encoding = kwargs['keepAcceptEncoding']
+        if uri_excludes is None and 'uriExcludes' in kwargs:
+            uri_excludes = kwargs['uriExcludes']
+        if uri_includes is None and 'uriIncludes' in kwargs:
+            uri_includes = kwargs['uriIncludes']
+        if vary_header is None and 'varyHeader' in kwargs:
+            vary_header = kwargs['varyHeader']
+
         if compression_buffersize is not None:
             _setter("compression_buffersize", compression_buffersize)
         if content_type_excludes is not None:
@@ -532,24 +586,6 @@ class ProfileHttpCompress(pulumi.CustomResource):
 
         Resources should be named with their `full path`.The full path is the combination of the `partition + name` (example: `/Common/my-httpcompresprofile` ) or  `partition + directory + name` of the resource  (example: `/Common/test/my-httpcompresprofile`)
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        sjhttpcompression = f5bigip.ltm.ProfileHttpCompress("sjhttpcompression",
-            content_type_excludes=["nicecontentexclude.com"],
-            content_type_includes=["nicecontent.com"],
-            defaults_from="/Common/httpcompression",
-            name="/Common/sjhttpcompression2",
-            uri_excludes=[
-                "www.abc.f5.com",
-                "www.abc2.f5.com",
-            ],
-            uri_includes=["www.xyzbc.cisco.com"])
-        ```
-
         ## Import
 
         BIG-IP LTM HTTP Compress profiles can be imported using the `name`, e.g.
@@ -584,24 +620,6 @@ class ProfileHttpCompress(pulumi.CustomResource):
         `ltm.ProfileHttpCompress`  Virtual server HTTP compression profile configuration
 
         Resources should be named with their `full path`.The full path is the combination of the `partition + name` (example: `/Common/my-httpcompresprofile` ) or  `partition + directory + name` of the resource  (example: `/Common/test/my-httpcompresprofile`)
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        sjhttpcompression = f5bigip.ltm.ProfileHttpCompress("sjhttpcompression",
-            content_type_excludes=["nicecontentexclude.com"],
-            content_type_includes=["nicecontent.com"],
-            defaults_from="/Common/httpcompression",
-            name="/Common/sjhttpcompression2",
-            uri_excludes=[
-                "www.abc.f5.com",
-                "www.abc2.f5.com",
-            ],
-            uri_includes=["www.xyzbc.cisco.com"])
-        ```
 
         ## Import
 

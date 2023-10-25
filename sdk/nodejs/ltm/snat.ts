@@ -10,24 +10,6 @@ import * as utilities from "../utilities";
  * `f5bigip.ltm.Snat` Manages a SNAT configuration
  *
  * For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource.For example `/Common/test-snat`.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- *
- * const test_snat = new f5bigip.ltm.Snat("test-snat", {
- *     name: "/Common/test-snat",
- *     origins: [{
- *         name: "0.0.0.0/0",
- *     }],
- *     sourceport: "preserve",
- *     translation: "/Common/136.1.1.2",
- *     vlans: ["/Common/internal"],
- *     vlansdisabled: false,
- * });
- * ```
  */
 export class Snat extends pulumi.CustomResource {
     /**

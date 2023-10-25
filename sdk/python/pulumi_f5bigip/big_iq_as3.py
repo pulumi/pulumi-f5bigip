@@ -36,9 +36,6 @@ class BigIqAs3Args:
                
                * `bigiq_example.json` - Example  AS3 Declarative JSON file
                
-               ```python
-               import pulumi
-               ```
                
                * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
                
@@ -60,16 +57,44 @@ class BigIqAs3Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             as3_json: pulumi.Input[str],
-             bigiq_address: pulumi.Input[str],
-             bigiq_password: pulumi.Input[str],
-             bigiq_user: pulumi.Input[str],
+             as3_json: Optional[pulumi.Input[str]] = None,
+             bigiq_address: Optional[pulumi.Input[str]] = None,
+             bigiq_password: Optional[pulumi.Input[str]] = None,
+             bigiq_user: Optional[pulumi.Input[str]] = None,
              bigiq_login_ref: Optional[pulumi.Input[str]] = None,
              bigiq_port: Optional[pulumi.Input[str]] = None,
              bigiq_token_auth: Optional[pulumi.Input[bool]] = None,
              ignore_metadata: Optional[pulumi.Input[bool]] = None,
              tenant_list: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if as3_json is None and 'as3Json' in kwargs:
+            as3_json = kwargs['as3Json']
+        if as3_json is None:
+            raise TypeError("Missing 'as3_json' argument")
+        if bigiq_address is None and 'bigiqAddress' in kwargs:
+            bigiq_address = kwargs['bigiqAddress']
+        if bigiq_address is None:
+            raise TypeError("Missing 'bigiq_address' argument")
+        if bigiq_password is None and 'bigiqPassword' in kwargs:
+            bigiq_password = kwargs['bigiqPassword']
+        if bigiq_password is None:
+            raise TypeError("Missing 'bigiq_password' argument")
+        if bigiq_user is None and 'bigiqUser' in kwargs:
+            bigiq_user = kwargs['bigiqUser']
+        if bigiq_user is None:
+            raise TypeError("Missing 'bigiq_user' argument")
+        if bigiq_login_ref is None and 'bigiqLoginRef' in kwargs:
+            bigiq_login_ref = kwargs['bigiqLoginRef']
+        if bigiq_port is None and 'bigiqPort' in kwargs:
+            bigiq_port = kwargs['bigiqPort']
+        if bigiq_token_auth is None and 'bigiqTokenAuth' in kwargs:
+            bigiq_token_auth = kwargs['bigiqTokenAuth']
+        if ignore_metadata is None and 'ignoreMetadata' in kwargs:
+            ignore_metadata = kwargs['ignoreMetadata']
+        if tenant_list is None and 'tenantList' in kwargs:
+            tenant_list = kwargs['tenantList']
+
         _setter("as3_json", as3_json)
         _setter("bigiq_address", bigiq_address)
         _setter("bigiq_password", bigiq_password)
@@ -177,9 +202,6 @@ class BigIqAs3Args:
 
         * `bigiq_example.json` - Example  AS3 Declarative JSON file
 
-        ```python
-        import pulumi
-        ```
 
         * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
 
@@ -229,9 +251,6 @@ class _BigIqAs3State:
                
                * `bigiq_example.json` - Example  AS3 Declarative JSON file
                
-               ```python
-               import pulumi
-               ```
                
                * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
                
@@ -262,7 +281,27 @@ class _BigIqAs3State:
              bigiq_user: Optional[pulumi.Input[str]] = None,
              ignore_metadata: Optional[pulumi.Input[bool]] = None,
              tenant_list: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if as3_json is None and 'as3Json' in kwargs:
+            as3_json = kwargs['as3Json']
+        if bigiq_address is None and 'bigiqAddress' in kwargs:
+            bigiq_address = kwargs['bigiqAddress']
+        if bigiq_login_ref is None and 'bigiqLoginRef' in kwargs:
+            bigiq_login_ref = kwargs['bigiqLoginRef']
+        if bigiq_password is None and 'bigiqPassword' in kwargs:
+            bigiq_password = kwargs['bigiqPassword']
+        if bigiq_port is None and 'bigiqPort' in kwargs:
+            bigiq_port = kwargs['bigiqPort']
+        if bigiq_token_auth is None and 'bigiqTokenAuth' in kwargs:
+            bigiq_token_auth = kwargs['bigiqTokenAuth']
+        if bigiq_user is None and 'bigiqUser' in kwargs:
+            bigiq_user = kwargs['bigiqUser']
+        if ignore_metadata is None and 'ignoreMetadata' in kwargs:
+            ignore_metadata = kwargs['ignoreMetadata']
+        if tenant_list is None and 'tenantList' in kwargs:
+            tenant_list = kwargs['tenantList']
+
         if as3_json is not None:
             _setter("as3_json", as3_json)
         if bigiq_address is not None:
@@ -374,9 +413,6 @@ class _BigIqAs3State:
 
         * `bigiq_example.json` - Example  AS3 Declarative JSON file
 
-        ```python
-        import pulumi
-        ```
 
         * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
 
@@ -421,20 +457,6 @@ class BigIqAs3(pulumi.CustomResource):
 
         This resource is helpful to configure as3 declarative JSON on BIG-IP through BIG-IQ.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        # Example Usage for json file
-        exampletask = f5bigip.BigIqAs3("exampletask",
-            as3_json=(lambda path: open(path).read())("bigiq_example.json"),
-            bigiq_address="xx.xx.xxx.xx",
-            bigiq_password="xxxxxxxxx",
-            bigiq_user="xxxxx")
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] as3_json: Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
@@ -448,9 +470,6 @@ class BigIqAs3(pulumi.CustomResource):
                
                * `bigiq_example.json` - Example  AS3 Declarative JSON file
                
-               ```python
-               import pulumi
-               ```
                
                * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
                
@@ -467,20 +486,6 @@ class BigIqAs3(pulumi.CustomResource):
         `BigIqAs3` provides details about bigiq as3 resource
 
         This resource is helpful to configure as3 declarative JSON on BIG-IP through BIG-IQ.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        # Example Usage for json file
-        exampletask = f5bigip.BigIqAs3("exampletask",
-            as3_json=(lambda path: open(path).read())("bigiq_example.json"),
-            bigiq_address="xx.xx.xxx.xx",
-            bigiq_password="xxxxxxxxx",
-            bigiq_user="xxxxx")
-        ```
 
         :param str resource_name: The name of the resource.
         :param BigIqAs3Args args: The arguments to use to populate this resource's properties.
@@ -575,9 +580,6 @@ class BigIqAs3(pulumi.CustomResource):
                
                * `bigiq_example.json` - Example  AS3 Declarative JSON file
                
-               ```python
-               import pulumi
-               ```
                
                * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
                
@@ -663,9 +665,6 @@ class BigIqAs3(pulumi.CustomResource):
 
         * `bigiq_example.json` - Example  AS3 Declarative JSON file
 
-        ```python
-        import pulumi
-        ```
 
         * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
 

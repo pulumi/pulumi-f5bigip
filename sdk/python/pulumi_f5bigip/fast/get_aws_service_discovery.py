@@ -200,16 +200,6 @@ def get_aws_service_discovery(address_realm: Optional[str] = None,
     """
     Use this data source (`fast_get_aws_service_discovery`) to get the AWS Service discovery config to be used for `http`/`https` app deployment in FAST.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_f5bigip as f5bigip
-
-    t_c2 = f5bigip.fast.get_aws_service_discovery(tag_key="testawstagkey",
-        tag_value="testawstagvalue")
-    ```
-
 
     :param str address_realm: Specifies whether to look for public or private IP addresses,default `private`.
     :param str aws_access_key: Information for discovering AWS nodes that are not in the same region as your BIG-IP (also requires the `aws_secret_access_key` field)
@@ -280,16 +270,6 @@ def get_aws_service_discovery_output(address_realm: Optional[pulumi.Input[Option
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAwsServiceDiscoveryResult]:
     """
     Use this data source (`fast_get_aws_service_discovery`) to get the AWS Service discovery config to be used for `http`/`https` app deployment in FAST.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_f5bigip as f5bigip
-
-    t_c2 = f5bigip.fast.get_aws_service_discovery(tag_key="testawstagkey",
-        tag_value="testawstagvalue")
-    ```
 
 
     :param str address_realm: Specifies whether to look for public or private IP addresses,default `private`.

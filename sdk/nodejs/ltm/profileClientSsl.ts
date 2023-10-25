@@ -10,20 +10,6 @@ import * as utilities from "../utilities";
  * `f5bigip.ltm.ProfileClientSsl` Manages client SSL profiles on a BIG-IP
  *
  * Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- *
- * const test_ClientSsl = new f5bigip.ltm.ProfileClientSsl("test-ClientSsl", {
- *     authenticate: "always",
- *     ciphers: "DEFAULT",
- *     defaultsFrom: "/Common/clientssl",
- *     name: "/Common/test-ClientSsl",
- * });
- * ```
  */
 export class ProfileClientSsl extends pulumi.CustomResource {
     /**

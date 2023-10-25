@@ -71,11 +71,11 @@ class CommonLicenseManageBigIqArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             assignment_type: pulumi.Input[str],
-             bigiq_address: pulumi.Input[str],
-             bigiq_password: pulumi.Input[str],
-             bigiq_user: pulumi.Input[str],
-             license_poolname: pulumi.Input[str],
+             assignment_type: Optional[pulumi.Input[str]] = None,
+             bigiq_address: Optional[pulumi.Input[str]] = None,
+             bigiq_password: Optional[pulumi.Input[str]] = None,
+             bigiq_user: Optional[pulumi.Input[str]] = None,
+             license_poolname: Optional[pulumi.Input[str]] = None,
              bigiq_login_ref: Optional[pulumi.Input[str]] = None,
              bigiq_port: Optional[pulumi.Input[str]] = None,
              bigiq_token_auth: Optional[pulumi.Input[bool]] = None,
@@ -87,7 +87,41 @@ class CommonLicenseManageBigIqArgs:
              skukeyword2: Optional[pulumi.Input[str]] = None,
              tenant: Optional[pulumi.Input[str]] = None,
              unit_of_measure: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if assignment_type is None and 'assignmentType' in kwargs:
+            assignment_type = kwargs['assignmentType']
+        if assignment_type is None:
+            raise TypeError("Missing 'assignment_type' argument")
+        if bigiq_address is None and 'bigiqAddress' in kwargs:
+            bigiq_address = kwargs['bigiqAddress']
+        if bigiq_address is None:
+            raise TypeError("Missing 'bigiq_address' argument")
+        if bigiq_password is None and 'bigiqPassword' in kwargs:
+            bigiq_password = kwargs['bigiqPassword']
+        if bigiq_password is None:
+            raise TypeError("Missing 'bigiq_password' argument")
+        if bigiq_user is None and 'bigiqUser' in kwargs:
+            bigiq_user = kwargs['bigiqUser']
+        if bigiq_user is None:
+            raise TypeError("Missing 'bigiq_user' argument")
+        if license_poolname is None and 'licensePoolname' in kwargs:
+            license_poolname = kwargs['licensePoolname']
+        if license_poolname is None:
+            raise TypeError("Missing 'license_poolname' argument")
+        if bigiq_login_ref is None and 'bigiqLoginRef' in kwargs:
+            bigiq_login_ref = kwargs['bigiqLoginRef']
+        if bigiq_port is None and 'bigiqPort' in kwargs:
+            bigiq_port = kwargs['bigiqPort']
+        if bigiq_token_auth is None and 'bigiqTokenAuth' in kwargs:
+            bigiq_token_auth = kwargs['bigiqTokenAuth']
+        if device_license_status is None and 'deviceLicenseStatus' in kwargs:
+            device_license_status = kwargs['deviceLicenseStatus']
+        if mac_address is None and 'macAddress' in kwargs:
+            mac_address = kwargs['macAddress']
+        if unit_of_measure is None and 'unitOfMeasure' in kwargs:
+            unit_of_measure = kwargs['unitOfMeasure']
+
         _setter("assignment_type", assignment_type)
         _setter("bigiq_address", bigiq_address)
         _setter("bigiq_password", bigiq_password)
@@ -385,7 +419,31 @@ class _CommonLicenseManageBigIqState:
              skukeyword2: Optional[pulumi.Input[str]] = None,
              tenant: Optional[pulumi.Input[str]] = None,
              unit_of_measure: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if assignment_type is None and 'assignmentType' in kwargs:
+            assignment_type = kwargs['assignmentType']
+        if bigiq_address is None and 'bigiqAddress' in kwargs:
+            bigiq_address = kwargs['bigiqAddress']
+        if bigiq_login_ref is None and 'bigiqLoginRef' in kwargs:
+            bigiq_login_ref = kwargs['bigiqLoginRef']
+        if bigiq_password is None and 'bigiqPassword' in kwargs:
+            bigiq_password = kwargs['bigiqPassword']
+        if bigiq_port is None and 'bigiqPort' in kwargs:
+            bigiq_port = kwargs['bigiqPort']
+        if bigiq_token_auth is None and 'bigiqTokenAuth' in kwargs:
+            bigiq_token_auth = kwargs['bigiqTokenAuth']
+        if bigiq_user is None and 'bigiqUser' in kwargs:
+            bigiq_user = kwargs['bigiqUser']
+        if device_license_status is None and 'deviceLicenseStatus' in kwargs:
+            device_license_status = kwargs['deviceLicenseStatus']
+        if license_poolname is None and 'licensePoolname' in kwargs:
+            license_poolname = kwargs['licensePoolname']
+        if mac_address is None and 'macAddress' in kwargs:
+            mac_address = kwargs['macAddress']
+        if unit_of_measure is None and 'unitOfMeasure' in kwargs:
+            unit_of_measure = kwargs['unitOfMeasure']
+
         if assignment_type is not None:
             _setter("assignment_type", assignment_type)
         if bigiq_address is not None:
@@ -637,60 +695,6 @@ class CommonLicenseManageBigIq(pulumi.CustomResource):
         """
         `CommonLicenseManageBigIq` This Resource is used for BIGIP/Provider License Management from BIGIQ
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        # MANAGED Regkey Pool
-        test_example_common_license_manage_big_iq = f5bigip.CommonLicenseManageBigIq("testExampleCommonLicenseManageBigIq",
-            bigiq_address=var["bigiq"],
-            bigiq_user=var["bigiq_un"],
-            bigiq_password=var["bigiq_pw"],
-            license_poolname="regkeypool_name",
-            assignment_type="MANAGED")
-        # UNMANAGED Regkey Pool
-        test_example_index_common_license_manage_big_iq_common_license_manage_big_iq = f5bigip.CommonLicenseManageBigIq("testExampleIndex/commonLicenseManageBigIqCommonLicenseManageBigIq",
-            bigiq_address=var["bigiq"],
-            bigiq_user=var["bigiq_un"],
-            bigiq_password=var["bigiq_pw"],
-            license_poolname="regkeypool_name",
-            assignment_type="UNMANAGED")
-        # UNMANAGED Utility Pool
-        test_example_f5bigip_index_common_license_manage_big_iq_common_license_manage_big_iq = f5bigip.CommonLicenseManageBigIq("testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq",
-            bigiq_address=var["bigiq"],
-            bigiq_user=var["bigiq_un"],
-            bigiq_password=var["bigiq_pw"],
-            license_poolname="utilitypool_name",
-            assignment_type="UNMANAGED",
-            unit_of_measure="yearly",
-            skukeyword1="BTHSM200M")
-        # UNREACHABLE Regkey Pool
-        test_example_f5bigip_index_common_license_manage_big_iq_common_license_manage_big_iq1 = f5bigip.CommonLicenseManageBigIq("testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq1",
-            bigiq_address="xxx.xxx.xxx.xxx",
-            bigiq_user="xxxx",
-            bigiq_password="xxxxx",
-            license_poolname="regkey_pool_name",
-            assignment_type="UNREACHABLE",
-            mac_address="FA:16:3E:1B:6D:32",
-            hypervisor="azure")
-        # MANAGED Purchased Pool
-        test_example_f5bigip_index_common_license_manage_big_iq_common_license_manage_big_iq2 = f5bigip.CommonLicenseManageBigIq("testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq2",
-            bigiq_address=var["bigiq"],
-            bigiq_user=var["bigiq_un"],
-            bigiq_password=var["bigiq_pw"],
-            license_poolname="purchased_pool_name",
-            assignment_type="MANAGED")
-        # UNMANAGED Purchased Pool
-        test_example_f5bigip_index_common_license_manage_big_iq_common_license_manage_big_iq3 = f5bigip.CommonLicenseManageBigIq("testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq3",
-            bigiq_address=var["bigiq"],
-            bigiq_user=var["bigiq_un"],
-            bigiq_password=var["bigiq_pw"],
-            license_poolname="purchased_pool_name",
-            assignment_type="UNMANAGED")
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] assignment_type: The type of assignment, which is determined by whether the BIG-IP is unreachable, unmanaged, or managed by BIG-IQ. Possible values: “UNREACHABLE”, “UNMANAGED”, or “MANAGED”.
@@ -718,60 +722,6 @@ class CommonLicenseManageBigIq(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         `CommonLicenseManageBigIq` This Resource is used for BIGIP/Provider License Management from BIGIQ
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        # MANAGED Regkey Pool
-        test_example_common_license_manage_big_iq = f5bigip.CommonLicenseManageBigIq("testExampleCommonLicenseManageBigIq",
-            bigiq_address=var["bigiq"],
-            bigiq_user=var["bigiq_un"],
-            bigiq_password=var["bigiq_pw"],
-            license_poolname="regkeypool_name",
-            assignment_type="MANAGED")
-        # UNMANAGED Regkey Pool
-        test_example_index_common_license_manage_big_iq_common_license_manage_big_iq = f5bigip.CommonLicenseManageBigIq("testExampleIndex/commonLicenseManageBigIqCommonLicenseManageBigIq",
-            bigiq_address=var["bigiq"],
-            bigiq_user=var["bigiq_un"],
-            bigiq_password=var["bigiq_pw"],
-            license_poolname="regkeypool_name",
-            assignment_type="UNMANAGED")
-        # UNMANAGED Utility Pool
-        test_example_f5bigip_index_common_license_manage_big_iq_common_license_manage_big_iq = f5bigip.CommonLicenseManageBigIq("testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq",
-            bigiq_address=var["bigiq"],
-            bigiq_user=var["bigiq_un"],
-            bigiq_password=var["bigiq_pw"],
-            license_poolname="utilitypool_name",
-            assignment_type="UNMANAGED",
-            unit_of_measure="yearly",
-            skukeyword1="BTHSM200M")
-        # UNREACHABLE Regkey Pool
-        test_example_f5bigip_index_common_license_manage_big_iq_common_license_manage_big_iq1 = f5bigip.CommonLicenseManageBigIq("testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq1",
-            bigiq_address="xxx.xxx.xxx.xxx",
-            bigiq_user="xxxx",
-            bigiq_password="xxxxx",
-            license_poolname="regkey_pool_name",
-            assignment_type="UNREACHABLE",
-            mac_address="FA:16:3E:1B:6D:32",
-            hypervisor="azure")
-        # MANAGED Purchased Pool
-        test_example_f5bigip_index_common_license_manage_big_iq_common_license_manage_big_iq2 = f5bigip.CommonLicenseManageBigIq("testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq2",
-            bigiq_address=var["bigiq"],
-            bigiq_user=var["bigiq_un"],
-            bigiq_password=var["bigiq_pw"],
-            license_poolname="purchased_pool_name",
-            assignment_type="MANAGED")
-        # UNMANAGED Purchased Pool
-        test_example_f5bigip_index_common_license_manage_big_iq_common_license_manage_big_iq3 = f5bigip.CommonLicenseManageBigIq("testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq3",
-            bigiq_address=var["bigiq"],
-            bigiq_user=var["bigiq_un"],
-            bigiq_password=var["bigiq_pw"],
-            license_poolname="purchased_pool_name",
-            assignment_type="UNMANAGED")
-        ```
 
         :param str resource_name: The name of the resource.
         :param CommonLicenseManageBigIqArgs args: The arguments to use to populate this resource's properties.

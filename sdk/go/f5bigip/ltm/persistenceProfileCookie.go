@@ -15,44 +15,6 @@ import (
 
 // Configures a cookie persistence profile
 //
-// ## Example
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ltm.NewPersistenceProfileCookie(ctx, "testPpcookie", &ltm.PersistenceProfileCookieArgs{
-//				Name:                       pulumi.String("/Common/terraform_cookie"),
-//				DefaultsFrom:               pulumi.String("/Common/cookie"),
-//				MatchAcrossPools:           pulumi.String("enabled"),
-//				MatchAcrossServices:        pulumi.String("enabled"),
-//				MatchAcrossVirtuals:        pulumi.String("enabled"),
-//				Timeout:                    pulumi.Int(3600),
-//				OverrideConnLimit:          pulumi.String("enabled"),
-//				AlwaysSend:                 pulumi.String("enabled"),
-//				CookieEncryption:           pulumi.String("required"),
-//				CookieEncryptionPassphrase: pulumi.String("iam"),
-//				CookieName:                 pulumi.String("ham"),
-//				Expiration:                 pulumi.String("1:0:0"),
-//				HashLength:                 pulumi.Int(0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Reference
 //
 // `name` - (Required) Name of the virtual address

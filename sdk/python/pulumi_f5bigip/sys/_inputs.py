@@ -32,7 +32,9 @@ class IAppListArgs:
              _setter: Callable[[Any, Any], None],
              encrypted: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if encrypted is not None:
             _setter("encrypted", encrypted)
         if value is not None:
@@ -72,7 +74,9 @@ class IAppMetadataArgs:
              _setter: Callable[[Any, Any], None],
              persists: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if persists is not None:
             _setter("persists", persists)
         if value is not None:
@@ -121,7 +125,13 @@ class IAppTableArgs:
              encrypted_columns: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              rows: Optional[pulumi.Input[Sequence[pulumi.Input['IAppTableRowArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column_names is None and 'columnNames' in kwargs:
+            column_names = kwargs['columnNames']
+        if encrypted_columns is None and 'encryptedColumns' in kwargs:
+            encrypted_columns = kwargs['encryptedColumns']
+
         if column_names is not None:
             _setter("column_names", column_names)
         if encrypted_columns is not None:
@@ -183,7 +193,9 @@ class IAppTableRowArgs:
     def _configure(
              _setter: Callable[[Any, Any], None],
              rows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if rows is not None:
             _setter("rows", rows)
 
@@ -218,7 +230,9 @@ class IAppVariableArgs:
              encrypted: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if encrypted is not None:
             _setter("encrypted", encrypted)
         if name is not None:

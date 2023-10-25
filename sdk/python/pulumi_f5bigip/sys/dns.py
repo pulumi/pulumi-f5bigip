@@ -35,11 +35,21 @@ class DnsArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             description: pulumi.Input[str],
-             name_servers: pulumi.Input[Sequence[pulumi.Input[str]]],
+             description: Optional[pulumi.Input[str]] = None,
+             name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              number_of_dots: Optional[pulumi.Input[int]] = None,
              searches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if name_servers is None and 'nameServers' in kwargs:
+            name_servers = kwargs['nameServers']
+        if name_servers is None:
+            raise TypeError("Missing 'name_servers' argument")
+        if number_of_dots is None and 'numberOfDots' in kwargs:
+            number_of_dots = kwargs['numberOfDots']
+
         _setter("description", description)
         _setter("name_servers", name_servers)
         if number_of_dots is not None:
@@ -124,7 +134,13 @@ class _DnsState:
              name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              number_of_dots: Optional[pulumi.Input[int]] = None,
              searches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name_servers is None and 'nameServers' in kwargs:
+            name_servers = kwargs['nameServers']
+        if number_of_dots is None and 'numberOfDots' in kwargs:
+            number_of_dots = kwargs['numberOfDots']
+
         if description is not None:
             _setter("description", description)
         if name_servers is not None:
@@ -196,18 +212,6 @@ class Dns(pulumi.CustomResource):
         """
         `sys.Dns` Configures DNS Name server on F5 BIG-IP
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        dns1 = f5bigip.sys.Dns("dns1",
-            description="/Common/DNS1",
-            name_servers=["1.1.1.1"],
-            searches=["f5.com"])
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Provide description for your DNS server
@@ -223,18 +227,6 @@ class Dns(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         `sys.Dns` Configures DNS Name server on F5 BIG-IP
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        dns1 = f5bigip.sys.Dns("dns1",
-            description="/Common/DNS1",
-            name_servers=["1.1.1.1"],
-            searches=["f5.com"])
-        ```
 
         :param str resource_name: The name of the resource.
         :param DnsArgs args: The arguments to use to populate this resource's properties.

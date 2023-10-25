@@ -6,20 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * `f5bigip.ltm.CipherGroup` Manages F5 BIG-IP LTM cipher group using iControl REST.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- *
- * const test_cipher_group = new f5bigip.ltm.CipherGroup("test-cipher-group", {
- *     allows: ["/Common/f5-aes"],
- *     name: "/Common/test-cipher-group-01",
- *     ordering: "speed",
- *     requires: ["/Common/f5-quic"],
- * });
- * ```
  */
 export class CipherGroup extends pulumi.CustomResource {
     /**

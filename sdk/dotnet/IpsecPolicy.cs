@@ -13,33 +13,6 @@ namespace Pulumi.F5BigIP
     /// `f5bigip.IpsecPolicy` Manage IPSec policies on a BIG-IP
     /// 
     /// Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/test-policy)
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using F5BigIP = Pulumi.F5BigIP;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test_policy = new F5BigIP.IpsecPolicy("test-policy", new()
-    ///     {
-    ///         AuthAlgorithm = "sha1",
-    ///         Description = "created by terraform provider",
-    ///         EncryptAlgorithm = "3des",
-    ///         Ipcomp = "deflate",
-    ///         Lifetime = 3,
-    ///         Mode = "tunnel",
-    ///         Name = "/Common/test-policy",
-    ///         Protocol = "esp",
-    ///         TunnelLocalAddress = "192.168.1.1",
-    ///         TunnelRemoteAddress = "10.10.1.1",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:index/ipsecPolicy:IpsecPolicy")]
     public partial class IpsecPolicy : global::Pulumi.CustomResource
