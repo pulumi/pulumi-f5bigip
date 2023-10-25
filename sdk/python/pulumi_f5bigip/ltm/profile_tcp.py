@@ -89,7 +89,7 @@ class ProfileTcpArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              close_wait_timeout: Optional[pulumi.Input[int]] = None,
              congestion_control: Optional[pulumi.Input[str]] = None,
              defaults_from: Optional[pulumi.Input[str]] = None,
@@ -111,7 +111,47 @@ class ProfileTcpArgs:
              timewait_recycle: Optional[pulumi.Input[str]] = None,
              verified_accept: Optional[pulumi.Input[str]] = None,
              zerowindow_timeout: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if close_wait_timeout is None and 'closeWaitTimeout' in kwargs:
+            close_wait_timeout = kwargs['closeWaitTimeout']
+        if congestion_control is None and 'congestionControl' in kwargs:
+            congestion_control = kwargs['congestionControl']
+        if defaults_from is None and 'defaultsFrom' in kwargs:
+            defaults_from = kwargs['defaultsFrom']
+        if deferred_accept is None and 'deferredAccept' in kwargs:
+            deferred_accept = kwargs['deferredAccept']
+        if delayed_acks is None and 'delayedAcks' in kwargs:
+            delayed_acks = kwargs['delayedAcks']
+        if early_retransmit is None and 'earlyRetransmit' in kwargs:
+            early_retransmit = kwargs['earlyRetransmit']
+        if fast_open is None and 'fastOpen' in kwargs:
+            fast_open = kwargs['fastOpen']
+        if finwait_timeout is None and 'finwaitTimeout' in kwargs:
+            finwait_timeout = kwargs['finwaitTimeout']
+        if idle_timeout is None and 'idleTimeout' in kwargs:
+            idle_timeout = kwargs['idleTimeout']
+        if initial_congestion_windowsize is None and 'initialCongestionWindowsize' in kwargs:
+            initial_congestion_windowsize = kwargs['initialCongestionWindowsize']
+        if keepalive_interval is None and 'keepaliveInterval' in kwargs:
+            keepalive_interval = kwargs['keepaliveInterval']
+        if proxybuffer_high is None and 'proxybufferHigh' in kwargs:
+            proxybuffer_high = kwargs['proxybufferHigh']
+        if receive_windowsize is None and 'receiveWindowsize' in kwargs:
+            receive_windowsize = kwargs['receiveWindowsize']
+        if send_buffersize is None and 'sendBuffersize' in kwargs:
+            send_buffersize = kwargs['sendBuffersize']
+        if tailloss_probe is None and 'taillossProbe' in kwargs:
+            tailloss_probe = kwargs['taillossProbe']
+        if timewait_recycle is None and 'timewaitRecycle' in kwargs:
+            timewait_recycle = kwargs['timewaitRecycle']
+        if verified_accept is None and 'verifiedAccept' in kwargs:
+            verified_accept = kwargs['verifiedAccept']
+        if zerowindow_timeout is None and 'zerowindowTimeout' in kwargs:
+            zerowindow_timeout = kwargs['zerowindowTimeout']
+
         _setter("name", name)
         if close_wait_timeout is not None:
             _setter("close_wait_timeout", close_wait_timeout)
@@ -521,7 +561,45 @@ class _ProfileTcpState:
              timewait_recycle: Optional[pulumi.Input[str]] = None,
              verified_accept: Optional[pulumi.Input[str]] = None,
              zerowindow_timeout: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if close_wait_timeout is None and 'closeWaitTimeout' in kwargs:
+            close_wait_timeout = kwargs['closeWaitTimeout']
+        if congestion_control is None and 'congestionControl' in kwargs:
+            congestion_control = kwargs['congestionControl']
+        if defaults_from is None and 'defaultsFrom' in kwargs:
+            defaults_from = kwargs['defaultsFrom']
+        if deferred_accept is None and 'deferredAccept' in kwargs:
+            deferred_accept = kwargs['deferredAccept']
+        if delayed_acks is None and 'delayedAcks' in kwargs:
+            delayed_acks = kwargs['delayedAcks']
+        if early_retransmit is None and 'earlyRetransmit' in kwargs:
+            early_retransmit = kwargs['earlyRetransmit']
+        if fast_open is None and 'fastOpen' in kwargs:
+            fast_open = kwargs['fastOpen']
+        if finwait_timeout is None and 'finwaitTimeout' in kwargs:
+            finwait_timeout = kwargs['finwaitTimeout']
+        if idle_timeout is None and 'idleTimeout' in kwargs:
+            idle_timeout = kwargs['idleTimeout']
+        if initial_congestion_windowsize is None and 'initialCongestionWindowsize' in kwargs:
+            initial_congestion_windowsize = kwargs['initialCongestionWindowsize']
+        if keepalive_interval is None and 'keepaliveInterval' in kwargs:
+            keepalive_interval = kwargs['keepaliveInterval']
+        if proxybuffer_high is None and 'proxybufferHigh' in kwargs:
+            proxybuffer_high = kwargs['proxybufferHigh']
+        if receive_windowsize is None and 'receiveWindowsize' in kwargs:
+            receive_windowsize = kwargs['receiveWindowsize']
+        if send_buffersize is None and 'sendBuffersize' in kwargs:
+            send_buffersize = kwargs['sendBuffersize']
+        if tailloss_probe is None and 'taillossProbe' in kwargs:
+            tailloss_probe = kwargs['taillossProbe']
+        if timewait_recycle is None and 'timewaitRecycle' in kwargs:
+            timewait_recycle = kwargs['timewaitRecycle']
+        if verified_accept is None and 'verifiedAccept' in kwargs:
+            verified_accept = kwargs['verifiedAccept']
+        if zerowindow_timeout is None and 'zerowindowTimeout' in kwargs:
+            zerowindow_timeout = kwargs['zerowindowTimeout']
+
         if close_wait_timeout is not None:
             _setter("close_wait_timeout", close_wait_timeout)
         if congestion_control is not None:
@@ -865,23 +943,6 @@ class ProfileTcp(pulumi.CustomResource):
 
         Resources should be named with their `full path`. The full path is the combination of the `partition + name` (example: /Common/my-pool ) or  `partition + directory + name` of the resource  (example: /Common/test/my-pool )
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        sanjose_tcp_lan_profile = f5bigip.ltm.ProfileTcp("sanjose-tcp-lan-profile",
-            close_wait_timeout=5,
-            deferred_accept="enabled",
-            fast_open="enabled",
-            finwait2timeout=5,
-            finwait_timeout=300,
-            idle_timeout=200,
-            keepalive_interval=1700,
-            name="/Common/sanjose-tcp-lan-profile")
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] close_wait_timeout: Specifies the number of seconds that a connection remains in a LAST-ACK state before quitting. A value of 0 represents a term of forever (or until the maxrtx of the FIN state). The default value is 5 seconds.
@@ -917,23 +978,6 @@ class ProfileTcp(pulumi.CustomResource):
         `ltm.ProfileTcp` Configures a custom TCP LTM Profile for use by health checks.
 
         Resources should be named with their `full path`. The full path is the combination of the `partition + name` (example: /Common/my-pool ) or  `partition + directory + name` of the resource  (example: /Common/test/my-pool )
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        sanjose_tcp_lan_profile = f5bigip.ltm.ProfileTcp("sanjose-tcp-lan-profile",
-            close_wait_timeout=5,
-            deferred_accept="enabled",
-            fast_open="enabled",
-            finwait2timeout=5,
-            finwait_timeout=300,
-            idle_timeout=200,
-            keepalive_interval=1700,
-            name="/Common/sanjose-tcp-lan-profile")
-        ```
 
         :param str resource_name: The name of the resource.
         :param ProfileTcpArgs args: The arguments to use to populate this resource's properties.

@@ -6,20 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source (`f5bigip.fast.getAzureServiceDiscovery`) to get the Azure Service discovery config to be used for `http`/`https` app deployment in FAST.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- *
- * const tC3 = f5bigip.fast.getAzureServiceDiscovery({
- *     resourceGroup: "testazurerg",
- *     subscriptionId: "testazuresid",
- *     tagKey: "testazuretag",
- *     tagValue: "testazurevalue",
- * });
- * ```
  */
 export function getAzureServiceDiscovery(args: GetAzureServiceDiscoveryArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureServiceDiscoveryResult> {
 
@@ -112,20 +98,6 @@ export interface GetAzureServiceDiscoveryResult {
 }
 /**
  * Use this data source (`f5bigip.fast.getAzureServiceDiscovery`) to get the Azure Service discovery config to be used for `http`/`https` app deployment in FAST.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- *
- * const tC3 = f5bigip.fast.getAzureServiceDiscovery({
- *     resourceGroup: "testazurerg",
- *     subscriptionId: "testazuresid",
- *     tagKey: "testazuretag",
- *     tagValue: "testazurevalue",
- * });
- * ```
  */
 export function getAzureServiceDiscoveryOutput(args: GetAzureServiceDiscoveryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAzureServiceDiscoveryResult> {
     return pulumi.output(args).apply((a: any) => getAzureServiceDiscovery(a, opts))

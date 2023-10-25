@@ -17,39 +17,6 @@ import (
 //
 // For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ltm.NewProfileHttp(ctx, "sanjose-http", &ltm.ProfileHttpArgs{
-//				DefaultsFrom: pulumi.String("/Common/http"),
-//				FallbackHost: pulumi.String("titanic"),
-//				FallbackStatusCodes: pulumi.StringArray{
-//					pulumi.String("400"),
-//					pulumi.String("500"),
-//					pulumi.String("300"),
-//				},
-//				Name: pulumi.String("/Common/sanjose-http"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // BIG-IP LTM http profiles can be imported using the `name`, e.g. bash

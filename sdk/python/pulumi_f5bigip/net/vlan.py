@@ -37,11 +37,17 @@ class VlanArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              cmp_hash: Optional[pulumi.Input[str]] = None,
              interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['VlanInterfaceArgs']]]] = None,
              tag: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if cmp_hash is None and 'cmpHash' in kwargs:
+            cmp_hash = kwargs['cmpHash']
+
         _setter("name", name)
         if cmp_hash is not None:
             _setter("cmp_hash", cmp_hash)
@@ -127,7 +133,11 @@ class _VlanState:
              interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['VlanInterfaceArgs']]]] = None,
              name: Optional[pulumi.Input[str]] = None,
              tag: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cmp_hash is None and 'cmpHash' in kwargs:
+            cmp_hash = kwargs['cmpHash']
+
         if cmp_hash is not None:
             _setter("cmp_hash", cmp_hash)
         if interfaces is not None:
@@ -201,21 +211,6 @@ class Vlan(pulumi.CustomResource):
 
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        vlan1 = f5bigip.net.Vlan("vlan1",
-            interfaces=[f5bigip.net.VlanInterfaceArgs(
-                tagged=False,
-                vlanport="1.2",
-            )],
-            name="/Common/Internal",
-            tag=101)
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cmp_hash: Specifies how the traffic on the VLAN will be disaggregated. The value selected determines the traffic disaggregation method. possible options: [`default`, `src-ip`, `dst-ip`]
@@ -233,21 +228,6 @@ class Vlan(pulumi.CustomResource):
         `net.Vlan` Manages a vlan configuration
 
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        vlan1 = f5bigip.net.Vlan("vlan1",
-            interfaces=[f5bigip.net.VlanInterfaceArgs(
-                tagged=False,
-                vlanport="1.2",
-            )],
-            name="/Common/Internal",
-            tag=101)
-        ```
 
         :param str resource_name: The name of the resource.
         :param VlanArgs args: The arguments to use to populate this resource's properties.

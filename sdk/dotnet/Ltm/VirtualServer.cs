@@ -14,68 +14,6 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource (example: `/Common/test-virtualserver` ) or `partition + directory + name` of the resource (example: `/Common/test/test-virtualserver` ).
     /// When including directory in `fullpath` we have to make sure it is created in the given partition before using it.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using F5BigIP = Pulumi.F5BigIP;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var http = new F5BigIP.Ltm.VirtualServer("http", new()
-    ///     {
-    ///         Name = "/Common/terraform_vs_http",
-    ///         Destination = "10.12.12.12",
-    ///         Port = 80,
-    ///         Pool = "/Common/the-default-pool",
-    ///     });
-    /// 
-    ///     // A Virtual server with SSL enabled
-    ///     var httpsVirtualServer = new F5BigIP.Ltm.VirtualServer("httpsVirtualServer", new()
-    ///     {
-    ///         Name = "/Common/terraform_vs_https",
-    ///         Destination = @var.Vip_ip,
-    ///         Description = "VirtualServer-test",
-    ///         Port = 443,
-    ///         Pool = @var.Pool,
-    ///         Profiles = new[]
-    ///         {
-    ///             "/Common/tcp",
-    ///             "/Common/my-awesome-ssl-cert",
-    ///             "/Common/http",
-    ///         },
-    ///         SourceAddressTranslation = "automap",
-    ///         TranslateAddress = "enabled",
-    ///         TranslatePort = "enabled",
-    ///     });
-    /// 
-    ///     // A Virtual server with separate client and server profiles
-    ///     var httpsLtm_virtualServerVirtualServer = new F5BigIP.Ltm.VirtualServer("httpsLtm/virtualServerVirtualServer", new()
-    ///     {
-    ///         Name = "/Common/terraform_vs_https",
-    ///         Destination = "10.255.255.254",
-    ///         Description = "VirtualServer-test",
-    ///         Port = 443,
-    ///         ClientProfiles = new[]
-    ///         {
-    ///             "/Common/clientssl",
-    ///         },
-    ///         ServerProfiles = new[]
-    ///         {
-    ///             "/Common/serverssl",
-    ///         },
-    ///         SecurityLogProfiles = new[]
-    ///         {
-    ///             "/Common/global-network",
-    ///         },
-    ///         SourceAddressTranslation = "automap",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/virtualServer:VirtualServer")]
     public partial class VirtualServer : global::Pulumi.CustomResource

@@ -17,32 +17,6 @@ import (
 //
 // Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ltm.NewProfileOneConnect(ctx, "test-oneconnect", &ltm.ProfileOneConnectArgs{
-//				Name: pulumi.String("/Common/test-oneconnect"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // BIG-IP LTM oneconnect profiles can be imported using the `name` , e.g.

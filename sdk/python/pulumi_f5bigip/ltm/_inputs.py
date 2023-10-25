@@ -43,9 +43,13 @@ class DataGroupRecordArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("name", name)
         if data is not None:
             _setter("data", data)
@@ -104,7 +108,11 @@ class NodeFqdnArgs:
              downinterval: Optional[pulumi.Input[int]] = None,
              interval: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if address_family is None and 'addressFamily' in kwargs:
+            address_family = kwargs['addressFamily']
+
         if address_family is not None:
             _setter("address_family", address_family)
         if autopopulate is not None:
@@ -194,11 +202,15 @@ class PolicyRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              actions: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleActionArgs']]]] = None,
              conditions: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleConditionArgs']]]] = None,
              description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("name", name)
         if actions is not None:
             _setter("actions", actions)
@@ -577,7 +589,75 @@ class PolicyRuleActionArgs:
              vlan_id: Optional[pulumi.Input[int]] = None,
              wam: Optional[pulumi.Input[bool]] = None,
              write: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_service is None and 'appService' in kwargs:
+            app_service = kwargs['appService']
+        if clone_pool is None and 'clonePool' in kwargs:
+            clone_pool = kwargs['clonePool']
+        if cookie_hash is None and 'cookieHash' in kwargs:
+            cookie_hash = kwargs['cookieHash']
+        if cookie_insert is None and 'cookieInsert' in kwargs:
+            cookie_insert = kwargs['cookieInsert']
+        if cookie_passive is None and 'cookiePassive' in kwargs:
+            cookie_passive = kwargs['cookiePassive']
+        if cookie_rewrite is None and 'cookieRewrite' in kwargs:
+            cookie_rewrite = kwargs['cookieRewrite']
+        if destination_address is None and 'destinationAddress' in kwargs:
+            destination_address = kwargs['destinationAddress']
+        if expiry_secs is None and 'expirySecs' in kwargs:
+            expiry_secs = kwargs['expirySecs']
+        if from_profile is None and 'fromProfile' in kwargs:
+            from_profile = kwargs['fromProfile']
+        if http_basic_auth is None and 'httpBasicAuth' in kwargs:
+            http_basic_auth = kwargs['httpBasicAuth']
+        if http_cookie is None and 'httpCookie' in kwargs:
+            http_cookie = kwargs['httpCookie']
+        if http_header is None and 'httpHeader' in kwargs:
+            http_header = kwargs['httpHeader']
+        if http_host is None and 'httpHost' in kwargs:
+            http_host = kwargs['httpHost']
+        if http_referer is None and 'httpReferer' in kwargs:
+            http_referer = kwargs['httpReferer']
+        if http_reply is None and 'httpReply' in kwargs:
+            http_reply = kwargs['httpReply']
+        if http_set_cookie is None and 'httpSetCookie' in kwargs:
+            http_set_cookie = kwargs['httpSetCookie']
+        if http_uri is None and 'httpUri' in kwargs:
+            http_uri = kwargs['httpUri']
+        if internal_virtual is None and 'internalVirtual' in kwargs:
+            internal_virtual = kwargs['internalVirtual']
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if ltm_policy is None and 'ltmPolicy' in kwargs:
+            ltm_policy = kwargs['ltmPolicy']
+        if query_string is None and 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if request_adapt is None and 'requestAdapt' in kwargs:
+            request_adapt = kwargs['requestAdapt']
+        if response_adapt is None and 'responseAdapt' in kwargs:
+            response_adapt = kwargs['responseAdapt']
+        if server_ssl is None and 'serverSsl' in kwargs:
+            server_ssl = kwargs['serverSsl']
+        if set_variable is None and 'setVariable' in kwargs:
+            set_variable = kwargs['setVariable']
+        if source_address is None and 'sourceAddress' in kwargs:
+            source_address = kwargs['sourceAddress']
+        if ssl_client_hello is None and 'sslClientHello' in kwargs:
+            ssl_client_hello = kwargs['sslClientHello']
+        if ssl_server_handshake is None and 'sslServerHandshake' in kwargs:
+            ssl_server_handshake = kwargs['sslServerHandshake']
+        if ssl_server_hello is None and 'sslServerHello' in kwargs:
+            ssl_server_hello = kwargs['sslServerHello']
+        if ssl_session_id is None and 'sslSessionId' in kwargs:
+            ssl_session_id = kwargs['sslSessionId']
+        if tcp_nagle is None and 'tcpNagle' in kwargs:
+            tcp_nagle = kwargs['tcpNagle']
+        if tm_name is None and 'tmName' in kwargs:
+            tm_name = kwargs['tmName']
+        if vlan_id is None and 'vlanId' in kwargs:
+            vlan_id = kwargs['vlanId']
+
         if app_service is not None:
             _setter("app_service", app_service)
         if application is not None:
@@ -2012,7 +2092,101 @@ class PolicyRuleConditionArgs:
              version: Optional[pulumi.Input[bool]] = None,
              vlan: Optional[pulumi.Input[bool]] = None,
              vlan_id: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_service is None and 'appService' in kwargs:
+            app_service = kwargs['appService']
+        if browser_type is None and 'browserType' in kwargs:
+            browser_type = kwargs['browserType']
+        if browser_version is None and 'browserVersion' in kwargs:
+            browser_version = kwargs['browserVersion']
+        if case_insensitive is None and 'caseInsensitive' in kwargs:
+            case_insensitive = kwargs['caseInsensitive']
+        if case_sensitive is None and 'caseSensitive' in kwargs:
+            case_sensitive = kwargs['caseSensitive']
+        if cipher_bits is None and 'cipherBits' in kwargs:
+            cipher_bits = kwargs['cipherBits']
+        if client_accepted is None and 'clientAccepted' in kwargs:
+            client_accepted = kwargs['clientAccepted']
+        if client_ssl is None and 'clientSsl' in kwargs:
+            client_ssl = kwargs['clientSsl']
+        if common_name is None and 'commonName' in kwargs:
+            common_name = kwargs['commonName']
+        if country_code is None and 'countryCode' in kwargs:
+            country_code = kwargs['countryCode']
+        if country_name is None and 'countryName' in kwargs:
+            country_name = kwargs['countryName']
+        if cpu_usage is None and 'cpuUsage' in kwargs:
+            cpu_usage = kwargs['cpuUsage']
+        if device_make is None and 'deviceMake' in kwargs:
+            device_make = kwargs['deviceMake']
+        if device_model is None and 'deviceModel' in kwargs:
+            device_model = kwargs['deviceModel']
+        if ends_with is None and 'endsWith' in kwargs:
+            ends_with = kwargs['endsWith']
+        if greater_or_equal is None and 'greaterOrEqual' in kwargs:
+            greater_or_equal = kwargs['greaterOrEqual']
+        if http_basic_auth is None and 'httpBasicAuth' in kwargs:
+            http_basic_auth = kwargs['httpBasicAuth']
+        if http_cookie is None and 'httpCookie' in kwargs:
+            http_cookie = kwargs['httpCookie']
+        if http_header is None and 'httpHeader' in kwargs:
+            http_header = kwargs['httpHeader']
+        if http_host is None and 'httpHost' in kwargs:
+            http_host = kwargs['httpHost']
+        if http_method is None and 'httpMethod' in kwargs:
+            http_method = kwargs['httpMethod']
+        if http_referer is None and 'httpReferer' in kwargs:
+            http_referer = kwargs['httpReferer']
+        if http_set_cookie is None and 'httpSetCookie' in kwargs:
+            http_set_cookie = kwargs['httpSetCookie']
+        if http_status is None and 'httpStatus' in kwargs:
+            http_status = kwargs['httpStatus']
+        if http_uri is None and 'httpUri' in kwargs:
+            http_uri = kwargs['httpUri']
+        if http_user_agent is None and 'httpUserAgent' in kwargs:
+            http_user_agent = kwargs['httpUserAgent']
+        if http_version is None and 'httpVersion' in kwargs:
+            http_version = kwargs['httpVersion']
+        if less_or_equal is None and 'lessOrEqual' in kwargs:
+            less_or_equal = kwargs['lessOrEqual']
+        if not_ is None and 'not' in kwargs:
+            not_ = kwargs['not']
+        if path_segment is None and 'pathSegment' in kwargs:
+            path_segment = kwargs['pathSegment']
+        if query_parameter is None and 'queryParameter' in kwargs:
+            query_parameter = kwargs['queryParameter']
+        if query_string is None and 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if region_code is None and 'regionCode' in kwargs:
+            region_code = kwargs['regionCode']
+        if region_name is None and 'regionName' in kwargs:
+            region_name = kwargs['regionName']
+        if route_domain is None and 'routeDomain' in kwargs:
+            route_domain = kwargs['routeDomain']
+        if server_name is None and 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if ssl_cert is None and 'sslCert' in kwargs:
+            ssl_cert = kwargs['sslCert']
+        if ssl_client_hello is None and 'sslClientHello' in kwargs:
+            ssl_client_hello = kwargs['sslClientHello']
+        if ssl_extension is None and 'sslExtension' in kwargs:
+            ssl_extension = kwargs['sslExtension']
+        if ssl_server_handshake is None and 'sslServerHandshake' in kwargs:
+            ssl_server_handshake = kwargs['sslServerHandshake']
+        if ssl_server_hello is None and 'sslServerHello' in kwargs:
+            ssl_server_hello = kwargs['sslServerHello']
+        if starts_with is None and 'startsWith' in kwargs:
+            starts_with = kwargs['startsWith']
+        if tm_name is None and 'tmName' in kwargs:
+            tm_name = kwargs['tmName']
+        if unnamed_query_parameter is None and 'unnamedQueryParameter' in kwargs:
+            unnamed_query_parameter = kwargs['unnamedQueryParameter']
+        if user_agent_token is None and 'userAgentToken' in kwargs:
+            user_agent_token = kwargs['userAgentToken']
+        if vlan_id is None and 'vlanId' in kwargs:
+            vlan_id = kwargs['vlanId']
+
         if address is not None:
             _setter("address", address)
         if all is not None:
@@ -3068,7 +3242,9 @@ class ProfileClientSslCertKeyChainArgs:
              key: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              passphrase: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if cert is not None:
             _setter("cert", cert)
         if chain is not None:
@@ -3165,7 +3341,17 @@ class ProfileHttpEnforcementArgs:
              max_header_count: Optional[pulumi.Input[int]] = None,
              max_header_size: Optional[pulumi.Input[int]] = None,
              unknown_method: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if known_methods is None and 'knownMethods' in kwargs:
+            known_methods = kwargs['knownMethods']
+        if max_header_count is None and 'maxHeaderCount' in kwargs:
+            max_header_count = kwargs['maxHeaderCount']
+        if max_header_size is None and 'maxHeaderSize' in kwargs:
+            max_header_size = kwargs['maxHeaderSize']
+        if unknown_method is None and 'unknownMethod' in kwargs:
+            unknown_method = kwargs['unknownMethod']
+
         if known_methods is not None:
             _setter("known_methods", known_methods)
         if max_header_count is not None:
@@ -3251,7 +3437,13 @@ class ProfileHttpHttpStrictTransportSecurityArgs:
              maximum_age: Optional[pulumi.Input[int]] = None,
              mode: Optional[pulumi.Input[str]] = None,
              preload: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if include_subdomains is None and 'includeSubdomains' in kwargs:
+            include_subdomains = kwargs['includeSubdomains']
+        if maximum_age is None and 'maximumAge' in kwargs:
+            maximum_age = kwargs['maximumAge']
+
         if include_subdomains is not None:
             _setter("include_subdomains", include_subdomains)
         if maximum_age is not None:
@@ -3328,7 +3520,11 @@ class SnatOriginArgs:
              _setter: Callable[[Any, Any], None],
              app_service: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_service is None and 'appService' in kwargs:
+            app_service = kwargs['appService']
+
         if app_service is not None:
             _setter("app_service", app_service)
         if name is not None:
@@ -3372,9 +3568,13 @@ class GetDataGroupRecordArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              data: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("name", name)
         if data is not None:
             _setter("data", data)
@@ -3427,12 +3627,22 @@ class GetNodeFqdnArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             autopopulate: str,
-             downinterval: int,
-             interval: str,
+             autopopulate: Optional[str] = None,
+             downinterval: Optional[int] = None,
+             interval: Optional[str] = None,
              address_family: Optional[str] = None,
              name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if autopopulate is None:
+            raise TypeError("Missing 'autopopulate' argument")
+        if downinterval is None:
+            raise TypeError("Missing 'downinterval' argument")
+        if interval is None:
+            raise TypeError("Missing 'interval' argument")
+        if address_family is None and 'addressFamily' in kwargs:
+            address_family = kwargs['addressFamily']
+
         _setter("autopopulate", autopopulate)
         _setter("downinterval", downinterval)
         _setter("interval", interval)
@@ -3520,10 +3730,14 @@ class GetPolicyRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: str,
+             name: Optional[str] = None,
              actions: Optional[Sequence['GetPolicyRuleActionArgs']] = None,
              conditions: Optional[Sequence['GetPolicyRuleConditionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
         _setter("name", name)
         if actions is not None:
             _setter("actions", actions)
@@ -3778,111 +3992,383 @@ class GetPolicyRuleActionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             app_service: str,
-             application: str,
-             asm: bool,
-             avr: bool,
-             cache: bool,
-             carp: bool,
-             category: str,
-             classify: bool,
-             clone_pool: str,
-             code: int,
-             compress: bool,
-             connection: bool,
-             content: str,
-             cookie_hash: bool,
-             cookie_insert: bool,
-             cookie_passive: bool,
-             cookie_rewrite: bool,
-             decompress: bool,
-             defer: bool,
-             destination_address: bool,
-             disable: bool,
-             domain: str,
-             enable: bool,
-             expiry: str,
-             expiry_secs: int,
-             expression: str,
-             extension: str,
-             facility: str,
-             from_profile: str,
-             hash: bool,
-             host: str,
-             http: bool,
-             http_basic_auth: bool,
-             http_cookie: bool,
-             http_header: bool,
-             http_referer: bool,
-             http_reply: bool,
-             http_set_cookie: bool,
-             http_uri: bool,
-             ifile: str,
-             insert: bool,
-             internal_virtual: str,
-             ip_address: str,
-             key: str,
-             l7dos: bool,
-             length: int,
-             location: str,
-             log: bool,
-             ltm_policy: bool,
-             member: str,
-             message: str,
-             netmask: str,
-             nexthop: str,
-             node: str,
-             offset: int,
-             path: str,
-             pem: bool,
-             persist: bool,
-             pin: bool,
-             policy: str,
-             pool: str,
-             port: int,
-             priority: str,
-             profile: str,
-             protocol: str,
-             query_string: str,
-             rateclass: str,
-             redirect: bool,
-             remove: bool,
-             replace: bool,
-             request: bool,
-             request_adapt: bool,
-             reset: bool,
-             response: bool,
-             response_adapt: bool,
-             scheme: str,
-             script: str,
-             select: bool,
-             server_ssl: bool,
-             set_variable: bool,
-             shutdown: bool,
-             snat: str,
-             snatpool: str,
-             source_address: bool,
-             ssl_client_hello: bool,
-             ssl_server_handshake: bool,
-             ssl_server_hello: bool,
-             ssl_session_id: bool,
-             status: int,
-             tcl: bool,
-             tcp_nagle: bool,
-             text: str,
-             timeout: int,
-             tm_name: str,
-             uie: bool,
-             universal: bool,
-             value: str,
-             virtual: str,
-             vlan: str,
-             vlan_id: int,
-             wam: bool,
-             write: bool,
+             app_service: Optional[str] = None,
+             application: Optional[str] = None,
+             asm: Optional[bool] = None,
+             avr: Optional[bool] = None,
+             cache: Optional[bool] = None,
+             carp: Optional[bool] = None,
+             category: Optional[str] = None,
+             classify: Optional[bool] = None,
+             clone_pool: Optional[str] = None,
+             code: Optional[int] = None,
+             compress: Optional[bool] = None,
+             connection: Optional[bool] = None,
+             content: Optional[str] = None,
+             cookie_hash: Optional[bool] = None,
+             cookie_insert: Optional[bool] = None,
+             cookie_passive: Optional[bool] = None,
+             cookie_rewrite: Optional[bool] = None,
+             decompress: Optional[bool] = None,
+             defer: Optional[bool] = None,
+             destination_address: Optional[bool] = None,
+             disable: Optional[bool] = None,
+             domain: Optional[str] = None,
+             enable: Optional[bool] = None,
+             expiry: Optional[str] = None,
+             expiry_secs: Optional[int] = None,
+             expression: Optional[str] = None,
+             extension: Optional[str] = None,
+             facility: Optional[str] = None,
+             from_profile: Optional[str] = None,
+             hash: Optional[bool] = None,
+             host: Optional[str] = None,
+             http: Optional[bool] = None,
+             http_basic_auth: Optional[bool] = None,
+             http_cookie: Optional[bool] = None,
+             http_header: Optional[bool] = None,
+             http_referer: Optional[bool] = None,
+             http_reply: Optional[bool] = None,
+             http_set_cookie: Optional[bool] = None,
+             http_uri: Optional[bool] = None,
+             ifile: Optional[str] = None,
+             insert: Optional[bool] = None,
+             internal_virtual: Optional[str] = None,
+             ip_address: Optional[str] = None,
+             key: Optional[str] = None,
+             l7dos: Optional[bool] = None,
+             length: Optional[int] = None,
+             location: Optional[str] = None,
+             log: Optional[bool] = None,
+             ltm_policy: Optional[bool] = None,
+             member: Optional[str] = None,
+             message: Optional[str] = None,
+             netmask: Optional[str] = None,
+             nexthop: Optional[str] = None,
+             node: Optional[str] = None,
+             offset: Optional[int] = None,
+             path: Optional[str] = None,
+             pem: Optional[bool] = None,
+             persist: Optional[bool] = None,
+             pin: Optional[bool] = None,
+             policy: Optional[str] = None,
+             pool: Optional[str] = None,
+             port: Optional[int] = None,
+             priority: Optional[str] = None,
+             profile: Optional[str] = None,
+             protocol: Optional[str] = None,
+             query_string: Optional[str] = None,
+             rateclass: Optional[str] = None,
+             redirect: Optional[bool] = None,
+             remove: Optional[bool] = None,
+             replace: Optional[bool] = None,
+             request: Optional[bool] = None,
+             request_adapt: Optional[bool] = None,
+             reset: Optional[bool] = None,
+             response: Optional[bool] = None,
+             response_adapt: Optional[bool] = None,
+             scheme: Optional[str] = None,
+             script: Optional[str] = None,
+             select: Optional[bool] = None,
+             server_ssl: Optional[bool] = None,
+             set_variable: Optional[bool] = None,
+             shutdown: Optional[bool] = None,
+             snat: Optional[str] = None,
+             snatpool: Optional[str] = None,
+             source_address: Optional[bool] = None,
+             ssl_client_hello: Optional[bool] = None,
+             ssl_server_handshake: Optional[bool] = None,
+             ssl_server_hello: Optional[bool] = None,
+             ssl_session_id: Optional[bool] = None,
+             status: Optional[int] = None,
+             tcl: Optional[bool] = None,
+             tcp_nagle: Optional[bool] = None,
+             text: Optional[str] = None,
+             timeout: Optional[int] = None,
+             tm_name: Optional[str] = None,
+             uie: Optional[bool] = None,
+             universal: Optional[bool] = None,
+             value: Optional[str] = None,
+             virtual: Optional[str] = None,
+             vlan: Optional[str] = None,
+             vlan_id: Optional[int] = None,
+             wam: Optional[bool] = None,
+             write: Optional[bool] = None,
              forward: Optional[bool] = None,
              http_host: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_service is None and 'appService' in kwargs:
+            app_service = kwargs['appService']
+        if app_service is None:
+            raise TypeError("Missing 'app_service' argument")
+        if application is None:
+            raise TypeError("Missing 'application' argument")
+        if asm is None:
+            raise TypeError("Missing 'asm' argument")
+        if avr is None:
+            raise TypeError("Missing 'avr' argument")
+        if cache is None:
+            raise TypeError("Missing 'cache' argument")
+        if carp is None:
+            raise TypeError("Missing 'carp' argument")
+        if category is None:
+            raise TypeError("Missing 'category' argument")
+        if classify is None:
+            raise TypeError("Missing 'classify' argument")
+        if clone_pool is None and 'clonePool' in kwargs:
+            clone_pool = kwargs['clonePool']
+        if clone_pool is None:
+            raise TypeError("Missing 'clone_pool' argument")
+        if code is None:
+            raise TypeError("Missing 'code' argument")
+        if compress is None:
+            raise TypeError("Missing 'compress' argument")
+        if connection is None:
+            raise TypeError("Missing 'connection' argument")
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if cookie_hash is None and 'cookieHash' in kwargs:
+            cookie_hash = kwargs['cookieHash']
+        if cookie_hash is None:
+            raise TypeError("Missing 'cookie_hash' argument")
+        if cookie_insert is None and 'cookieInsert' in kwargs:
+            cookie_insert = kwargs['cookieInsert']
+        if cookie_insert is None:
+            raise TypeError("Missing 'cookie_insert' argument")
+        if cookie_passive is None and 'cookiePassive' in kwargs:
+            cookie_passive = kwargs['cookiePassive']
+        if cookie_passive is None:
+            raise TypeError("Missing 'cookie_passive' argument")
+        if cookie_rewrite is None and 'cookieRewrite' in kwargs:
+            cookie_rewrite = kwargs['cookieRewrite']
+        if cookie_rewrite is None:
+            raise TypeError("Missing 'cookie_rewrite' argument")
+        if decompress is None:
+            raise TypeError("Missing 'decompress' argument")
+        if defer is None:
+            raise TypeError("Missing 'defer' argument")
+        if destination_address is None and 'destinationAddress' in kwargs:
+            destination_address = kwargs['destinationAddress']
+        if destination_address is None:
+            raise TypeError("Missing 'destination_address' argument")
+        if disable is None:
+            raise TypeError("Missing 'disable' argument")
+        if domain is None:
+            raise TypeError("Missing 'domain' argument")
+        if enable is None:
+            raise TypeError("Missing 'enable' argument")
+        if expiry is None:
+            raise TypeError("Missing 'expiry' argument")
+        if expiry_secs is None and 'expirySecs' in kwargs:
+            expiry_secs = kwargs['expirySecs']
+        if expiry_secs is None:
+            raise TypeError("Missing 'expiry_secs' argument")
+        if expression is None:
+            raise TypeError("Missing 'expression' argument")
+        if extension is None:
+            raise TypeError("Missing 'extension' argument")
+        if facility is None:
+            raise TypeError("Missing 'facility' argument")
+        if from_profile is None and 'fromProfile' in kwargs:
+            from_profile = kwargs['fromProfile']
+        if from_profile is None:
+            raise TypeError("Missing 'from_profile' argument")
+        if hash is None:
+            raise TypeError("Missing 'hash' argument")
+        if host is None:
+            raise TypeError("Missing 'host' argument")
+        if http is None:
+            raise TypeError("Missing 'http' argument")
+        if http_basic_auth is None and 'httpBasicAuth' in kwargs:
+            http_basic_auth = kwargs['httpBasicAuth']
+        if http_basic_auth is None:
+            raise TypeError("Missing 'http_basic_auth' argument")
+        if http_cookie is None and 'httpCookie' in kwargs:
+            http_cookie = kwargs['httpCookie']
+        if http_cookie is None:
+            raise TypeError("Missing 'http_cookie' argument")
+        if http_header is None and 'httpHeader' in kwargs:
+            http_header = kwargs['httpHeader']
+        if http_header is None:
+            raise TypeError("Missing 'http_header' argument")
+        if http_referer is None and 'httpReferer' in kwargs:
+            http_referer = kwargs['httpReferer']
+        if http_referer is None:
+            raise TypeError("Missing 'http_referer' argument")
+        if http_reply is None and 'httpReply' in kwargs:
+            http_reply = kwargs['httpReply']
+        if http_reply is None:
+            raise TypeError("Missing 'http_reply' argument")
+        if http_set_cookie is None and 'httpSetCookie' in kwargs:
+            http_set_cookie = kwargs['httpSetCookie']
+        if http_set_cookie is None:
+            raise TypeError("Missing 'http_set_cookie' argument")
+        if http_uri is None and 'httpUri' in kwargs:
+            http_uri = kwargs['httpUri']
+        if http_uri is None:
+            raise TypeError("Missing 'http_uri' argument")
+        if ifile is None:
+            raise TypeError("Missing 'ifile' argument")
+        if insert is None:
+            raise TypeError("Missing 'insert' argument")
+        if internal_virtual is None and 'internalVirtual' in kwargs:
+            internal_virtual = kwargs['internalVirtual']
+        if internal_virtual is None:
+            raise TypeError("Missing 'internal_virtual' argument")
+        if ip_address is None and 'ipAddress' in kwargs:
+            ip_address = kwargs['ipAddress']
+        if ip_address is None:
+            raise TypeError("Missing 'ip_address' argument")
+        if key is None:
+            raise TypeError("Missing 'key' argument")
+        if l7dos is None:
+            raise TypeError("Missing 'l7dos' argument")
+        if length is None:
+            raise TypeError("Missing 'length' argument")
+        if location is None:
+            raise TypeError("Missing 'location' argument")
+        if log is None:
+            raise TypeError("Missing 'log' argument")
+        if ltm_policy is None and 'ltmPolicy' in kwargs:
+            ltm_policy = kwargs['ltmPolicy']
+        if ltm_policy is None:
+            raise TypeError("Missing 'ltm_policy' argument")
+        if member is None:
+            raise TypeError("Missing 'member' argument")
+        if message is None:
+            raise TypeError("Missing 'message' argument")
+        if netmask is None:
+            raise TypeError("Missing 'netmask' argument")
+        if nexthop is None:
+            raise TypeError("Missing 'nexthop' argument")
+        if node is None:
+            raise TypeError("Missing 'node' argument")
+        if offset is None:
+            raise TypeError("Missing 'offset' argument")
+        if path is None:
+            raise TypeError("Missing 'path' argument")
+        if pem is None:
+            raise TypeError("Missing 'pem' argument")
+        if persist is None:
+            raise TypeError("Missing 'persist' argument")
+        if pin is None:
+            raise TypeError("Missing 'pin' argument")
+        if policy is None:
+            raise TypeError("Missing 'policy' argument")
+        if pool is None:
+            raise TypeError("Missing 'pool' argument")
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if priority is None:
+            raise TypeError("Missing 'priority' argument")
+        if profile is None:
+            raise TypeError("Missing 'profile' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if query_string is None and 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if query_string is None:
+            raise TypeError("Missing 'query_string' argument")
+        if rateclass is None:
+            raise TypeError("Missing 'rateclass' argument")
+        if redirect is None:
+            raise TypeError("Missing 'redirect' argument")
+        if remove is None:
+            raise TypeError("Missing 'remove' argument")
+        if replace is None:
+            raise TypeError("Missing 'replace' argument")
+        if request is None:
+            raise TypeError("Missing 'request' argument")
+        if request_adapt is None and 'requestAdapt' in kwargs:
+            request_adapt = kwargs['requestAdapt']
+        if request_adapt is None:
+            raise TypeError("Missing 'request_adapt' argument")
+        if reset is None:
+            raise TypeError("Missing 'reset' argument")
+        if response is None:
+            raise TypeError("Missing 'response' argument")
+        if response_adapt is None and 'responseAdapt' in kwargs:
+            response_adapt = kwargs['responseAdapt']
+        if response_adapt is None:
+            raise TypeError("Missing 'response_adapt' argument")
+        if scheme is None:
+            raise TypeError("Missing 'scheme' argument")
+        if script is None:
+            raise TypeError("Missing 'script' argument")
+        if select is None:
+            raise TypeError("Missing 'select' argument")
+        if server_ssl is None and 'serverSsl' in kwargs:
+            server_ssl = kwargs['serverSsl']
+        if server_ssl is None:
+            raise TypeError("Missing 'server_ssl' argument")
+        if set_variable is None and 'setVariable' in kwargs:
+            set_variable = kwargs['setVariable']
+        if set_variable is None:
+            raise TypeError("Missing 'set_variable' argument")
+        if shutdown is None:
+            raise TypeError("Missing 'shutdown' argument")
+        if snat is None:
+            raise TypeError("Missing 'snat' argument")
+        if snatpool is None:
+            raise TypeError("Missing 'snatpool' argument")
+        if source_address is None and 'sourceAddress' in kwargs:
+            source_address = kwargs['sourceAddress']
+        if source_address is None:
+            raise TypeError("Missing 'source_address' argument")
+        if ssl_client_hello is None and 'sslClientHello' in kwargs:
+            ssl_client_hello = kwargs['sslClientHello']
+        if ssl_client_hello is None:
+            raise TypeError("Missing 'ssl_client_hello' argument")
+        if ssl_server_handshake is None and 'sslServerHandshake' in kwargs:
+            ssl_server_handshake = kwargs['sslServerHandshake']
+        if ssl_server_handshake is None:
+            raise TypeError("Missing 'ssl_server_handshake' argument")
+        if ssl_server_hello is None and 'sslServerHello' in kwargs:
+            ssl_server_hello = kwargs['sslServerHello']
+        if ssl_server_hello is None:
+            raise TypeError("Missing 'ssl_server_hello' argument")
+        if ssl_session_id is None and 'sslSessionId' in kwargs:
+            ssl_session_id = kwargs['sslSessionId']
+        if ssl_session_id is None:
+            raise TypeError("Missing 'ssl_session_id' argument")
+        if status is None:
+            raise TypeError("Missing 'status' argument")
+        if tcl is None:
+            raise TypeError("Missing 'tcl' argument")
+        if tcp_nagle is None and 'tcpNagle' in kwargs:
+            tcp_nagle = kwargs['tcpNagle']
+        if tcp_nagle is None:
+            raise TypeError("Missing 'tcp_nagle' argument")
+        if text is None:
+            raise TypeError("Missing 'text' argument")
+        if timeout is None:
+            raise TypeError("Missing 'timeout' argument")
+        if tm_name is None and 'tmName' in kwargs:
+            tm_name = kwargs['tmName']
+        if tm_name is None:
+            raise TypeError("Missing 'tm_name' argument")
+        if uie is None:
+            raise TypeError("Missing 'uie' argument")
+        if universal is None:
+            raise TypeError("Missing 'universal' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+        if virtual is None:
+            raise TypeError("Missing 'virtual' argument")
+        if vlan is None:
+            raise TypeError("Missing 'vlan' argument")
+        if vlan_id is None and 'vlanId' in kwargs:
+            vlan_id = kwargs['vlanId']
+        if vlan_id is None:
+            raise TypeError("Missing 'vlan_id' argument")
+        if wam is None:
+            raise TypeError("Missing 'wam' argument")
+        if write is None:
+            raise TypeError("Missing 'write' argument")
+        if http_host is None and 'httpHost' in kwargs:
+            http_host = kwargs['httpHost']
+
         _setter("app_service", app_service)
         _setter("application", application)
         _setter("asm", asm)
@@ -5118,98 +5604,372 @@ class GetPolicyRuleConditionArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             address: bool,
-             all: bool,
-             app_service: str,
-             browser_type: bool,
-             browser_version: bool,
-             case_insensitive: bool,
-             case_sensitive: bool,
-             cipher: bool,
-             cipher_bits: bool,
-             client_ssl: bool,
-             code: bool,
-             common_name: bool,
-             contains: bool,
-             continent: bool,
-             country_code: bool,
-             country_name: bool,
-             cpu_usage: bool,
-             datagroup: str,
-             device_make: bool,
-             device_model: bool,
-             domain: bool,
-             ends_with: bool,
-             equals: bool,
-             expiry: bool,
-             extension: bool,
-             external: bool,
-             geoip: bool,
-             greater: bool,
-             greater_or_equal: bool,
-             host: bool,
-             http_basic_auth: bool,
-             http_cookie: bool,
-             http_header: bool,
-             http_host: bool,
-             http_method: bool,
-             http_referer: bool,
-             http_set_cookie: bool,
-             http_status: bool,
-             http_uri: bool,
-             http_user_agent: bool,
-             http_version: bool,
-             index: int,
-             internal: bool,
-             isp: bool,
-             last15secs: bool,
-             last1min: bool,
-             last5mins: bool,
-             less: bool,
-             less_or_equal: bool,
-             local: bool,
-             major: bool,
-             matches: bool,
-             minor: bool,
-             missing: bool,
-             mss: bool,
-             not_: bool,
-             org: bool,
-             password: bool,
-             path: bool,
-             path_segment: bool,
-             port: bool,
-             present: bool,
-             protocol: bool,
-             query_parameter: bool,
-             query_string: bool,
-             region_code: bool,
-             region_name: bool,
-             remote: bool,
-             request: bool,
-             response: bool,
-             route_domain: bool,
-             rtt: bool,
-             scheme: bool,
-             server_name: bool,
-             ssl_cert: bool,
-             ssl_client_hello: bool,
-             ssl_extension: bool,
-             ssl_server_handshake: bool,
-             ssl_server_hello: bool,
-             starts_with: bool,
-             tcp: bool,
-             text: bool,
-             tm_name: str,
-             unnamed_query_parameter: bool,
-             user_agent_token: bool,
-             username: bool,
-             value: bool,
-             values: Sequence[str],
-             version: bool,
-             vlan: bool,
-             vlan_id: bool,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             address: Optional[bool] = None,
+             all: Optional[bool] = None,
+             app_service: Optional[str] = None,
+             browser_type: Optional[bool] = None,
+             browser_version: Optional[bool] = None,
+             case_insensitive: Optional[bool] = None,
+             case_sensitive: Optional[bool] = None,
+             cipher: Optional[bool] = None,
+             cipher_bits: Optional[bool] = None,
+             client_ssl: Optional[bool] = None,
+             code: Optional[bool] = None,
+             common_name: Optional[bool] = None,
+             contains: Optional[bool] = None,
+             continent: Optional[bool] = None,
+             country_code: Optional[bool] = None,
+             country_name: Optional[bool] = None,
+             cpu_usage: Optional[bool] = None,
+             datagroup: Optional[str] = None,
+             device_make: Optional[bool] = None,
+             device_model: Optional[bool] = None,
+             domain: Optional[bool] = None,
+             ends_with: Optional[bool] = None,
+             equals: Optional[bool] = None,
+             expiry: Optional[bool] = None,
+             extension: Optional[bool] = None,
+             external: Optional[bool] = None,
+             geoip: Optional[bool] = None,
+             greater: Optional[bool] = None,
+             greater_or_equal: Optional[bool] = None,
+             host: Optional[bool] = None,
+             http_basic_auth: Optional[bool] = None,
+             http_cookie: Optional[bool] = None,
+             http_header: Optional[bool] = None,
+             http_host: Optional[bool] = None,
+             http_method: Optional[bool] = None,
+             http_referer: Optional[bool] = None,
+             http_set_cookie: Optional[bool] = None,
+             http_status: Optional[bool] = None,
+             http_uri: Optional[bool] = None,
+             http_user_agent: Optional[bool] = None,
+             http_version: Optional[bool] = None,
+             index: Optional[int] = None,
+             internal: Optional[bool] = None,
+             isp: Optional[bool] = None,
+             last15secs: Optional[bool] = None,
+             last1min: Optional[bool] = None,
+             last5mins: Optional[bool] = None,
+             less: Optional[bool] = None,
+             less_or_equal: Optional[bool] = None,
+             local: Optional[bool] = None,
+             major: Optional[bool] = None,
+             matches: Optional[bool] = None,
+             minor: Optional[bool] = None,
+             missing: Optional[bool] = None,
+             mss: Optional[bool] = None,
+             not_: Optional[bool] = None,
+             org: Optional[bool] = None,
+             password: Optional[bool] = None,
+             path: Optional[bool] = None,
+             path_segment: Optional[bool] = None,
+             port: Optional[bool] = None,
+             present: Optional[bool] = None,
+             protocol: Optional[bool] = None,
+             query_parameter: Optional[bool] = None,
+             query_string: Optional[bool] = None,
+             region_code: Optional[bool] = None,
+             region_name: Optional[bool] = None,
+             remote: Optional[bool] = None,
+             request: Optional[bool] = None,
+             response: Optional[bool] = None,
+             route_domain: Optional[bool] = None,
+             rtt: Optional[bool] = None,
+             scheme: Optional[bool] = None,
+             server_name: Optional[bool] = None,
+             ssl_cert: Optional[bool] = None,
+             ssl_client_hello: Optional[bool] = None,
+             ssl_extension: Optional[bool] = None,
+             ssl_server_handshake: Optional[bool] = None,
+             ssl_server_hello: Optional[bool] = None,
+             starts_with: Optional[bool] = None,
+             tcp: Optional[bool] = None,
+             text: Optional[bool] = None,
+             tm_name: Optional[str] = None,
+             unnamed_query_parameter: Optional[bool] = None,
+             user_agent_token: Optional[bool] = None,
+             username: Optional[bool] = None,
+             value: Optional[bool] = None,
+             values: Optional[Sequence[str]] = None,
+             version: Optional[bool] = None,
+             vlan: Optional[bool] = None,
+             vlan_id: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if address is None:
+            raise TypeError("Missing 'address' argument")
+        if all is None:
+            raise TypeError("Missing 'all' argument")
+        if app_service is None and 'appService' in kwargs:
+            app_service = kwargs['appService']
+        if app_service is None:
+            raise TypeError("Missing 'app_service' argument")
+        if browser_type is None and 'browserType' in kwargs:
+            browser_type = kwargs['browserType']
+        if browser_type is None:
+            raise TypeError("Missing 'browser_type' argument")
+        if browser_version is None and 'browserVersion' in kwargs:
+            browser_version = kwargs['browserVersion']
+        if browser_version is None:
+            raise TypeError("Missing 'browser_version' argument")
+        if case_insensitive is None and 'caseInsensitive' in kwargs:
+            case_insensitive = kwargs['caseInsensitive']
+        if case_insensitive is None:
+            raise TypeError("Missing 'case_insensitive' argument")
+        if case_sensitive is None and 'caseSensitive' in kwargs:
+            case_sensitive = kwargs['caseSensitive']
+        if case_sensitive is None:
+            raise TypeError("Missing 'case_sensitive' argument")
+        if cipher is None:
+            raise TypeError("Missing 'cipher' argument")
+        if cipher_bits is None and 'cipherBits' in kwargs:
+            cipher_bits = kwargs['cipherBits']
+        if cipher_bits is None:
+            raise TypeError("Missing 'cipher_bits' argument")
+        if client_ssl is None and 'clientSsl' in kwargs:
+            client_ssl = kwargs['clientSsl']
+        if client_ssl is None:
+            raise TypeError("Missing 'client_ssl' argument")
+        if code is None:
+            raise TypeError("Missing 'code' argument")
+        if common_name is None and 'commonName' in kwargs:
+            common_name = kwargs['commonName']
+        if common_name is None:
+            raise TypeError("Missing 'common_name' argument")
+        if contains is None:
+            raise TypeError("Missing 'contains' argument")
+        if continent is None:
+            raise TypeError("Missing 'continent' argument")
+        if country_code is None and 'countryCode' in kwargs:
+            country_code = kwargs['countryCode']
+        if country_code is None:
+            raise TypeError("Missing 'country_code' argument")
+        if country_name is None and 'countryName' in kwargs:
+            country_name = kwargs['countryName']
+        if country_name is None:
+            raise TypeError("Missing 'country_name' argument")
+        if cpu_usage is None and 'cpuUsage' in kwargs:
+            cpu_usage = kwargs['cpuUsage']
+        if cpu_usage is None:
+            raise TypeError("Missing 'cpu_usage' argument")
+        if datagroup is None:
+            raise TypeError("Missing 'datagroup' argument")
+        if device_make is None and 'deviceMake' in kwargs:
+            device_make = kwargs['deviceMake']
+        if device_make is None:
+            raise TypeError("Missing 'device_make' argument")
+        if device_model is None and 'deviceModel' in kwargs:
+            device_model = kwargs['deviceModel']
+        if device_model is None:
+            raise TypeError("Missing 'device_model' argument")
+        if domain is None:
+            raise TypeError("Missing 'domain' argument")
+        if ends_with is None and 'endsWith' in kwargs:
+            ends_with = kwargs['endsWith']
+        if ends_with is None:
+            raise TypeError("Missing 'ends_with' argument")
+        if equals is None:
+            raise TypeError("Missing 'equals' argument")
+        if expiry is None:
+            raise TypeError("Missing 'expiry' argument")
+        if extension is None:
+            raise TypeError("Missing 'extension' argument")
+        if external is None:
+            raise TypeError("Missing 'external' argument")
+        if geoip is None:
+            raise TypeError("Missing 'geoip' argument")
+        if greater is None:
+            raise TypeError("Missing 'greater' argument")
+        if greater_or_equal is None and 'greaterOrEqual' in kwargs:
+            greater_or_equal = kwargs['greaterOrEqual']
+        if greater_or_equal is None:
+            raise TypeError("Missing 'greater_or_equal' argument")
+        if host is None:
+            raise TypeError("Missing 'host' argument")
+        if http_basic_auth is None and 'httpBasicAuth' in kwargs:
+            http_basic_auth = kwargs['httpBasicAuth']
+        if http_basic_auth is None:
+            raise TypeError("Missing 'http_basic_auth' argument")
+        if http_cookie is None and 'httpCookie' in kwargs:
+            http_cookie = kwargs['httpCookie']
+        if http_cookie is None:
+            raise TypeError("Missing 'http_cookie' argument")
+        if http_header is None and 'httpHeader' in kwargs:
+            http_header = kwargs['httpHeader']
+        if http_header is None:
+            raise TypeError("Missing 'http_header' argument")
+        if http_host is None and 'httpHost' in kwargs:
+            http_host = kwargs['httpHost']
+        if http_host is None:
+            raise TypeError("Missing 'http_host' argument")
+        if http_method is None and 'httpMethod' in kwargs:
+            http_method = kwargs['httpMethod']
+        if http_method is None:
+            raise TypeError("Missing 'http_method' argument")
+        if http_referer is None and 'httpReferer' in kwargs:
+            http_referer = kwargs['httpReferer']
+        if http_referer is None:
+            raise TypeError("Missing 'http_referer' argument")
+        if http_set_cookie is None and 'httpSetCookie' in kwargs:
+            http_set_cookie = kwargs['httpSetCookie']
+        if http_set_cookie is None:
+            raise TypeError("Missing 'http_set_cookie' argument")
+        if http_status is None and 'httpStatus' in kwargs:
+            http_status = kwargs['httpStatus']
+        if http_status is None:
+            raise TypeError("Missing 'http_status' argument")
+        if http_uri is None and 'httpUri' in kwargs:
+            http_uri = kwargs['httpUri']
+        if http_uri is None:
+            raise TypeError("Missing 'http_uri' argument")
+        if http_user_agent is None and 'httpUserAgent' in kwargs:
+            http_user_agent = kwargs['httpUserAgent']
+        if http_user_agent is None:
+            raise TypeError("Missing 'http_user_agent' argument")
+        if http_version is None and 'httpVersion' in kwargs:
+            http_version = kwargs['httpVersion']
+        if http_version is None:
+            raise TypeError("Missing 'http_version' argument")
+        if index is None:
+            raise TypeError("Missing 'index' argument")
+        if internal is None:
+            raise TypeError("Missing 'internal' argument")
+        if isp is None:
+            raise TypeError("Missing 'isp' argument")
+        if last15secs is None:
+            raise TypeError("Missing 'last15secs' argument")
+        if last1min is None:
+            raise TypeError("Missing 'last1min' argument")
+        if last5mins is None:
+            raise TypeError("Missing 'last5mins' argument")
+        if less is None:
+            raise TypeError("Missing 'less' argument")
+        if less_or_equal is None and 'lessOrEqual' in kwargs:
+            less_or_equal = kwargs['lessOrEqual']
+        if less_or_equal is None:
+            raise TypeError("Missing 'less_or_equal' argument")
+        if local is None:
+            raise TypeError("Missing 'local' argument")
+        if major is None:
+            raise TypeError("Missing 'major' argument")
+        if matches is None:
+            raise TypeError("Missing 'matches' argument")
+        if minor is None:
+            raise TypeError("Missing 'minor' argument")
+        if missing is None:
+            raise TypeError("Missing 'missing' argument")
+        if mss is None:
+            raise TypeError("Missing 'mss' argument")
+        if not_ is None and 'not' in kwargs:
+            not_ = kwargs['not']
+        if not_ is None:
+            raise TypeError("Missing 'not_' argument")
+        if org is None:
+            raise TypeError("Missing 'org' argument")
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if path is None:
+            raise TypeError("Missing 'path' argument")
+        if path_segment is None and 'pathSegment' in kwargs:
+            path_segment = kwargs['pathSegment']
+        if path_segment is None:
+            raise TypeError("Missing 'path_segment' argument")
+        if port is None:
+            raise TypeError("Missing 'port' argument")
+        if present is None:
+            raise TypeError("Missing 'present' argument")
+        if protocol is None:
+            raise TypeError("Missing 'protocol' argument")
+        if query_parameter is None and 'queryParameter' in kwargs:
+            query_parameter = kwargs['queryParameter']
+        if query_parameter is None:
+            raise TypeError("Missing 'query_parameter' argument")
+        if query_string is None and 'queryString' in kwargs:
+            query_string = kwargs['queryString']
+        if query_string is None:
+            raise TypeError("Missing 'query_string' argument")
+        if region_code is None and 'regionCode' in kwargs:
+            region_code = kwargs['regionCode']
+        if region_code is None:
+            raise TypeError("Missing 'region_code' argument")
+        if region_name is None and 'regionName' in kwargs:
+            region_name = kwargs['regionName']
+        if region_name is None:
+            raise TypeError("Missing 'region_name' argument")
+        if remote is None:
+            raise TypeError("Missing 'remote' argument")
+        if request is None:
+            raise TypeError("Missing 'request' argument")
+        if response is None:
+            raise TypeError("Missing 'response' argument")
+        if route_domain is None and 'routeDomain' in kwargs:
+            route_domain = kwargs['routeDomain']
+        if route_domain is None:
+            raise TypeError("Missing 'route_domain' argument")
+        if rtt is None:
+            raise TypeError("Missing 'rtt' argument")
+        if scheme is None:
+            raise TypeError("Missing 'scheme' argument")
+        if server_name is None and 'serverName' in kwargs:
+            server_name = kwargs['serverName']
+        if server_name is None:
+            raise TypeError("Missing 'server_name' argument")
+        if ssl_cert is None and 'sslCert' in kwargs:
+            ssl_cert = kwargs['sslCert']
+        if ssl_cert is None:
+            raise TypeError("Missing 'ssl_cert' argument")
+        if ssl_client_hello is None and 'sslClientHello' in kwargs:
+            ssl_client_hello = kwargs['sslClientHello']
+        if ssl_client_hello is None:
+            raise TypeError("Missing 'ssl_client_hello' argument")
+        if ssl_extension is None and 'sslExtension' in kwargs:
+            ssl_extension = kwargs['sslExtension']
+        if ssl_extension is None:
+            raise TypeError("Missing 'ssl_extension' argument")
+        if ssl_server_handshake is None and 'sslServerHandshake' in kwargs:
+            ssl_server_handshake = kwargs['sslServerHandshake']
+        if ssl_server_handshake is None:
+            raise TypeError("Missing 'ssl_server_handshake' argument")
+        if ssl_server_hello is None and 'sslServerHello' in kwargs:
+            ssl_server_hello = kwargs['sslServerHello']
+        if ssl_server_hello is None:
+            raise TypeError("Missing 'ssl_server_hello' argument")
+        if starts_with is None and 'startsWith' in kwargs:
+            starts_with = kwargs['startsWith']
+        if starts_with is None:
+            raise TypeError("Missing 'starts_with' argument")
+        if tcp is None:
+            raise TypeError("Missing 'tcp' argument")
+        if text is None:
+            raise TypeError("Missing 'text' argument")
+        if tm_name is None and 'tmName' in kwargs:
+            tm_name = kwargs['tmName']
+        if tm_name is None:
+            raise TypeError("Missing 'tm_name' argument")
+        if unnamed_query_parameter is None and 'unnamedQueryParameter' in kwargs:
+            unnamed_query_parameter = kwargs['unnamedQueryParameter']
+        if unnamed_query_parameter is None:
+            raise TypeError("Missing 'unnamed_query_parameter' argument")
+        if user_agent_token is None and 'userAgentToken' in kwargs:
+            user_agent_token = kwargs['userAgentToken']
+        if user_agent_token is None:
+            raise TypeError("Missing 'user_agent_token' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+        if values is None:
+            raise TypeError("Missing 'values' argument")
+        if version is None:
+            raise TypeError("Missing 'version' argument")
+        if vlan is None:
+            raise TypeError("Missing 'vlan' argument")
+        if vlan_id is None and 'vlanId' in kwargs:
+            vlan_id = kwargs['vlanId']
+        if vlan_id is None:
+            raise TypeError("Missing 'vlan_id' argument")
+
         _setter("address", address)
         _setter("all", all)
         _setter("app_service", app_service)

@@ -9,25 +9,6 @@ import * as utilities from "../utilities";
  *
  * Resources should be named with their `full path`.The full path is the combination of the `partition + name` (example: `/Common/my-httpcompresprofile` ) or  `partition + directory + name` of the resource  (example: `/Common/test/my-httpcompresprofile`)
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- *
- * const sjhttpcompression = new f5bigip.ltm.ProfileHttpCompress("sjhttpcompression", {
- *     contentTypeExcludes: ["nicecontentexclude.com"],
- *     contentTypeIncludes: ["nicecontent.com"],
- *     defaultsFrom: "/Common/httpcompression",
- *     name: "/Common/sjhttpcompression2",
- *     uriExcludes: [
- *         "www.abc.f5.com",
- *         "www.abc2.f5.com",
- *     ],
- *     uriIncludes: ["www.xyzbc.cisco.com"],
- * });
- * ```
- *
  * ## Import
  *
  * BIG-IP LTM HTTP Compress profiles can be imported using the `name`, e.g.

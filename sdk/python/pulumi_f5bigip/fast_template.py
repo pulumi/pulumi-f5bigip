@@ -32,10 +32,18 @@ class FastTemplateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             md5_hash: pulumi.Input[str],
-             source: pulumi.Input[str],
+             md5_hash: Optional[pulumi.Input[str]] = None,
+             source: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if md5_hash is None and 'md5Hash' in kwargs:
+            md5_hash = kwargs['md5Hash']
+        if md5_hash is None:
+            raise TypeError("Missing 'md5_hash' argument")
+        if source is None:
+            raise TypeError("Missing 'source' argument")
+
         _setter("md5_hash", md5_hash)
         _setter("source", source)
         if name is not None:
@@ -102,7 +110,11 @@ class _FastTemplateState:
              md5_hash: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              source: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if md5_hash is None and 'md5Hash' in kwargs:
+            md5_hash = kwargs['md5Hash']
+
         if md5_hash is not None:
             _setter("md5_hash", md5_hash)
         if name is not None:

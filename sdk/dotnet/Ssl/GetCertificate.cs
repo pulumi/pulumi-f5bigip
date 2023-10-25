@@ -15,32 +15,6 @@ namespace Pulumi.F5BigIP.Ssl
         /// Use this data source (`f5bigip.ssl.Certificate`) to get the ssl-certificate details available on BIG-IP
         ///  
         ///  
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using F5BigIP = Pulumi.F5BigIP;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = F5BigIP.Ssl.GetCertificate.Invoke(new()
-        ///     {
-        ///         Name = "terraform_ssl_certificate",
-        ///         Partition = "Common",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["bigipSslCertificateName"] = test.Apply(getCertificateResult =&gt; getCertificateResult.Name),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("f5bigip:ssl/getCertificate:getCertificate", args ?? new GetCertificateArgs(), options.WithDefaults());
@@ -49,32 +23,6 @@ namespace Pulumi.F5BigIP.Ssl
         /// Use this data source (`f5bigip.ssl.Certificate`) to get the ssl-certificate details available on BIG-IP
         ///  
         ///  
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using F5BigIP = Pulumi.F5BigIP;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var test = F5BigIP.Ssl.GetCertificate.Invoke(new()
-        ///     {
-        ///         Name = "terraform_ssl_certificate",
-        ///         Partition = "Common",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["bigipSslCertificateName"] = test.Apply(getCertificateResult =&gt; getCertificateResult.Name),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("f5bigip:ssl/getCertificate:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());

@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * `f5bigip.sys.Ntp` resource is helpful when configuring NTP server on the BIG-IP.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- *
- * const ntp1 = new f5bigip.sys.Ntp("ntp1", {
- *     description: "/Common/NTP1",
- *     servers: ["time.facebook.com"],
- *     timezone: "America/Los_Angeles",
- * });
- * ```
  */
 export class Ntp extends pulumi.CustomResource {
     /**

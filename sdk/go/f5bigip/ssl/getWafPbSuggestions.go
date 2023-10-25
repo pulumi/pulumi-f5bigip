@@ -13,34 +13,6 @@ import (
 )
 
 // Use this data source (`ssl.getWafPbSuggestions`) to export PB suggestions from an existing WAF policy.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ssl"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssl.GetWafPbSuggestions(ctx, &ssl.GetWafPbSuggestionsArgs{
-//				MinimumLearningScore: 20,
-//				Partition:            "Common",
-//				PolicyName:           "protect_me_policy",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetWafPbSuggestions(ctx *pulumi.Context, args *GetWafPbSuggestionsArgs, opts ...pulumi.InvokeOption) (*GetWafPbSuggestionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetWafPbSuggestionsResult

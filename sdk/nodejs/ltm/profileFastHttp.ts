@@ -8,27 +8,6 @@ import * as utilities from "../utilities";
  * `f5bigip.ltm.ProfileFastHttp` Configures a custom profileFasthttp for use by health checks.
  *
  * For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- *
- * const sjfasthttpprofile = new f5bigip.ltm.ProfileFastHttp("sjfasthttpprofile", {
- *     connpoolMaxreuse: 2,
- *     connpoolMaxsize: 2048,
- *     connpoolMinsize: 0,
- *     connpoolReplenish: "enabled",
- *     connpoolStep: 4,
- *     connpoolidleTimeoutoverride: 0,
- *     defaultsFrom: "/Common/fasthttp",
- *     forcehttp10response: "disabled",
- *     idleTimeout: 300,
- *     maxheaderSize: 32768,
- *     name: "/Common/sjfasthttpprofile",
- * });
- * ```
  */
 export class ProfileFastHttp extends pulumi.CustomResource {
     /**

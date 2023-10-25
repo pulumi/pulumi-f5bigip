@@ -113,7 +113,7 @@ class ProfileHttpArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              accept_xff: Optional[pulumi.Input[str]] = None,
              app_service: Optional[pulumi.Input[str]] = None,
              basic_auth_realm: Optional[pulumi.Input[str]] = None,
@@ -142,7 +142,63 @@ class ProfileHttpArgs:
              via_request: Optional[pulumi.Input[str]] = None,
              via_response: Optional[pulumi.Input[str]] = None,
              xff_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if accept_xff is None and 'acceptXff' in kwargs:
+            accept_xff = kwargs['acceptXff']
+        if app_service is None and 'appService' in kwargs:
+            app_service = kwargs['appService']
+        if basic_auth_realm is None and 'basicAuthRealm' in kwargs:
+            basic_auth_realm = kwargs['basicAuthRealm']
+        if defaults_from is None and 'defaultsFrom' in kwargs:
+            defaults_from = kwargs['defaultsFrom']
+        if encrypt_cookie_secret is None and 'encryptCookieSecret' in kwargs:
+            encrypt_cookie_secret = kwargs['encryptCookieSecret']
+        if encrypt_cookies is None and 'encryptCookies' in kwargs:
+            encrypt_cookies = kwargs['encryptCookies']
+        if fallback_host is None and 'fallbackHost' in kwargs:
+            fallback_host = kwargs['fallbackHost']
+        if fallback_status_codes is None and 'fallbackStatusCodes' in kwargs:
+            fallback_status_codes = kwargs['fallbackStatusCodes']
+        if head_erase is None and 'headErase' in kwargs:
+            head_erase = kwargs['headErase']
+        if head_insert is None and 'headInsert' in kwargs:
+            head_insert = kwargs['headInsert']
+        if http_strict_transport_securities is None and 'httpStrictTransportSecurities' in kwargs:
+            http_strict_transport_securities = kwargs['httpStrictTransportSecurities']
+        if insert_xforwarded_for is None and 'insertXforwardedFor' in kwargs:
+            insert_xforwarded_for = kwargs['insertXforwardedFor']
+        if lws_separator is None and 'lwsSeparator' in kwargs:
+            lws_separator = kwargs['lwsSeparator']
+        if lws_width is None and 'lwsWidth' in kwargs:
+            lws_width = kwargs['lwsWidth']
+        if oneconnect_transformations is None and 'oneconnectTransformations' in kwargs:
+            oneconnect_transformations = kwargs['oneconnectTransformations']
+        if proxy_type is None and 'proxyType' in kwargs:
+            proxy_type = kwargs['proxyType']
+        if redirect_rewrite is None and 'redirectRewrite' in kwargs:
+            redirect_rewrite = kwargs['redirectRewrite']
+        if request_chunking is None and 'requestChunking' in kwargs:
+            request_chunking = kwargs['requestChunking']
+        if response_chunking is None and 'responseChunking' in kwargs:
+            response_chunking = kwargs['responseChunking']
+        if response_headers_permitteds is None and 'responseHeadersPermitteds' in kwargs:
+            response_headers_permitteds = kwargs['responseHeadersPermitteds']
+        if server_agent_name is None and 'serverAgentName' in kwargs:
+            server_agent_name = kwargs['serverAgentName']
+        if tm_partition is None and 'tmPartition' in kwargs:
+            tm_partition = kwargs['tmPartition']
+        if via_host_name is None and 'viaHostName' in kwargs:
+            via_host_name = kwargs['viaHostName']
+        if via_request is None and 'viaRequest' in kwargs:
+            via_request = kwargs['viaRequest']
+        if via_response is None and 'viaResponse' in kwargs:
+            via_response = kwargs['viaResponse']
+        if xff_alternative_names is None and 'xffAlternativeNames' in kwargs:
+            xff_alternative_names = kwargs['xffAlternativeNames']
+
         _setter("name", name)
         if accept_xff is not None:
             _setter("accept_xff", accept_xff)
@@ -680,7 +736,61 @@ class _ProfileHttpState:
              via_request: Optional[pulumi.Input[str]] = None,
              via_response: Optional[pulumi.Input[str]] = None,
              xff_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if accept_xff is None and 'acceptXff' in kwargs:
+            accept_xff = kwargs['acceptXff']
+        if app_service is None and 'appService' in kwargs:
+            app_service = kwargs['appService']
+        if basic_auth_realm is None and 'basicAuthRealm' in kwargs:
+            basic_auth_realm = kwargs['basicAuthRealm']
+        if defaults_from is None and 'defaultsFrom' in kwargs:
+            defaults_from = kwargs['defaultsFrom']
+        if encrypt_cookie_secret is None and 'encryptCookieSecret' in kwargs:
+            encrypt_cookie_secret = kwargs['encryptCookieSecret']
+        if encrypt_cookies is None and 'encryptCookies' in kwargs:
+            encrypt_cookies = kwargs['encryptCookies']
+        if fallback_host is None and 'fallbackHost' in kwargs:
+            fallback_host = kwargs['fallbackHost']
+        if fallback_status_codes is None and 'fallbackStatusCodes' in kwargs:
+            fallback_status_codes = kwargs['fallbackStatusCodes']
+        if head_erase is None and 'headErase' in kwargs:
+            head_erase = kwargs['headErase']
+        if head_insert is None and 'headInsert' in kwargs:
+            head_insert = kwargs['headInsert']
+        if http_strict_transport_securities is None and 'httpStrictTransportSecurities' in kwargs:
+            http_strict_transport_securities = kwargs['httpStrictTransportSecurities']
+        if insert_xforwarded_for is None and 'insertXforwardedFor' in kwargs:
+            insert_xforwarded_for = kwargs['insertXforwardedFor']
+        if lws_separator is None and 'lwsSeparator' in kwargs:
+            lws_separator = kwargs['lwsSeparator']
+        if lws_width is None and 'lwsWidth' in kwargs:
+            lws_width = kwargs['lwsWidth']
+        if oneconnect_transformations is None and 'oneconnectTransformations' in kwargs:
+            oneconnect_transformations = kwargs['oneconnectTransformations']
+        if proxy_type is None and 'proxyType' in kwargs:
+            proxy_type = kwargs['proxyType']
+        if redirect_rewrite is None and 'redirectRewrite' in kwargs:
+            redirect_rewrite = kwargs['redirectRewrite']
+        if request_chunking is None and 'requestChunking' in kwargs:
+            request_chunking = kwargs['requestChunking']
+        if response_chunking is None and 'responseChunking' in kwargs:
+            response_chunking = kwargs['responseChunking']
+        if response_headers_permitteds is None and 'responseHeadersPermitteds' in kwargs:
+            response_headers_permitteds = kwargs['responseHeadersPermitteds']
+        if server_agent_name is None and 'serverAgentName' in kwargs:
+            server_agent_name = kwargs['serverAgentName']
+        if tm_partition is None and 'tmPartition' in kwargs:
+            tm_partition = kwargs['tmPartition']
+        if via_host_name is None and 'viaHostName' in kwargs:
+            via_host_name = kwargs['viaHostName']
+        if via_request is None and 'viaRequest' in kwargs:
+            via_request = kwargs['viaRequest']
+        if via_response is None and 'viaResponse' in kwargs:
+            via_response = kwargs['viaResponse']
+        if xff_alternative_names is None and 'xffAlternativeNames' in kwargs:
+            xff_alternative_names = kwargs['xffAlternativeNames']
+
         if accept_xff is not None:
             _setter("accept_xff", accept_xff)
         if app_service is not None:
@@ -1130,23 +1240,6 @@ class ProfileHttp(pulumi.CustomResource):
 
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        sanjose_http = f5bigip.ltm.ProfileHttp("sanjose-http",
-            defaults_from="/Common/http",
-            fallback_host="titanic",
-            fallback_status_codes=[
-                "400",
-                "500",
-                "300",
-            ],
-            name="/Common/sanjose-http")
-        ```
-
         ## Import
 
         BIG-IP LTM http profiles can be imported using the `name`, e.g. bash
@@ -1198,23 +1291,6 @@ class ProfileHttp(pulumi.CustomResource):
         `ltm.ProfileHttp` Configures a custom profile_http for use by health checks.
 
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        sanjose_http = f5bigip.ltm.ProfileHttp("sanjose-http",
-            defaults_from="/Common/http",
-            fallback_host="titanic",
-            fallback_status_codes=[
-                "400",
-                "500",
-                "300",
-            ],
-            name="/Common/sanjose-http")
-        ```
 
         ## Import
 

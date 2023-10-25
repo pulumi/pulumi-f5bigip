@@ -13,62 +13,12 @@ namespace Pulumi.F5BigIP.Fast
     {
         /// <summary>
         /// Use this data source (`f5bigip.fast.getAzureServiceDiscovery`) to get the Azure Service discovery config to be used for `http`/`https` app deployment in FAST.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using F5BigIP = Pulumi.F5BigIP;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var tC3 = F5BigIP.Fast.GetAzureServiceDiscovery.Invoke(new()
-        ///     {
-        ///         ResourceGroup = "testazurerg",
-        ///         SubscriptionId = "testazuresid",
-        ///         TagKey = "testazuretag",
-        ///         TagValue = "testazurevalue",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAzureServiceDiscoveryResult> InvokeAsync(GetAzureServiceDiscoveryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAzureServiceDiscoveryResult>("f5bigip:fast/getAzureServiceDiscovery:getAzureServiceDiscovery", args ?? new GetAzureServiceDiscoveryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source (`f5bigip.fast.getAzureServiceDiscovery`) to get the Azure Service discovery config to be used for `http`/`https` app deployment in FAST.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using F5BigIP = Pulumi.F5BigIP;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var tC3 = F5BigIP.Fast.GetAzureServiceDiscovery.Invoke(new()
-        ///     {
-        ///         ResourceGroup = "testazurerg",
-        ///         SubscriptionId = "testazuresid",
-        ///         TagKey = "testazuretag",
-        ///         TagValue = "testazurevalue",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetAzureServiceDiscoveryResult> Invoke(GetAzureServiceDiscoveryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzureServiceDiscoveryResult>("f5bigip:fast/getAzureServiceDiscovery:getAzureServiceDiscovery", args ?? new GetAzureServiceDiscoveryInvokeArgs(), options.WithDefaults());

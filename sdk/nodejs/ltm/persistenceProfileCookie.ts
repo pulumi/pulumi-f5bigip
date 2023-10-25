@@ -7,29 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Configures a cookie persistence profile
  *
- * ## Example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- *
- * const testPpcookie = new f5bigip.ltm.PersistenceProfileCookie("testPpcookie", {
- *     name: "/Common/terraform_cookie",
- *     defaultsFrom: "/Common/cookie",
- *     matchAcrossPools: "enabled",
- *     matchAcrossServices: "enabled",
- *     matchAcrossVirtuals: "enabled",
- *     timeout: 3600,
- *     overrideConnLimit: "enabled",
- *     alwaysSend: "enabled",
- *     cookieEncryption: "required",
- *     cookieEncryptionPassphrase: "iam",
- *     cookieName: "ham",
- *     expiration: "1:0:0",
- *     hashLength: 0,
- * });
- * ```
- *
  * ## Reference
  *
  * `name` - (Required) Name of the virtual address

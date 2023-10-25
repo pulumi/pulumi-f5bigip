@@ -62,7 +62,7 @@ class IpsecPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              auth_algorithm: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              encrypt_algorithm: Optional[pulumi.Input[str]] = None,
@@ -74,7 +74,23 @@ class IpsecPolicyArgs:
              protocol: Optional[pulumi.Input[str]] = None,
              tunnel_local_address: Optional[pulumi.Input[str]] = None,
              tunnel_remote_address: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if auth_algorithm is None and 'authAlgorithm' in kwargs:
+            auth_algorithm = kwargs['authAlgorithm']
+        if encrypt_algorithm is None and 'encryptAlgorithm' in kwargs:
+            encrypt_algorithm = kwargs['encryptAlgorithm']
+        if kb_lifetime is None and 'kbLifetime' in kwargs:
+            kb_lifetime = kwargs['kbLifetime']
+        if perfect_forward_secrecy is None and 'perfectForwardSecrecy' in kwargs:
+            perfect_forward_secrecy = kwargs['perfectForwardSecrecy']
+        if tunnel_local_address is None and 'tunnelLocalAddress' in kwargs:
+            tunnel_local_address = kwargs['tunnelLocalAddress']
+        if tunnel_remote_address is None and 'tunnelRemoteAddress' in kwargs:
+            tunnel_remote_address = kwargs['tunnelRemoteAddress']
+
         _setter("name", name)
         if auth_algorithm is not None:
             _setter("auth_algorithm", auth_algorithm)
@@ -310,7 +326,21 @@ class _IpsecPolicyState:
              protocol: Optional[pulumi.Input[str]] = None,
              tunnel_local_address: Optional[pulumi.Input[str]] = None,
              tunnel_remote_address: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auth_algorithm is None and 'authAlgorithm' in kwargs:
+            auth_algorithm = kwargs['authAlgorithm']
+        if encrypt_algorithm is None and 'encryptAlgorithm' in kwargs:
+            encrypt_algorithm = kwargs['encryptAlgorithm']
+        if kb_lifetime is None and 'kbLifetime' in kwargs:
+            kb_lifetime = kwargs['kbLifetime']
+        if perfect_forward_secrecy is None and 'perfectForwardSecrecy' in kwargs:
+            perfect_forward_secrecy = kwargs['perfectForwardSecrecy']
+        if tunnel_local_address is None and 'tunnelLocalAddress' in kwargs:
+            tunnel_local_address = kwargs['tunnelLocalAddress']
+        if tunnel_remote_address is None and 'tunnelRemoteAddress' in kwargs:
+            tunnel_remote_address = kwargs['tunnelRemoteAddress']
+
         if auth_algorithm is not None:
             _setter("auth_algorithm", auth_algorithm)
         if description is not None:
@@ -507,25 +537,6 @@ class IpsecPolicy(pulumi.CustomResource):
 
         Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/test-policy)
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        test_policy = f5bigip.IpsecPolicy("test-policy",
-            auth_algorithm="sha1",
-            description="created by terraform provider",
-            encrypt_algorithm="3des",
-            ipcomp="deflate",
-            lifetime=3,
-            mode="tunnel",
-            name="/Common/test-policy",
-            protocol="esp",
-            tunnel_local_address="192.168.1.1",
-            tunnel_remote_address="10.10.1.1")
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auth_algorithm: Specifies the algorithm to use for IKE authentication. Valid choices are: `sha1, sha256, sha384, sha512, aes-gcm128,
@@ -554,25 +565,6 @@ class IpsecPolicy(pulumi.CustomResource):
         `IpsecPolicy` Manage IPSec policies on a BIG-IP
 
         Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/test-policy)
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        test_policy = f5bigip.IpsecPolicy("test-policy",
-            auth_algorithm="sha1",
-            description="created by terraform provider",
-            encrypt_algorithm="3des",
-            ipcomp="deflate",
-            lifetime=3,
-            mode="tunnel",
-            name="/Common/test-policy",
-            protocol="esp",
-            tunnel_local_address="192.168.1.1",
-            tunnel_remote_address="10.10.1.1")
-        ```
 
         :param str resource_name: The name of the resource.
         :param IpsecPolicyArgs args: The arguments to use to populate this resource's properties.

@@ -58,8 +58,8 @@ class SnatArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             origins: pulumi.Input[Sequence[pulumi.Input['SnatOriginArgs']]],
+             name: Optional[pulumi.Input[str]] = None,
+             origins: Optional[pulumi.Input[Sequence[pulumi.Input['SnatOriginArgs']]]] = None,
              autolasthop: Optional[pulumi.Input[str]] = None,
              full_path: Optional[pulumi.Input[str]] = None,
              mirror: Optional[pulumi.Input[str]] = None,
@@ -69,7 +69,15 @@ class SnatArgs:
              translation: Optional[pulumi.Input[str]] = None,
              vlans: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              vlansdisabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if origins is None:
+            raise TypeError("Missing 'origins' argument")
+        if full_path is None and 'fullPath' in kwargs:
+            full_path = kwargs['fullPath']
+
         _setter("name", name)
         _setter("origins", origins)
         if autolasthop is not None:
@@ -280,7 +288,11 @@ class _SnatState:
              translation: Optional[pulumi.Input[str]] = None,
              vlans: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              vlansdisabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if full_path is None and 'fullPath' in kwargs:
+            full_path = kwargs['fullPath']
+
         if autolasthop is not None:
             _setter("autolasthop", autolasthop)
         if full_path is not None:
@@ -459,23 +471,6 @@ class Snat(pulumi.CustomResource):
 
         For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource.For example `/Common/test-snat`.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        test_snat = f5bigip.ltm.Snat("test-snat",
-            name="/Common/test-snat",
-            origins=[f5bigip.ltm.SnatOriginArgs(
-                name="0.0.0.0/0",
-            )],
-            sourceport="preserve",
-            translation="/Common/136.1.1.2",
-            vlans=["/Common/internal"],
-            vlansdisabled=False)
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] autolasthop: Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
@@ -500,23 +495,6 @@ class Snat(pulumi.CustomResource):
         `ltm.Snat` Manages a SNAT configuration
 
         For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource.For example `/Common/test-snat`.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        test_snat = f5bigip.ltm.Snat("test-snat",
-            name="/Common/test-snat",
-            origins=[f5bigip.ltm.SnatOriginArgs(
-                name="0.0.0.0/0",
-            )],
-            sourceport="preserve",
-            translation="/Common/136.1.1.2",
-            vlans=["/Common/internal"],
-            vlansdisabled=False)
-        ```
 
         :param str resource_name: The name of the resource.
         :param SnatArgs args: The arguments to use to populate this resource's properties.

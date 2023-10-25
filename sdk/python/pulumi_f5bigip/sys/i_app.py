@@ -74,8 +74,8 @@ class IAppArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             jsonfile: pulumi.Input[str],
-             name: pulumi.Input[str],
+             jsonfile: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              devicegroup: Optional[pulumi.Input[str]] = None,
              execute_action: Optional[pulumi.Input[str]] = None,
@@ -91,7 +91,27 @@ class IAppArgs:
              template_prerequisite_errors: Optional[pulumi.Input[str]] = None,
              traffic_group: Optional[pulumi.Input[str]] = None,
              variables: Optional[pulumi.Input[Sequence[pulumi.Input['IAppVariableArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if jsonfile is None:
+            raise TypeError("Missing 'jsonfile' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if execute_action is None and 'executeAction' in kwargs:
+            execute_action = kwargs['executeAction']
+        if inherited_devicegroup is None and 'inheritedDevicegroup' in kwargs:
+            inherited_devicegroup = kwargs['inheritedDevicegroup']
+        if inherited_traffic_group is None and 'inheritedTrafficGroup' in kwargs:
+            inherited_traffic_group = kwargs['inheritedTrafficGroup']
+        if strict_updates is None and 'strictUpdates' in kwargs:
+            strict_updates = kwargs['strictUpdates']
+        if template_modified is None and 'templateModified' in kwargs:
+            template_modified = kwargs['templateModified']
+        if template_prerequisite_errors is None and 'templatePrerequisiteErrors' in kwargs:
+            template_prerequisite_errors = kwargs['templatePrerequisiteErrors']
+        if traffic_group is None and 'trafficGroup' in kwargs:
+            traffic_group = kwargs['trafficGroup']
+
         _setter("jsonfile", jsonfile)
         _setter("name", name)
         if description is not None:
@@ -402,7 +422,23 @@ class _IAppState:
              template_prerequisite_errors: Optional[pulumi.Input[str]] = None,
              traffic_group: Optional[pulumi.Input[str]] = None,
              variables: Optional[pulumi.Input[Sequence[pulumi.Input['IAppVariableArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if execute_action is None and 'executeAction' in kwargs:
+            execute_action = kwargs['executeAction']
+        if inherited_devicegroup is None and 'inheritedDevicegroup' in kwargs:
+            inherited_devicegroup = kwargs['inheritedDevicegroup']
+        if inherited_traffic_group is None and 'inheritedTrafficGroup' in kwargs:
+            inherited_traffic_group = kwargs['inheritedTrafficGroup']
+        if strict_updates is None and 'strictUpdates' in kwargs:
+            strict_updates = kwargs['strictUpdates']
+        if template_modified is None and 'templateModified' in kwargs:
+            template_modified = kwargs['templateModified']
+        if template_prerequisite_errors is None and 'templatePrerequisiteErrors' in kwargs:
+            template_prerequisite_errors = kwargs['templatePrerequisiteErrors']
+        if traffic_group is None and 'trafficGroup' in kwargs:
+            traffic_group = kwargs['trafficGroup']
+
         if description is not None:
             _setter("description", description)
         if devicegroup is not None:
@@ -663,21 +699,6 @@ class IApp(pulumi.CustomResource):
         """
         `sys.IApp` resource helps you to deploy Application Services template that can be used to automate and orchestrate Layer 4-7 applications service deployments using F5 Network.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        simplehttp = f5bigip.sys.IApp("simplehttp",
-            name="simplehttp",
-            jsonfile=(lambda path: open(path).read())("simplehttp.json"))
-        ```
-        ### Json File
-        ```python
-        import pulumi
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: User defined description.
@@ -704,21 +725,6 @@ class IApp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         `sys.IApp` resource helps you to deploy Application Services template that can be used to automate and orchestrate Layer 4-7 applications service deployments using F5 Network.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        simplehttp = f5bigip.sys.IApp("simplehttp",
-            name="simplehttp",
-            jsonfile=(lambda path: open(path).read())("simplehttp.json"))
-        ```
-        ### Json File
-        ```python
-        import pulumi
-        ```
 
         :param str resource_name: The name of the resource.
         :param IAppArgs args: The arguments to use to populate this resource's properties.

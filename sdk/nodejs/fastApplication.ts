@@ -6,19 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * `f5bigip.FastApplication` This resource will create and manage FAST applications on BIG-IP from provided JSON declaration.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- * import * as fs from "fs";
- *
- * const foo_app = new f5bigip.FastApplication("foo-app", {
- *     fastJson: fs.readFileSync("new_fast_app.json"),
- *     template: "examples/simple_http",
- * });
- * ```
  */
 export class FastApplication extends pulumi.CustomResource {
     /**

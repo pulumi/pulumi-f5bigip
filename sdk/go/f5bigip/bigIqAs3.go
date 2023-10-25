@@ -16,45 +16,6 @@ import (
 // `BigIqAs3` provides details about bigiq as3 resource
 //
 // This resource is helpful to configure as3 declarative JSON on BIG-IP through BIG-IQ.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"os"
-//
-//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := f5bigip.NewBigIqAs3(ctx, "exampletask", &f5bigip.BigIqAs3Args{
-//				As3Json:       readFileOrPanic("bigiq_example.json"),
-//				BigiqAddress:  pulumi.String("xx.xx.xxx.xx"),
-//				BigiqPassword: pulumi.String("xxxxxxxxx"),
-//				BigiqUser:     pulumi.String("xxxxx"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type BigIqAs3 struct {
 	pulumi.CustomResourceState
 
@@ -75,20 +36,6 @@ type BigIqAs3 struct {
 	// Set True if you want to ignore metadata changes during update. By default it is set to `true`
 	//
 	// * `bigiq_example.json` - Example  AS3 Declarative JSON file
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	//
 	// * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
 	//
@@ -181,20 +128,6 @@ type bigIqAs3State struct {
 	//
 	// * `bigiq_example.json` - Example  AS3 Declarative JSON file
 	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	//
 	// * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
 	//
 	// >  **Note:** This resource does not support `teanatFilter` parameter as BIG-IP As3 resource
@@ -221,20 +154,6 @@ type BigIqAs3State struct {
 	// Set True if you want to ignore metadata changes during update. By default it is set to `true`
 	//
 	// * `bigiq_example.json` - Example  AS3 Declarative JSON file
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	//
 	// * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
 	//
@@ -267,20 +186,6 @@ type bigIqAs3Args struct {
 	//
 	// * `bigiq_example.json` - Example  AS3 Declarative JSON file
 	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	//
 	// * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
 	//
 	// >  **Note:** This resource does not support `teanatFilter` parameter as BIG-IP As3 resource
@@ -308,20 +213,6 @@ type BigIqAs3Args struct {
 	// Set True if you want to ignore metadata changes during update. By default it is set to `true`
 	//
 	// * `bigiq_example.json` - Example  AS3 Declarative JSON file
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	//
 	// * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
 	//
@@ -480,23 +371,6 @@ func (o BigIqAs3Output) BigiqUser() pulumi.StringOutput {
 // Set True if you want to ignore metadata changes during update. By default it is set to `true`
 //
 // * `bigiq_example.json` - Example  AS3 Declarative JSON file
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // * `AS3 documentation` - https://clouddocs.f5.com/products/extensions/f5-appsvcs-extension/latest/userguide/big-iq.html
 //

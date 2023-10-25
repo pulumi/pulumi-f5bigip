@@ -14,39 +14,6 @@ import (
 )
 
 // `ltm.CipherGroup` Manages F5 BIG-IP LTM cipher group using iControl REST.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ltm.NewCipherGroup(ctx, "test-cipher-group", &ltm.CipherGroupArgs{
-//				Allows: pulumi.StringArray{
-//					pulumi.String("/Common/f5-aes"),
-//				},
-//				Name:     pulumi.String("/Common/test-cipher-group-01"),
-//				Ordering: pulumi.String("speed"),
-//				Requires: pulumi.StringArray{
-//					pulumi.String("/Common/f5-quic"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type CipherGroup struct {
 	pulumi.CustomResourceState
 

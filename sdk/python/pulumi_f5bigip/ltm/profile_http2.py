@@ -62,7 +62,7 @@ class ProfileHttp2Args:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              activation_modes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              concurrent_streams_per_connection: Optional[pulumi.Input[int]] = None,
              connection_idle_timeout: Optional[pulumi.Input[int]] = None,
@@ -75,7 +75,35 @@ class ProfileHttp2Args:
              insert_header_name: Optional[pulumi.Input[str]] = None,
              receive_window: Optional[pulumi.Input[int]] = None,
              write_size: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if activation_modes is None and 'activationModes' in kwargs:
+            activation_modes = kwargs['activationModes']
+        if concurrent_streams_per_connection is None and 'concurrentStreamsPerConnection' in kwargs:
+            concurrent_streams_per_connection = kwargs['concurrentStreamsPerConnection']
+        if connection_idle_timeout is None and 'connectionIdleTimeout' in kwargs:
+            connection_idle_timeout = kwargs['connectionIdleTimeout']
+        if defaults_from is None and 'defaultsFrom' in kwargs:
+            defaults_from = kwargs['defaultsFrom']
+        if enforce_tls_requirements is None and 'enforceTlsRequirements' in kwargs:
+            enforce_tls_requirements = kwargs['enforceTlsRequirements']
+        if frame_size is None and 'frameSize' in kwargs:
+            frame_size = kwargs['frameSize']
+        if header_table_size is None and 'headerTableSize' in kwargs:
+            header_table_size = kwargs['headerTableSize']
+        if include_content_length is None and 'includeContentLength' in kwargs:
+            include_content_length = kwargs['includeContentLength']
+        if insert_header is None and 'insertHeader' in kwargs:
+            insert_header = kwargs['insertHeader']
+        if insert_header_name is None and 'insertHeaderName' in kwargs:
+            insert_header_name = kwargs['insertHeaderName']
+        if receive_window is None and 'receiveWindow' in kwargs:
+            receive_window = kwargs['receiveWindow']
+        if write_size is None and 'writeSize' in kwargs:
+            write_size = kwargs['writeSize']
+
         _setter("name", name)
         if activation_modes is not None:
             _setter("activation_modes", activation_modes)
@@ -323,7 +351,33 @@ class _ProfileHttp2State:
              name: Optional[pulumi.Input[str]] = None,
              receive_window: Optional[pulumi.Input[int]] = None,
              write_size: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if activation_modes is None and 'activationModes' in kwargs:
+            activation_modes = kwargs['activationModes']
+        if concurrent_streams_per_connection is None and 'concurrentStreamsPerConnection' in kwargs:
+            concurrent_streams_per_connection = kwargs['concurrentStreamsPerConnection']
+        if connection_idle_timeout is None and 'connectionIdleTimeout' in kwargs:
+            connection_idle_timeout = kwargs['connectionIdleTimeout']
+        if defaults_from is None and 'defaultsFrom' in kwargs:
+            defaults_from = kwargs['defaultsFrom']
+        if enforce_tls_requirements is None and 'enforceTlsRequirements' in kwargs:
+            enforce_tls_requirements = kwargs['enforceTlsRequirements']
+        if frame_size is None and 'frameSize' in kwargs:
+            frame_size = kwargs['frameSize']
+        if header_table_size is None and 'headerTableSize' in kwargs:
+            header_table_size = kwargs['headerTableSize']
+        if include_content_length is None and 'includeContentLength' in kwargs:
+            include_content_length = kwargs['includeContentLength']
+        if insert_header is None and 'insertHeader' in kwargs:
+            insert_header = kwargs['insertHeader']
+        if insert_header_name is None and 'insertHeaderName' in kwargs:
+            insert_header_name = kwargs['insertHeaderName']
+        if receive_window is None and 'receiveWindow' in kwargs:
+            receive_window = kwargs['receiveWindow']
+        if write_size is None and 'writeSize' in kwargs:
+            write_size = kwargs['writeSize']
+
         if activation_modes is not None:
             _setter("activation_modes", activation_modes)
         if concurrent_streams_per_connection is not None:
@@ -532,30 +586,6 @@ class ProfileHttp2(pulumi.CustomResource):
 
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        nyhttp2 = f5bigip.ltm.ProfileHttp2("nyhttp2",
-            name="/Common/test-profile-http2",
-            frame_size=2021,
-            receive_window=31,
-            write_size=16380,
-            header_table_size=4092,
-            include_content_length="enabled",
-            enforce_tls_requirements="enabled",
-            insert_header="disabled",
-            concurrent_streams_per_connection=30,
-            connection_idle_timeout=100,
-            activation_modes=["always"])
-        #Child Profile which inherits parent http2 profile
-        nyhttp2_child = f5bigip.ltm.ProfileHttp2("nyhttp2-child",
-            name="/Common/test-profile-http2-child",
-            defaults_from=nyhttp2.name)
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] activation_modes: This setting specifies the condition that will cause the BIG-IP system to handle an incoming connection as an HTTP/2 connection, Allowed values : `[“alpn”]` (or) `[“always”]`.
@@ -582,30 +612,6 @@ class ProfileHttp2(pulumi.CustomResource):
         `ltm.ProfileHttp2` Configures a custom profile_http2 for use by health checks.
 
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        nyhttp2 = f5bigip.ltm.ProfileHttp2("nyhttp2",
-            name="/Common/test-profile-http2",
-            frame_size=2021,
-            receive_window=31,
-            write_size=16380,
-            header_table_size=4092,
-            include_content_length="enabled",
-            enforce_tls_requirements="enabled",
-            insert_header="disabled",
-            concurrent_streams_per_connection=30,
-            connection_idle_timeout=100,
-            activation_modes=["always"])
-        #Child Profile which inherits parent http2 profile
-        nyhttp2_child = f5bigip.ltm.ProfileHttp2("nyhttp2-child",
-            name="/Common/test-profile-http2-child",
-            defaults_from=nyhttp2.name)
-        ```
 
         :param str resource_name: The name of the resource.
         :param ProfileHttp2Args args: The arguments to use to populate this resource's properties.

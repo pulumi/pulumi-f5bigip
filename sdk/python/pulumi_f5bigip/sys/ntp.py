@@ -32,10 +32,16 @@ class NtpArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             description: pulumi.Input[str],
-             servers: pulumi.Input[Sequence[pulumi.Input[str]]],
+             description: Optional[pulumi.Input[str]] = None,
+             servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              timezone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if servers is None:
+            raise TypeError("Missing 'servers' argument")
+
         _setter("description", description)
         _setter("servers", servers)
         if timezone is not None:
@@ -102,7 +108,9 @@ class _NtpState:
              description: Optional[pulumi.Input[str]] = None,
              servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              timezone: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if description is not None:
             _setter("description", description)
         if servers is not None:
@@ -159,18 +167,6 @@ class Ntp(pulumi.CustomResource):
         """
         `sys.Ntp` resource is helpful when configuring NTP server on the BIG-IP.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        ntp1 = f5bigip.sys.Ntp("ntp1",
-            description="/Common/NTP1",
-            servers=["time.facebook.com"],
-            timezone="America/Los_Angeles")
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: User defined description.
@@ -185,18 +181,6 @@ class Ntp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         `sys.Ntp` resource is helpful when configuring NTP server on the BIG-IP.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        ntp1 = f5bigip.sys.Ntp("ntp1",
-            description="/Common/NTP1",
-            servers=["time.facebook.com"],
-            timezone="America/Los_Angeles")
-        ```
 
         :param str resource_name: The name of the resource.
         :param NtpArgs args: The arguments to use to populate this resource's properties.

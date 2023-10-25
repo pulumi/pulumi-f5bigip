@@ -59,8 +59,8 @@ class NodeArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             address: pulumi.Input[str],
-             name: pulumi.Input[str],
+             address: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
              connection_limit: Optional[pulumi.Input[int]] = None,
              description: Optional[pulumi.Input[str]] = None,
              dynamic_ratio: Optional[pulumi.Input[int]] = None,
@@ -70,7 +70,19 @@ class NodeArgs:
              ratio: Optional[pulumi.Input[int]] = None,
              session: Optional[pulumi.Input[str]] = None,
              state: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if address is None:
+            raise TypeError("Missing 'address' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if connection_limit is None and 'connectionLimit' in kwargs:
+            connection_limit = kwargs['connectionLimit']
+        if dynamic_ratio is None and 'dynamicRatio' in kwargs:
+            dynamic_ratio = kwargs['dynamicRatio']
+        if rate_limit is None and 'rateLimit' in kwargs:
+            rate_limit = kwargs['rateLimit']
+
         _setter("address", address)
         _setter("name", name)
         if connection_limit is not None:
@@ -281,7 +293,15 @@ class _NodeState:
              ratio: Optional[pulumi.Input[int]] = None,
              session: Optional[pulumi.Input[str]] = None,
              state: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connection_limit is None and 'connectionLimit' in kwargs:
+            connection_limit = kwargs['connectionLimit']
+        if dynamic_ratio is None and 'dynamicRatio' in kwargs:
+            dynamic_ratio = kwargs['dynamicRatio']
+        if rate_limit is None and 'rateLimit' in kwargs:
+            rate_limit = kwargs['rateLimit']
+
         if address is not None:
             _setter("address", address)
         if connection_limit is not None:
@@ -460,26 +480,6 @@ class Node(pulumi.CustomResource):
         For resources should be named with their `full path`.The full path is the combination of the `partition + name` of the resource( example: `/Common/my-node` ) or `partition + Direcroty + name` of the resource ( example: `/Common/test/my-node` ).
         When including directory in `full path` we have to make sure it is created in the given partition before using it.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        node = f5bigip.ltm.Node("node",
-            address="192.168.30.1",
-            connection_limit=0,
-            description="Test-Node",
-            dynamic_ratio=1,
-            fqdn=f5bigip.ltm.NodeFqdnArgs(
-                address_family="ipv4",
-                interval="3000",
-            ),
-            monitor="/Common/icmp",
-            name="/Common/terraform_node1",
-            rate_limit="disabled")
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address: IP or hostname of the node
@@ -506,26 +506,6 @@ class Node(pulumi.CustomResource):
 
         For resources should be named with their `full path`.The full path is the combination of the `partition + name` of the resource( example: `/Common/my-node` ) or `partition + Direcroty + name` of the resource ( example: `/Common/test/my-node` ).
         When including directory in `full path` we have to make sure it is created in the given partition before using it.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        node = f5bigip.ltm.Node("node",
-            address="192.168.30.1",
-            connection_limit=0,
-            description="Test-Node",
-            dynamic_ratio=1,
-            fqdn=f5bigip.ltm.NodeFqdnArgs(
-                address_family="ipv4",
-                interval="3000",
-            ),
-            monitor="/Common/icmp",
-            name="/Common/terraform_node1",
-            rate_limit="disabled")
-        ```
 
         :param str resource_name: The name of the resource.
         :param NodeArgs args: The arguments to use to populate this resource's properties.
@@ -572,11 +552,7 @@ class Node(pulumi.CustomResource):
             __props__.__dict__["connection_limit"] = connection_limit
             __props__.__dict__["description"] = description
             __props__.__dict__["dynamic_ratio"] = dynamic_ratio
-            if fqdn is not None and not isinstance(fqdn, NodeFqdnArgs):
-                fqdn = fqdn or {}
-                def _setter(key, value):
-                    fqdn[key] = value
-                NodeFqdnArgs._configure(_setter, **fqdn)
+            fqdn = _utilities.configure(fqdn, NodeFqdnArgs, True)
             __props__.__dict__["fqdn"] = fqdn
             __props__.__dict__["monitor"] = monitor
             if name is None and not opts.urn:

@@ -16,36 +16,6 @@ import (
 // `ltm.SnatPool` Collections of SNAT translation addresses
 //
 // Resource should be named with their "full path". The full path is the combination of the partition + name of the resource, for example /Common/my-snatpool.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ltm.NewSnatPool(ctx, "snatpoolSanjose", &ltm.SnatPoolArgs{
-//				Members: pulumi.StringArray{
-//					pulumi.String("191.1.1.1"),
-//					pulumi.String("194.2.2.2"),
-//				},
-//				Name: pulumi.String("/Common/snatpool_sanjose"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type SnatPool struct {
 	pulumi.CustomResourceState
 

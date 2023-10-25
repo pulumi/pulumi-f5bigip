@@ -14,42 +14,6 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// Resources should be named with their `full path`.The full path is the combination of the `partition + name` (example: `/Common/my-httpcompresprofile` ) or  `partition + directory + name` of the resource  (example: `/Common/test/my-httpcompresprofile`)
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using F5BigIP = Pulumi.F5BigIP;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var sjhttpcompression = new F5BigIP.Ltm.ProfileHttpCompress("sjhttpcompression", new()
-    ///     {
-    ///         ContentTypeExcludes = new[]
-    ///         {
-    ///             "nicecontentexclude.com",
-    ///         },
-    ///         ContentTypeIncludes = new[]
-    ///         {
-    ///             "nicecontent.com",
-    ///         },
-    ///         DefaultsFrom = "/Common/httpcompression",
-    ///         Name = "/Common/sjhttpcompression2",
-    ///         UriExcludes = new[]
-    ///         {
-    ///             "www.abc.f5.com",
-    ///             "www.abc2.f5.com",
-    ///         },
-    ///         UriIncludes = new[]
-    ///         {
-    ///             "www.xyzbc.cisco.com",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// BIG-IP LTM HTTP Compress profiles can be imported using the `name`, e.g.

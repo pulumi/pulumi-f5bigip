@@ -53,7 +53,7 @@ class ProfileOneConnectArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              defaults_from: Optional[pulumi.Input[str]] = None,
              idle_timeout_override: Optional[pulumi.Input[str]] = None,
              limit_type: Optional[pulumi.Input[str]] = None,
@@ -63,7 +63,27 @@ class ProfileOneConnectArgs:
              partition: Optional[pulumi.Input[str]] = None,
              share_pools: Optional[pulumi.Input[str]] = None,
              source_mask: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if defaults_from is None and 'defaultsFrom' in kwargs:
+            defaults_from = kwargs['defaultsFrom']
+        if idle_timeout_override is None and 'idleTimeoutOverride' in kwargs:
+            idle_timeout_override = kwargs['idleTimeoutOverride']
+        if limit_type is None and 'limitType' in kwargs:
+            limit_type = kwargs['limitType']
+        if max_age is None and 'maxAge' in kwargs:
+            max_age = kwargs['maxAge']
+        if max_reuse is None and 'maxReuse' in kwargs:
+            max_reuse = kwargs['maxReuse']
+        if max_size is None and 'maxSize' in kwargs:
+            max_size = kwargs['maxSize']
+        if share_pools is None and 'sharePools' in kwargs:
+            share_pools = kwargs['sharePools']
+        if source_mask is None and 'sourceMask' in kwargs:
+            source_mask = kwargs['sourceMask']
+
         _setter("name", name)
         if defaults_from is not None:
             _setter("defaults_from", defaults_from)
@@ -257,7 +277,25 @@ class _ProfileOneConnectState:
              partition: Optional[pulumi.Input[str]] = None,
              share_pools: Optional[pulumi.Input[str]] = None,
              source_mask: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if defaults_from is None and 'defaultsFrom' in kwargs:
+            defaults_from = kwargs['defaultsFrom']
+        if idle_timeout_override is None and 'idleTimeoutOverride' in kwargs:
+            idle_timeout_override = kwargs['idleTimeoutOverride']
+        if limit_type is None and 'limitType' in kwargs:
+            limit_type = kwargs['limitType']
+        if max_age is None and 'maxAge' in kwargs:
+            max_age = kwargs['maxAge']
+        if max_reuse is None and 'maxReuse' in kwargs:
+            max_reuse = kwargs['maxReuse']
+        if max_size is None and 'maxSize' in kwargs:
+            max_size = kwargs['maxSize']
+        if share_pools is None and 'sharePools' in kwargs:
+            share_pools = kwargs['sharePools']
+        if source_mask is None and 'sourceMask' in kwargs:
+            source_mask = kwargs['sourceMask']
+
         if defaults_from is not None:
             _setter("defaults_from", defaults_from)
         if idle_timeout_override is not None:
@@ -421,15 +459,6 @@ class ProfileOneConnect(pulumi.CustomResource):
 
         Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        test_oneconnect = f5bigip.ltm.ProfileOneConnect("test-oneconnect", name="/Common/test-oneconnect")
-        ```
-
         ## Import
 
         BIG-IP LTM oneconnect profiles can be imported using the `name` , e.g.
@@ -461,15 +490,6 @@ class ProfileOneConnect(pulumi.CustomResource):
         `ltm.ProfileOneConnect` Configures a custom profile_oneconnect for use by health checks.
 
         Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        test_oneconnect = f5bigip.ltm.ProfileOneConnect("test-oneconnect", name="/Common/test-oneconnect")
-        ```
 
         ## Import
 

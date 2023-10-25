@@ -79,7 +79,25 @@ class SnmpTrapsArgs:
              security_level: Optional[pulumi.Input[str]] = None,
              security_name: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auth_passwordencrypted is None and 'authPasswordencrypted' in kwargs:
+            auth_passwordencrypted = kwargs['authPasswordencrypted']
+        if auth_protocol is None and 'authProtocol' in kwargs:
+            auth_protocol = kwargs['authProtocol']
+        if engine_id is None and 'engineId' in kwargs:
+            engine_id = kwargs['engineId']
+        if privacy_password is None and 'privacyPassword' in kwargs:
+            privacy_password = kwargs['privacyPassword']
+        if privacy_password_encrypted is None and 'privacyPasswordEncrypted' in kwargs:
+            privacy_password_encrypted = kwargs['privacyPasswordEncrypted']
+        if privacy_protocol is None and 'privacyProtocol' in kwargs:
+            privacy_protocol = kwargs['privacyProtocol']
+        if security_level is None and 'securityLevel' in kwargs:
+            security_level = kwargs['securityLevel']
+        if security_name is None and 'securityName' in kwargs:
+            security_name = kwargs['securityName']
+
         if auth_passwordencrypted is not None:
             _setter("auth_passwordencrypted", auth_passwordencrypted)
         if auth_protocol is not None:
@@ -346,7 +364,25 @@ class _SnmpTrapsState:
              security_level: Optional[pulumi.Input[str]] = None,
              security_name: Optional[pulumi.Input[str]] = None,
              version: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auth_passwordencrypted is None and 'authPasswordencrypted' in kwargs:
+            auth_passwordencrypted = kwargs['authPasswordencrypted']
+        if auth_protocol is None and 'authProtocol' in kwargs:
+            auth_protocol = kwargs['authProtocol']
+        if engine_id is None and 'engineId' in kwargs:
+            engine_id = kwargs['engineId']
+        if privacy_password is None and 'privacyPassword' in kwargs:
+            privacy_password = kwargs['privacyPassword']
+        if privacy_password_encrypted is None and 'privacyPasswordEncrypted' in kwargs:
+            privacy_password_encrypted = kwargs['privacyPasswordEncrypted']
+        if privacy_protocol is None and 'privacyProtocol' in kwargs:
+            privacy_protocol = kwargs['privacyProtocol']
+        if security_level is None and 'securityLevel' in kwargs:
+            security_level = kwargs['securityLevel']
+        if security_name is None and 'securityName' in kwargs:
+            security_name = kwargs['securityName']
+
         if auth_passwordencrypted is not None:
             _setter("auth_passwordencrypted", auth_passwordencrypted)
         if auth_protocol is not None:
@@ -567,19 +603,6 @@ class SnmpTraps(pulumi.CustomResource):
                  __props__=None):
         """
         `sys.SnmpTraps` provides details bout how to enable snmp_traps resource on BIG-IP
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        snmp_traps = f5bigip.sys.SnmpTraps("snmpTraps",
-            community="f5community",
-            description="Setup snmp traps",
-            host="195.10.10.1",
-            name="snmptraps",
-            port=111)
-        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -606,19 +629,6 @@ class SnmpTraps(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         `sys.SnmpTraps` provides details bout how to enable snmp_traps resource on BIG-IP
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        snmp_traps = f5bigip.sys.SnmpTraps("snmpTraps",
-            community="f5community",
-            description="Setup snmp traps",
-            host="195.10.10.1",
-            name="snmptraps",
-            port=111)
-        ```
 
         :param str resource_name: The name of the resource.
         :param SnmpTrapsArgs args: The arguments to use to populate this resource's properties.

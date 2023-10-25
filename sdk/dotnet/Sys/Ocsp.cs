@@ -11,28 +11,6 @@ namespace Pulumi.F5BigIP.Sys
 {
     /// <summary>
     /// `f5bigip.sys.Ocsp` Manages F5 BIG-IP OCSP responder using iControl REST.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using F5BigIP = Pulumi.F5BigIP;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test_ocsp = new F5BigIP.Sys.Ocsp("test-ocsp", new()
-    ///     {
-    ///         Name = "/Uncommon/test-ocsp",
-    ///         Passphrase = "testabcdef",
-    ///         ProxyServerPool = "/Common/test-poolxyz",
-    ///         SignerCert = "/Common/le-ssl",
-    ///         SignerKey = "/Common/le-ssl",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:sys/ocsp:Ocsp")]
     public partial class Ocsp : global::Pulumi.CustomResource

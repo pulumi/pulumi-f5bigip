@@ -109,8 +109,8 @@ class WafPolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             template_name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             template_name: Optional[pulumi.Input[str]] = None,
              application_language: Optional[pulumi.Input[str]] = None,
              case_insensitive: Optional[pulumi.Input[bool]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -135,7 +135,49 @@ class WafPolicyArgs:
              template_link: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if template_name is None and 'templateName' in kwargs:
+            template_name = kwargs['templateName']
+        if template_name is None:
+            raise TypeError("Missing 'template_name' argument")
+        if application_language is None and 'applicationLanguage' in kwargs:
+            application_language = kwargs['applicationLanguage']
+        if case_insensitive is None and 'caseInsensitive' in kwargs:
+            case_insensitive = kwargs['caseInsensitive']
+        if enable_passivemode is None and 'enablePassivemode' in kwargs:
+            enable_passivemode = kwargs['enablePassivemode']
+        if enforcement_mode is None and 'enforcementMode' in kwargs:
+            enforcement_mode = kwargs['enforcementMode']
+        if file_types is None and 'fileTypes' in kwargs:
+            file_types = kwargs['fileTypes']
+        if graphql_profiles is None and 'graphqlProfiles' in kwargs:
+            graphql_profiles = kwargs['graphqlProfiles']
+        if host_names is None and 'hostNames' in kwargs:
+            host_names = kwargs['hostNames']
+        if ip_exceptions is None and 'ipExceptions' in kwargs:
+            ip_exceptions = kwargs['ipExceptions']
+        if open_api_files is None and 'openApiFiles' in kwargs:
+            open_api_files = kwargs['openApiFiles']
+        if policy_builders is None and 'policyBuilders' in kwargs:
+            policy_builders = kwargs['policyBuilders']
+        if policy_id is None and 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if policy_import_json is None and 'policyImportJson' in kwargs:
+            policy_import_json = kwargs['policyImportJson']
+        if protocol_independent is None and 'protocolIndependent' in kwargs:
+            protocol_independent = kwargs['protocolIndependent']
+        if server_technologies is None and 'serverTechnologies' in kwargs:
+            server_technologies = kwargs['serverTechnologies']
+        if signature_sets is None and 'signatureSets' in kwargs:
+            signature_sets = kwargs['signatureSets']
+        if signatures_settings is None and 'signaturesSettings' in kwargs:
+            signatures_settings = kwargs['signaturesSettings']
+        if template_link is None and 'templateLink' in kwargs:
+            template_link = kwargs['templateLink']
+
         _setter("name", name)
         _setter("template_name", template_name)
         if application_language is not None:
@@ -632,7 +674,47 @@ class _WafPolicyState:
              template_name: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
              urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application_language is None and 'applicationLanguage' in kwargs:
+            application_language = kwargs['applicationLanguage']
+        if case_insensitive is None and 'caseInsensitive' in kwargs:
+            case_insensitive = kwargs['caseInsensitive']
+        if enable_passivemode is None and 'enablePassivemode' in kwargs:
+            enable_passivemode = kwargs['enablePassivemode']
+        if enforcement_mode is None and 'enforcementMode' in kwargs:
+            enforcement_mode = kwargs['enforcementMode']
+        if file_types is None and 'fileTypes' in kwargs:
+            file_types = kwargs['fileTypes']
+        if graphql_profiles is None and 'graphqlProfiles' in kwargs:
+            graphql_profiles = kwargs['graphqlProfiles']
+        if host_names is None and 'hostNames' in kwargs:
+            host_names = kwargs['hostNames']
+        if ip_exceptions is None and 'ipExceptions' in kwargs:
+            ip_exceptions = kwargs['ipExceptions']
+        if open_api_files is None and 'openApiFiles' in kwargs:
+            open_api_files = kwargs['openApiFiles']
+        if policy_builders is None and 'policyBuilders' in kwargs:
+            policy_builders = kwargs['policyBuilders']
+        if policy_export_json is None and 'policyExportJson' in kwargs:
+            policy_export_json = kwargs['policyExportJson']
+        if policy_id is None and 'policyId' in kwargs:
+            policy_id = kwargs['policyId']
+        if policy_import_json is None and 'policyImportJson' in kwargs:
+            policy_import_json = kwargs['policyImportJson']
+        if protocol_independent is None and 'protocolIndependent' in kwargs:
+            protocol_independent = kwargs['protocolIndependent']
+        if server_technologies is None and 'serverTechnologies' in kwargs:
+            server_technologies = kwargs['serverTechnologies']
+        if signature_sets is None and 'signatureSets' in kwargs:
+            signature_sets = kwargs['signatureSets']
+        if signatures_settings is None and 'signaturesSettings' in kwargs:
+            signatures_settings = kwargs['signaturesSettings']
+        if template_link is None and 'templateLink' in kwargs:
+            template_link = kwargs['templateLink']
+        if template_name is None and 'templateName' in kwargs:
+            template_name = kwargs['templateName']
+
         if application_language is not None:
             _setter("application_language", application_language)
         if case_insensitive is not None:
@@ -1059,44 +1141,6 @@ class WafPolicy(pulumi.CustomResource):
 
         > **NOTE** This Resource Requires F5 BIG-IP v16.x above version, and ASM need to be provisioned.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        param1 = f5bigip.ssl.get_waf_entity_parameter(name="Param1",
-            type="explicit",
-            data_type="alpha-numeric",
-            perform_staging=True)
-        param2 = f5bigip.ssl.get_waf_entity_parameter(name="Param2",
-            type="explicit",
-            data_type="alpha-numeric",
-            perform_staging=True)
-        u_rl = f5bigip.ssl.get_waf_entity_url(name="URL1",
-            protocol="http")
-        u_rl2 = f5bigip.ssl.get_waf_entity_url(name="URL2")
-        test_awaf = f5bigip.WafPolicy("test-awaf",
-            name="testpolicyravi",
-            partition="Common",
-            template_name="POLICY_TEMPLATE_RAPID_DEPLOYMENT",
-            application_language="utf-8",
-            enforcement_mode="blocking",
-            server_technologies=[
-                "MySQL",
-                "Unix/Linux",
-                "MongoDB",
-            ],
-            parameters=[
-                param1.json,
-                param2.json,
-            ],
-            urls=[
-                u_rl.json,
-                u_rl2.json,
-            ])
-        ```
-
         ## Import
 
         An existing WAF Policy or if the WAF Policy has been manually created or modified on the BIG-IP WebUI, it can be imported using its `id`. e.g
@@ -1153,44 +1197,6 @@ class WafPolicy(pulumi.CustomResource):
         * [Declarative WAF documentation](https://clouddocs.f5.com/products/waf-declarative-policy/declarative_policy_v16_1.html)
 
         > **NOTE** This Resource Requires F5 BIG-IP v16.x above version, and ASM need to be provisioned.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        param1 = f5bigip.ssl.get_waf_entity_parameter(name="Param1",
-            type="explicit",
-            data_type="alpha-numeric",
-            perform_staging=True)
-        param2 = f5bigip.ssl.get_waf_entity_parameter(name="Param2",
-            type="explicit",
-            data_type="alpha-numeric",
-            perform_staging=True)
-        u_rl = f5bigip.ssl.get_waf_entity_url(name="URL1",
-            protocol="http")
-        u_rl2 = f5bigip.ssl.get_waf_entity_url(name="URL2")
-        test_awaf = f5bigip.WafPolicy("test-awaf",
-            name="testpolicyravi",
-            partition="Common",
-            template_name="POLICY_TEMPLATE_RAPID_DEPLOYMENT",
-            application_language="utf-8",
-            enforcement_mode="blocking",
-            server_technologies=[
-                "MySQL",
-                "Unix/Linux",
-                "MongoDB",
-            ],
-            parameters=[
-                param1.json,
-                param2.json,
-            ],
-            urls=[
-                u_rl.json,
-                u_rl2.json,
-            ])
-        ```
 
         ## Import
 

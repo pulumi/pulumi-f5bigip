@@ -56,10 +56,10 @@ class SslKeyCertArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cert_content: pulumi.Input[str],
-             cert_name: pulumi.Input[str],
-             key_content: pulumi.Input[str],
-             key_name: pulumi.Input[str],
+             cert_content: Optional[pulumi.Input[str]] = None,
+             cert_name: Optional[pulumi.Input[str]] = None,
+             key_content: Optional[pulumi.Input[str]] = None,
+             key_name: Optional[pulumi.Input[str]] = None,
              cert_full_path: Optional[pulumi.Input[str]] = None,
              cert_monitoring_type: Optional[pulumi.Input[str]] = None,
              cert_ocsp: Optional[pulumi.Input[str]] = None,
@@ -67,7 +67,35 @@ class SslKeyCertArgs:
              key_full_path: Optional[pulumi.Input[str]] = None,
              partition: Optional[pulumi.Input[str]] = None,
              passphrase: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cert_content is None and 'certContent' in kwargs:
+            cert_content = kwargs['certContent']
+        if cert_content is None:
+            raise TypeError("Missing 'cert_content' argument")
+        if cert_name is None and 'certName' in kwargs:
+            cert_name = kwargs['certName']
+        if cert_name is None:
+            raise TypeError("Missing 'cert_name' argument")
+        if key_content is None and 'keyContent' in kwargs:
+            key_content = kwargs['keyContent']
+        if key_content is None:
+            raise TypeError("Missing 'key_content' argument")
+        if key_name is None and 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+        if key_name is None:
+            raise TypeError("Missing 'key_name' argument")
+        if cert_full_path is None and 'certFullPath' in kwargs:
+            cert_full_path = kwargs['certFullPath']
+        if cert_monitoring_type is None and 'certMonitoringType' in kwargs:
+            cert_monitoring_type = kwargs['certMonitoringType']
+        if cert_ocsp is None and 'certOcsp' in kwargs:
+            cert_ocsp = kwargs['certOcsp']
+        if issuer_cert is None and 'issuerCert' in kwargs:
+            issuer_cert = kwargs['issuerCert']
+        if key_full_path is None and 'keyFullPath' in kwargs:
+            key_full_path = kwargs['keyFullPath']
+
         _setter("cert_content", cert_content)
         _setter("cert_name", cert_name)
         _setter("key_content", key_content)
@@ -276,7 +304,27 @@ class _SslKeyCertState:
              key_name: Optional[pulumi.Input[str]] = None,
              partition: Optional[pulumi.Input[str]] = None,
              passphrase: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cert_content is None and 'certContent' in kwargs:
+            cert_content = kwargs['certContent']
+        if cert_full_path is None and 'certFullPath' in kwargs:
+            cert_full_path = kwargs['certFullPath']
+        if cert_monitoring_type is None and 'certMonitoringType' in kwargs:
+            cert_monitoring_type = kwargs['certMonitoringType']
+        if cert_name is None and 'certName' in kwargs:
+            cert_name = kwargs['certName']
+        if cert_ocsp is None and 'certOcsp' in kwargs:
+            cert_ocsp = kwargs['certOcsp']
+        if issuer_cert is None and 'issuerCert' in kwargs:
+            issuer_cert = kwargs['issuerCert']
+        if key_content is None and 'keyContent' in kwargs:
+            key_content = kwargs['keyContent']
+        if key_full_path is None and 'keyFullPath' in kwargs:
+            key_full_path = kwargs['keyFullPath']
+        if key_name is None and 'keyName' in kwargs:
+            key_name = kwargs['keyName']
+
         if cert_content is not None:
             _setter("cert_content", cert_content)
         if cert_full_path is not None:
@@ -454,20 +502,6 @@ class SslKeyCert(pulumi.CustomResource):
         `SslKeyCert` This resource will import SSL certificate and key on BIG-IP LTM.
         The certificate and the key can be imported from files on the local disk, in PEM format
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        testkeycert = f5bigip.SslKeyCert("testkeycert",
-            partition="Common",
-            key_name="ssl-test-key",
-            key_content=(lambda path: open(path).read())("key.pem"),
-            cert_name="ssl-test-cert",
-            cert_content=(lambda path: open(path).read())("certificate.pem"))
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cert_content: The content of the cert.
@@ -491,20 +525,6 @@ class SslKeyCert(pulumi.CustomResource):
         """
         `SslKeyCert` This resource will import SSL certificate and key on BIG-IP LTM.
         The certificate and the key can be imported from files on the local disk, in PEM format
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        testkeycert = f5bigip.SslKeyCert("testkeycert",
-            partition="Common",
-            key_name="ssl-test-key",
-            key_content=(lambda path: open(path).read())("key.pem"),
-            cert_name="ssl-test-cert",
-            cert_content=(lambda path: open(path).read())("certificate.pem"))
-        ```
 
         :param str resource_name: The name of the resource.
         :param SslKeyCertArgs args: The arguments to use to populate this resource's properties.

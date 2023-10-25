@@ -47,7 +47,7 @@ class VirtualAddressArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              advertize_route: Optional[pulumi.Input[str]] = None,
              arp: Optional[pulumi.Input[bool]] = None,
              auto_delete: Optional[pulumi.Input[bool]] = None,
@@ -55,7 +55,21 @@ class VirtualAddressArgs:
              enabled: Optional[pulumi.Input[bool]] = None,
              icmp_echo: Optional[pulumi.Input[str]] = None,
              traffic_group: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if advertize_route is None and 'advertizeRoute' in kwargs:
+            advertize_route = kwargs['advertizeRoute']
+        if auto_delete is None and 'autoDelete' in kwargs:
+            auto_delete = kwargs['autoDelete']
+        if conn_limit is None and 'connLimit' in kwargs:
+            conn_limit = kwargs['connLimit']
+        if icmp_echo is None and 'icmpEcho' in kwargs:
+            icmp_echo = kwargs['icmpEcho']
+        if traffic_group is None and 'trafficGroup' in kwargs:
+            traffic_group = kwargs['trafficGroup']
+
         _setter("name", name)
         if advertize_route is not None:
             _setter("advertize_route", advertize_route)
@@ -213,7 +227,19 @@ class _VirtualAddressState:
              icmp_echo: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              traffic_group: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if advertize_route is None and 'advertizeRoute' in kwargs:
+            advertize_route = kwargs['advertizeRoute']
+        if auto_delete is None and 'autoDelete' in kwargs:
+            auto_delete = kwargs['autoDelete']
+        if conn_limit is None and 'connLimit' in kwargs:
+            conn_limit = kwargs['connLimit']
+        if icmp_echo is None and 'icmpEcho' in kwargs:
+            icmp_echo = kwargs['icmpEcho']
+        if traffic_group is None and 'trafficGroup' in kwargs:
+            traffic_group = kwargs['trafficGroup']
+
         if advertize_route is not None:
             _setter("advertize_route", advertize_route)
         if arp is not None:
@@ -347,17 +373,6 @@ class VirtualAddress(pulumi.CustomResource):
 
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/virtual_server.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        vs_va = f5bigip.ltm.VirtualAddress("vsVa",
-            advertize_route="enabled",
-            name="/Common/xxxxx")
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] advertize_route: Enabled dynamic routing of the address ( In versions prior to BIG-IP 13.0.0 HF1, you can configure the Route Advertisement option for a virtual address to be either Enabled or Disabled only. Beginning with BIG-IP 13.0.0 HF1, F5 added more settings for the Route Advertisement option. In addition, the Enabled setting is deprecated and replaced by the Selective setting. For more information, please look into KB article https://support.f5.com/csp/article/K85543242 )
@@ -379,17 +394,6 @@ class VirtualAddress(pulumi.CustomResource):
         `ltm.VirtualAddress` Configures Virtual Server
 
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/virtual_server.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        vs_va = f5bigip.ltm.VirtualAddress("vsVa",
-            advertize_route="enabled",
-            name="/Common/xxxxx")
-        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualAddressArgs args: The arguments to use to populate this resource's properties.

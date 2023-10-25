@@ -18,67 +18,6 @@ import (
 // Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )
 //
 // ## Example Usage
-// ### For Bigip versions (14.x - 16.x)
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ltm.NewProfileFtp(ctx, "sanjose-ftp-profile", &ltm.ProfileFtpArgs{
-//				AllowActiveMode:        pulumi.String("enabled"),
-//				DefaultsFrom:           pulumi.String("/Common/ftp"),
-//				Description:            pulumi.String("test-tftp-profile"),
-//				EnforceTlssessionReuse: pulumi.String("enabled"),
-//				FtpsMode:               pulumi.String("allow"),
-//				Name:                   pulumi.String("/Common/sanjose-ftp-profile"),
-//				Port:                   pulumi.Int(2020),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### For Bigip versions (12.x - 13.x)
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ltm.NewProfileFtp(ctx, "sanjose-ftp-profile", &ltm.ProfileFtpArgs{
-//				AllowFtps:         pulumi.String("enabled"),
-//				DefaultsFrom:      pulumi.String("/Common/ftp"),
-//				Description:       pulumi.String("test-tftp-profile"),
-//				Name:              pulumi.String("/Common/sanjose-ftp-profile"),
-//				Port:              pulumi.Int(2020),
-//				TranslateExtended: pulumi.String("enabled"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ## Common Arguments for all versions
 //
 // * `security` - (Optional)Specifies, when checked (enabled), that the system inspects FTP traffic for security vulnerabilities using an FTP security profile. This option is available only on systems licensed for BIG-IP ASM.

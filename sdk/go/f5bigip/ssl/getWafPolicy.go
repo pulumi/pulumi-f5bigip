@@ -13,32 +13,6 @@ import (
 )
 
 // Use this data source (`WafPolicy`) to get the details of exist WAF policy BIG-IP.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ssl"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssl.GetWafPolicy(ctx, &ssl.GetWafPolicyArgs{
-//				PolicyId: "xxxxx",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetWafPolicy(ctx *pulumi.Context, args *GetWafPolicyArgs, opts ...pulumi.InvokeOption) (*GetWafPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetWafPolicyResult

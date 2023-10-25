@@ -50,7 +50,7 @@ class DoArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             do_json: pulumi.Input[str],
+             do_json: Optional[pulumi.Input[str]] = None,
              bigip_address: Optional[pulumi.Input[str]] = None,
              bigip_password: Optional[pulumi.Input[str]] = None,
              bigip_port: Optional[pulumi.Input[str]] = None,
@@ -58,7 +58,25 @@ class DoArgs:
              bigip_user: Optional[pulumi.Input[str]] = None,
              tenant_name: Optional[pulumi.Input[str]] = None,
              timeout: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if do_json is None and 'doJson' in kwargs:
+            do_json = kwargs['doJson']
+        if do_json is None:
+            raise TypeError("Missing 'do_json' argument")
+        if bigip_address is None and 'bigipAddress' in kwargs:
+            bigip_address = kwargs['bigipAddress']
+        if bigip_password is None and 'bigipPassword' in kwargs:
+            bigip_password = kwargs['bigipPassword']
+        if bigip_port is None and 'bigipPort' in kwargs:
+            bigip_port = kwargs['bigipPort']
+        if bigip_token_auth is None and 'bigipTokenAuth' in kwargs:
+            bigip_token_auth = kwargs['bigipTokenAuth']
+        if bigip_user is None and 'bigipUser' in kwargs:
+            bigip_user = kwargs['bigipUser']
+        if tenant_name is None and 'tenantName' in kwargs:
+            tenant_name = kwargs['tenantName']
+
         _setter("do_json", do_json)
         if bigip_address is not None:
             _setter("bigip_address", bigip_address)
@@ -228,7 +246,23 @@ class _DoState:
              do_json: Optional[pulumi.Input[str]] = None,
              tenant_name: Optional[pulumi.Input[str]] = None,
              timeout: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if bigip_address is None and 'bigipAddress' in kwargs:
+            bigip_address = kwargs['bigipAddress']
+        if bigip_password is None and 'bigipPassword' in kwargs:
+            bigip_password = kwargs['bigipPassword']
+        if bigip_port is None and 'bigipPort' in kwargs:
+            bigip_port = kwargs['bigipPort']
+        if bigip_token_auth is None and 'bigipTokenAuth' in kwargs:
+            bigip_token_auth = kwargs['bigipTokenAuth']
+        if bigip_user is None and 'bigipUser' in kwargs:
+            bigip_user = kwargs['bigipUser']
+        if do_json is None and 'doJson' in kwargs:
+            do_json = kwargs['doJson']
+        if tenant_name is None and 'tenantName' in kwargs:
+            tenant_name = kwargs['tenantName']
+
         if bigip_address is not None:
             _setter("bigip_address", bigip_address)
         if bigip_password is not None:

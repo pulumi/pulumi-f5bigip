@@ -14,34 +14,6 @@ import (
 )
 
 // `NetTunnel` Manages a tunnel configuration
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := f5bigip.NewNetTunnel(ctx, "example1", &f5bigip.NetTunnelArgs{
-//				LocalAddress: pulumi.String("192.16.81.240"),
-//				Name:         pulumi.String("example1"),
-//				Profile:      pulumi.String("/Common/dslite"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type NetTunnel struct {
 	pulumi.CustomResourceState
 

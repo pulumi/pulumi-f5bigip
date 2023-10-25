@@ -35,11 +35,23 @@ class DeviceArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             configsync_ip: pulumi.Input[str],
-             name: pulumi.Input[str],
+             configsync_ip: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
              mirror_ip: Optional[pulumi.Input[str]] = None,
              mirror_secondary_ip: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if configsync_ip is None and 'configsyncIp' in kwargs:
+            configsync_ip = kwargs['configsyncIp']
+        if configsync_ip is None:
+            raise TypeError("Missing 'configsync_ip' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if mirror_ip is None and 'mirrorIp' in kwargs:
+            mirror_ip = kwargs['mirrorIp']
+        if mirror_secondary_ip is None and 'mirrorSecondaryIp' in kwargs:
+            mirror_secondary_ip = kwargs['mirrorSecondaryIp']
+
         _setter("configsync_ip", configsync_ip)
         _setter("name", name)
         if mirror_ip is not None:
@@ -124,7 +136,15 @@ class _DeviceState:
              mirror_ip: Optional[pulumi.Input[str]] = None,
              mirror_secondary_ip: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if configsync_ip is None and 'configsyncIp' in kwargs:
+            configsync_ip = kwargs['configsyncIp']
+        if mirror_ip is None and 'mirrorIp' in kwargs:
+            mirror_ip = kwargs['mirrorIp']
+        if mirror_secondary_ip is None and 'mirrorSecondaryIp' in kwargs:
+            mirror_secondary_ip = kwargs['mirrorSecondaryIp']
+
         if configsync_ip is not None:
             _setter("configsync_ip", configsync_ip)
         if mirror_ip is not None:
@@ -197,18 +217,6 @@ class Device(pulumi.CustomResource):
         `cm.Device` provides details about a specific bigip
 
         This resource is helpful when configuring the BIG-IP device in cluster or in HA mode.
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        my_new_device = f5bigip.cm.Device("myNewDevice",
-            configsync_ip="2.2.2.2",
-            mirror_ip="10.10.10.10",
-            mirror_secondary_ip="11.11.11.11",
-            name="bigip300.f5.com")
-        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -227,18 +235,6 @@ class Device(pulumi.CustomResource):
         `cm.Device` provides details about a specific bigip
 
         This resource is helpful when configuring the BIG-IP device in cluster or in HA mode.
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        my_new_device = f5bigip.cm.Device("myNewDevice",
-            configsync_ip="2.2.2.2",
-            mirror_ip="10.10.10.10",
-            mirror_secondary_ip="11.11.11.11",
-            name="bigip300.f5.com")
-        ```
 
         :param str resource_name: The name of the resource.
         :param DeviceArgs args: The arguments to use to populate this resource's properties.

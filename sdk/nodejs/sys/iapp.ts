@@ -8,23 +8,6 @@ import * as utilities from "../utilities";
 
 /**
  * `f5bigip.sys.IApp` resource helps you to deploy Application Services template that can be used to automate and orchestrate Layer 4-7 applications service deployments using F5 Network.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- * import * as fs from "fs";
- *
- * const simplehttp = new f5bigip.sys.IApp("simplehttp", {
- *     name: "simplehttp",
- *     jsonfile: fs.readFileSync("simplehttp.json"),
- * });
- * ```
- * ### Json File
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * ```
  */
 export class IApp extends pulumi.CustomResource {
     /**

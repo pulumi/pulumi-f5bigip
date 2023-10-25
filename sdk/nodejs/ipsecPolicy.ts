@@ -8,26 +8,6 @@ import * as utilities from "./utilities";
  * `f5bigip.IpsecPolicy` Manage IPSec policies on a BIG-IP
  *
  * Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/test-policy)
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- *
- * const test_policy = new f5bigip.IpsecPolicy("test-policy", {
- *     authAlgorithm: "sha1",
- *     description: "created by terraform provider",
- *     encryptAlgorithm: "3des",
- *     ipcomp: "deflate",
- *     lifetime: 3,
- *     mode: "tunnel",
- *     name: "/Common/test-policy",
- *     protocol: "esp",
- *     tunnelLocalAddress: "192.168.1.1",
- *     tunnelRemoteAddress: "10.10.1.1",
- * });
- * ```
  */
 export class IpsecPolicy extends pulumi.CustomResource {
     /**

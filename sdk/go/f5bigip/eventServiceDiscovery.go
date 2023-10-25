@@ -13,43 +13,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := f5bigip.NewEventServiceDiscovery(ctx, "test", &f5bigip.EventServiceDiscoveryArgs{
-//				Nodes: f5bigip.EventServiceDiscoveryNodeArray{
-//					&f5bigip.EventServiceDiscoveryNodeArgs{
-//						Id:   pulumi.String("newNode1"),
-//						Ip:   pulumi.String("192.168.2.3"),
-//						Port: pulumi.Int(8080),
-//					},
-//					&f5bigip.EventServiceDiscoveryNodeArgs{
-//						Id:   pulumi.String("newNode2"),
-//						Ip:   pulumi.String("192.168.2.4"),
-//						Port: pulumi.Int(8080),
-//					},
-//				},
-//				Taskid: pulumi.String("~Sample_event_sd~My_app~My_pool"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type EventServiceDiscovery struct {
 	pulumi.CustomResourceState
 

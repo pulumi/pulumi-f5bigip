@@ -62,7 +62,7 @@ class GuestArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              allowed_slots: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
              cores_per_slot: Optional[pulumi.Input[int]] = None,
              delete_virtual_disk: Optional[pulumi.Input[bool]] = None,
@@ -75,7 +75,31 @@ class GuestArgs:
              number_of_slots: Optional[pulumi.Input[int]] = None,
              state: Optional[pulumi.Input[str]] = None,
              vlans: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if allowed_slots is None and 'allowedSlots' in kwargs:
+            allowed_slots = kwargs['allowedSlots']
+        if cores_per_slot is None and 'coresPerSlot' in kwargs:
+            cores_per_slot = kwargs['coresPerSlot']
+        if delete_virtual_disk is None and 'deleteVirtualDisk' in kwargs:
+            delete_virtual_disk = kwargs['deleteVirtualDisk']
+        if initial_hotfix is None and 'initialHotfix' in kwargs:
+            initial_hotfix = kwargs['initialHotfix']
+        if initial_image is None and 'initialImage' in kwargs:
+            initial_image = kwargs['initialImage']
+        if mgmt_address is None and 'mgmtAddress' in kwargs:
+            mgmt_address = kwargs['mgmtAddress']
+        if mgmt_network is None and 'mgmtNetwork' in kwargs:
+            mgmt_network = kwargs['mgmtNetwork']
+        if mgmt_route is None and 'mgmtRoute' in kwargs:
+            mgmt_route = kwargs['mgmtRoute']
+        if min_number_of_slots is None and 'minNumberOfSlots' in kwargs:
+            min_number_of_slots = kwargs['minNumberOfSlots']
+        if number_of_slots is None and 'numberOfSlots' in kwargs:
+            number_of_slots = kwargs['numberOfSlots']
+
         _setter("name", name)
         if allowed_slots is not None:
             _setter("allowed_slots", allowed_slots)
@@ -331,7 +355,33 @@ class _GuestState:
              state: Optional[pulumi.Input[str]] = None,
              virtual_disk: Optional[pulumi.Input[str]] = None,
              vlans: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allowed_slots is None and 'allowedSlots' in kwargs:
+            allowed_slots = kwargs['allowedSlots']
+        if cores_per_slot is None and 'coresPerSlot' in kwargs:
+            cores_per_slot = kwargs['coresPerSlot']
+        if delete_virtual_disk is None and 'deleteVirtualDisk' in kwargs:
+            delete_virtual_disk = kwargs['deleteVirtualDisk']
+        if full_path is None and 'fullPath' in kwargs:
+            full_path = kwargs['fullPath']
+        if initial_hotfix is None and 'initialHotfix' in kwargs:
+            initial_hotfix = kwargs['initialHotfix']
+        if initial_image is None and 'initialImage' in kwargs:
+            initial_image = kwargs['initialImage']
+        if mgmt_address is None and 'mgmtAddress' in kwargs:
+            mgmt_address = kwargs['mgmtAddress']
+        if mgmt_network is None and 'mgmtNetwork' in kwargs:
+            mgmt_network = kwargs['mgmtNetwork']
+        if mgmt_route is None and 'mgmtRoute' in kwargs:
+            mgmt_route = kwargs['mgmtRoute']
+        if min_number_of_slots is None and 'minNumberOfSlots' in kwargs:
+            min_number_of_slots = kwargs['minNumberOfSlots']
+        if number_of_slots is None and 'numberOfSlots' in kwargs:
+            number_of_slots = kwargs['numberOfSlots']
+        if virtual_disk is None and 'virtualDisk' in kwargs:
+            virtual_disk = kwargs['virtualDisk']
+
         if allowed_slots is not None:
             _setter("allowed_slots", allowed_slots)
         if cores_per_slot is not None:
@@ -568,24 +618,6 @@ class Guest(pulumi.CustomResource):
 
         Resource does not wait for vCMP guest to reach the desired state, it only ensures that a desired configuration is set on the target device.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        vcmp_test = f5bigip.vcmp.Guest("vcmp-test",
-            cores_per_slot=2,
-            initial_image="12.1.2.iso",
-            mgmt_address="10.1.1.1/24",
-            mgmt_network="bridged",
-            mgmt_route="none",
-            min_number_of_slots=1,
-            name="tf_guest",
-            number_of_slots=1,
-            state="provisioned")
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] allowed_slots: Contains those slots to which the guest is allowed to be assigned.
@@ -612,24 +644,6 @@ class Guest(pulumi.CustomResource):
         `vcmp.Guest` Manages a vCMP guest configuration
 
         Resource does not wait for vCMP guest to reach the desired state, it only ensures that a desired configuration is set on the target device.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        vcmp_test = f5bigip.vcmp.Guest("vcmp-test",
-            cores_per_slot=2,
-            initial_image="12.1.2.iso",
-            mgmt_address="10.1.1.1/24",
-            mgmt_network="bridged",
-            mgmt_route="none",
-            min_number_of_slots=1,
-            name="tf_guest",
-            number_of_slots=1,
-            state="provisioned")
-        ```
 
         :param str resource_name: The name of the resource.
         :param GuestArgs args: The arguments to use to populate this resource's properties.

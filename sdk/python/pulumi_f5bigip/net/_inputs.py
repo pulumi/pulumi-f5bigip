@@ -32,7 +32,9 @@ class VlanInterfaceArgs:
              _setter: Callable[[Any, Any], None],
              tagged: Optional[pulumi.Input[bool]] = None,
              vlanport: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if tagged is not None:
             _setter("tagged", tagged)
         if vlanport is not None:

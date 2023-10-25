@@ -76,9 +76,13 @@ class EventServiceDiscoveryArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             taskid: pulumi.Input[str],
+             taskid: Optional[pulumi.Input[str]] = None,
              nodes: Optional[pulumi.Input[Sequence[pulumi.Input['EventServiceDiscoveryNodeArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if taskid is None:
+            raise TypeError("Missing 'taskid' argument")
+
         _setter("taskid", taskid)
         if nodes is not None:
             _setter("nodes", nodes)
@@ -218,7 +222,9 @@ class _EventServiceDiscoveryState:
              _setter: Callable[[Any, Any], None],
              nodes: Optional[pulumi.Input[Sequence[pulumi.Input['EventServiceDiscoveryNodeArgs']]]] = None,
              taskid: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if nodes is not None:
             _setter("nodes", nodes)
         if taskid is not None:
@@ -303,28 +309,7 @@ class EventServiceDiscovery(pulumi.CustomResource):
                  taskid: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        test = f5bigip.EventServiceDiscovery("test",
-            nodes=[
-                f5bigip.EventServiceDiscoveryNodeArgs(
-                    id="newNode1",
-                    ip="192.168.2.3",
-                    port=8080,
-                ),
-                f5bigip.EventServiceDiscoveryNodeArgs(
-                    id="newNode2",
-                    ip="192.168.2.4",
-                    port=8080,
-                ),
-            ],
-            taskid="~Sample_event_sd~My_app~My_pool")
-        ```
-
+        Create a EventServiceDiscovery resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EventServiceDiscoveryNodeArgs']]]] nodes: Map of node which will be added to pool which will be having node name(id),node address(ip) and node port(port)
@@ -382,28 +367,7 @@ class EventServiceDiscovery(pulumi.CustomResource):
                  args: EventServiceDiscoveryArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        test = f5bigip.EventServiceDiscovery("test",
-            nodes=[
-                f5bigip.EventServiceDiscoveryNodeArgs(
-                    id="newNode1",
-                    ip="192.168.2.3",
-                    port=8080,
-                ),
-                f5bigip.EventServiceDiscoveryNodeArgs(
-                    id="newNode2",
-                    ip="192.168.2.4",
-                    port=8080,
-                ),
-            ],
-            taskid="~Sample_event_sd~My_app~My_pool")
-        ```
-
+        Create a EventServiceDiscovery resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param EventServiceDiscoveryArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

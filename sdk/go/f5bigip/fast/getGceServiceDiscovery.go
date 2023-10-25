@@ -13,34 +13,6 @@ import (
 )
 
 // Use this data source (`fast.getGceServiceDiscovery`) to get the GCE Service discovery config to be used for `http`/`https` app deployment in FAST.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/fast"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := fast.GetGceServiceDiscovery(ctx, &fast.GetGceServiceDiscoveryArgs{
-//				Region:   "testgceregion",
-//				TagKey:   "testgcetag",
-//				TagValue: "testgcevalue",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetGceServiceDiscovery(ctx *pulumi.Context, args *GetGceServiceDiscoveryArgs, opts ...pulumi.InvokeOption) (*GetGceServiceDiscoveryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetGceServiceDiscoveryResult

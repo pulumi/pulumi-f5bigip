@@ -15,29 +15,6 @@ namespace Pulumi.F5BigIP.Ssl
         /// Use this data source (`f5bigip.ssl.getVWanConfig`) to get the vWAN site config from Azure VWAN Site
         ///  
         ///  
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using F5BigIP = Pulumi.F5BigIP;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var vwanconfig = F5BigIP.Ssl.GetVWanConfig.Invoke(new()
-        ///     {
-        ///         AzureVwanName = "azurevwan-bigip-vwan-9c8d",
-        ///         AzureVwanResourcegroup = "azurevwan-bigip-rg-9c8d",
-        ///         AzureVwanVpnsite = "azurevwan-bigip-vsite-9c8d",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// ## Pre-required Environment Settings:
         /// 
         /// * `AZURE_CLIENT_ID` - (Required) Set this environment variable with the Azure app client ID to use.
@@ -59,29 +36,6 @@ namespace Pulumi.F5BigIP.Ssl
         /// Use this data source (`f5bigip.ssl.getVWanConfig`) to get the vWAN site config from Azure VWAN Site
         ///  
         ///  
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using F5BigIP = Pulumi.F5BigIP;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var vwanconfig = F5BigIP.Ssl.GetVWanConfig.Invoke(new()
-        ///     {
-        ///         AzureVwanName = "azurevwan-bigip-vwan-9c8d",
-        ///         AzureVwanResourcegroup = "azurevwan-bigip-rg-9c8d",
-        ///         AzureVwanVpnsite = "azurevwan-bigip-vsite-9c8d",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// ## Pre-required Environment Settings:
         /// 
         /// * `AZURE_CLIENT_ID` - (Required) Set this environment variable with the Azure app client ID to use.

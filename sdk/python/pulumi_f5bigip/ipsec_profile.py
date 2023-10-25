@@ -35,11 +35,19 @@ class IpsecProfileArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              parent_profile: Optional[pulumi.Input[str]] = None,
              traffic_selector: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if parent_profile is None and 'parentProfile' in kwargs:
+            parent_profile = kwargs['parentProfile']
+        if traffic_selector is None and 'trafficSelector' in kwargs:
+            traffic_selector = kwargs['trafficSelector']
+
         _setter("name", name)
         if description is not None:
             _setter("description", description)
@@ -125,7 +133,13 @@ class _IpsecProfileState:
              name: Optional[pulumi.Input[str]] = None,
              parent_profile: Optional[pulumi.Input[str]] = None,
              traffic_selector: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if parent_profile is None and 'parentProfile' in kwargs:
+            parent_profile = kwargs['parentProfile']
+        if traffic_selector is None and 'trafficSelector' in kwargs:
+            traffic_selector = kwargs['trafficSelector']
+
         if description is not None:
             _setter("description", description)
         if name is not None:
@@ -197,18 +211,6 @@ class IpsecProfile(pulumi.CustomResource):
         """
         `IpsecProfile` Manage IPSec Profiles on a BIG-IP
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        azurev_wan_profile = f5bigip.IpsecProfile("azurevWANProfile",
-            description="mytestipsecprofile",
-            name="/Common/Mytestipsecprofile",
-            traffic_selector="test-trafficselector")
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Specifies descriptive text that identifies the IPsec interface tunnel profile.
@@ -224,18 +226,6 @@ class IpsecProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         `IpsecProfile` Manage IPSec Profiles on a BIG-IP
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        azurev_wan_profile = f5bigip.IpsecProfile("azurevWANProfile",
-            description="mytestipsecprofile",
-            name="/Common/Mytestipsecprofile",
-            traffic_selector="test-trafficselector")
-        ```
 
         :param str resource_name: The name of the resource.
         :param IpsecProfileArgs args: The arguments to use to populate this resource's properties.

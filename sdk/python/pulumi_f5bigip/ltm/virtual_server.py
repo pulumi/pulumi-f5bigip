@@ -106,7 +106,7 @@ class VirtualServerArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              client_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              default_persistence_profile: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
@@ -134,7 +134,41 @@ class VirtualServerArgs:
              translate_port: Optional[pulumi.Input[str]] = None,
              vlans: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              vlans_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if client_profiles is None and 'clientProfiles' in kwargs:
+            client_profiles = kwargs['clientProfiles']
+        if default_persistence_profile is None and 'defaultPersistenceProfile' in kwargs:
+            default_persistence_profile = kwargs['defaultPersistenceProfile']
+        if fallback_persistence_profile is None and 'fallbackPersistenceProfile' in kwargs:
+            fallback_persistence_profile = kwargs['fallbackPersistenceProfile']
+        if firewall_enforced_policy is None and 'firewallEnforcedPolicy' in kwargs:
+            firewall_enforced_policy = kwargs['firewallEnforcedPolicy']
+        if ip_protocol is None and 'ipProtocol' in kwargs:
+            ip_protocol = kwargs['ipProtocol']
+        if per_flow_request_access_policy is None and 'perFlowRequestAccessPolicy' in kwargs:
+            per_flow_request_access_policy = kwargs['perFlowRequestAccessPolicy']
+        if persistence_profiles is None and 'persistenceProfiles' in kwargs:
+            persistence_profiles = kwargs['persistenceProfiles']
+        if security_log_profiles is None and 'securityLogProfiles' in kwargs:
+            security_log_profiles = kwargs['securityLogProfiles']
+        if server_profiles is None and 'serverProfiles' in kwargs:
+            server_profiles = kwargs['serverProfiles']
+        if source_address_translation is None and 'sourceAddressTranslation' in kwargs:
+            source_address_translation = kwargs['sourceAddressTranslation']
+        if source_port is None and 'sourcePort' in kwargs:
+            source_port = kwargs['sourcePort']
+        if trafficmatching_criteria is None and 'trafficmatchingCriteria' in kwargs:
+            trafficmatching_criteria = kwargs['trafficmatchingCriteria']
+        if translate_address is None and 'translateAddress' in kwargs:
+            translate_address = kwargs['translateAddress']
+        if translate_port is None and 'translatePort' in kwargs:
+            translate_port = kwargs['translatePort']
+        if vlans_enabled is None and 'vlansEnabled' in kwargs:
+            vlans_enabled = kwargs['vlansEnabled']
+
         _setter("name", name)
         if client_profiles is not None:
             _setter("client_profiles", client_profiles)
@@ -646,7 +680,39 @@ class _VirtualServerState:
              translate_port: Optional[pulumi.Input[str]] = None,
              vlans: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              vlans_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_profiles is None and 'clientProfiles' in kwargs:
+            client_profiles = kwargs['clientProfiles']
+        if default_persistence_profile is None and 'defaultPersistenceProfile' in kwargs:
+            default_persistence_profile = kwargs['defaultPersistenceProfile']
+        if fallback_persistence_profile is None and 'fallbackPersistenceProfile' in kwargs:
+            fallback_persistence_profile = kwargs['fallbackPersistenceProfile']
+        if firewall_enforced_policy is None and 'firewallEnforcedPolicy' in kwargs:
+            firewall_enforced_policy = kwargs['firewallEnforcedPolicy']
+        if ip_protocol is None and 'ipProtocol' in kwargs:
+            ip_protocol = kwargs['ipProtocol']
+        if per_flow_request_access_policy is None and 'perFlowRequestAccessPolicy' in kwargs:
+            per_flow_request_access_policy = kwargs['perFlowRequestAccessPolicy']
+        if persistence_profiles is None and 'persistenceProfiles' in kwargs:
+            persistence_profiles = kwargs['persistenceProfiles']
+        if security_log_profiles is None and 'securityLogProfiles' in kwargs:
+            security_log_profiles = kwargs['securityLogProfiles']
+        if server_profiles is None and 'serverProfiles' in kwargs:
+            server_profiles = kwargs['serverProfiles']
+        if source_address_translation is None and 'sourceAddressTranslation' in kwargs:
+            source_address_translation = kwargs['sourceAddressTranslation']
+        if source_port is None and 'sourcePort' in kwargs:
+            source_port = kwargs['sourcePort']
+        if trafficmatching_criteria is None and 'trafficmatchingCriteria' in kwargs:
+            trafficmatching_criteria = kwargs['trafficmatchingCriteria']
+        if translate_address is None and 'translateAddress' in kwargs:
+            translate_address = kwargs['translateAddress']
+        if translate_port is None and 'translatePort' in kwargs:
+            translate_port = kwargs['translatePort']
+        if vlans_enabled is None and 'vlansEnabled' in kwargs:
+            vlans_enabled = kwargs['vlansEnabled']
+
         if client_profiles is not None:
             _setter("client_profiles", client_profiles)
         if default_persistence_profile is not None:
@@ -1076,44 +1142,6 @@ class VirtualServer(pulumi.CustomResource):
         For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource (example: `/Common/test-virtualserver` ) or `partition + directory + name` of the resource (example: `/Common/test/test-virtualserver` ).
         When including directory in `fullpath` we have to make sure it is created in the given partition before using it.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        http = f5bigip.ltm.VirtualServer("http",
-            name="/Common/terraform_vs_http",
-            destination="10.12.12.12",
-            port=80,
-            pool="/Common/the-default-pool")
-        # A Virtual server with SSL enabled
-        https_virtual_server = f5bigip.ltm.VirtualServer("httpsVirtualServer",
-            name="/Common/terraform_vs_https",
-            destination=var["vip_ip"],
-            description="VirtualServer-test",
-            port=443,
-            pool=var["pool"],
-            profiles=[
-                "/Common/tcp",
-                "/Common/my-awesome-ssl-cert",
-                "/Common/http",
-            ],
-            source_address_translation="automap",
-            translate_address="enabled",
-            translate_port="enabled")
-        # A Virtual server with separate client and server profiles
-        https_ltm_virtual_server_virtual_server = f5bigip.ltm.VirtualServer("httpsLtm/virtualServerVirtualServer",
-            name="/Common/terraform_vs_https",
-            destination="10.255.255.254",
-            description="VirtualServer-test",
-            port=443,
-            client_profiles=["/Common/clientssl"],
-            server_profiles=["/Common/serverssl"],
-            security_log_profiles=["/Common/global-network"],
-            source_address_translation="automap")
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_profiles: List of client context profiles associated on the virtual server. Not mutually exclusive with profiles and server_profiles
@@ -1155,44 +1183,6 @@ class VirtualServer(pulumi.CustomResource):
 
         For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource (example: `/Common/test-virtualserver` ) or `partition + directory + name` of the resource (example: `/Common/test/test-virtualserver` ).
         When including directory in `fullpath` we have to make sure it is created in the given partition before using it.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        http = f5bigip.ltm.VirtualServer("http",
-            name="/Common/terraform_vs_http",
-            destination="10.12.12.12",
-            port=80,
-            pool="/Common/the-default-pool")
-        # A Virtual server with SSL enabled
-        https_virtual_server = f5bigip.ltm.VirtualServer("httpsVirtualServer",
-            name="/Common/terraform_vs_https",
-            destination=var["vip_ip"],
-            description="VirtualServer-test",
-            port=443,
-            pool=var["pool"],
-            profiles=[
-                "/Common/tcp",
-                "/Common/my-awesome-ssl-cert",
-                "/Common/http",
-            ],
-            source_address_translation="automap",
-            translate_address="enabled",
-            translate_port="enabled")
-        # A Virtual server with separate client and server profiles
-        https_ltm_virtual_server_virtual_server = f5bigip.ltm.VirtualServer("httpsLtm/virtualServerVirtualServer",
-            name="/Common/terraform_vs_https",
-            destination="10.255.255.254",
-            description="VirtualServer-test",
-            port=443,
-            client_profiles=["/Common/clientssl"],
-            server_profiles=["/Common/serverssl"],
-            security_log_profiles=["/Common/global-network"],
-            source_address_translation="automap")
-        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualServerArgs args: The arguments to use to populate this resource's properties.

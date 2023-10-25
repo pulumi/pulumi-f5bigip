@@ -13,26 +13,6 @@ namespace Pulumi.F5BigIP
     /// `f5bigip.TrafficSelector` Manage IPSec Traffic Selectors on BIG-IP
     /// 
     /// Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/test-selector)
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using F5BigIP = Pulumi.F5BigIP;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test_selector = new F5BigIP.TrafficSelector("test-selector", new()
-    ///     {
-    ///         DestinationAddress = "3.10.11.2/32",
-    ///         Name = "/Common/test-selector",
-    ///         SourceAddress = "2.10.11.12/32",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:index/trafficSelector:TrafficSelector")]
     public partial class TrafficSelector : global::Pulumi.CustomResource

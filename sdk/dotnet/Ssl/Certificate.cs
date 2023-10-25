@@ -12,27 +12,6 @@ namespace Pulumi.F5BigIP.Ssl
     /// <summary>
     /// `f5bigip.ssl.Certificate` This resource will import SSL certificates on BIG-IP LTM.
     /// Certificates can be imported from certificate files on the local disk, in PEM format
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.IO;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using F5BigIP = Pulumi.F5BigIP;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var test_cert = new F5BigIP.Ssl.Certificate("test-cert", new()
-    ///     {
-    ///         Name = "servercert.crt",
-    ///         Content = File.ReadAllText("servercert.crt"),
-    ///         Partition = "Common",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ssl/certificate:Certificate")]
     public partial class Certificate : global::Pulumi.CustomResource

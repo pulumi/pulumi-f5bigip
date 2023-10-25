@@ -16,33 +16,6 @@ import (
 // `ltm.VirtualAddress` Configures Virtual Server
 //
 // For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/virtual_server.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ltm.NewVirtualAddress(ctx, "vsVa", &ltm.VirtualAddressArgs{
-//				AdvertizeRoute: pulumi.String("enabled"),
-//				Name:           pulumi.String("/Common/xxxxx"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type VirtualAddress struct {
 	pulumi.CustomResourceState
 

@@ -125,16 +125,6 @@ def get_policy(controls: Optional[Sequence[str]] = None,
     """
     Use this data source (`ltm.Policy`) to get the ltm policy details available on BIG-IP
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_f5bigip as f5bigip
-
-    test = f5bigip.ltm.get_policy(name="/Common/test-policy")
-    pulumi.export("bigipPolicy", test.rules)
-    ```
-
 
     :param Sequence[str] controls: Specifies the controls.
     :param str name: Name of the policy which includes partion ( /partition/policy-name )
@@ -172,16 +162,6 @@ def get_policy_output(controls: Optional[pulumi.Input[Optional[Sequence[str]]]] 
                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyResult]:
     """
     Use this data source (`ltm.Policy`) to get the ltm policy details available on BIG-IP
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_f5bigip as f5bigip
-
-    test = f5bigip.ltm.get_policy(name="/Common/test-policy")
-    pulumi.export("bigipPolicy", test.rules)
-    ```
 
 
     :param Sequence[str] controls: Specifies the controls.

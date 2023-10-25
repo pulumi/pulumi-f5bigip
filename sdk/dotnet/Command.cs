@@ -13,28 +13,6 @@ namespace Pulumi.F5BigIP
     /// `f5bigip.Command` Run TMSH commands on F5 devices
     /// 
     /// This resource is helpful to send TMSH command to an BIG-IP node and returns the results read from the device
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using F5BigIP = Pulumi.F5BigIP;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     //create ltm node
-    ///     var test_command = new F5BigIP.Command("test-command", new()
-    ///     {
-    ///         Commands = new[]
-    ///         {
-    ///             "delete ltm node 10.10.10.70",
-    ///         },
-    ///         When = "destroy",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:index/command:Command")]
     public partial class Command : global::Pulumi.CustomResource

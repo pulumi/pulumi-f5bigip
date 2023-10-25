@@ -65,7 +65,19 @@ class DeviceGroupArgs:
              partition: Optional[pulumi.Input[str]] = None,
              save_on_auto_sync: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_sync is None and 'autoSync' in kwargs:
+            auto_sync = kwargs['autoSync']
+        if full_load_on_sync is None and 'fullLoadOnSync' in kwargs:
+            full_load_on_sync = kwargs['fullLoadOnSync']
+        if incremental_config is None and 'incrementalConfig' in kwargs:
+            incremental_config = kwargs['incrementalConfig']
+        if network_failover is None and 'networkFailover' in kwargs:
+            network_failover = kwargs['networkFailover']
+        if save_on_auto_sync is None and 'saveOnAutoSync' in kwargs:
+            save_on_auto_sync = kwargs['saveOnAutoSync']
+
         if auto_sync is not None:
             _setter("auto_sync", auto_sync)
         if description is not None:
@@ -260,7 +272,19 @@ class _DeviceGroupState:
              partition: Optional[pulumi.Input[str]] = None,
              save_on_auto_sync: Optional[pulumi.Input[str]] = None,
              type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_sync is None and 'autoSync' in kwargs:
+            auto_sync = kwargs['autoSync']
+        if full_load_on_sync is None and 'fullLoadOnSync' in kwargs:
+            full_load_on_sync = kwargs['fullLoadOnSync']
+        if incremental_config is None and 'incrementalConfig' in kwargs:
+            incremental_config = kwargs['incrementalConfig']
+        if network_failover is None and 'networkFailover' in kwargs:
+            network_failover = kwargs['networkFailover']
+        if save_on_auto_sync is None and 'saveOnAutoSync' in kwargs:
+            save_on_auto_sync = kwargs['saveOnAutoSync']
+
         if auto_sync is not None:
             _setter("auto_sync", auto_sync)
         if description is not None:
@@ -422,27 +446,6 @@ class DeviceGroup(pulumi.CustomResource):
         """
         `cm.DeviceGroup` A device group is a collection of BIG-IP devices that are configured to securely synchronize their BIG-IP configuration data, and fail over when needed.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        my_new_devicegroup = f5bigip.cm.DeviceGroup("myNewDevicegroup",
-            auto_sync="enabled",
-            devices=[
-                f5bigip.cm.DeviceGroupDeviceArgs(
-                    name="bigip1.cisco.com",
-                ),
-                f5bigip.cm.DeviceGroupDeviceArgs(
-                    name="bigip200.f5.com",
-                ),
-            ],
-            full_load_on_sync="true",
-            name="sanjose_devicegroup",
-            type="sync-only")
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_sync: Specifies if the device-group will automatically sync configuration data to its members
@@ -464,27 +467,6 @@ class DeviceGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         `cm.DeviceGroup` A device group is a collection of BIG-IP devices that are configured to securely synchronize their BIG-IP configuration data, and fail over when needed.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        my_new_devicegroup = f5bigip.cm.DeviceGroup("myNewDevicegroup",
-            auto_sync="enabled",
-            devices=[
-                f5bigip.cm.DeviceGroupDeviceArgs(
-                    name="bigip1.cisco.com",
-                ),
-                f5bigip.cm.DeviceGroupDeviceArgs(
-                    name="bigip200.f5.com",
-                ),
-            ],
-            full_load_on_sync="true",
-            name="sanjose_devicegroup",
-            type="sync-only")
-        ```
 
         :param str resource_name: The name of the resource.
         :param DeviceGroupArgs args: The arguments to use to populate this resource's properties.

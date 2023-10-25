@@ -44,14 +44,26 @@ class CertificateArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             content: pulumi.Input[str],
-             name: pulumi.Input[str],
+             content: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
              full_path: Optional[pulumi.Input[str]] = None,
              issuer_cert: Optional[pulumi.Input[str]] = None,
              monitoring_type: Optional[pulumi.Input[str]] = None,
              ocsp: Optional[pulumi.Input[str]] = None,
              partition: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if full_path is None and 'fullPath' in kwargs:
+            full_path = kwargs['fullPath']
+        if issuer_cert is None and 'issuerCert' in kwargs:
+            issuer_cert = kwargs['issuerCert']
+        if monitoring_type is None and 'monitoringType' in kwargs:
+            monitoring_type = kwargs['monitoringType']
+
         _setter("content", content)
         _setter("name", name)
         if full_path is not None:
@@ -190,7 +202,15 @@ class _CertificateState:
              name: Optional[pulumi.Input[str]] = None,
              ocsp: Optional[pulumi.Input[str]] = None,
              partition: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if full_path is None and 'fullPath' in kwargs:
+            full_path = kwargs['fullPath']
+        if issuer_cert is None and 'issuerCert' in kwargs:
+            issuer_cert = kwargs['issuerCert']
+        if monitoring_type is None and 'monitoringType' in kwargs:
+            monitoring_type = kwargs['monitoringType']
+
         if content is not None:
             _setter("content", content)
         if full_path is not None:
@@ -308,18 +328,6 @@ class Certificate(pulumi.CustomResource):
         `ssl.Certificate` This resource will import SSL certificates on BIG-IP LTM.
         Certificates can be imported from certificate files on the local disk, in PEM format
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        test_cert = f5bigip.ssl.Certificate("test-cert",
-            name="servercert.crt",
-            content=(lambda path: open(path).read())("servercert.crt"),
-            partition="Common")
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content: Content of certificate on Disk
@@ -339,18 +347,6 @@ class Certificate(pulumi.CustomResource):
         """
         `ssl.Certificate` This resource will import SSL certificates on BIG-IP LTM.
         Certificates can be imported from certificate files on the local disk, in PEM format
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        test_cert = f5bigip.ssl.Certificate("test-cert",
-            name="servercert.crt",
-            content=(lambda path: open(path).read())("servercert.crt"),
-            partition="Common")
-        ```
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.

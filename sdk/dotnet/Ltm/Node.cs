@@ -14,35 +14,6 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// For resources should be named with their `full path`.The full path is the combination of the `partition + name` of the resource( example: `/Common/my-node` ) or `partition + Direcroty + name` of the resource ( example: `/Common/test/my-node` ).
     /// When including directory in `full path` we have to make sure it is created in the given partition before using it.
-    /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using F5BigIP = Pulumi.F5BigIP;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var node = new F5BigIP.Ltm.Node("node", new()
-    ///     {
-    ///         Address = "192.168.30.1",
-    ///         ConnectionLimit = 0,
-    ///         Description = "Test-Node",
-    ///         DynamicRatio = 1,
-    ///         Fqdn = new F5BigIP.Ltm.Inputs.NodeFqdnArgs
-    ///         {
-    ///             AddressFamily = "ipv4",
-    ///             Interval = "3000",
-    ///         },
-    ///         Monitor = "/Common/icmp",
-    ///         Name = "/Common/terraform_node1",
-    ///         RateLimit = "disabled",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/node:Node")]
     public partial class Node : global::Pulumi.CustomResource

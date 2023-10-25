@@ -33,7 +33,9 @@ class IAppList(dict):
              _setter: Callable[[Any, Any], None],
              encrypted: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if encrypted is not None:
             _setter("encrypted", encrypted)
         if value is not None:
@@ -65,7 +67,9 @@ class IAppMetadata(dict):
              _setter: Callable[[Any, Any], None],
              persists: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if persists is not None:
             _setter("persists", persists)
         if value is not None:
@@ -125,7 +129,13 @@ class IAppTable(dict):
              encrypted_columns: Optional[str] = None,
              name: Optional[str] = None,
              rows: Optional[Sequence['outputs.IAppTableRow']] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if column_names is None and 'columnNames' in kwargs:
+            column_names = kwargs['columnNames']
+        if encrypted_columns is None and 'encryptedColumns' in kwargs:
+            encrypted_columns = kwargs['encryptedColumns']
+
         if column_names is not None:
             _setter("column_names", column_names)
         if encrypted_columns is not None:
@@ -171,7 +181,9 @@ class IAppTableRow(dict):
     def _configure(
              _setter: Callable[[Any, Any], None],
              rows: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if rows is not None:
             _setter("rows", rows)
 
@@ -202,7 +214,9 @@ class IAppVariable(dict):
              encrypted: Optional[str] = None,
              name: Optional[str] = None,
              value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if encrypted is not None:
             _setter("encrypted", encrypted)
         if name is not None:

@@ -50,8 +50,8 @@ class PersistenceProfileSslArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             defaults_from: pulumi.Input[str],
-             name: pulumi.Input[str],
+             defaults_from: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
              app_service: Optional[pulumi.Input[str]] = None,
              match_across_pools: Optional[pulumi.Input[str]] = None,
              match_across_services: Optional[pulumi.Input[str]] = None,
@@ -59,7 +59,25 @@ class PersistenceProfileSslArgs:
              mirror: Optional[pulumi.Input[str]] = None,
              override_conn_limit: Optional[pulumi.Input[str]] = None,
              timeout: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if defaults_from is None and 'defaultsFrom' in kwargs:
+            defaults_from = kwargs['defaultsFrom']
+        if defaults_from is None:
+            raise TypeError("Missing 'defaults_from' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if app_service is None and 'appService' in kwargs:
+            app_service = kwargs['appService']
+        if match_across_pools is None and 'matchAcrossPools' in kwargs:
+            match_across_pools = kwargs['matchAcrossPools']
+        if match_across_services is None and 'matchAcrossServices' in kwargs:
+            match_across_services = kwargs['matchAcrossServices']
+        if match_across_virtuals is None and 'matchAcrossVirtuals' in kwargs:
+            match_across_virtuals = kwargs['matchAcrossVirtuals']
+        if override_conn_limit is None and 'overrideConnLimit' in kwargs:
+            override_conn_limit = kwargs['overrideConnLimit']
+
         _setter("defaults_from", defaults_from)
         _setter("name", name)
         if app_service is not None:
@@ -232,7 +250,21 @@ class _PersistenceProfileSslState:
              name: Optional[pulumi.Input[str]] = None,
              override_conn_limit: Optional[pulumi.Input[str]] = None,
              timeout: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if app_service is None and 'appService' in kwargs:
+            app_service = kwargs['appService']
+        if defaults_from is None and 'defaultsFrom' in kwargs:
+            defaults_from = kwargs['defaultsFrom']
+        if match_across_pools is None and 'matchAcrossPools' in kwargs:
+            match_across_pools = kwargs['matchAcrossPools']
+        if match_across_services is None and 'matchAcrossServices' in kwargs:
+            match_across_services = kwargs['matchAcrossServices']
+        if match_across_virtuals is None and 'matchAcrossVirtuals' in kwargs:
+            match_across_virtuals = kwargs['matchAcrossVirtuals']
+        if override_conn_limit is None and 'overrideConnLimit' in kwargs:
+            override_conn_limit = kwargs['overrideConnLimit']
+
         if app_service is not None:
             _setter("app_service", app_service)
         if defaults_from is not None:
@@ -377,23 +409,6 @@ class PersistenceProfileSsl(pulumi.CustomResource):
         """
         Configures an SSL persistence profile
 
-        ## Example
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        ppssl = f5bigip.ltm.PersistenceProfileSsl("ppssl",
-            defaults_from="/Common/ssl",
-            match_across_pools="enabled",
-            match_across_services="enabled",
-            match_across_virtuals="enabled",
-            mirror="enabled",
-            name="/Common/terraform_ssl",
-            override_conn_limit="enabled",
-            timeout=3600)
-        ```
-
         ## Reference
 
         `name` - (Required) Name of the virtual address
@@ -432,23 +447,6 @@ class PersistenceProfileSsl(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Configures an SSL persistence profile
-
-        ## Example
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        ppssl = f5bigip.ltm.PersistenceProfileSsl("ppssl",
-            defaults_from="/Common/ssl",
-            match_across_pools="enabled",
-            match_across_services="enabled",
-            match_across_virtuals="enabled",
-            mirror="enabled",
-            name="/Common/terraform_ssl",
-            override_conn_limit="enabled",
-            timeout=3600)
-        ```
 
         ## Reference
 

@@ -14,38 +14,6 @@ import (
 )
 
 // `sys.Dns` Configures DNS Name server on F5 BIG-IP
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/sys"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := sys.NewDns(ctx, "dns1", &sys.DnsArgs{
-//				Description: pulumi.String("/Common/DNS1"),
-//				NameServers: pulumi.StringArray{
-//					pulumi.String("1.1.1.1"),
-//				},
-//				Searches: pulumi.StringArray{
-//					pulumi.String("f5.com"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type Dns struct {
 	pulumi.CustomResourceState
 

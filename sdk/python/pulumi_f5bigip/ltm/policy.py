@@ -46,14 +46,20 @@ class PolicyArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
              controls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              description: Optional[pulumi.Input[str]] = None,
              published_copy: Optional[pulumi.Input[str]] = None,
              requires: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleArgs']]]] = None,
              strategy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if published_copy is None and 'publishedCopy' in kwargs:
+            published_copy = kwargs['publishedCopy']
+
         _setter("name", name)
         if controls is not None:
             _setter("controls", controls)
@@ -199,7 +205,11 @@ class _PolicyState:
              requires: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              rules: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleArgs']]]] = None,
              strategy: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if published_copy is None and 'publishedCopy' in kwargs:
+            published_copy = kwargs['publishedCopy']
+
         if controls is not None:
             _setter("controls", controls)
         if description is not None:
@@ -324,33 +334,6 @@ class Policy(pulumi.CustomResource):
 
         For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource. For example `/Common/test-policy`.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        mypool = f5bigip.ltm.Pool("mypool",
-            name="/Common/test-pool",
-            allow_nat="yes",
-            allow_snat="yes",
-            load_balancing_mode="round-robin")
-        test_policy = f5bigip.ltm.Policy("test-policy",
-            name="/Common/test-policy",
-            strategy="first-match",
-            requires=["http"],
-            controls=["forwarding"],
-            rules=[f5bigip.ltm.PolicyRuleArgs(
-                name="rule6",
-                actions=[f5bigip.ltm.PolicyRuleActionArgs(
-                    forward=True,
-                    connection=False,
-                    pool=mypool.name,
-                )],
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[mypool]))
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] controls: Specifies the controls
@@ -371,33 +354,6 @@ class Policy(pulumi.CustomResource):
         `ltm.Policy` Configures ltm policies to manage traffic assigned to a virtual server
 
         For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource. For example `/Common/test-policy`.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        mypool = f5bigip.ltm.Pool("mypool",
-            name="/Common/test-pool",
-            allow_nat="yes",
-            allow_snat="yes",
-            load_balancing_mode="round-robin")
-        test_policy = f5bigip.ltm.Policy("test-policy",
-            name="/Common/test-policy",
-            strategy="first-match",
-            requires=["http"],
-            controls=["forwarding"],
-            rules=[f5bigip.ltm.PolicyRuleArgs(
-                name="rule6",
-                actions=[f5bigip.ltm.PolicyRuleActionArgs(
-                    forward=True,
-                    connection=False,
-                    pool=mypool.name,
-                )],
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[mypool]))
-        ```
 
         :param str resource_name: The name of the resource.
         :param PolicyArgs args: The arguments to use to populate this resource's properties.

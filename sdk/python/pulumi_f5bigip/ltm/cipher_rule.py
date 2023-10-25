@@ -38,12 +38,22 @@ class CipherRuleArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             cipher: pulumi.Input[str],
-             name: pulumi.Input[str],
+             cipher: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
              description: Optional[pulumi.Input[str]] = None,
              dh_groups: Optional[pulumi.Input[str]] = None,
              signature_algorithms: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cipher is None:
+            raise TypeError("Missing 'cipher' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if dh_groups is None and 'dhGroups' in kwargs:
+            dh_groups = kwargs['dhGroups']
+        if signature_algorithms is None and 'signatureAlgorithms' in kwargs:
+            signature_algorithms = kwargs['signatureAlgorithms']
+
         _setter("cipher", cipher)
         _setter("name", name)
         if description is not None:
@@ -146,7 +156,13 @@ class _CipherRuleState:
              dh_groups: Optional[pulumi.Input[str]] = None,
              name: Optional[pulumi.Input[str]] = None,
              signature_algorithms: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if dh_groups is None and 'dhGroups' in kwargs:
+            dh_groups = kwargs['dhGroups']
+        if signature_algorithms is None and 'signatureAlgorithms' in kwargs:
+            signature_algorithms = kwargs['signatureAlgorithms']
+
         if cipher is not None:
             _setter("cipher", cipher)
         if description is not None:
@@ -233,19 +249,6 @@ class CipherRule(pulumi.CustomResource):
         """
         `ltm.CipherRule` Manages F5 BIG-IP LTM cipher rule using iControl REST.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        test_cipher_rule = f5bigip.ltm.CipherRule("testCipherRule",
-            cipher="TLS13-AES128-GCM-SHA256:TLS13-AES256-GCM-SHA384",
-            dh_groups="P256:P384:FFDHE2048:FFDHE3072:FFDHE4096",
-            name="/Common/test_cipher_rule",
-            signature_algorithms="DEFAULT")
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cipher: Specifies one or more Cipher Suites used,this is a colon (:) separated string of cipher suites. example, `TLS13-AES128-GCM-SHA256:TLS13-AES256-GCM-SHA384`.
@@ -262,19 +265,6 @@ class CipherRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         `ltm.CipherRule` Manages F5 BIG-IP LTM cipher rule using iControl REST.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        test_cipher_rule = f5bigip.ltm.CipherRule("testCipherRule",
-            cipher="TLS13-AES128-GCM-SHA256:TLS13-AES256-GCM-SHA384",
-            dh_groups="P256:P384:FFDHE2048:FFDHE3072:FFDHE4096",
-            name="/Common/test_cipher_rule",
-            signature_algorithms="DEFAULT")
-        ```
 
         :param str resource_name: The name of the resource.
         :param CipherRuleArgs args: The arguments to use to populate this resource's properties.

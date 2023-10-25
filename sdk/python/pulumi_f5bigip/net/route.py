@@ -38,12 +38,20 @@ class RouteArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             name: pulumi.Input[str],
-             network: pulumi.Input[str],
+             name: Optional[pulumi.Input[str]] = None,
+             network: Optional[pulumi.Input[str]] = None,
              gw: Optional[pulumi.Input[str]] = None,
              reject: Optional[pulumi.Input[bool]] = None,
              tunnel_ref: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if network is None:
+            raise TypeError("Missing 'network' argument")
+        if tunnel_ref is None and 'tunnelRef' in kwargs:
+            tunnel_ref = kwargs['tunnelRef']
+
         _setter("name", name)
         _setter("network", network)
         if gw is not None:
@@ -146,7 +154,11 @@ class _RouteState:
              network: Optional[pulumi.Input[str]] = None,
              reject: Optional[pulumi.Input[bool]] = None,
              tunnel_ref: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if tunnel_ref is None and 'tunnelRef' in kwargs:
+            tunnel_ref = kwargs['tunnelRef']
+
         if gw is not None:
             _setter("gw", gw)
         if name is not None:
@@ -235,18 +247,6 @@ class Route(pulumi.CustomResource):
 
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        route2 = f5bigip.net.Route("route2",
-            gw="1.1.1.2",
-            name="/Common/external-route",
-            network="10.10.10.0/24")
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] gw: Specifies a gateway address for the route.
@@ -265,18 +265,6 @@ class Route(pulumi.CustomResource):
         `net.Route` Manages a route configuration
 
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        route2 = f5bigip.net.Route("route2",
-            gw="1.1.1.2",
-            name="/Common/external-route",
-            network="10.10.10.0/24")
-        ```
 
         :param str resource_name: The name of the resource.
         :param RouteArgs args: The arguments to use to populate this resource's properties.

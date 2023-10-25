@@ -6,18 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source (`f5bigip.fast.getConsulServiceDiscovery`) to get the Consul Service discovery config to be used for `http`/`https` app deployment in FAST.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- *
- * const tC2 = f5bigip.fast.getConsulServiceDiscovery({
- *     port: 8080,
- *     uri: "https://192.0.2.100:8500/v1/catalog/nodes",
- * });
- * ```
  */
 export function getConsulServiceDiscovery(args: GetConsulServiceDiscoveryArgs, opts?: pulumi.InvokeOptions): Promise<GetConsulServiceDiscoveryResult> {
 
@@ -116,18 +104,6 @@ export interface GetConsulServiceDiscoveryResult {
 }
 /**
  * Use this data source (`f5bigip.fast.getConsulServiceDiscovery`) to get the Consul Service discovery config to be used for `http`/`https` app deployment in FAST.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- *
- * const tC2 = f5bigip.fast.getConsulServiceDiscovery({
- *     port: 8080,
- *     uri: "https://192.0.2.100:8500/v1/catalog/nodes",
- * });
- * ```
  */
 export function getConsulServiceDiscoveryOutput(args: GetConsulServiceDiscoveryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConsulServiceDiscoveryResult> {
     return pulumi.output(args).apply((a: any) => getConsulServiceDiscovery(a, opts))

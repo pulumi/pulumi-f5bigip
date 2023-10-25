@@ -17,44 +17,6 @@ import (
 //
 // For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource or  `partition + directory + name`.
 // For example `/Common/my-pool`.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			monitor, err := ltm.NewMonitor(ctx, "monitor", &ltm.MonitorArgs{
-//				Name:   pulumi.String("/Common/terraform_monitor"),
-//				Parent: pulumi.String("/Common/http"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ltm.NewPool(ctx, "pool", &ltm.PoolArgs{
-//				Name:                 pulumi.String("/Common/Axiom_Environment_APP1_Pool"),
-//				LoadBalancingMode:    pulumi.String("round-robin"),
-//				MinimumActiveMembers: pulumi.Int(1),
-//				Monitors: pulumi.StringArray{
-//					monitor.Name,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type Pool struct {
 	pulumi.CustomResourceState
 

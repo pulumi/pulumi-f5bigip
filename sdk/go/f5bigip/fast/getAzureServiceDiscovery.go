@@ -13,35 +13,6 @@ import (
 )
 
 // Use this data source (`fast.getAzureServiceDiscovery`) to get the Azure Service discovery config to be used for `http`/`https` app deployment in FAST.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/fast"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := fast.GetAzureServiceDiscovery(ctx, &fast.GetAzureServiceDiscoveryArgs{
-//				ResourceGroup:  "testazurerg",
-//				SubscriptionId: "testazuresid",
-//				TagKey:         pulumi.StringRef("testazuretag"),
-//				TagValue:       pulumi.StringRef("testazurevalue"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetAzureServiceDiscovery(ctx *pulumi.Context, args *GetAzureServiceDiscoveryArgs, opts ...pulumi.InvokeOption) (*GetAzureServiceDiscoveryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAzureServiceDiscoveryResult

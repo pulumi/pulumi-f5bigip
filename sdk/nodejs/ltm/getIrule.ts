@@ -6,19 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source (`f5bigip.ltm.IRule`) to get the ltm irule details available on BIG-IP
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- *
- * const test = f5bigip.ltm.getIrule({
- *     name: "terraform_irule",
- *     partition: "Common",
- * });
- * export const bigipIrule = test.then(test => test.irule);
- * ```
  */
 export function getIrule(args: GetIruleArgs, opts?: pulumi.InvokeOptions): Promise<GetIruleResult> {
 
@@ -71,19 +58,6 @@ export interface GetIruleResult {
 }
 /**
  * Use this data source (`f5bigip.ltm.IRule`) to get the ltm irule details available on BIG-IP
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- *
- * const test = f5bigip.ltm.getIrule({
- *     name: "terraform_irule",
- *     partition: "Common",
- * });
- * export const bigipIrule = test.then(test => test.irule);
- * ```
  */
 export function getIruleOutput(args: GetIruleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIruleResult> {
     return pulumi.output(args).apply((a: any) => getIrule(a, opts))

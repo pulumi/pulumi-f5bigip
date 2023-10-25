@@ -17,46 +17,6 @@ import (
 //
 // Resources should be named with their `full path`.The full path is the combination of the `partition + name` (example: `/Common/my-httpcompresprofile` ) or  `partition + directory + name` of the resource  (example: `/Common/test/my-httpcompresprofile`)
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ltm.NewProfileHttpCompress(ctx, "sjhttpcompression", &ltm.ProfileHttpCompressArgs{
-//				ContentTypeExcludes: pulumi.StringArray{
-//					pulumi.String("nicecontentexclude.com"),
-//				},
-//				ContentTypeIncludes: pulumi.StringArray{
-//					pulumi.String("nicecontent.com"),
-//				},
-//				DefaultsFrom: pulumi.String("/Common/httpcompression"),
-//				Name:         pulumi.String("/Common/sjhttpcompression2"),
-//				UriExcludes: pulumi.StringArray{
-//					pulumi.String("www.abc.f5.com"),
-//					pulumi.String("www.abc2.f5.com"),
-//				},
-//				UriIncludes: pulumi.StringArray{
-//					pulumi.String("www.xyzbc.cisco.com"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // BIG-IP LTM HTTP Compress profiles can be imported using the `name`, e.g.

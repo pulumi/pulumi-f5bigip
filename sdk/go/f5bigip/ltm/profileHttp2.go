@@ -16,51 +16,6 @@ import (
 // `ltm.ProfileHttp2` Configures a custom profileHttp2 for use by health checks.
 //
 // For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			nyhttp2, err := ltm.NewProfileHttp2(ctx, "nyhttp2", &ltm.ProfileHttp2Args{
-//				Name:                           pulumi.String("/Common/test-profile-http2"),
-//				FrameSize:                      pulumi.Int(2021),
-//				ReceiveWindow:                  pulumi.Int(31),
-//				WriteSize:                      pulumi.Int(16380),
-//				HeaderTableSize:                pulumi.Int(4092),
-//				IncludeContentLength:           pulumi.String("enabled"),
-//				EnforceTlsRequirements:         pulumi.String("enabled"),
-//				InsertHeader:                   pulumi.String("disabled"),
-//				ConcurrentStreamsPerConnection: pulumi.Int(30),
-//				ConnectionIdleTimeout:          pulumi.Int(100),
-//				ActivationModes: pulumi.StringArray{
-//					pulumi.String("always"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ltm.NewProfileHttp2(ctx, "nyhttp2-child", &ltm.ProfileHttp2Args{
-//				Name:         pulumi.String("/Common/test-profile-http2-child"),
-//				DefaultsFrom: nyhttp2.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 type ProfileHttp2 struct {
 	pulumi.CustomResourceState
 

@@ -32,7 +32,9 @@ class VlanInterface(dict):
              _setter: Callable[[Any, Any], None],
              tagged: Optional[bool] = None,
              vlanport: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if tagged is not None:
             _setter("tagged", tagged)
         if vlanport is not None:

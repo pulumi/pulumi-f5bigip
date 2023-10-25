@@ -88,8 +88,8 @@ class FastUdpAppArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             application: pulumi.Input[str],
-             tenant: pulumi.Input[str],
+             application: Optional[pulumi.Input[str]] = None,
+             tenant: Optional[pulumi.Input[str]] = None,
              enable_fastl4: Optional[pulumi.Input[bool]] = None,
              existing_monitor: Optional[pulumi.Input[str]] = None,
              existing_pool: Optional[pulumi.Input[str]] = None,
@@ -108,7 +108,45 @@ class FastUdpAppArgs:
              virtual_server: Optional[pulumi.Input['FastUdpAppVirtualServerArgs']] = None,
              vlans_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              vlans_rejecteds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if application is None:
+            raise TypeError("Missing 'application' argument")
+        if tenant is None:
+            raise TypeError("Missing 'tenant' argument")
+        if enable_fastl4 is None and 'enableFastl4' in kwargs:
+            enable_fastl4 = kwargs['enableFastl4']
+        if existing_monitor is None and 'existingMonitor' in kwargs:
+            existing_monitor = kwargs['existingMonitor']
+        if existing_pool is None and 'existingPool' in kwargs:
+            existing_pool = kwargs['existingPool']
+        if existing_profile is None and 'existingProfile' in kwargs:
+            existing_profile = kwargs['existingProfile']
+        if existing_snat_pool is None and 'existingSnatPool' in kwargs:
+            existing_snat_pool = kwargs['existingSnatPool']
+        if fallback_persistence is None and 'fallbackPersistence' in kwargs:
+            fallback_persistence = kwargs['fallbackPersistence']
+        if load_balancing_mode is None and 'loadBalancingMode' in kwargs:
+            load_balancing_mode = kwargs['loadBalancingMode']
+        if persistence_profile is None and 'persistenceProfile' in kwargs:
+            persistence_profile = kwargs['persistenceProfile']
+        if persistence_type is None and 'persistenceType' in kwargs:
+            persistence_type = kwargs['persistenceType']
+        if pool_members is None and 'poolMembers' in kwargs:
+            pool_members = kwargs['poolMembers']
+        if security_log_profiles is None and 'securityLogProfiles' in kwargs:
+            security_log_profiles = kwargs['securityLogProfiles']
+        if slow_ramp_time is None and 'slowRampTime' in kwargs:
+            slow_ramp_time = kwargs['slowRampTime']
+        if snat_pool_addresses is None and 'snatPoolAddresses' in kwargs:
+            snat_pool_addresses = kwargs['snatPoolAddresses']
+        if virtual_server is None and 'virtualServer' in kwargs:
+            virtual_server = kwargs['virtualServer']
+        if vlans_alloweds is None and 'vlansAlloweds' in kwargs:
+            vlans_alloweds = kwargs['vlansAlloweds']
+        if vlans_rejecteds is None and 'vlansRejecteds' in kwargs:
+            vlans_rejecteds = kwargs['vlansRejecteds']
+
         _setter("application", application)
         _setter("tenant", tenant)
         if enable_fastl4 is not None:
@@ -491,7 +529,43 @@ class _FastUdpAppState:
              virtual_server: Optional[pulumi.Input['FastUdpAppVirtualServerArgs']] = None,
              vlans_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
              vlans_rejecteds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enable_fastl4 is None and 'enableFastl4' in kwargs:
+            enable_fastl4 = kwargs['enableFastl4']
+        if existing_monitor is None and 'existingMonitor' in kwargs:
+            existing_monitor = kwargs['existingMonitor']
+        if existing_pool is None and 'existingPool' in kwargs:
+            existing_pool = kwargs['existingPool']
+        if existing_profile is None and 'existingProfile' in kwargs:
+            existing_profile = kwargs['existingProfile']
+        if existing_snat_pool is None and 'existingSnatPool' in kwargs:
+            existing_snat_pool = kwargs['existingSnatPool']
+        if fallback_persistence is None and 'fallbackPersistence' in kwargs:
+            fallback_persistence = kwargs['fallbackPersistence']
+        if fast_udp_json is None and 'fastUdpJson' in kwargs:
+            fast_udp_json = kwargs['fastUdpJson']
+        if load_balancing_mode is None and 'loadBalancingMode' in kwargs:
+            load_balancing_mode = kwargs['loadBalancingMode']
+        if persistence_profile is None and 'persistenceProfile' in kwargs:
+            persistence_profile = kwargs['persistenceProfile']
+        if persistence_type is None and 'persistenceType' in kwargs:
+            persistence_type = kwargs['persistenceType']
+        if pool_members is None and 'poolMembers' in kwargs:
+            pool_members = kwargs['poolMembers']
+        if security_log_profiles is None and 'securityLogProfiles' in kwargs:
+            security_log_profiles = kwargs['securityLogProfiles']
+        if slow_ramp_time is None and 'slowRampTime' in kwargs:
+            slow_ramp_time = kwargs['slowRampTime']
+        if snat_pool_addresses is None and 'snatPoolAddresses' in kwargs:
+            snat_pool_addresses = kwargs['snatPoolAddresses']
+        if virtual_server is None and 'virtualServer' in kwargs:
+            virtual_server = kwargs['virtualServer']
+        if vlans_alloweds is None and 'vlansAlloweds' in kwargs:
+            vlans_alloweds = kwargs['vlansAlloweds']
+        if vlans_rejecteds is None and 'vlansRejecteds' in kwargs:
+            vlans_rejecteds = kwargs['vlansRejecteds']
+
         if application is not None:
             _setter("application", application)
         if enable_fastl4 is not None:
@@ -820,31 +894,6 @@ class FastUdpApp(pulumi.CustomResource):
         """
         `FastUdpApp` This resource will create and manage FAST UDP applications on BIG-IP from provided JSON declaration.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        fast_udp_app = f5bigip.FastUdpApp("fast-udp-app",
-            application="udp_app_2",
-            pool_members=[f5bigip.FastUdpAppPoolMemberArgs(
-                addresses=[
-                    "10.11.34.65",
-                    "56.43.23.76",
-                ],
-                connection_limit=4,
-                port=443,
-                priority_group=1,
-                share_nodes=True,
-            )],
-            tenant="udp_app_tenant",
-            virtual_server=f5bigip.FastUdpAppVirtualServerArgs(
-                ip="11.12.16.30",
-                port=443,
-            ))
-        ```
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application: Name of the FAST UDP application.
@@ -879,31 +928,6 @@ class FastUdpApp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         `FastUdpApp` This resource will create and manage FAST UDP applications on BIG-IP from provided JSON declaration.
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        fast_udp_app = f5bigip.FastUdpApp("fast-udp-app",
-            application="udp_app_2",
-            pool_members=[f5bigip.FastUdpAppPoolMemberArgs(
-                addresses=[
-                    "10.11.34.65",
-                    "56.43.23.76",
-                ],
-                connection_limit=4,
-                port=443,
-                priority_group=1,
-                share_nodes=True,
-            )],
-            tenant="udp_app_tenant",
-            virtual_server=f5bigip.FastUdpAppVirtualServerArgs(
-                ip="11.12.16.30",
-                port=443,
-            ))
-        ```
 
         :param str resource_name: The name of the resource.
         :param FastUdpAppArgs args: The arguments to use to populate this resource's properties.
@@ -964,11 +988,7 @@ class FastUdpApp(pulumi.CustomResource):
             __props__.__dict__["fallback_persistence"] = fallback_persistence
             __props__.__dict__["irules"] = irules
             __props__.__dict__["load_balancing_mode"] = load_balancing_mode
-            if monitor is not None and not isinstance(monitor, FastUdpAppMonitorArgs):
-                monitor = monitor or {}
-                def _setter(key, value):
-                    monitor[key] = value
-                FastUdpAppMonitorArgs._configure(_setter, **monitor)
+            monitor = _utilities.configure(monitor, FastUdpAppMonitorArgs, True)
             __props__.__dict__["monitor"] = monitor
             __props__.__dict__["persistence_profile"] = persistence_profile
             __props__.__dict__["persistence_type"] = persistence_type
@@ -979,11 +999,7 @@ class FastUdpApp(pulumi.CustomResource):
             if tenant is None and not opts.urn:
                 raise TypeError("Missing required property 'tenant'")
             __props__.__dict__["tenant"] = tenant
-            if virtual_server is not None and not isinstance(virtual_server, FastUdpAppVirtualServerArgs):
-                virtual_server = virtual_server or {}
-                def _setter(key, value):
-                    virtual_server[key] = value
-                FastUdpAppVirtualServerArgs._configure(_setter, **virtual_server)
+            virtual_server = _utilities.configure(virtual_server, FastUdpAppVirtualServerArgs, True)
             __props__.__dict__["virtual_server"] = virtual_server
             __props__.__dict__["vlans_alloweds"] = vlans_alloweds
             __props__.__dict__["vlans_rejecteds"] = vlans_rejecteds

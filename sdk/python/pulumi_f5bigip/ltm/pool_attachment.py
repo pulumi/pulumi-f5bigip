@@ -53,8 +53,8 @@ class PoolAttachmentArgs:
     @staticmethod
     def _configure(
              _setter: Callable[[Any, Any], None],
-             node: pulumi.Input[str],
-             pool: pulumi.Input[str],
+             node: Optional[pulumi.Input[str]] = None,
+             pool: Optional[pulumi.Input[str]] = None,
              connection_limit: Optional[pulumi.Input[int]] = None,
              connection_rate_limit: Optional[pulumi.Input[str]] = None,
              dynamic_ratio: Optional[pulumi.Input[int]] = None,
@@ -63,7 +63,23 @@ class PoolAttachmentArgs:
              priority_group: Optional[pulumi.Input[int]] = None,
              ratio: Optional[pulumi.Input[int]] = None,
              state: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if node is None:
+            raise TypeError("Missing 'node' argument")
+        if pool is None:
+            raise TypeError("Missing 'pool' argument")
+        if connection_limit is None and 'connectionLimit' in kwargs:
+            connection_limit = kwargs['connectionLimit']
+        if connection_rate_limit is None and 'connectionRateLimit' in kwargs:
+            connection_rate_limit = kwargs['connectionRateLimit']
+        if dynamic_ratio is None and 'dynamicRatio' in kwargs:
+            dynamic_ratio = kwargs['dynamicRatio']
+        if fqdn_autopopulate is None and 'fqdnAutopopulate' in kwargs:
+            fqdn_autopopulate = kwargs['fqdnAutopopulate']
+        if priority_group is None and 'priorityGroup' in kwargs:
+            priority_group = kwargs['priorityGroup']
+
         _setter("node", node)
         _setter("pool", pool)
         if connection_limit is not None:
@@ -256,7 +272,19 @@ class _PoolAttachmentState:
              priority_group: Optional[pulumi.Input[int]] = None,
              ratio: Optional[pulumi.Input[int]] = None,
              state: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions]=None):
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if connection_limit is None and 'connectionLimit' in kwargs:
+            connection_limit = kwargs['connectionLimit']
+        if connection_rate_limit is None and 'connectionRateLimit' in kwargs:
+            connection_rate_limit = kwargs['connectionRateLimit']
+        if dynamic_ratio is None and 'dynamicRatio' in kwargs:
+            dynamic_ratio = kwargs['dynamicRatio']
+        if fqdn_autopopulate is None and 'fqdnAutopopulate' in kwargs:
+            fqdn_autopopulate = kwargs['fqdnAutopopulate']
+        if priority_group is None and 'priorityGroup' in kwargs:
+            priority_group = kwargs['priorityGroup']
+
         if connection_limit is not None:
             _setter("connection_limit", connection_limit)
         if connection_rate_limit is not None:
@@ -427,60 +455,6 @@ class PoolAttachment(pulumi.CustomResource):
 
         > For adding IPv6 node/member to pool it should be specific in `node` attribute in format like `ipv6_address.port`.
         IPv4 should be specified as `ipv4_address:port`
-        ### Usage Pool attachment with node/member directly attaching to pool.
-
-        node can be specified in format `ipv4:port` / `fqdn:port` / `ipv6.port`
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        monitor = f5bigip.ltm.Monitor("monitor",
-            name="/Common/terraform_monitor",
-            parent="/Common/http",
-            send="GET /some/path\\n",
-            timeout=999,
-            interval=998)
-        pool = f5bigip.ltm.Pool("pool",
-            name="/Common/terraform-pool",
-            load_balancing_mode="round-robin",
-            monitors=[monitor.name],
-            allow_snat="yes",
-            allow_nat="yes")
-        # attaching ipv4 address with service port
-        ipv4_node_attach = f5bigip.ltm.PoolAttachment("ipv4NodeAttach",
-            pool=pool.name,
-            node="1.1.1.1:80")
-        # attaching ipv6 address with service port
-        ipv6_node_attach = f5bigip.ltm.PoolAttachment("ipv6NodeAttach",
-            pool=pool.name,
-            node="2003::4.80")
-        ```
-        ### Usage Pool attachment with node referenced from `ltm.Node`
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        monitor = f5bigip.ltm.Monitor("monitor",
-            name="/Common/terraform_monitor",
-            parent="/Common/http",
-            send="GET /some/path\\n",
-            timeout=999,
-            interval=998)
-        pool = f5bigip.ltm.Pool("pool",
-            name="/Common/terraform-pool",
-            load_balancing_mode="round-robin",
-            monitors=[monitor.name],
-            allow_snat="yes",
-            allow_nat="yes")
-        node = f5bigip.ltm.Node("node",
-            name="/Common/terraform_node",
-            address="192.168.30.2")
-        attach_node = f5bigip.ltm.PoolAttachment("attachNode",
-            pool=pool.name,
-            node=node.name.apply(lambda name: f"{name}:80"))
-        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -513,60 +487,6 @@ class PoolAttachment(pulumi.CustomResource):
 
         > For adding IPv6 node/member to pool it should be specific in `node` attribute in format like `ipv6_address.port`.
         IPv4 should be specified as `ipv4_address:port`
-        ### Usage Pool attachment with node/member directly attaching to pool.
-
-        node can be specified in format `ipv4:port` / `fqdn:port` / `ipv6.port`
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        monitor = f5bigip.ltm.Monitor("monitor",
-            name="/Common/terraform_monitor",
-            parent="/Common/http",
-            send="GET /some/path\\n",
-            timeout=999,
-            interval=998)
-        pool = f5bigip.ltm.Pool("pool",
-            name="/Common/terraform-pool",
-            load_balancing_mode="round-robin",
-            monitors=[monitor.name],
-            allow_snat="yes",
-            allow_nat="yes")
-        # attaching ipv4 address with service port
-        ipv4_node_attach = f5bigip.ltm.PoolAttachment("ipv4NodeAttach",
-            pool=pool.name,
-            node="1.1.1.1:80")
-        # attaching ipv6 address with service port
-        ipv6_node_attach = f5bigip.ltm.PoolAttachment("ipv6NodeAttach",
-            pool=pool.name,
-            node="2003::4.80")
-        ```
-        ### Usage Pool attachment with node referenced from `ltm.Node`
-
-        ```python
-        import pulumi
-        import pulumi_f5bigip as f5bigip
-
-        monitor = f5bigip.ltm.Monitor("monitor",
-            name="/Common/terraform_monitor",
-            parent="/Common/http",
-            send="GET /some/path\\n",
-            timeout=999,
-            interval=998)
-        pool = f5bigip.ltm.Pool("pool",
-            name="/Common/terraform-pool",
-            load_balancing_mode="round-robin",
-            monitors=[monitor.name],
-            allow_snat="yes",
-            allow_nat="yes")
-        node = f5bigip.ltm.Node("node",
-            name="/Common/terraform_node",
-            address="192.168.30.2")
-        attach_node = f5bigip.ltm.PoolAttachment("attachNode",
-            pool=pool.name,
-            node=node.name.apply(lambda name: f"{name}:80"))
-        ```
 
         :param str resource_name: The name of the resource.
         :param PoolAttachmentArgs args: The arguments to use to populate this resource's properties.

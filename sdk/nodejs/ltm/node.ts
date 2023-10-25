@@ -11,27 +11,6 @@ import * as utilities from "../utilities";
  *
  * For resources should be named with their `full path`.The full path is the combination of the `partition + name` of the resource( example: `/Common/my-node` ) or `partition + Direcroty + name` of the resource ( example: `/Common/test/my-node` ).
  * When including directory in `full path` we have to make sure it is created in the given partition before using it.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as f5bigip from "@pulumi/f5bigip";
- *
- * const node = new f5bigip.ltm.Node("node", {
- *     address: "192.168.30.1",
- *     connectionLimit: 0,
- *     description: "Test-Node",
- *     dynamicRatio: 1,
- *     fqdn: {
- *         addressFamily: "ipv4",
- *         interval: "3000",
- *     },
- *     monitor: "/Common/icmp",
- *     name: "/Common/terraform_node1",
- *     rateLimit: "disabled",
- * });
- * ```
  */
 export class Node extends pulumi.CustomResource {
     /**
