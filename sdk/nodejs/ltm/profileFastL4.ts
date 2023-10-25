@@ -9,6 +9,25 @@ import * as utilities from "../utilities";
  *
  * Resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource (For example `/Common/my-fastl4profile`) or  `partition + directory + name` of the resource  (example: `/Common/test/my-fastl4profile`)
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const profileFastl4 = new f5bigip.ltm.ProfileFastL4("profileFastl4", {
+ *     clientTimeout: 40,
+ *     defaultsFrom: "/Common/fastL4",
+ *     explicitflowMigration: "enabled",
+ *     hardwareSyncookie: "enabled",
+ *     idleTimeout: "200",
+ *     iptosToclient: "pass-through",
+ *     iptosToserver: "pass-through",
+ *     keepaliveInterval: "disabled",
+ *     name: "/Common/sjfastl4profile",
+ * });
+ * ```
+ *
  * ## Import
  *
  * BIG-IP LTM fastl4 profiles can be imported using the `name`, e.g.

@@ -7,6 +7,18 @@ import * as utilities from "../utilities";
 /**
  * Use this data source (`f5bigip.ssl.getVWanConfig`) to get the vWAN site config from Azure VWAN Site
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const vwanconfig = f5bigip.ssl.getVWanConfig({
+ *     azureVwanName: "azurevwan-bigip-vwan-9c8d",
+ *     azureVwanResourcegroup: "azurevwan-bigip-rg-9c8d",
+ *     azureVwanVpnsite: "azurevwan-bigip-vsite-9c8d",
+ * });
+ * ```
  * ## Pre-required Environment Settings:
  *
  * * `AZURE_CLIENT_ID` - (Required) Set this environment variable with the Azure app client ID to use.
@@ -84,6 +96,18 @@ export interface GetVWanConfigResult {
 /**
  * Use this data source (`f5bigip.ssl.getVWanConfig`) to get the vWAN site config from Azure VWAN Site
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const vwanconfig = f5bigip.ssl.getVWanConfig({
+ *     azureVwanName: "azurevwan-bigip-vwan-9c8d",
+ *     azureVwanResourcegroup: "azurevwan-bigip-rg-9c8d",
+ *     azureVwanVpnsite: "azurevwan-bigip-vsite-9c8d",
+ * });
+ * ```
  * ## Pre-required Environment Settings:
  *
  * * `AZURE_CLIENT_ID` - (Required) Set this environment variable with the Azure app client ID to use.

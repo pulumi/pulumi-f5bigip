@@ -180,6 +180,16 @@ def get_consul_service_discovery(address_realm: Optional[str] = None,
     """
     Use this data source (`fast_get_consul_service_discovery`) to get the Consul Service discovery config to be used for `http`/`https` app deployment in FAST.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_f5bigip as f5bigip
+
+    t_c2 = f5bigip.fast.get_consul_service_discovery(port=8080,
+        uri="https://192.0.2.100:8500/v1/catalog/nodes")
+    ```
+
 
     :param str address_realm: Specifies whether to look for public or private IP addresses,default `private`.
     :param bool credential_update: Specifies whether you are updating your credentials,default `false`.
@@ -242,6 +252,16 @@ def get_consul_service_discovery_output(address_realm: Optional[pulumi.Input[Opt
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConsulServiceDiscoveryResult]:
     """
     Use this data source (`fast_get_consul_service_discovery`) to get the Consul Service discovery config to be used for `http`/`https` app deployment in FAST.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_f5bigip as f5bigip
+
+    t_c2 = f5bigip.fast.get_consul_service_discovery(port=8080,
+        uri="https://192.0.2.100:8500/v1/catalog/nodes")
+    ```
 
 
     :param str address_realm: Specifies whether to look for public or private IP addresses,default `private`.

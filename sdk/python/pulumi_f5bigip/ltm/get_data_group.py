@@ -96,6 +96,16 @@ def get_data_group(name: Optional[str] = None,
     """
     Use this data source (`ltm.DataGroup`) to get the data group details available on BIG-IP
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_f5bigip as f5bigip
+
+    d_g__tc3 = f5bigip.ltm.get_data_group(name="test-dg",
+        partition="Common")
+    ```
+
 
     :param str name: Name of the datagroup
     :param str partition: partition of the datagroup
@@ -126,6 +136,16 @@ def get_data_group_output(name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataGroupResult]:
     """
     Use this data source (`ltm.DataGroup`) to get the data group details available on BIG-IP
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_f5bigip as f5bigip
+
+    d_g__tc3 = f5bigip.ltm.get_data_group(name="test-dg",
+        partition="Common")
+    ```
 
 
     :param str name: Name of the datagroup

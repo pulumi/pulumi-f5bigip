@@ -11,6 +11,29 @@ namespace Pulumi.F5BigIP.Sys
 {
     /// <summary>
     /// `f5bigip.sys.Ntp` resource is helpful when configuring NTP server on the BIG-IP.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ntp1 = new F5BigIP.Sys.Ntp("ntp1", new()
+    ///     {
+    ///         Description = "/Common/NTP1",
+    ///         Servers = new[]
+    ///         {
+    ///             "time.facebook.com",
+    ///         },
+    ///         Timezone = "America/Los_Angeles",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:sys/ntp:Ntp")]
     public partial class Ntp : global::Pulumi.CustomResource

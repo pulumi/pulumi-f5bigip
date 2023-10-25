@@ -12,6 +12,34 @@ namespace Pulumi.F5BigIP.Ltm
     /// <summary>
     /// Configures a source address persistence profile
     /// 
+    /// ## Example
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var srcaddr = new F5BigIP.Ltm.PersistenceProfileSrcAddr("srcaddr", new()
+    ///     {
+    ///         DefaultsFrom = "/Common/source_addr",
+    ///         HashAlgorithm = "carp",
+    ///         MapProxies = "enabled",
+    ///         Mask = "255.255.255.255",
+    ///         MatchAcrossPools = "enabled",
+    ///         MatchAcrossServices = "enabled",
+    ///         MatchAcrossVirtuals = "enabled",
+    ///         Mirror = "enabled",
+    ///         Name = "/Common/terraform_srcaddr",
+    ///         OverrideConnLimit = "enabled",
+    ///         Timeout = 3600,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Reference
     /// 
     /// `name` - (Required) Name of the virtual address

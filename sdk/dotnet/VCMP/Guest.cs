@@ -13,6 +13,32 @@ namespace Pulumi.F5BigIP.VCMP
     /// `f5bigip.vcmp.Guest` Manages a vCMP guest configuration
     /// 
     /// Resource does not wait for vCMP guest to reach the desired state, it only ensures that a desired configuration is set on the target device.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var vcmp_test = new F5BigIP.VCMP.Guest("vcmp-test", new()
+    ///     {
+    ///         CoresPerSlot = 2,
+    ///         InitialImage = "12.1.2.iso",
+    ///         MgmtAddress = "10.1.1.1/24",
+    ///         MgmtNetwork = "bridged",
+    ///         MgmtRoute = "none",
+    ///         MinNumberOfSlots = 1,
+    ///         Name = "tf_guest",
+    ///         NumberOfSlots = 1,
+    ///         State = "provisioned",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:vcmp/guest:Guest")]
     public partial class Guest : global::Pulumi.CustomResource

@@ -12,6 +12,31 @@ namespace Pulumi.F5BigIP.Ltm
     /// <summary>
     /// Configures an SSL persistence profile
     /// 
+    /// ## Example
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ppssl = new F5BigIP.Ltm.PersistenceProfileSsl("ppssl", new()
+    ///     {
+    ///         DefaultsFrom = "/Common/ssl",
+    ///         MatchAcrossPools = "enabled",
+    ///         MatchAcrossServices = "enabled",
+    ///         MatchAcrossVirtuals = "enabled",
+    ///         Mirror = "enabled",
+    ///         Name = "/Common/terraform_ssl",
+    ///         OverrideConnLimit = "enabled",
+    ///         Timeout = 3600,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Reference
     /// 
     /// `name` - (Required) Name of the virtual address

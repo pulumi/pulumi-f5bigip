@@ -11,6 +11,28 @@ namespace Pulumi.F5BigIP.Sys
 {
     /// <summary>
     /// `f5bigip.sys.Snmp` provides details bout how to enable "ilx", "asm" "apm" resource on BIG-IP
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var snmp = new F5BigIP.Sys.Snmp("snmp", new()
+    ///     {
+    ///         Allowedaddresses = new[]
+    ///         {
+    ///             "202.10.10.2",
+    ///         },
+    ///         SysContact = " NetOPsAdmin s.shitole@f5.com",
+    ///         SysLocation = "SeattleHQ",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:sys/snmp:Snmp")]
     public partial class Snmp : global::Pulumi.CustomResource

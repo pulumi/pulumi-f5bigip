@@ -14,6 +14,36 @@ import (
 )
 
 // `sys.Provision` Manage BIG-IP module provisioning. This resource will only provision at the standard levels of Dedicated, Nominal, and Minimum.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/sys"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sys.NewProvision(ctx, "gtm", &sys.ProvisionArgs{
+//				CpuRatio:    pulumi.Int(0),
+//				DiskRatio:   pulumi.Int(0),
+//				Level:       pulumi.String("nominal"),
+//				MemoryRatio: pulumi.Int(0),
+//				Name:        pulumi.String("gtm"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type Provision struct {
 	pulumi.CustomResourceState
 

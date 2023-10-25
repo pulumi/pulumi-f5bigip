@@ -491,6 +491,25 @@ class PersistenceProfileDstAddr(pulumi.CustomResource):
         """
         Configures a cookie persistence profile
 
+        ## Example
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        dstaddr = f5bigip.ltm.PersistenceProfileDstAddr("dstaddr",
+            defaults_from="/Common/dest_addr",
+            hash_algorithm="carp",
+            mask="255.255.255.255",
+            match_across_pools="enabled",
+            match_across_services="enabled",
+            match_across_virtuals="enabled",
+            mirror="enabled",
+            name="/Common/terraform_ppdstaddr",
+            override_conn_limit="enabled",
+            timeout=3600)
+        ```
+
         ## Reference
 
         `name` - (Required) Name of the virtual address
@@ -532,6 +551,25 @@ class PersistenceProfileDstAddr(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Configures a cookie persistence profile
+
+        ## Example
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        dstaddr = f5bigip.ltm.PersistenceProfileDstAddr("dstaddr",
+            defaults_from="/Common/dest_addr",
+            hash_algorithm="carp",
+            mask="255.255.255.255",
+            match_across_pools="enabled",
+            match_across_services="enabled",
+            match_across_virtuals="enabled",
+            mirror="enabled",
+            name="/Common/terraform_ppdstaddr",
+            override_conn_limit="enabled",
+            timeout=3600)
+        ```
 
         ## Reference
 

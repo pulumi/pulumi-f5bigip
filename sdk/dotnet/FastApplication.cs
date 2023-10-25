@@ -11,6 +11,26 @@ namespace Pulumi.F5BigIP
 {
     /// <summary>
     /// `f5bigip.FastApplication` This resource will create and manage FAST applications on BIG-IP from provided JSON declaration.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.IO;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var foo_app = new F5BigIP.FastApplication("foo-app", new()
+    ///     {
+    ///         FastJson = File.ReadAllText("new_fast_app.json"),
+    ///         Template = "examples/simple_http",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:index/fastApplication:FastApplication")]
     public partial class FastApplication : global::Pulumi.CustomResource

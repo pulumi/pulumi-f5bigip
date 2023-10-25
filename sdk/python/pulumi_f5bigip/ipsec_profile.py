@@ -211,6 +211,18 @@ class IpsecProfile(pulumi.CustomResource):
         """
         `IpsecProfile` Manage IPSec Profiles on a BIG-IP
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        azurev_wan_profile = f5bigip.IpsecProfile("azurevWANProfile",
+            description="mytestipsecprofile",
+            name="/Common/Mytestipsecprofile",
+            traffic_selector="test-trafficselector")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Specifies descriptive text that identifies the IPsec interface tunnel profile.
@@ -226,6 +238,18 @@ class IpsecProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         `IpsecProfile` Manage IPSec Profiles on a BIG-IP
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        azurev_wan_profile = f5bigip.IpsecProfile("azurevWANProfile",
+            description="mytestipsecprofile",
+            name="/Common/Mytestipsecprofile",
+            traffic_selector="test-trafficselector")
+        ```
 
         :param str resource_name: The name of the resource.
         :param IpsecProfileArgs args: The arguments to use to populate this resource's properties.

@@ -740,6 +740,54 @@ class FastHttpApp(pulumi.CustomResource):
 
         [FAST documentation](https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/)
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        fast_http_app = f5bigip.FastHttpApp("fastHttpApp",
+            application="fasthttpapp",
+            tenant="fasthttptenant",
+            virtual_server=f5bigip.FastHttpAppVirtualServerArgs(
+                ip="10.30.30.44",
+                port=443,
+            ))
+        ```
+        ### With Service Discovery
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        t_c3_azure_service_discovery = f5bigip.fast.get_azure_service_discovery(resource_group="testazurerg",
+            subscription_id="testazuresid",
+            tag_key="testazuretag",
+            tag_value="testazurevalue")
+        t_c3_gce_service_discovery = f5bigip.fast.get_gce_service_discovery(tag_key="testgcetag",
+            tag_value="testgcevalue",
+            region="testgceregion")
+        fast_https_app = f5bigip.FastHttpApp("fastHttpsApp",
+            tenant="fasthttptenant",
+            application="fasthttpapp",
+            virtual_server=f5bigip.FastHttpAppVirtualServerArgs(
+                ip="10.30.40.44",
+                port=443,
+            ),
+            pool_members=[f5bigip.FastHttpAppPoolMemberArgs(
+                addresses=[
+                    "10.11.40.120",
+                    "10.11.30.121",
+                    "10.11.30.122",
+                ],
+                port=80,
+            )],
+            service_discoveries=[
+                t_c3_gce_service_discovery.gce_sd_json,
+                t_c3_azure_service_discovery.azure_sd_json,
+            ])
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application: Name of the FAST HTTPS application.
@@ -773,6 +821,54 @@ class FastHttpApp(pulumi.CustomResource):
         `FastHttpApp` This resource will create and manage FAST HTTP applications on BIG-IP
 
         [FAST documentation](https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/)
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        fast_http_app = f5bigip.FastHttpApp("fastHttpApp",
+            application="fasthttpapp",
+            tenant="fasthttptenant",
+            virtual_server=f5bigip.FastHttpAppVirtualServerArgs(
+                ip="10.30.30.44",
+                port=443,
+            ))
+        ```
+        ### With Service Discovery
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        t_c3_azure_service_discovery = f5bigip.fast.get_azure_service_discovery(resource_group="testazurerg",
+            subscription_id="testazuresid",
+            tag_key="testazuretag",
+            tag_value="testazurevalue")
+        t_c3_gce_service_discovery = f5bigip.fast.get_gce_service_discovery(tag_key="testgcetag",
+            tag_value="testgcevalue",
+            region="testgceregion")
+        fast_https_app = f5bigip.FastHttpApp("fastHttpsApp",
+            tenant="fasthttptenant",
+            application="fasthttpapp",
+            virtual_server=f5bigip.FastHttpAppVirtualServerArgs(
+                ip="10.30.40.44",
+                port=443,
+            ),
+            pool_members=[f5bigip.FastHttpAppPoolMemberArgs(
+                addresses=[
+                    "10.11.40.120",
+                    "10.11.30.121",
+                    "10.11.30.122",
+                ],
+                port=80,
+            )],
+            service_discoveries=[
+                t_c3_gce_service_discovery.gce_sd_json,
+                t_c3_azure_service_discovery.azure_sd_json,
+            ])
+        ```
 
         :param str resource_name: The name of the resource.
         :param FastHttpAppArgs args: The arguments to use to populate this resource's properties.

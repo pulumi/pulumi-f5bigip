@@ -532,6 +532,26 @@ class PersistenceProfileSrcAddr(pulumi.CustomResource):
         """
         Configures a source address persistence profile
 
+        ## Example
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        srcaddr = f5bigip.ltm.PersistenceProfileSrcAddr("srcaddr",
+            defaults_from="/Common/source_addr",
+            hash_algorithm="carp",
+            map_proxies="enabled",
+            mask="255.255.255.255",
+            match_across_pools="enabled",
+            match_across_services="enabled",
+            match_across_virtuals="enabled",
+            mirror="enabled",
+            name="/Common/terraform_srcaddr",
+            override_conn_limit="enabled",
+            timeout=3600)
+        ```
+
         ## Reference
 
         `name` - (Required) Name of the virtual address
@@ -580,6 +600,26 @@ class PersistenceProfileSrcAddr(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Configures a source address persistence profile
+
+        ## Example
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        srcaddr = f5bigip.ltm.PersistenceProfileSrcAddr("srcaddr",
+            defaults_from="/Common/source_addr",
+            hash_algorithm="carp",
+            map_proxies="enabled",
+            mask="255.255.255.255",
+            match_across_pools="enabled",
+            match_across_services="enabled",
+            match_across_virtuals="enabled",
+            mirror="enabled",
+            name="/Common/terraform_srcaddr",
+            override_conn_limit="enabled",
+            timeout=3600)
+        ```
 
         ## Reference
 

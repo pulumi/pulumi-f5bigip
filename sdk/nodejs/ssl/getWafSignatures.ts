@@ -6,6 +6,17 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source (`f5bigip.ssl.getWafSignatures`) to get the details of attack signatures available on BIG-IP WAF
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const wAFSIG1 = f5bigip.ssl.getWafSignatures({
+ *     signatureId: 200104004,
+ * });
+ * ```
  */
 export function getWafSignatures(args: GetWafSignaturesArgs, opts?: pulumi.InvokeOptions): Promise<GetWafSignaturesResult> {
 
@@ -104,6 +115,17 @@ export interface GetWafSignaturesResult {
 }
 /**
  * Use this data source (`f5bigip.ssl.getWafSignatures`) to get the details of attack signatures available on BIG-IP WAF
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const wAFSIG1 = f5bigip.ssl.getWafSignatures({
+ *     signatureId: 200104004,
+ * });
+ * ```
  */
 export function getWafSignaturesOutput(args: GetWafSignaturesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWafSignaturesResult> {
     return pulumi.output(args).apply((a: any) => getWafSignatures(a, opts))

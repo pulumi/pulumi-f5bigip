@@ -8,6 +8,32 @@ import * as utilities from "./utilities";
 
 /**
  * `f5bigip.FastTcpApp` This resource will create and manage FAST TCP applications on BIG-IP from provided JSON declaration.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const fast_tcp_app = new f5bigip.FastTcpApp("fast-tcp-app", {
+ *     application: "tcp_app_2",
+ *     poolMembers: [{
+ *         addresses: [
+ *             "10.11.34.65",
+ *             "56.43.23.76",
+ *         ],
+ *         connectionLimit: 4,
+ *         port: 443,
+ *         priorityGroup: 1,
+ *         shareNodes: true,
+ *     }],
+ *     tenant: "tcp_app_tenant",
+ *     virtualServer: {
+ *         ip: "11.12.16.30",
+ *         port: 443,
+ *     },
+ * });
+ * ```
  */
 export class FastTcpApp extends pulumi.CustomResource {
     /**

@@ -13,6 +13,34 @@ import (
 )
 
 // Use this data source (`ssl.Certificate`) to get the ssl-certificate details available on BIG-IP
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ssl"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			test, err := ssl.LookupCertificate(ctx, &ssl.LookupCertificateArgs{
+//				Name:      "terraform_ssl_certificate",
+//				Partition: "Common",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("bigipSslCertificateName", test.Name)
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ...pulumi.InvokeOption) (*LookupCertificateResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCertificateResult

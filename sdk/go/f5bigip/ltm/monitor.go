@@ -16,6 +16,73 @@ import (
 // `ltm.Monitor` Configures a custom monitor for use by health checks.
 //
 // For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource. For example `/Common/test-monitor`.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ltm.NewMonitor(ctx, "monitor", &ltm.MonitorArgs{
+//				Destination: pulumi.String("1.2.3.4:1234"),
+//				Interval:    pulumi.Int(998),
+//				Name:        pulumi.String("/Common/terraform_monitor"),
+//				Parent:      pulumi.String("/Common/http"),
+//				Send:        pulumi.String("GET /some/path\n\n"),
+//				Timeout:     pulumi.Int(999),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ltm.NewMonitor(ctx, "test-https-monitor", &ltm.MonitorArgs{
+//				Interval:   pulumi.Int(999),
+//				Name:       pulumi.String("/Common/terraform_monitor"),
+//				Parent:     pulumi.String("/Common/http"),
+//				Send:       pulumi.String("GET /some/path\n\n"),
+//				SslProfile: pulumi.String("/Common/serverssl"),
+//				Timeout:    pulumi.Int(1000),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ltm.NewMonitor(ctx, "test-ftp-monitor", &ltm.MonitorArgs{
+//				Destination: pulumi.String("*:8008"),
+//				Filename:    pulumi.String("somefile"),
+//				Interval:    pulumi.Int(5),
+//				Name:        pulumi.String("/Common/ftp-test"),
+//				Parent:      pulumi.String("/Common/ftp"),
+//				TimeUntilUp: pulumi.Int(0),
+//				Timeout:     pulumi.Int(16),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ltm.NewMonitor(ctx, "test-postgresql-monitor", &ltm.MonitorArgs{
+//				Interval: pulumi.Int(5),
+//				Name:     pulumi.String("/Common/test-postgresql-monitor"),
+//				Parent:   pulumi.String("/Common/postgresql"),
+//				Password: pulumi.String("abcd1234"),
+//				Receive:  pulumi.String("Test"),
+//				Send:     pulumi.String("SELECT 'Test';"),
+//				Timeout:  pulumi.Int(16),
+//				Username: pulumi.String("abcd"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type Monitor struct {
 	pulumi.CustomResourceState
 

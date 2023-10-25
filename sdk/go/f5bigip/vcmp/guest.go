@@ -16,6 +16,40 @@ import (
 // `vcmp.Guest` Manages a vCMP guest configuration
 //
 // Resource does not wait for vCMP guest to reach the desired state, it only ensures that a desired configuration is set on the target device.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/vcmp"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := vcmp.NewGuest(ctx, "vcmp-test", &vcmp.GuestArgs{
+//				CoresPerSlot:     pulumi.Int(2),
+//				InitialImage:     pulumi.String("12.1.2.iso"),
+//				MgmtAddress:      pulumi.String("10.1.1.1/24"),
+//				MgmtNetwork:      pulumi.String("bridged"),
+//				MgmtRoute:        pulumi.String("none"),
+//				MinNumberOfSlots: pulumi.Int(1),
+//				Name:             pulumi.String("tf_guest"),
+//				NumberOfSlots:    pulumi.Int(1),
+//				State:            pulumi.String("provisioned"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type Guest struct {
 	pulumi.CustomResourceState
 

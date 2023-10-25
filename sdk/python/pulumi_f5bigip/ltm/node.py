@@ -480,6 +480,26 @@ class Node(pulumi.CustomResource):
         For resources should be named with their `full path`.The full path is the combination of the `partition + name` of the resource( example: `/Common/my-node` ) or `partition + Direcroty + name` of the resource ( example: `/Common/test/my-node` ).
         When including directory in `full path` we have to make sure it is created in the given partition before using it.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        node = f5bigip.ltm.Node("node",
+            address="192.168.30.1",
+            connection_limit=0,
+            description="Test-Node",
+            dynamic_ratio=1,
+            fqdn=f5bigip.ltm.NodeFqdnArgs(
+                address_family="ipv4",
+                interval="3000",
+            ),
+            monitor="/Common/icmp",
+            name="/Common/terraform_node1",
+            rate_limit="disabled")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address: IP or hostname of the node
@@ -506,6 +526,26 @@ class Node(pulumi.CustomResource):
 
         For resources should be named with their `full path`.The full path is the combination of the `partition + name` of the resource( example: `/Common/my-node` ) or `partition + Direcroty + name` of the resource ( example: `/Common/test/my-node` ).
         When including directory in `full path` we have to make sure it is created in the given partition before using it.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        node = f5bigip.ltm.Node("node",
+            address="192.168.30.1",
+            connection_limit=0,
+            description="Test-Node",
+            dynamic_ratio=1,
+            fqdn=f5bigip.ltm.NodeFqdnArgs(
+                address_family="ipv4",
+                interval="3000",
+            ),
+            monitor="/Common/icmp",
+            name="/Common/terraform_node1",
+            rate_limit="disabled")
+        ```
 
         :param str resource_name: The name of the resource.
         :param NodeArgs args: The arguments to use to populate this resource's properties.

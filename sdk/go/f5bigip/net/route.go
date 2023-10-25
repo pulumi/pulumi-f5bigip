@@ -16,6 +16,34 @@ import (
 // `net.Route` Manages a route configuration
 //
 // For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/net"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := net.NewRoute(ctx, "route2", &net.RouteArgs{
+//				Gw:      pulumi.String("1.1.1.2"),
+//				Name:    pulumi.String("/Common/external-route"),
+//				Network: pulumi.String("10.10.10.0/24"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type Route struct {
 	pulumi.CustomResourceState
 

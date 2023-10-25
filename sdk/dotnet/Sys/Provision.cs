@@ -11,6 +11,28 @@ namespace Pulumi.F5BigIP.Sys
 {
     /// <summary>
     /// `f5bigip.sys.Provision` Manage BIG-IP module provisioning. This resource will only provision at the standard levels of Dedicated, Nominal, and Minimum.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var gtm = new F5BigIP.Sys.Provision("gtm", new()
+    ///     {
+    ///         CpuRatio = 0,
+    ///         DiskRatio = 0,
+    ///         Level = "nominal",
+    ///         MemoryRatio = 0,
+    ///         Name = "gtm",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:sys/provision:Provision")]
     public partial class Provision : global::Pulumi.CustomResource

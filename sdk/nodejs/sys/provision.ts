@@ -6,6 +6,21 @@ import * as utilities from "../utilities";
 
 /**
  * `f5bigip.sys.Provision` Manage BIG-IP module provisioning. This resource will only provision at the standard levels of Dedicated, Nominal, and Minimum.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const gtm = new f5bigip.sys.Provision("gtm", {
+ *     cpuRatio: 0,
+ *     diskRatio: 0,
+ *     level: "nominal",
+ *     memoryRatio: 0,
+ *     name: "gtm",
+ * });
+ * ```
  */
 export class Provision extends pulumi.CustomResource {
     /**

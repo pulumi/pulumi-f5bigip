@@ -16,6 +16,34 @@ import (
 // `TrafficSelector` Manage IPSec Traffic Selectors on BIG-IP
 //
 // Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/test-selector)
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := f5bigip.NewTrafficSelector(ctx, "test-selector", &f5bigip.TrafficSelectorArgs{
+//				DestinationAddress: pulumi.String("3.10.11.2/32"),
+//				Name:               pulumi.String("/Common/test-selector"),
+//				SourceAddress:      pulumi.String("2.10.11.12/32"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type TrafficSelector struct {
 	pulumi.CustomResourceState
 

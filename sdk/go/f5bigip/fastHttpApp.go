@@ -16,6 +16,99 @@ import (
 // `FastHttpApp` This resource will create and manage FAST HTTP applications on BIG-IP
 //
 // [FAST documentation](https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/)
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := f5bigip.NewFastHttpApp(ctx, "fastHttpApp", &f5bigip.FastHttpAppArgs{
+//				Application: pulumi.String("fasthttpapp"),
+//				Tenant:      pulumi.String("fasthttptenant"),
+//				VirtualServer: &f5bigip.FastHttpAppVirtualServerArgs{
+//					Ip:   pulumi.String("10.30.30.44"),
+//					Port: pulumi.Int(443),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### With Service Discovery
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/fast"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			tC3AzureServiceDiscovery, err := fast.GetAzureServiceDiscovery(ctx, &fast.GetAzureServiceDiscoveryArgs{
+//				ResourceGroup:  "testazurerg",
+//				SubscriptionId: "testazuresid",
+//				TagKey:         pulumi.StringRef("testazuretag"),
+//				TagValue:       pulumi.StringRef("testazurevalue"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			tC3GceServiceDiscovery, err := fast.GetGceServiceDiscovery(ctx, &fast.GetGceServiceDiscoveryArgs{
+//				TagKey:   "testgcetag",
+//				TagValue: "testgcevalue",
+//				Region:   "testgceregion",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = f5bigip.NewFastHttpApp(ctx, "fastHttpsApp", &f5bigip.FastHttpAppArgs{
+//				Tenant:      pulumi.String("fasthttptenant"),
+//				Application: pulumi.String("fasthttpapp"),
+//				VirtualServer: &f5bigip.FastHttpAppVirtualServerArgs{
+//					Ip:   pulumi.String("10.30.40.44"),
+//					Port: pulumi.Int(443),
+//				},
+//				PoolMembers: f5bigip.FastHttpAppPoolMemberArray{
+//					&f5bigip.FastHttpAppPoolMemberArgs{
+//						Addresses: pulumi.StringArray{
+//							pulumi.String("10.11.40.120"),
+//							pulumi.String("10.11.30.121"),
+//							pulumi.String("10.11.30.122"),
+//						},
+//						Port: pulumi.Int(80),
+//					},
+//				},
+//				ServiceDiscoveries: pulumi.StringArray{
+//					*pulumi.String(tC3GceServiceDiscovery.GceSdJson),
+//					*pulumi.String(tC3AzureServiceDiscovery.AzureSdJson),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type FastHttpApp struct {
 	pulumi.CustomResourceState
 

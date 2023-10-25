@@ -14,6 +14,24 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test_oneconnect = new F5BigIP.Ltm.ProfileOneConnect("test-oneconnect", new()
+    ///     {
+    ///         Name = "/Common/test-oneconnect",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// BIG-IP LTM oneconnect profiles can be imported using the `name` , e.g.

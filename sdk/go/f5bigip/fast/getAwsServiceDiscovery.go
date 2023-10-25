@@ -13,6 +13,33 @@ import (
 )
 
 // Use this data source (`fast.getAwsServiceDiscovery`) to get the AWS Service discovery config to be used for `http`/`https` app deployment in FAST.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/fast"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := fast.GetAwsServiceDiscovery(ctx, &fast.GetAwsServiceDiscoveryArgs{
+//				TagKey:   "testawstagkey",
+//				TagValue: "testawstagvalue",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetAwsServiceDiscovery(ctx *pulumi.Context, args *GetAwsServiceDiscoveryArgs, opts ...pulumi.InvokeOption) (*GetAwsServiceDiscoveryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAwsServiceDiscoveryResult

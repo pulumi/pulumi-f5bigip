@@ -71,6 +71,15 @@ def get_waf_policy(policy_id: Optional[str] = None,
     """
     Use this data source (`WafPolicy`) to get the details of exist WAF policy BIG-IP.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_f5bigip as f5bigip
+
+    existpolicy = f5bigip.ssl.get_waf_policy(policy_id="xxxxx")
+    ```
+
 
     :param str policy_id: ID of the WAF policy deployed in the BIG-IP.
     :param str policy_json: Exported WAF policy JSON
@@ -93,6 +102,15 @@ def get_waf_policy_output(policy_id: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWafPolicyResult]:
     """
     Use this data source (`WafPolicy`) to get the details of exist WAF policy BIG-IP.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_f5bigip as f5bigip
+
+    existpolicy = f5bigip.ssl.get_waf_policy(policy_id="xxxxx")
+    ```
 
 
     :param str policy_id: ID of the WAF policy deployed in the BIG-IP.

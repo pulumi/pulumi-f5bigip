@@ -586,6 +586,24 @@ class ProfileHttpCompress(pulumi.CustomResource):
 
         Resources should be named with their `full path`.The full path is the combination of the `partition + name` (example: `/Common/my-httpcompresprofile` ) or  `partition + directory + name` of the resource  (example: `/Common/test/my-httpcompresprofile`)
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        sjhttpcompression = f5bigip.ltm.ProfileHttpCompress("sjhttpcompression",
+            content_type_excludes=["nicecontentexclude.com"],
+            content_type_includes=["nicecontent.com"],
+            defaults_from="/Common/httpcompression",
+            name="/Common/sjhttpcompression2",
+            uri_excludes=[
+                "www.abc.f5.com",
+                "www.abc2.f5.com",
+            ],
+            uri_includes=["www.xyzbc.cisco.com"])
+        ```
+
         ## Import
 
         BIG-IP LTM HTTP Compress profiles can be imported using the `name`, e.g.
@@ -620,6 +638,24 @@ class ProfileHttpCompress(pulumi.CustomResource):
         `ltm.ProfileHttpCompress`  Virtual server HTTP compression profile configuration
 
         Resources should be named with their `full path`.The full path is the combination of the `partition + name` (example: `/Common/my-httpcompresprofile` ) or  `partition + directory + name` of the resource  (example: `/Common/test/my-httpcompresprofile`)
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        sjhttpcompression = f5bigip.ltm.ProfileHttpCompress("sjhttpcompression",
+            content_type_excludes=["nicecontentexclude.com"],
+            content_type_includes=["nicecontent.com"],
+            defaults_from="/Common/httpcompression",
+            name="/Common/sjhttpcompression2",
+            uri_excludes=[
+                "www.abc.f5.com",
+                "www.abc2.f5.com",
+            ],
+            uri_includes=["www.xyzbc.cisco.com"])
+        ```
 
         ## Import
 

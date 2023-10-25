@@ -246,6 +246,18 @@ class Key(pulumi.CustomResource):
         `ssl.Key` This resource will import SSL certificate key on BIG-IP LTM.
         Certificate key can be imported from certificate key files on the local disk, in PEM format
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        test_key = f5bigip.ssl.Key("test-key",
+            name="serverkey.key",
+            content=(lambda path: open(path).read())("serverkey.key"),
+            partition="Common")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content: Content of SSL certificate key present on local Disk
@@ -263,6 +275,18 @@ class Key(pulumi.CustomResource):
         """
         `ssl.Key` This resource will import SSL certificate key on BIG-IP LTM.
         Certificate key can be imported from certificate key files on the local disk, in PEM format
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        test_key = f5bigip.ssl.Key("test-key",
+            name="serverkey.key",
+            content=(lambda path: open(path).read())("serverkey.key"),
+            partition="Common")
+        ```
 
         :param str resource_name: The name of the resource.
         :param KeyArgs args: The arguments to use to populate this resource's properties.

@@ -13,6 +13,31 @@ namespace Pulumi.F5BigIP.Ltm
     /// `f5bigip.ltm.ProfileTcp` Configures a custom TCP LTM Profile for use by health checks.
     /// 
     /// Resources should be named with their `full path`. The full path is the combination of the `partition + name` (example: /Common/my-pool ) or  `partition + directory + name` of the resource  (example: /Common/test/my-pool )
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sanjose_tcp_lan_profile = new F5BigIP.Ltm.ProfileTcp("sanjose-tcp-lan-profile", new()
+    ///     {
+    ///         CloseWaitTimeout = 5,
+    ///         DeferredAccept = "enabled",
+    ///         FastOpen = "enabled",
+    ///         Finwait2timeout = 5,
+    ///         FinwaitTimeout = 300,
+    ///         IdleTimeout = 200,
+    ///         KeepaliveInterval = 1700,
+    ///         Name = "/Common/sanjose-tcp-lan-profile",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/profileTcp:ProfileTcp")]
     public partial class ProfileTcp : global::Pulumi.CustomResource

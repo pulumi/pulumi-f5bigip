@@ -14,6 +14,32 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sanjose_http = new F5BigIP.Ltm.ProfileHttp("sanjose-http", new()
+    ///     {
+    ///         DefaultsFrom = "/Common/http",
+    ///         FallbackHost = "titanic",
+    ///         FallbackStatusCodes = new[]
+    ///         {
+    ///             "400",
+    ///             "500",
+    ///             "300",
+    ///         },
+    ///         Name = "/Common/sanjose-http",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// BIG-IP LTM http profiles can be imported using the `name`, e.g. bash

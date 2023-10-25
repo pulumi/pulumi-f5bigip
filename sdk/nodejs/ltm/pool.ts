@@ -9,6 +9,24 @@ import * as utilities from "../utilities";
  *
  * For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource or  `partition + directory + name`.
  * For example `/Common/my-pool`.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const monitor = new f5bigip.ltm.Monitor("monitor", {
+ *     name: "/Common/terraform_monitor",
+ *     parent: "/Common/http",
+ * });
+ * const pool = new f5bigip.ltm.Pool("pool", {
+ *     name: "/Common/Axiom_Environment_APP1_Pool",
+ *     loadBalancingMode: "round-robin",
+ *     minimumActiveMembers: 1,
+ *     monitors: [monitor.name],
+ * });
+ * ```
  */
 export class Pool extends pulumi.CustomResource {
     /**

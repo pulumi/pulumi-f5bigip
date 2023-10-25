@@ -16,6 +16,43 @@ import (
 // `ltm.Snat` Manages a SNAT configuration
 //
 // For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource.For example `/Common/test-snat`.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ltm.NewSnat(ctx, "test-snat", &ltm.SnatArgs{
+//				Name: pulumi.String("/Common/test-snat"),
+//				Origins: ltm.SnatOriginArray{
+//					&ltm.SnatOriginArgs{
+//						Name: pulumi.String("0.0.0.0/0"),
+//					},
+//				},
+//				Sourceport:  pulumi.String("preserve"),
+//				Translation: pulumi.String("/Common/136.1.1.2"),
+//				Vlans: pulumi.StringArray{
+//					pulumi.String("/Common/internal"),
+//				},
+//				Vlansdisabled: pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type Snat struct {
 	pulumi.CustomResourceState
 

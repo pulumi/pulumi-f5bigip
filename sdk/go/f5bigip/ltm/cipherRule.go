@@ -14,6 +14,35 @@ import (
 )
 
 // `ltm.CipherRule` Manages F5 BIG-IP LTM cipher rule using iControl REST.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ltm.NewCipherRule(ctx, "testCipherRule", &ltm.CipherRuleArgs{
+//				Cipher:              pulumi.String("TLS13-AES128-GCM-SHA256:TLS13-AES256-GCM-SHA384"),
+//				DhGroups:            pulumi.String("P256:P384:FFDHE2048:FFDHE3072:FFDHE4096"),
+//				Name:                pulumi.String("/Common/test_cipher_rule"),
+//				SignatureAlgorithms: pulumi.String("DEFAULT"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type CipherRule struct {
 	pulumi.CustomResourceState
 

@@ -603,6 +603,19 @@ class SnmpTraps(pulumi.CustomResource):
                  __props__=None):
         """
         `sys.SnmpTraps` provides details bout how to enable snmp_traps resource on BIG-IP
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        snmp_traps = f5bigip.sys.SnmpTraps("snmpTraps",
+            community="f5community",
+            description="Setup snmp traps",
+            host="195.10.10.1",
+            name="snmptraps",
+            port=111)
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -629,6 +642,19 @@ class SnmpTraps(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         `sys.SnmpTraps` provides details bout how to enable snmp_traps resource on BIG-IP
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        snmp_traps = f5bigip.sys.SnmpTraps("snmpTraps",
+            community="f5community",
+            description="Setup snmp traps",
+            host="195.10.10.1",
+            name="snmptraps",
+            port=111)
+        ```
 
         :param str resource_name: The name of the resource.
         :param SnmpTrapsArgs args: The arguments to use to populate this resource's properties.

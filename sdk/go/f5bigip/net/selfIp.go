@@ -16,6 +16,150 @@ import (
 // `net.SelfIp` Manages a selfip configuration
 //
 // Resource should be named with their `full path`. The full path is the combination of the `partition + name of the resource`, for example `/Common/my-selfip`.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/net"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			vlan1, err := net.NewVlan(ctx, "vlan1", &net.VlanArgs{
+//				Name: pulumi.String("/Common/Internal"),
+//				Tag:  pulumi.Int(101),
+//				Interfaces: net.VlanInterfaceArray{
+//					&net.VlanInterfaceArgs{
+//						Vlanport: pulumi.String("1.2"),
+//						Tagged:   pulumi.Bool(false),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = net.NewSelfIp(ctx, "selfip1", &net.SelfIpArgs{
+//				Name: pulumi.String("/Common/internalselfIP"),
+//				Ip:   pulumi.String("11.1.1.1/24"),
+//				Vlan: pulumi.String("/Common/internal"),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				vlan1,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example usage with `portLockdown`
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/net"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := net.NewSelfIp(ctx, "selfip1", &net.SelfIpArgs{
+//				Name:         pulumi.String("/Common/internalselfIP"),
+//				Ip:           pulumi.String("11.1.1.1/24"),
+//				Vlan:         pulumi.String("/Common/internal"),
+//				TrafficGroup: pulumi.String("traffic-group-1"),
+//				PortLockdowns: pulumi.StringArray{
+//					pulumi.String("tcp:4040"),
+//					pulumi.String("udp:5050"),
+//					pulumi.String("egp:0"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				bigip_net_vlan.Vlan1,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example usage with `portLockdown` set to `["none"]`
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/net"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := net.NewSelfIp(ctx, "selfip1", &net.SelfIpArgs{
+//				Name:         pulumi.String("/Common/internalselfIP"),
+//				Ip:           pulumi.String("11.1.1.1/24"),
+//				Vlan:         pulumi.String("/Common/internal"),
+//				TrafficGroup: pulumi.String("traffic-group-1"),
+//				PortLockdowns: pulumi.StringArray{
+//					pulumi.String("none"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				bigip_net_vlan.Vlan1,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Example usage with route domain embedded in the `ip`
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/net"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := net.NewSelfIp(ctx, "selfip1", &net.SelfIpArgs{
+//				Name:         pulumi.String("/Common/internalselfIP"),
+//				Ip:           pulumi.String("11.1.1.1%4/24"),
+//				Vlan:         pulumi.String("/Common/internal"),
+//				TrafficGroup: pulumi.String("traffic-group-1"),
+//				PortLockdowns: pulumi.StringArray{
+//					pulumi.String("none"),
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				bigip_net_vlan.Vlan1,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type SelfIp struct {
 	pulumi.CustomResourceState
 

@@ -14,6 +14,43 @@ import (
 )
 
 // `FastApplication` This resource will create and manage FAST applications on BIG-IP from provided JSON declaration.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"os"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := os.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := f5bigip.NewFastApplication(ctx, "foo-app", &f5bigip.FastApplicationArgs{
+//				FastJson: readFileOrPanic("new_fast_app.json"),
+//				Template: pulumi.String("examples/simple_http"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type FastApplication struct {
 	pulumi.CustomResourceState
 

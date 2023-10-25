@@ -2232,6 +2232,19 @@ class ProfileServerSsl(pulumi.CustomResource):
 
         Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        test__server_ssl = f5bigip.ltm.ProfileServerSsl("test-ServerSsl",
+            authenticate="always",
+            ciphers="DEFAULT",
+            defaults_from="/Common/serverssl",
+            name="/Common/test-ServerSsl")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alert_timeout: Alert time out
@@ -2328,6 +2341,19 @@ class ProfileServerSsl(pulumi.CustomResource):
         `ltm.ProfileServerSsl` Manages server SSL profiles on a BIG-IP
 
         Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        test__server_ssl = f5bigip.ltm.ProfileServerSsl("test-ServerSsl",
+            authenticate="always",
+            ciphers="DEFAULT",
+            defaults_from="/Common/serverssl",
+            name="/Common/test-ServerSsl")
+        ```
 
         :param str resource_name: The name of the resource.
         :param ProfileServerSslArgs args: The arguments to use to populate this resource's properties.

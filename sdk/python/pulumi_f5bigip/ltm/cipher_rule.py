@@ -249,6 +249,19 @@ class CipherRule(pulumi.CustomResource):
         """
         `ltm.CipherRule` Manages F5 BIG-IP LTM cipher rule using iControl REST.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        test_cipher_rule = f5bigip.ltm.CipherRule("testCipherRule",
+            cipher="TLS13-AES128-GCM-SHA256:TLS13-AES256-GCM-SHA384",
+            dh_groups="P256:P384:FFDHE2048:FFDHE3072:FFDHE4096",
+            name="/Common/test_cipher_rule",
+            signature_algorithms="DEFAULT")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cipher: Specifies one or more Cipher Suites used,this is a colon (:) separated string of cipher suites. example, `TLS13-AES128-GCM-SHA256:TLS13-AES256-GCM-SHA384`.
@@ -265,6 +278,19 @@ class CipherRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         `ltm.CipherRule` Manages F5 BIG-IP LTM cipher rule using iControl REST.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        test_cipher_rule = f5bigip.ltm.CipherRule("testCipherRule",
+            cipher="TLS13-AES128-GCM-SHA256:TLS13-AES256-GCM-SHA384",
+            dh_groups="P256:P384:FFDHE2048:FFDHE3072:FFDHE4096",
+            name="/Common/test_cipher_rule",
+            signature_algorithms="DEFAULT")
+        ```
 
         :param str resource_name: The name of the resource.
         :param CipherRuleArgs args: The arguments to use to populate this resource's properties.

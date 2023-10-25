@@ -10,6 +10,36 @@ import * as utilities from "../utilities";
  * `f5bigip.ltm.Policy` Configures ltm policies to manage traffic assigned to a virtual server
  *
  * For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource. For example `/Common/test-policy`.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const mypool = new f5bigip.ltm.Pool("mypool", {
+ *     name: "/Common/test-pool",
+ *     allowNat: "yes",
+ *     allowSnat: "yes",
+ *     loadBalancingMode: "round-robin",
+ * });
+ * const test_policy = new f5bigip.ltm.Policy("test-policy", {
+ *     name: "/Common/test-policy",
+ *     strategy: "first-match",
+ *     requires: ["http"],
+ *     controls: ["forwarding"],
+ *     rules: [{
+ *         name: "rule6",
+ *         actions: [{
+ *             forward: true,
+ *             connection: false,
+ *             pool: mypool.name,
+ *         }],
+ *     }],
+ * }, {
+ *     dependsOn: [mypool],
+ * });
+ * ```
  */
 export class Policy extends pulumi.CustomResource {
     /**

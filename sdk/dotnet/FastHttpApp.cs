@@ -13,6 +13,86 @@ namespace Pulumi.F5BigIP
     /// `f5bigip.FastHttpApp` This resource will create and manage FAST HTTP applications on BIG-IP
     /// 
     /// [FAST documentation](https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/)
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fastHttpApp = new F5BigIP.FastHttpApp("fastHttpApp", new()
+    ///     {
+    ///         Application = "fasthttpapp",
+    ///         Tenant = "fasthttptenant",
+    ///         VirtualServer = new F5BigIP.Inputs.FastHttpAppVirtualServerArgs
+    ///         {
+    ///             Ip = "10.30.30.44",
+    ///             Port = 443,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### With Service Discovery
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var tC3AzureServiceDiscovery = F5BigIP.Fast.GetAzureServiceDiscovery.Invoke(new()
+    ///     {
+    ///         ResourceGroup = "testazurerg",
+    ///         SubscriptionId = "testazuresid",
+    ///         TagKey = "testazuretag",
+    ///         TagValue = "testazurevalue",
+    ///     });
+    /// 
+    ///     var tC3GceServiceDiscovery = F5BigIP.Fast.GetGceServiceDiscovery.Invoke(new()
+    ///     {
+    ///         TagKey = "testgcetag",
+    ///         TagValue = "testgcevalue",
+    ///         Region = "testgceregion",
+    ///     });
+    /// 
+    ///     var fastHttpsApp = new F5BigIP.FastHttpApp("fastHttpsApp", new()
+    ///     {
+    ///         Tenant = "fasthttptenant",
+    ///         Application = "fasthttpapp",
+    ///         VirtualServer = new F5BigIP.Inputs.FastHttpAppVirtualServerArgs
+    ///         {
+    ///             Ip = "10.30.40.44",
+    ///             Port = 443,
+    ///         },
+    ///         PoolMembers = new[]
+    ///         {
+    ///             new F5BigIP.Inputs.FastHttpAppPoolMemberArgs
+    ///             {
+    ///                 Addresses = new[]
+    ///                 {
+    ///                     "10.11.40.120",
+    ///                     "10.11.30.121",
+    ///                     "10.11.30.122",
+    ///                 },
+    ///                 Port = 80,
+    ///             },
+    ///         },
+    ///         ServiceDiscoveries = new[]
+    ///         {
+    ///             tC3GceServiceDiscovery.Apply(getGceServiceDiscoveryResult =&gt; getGceServiceDiscoveryResult.GceSdJson),
+    ///             tC3AzureServiceDiscovery.Apply(getAzureServiceDiscoveryResult =&gt; getAzureServiceDiscoveryResult.AzureSdJson),
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:index/fastHttpApp:FastHttpApp")]
     public partial class FastHttpApp : global::Pulumi.CustomResource

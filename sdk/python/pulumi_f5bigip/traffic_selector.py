@@ -457,6 +457,18 @@ class TrafficSelector(pulumi.CustomResource):
 
         Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/test-selector)
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        test_selector = f5bigip.TrafficSelector("test-selector",
+            destination_address="3.10.11.2/32",
+            name="/Common/test-selector",
+            source_address="2.10.11.12/32")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the traffic selector.
@@ -481,6 +493,18 @@ class TrafficSelector(pulumi.CustomResource):
         `TrafficSelector` Manage IPSec Traffic Selectors on BIG-IP
 
         Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/test-selector)
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        test_selector = f5bigip.TrafficSelector("test-selector",
+            destination_address="3.10.11.2/32",
+            name="/Common/test-selector",
+            source_address="2.10.11.12/32")
+        ```
 
         :param str resource_name: The name of the resource.
         :param TrafficSelectorArgs args: The arguments to use to populate this resource's properties.

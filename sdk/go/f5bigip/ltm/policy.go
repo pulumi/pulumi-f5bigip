@@ -16,6 +16,62 @@ import (
 // `ltm.Policy` Configures ltm policies to manage traffic assigned to a virtual server
 //
 // For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource. For example `/Common/test-policy`.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			mypool, err := ltm.NewPool(ctx, "mypool", &ltm.PoolArgs{
+//				Name:              pulumi.String("/Common/test-pool"),
+//				AllowNat:          pulumi.String("yes"),
+//				AllowSnat:         pulumi.String("yes"),
+//				LoadBalancingMode: pulumi.String("round-robin"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ltm.NewPolicy(ctx, "test-policy", &ltm.PolicyArgs{
+//				Name:     pulumi.String("/Common/test-policy"),
+//				Strategy: pulumi.String("first-match"),
+//				Requires: pulumi.StringArray{
+//					pulumi.String("http"),
+//				},
+//				Controls: pulumi.StringArray{
+//					pulumi.String("forwarding"),
+//				},
+//				Rules: ltm.PolicyRuleArray{
+//					&ltm.PolicyRuleArgs{
+//						Name: pulumi.String("rule6"),
+//						Actions: ltm.PolicyRuleActionArray{
+//							&ltm.PolicyRuleActionArgs{
+//								Forward:    pulumi.Bool(true),
+//								Connection: pulumi.Bool(false),
+//								Pool:       mypool.Name,
+//							},
+//						},
+//					},
+//				},
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				mypool,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type Policy struct {
 	pulumi.CustomResourceState
 

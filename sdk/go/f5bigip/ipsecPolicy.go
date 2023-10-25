@@ -16,6 +16,41 @@ import (
 // `IpsecPolicy` Manage IPSec policies on a BIG-IP
 //
 // Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/test-policy)
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := f5bigip.NewIpsecPolicy(ctx, "test-policy", &f5bigip.IpsecPolicyArgs{
+//				AuthAlgorithm:       pulumi.String("sha1"),
+//				Description:         pulumi.String("created by terraform provider"),
+//				EncryptAlgorithm:    pulumi.String("3des"),
+//				Ipcomp:              pulumi.String("deflate"),
+//				Lifetime:            pulumi.Int(3),
+//				Mode:                pulumi.String("tunnel"),
+//				Name:                pulumi.String("/Common/test-policy"),
+//				Protocol:            pulumi.String("esp"),
+//				TunnelLocalAddress:  pulumi.String("192.168.1.1"),
+//				TunnelRemoteAddress: pulumi.String("10.10.1.1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type IpsecPolicy struct {
 	pulumi.CustomResourceState
 

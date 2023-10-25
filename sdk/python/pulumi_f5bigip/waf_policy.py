@@ -1141,6 +1141,44 @@ class WafPolicy(pulumi.CustomResource):
 
         > **NOTE** This Resource Requires F5 BIG-IP v16.x above version, and ASM need to be provisioned.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        param1 = f5bigip.ssl.get_waf_entity_parameter(name="Param1",
+            type="explicit",
+            data_type="alpha-numeric",
+            perform_staging=True)
+        param2 = f5bigip.ssl.get_waf_entity_parameter(name="Param2",
+            type="explicit",
+            data_type="alpha-numeric",
+            perform_staging=True)
+        u_rl = f5bigip.ssl.get_waf_entity_url(name="URL1",
+            protocol="http")
+        u_rl2 = f5bigip.ssl.get_waf_entity_url(name="URL2")
+        test_awaf = f5bigip.WafPolicy("test-awaf",
+            name="testpolicyravi",
+            partition="Common",
+            template_name="POLICY_TEMPLATE_RAPID_DEPLOYMENT",
+            application_language="utf-8",
+            enforcement_mode="blocking",
+            server_technologies=[
+                "MySQL",
+                "Unix/Linux",
+                "MongoDB",
+            ],
+            parameters=[
+                param1.json,
+                param2.json,
+            ],
+            urls=[
+                u_rl.json,
+                u_rl2.json,
+            ])
+        ```
+
         ## Import
 
         An existing WAF Policy or if the WAF Policy has been manually created or modified on the BIG-IP WebUI, it can be imported using its `id`. e.g
@@ -1197,6 +1235,44 @@ class WafPolicy(pulumi.CustomResource):
         * [Declarative WAF documentation](https://clouddocs.f5.com/products/waf-declarative-policy/declarative_policy_v16_1.html)
 
         > **NOTE** This Resource Requires F5 BIG-IP v16.x above version, and ASM need to be provisioned.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        param1 = f5bigip.ssl.get_waf_entity_parameter(name="Param1",
+            type="explicit",
+            data_type="alpha-numeric",
+            perform_staging=True)
+        param2 = f5bigip.ssl.get_waf_entity_parameter(name="Param2",
+            type="explicit",
+            data_type="alpha-numeric",
+            perform_staging=True)
+        u_rl = f5bigip.ssl.get_waf_entity_url(name="URL1",
+            protocol="http")
+        u_rl2 = f5bigip.ssl.get_waf_entity_url(name="URL2")
+        test_awaf = f5bigip.WafPolicy("test-awaf",
+            name="testpolicyravi",
+            partition="Common",
+            template_name="POLICY_TEMPLATE_RAPID_DEPLOYMENT",
+            application_language="utf-8",
+            enforcement_mode="blocking",
+            server_technologies=[
+                "MySQL",
+                "Unix/Linux",
+                "MongoDB",
+            ],
+            parameters=[
+                param1.json,
+                param2.json,
+            ],
+            urls=[
+                u_rl.json,
+                u_rl2.json,
+            ])
+        ```
 
         ## Import
 

@@ -6,6 +6,21 @@ import * as utilities from "../utilities";
 
 /**
  * `f5bigip.sys.Ocsp` Manages F5 BIG-IP OCSP responder using iControl REST.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const test_ocsp = new f5bigip.sys.Ocsp("test-ocsp", {
+ *     name: "/Uncommon/test-ocsp",
+ *     passphrase: "testabcdef",
+ *     proxyServerPool: "/Common/test-poolxyz",
+ *     signerCert: "/Common/le-ssl",
+ *     signerKey: "/Common/le-ssl",
+ * });
+ * ```
  */
 export class Ocsp extends pulumi.CustomResource {
     /**

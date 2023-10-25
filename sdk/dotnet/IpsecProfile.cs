@@ -11,6 +11,26 @@ namespace Pulumi.F5BigIP
 {
     /// <summary>
     /// `f5bigip.IpsecProfile` Manage IPSec Profiles on a BIG-IP
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var azurevWANProfile = new F5BigIP.IpsecProfile("azurevWANProfile", new()
+    ///     {
+    ///         Description = "mytestipsecprofile",
+    ///         Name = "/Common/Mytestipsecprofile",
+    ///         TrafficSelector = "test-trafficselector",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:index/ipsecProfile:IpsecProfile")]
     public partial class IpsecProfile : global::Pulumi.CustomResource

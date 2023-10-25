@@ -11,6 +11,27 @@ namespace Pulumi.F5BigIP.Ltm
 {
     /// <summary>
     /// `f5bigip.ltm.CipherRule` Manages F5 BIG-IP LTM cipher rule using iControl REST.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var testCipherRule = new F5BigIP.Ltm.CipherRule("testCipherRule", new()
+    ///     {
+    ///         Cipher = "TLS13-AES128-GCM-SHA256:TLS13-AES256-GCM-SHA384",
+    ///         DhGroups = "P256:P384:FFDHE2048:FFDHE3072:FFDHE4096",
+    ///         Name = "/Common/test_cipher_rule",
+    ///         SignatureAlgorithms = "DEFAULT",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/cipherRule:CipherRule")]
     public partial class CipherRule : global::Pulumi.CustomResource

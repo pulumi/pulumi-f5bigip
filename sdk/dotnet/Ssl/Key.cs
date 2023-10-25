@@ -12,6 +12,27 @@ namespace Pulumi.F5BigIP.Ssl
     /// <summary>
     /// `f5bigip.ssl.Key` This resource will import SSL certificate key on BIG-IP LTM.
     /// Certificate key can be imported from certificate key files on the local disk, in PEM format
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.IO;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test_key = new F5BigIP.Ssl.Key("test-key", new()
+    ///     {
+    ///         Name = "serverkey.key",
+    ///         Content = File.ReadAllText("serverkey.key"),
+    ///         Partition = "Common",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ssl/key:Key")]
     public partial class Key : global::Pulumi.CustomResource

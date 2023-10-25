@@ -943,6 +943,23 @@ class ProfileTcp(pulumi.CustomResource):
 
         Resources should be named with their `full path`. The full path is the combination of the `partition + name` (example: /Common/my-pool ) or  `partition + directory + name` of the resource  (example: /Common/test/my-pool )
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        sanjose_tcp_lan_profile = f5bigip.ltm.ProfileTcp("sanjose-tcp-lan-profile",
+            close_wait_timeout=5,
+            deferred_accept="enabled",
+            fast_open="enabled",
+            finwait2timeout=5,
+            finwait_timeout=300,
+            idle_timeout=200,
+            keepalive_interval=1700,
+            name="/Common/sanjose-tcp-lan-profile")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] close_wait_timeout: Specifies the number of seconds that a connection remains in a LAST-ACK state before quitting. A value of 0 represents a term of forever (or until the maxrtx of the FIN state). The default value is 5 seconds.
@@ -978,6 +995,23 @@ class ProfileTcp(pulumi.CustomResource):
         `ltm.ProfileTcp` Configures a custom TCP LTM Profile for use by health checks.
 
         Resources should be named with their `full path`. The full path is the combination of the `partition + name` (example: /Common/my-pool ) or  `partition + directory + name` of the resource  (example: /Common/test/my-pool )
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        sanjose_tcp_lan_profile = f5bigip.ltm.ProfileTcp("sanjose-tcp-lan-profile",
+            close_wait_timeout=5,
+            deferred_accept="enabled",
+            fast_open="enabled",
+            finwait2timeout=5,
+            finwait_timeout=300,
+            idle_timeout=200,
+            keepalive_interval=1700,
+            name="/Common/sanjose-tcp-lan-profile")
+        ```
 
         :param str resource_name: The name of the resource.
         :param ProfileTcpArgs args: The arguments to use to populate this resource's properties.
