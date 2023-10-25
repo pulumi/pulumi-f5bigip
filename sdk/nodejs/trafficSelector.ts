@@ -8,6 +8,19 @@ import * as utilities from "./utilities";
  * `f5bigip.TrafficSelector` Manage IPSec Traffic Selectors on BIG-IP
  *
  * Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/test-selector)
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const test_selector = new f5bigip.TrafficSelector("test-selector", {
+ *     destinationAddress: "3.10.11.2/32",
+ *     name: "/Common/test-selector",
+ *     sourceAddress: "2.10.11.12/32",
+ * });
+ * ```
  */
 export class TrafficSelector extends pulumi.CustomResource {
     /**

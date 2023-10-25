@@ -13,6 +13,44 @@ namespace Pulumi.F5BigIP.Ltm
     /// `f5bigip.ltm.ProfileHttp2` Configures a custom profile_http2 for use by health checks.
     /// 
     /// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var nyhttp2 = new F5BigIP.Ltm.ProfileHttp2("nyhttp2", new()
+    ///     {
+    ///         Name = "/Common/test-profile-http2",
+    ///         FrameSize = 2021,
+    ///         ReceiveWindow = 31,
+    ///         WriteSize = 16380,
+    ///         HeaderTableSize = 4092,
+    ///         IncludeContentLength = "enabled",
+    ///         EnforceTlsRequirements = "enabled",
+    ///         InsertHeader = "disabled",
+    ///         ConcurrentStreamsPerConnection = 30,
+    ///         ConnectionIdleTimeout = 100,
+    ///         ActivationModes = new[]
+    ///         {
+    ///             "always",
+    ///         },
+    ///     });
+    /// 
+    ///     //Child Profile which inherits parent http2 profile
+    ///     var nyhttp2_child = new F5BigIP.Ltm.ProfileHttp2("nyhttp2-child", new()
+    ///     {
+    ///         Name = "/Common/test-profile-http2-child",
+    ///         DefaultsFrom = nyhttp2.Name,
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/profileHttp2:ProfileHttp2")]
     public partial class ProfileHttp2 : global::Pulumi.CustomResource

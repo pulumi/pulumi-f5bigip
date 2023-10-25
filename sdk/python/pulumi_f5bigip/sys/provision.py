@@ -377,6 +377,20 @@ class Provision(pulumi.CustomResource):
         """
         `sys.Provision` Manage BIG-IP module provisioning. This resource will only provision at the standard levels of Dedicated, Nominal, and Minimum.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        gtm = f5bigip.sys.Provision("gtm",
+            cpu_ratio=0,
+            disk_ratio=0,
+            level="nominal",
+            memory_ratio=0,
+            name="gtm")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] cpu_ratio: Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
@@ -416,6 +430,20 @@ class Provision(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         `sys.Provision` Manage BIG-IP module provisioning. This resource will only provision at the standard levels of Dedicated, Nominal, and Minimum.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        gtm = f5bigip.sys.Provision("gtm",
+            cpu_ratio=0,
+            disk_ratio=0,
+            level="nominal",
+            memory_ratio=0,
+            name="gtm")
+        ```
 
         :param str resource_name: The name of the resource.
         :param ProvisionArgs args: The arguments to use to populate this resource's properties.

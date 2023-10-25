@@ -14,6 +14,36 @@ import (
 )
 
 // `sys.Ntp` resource is helpful when configuring NTP server on the BIG-IP.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/sys"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sys.NewNtp(ctx, "ntp1", &sys.NtpArgs{
+//				Description: pulumi.String("/Common/NTP1"),
+//				Servers: pulumi.StringArray{
+//					pulumi.String("time.facebook.com"),
+//				},
+//				Timezone: pulumi.String("America/Los_Angeles"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type Ntp struct {
 	pulumi.CustomResourceState
 

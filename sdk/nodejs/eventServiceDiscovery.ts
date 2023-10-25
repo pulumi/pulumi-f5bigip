@@ -6,6 +6,30 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const test = new f5bigip.EventServiceDiscovery("test", {
+ *     nodes: [
+ *         {
+ *             id: "newNode1",
+ *             ip: "192.168.2.3",
+ *             port: 8080,
+ *         },
+ *         {
+ *             id: "newNode2",
+ *             ip: "192.168.2.4",
+ *             port: 8080,
+ *         },
+ *     ],
+ *     taskid: "~Sample_event_sd~My_app~My_pool",
+ * });
+ * ```
+ */
 export class EventServiceDiscovery extends pulumi.CustomResource {
     /**
      * Get an existing EventServiceDiscovery resource's state with the given name, ID, and optional extra

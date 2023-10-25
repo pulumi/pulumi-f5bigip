@@ -456,6 +456,22 @@ class Pool(pulumi.CustomResource):
         For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource or  `partition + directory + name`.
         For example `/Common/my-pool`.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        monitor = f5bigip.ltm.Monitor("monitor",
+            name="/Common/terraform_monitor",
+            parent="/Common/http")
+        pool = f5bigip.ltm.Pool("pool",
+            name="/Common/Axiom_Environment_APP1_Pool",
+            load_balancing_mode="round-robin",
+            minimum_active_members=1,
+            monitors=[monitor.name])
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] allow_nat: Specifies whether NATs are automatically enabled or disabled for any connections using this pool, [ Default : `yes`, Possible Values `yes` or `no`].
@@ -480,6 +496,22 @@ class Pool(pulumi.CustomResource):
 
         For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource or  `partition + directory + name`.
         For example `/Common/my-pool`.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        monitor = f5bigip.ltm.Monitor("monitor",
+            name="/Common/terraform_monitor",
+            parent="/Common/http")
+        pool = f5bigip.ltm.Pool("pool",
+            name="/Common/Axiom_Environment_APP1_Pool",
+            load_balancing_mode="round-robin",
+            minimum_active_members=1,
+            monitors=[monitor.name])
+        ```
 
         :param str resource_name: The name of the resource.
         :param PoolArgs args: The arguments to use to populate this resource's properties.

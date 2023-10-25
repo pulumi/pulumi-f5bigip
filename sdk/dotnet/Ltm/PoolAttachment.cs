@@ -21,6 +21,102 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// &gt; For adding IPv6 node/member to pool it should be specific in `node` attribute in format like `ipv6_address.port`.
     /// IPv4 should be specified as `ipv4_address:port`
+    /// ### Usage Pool attachment with node/member directly attaching to pool.
+    /// 
+    /// node can be specified in format `ipv4:port` / `fqdn:port` / `ipv6.port`
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var monitor = new F5BigIP.Ltm.Monitor("monitor", new()
+    ///     {
+    ///         Name = "/Common/terraform_monitor",
+    ///         Parent = "/Common/http",
+    ///         Send = @"GET /some/path
+    /// ",
+    ///         Timeout = 999,
+    ///         Interval = 998,
+    ///     });
+    /// 
+    ///     var pool = new F5BigIP.Ltm.Pool("pool", new()
+    ///     {
+    ///         Name = "/Common/terraform-pool",
+    ///         LoadBalancingMode = "round-robin",
+    ///         Monitors = new[]
+    ///         {
+    ///             monitor.Name,
+    ///         },
+    ///         AllowSnat = "yes",
+    ///         AllowNat = "yes",
+    ///     });
+    /// 
+    ///     // attaching ipv4 address with service port
+    ///     var ipv4NodeAttach = new F5BigIP.Ltm.PoolAttachment("ipv4NodeAttach", new()
+    ///     {
+    ///         Pool = pool.Name,
+    ///         Node = "1.1.1.1:80",
+    ///     });
+    /// 
+    ///     // attaching ipv6 address with service port
+    ///     var ipv6NodeAttach = new F5BigIP.Ltm.PoolAttachment("ipv6NodeAttach", new()
+    ///     {
+    ///         Pool = pool.Name,
+    ///         Node = "2003::4.80",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Usage Pool attachment with node referenced from `f5bigip.ltm.Node`
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var monitor = new F5BigIP.Ltm.Monitor("monitor", new()
+    ///     {
+    ///         Name = "/Common/terraform_monitor",
+    ///         Parent = "/Common/http",
+    ///         Send = @"GET /some/path
+    /// ",
+    ///         Timeout = 999,
+    ///         Interval = 998,
+    ///     });
+    /// 
+    ///     var pool = new F5BigIP.Ltm.Pool("pool", new()
+    ///     {
+    ///         Name = "/Common/terraform-pool",
+    ///         LoadBalancingMode = "round-robin",
+    ///         Monitors = new[]
+    ///         {
+    ///             monitor.Name,
+    ///         },
+    ///         AllowSnat = "yes",
+    ///         AllowNat = "yes",
+    ///     });
+    /// 
+    ///     var node = new F5BigIP.Ltm.Node("node", new()
+    ///     {
+    ///         Name = "/Common/terraform_node",
+    ///         Address = "192.168.30.2",
+    ///     });
+    /// 
+    ///     var attachNode = new F5BigIP.Ltm.PoolAttachment("attachNode", new()
+    ///     {
+    ///         Pool = pool.Name,
+    ///         Node = node.Name.Apply(name =&gt; $"{name}:80"),
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/poolAttachment:PoolAttachment")]
     public partial class PoolAttachment : global::Pulumi.CustomResource

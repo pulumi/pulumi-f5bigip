@@ -11,6 +11,26 @@ namespace Pulumi.F5BigIP
 {
     /// <summary>
     /// `f5bigip.NetTunnel` Manages a tunnel configuration
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example1 = new F5BigIP.NetTunnel("example1", new()
+    ///     {
+    ///         LocalAddress = "192.16.81.240",
+    ///         Name = "example1",
+    ///         Profile = "/Common/dslite",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:index/netTunnel:NetTunnel")]
     public partial class NetTunnel : global::Pulumi.CustomResource

@@ -695,6 +695,60 @@ class CommonLicenseManageBigIq(pulumi.CustomResource):
         """
         `CommonLicenseManageBigIq` This Resource is used for BIGIP/Provider License Management from BIGIQ
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        # MANAGED Regkey Pool
+        test_example_common_license_manage_big_iq = f5bigip.CommonLicenseManageBigIq("testExampleCommonLicenseManageBigIq",
+            bigiq_address=var["bigiq"],
+            bigiq_user=var["bigiq_un"],
+            bigiq_password=var["bigiq_pw"],
+            license_poolname="regkeypool_name",
+            assignment_type="MANAGED")
+        # UNMANAGED Regkey Pool
+        test_example_index_common_license_manage_big_iq_common_license_manage_big_iq = f5bigip.CommonLicenseManageBigIq("testExampleIndex/commonLicenseManageBigIqCommonLicenseManageBigIq",
+            bigiq_address=var["bigiq"],
+            bigiq_user=var["bigiq_un"],
+            bigiq_password=var["bigiq_pw"],
+            license_poolname="regkeypool_name",
+            assignment_type="UNMANAGED")
+        # UNMANAGED Utility Pool
+        test_example_f5bigip_index_common_license_manage_big_iq_common_license_manage_big_iq = f5bigip.CommonLicenseManageBigIq("testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq",
+            bigiq_address=var["bigiq"],
+            bigiq_user=var["bigiq_un"],
+            bigiq_password=var["bigiq_pw"],
+            license_poolname="utilitypool_name",
+            assignment_type="UNMANAGED",
+            unit_of_measure="yearly",
+            skukeyword1="BTHSM200M")
+        # UNREACHABLE Regkey Pool
+        test_example_f5bigip_index_common_license_manage_big_iq_common_license_manage_big_iq1 = f5bigip.CommonLicenseManageBigIq("testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq1",
+            bigiq_address="xxx.xxx.xxx.xxx",
+            bigiq_user="xxxx",
+            bigiq_password="xxxxx",
+            license_poolname="regkey_pool_name",
+            assignment_type="UNREACHABLE",
+            mac_address="FA:16:3E:1B:6D:32",
+            hypervisor="azure")
+        # MANAGED Purchased Pool
+        test_example_f5bigip_index_common_license_manage_big_iq_common_license_manage_big_iq2 = f5bigip.CommonLicenseManageBigIq("testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq2",
+            bigiq_address=var["bigiq"],
+            bigiq_user=var["bigiq_un"],
+            bigiq_password=var["bigiq_pw"],
+            license_poolname="purchased_pool_name",
+            assignment_type="MANAGED")
+        # UNMANAGED Purchased Pool
+        test_example_f5bigip_index_common_license_manage_big_iq_common_license_manage_big_iq3 = f5bigip.CommonLicenseManageBigIq("testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq3",
+            bigiq_address=var["bigiq"],
+            bigiq_user=var["bigiq_un"],
+            bigiq_password=var["bigiq_pw"],
+            license_poolname="purchased_pool_name",
+            assignment_type="UNMANAGED")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] assignment_type: The type of assignment, which is determined by whether the BIG-IP is unreachable, unmanaged, or managed by BIG-IQ. Possible values: “UNREACHABLE”, “UNMANAGED”, or “MANAGED”.
@@ -722,6 +776,60 @@ class CommonLicenseManageBigIq(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         `CommonLicenseManageBigIq` This Resource is used for BIGIP/Provider License Management from BIGIQ
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        # MANAGED Regkey Pool
+        test_example_common_license_manage_big_iq = f5bigip.CommonLicenseManageBigIq("testExampleCommonLicenseManageBigIq",
+            bigiq_address=var["bigiq"],
+            bigiq_user=var["bigiq_un"],
+            bigiq_password=var["bigiq_pw"],
+            license_poolname="regkeypool_name",
+            assignment_type="MANAGED")
+        # UNMANAGED Regkey Pool
+        test_example_index_common_license_manage_big_iq_common_license_manage_big_iq = f5bigip.CommonLicenseManageBigIq("testExampleIndex/commonLicenseManageBigIqCommonLicenseManageBigIq",
+            bigiq_address=var["bigiq"],
+            bigiq_user=var["bigiq_un"],
+            bigiq_password=var["bigiq_pw"],
+            license_poolname="regkeypool_name",
+            assignment_type="UNMANAGED")
+        # UNMANAGED Utility Pool
+        test_example_f5bigip_index_common_license_manage_big_iq_common_license_manage_big_iq = f5bigip.CommonLicenseManageBigIq("testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq",
+            bigiq_address=var["bigiq"],
+            bigiq_user=var["bigiq_un"],
+            bigiq_password=var["bigiq_pw"],
+            license_poolname="utilitypool_name",
+            assignment_type="UNMANAGED",
+            unit_of_measure="yearly",
+            skukeyword1="BTHSM200M")
+        # UNREACHABLE Regkey Pool
+        test_example_f5bigip_index_common_license_manage_big_iq_common_license_manage_big_iq1 = f5bigip.CommonLicenseManageBigIq("testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq1",
+            bigiq_address="xxx.xxx.xxx.xxx",
+            bigiq_user="xxxx",
+            bigiq_password="xxxxx",
+            license_poolname="regkey_pool_name",
+            assignment_type="UNREACHABLE",
+            mac_address="FA:16:3E:1B:6D:32",
+            hypervisor="azure")
+        # MANAGED Purchased Pool
+        test_example_f5bigip_index_common_license_manage_big_iq_common_license_manage_big_iq2 = f5bigip.CommonLicenseManageBigIq("testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq2",
+            bigiq_address=var["bigiq"],
+            bigiq_user=var["bigiq_un"],
+            bigiq_password=var["bigiq_pw"],
+            license_poolname="purchased_pool_name",
+            assignment_type="MANAGED")
+        # UNMANAGED Purchased Pool
+        test_example_f5bigip_index_common_license_manage_big_iq_common_license_manage_big_iq3 = f5bigip.CommonLicenseManageBigIq("testExampleF5bigipIndex/commonLicenseManageBigIqCommonLicenseManageBigIq3",
+            bigiq_address=var["bigiq"],
+            bigiq_user=var["bigiq_un"],
+            bigiq_password=var["bigiq_pw"],
+            license_poolname="purchased_pool_name",
+            assignment_type="UNMANAGED")
+        ```
 
         :param str resource_name: The name of the resource.
         :param CommonLicenseManageBigIqArgs args: The arguments to use to populate this resource's properties.

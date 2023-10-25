@@ -6,6 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * `f5bigip.sys.Dns` Configures DNS Name server on F5 BIG-IP
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const dns1 = new f5bigip.sys.Dns("dns1", {
+ *     description: "/Common/DNS1",
+ *     nameServers: ["1.1.1.1"],
+ *     searches: ["f5.com"],
+ * });
+ * ```
  */
 export class Dns extends pulumi.CustomResource {
     /**

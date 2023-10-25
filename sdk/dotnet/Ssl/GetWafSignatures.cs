@@ -15,6 +15,27 @@ namespace Pulumi.F5BigIP.Ssl
         /// Use this data source (`f5bigip.ssl.getWafSignatures`) to get the details of attack signatures available on BIG-IP WAF
         ///  
         ///  
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using F5BigIP = Pulumi.F5BigIP;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var wAFSIG1 = F5BigIP.Ssl.GetWafSignatures.Invoke(new()
+        ///     {
+        ///         SignatureId = 200104004,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetWafSignaturesResult> InvokeAsync(GetWafSignaturesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWafSignaturesResult>("f5bigip:ssl/getWafSignatures:getWafSignatures", args ?? new GetWafSignaturesArgs(), options.WithDefaults());
@@ -23,6 +44,27 @@ namespace Pulumi.F5BigIP.Ssl
         /// Use this data source (`f5bigip.ssl.getWafSignatures`) to get the details of attack signatures available on BIG-IP WAF
         ///  
         ///  
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using F5BigIP = Pulumi.F5BigIP;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var wAFSIG1 = F5BigIP.Ssl.GetWafSignatures.Invoke(new()
+        ///     {
+        ///         SignatureId = 200104004,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetWafSignaturesResult> Invoke(GetWafSignaturesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWafSignaturesResult>("f5bigip:ssl/getWafSignatures:getWafSignatures", args ?? new GetWafSignaturesInvokeArgs(), options.WithDefaults());

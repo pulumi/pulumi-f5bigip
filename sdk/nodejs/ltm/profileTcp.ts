@@ -8,6 +8,24 @@ import * as utilities from "../utilities";
  * `f5bigip.ltm.ProfileTcp` Configures a custom TCP LTM Profile for use by health checks.
  *
  * Resources should be named with their `full path`. The full path is the combination of the `partition + name` (example: /Common/my-pool ) or  `partition + directory + name` of the resource  (example: /Common/test/my-pool )
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const sanjose_tcp_lan_profile = new f5bigip.ltm.ProfileTcp("sanjose-tcp-lan-profile", {
+ *     closeWaitTimeout: 5,
+ *     deferredAccept: "enabled",
+ *     fastOpen: "enabled",
+ *     finwait2timeout: 5,
+ *     finwaitTimeout: 300,
+ *     idleTimeout: 200,
+ *     keepaliveInterval: 1700,
+ *     name: "/Common/sanjose-tcp-lan-profile",
+ * });
+ * ```
  */
 export class ProfileTcp extends pulumi.CustomResource {
     /**

@@ -170,6 +170,18 @@ def get_azure_service_discovery(address_realm: Optional[str] = None,
     """
     Use this data source (`fast_get_azure_service_discovery`) to get the Azure Service discovery config to be used for `http`/`https` app deployment in FAST.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_f5bigip as f5bigip
+
+    t_c3 = f5bigip.fast.get_azure_service_discovery(resource_group="testazurerg",
+        subscription_id="testazuresid",
+        tag_key="testazuretag",
+        tag_value="testazurevalue")
+    ```
+
 
     :param str address_realm: Specifies whether to look for public or private IP addresses,default `private`.
     :param bool credential_update: Specifies whether you are updating your credentials,default `false`.
@@ -228,6 +240,18 @@ def get_azure_service_discovery_output(address_realm: Optional[pulumi.Input[Opti
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAzureServiceDiscoveryResult]:
     """
     Use this data source (`fast_get_azure_service_discovery`) to get the Azure Service discovery config to be used for `http`/`https` app deployment in FAST.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_f5bigip as f5bigip
+
+    t_c3 = f5bigip.fast.get_azure_service_discovery(resource_group="testazurerg",
+        subscription_id="testazuresid",
+        tag_key="testazuretag",
+        tag_value="testazurevalue")
+    ```
 
 
     :param str address_realm: Specifies whether to look for public or private IP addresses,default `private`.

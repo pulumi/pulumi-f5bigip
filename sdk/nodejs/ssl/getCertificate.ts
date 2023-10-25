@@ -6,6 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source (`f5bigip.ssl.Certificate`) to get the ssl-certificate details available on BIG-IP
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const test = f5bigip.ssl.getCertificate({
+ *     name: "terraform_ssl_certificate",
+ *     partition: "Common",
+ * });
+ * export const bigipSslCertificateName = test.then(test => test.name);
+ * ```
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
 
@@ -50,6 +63,19 @@ export interface GetCertificateResult {
 }
 /**
  * Use this data source (`f5bigip.ssl.Certificate`) to get the ssl-certificate details available on BIG-IP
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const test = f5bigip.ssl.getCertificate({
+ *     name: "terraform_ssl_certificate",
+ *     partition: "Common",
+ * });
+ * export const bigipSslCertificateName = test.then(test => test.name);
+ * ```
  */
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
     return pulumi.output(args).apply((a: any) => getCertificate(a, opts))

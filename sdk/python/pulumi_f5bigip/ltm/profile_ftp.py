@@ -702,6 +702,35 @@ class ProfileFtp(pulumi.CustomResource):
         Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )
 
         ## Example Usage
+        ### For Bigip versions (14.x - 16.x)
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        sanjose_ftp_profile = f5bigip.ltm.ProfileFtp("sanjose-ftp-profile",
+            allow_active_mode="enabled",
+            defaults_from="/Common/ftp",
+            description="test-tftp-profile",
+            enforce_tlssession_reuse="enabled",
+            ftps_mode="allow",
+            name="/Common/sanjose-ftp-profile",
+            port=2020)
+        ```
+        ### For Bigip versions (12.x - 13.x)
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        sanjose_ftp_profile = f5bigip.ltm.ProfileFtp("sanjose-ftp-profile",
+            allow_ftps="enabled",
+            defaults_from="/Common/ftp",
+            description="test-tftp-profile",
+            name="/Common/sanjose-ftp-profile",
+            port=2020,
+            translate_extended="enabled")
+        ```
         ## Common Arguments for all versions
 
         * `security` - (Optional)Specifies, when checked (enabled), that the system inspects FTP traffic for security vulnerabilities using an FTP security profile. This option is available only on systems licensed for BIG-IP ASM.
@@ -749,6 +778,35 @@ class ProfileFtp(pulumi.CustomResource):
         Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )
 
         ## Example Usage
+        ### For Bigip versions (14.x - 16.x)
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        sanjose_ftp_profile = f5bigip.ltm.ProfileFtp("sanjose-ftp-profile",
+            allow_active_mode="enabled",
+            defaults_from="/Common/ftp",
+            description="test-tftp-profile",
+            enforce_tlssession_reuse="enabled",
+            ftps_mode="allow",
+            name="/Common/sanjose-ftp-profile",
+            port=2020)
+        ```
+        ### For Bigip versions (12.x - 13.x)
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        sanjose_ftp_profile = f5bigip.ltm.ProfileFtp("sanjose-ftp-profile",
+            allow_ftps="enabled",
+            defaults_from="/Common/ftp",
+            description="test-tftp-profile",
+            name="/Common/sanjose-ftp-profile",
+            port=2020,
+            translate_extended="enabled")
+        ```
         ## Common Arguments for all versions
 
         * `security` - (Optional)Specifies, when checked (enabled), that the system inspects FTP traffic for security vulnerabilities using an FTP security profile. This option is available only on systems licensed for BIG-IP ASM.

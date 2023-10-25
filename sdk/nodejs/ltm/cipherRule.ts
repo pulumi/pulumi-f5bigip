@@ -6,6 +6,20 @@ import * as utilities from "../utilities";
 
 /**
  * `f5bigip.ltm.CipherRule` Manages F5 BIG-IP LTM cipher rule using iControl REST.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const testCipherRule = new f5bigip.ltm.CipherRule("testCipherRule", {
+ *     cipher: "TLS13-AES128-GCM-SHA256:TLS13-AES256-GCM-SHA384",
+ *     dhGroups: "P256:P384:FFDHE2048:FFDHE3072:FFDHE4096",
+ *     name: "/Common/test_cipher_rule",
+ *     signatureAlgorithms: "DEFAULT",
+ * });
+ * ```
  */
 export class CipherRule extends pulumi.CustomResource {
     /**

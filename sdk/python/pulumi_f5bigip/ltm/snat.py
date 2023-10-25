@@ -471,6 +471,23 @@ class Snat(pulumi.CustomResource):
 
         For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource.For example `/Common/test-snat`.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        test_snat = f5bigip.ltm.Snat("test-snat",
+            name="/Common/test-snat",
+            origins=[f5bigip.ltm.SnatOriginArgs(
+                name="0.0.0.0/0",
+            )],
+            sourceport="preserve",
+            translation="/Common/136.1.1.2",
+            vlans=["/Common/internal"],
+            vlansdisabled=False)
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] autolasthop: Specifies whether to automatically map last hop for pools or not. The default is to use next level's default.
@@ -495,6 +512,23 @@ class Snat(pulumi.CustomResource):
         `ltm.Snat` Manages a SNAT configuration
 
         For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource.For example `/Common/test-snat`.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        test_snat = f5bigip.ltm.Snat("test-snat",
+            name="/Common/test-snat",
+            origins=[f5bigip.ltm.SnatOriginArgs(
+                name="0.0.0.0/0",
+            )],
+            sourceport="preserve",
+            translation="/Common/136.1.1.2",
+            vlans=["/Common/internal"],
+            vlansdisabled=False)
+        ```
 
         :param str resource_name: The name of the resource.
         :param SnatArgs args: The arguments to use to populate this resource's properties.

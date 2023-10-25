@@ -13,6 +13,34 @@ namespace Pulumi.F5BigIP.Ltm
     /// `f5bigip.ltm.ProfileFastHttp` Configures a custom profile_fasthttp for use by health checks.
     /// 
     /// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sjfasthttpprofile = new F5BigIP.Ltm.ProfileFastHttp("sjfasthttpprofile", new()
+    ///     {
+    ///         ConnpoolMaxreuse = 2,
+    ///         ConnpoolMaxsize = 2048,
+    ///         ConnpoolMinsize = 0,
+    ///         ConnpoolReplenish = "enabled",
+    ///         ConnpoolStep = 4,
+    ///         ConnpoolidleTimeoutoverride = 0,
+    ///         DefaultsFrom = "/Common/fasthttp",
+    ///         Forcehttp10response = "disabled",
+    ///         IdleTimeout = 300,
+    ///         MaxheaderSize = 32768,
+    ///         Name = "/Common/sjfasthttpprofile",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/profileFastHttp:ProfileFastHttp")]
     public partial class ProfileFastHttp : global::Pulumi.CustomResource

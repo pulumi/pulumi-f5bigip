@@ -459,6 +459,15 @@ class ProfileOneConnect(pulumi.CustomResource):
 
         Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        test_oneconnect = f5bigip.ltm.ProfileOneConnect("test-oneconnect", name="/Common/test-oneconnect")
+        ```
+
         ## Import
 
         BIG-IP LTM oneconnect profiles can be imported using the `name` , e.g.
@@ -490,6 +499,15 @@ class ProfileOneConnect(pulumi.CustomResource):
         `ltm.ProfileOneConnect` Configures a custom profile_oneconnect for use by health checks.
 
         Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        test_oneconnect = f5bigip.ltm.ProfileOneConnect("test-oneconnect", name="/Common/test-oneconnect")
+        ```
 
         ## Import
 

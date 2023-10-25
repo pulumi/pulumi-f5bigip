@@ -978,6 +978,49 @@ class Monitor(pulumi.CustomResource):
 
         For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource. For example `/Common/test-monitor`.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        monitor = f5bigip.ltm.Monitor("monitor",
+            destination="1.2.3.4:1234",
+            interval=998,
+            name="/Common/terraform_monitor",
+            parent="/Common/http",
+            send=\"\"\"GET /some/path
+
+        \"\"\",
+            timeout=999)
+        test_https_monitor = f5bigip.ltm.Monitor("test-https-monitor",
+            interval=999,
+            name="/Common/terraform_monitor",
+            parent="/Common/http",
+            send=\"\"\"GET /some/path
+
+        \"\"\",
+            ssl_profile="/Common/serverssl",
+            timeout=1000)
+        test_ftp_monitor = f5bigip.ltm.Monitor("test-ftp-monitor",
+            destination="*:8008",
+            filename="somefile",
+            interval=5,
+            name="/Common/ftp-test",
+            parent="/Common/ftp",
+            time_until_up=0,
+            timeout=16)
+        test_postgresql_monitor = f5bigip.ltm.Monitor("test-postgresql-monitor",
+            interval=5,
+            name="/Common/test-postgresql-monitor",
+            parent="/Common/postgresql",
+            password="abcd1234",
+            receive="Test",
+            send="SELECT 'Test';",
+            timeout=16,
+            username="abcd")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] adaptive: Specifies whether adaptive response time monitoring is enabled for this monitor. The default is `disabled`.
@@ -1015,6 +1058,49 @@ class Monitor(pulumi.CustomResource):
         `ltm.Monitor` Configures a custom monitor for use by health checks.
 
         For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource. For example `/Common/test-monitor`.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        monitor = f5bigip.ltm.Monitor("monitor",
+            destination="1.2.3.4:1234",
+            interval=998,
+            name="/Common/terraform_monitor",
+            parent="/Common/http",
+            send=\"\"\"GET /some/path
+
+        \"\"\",
+            timeout=999)
+        test_https_monitor = f5bigip.ltm.Monitor("test-https-monitor",
+            interval=999,
+            name="/Common/terraform_monitor",
+            parent="/Common/http",
+            send=\"\"\"GET /some/path
+
+        \"\"\",
+            ssl_profile="/Common/serverssl",
+            timeout=1000)
+        test_ftp_monitor = f5bigip.ltm.Monitor("test-ftp-monitor",
+            destination="*:8008",
+            filename="somefile",
+            interval=5,
+            name="/Common/ftp-test",
+            parent="/Common/ftp",
+            time_until_up=0,
+            timeout=16)
+        test_postgresql_monitor = f5bigip.ltm.Monitor("test-postgresql-monitor",
+            interval=5,
+            name="/Common/test-postgresql-monitor",
+            parent="/Common/postgresql",
+            password="abcd1234",
+            receive="Test",
+            send="SELECT 'Test';",
+            timeout=16,
+            username="abcd")
+        ```
 
         :param str resource_name: The name of the resource.
         :param MonitorArgs args: The arguments to use to populate this resource's properties.

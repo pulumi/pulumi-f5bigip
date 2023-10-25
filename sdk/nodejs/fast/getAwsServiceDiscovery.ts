@@ -6,6 +6,18 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source (`f5bigip.fast.getAwsServiceDiscovery`) to get the AWS Service discovery config to be used for `http`/`https` app deployment in FAST.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const tC2 = f5bigip.fast.getAwsServiceDiscovery({
+ *     tagKey: "testawstagkey",
+ *     tagValue: "testawstagvalue",
+ * });
+ * ```
  */
 export function getAwsServiceDiscovery(args: GetAwsServiceDiscoveryArgs, opts?: pulumi.InvokeOptions): Promise<GetAwsServiceDiscoveryResult> {
 
@@ -116,6 +128,18 @@ export interface GetAwsServiceDiscoveryResult {
 }
 /**
  * Use this data source (`f5bigip.fast.getAwsServiceDiscovery`) to get the AWS Service discovery config to be used for `http`/`https` app deployment in FAST.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const tC2 = f5bigip.fast.getAwsServiceDiscovery({
+ *     tagKey: "testawstagkey",
+ *     tagValue: "testawstagvalue",
+ * });
+ * ```
  */
 export function getAwsServiceDiscoveryOutput(args: GetAwsServiceDiscoveryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAwsServiceDiscoveryResult> {
     return pulumi.output(args).apply((a: any) => getAwsServiceDiscovery(a, opts))

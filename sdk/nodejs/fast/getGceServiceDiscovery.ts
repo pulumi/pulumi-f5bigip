@@ -6,6 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source (`f5bigip.fast.getGceServiceDiscovery`) to get the GCE Service discovery config to be used for `http`/`https` app deployment in FAST.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const tC3 = f5bigip.fast.getGceServiceDiscovery({
+ *     region: "testgceregion",
+ *     tagKey: "testgcetag",
+ *     tagValue: "testgcevalue",
+ * });
+ * ```
  */
 export function getGceServiceDiscovery(args: GetGceServiceDiscoveryArgs, opts?: pulumi.InvokeOptions): Promise<GetGceServiceDiscoveryResult> {
 
@@ -104,6 +117,19 @@ export interface GetGceServiceDiscoveryResult {
 }
 /**
  * Use this data source (`f5bigip.fast.getGceServiceDiscovery`) to get the GCE Service discovery config to be used for `http`/`https` app deployment in FAST.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const tC3 = f5bigip.fast.getGceServiceDiscovery({
+ *     region: "testgceregion",
+ *     tagKey: "testgcetag",
+ *     tagValue: "testgcevalue",
+ * });
+ * ```
  */
 export function getGceServiceDiscoveryOutput(args: GetGceServiceDiscoveryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGceServiceDiscoveryResult> {
     return pulumi.output(args).apply((a: any) => getGceServiceDiscovery(a, opts))

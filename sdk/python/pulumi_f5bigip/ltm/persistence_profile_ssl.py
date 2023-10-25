@@ -409,6 +409,23 @@ class PersistenceProfileSsl(pulumi.CustomResource):
         """
         Configures an SSL persistence profile
 
+        ## Example
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        ppssl = f5bigip.ltm.PersistenceProfileSsl("ppssl",
+            defaults_from="/Common/ssl",
+            match_across_pools="enabled",
+            match_across_services="enabled",
+            match_across_virtuals="enabled",
+            mirror="enabled",
+            name="/Common/terraform_ssl",
+            override_conn_limit="enabled",
+            timeout=3600)
+        ```
+
         ## Reference
 
         `name` - (Required) Name of the virtual address
@@ -447,6 +464,23 @@ class PersistenceProfileSsl(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Configures an SSL persistence profile
+
+        ## Example
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        ppssl = f5bigip.ltm.PersistenceProfileSsl("ppssl",
+            defaults_from="/Common/ssl",
+            match_across_pools="enabled",
+            match_across_services="enabled",
+            match_across_virtuals="enabled",
+            mirror="enabled",
+            name="/Common/terraform_ssl",
+            override_conn_limit="enabled",
+            timeout=3600)
+        ```
 
         ## Reference
 

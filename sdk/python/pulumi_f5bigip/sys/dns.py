@@ -212,6 +212,18 @@ class Dns(pulumi.CustomResource):
         """
         `sys.Dns` Configures DNS Name server on F5 BIG-IP
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        dns1 = f5bigip.sys.Dns("dns1",
+            description="/Common/DNS1",
+            name_servers=["1.1.1.1"],
+            searches=["f5.com"])
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Provide description for your DNS server
@@ -227,6 +239,18 @@ class Dns(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         `sys.Dns` Configures DNS Name server on F5 BIG-IP
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        dns1 = f5bigip.sys.Dns("dns1",
+            description="/Common/DNS1",
+            name_servers=["1.1.1.1"],
+            searches=["f5.com"])
+        ```
 
         :param str resource_name: The name of the resource.
         :param DnsArgs args: The arguments to use to populate this resource's properties.

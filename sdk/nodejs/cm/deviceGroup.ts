@@ -8,6 +8,28 @@ import * as utilities from "../utilities";
 
 /**
  * `f5bigip.cm.DeviceGroup` A device group is a collection of BIG-IP devices that are configured to securely synchronize their BIG-IP configuration data, and fail over when needed.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const myNewDevicegroup = new f5bigip.cm.DeviceGroup("myNewDevicegroup", {
+ *     autoSync: "enabled",
+ *     devices: [
+ *         {
+ *             name: "bigip1.cisco.com",
+ *         },
+ *         {
+ *             name: "bigip200.f5.com",
+ *         },
+ *     ],
+ *     fullLoadOnSync: "true",
+ *     name: "sanjose_devicegroup",
+ *     type: "sync-only",
+ * });
+ * ```
  */
 export class DeviceGroup extends pulumi.CustomResource {
     /**

@@ -14,6 +14,36 @@ namespace Pulumi.F5BigIP.Ltm
     /// 
     /// For resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource or  `partition + directory + name`.
     /// For example `/Common/my-pool`.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var monitor = new F5BigIP.Ltm.Monitor("monitor", new()
+    ///     {
+    ///         Name = "/Common/terraform_monitor",
+    ///         Parent = "/Common/http",
+    ///     });
+    /// 
+    ///     var pool = new F5BigIP.Ltm.Pool("pool", new()
+    ///     {
+    ///         Name = "/Common/Axiom_Environment_APP1_Pool",
+    ///         LoadBalancingMode = "round-robin",
+    ///         MinimumActiveMembers = 1,
+    ///         Monitors = new[]
+    ///         {
+    ///             monitor.Name,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/pool:Pool")]
     public partial class Pool : global::Pulumi.CustomResource

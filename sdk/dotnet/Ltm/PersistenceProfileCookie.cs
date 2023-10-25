@@ -12,6 +12,36 @@ namespace Pulumi.F5BigIP.Ltm
     /// <summary>
     /// Configures a cookie persistence profile
     /// 
+    /// ## Example
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var testPpcookie = new F5BigIP.Ltm.PersistenceProfileCookie("testPpcookie", new()
+    ///     {
+    ///         Name = "/Common/terraform_cookie",
+    ///         DefaultsFrom = "/Common/cookie",
+    ///         MatchAcrossPools = "enabled",
+    ///         MatchAcrossServices = "enabled",
+    ///         MatchAcrossVirtuals = "enabled",
+    ///         Timeout = 3600,
+    ///         OverrideConnLimit = "enabled",
+    ///         AlwaysSend = "enabled",
+    ///         CookieEncryption = "required",
+    ///         CookieEncryptionPassphrase = "iam",
+    ///         CookieName = "ham",
+    ///         Expiration = "1:0:0",
+    ///         HashLength = 0,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Reference
     /// 
     /// `name` - (Required) Name of the virtual address

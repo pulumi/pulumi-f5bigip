@@ -15,6 +15,39 @@ import (
 
 // Configures an SSL persistence profile
 //
+// ## Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ltm.NewPersistenceProfileSsl(ctx, "ppssl", &ltm.PersistenceProfileSslArgs{
+//				DefaultsFrom:        pulumi.String("/Common/ssl"),
+//				MatchAcrossPools:    pulumi.String("enabled"),
+//				MatchAcrossServices: pulumi.String("enabled"),
+//				MatchAcrossVirtuals: pulumi.String("enabled"),
+//				Mirror:              pulumi.String("enabled"),
+//				Name:                pulumi.String("/Common/terraform_ssl"),
+//				OverrideConnLimit:   pulumi.String("enabled"),
+//				Timeout:             pulumi.Int(3600),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Reference
 //
 // `name` - (Required) Name of the virtual address

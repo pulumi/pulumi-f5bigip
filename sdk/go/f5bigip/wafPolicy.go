@@ -20,6 +20,81 @@ import (
 //
 // > **NOTE** This Resource Requires F5 BIG-IP v16.x above version, and ASM need to be provisioned.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ssl"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			param1, err := ssl.GetWafEntityParameter(ctx, &ssl.GetWafEntityParameterArgs{
+//				Name:           "Param1",
+//				Type:           pulumi.StringRef("explicit"),
+//				DataType:       pulumi.StringRef("alpha-numeric"),
+//				PerformStaging: pulumi.BoolRef(true),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			param2, err := ssl.GetWafEntityParameter(ctx, &ssl.GetWafEntityParameterArgs{
+//				Name:           "Param2",
+//				Type:           pulumi.StringRef("explicit"),
+//				DataType:       pulumi.StringRef("alpha-numeric"),
+//				PerformStaging: pulumi.BoolRef(true),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			uRL, err := ssl.GetWafEntityUrl(ctx, &ssl.GetWafEntityUrlArgs{
+//				Name:     "URL1",
+//				Protocol: pulumi.StringRef("http"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			uRL2, err := ssl.GetWafEntityUrl(ctx, &ssl.GetWafEntityUrlArgs{
+//				Name: "URL2",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = f5bigip.NewWafPolicy(ctx, "test-awaf", &f5bigip.WafPolicyArgs{
+//				Name:                pulumi.String("testpolicyravi"),
+//				Partition:           pulumi.String("Common"),
+//				TemplateName:        pulumi.String("POLICY_TEMPLATE_RAPID_DEPLOYMENT"),
+//				ApplicationLanguage: pulumi.String("utf-8"),
+//				EnforcementMode:     pulumi.String("blocking"),
+//				ServerTechnologies: pulumi.StringArray{
+//					pulumi.String("MySQL"),
+//					pulumi.String("Unix/Linux"),
+//					pulumi.String("MongoDB"),
+//				},
+//				Parameters: pulumi.StringArray{
+//					*pulumi.String(param1.Json),
+//					*pulumi.String(param2.Json),
+//				},
+//				Urls: pulumi.StringArray{
+//					*pulumi.String(uRL.Json),
+//					*pulumi.String(uRL2.Json),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // An existing WAF Policy or if the WAF Policy has been manually created or modified on the BIG-IP WebUI, it can be imported using its `id`. e.g

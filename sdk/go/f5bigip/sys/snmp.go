@@ -13,6 +13,35 @@ import (
 )
 
 // `sys.Snmp` provides details bout how to enable "ilx", "asm" "apm" resource on BIG-IP
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/sys"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sys.NewSnmp(ctx, "snmp", &sys.SnmpArgs{
+//				Allowedaddresses: pulumi.StringArray{
+//					pulumi.String("202.10.10.2"),
+//				},
+//				SysContact:  pulumi.String(" NetOPsAdmin s.shitole@f5.com"),
+//				SysLocation: pulumi.String("SeattleHQ"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type Snmp struct {
 	pulumi.CustomResourceState
 

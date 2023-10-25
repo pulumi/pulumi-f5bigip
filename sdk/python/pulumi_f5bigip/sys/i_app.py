@@ -699,6 +699,21 @@ class IApp(pulumi.CustomResource):
         """
         `sys.IApp` resource helps you to deploy Application Services template that can be used to automate and orchestrate Layer 4-7 applications service deployments using F5 Network.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        simplehttp = f5bigip.sys.IApp("simplehttp",
+            name="simplehttp",
+            jsonfile=(lambda path: open(path).read())("simplehttp.json"))
+        ```
+        ### Json File
+        ```python
+        import pulumi
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: User defined description.
@@ -725,6 +740,21 @@ class IApp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         `sys.IApp` resource helps you to deploy Application Services template that can be used to automate and orchestrate Layer 4-7 applications service deployments using F5 Network.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        simplehttp = f5bigip.sys.IApp("simplehttp",
+            name="simplehttp",
+            jsonfile=(lambda path: open(path).read())("simplehttp.json"))
+        ```
+        ### Json File
+        ```python
+        import pulumi
+        ```
 
         :param str resource_name: The name of the resource.
         :param IAppArgs args: The arguments to use to populate this resource's properties.

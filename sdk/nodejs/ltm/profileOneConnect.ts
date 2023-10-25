@@ -9,6 +9,15 @@ import * as utilities from "../utilities";
  *
  * Resources should be named with their "full path". The full path is the combination of the partition + name (example: /Common/my-pool ) or  partition + directory + name of the resource  (example: /Common/test/my-pool )
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const test_oneconnect = new f5bigip.ltm.ProfileOneConnect("test-oneconnect", {name: "/Common/test-oneconnect"});
+ * ```
+ *
  * ## Import
  *
  * BIG-IP LTM oneconnect profiles can be imported using the `name` , e.g.

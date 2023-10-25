@@ -16,6 +16,49 @@ import (
 //
 // This resource is helpful to configure as3 declarative JSON on BIG-IP.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"os"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func readFileOrPanic(path string) pulumi.StringPtrInput {
+//		data, err := os.ReadFile(path)
+//		if err != nil {
+//			panic(err.Error())
+//		}
+//		return pulumi.String(string(data))
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := f5bigip.NewAs3(ctx, "as3-example1As3", &f5bigip.As3Args{
+//				As3Json: readFileOrPanic("example1.json"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = f5bigip.NewAs3(ctx, "as3-example1Index/as3As3", &f5bigip.As3Args{
+//				As3Json:      readFileOrPanic("example2.json"),
+//				TenantFilter: pulumi.String("Sample_03"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // As3 resources can be imported using the partition name, e.g., ( use comma separated partition names if there are multiple partitions in as3 deployments )
@@ -474,7 +517,34 @@ type As3 struct {
 	//
 	// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
 	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	// * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	IgnoreMetadata pulumi.BoolPtrOutput `pulumi:"ignoreMetadata"`
 	// ID of AS3 post declaration async task
 	TaskId pulumi.StringOutput `pulumi:"taskId"`
@@ -526,7 +596,34 @@ type as3State struct {
 	//
 	// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
 	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	// * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	IgnoreMetadata *bool `pulumi:"ignoreMetadata"`
 	// ID of AS3 post declaration async task
 	TaskId *string `pulumi:"taskId"`
@@ -549,7 +646,34 @@ type As3State struct {
 	//
 	// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
 	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	// * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	IgnoreMetadata pulumi.BoolPtrInput
 	// ID of AS3 post declaration async task
 	TaskId pulumi.StringPtrInput
@@ -576,7 +700,34 @@ type as3Args struct {
 	//
 	// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
 	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	// * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	IgnoreMetadata *bool `pulumi:"ignoreMetadata"`
 	// ID of AS3 post declaration async task
 	TaskId *string `pulumi:"taskId"`
@@ -600,7 +751,34 @@ type As3Args struct {
 	//
 	// * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
 	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	// * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	IgnoreMetadata pulumi.BoolPtrInput
 	// ID of AS3 post declaration async task
 	TaskId pulumi.StringPtrInput
@@ -739,7 +917,40 @@ func (o As3Output) As3Json() pulumi.StringPtrOutput {
 //
 // * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
 //
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
+// ```
 // * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o As3Output) IgnoreMetadata() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *As3) pulumi.BoolPtrOutput { return v.IgnoreMetadata }).(pulumi.BoolPtrOutput)
 }

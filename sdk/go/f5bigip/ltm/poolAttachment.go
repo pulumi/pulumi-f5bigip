@@ -24,6 +24,122 @@ import (
 //
 // > For adding IPv6 node/member to pool it should be specific in `node` attribute in format like `ipv6_address.port`.
 // IPv4 should be specified as `ipv4_address:port`
+// ### Usage Pool attachment with node/member directly attaching to pool.
+//
+// node can be specified in format `ipv4:port` / `fqdn:port` / `ipv6.port`
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			monitor, err := ltm.NewMonitor(ctx, "monitor", &ltm.MonitorArgs{
+//				Name:     pulumi.String("/Common/terraform_monitor"),
+//				Parent:   pulumi.String("/Common/http"),
+//				Send:     pulumi.String("GET /some/path\n"),
+//				Timeout:  pulumi.Int(999),
+//				Interval: pulumi.Int(998),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			pool, err := ltm.NewPool(ctx, "pool", &ltm.PoolArgs{
+//				Name:              pulumi.String("/Common/terraform-pool"),
+//				LoadBalancingMode: pulumi.String("round-robin"),
+//				Monitors: pulumi.StringArray{
+//					monitor.Name,
+//				},
+//				AllowSnat: pulumi.String("yes"),
+//				AllowNat:  pulumi.String("yes"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ltm.NewPoolAttachment(ctx, "ipv4NodeAttach", &ltm.PoolAttachmentArgs{
+//				Pool: pool.Name,
+//				Node: pulumi.String("1.1.1.1:80"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ltm.NewPoolAttachment(ctx, "ipv6NodeAttach", &ltm.PoolAttachmentArgs{
+//				Pool: pool.Name,
+//				Node: pulumi.String("2003::4.80"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Usage Pool attachment with node referenced from `ltm.Node`
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/ltm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			monitor, err := ltm.NewMonitor(ctx, "monitor", &ltm.MonitorArgs{
+//				Name:     pulumi.String("/Common/terraform_monitor"),
+//				Parent:   pulumi.String("/Common/http"),
+//				Send:     pulumi.String("GET /some/path\n"),
+//				Timeout:  pulumi.Int(999),
+//				Interval: pulumi.Int(998),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			pool, err := ltm.NewPool(ctx, "pool", &ltm.PoolArgs{
+//				Name:              pulumi.String("/Common/terraform-pool"),
+//				LoadBalancingMode: pulumi.String("round-robin"),
+//				Monitors: pulumi.StringArray{
+//					monitor.Name,
+//				},
+//				AllowSnat: pulumi.String("yes"),
+//				AllowNat:  pulumi.String("yes"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			node, err := ltm.NewNode(ctx, "node", &ltm.NodeArgs{
+//				Name:    pulumi.String("/Common/terraform_node"),
+//				Address: pulumi.String("192.168.30.2"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ltm.NewPoolAttachment(ctx, "attachNode", &ltm.PoolAttachmentArgs{
+//				Pool: pool.Name,
+//				Node: node.Name.ApplyT(func(name string) (string, error) {
+//					return fmt.Sprintf("%v:80", name), nil
+//				}).(pulumi.StringOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type PoolAttachment struct {
 	pulumi.CustomResourceState
 

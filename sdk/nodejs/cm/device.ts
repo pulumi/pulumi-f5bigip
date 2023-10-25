@@ -8,6 +8,19 @@ import * as utilities from "../utilities";
  * `f5bigip.cm.Device` provides details about a specific bigip
  *
  * This resource is helpful when configuring the BIG-IP device in cluster or in HA mode.
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const myNewDevice = new f5bigip.cm.Device("myNewDevice", {
+ *     configsyncIp: "2.2.2.2",
+ *     mirrorIp: "10.10.10.10",
+ *     mirrorSecondaryIp: "11.11.11.11",
+ *     name: "bigip300.f5.com",
+ * });
+ * ```
  */
 export class Device extends pulumi.CustomResource {
     /**

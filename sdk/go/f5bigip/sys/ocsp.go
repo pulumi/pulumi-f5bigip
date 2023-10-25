@@ -14,6 +14,36 @@ import (
 )
 
 // `sys.Ocsp` Manages F5 BIG-IP OCSP responder using iControl REST.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/sys"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := sys.NewOcsp(ctx, "test-ocsp", &sys.OcspArgs{
+//				Name:            pulumi.String("/Uncommon/test-ocsp"),
+//				Passphrase:      pulumi.String("testabcdef"),
+//				ProxyServerPool: pulumi.String("/Common/test-poolxyz"),
+//				SignerCert:      pulumi.String("/Common/le-ssl"),
+//				SignerKey:       pulumi.String("/Common/le-ssl"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type Ocsp struct {
 	pulumi.CustomResourceState
 

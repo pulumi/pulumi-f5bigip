@@ -29,7 +29,14 @@ class As3Args:
                
                * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
                
+               ```python
+               import pulumi
+               ```
                * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[str] task_id: ID of AS3 post declaration async task
         :param pulumi.Input[str] tenant_filter: If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
         :param pulumi.Input[str] tenant_list: Name of Tenant
@@ -122,7 +129,14 @@ class As3Args:
 
         * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
 
+        ```python
+        import pulumi
+        ```
         * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "ignore_metadata")
 
@@ -200,7 +214,14 @@ class _As3State:
                
                * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
                
+               ```python
+               import pulumi
+               ```
                * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[str] task_id: ID of AS3 post declaration async task
         :param pulumi.Input[str] tenant_filter: If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
         :param pulumi.Input[str] tenant_list: Name of Tenant
@@ -293,7 +314,14 @@ class _As3State:
 
         * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
 
+        ```python
+        import pulumi
+        ```
         * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "ignore_metadata")
 
@@ -370,6 +398,20 @@ class As3(pulumi.CustomResource):
         `As3` provides details about bigip as3 resource
 
         This resource is helpful to configure as3 declarative JSON on BIG-IP.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        # Example Usage for json file
+        as3_example1_as3 = f5bigip.As3("as3-example1As3", as3_json=(lambda path: open(path).read())("example1.json"))
+        # Example Usage for json file with tenant filter
+        as3_example1_index_as3_as3 = f5bigip.As3("as3-example1Index/as3As3",
+            as3_json=(lambda path: open(path).read())("example2.json"),
+            tenant_filter="Sample_03")
+        ```
 
         ## Import
 
@@ -819,7 +861,14 @@ class As3(pulumi.CustomResource):
                
                * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
                
+               ```python
+               import pulumi
+               ```
                * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[str] task_id: ID of AS3 post declaration async task
         :param pulumi.Input[str] tenant_filter: If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
         :param pulumi.Input[str] tenant_list: Name of Tenant
@@ -835,6 +884,20 @@ class As3(pulumi.CustomResource):
         `As3` provides details about bigip as3 resource
 
         This resource is helpful to configure as3 declarative JSON on BIG-IP.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        # Example Usage for json file
+        as3_example1_as3 = f5bigip.As3("as3-example1As3", as3_json=(lambda path: open(path).read())("example1.json"))
+        # Example Usage for json file with tenant filter
+        as3_example1_index_as3_as3 = f5bigip.As3("as3-example1Index/as3As3",
+            as3_json=(lambda path: open(path).read())("example2.json"),
+            tenant_filter="Sample_03")
+        ```
 
         ## Import
 
@@ -1348,7 +1411,14 @@ class As3(pulumi.CustomResource):
                
                * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
                
+               ```python
+               import pulumi
+               ```
                * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
+               
+               ```python
+               import pulumi
+               ```
         :param pulumi.Input[str] task_id: ID of AS3 post declaration async task
         :param pulumi.Input[str] tenant_filter: If there are multiple tenants on a BIG-IP, this attribute helps the user to set a particular tenant to which he want to reflect the changes. Other tenants will neither be created nor be modified.
         :param pulumi.Input[str] tenant_list: Name of Tenant
@@ -1391,7 +1461,14 @@ class As3(pulumi.CustomResource):
 
         * `as3_example1.json` - Example  AS3 Declarative JSON file with single tenant
 
+        ```python
+        import pulumi
+        ```
         * `as3_example2.json` - Example  AS3 Declarative JSON file with multiple tenants
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "ignore_metadata")
 

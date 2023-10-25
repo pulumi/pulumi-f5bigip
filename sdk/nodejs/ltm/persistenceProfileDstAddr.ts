@@ -7,6 +7,26 @@ import * as utilities from "../utilities";
 /**
  * Configures a cookie persistence profile
  *
+ * ## Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const dstaddr = new f5bigip.ltm.PersistenceProfileDstAddr("dstaddr", {
+ *     defaultsFrom: "/Common/dest_addr",
+ *     hashAlgorithm: "carp",
+ *     mask: "255.255.255.255",
+ *     matchAcrossPools: "enabled",
+ *     matchAcrossServices: "enabled",
+ *     matchAcrossVirtuals: "enabled",
+ *     mirror: "enabled",
+ *     name: "/Common/terraform_ppdstaddr",
+ *     overrideConnLimit: "enabled",
+ *     timeout: 3600,
+ * });
+ * ```
+ *
  * ## Reference
  *
  * `name` - (Required) Name of the virtual address

@@ -10,6 +10,60 @@ import * as utilities from "./utilities";
  * `f5bigip.FastHttpApp` This resource will create and manage FAST HTTP applications on BIG-IP
  *
  * [FAST documentation](https://clouddocs.f5.com/products/extensions/f5-appsvcs-templates/latest/)
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const fastHttpApp = new f5bigip.FastHttpApp("fastHttpApp", {
+ *     application: "fasthttpapp",
+ *     tenant: "fasthttptenant",
+ *     virtualServer: {
+ *         ip: "10.30.30.44",
+ *         port: 443,
+ *     },
+ * });
+ * ```
+ * ### With Service Discovery
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const tC3AzureServiceDiscovery = f5bigip.fast.getAzureServiceDiscovery({
+ *     resourceGroup: "testazurerg",
+ *     subscriptionId: "testazuresid",
+ *     tagKey: "testazuretag",
+ *     tagValue: "testazurevalue",
+ * });
+ * const tC3GceServiceDiscovery = f5bigip.fast.getGceServiceDiscovery({
+ *     tagKey: "testgcetag",
+ *     tagValue: "testgcevalue",
+ *     region: "testgceregion",
+ * });
+ * const fastHttpsApp = new f5bigip.FastHttpApp("fastHttpsApp", {
+ *     tenant: "fasthttptenant",
+ *     application: "fasthttpapp",
+ *     virtualServer: {
+ *         ip: "10.30.40.44",
+ *         port: 443,
+ *     },
+ *     poolMembers: [{
+ *         addresses: [
+ *             "10.11.40.120",
+ *             "10.11.30.121",
+ *             "10.11.30.122",
+ *         ],
+ *         port: 80,
+ *     }],
+ *     serviceDiscoveries: [
+ *         tC3GceServiceDiscovery.then(tC3GceServiceDiscovery => tC3GceServiceDiscovery.gceSdJson),
+ *         tC3AzureServiceDiscovery.then(tC3AzureServiceDiscovery => tC3AzureServiceDiscovery.azureSdJson),
+ *     ],
+ * });
+ * ```
  */
 export class FastHttpApp extends pulumi.CustomResource {
     /**

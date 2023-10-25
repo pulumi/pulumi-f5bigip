@@ -744,6 +744,20 @@ class Ocsp(pulumi.CustomResource):
         """
         `sys.Ocsp` Manages F5 BIG-IP OCSP responder using iControl REST.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        test_ocsp = f5bigip.sys.Ocsp("test-ocsp",
+            name="/Uncommon/test-ocsp",
+            passphrase="testabcdef",
+            proxy_server_pool="/Common/test-poolxyz",
+            signer_cert="/Common/le-ssl",
+            signer_key="/Common/le-ssl")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] cache_error_timeout: Specifies the lifetime of an error response in the cache, in seconds. This value must be greater than connection_timeout. The default value is `3600`.
@@ -772,6 +786,20 @@ class Ocsp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         `sys.Ocsp` Manages F5 BIG-IP OCSP responder using iControl REST.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        test_ocsp = f5bigip.sys.Ocsp("test-ocsp",
+            name="/Uncommon/test-ocsp",
+            passphrase="testabcdef",
+            proxy_server_pool="/Common/test-poolxyz",
+            signer_cert="/Common/le-ssl",
+            signer_key="/Common/le-ssl")
+        ```
 
         :param str resource_name: The name of the resource.
         :param OcspArgs args: The arguments to use to populate this resource's properties.

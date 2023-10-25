@@ -13,6 +13,25 @@ namespace Pulumi.F5BigIP.Ltm
     /// `f5bigip.ltm.VirtualAddress` Configures Virtual Server
     /// 
     /// For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/virtual_server.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var vsVa = new F5BigIP.Ltm.VirtualAddress("vsVa", new()
+    ///     {
+    ///         AdvertizeRoute = "enabled",
+    ///         Name = "/Common/xxxxx",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:ltm/virtualAddress:VirtualAddress")]
     public partial class VirtualAddress : global::Pulumi.CustomResource

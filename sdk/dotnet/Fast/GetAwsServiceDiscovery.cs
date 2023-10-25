@@ -13,12 +13,58 @@ namespace Pulumi.F5BigIP.Fast
     {
         /// <summary>
         /// Use this data source (`f5bigip.fast.getAwsServiceDiscovery`) to get the AWS Service discovery config to be used for `http`/`https` app deployment in FAST.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using F5BigIP = Pulumi.F5BigIP;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var tC2 = F5BigIP.Fast.GetAwsServiceDiscovery.Invoke(new()
+        ///     {
+        ///         TagKey = "testawstagkey",
+        ///         TagValue = "testawstagvalue",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetAwsServiceDiscoveryResult> InvokeAsync(GetAwsServiceDiscoveryArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAwsServiceDiscoveryResult>("f5bigip:fast/getAwsServiceDiscovery:getAwsServiceDiscovery", args ?? new GetAwsServiceDiscoveryArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source (`f5bigip.fast.getAwsServiceDiscovery`) to get the AWS Service discovery config to be used for `http`/`https` app deployment in FAST.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using F5BigIP = Pulumi.F5BigIP;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var tC2 = F5BigIP.Fast.GetAwsServiceDiscovery.Invoke(new()
+        ///     {
+        ///         TagKey = "testawstagkey",
+        ///         TagValue = "testawstagvalue",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetAwsServiceDiscoveryResult> Invoke(GetAwsServiceDiscoveryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAwsServiceDiscoveryResult>("f5bigip:fast/getAwsServiceDiscovery:getAwsServiceDiscovery", args ?? new GetAwsServiceDiscoveryInvokeArgs(), options.WithDefaults());

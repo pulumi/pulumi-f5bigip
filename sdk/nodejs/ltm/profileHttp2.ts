@@ -8,6 +8,32 @@ import * as utilities from "../utilities";
  * `f5bigip.ltm.ProfileHttp2` Configures a custom profileHttp2 for use by health checks.
  *
  * For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const nyhttp2 = new f5bigip.ltm.ProfileHttp2("nyhttp2", {
+ *     name: "/Common/test-profile-http2",
+ *     frameSize: 2021,
+ *     receiveWindow: 31,
+ *     writeSize: 16380,
+ *     headerTableSize: 4092,
+ *     includeContentLength: "enabled",
+ *     enforceTlsRequirements: "enabled",
+ *     insertHeader: "disabled",
+ *     concurrentStreamsPerConnection: 30,
+ *     connectionIdleTimeout: 100,
+ *     activationModes: ["always"],
+ * });
+ * //Child Profile which inherits parent http2 profile
+ * const nyhttp2_child = new f5bigip.ltm.ProfileHttp2("nyhttp2-child", {
+ *     name: "/Common/test-profile-http2-child",
+ *     defaultsFrom: nyhttp2.name,
+ * });
+ * ```
  */
 export class ProfileHttp2 extends pulumi.CustomResource {
     /**

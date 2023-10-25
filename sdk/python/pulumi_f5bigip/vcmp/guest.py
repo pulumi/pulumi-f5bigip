@@ -618,6 +618,24 @@ class Guest(pulumi.CustomResource):
 
         Resource does not wait for vCMP guest to reach the desired state, it only ensures that a desired configuration is set on the target device.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        vcmp_test = f5bigip.vcmp.Guest("vcmp-test",
+            cores_per_slot=2,
+            initial_image="12.1.2.iso",
+            mgmt_address="10.1.1.1/24",
+            mgmt_network="bridged",
+            mgmt_route="none",
+            min_number_of_slots=1,
+            name="tf_guest",
+            number_of_slots=1,
+            state="provisioned")
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[int]]] allowed_slots: Contains those slots to which the guest is allowed to be assigned.
@@ -644,6 +662,24 @@ class Guest(pulumi.CustomResource):
         `vcmp.Guest` Manages a vCMP guest configuration
 
         Resource does not wait for vCMP guest to reach the desired state, it only ensures that a desired configuration is set on the target device.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        vcmp_test = f5bigip.vcmp.Guest("vcmp-test",
+            cores_per_slot=2,
+            initial_image="12.1.2.iso",
+            mgmt_address="10.1.1.1/24",
+            mgmt_network="bridged",
+            mgmt_route="none",
+            min_number_of_slots=1,
+            name="tf_guest",
+            number_of_slots=1,
+            state="provisioned")
+        ```
 
         :param str resource_name: The name of the resource.
         :param GuestArgs args: The arguments to use to populate this resource's properties.

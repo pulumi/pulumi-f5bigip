@@ -80,6 +80,16 @@ def get_pool(name: Optional[str] = None,
     """
     Use this data source (`ltm.Pool`) to get the ltm monitor details available on BIG-IP
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_f5bigip as f5bigip
+
+    pool__example = f5bigip.ltm.get_pool(name="example-pool",
+        partition="Common")
+    ```
+
 
     :param str name: Name of the ltm monitor
     :param str partition: partition of the ltm monitor
@@ -103,6 +113,16 @@ def get_pool_output(name: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPoolResult]:
     """
     Use this data source (`ltm.Pool`) to get the ltm monitor details available on BIG-IP
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_f5bigip as f5bigip
+
+    pool__example = f5bigip.ltm.get_pool(name="example-pool",
+        partition="Common")
+    ```
 
 
     :param str name: Name of the ltm monitor

@@ -586,6 +586,30 @@ class ProfileHttp2(pulumi.CustomResource):
 
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        nyhttp2 = f5bigip.ltm.ProfileHttp2("nyhttp2",
+            name="/Common/test-profile-http2",
+            frame_size=2021,
+            receive_window=31,
+            write_size=16380,
+            header_table_size=4092,
+            include_content_length="enabled",
+            enforce_tls_requirements="enabled",
+            insert_header="disabled",
+            concurrent_streams_per_connection=30,
+            connection_idle_timeout=100,
+            activation_modes=["always"])
+        #Child Profile which inherits parent http2 profile
+        nyhttp2_child = f5bigip.ltm.ProfileHttp2("nyhttp2-child",
+            name="/Common/test-profile-http2-child",
+            defaults_from=nyhttp2.name)
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] activation_modes: This setting specifies the condition that will cause the BIG-IP system to handle an incoming connection as an HTTP/2 connection, Allowed values : `[“alpn”]` (or) `[“always”]`.
@@ -612,6 +636,30 @@ class ProfileHttp2(pulumi.CustomResource):
         `ltm.ProfileHttp2` Configures a custom profile_http2 for use by health checks.
 
         For resources should be named with their "full path". The full path is the combination of the partition + name of the resource. For example /Common/my-pool.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        nyhttp2 = f5bigip.ltm.ProfileHttp2("nyhttp2",
+            name="/Common/test-profile-http2",
+            frame_size=2021,
+            receive_window=31,
+            write_size=16380,
+            header_table_size=4092,
+            include_content_length="enabled",
+            enforce_tls_requirements="enabled",
+            insert_header="disabled",
+            concurrent_streams_per_connection=30,
+            connection_idle_timeout=100,
+            activation_modes=["always"])
+        #Child Profile which inherits parent http2 profile
+        nyhttp2_child = f5bigip.ltm.ProfileHttp2("nyhttp2-child",
+            name="/Common/test-profile-http2-child",
+            defaults_from=nyhttp2.name)
+        ```
 
         :param str resource_name: The name of the resource.
         :param ProfileHttp2Args args: The arguments to use to populate this resource's properties.

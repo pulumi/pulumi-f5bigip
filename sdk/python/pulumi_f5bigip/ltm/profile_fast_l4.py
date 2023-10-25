@@ -664,6 +664,24 @@ class ProfileFastL4(pulumi.CustomResource):
 
         Resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource (For example `/Common/my-fastl4profile`) or  `partition + directory + name` of the resource  (example: `/Common/test/my-fastl4profile`)
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        profile_fastl4 = f5bigip.ltm.ProfileFastL4("profileFastl4",
+            client_timeout=40,
+            defaults_from="/Common/fastL4",
+            explicitflow_migration="enabled",
+            hardware_syncookie="enabled",
+            idle_timeout="200",
+            iptos_toclient="pass-through",
+            iptos_toserver="pass-through",
+            keepalive_interval="disabled",
+            name="/Common/sjfastl4profile")
+        ```
+
         ## Import
 
         BIG-IP LTM fastl4 profiles can be imported using the `name`, e.g.
@@ -700,6 +718,24 @@ class ProfileFastL4(pulumi.CustomResource):
         `ltm.ProfileFastL4` Configures a custom LTM fastL4 profile for use by health checks.
 
         Resources should be named with their `full path`. The full path is the combination of the `partition + name` of the resource (For example `/Common/my-fastl4profile`) or  `partition + directory + name` of the resource  (example: `/Common/test/my-fastl4profile`)
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_f5bigip as f5bigip
+
+        profile_fastl4 = f5bigip.ltm.ProfileFastL4("profileFastl4",
+            client_timeout=40,
+            defaults_from="/Common/fastL4",
+            explicitflow_migration="enabled",
+            hardware_syncookie="enabled",
+            idle_timeout="200",
+            iptos_toclient="pass-through",
+            iptos_toserver="pass-through",
+            keepalive_interval="disabled",
+            name="/Common/sjfastl4profile")
+        ```
 
         ## Import
 

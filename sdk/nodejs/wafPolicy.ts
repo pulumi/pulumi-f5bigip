@@ -14,6 +14,53 @@ import * as utilities from "./utilities";
  *
  * > **NOTE** This Resource Requires F5 BIG-IP v16.x above version, and ASM need to be provisioned.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const param1 = f5bigip.ssl.getWafEntityParameter({
+ *     name: "Param1",
+ *     type: "explicit",
+ *     dataType: "alpha-numeric",
+ *     performStaging: true,
+ * });
+ * const param2 = f5bigip.ssl.getWafEntityParameter({
+ *     name: "Param2",
+ *     type: "explicit",
+ *     dataType: "alpha-numeric",
+ *     performStaging: true,
+ * });
+ * const uRL = f5bigip.ssl.getWafEntityUrl({
+ *     name: "URL1",
+ *     protocol: "http",
+ * });
+ * const uRL2 = f5bigip.ssl.getWafEntityUrl({
+ *     name: "URL2",
+ * });
+ * const test_awaf = new f5bigip.WafPolicy("test-awaf", {
+ *     name: "testpolicyravi",
+ *     partition: "Common",
+ *     templateName: "POLICY_TEMPLATE_RAPID_DEPLOYMENT",
+ *     applicationLanguage: "utf-8",
+ *     enforcementMode: "blocking",
+ *     serverTechnologies: [
+ *         "MySQL",
+ *         "Unix/Linux",
+ *         "MongoDB",
+ *     ],
+ *     parameters: [
+ *         param1.then(param1 => param1.json),
+ *         param2.then(param2 => param2.json),
+ *     ],
+ *     urls: [
+ *         uRL.then(uRL => uRL.json),
+ *         uRL2.then(uRL2 => uRL2.json),
+ *     ],
+ * });
+ * ```
+ *
  * ## Import
  *
  * An existing WAF Policy or if the WAF Policy has been manually created or modified on the BIG-IP WebUI, it can be imported using its `id`. e.g

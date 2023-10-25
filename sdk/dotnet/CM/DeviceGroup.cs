@@ -11,6 +11,38 @@ namespace Pulumi.F5BigIP.CM
 {
     /// <summary>
     /// `f5bigip.cm.DeviceGroup` A device group is a collection of BIG-IP devices that are configured to securely synchronize their BIG-IP configuration data, and fail over when needed.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using F5BigIP = Pulumi.F5BigIP;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var myNewDevicegroup = new F5BigIP.CM.DeviceGroup("myNewDevicegroup", new()
+    ///     {
+    ///         AutoSync = "enabled",
+    ///         Devices = new[]
+    ///         {
+    ///             new F5BigIP.CM.Inputs.DeviceGroupDeviceArgs
+    ///             {
+    ///                 Name = "bigip1.cisco.com",
+    ///             },
+    ///             new F5BigIP.CM.Inputs.DeviceGroupDeviceArgs
+    ///             {
+    ///                 Name = "bigip200.f5.com",
+    ///             },
+    ///         },
+    ///         FullLoadOnSync = "true",
+    ///         Name = "sanjose_devicegroup",
+    ///         Type = "sync-only",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [F5BigIPResourceType("f5bigip:cm/deviceGroup:DeviceGroup")]
     public partial class DeviceGroup : global::Pulumi.CustomResource

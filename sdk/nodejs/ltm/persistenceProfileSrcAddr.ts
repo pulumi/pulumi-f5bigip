@@ -7,6 +7,27 @@ import * as utilities from "../utilities";
 /**
  * Configures a source address persistence profile
  *
+ * ## Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as f5bigip from "@pulumi/f5bigip";
+ *
+ * const srcaddr = new f5bigip.ltm.PersistenceProfileSrcAddr("srcaddr", {
+ *     defaultsFrom: "/Common/source_addr",
+ *     hashAlgorithm: "carp",
+ *     mapProxies: "enabled",
+ *     mask: "255.255.255.255",
+ *     matchAcrossPools: "enabled",
+ *     matchAcrossServices: "enabled",
+ *     matchAcrossVirtuals: "enabled",
+ *     mirror: "enabled",
+ *     name: "/Common/terraform_srcaddr",
+ *     overrideConnLimit: "enabled",
+ *     timeout: 3600,
+ * });
+ * ```
+ *
  * ## Reference
  *
  * `name` - (Required) Name of the virtual address

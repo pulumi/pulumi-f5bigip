@@ -103,6 +103,17 @@ def get_waf_pb_suggestions(minimum_learning_score: Optional[int] = None,
     """
     Use this data source (`ssl_get_waf_pb_suggestions`) to export PB suggestions from an existing WAF policy.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_f5bigip as f5bigip
+
+    p_bwaf1 = f5bigip.ssl.get_waf_pb_suggestions(minimum_learning_score=20,
+        partition="Common",
+        policy_name="protect_me_policy")
+    ```
+
 
     :param int minimum_learning_score: The minimum learning score for suggestions.
     :param str partition: Partition on which WAF policy is located.
@@ -134,6 +145,17 @@ def get_waf_pb_suggestions_output(minimum_learning_score: Optional[pulumi.Input[
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWafPbSuggestionsResult]:
     """
     Use this data source (`ssl_get_waf_pb_suggestions`) to export PB suggestions from an existing WAF policy.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_f5bigip as f5bigip
+
+    p_bwaf1 = f5bigip.ssl.get_waf_pb_suggestions(minimum_learning_score=20,
+        partition="Common",
+        policy_name="protect_me_policy")
+    ```
 
 
     :param int minimum_learning_score: The minimum learning score for suggestions.
