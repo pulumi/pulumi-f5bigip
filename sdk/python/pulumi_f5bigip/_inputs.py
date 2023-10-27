@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
@@ -42,27 +42,12 @@ class EventServiceDiscoveryNodeArgs:
                  id: Optional[pulumi.Input[str]] = None,
                  ip: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None):
-        EventServiceDiscoveryNodeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            id=id,
-            ip=ip,
-            port=port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             id: Optional[pulumi.Input[str]] = None,
-             ip: Optional[pulumi.Input[str]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if id is not None:
-            _setter("id", id)
+            pulumi.set(__self__, "id", id)
         if ip is not None:
-            _setter("ip", ip)
+            pulumi.set(__self__, "ip", ip)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter
@@ -109,43 +94,18 @@ class FastHttpAppMonitorArgs:
         :param pulumi.Input[str] send_string: Specify data to be sent during each health check for FAST-Generated Pool Monitor.
         :param pulumi.Input[str] username: username for web access on FAST-Generated Pool Monitor.
         """
-        FastHttpAppMonitorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            interval=interval,
-            monitor_auth=monitor_auth,
-            password=password,
-            response=response,
-            send_string=send_string,
-            username=username,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             interval: Optional[pulumi.Input[int]] = None,
-             monitor_auth: Optional[pulumi.Input[bool]] = None,
-             password: Optional[pulumi.Input[str]] = None,
-             response: Optional[pulumi.Input[str]] = None,
-             send_string: Optional[pulumi.Input[str]] = None,
-             username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if monitor_auth is None and 'monitorAuth' in kwargs:
-            monitor_auth = kwargs['monitorAuth']
-        if send_string is None and 'sendString' in kwargs:
-            send_string = kwargs['sendString']
-
         if interval is not None:
-            _setter("interval", interval)
+            pulumi.set(__self__, "interval", interval)
         if monitor_auth is not None:
-            _setter("monitor_auth", monitor_auth)
+            pulumi.set(__self__, "monitor_auth", monitor_auth)
         if password is not None:
-            _setter("password", password)
+            pulumi.set(__self__, "password", password)
         if response is not None:
-            _setter("response", response)
+            pulumi.set(__self__, "response", response)
         if send_string is not None:
-            _setter("send_string", send_string)
+            pulumi.set(__self__, "send_string", send_string)
         if username is not None:
-            _setter("username", username)
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
@@ -235,42 +195,15 @@ class FastHttpAppPoolMemberArgs:
         :param pulumi.Input[int] priority_group: priorityGroup value to be used for FAST-Generated Pool.
         :param pulumi.Input[bool] share_nodes: shareNodes value to be used for FAST-Generated Pool.
         """
-        FastHttpAppPoolMemberArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            addresses=addresses,
-            connection_limit=connection_limit,
-            port=port,
-            priority_group=priority_group,
-            share_nodes=share_nodes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             connection_limit: Optional[pulumi.Input[int]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             priority_group: Optional[pulumi.Input[int]] = None,
-             share_nodes: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if addresses is None:
-            raise TypeError("Missing 'addresses' argument")
-        if connection_limit is None and 'connectionLimit' in kwargs:
-            connection_limit = kwargs['connectionLimit']
-        if priority_group is None and 'priorityGroup' in kwargs:
-            priority_group = kwargs['priorityGroup']
-        if share_nodes is None and 'shareNodes' in kwargs:
-            share_nodes = kwargs['shareNodes']
-
-        _setter("addresses", addresses)
+        pulumi.set(__self__, "addresses", addresses)
         if connection_limit is not None:
-            _setter("connection_limit", connection_limit)
+            pulumi.set(__self__, "connection_limit", connection_limit)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if priority_group is not None:
-            _setter("priority_group", priority_group)
+            pulumi.set(__self__, "priority_group", priority_group)
         if share_nodes is not None:
-            _setter("share_nodes", share_nodes)
+            pulumi.set(__self__, "share_nodes", share_nodes)
 
     @property
     @pulumi.getter
@@ -342,25 +275,8 @@ class FastHttpAppVirtualServerArgs:
         :param pulumi.Input[str] ip: IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
         :param pulumi.Input[int] port: Port number to used for accessing virtual server/application
         """
-        FastHttpAppVirtualServerArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ip=ip,
-            port=port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ip: Optional[pulumi.Input[str]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if ip is None:
-            raise TypeError("Missing 'ip' argument")
-        if port is None:
-            raise TypeError("Missing 'port' argument")
-
-        _setter("ip", ip)
-        _setter("port", port)
+        pulumi.set(__self__, "ip", ip)
+        pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter
@@ -394,20 +310,7 @@ class FastHttpAppWafSecurityPolicyArgs:
         """
         :param pulumi.Input[bool] enable: Setting `true` will enable FAST to create WAF Security Policy.
         """
-        FastHttpAppWafSecurityPolicyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enable=enable,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enable: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enable is None:
-            raise TypeError("Missing 'enable' argument")
-
-        _setter("enable", enable)
+        pulumi.set(__self__, "enable", enable)
 
     @property
     @pulumi.getter
@@ -439,43 +342,18 @@ class FastHttpsAppMonitorArgs:
         :param pulumi.Input[str] send_string: Specify data to be sent during each health check for FAST-Generated Pool Monitor.
         :param pulumi.Input[str] username: username for web access on FAST-Generated Pool Monitor.
         """
-        FastHttpsAppMonitorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            interval=interval,
-            monitor_auth=monitor_auth,
-            password=password,
-            response=response,
-            send_string=send_string,
-            username=username,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             interval: Optional[pulumi.Input[int]] = None,
-             monitor_auth: Optional[pulumi.Input[bool]] = None,
-             password: Optional[pulumi.Input[str]] = None,
-             response: Optional[pulumi.Input[str]] = None,
-             send_string: Optional[pulumi.Input[str]] = None,
-             username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if monitor_auth is None and 'monitorAuth' in kwargs:
-            monitor_auth = kwargs['monitorAuth']
-        if send_string is None and 'sendString' in kwargs:
-            send_string = kwargs['sendString']
-
         if interval is not None:
-            _setter("interval", interval)
+            pulumi.set(__self__, "interval", interval)
         if monitor_auth is not None:
-            _setter("monitor_auth", monitor_auth)
+            pulumi.set(__self__, "monitor_auth", monitor_auth)
         if password is not None:
-            _setter("password", password)
+            pulumi.set(__self__, "password", password)
         if response is not None:
-            _setter("response", response)
+            pulumi.set(__self__, "response", response)
         if send_string is not None:
-            _setter("send_string", send_string)
+            pulumi.set(__self__, "send_string", send_string)
         if username is not None:
-            _setter("username", username)
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
@@ -565,42 +443,15 @@ class FastHttpsAppPoolMemberArgs:
         :param pulumi.Input[int] priority_group: priorityGroup value to be used for FAST-Generated Pool.
         :param pulumi.Input[bool] share_nodes: shareNodes value to be used for FAST-Generated Pool.
         """
-        FastHttpsAppPoolMemberArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            addresses=addresses,
-            connection_limit=connection_limit,
-            port=port,
-            priority_group=priority_group,
-            share_nodes=share_nodes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             connection_limit: Optional[pulumi.Input[int]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             priority_group: Optional[pulumi.Input[int]] = None,
-             share_nodes: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if addresses is None:
-            raise TypeError("Missing 'addresses' argument")
-        if connection_limit is None and 'connectionLimit' in kwargs:
-            connection_limit = kwargs['connectionLimit']
-        if priority_group is None and 'priorityGroup' in kwargs:
-            priority_group = kwargs['priorityGroup']
-        if share_nodes is None and 'shareNodes' in kwargs:
-            share_nodes = kwargs['shareNodes']
-
-        _setter("addresses", addresses)
+        pulumi.set(__self__, "addresses", addresses)
         if connection_limit is not None:
-            _setter("connection_limit", connection_limit)
+            pulumi.set(__self__, "connection_limit", connection_limit)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if priority_group is not None:
-            _setter("priority_group", priority_group)
+            pulumi.set(__self__, "priority_group", priority_group)
         if share_nodes is not None:
-            _setter("share_nodes", share_nodes)
+            pulumi.set(__self__, "share_nodes", share_nodes)
 
     @property
     @pulumi.getter
@@ -672,29 +523,8 @@ class FastHttpsAppTlsClientProfileArgs:
         :param pulumi.Input[str] tls_cert_name: Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
         :param pulumi.Input[str] tls_key_name: Name of existing BIG-IP SSL Key to be used for FAST-Generated TLS Server Profile.
         """
-        FastHttpsAppTlsClientProfileArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            tls_cert_name=tls_cert_name,
-            tls_key_name=tls_key_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             tls_cert_name: Optional[pulumi.Input[str]] = None,
-             tls_key_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if tls_cert_name is None and 'tlsCertName' in kwargs:
-            tls_cert_name = kwargs['tlsCertName']
-        if tls_cert_name is None:
-            raise TypeError("Missing 'tls_cert_name' argument")
-        if tls_key_name is None and 'tlsKeyName' in kwargs:
-            tls_key_name = kwargs['tlsKeyName']
-        if tls_key_name is None:
-            raise TypeError("Missing 'tls_key_name' argument")
-
-        _setter("tls_cert_name", tls_cert_name)
-        _setter("tls_key_name", tls_key_name)
+        pulumi.set(__self__, "tls_cert_name", tls_cert_name)
+        pulumi.set(__self__, "tls_key_name", tls_key_name)
 
     @property
     @pulumi.getter(name="tlsCertName")
@@ -730,29 +560,8 @@ class FastHttpsAppTlsServerProfileArgs:
         :param pulumi.Input[str] tls_cert_name: Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
         :param pulumi.Input[str] tls_key_name: Name of existing BIG-IP SSL Key to be used for FAST-Generated TLS Server Profile.
         """
-        FastHttpsAppTlsServerProfileArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            tls_cert_name=tls_cert_name,
-            tls_key_name=tls_key_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             tls_cert_name: Optional[pulumi.Input[str]] = None,
-             tls_key_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if tls_cert_name is None and 'tlsCertName' in kwargs:
-            tls_cert_name = kwargs['tlsCertName']
-        if tls_cert_name is None:
-            raise TypeError("Missing 'tls_cert_name' argument")
-        if tls_key_name is None and 'tlsKeyName' in kwargs:
-            tls_key_name = kwargs['tlsKeyName']
-        if tls_key_name is None:
-            raise TypeError("Missing 'tls_key_name' argument")
-
-        _setter("tls_cert_name", tls_cert_name)
-        _setter("tls_key_name", tls_key_name)
+        pulumi.set(__self__, "tls_cert_name", tls_cert_name)
+        pulumi.set(__self__, "tls_key_name", tls_key_name)
 
     @property
     @pulumi.getter(name="tlsCertName")
@@ -788,25 +597,8 @@ class FastHttpsAppVirtualServerArgs:
         :param pulumi.Input[str] ip: IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
         :param pulumi.Input[int] port: Port number to used for accessing virtual server/application
         """
-        FastHttpsAppVirtualServerArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ip=ip,
-            port=port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ip: Optional[pulumi.Input[str]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if ip is None:
-            raise TypeError("Missing 'ip' argument")
-        if port is None:
-            raise TypeError("Missing 'port' argument")
-
-        _setter("ip", ip)
-        _setter("port", port)
+        pulumi.set(__self__, "ip", ip)
+        pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter
@@ -840,20 +632,7 @@ class FastHttpsAppWafSecurityPolicyArgs:
         """
         :param pulumi.Input[bool] enable: Setting `true` will enable FAST to create WAF Security Policy.
         """
-        FastHttpsAppWafSecurityPolicyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enable=enable,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enable: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enable is None:
-            raise TypeError("Missing 'enable' argument")
-
-        _setter("enable", enable)
+        pulumi.set(__self__, "enable", enable)
 
     @property
     @pulumi.getter
@@ -875,19 +654,8 @@ class FastTcpAppMonitorArgs:
         """
         :param pulumi.Input[int] interval: Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
         """
-        FastTcpAppMonitorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            interval=interval,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             interval: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if interval is not None:
-            _setter("interval", interval)
+            pulumi.set(__self__, "interval", interval)
 
     @property
     @pulumi.getter
@@ -917,42 +685,15 @@ class FastTcpAppPoolMemberArgs:
         :param pulumi.Input[int] priority_group: priorityGroup value to be used for FAST-Generated Pool.
         :param pulumi.Input[bool] share_nodes: shareNodes value to be used for FAST-Generated Pool.
         """
-        FastTcpAppPoolMemberArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            addresses=addresses,
-            connection_limit=connection_limit,
-            port=port,
-            priority_group=priority_group,
-            share_nodes=share_nodes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             connection_limit: Optional[pulumi.Input[int]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             priority_group: Optional[pulumi.Input[int]] = None,
-             share_nodes: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if addresses is None:
-            raise TypeError("Missing 'addresses' argument")
-        if connection_limit is None and 'connectionLimit' in kwargs:
-            connection_limit = kwargs['connectionLimit']
-        if priority_group is None and 'priorityGroup' in kwargs:
-            priority_group = kwargs['priorityGroup']
-        if share_nodes is None and 'shareNodes' in kwargs:
-            share_nodes = kwargs['shareNodes']
-
-        _setter("addresses", addresses)
+        pulumi.set(__self__, "addresses", addresses)
         if connection_limit is not None:
-            _setter("connection_limit", connection_limit)
+            pulumi.set(__self__, "connection_limit", connection_limit)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if priority_group is not None:
-            _setter("priority_group", priority_group)
+            pulumi.set(__self__, "priority_group", priority_group)
         if share_nodes is not None:
-            _setter("share_nodes", share_nodes)
+            pulumi.set(__self__, "share_nodes", share_nodes)
 
     @property
     @pulumi.getter
@@ -1024,25 +765,8 @@ class FastTcpAppVirtualServerArgs:
         :param pulumi.Input[str] ip: IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
         :param pulumi.Input[int] port: Port number to used for accessing virtual server/application
         """
-        FastTcpAppVirtualServerArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ip=ip,
-            port=port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ip: Optional[pulumi.Input[str]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if ip is None:
-            raise TypeError("Missing 'ip' argument")
-        if port is None:
-            raise TypeError("Missing 'port' argument")
-
-        _setter("ip", ip)
-        _setter("port", port)
+        pulumi.set(__self__, "ip", ip)
+        pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter
@@ -1080,31 +804,12 @@ class FastUdpAppMonitorArgs:
         :param pulumi.Input[int] interval: Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
         :param pulumi.Input[str] send_string: Optional data to be sent during each health check.
         """
-        FastUdpAppMonitorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            expected_response=expected_response,
-            interval=interval,
-            send_string=send_string,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             expected_response: Optional[pulumi.Input[str]] = None,
-             interval: Optional[pulumi.Input[int]] = None,
-             send_string: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if expected_response is None and 'expectedResponse' in kwargs:
-            expected_response = kwargs['expectedResponse']
-        if send_string is None and 'sendString' in kwargs:
-            send_string = kwargs['sendString']
-
         if expected_response is not None:
-            _setter("expected_response", expected_response)
+            pulumi.set(__self__, "expected_response", expected_response)
         if interval is not None:
-            _setter("interval", interval)
+            pulumi.set(__self__, "interval", interval)
         if send_string is not None:
-            _setter("send_string", send_string)
+            pulumi.set(__self__, "send_string", send_string)
 
     @property
     @pulumi.getter(name="expectedResponse")
@@ -1158,42 +863,15 @@ class FastUdpAppPoolMemberArgs:
         :param pulumi.Input[int] priority_group: priorityGroup value to be used for FAST-Generated Pool.
         :param pulumi.Input[bool] share_nodes: shareNodes value to be used for FAST-Generated Pool.
         """
-        FastUdpAppPoolMemberArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            addresses=addresses,
-            connection_limit=connection_limit,
-            port=port,
-            priority_group=priority_group,
-            share_nodes=share_nodes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             connection_limit: Optional[pulumi.Input[int]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             priority_group: Optional[pulumi.Input[int]] = None,
-             share_nodes: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if addresses is None:
-            raise TypeError("Missing 'addresses' argument")
-        if connection_limit is None and 'connectionLimit' in kwargs:
-            connection_limit = kwargs['connectionLimit']
-        if priority_group is None and 'priorityGroup' in kwargs:
-            priority_group = kwargs['priorityGroup']
-        if share_nodes is None and 'shareNodes' in kwargs:
-            share_nodes = kwargs['shareNodes']
-
-        _setter("addresses", addresses)
+        pulumi.set(__self__, "addresses", addresses)
         if connection_limit is not None:
-            _setter("connection_limit", connection_limit)
+            pulumi.set(__self__, "connection_limit", connection_limit)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if priority_group is not None:
-            _setter("priority_group", priority_group)
+            pulumi.set(__self__, "priority_group", priority_group)
         if share_nodes is not None:
-            _setter("share_nodes", share_nodes)
+            pulumi.set(__self__, "share_nodes", share_nodes)
 
     @property
     @pulumi.getter
@@ -1265,25 +943,8 @@ class FastUdpAppVirtualServerArgs:
         :param pulumi.Input[str] ip: IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
         :param pulumi.Input[int] port: Port number to used for accessing virtual server/application
         """
-        FastUdpAppVirtualServerArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ip=ip,
-            port=port,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ip: Optional[pulumi.Input[str]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if ip is None:
-            raise TypeError("Missing 'ip' argument")
-        if port is None:
-            raise TypeError("Missing 'port' argument")
-
-        _setter("ip", ip)
-        _setter("port", port)
+        pulumi.set(__self__, "ip", ip)
+        pulumi.set(__self__, "port", port)
 
     @property
     @pulumi.getter
@@ -1323,27 +984,12 @@ class WafPolicyFileTypeArgs:
         :param pulumi.Input[str] name: Specifies the file type name as appearing in the URL extension.
         :param pulumi.Input[str] type: Determines the type of the name attribute. Only when setting the type to `wildcard` will the special wildcard characters in the name be interpreted as such
         """
-        WafPolicyFileTypeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allowed=allowed,
-            name=name,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allowed: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if allowed is not None:
-            _setter("allowed", allowed)
+            pulumi.set(__self__, "allowed", allowed)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
@@ -1397,38 +1043,13 @@ class WafPolicyGraphqlProfileArgs:
         :param pulumi.Input[Sequence[pulumi.Input['WafPolicyGraphqlProfileDefenseAttributeArgs']]] defense_attributes: `defense_attributes` block settings for GraphQl policy.See defense attributes below for more details.
         :param pulumi.Input[bool] metachar_elementcheck: Specifies when checked (enabled) that the system enforces the security policy settings of a meta character for the GraphQL profile. After you enable this setting, the system displays a list of meta characters. The default is enabled.
         """
-        WafPolicyGraphqlProfileArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            attack_signatures_check=attack_signatures_check,
-            defense_attributes=defense_attributes,
-            metachar_elementcheck=metachar_elementcheck,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             attack_signatures_check: Optional[pulumi.Input[bool]] = None,
-             defense_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['WafPolicyGraphqlProfileDefenseAttributeArgs']]]] = None,
-             metachar_elementcheck: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if attack_signatures_check is None and 'attackSignaturesCheck' in kwargs:
-            attack_signatures_check = kwargs['attackSignaturesCheck']
-        if defense_attributes is None and 'defenseAttributes' in kwargs:
-            defense_attributes = kwargs['defenseAttributes']
-        if metachar_elementcheck is None and 'metacharElementcheck' in kwargs:
-            metachar_elementcheck = kwargs['metacharElementcheck']
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if attack_signatures_check is not None:
-            _setter("attack_signatures_check", attack_signatures_check)
+            pulumi.set(__self__, "attack_signatures_check", attack_signatures_check)
         if defense_attributes is not None:
-            _setter("defense_attributes", defense_attributes)
+            pulumi.set(__self__, "defense_attributes", defense_attributes)
         if metachar_elementcheck is not None:
-            _setter("metachar_elementcheck", metachar_elementcheck)
+            pulumi.set(__self__, "metachar_elementcheck", metachar_elementcheck)
 
     @property
     @pulumi.getter
@@ -1497,51 +1118,18 @@ class WafPolicyGraphqlProfileDefenseAttributeArgs:
         :param pulumi.Input[str] maximum_value_length: Specifies the longest length (in bytes) of the longest GraphQL element value in the document allowed by the security policy.
         :param pulumi.Input[bool] tolerate_parsing_warnings: Specifies, when checked (enabled), that the system does not report when the security enforcer encounters warnings while parsing GraphQL content. Specifies when cleared (disabled), that the security policy reports when the security enforcer encounters warnings while parsing GraphQL content. The default setting is disabled.
         """
-        WafPolicyGraphqlProfileDefenseAttributeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allow_introspection_queries=allow_introspection_queries,
-            maximum_batched_queries=maximum_batched_queries,
-            maximum_structure_depth=maximum_structure_depth,
-            maximum_total_length=maximum_total_length,
-            maximum_value_length=maximum_value_length,
-            tolerate_parsing_warnings=tolerate_parsing_warnings,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allow_introspection_queries: Optional[pulumi.Input[bool]] = None,
-             maximum_batched_queries: Optional[pulumi.Input[str]] = None,
-             maximum_structure_depth: Optional[pulumi.Input[str]] = None,
-             maximum_total_length: Optional[pulumi.Input[str]] = None,
-             maximum_value_length: Optional[pulumi.Input[str]] = None,
-             tolerate_parsing_warnings: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if allow_introspection_queries is None and 'allowIntrospectionQueries' in kwargs:
-            allow_introspection_queries = kwargs['allowIntrospectionQueries']
-        if maximum_batched_queries is None and 'maximumBatchedQueries' in kwargs:
-            maximum_batched_queries = kwargs['maximumBatchedQueries']
-        if maximum_structure_depth is None and 'maximumStructureDepth' in kwargs:
-            maximum_structure_depth = kwargs['maximumStructureDepth']
-        if maximum_total_length is None and 'maximumTotalLength' in kwargs:
-            maximum_total_length = kwargs['maximumTotalLength']
-        if maximum_value_length is None and 'maximumValueLength' in kwargs:
-            maximum_value_length = kwargs['maximumValueLength']
-        if tolerate_parsing_warnings is None and 'tolerateParsingWarnings' in kwargs:
-            tolerate_parsing_warnings = kwargs['tolerateParsingWarnings']
-
         if allow_introspection_queries is not None:
-            _setter("allow_introspection_queries", allow_introspection_queries)
+            pulumi.set(__self__, "allow_introspection_queries", allow_introspection_queries)
         if maximum_batched_queries is not None:
-            _setter("maximum_batched_queries", maximum_batched_queries)
+            pulumi.set(__self__, "maximum_batched_queries", maximum_batched_queries)
         if maximum_structure_depth is not None:
-            _setter("maximum_structure_depth", maximum_structure_depth)
+            pulumi.set(__self__, "maximum_structure_depth", maximum_structure_depth)
         if maximum_total_length is not None:
-            _setter("maximum_total_length", maximum_total_length)
+            pulumi.set(__self__, "maximum_total_length", maximum_total_length)
         if maximum_value_length is not None:
-            _setter("maximum_value_length", maximum_value_length)
+            pulumi.set(__self__, "maximum_value_length", maximum_value_length)
         if tolerate_parsing_warnings is not None:
-            _setter("tolerate_parsing_warnings", tolerate_parsing_warnings)
+            pulumi.set(__self__, "tolerate_parsing_warnings", tolerate_parsing_warnings)
 
     @property
     @pulumi.getter(name="allowIntrospectionQueries")
@@ -1624,19 +1212,8 @@ class WafPolicyHostNameArgs:
         """
         :param pulumi.Input[str] name: The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
         """
-        WafPolicyHostNameArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -1670,57 +1247,18 @@ class WafPolicyIpExceptionArgs:
         :param pulumi.Input[bool] ignore_ipreputation: Specifies when enabled that the system considers this IP address legitimate even if it is found in the IP Intelligence database (a database of questionable IP addresses).
         :param pulumi.Input[bool] trustedby_policybuilder: Specifies when enabled the Policy Builder considers traffic from this IP address as being safe.
         """
-        WafPolicyIpExceptionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            ip_address=ip_address,
-            ip_mask=ip_mask,
-            block_requests=block_requests,
-            description=description,
-            ignore_anomalies=ignore_anomalies,
-            ignore_ipreputation=ignore_ipreputation,
-            trustedby_policybuilder=trustedby_policybuilder,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             ip_address: Optional[pulumi.Input[str]] = None,
-             ip_mask: Optional[pulumi.Input[str]] = None,
-             block_requests: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             ignore_anomalies: Optional[pulumi.Input[bool]] = None,
-             ignore_ipreputation: Optional[pulumi.Input[bool]] = None,
-             trustedby_policybuilder: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if ip_address is None and 'ipAddress' in kwargs:
-            ip_address = kwargs['ipAddress']
-        if ip_address is None:
-            raise TypeError("Missing 'ip_address' argument")
-        if ip_mask is None and 'ipMask' in kwargs:
-            ip_mask = kwargs['ipMask']
-        if ip_mask is None:
-            raise TypeError("Missing 'ip_mask' argument")
-        if block_requests is None and 'blockRequests' in kwargs:
-            block_requests = kwargs['blockRequests']
-        if ignore_anomalies is None and 'ignoreAnomalies' in kwargs:
-            ignore_anomalies = kwargs['ignoreAnomalies']
-        if ignore_ipreputation is None and 'ignoreIpreputation' in kwargs:
-            ignore_ipreputation = kwargs['ignoreIpreputation']
-        if trustedby_policybuilder is None and 'trustedbyPolicybuilder' in kwargs:
-            trustedby_policybuilder = kwargs['trustedbyPolicybuilder']
-
-        _setter("ip_address", ip_address)
-        _setter("ip_mask", ip_mask)
+        pulumi.set(__self__, "ip_address", ip_address)
+        pulumi.set(__self__, "ip_mask", ip_mask)
         if block_requests is not None:
-            _setter("block_requests", block_requests)
+            pulumi.set(__self__, "block_requests", block_requests)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if ignore_anomalies is not None:
-            _setter("ignore_anomalies", ignore_anomalies)
+            pulumi.set(__self__, "ignore_anomalies", ignore_anomalies)
         if ignore_ipreputation is not None:
-            _setter("ignore_ipreputation", ignore_ipreputation)
+            pulumi.set(__self__, "ignore_ipreputation", ignore_ipreputation)
         if trustedby_policybuilder is not None:
-            _setter("trustedby_policybuilder", trustedby_policybuilder)
+            pulumi.set(__self__, "trustedby_policybuilder", trustedby_policybuilder)
 
     @property
     @pulumi.getter(name="ipAddress")
@@ -1814,21 +1352,8 @@ class WafPolicyPolicyBuilderArgs:
         """
         :param pulumi.Input[str] learning_mode: learning mode setting for policy-builder, possible options: [`automatic`,`disabled`, `manual`]
         """
-        WafPolicyPolicyBuilderArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            learning_mode=learning_mode,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             learning_mode: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if learning_mode is None and 'learningMode' in kwargs:
-            learning_mode = kwargs['learningMode']
-
         if learning_mode is not None:
-            _setter("learning_mode", learning_mode)
+            pulumi.set(__self__, "learning_mode", learning_mode)
 
     @property
     @pulumi.getter(name="learningMode")
@@ -1848,27 +1373,10 @@ class WafPolicySignaturesSettingArgs:
     def __init__(__self__, *,
                  placesignatures_in_staging: Optional[pulumi.Input[bool]] = None,
                  signature_staging: Optional[pulumi.Input[bool]] = None):
-        WafPolicySignaturesSettingArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            placesignatures_in_staging=placesignatures_in_staging,
-            signature_staging=signature_staging,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             placesignatures_in_staging: Optional[pulumi.Input[bool]] = None,
-             signature_staging: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if placesignatures_in_staging is None and 'placesignaturesInStaging' in kwargs:
-            placesignatures_in_staging = kwargs['placesignaturesInStaging']
-        if signature_staging is None and 'signatureStaging' in kwargs:
-            signature_staging = kwargs['signatureStaging']
-
         if placesignatures_in_staging is not None:
-            _setter("placesignatures_in_staging", placesignatures_in_staging)
+            pulumi.set(__self__, "placesignatures_in_staging", placesignatures_in_staging)
         if signature_staging is not None:
-            _setter("signature_staging", signature_staging)
+            pulumi.set(__self__, "signature_staging", signature_staging)
 
     @property
     @pulumi.getter(name="placesignaturesInStaging")

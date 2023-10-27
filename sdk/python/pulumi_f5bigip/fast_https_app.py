@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -69,131 +69,44 @@ class FastHttpsAppArgs:
         :param pulumi.Input['FastHttpsAppWafSecurityPolicyArgs'] waf_security_policy: `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
                See WAF Security Policy below for more details.
         """
-        FastHttpsAppArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application=application,
-            tenant=tenant,
-            endpoint_ltm_policies=endpoint_ltm_policies,
-            existing_monitor=existing_monitor,
-            existing_pool=existing_pool,
-            existing_snat_pool=existing_snat_pool,
-            existing_tls_client_profile=existing_tls_client_profile,
-            existing_tls_server_profile=existing_tls_server_profile,
-            existing_waf_security_policy=existing_waf_security_policy,
-            load_balancing_mode=load_balancing_mode,
-            monitor=monitor,
-            pool_members=pool_members,
-            security_log_profiles=security_log_profiles,
-            service_discoveries=service_discoveries,
-            slow_ramp_time=slow_ramp_time,
-            snat_pool_addresses=snat_pool_addresses,
-            tls_client_profile=tls_client_profile,
-            tls_server_profile=tls_server_profile,
-            virtual_server=virtual_server,
-            waf_security_policy=waf_security_policy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application: Optional[pulumi.Input[str]] = None,
-             tenant: Optional[pulumi.Input[str]] = None,
-             endpoint_ltm_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             existing_monitor: Optional[pulumi.Input[str]] = None,
-             existing_pool: Optional[pulumi.Input[str]] = None,
-             existing_snat_pool: Optional[pulumi.Input[str]] = None,
-             existing_tls_client_profile: Optional[pulumi.Input[str]] = None,
-             existing_tls_server_profile: Optional[pulumi.Input[str]] = None,
-             existing_waf_security_policy: Optional[pulumi.Input[str]] = None,
-             load_balancing_mode: Optional[pulumi.Input[str]] = None,
-             monitor: Optional[pulumi.Input['FastHttpsAppMonitorArgs']] = None,
-             pool_members: Optional[pulumi.Input[Sequence[pulumi.Input['FastHttpsAppPoolMemberArgs']]]] = None,
-             security_log_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             service_discoveries: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             slow_ramp_time: Optional[pulumi.Input[int]] = None,
-             snat_pool_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tls_client_profile: Optional[pulumi.Input['FastHttpsAppTlsClientProfileArgs']] = None,
-             tls_server_profile: Optional[pulumi.Input['FastHttpsAppTlsServerProfileArgs']] = None,
-             virtual_server: Optional[pulumi.Input['FastHttpsAppVirtualServerArgs']] = None,
-             waf_security_policy: Optional[pulumi.Input['FastHttpsAppWafSecurityPolicyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if application is None:
-            raise TypeError("Missing 'application' argument")
-        if tenant is None:
-            raise TypeError("Missing 'tenant' argument")
-        if endpoint_ltm_policies is None and 'endpointLtmPolicies' in kwargs:
-            endpoint_ltm_policies = kwargs['endpointLtmPolicies']
-        if existing_monitor is None and 'existingMonitor' in kwargs:
-            existing_monitor = kwargs['existingMonitor']
-        if existing_pool is None and 'existingPool' in kwargs:
-            existing_pool = kwargs['existingPool']
-        if existing_snat_pool is None and 'existingSnatPool' in kwargs:
-            existing_snat_pool = kwargs['existingSnatPool']
-        if existing_tls_client_profile is None and 'existingTlsClientProfile' in kwargs:
-            existing_tls_client_profile = kwargs['existingTlsClientProfile']
-        if existing_tls_server_profile is None and 'existingTlsServerProfile' in kwargs:
-            existing_tls_server_profile = kwargs['existingTlsServerProfile']
-        if existing_waf_security_policy is None and 'existingWafSecurityPolicy' in kwargs:
-            existing_waf_security_policy = kwargs['existingWafSecurityPolicy']
-        if load_balancing_mode is None and 'loadBalancingMode' in kwargs:
-            load_balancing_mode = kwargs['loadBalancingMode']
-        if pool_members is None and 'poolMembers' in kwargs:
-            pool_members = kwargs['poolMembers']
-        if security_log_profiles is None and 'securityLogProfiles' in kwargs:
-            security_log_profiles = kwargs['securityLogProfiles']
-        if service_discoveries is None and 'serviceDiscoveries' in kwargs:
-            service_discoveries = kwargs['serviceDiscoveries']
-        if slow_ramp_time is None and 'slowRampTime' in kwargs:
-            slow_ramp_time = kwargs['slowRampTime']
-        if snat_pool_addresses is None and 'snatPoolAddresses' in kwargs:
-            snat_pool_addresses = kwargs['snatPoolAddresses']
-        if tls_client_profile is None and 'tlsClientProfile' in kwargs:
-            tls_client_profile = kwargs['tlsClientProfile']
-        if tls_server_profile is None and 'tlsServerProfile' in kwargs:
-            tls_server_profile = kwargs['tlsServerProfile']
-        if virtual_server is None and 'virtualServer' in kwargs:
-            virtual_server = kwargs['virtualServer']
-        if waf_security_policy is None and 'wafSecurityPolicy' in kwargs:
-            waf_security_policy = kwargs['wafSecurityPolicy']
-
-        _setter("application", application)
-        _setter("tenant", tenant)
+        pulumi.set(__self__, "application", application)
+        pulumi.set(__self__, "tenant", tenant)
         if endpoint_ltm_policies is not None:
-            _setter("endpoint_ltm_policies", endpoint_ltm_policies)
+            pulumi.set(__self__, "endpoint_ltm_policies", endpoint_ltm_policies)
         if existing_monitor is not None:
-            _setter("existing_monitor", existing_monitor)
+            pulumi.set(__self__, "existing_monitor", existing_monitor)
         if existing_pool is not None:
-            _setter("existing_pool", existing_pool)
+            pulumi.set(__self__, "existing_pool", existing_pool)
         if existing_snat_pool is not None:
-            _setter("existing_snat_pool", existing_snat_pool)
+            pulumi.set(__self__, "existing_snat_pool", existing_snat_pool)
         if existing_tls_client_profile is not None:
-            _setter("existing_tls_client_profile", existing_tls_client_profile)
+            pulumi.set(__self__, "existing_tls_client_profile", existing_tls_client_profile)
         if existing_tls_server_profile is not None:
-            _setter("existing_tls_server_profile", existing_tls_server_profile)
+            pulumi.set(__self__, "existing_tls_server_profile", existing_tls_server_profile)
         if existing_waf_security_policy is not None:
-            _setter("existing_waf_security_policy", existing_waf_security_policy)
+            pulumi.set(__self__, "existing_waf_security_policy", existing_waf_security_policy)
         if load_balancing_mode is not None:
-            _setter("load_balancing_mode", load_balancing_mode)
+            pulumi.set(__self__, "load_balancing_mode", load_balancing_mode)
         if monitor is not None:
-            _setter("monitor", monitor)
+            pulumi.set(__self__, "monitor", monitor)
         if pool_members is not None:
-            _setter("pool_members", pool_members)
+            pulumi.set(__self__, "pool_members", pool_members)
         if security_log_profiles is not None:
-            _setter("security_log_profiles", security_log_profiles)
+            pulumi.set(__self__, "security_log_profiles", security_log_profiles)
         if service_discoveries is not None:
-            _setter("service_discoveries", service_discoveries)
+            pulumi.set(__self__, "service_discoveries", service_discoveries)
         if slow_ramp_time is not None:
-            _setter("slow_ramp_time", slow_ramp_time)
+            pulumi.set(__self__, "slow_ramp_time", slow_ramp_time)
         if snat_pool_addresses is not None:
-            _setter("snat_pool_addresses", snat_pool_addresses)
+            pulumi.set(__self__, "snat_pool_addresses", snat_pool_addresses)
         if tls_client_profile is not None:
-            _setter("tls_client_profile", tls_client_profile)
+            pulumi.set(__self__, "tls_client_profile", tls_client_profile)
         if tls_server_profile is not None:
-            _setter("tls_server_profile", tls_server_profile)
+            pulumi.set(__self__, "tls_server_profile", tls_server_profile)
         if virtual_server is not None:
-            _setter("virtual_server", virtual_server)
+            pulumi.set(__self__, "virtual_server", virtual_server)
         if waf_security_policy is not None:
-            _setter("waf_security_policy", waf_security_policy)
+            pulumi.set(__self__, "waf_security_policy", waf_security_policy)
 
     @property
     @pulumi.getter
@@ -504,135 +417,48 @@ class _FastHttpsAppState:
         :param pulumi.Input['FastHttpsAppWafSecurityPolicyArgs'] waf_security_policy: `waf_security_policy` block takes input for FAST-Generated WAF Security Policy.
                See WAF Security Policy below for more details.
         """
-        _FastHttpsAppState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application=application,
-            endpoint_ltm_policies=endpoint_ltm_policies,
-            existing_monitor=existing_monitor,
-            existing_pool=existing_pool,
-            existing_snat_pool=existing_snat_pool,
-            existing_tls_client_profile=existing_tls_client_profile,
-            existing_tls_server_profile=existing_tls_server_profile,
-            existing_waf_security_policy=existing_waf_security_policy,
-            fast_https_json=fast_https_json,
-            load_balancing_mode=load_balancing_mode,
-            monitor=monitor,
-            pool_members=pool_members,
-            security_log_profiles=security_log_profiles,
-            service_discoveries=service_discoveries,
-            slow_ramp_time=slow_ramp_time,
-            snat_pool_addresses=snat_pool_addresses,
-            tenant=tenant,
-            tls_client_profile=tls_client_profile,
-            tls_server_profile=tls_server_profile,
-            virtual_server=virtual_server,
-            waf_security_policy=waf_security_policy,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application: Optional[pulumi.Input[str]] = None,
-             endpoint_ltm_policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             existing_monitor: Optional[pulumi.Input[str]] = None,
-             existing_pool: Optional[pulumi.Input[str]] = None,
-             existing_snat_pool: Optional[pulumi.Input[str]] = None,
-             existing_tls_client_profile: Optional[pulumi.Input[str]] = None,
-             existing_tls_server_profile: Optional[pulumi.Input[str]] = None,
-             existing_waf_security_policy: Optional[pulumi.Input[str]] = None,
-             fast_https_json: Optional[pulumi.Input[str]] = None,
-             load_balancing_mode: Optional[pulumi.Input[str]] = None,
-             monitor: Optional[pulumi.Input['FastHttpsAppMonitorArgs']] = None,
-             pool_members: Optional[pulumi.Input[Sequence[pulumi.Input['FastHttpsAppPoolMemberArgs']]]] = None,
-             security_log_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             service_discoveries: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             slow_ramp_time: Optional[pulumi.Input[int]] = None,
-             snat_pool_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tenant: Optional[pulumi.Input[str]] = None,
-             tls_client_profile: Optional[pulumi.Input['FastHttpsAppTlsClientProfileArgs']] = None,
-             tls_server_profile: Optional[pulumi.Input['FastHttpsAppTlsServerProfileArgs']] = None,
-             virtual_server: Optional[pulumi.Input['FastHttpsAppVirtualServerArgs']] = None,
-             waf_security_policy: Optional[pulumi.Input['FastHttpsAppWafSecurityPolicyArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if endpoint_ltm_policies is None and 'endpointLtmPolicies' in kwargs:
-            endpoint_ltm_policies = kwargs['endpointLtmPolicies']
-        if existing_monitor is None and 'existingMonitor' in kwargs:
-            existing_monitor = kwargs['existingMonitor']
-        if existing_pool is None and 'existingPool' in kwargs:
-            existing_pool = kwargs['existingPool']
-        if existing_snat_pool is None and 'existingSnatPool' in kwargs:
-            existing_snat_pool = kwargs['existingSnatPool']
-        if existing_tls_client_profile is None and 'existingTlsClientProfile' in kwargs:
-            existing_tls_client_profile = kwargs['existingTlsClientProfile']
-        if existing_tls_server_profile is None and 'existingTlsServerProfile' in kwargs:
-            existing_tls_server_profile = kwargs['existingTlsServerProfile']
-        if existing_waf_security_policy is None and 'existingWafSecurityPolicy' in kwargs:
-            existing_waf_security_policy = kwargs['existingWafSecurityPolicy']
-        if fast_https_json is None and 'fastHttpsJson' in kwargs:
-            fast_https_json = kwargs['fastHttpsJson']
-        if load_balancing_mode is None and 'loadBalancingMode' in kwargs:
-            load_balancing_mode = kwargs['loadBalancingMode']
-        if pool_members is None and 'poolMembers' in kwargs:
-            pool_members = kwargs['poolMembers']
-        if security_log_profiles is None and 'securityLogProfiles' in kwargs:
-            security_log_profiles = kwargs['securityLogProfiles']
-        if service_discoveries is None and 'serviceDiscoveries' in kwargs:
-            service_discoveries = kwargs['serviceDiscoveries']
-        if slow_ramp_time is None and 'slowRampTime' in kwargs:
-            slow_ramp_time = kwargs['slowRampTime']
-        if snat_pool_addresses is None and 'snatPoolAddresses' in kwargs:
-            snat_pool_addresses = kwargs['snatPoolAddresses']
-        if tls_client_profile is None and 'tlsClientProfile' in kwargs:
-            tls_client_profile = kwargs['tlsClientProfile']
-        if tls_server_profile is None and 'tlsServerProfile' in kwargs:
-            tls_server_profile = kwargs['tlsServerProfile']
-        if virtual_server is None and 'virtualServer' in kwargs:
-            virtual_server = kwargs['virtualServer']
-        if waf_security_policy is None and 'wafSecurityPolicy' in kwargs:
-            waf_security_policy = kwargs['wafSecurityPolicy']
-
         if application is not None:
-            _setter("application", application)
+            pulumi.set(__self__, "application", application)
         if endpoint_ltm_policies is not None:
-            _setter("endpoint_ltm_policies", endpoint_ltm_policies)
+            pulumi.set(__self__, "endpoint_ltm_policies", endpoint_ltm_policies)
         if existing_monitor is not None:
-            _setter("existing_monitor", existing_monitor)
+            pulumi.set(__self__, "existing_monitor", existing_monitor)
         if existing_pool is not None:
-            _setter("existing_pool", existing_pool)
+            pulumi.set(__self__, "existing_pool", existing_pool)
         if existing_snat_pool is not None:
-            _setter("existing_snat_pool", existing_snat_pool)
+            pulumi.set(__self__, "existing_snat_pool", existing_snat_pool)
         if existing_tls_client_profile is not None:
-            _setter("existing_tls_client_profile", existing_tls_client_profile)
+            pulumi.set(__self__, "existing_tls_client_profile", existing_tls_client_profile)
         if existing_tls_server_profile is not None:
-            _setter("existing_tls_server_profile", existing_tls_server_profile)
+            pulumi.set(__self__, "existing_tls_server_profile", existing_tls_server_profile)
         if existing_waf_security_policy is not None:
-            _setter("existing_waf_security_policy", existing_waf_security_policy)
+            pulumi.set(__self__, "existing_waf_security_policy", existing_waf_security_policy)
         if fast_https_json is not None:
-            _setter("fast_https_json", fast_https_json)
+            pulumi.set(__self__, "fast_https_json", fast_https_json)
         if load_balancing_mode is not None:
-            _setter("load_balancing_mode", load_balancing_mode)
+            pulumi.set(__self__, "load_balancing_mode", load_balancing_mode)
         if monitor is not None:
-            _setter("monitor", monitor)
+            pulumi.set(__self__, "monitor", monitor)
         if pool_members is not None:
-            _setter("pool_members", pool_members)
+            pulumi.set(__self__, "pool_members", pool_members)
         if security_log_profiles is not None:
-            _setter("security_log_profiles", security_log_profiles)
+            pulumi.set(__self__, "security_log_profiles", security_log_profiles)
         if service_discoveries is not None:
-            _setter("service_discoveries", service_discoveries)
+            pulumi.set(__self__, "service_discoveries", service_discoveries)
         if slow_ramp_time is not None:
-            _setter("slow_ramp_time", slow_ramp_time)
+            pulumi.set(__self__, "slow_ramp_time", slow_ramp_time)
         if snat_pool_addresses is not None:
-            _setter("snat_pool_addresses", snat_pool_addresses)
+            pulumi.set(__self__, "snat_pool_addresses", snat_pool_addresses)
         if tenant is not None:
-            _setter("tenant", tenant)
+            pulumi.set(__self__, "tenant", tenant)
         if tls_client_profile is not None:
-            _setter("tls_client_profile", tls_client_profile)
+            pulumi.set(__self__, "tls_client_profile", tls_client_profile)
         if tls_server_profile is not None:
-            _setter("tls_server_profile", tls_server_profile)
+            pulumi.set(__self__, "tls_server_profile", tls_server_profile)
         if virtual_server is not None:
-            _setter("virtual_server", virtual_server)
+            pulumi.set(__self__, "virtual_server", virtual_server)
         if waf_security_policy is not None:
-            _setter("waf_security_policy", waf_security_policy)
+            pulumi.set(__self__, "waf_security_policy", waf_security_policy)
 
     @property
     @pulumi.getter
@@ -1078,10 +904,6 @@ class FastHttpsApp(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            FastHttpsAppArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -1127,7 +949,6 @@ class FastHttpsApp(pulumi.CustomResource):
             __props__.__dict__["existing_tls_server_profile"] = existing_tls_server_profile
             __props__.__dict__["existing_waf_security_policy"] = existing_waf_security_policy
             __props__.__dict__["load_balancing_mode"] = load_balancing_mode
-            monitor = _utilities.configure(monitor, FastHttpsAppMonitorArgs, True)
             __props__.__dict__["monitor"] = monitor
             __props__.__dict__["pool_members"] = pool_members
             __props__.__dict__["security_log_profiles"] = security_log_profiles
@@ -1137,13 +958,9 @@ class FastHttpsApp(pulumi.CustomResource):
             if tenant is None and not opts.urn:
                 raise TypeError("Missing required property 'tenant'")
             __props__.__dict__["tenant"] = tenant
-            tls_client_profile = _utilities.configure(tls_client_profile, FastHttpsAppTlsClientProfileArgs, True)
             __props__.__dict__["tls_client_profile"] = tls_client_profile
-            tls_server_profile = _utilities.configure(tls_server_profile, FastHttpsAppTlsServerProfileArgs, True)
             __props__.__dict__["tls_server_profile"] = tls_server_profile
-            virtual_server = _utilities.configure(virtual_server, FastHttpsAppVirtualServerArgs, True)
             __props__.__dict__["virtual_server"] = virtual_server
-            waf_security_policy = _utilities.configure(waf_security_policy, FastHttpsAppWafSecurityPolicyArgs, True)
             __props__.__dict__["waf_security_policy"] = waf_security_policy
             __props__.__dict__["fast_https_json"] = None
         super(FastHttpsApp, __self__).__init__(

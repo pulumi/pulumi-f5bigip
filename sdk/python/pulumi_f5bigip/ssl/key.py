@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['KeyArgs', 'Key']
@@ -27,39 +27,14 @@ class KeyArgs:
         :param pulumi.Input[str] partition: Partition of ssl certificate key
         :param pulumi.Input[str] passphrase: Passphrase on key.
         """
-        KeyArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content=content,
-            name=name,
-            full_path=full_path,
-            partition=partition,
-            passphrase=passphrase,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             full_path: Optional[pulumi.Input[str]] = None,
-             partition: Optional[pulumi.Input[str]] = None,
-             passphrase: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if content is None:
-            raise TypeError("Missing 'content' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if full_path is None and 'fullPath' in kwargs:
-            full_path = kwargs['fullPath']
-
-        _setter("content", content)
-        _setter("name", name)
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "name", name)
         if full_path is not None:
-            _setter("full_path", full_path)
+            pulumi.set(__self__, "full_path", full_path)
         if partition is not None:
-            _setter("partition", partition)
+            pulumi.set(__self__, "partition", partition)
         if passphrase is not None:
-            _setter("passphrase", passphrase)
+            pulumi.set(__self__, "passphrase", passphrase)
 
     @property
     @pulumi.getter
@@ -138,37 +113,16 @@ class _KeyState:
         :param pulumi.Input[str] partition: Partition of ssl certificate key
         :param pulumi.Input[str] passphrase: Passphrase on key.
         """
-        _KeyState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            content=content,
-            full_path=full_path,
-            name=name,
-            partition=partition,
-            passphrase=passphrase,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             content: Optional[pulumi.Input[str]] = None,
-             full_path: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             partition: Optional[pulumi.Input[str]] = None,
-             passphrase: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if full_path is None and 'fullPath' in kwargs:
-            full_path = kwargs['fullPath']
-
         if content is not None:
-            _setter("content", content)
+            pulumi.set(__self__, "content", content)
         if full_path is not None:
-            _setter("full_path", full_path)
+            pulumi.set(__self__, "full_path", full_path)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if partition is not None:
-            _setter("partition", partition)
+            pulumi.set(__self__, "partition", partition)
         if passphrase is not None:
-            _setter("passphrase", passphrase)
+            pulumi.set(__self__, "passphrase", passphrase)
 
     @property
     @pulumi.getter
@@ -298,10 +252,6 @@ class Key(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            KeyArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
