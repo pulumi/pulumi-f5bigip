@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SnmpArgs', 'Snmp']
@@ -23,31 +23,12 @@ class SnmpArgs:
         :param pulumi.Input[str] sys_contact: Specifies the contact information for the system administrator.
         :param pulumi.Input[str] sys_location: Describes the system's physical location.
         """
-        SnmpArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allowedaddresses=allowedaddresses,
-            sys_contact=sys_contact,
-            sys_location=sys_location,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allowedaddresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             sys_contact: Optional[pulumi.Input[str]] = None,
-             sys_location: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if sys_contact is None and 'sysContact' in kwargs:
-            sys_contact = kwargs['sysContact']
-        if sys_location is None and 'sysLocation' in kwargs:
-            sys_location = kwargs['sysLocation']
-
         if allowedaddresses is not None:
-            _setter("allowedaddresses", allowedaddresses)
+            pulumi.set(__self__, "allowedaddresses", allowedaddresses)
         if sys_contact is not None:
-            _setter("sys_contact", sys_contact)
+            pulumi.set(__self__, "sys_contact", sys_contact)
         if sys_location is not None:
-            _setter("sys_location", sys_location)
+            pulumi.set(__self__, "sys_location", sys_location)
 
     @property
     @pulumi.getter
@@ -98,31 +79,12 @@ class _SnmpState:
         :param pulumi.Input[str] sys_contact: Specifies the contact information for the system administrator.
         :param pulumi.Input[str] sys_location: Describes the system's physical location.
         """
-        _SnmpState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allowedaddresses=allowedaddresses,
-            sys_contact=sys_contact,
-            sys_location=sys_location,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allowedaddresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             sys_contact: Optional[pulumi.Input[str]] = None,
-             sys_location: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if sys_contact is None and 'sysContact' in kwargs:
-            sys_contact = kwargs['sysContact']
-        if sys_location is None and 'sysLocation' in kwargs:
-            sys_location = kwargs['sysLocation']
-
         if allowedaddresses is not None:
-            _setter("allowedaddresses", allowedaddresses)
+            pulumi.set(__self__, "allowedaddresses", allowedaddresses)
         if sys_contact is not None:
-            _setter("sys_contact", sys_contact)
+            pulumi.set(__self__, "sys_contact", sys_contact)
         if sys_location is not None:
-            _setter("sys_location", sys_location)
+            pulumi.set(__self__, "sys_location", sys_location)
 
     @property
     @pulumi.getter
@@ -220,10 +182,6 @@ class Snmp(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SnmpArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

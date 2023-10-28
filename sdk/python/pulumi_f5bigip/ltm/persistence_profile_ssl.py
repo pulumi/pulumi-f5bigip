@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PersistenceProfileSslArgs', 'PersistenceProfileSsl']
@@ -35,65 +35,22 @@ class PersistenceProfileSslArgs:
                limits remain hard limits and are not overridden.
         :param pulumi.Input[int] timeout: Timeout for persistence of the session
         """
-        PersistenceProfileSslArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            defaults_from=defaults_from,
-            name=name,
-            app_service=app_service,
-            match_across_pools=match_across_pools,
-            match_across_services=match_across_services,
-            match_across_virtuals=match_across_virtuals,
-            mirror=mirror,
-            override_conn_limit=override_conn_limit,
-            timeout=timeout,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             defaults_from: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             app_service: Optional[pulumi.Input[str]] = None,
-             match_across_pools: Optional[pulumi.Input[str]] = None,
-             match_across_services: Optional[pulumi.Input[str]] = None,
-             match_across_virtuals: Optional[pulumi.Input[str]] = None,
-             mirror: Optional[pulumi.Input[str]] = None,
-             override_conn_limit: Optional[pulumi.Input[str]] = None,
-             timeout: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if defaults_from is None and 'defaultsFrom' in kwargs:
-            defaults_from = kwargs['defaultsFrom']
-        if defaults_from is None:
-            raise TypeError("Missing 'defaults_from' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if app_service is None and 'appService' in kwargs:
-            app_service = kwargs['appService']
-        if match_across_pools is None and 'matchAcrossPools' in kwargs:
-            match_across_pools = kwargs['matchAcrossPools']
-        if match_across_services is None and 'matchAcrossServices' in kwargs:
-            match_across_services = kwargs['matchAcrossServices']
-        if match_across_virtuals is None and 'matchAcrossVirtuals' in kwargs:
-            match_across_virtuals = kwargs['matchAcrossVirtuals']
-        if override_conn_limit is None and 'overrideConnLimit' in kwargs:
-            override_conn_limit = kwargs['overrideConnLimit']
-
-        _setter("defaults_from", defaults_from)
-        _setter("name", name)
+        pulumi.set(__self__, "defaults_from", defaults_from)
+        pulumi.set(__self__, "name", name)
         if app_service is not None:
-            _setter("app_service", app_service)
+            pulumi.set(__self__, "app_service", app_service)
         if match_across_pools is not None:
-            _setter("match_across_pools", match_across_pools)
+            pulumi.set(__self__, "match_across_pools", match_across_pools)
         if match_across_services is not None:
-            _setter("match_across_services", match_across_services)
+            pulumi.set(__self__, "match_across_services", match_across_services)
         if match_across_virtuals is not None:
-            _setter("match_across_virtuals", match_across_virtuals)
+            pulumi.set(__self__, "match_across_virtuals", match_across_virtuals)
         if mirror is not None:
-            _setter("mirror", mirror)
+            pulumi.set(__self__, "mirror", mirror)
         if override_conn_limit is not None:
-            _setter("override_conn_limit", override_conn_limit)
+            pulumi.set(__self__, "override_conn_limit", override_conn_limit)
         if timeout is not None:
-            _setter("timeout", timeout)
+            pulumi.set(__self__, "timeout", timeout)
 
     @property
     @pulumi.getter(name="defaultsFrom")
@@ -226,63 +183,24 @@ class _PersistenceProfileSslState:
                limits remain hard limits and are not overridden.
         :param pulumi.Input[int] timeout: Timeout for persistence of the session
         """
-        _PersistenceProfileSslState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            app_service=app_service,
-            defaults_from=defaults_from,
-            match_across_pools=match_across_pools,
-            match_across_services=match_across_services,
-            match_across_virtuals=match_across_virtuals,
-            mirror=mirror,
-            name=name,
-            override_conn_limit=override_conn_limit,
-            timeout=timeout,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             app_service: Optional[pulumi.Input[str]] = None,
-             defaults_from: Optional[pulumi.Input[str]] = None,
-             match_across_pools: Optional[pulumi.Input[str]] = None,
-             match_across_services: Optional[pulumi.Input[str]] = None,
-             match_across_virtuals: Optional[pulumi.Input[str]] = None,
-             mirror: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             override_conn_limit: Optional[pulumi.Input[str]] = None,
-             timeout: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if app_service is None and 'appService' in kwargs:
-            app_service = kwargs['appService']
-        if defaults_from is None and 'defaultsFrom' in kwargs:
-            defaults_from = kwargs['defaultsFrom']
-        if match_across_pools is None and 'matchAcrossPools' in kwargs:
-            match_across_pools = kwargs['matchAcrossPools']
-        if match_across_services is None and 'matchAcrossServices' in kwargs:
-            match_across_services = kwargs['matchAcrossServices']
-        if match_across_virtuals is None and 'matchAcrossVirtuals' in kwargs:
-            match_across_virtuals = kwargs['matchAcrossVirtuals']
-        if override_conn_limit is None and 'overrideConnLimit' in kwargs:
-            override_conn_limit = kwargs['overrideConnLimit']
-
         if app_service is not None:
-            _setter("app_service", app_service)
+            pulumi.set(__self__, "app_service", app_service)
         if defaults_from is not None:
-            _setter("defaults_from", defaults_from)
+            pulumi.set(__self__, "defaults_from", defaults_from)
         if match_across_pools is not None:
-            _setter("match_across_pools", match_across_pools)
+            pulumi.set(__self__, "match_across_pools", match_across_pools)
         if match_across_services is not None:
-            _setter("match_across_services", match_across_services)
+            pulumi.set(__self__, "match_across_services", match_across_services)
         if match_across_virtuals is not None:
-            _setter("match_across_virtuals", match_across_virtuals)
+            pulumi.set(__self__, "match_across_virtuals", match_across_virtuals)
         if mirror is not None:
-            _setter("mirror", mirror)
+            pulumi.set(__self__, "mirror", mirror)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if override_conn_limit is not None:
-            _setter("override_conn_limit", override_conn_limit)
+            pulumi.set(__self__, "override_conn_limit", override_conn_limit)
         if timeout is not None:
-            _setter("timeout", timeout)
+            pulumi.set(__self__, "timeout", timeout)
 
     @property
     @pulumi.getter(name="appService")
@@ -510,10 +428,6 @@ class PersistenceProfileSsl(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PersistenceProfileSslArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

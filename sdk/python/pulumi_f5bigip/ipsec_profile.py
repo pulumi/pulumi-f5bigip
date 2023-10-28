@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['IpsecProfileArgs', 'IpsecProfile']
@@ -25,36 +25,13 @@ class IpsecProfileArgs:
         :param pulumi.Input[str] parent_profile: Specifies the profile from which this profile inherits settings. The default is the system-supplied `/Common/ipsec` profile
         :param pulumi.Input[str] traffic_selector: Specifies the traffic selector for the IPsec interface tunnel to which the profile is applied
         """
-        IpsecProfileArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            description=description,
-            parent_profile=parent_profile,
-            traffic_selector=traffic_selector,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             parent_profile: Optional[pulumi.Input[str]] = None,
-             traffic_selector: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if parent_profile is None and 'parentProfile' in kwargs:
-            parent_profile = kwargs['parentProfile']
-        if traffic_selector is None and 'trafficSelector' in kwargs:
-            traffic_selector = kwargs['trafficSelector']
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if parent_profile is not None:
-            _setter("parent_profile", parent_profile)
+            pulumi.set(__self__, "parent_profile", parent_profile)
         if traffic_selector is not None:
-            _setter("traffic_selector", traffic_selector)
+            pulumi.set(__self__, "traffic_selector", traffic_selector)
 
     @property
     @pulumi.getter
@@ -119,35 +96,14 @@ class _IpsecProfileState:
         :param pulumi.Input[str] parent_profile: Specifies the profile from which this profile inherits settings. The default is the system-supplied `/Common/ipsec` profile
         :param pulumi.Input[str] traffic_selector: Specifies the traffic selector for the IPsec interface tunnel to which the profile is applied
         """
-        _IpsecProfileState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            name=name,
-            parent_profile=parent_profile,
-            traffic_selector=traffic_selector,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parent_profile: Optional[pulumi.Input[str]] = None,
-             traffic_selector: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if parent_profile is None and 'parentProfile' in kwargs:
-            parent_profile = kwargs['parentProfile']
-        if traffic_selector is None and 'trafficSelector' in kwargs:
-            traffic_selector = kwargs['trafficSelector']
-
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parent_profile is not None:
-            _setter("parent_profile", parent_profile)
+            pulumi.set(__self__, "parent_profile", parent_profile)
         if traffic_selector is not None:
-            _setter("traffic_selector", traffic_selector)
+            pulumi.set(__self__, "traffic_selector", traffic_selector)
 
     @property
     @pulumi.getter
@@ -261,10 +217,6 @@ class IpsecProfile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            IpsecProfileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

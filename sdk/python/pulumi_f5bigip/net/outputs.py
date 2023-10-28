@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -22,23 +22,10 @@ class VlanInterface(dict):
         :param bool tagged: Specifies a list of tagged interfaces or trunks associated with this VLAN. Note that you can associate tagged interfaces or trunks with any number of VLANs.
         :param str vlanport: Physical or virtual port used for traffic
         """
-        VlanInterface._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            tagged=tagged,
-            vlanport=vlanport,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             tagged: Optional[bool] = None,
-             vlanport: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if tagged is not None:
-            _setter("tagged", tagged)
+            pulumi.set(__self__, "tagged", tagged)
         if vlanport is not None:
-            _setter("vlanport", vlanport)
+            pulumi.set(__self__, "vlanport", vlanport)
 
     @property
     @pulumi.getter

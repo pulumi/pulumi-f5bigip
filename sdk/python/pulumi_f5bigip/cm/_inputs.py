@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -21,25 +21,10 @@ class DeviceGroupDeviceArgs:
         """
         :param pulumi.Input[str] name: Is the name of the device Group
         """
-        DeviceGroupDeviceArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            set_sync_leader=set_sync_leader,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             set_sync_leader: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if set_sync_leader is None and 'setSyncLeader' in kwargs:
-            set_sync_leader = kwargs['setSyncLeader']
-
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if set_sync_leader is not None:
-            _setter("set_sync_leader", set_sync_leader)
+            pulumi.set(__self__, "set_sync_leader", set_sync_leader)
 
     @property
     @pulumi.getter

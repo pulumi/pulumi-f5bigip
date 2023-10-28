@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['IRuleArgs', 'IRule']
@@ -21,25 +21,8 @@ class IRuleArgs:
         :param pulumi.Input[str] irule: Body of the iRule
         :param pulumi.Input[str] name: Name of the iRule
         """
-        IRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            irule=irule,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             irule: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if irule is None:
-            raise TypeError("Missing 'irule' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("irule", irule)
-        _setter("name", name)
+        pulumi.set(__self__, "irule", irule)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -76,23 +59,10 @@ class _IRuleState:
         :param pulumi.Input[str] irule: Body of the iRule
         :param pulumi.Input[str] name: Name of the iRule
         """
-        _IRuleState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            irule=irule,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             irule: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if irule is not None:
-            _setter("irule", irule)
+            pulumi.set(__self__, "irule", irule)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -158,10 +128,6 @@ class IRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            IRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

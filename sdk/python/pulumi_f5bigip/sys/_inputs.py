@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -22,23 +22,10 @@ class IAppListArgs:
     def __init__(__self__, *,
                  encrypted: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
-        IAppListArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            encrypted=encrypted,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             encrypted: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if encrypted is not None:
-            _setter("encrypted", encrypted)
+            pulumi.set(__self__, "encrypted", encrypted)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -64,23 +51,10 @@ class IAppMetadataArgs:
     def __init__(__self__, *,
                  persists: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
-        IAppMetadataArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            persists=persists,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             persists: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if persists is not None:
-            _setter("persists", persists)
+            pulumi.set(__self__, "persists", persists)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
@@ -111,35 +85,14 @@ class IAppTableArgs:
         """
         :param pulumi.Input[str] name: Name of the iApp.
         """
-        IAppTableArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            column_names=column_names,
-            encrypted_columns=encrypted_columns,
-            name=name,
-            rows=rows,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             encrypted_columns: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             rows: Optional[pulumi.Input[Sequence[pulumi.Input['IAppTableRowArgs']]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if column_names is None and 'columnNames' in kwargs:
-            column_names = kwargs['columnNames']
-        if encrypted_columns is None and 'encryptedColumns' in kwargs:
-            encrypted_columns = kwargs['encryptedColumns']
-
         if column_names is not None:
-            _setter("column_names", column_names)
+            pulumi.set(__self__, "column_names", column_names)
         if encrypted_columns is not None:
-            _setter("encrypted_columns", encrypted_columns)
+            pulumi.set(__self__, "encrypted_columns", encrypted_columns)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if rows is not None:
-            _setter("rows", rows)
+            pulumi.set(__self__, "rows", rows)
 
     @property
     @pulumi.getter(name="columnNames")
@@ -185,19 +138,8 @@ class IAppTableArgs:
 class IAppTableRowArgs:
     def __init__(__self__, *,
                  rows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        IAppTableRowArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            rows=rows,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             rows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if rows is not None:
-            _setter("rows", rows)
+            pulumi.set(__self__, "rows", rows)
 
     @property
     @pulumi.getter
@@ -218,27 +160,12 @@ class IAppVariableArgs:
         """
         :param pulumi.Input[str] name: Name of the iApp.
         """
-        IAppVariableArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            encrypted=encrypted,
-            name=name,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             encrypted: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if encrypted is not None:
-            _setter("encrypted", encrypted)
+            pulumi.set(__self__, "encrypted", encrypted)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

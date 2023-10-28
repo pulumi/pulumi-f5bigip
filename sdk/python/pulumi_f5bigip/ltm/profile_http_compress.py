@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ProfileHttpCompressArgs', 'ProfileHttpCompress']
@@ -43,92 +43,31 @@ class ProfileHttpCompressArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] uri_includes: Enables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you want to compress.
         :param pulumi.Input[str] vary_header: Specifies, when checked (enabled), that the system inserts a Vary header into cacheable server responses. The default is `enabled`.
         """
-        ProfileHttpCompressArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            compression_buffersize=compression_buffersize,
-            content_type_excludes=content_type_excludes,
-            content_type_includes=content_type_includes,
-            cpu_saver=cpu_saver,
-            defaults_from=defaults_from,
-            gzip_compression_level=gzip_compression_level,
-            gzip_memory_level=gzip_memory_level,
-            gzip_window_size=gzip_window_size,
-            keep_accept_encoding=keep_accept_encoding,
-            uri_excludes=uri_excludes,
-            uri_includes=uri_includes,
-            vary_header=vary_header,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             compression_buffersize: Optional[pulumi.Input[int]] = None,
-             content_type_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             content_type_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             cpu_saver: Optional[pulumi.Input[str]] = None,
-             defaults_from: Optional[pulumi.Input[str]] = None,
-             gzip_compression_level: Optional[pulumi.Input[int]] = None,
-             gzip_memory_level: Optional[pulumi.Input[int]] = None,
-             gzip_window_size: Optional[pulumi.Input[int]] = None,
-             keep_accept_encoding: Optional[pulumi.Input[str]] = None,
-             uri_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             uri_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             vary_header: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if compression_buffersize is None and 'compressionBuffersize' in kwargs:
-            compression_buffersize = kwargs['compressionBuffersize']
-        if content_type_excludes is None and 'contentTypeExcludes' in kwargs:
-            content_type_excludes = kwargs['contentTypeExcludes']
-        if content_type_includes is None and 'contentTypeIncludes' in kwargs:
-            content_type_includes = kwargs['contentTypeIncludes']
-        if cpu_saver is None and 'cpuSaver' in kwargs:
-            cpu_saver = kwargs['cpuSaver']
-        if defaults_from is None and 'defaultsFrom' in kwargs:
-            defaults_from = kwargs['defaultsFrom']
-        if gzip_compression_level is None and 'gzipCompressionLevel' in kwargs:
-            gzip_compression_level = kwargs['gzipCompressionLevel']
-        if gzip_memory_level is None and 'gzipMemoryLevel' in kwargs:
-            gzip_memory_level = kwargs['gzipMemoryLevel']
-        if gzip_window_size is None and 'gzipWindowSize' in kwargs:
-            gzip_window_size = kwargs['gzipWindowSize']
-        if keep_accept_encoding is None and 'keepAcceptEncoding' in kwargs:
-            keep_accept_encoding = kwargs['keepAcceptEncoding']
-        if uri_excludes is None and 'uriExcludes' in kwargs:
-            uri_excludes = kwargs['uriExcludes']
-        if uri_includes is None and 'uriIncludes' in kwargs:
-            uri_includes = kwargs['uriIncludes']
-        if vary_header is None and 'varyHeader' in kwargs:
-            vary_header = kwargs['varyHeader']
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if compression_buffersize is not None:
-            _setter("compression_buffersize", compression_buffersize)
+            pulumi.set(__self__, "compression_buffersize", compression_buffersize)
         if content_type_excludes is not None:
-            _setter("content_type_excludes", content_type_excludes)
+            pulumi.set(__self__, "content_type_excludes", content_type_excludes)
         if content_type_includes is not None:
-            _setter("content_type_includes", content_type_includes)
+            pulumi.set(__self__, "content_type_includes", content_type_includes)
         if cpu_saver is not None:
-            _setter("cpu_saver", cpu_saver)
+            pulumi.set(__self__, "cpu_saver", cpu_saver)
         if defaults_from is not None:
-            _setter("defaults_from", defaults_from)
+            pulumi.set(__self__, "defaults_from", defaults_from)
         if gzip_compression_level is not None:
-            _setter("gzip_compression_level", gzip_compression_level)
+            pulumi.set(__self__, "gzip_compression_level", gzip_compression_level)
         if gzip_memory_level is not None:
-            _setter("gzip_memory_level", gzip_memory_level)
+            pulumi.set(__self__, "gzip_memory_level", gzip_memory_level)
         if gzip_window_size is not None:
-            _setter("gzip_window_size", gzip_window_size)
+            pulumi.set(__self__, "gzip_window_size", gzip_window_size)
         if keep_accept_encoding is not None:
-            _setter("keep_accept_encoding", keep_accept_encoding)
+            pulumi.set(__self__, "keep_accept_encoding", keep_accept_encoding)
         if uri_excludes is not None:
-            _setter("uri_excludes", uri_excludes)
+            pulumi.set(__self__, "uri_excludes", uri_excludes)
         if uri_includes is not None:
-            _setter("uri_includes", uri_includes)
+            pulumi.set(__self__, "uri_includes", uri_includes)
         if vary_header is not None:
-            _setter("vary_header", vary_header)
+            pulumi.set(__self__, "vary_header", vary_header)
 
     @property
     @pulumi.getter
@@ -319,91 +258,32 @@ class _ProfileHttpCompressState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] uri_includes: Enables compression on a specified list of HTTP Request-URI responses. Use a regular expression to specify a list of URIs you want to compress.
         :param pulumi.Input[str] vary_header: Specifies, when checked (enabled), that the system inserts a Vary header into cacheable server responses. The default is `enabled`.
         """
-        _ProfileHttpCompressState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            compression_buffersize=compression_buffersize,
-            content_type_excludes=content_type_excludes,
-            content_type_includes=content_type_includes,
-            cpu_saver=cpu_saver,
-            defaults_from=defaults_from,
-            gzip_compression_level=gzip_compression_level,
-            gzip_memory_level=gzip_memory_level,
-            gzip_window_size=gzip_window_size,
-            keep_accept_encoding=keep_accept_encoding,
-            name=name,
-            uri_excludes=uri_excludes,
-            uri_includes=uri_includes,
-            vary_header=vary_header,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             compression_buffersize: Optional[pulumi.Input[int]] = None,
-             content_type_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             content_type_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             cpu_saver: Optional[pulumi.Input[str]] = None,
-             defaults_from: Optional[pulumi.Input[str]] = None,
-             gzip_compression_level: Optional[pulumi.Input[int]] = None,
-             gzip_memory_level: Optional[pulumi.Input[int]] = None,
-             gzip_window_size: Optional[pulumi.Input[int]] = None,
-             keep_accept_encoding: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             uri_excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             uri_includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             vary_header: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if compression_buffersize is None and 'compressionBuffersize' in kwargs:
-            compression_buffersize = kwargs['compressionBuffersize']
-        if content_type_excludes is None and 'contentTypeExcludes' in kwargs:
-            content_type_excludes = kwargs['contentTypeExcludes']
-        if content_type_includes is None and 'contentTypeIncludes' in kwargs:
-            content_type_includes = kwargs['contentTypeIncludes']
-        if cpu_saver is None and 'cpuSaver' in kwargs:
-            cpu_saver = kwargs['cpuSaver']
-        if defaults_from is None and 'defaultsFrom' in kwargs:
-            defaults_from = kwargs['defaultsFrom']
-        if gzip_compression_level is None and 'gzipCompressionLevel' in kwargs:
-            gzip_compression_level = kwargs['gzipCompressionLevel']
-        if gzip_memory_level is None and 'gzipMemoryLevel' in kwargs:
-            gzip_memory_level = kwargs['gzipMemoryLevel']
-        if gzip_window_size is None and 'gzipWindowSize' in kwargs:
-            gzip_window_size = kwargs['gzipWindowSize']
-        if keep_accept_encoding is None and 'keepAcceptEncoding' in kwargs:
-            keep_accept_encoding = kwargs['keepAcceptEncoding']
-        if uri_excludes is None and 'uriExcludes' in kwargs:
-            uri_excludes = kwargs['uriExcludes']
-        if uri_includes is None and 'uriIncludes' in kwargs:
-            uri_includes = kwargs['uriIncludes']
-        if vary_header is None and 'varyHeader' in kwargs:
-            vary_header = kwargs['varyHeader']
-
         if compression_buffersize is not None:
-            _setter("compression_buffersize", compression_buffersize)
+            pulumi.set(__self__, "compression_buffersize", compression_buffersize)
         if content_type_excludes is not None:
-            _setter("content_type_excludes", content_type_excludes)
+            pulumi.set(__self__, "content_type_excludes", content_type_excludes)
         if content_type_includes is not None:
-            _setter("content_type_includes", content_type_includes)
+            pulumi.set(__self__, "content_type_includes", content_type_includes)
         if cpu_saver is not None:
-            _setter("cpu_saver", cpu_saver)
+            pulumi.set(__self__, "cpu_saver", cpu_saver)
         if defaults_from is not None:
-            _setter("defaults_from", defaults_from)
+            pulumi.set(__self__, "defaults_from", defaults_from)
         if gzip_compression_level is not None:
-            _setter("gzip_compression_level", gzip_compression_level)
+            pulumi.set(__self__, "gzip_compression_level", gzip_compression_level)
         if gzip_memory_level is not None:
-            _setter("gzip_memory_level", gzip_memory_level)
+            pulumi.set(__self__, "gzip_memory_level", gzip_memory_level)
         if gzip_window_size is not None:
-            _setter("gzip_window_size", gzip_window_size)
+            pulumi.set(__self__, "gzip_window_size", gzip_window_size)
         if keep_accept_encoding is not None:
-            _setter("keep_accept_encoding", keep_accept_encoding)
+            pulumi.set(__self__, "keep_accept_encoding", keep_accept_encoding)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if uri_excludes is not None:
-            _setter("uri_excludes", uri_excludes)
+            pulumi.set(__self__, "uri_excludes", uri_excludes)
         if uri_includes is not None:
-            _setter("uri_includes", uri_includes)
+            pulumi.set(__self__, "uri_includes", uri_includes)
         if vary_header is not None:
-            _setter("vary_header", vary_header)
+            pulumi.set(__self__, "vary_header", vary_header)
 
     @property
     @pulumi.getter(name="compressionBuffersize")
@@ -675,10 +555,6 @@ class ProfileHttpCompress(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ProfileHttpCompressArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

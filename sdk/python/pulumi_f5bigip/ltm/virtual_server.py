@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VirtualServerArgs', 'VirtualServer']
@@ -72,158 +72,61 @@ class VirtualServerArgs:
         :param pulumi.Input[bool] vlans_enabled: Enables the virtual server on the VLANs specified by the `vlans` option.
                By default it is `false` i.e vlanDisabled on specified vlans, if we want enable virtual server on VLANs specified by `vlans`, mark this attribute to `true`.
         """
-        VirtualServerArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            client_profiles=client_profiles,
-            default_persistence_profile=default_persistence_profile,
-            description=description,
-            destination=destination,
-            fallback_persistence_profile=fallback_persistence_profile,
-            firewall_enforced_policy=firewall_enforced_policy,
-            ip_protocol=ip_protocol,
-            irules=irules,
-            mask=mask,
-            per_flow_request_access_policy=per_flow_request_access_policy,
-            persistence_profiles=persistence_profiles,
-            policies=policies,
-            pool=pool,
-            port=port,
-            profiles=profiles,
-            security_log_profiles=security_log_profiles,
-            server_profiles=server_profiles,
-            snatpool=snatpool,
-            source=source,
-            source_address_translation=source_address_translation,
-            source_port=source_port,
-            state=state,
-            trafficmatching_criteria=trafficmatching_criteria,
-            translate_address=translate_address,
-            translate_port=translate_port,
-            vlans=vlans,
-            vlans_enabled=vlans_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             client_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             default_persistence_profile: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             destination: Optional[pulumi.Input[str]] = None,
-             fallback_persistence_profile: Optional[pulumi.Input[str]] = None,
-             firewall_enforced_policy: Optional[pulumi.Input[str]] = None,
-             ip_protocol: Optional[pulumi.Input[str]] = None,
-             irules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             mask: Optional[pulumi.Input[str]] = None,
-             per_flow_request_access_policy: Optional[pulumi.Input[str]] = None,
-             persistence_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             pool: Optional[pulumi.Input[str]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             security_log_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             server_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             snatpool: Optional[pulumi.Input[str]] = None,
-             source: Optional[pulumi.Input[str]] = None,
-             source_address_translation: Optional[pulumi.Input[str]] = None,
-             source_port: Optional[pulumi.Input[str]] = None,
-             state: Optional[pulumi.Input[str]] = None,
-             trafficmatching_criteria: Optional[pulumi.Input[str]] = None,
-             translate_address: Optional[pulumi.Input[str]] = None,
-             translate_port: Optional[pulumi.Input[str]] = None,
-             vlans: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             vlans_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if client_profiles is None and 'clientProfiles' in kwargs:
-            client_profiles = kwargs['clientProfiles']
-        if default_persistence_profile is None and 'defaultPersistenceProfile' in kwargs:
-            default_persistence_profile = kwargs['defaultPersistenceProfile']
-        if fallback_persistence_profile is None and 'fallbackPersistenceProfile' in kwargs:
-            fallback_persistence_profile = kwargs['fallbackPersistenceProfile']
-        if firewall_enforced_policy is None and 'firewallEnforcedPolicy' in kwargs:
-            firewall_enforced_policy = kwargs['firewallEnforcedPolicy']
-        if ip_protocol is None and 'ipProtocol' in kwargs:
-            ip_protocol = kwargs['ipProtocol']
-        if per_flow_request_access_policy is None and 'perFlowRequestAccessPolicy' in kwargs:
-            per_flow_request_access_policy = kwargs['perFlowRequestAccessPolicy']
-        if persistence_profiles is None and 'persistenceProfiles' in kwargs:
-            persistence_profiles = kwargs['persistenceProfiles']
-        if security_log_profiles is None and 'securityLogProfiles' in kwargs:
-            security_log_profiles = kwargs['securityLogProfiles']
-        if server_profiles is None and 'serverProfiles' in kwargs:
-            server_profiles = kwargs['serverProfiles']
-        if source_address_translation is None and 'sourceAddressTranslation' in kwargs:
-            source_address_translation = kwargs['sourceAddressTranslation']
-        if source_port is None and 'sourcePort' in kwargs:
-            source_port = kwargs['sourcePort']
-        if trafficmatching_criteria is None and 'trafficmatchingCriteria' in kwargs:
-            trafficmatching_criteria = kwargs['trafficmatchingCriteria']
-        if translate_address is None and 'translateAddress' in kwargs:
-            translate_address = kwargs['translateAddress']
-        if translate_port is None and 'translatePort' in kwargs:
-            translate_port = kwargs['translatePort']
-        if vlans_enabled is None and 'vlansEnabled' in kwargs:
-            vlans_enabled = kwargs['vlansEnabled']
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if client_profiles is not None:
-            _setter("client_profiles", client_profiles)
+            pulumi.set(__self__, "client_profiles", client_profiles)
         if default_persistence_profile is not None:
-            _setter("default_persistence_profile", default_persistence_profile)
+            pulumi.set(__self__, "default_persistence_profile", default_persistence_profile)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if destination is not None:
-            _setter("destination", destination)
+            pulumi.set(__self__, "destination", destination)
         if fallback_persistence_profile is not None:
-            _setter("fallback_persistence_profile", fallback_persistence_profile)
+            pulumi.set(__self__, "fallback_persistence_profile", fallback_persistence_profile)
         if firewall_enforced_policy is not None:
-            _setter("firewall_enforced_policy", firewall_enforced_policy)
+            pulumi.set(__self__, "firewall_enforced_policy", firewall_enforced_policy)
         if ip_protocol is not None:
-            _setter("ip_protocol", ip_protocol)
+            pulumi.set(__self__, "ip_protocol", ip_protocol)
         if irules is not None:
-            _setter("irules", irules)
+            pulumi.set(__self__, "irules", irules)
         if mask is not None:
-            _setter("mask", mask)
+            pulumi.set(__self__, "mask", mask)
         if per_flow_request_access_policy is not None:
-            _setter("per_flow_request_access_policy", per_flow_request_access_policy)
+            pulumi.set(__self__, "per_flow_request_access_policy", per_flow_request_access_policy)
         if persistence_profiles is not None:
-            _setter("persistence_profiles", persistence_profiles)
+            pulumi.set(__self__, "persistence_profiles", persistence_profiles)
         if policies is not None:
-            _setter("policies", policies)
+            pulumi.set(__self__, "policies", policies)
         if pool is not None:
-            _setter("pool", pool)
+            pulumi.set(__self__, "pool", pool)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if profiles is not None:
-            _setter("profiles", profiles)
+            pulumi.set(__self__, "profiles", profiles)
         if security_log_profiles is not None:
-            _setter("security_log_profiles", security_log_profiles)
+            pulumi.set(__self__, "security_log_profiles", security_log_profiles)
         if server_profiles is not None:
-            _setter("server_profiles", server_profiles)
+            pulumi.set(__self__, "server_profiles", server_profiles)
         if snatpool is not None:
-            _setter("snatpool", snatpool)
+            pulumi.set(__self__, "snatpool", snatpool)
         if source is not None:
-            _setter("source", source)
+            pulumi.set(__self__, "source", source)
         if source_address_translation is not None:
-            _setter("source_address_translation", source_address_translation)
+            pulumi.set(__self__, "source_address_translation", source_address_translation)
         if source_port is not None:
-            _setter("source_port", source_port)
+            pulumi.set(__self__, "source_port", source_port)
         if state is not None:
-            _setter("state", state)
+            pulumi.set(__self__, "state", state)
         if trafficmatching_criteria is not None:
-            _setter("trafficmatching_criteria", trafficmatching_criteria)
+            pulumi.set(__self__, "trafficmatching_criteria", trafficmatching_criteria)
         if translate_address is not None:
-            _setter("translate_address", translate_address)
+            pulumi.set(__self__, "translate_address", translate_address)
         if translate_port is not None:
-            _setter("translate_port", translate_port)
+            pulumi.set(__self__, "translate_port", translate_port)
         if vlans is not None:
-            _setter("vlans", vlans)
+            pulumi.set(__self__, "vlans", vlans)
         if vlans_enabled is not None:
-            _setter("vlans_enabled", vlans_enabled)
+            pulumi.set(__self__, "vlans_enabled", vlans_enabled)
 
     @property
     @pulumi.getter
@@ -618,157 +521,62 @@ class _VirtualServerState:
         :param pulumi.Input[bool] vlans_enabled: Enables the virtual server on the VLANs specified by the `vlans` option.
                By default it is `false` i.e vlanDisabled on specified vlans, if we want enable virtual server on VLANs specified by `vlans`, mark this attribute to `true`.
         """
-        _VirtualServerState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            client_profiles=client_profiles,
-            default_persistence_profile=default_persistence_profile,
-            description=description,
-            destination=destination,
-            fallback_persistence_profile=fallback_persistence_profile,
-            firewall_enforced_policy=firewall_enforced_policy,
-            ip_protocol=ip_protocol,
-            irules=irules,
-            mask=mask,
-            name=name,
-            per_flow_request_access_policy=per_flow_request_access_policy,
-            persistence_profiles=persistence_profiles,
-            policies=policies,
-            pool=pool,
-            port=port,
-            profiles=profiles,
-            security_log_profiles=security_log_profiles,
-            server_profiles=server_profiles,
-            snatpool=snatpool,
-            source=source,
-            source_address_translation=source_address_translation,
-            source_port=source_port,
-            state=state,
-            trafficmatching_criteria=trafficmatching_criteria,
-            translate_address=translate_address,
-            translate_port=translate_port,
-            vlans=vlans,
-            vlans_enabled=vlans_enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             client_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             default_persistence_profile: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             destination: Optional[pulumi.Input[str]] = None,
-             fallback_persistence_profile: Optional[pulumi.Input[str]] = None,
-             firewall_enforced_policy: Optional[pulumi.Input[str]] = None,
-             ip_protocol: Optional[pulumi.Input[str]] = None,
-             irules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             mask: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             per_flow_request_access_policy: Optional[pulumi.Input[str]] = None,
-             persistence_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             policies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             pool: Optional[pulumi.Input[str]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             security_log_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             server_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             snatpool: Optional[pulumi.Input[str]] = None,
-             source: Optional[pulumi.Input[str]] = None,
-             source_address_translation: Optional[pulumi.Input[str]] = None,
-             source_port: Optional[pulumi.Input[str]] = None,
-             state: Optional[pulumi.Input[str]] = None,
-             trafficmatching_criteria: Optional[pulumi.Input[str]] = None,
-             translate_address: Optional[pulumi.Input[str]] = None,
-             translate_port: Optional[pulumi.Input[str]] = None,
-             vlans: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             vlans_enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if client_profiles is None and 'clientProfiles' in kwargs:
-            client_profiles = kwargs['clientProfiles']
-        if default_persistence_profile is None and 'defaultPersistenceProfile' in kwargs:
-            default_persistence_profile = kwargs['defaultPersistenceProfile']
-        if fallback_persistence_profile is None and 'fallbackPersistenceProfile' in kwargs:
-            fallback_persistence_profile = kwargs['fallbackPersistenceProfile']
-        if firewall_enforced_policy is None and 'firewallEnforcedPolicy' in kwargs:
-            firewall_enforced_policy = kwargs['firewallEnforcedPolicy']
-        if ip_protocol is None and 'ipProtocol' in kwargs:
-            ip_protocol = kwargs['ipProtocol']
-        if per_flow_request_access_policy is None and 'perFlowRequestAccessPolicy' in kwargs:
-            per_flow_request_access_policy = kwargs['perFlowRequestAccessPolicy']
-        if persistence_profiles is None and 'persistenceProfiles' in kwargs:
-            persistence_profiles = kwargs['persistenceProfiles']
-        if security_log_profiles is None and 'securityLogProfiles' in kwargs:
-            security_log_profiles = kwargs['securityLogProfiles']
-        if server_profiles is None and 'serverProfiles' in kwargs:
-            server_profiles = kwargs['serverProfiles']
-        if source_address_translation is None and 'sourceAddressTranslation' in kwargs:
-            source_address_translation = kwargs['sourceAddressTranslation']
-        if source_port is None and 'sourcePort' in kwargs:
-            source_port = kwargs['sourcePort']
-        if trafficmatching_criteria is None and 'trafficmatchingCriteria' in kwargs:
-            trafficmatching_criteria = kwargs['trafficmatchingCriteria']
-        if translate_address is None and 'translateAddress' in kwargs:
-            translate_address = kwargs['translateAddress']
-        if translate_port is None and 'translatePort' in kwargs:
-            translate_port = kwargs['translatePort']
-        if vlans_enabled is None and 'vlansEnabled' in kwargs:
-            vlans_enabled = kwargs['vlansEnabled']
-
         if client_profiles is not None:
-            _setter("client_profiles", client_profiles)
+            pulumi.set(__self__, "client_profiles", client_profiles)
         if default_persistence_profile is not None:
-            _setter("default_persistence_profile", default_persistence_profile)
+            pulumi.set(__self__, "default_persistence_profile", default_persistence_profile)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if destination is not None:
-            _setter("destination", destination)
+            pulumi.set(__self__, "destination", destination)
         if fallback_persistence_profile is not None:
-            _setter("fallback_persistence_profile", fallback_persistence_profile)
+            pulumi.set(__self__, "fallback_persistence_profile", fallback_persistence_profile)
         if firewall_enforced_policy is not None:
-            _setter("firewall_enforced_policy", firewall_enforced_policy)
+            pulumi.set(__self__, "firewall_enforced_policy", firewall_enforced_policy)
         if ip_protocol is not None:
-            _setter("ip_protocol", ip_protocol)
+            pulumi.set(__self__, "ip_protocol", ip_protocol)
         if irules is not None:
-            _setter("irules", irules)
+            pulumi.set(__self__, "irules", irules)
         if mask is not None:
-            _setter("mask", mask)
+            pulumi.set(__self__, "mask", mask)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if per_flow_request_access_policy is not None:
-            _setter("per_flow_request_access_policy", per_flow_request_access_policy)
+            pulumi.set(__self__, "per_flow_request_access_policy", per_flow_request_access_policy)
         if persistence_profiles is not None:
-            _setter("persistence_profiles", persistence_profiles)
+            pulumi.set(__self__, "persistence_profiles", persistence_profiles)
         if policies is not None:
-            _setter("policies", policies)
+            pulumi.set(__self__, "policies", policies)
         if pool is not None:
-            _setter("pool", pool)
+            pulumi.set(__self__, "pool", pool)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if profiles is not None:
-            _setter("profiles", profiles)
+            pulumi.set(__self__, "profiles", profiles)
         if security_log_profiles is not None:
-            _setter("security_log_profiles", security_log_profiles)
+            pulumi.set(__self__, "security_log_profiles", security_log_profiles)
         if server_profiles is not None:
-            _setter("server_profiles", server_profiles)
+            pulumi.set(__self__, "server_profiles", server_profiles)
         if snatpool is not None:
-            _setter("snatpool", snatpool)
+            pulumi.set(__self__, "snatpool", snatpool)
         if source is not None:
-            _setter("source", source)
+            pulumi.set(__self__, "source", source)
         if source_address_translation is not None:
-            _setter("source_address_translation", source_address_translation)
+            pulumi.set(__self__, "source_address_translation", source_address_translation)
         if source_port is not None:
-            _setter("source_port", source_port)
+            pulumi.set(__self__, "source_port", source_port)
         if state is not None:
-            _setter("state", state)
+            pulumi.set(__self__, "state", state)
         if trafficmatching_criteria is not None:
-            _setter("trafficmatching_criteria", trafficmatching_criteria)
+            pulumi.set(__self__, "trafficmatching_criteria", trafficmatching_criteria)
         if translate_address is not None:
-            _setter("translate_address", translate_address)
+            pulumi.set(__self__, "translate_address", translate_address)
         if translate_port is not None:
-            _setter("translate_port", translate_port)
+            pulumi.set(__self__, "translate_port", translate_port)
         if vlans is not None:
-            _setter("vlans", vlans)
+            pulumi.set(__self__, "vlans", vlans)
         if vlans_enabled is not None:
-            _setter("vlans_enabled", vlans_enabled)
+            pulumi.set(__self__, "vlans_enabled", vlans_enabled)
 
     @property
     @pulumi.getter(name="clientProfiles")
@@ -1270,10 +1078,6 @@ class VirtualServer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            VirtualServerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

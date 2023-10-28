@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DnsArgs', 'Dns']
@@ -25,37 +25,12 @@ class DnsArgs:
         :param pulumi.Input[int] number_of_dots: Configures the number of dots needed in a name before an initial absolute query will be made.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] searches: Specifies the domains that the system searches for local domain lookups, to resolve local host names.
         """
-        DnsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            name_servers=name_servers,
-            number_of_dots=number_of_dots,
-            searches=searches,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             number_of_dots: Optional[pulumi.Input[int]] = None,
-             searches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if description is None:
-            raise TypeError("Missing 'description' argument")
-        if name_servers is None and 'nameServers' in kwargs:
-            name_servers = kwargs['nameServers']
-        if name_servers is None:
-            raise TypeError("Missing 'name_servers' argument")
-        if number_of_dots is None and 'numberOfDots' in kwargs:
-            number_of_dots = kwargs['numberOfDots']
-
-        _setter("description", description)
-        _setter("name_servers", name_servers)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "name_servers", name_servers)
         if number_of_dots is not None:
-            _setter("number_of_dots", number_of_dots)
+            pulumi.set(__self__, "number_of_dots", number_of_dots)
         if searches is not None:
-            _setter("searches", searches)
+            pulumi.set(__self__, "searches", searches)
 
     @property
     @pulumi.getter
@@ -120,35 +95,14 @@ class _DnsState:
         :param pulumi.Input[int] number_of_dots: Configures the number of dots needed in a name before an initial absolute query will be made.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] searches: Specifies the domains that the system searches for local domain lookups, to resolve local host names.
         """
-        _DnsState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            name_servers=name_servers,
-            number_of_dots=number_of_dots,
-            searches=searches,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             number_of_dots: Optional[pulumi.Input[int]] = None,
-             searches: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name_servers is None and 'nameServers' in kwargs:
-            name_servers = kwargs['nameServers']
-        if number_of_dots is None and 'numberOfDots' in kwargs:
-            number_of_dots = kwargs['numberOfDots']
-
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if name_servers is not None:
-            _setter("name_servers", name_servers)
+            pulumi.set(__self__, "name_servers", name_servers)
         if number_of_dots is not None:
-            _setter("number_of_dots", number_of_dots)
+            pulumi.set(__self__, "number_of_dots", number_of_dots)
         if searches is not None:
-            _setter("searches", searches)
+            pulumi.set(__self__, "searches", searches)
 
     @property
     @pulumi.getter
@@ -262,10 +216,6 @@ class Dns(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DnsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

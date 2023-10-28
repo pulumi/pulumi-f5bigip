@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -44,77 +44,26 @@ class FastTcpAppArgs:
         :param pulumi.Input['FastTcpAppVirtualServerArgs'] virtual_server: `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
                See virtual server below for more details.
         """
-        FastTcpAppArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application=application,
-            tenant=tenant,
-            existing_monitor=existing_monitor,
-            existing_pool=existing_pool,
-            existing_snat_pool=existing_snat_pool,
-            load_balancing_mode=load_balancing_mode,
-            monitor=monitor,
-            pool_members=pool_members,
-            slow_ramp_time=slow_ramp_time,
-            snat_pool_addresses=snat_pool_addresses,
-            virtual_server=virtual_server,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application: Optional[pulumi.Input[str]] = None,
-             tenant: Optional[pulumi.Input[str]] = None,
-             existing_monitor: Optional[pulumi.Input[str]] = None,
-             existing_pool: Optional[pulumi.Input[str]] = None,
-             existing_snat_pool: Optional[pulumi.Input[str]] = None,
-             load_balancing_mode: Optional[pulumi.Input[str]] = None,
-             monitor: Optional[pulumi.Input['FastTcpAppMonitorArgs']] = None,
-             pool_members: Optional[pulumi.Input[Sequence[pulumi.Input['FastTcpAppPoolMemberArgs']]]] = None,
-             slow_ramp_time: Optional[pulumi.Input[int]] = None,
-             snat_pool_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             virtual_server: Optional[pulumi.Input['FastTcpAppVirtualServerArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if application is None:
-            raise TypeError("Missing 'application' argument")
-        if tenant is None:
-            raise TypeError("Missing 'tenant' argument")
-        if existing_monitor is None and 'existingMonitor' in kwargs:
-            existing_monitor = kwargs['existingMonitor']
-        if existing_pool is None and 'existingPool' in kwargs:
-            existing_pool = kwargs['existingPool']
-        if existing_snat_pool is None and 'existingSnatPool' in kwargs:
-            existing_snat_pool = kwargs['existingSnatPool']
-        if load_balancing_mode is None and 'loadBalancingMode' in kwargs:
-            load_balancing_mode = kwargs['loadBalancingMode']
-        if pool_members is None and 'poolMembers' in kwargs:
-            pool_members = kwargs['poolMembers']
-        if slow_ramp_time is None and 'slowRampTime' in kwargs:
-            slow_ramp_time = kwargs['slowRampTime']
-        if snat_pool_addresses is None and 'snatPoolAddresses' in kwargs:
-            snat_pool_addresses = kwargs['snatPoolAddresses']
-        if virtual_server is None and 'virtualServer' in kwargs:
-            virtual_server = kwargs['virtualServer']
-
-        _setter("application", application)
-        _setter("tenant", tenant)
+        pulumi.set(__self__, "application", application)
+        pulumi.set(__self__, "tenant", tenant)
         if existing_monitor is not None:
-            _setter("existing_monitor", existing_monitor)
+            pulumi.set(__self__, "existing_monitor", existing_monitor)
         if existing_pool is not None:
-            _setter("existing_pool", existing_pool)
+            pulumi.set(__self__, "existing_pool", existing_pool)
         if existing_snat_pool is not None:
-            _setter("existing_snat_pool", existing_snat_pool)
+            pulumi.set(__self__, "existing_snat_pool", existing_snat_pool)
         if load_balancing_mode is not None:
-            _setter("load_balancing_mode", load_balancing_mode)
+            pulumi.set(__self__, "load_balancing_mode", load_balancing_mode)
         if monitor is not None:
-            _setter("monitor", monitor)
+            pulumi.set(__self__, "monitor", monitor)
         if pool_members is not None:
-            _setter("pool_members", pool_members)
+            pulumi.set(__self__, "pool_members", pool_members)
         if slow_ramp_time is not None:
-            _setter("slow_ramp_time", slow_ramp_time)
+            pulumi.set(__self__, "slow_ramp_time", slow_ramp_time)
         if snat_pool_addresses is not None:
-            _setter("snat_pool_addresses", snat_pool_addresses)
+            pulumi.set(__self__, "snat_pool_addresses", snat_pool_addresses)
         if virtual_server is not None:
-            _setter("virtual_server", virtual_server)
+            pulumi.set(__self__, "virtual_server", virtual_server)
 
     @property
     @pulumi.getter
@@ -285,81 +234,30 @@ class _FastTcpAppState:
         :param pulumi.Input['FastTcpAppVirtualServerArgs'] virtual_server: `virtual_server` block will provide `ip` and `port` options to be used for virtual server.
                See virtual server below for more details.
         """
-        _FastTcpAppState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            application=application,
-            existing_monitor=existing_monitor,
-            existing_pool=existing_pool,
-            existing_snat_pool=existing_snat_pool,
-            fast_tcp_json=fast_tcp_json,
-            load_balancing_mode=load_balancing_mode,
-            monitor=monitor,
-            pool_members=pool_members,
-            slow_ramp_time=slow_ramp_time,
-            snat_pool_addresses=snat_pool_addresses,
-            tenant=tenant,
-            virtual_server=virtual_server,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             application: Optional[pulumi.Input[str]] = None,
-             existing_monitor: Optional[pulumi.Input[str]] = None,
-             existing_pool: Optional[pulumi.Input[str]] = None,
-             existing_snat_pool: Optional[pulumi.Input[str]] = None,
-             fast_tcp_json: Optional[pulumi.Input[str]] = None,
-             load_balancing_mode: Optional[pulumi.Input[str]] = None,
-             monitor: Optional[pulumi.Input['FastTcpAppMonitorArgs']] = None,
-             pool_members: Optional[pulumi.Input[Sequence[pulumi.Input['FastTcpAppPoolMemberArgs']]]] = None,
-             slow_ramp_time: Optional[pulumi.Input[int]] = None,
-             snat_pool_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             tenant: Optional[pulumi.Input[str]] = None,
-             virtual_server: Optional[pulumi.Input['FastTcpAppVirtualServerArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if existing_monitor is None and 'existingMonitor' in kwargs:
-            existing_monitor = kwargs['existingMonitor']
-        if existing_pool is None and 'existingPool' in kwargs:
-            existing_pool = kwargs['existingPool']
-        if existing_snat_pool is None and 'existingSnatPool' in kwargs:
-            existing_snat_pool = kwargs['existingSnatPool']
-        if fast_tcp_json is None and 'fastTcpJson' in kwargs:
-            fast_tcp_json = kwargs['fastTcpJson']
-        if load_balancing_mode is None and 'loadBalancingMode' in kwargs:
-            load_balancing_mode = kwargs['loadBalancingMode']
-        if pool_members is None and 'poolMembers' in kwargs:
-            pool_members = kwargs['poolMembers']
-        if slow_ramp_time is None and 'slowRampTime' in kwargs:
-            slow_ramp_time = kwargs['slowRampTime']
-        if snat_pool_addresses is None and 'snatPoolAddresses' in kwargs:
-            snat_pool_addresses = kwargs['snatPoolAddresses']
-        if virtual_server is None and 'virtualServer' in kwargs:
-            virtual_server = kwargs['virtualServer']
-
         if application is not None:
-            _setter("application", application)
+            pulumi.set(__self__, "application", application)
         if existing_monitor is not None:
-            _setter("existing_monitor", existing_monitor)
+            pulumi.set(__self__, "existing_monitor", existing_monitor)
         if existing_pool is not None:
-            _setter("existing_pool", existing_pool)
+            pulumi.set(__self__, "existing_pool", existing_pool)
         if existing_snat_pool is not None:
-            _setter("existing_snat_pool", existing_snat_pool)
+            pulumi.set(__self__, "existing_snat_pool", existing_snat_pool)
         if fast_tcp_json is not None:
-            _setter("fast_tcp_json", fast_tcp_json)
+            pulumi.set(__self__, "fast_tcp_json", fast_tcp_json)
         if load_balancing_mode is not None:
-            _setter("load_balancing_mode", load_balancing_mode)
+            pulumi.set(__self__, "load_balancing_mode", load_balancing_mode)
         if monitor is not None:
-            _setter("monitor", monitor)
+            pulumi.set(__self__, "monitor", monitor)
         if pool_members is not None:
-            _setter("pool_members", pool_members)
+            pulumi.set(__self__, "pool_members", pool_members)
         if slow_ramp_time is not None:
-            _setter("slow_ramp_time", slow_ramp_time)
+            pulumi.set(__self__, "slow_ramp_time", slow_ramp_time)
         if snat_pool_addresses is not None:
-            _setter("snat_pool_addresses", snat_pool_addresses)
+            pulumi.set(__self__, "snat_pool_addresses", snat_pool_addresses)
         if tenant is not None:
-            _setter("tenant", tenant)
+            pulumi.set(__self__, "tenant", tenant)
         if virtual_server is not None:
-            _setter("virtual_server", virtual_server)
+            pulumi.set(__self__, "virtual_server", virtual_server)
 
     @property
     @pulumi.getter
@@ -615,10 +513,6 @@ class FastTcpApp(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            FastTcpAppArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -651,7 +545,6 @@ class FastTcpApp(pulumi.CustomResource):
             __props__.__dict__["existing_pool"] = existing_pool
             __props__.__dict__["existing_snat_pool"] = existing_snat_pool
             __props__.__dict__["load_balancing_mode"] = load_balancing_mode
-            monitor = _utilities.configure(monitor, FastTcpAppMonitorArgs, True)
             __props__.__dict__["monitor"] = monitor
             __props__.__dict__["pool_members"] = pool_members
             __props__.__dict__["slow_ramp_time"] = slow_ramp_time
@@ -659,7 +552,6 @@ class FastTcpApp(pulumi.CustomResource):
             if tenant is None and not opts.urn:
                 raise TypeError("Missing required property 'tenant'")
             __props__.__dict__["tenant"] = tenant
-            virtual_server = _utilities.configure(virtual_server, FastTcpAppVirtualServerArgs, True)
             __props__.__dict__["virtual_server"] = virtual_server
             __props__.__dict__["fast_tcp_json"] = None
         super(FastTcpApp, __self__).__init__(

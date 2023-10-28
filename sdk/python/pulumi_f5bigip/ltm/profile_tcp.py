@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ProfileTcpArgs', 'ProfileTcp']
@@ -61,140 +61,49 @@ class ProfileTcpArgs:
         :param pulumi.Input[str] verified_accept: Specifies, when checked (enabled), that the system can actually communicate with the server before establishing a client connection. To determine this, the system sends the server a SYN packet before responding to the client's SYN with a SYN-ACK. When unchecked, the system accepts the client connection before selecting a server to talk to. By default, this setting is `disabled`.
         :param pulumi.Input[int] zerowindow_timeout: Specifies the timeout in milliseconds for terminating a connection with an effective zero length TCP transmit window.
         """
-        ProfileTcpArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            close_wait_timeout=close_wait_timeout,
-            congestion_control=congestion_control,
-            defaults_from=defaults_from,
-            deferred_accept=deferred_accept,
-            delayed_acks=delayed_acks,
-            early_retransmit=early_retransmit,
-            fast_open=fast_open,
-            finwait2timeout=finwait2timeout,
-            finwait_timeout=finwait_timeout,
-            idle_timeout=idle_timeout,
-            initial_congestion_windowsize=initial_congestion_windowsize,
-            keepalive_interval=keepalive_interval,
-            nagle=nagle,
-            partition=partition,
-            proxybuffer_high=proxybuffer_high,
-            receive_windowsize=receive_windowsize,
-            send_buffersize=send_buffersize,
-            tailloss_probe=tailloss_probe,
-            timewait_recycle=timewait_recycle,
-            verified_accept=verified_accept,
-            zerowindow_timeout=zerowindow_timeout,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             close_wait_timeout: Optional[pulumi.Input[int]] = None,
-             congestion_control: Optional[pulumi.Input[str]] = None,
-             defaults_from: Optional[pulumi.Input[str]] = None,
-             deferred_accept: Optional[pulumi.Input[str]] = None,
-             delayed_acks: Optional[pulumi.Input[str]] = None,
-             early_retransmit: Optional[pulumi.Input[str]] = None,
-             fast_open: Optional[pulumi.Input[str]] = None,
-             finwait2timeout: Optional[pulumi.Input[int]] = None,
-             finwait_timeout: Optional[pulumi.Input[int]] = None,
-             idle_timeout: Optional[pulumi.Input[int]] = None,
-             initial_congestion_windowsize: Optional[pulumi.Input[int]] = None,
-             keepalive_interval: Optional[pulumi.Input[int]] = None,
-             nagle: Optional[pulumi.Input[str]] = None,
-             partition: Optional[pulumi.Input[str]] = None,
-             proxybuffer_high: Optional[pulumi.Input[int]] = None,
-             receive_windowsize: Optional[pulumi.Input[int]] = None,
-             send_buffersize: Optional[pulumi.Input[int]] = None,
-             tailloss_probe: Optional[pulumi.Input[str]] = None,
-             timewait_recycle: Optional[pulumi.Input[str]] = None,
-             verified_accept: Optional[pulumi.Input[str]] = None,
-             zerowindow_timeout: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if close_wait_timeout is None and 'closeWaitTimeout' in kwargs:
-            close_wait_timeout = kwargs['closeWaitTimeout']
-        if congestion_control is None and 'congestionControl' in kwargs:
-            congestion_control = kwargs['congestionControl']
-        if defaults_from is None and 'defaultsFrom' in kwargs:
-            defaults_from = kwargs['defaultsFrom']
-        if deferred_accept is None and 'deferredAccept' in kwargs:
-            deferred_accept = kwargs['deferredAccept']
-        if delayed_acks is None and 'delayedAcks' in kwargs:
-            delayed_acks = kwargs['delayedAcks']
-        if early_retransmit is None and 'earlyRetransmit' in kwargs:
-            early_retransmit = kwargs['earlyRetransmit']
-        if fast_open is None and 'fastOpen' in kwargs:
-            fast_open = kwargs['fastOpen']
-        if finwait_timeout is None and 'finwaitTimeout' in kwargs:
-            finwait_timeout = kwargs['finwaitTimeout']
-        if idle_timeout is None and 'idleTimeout' in kwargs:
-            idle_timeout = kwargs['idleTimeout']
-        if initial_congestion_windowsize is None and 'initialCongestionWindowsize' in kwargs:
-            initial_congestion_windowsize = kwargs['initialCongestionWindowsize']
-        if keepalive_interval is None and 'keepaliveInterval' in kwargs:
-            keepalive_interval = kwargs['keepaliveInterval']
-        if proxybuffer_high is None and 'proxybufferHigh' in kwargs:
-            proxybuffer_high = kwargs['proxybufferHigh']
-        if receive_windowsize is None and 'receiveWindowsize' in kwargs:
-            receive_windowsize = kwargs['receiveWindowsize']
-        if send_buffersize is None and 'sendBuffersize' in kwargs:
-            send_buffersize = kwargs['sendBuffersize']
-        if tailloss_probe is None and 'taillossProbe' in kwargs:
-            tailloss_probe = kwargs['taillossProbe']
-        if timewait_recycle is None and 'timewaitRecycle' in kwargs:
-            timewait_recycle = kwargs['timewaitRecycle']
-        if verified_accept is None and 'verifiedAccept' in kwargs:
-            verified_accept = kwargs['verifiedAccept']
-        if zerowindow_timeout is None and 'zerowindowTimeout' in kwargs:
-            zerowindow_timeout = kwargs['zerowindowTimeout']
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if close_wait_timeout is not None:
-            _setter("close_wait_timeout", close_wait_timeout)
+            pulumi.set(__self__, "close_wait_timeout", close_wait_timeout)
         if congestion_control is not None:
-            _setter("congestion_control", congestion_control)
+            pulumi.set(__self__, "congestion_control", congestion_control)
         if defaults_from is not None:
-            _setter("defaults_from", defaults_from)
+            pulumi.set(__self__, "defaults_from", defaults_from)
         if deferred_accept is not None:
-            _setter("deferred_accept", deferred_accept)
+            pulumi.set(__self__, "deferred_accept", deferred_accept)
         if delayed_acks is not None:
-            _setter("delayed_acks", delayed_acks)
+            pulumi.set(__self__, "delayed_acks", delayed_acks)
         if early_retransmit is not None:
-            _setter("early_retransmit", early_retransmit)
+            pulumi.set(__self__, "early_retransmit", early_retransmit)
         if fast_open is not None:
-            _setter("fast_open", fast_open)
+            pulumi.set(__self__, "fast_open", fast_open)
         if finwait2timeout is not None:
-            _setter("finwait2timeout", finwait2timeout)
+            pulumi.set(__self__, "finwait2timeout", finwait2timeout)
         if finwait_timeout is not None:
-            _setter("finwait_timeout", finwait_timeout)
+            pulumi.set(__self__, "finwait_timeout", finwait_timeout)
         if idle_timeout is not None:
-            _setter("idle_timeout", idle_timeout)
+            pulumi.set(__self__, "idle_timeout", idle_timeout)
         if initial_congestion_windowsize is not None:
-            _setter("initial_congestion_windowsize", initial_congestion_windowsize)
+            pulumi.set(__self__, "initial_congestion_windowsize", initial_congestion_windowsize)
         if keepalive_interval is not None:
-            _setter("keepalive_interval", keepalive_interval)
+            pulumi.set(__self__, "keepalive_interval", keepalive_interval)
         if nagle is not None:
-            _setter("nagle", nagle)
+            pulumi.set(__self__, "nagle", nagle)
         if partition is not None:
-            _setter("partition", partition)
+            pulumi.set(__self__, "partition", partition)
         if proxybuffer_high is not None:
-            _setter("proxybuffer_high", proxybuffer_high)
+            pulumi.set(__self__, "proxybuffer_high", proxybuffer_high)
         if receive_windowsize is not None:
-            _setter("receive_windowsize", receive_windowsize)
+            pulumi.set(__self__, "receive_windowsize", receive_windowsize)
         if send_buffersize is not None:
-            _setter("send_buffersize", send_buffersize)
+            pulumi.set(__self__, "send_buffersize", send_buffersize)
         if tailloss_probe is not None:
-            _setter("tailloss_probe", tailloss_probe)
+            pulumi.set(__self__, "tailloss_probe", tailloss_probe)
         if timewait_recycle is not None:
-            _setter("timewait_recycle", timewait_recycle)
+            pulumi.set(__self__, "timewait_recycle", timewait_recycle)
         if verified_accept is not None:
-            _setter("verified_accept", verified_accept)
+            pulumi.set(__self__, "verified_accept", verified_accept)
         if zerowindow_timeout is not None:
-            _setter("zerowindow_timeout", zerowindow_timeout)
+            pulumi.set(__self__, "zerowindow_timeout", zerowindow_timeout)
 
     @property
     @pulumi.getter
@@ -511,139 +420,50 @@ class _ProfileTcpState:
         :param pulumi.Input[str] verified_accept: Specifies, when checked (enabled), that the system can actually communicate with the server before establishing a client connection. To determine this, the system sends the server a SYN packet before responding to the client's SYN with a SYN-ACK. When unchecked, the system accepts the client connection before selecting a server to talk to. By default, this setting is `disabled`.
         :param pulumi.Input[int] zerowindow_timeout: Specifies the timeout in milliseconds for terminating a connection with an effective zero length TCP transmit window.
         """
-        _ProfileTcpState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            close_wait_timeout=close_wait_timeout,
-            congestion_control=congestion_control,
-            defaults_from=defaults_from,
-            deferred_accept=deferred_accept,
-            delayed_acks=delayed_acks,
-            early_retransmit=early_retransmit,
-            fast_open=fast_open,
-            finwait2timeout=finwait2timeout,
-            finwait_timeout=finwait_timeout,
-            idle_timeout=idle_timeout,
-            initial_congestion_windowsize=initial_congestion_windowsize,
-            keepalive_interval=keepalive_interval,
-            nagle=nagle,
-            name=name,
-            partition=partition,
-            proxybuffer_high=proxybuffer_high,
-            receive_windowsize=receive_windowsize,
-            send_buffersize=send_buffersize,
-            tailloss_probe=tailloss_probe,
-            timewait_recycle=timewait_recycle,
-            verified_accept=verified_accept,
-            zerowindow_timeout=zerowindow_timeout,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             close_wait_timeout: Optional[pulumi.Input[int]] = None,
-             congestion_control: Optional[pulumi.Input[str]] = None,
-             defaults_from: Optional[pulumi.Input[str]] = None,
-             deferred_accept: Optional[pulumi.Input[str]] = None,
-             delayed_acks: Optional[pulumi.Input[str]] = None,
-             early_retransmit: Optional[pulumi.Input[str]] = None,
-             fast_open: Optional[pulumi.Input[str]] = None,
-             finwait2timeout: Optional[pulumi.Input[int]] = None,
-             finwait_timeout: Optional[pulumi.Input[int]] = None,
-             idle_timeout: Optional[pulumi.Input[int]] = None,
-             initial_congestion_windowsize: Optional[pulumi.Input[int]] = None,
-             keepalive_interval: Optional[pulumi.Input[int]] = None,
-             nagle: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             partition: Optional[pulumi.Input[str]] = None,
-             proxybuffer_high: Optional[pulumi.Input[int]] = None,
-             receive_windowsize: Optional[pulumi.Input[int]] = None,
-             send_buffersize: Optional[pulumi.Input[int]] = None,
-             tailloss_probe: Optional[pulumi.Input[str]] = None,
-             timewait_recycle: Optional[pulumi.Input[str]] = None,
-             verified_accept: Optional[pulumi.Input[str]] = None,
-             zerowindow_timeout: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if close_wait_timeout is None and 'closeWaitTimeout' in kwargs:
-            close_wait_timeout = kwargs['closeWaitTimeout']
-        if congestion_control is None and 'congestionControl' in kwargs:
-            congestion_control = kwargs['congestionControl']
-        if defaults_from is None and 'defaultsFrom' in kwargs:
-            defaults_from = kwargs['defaultsFrom']
-        if deferred_accept is None and 'deferredAccept' in kwargs:
-            deferred_accept = kwargs['deferredAccept']
-        if delayed_acks is None and 'delayedAcks' in kwargs:
-            delayed_acks = kwargs['delayedAcks']
-        if early_retransmit is None and 'earlyRetransmit' in kwargs:
-            early_retransmit = kwargs['earlyRetransmit']
-        if fast_open is None and 'fastOpen' in kwargs:
-            fast_open = kwargs['fastOpen']
-        if finwait_timeout is None and 'finwaitTimeout' in kwargs:
-            finwait_timeout = kwargs['finwaitTimeout']
-        if idle_timeout is None and 'idleTimeout' in kwargs:
-            idle_timeout = kwargs['idleTimeout']
-        if initial_congestion_windowsize is None and 'initialCongestionWindowsize' in kwargs:
-            initial_congestion_windowsize = kwargs['initialCongestionWindowsize']
-        if keepalive_interval is None and 'keepaliveInterval' in kwargs:
-            keepalive_interval = kwargs['keepaliveInterval']
-        if proxybuffer_high is None and 'proxybufferHigh' in kwargs:
-            proxybuffer_high = kwargs['proxybufferHigh']
-        if receive_windowsize is None and 'receiveWindowsize' in kwargs:
-            receive_windowsize = kwargs['receiveWindowsize']
-        if send_buffersize is None and 'sendBuffersize' in kwargs:
-            send_buffersize = kwargs['sendBuffersize']
-        if tailloss_probe is None and 'taillossProbe' in kwargs:
-            tailloss_probe = kwargs['taillossProbe']
-        if timewait_recycle is None and 'timewaitRecycle' in kwargs:
-            timewait_recycle = kwargs['timewaitRecycle']
-        if verified_accept is None and 'verifiedAccept' in kwargs:
-            verified_accept = kwargs['verifiedAccept']
-        if zerowindow_timeout is None and 'zerowindowTimeout' in kwargs:
-            zerowindow_timeout = kwargs['zerowindowTimeout']
-
         if close_wait_timeout is not None:
-            _setter("close_wait_timeout", close_wait_timeout)
+            pulumi.set(__self__, "close_wait_timeout", close_wait_timeout)
         if congestion_control is not None:
-            _setter("congestion_control", congestion_control)
+            pulumi.set(__self__, "congestion_control", congestion_control)
         if defaults_from is not None:
-            _setter("defaults_from", defaults_from)
+            pulumi.set(__self__, "defaults_from", defaults_from)
         if deferred_accept is not None:
-            _setter("deferred_accept", deferred_accept)
+            pulumi.set(__self__, "deferred_accept", deferred_accept)
         if delayed_acks is not None:
-            _setter("delayed_acks", delayed_acks)
+            pulumi.set(__self__, "delayed_acks", delayed_acks)
         if early_retransmit is not None:
-            _setter("early_retransmit", early_retransmit)
+            pulumi.set(__self__, "early_retransmit", early_retransmit)
         if fast_open is not None:
-            _setter("fast_open", fast_open)
+            pulumi.set(__self__, "fast_open", fast_open)
         if finwait2timeout is not None:
-            _setter("finwait2timeout", finwait2timeout)
+            pulumi.set(__self__, "finwait2timeout", finwait2timeout)
         if finwait_timeout is not None:
-            _setter("finwait_timeout", finwait_timeout)
+            pulumi.set(__self__, "finwait_timeout", finwait_timeout)
         if idle_timeout is not None:
-            _setter("idle_timeout", idle_timeout)
+            pulumi.set(__self__, "idle_timeout", idle_timeout)
         if initial_congestion_windowsize is not None:
-            _setter("initial_congestion_windowsize", initial_congestion_windowsize)
+            pulumi.set(__self__, "initial_congestion_windowsize", initial_congestion_windowsize)
         if keepalive_interval is not None:
-            _setter("keepalive_interval", keepalive_interval)
+            pulumi.set(__self__, "keepalive_interval", keepalive_interval)
         if nagle is not None:
-            _setter("nagle", nagle)
+            pulumi.set(__self__, "nagle", nagle)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if partition is not None:
-            _setter("partition", partition)
+            pulumi.set(__self__, "partition", partition)
         if proxybuffer_high is not None:
-            _setter("proxybuffer_high", proxybuffer_high)
+            pulumi.set(__self__, "proxybuffer_high", proxybuffer_high)
         if receive_windowsize is not None:
-            _setter("receive_windowsize", receive_windowsize)
+            pulumi.set(__self__, "receive_windowsize", receive_windowsize)
         if send_buffersize is not None:
-            _setter("send_buffersize", send_buffersize)
+            pulumi.set(__self__, "send_buffersize", send_buffersize)
         if tailloss_probe is not None:
-            _setter("tailloss_probe", tailloss_probe)
+            pulumi.set(__self__, "tailloss_probe", tailloss_probe)
         if timewait_recycle is not None:
-            _setter("timewait_recycle", timewait_recycle)
+            pulumi.set(__self__, "timewait_recycle", timewait_recycle)
         if verified_accept is not None:
-            _setter("verified_accept", verified_accept)
+            pulumi.set(__self__, "verified_accept", verified_accept)
         if zerowindow_timeout is not None:
-            _setter("zerowindow_timeout", zerowindow_timeout)
+            pulumi.set(__self__, "zerowindow_timeout", zerowindow_timeout)
 
     @property
     @pulumi.getter(name="closeWaitTimeout")
@@ -1023,10 +843,6 @@ class ProfileTcp(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ProfileTcpArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

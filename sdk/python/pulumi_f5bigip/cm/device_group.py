@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -39,65 +39,26 @@ class DeviceGroupArgs:
         :param pulumi.Input[str] save_on_auto_sync: Specifies whether the configuration should be saved upon auto-sync.
         :param pulumi.Input[str] type: Specifies if the device-group will be used for failover or resource syncing
         """
-        DeviceGroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auto_sync=auto_sync,
-            description=description,
-            devices=devices,
-            full_load_on_sync=full_load_on_sync,
-            incremental_config=incremental_config,
-            name=name,
-            network_failover=network_failover,
-            partition=partition,
-            save_on_auto_sync=save_on_auto_sync,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auto_sync: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             devices: Optional[pulumi.Input[Sequence[pulumi.Input['DeviceGroupDeviceArgs']]]] = None,
-             full_load_on_sync: Optional[pulumi.Input[str]] = None,
-             incremental_config: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network_failover: Optional[pulumi.Input[str]] = None,
-             partition: Optional[pulumi.Input[str]] = None,
-             save_on_auto_sync: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if auto_sync is None and 'autoSync' in kwargs:
-            auto_sync = kwargs['autoSync']
-        if full_load_on_sync is None and 'fullLoadOnSync' in kwargs:
-            full_load_on_sync = kwargs['fullLoadOnSync']
-        if incremental_config is None and 'incrementalConfig' in kwargs:
-            incremental_config = kwargs['incrementalConfig']
-        if network_failover is None and 'networkFailover' in kwargs:
-            network_failover = kwargs['networkFailover']
-        if save_on_auto_sync is None and 'saveOnAutoSync' in kwargs:
-            save_on_auto_sync = kwargs['saveOnAutoSync']
-
         if auto_sync is not None:
-            _setter("auto_sync", auto_sync)
+            pulumi.set(__self__, "auto_sync", auto_sync)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if devices is not None:
-            _setter("devices", devices)
+            pulumi.set(__self__, "devices", devices)
         if full_load_on_sync is not None:
-            _setter("full_load_on_sync", full_load_on_sync)
+            pulumi.set(__self__, "full_load_on_sync", full_load_on_sync)
         if incremental_config is not None:
-            _setter("incremental_config", incremental_config)
+            pulumi.set(__self__, "incremental_config", incremental_config)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network_failover is not None:
-            _setter("network_failover", network_failover)
+            pulumi.set(__self__, "network_failover", network_failover)
         if partition is not None:
-            _setter("partition", partition)
+            pulumi.set(__self__, "partition", partition)
         if save_on_auto_sync is not None:
-            _setter("save_on_auto_sync", save_on_auto_sync)
+            pulumi.set(__self__, "save_on_auto_sync", save_on_auto_sync)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="autoSync")
@@ -246,65 +207,26 @@ class _DeviceGroupState:
         :param pulumi.Input[str] save_on_auto_sync: Specifies whether the configuration should be saved upon auto-sync.
         :param pulumi.Input[str] type: Specifies if the device-group will be used for failover or resource syncing
         """
-        _DeviceGroupState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auto_sync=auto_sync,
-            description=description,
-            devices=devices,
-            full_load_on_sync=full_load_on_sync,
-            incremental_config=incremental_config,
-            name=name,
-            network_failover=network_failover,
-            partition=partition,
-            save_on_auto_sync=save_on_auto_sync,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auto_sync: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             devices: Optional[pulumi.Input[Sequence[pulumi.Input['DeviceGroupDeviceArgs']]]] = None,
-             full_load_on_sync: Optional[pulumi.Input[str]] = None,
-             incremental_config: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network_failover: Optional[pulumi.Input[str]] = None,
-             partition: Optional[pulumi.Input[str]] = None,
-             save_on_auto_sync: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if auto_sync is None and 'autoSync' in kwargs:
-            auto_sync = kwargs['autoSync']
-        if full_load_on_sync is None and 'fullLoadOnSync' in kwargs:
-            full_load_on_sync = kwargs['fullLoadOnSync']
-        if incremental_config is None and 'incrementalConfig' in kwargs:
-            incremental_config = kwargs['incrementalConfig']
-        if network_failover is None and 'networkFailover' in kwargs:
-            network_failover = kwargs['networkFailover']
-        if save_on_auto_sync is None and 'saveOnAutoSync' in kwargs:
-            save_on_auto_sync = kwargs['saveOnAutoSync']
-
         if auto_sync is not None:
-            _setter("auto_sync", auto_sync)
+            pulumi.set(__self__, "auto_sync", auto_sync)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if devices is not None:
-            _setter("devices", devices)
+            pulumi.set(__self__, "devices", devices)
         if full_load_on_sync is not None:
-            _setter("full_load_on_sync", full_load_on_sync)
+            pulumi.set(__self__, "full_load_on_sync", full_load_on_sync)
         if incremental_config is not None:
-            _setter("incremental_config", incremental_config)
+            pulumi.set(__self__, "incremental_config", incremental_config)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network_failover is not None:
-            _setter("network_failover", network_failover)
+            pulumi.set(__self__, "network_failover", network_failover)
         if partition is not None:
-            _setter("partition", partition)
+            pulumi.set(__self__, "partition", partition)
         if save_on_auto_sync is not None:
-            _setter("save_on_auto_sync", save_on_auto_sync)
+            pulumi.set(__self__, "save_on_auto_sync", save_on_auto_sync)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="autoSync")
@@ -520,10 +442,6 @@ class DeviceGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            DeviceGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

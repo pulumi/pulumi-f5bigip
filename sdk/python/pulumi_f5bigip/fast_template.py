@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['FastTemplateArgs', 'FastTemplate']
@@ -23,31 +23,10 @@ class FastTemplateArgs:
         :param pulumi.Input[str] source: Path to the zip archive file containing FAST template set on Local Disk
         :param pulumi.Input[str] name: Name of the FAST template set to be created on to BIGIP
         """
-        FastTemplateArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            md5_hash=md5_hash,
-            source=source,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             md5_hash: Optional[pulumi.Input[str]] = None,
-             source: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if md5_hash is None and 'md5Hash' in kwargs:
-            md5_hash = kwargs['md5Hash']
-        if md5_hash is None:
-            raise TypeError("Missing 'md5_hash' argument")
-        if source is None:
-            raise TypeError("Missing 'source' argument")
-
-        _setter("md5_hash", md5_hash)
-        _setter("source", source)
+        pulumi.set(__self__, "md5_hash", md5_hash)
+        pulumi.set(__self__, "source", source)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="md5Hash")
@@ -98,29 +77,12 @@ class _FastTemplateState:
         :param pulumi.Input[str] name: Name of the FAST template set to be created on to BIGIP
         :param pulumi.Input[str] source: Path to the zip archive file containing FAST template set on Local Disk
         """
-        _FastTemplateState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            md5_hash=md5_hash,
-            name=name,
-            source=source,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             md5_hash: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             source: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if md5_hash is None and 'md5Hash' in kwargs:
-            md5_hash = kwargs['md5Hash']
-
         if md5_hash is not None:
-            _setter("md5_hash", md5_hash)
+            pulumi.set(__self__, "md5_hash", md5_hash)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if source is not None:
-            _setter("source", source)
+            pulumi.set(__self__, "source", source)
 
     @property
     @pulumi.getter(name="md5Hash")
@@ -198,10 +160,6 @@ class FastTemplate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            FastTemplateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

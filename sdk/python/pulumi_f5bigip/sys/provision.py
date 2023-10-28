@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ProvisionArgs', 'Provision']
@@ -51,48 +51,17 @@ class ProvisionArgs:
                * dedicated
         :param pulumi.Input[int] memory_ratio: Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
         """
-        ProvisionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            cpu_ratio=cpu_ratio,
-            disk_ratio=disk_ratio,
-            full_path=full_path,
-            level=level,
-            memory_ratio=memory_ratio,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             cpu_ratio: Optional[pulumi.Input[int]] = None,
-             disk_ratio: Optional[pulumi.Input[int]] = None,
-             full_path: Optional[pulumi.Input[str]] = None,
-             level: Optional[pulumi.Input[str]] = None,
-             memory_ratio: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if cpu_ratio is None and 'cpuRatio' in kwargs:
-            cpu_ratio = kwargs['cpuRatio']
-        if disk_ratio is None and 'diskRatio' in kwargs:
-            disk_ratio = kwargs['diskRatio']
-        if full_path is None and 'fullPath' in kwargs:
-            full_path = kwargs['fullPath']
-        if memory_ratio is None and 'memoryRatio' in kwargs:
-            memory_ratio = kwargs['memoryRatio']
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if cpu_ratio is not None:
-            _setter("cpu_ratio", cpu_ratio)
+            pulumi.set(__self__, "cpu_ratio", cpu_ratio)
         if disk_ratio is not None:
-            _setter("disk_ratio", disk_ratio)
+            pulumi.set(__self__, "disk_ratio", disk_ratio)
         if full_path is not None:
-            _setter("full_path", full_path)
+            pulumi.set(__self__, "full_path", full_path)
         if level is not None:
-            _setter("level", level)
+            pulumi.set(__self__, "level", level)
         if memory_ratio is not None:
-            _setter("memory_ratio", memory_ratio)
+            pulumi.set(__self__, "memory_ratio", memory_ratio)
 
     @property
     @pulumi.getter
@@ -227,47 +196,18 @@ class _ProvisionState:
                * swg
                * urldb
         """
-        _ProvisionState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cpu_ratio=cpu_ratio,
-            disk_ratio=disk_ratio,
-            full_path=full_path,
-            level=level,
-            memory_ratio=memory_ratio,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cpu_ratio: Optional[pulumi.Input[int]] = None,
-             disk_ratio: Optional[pulumi.Input[int]] = None,
-             full_path: Optional[pulumi.Input[str]] = None,
-             level: Optional[pulumi.Input[str]] = None,
-             memory_ratio: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cpu_ratio is None and 'cpuRatio' in kwargs:
-            cpu_ratio = kwargs['cpuRatio']
-        if disk_ratio is None and 'diskRatio' in kwargs:
-            disk_ratio = kwargs['diskRatio']
-        if full_path is None and 'fullPath' in kwargs:
-            full_path = kwargs['fullPath']
-        if memory_ratio is None and 'memoryRatio' in kwargs:
-            memory_ratio = kwargs['memoryRatio']
-
         if cpu_ratio is not None:
-            _setter("cpu_ratio", cpu_ratio)
+            pulumi.set(__self__, "cpu_ratio", cpu_ratio)
         if disk_ratio is not None:
-            _setter("disk_ratio", disk_ratio)
+            pulumi.set(__self__, "disk_ratio", disk_ratio)
         if full_path is not None:
-            _setter("full_path", full_path)
+            pulumi.set(__self__, "full_path", full_path)
         if level is not None:
-            _setter("level", level)
+            pulumi.set(__self__, "level", level)
         if memory_ratio is not None:
-            _setter("memory_ratio", memory_ratio)
+            pulumi.set(__self__, "memory_ratio", memory_ratio)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="cpuRatio")
@@ -455,10 +395,6 @@ class Provision(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ProvisionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
