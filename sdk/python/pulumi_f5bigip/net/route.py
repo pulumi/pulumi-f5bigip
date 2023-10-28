@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['RouteArgs', 'Route']
@@ -27,39 +27,14 @@ class RouteArgs:
         :param pulumi.Input[bool] reject: reject route
         :param pulumi.Input[str] tunnel_ref: tunnel_ref to route traffic
         """
-        RouteArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            network=network,
-            gw=gw,
-            reject=reject,
-            tunnel_ref=tunnel_ref,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             network: Optional[pulumi.Input[str]] = None,
-             gw: Optional[pulumi.Input[str]] = None,
-             reject: Optional[pulumi.Input[bool]] = None,
-             tunnel_ref: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if network is None:
-            raise TypeError("Missing 'network' argument")
-        if tunnel_ref is None and 'tunnelRef' in kwargs:
-            tunnel_ref = kwargs['tunnelRef']
-
-        _setter("name", name)
-        _setter("network", network)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "network", network)
         if gw is not None:
-            _setter("gw", gw)
+            pulumi.set(__self__, "gw", gw)
         if reject is not None:
-            _setter("reject", reject)
+            pulumi.set(__self__, "reject", reject)
         if tunnel_ref is not None:
-            _setter("tunnel_ref", tunnel_ref)
+            pulumi.set(__self__, "tunnel_ref", tunnel_ref)
 
     @property
     @pulumi.getter
@@ -138,37 +113,16 @@ class _RouteState:
         :param pulumi.Input[bool] reject: reject route
         :param pulumi.Input[str] tunnel_ref: tunnel_ref to route traffic
         """
-        _RouteState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            gw=gw,
-            name=name,
-            network=network,
-            reject=reject,
-            tunnel_ref=tunnel_ref,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             gw: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             network: Optional[pulumi.Input[str]] = None,
-             reject: Optional[pulumi.Input[bool]] = None,
-             tunnel_ref: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if tunnel_ref is None and 'tunnelRef' in kwargs:
-            tunnel_ref = kwargs['tunnelRef']
-
         if gw is not None:
-            _setter("gw", gw)
+            pulumi.set(__self__, "gw", gw)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if network is not None:
-            _setter("network", network)
+            pulumi.set(__self__, "network", network)
         if reject is not None:
-            _setter("reject", reject)
+            pulumi.set(__self__, "reject", reject)
         if tunnel_ref is not None:
-            _setter("tunnel_ref", tunnel_ref)
+            pulumi.set(__self__, "tunnel_ref", tunnel_ref)
 
     @property
     @pulumi.getter
@@ -300,10 +254,6 @@ class Route(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RouteArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

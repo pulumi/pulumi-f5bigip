@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['MonitorArgs', 'Monitor']
@@ -65,129 +65,52 @@ class MonitorArgs:
         :param pulumi.Input[int] up_interval: Specifies the interval for the system to use to perform the health check when a resource is up. The default is `0(Disabled)`
         :param pulumi.Input[str] username: Specifies the user name if the monitored target requires authentication
         """
-        MonitorArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            parent=parent,
-            adaptive=adaptive,
-            adaptive_limit=adaptive_limit,
-            compatibility=compatibility,
-            custom_parent=custom_parent,
-            database=database,
-            destination=destination,
-            filename=filename,
-            interval=interval,
-            ip_dscp=ip_dscp,
-            manual_resume=manual_resume,
-            mode=mode,
-            password=password,
-            receive=receive,
-            receive_disable=receive_disable,
-            reverse=reverse,
-            send=send,
-            ssl_profile=ssl_profile,
-            time_until_up=time_until_up,
-            timeout=timeout,
-            transparent=transparent,
-            up_interval=up_interval,
-            username=username,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             parent: Optional[pulumi.Input[str]] = None,
-             adaptive: Optional[pulumi.Input[str]] = None,
-             adaptive_limit: Optional[pulumi.Input[int]] = None,
-             compatibility: Optional[pulumi.Input[str]] = None,
-             custom_parent: Optional[pulumi.Input[str]] = None,
-             database: Optional[pulumi.Input[str]] = None,
-             destination: Optional[pulumi.Input[str]] = None,
-             filename: Optional[pulumi.Input[str]] = None,
-             interval: Optional[pulumi.Input[int]] = None,
-             ip_dscp: Optional[pulumi.Input[int]] = None,
-             manual_resume: Optional[pulumi.Input[str]] = None,
-             mode: Optional[pulumi.Input[str]] = None,
-             password: Optional[pulumi.Input[str]] = None,
-             receive: Optional[pulumi.Input[str]] = None,
-             receive_disable: Optional[pulumi.Input[str]] = None,
-             reverse: Optional[pulumi.Input[str]] = None,
-             send: Optional[pulumi.Input[str]] = None,
-             ssl_profile: Optional[pulumi.Input[str]] = None,
-             time_until_up: Optional[pulumi.Input[int]] = None,
-             timeout: Optional[pulumi.Input[int]] = None,
-             transparent: Optional[pulumi.Input[str]] = None,
-             up_interval: Optional[pulumi.Input[int]] = None,
-             username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if parent is None:
-            raise TypeError("Missing 'parent' argument")
-        if adaptive_limit is None and 'adaptiveLimit' in kwargs:
-            adaptive_limit = kwargs['adaptiveLimit']
-        if custom_parent is None and 'customParent' in kwargs:
-            custom_parent = kwargs['customParent']
-        if ip_dscp is None and 'ipDscp' in kwargs:
-            ip_dscp = kwargs['ipDscp']
-        if manual_resume is None and 'manualResume' in kwargs:
-            manual_resume = kwargs['manualResume']
-        if receive_disable is None and 'receiveDisable' in kwargs:
-            receive_disable = kwargs['receiveDisable']
-        if ssl_profile is None and 'sslProfile' in kwargs:
-            ssl_profile = kwargs['sslProfile']
-        if time_until_up is None and 'timeUntilUp' in kwargs:
-            time_until_up = kwargs['timeUntilUp']
-        if up_interval is None and 'upInterval' in kwargs:
-            up_interval = kwargs['upInterval']
-
-        _setter("name", name)
-        _setter("parent", parent)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "parent", parent)
         if adaptive is not None:
-            _setter("adaptive", adaptive)
+            pulumi.set(__self__, "adaptive", adaptive)
         if adaptive_limit is not None:
-            _setter("adaptive_limit", adaptive_limit)
+            pulumi.set(__self__, "adaptive_limit", adaptive_limit)
         if compatibility is not None:
-            _setter("compatibility", compatibility)
+            pulumi.set(__self__, "compatibility", compatibility)
         if custom_parent is not None:
-            _setter("custom_parent", custom_parent)
+            pulumi.set(__self__, "custom_parent", custom_parent)
         if database is not None:
-            _setter("database", database)
+            pulumi.set(__self__, "database", database)
         if destination is not None:
-            _setter("destination", destination)
+            pulumi.set(__self__, "destination", destination)
         if filename is not None:
-            _setter("filename", filename)
+            pulumi.set(__self__, "filename", filename)
         if interval is not None:
-            _setter("interval", interval)
+            pulumi.set(__self__, "interval", interval)
         if ip_dscp is not None:
-            _setter("ip_dscp", ip_dscp)
+            pulumi.set(__self__, "ip_dscp", ip_dscp)
         if manual_resume is not None:
-            _setter("manual_resume", manual_resume)
+            pulumi.set(__self__, "manual_resume", manual_resume)
         if mode is not None:
-            _setter("mode", mode)
+            pulumi.set(__self__, "mode", mode)
         if password is not None:
-            _setter("password", password)
+            pulumi.set(__self__, "password", password)
         if receive is not None:
-            _setter("receive", receive)
+            pulumi.set(__self__, "receive", receive)
         if receive_disable is not None:
-            _setter("receive_disable", receive_disable)
+            pulumi.set(__self__, "receive_disable", receive_disable)
         if reverse is not None:
-            _setter("reverse", reverse)
+            pulumi.set(__self__, "reverse", reverse)
         if send is not None:
-            _setter("send", send)
+            pulumi.set(__self__, "send", send)
         if ssl_profile is not None:
-            _setter("ssl_profile", ssl_profile)
+            pulumi.set(__self__, "ssl_profile", ssl_profile)
         if time_until_up is not None:
-            _setter("time_until_up", time_until_up)
+            pulumi.set(__self__, "time_until_up", time_until_up)
         if timeout is not None:
-            _setter("timeout", timeout)
+            pulumi.set(__self__, "timeout", timeout)
         if transparent is not None:
-            _setter("transparent", transparent)
+            pulumi.set(__self__, "transparent", transparent)
         if up_interval is not None:
-            _setter("up_interval", up_interval)
+            pulumi.set(__self__, "up_interval", up_interval)
         if username is not None:
-            _setter("username", username)
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
@@ -532,127 +455,54 @@ class _MonitorState:
         :param pulumi.Input[int] up_interval: Specifies the interval for the system to use to perform the health check when a resource is up. The default is `0(Disabled)`
         :param pulumi.Input[str] username: Specifies the user name if the monitored target requires authentication
         """
-        _MonitorState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            adaptive=adaptive,
-            adaptive_limit=adaptive_limit,
-            compatibility=compatibility,
-            custom_parent=custom_parent,
-            database=database,
-            destination=destination,
-            filename=filename,
-            interval=interval,
-            ip_dscp=ip_dscp,
-            manual_resume=manual_resume,
-            mode=mode,
-            name=name,
-            parent=parent,
-            password=password,
-            receive=receive,
-            receive_disable=receive_disable,
-            reverse=reverse,
-            send=send,
-            ssl_profile=ssl_profile,
-            time_until_up=time_until_up,
-            timeout=timeout,
-            transparent=transparent,
-            up_interval=up_interval,
-            username=username,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             adaptive: Optional[pulumi.Input[str]] = None,
-             adaptive_limit: Optional[pulumi.Input[int]] = None,
-             compatibility: Optional[pulumi.Input[str]] = None,
-             custom_parent: Optional[pulumi.Input[str]] = None,
-             database: Optional[pulumi.Input[str]] = None,
-             destination: Optional[pulumi.Input[str]] = None,
-             filename: Optional[pulumi.Input[str]] = None,
-             interval: Optional[pulumi.Input[int]] = None,
-             ip_dscp: Optional[pulumi.Input[int]] = None,
-             manual_resume: Optional[pulumi.Input[str]] = None,
-             mode: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parent: Optional[pulumi.Input[str]] = None,
-             password: Optional[pulumi.Input[str]] = None,
-             receive: Optional[pulumi.Input[str]] = None,
-             receive_disable: Optional[pulumi.Input[str]] = None,
-             reverse: Optional[pulumi.Input[str]] = None,
-             send: Optional[pulumi.Input[str]] = None,
-             ssl_profile: Optional[pulumi.Input[str]] = None,
-             time_until_up: Optional[pulumi.Input[int]] = None,
-             timeout: Optional[pulumi.Input[int]] = None,
-             transparent: Optional[pulumi.Input[str]] = None,
-             up_interval: Optional[pulumi.Input[int]] = None,
-             username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if adaptive_limit is None and 'adaptiveLimit' in kwargs:
-            adaptive_limit = kwargs['adaptiveLimit']
-        if custom_parent is None and 'customParent' in kwargs:
-            custom_parent = kwargs['customParent']
-        if ip_dscp is None and 'ipDscp' in kwargs:
-            ip_dscp = kwargs['ipDscp']
-        if manual_resume is None and 'manualResume' in kwargs:
-            manual_resume = kwargs['manualResume']
-        if receive_disable is None and 'receiveDisable' in kwargs:
-            receive_disable = kwargs['receiveDisable']
-        if ssl_profile is None and 'sslProfile' in kwargs:
-            ssl_profile = kwargs['sslProfile']
-        if time_until_up is None and 'timeUntilUp' in kwargs:
-            time_until_up = kwargs['timeUntilUp']
-        if up_interval is None and 'upInterval' in kwargs:
-            up_interval = kwargs['upInterval']
-
         if adaptive is not None:
-            _setter("adaptive", adaptive)
+            pulumi.set(__self__, "adaptive", adaptive)
         if adaptive_limit is not None:
-            _setter("adaptive_limit", adaptive_limit)
+            pulumi.set(__self__, "adaptive_limit", adaptive_limit)
         if compatibility is not None:
-            _setter("compatibility", compatibility)
+            pulumi.set(__self__, "compatibility", compatibility)
         if custom_parent is not None:
-            _setter("custom_parent", custom_parent)
+            pulumi.set(__self__, "custom_parent", custom_parent)
         if database is not None:
-            _setter("database", database)
+            pulumi.set(__self__, "database", database)
         if destination is not None:
-            _setter("destination", destination)
+            pulumi.set(__self__, "destination", destination)
         if filename is not None:
-            _setter("filename", filename)
+            pulumi.set(__self__, "filename", filename)
         if interval is not None:
-            _setter("interval", interval)
+            pulumi.set(__self__, "interval", interval)
         if ip_dscp is not None:
-            _setter("ip_dscp", ip_dscp)
+            pulumi.set(__self__, "ip_dscp", ip_dscp)
         if manual_resume is not None:
-            _setter("manual_resume", manual_resume)
+            pulumi.set(__self__, "manual_resume", manual_resume)
         if mode is not None:
-            _setter("mode", mode)
+            pulumi.set(__self__, "mode", mode)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parent is not None:
-            _setter("parent", parent)
+            pulumi.set(__self__, "parent", parent)
         if password is not None:
-            _setter("password", password)
+            pulumi.set(__self__, "password", password)
         if receive is not None:
-            _setter("receive", receive)
+            pulumi.set(__self__, "receive", receive)
         if receive_disable is not None:
-            _setter("receive_disable", receive_disable)
+            pulumi.set(__self__, "receive_disable", receive_disable)
         if reverse is not None:
-            _setter("reverse", reverse)
+            pulumi.set(__self__, "reverse", reverse)
         if send is not None:
-            _setter("send", send)
+            pulumi.set(__self__, "send", send)
         if ssl_profile is not None:
-            _setter("ssl_profile", ssl_profile)
+            pulumi.set(__self__, "ssl_profile", ssl_profile)
         if time_until_up is not None:
-            _setter("time_until_up", time_until_up)
+            pulumi.set(__self__, "time_until_up", time_until_up)
         if timeout is not None:
-            _setter("timeout", timeout)
+            pulumi.set(__self__, "timeout", timeout)
         if transparent is not None:
-            _setter("transparent", transparent)
+            pulumi.set(__self__, "transparent", transparent)
         if up_interval is not None:
-            _setter("up_interval", up_interval)
+            pulumi.set(__self__, "up_interval", up_interval)
         if username is not None:
-            _setter("username", username)
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
@@ -1112,10 +962,6 @@ class Monitor(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            MonitorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

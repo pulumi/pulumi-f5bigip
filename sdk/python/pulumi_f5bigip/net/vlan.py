@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,34 +27,13 @@ class VlanArgs:
         :param pulumi.Input[Sequence[pulumi.Input['VlanInterfaceArgs']]] interfaces: Specifies which interfaces you want this VLAN to use for traffic management.
         :param pulumi.Input[int] tag: Specifies a number that the system adds into the header of any frame passing through the VLAN.
         """
-        VlanArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            cmp_hash=cmp_hash,
-            interfaces=interfaces,
-            tag=tag,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             cmp_hash: Optional[pulumi.Input[str]] = None,
-             interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['VlanInterfaceArgs']]]] = None,
-             tag: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if cmp_hash is None and 'cmpHash' in kwargs:
-            cmp_hash = kwargs['cmpHash']
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if cmp_hash is not None:
-            _setter("cmp_hash", cmp_hash)
+            pulumi.set(__self__, "cmp_hash", cmp_hash)
         if interfaces is not None:
-            _setter("interfaces", interfaces)
+            pulumi.set(__self__, "interfaces", interfaces)
         if tag is not None:
-            _setter("tag", tag)
+            pulumi.set(__self__, "tag", tag)
 
     @property
     @pulumi.getter
@@ -119,33 +98,14 @@ class _VlanState:
         :param pulumi.Input[str] name: Name of the vlan
         :param pulumi.Input[int] tag: Specifies a number that the system adds into the header of any frame passing through the VLAN.
         """
-        _VlanState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cmp_hash=cmp_hash,
-            interfaces=interfaces,
-            name=name,
-            tag=tag,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cmp_hash: Optional[pulumi.Input[str]] = None,
-             interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['VlanInterfaceArgs']]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             tag: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if cmp_hash is None and 'cmpHash' in kwargs:
-            cmp_hash = kwargs['cmpHash']
-
         if cmp_hash is not None:
-            _setter("cmp_hash", cmp_hash)
+            pulumi.set(__self__, "cmp_hash", cmp_hash)
         if interfaces is not None:
-            _setter("interfaces", interfaces)
+            pulumi.set(__self__, "interfaces", interfaces)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if tag is not None:
-            _setter("tag", tag)
+            pulumi.set(__self__, "tag", tag)
 
     @property
     @pulumi.getter(name="cmpHash")
@@ -269,10 +229,6 @@ class Vlan(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            VlanArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

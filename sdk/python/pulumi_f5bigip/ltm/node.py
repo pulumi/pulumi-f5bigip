@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -42,67 +42,26 @@ class NodeArgs:
                
                > *NOTE* Below attributes needs to be configured under fqdn option.
         """
-        NodeArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            address=address,
-            name=name,
-            connection_limit=connection_limit,
-            description=description,
-            dynamic_ratio=dynamic_ratio,
-            fqdn=fqdn,
-            monitor=monitor,
-            rate_limit=rate_limit,
-            ratio=ratio,
-            session=session,
-            state=state,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             address: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             connection_limit: Optional[pulumi.Input[int]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             dynamic_ratio: Optional[pulumi.Input[int]] = None,
-             fqdn: Optional[pulumi.Input['NodeFqdnArgs']] = None,
-             monitor: Optional[pulumi.Input[str]] = None,
-             rate_limit: Optional[pulumi.Input[str]] = None,
-             ratio: Optional[pulumi.Input[int]] = None,
-             session: Optional[pulumi.Input[str]] = None,
-             state: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if address is None:
-            raise TypeError("Missing 'address' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if connection_limit is None and 'connectionLimit' in kwargs:
-            connection_limit = kwargs['connectionLimit']
-        if dynamic_ratio is None and 'dynamicRatio' in kwargs:
-            dynamic_ratio = kwargs['dynamicRatio']
-        if rate_limit is None and 'rateLimit' in kwargs:
-            rate_limit = kwargs['rateLimit']
-
-        _setter("address", address)
-        _setter("name", name)
+        pulumi.set(__self__, "address", address)
+        pulumi.set(__self__, "name", name)
         if connection_limit is not None:
-            _setter("connection_limit", connection_limit)
+            pulumi.set(__self__, "connection_limit", connection_limit)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if dynamic_ratio is not None:
-            _setter("dynamic_ratio", dynamic_ratio)
+            pulumi.set(__self__, "dynamic_ratio", dynamic_ratio)
         if fqdn is not None:
-            _setter("fqdn", fqdn)
+            pulumi.set(__self__, "fqdn", fqdn)
         if monitor is not None:
-            _setter("monitor", monitor)
+            pulumi.set(__self__, "monitor", monitor)
         if rate_limit is not None:
-            _setter("rate_limit", rate_limit)
+            pulumi.set(__self__, "rate_limit", rate_limit)
         if ratio is not None:
-            _setter("ratio", ratio)
+            pulumi.set(__self__, "ratio", ratio)
         if session is not None:
-            _setter("session", session)
+            pulumi.set(__self__, "session", session)
         if state is not None:
-            _setter("state", state)
+            pulumi.set(__self__, "state", state)
 
     @property
     @pulumi.getter
@@ -265,65 +224,28 @@ class _NodeState:
                
                > *NOTE* Below attributes needs to be configured under fqdn option.
         """
-        _NodeState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            address=address,
-            connection_limit=connection_limit,
-            description=description,
-            dynamic_ratio=dynamic_ratio,
-            fqdn=fqdn,
-            monitor=monitor,
-            name=name,
-            rate_limit=rate_limit,
-            ratio=ratio,
-            session=session,
-            state=state,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             address: Optional[pulumi.Input[str]] = None,
-             connection_limit: Optional[pulumi.Input[int]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             dynamic_ratio: Optional[pulumi.Input[int]] = None,
-             fqdn: Optional[pulumi.Input['NodeFqdnArgs']] = None,
-             monitor: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             rate_limit: Optional[pulumi.Input[str]] = None,
-             ratio: Optional[pulumi.Input[int]] = None,
-             session: Optional[pulumi.Input[str]] = None,
-             state: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if connection_limit is None and 'connectionLimit' in kwargs:
-            connection_limit = kwargs['connectionLimit']
-        if dynamic_ratio is None and 'dynamicRatio' in kwargs:
-            dynamic_ratio = kwargs['dynamicRatio']
-        if rate_limit is None and 'rateLimit' in kwargs:
-            rate_limit = kwargs['rateLimit']
-
         if address is not None:
-            _setter("address", address)
+            pulumi.set(__self__, "address", address)
         if connection_limit is not None:
-            _setter("connection_limit", connection_limit)
+            pulumi.set(__self__, "connection_limit", connection_limit)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if dynamic_ratio is not None:
-            _setter("dynamic_ratio", dynamic_ratio)
+            pulumi.set(__self__, "dynamic_ratio", dynamic_ratio)
         if fqdn is not None:
-            _setter("fqdn", fqdn)
+            pulumi.set(__self__, "fqdn", fqdn)
         if monitor is not None:
-            _setter("monitor", monitor)
+            pulumi.set(__self__, "monitor", monitor)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if rate_limit is not None:
-            _setter("rate_limit", rate_limit)
+            pulumi.set(__self__, "rate_limit", rate_limit)
         if ratio is not None:
-            _setter("ratio", ratio)
+            pulumi.set(__self__, "ratio", ratio)
         if session is not None:
-            _setter("session", session)
+            pulumi.set(__self__, "session", session)
         if state is not None:
-            _setter("state", state)
+            pulumi.set(__self__, "state", state)
 
     @property
     @pulumi.getter
@@ -557,10 +479,6 @@ class Node(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            NodeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -592,7 +510,6 @@ class Node(pulumi.CustomResource):
             __props__.__dict__["connection_limit"] = connection_limit
             __props__.__dict__["description"] = description
             __props__.__dict__["dynamic_ratio"] = dynamic_ratio
-            fqdn = _utilities.configure(fqdn, NodeFqdnArgs, True)
             __props__.__dict__["fqdn"] = fqdn
             __props__.__dict__["monitor"] = monitor
             if name is None and not opts.urn:

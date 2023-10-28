@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -35,24 +35,9 @@ class DataGroupRecordArgs:
         :param pulumi.Input[str] name: , sets the value of the record's `name` attribute, must be of type defined in `type` attribute
         :param pulumi.Input[str] data: , sets the value of the record's `data` attribute, specifying a value here will create a record in the form of `name := data`
         """
-        DataGroupRecordArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            data=data,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             data: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if data is not None:
-            _setter("data", data)
+            pulumi.set(__self__, "data", data)
 
     @property
     @pulumi.getter
@@ -92,37 +77,16 @@ class NodeFqdnArgs:
         :param pulumi.Input[str] interval: Specifies the amount of time before sending the next DNS query. Default is 3600. This needs to be specified inside the fqdn (fully qualified domain name).
         :param pulumi.Input[str] name: Name of the node
         """
-        NodeFqdnArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            address_family=address_family,
-            autopopulate=autopopulate,
-            downinterval=downinterval,
-            interval=interval,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             address_family: Optional[pulumi.Input[str]] = None,
-             autopopulate: Optional[pulumi.Input[str]] = None,
-             downinterval: Optional[pulumi.Input[int]] = None,
-             interval: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if address_family is None and 'addressFamily' in kwargs:
-            address_family = kwargs['addressFamily']
-
         if address_family is not None:
-            _setter("address_family", address_family)
+            pulumi.set(__self__, "address_family", address_family)
         if autopopulate is not None:
-            _setter("autopopulate", autopopulate)
+            pulumi.set(__self__, "autopopulate", autopopulate)
         if downinterval is not None:
-            _setter("downinterval", downinterval)
+            pulumi.set(__self__, "downinterval", downinterval)
         if interval is not None:
-            _setter("interval", interval)
+            pulumi.set(__self__, "interval", interval)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="addressFamily")
@@ -192,32 +156,13 @@ class PolicyRuleArgs:
         :param pulumi.Input[Sequence[pulumi.Input['PolicyRuleConditionArgs']]] conditions: Block type. See condition block for more details.
         :param pulumi.Input[str] description: Specifies descriptive text that identifies the irule attached to policy.
         """
-        PolicyRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            actions=actions,
-            conditions=conditions,
-            description=description,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[pulumi.Input[str]] = None,
-             actions: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleActionArgs']]]] = None,
-             conditions: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyRuleConditionArgs']]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if actions is not None:
-            _setter("actions", actions)
+            pulumi.set(__self__, "actions", actions)
         if conditions is not None:
-            _setter("conditions", conditions)
+            pulumi.set(__self__, "conditions", conditions)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
 
     @property
     @pulumi.getter
@@ -375,497 +320,214 @@ class PolicyRuleActionArgs:
                  vlan_id: Optional[pulumi.Input[int]] = None,
                  wam: Optional[pulumi.Input[bool]] = None,
                  write: Optional[pulumi.Input[bool]] = None):
-        PolicyRuleActionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            app_service=app_service,
-            application=application,
-            asm=asm,
-            avr=avr,
-            cache=cache,
-            carp=carp,
-            category=category,
-            classify=classify,
-            clone_pool=clone_pool,
-            code=code,
-            compress=compress,
-            connection=connection,
-            content=content,
-            cookie_hash=cookie_hash,
-            cookie_insert=cookie_insert,
-            cookie_passive=cookie_passive,
-            cookie_rewrite=cookie_rewrite,
-            decompress=decompress,
-            defer=defer,
-            destination_address=destination_address,
-            disable=disable,
-            domain=domain,
-            enable=enable,
-            expiry=expiry,
-            expiry_secs=expiry_secs,
-            expression=expression,
-            extension=extension,
-            facility=facility,
-            forward=forward,
-            from_profile=from_profile,
-            hash=hash,
-            host=host,
-            http=http,
-            http_basic_auth=http_basic_auth,
-            http_cookie=http_cookie,
-            http_header=http_header,
-            http_host=http_host,
-            http_referer=http_referer,
-            http_reply=http_reply,
-            http_set_cookie=http_set_cookie,
-            http_uri=http_uri,
-            ifile=ifile,
-            insert=insert,
-            internal_virtual=internal_virtual,
-            ip_address=ip_address,
-            key=key,
-            l7dos=l7dos,
-            length=length,
-            location=location,
-            log=log,
-            ltm_policy=ltm_policy,
-            member=member,
-            message=message,
-            netmask=netmask,
-            nexthop=nexthop,
-            node=node,
-            offset=offset,
-            path=path,
-            pem=pem,
-            persist=persist,
-            pin=pin,
-            policy=policy,
-            pool=pool,
-            port=port,
-            priority=priority,
-            profile=profile,
-            protocol=protocol,
-            query_string=query_string,
-            rateclass=rateclass,
-            redirect=redirect,
-            remove=remove,
-            replace=replace,
-            request=request,
-            request_adapt=request_adapt,
-            reset=reset,
-            response=response,
-            response_adapt=response_adapt,
-            scheme=scheme,
-            script=script,
-            select=select,
-            server_ssl=server_ssl,
-            set_variable=set_variable,
-            shutdown=shutdown,
-            snat=snat,
-            snatpool=snatpool,
-            source_address=source_address,
-            ssl_client_hello=ssl_client_hello,
-            ssl_server_handshake=ssl_server_handshake,
-            ssl_server_hello=ssl_server_hello,
-            ssl_session_id=ssl_session_id,
-            status=status,
-            tcl=tcl,
-            tcp_nagle=tcp_nagle,
-            text=text,
-            timeout=timeout,
-            tm_name=tm_name,
-            uie=uie,
-            universal=universal,
-            value=value,
-            virtual=virtual,
-            vlan=vlan,
-            vlan_id=vlan_id,
-            wam=wam,
-            write=write,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             app_service: Optional[pulumi.Input[str]] = None,
-             application: Optional[pulumi.Input[str]] = None,
-             asm: Optional[pulumi.Input[bool]] = None,
-             avr: Optional[pulumi.Input[bool]] = None,
-             cache: Optional[pulumi.Input[bool]] = None,
-             carp: Optional[pulumi.Input[bool]] = None,
-             category: Optional[pulumi.Input[str]] = None,
-             classify: Optional[pulumi.Input[bool]] = None,
-             clone_pool: Optional[pulumi.Input[str]] = None,
-             code: Optional[pulumi.Input[int]] = None,
-             compress: Optional[pulumi.Input[bool]] = None,
-             connection: Optional[pulumi.Input[bool]] = None,
-             content: Optional[pulumi.Input[str]] = None,
-             cookie_hash: Optional[pulumi.Input[bool]] = None,
-             cookie_insert: Optional[pulumi.Input[bool]] = None,
-             cookie_passive: Optional[pulumi.Input[bool]] = None,
-             cookie_rewrite: Optional[pulumi.Input[bool]] = None,
-             decompress: Optional[pulumi.Input[bool]] = None,
-             defer: Optional[pulumi.Input[bool]] = None,
-             destination_address: Optional[pulumi.Input[bool]] = None,
-             disable: Optional[pulumi.Input[bool]] = None,
-             domain: Optional[pulumi.Input[str]] = None,
-             enable: Optional[pulumi.Input[bool]] = None,
-             expiry: Optional[pulumi.Input[str]] = None,
-             expiry_secs: Optional[pulumi.Input[int]] = None,
-             expression: Optional[pulumi.Input[str]] = None,
-             extension: Optional[pulumi.Input[str]] = None,
-             facility: Optional[pulumi.Input[str]] = None,
-             forward: Optional[pulumi.Input[bool]] = None,
-             from_profile: Optional[pulumi.Input[str]] = None,
-             hash: Optional[pulumi.Input[bool]] = None,
-             host: Optional[pulumi.Input[str]] = None,
-             http: Optional[pulumi.Input[bool]] = None,
-             http_basic_auth: Optional[pulumi.Input[bool]] = None,
-             http_cookie: Optional[pulumi.Input[bool]] = None,
-             http_header: Optional[pulumi.Input[bool]] = None,
-             http_host: Optional[pulumi.Input[bool]] = None,
-             http_referer: Optional[pulumi.Input[bool]] = None,
-             http_reply: Optional[pulumi.Input[bool]] = None,
-             http_set_cookie: Optional[pulumi.Input[bool]] = None,
-             http_uri: Optional[pulumi.Input[bool]] = None,
-             ifile: Optional[pulumi.Input[str]] = None,
-             insert: Optional[pulumi.Input[bool]] = None,
-             internal_virtual: Optional[pulumi.Input[str]] = None,
-             ip_address: Optional[pulumi.Input[str]] = None,
-             key: Optional[pulumi.Input[str]] = None,
-             l7dos: Optional[pulumi.Input[bool]] = None,
-             length: Optional[pulumi.Input[int]] = None,
-             location: Optional[pulumi.Input[str]] = None,
-             log: Optional[pulumi.Input[bool]] = None,
-             ltm_policy: Optional[pulumi.Input[bool]] = None,
-             member: Optional[pulumi.Input[str]] = None,
-             message: Optional[pulumi.Input[str]] = None,
-             netmask: Optional[pulumi.Input[str]] = None,
-             nexthop: Optional[pulumi.Input[str]] = None,
-             node: Optional[pulumi.Input[str]] = None,
-             offset: Optional[pulumi.Input[int]] = None,
-             path: Optional[pulumi.Input[str]] = None,
-             pem: Optional[pulumi.Input[bool]] = None,
-             persist: Optional[pulumi.Input[bool]] = None,
-             pin: Optional[pulumi.Input[bool]] = None,
-             policy: Optional[pulumi.Input[str]] = None,
-             pool: Optional[pulumi.Input[str]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             priority: Optional[pulumi.Input[str]] = None,
-             profile: Optional[pulumi.Input[str]] = None,
-             protocol: Optional[pulumi.Input[str]] = None,
-             query_string: Optional[pulumi.Input[str]] = None,
-             rateclass: Optional[pulumi.Input[str]] = None,
-             redirect: Optional[pulumi.Input[bool]] = None,
-             remove: Optional[pulumi.Input[bool]] = None,
-             replace: Optional[pulumi.Input[bool]] = None,
-             request: Optional[pulumi.Input[bool]] = None,
-             request_adapt: Optional[pulumi.Input[bool]] = None,
-             reset: Optional[pulumi.Input[bool]] = None,
-             response: Optional[pulumi.Input[bool]] = None,
-             response_adapt: Optional[pulumi.Input[bool]] = None,
-             scheme: Optional[pulumi.Input[str]] = None,
-             script: Optional[pulumi.Input[str]] = None,
-             select: Optional[pulumi.Input[bool]] = None,
-             server_ssl: Optional[pulumi.Input[bool]] = None,
-             set_variable: Optional[pulumi.Input[bool]] = None,
-             shutdown: Optional[pulumi.Input[bool]] = None,
-             snat: Optional[pulumi.Input[str]] = None,
-             snatpool: Optional[pulumi.Input[str]] = None,
-             source_address: Optional[pulumi.Input[bool]] = None,
-             ssl_client_hello: Optional[pulumi.Input[bool]] = None,
-             ssl_server_handshake: Optional[pulumi.Input[bool]] = None,
-             ssl_server_hello: Optional[pulumi.Input[bool]] = None,
-             ssl_session_id: Optional[pulumi.Input[bool]] = None,
-             status: Optional[pulumi.Input[int]] = None,
-             tcl: Optional[pulumi.Input[bool]] = None,
-             tcp_nagle: Optional[pulumi.Input[bool]] = None,
-             text: Optional[pulumi.Input[str]] = None,
-             timeout: Optional[pulumi.Input[int]] = None,
-             tm_name: Optional[pulumi.Input[str]] = None,
-             uie: Optional[pulumi.Input[bool]] = None,
-             universal: Optional[pulumi.Input[bool]] = None,
-             value: Optional[pulumi.Input[str]] = None,
-             virtual: Optional[pulumi.Input[str]] = None,
-             vlan: Optional[pulumi.Input[str]] = None,
-             vlan_id: Optional[pulumi.Input[int]] = None,
-             wam: Optional[pulumi.Input[bool]] = None,
-             write: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if app_service is None and 'appService' in kwargs:
-            app_service = kwargs['appService']
-        if clone_pool is None and 'clonePool' in kwargs:
-            clone_pool = kwargs['clonePool']
-        if cookie_hash is None and 'cookieHash' in kwargs:
-            cookie_hash = kwargs['cookieHash']
-        if cookie_insert is None and 'cookieInsert' in kwargs:
-            cookie_insert = kwargs['cookieInsert']
-        if cookie_passive is None and 'cookiePassive' in kwargs:
-            cookie_passive = kwargs['cookiePassive']
-        if cookie_rewrite is None and 'cookieRewrite' in kwargs:
-            cookie_rewrite = kwargs['cookieRewrite']
-        if destination_address is None and 'destinationAddress' in kwargs:
-            destination_address = kwargs['destinationAddress']
-        if expiry_secs is None and 'expirySecs' in kwargs:
-            expiry_secs = kwargs['expirySecs']
-        if from_profile is None and 'fromProfile' in kwargs:
-            from_profile = kwargs['fromProfile']
-        if http_basic_auth is None and 'httpBasicAuth' in kwargs:
-            http_basic_auth = kwargs['httpBasicAuth']
-        if http_cookie is None and 'httpCookie' in kwargs:
-            http_cookie = kwargs['httpCookie']
-        if http_header is None and 'httpHeader' in kwargs:
-            http_header = kwargs['httpHeader']
-        if http_host is None and 'httpHost' in kwargs:
-            http_host = kwargs['httpHost']
-        if http_referer is None and 'httpReferer' in kwargs:
-            http_referer = kwargs['httpReferer']
-        if http_reply is None and 'httpReply' in kwargs:
-            http_reply = kwargs['httpReply']
-        if http_set_cookie is None and 'httpSetCookie' in kwargs:
-            http_set_cookie = kwargs['httpSetCookie']
-        if http_uri is None and 'httpUri' in kwargs:
-            http_uri = kwargs['httpUri']
-        if internal_virtual is None and 'internalVirtual' in kwargs:
-            internal_virtual = kwargs['internalVirtual']
-        if ip_address is None and 'ipAddress' in kwargs:
-            ip_address = kwargs['ipAddress']
-        if ltm_policy is None and 'ltmPolicy' in kwargs:
-            ltm_policy = kwargs['ltmPolicy']
-        if query_string is None and 'queryString' in kwargs:
-            query_string = kwargs['queryString']
-        if request_adapt is None and 'requestAdapt' in kwargs:
-            request_adapt = kwargs['requestAdapt']
-        if response_adapt is None and 'responseAdapt' in kwargs:
-            response_adapt = kwargs['responseAdapt']
-        if server_ssl is None and 'serverSsl' in kwargs:
-            server_ssl = kwargs['serverSsl']
-        if set_variable is None and 'setVariable' in kwargs:
-            set_variable = kwargs['setVariable']
-        if source_address is None and 'sourceAddress' in kwargs:
-            source_address = kwargs['sourceAddress']
-        if ssl_client_hello is None and 'sslClientHello' in kwargs:
-            ssl_client_hello = kwargs['sslClientHello']
-        if ssl_server_handshake is None and 'sslServerHandshake' in kwargs:
-            ssl_server_handshake = kwargs['sslServerHandshake']
-        if ssl_server_hello is None and 'sslServerHello' in kwargs:
-            ssl_server_hello = kwargs['sslServerHello']
-        if ssl_session_id is None and 'sslSessionId' in kwargs:
-            ssl_session_id = kwargs['sslSessionId']
-        if tcp_nagle is None and 'tcpNagle' in kwargs:
-            tcp_nagle = kwargs['tcpNagle']
-        if tm_name is None and 'tmName' in kwargs:
-            tm_name = kwargs['tmName']
-        if vlan_id is None and 'vlanId' in kwargs:
-            vlan_id = kwargs['vlanId']
-
         if app_service is not None:
-            _setter("app_service", app_service)
+            pulumi.set(__self__, "app_service", app_service)
         if application is not None:
-            _setter("application", application)
+            pulumi.set(__self__, "application", application)
         if asm is not None:
-            _setter("asm", asm)
+            pulumi.set(__self__, "asm", asm)
         if avr is not None:
-            _setter("avr", avr)
+            pulumi.set(__self__, "avr", avr)
         if cache is not None:
-            _setter("cache", cache)
+            pulumi.set(__self__, "cache", cache)
         if carp is not None:
-            _setter("carp", carp)
+            pulumi.set(__self__, "carp", carp)
         if category is not None:
-            _setter("category", category)
+            pulumi.set(__self__, "category", category)
         if classify is not None:
-            _setter("classify", classify)
+            pulumi.set(__self__, "classify", classify)
         if clone_pool is not None:
-            _setter("clone_pool", clone_pool)
+            pulumi.set(__self__, "clone_pool", clone_pool)
         if code is not None:
-            _setter("code", code)
+            pulumi.set(__self__, "code", code)
         if compress is not None:
-            _setter("compress", compress)
+            pulumi.set(__self__, "compress", compress)
         if connection is not None:
-            _setter("connection", connection)
+            pulumi.set(__self__, "connection", connection)
         if content is not None:
-            _setter("content", content)
+            pulumi.set(__self__, "content", content)
         if cookie_hash is not None:
-            _setter("cookie_hash", cookie_hash)
+            pulumi.set(__self__, "cookie_hash", cookie_hash)
         if cookie_insert is not None:
-            _setter("cookie_insert", cookie_insert)
+            pulumi.set(__self__, "cookie_insert", cookie_insert)
         if cookie_passive is not None:
-            _setter("cookie_passive", cookie_passive)
+            pulumi.set(__self__, "cookie_passive", cookie_passive)
         if cookie_rewrite is not None:
-            _setter("cookie_rewrite", cookie_rewrite)
+            pulumi.set(__self__, "cookie_rewrite", cookie_rewrite)
         if decompress is not None:
-            _setter("decompress", decompress)
+            pulumi.set(__self__, "decompress", decompress)
         if defer is not None:
-            _setter("defer", defer)
+            pulumi.set(__self__, "defer", defer)
         if destination_address is not None:
-            _setter("destination_address", destination_address)
+            pulumi.set(__self__, "destination_address", destination_address)
         if disable is not None:
-            _setter("disable", disable)
+            pulumi.set(__self__, "disable", disable)
         if domain is not None:
-            _setter("domain", domain)
+            pulumi.set(__self__, "domain", domain)
         if enable is not None:
-            _setter("enable", enable)
+            pulumi.set(__self__, "enable", enable)
         if expiry is not None:
-            _setter("expiry", expiry)
+            pulumi.set(__self__, "expiry", expiry)
         if expiry_secs is not None:
-            _setter("expiry_secs", expiry_secs)
+            pulumi.set(__self__, "expiry_secs", expiry_secs)
         if expression is not None:
-            _setter("expression", expression)
+            pulumi.set(__self__, "expression", expression)
         if extension is not None:
-            _setter("extension", extension)
+            pulumi.set(__self__, "extension", extension)
         if facility is not None:
-            _setter("facility", facility)
+            pulumi.set(__self__, "facility", facility)
         if forward is not None:
-            _setter("forward", forward)
+            pulumi.set(__self__, "forward", forward)
         if from_profile is not None:
-            _setter("from_profile", from_profile)
+            pulumi.set(__self__, "from_profile", from_profile)
         if hash is not None:
-            _setter("hash", hash)
+            pulumi.set(__self__, "hash", hash)
         if host is not None:
-            _setter("host", host)
+            pulumi.set(__self__, "host", host)
         if http is not None:
-            _setter("http", http)
+            pulumi.set(__self__, "http", http)
         if http_basic_auth is not None:
-            _setter("http_basic_auth", http_basic_auth)
+            pulumi.set(__self__, "http_basic_auth", http_basic_auth)
         if http_cookie is not None:
-            _setter("http_cookie", http_cookie)
+            pulumi.set(__self__, "http_cookie", http_cookie)
         if http_header is not None:
-            _setter("http_header", http_header)
+            pulumi.set(__self__, "http_header", http_header)
         if http_host is not None:
-            _setter("http_host", http_host)
+            pulumi.set(__self__, "http_host", http_host)
         if http_referer is not None:
-            _setter("http_referer", http_referer)
+            pulumi.set(__self__, "http_referer", http_referer)
         if http_reply is not None:
-            _setter("http_reply", http_reply)
+            pulumi.set(__self__, "http_reply", http_reply)
         if http_set_cookie is not None:
-            _setter("http_set_cookie", http_set_cookie)
+            pulumi.set(__self__, "http_set_cookie", http_set_cookie)
         if http_uri is not None:
-            _setter("http_uri", http_uri)
+            pulumi.set(__self__, "http_uri", http_uri)
         if ifile is not None:
-            _setter("ifile", ifile)
+            pulumi.set(__self__, "ifile", ifile)
         if insert is not None:
-            _setter("insert", insert)
+            pulumi.set(__self__, "insert", insert)
         if internal_virtual is not None:
-            _setter("internal_virtual", internal_virtual)
+            pulumi.set(__self__, "internal_virtual", internal_virtual)
         if ip_address is not None:
-            _setter("ip_address", ip_address)
+            pulumi.set(__self__, "ip_address", ip_address)
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if l7dos is not None:
-            _setter("l7dos", l7dos)
+            pulumi.set(__self__, "l7dos", l7dos)
         if length is not None:
-            _setter("length", length)
+            pulumi.set(__self__, "length", length)
         if location is not None:
-            _setter("location", location)
+            pulumi.set(__self__, "location", location)
         if log is not None:
-            _setter("log", log)
+            pulumi.set(__self__, "log", log)
         if ltm_policy is not None:
-            _setter("ltm_policy", ltm_policy)
+            pulumi.set(__self__, "ltm_policy", ltm_policy)
         if member is not None:
-            _setter("member", member)
+            pulumi.set(__self__, "member", member)
         if message is not None:
-            _setter("message", message)
+            pulumi.set(__self__, "message", message)
         if netmask is not None:
-            _setter("netmask", netmask)
+            pulumi.set(__self__, "netmask", netmask)
         if nexthop is not None:
-            _setter("nexthop", nexthop)
+            pulumi.set(__self__, "nexthop", nexthop)
         if node is not None:
-            _setter("node", node)
+            pulumi.set(__self__, "node", node)
         if offset is not None:
-            _setter("offset", offset)
+            pulumi.set(__self__, "offset", offset)
         if path is not None:
-            _setter("path", path)
+            pulumi.set(__self__, "path", path)
         if pem is not None:
-            _setter("pem", pem)
+            pulumi.set(__self__, "pem", pem)
         if persist is not None:
-            _setter("persist", persist)
+            pulumi.set(__self__, "persist", persist)
         if pin is not None:
-            _setter("pin", pin)
+            pulumi.set(__self__, "pin", pin)
         if policy is not None:
-            _setter("policy", policy)
+            pulumi.set(__self__, "policy", policy)
         if pool is not None:
-            _setter("pool", pool)
+            pulumi.set(__self__, "pool", pool)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if priority is not None:
-            _setter("priority", priority)
+            pulumi.set(__self__, "priority", priority)
         if profile is not None:
-            _setter("profile", profile)
+            pulumi.set(__self__, "profile", profile)
         if protocol is not None:
-            _setter("protocol", protocol)
+            pulumi.set(__self__, "protocol", protocol)
         if query_string is not None:
-            _setter("query_string", query_string)
+            pulumi.set(__self__, "query_string", query_string)
         if rateclass is not None:
-            _setter("rateclass", rateclass)
+            pulumi.set(__self__, "rateclass", rateclass)
         if redirect is not None:
-            _setter("redirect", redirect)
+            pulumi.set(__self__, "redirect", redirect)
         if remove is not None:
-            _setter("remove", remove)
+            pulumi.set(__self__, "remove", remove)
         if replace is not None:
-            _setter("replace", replace)
+            pulumi.set(__self__, "replace", replace)
         if request is not None:
-            _setter("request", request)
+            pulumi.set(__self__, "request", request)
         if request_adapt is not None:
-            _setter("request_adapt", request_adapt)
+            pulumi.set(__self__, "request_adapt", request_adapt)
         if reset is not None:
-            _setter("reset", reset)
+            pulumi.set(__self__, "reset", reset)
         if response is not None:
-            _setter("response", response)
+            pulumi.set(__self__, "response", response)
         if response_adapt is not None:
-            _setter("response_adapt", response_adapt)
+            pulumi.set(__self__, "response_adapt", response_adapt)
         if scheme is not None:
-            _setter("scheme", scheme)
+            pulumi.set(__self__, "scheme", scheme)
         if script is not None:
-            _setter("script", script)
+            pulumi.set(__self__, "script", script)
         if select is not None:
-            _setter("select", select)
+            pulumi.set(__self__, "select", select)
         if server_ssl is not None:
-            _setter("server_ssl", server_ssl)
+            pulumi.set(__self__, "server_ssl", server_ssl)
         if set_variable is not None:
-            _setter("set_variable", set_variable)
+            pulumi.set(__self__, "set_variable", set_variable)
         if shutdown is not None:
-            _setter("shutdown", shutdown)
+            pulumi.set(__self__, "shutdown", shutdown)
         if snat is not None:
-            _setter("snat", snat)
+            pulumi.set(__self__, "snat", snat)
         if snatpool is not None:
-            _setter("snatpool", snatpool)
+            pulumi.set(__self__, "snatpool", snatpool)
         if source_address is not None:
-            _setter("source_address", source_address)
+            pulumi.set(__self__, "source_address", source_address)
         if ssl_client_hello is not None:
-            _setter("ssl_client_hello", ssl_client_hello)
+            pulumi.set(__self__, "ssl_client_hello", ssl_client_hello)
         if ssl_server_handshake is not None:
-            _setter("ssl_server_handshake", ssl_server_handshake)
+            pulumi.set(__self__, "ssl_server_handshake", ssl_server_handshake)
         if ssl_server_hello is not None:
-            _setter("ssl_server_hello", ssl_server_hello)
+            pulumi.set(__self__, "ssl_server_hello", ssl_server_hello)
         if ssl_session_id is not None:
-            _setter("ssl_session_id", ssl_session_id)
+            pulumi.set(__self__, "ssl_session_id", ssl_session_id)
         if status is not None:
-            _setter("status", status)
+            pulumi.set(__self__, "status", status)
         if tcl is not None:
-            _setter("tcl", tcl)
+            pulumi.set(__self__, "tcl", tcl)
         if tcp_nagle is not None:
-            _setter("tcp_nagle", tcp_nagle)
+            pulumi.set(__self__, "tcp_nagle", tcp_nagle)
         if text is not None:
-            _setter("text", text)
+            pulumi.set(__self__, "text", text)
         if timeout is not None:
-            _setter("timeout", timeout)
+            pulumi.set(__self__, "timeout", timeout)
         if tm_name is not None:
-            _setter("tm_name", tm_name)
+            pulumi.set(__self__, "tm_name", tm_name)
         if uie is not None:
-            _setter("uie", uie)
+            pulumi.set(__self__, "uie", uie)
         if universal is not None:
-            _setter("universal", universal)
+            pulumi.set(__self__, "universal", universal)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
         if virtual is not None:
-            _setter("virtual", virtual)
+            pulumi.set(__self__, "virtual", virtual)
         if vlan is not None:
-            _setter("vlan", vlan)
+            pulumi.set(__self__, "vlan", vlan)
         if vlan_id is not None:
-            _setter("vlan_id", vlan_id)
+            pulumi.set(__self__, "vlan_id", vlan_id)
         if wam is not None:
-            _setter("wam", wam)
+            pulumi.set(__self__, "wam", wam)
         if write is not None:
-            _setter("write", write)
+            pulumi.set(__self__, "write", write)
 
     @property
     @pulumi.getter(name="appService")
@@ -1900,479 +1562,192 @@ class PolicyRuleConditionArgs:
                  version: Optional[pulumi.Input[bool]] = None,
                  vlan: Optional[pulumi.Input[bool]] = None,
                  vlan_id: Optional[pulumi.Input[bool]] = None):
-        PolicyRuleConditionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            address=address,
-            all=all,
-            app_service=app_service,
-            browser_type=browser_type,
-            browser_version=browser_version,
-            case_insensitive=case_insensitive,
-            case_sensitive=case_sensitive,
-            cipher=cipher,
-            cipher_bits=cipher_bits,
-            client_accepted=client_accepted,
-            client_ssl=client_ssl,
-            code=code,
-            common_name=common_name,
-            contains=contains,
-            continent=continent,
-            country_code=country_code,
-            country_name=country_name,
-            cpu_usage=cpu_usage,
-            datagroup=datagroup,
-            device_make=device_make,
-            device_model=device_model,
-            domain=domain,
-            ends_with=ends_with,
-            equals=equals,
-            exists=exists,
-            expiry=expiry,
-            extension=extension,
-            external=external,
-            geoip=geoip,
-            greater=greater,
-            greater_or_equal=greater_or_equal,
-            host=host,
-            http_basic_auth=http_basic_auth,
-            http_cookie=http_cookie,
-            http_header=http_header,
-            http_host=http_host,
-            http_method=http_method,
-            http_referer=http_referer,
-            http_set_cookie=http_set_cookie,
-            http_status=http_status,
-            http_uri=http_uri,
-            http_user_agent=http_user_agent,
-            http_version=http_version,
-            index=index,
-            internal=internal,
-            isp=isp,
-            last15secs=last15secs,
-            last1min=last1min,
-            last5mins=last5mins,
-            less=less,
-            less_or_equal=less_or_equal,
-            local=local,
-            major=major,
-            matches=matches,
-            minor=minor,
-            missing=missing,
-            mss=mss,
-            not_=not_,
-            org=org,
-            password=password,
-            path=path,
-            path_segment=path_segment,
-            port=port,
-            present=present,
-            protocol=protocol,
-            query_parameter=query_parameter,
-            query_string=query_string,
-            region_code=region_code,
-            region_name=region_name,
-            remote=remote,
-            request=request,
-            response=response,
-            route_domain=route_domain,
-            rtt=rtt,
-            scheme=scheme,
-            server_name=server_name,
-            ssl_cert=ssl_cert,
-            ssl_client_hello=ssl_client_hello,
-            ssl_extension=ssl_extension,
-            ssl_server_handshake=ssl_server_handshake,
-            ssl_server_hello=ssl_server_hello,
-            starts_with=starts_with,
-            tcp=tcp,
-            text=text,
-            tm_name=tm_name,
-            unnamed_query_parameter=unnamed_query_parameter,
-            user_agent_token=user_agent_token,
-            username=username,
-            value=value,
-            values=values,
-            version=version,
-            vlan=vlan,
-            vlan_id=vlan_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             address: Optional[pulumi.Input[bool]] = None,
-             all: Optional[pulumi.Input[bool]] = None,
-             app_service: Optional[pulumi.Input[str]] = None,
-             browser_type: Optional[pulumi.Input[bool]] = None,
-             browser_version: Optional[pulumi.Input[bool]] = None,
-             case_insensitive: Optional[pulumi.Input[bool]] = None,
-             case_sensitive: Optional[pulumi.Input[bool]] = None,
-             cipher: Optional[pulumi.Input[bool]] = None,
-             cipher_bits: Optional[pulumi.Input[bool]] = None,
-             client_accepted: Optional[pulumi.Input[bool]] = None,
-             client_ssl: Optional[pulumi.Input[bool]] = None,
-             code: Optional[pulumi.Input[bool]] = None,
-             common_name: Optional[pulumi.Input[bool]] = None,
-             contains: Optional[pulumi.Input[bool]] = None,
-             continent: Optional[pulumi.Input[bool]] = None,
-             country_code: Optional[pulumi.Input[bool]] = None,
-             country_name: Optional[pulumi.Input[bool]] = None,
-             cpu_usage: Optional[pulumi.Input[bool]] = None,
-             datagroup: Optional[pulumi.Input[str]] = None,
-             device_make: Optional[pulumi.Input[bool]] = None,
-             device_model: Optional[pulumi.Input[bool]] = None,
-             domain: Optional[pulumi.Input[bool]] = None,
-             ends_with: Optional[pulumi.Input[bool]] = None,
-             equals: Optional[pulumi.Input[bool]] = None,
-             exists: Optional[pulumi.Input[bool]] = None,
-             expiry: Optional[pulumi.Input[bool]] = None,
-             extension: Optional[pulumi.Input[bool]] = None,
-             external: Optional[pulumi.Input[bool]] = None,
-             geoip: Optional[pulumi.Input[bool]] = None,
-             greater: Optional[pulumi.Input[bool]] = None,
-             greater_or_equal: Optional[pulumi.Input[bool]] = None,
-             host: Optional[pulumi.Input[bool]] = None,
-             http_basic_auth: Optional[pulumi.Input[bool]] = None,
-             http_cookie: Optional[pulumi.Input[bool]] = None,
-             http_header: Optional[pulumi.Input[bool]] = None,
-             http_host: Optional[pulumi.Input[bool]] = None,
-             http_method: Optional[pulumi.Input[bool]] = None,
-             http_referer: Optional[pulumi.Input[bool]] = None,
-             http_set_cookie: Optional[pulumi.Input[bool]] = None,
-             http_status: Optional[pulumi.Input[bool]] = None,
-             http_uri: Optional[pulumi.Input[bool]] = None,
-             http_user_agent: Optional[pulumi.Input[bool]] = None,
-             http_version: Optional[pulumi.Input[bool]] = None,
-             index: Optional[pulumi.Input[int]] = None,
-             internal: Optional[pulumi.Input[bool]] = None,
-             isp: Optional[pulumi.Input[bool]] = None,
-             last15secs: Optional[pulumi.Input[bool]] = None,
-             last1min: Optional[pulumi.Input[bool]] = None,
-             last5mins: Optional[pulumi.Input[bool]] = None,
-             less: Optional[pulumi.Input[bool]] = None,
-             less_or_equal: Optional[pulumi.Input[bool]] = None,
-             local: Optional[pulumi.Input[bool]] = None,
-             major: Optional[pulumi.Input[bool]] = None,
-             matches: Optional[pulumi.Input[bool]] = None,
-             minor: Optional[pulumi.Input[bool]] = None,
-             missing: Optional[pulumi.Input[bool]] = None,
-             mss: Optional[pulumi.Input[bool]] = None,
-             not_: Optional[pulumi.Input[bool]] = None,
-             org: Optional[pulumi.Input[bool]] = None,
-             password: Optional[pulumi.Input[bool]] = None,
-             path: Optional[pulumi.Input[bool]] = None,
-             path_segment: Optional[pulumi.Input[bool]] = None,
-             port: Optional[pulumi.Input[bool]] = None,
-             present: Optional[pulumi.Input[bool]] = None,
-             protocol: Optional[pulumi.Input[bool]] = None,
-             query_parameter: Optional[pulumi.Input[bool]] = None,
-             query_string: Optional[pulumi.Input[bool]] = None,
-             region_code: Optional[pulumi.Input[bool]] = None,
-             region_name: Optional[pulumi.Input[bool]] = None,
-             remote: Optional[pulumi.Input[bool]] = None,
-             request: Optional[pulumi.Input[bool]] = None,
-             response: Optional[pulumi.Input[bool]] = None,
-             route_domain: Optional[pulumi.Input[bool]] = None,
-             rtt: Optional[pulumi.Input[bool]] = None,
-             scheme: Optional[pulumi.Input[bool]] = None,
-             server_name: Optional[pulumi.Input[bool]] = None,
-             ssl_cert: Optional[pulumi.Input[bool]] = None,
-             ssl_client_hello: Optional[pulumi.Input[bool]] = None,
-             ssl_extension: Optional[pulumi.Input[bool]] = None,
-             ssl_server_handshake: Optional[pulumi.Input[bool]] = None,
-             ssl_server_hello: Optional[pulumi.Input[bool]] = None,
-             starts_with: Optional[pulumi.Input[bool]] = None,
-             tcp: Optional[pulumi.Input[bool]] = None,
-             text: Optional[pulumi.Input[bool]] = None,
-             tm_name: Optional[pulumi.Input[str]] = None,
-             unnamed_query_parameter: Optional[pulumi.Input[bool]] = None,
-             user_agent_token: Optional[pulumi.Input[bool]] = None,
-             username: Optional[pulumi.Input[bool]] = None,
-             value: Optional[pulumi.Input[bool]] = None,
-             values: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             version: Optional[pulumi.Input[bool]] = None,
-             vlan: Optional[pulumi.Input[bool]] = None,
-             vlan_id: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if app_service is None and 'appService' in kwargs:
-            app_service = kwargs['appService']
-        if browser_type is None and 'browserType' in kwargs:
-            browser_type = kwargs['browserType']
-        if browser_version is None and 'browserVersion' in kwargs:
-            browser_version = kwargs['browserVersion']
-        if case_insensitive is None and 'caseInsensitive' in kwargs:
-            case_insensitive = kwargs['caseInsensitive']
-        if case_sensitive is None and 'caseSensitive' in kwargs:
-            case_sensitive = kwargs['caseSensitive']
-        if cipher_bits is None and 'cipherBits' in kwargs:
-            cipher_bits = kwargs['cipherBits']
-        if client_accepted is None and 'clientAccepted' in kwargs:
-            client_accepted = kwargs['clientAccepted']
-        if client_ssl is None and 'clientSsl' in kwargs:
-            client_ssl = kwargs['clientSsl']
-        if common_name is None and 'commonName' in kwargs:
-            common_name = kwargs['commonName']
-        if country_code is None and 'countryCode' in kwargs:
-            country_code = kwargs['countryCode']
-        if country_name is None and 'countryName' in kwargs:
-            country_name = kwargs['countryName']
-        if cpu_usage is None and 'cpuUsage' in kwargs:
-            cpu_usage = kwargs['cpuUsage']
-        if device_make is None and 'deviceMake' in kwargs:
-            device_make = kwargs['deviceMake']
-        if device_model is None and 'deviceModel' in kwargs:
-            device_model = kwargs['deviceModel']
-        if ends_with is None and 'endsWith' in kwargs:
-            ends_with = kwargs['endsWith']
-        if greater_or_equal is None and 'greaterOrEqual' in kwargs:
-            greater_or_equal = kwargs['greaterOrEqual']
-        if http_basic_auth is None and 'httpBasicAuth' in kwargs:
-            http_basic_auth = kwargs['httpBasicAuth']
-        if http_cookie is None and 'httpCookie' in kwargs:
-            http_cookie = kwargs['httpCookie']
-        if http_header is None and 'httpHeader' in kwargs:
-            http_header = kwargs['httpHeader']
-        if http_host is None and 'httpHost' in kwargs:
-            http_host = kwargs['httpHost']
-        if http_method is None and 'httpMethod' in kwargs:
-            http_method = kwargs['httpMethod']
-        if http_referer is None and 'httpReferer' in kwargs:
-            http_referer = kwargs['httpReferer']
-        if http_set_cookie is None and 'httpSetCookie' in kwargs:
-            http_set_cookie = kwargs['httpSetCookie']
-        if http_status is None and 'httpStatus' in kwargs:
-            http_status = kwargs['httpStatus']
-        if http_uri is None and 'httpUri' in kwargs:
-            http_uri = kwargs['httpUri']
-        if http_user_agent is None and 'httpUserAgent' in kwargs:
-            http_user_agent = kwargs['httpUserAgent']
-        if http_version is None and 'httpVersion' in kwargs:
-            http_version = kwargs['httpVersion']
-        if less_or_equal is None and 'lessOrEqual' in kwargs:
-            less_or_equal = kwargs['lessOrEqual']
-        if not_ is None and 'not' in kwargs:
-            not_ = kwargs['not']
-        if path_segment is None and 'pathSegment' in kwargs:
-            path_segment = kwargs['pathSegment']
-        if query_parameter is None and 'queryParameter' in kwargs:
-            query_parameter = kwargs['queryParameter']
-        if query_string is None and 'queryString' in kwargs:
-            query_string = kwargs['queryString']
-        if region_code is None and 'regionCode' in kwargs:
-            region_code = kwargs['regionCode']
-        if region_name is None and 'regionName' in kwargs:
-            region_name = kwargs['regionName']
-        if route_domain is None and 'routeDomain' in kwargs:
-            route_domain = kwargs['routeDomain']
-        if server_name is None and 'serverName' in kwargs:
-            server_name = kwargs['serverName']
-        if ssl_cert is None and 'sslCert' in kwargs:
-            ssl_cert = kwargs['sslCert']
-        if ssl_client_hello is None and 'sslClientHello' in kwargs:
-            ssl_client_hello = kwargs['sslClientHello']
-        if ssl_extension is None and 'sslExtension' in kwargs:
-            ssl_extension = kwargs['sslExtension']
-        if ssl_server_handshake is None and 'sslServerHandshake' in kwargs:
-            ssl_server_handshake = kwargs['sslServerHandshake']
-        if ssl_server_hello is None and 'sslServerHello' in kwargs:
-            ssl_server_hello = kwargs['sslServerHello']
-        if starts_with is None and 'startsWith' in kwargs:
-            starts_with = kwargs['startsWith']
-        if tm_name is None and 'tmName' in kwargs:
-            tm_name = kwargs['tmName']
-        if unnamed_query_parameter is None and 'unnamedQueryParameter' in kwargs:
-            unnamed_query_parameter = kwargs['unnamedQueryParameter']
-        if user_agent_token is None and 'userAgentToken' in kwargs:
-            user_agent_token = kwargs['userAgentToken']
-        if vlan_id is None and 'vlanId' in kwargs:
-            vlan_id = kwargs['vlanId']
-
         if address is not None:
-            _setter("address", address)
+            pulumi.set(__self__, "address", address)
         if all is not None:
-            _setter("all", all)
+            pulumi.set(__self__, "all", all)
         if app_service is not None:
-            _setter("app_service", app_service)
+            pulumi.set(__self__, "app_service", app_service)
         if browser_type is not None:
-            _setter("browser_type", browser_type)
+            pulumi.set(__self__, "browser_type", browser_type)
         if browser_version is not None:
-            _setter("browser_version", browser_version)
+            pulumi.set(__self__, "browser_version", browser_version)
         if case_insensitive is not None:
-            _setter("case_insensitive", case_insensitive)
+            pulumi.set(__self__, "case_insensitive", case_insensitive)
         if case_sensitive is not None:
-            _setter("case_sensitive", case_sensitive)
+            pulumi.set(__self__, "case_sensitive", case_sensitive)
         if cipher is not None:
-            _setter("cipher", cipher)
+            pulumi.set(__self__, "cipher", cipher)
         if cipher_bits is not None:
-            _setter("cipher_bits", cipher_bits)
+            pulumi.set(__self__, "cipher_bits", cipher_bits)
         if client_accepted is not None:
-            _setter("client_accepted", client_accepted)
+            pulumi.set(__self__, "client_accepted", client_accepted)
         if client_ssl is not None:
-            _setter("client_ssl", client_ssl)
+            pulumi.set(__self__, "client_ssl", client_ssl)
         if code is not None:
-            _setter("code", code)
+            pulumi.set(__self__, "code", code)
         if common_name is not None:
-            _setter("common_name", common_name)
+            pulumi.set(__self__, "common_name", common_name)
         if contains is not None:
-            _setter("contains", contains)
+            pulumi.set(__self__, "contains", contains)
         if continent is not None:
-            _setter("continent", continent)
+            pulumi.set(__self__, "continent", continent)
         if country_code is not None:
-            _setter("country_code", country_code)
+            pulumi.set(__self__, "country_code", country_code)
         if country_name is not None:
-            _setter("country_name", country_name)
+            pulumi.set(__self__, "country_name", country_name)
         if cpu_usage is not None:
-            _setter("cpu_usage", cpu_usage)
+            pulumi.set(__self__, "cpu_usage", cpu_usage)
         if datagroup is not None:
-            _setter("datagroup", datagroup)
+            pulumi.set(__self__, "datagroup", datagroup)
         if device_make is not None:
-            _setter("device_make", device_make)
+            pulumi.set(__self__, "device_make", device_make)
         if device_model is not None:
-            _setter("device_model", device_model)
+            pulumi.set(__self__, "device_model", device_model)
         if domain is not None:
-            _setter("domain", domain)
+            pulumi.set(__self__, "domain", domain)
         if ends_with is not None:
-            _setter("ends_with", ends_with)
+            pulumi.set(__self__, "ends_with", ends_with)
         if equals is not None:
-            _setter("equals", equals)
+            pulumi.set(__self__, "equals", equals)
         if exists is not None:
-            _setter("exists", exists)
+            pulumi.set(__self__, "exists", exists)
         if expiry is not None:
-            _setter("expiry", expiry)
+            pulumi.set(__self__, "expiry", expiry)
         if extension is not None:
-            _setter("extension", extension)
+            pulumi.set(__self__, "extension", extension)
         if external is not None:
-            _setter("external", external)
+            pulumi.set(__self__, "external", external)
         if geoip is not None:
-            _setter("geoip", geoip)
+            pulumi.set(__self__, "geoip", geoip)
         if greater is not None:
-            _setter("greater", greater)
+            pulumi.set(__self__, "greater", greater)
         if greater_or_equal is not None:
-            _setter("greater_or_equal", greater_or_equal)
+            pulumi.set(__self__, "greater_or_equal", greater_or_equal)
         if host is not None:
-            _setter("host", host)
+            pulumi.set(__self__, "host", host)
         if http_basic_auth is not None:
-            _setter("http_basic_auth", http_basic_auth)
+            pulumi.set(__self__, "http_basic_auth", http_basic_auth)
         if http_cookie is not None:
-            _setter("http_cookie", http_cookie)
+            pulumi.set(__self__, "http_cookie", http_cookie)
         if http_header is not None:
-            _setter("http_header", http_header)
+            pulumi.set(__self__, "http_header", http_header)
         if http_host is not None:
-            _setter("http_host", http_host)
+            pulumi.set(__self__, "http_host", http_host)
         if http_method is not None:
-            _setter("http_method", http_method)
+            pulumi.set(__self__, "http_method", http_method)
         if http_referer is not None:
-            _setter("http_referer", http_referer)
+            pulumi.set(__self__, "http_referer", http_referer)
         if http_set_cookie is not None:
-            _setter("http_set_cookie", http_set_cookie)
+            pulumi.set(__self__, "http_set_cookie", http_set_cookie)
         if http_status is not None:
-            _setter("http_status", http_status)
+            pulumi.set(__self__, "http_status", http_status)
         if http_uri is not None:
-            _setter("http_uri", http_uri)
+            pulumi.set(__self__, "http_uri", http_uri)
         if http_user_agent is not None:
-            _setter("http_user_agent", http_user_agent)
+            pulumi.set(__self__, "http_user_agent", http_user_agent)
         if http_version is not None:
-            _setter("http_version", http_version)
+            pulumi.set(__self__, "http_version", http_version)
         if index is not None:
-            _setter("index", index)
+            pulumi.set(__self__, "index", index)
         if internal is not None:
-            _setter("internal", internal)
+            pulumi.set(__self__, "internal", internal)
         if isp is not None:
-            _setter("isp", isp)
+            pulumi.set(__self__, "isp", isp)
         if last15secs is not None:
-            _setter("last15secs", last15secs)
+            pulumi.set(__self__, "last15secs", last15secs)
         if last1min is not None:
-            _setter("last1min", last1min)
+            pulumi.set(__self__, "last1min", last1min)
         if last5mins is not None:
-            _setter("last5mins", last5mins)
+            pulumi.set(__self__, "last5mins", last5mins)
         if less is not None:
-            _setter("less", less)
+            pulumi.set(__self__, "less", less)
         if less_or_equal is not None:
-            _setter("less_or_equal", less_or_equal)
+            pulumi.set(__self__, "less_or_equal", less_or_equal)
         if local is not None:
-            _setter("local", local)
+            pulumi.set(__self__, "local", local)
         if major is not None:
-            _setter("major", major)
+            pulumi.set(__self__, "major", major)
         if matches is not None:
-            _setter("matches", matches)
+            pulumi.set(__self__, "matches", matches)
         if minor is not None:
-            _setter("minor", minor)
+            pulumi.set(__self__, "minor", minor)
         if missing is not None:
-            _setter("missing", missing)
+            pulumi.set(__self__, "missing", missing)
         if mss is not None:
-            _setter("mss", mss)
+            pulumi.set(__self__, "mss", mss)
         if not_ is not None:
-            _setter("not_", not_)
+            pulumi.set(__self__, "not_", not_)
         if org is not None:
-            _setter("org", org)
+            pulumi.set(__self__, "org", org)
         if password is not None:
-            _setter("password", password)
+            pulumi.set(__self__, "password", password)
         if path is not None:
-            _setter("path", path)
+            pulumi.set(__self__, "path", path)
         if path_segment is not None:
-            _setter("path_segment", path_segment)
+            pulumi.set(__self__, "path_segment", path_segment)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if present is not None:
-            _setter("present", present)
+            pulumi.set(__self__, "present", present)
         if protocol is not None:
-            _setter("protocol", protocol)
+            pulumi.set(__self__, "protocol", protocol)
         if query_parameter is not None:
-            _setter("query_parameter", query_parameter)
+            pulumi.set(__self__, "query_parameter", query_parameter)
         if query_string is not None:
-            _setter("query_string", query_string)
+            pulumi.set(__self__, "query_string", query_string)
         if region_code is not None:
-            _setter("region_code", region_code)
+            pulumi.set(__self__, "region_code", region_code)
         if region_name is not None:
-            _setter("region_name", region_name)
+            pulumi.set(__self__, "region_name", region_name)
         if remote is not None:
-            _setter("remote", remote)
+            pulumi.set(__self__, "remote", remote)
         if request is not None:
-            _setter("request", request)
+            pulumi.set(__self__, "request", request)
         if response is not None:
-            _setter("response", response)
+            pulumi.set(__self__, "response", response)
         if route_domain is not None:
-            _setter("route_domain", route_domain)
+            pulumi.set(__self__, "route_domain", route_domain)
         if rtt is not None:
-            _setter("rtt", rtt)
+            pulumi.set(__self__, "rtt", rtt)
         if scheme is not None:
-            _setter("scheme", scheme)
+            pulumi.set(__self__, "scheme", scheme)
         if server_name is not None:
-            _setter("server_name", server_name)
+            pulumi.set(__self__, "server_name", server_name)
         if ssl_cert is not None:
-            _setter("ssl_cert", ssl_cert)
+            pulumi.set(__self__, "ssl_cert", ssl_cert)
         if ssl_client_hello is not None:
-            _setter("ssl_client_hello", ssl_client_hello)
+            pulumi.set(__self__, "ssl_client_hello", ssl_client_hello)
         if ssl_extension is not None:
-            _setter("ssl_extension", ssl_extension)
+            pulumi.set(__self__, "ssl_extension", ssl_extension)
         if ssl_server_handshake is not None:
-            _setter("ssl_server_handshake", ssl_server_handshake)
+            pulumi.set(__self__, "ssl_server_handshake", ssl_server_handshake)
         if ssl_server_hello is not None:
-            _setter("ssl_server_hello", ssl_server_hello)
+            pulumi.set(__self__, "ssl_server_hello", ssl_server_hello)
         if starts_with is not None:
-            _setter("starts_with", starts_with)
+            pulumi.set(__self__, "starts_with", starts_with)
         if tcp is not None:
-            _setter("tcp", tcp)
+            pulumi.set(__self__, "tcp", tcp)
         if text is not None:
-            _setter("text", text)
+            pulumi.set(__self__, "text", text)
         if tm_name is not None:
-            _setter("tm_name", tm_name)
+            pulumi.set(__self__, "tm_name", tm_name)
         if unnamed_query_parameter is not None:
-            _setter("unnamed_query_parameter", unnamed_query_parameter)
+            pulumi.set(__self__, "unnamed_query_parameter", unnamed_query_parameter)
         if user_agent_token is not None:
-            _setter("user_agent_token", user_agent_token)
+            pulumi.set(__self__, "user_agent_token", user_agent_token)
         if username is not None:
-            _setter("username", username)
+            pulumi.set(__self__, "username", username)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
         if values is not None:
-            _setter("values", values)
+            pulumi.set(__self__, "values", values)
         if version is not None:
-            _setter("version", version)
+            pulumi.set(__self__, "version", version)
         if vlan is not None:
-            _setter("vlan", vlan)
+            pulumi.set(__self__, "vlan", vlan)
         if vlan_id is not None:
-            _setter("vlan_id", vlan_id)
+            pulumi.set(__self__, "vlan_id", vlan_id)
 
     @property
     @pulumi.getter
@@ -3226,35 +2601,16 @@ class ProfileClientSslCertKeyChainArgs:
         :param pulumi.Input[str] key: Contains a key name
         :param pulumi.Input[str] name: Specifies the name of the profile.Name of Profile should be full path.The full path is the combination of the `partition + profile name`,For example `/Common/test-clientssl-profile`.
         """
-        ProfileClientSslCertKeyChainArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            cert=cert,
-            chain=chain,
-            key=key,
-            name=name,
-            passphrase=passphrase,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             cert: Optional[pulumi.Input[str]] = None,
-             chain: Optional[pulumi.Input[str]] = None,
-             key: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             passphrase: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if cert is not None:
-            _setter("cert", cert)
+            pulumi.set(__self__, "cert", cert)
         if chain is not None:
-            _setter("chain", chain)
+            pulumi.set(__self__, "chain", chain)
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if passphrase is not None:
-            _setter("passphrase", passphrase)
+            pulumi.set(__self__, "passphrase", passphrase)
 
     @property
     @pulumi.getter
@@ -3327,39 +2683,14 @@ class ProfileHttpEnforcementArgs:
         :param pulumi.Input[int] max_header_size: Specifies the maximum header size.The default value is 32768.If no string is specified, then default value will be assigned.
         :param pulumi.Input[str] unknown_method: Specifies whether to allow, reject or switch to pass-through mode when an unknown HTTP method is parsed. Default value is allow. If no string is specified, then default value will be assigned.
         """
-        ProfileHttpEnforcementArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            known_methods=known_methods,
-            max_header_count=max_header_count,
-            max_header_size=max_header_size,
-            unknown_method=unknown_method,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             known_methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             max_header_count: Optional[pulumi.Input[int]] = None,
-             max_header_size: Optional[pulumi.Input[int]] = None,
-             unknown_method: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if known_methods is None and 'knownMethods' in kwargs:
-            known_methods = kwargs['knownMethods']
-        if max_header_count is None and 'maxHeaderCount' in kwargs:
-            max_header_count = kwargs['maxHeaderCount']
-        if max_header_size is None and 'maxHeaderSize' in kwargs:
-            max_header_size = kwargs['maxHeaderSize']
-        if unknown_method is None and 'unknownMethod' in kwargs:
-            unknown_method = kwargs['unknownMethod']
-
         if known_methods is not None:
-            _setter("known_methods", known_methods)
+            pulumi.set(__self__, "known_methods", known_methods)
         if max_header_count is not None:
-            _setter("max_header_count", max_header_count)
+            pulumi.set(__self__, "max_header_count", max_header_count)
         if max_header_size is not None:
-            _setter("max_header_size", max_header_size)
+            pulumi.set(__self__, "max_header_size", max_header_size)
         if unknown_method is not None:
-            _setter("unknown_method", unknown_method)
+            pulumi.set(__self__, "unknown_method", unknown_method)
 
     @property
     @pulumi.getter(name="knownMethods")
@@ -3423,35 +2754,14 @@ class ProfileHttpHttpStrictTransportSecurityArgs:
         :param pulumi.Input[str] mode: Specifies whether to include the HSTS response header. The default is disabled.If no string is specified, then default value will be assigned.
         :param pulumi.Input[str] preload: Specifies whether to include the preload directive in the HSTS header. The default is disabled. If no string is specified, then default value will be assigned.
         """
-        ProfileHttpHttpStrictTransportSecurityArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            include_subdomains=include_subdomains,
-            maximum_age=maximum_age,
-            mode=mode,
-            preload=preload,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             include_subdomains: Optional[pulumi.Input[str]] = None,
-             maximum_age: Optional[pulumi.Input[int]] = None,
-             mode: Optional[pulumi.Input[str]] = None,
-             preload: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if include_subdomains is None and 'includeSubdomains' in kwargs:
-            include_subdomains = kwargs['includeSubdomains']
-        if maximum_age is None and 'maximumAge' in kwargs:
-            maximum_age = kwargs['maximumAge']
-
         if include_subdomains is not None:
-            _setter("include_subdomains", include_subdomains)
+            pulumi.set(__self__, "include_subdomains", include_subdomains)
         if maximum_age is not None:
-            _setter("maximum_age", maximum_age)
+            pulumi.set(__self__, "maximum_age", maximum_age)
         if mode is not None:
-            _setter("mode", mode)
+            pulumi.set(__self__, "mode", mode)
         if preload is not None:
-            _setter("preload", preload)
+            pulumi.set(__self__, "preload", preload)
 
     @property
     @pulumi.getter(name="includeSubdomains")
@@ -3510,25 +2820,10 @@ class SnatOriginArgs:
         """
         :param pulumi.Input[str] name: Name of the SNAT, name of SNAT should be full path. Full path is the combination of the `partition + SNAT name`,For example `/Common/test-snat`.
         """
-        SnatOriginArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            app_service=app_service,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             app_service: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if app_service is None and 'appService' in kwargs:
-            app_service = kwargs['appService']
-
         if app_service is not None:
-            _setter("app_service", app_service)
+            pulumi.set(__self__, "app_service", app_service)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter(name="appService")
@@ -3560,24 +2855,9 @@ class GetDataGroupRecordArgs:
         """
         :param str name: Name of the datagroup
         """
-        GetDataGroupRecordArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            data=data,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             data: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if data is not None:
-            _setter("data", data)
+            pulumi.set(__self__, "data", data)
 
     @property
     @pulumi.getter
@@ -3616,40 +2896,13 @@ class GetNodeFqdnArgs:
         :param str address_family: The FQDN node's address family.
         :param str name: Name of the node.
         """
-        GetNodeFqdnArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            autopopulate=autopopulate,
-            downinterval=downinterval,
-            interval=interval,
-            address_family=address_family,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             autopopulate: Optional[str] = None,
-             downinterval: Optional[int] = None,
-             interval: Optional[str] = None,
-             address_family: Optional[str] = None,
-             name: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if autopopulate is None:
-            raise TypeError("Missing 'autopopulate' argument")
-        if downinterval is None:
-            raise TypeError("Missing 'downinterval' argument")
-        if interval is None:
-            raise TypeError("Missing 'interval' argument")
-        if address_family is None and 'addressFamily' in kwargs:
-            address_family = kwargs['addressFamily']
-
-        _setter("autopopulate", autopopulate)
-        _setter("downinterval", downinterval)
-        _setter("interval", interval)
+        pulumi.set(__self__, "autopopulate", autopopulate)
+        pulumi.set(__self__, "downinterval", downinterval)
+        pulumi.set(__self__, "interval", interval)
         if address_family is not None:
-            _setter("address_family", address_family)
+            pulumi.set(__self__, "address_family", address_family)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -3721,28 +2974,11 @@ class GetPolicyRuleArgs:
         """
         :param str name: Name of the policy which includes partion ( /partition/policy-name )
         """
-        GetPolicyRuleArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            actions=actions,
-            conditions=conditions,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             actions: Optional[Sequence['GetPolicyRuleActionArgs']] = None,
-             conditions: Optional[Sequence['GetPolicyRuleConditionArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if actions is not None:
-            _setter("actions", actions)
+            pulumi.set(__self__, "actions", actions)
         if conditions is not None:
-            _setter("conditions", conditions)
+            pulumi.set(__self__, "conditions", conditions)
 
     @property
     @pulumi.getter
@@ -3882,599 +3118,112 @@ class GetPolicyRuleActionArgs:
                  write: bool,
                  forward: Optional[bool] = None,
                  http_host: Optional[bool] = None):
-        GetPolicyRuleActionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            app_service=app_service,
-            application=application,
-            asm=asm,
-            avr=avr,
-            cache=cache,
-            carp=carp,
-            category=category,
-            classify=classify,
-            clone_pool=clone_pool,
-            code=code,
-            compress=compress,
-            connection=connection,
-            content=content,
-            cookie_hash=cookie_hash,
-            cookie_insert=cookie_insert,
-            cookie_passive=cookie_passive,
-            cookie_rewrite=cookie_rewrite,
-            decompress=decompress,
-            defer=defer,
-            destination_address=destination_address,
-            disable=disable,
-            domain=domain,
-            enable=enable,
-            expiry=expiry,
-            expiry_secs=expiry_secs,
-            expression=expression,
-            extension=extension,
-            facility=facility,
-            from_profile=from_profile,
-            hash=hash,
-            host=host,
-            http=http,
-            http_basic_auth=http_basic_auth,
-            http_cookie=http_cookie,
-            http_header=http_header,
-            http_referer=http_referer,
-            http_reply=http_reply,
-            http_set_cookie=http_set_cookie,
-            http_uri=http_uri,
-            ifile=ifile,
-            insert=insert,
-            internal_virtual=internal_virtual,
-            ip_address=ip_address,
-            key=key,
-            l7dos=l7dos,
-            length=length,
-            location=location,
-            log=log,
-            ltm_policy=ltm_policy,
-            member=member,
-            message=message,
-            netmask=netmask,
-            nexthop=nexthop,
-            node=node,
-            offset=offset,
-            path=path,
-            pem=pem,
-            persist=persist,
-            pin=pin,
-            policy=policy,
-            pool=pool,
-            port=port,
-            priority=priority,
-            profile=profile,
-            protocol=protocol,
-            query_string=query_string,
-            rateclass=rateclass,
-            redirect=redirect,
-            remove=remove,
-            replace=replace,
-            request=request,
-            request_adapt=request_adapt,
-            reset=reset,
-            response=response,
-            response_adapt=response_adapt,
-            scheme=scheme,
-            script=script,
-            select=select,
-            server_ssl=server_ssl,
-            set_variable=set_variable,
-            shutdown=shutdown,
-            snat=snat,
-            snatpool=snatpool,
-            source_address=source_address,
-            ssl_client_hello=ssl_client_hello,
-            ssl_server_handshake=ssl_server_handshake,
-            ssl_server_hello=ssl_server_hello,
-            ssl_session_id=ssl_session_id,
-            status=status,
-            tcl=tcl,
-            tcp_nagle=tcp_nagle,
-            text=text,
-            timeout=timeout,
-            tm_name=tm_name,
-            uie=uie,
-            universal=universal,
-            value=value,
-            virtual=virtual,
-            vlan=vlan,
-            vlan_id=vlan_id,
-            wam=wam,
-            write=write,
-            forward=forward,
-            http_host=http_host,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             app_service: Optional[str] = None,
-             application: Optional[str] = None,
-             asm: Optional[bool] = None,
-             avr: Optional[bool] = None,
-             cache: Optional[bool] = None,
-             carp: Optional[bool] = None,
-             category: Optional[str] = None,
-             classify: Optional[bool] = None,
-             clone_pool: Optional[str] = None,
-             code: Optional[int] = None,
-             compress: Optional[bool] = None,
-             connection: Optional[bool] = None,
-             content: Optional[str] = None,
-             cookie_hash: Optional[bool] = None,
-             cookie_insert: Optional[bool] = None,
-             cookie_passive: Optional[bool] = None,
-             cookie_rewrite: Optional[bool] = None,
-             decompress: Optional[bool] = None,
-             defer: Optional[bool] = None,
-             destination_address: Optional[bool] = None,
-             disable: Optional[bool] = None,
-             domain: Optional[str] = None,
-             enable: Optional[bool] = None,
-             expiry: Optional[str] = None,
-             expiry_secs: Optional[int] = None,
-             expression: Optional[str] = None,
-             extension: Optional[str] = None,
-             facility: Optional[str] = None,
-             from_profile: Optional[str] = None,
-             hash: Optional[bool] = None,
-             host: Optional[str] = None,
-             http: Optional[bool] = None,
-             http_basic_auth: Optional[bool] = None,
-             http_cookie: Optional[bool] = None,
-             http_header: Optional[bool] = None,
-             http_referer: Optional[bool] = None,
-             http_reply: Optional[bool] = None,
-             http_set_cookie: Optional[bool] = None,
-             http_uri: Optional[bool] = None,
-             ifile: Optional[str] = None,
-             insert: Optional[bool] = None,
-             internal_virtual: Optional[str] = None,
-             ip_address: Optional[str] = None,
-             key: Optional[str] = None,
-             l7dos: Optional[bool] = None,
-             length: Optional[int] = None,
-             location: Optional[str] = None,
-             log: Optional[bool] = None,
-             ltm_policy: Optional[bool] = None,
-             member: Optional[str] = None,
-             message: Optional[str] = None,
-             netmask: Optional[str] = None,
-             nexthop: Optional[str] = None,
-             node: Optional[str] = None,
-             offset: Optional[int] = None,
-             path: Optional[str] = None,
-             pem: Optional[bool] = None,
-             persist: Optional[bool] = None,
-             pin: Optional[bool] = None,
-             policy: Optional[str] = None,
-             pool: Optional[str] = None,
-             port: Optional[int] = None,
-             priority: Optional[str] = None,
-             profile: Optional[str] = None,
-             protocol: Optional[str] = None,
-             query_string: Optional[str] = None,
-             rateclass: Optional[str] = None,
-             redirect: Optional[bool] = None,
-             remove: Optional[bool] = None,
-             replace: Optional[bool] = None,
-             request: Optional[bool] = None,
-             request_adapt: Optional[bool] = None,
-             reset: Optional[bool] = None,
-             response: Optional[bool] = None,
-             response_adapt: Optional[bool] = None,
-             scheme: Optional[str] = None,
-             script: Optional[str] = None,
-             select: Optional[bool] = None,
-             server_ssl: Optional[bool] = None,
-             set_variable: Optional[bool] = None,
-             shutdown: Optional[bool] = None,
-             snat: Optional[str] = None,
-             snatpool: Optional[str] = None,
-             source_address: Optional[bool] = None,
-             ssl_client_hello: Optional[bool] = None,
-             ssl_server_handshake: Optional[bool] = None,
-             ssl_server_hello: Optional[bool] = None,
-             ssl_session_id: Optional[bool] = None,
-             status: Optional[int] = None,
-             tcl: Optional[bool] = None,
-             tcp_nagle: Optional[bool] = None,
-             text: Optional[str] = None,
-             timeout: Optional[int] = None,
-             tm_name: Optional[str] = None,
-             uie: Optional[bool] = None,
-             universal: Optional[bool] = None,
-             value: Optional[str] = None,
-             virtual: Optional[str] = None,
-             vlan: Optional[str] = None,
-             vlan_id: Optional[int] = None,
-             wam: Optional[bool] = None,
-             write: Optional[bool] = None,
-             forward: Optional[bool] = None,
-             http_host: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if app_service is None and 'appService' in kwargs:
-            app_service = kwargs['appService']
-        if app_service is None:
-            raise TypeError("Missing 'app_service' argument")
-        if application is None:
-            raise TypeError("Missing 'application' argument")
-        if asm is None:
-            raise TypeError("Missing 'asm' argument")
-        if avr is None:
-            raise TypeError("Missing 'avr' argument")
-        if cache is None:
-            raise TypeError("Missing 'cache' argument")
-        if carp is None:
-            raise TypeError("Missing 'carp' argument")
-        if category is None:
-            raise TypeError("Missing 'category' argument")
-        if classify is None:
-            raise TypeError("Missing 'classify' argument")
-        if clone_pool is None and 'clonePool' in kwargs:
-            clone_pool = kwargs['clonePool']
-        if clone_pool is None:
-            raise TypeError("Missing 'clone_pool' argument")
-        if code is None:
-            raise TypeError("Missing 'code' argument")
-        if compress is None:
-            raise TypeError("Missing 'compress' argument")
-        if connection is None:
-            raise TypeError("Missing 'connection' argument")
-        if content is None:
-            raise TypeError("Missing 'content' argument")
-        if cookie_hash is None and 'cookieHash' in kwargs:
-            cookie_hash = kwargs['cookieHash']
-        if cookie_hash is None:
-            raise TypeError("Missing 'cookie_hash' argument")
-        if cookie_insert is None and 'cookieInsert' in kwargs:
-            cookie_insert = kwargs['cookieInsert']
-        if cookie_insert is None:
-            raise TypeError("Missing 'cookie_insert' argument")
-        if cookie_passive is None and 'cookiePassive' in kwargs:
-            cookie_passive = kwargs['cookiePassive']
-        if cookie_passive is None:
-            raise TypeError("Missing 'cookie_passive' argument")
-        if cookie_rewrite is None and 'cookieRewrite' in kwargs:
-            cookie_rewrite = kwargs['cookieRewrite']
-        if cookie_rewrite is None:
-            raise TypeError("Missing 'cookie_rewrite' argument")
-        if decompress is None:
-            raise TypeError("Missing 'decompress' argument")
-        if defer is None:
-            raise TypeError("Missing 'defer' argument")
-        if destination_address is None and 'destinationAddress' in kwargs:
-            destination_address = kwargs['destinationAddress']
-        if destination_address is None:
-            raise TypeError("Missing 'destination_address' argument")
-        if disable is None:
-            raise TypeError("Missing 'disable' argument")
-        if domain is None:
-            raise TypeError("Missing 'domain' argument")
-        if enable is None:
-            raise TypeError("Missing 'enable' argument")
-        if expiry is None:
-            raise TypeError("Missing 'expiry' argument")
-        if expiry_secs is None and 'expirySecs' in kwargs:
-            expiry_secs = kwargs['expirySecs']
-        if expiry_secs is None:
-            raise TypeError("Missing 'expiry_secs' argument")
-        if expression is None:
-            raise TypeError("Missing 'expression' argument")
-        if extension is None:
-            raise TypeError("Missing 'extension' argument")
-        if facility is None:
-            raise TypeError("Missing 'facility' argument")
-        if from_profile is None and 'fromProfile' in kwargs:
-            from_profile = kwargs['fromProfile']
-        if from_profile is None:
-            raise TypeError("Missing 'from_profile' argument")
-        if hash is None:
-            raise TypeError("Missing 'hash' argument")
-        if host is None:
-            raise TypeError("Missing 'host' argument")
-        if http is None:
-            raise TypeError("Missing 'http' argument")
-        if http_basic_auth is None and 'httpBasicAuth' in kwargs:
-            http_basic_auth = kwargs['httpBasicAuth']
-        if http_basic_auth is None:
-            raise TypeError("Missing 'http_basic_auth' argument")
-        if http_cookie is None and 'httpCookie' in kwargs:
-            http_cookie = kwargs['httpCookie']
-        if http_cookie is None:
-            raise TypeError("Missing 'http_cookie' argument")
-        if http_header is None and 'httpHeader' in kwargs:
-            http_header = kwargs['httpHeader']
-        if http_header is None:
-            raise TypeError("Missing 'http_header' argument")
-        if http_referer is None and 'httpReferer' in kwargs:
-            http_referer = kwargs['httpReferer']
-        if http_referer is None:
-            raise TypeError("Missing 'http_referer' argument")
-        if http_reply is None and 'httpReply' in kwargs:
-            http_reply = kwargs['httpReply']
-        if http_reply is None:
-            raise TypeError("Missing 'http_reply' argument")
-        if http_set_cookie is None and 'httpSetCookie' in kwargs:
-            http_set_cookie = kwargs['httpSetCookie']
-        if http_set_cookie is None:
-            raise TypeError("Missing 'http_set_cookie' argument")
-        if http_uri is None and 'httpUri' in kwargs:
-            http_uri = kwargs['httpUri']
-        if http_uri is None:
-            raise TypeError("Missing 'http_uri' argument")
-        if ifile is None:
-            raise TypeError("Missing 'ifile' argument")
-        if insert is None:
-            raise TypeError("Missing 'insert' argument")
-        if internal_virtual is None and 'internalVirtual' in kwargs:
-            internal_virtual = kwargs['internalVirtual']
-        if internal_virtual is None:
-            raise TypeError("Missing 'internal_virtual' argument")
-        if ip_address is None and 'ipAddress' in kwargs:
-            ip_address = kwargs['ipAddress']
-        if ip_address is None:
-            raise TypeError("Missing 'ip_address' argument")
-        if key is None:
-            raise TypeError("Missing 'key' argument")
-        if l7dos is None:
-            raise TypeError("Missing 'l7dos' argument")
-        if length is None:
-            raise TypeError("Missing 'length' argument")
-        if location is None:
-            raise TypeError("Missing 'location' argument")
-        if log is None:
-            raise TypeError("Missing 'log' argument")
-        if ltm_policy is None and 'ltmPolicy' in kwargs:
-            ltm_policy = kwargs['ltmPolicy']
-        if ltm_policy is None:
-            raise TypeError("Missing 'ltm_policy' argument")
-        if member is None:
-            raise TypeError("Missing 'member' argument")
-        if message is None:
-            raise TypeError("Missing 'message' argument")
-        if netmask is None:
-            raise TypeError("Missing 'netmask' argument")
-        if nexthop is None:
-            raise TypeError("Missing 'nexthop' argument")
-        if node is None:
-            raise TypeError("Missing 'node' argument")
-        if offset is None:
-            raise TypeError("Missing 'offset' argument")
-        if path is None:
-            raise TypeError("Missing 'path' argument")
-        if pem is None:
-            raise TypeError("Missing 'pem' argument")
-        if persist is None:
-            raise TypeError("Missing 'persist' argument")
-        if pin is None:
-            raise TypeError("Missing 'pin' argument")
-        if policy is None:
-            raise TypeError("Missing 'policy' argument")
-        if pool is None:
-            raise TypeError("Missing 'pool' argument")
-        if port is None:
-            raise TypeError("Missing 'port' argument")
-        if priority is None:
-            raise TypeError("Missing 'priority' argument")
-        if profile is None:
-            raise TypeError("Missing 'profile' argument")
-        if protocol is None:
-            raise TypeError("Missing 'protocol' argument")
-        if query_string is None and 'queryString' in kwargs:
-            query_string = kwargs['queryString']
-        if query_string is None:
-            raise TypeError("Missing 'query_string' argument")
-        if rateclass is None:
-            raise TypeError("Missing 'rateclass' argument")
-        if redirect is None:
-            raise TypeError("Missing 'redirect' argument")
-        if remove is None:
-            raise TypeError("Missing 'remove' argument")
-        if replace is None:
-            raise TypeError("Missing 'replace' argument")
-        if request is None:
-            raise TypeError("Missing 'request' argument")
-        if request_adapt is None and 'requestAdapt' in kwargs:
-            request_adapt = kwargs['requestAdapt']
-        if request_adapt is None:
-            raise TypeError("Missing 'request_adapt' argument")
-        if reset is None:
-            raise TypeError("Missing 'reset' argument")
-        if response is None:
-            raise TypeError("Missing 'response' argument")
-        if response_adapt is None and 'responseAdapt' in kwargs:
-            response_adapt = kwargs['responseAdapt']
-        if response_adapt is None:
-            raise TypeError("Missing 'response_adapt' argument")
-        if scheme is None:
-            raise TypeError("Missing 'scheme' argument")
-        if script is None:
-            raise TypeError("Missing 'script' argument")
-        if select is None:
-            raise TypeError("Missing 'select' argument")
-        if server_ssl is None and 'serverSsl' in kwargs:
-            server_ssl = kwargs['serverSsl']
-        if server_ssl is None:
-            raise TypeError("Missing 'server_ssl' argument")
-        if set_variable is None and 'setVariable' in kwargs:
-            set_variable = kwargs['setVariable']
-        if set_variable is None:
-            raise TypeError("Missing 'set_variable' argument")
-        if shutdown is None:
-            raise TypeError("Missing 'shutdown' argument")
-        if snat is None:
-            raise TypeError("Missing 'snat' argument")
-        if snatpool is None:
-            raise TypeError("Missing 'snatpool' argument")
-        if source_address is None and 'sourceAddress' in kwargs:
-            source_address = kwargs['sourceAddress']
-        if source_address is None:
-            raise TypeError("Missing 'source_address' argument")
-        if ssl_client_hello is None and 'sslClientHello' in kwargs:
-            ssl_client_hello = kwargs['sslClientHello']
-        if ssl_client_hello is None:
-            raise TypeError("Missing 'ssl_client_hello' argument")
-        if ssl_server_handshake is None and 'sslServerHandshake' in kwargs:
-            ssl_server_handshake = kwargs['sslServerHandshake']
-        if ssl_server_handshake is None:
-            raise TypeError("Missing 'ssl_server_handshake' argument")
-        if ssl_server_hello is None and 'sslServerHello' in kwargs:
-            ssl_server_hello = kwargs['sslServerHello']
-        if ssl_server_hello is None:
-            raise TypeError("Missing 'ssl_server_hello' argument")
-        if ssl_session_id is None and 'sslSessionId' in kwargs:
-            ssl_session_id = kwargs['sslSessionId']
-        if ssl_session_id is None:
-            raise TypeError("Missing 'ssl_session_id' argument")
-        if status is None:
-            raise TypeError("Missing 'status' argument")
-        if tcl is None:
-            raise TypeError("Missing 'tcl' argument")
-        if tcp_nagle is None and 'tcpNagle' in kwargs:
-            tcp_nagle = kwargs['tcpNagle']
-        if tcp_nagle is None:
-            raise TypeError("Missing 'tcp_nagle' argument")
-        if text is None:
-            raise TypeError("Missing 'text' argument")
-        if timeout is None:
-            raise TypeError("Missing 'timeout' argument")
-        if tm_name is None and 'tmName' in kwargs:
-            tm_name = kwargs['tmName']
-        if tm_name is None:
-            raise TypeError("Missing 'tm_name' argument")
-        if uie is None:
-            raise TypeError("Missing 'uie' argument")
-        if universal is None:
-            raise TypeError("Missing 'universal' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-        if virtual is None:
-            raise TypeError("Missing 'virtual' argument")
-        if vlan is None:
-            raise TypeError("Missing 'vlan' argument")
-        if vlan_id is None and 'vlanId' in kwargs:
-            vlan_id = kwargs['vlanId']
-        if vlan_id is None:
-            raise TypeError("Missing 'vlan_id' argument")
-        if wam is None:
-            raise TypeError("Missing 'wam' argument")
-        if write is None:
-            raise TypeError("Missing 'write' argument")
-        if http_host is None and 'httpHost' in kwargs:
-            http_host = kwargs['httpHost']
-
-        _setter("app_service", app_service)
-        _setter("application", application)
-        _setter("asm", asm)
-        _setter("avr", avr)
-        _setter("cache", cache)
-        _setter("carp", carp)
-        _setter("category", category)
-        _setter("classify", classify)
-        _setter("clone_pool", clone_pool)
-        _setter("code", code)
-        _setter("compress", compress)
-        _setter("connection", connection)
-        _setter("content", content)
-        _setter("cookie_hash", cookie_hash)
-        _setter("cookie_insert", cookie_insert)
-        _setter("cookie_passive", cookie_passive)
-        _setter("cookie_rewrite", cookie_rewrite)
-        _setter("decompress", decompress)
-        _setter("defer", defer)
-        _setter("destination_address", destination_address)
-        _setter("disable", disable)
-        _setter("domain", domain)
-        _setter("enable", enable)
-        _setter("expiry", expiry)
-        _setter("expiry_secs", expiry_secs)
-        _setter("expression", expression)
-        _setter("extension", extension)
-        _setter("facility", facility)
-        _setter("from_profile", from_profile)
-        _setter("hash", hash)
-        _setter("host", host)
-        _setter("http", http)
-        _setter("http_basic_auth", http_basic_auth)
-        _setter("http_cookie", http_cookie)
-        _setter("http_header", http_header)
-        _setter("http_referer", http_referer)
-        _setter("http_reply", http_reply)
-        _setter("http_set_cookie", http_set_cookie)
-        _setter("http_uri", http_uri)
-        _setter("ifile", ifile)
-        _setter("insert", insert)
-        _setter("internal_virtual", internal_virtual)
-        _setter("ip_address", ip_address)
-        _setter("key", key)
-        _setter("l7dos", l7dos)
-        _setter("length", length)
-        _setter("location", location)
-        _setter("log", log)
-        _setter("ltm_policy", ltm_policy)
-        _setter("member", member)
-        _setter("message", message)
-        _setter("netmask", netmask)
-        _setter("nexthop", nexthop)
-        _setter("node", node)
-        _setter("offset", offset)
-        _setter("path", path)
-        _setter("pem", pem)
-        _setter("persist", persist)
-        _setter("pin", pin)
-        _setter("policy", policy)
-        _setter("pool", pool)
-        _setter("port", port)
-        _setter("priority", priority)
-        _setter("profile", profile)
-        _setter("protocol", protocol)
-        _setter("query_string", query_string)
-        _setter("rateclass", rateclass)
-        _setter("redirect", redirect)
-        _setter("remove", remove)
-        _setter("replace", replace)
-        _setter("request", request)
-        _setter("request_adapt", request_adapt)
-        _setter("reset", reset)
-        _setter("response", response)
-        _setter("response_adapt", response_adapt)
-        _setter("scheme", scheme)
-        _setter("script", script)
-        _setter("select", select)
-        _setter("server_ssl", server_ssl)
-        _setter("set_variable", set_variable)
-        _setter("shutdown", shutdown)
-        _setter("snat", snat)
-        _setter("snatpool", snatpool)
-        _setter("source_address", source_address)
-        _setter("ssl_client_hello", ssl_client_hello)
-        _setter("ssl_server_handshake", ssl_server_handshake)
-        _setter("ssl_server_hello", ssl_server_hello)
-        _setter("ssl_session_id", ssl_session_id)
-        _setter("status", status)
-        _setter("tcl", tcl)
-        _setter("tcp_nagle", tcp_nagle)
-        _setter("text", text)
-        _setter("timeout", timeout)
-        _setter("tm_name", tm_name)
-        _setter("uie", uie)
-        _setter("universal", universal)
-        _setter("value", value)
-        _setter("virtual", virtual)
-        _setter("vlan", vlan)
-        _setter("vlan_id", vlan_id)
-        _setter("wam", wam)
-        _setter("write", write)
+        pulumi.set(__self__, "app_service", app_service)
+        pulumi.set(__self__, "application", application)
+        pulumi.set(__self__, "asm", asm)
+        pulumi.set(__self__, "avr", avr)
+        pulumi.set(__self__, "cache", cache)
+        pulumi.set(__self__, "carp", carp)
+        pulumi.set(__self__, "category", category)
+        pulumi.set(__self__, "classify", classify)
+        pulumi.set(__self__, "clone_pool", clone_pool)
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "compress", compress)
+        pulumi.set(__self__, "connection", connection)
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "cookie_hash", cookie_hash)
+        pulumi.set(__self__, "cookie_insert", cookie_insert)
+        pulumi.set(__self__, "cookie_passive", cookie_passive)
+        pulumi.set(__self__, "cookie_rewrite", cookie_rewrite)
+        pulumi.set(__self__, "decompress", decompress)
+        pulumi.set(__self__, "defer", defer)
+        pulumi.set(__self__, "destination_address", destination_address)
+        pulumi.set(__self__, "disable", disable)
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "enable", enable)
+        pulumi.set(__self__, "expiry", expiry)
+        pulumi.set(__self__, "expiry_secs", expiry_secs)
+        pulumi.set(__self__, "expression", expression)
+        pulumi.set(__self__, "extension", extension)
+        pulumi.set(__self__, "facility", facility)
+        pulumi.set(__self__, "from_profile", from_profile)
+        pulumi.set(__self__, "hash", hash)
+        pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "http", http)
+        pulumi.set(__self__, "http_basic_auth", http_basic_auth)
+        pulumi.set(__self__, "http_cookie", http_cookie)
+        pulumi.set(__self__, "http_header", http_header)
+        pulumi.set(__self__, "http_referer", http_referer)
+        pulumi.set(__self__, "http_reply", http_reply)
+        pulumi.set(__self__, "http_set_cookie", http_set_cookie)
+        pulumi.set(__self__, "http_uri", http_uri)
+        pulumi.set(__self__, "ifile", ifile)
+        pulumi.set(__self__, "insert", insert)
+        pulumi.set(__self__, "internal_virtual", internal_virtual)
+        pulumi.set(__self__, "ip_address", ip_address)
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "l7dos", l7dos)
+        pulumi.set(__self__, "length", length)
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "log", log)
+        pulumi.set(__self__, "ltm_policy", ltm_policy)
+        pulumi.set(__self__, "member", member)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "netmask", netmask)
+        pulumi.set(__self__, "nexthop", nexthop)
+        pulumi.set(__self__, "node", node)
+        pulumi.set(__self__, "offset", offset)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "pem", pem)
+        pulumi.set(__self__, "persist", persist)
+        pulumi.set(__self__, "pin", pin)
+        pulumi.set(__self__, "policy", policy)
+        pulumi.set(__self__, "pool", pool)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "profile", profile)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "query_string", query_string)
+        pulumi.set(__self__, "rateclass", rateclass)
+        pulumi.set(__self__, "redirect", redirect)
+        pulumi.set(__self__, "remove", remove)
+        pulumi.set(__self__, "replace", replace)
+        pulumi.set(__self__, "request", request)
+        pulumi.set(__self__, "request_adapt", request_adapt)
+        pulumi.set(__self__, "reset", reset)
+        pulumi.set(__self__, "response", response)
+        pulumi.set(__self__, "response_adapt", response_adapt)
+        pulumi.set(__self__, "scheme", scheme)
+        pulumi.set(__self__, "script", script)
+        pulumi.set(__self__, "select", select)
+        pulumi.set(__self__, "server_ssl", server_ssl)
+        pulumi.set(__self__, "set_variable", set_variable)
+        pulumi.set(__self__, "shutdown", shutdown)
+        pulumi.set(__self__, "snat", snat)
+        pulumi.set(__self__, "snatpool", snatpool)
+        pulumi.set(__self__, "source_address", source_address)
+        pulumi.set(__self__, "ssl_client_hello", ssl_client_hello)
+        pulumi.set(__self__, "ssl_server_handshake", ssl_server_handshake)
+        pulumi.set(__self__, "ssl_server_hello", ssl_server_hello)
+        pulumi.set(__self__, "ssl_session_id", ssl_session_id)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "tcl", tcl)
+        pulumi.set(__self__, "tcp_nagle", tcp_nagle)
+        pulumi.set(__self__, "text", text)
+        pulumi.set(__self__, "timeout", timeout)
+        pulumi.set(__self__, "tm_name", tm_name)
+        pulumi.set(__self__, "uie", uie)
+        pulumi.set(__self__, "universal", universal)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "virtual", virtual)
+        pulumi.set(__self__, "vlan", vlan)
+        pulumi.set(__self__, "vlan_id", vlan_id)
+        pulumi.set(__self__, "wam", wam)
+        pulumi.set(__self__, "write", write)
         if forward is not None:
-            _setter("forward", forward)
+            pulumi.set(__self__, "forward", forward)
         if http_host is not None:
-            _setter("http_host", http_host)
+            pulumi.set(__self__, "http_host", http_host)
 
     @property
     @pulumi.getter(name="appService")
@@ -5507,560 +4256,97 @@ class GetPolicyRuleConditionArgs:
                  version: bool,
                  vlan: bool,
                  vlan_id: bool):
-        GetPolicyRuleConditionArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            address=address,
-            all=all,
-            app_service=app_service,
-            browser_type=browser_type,
-            browser_version=browser_version,
-            case_insensitive=case_insensitive,
-            case_sensitive=case_sensitive,
-            cipher=cipher,
-            cipher_bits=cipher_bits,
-            client_ssl=client_ssl,
-            code=code,
-            common_name=common_name,
-            contains=contains,
-            continent=continent,
-            country_code=country_code,
-            country_name=country_name,
-            cpu_usage=cpu_usage,
-            datagroup=datagroup,
-            device_make=device_make,
-            device_model=device_model,
-            domain=domain,
-            ends_with=ends_with,
-            equals=equals,
-            expiry=expiry,
-            extension=extension,
-            external=external,
-            geoip=geoip,
-            greater=greater,
-            greater_or_equal=greater_or_equal,
-            host=host,
-            http_basic_auth=http_basic_auth,
-            http_cookie=http_cookie,
-            http_header=http_header,
-            http_host=http_host,
-            http_method=http_method,
-            http_referer=http_referer,
-            http_set_cookie=http_set_cookie,
-            http_status=http_status,
-            http_uri=http_uri,
-            http_user_agent=http_user_agent,
-            http_version=http_version,
-            index=index,
-            internal=internal,
-            isp=isp,
-            last15secs=last15secs,
-            last1min=last1min,
-            last5mins=last5mins,
-            less=less,
-            less_or_equal=less_or_equal,
-            local=local,
-            major=major,
-            matches=matches,
-            minor=minor,
-            missing=missing,
-            mss=mss,
-            not_=not_,
-            org=org,
-            password=password,
-            path=path,
-            path_segment=path_segment,
-            port=port,
-            present=present,
-            protocol=protocol,
-            query_parameter=query_parameter,
-            query_string=query_string,
-            region_code=region_code,
-            region_name=region_name,
-            remote=remote,
-            request=request,
-            response=response,
-            route_domain=route_domain,
-            rtt=rtt,
-            scheme=scheme,
-            server_name=server_name,
-            ssl_cert=ssl_cert,
-            ssl_client_hello=ssl_client_hello,
-            ssl_extension=ssl_extension,
-            ssl_server_handshake=ssl_server_handshake,
-            ssl_server_hello=ssl_server_hello,
-            starts_with=starts_with,
-            tcp=tcp,
-            text=text,
-            tm_name=tm_name,
-            unnamed_query_parameter=unnamed_query_parameter,
-            user_agent_token=user_agent_token,
-            username=username,
-            value=value,
-            values=values,
-            version=version,
-            vlan=vlan,
-            vlan_id=vlan_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             address: Optional[bool] = None,
-             all: Optional[bool] = None,
-             app_service: Optional[str] = None,
-             browser_type: Optional[bool] = None,
-             browser_version: Optional[bool] = None,
-             case_insensitive: Optional[bool] = None,
-             case_sensitive: Optional[bool] = None,
-             cipher: Optional[bool] = None,
-             cipher_bits: Optional[bool] = None,
-             client_ssl: Optional[bool] = None,
-             code: Optional[bool] = None,
-             common_name: Optional[bool] = None,
-             contains: Optional[bool] = None,
-             continent: Optional[bool] = None,
-             country_code: Optional[bool] = None,
-             country_name: Optional[bool] = None,
-             cpu_usage: Optional[bool] = None,
-             datagroup: Optional[str] = None,
-             device_make: Optional[bool] = None,
-             device_model: Optional[bool] = None,
-             domain: Optional[bool] = None,
-             ends_with: Optional[bool] = None,
-             equals: Optional[bool] = None,
-             expiry: Optional[bool] = None,
-             extension: Optional[bool] = None,
-             external: Optional[bool] = None,
-             geoip: Optional[bool] = None,
-             greater: Optional[bool] = None,
-             greater_or_equal: Optional[bool] = None,
-             host: Optional[bool] = None,
-             http_basic_auth: Optional[bool] = None,
-             http_cookie: Optional[bool] = None,
-             http_header: Optional[bool] = None,
-             http_host: Optional[bool] = None,
-             http_method: Optional[bool] = None,
-             http_referer: Optional[bool] = None,
-             http_set_cookie: Optional[bool] = None,
-             http_status: Optional[bool] = None,
-             http_uri: Optional[bool] = None,
-             http_user_agent: Optional[bool] = None,
-             http_version: Optional[bool] = None,
-             index: Optional[int] = None,
-             internal: Optional[bool] = None,
-             isp: Optional[bool] = None,
-             last15secs: Optional[bool] = None,
-             last1min: Optional[bool] = None,
-             last5mins: Optional[bool] = None,
-             less: Optional[bool] = None,
-             less_or_equal: Optional[bool] = None,
-             local: Optional[bool] = None,
-             major: Optional[bool] = None,
-             matches: Optional[bool] = None,
-             minor: Optional[bool] = None,
-             missing: Optional[bool] = None,
-             mss: Optional[bool] = None,
-             not_: Optional[bool] = None,
-             org: Optional[bool] = None,
-             password: Optional[bool] = None,
-             path: Optional[bool] = None,
-             path_segment: Optional[bool] = None,
-             port: Optional[bool] = None,
-             present: Optional[bool] = None,
-             protocol: Optional[bool] = None,
-             query_parameter: Optional[bool] = None,
-             query_string: Optional[bool] = None,
-             region_code: Optional[bool] = None,
-             region_name: Optional[bool] = None,
-             remote: Optional[bool] = None,
-             request: Optional[bool] = None,
-             response: Optional[bool] = None,
-             route_domain: Optional[bool] = None,
-             rtt: Optional[bool] = None,
-             scheme: Optional[bool] = None,
-             server_name: Optional[bool] = None,
-             ssl_cert: Optional[bool] = None,
-             ssl_client_hello: Optional[bool] = None,
-             ssl_extension: Optional[bool] = None,
-             ssl_server_handshake: Optional[bool] = None,
-             ssl_server_hello: Optional[bool] = None,
-             starts_with: Optional[bool] = None,
-             tcp: Optional[bool] = None,
-             text: Optional[bool] = None,
-             tm_name: Optional[str] = None,
-             unnamed_query_parameter: Optional[bool] = None,
-             user_agent_token: Optional[bool] = None,
-             username: Optional[bool] = None,
-             value: Optional[bool] = None,
-             values: Optional[Sequence[str]] = None,
-             version: Optional[bool] = None,
-             vlan: Optional[bool] = None,
-             vlan_id: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if address is None:
-            raise TypeError("Missing 'address' argument")
-        if all is None:
-            raise TypeError("Missing 'all' argument")
-        if app_service is None and 'appService' in kwargs:
-            app_service = kwargs['appService']
-        if app_service is None:
-            raise TypeError("Missing 'app_service' argument")
-        if browser_type is None and 'browserType' in kwargs:
-            browser_type = kwargs['browserType']
-        if browser_type is None:
-            raise TypeError("Missing 'browser_type' argument")
-        if browser_version is None and 'browserVersion' in kwargs:
-            browser_version = kwargs['browserVersion']
-        if browser_version is None:
-            raise TypeError("Missing 'browser_version' argument")
-        if case_insensitive is None and 'caseInsensitive' in kwargs:
-            case_insensitive = kwargs['caseInsensitive']
-        if case_insensitive is None:
-            raise TypeError("Missing 'case_insensitive' argument")
-        if case_sensitive is None and 'caseSensitive' in kwargs:
-            case_sensitive = kwargs['caseSensitive']
-        if case_sensitive is None:
-            raise TypeError("Missing 'case_sensitive' argument")
-        if cipher is None:
-            raise TypeError("Missing 'cipher' argument")
-        if cipher_bits is None and 'cipherBits' in kwargs:
-            cipher_bits = kwargs['cipherBits']
-        if cipher_bits is None:
-            raise TypeError("Missing 'cipher_bits' argument")
-        if client_ssl is None and 'clientSsl' in kwargs:
-            client_ssl = kwargs['clientSsl']
-        if client_ssl is None:
-            raise TypeError("Missing 'client_ssl' argument")
-        if code is None:
-            raise TypeError("Missing 'code' argument")
-        if common_name is None and 'commonName' in kwargs:
-            common_name = kwargs['commonName']
-        if common_name is None:
-            raise TypeError("Missing 'common_name' argument")
-        if contains is None:
-            raise TypeError("Missing 'contains' argument")
-        if continent is None:
-            raise TypeError("Missing 'continent' argument")
-        if country_code is None and 'countryCode' in kwargs:
-            country_code = kwargs['countryCode']
-        if country_code is None:
-            raise TypeError("Missing 'country_code' argument")
-        if country_name is None and 'countryName' in kwargs:
-            country_name = kwargs['countryName']
-        if country_name is None:
-            raise TypeError("Missing 'country_name' argument")
-        if cpu_usage is None and 'cpuUsage' in kwargs:
-            cpu_usage = kwargs['cpuUsage']
-        if cpu_usage is None:
-            raise TypeError("Missing 'cpu_usage' argument")
-        if datagroup is None:
-            raise TypeError("Missing 'datagroup' argument")
-        if device_make is None and 'deviceMake' in kwargs:
-            device_make = kwargs['deviceMake']
-        if device_make is None:
-            raise TypeError("Missing 'device_make' argument")
-        if device_model is None and 'deviceModel' in kwargs:
-            device_model = kwargs['deviceModel']
-        if device_model is None:
-            raise TypeError("Missing 'device_model' argument")
-        if domain is None:
-            raise TypeError("Missing 'domain' argument")
-        if ends_with is None and 'endsWith' in kwargs:
-            ends_with = kwargs['endsWith']
-        if ends_with is None:
-            raise TypeError("Missing 'ends_with' argument")
-        if equals is None:
-            raise TypeError("Missing 'equals' argument")
-        if expiry is None:
-            raise TypeError("Missing 'expiry' argument")
-        if extension is None:
-            raise TypeError("Missing 'extension' argument")
-        if external is None:
-            raise TypeError("Missing 'external' argument")
-        if geoip is None:
-            raise TypeError("Missing 'geoip' argument")
-        if greater is None:
-            raise TypeError("Missing 'greater' argument")
-        if greater_or_equal is None and 'greaterOrEqual' in kwargs:
-            greater_or_equal = kwargs['greaterOrEqual']
-        if greater_or_equal is None:
-            raise TypeError("Missing 'greater_or_equal' argument")
-        if host is None:
-            raise TypeError("Missing 'host' argument")
-        if http_basic_auth is None and 'httpBasicAuth' in kwargs:
-            http_basic_auth = kwargs['httpBasicAuth']
-        if http_basic_auth is None:
-            raise TypeError("Missing 'http_basic_auth' argument")
-        if http_cookie is None and 'httpCookie' in kwargs:
-            http_cookie = kwargs['httpCookie']
-        if http_cookie is None:
-            raise TypeError("Missing 'http_cookie' argument")
-        if http_header is None and 'httpHeader' in kwargs:
-            http_header = kwargs['httpHeader']
-        if http_header is None:
-            raise TypeError("Missing 'http_header' argument")
-        if http_host is None and 'httpHost' in kwargs:
-            http_host = kwargs['httpHost']
-        if http_host is None:
-            raise TypeError("Missing 'http_host' argument")
-        if http_method is None and 'httpMethod' in kwargs:
-            http_method = kwargs['httpMethod']
-        if http_method is None:
-            raise TypeError("Missing 'http_method' argument")
-        if http_referer is None and 'httpReferer' in kwargs:
-            http_referer = kwargs['httpReferer']
-        if http_referer is None:
-            raise TypeError("Missing 'http_referer' argument")
-        if http_set_cookie is None and 'httpSetCookie' in kwargs:
-            http_set_cookie = kwargs['httpSetCookie']
-        if http_set_cookie is None:
-            raise TypeError("Missing 'http_set_cookie' argument")
-        if http_status is None and 'httpStatus' in kwargs:
-            http_status = kwargs['httpStatus']
-        if http_status is None:
-            raise TypeError("Missing 'http_status' argument")
-        if http_uri is None and 'httpUri' in kwargs:
-            http_uri = kwargs['httpUri']
-        if http_uri is None:
-            raise TypeError("Missing 'http_uri' argument")
-        if http_user_agent is None and 'httpUserAgent' in kwargs:
-            http_user_agent = kwargs['httpUserAgent']
-        if http_user_agent is None:
-            raise TypeError("Missing 'http_user_agent' argument")
-        if http_version is None and 'httpVersion' in kwargs:
-            http_version = kwargs['httpVersion']
-        if http_version is None:
-            raise TypeError("Missing 'http_version' argument")
-        if index is None:
-            raise TypeError("Missing 'index' argument")
-        if internal is None:
-            raise TypeError("Missing 'internal' argument")
-        if isp is None:
-            raise TypeError("Missing 'isp' argument")
-        if last15secs is None:
-            raise TypeError("Missing 'last15secs' argument")
-        if last1min is None:
-            raise TypeError("Missing 'last1min' argument")
-        if last5mins is None:
-            raise TypeError("Missing 'last5mins' argument")
-        if less is None:
-            raise TypeError("Missing 'less' argument")
-        if less_or_equal is None and 'lessOrEqual' in kwargs:
-            less_or_equal = kwargs['lessOrEqual']
-        if less_or_equal is None:
-            raise TypeError("Missing 'less_or_equal' argument")
-        if local is None:
-            raise TypeError("Missing 'local' argument")
-        if major is None:
-            raise TypeError("Missing 'major' argument")
-        if matches is None:
-            raise TypeError("Missing 'matches' argument")
-        if minor is None:
-            raise TypeError("Missing 'minor' argument")
-        if missing is None:
-            raise TypeError("Missing 'missing' argument")
-        if mss is None:
-            raise TypeError("Missing 'mss' argument")
-        if not_ is None and 'not' in kwargs:
-            not_ = kwargs['not']
-        if not_ is None:
-            raise TypeError("Missing 'not_' argument")
-        if org is None:
-            raise TypeError("Missing 'org' argument")
-        if password is None:
-            raise TypeError("Missing 'password' argument")
-        if path is None:
-            raise TypeError("Missing 'path' argument")
-        if path_segment is None and 'pathSegment' in kwargs:
-            path_segment = kwargs['pathSegment']
-        if path_segment is None:
-            raise TypeError("Missing 'path_segment' argument")
-        if port is None:
-            raise TypeError("Missing 'port' argument")
-        if present is None:
-            raise TypeError("Missing 'present' argument")
-        if protocol is None:
-            raise TypeError("Missing 'protocol' argument")
-        if query_parameter is None and 'queryParameter' in kwargs:
-            query_parameter = kwargs['queryParameter']
-        if query_parameter is None:
-            raise TypeError("Missing 'query_parameter' argument")
-        if query_string is None and 'queryString' in kwargs:
-            query_string = kwargs['queryString']
-        if query_string is None:
-            raise TypeError("Missing 'query_string' argument")
-        if region_code is None and 'regionCode' in kwargs:
-            region_code = kwargs['regionCode']
-        if region_code is None:
-            raise TypeError("Missing 'region_code' argument")
-        if region_name is None and 'regionName' in kwargs:
-            region_name = kwargs['regionName']
-        if region_name is None:
-            raise TypeError("Missing 'region_name' argument")
-        if remote is None:
-            raise TypeError("Missing 'remote' argument")
-        if request is None:
-            raise TypeError("Missing 'request' argument")
-        if response is None:
-            raise TypeError("Missing 'response' argument")
-        if route_domain is None and 'routeDomain' in kwargs:
-            route_domain = kwargs['routeDomain']
-        if route_domain is None:
-            raise TypeError("Missing 'route_domain' argument")
-        if rtt is None:
-            raise TypeError("Missing 'rtt' argument")
-        if scheme is None:
-            raise TypeError("Missing 'scheme' argument")
-        if server_name is None and 'serverName' in kwargs:
-            server_name = kwargs['serverName']
-        if server_name is None:
-            raise TypeError("Missing 'server_name' argument")
-        if ssl_cert is None and 'sslCert' in kwargs:
-            ssl_cert = kwargs['sslCert']
-        if ssl_cert is None:
-            raise TypeError("Missing 'ssl_cert' argument")
-        if ssl_client_hello is None and 'sslClientHello' in kwargs:
-            ssl_client_hello = kwargs['sslClientHello']
-        if ssl_client_hello is None:
-            raise TypeError("Missing 'ssl_client_hello' argument")
-        if ssl_extension is None and 'sslExtension' in kwargs:
-            ssl_extension = kwargs['sslExtension']
-        if ssl_extension is None:
-            raise TypeError("Missing 'ssl_extension' argument")
-        if ssl_server_handshake is None and 'sslServerHandshake' in kwargs:
-            ssl_server_handshake = kwargs['sslServerHandshake']
-        if ssl_server_handshake is None:
-            raise TypeError("Missing 'ssl_server_handshake' argument")
-        if ssl_server_hello is None and 'sslServerHello' in kwargs:
-            ssl_server_hello = kwargs['sslServerHello']
-        if ssl_server_hello is None:
-            raise TypeError("Missing 'ssl_server_hello' argument")
-        if starts_with is None and 'startsWith' in kwargs:
-            starts_with = kwargs['startsWith']
-        if starts_with is None:
-            raise TypeError("Missing 'starts_with' argument")
-        if tcp is None:
-            raise TypeError("Missing 'tcp' argument")
-        if text is None:
-            raise TypeError("Missing 'text' argument")
-        if tm_name is None and 'tmName' in kwargs:
-            tm_name = kwargs['tmName']
-        if tm_name is None:
-            raise TypeError("Missing 'tm_name' argument")
-        if unnamed_query_parameter is None and 'unnamedQueryParameter' in kwargs:
-            unnamed_query_parameter = kwargs['unnamedQueryParameter']
-        if unnamed_query_parameter is None:
-            raise TypeError("Missing 'unnamed_query_parameter' argument")
-        if user_agent_token is None and 'userAgentToken' in kwargs:
-            user_agent_token = kwargs['userAgentToken']
-        if user_agent_token is None:
-            raise TypeError("Missing 'user_agent_token' argument")
-        if username is None:
-            raise TypeError("Missing 'username' argument")
-        if value is None:
-            raise TypeError("Missing 'value' argument")
-        if values is None:
-            raise TypeError("Missing 'values' argument")
-        if version is None:
-            raise TypeError("Missing 'version' argument")
-        if vlan is None:
-            raise TypeError("Missing 'vlan' argument")
-        if vlan_id is None and 'vlanId' in kwargs:
-            vlan_id = kwargs['vlanId']
-        if vlan_id is None:
-            raise TypeError("Missing 'vlan_id' argument")
-
-        _setter("address", address)
-        _setter("all", all)
-        _setter("app_service", app_service)
-        _setter("browser_type", browser_type)
-        _setter("browser_version", browser_version)
-        _setter("case_insensitive", case_insensitive)
-        _setter("case_sensitive", case_sensitive)
-        _setter("cipher", cipher)
-        _setter("cipher_bits", cipher_bits)
-        _setter("client_ssl", client_ssl)
-        _setter("code", code)
-        _setter("common_name", common_name)
-        _setter("contains", contains)
-        _setter("continent", continent)
-        _setter("country_code", country_code)
-        _setter("country_name", country_name)
-        _setter("cpu_usage", cpu_usage)
-        _setter("datagroup", datagroup)
-        _setter("device_make", device_make)
-        _setter("device_model", device_model)
-        _setter("domain", domain)
-        _setter("ends_with", ends_with)
-        _setter("equals", equals)
-        _setter("expiry", expiry)
-        _setter("extension", extension)
-        _setter("external", external)
-        _setter("geoip", geoip)
-        _setter("greater", greater)
-        _setter("greater_or_equal", greater_or_equal)
-        _setter("host", host)
-        _setter("http_basic_auth", http_basic_auth)
-        _setter("http_cookie", http_cookie)
-        _setter("http_header", http_header)
-        _setter("http_host", http_host)
-        _setter("http_method", http_method)
-        _setter("http_referer", http_referer)
-        _setter("http_set_cookie", http_set_cookie)
-        _setter("http_status", http_status)
-        _setter("http_uri", http_uri)
-        _setter("http_user_agent", http_user_agent)
-        _setter("http_version", http_version)
-        _setter("index", index)
-        _setter("internal", internal)
-        _setter("isp", isp)
-        _setter("last15secs", last15secs)
-        _setter("last1min", last1min)
-        _setter("last5mins", last5mins)
-        _setter("less", less)
-        _setter("less_or_equal", less_or_equal)
-        _setter("local", local)
-        _setter("major", major)
-        _setter("matches", matches)
-        _setter("minor", minor)
-        _setter("missing", missing)
-        _setter("mss", mss)
-        _setter("not_", not_)
-        _setter("org", org)
-        _setter("password", password)
-        _setter("path", path)
-        _setter("path_segment", path_segment)
-        _setter("port", port)
-        _setter("present", present)
-        _setter("protocol", protocol)
-        _setter("query_parameter", query_parameter)
-        _setter("query_string", query_string)
-        _setter("region_code", region_code)
-        _setter("region_name", region_name)
-        _setter("remote", remote)
-        _setter("request", request)
-        _setter("response", response)
-        _setter("route_domain", route_domain)
-        _setter("rtt", rtt)
-        _setter("scheme", scheme)
-        _setter("server_name", server_name)
-        _setter("ssl_cert", ssl_cert)
-        _setter("ssl_client_hello", ssl_client_hello)
-        _setter("ssl_extension", ssl_extension)
-        _setter("ssl_server_handshake", ssl_server_handshake)
-        _setter("ssl_server_hello", ssl_server_hello)
-        _setter("starts_with", starts_with)
-        _setter("tcp", tcp)
-        _setter("text", text)
-        _setter("tm_name", tm_name)
-        _setter("unnamed_query_parameter", unnamed_query_parameter)
-        _setter("user_agent_token", user_agent_token)
-        _setter("username", username)
-        _setter("value", value)
-        _setter("values", values)
-        _setter("version", version)
-        _setter("vlan", vlan)
-        _setter("vlan_id", vlan_id)
+        pulumi.set(__self__, "address", address)
+        pulumi.set(__self__, "all", all)
+        pulumi.set(__self__, "app_service", app_service)
+        pulumi.set(__self__, "browser_type", browser_type)
+        pulumi.set(__self__, "browser_version", browser_version)
+        pulumi.set(__self__, "case_insensitive", case_insensitive)
+        pulumi.set(__self__, "case_sensitive", case_sensitive)
+        pulumi.set(__self__, "cipher", cipher)
+        pulumi.set(__self__, "cipher_bits", cipher_bits)
+        pulumi.set(__self__, "client_ssl", client_ssl)
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "common_name", common_name)
+        pulumi.set(__self__, "contains", contains)
+        pulumi.set(__self__, "continent", continent)
+        pulumi.set(__self__, "country_code", country_code)
+        pulumi.set(__self__, "country_name", country_name)
+        pulumi.set(__self__, "cpu_usage", cpu_usage)
+        pulumi.set(__self__, "datagroup", datagroup)
+        pulumi.set(__self__, "device_make", device_make)
+        pulumi.set(__self__, "device_model", device_model)
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "ends_with", ends_with)
+        pulumi.set(__self__, "equals", equals)
+        pulumi.set(__self__, "expiry", expiry)
+        pulumi.set(__self__, "extension", extension)
+        pulumi.set(__self__, "external", external)
+        pulumi.set(__self__, "geoip", geoip)
+        pulumi.set(__self__, "greater", greater)
+        pulumi.set(__self__, "greater_or_equal", greater_or_equal)
+        pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "http_basic_auth", http_basic_auth)
+        pulumi.set(__self__, "http_cookie", http_cookie)
+        pulumi.set(__self__, "http_header", http_header)
+        pulumi.set(__self__, "http_host", http_host)
+        pulumi.set(__self__, "http_method", http_method)
+        pulumi.set(__self__, "http_referer", http_referer)
+        pulumi.set(__self__, "http_set_cookie", http_set_cookie)
+        pulumi.set(__self__, "http_status", http_status)
+        pulumi.set(__self__, "http_uri", http_uri)
+        pulumi.set(__self__, "http_user_agent", http_user_agent)
+        pulumi.set(__self__, "http_version", http_version)
+        pulumi.set(__self__, "index", index)
+        pulumi.set(__self__, "internal", internal)
+        pulumi.set(__self__, "isp", isp)
+        pulumi.set(__self__, "last15secs", last15secs)
+        pulumi.set(__self__, "last1min", last1min)
+        pulumi.set(__self__, "last5mins", last5mins)
+        pulumi.set(__self__, "less", less)
+        pulumi.set(__self__, "less_or_equal", less_or_equal)
+        pulumi.set(__self__, "local", local)
+        pulumi.set(__self__, "major", major)
+        pulumi.set(__self__, "matches", matches)
+        pulumi.set(__self__, "minor", minor)
+        pulumi.set(__self__, "missing", missing)
+        pulumi.set(__self__, "mss", mss)
+        pulumi.set(__self__, "not_", not_)
+        pulumi.set(__self__, "org", org)
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "path_segment", path_segment)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "present", present)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "query_parameter", query_parameter)
+        pulumi.set(__self__, "query_string", query_string)
+        pulumi.set(__self__, "region_code", region_code)
+        pulumi.set(__self__, "region_name", region_name)
+        pulumi.set(__self__, "remote", remote)
+        pulumi.set(__self__, "request", request)
+        pulumi.set(__self__, "response", response)
+        pulumi.set(__self__, "route_domain", route_domain)
+        pulumi.set(__self__, "rtt", rtt)
+        pulumi.set(__self__, "scheme", scheme)
+        pulumi.set(__self__, "server_name", server_name)
+        pulumi.set(__self__, "ssl_cert", ssl_cert)
+        pulumi.set(__self__, "ssl_client_hello", ssl_client_hello)
+        pulumi.set(__self__, "ssl_extension", ssl_extension)
+        pulumi.set(__self__, "ssl_server_handshake", ssl_server_handshake)
+        pulumi.set(__self__, "ssl_server_hello", ssl_server_hello)
+        pulumi.set(__self__, "starts_with", starts_with)
+        pulumi.set(__self__, "tcp", tcp)
+        pulumi.set(__self__, "text", text)
+        pulumi.set(__self__, "tm_name", tm_name)
+        pulumi.set(__self__, "unnamed_query_parameter", unnamed_query_parameter)
+        pulumi.set(__self__, "user_agent_token", user_agent_token)
+        pulumi.set(__self__, "username", username)
+        pulumi.set(__self__, "value", value)
+        pulumi.set(__self__, "values", values)
+        pulumi.set(__self__, "version", version)
+        pulumi.set(__self__, "vlan", vlan)
+        pulumi.set(__self__, "vlan_id", vlan_id)
 
     @property
     @pulumi.getter

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['NetTunnelArgs', 'NetTunnel']
@@ -51,102 +51,37 @@ class NetTunnelArgs:
         :param pulumi.Input[str] transparent: Enables or disables the tunnel to be transparent
         :param pulumi.Input[str] use_pmtu: Enables or disables the tunnel to use the PMTU (Path MTU) information provided by ICMP NeedFrag error messages
         """
-        NetTunnelArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            local_address=local_address,
-            name=name,
-            profile=profile,
-            app_service=app_service,
-            auto_last_hop=auto_last_hop,
-            description=description,
-            idle_timeout=idle_timeout,
-            key=key,
-            mode=mode,
-            mtu=mtu,
-            partition=partition,
-            remote_address=remote_address,
-            secondary_address=secondary_address,
-            tos=tos,
-            traffic_group=traffic_group,
-            transparent=transparent,
-            use_pmtu=use_pmtu,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             local_address: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             profile: Optional[pulumi.Input[str]] = None,
-             app_service: Optional[pulumi.Input[str]] = None,
-             auto_last_hop: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             idle_timeout: Optional[pulumi.Input[int]] = None,
-             key: Optional[pulumi.Input[int]] = None,
-             mode: Optional[pulumi.Input[str]] = None,
-             mtu: Optional[pulumi.Input[int]] = None,
-             partition: Optional[pulumi.Input[str]] = None,
-             remote_address: Optional[pulumi.Input[str]] = None,
-             secondary_address: Optional[pulumi.Input[str]] = None,
-             tos: Optional[pulumi.Input[str]] = None,
-             traffic_group: Optional[pulumi.Input[str]] = None,
-             transparent: Optional[pulumi.Input[str]] = None,
-             use_pmtu: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if local_address is None and 'localAddress' in kwargs:
-            local_address = kwargs['localAddress']
-        if local_address is None:
-            raise TypeError("Missing 'local_address' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if profile is None:
-            raise TypeError("Missing 'profile' argument")
-        if app_service is None and 'appService' in kwargs:
-            app_service = kwargs['appService']
-        if auto_last_hop is None and 'autoLastHop' in kwargs:
-            auto_last_hop = kwargs['autoLastHop']
-        if idle_timeout is None and 'idleTimeout' in kwargs:
-            idle_timeout = kwargs['idleTimeout']
-        if remote_address is None and 'remoteAddress' in kwargs:
-            remote_address = kwargs['remoteAddress']
-        if secondary_address is None and 'secondaryAddress' in kwargs:
-            secondary_address = kwargs['secondaryAddress']
-        if traffic_group is None and 'trafficGroup' in kwargs:
-            traffic_group = kwargs['trafficGroup']
-        if use_pmtu is None and 'usePmtu' in kwargs:
-            use_pmtu = kwargs['usePmtu']
-
-        _setter("local_address", local_address)
-        _setter("name", name)
-        _setter("profile", profile)
+        pulumi.set(__self__, "local_address", local_address)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "profile", profile)
         if app_service is not None:
-            _setter("app_service", app_service)
+            pulumi.set(__self__, "app_service", app_service)
         if auto_last_hop is not None:
-            _setter("auto_last_hop", auto_last_hop)
+            pulumi.set(__self__, "auto_last_hop", auto_last_hop)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if idle_timeout is not None:
-            _setter("idle_timeout", idle_timeout)
+            pulumi.set(__self__, "idle_timeout", idle_timeout)
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if mode is not None:
-            _setter("mode", mode)
+            pulumi.set(__self__, "mode", mode)
         if mtu is not None:
-            _setter("mtu", mtu)
+            pulumi.set(__self__, "mtu", mtu)
         if partition is not None:
-            _setter("partition", partition)
+            pulumi.set(__self__, "partition", partition)
         if remote_address is not None:
-            _setter("remote_address", remote_address)
+            pulumi.set(__self__, "remote_address", remote_address)
         if secondary_address is not None:
-            _setter("secondary_address", secondary_address)
+            pulumi.set(__self__, "secondary_address", secondary_address)
         if tos is not None:
-            _setter("tos", tos)
+            pulumi.set(__self__, "tos", tos)
         if traffic_group is not None:
-            _setter("traffic_group", traffic_group)
+            pulumi.set(__self__, "traffic_group", traffic_group)
         if transparent is not None:
-            _setter("transparent", transparent)
+            pulumi.set(__self__, "transparent", transparent)
         if use_pmtu is not None:
-            _setter("use_pmtu", use_pmtu)
+            pulumi.set(__self__, "use_pmtu", use_pmtu)
 
     @property
     @pulumi.getter(name="localAddress")
@@ -393,99 +328,40 @@ class _NetTunnelState:
         :param pulumi.Input[str] transparent: Enables or disables the tunnel to be transparent
         :param pulumi.Input[str] use_pmtu: Enables or disables the tunnel to use the PMTU (Path MTU) information provided by ICMP NeedFrag error messages
         """
-        _NetTunnelState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            app_service=app_service,
-            auto_last_hop=auto_last_hop,
-            description=description,
-            idle_timeout=idle_timeout,
-            key=key,
-            local_address=local_address,
-            mode=mode,
-            mtu=mtu,
-            name=name,
-            partition=partition,
-            profile=profile,
-            remote_address=remote_address,
-            secondary_address=secondary_address,
-            tos=tos,
-            traffic_group=traffic_group,
-            transparent=transparent,
-            use_pmtu=use_pmtu,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             app_service: Optional[pulumi.Input[str]] = None,
-             auto_last_hop: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             idle_timeout: Optional[pulumi.Input[int]] = None,
-             key: Optional[pulumi.Input[int]] = None,
-             local_address: Optional[pulumi.Input[str]] = None,
-             mode: Optional[pulumi.Input[str]] = None,
-             mtu: Optional[pulumi.Input[int]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             partition: Optional[pulumi.Input[str]] = None,
-             profile: Optional[pulumi.Input[str]] = None,
-             remote_address: Optional[pulumi.Input[str]] = None,
-             secondary_address: Optional[pulumi.Input[str]] = None,
-             tos: Optional[pulumi.Input[str]] = None,
-             traffic_group: Optional[pulumi.Input[str]] = None,
-             transparent: Optional[pulumi.Input[str]] = None,
-             use_pmtu: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if app_service is None and 'appService' in kwargs:
-            app_service = kwargs['appService']
-        if auto_last_hop is None and 'autoLastHop' in kwargs:
-            auto_last_hop = kwargs['autoLastHop']
-        if idle_timeout is None and 'idleTimeout' in kwargs:
-            idle_timeout = kwargs['idleTimeout']
-        if local_address is None and 'localAddress' in kwargs:
-            local_address = kwargs['localAddress']
-        if remote_address is None and 'remoteAddress' in kwargs:
-            remote_address = kwargs['remoteAddress']
-        if secondary_address is None and 'secondaryAddress' in kwargs:
-            secondary_address = kwargs['secondaryAddress']
-        if traffic_group is None and 'trafficGroup' in kwargs:
-            traffic_group = kwargs['trafficGroup']
-        if use_pmtu is None and 'usePmtu' in kwargs:
-            use_pmtu = kwargs['usePmtu']
-
         if app_service is not None:
-            _setter("app_service", app_service)
+            pulumi.set(__self__, "app_service", app_service)
         if auto_last_hop is not None:
-            _setter("auto_last_hop", auto_last_hop)
+            pulumi.set(__self__, "auto_last_hop", auto_last_hop)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if idle_timeout is not None:
-            _setter("idle_timeout", idle_timeout)
+            pulumi.set(__self__, "idle_timeout", idle_timeout)
         if key is not None:
-            _setter("key", key)
+            pulumi.set(__self__, "key", key)
         if local_address is not None:
-            _setter("local_address", local_address)
+            pulumi.set(__self__, "local_address", local_address)
         if mode is not None:
-            _setter("mode", mode)
+            pulumi.set(__self__, "mode", mode)
         if mtu is not None:
-            _setter("mtu", mtu)
+            pulumi.set(__self__, "mtu", mtu)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if partition is not None:
-            _setter("partition", partition)
+            pulumi.set(__self__, "partition", partition)
         if profile is not None:
-            _setter("profile", profile)
+            pulumi.set(__self__, "profile", profile)
         if remote_address is not None:
-            _setter("remote_address", remote_address)
+            pulumi.set(__self__, "remote_address", remote_address)
         if secondary_address is not None:
-            _setter("secondary_address", secondary_address)
+            pulumi.set(__self__, "secondary_address", secondary_address)
         if tos is not None:
-            _setter("tos", tos)
+            pulumi.set(__self__, "tos", tos)
         if traffic_group is not None:
-            _setter("traffic_group", traffic_group)
+            pulumi.set(__self__, "traffic_group", traffic_group)
         if transparent is not None:
-            _setter("transparent", transparent)
+            pulumi.set(__self__, "transparent", transparent)
         if use_pmtu is not None:
-            _setter("use_pmtu", use_pmtu)
+            pulumi.set(__self__, "use_pmtu", use_pmtu)
 
     @property
     @pulumi.getter(name="appService")
@@ -781,10 +657,6 @@ class NetTunnel(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            NetTunnelArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

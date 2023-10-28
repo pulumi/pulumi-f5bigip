@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SnatPoolArgs', 'SnatPool']
@@ -21,25 +21,8 @@ class SnatPoolArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] members: Specifies a translation address to add to or delete from a SNAT pool (at least one address is required)
         :param pulumi.Input[str] name: Name of the snatpool
         """
-        SnatPoolArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            members=members,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if members is None:
-            raise TypeError("Missing 'members' argument")
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-
-        _setter("members", members)
-        _setter("name", name)
+        pulumi.set(__self__, "members", members)
+        pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -76,23 +59,10 @@ class _SnatPoolState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] members: Specifies a translation address to add to or delete from a SNAT pool (at least one address is required)
         :param pulumi.Input[str] name: Name of the snatpool
         """
-        _SnatPoolState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            members=members,
-            name=name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if members is not None:
-            _setter("members", members)
+            pulumi.set(__self__, "members", members)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
@@ -186,10 +156,6 @@ class SnatPool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            SnatPoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
