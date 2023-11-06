@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['SelfIpArgs', 'SelfIp']
@@ -27,13 +27,42 @@ class SelfIpArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] port_lockdowns: Specifies the port lockdown, defaults to `Allow None` if not specified.
         :param pulumi.Input[str] traffic_group: Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
         """
-        pulumi.set(__self__, "ip", ip)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "vlan", vlan)
+        SelfIpArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip=ip,
+            name=name,
+            vlan=vlan,
+            port_lockdowns=port_lockdowns,
+            traffic_group=traffic_group,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             vlan: Optional[pulumi.Input[str]] = None,
+             port_lockdowns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             traffic_group: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if ip is None:
+            raise TypeError("Missing 'ip' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if vlan is None:
+            raise TypeError("Missing 'vlan' argument")
+        if port_lockdowns is None and 'portLockdowns' in kwargs:
+            port_lockdowns = kwargs['portLockdowns']
+        if traffic_group is None and 'trafficGroup' in kwargs:
+            traffic_group = kwargs['trafficGroup']
+
+        _setter("ip", ip)
+        _setter("name", name)
+        _setter("vlan", vlan)
         if port_lockdowns is not None:
-            pulumi.set(__self__, "port_lockdowns", port_lockdowns)
+            _setter("port_lockdowns", port_lockdowns)
         if traffic_group is not None:
-            pulumi.set(__self__, "traffic_group", traffic_group)
+            _setter("traffic_group", traffic_group)
 
     @property
     @pulumi.getter
@@ -112,16 +141,39 @@ class _SelfIpState:
         :param pulumi.Input[str] traffic_group: Specifies the traffic group, defaults to `traffic-group-local-only` if not specified.
         :param pulumi.Input[str] vlan: Specifies the VLAN for which you are setting a self IP address. This setting must be provided when a self IP is created.
         """
+        _SelfIpState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ip=ip,
+            name=name,
+            port_lockdowns=port_lockdowns,
+            traffic_group=traffic_group,
+            vlan=vlan,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ip: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             port_lockdowns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             traffic_group: Optional[pulumi.Input[str]] = None,
+             vlan: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if port_lockdowns is None and 'portLockdowns' in kwargs:
+            port_lockdowns = kwargs['portLockdowns']
+        if traffic_group is None and 'trafficGroup' in kwargs:
+            traffic_group = kwargs['trafficGroup']
+
         if ip is not None:
-            pulumi.set(__self__, "ip", ip)
+            _setter("ip", ip)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if port_lockdowns is not None:
-            pulumi.set(__self__, "port_lockdowns", port_lockdowns)
+            _setter("port_lockdowns", port_lockdowns)
         if traffic_group is not None:
-            pulumi.set(__self__, "traffic_group", traffic_group)
+            _setter("traffic_group", traffic_group)
         if vlan is not None:
-            pulumi.set(__self__, "vlan", vlan)
+            _setter("vlan", vlan)
 
     @property
     @pulumi.getter
@@ -361,6 +413,10 @@ class SelfIp(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SelfIpArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

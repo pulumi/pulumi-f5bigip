@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -78,63 +78,184 @@ class ProfileHttpArgs:
         :param pulumi.Input[str] via_response: Specifies whether to append, remove, or preserve a Via header in an HTTP request
         :param pulumi.Input[Sequence[pulumi.Input[str]]] xff_alternative_names: Specifies alternative XFF headers instead of the default X-forwarded-for header.
         """
-        pulumi.set(__self__, "name", name)
+        ProfileHttpArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            accept_xff=accept_xff,
+            app_service=app_service,
+            basic_auth_realm=basic_auth_realm,
+            defaults_from=defaults_from,
+            description=description,
+            encrypt_cookie_secret=encrypt_cookie_secret,
+            encrypt_cookies=encrypt_cookies,
+            enforcements=enforcements,
+            fallback_host=fallback_host,
+            fallback_status_codes=fallback_status_codes,
+            head_erase=head_erase,
+            head_insert=head_insert,
+            http_strict_transport_securities=http_strict_transport_securities,
+            insert_xforwarded_for=insert_xforwarded_for,
+            lws_separator=lws_separator,
+            lws_width=lws_width,
+            oneconnect_transformations=oneconnect_transformations,
+            proxy_type=proxy_type,
+            redirect_rewrite=redirect_rewrite,
+            request_chunking=request_chunking,
+            response_chunking=response_chunking,
+            response_headers_permitteds=response_headers_permitteds,
+            server_agent_name=server_agent_name,
+            tm_partition=tm_partition,
+            via_host_name=via_host_name,
+            via_request=via_request,
+            via_response=via_response,
+            xff_alternative_names=xff_alternative_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             accept_xff: Optional[pulumi.Input[str]] = None,
+             app_service: Optional[pulumi.Input[str]] = None,
+             basic_auth_realm: Optional[pulumi.Input[str]] = None,
+             defaults_from: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             encrypt_cookie_secret: Optional[pulumi.Input[str]] = None,
+             encrypt_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             enforcements: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileHttpEnforcementArgs']]]] = None,
+             fallback_host: Optional[pulumi.Input[str]] = None,
+             fallback_status_codes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             head_erase: Optional[pulumi.Input[str]] = None,
+             head_insert: Optional[pulumi.Input[str]] = None,
+             http_strict_transport_securities: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileHttpHttpStrictTransportSecurityArgs']]]] = None,
+             insert_xforwarded_for: Optional[pulumi.Input[str]] = None,
+             lws_separator: Optional[pulumi.Input[str]] = None,
+             lws_width: Optional[pulumi.Input[int]] = None,
+             oneconnect_transformations: Optional[pulumi.Input[str]] = None,
+             proxy_type: Optional[pulumi.Input[str]] = None,
+             redirect_rewrite: Optional[pulumi.Input[str]] = None,
+             request_chunking: Optional[pulumi.Input[str]] = None,
+             response_chunking: Optional[pulumi.Input[str]] = None,
+             response_headers_permitteds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             server_agent_name: Optional[pulumi.Input[str]] = None,
+             tm_partition: Optional[pulumi.Input[str]] = None,
+             via_host_name: Optional[pulumi.Input[str]] = None,
+             via_request: Optional[pulumi.Input[str]] = None,
+             via_response: Optional[pulumi.Input[str]] = None,
+             xff_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if accept_xff is None and 'acceptXff' in kwargs:
+            accept_xff = kwargs['acceptXff']
+        if app_service is None and 'appService' in kwargs:
+            app_service = kwargs['appService']
+        if basic_auth_realm is None and 'basicAuthRealm' in kwargs:
+            basic_auth_realm = kwargs['basicAuthRealm']
+        if defaults_from is None and 'defaultsFrom' in kwargs:
+            defaults_from = kwargs['defaultsFrom']
+        if encrypt_cookie_secret is None and 'encryptCookieSecret' in kwargs:
+            encrypt_cookie_secret = kwargs['encryptCookieSecret']
+        if encrypt_cookies is None and 'encryptCookies' in kwargs:
+            encrypt_cookies = kwargs['encryptCookies']
+        if fallback_host is None and 'fallbackHost' in kwargs:
+            fallback_host = kwargs['fallbackHost']
+        if fallback_status_codes is None and 'fallbackStatusCodes' in kwargs:
+            fallback_status_codes = kwargs['fallbackStatusCodes']
+        if head_erase is None and 'headErase' in kwargs:
+            head_erase = kwargs['headErase']
+        if head_insert is None and 'headInsert' in kwargs:
+            head_insert = kwargs['headInsert']
+        if http_strict_transport_securities is None and 'httpStrictTransportSecurities' in kwargs:
+            http_strict_transport_securities = kwargs['httpStrictTransportSecurities']
+        if insert_xforwarded_for is None and 'insertXforwardedFor' in kwargs:
+            insert_xforwarded_for = kwargs['insertXforwardedFor']
+        if lws_separator is None and 'lwsSeparator' in kwargs:
+            lws_separator = kwargs['lwsSeparator']
+        if lws_width is None and 'lwsWidth' in kwargs:
+            lws_width = kwargs['lwsWidth']
+        if oneconnect_transformations is None and 'oneconnectTransformations' in kwargs:
+            oneconnect_transformations = kwargs['oneconnectTransformations']
+        if proxy_type is None and 'proxyType' in kwargs:
+            proxy_type = kwargs['proxyType']
+        if redirect_rewrite is None and 'redirectRewrite' in kwargs:
+            redirect_rewrite = kwargs['redirectRewrite']
+        if request_chunking is None and 'requestChunking' in kwargs:
+            request_chunking = kwargs['requestChunking']
+        if response_chunking is None and 'responseChunking' in kwargs:
+            response_chunking = kwargs['responseChunking']
+        if response_headers_permitteds is None and 'responseHeadersPermitteds' in kwargs:
+            response_headers_permitteds = kwargs['responseHeadersPermitteds']
+        if server_agent_name is None and 'serverAgentName' in kwargs:
+            server_agent_name = kwargs['serverAgentName']
+        if tm_partition is None and 'tmPartition' in kwargs:
+            tm_partition = kwargs['tmPartition']
+        if via_host_name is None and 'viaHostName' in kwargs:
+            via_host_name = kwargs['viaHostName']
+        if via_request is None and 'viaRequest' in kwargs:
+            via_request = kwargs['viaRequest']
+        if via_response is None and 'viaResponse' in kwargs:
+            via_response = kwargs['viaResponse']
+        if xff_alternative_names is None and 'xffAlternativeNames' in kwargs:
+            xff_alternative_names = kwargs['xffAlternativeNames']
+
+        _setter("name", name)
         if accept_xff is not None:
-            pulumi.set(__self__, "accept_xff", accept_xff)
+            _setter("accept_xff", accept_xff)
         if app_service is not None:
-            pulumi.set(__self__, "app_service", app_service)
+            _setter("app_service", app_service)
         if basic_auth_realm is not None:
-            pulumi.set(__self__, "basic_auth_realm", basic_auth_realm)
+            _setter("basic_auth_realm", basic_auth_realm)
         if defaults_from is not None:
-            pulumi.set(__self__, "defaults_from", defaults_from)
+            _setter("defaults_from", defaults_from)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if encrypt_cookie_secret is not None:
-            pulumi.set(__self__, "encrypt_cookie_secret", encrypt_cookie_secret)
+            _setter("encrypt_cookie_secret", encrypt_cookie_secret)
         if encrypt_cookies is not None:
-            pulumi.set(__self__, "encrypt_cookies", encrypt_cookies)
+            _setter("encrypt_cookies", encrypt_cookies)
         if enforcements is not None:
-            pulumi.set(__self__, "enforcements", enforcements)
+            _setter("enforcements", enforcements)
         if fallback_host is not None:
-            pulumi.set(__self__, "fallback_host", fallback_host)
+            _setter("fallback_host", fallback_host)
         if fallback_status_codes is not None:
-            pulumi.set(__self__, "fallback_status_codes", fallback_status_codes)
+            _setter("fallback_status_codes", fallback_status_codes)
         if head_erase is not None:
-            pulumi.set(__self__, "head_erase", head_erase)
+            _setter("head_erase", head_erase)
         if head_insert is not None:
-            pulumi.set(__self__, "head_insert", head_insert)
+            _setter("head_insert", head_insert)
         if http_strict_transport_securities is not None:
-            pulumi.set(__self__, "http_strict_transport_securities", http_strict_transport_securities)
+            _setter("http_strict_transport_securities", http_strict_transport_securities)
         if insert_xforwarded_for is not None:
-            pulumi.set(__self__, "insert_xforwarded_for", insert_xforwarded_for)
+            _setter("insert_xforwarded_for", insert_xforwarded_for)
         if lws_separator is not None:
-            pulumi.set(__self__, "lws_separator", lws_separator)
+            _setter("lws_separator", lws_separator)
         if lws_width is not None:
-            pulumi.set(__self__, "lws_width", lws_width)
+            _setter("lws_width", lws_width)
         if oneconnect_transformations is not None:
-            pulumi.set(__self__, "oneconnect_transformations", oneconnect_transformations)
+            _setter("oneconnect_transformations", oneconnect_transformations)
         if proxy_type is not None:
-            pulumi.set(__self__, "proxy_type", proxy_type)
+            _setter("proxy_type", proxy_type)
         if redirect_rewrite is not None:
-            pulumi.set(__self__, "redirect_rewrite", redirect_rewrite)
+            _setter("redirect_rewrite", redirect_rewrite)
         if request_chunking is not None:
-            pulumi.set(__self__, "request_chunking", request_chunking)
+            _setter("request_chunking", request_chunking)
         if response_chunking is not None:
-            pulumi.set(__self__, "response_chunking", response_chunking)
+            _setter("response_chunking", response_chunking)
         if response_headers_permitteds is not None:
-            pulumi.set(__self__, "response_headers_permitteds", response_headers_permitteds)
+            _setter("response_headers_permitteds", response_headers_permitteds)
         if server_agent_name is not None:
-            pulumi.set(__self__, "server_agent_name", server_agent_name)
+            _setter("server_agent_name", server_agent_name)
         if tm_partition is not None:
-            pulumi.set(__self__, "tm_partition", tm_partition)
+            _setter("tm_partition", tm_partition)
         if via_host_name is not None:
-            pulumi.set(__self__, "via_host_name", via_host_name)
+            _setter("via_host_name", via_host_name)
         if via_request is not None:
-            pulumi.set(__self__, "via_request", via_request)
+            _setter("via_request", via_request)
         if via_response is not None:
-            pulumi.set(__self__, "via_response", via_response)
+            _setter("via_response", via_response)
         if xff_alternative_names is not None:
-            pulumi.set(__self__, "xff_alternative_names", xff_alternative_names)
+            _setter("xff_alternative_names", xff_alternative_names)
 
     @property
     @pulumi.getter
@@ -551,64 +672,183 @@ class _ProfileHttpState:
         :param pulumi.Input[str] via_response: Specifies whether to append, remove, or preserve a Via header in an HTTP request
         :param pulumi.Input[Sequence[pulumi.Input[str]]] xff_alternative_names: Specifies alternative XFF headers instead of the default X-forwarded-for header.
         """
+        _ProfileHttpState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            accept_xff=accept_xff,
+            app_service=app_service,
+            basic_auth_realm=basic_auth_realm,
+            defaults_from=defaults_from,
+            description=description,
+            encrypt_cookie_secret=encrypt_cookie_secret,
+            encrypt_cookies=encrypt_cookies,
+            enforcements=enforcements,
+            fallback_host=fallback_host,
+            fallback_status_codes=fallback_status_codes,
+            head_erase=head_erase,
+            head_insert=head_insert,
+            http_strict_transport_securities=http_strict_transport_securities,
+            insert_xforwarded_for=insert_xforwarded_for,
+            lws_separator=lws_separator,
+            lws_width=lws_width,
+            name=name,
+            oneconnect_transformations=oneconnect_transformations,
+            proxy_type=proxy_type,
+            redirect_rewrite=redirect_rewrite,
+            request_chunking=request_chunking,
+            response_chunking=response_chunking,
+            response_headers_permitteds=response_headers_permitteds,
+            server_agent_name=server_agent_name,
+            tm_partition=tm_partition,
+            via_host_name=via_host_name,
+            via_request=via_request,
+            via_response=via_response,
+            xff_alternative_names=xff_alternative_names,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             accept_xff: Optional[pulumi.Input[str]] = None,
+             app_service: Optional[pulumi.Input[str]] = None,
+             basic_auth_realm: Optional[pulumi.Input[str]] = None,
+             defaults_from: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             encrypt_cookie_secret: Optional[pulumi.Input[str]] = None,
+             encrypt_cookies: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             enforcements: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileHttpEnforcementArgs']]]] = None,
+             fallback_host: Optional[pulumi.Input[str]] = None,
+             fallback_status_codes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             head_erase: Optional[pulumi.Input[str]] = None,
+             head_insert: Optional[pulumi.Input[str]] = None,
+             http_strict_transport_securities: Optional[pulumi.Input[Sequence[pulumi.Input['ProfileHttpHttpStrictTransportSecurityArgs']]]] = None,
+             insert_xforwarded_for: Optional[pulumi.Input[str]] = None,
+             lws_separator: Optional[pulumi.Input[str]] = None,
+             lws_width: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             oneconnect_transformations: Optional[pulumi.Input[str]] = None,
+             proxy_type: Optional[pulumi.Input[str]] = None,
+             redirect_rewrite: Optional[pulumi.Input[str]] = None,
+             request_chunking: Optional[pulumi.Input[str]] = None,
+             response_chunking: Optional[pulumi.Input[str]] = None,
+             response_headers_permitteds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             server_agent_name: Optional[pulumi.Input[str]] = None,
+             tm_partition: Optional[pulumi.Input[str]] = None,
+             via_host_name: Optional[pulumi.Input[str]] = None,
+             via_request: Optional[pulumi.Input[str]] = None,
+             via_response: Optional[pulumi.Input[str]] = None,
+             xff_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if accept_xff is None and 'acceptXff' in kwargs:
+            accept_xff = kwargs['acceptXff']
+        if app_service is None and 'appService' in kwargs:
+            app_service = kwargs['appService']
+        if basic_auth_realm is None and 'basicAuthRealm' in kwargs:
+            basic_auth_realm = kwargs['basicAuthRealm']
+        if defaults_from is None and 'defaultsFrom' in kwargs:
+            defaults_from = kwargs['defaultsFrom']
+        if encrypt_cookie_secret is None and 'encryptCookieSecret' in kwargs:
+            encrypt_cookie_secret = kwargs['encryptCookieSecret']
+        if encrypt_cookies is None and 'encryptCookies' in kwargs:
+            encrypt_cookies = kwargs['encryptCookies']
+        if fallback_host is None and 'fallbackHost' in kwargs:
+            fallback_host = kwargs['fallbackHost']
+        if fallback_status_codes is None and 'fallbackStatusCodes' in kwargs:
+            fallback_status_codes = kwargs['fallbackStatusCodes']
+        if head_erase is None and 'headErase' in kwargs:
+            head_erase = kwargs['headErase']
+        if head_insert is None and 'headInsert' in kwargs:
+            head_insert = kwargs['headInsert']
+        if http_strict_transport_securities is None and 'httpStrictTransportSecurities' in kwargs:
+            http_strict_transport_securities = kwargs['httpStrictTransportSecurities']
+        if insert_xforwarded_for is None and 'insertXforwardedFor' in kwargs:
+            insert_xforwarded_for = kwargs['insertXforwardedFor']
+        if lws_separator is None and 'lwsSeparator' in kwargs:
+            lws_separator = kwargs['lwsSeparator']
+        if lws_width is None and 'lwsWidth' in kwargs:
+            lws_width = kwargs['lwsWidth']
+        if oneconnect_transformations is None and 'oneconnectTransformations' in kwargs:
+            oneconnect_transformations = kwargs['oneconnectTransformations']
+        if proxy_type is None and 'proxyType' in kwargs:
+            proxy_type = kwargs['proxyType']
+        if redirect_rewrite is None and 'redirectRewrite' in kwargs:
+            redirect_rewrite = kwargs['redirectRewrite']
+        if request_chunking is None and 'requestChunking' in kwargs:
+            request_chunking = kwargs['requestChunking']
+        if response_chunking is None and 'responseChunking' in kwargs:
+            response_chunking = kwargs['responseChunking']
+        if response_headers_permitteds is None and 'responseHeadersPermitteds' in kwargs:
+            response_headers_permitteds = kwargs['responseHeadersPermitteds']
+        if server_agent_name is None and 'serverAgentName' in kwargs:
+            server_agent_name = kwargs['serverAgentName']
+        if tm_partition is None and 'tmPartition' in kwargs:
+            tm_partition = kwargs['tmPartition']
+        if via_host_name is None and 'viaHostName' in kwargs:
+            via_host_name = kwargs['viaHostName']
+        if via_request is None and 'viaRequest' in kwargs:
+            via_request = kwargs['viaRequest']
+        if via_response is None and 'viaResponse' in kwargs:
+            via_response = kwargs['viaResponse']
+        if xff_alternative_names is None and 'xffAlternativeNames' in kwargs:
+            xff_alternative_names = kwargs['xffAlternativeNames']
+
         if accept_xff is not None:
-            pulumi.set(__self__, "accept_xff", accept_xff)
+            _setter("accept_xff", accept_xff)
         if app_service is not None:
-            pulumi.set(__self__, "app_service", app_service)
+            _setter("app_service", app_service)
         if basic_auth_realm is not None:
-            pulumi.set(__self__, "basic_auth_realm", basic_auth_realm)
+            _setter("basic_auth_realm", basic_auth_realm)
         if defaults_from is not None:
-            pulumi.set(__self__, "defaults_from", defaults_from)
+            _setter("defaults_from", defaults_from)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if encrypt_cookie_secret is not None:
-            pulumi.set(__self__, "encrypt_cookie_secret", encrypt_cookie_secret)
+            _setter("encrypt_cookie_secret", encrypt_cookie_secret)
         if encrypt_cookies is not None:
-            pulumi.set(__self__, "encrypt_cookies", encrypt_cookies)
+            _setter("encrypt_cookies", encrypt_cookies)
         if enforcements is not None:
-            pulumi.set(__self__, "enforcements", enforcements)
+            _setter("enforcements", enforcements)
         if fallback_host is not None:
-            pulumi.set(__self__, "fallback_host", fallback_host)
+            _setter("fallback_host", fallback_host)
         if fallback_status_codes is not None:
-            pulumi.set(__self__, "fallback_status_codes", fallback_status_codes)
+            _setter("fallback_status_codes", fallback_status_codes)
         if head_erase is not None:
-            pulumi.set(__self__, "head_erase", head_erase)
+            _setter("head_erase", head_erase)
         if head_insert is not None:
-            pulumi.set(__self__, "head_insert", head_insert)
+            _setter("head_insert", head_insert)
         if http_strict_transport_securities is not None:
-            pulumi.set(__self__, "http_strict_transport_securities", http_strict_transport_securities)
+            _setter("http_strict_transport_securities", http_strict_transport_securities)
         if insert_xforwarded_for is not None:
-            pulumi.set(__self__, "insert_xforwarded_for", insert_xforwarded_for)
+            _setter("insert_xforwarded_for", insert_xforwarded_for)
         if lws_separator is not None:
-            pulumi.set(__self__, "lws_separator", lws_separator)
+            _setter("lws_separator", lws_separator)
         if lws_width is not None:
-            pulumi.set(__self__, "lws_width", lws_width)
+            _setter("lws_width", lws_width)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if oneconnect_transformations is not None:
-            pulumi.set(__self__, "oneconnect_transformations", oneconnect_transformations)
+            _setter("oneconnect_transformations", oneconnect_transformations)
         if proxy_type is not None:
-            pulumi.set(__self__, "proxy_type", proxy_type)
+            _setter("proxy_type", proxy_type)
         if redirect_rewrite is not None:
-            pulumi.set(__self__, "redirect_rewrite", redirect_rewrite)
+            _setter("redirect_rewrite", redirect_rewrite)
         if request_chunking is not None:
-            pulumi.set(__self__, "request_chunking", request_chunking)
+            _setter("request_chunking", request_chunking)
         if response_chunking is not None:
-            pulumi.set(__self__, "response_chunking", response_chunking)
+            _setter("response_chunking", response_chunking)
         if response_headers_permitteds is not None:
-            pulumi.set(__self__, "response_headers_permitteds", response_headers_permitteds)
+            _setter("response_headers_permitteds", response_headers_permitteds)
         if server_agent_name is not None:
-            pulumi.set(__self__, "server_agent_name", server_agent_name)
+            _setter("server_agent_name", server_agent_name)
         if tm_partition is not None:
-            pulumi.set(__self__, "tm_partition", tm_partition)
+            _setter("tm_partition", tm_partition)
         if via_host_name is not None:
-            pulumi.set(__self__, "via_host_name", via_host_name)
+            _setter("via_host_name", via_host_name)
         if via_request is not None:
-            pulumi.set(__self__, "via_request", via_request)
+            _setter("via_request", via_request)
         if via_response is not None:
-            pulumi.set(__self__, "via_response", via_response)
+            _setter("via_response", via_response)
         if xff_alternative_names is not None:
-            pulumi.set(__self__, "xff_alternative_names", xff_alternative_names)
+            _setter("xff_alternative_names", xff_alternative_names)
 
     @property
     @pulumi.getter(name="acceptXff")
@@ -1104,6 +1344,10 @@ class ProfileHttp(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProfileHttpArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -62,44 +62,129 @@ class FastUdpAppArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans_alloweds: Names of existing VLANs to allow.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans_rejecteds: Names of existing VLANs to reject.
         """
-        pulumi.set(__self__, "application", application)
-        pulumi.set(__self__, "tenant", tenant)
+        FastUdpAppArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application=application,
+            tenant=tenant,
+            enable_fastl4=enable_fastl4,
+            existing_monitor=existing_monitor,
+            existing_pool=existing_pool,
+            existing_profile=existing_profile,
+            existing_snat_pool=existing_snat_pool,
+            fallback_persistence=fallback_persistence,
+            irules=irules,
+            load_balancing_mode=load_balancing_mode,
+            monitor=monitor,
+            persistence_profile=persistence_profile,
+            persistence_type=persistence_type,
+            pool_members=pool_members,
+            security_log_profiles=security_log_profiles,
+            slow_ramp_time=slow_ramp_time,
+            snat_pool_addresses=snat_pool_addresses,
+            virtual_server=virtual_server,
+            vlans_alloweds=vlans_alloweds,
+            vlans_rejecteds=vlans_rejecteds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application: Optional[pulumi.Input[str]] = None,
+             tenant: Optional[pulumi.Input[str]] = None,
+             enable_fastl4: Optional[pulumi.Input[bool]] = None,
+             existing_monitor: Optional[pulumi.Input[str]] = None,
+             existing_pool: Optional[pulumi.Input[str]] = None,
+             existing_profile: Optional[pulumi.Input[str]] = None,
+             existing_snat_pool: Optional[pulumi.Input[str]] = None,
+             fallback_persistence: Optional[pulumi.Input[str]] = None,
+             irules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             load_balancing_mode: Optional[pulumi.Input[str]] = None,
+             monitor: Optional[pulumi.Input['FastUdpAppMonitorArgs']] = None,
+             persistence_profile: Optional[pulumi.Input[str]] = None,
+             persistence_type: Optional[pulumi.Input[str]] = None,
+             pool_members: Optional[pulumi.Input[Sequence[pulumi.Input['FastUdpAppPoolMemberArgs']]]] = None,
+             security_log_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             slow_ramp_time: Optional[pulumi.Input[int]] = None,
+             snat_pool_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             virtual_server: Optional[pulumi.Input['FastUdpAppVirtualServerArgs']] = None,
+             vlans_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             vlans_rejecteds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if application is None:
+            raise TypeError("Missing 'application' argument")
+        if tenant is None:
+            raise TypeError("Missing 'tenant' argument")
+        if enable_fastl4 is None and 'enableFastl4' in kwargs:
+            enable_fastl4 = kwargs['enableFastl4']
+        if existing_monitor is None and 'existingMonitor' in kwargs:
+            existing_monitor = kwargs['existingMonitor']
+        if existing_pool is None and 'existingPool' in kwargs:
+            existing_pool = kwargs['existingPool']
+        if existing_profile is None and 'existingProfile' in kwargs:
+            existing_profile = kwargs['existingProfile']
+        if existing_snat_pool is None and 'existingSnatPool' in kwargs:
+            existing_snat_pool = kwargs['existingSnatPool']
+        if fallback_persistence is None and 'fallbackPersistence' in kwargs:
+            fallback_persistence = kwargs['fallbackPersistence']
+        if load_balancing_mode is None and 'loadBalancingMode' in kwargs:
+            load_balancing_mode = kwargs['loadBalancingMode']
+        if persistence_profile is None and 'persistenceProfile' in kwargs:
+            persistence_profile = kwargs['persistenceProfile']
+        if persistence_type is None and 'persistenceType' in kwargs:
+            persistence_type = kwargs['persistenceType']
+        if pool_members is None and 'poolMembers' in kwargs:
+            pool_members = kwargs['poolMembers']
+        if security_log_profiles is None and 'securityLogProfiles' in kwargs:
+            security_log_profiles = kwargs['securityLogProfiles']
+        if slow_ramp_time is None and 'slowRampTime' in kwargs:
+            slow_ramp_time = kwargs['slowRampTime']
+        if snat_pool_addresses is None and 'snatPoolAddresses' in kwargs:
+            snat_pool_addresses = kwargs['snatPoolAddresses']
+        if virtual_server is None and 'virtualServer' in kwargs:
+            virtual_server = kwargs['virtualServer']
+        if vlans_alloweds is None and 'vlansAlloweds' in kwargs:
+            vlans_alloweds = kwargs['vlansAlloweds']
+        if vlans_rejecteds is None and 'vlansRejecteds' in kwargs:
+            vlans_rejecteds = kwargs['vlansRejecteds']
+
+        _setter("application", application)
+        _setter("tenant", tenant)
         if enable_fastl4 is not None:
-            pulumi.set(__self__, "enable_fastl4", enable_fastl4)
+            _setter("enable_fastl4", enable_fastl4)
         if existing_monitor is not None:
-            pulumi.set(__self__, "existing_monitor", existing_monitor)
+            _setter("existing_monitor", existing_monitor)
         if existing_pool is not None:
-            pulumi.set(__self__, "existing_pool", existing_pool)
+            _setter("existing_pool", existing_pool)
         if existing_profile is not None:
-            pulumi.set(__self__, "existing_profile", existing_profile)
+            _setter("existing_profile", existing_profile)
         if existing_snat_pool is not None:
-            pulumi.set(__self__, "existing_snat_pool", existing_snat_pool)
+            _setter("existing_snat_pool", existing_snat_pool)
         if fallback_persistence is not None:
-            pulumi.set(__self__, "fallback_persistence", fallback_persistence)
+            _setter("fallback_persistence", fallback_persistence)
         if irules is not None:
-            pulumi.set(__self__, "irules", irules)
+            _setter("irules", irules)
         if load_balancing_mode is not None:
-            pulumi.set(__self__, "load_balancing_mode", load_balancing_mode)
+            _setter("load_balancing_mode", load_balancing_mode)
         if monitor is not None:
-            pulumi.set(__self__, "monitor", monitor)
+            _setter("monitor", monitor)
         if persistence_profile is not None:
-            pulumi.set(__self__, "persistence_profile", persistence_profile)
+            _setter("persistence_profile", persistence_profile)
         if persistence_type is not None:
-            pulumi.set(__self__, "persistence_type", persistence_type)
+            _setter("persistence_type", persistence_type)
         if pool_members is not None:
-            pulumi.set(__self__, "pool_members", pool_members)
+            _setter("pool_members", pool_members)
         if security_log_profiles is not None:
-            pulumi.set(__self__, "security_log_profiles", security_log_profiles)
+            _setter("security_log_profiles", security_log_profiles)
         if slow_ramp_time is not None:
-            pulumi.set(__self__, "slow_ramp_time", slow_ramp_time)
+            _setter("slow_ramp_time", slow_ramp_time)
         if snat_pool_addresses is not None:
-            pulumi.set(__self__, "snat_pool_addresses", snat_pool_addresses)
+            _setter("snat_pool_addresses", snat_pool_addresses)
         if virtual_server is not None:
-            pulumi.set(__self__, "virtual_server", virtual_server)
+            _setter("virtual_server", virtual_server)
         if vlans_alloweds is not None:
-            pulumi.set(__self__, "vlans_alloweds", vlans_alloweds)
+            _setter("vlans_alloweds", vlans_alloweds)
         if vlans_rejecteds is not None:
-            pulumi.set(__self__, "vlans_rejecteds", vlans_rejecteds)
+            _setter("vlans_rejecteds", vlans_rejecteds)
 
     @property
     @pulumi.getter
@@ -396,48 +481,133 @@ class _FastUdpAppState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans_alloweds: Names of existing VLANs to allow.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans_rejecteds: Names of existing VLANs to reject.
         """
+        _FastUdpAppState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application=application,
+            enable_fastl4=enable_fastl4,
+            existing_monitor=existing_monitor,
+            existing_pool=existing_pool,
+            existing_profile=existing_profile,
+            existing_snat_pool=existing_snat_pool,
+            fallback_persistence=fallback_persistence,
+            fast_udp_json=fast_udp_json,
+            irules=irules,
+            load_balancing_mode=load_balancing_mode,
+            monitor=monitor,
+            persistence_profile=persistence_profile,
+            persistence_type=persistence_type,
+            pool_members=pool_members,
+            security_log_profiles=security_log_profiles,
+            slow_ramp_time=slow_ramp_time,
+            snat_pool_addresses=snat_pool_addresses,
+            tenant=tenant,
+            virtual_server=virtual_server,
+            vlans_alloweds=vlans_alloweds,
+            vlans_rejecteds=vlans_rejecteds,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application: Optional[pulumi.Input[str]] = None,
+             enable_fastl4: Optional[pulumi.Input[bool]] = None,
+             existing_monitor: Optional[pulumi.Input[str]] = None,
+             existing_pool: Optional[pulumi.Input[str]] = None,
+             existing_profile: Optional[pulumi.Input[str]] = None,
+             existing_snat_pool: Optional[pulumi.Input[str]] = None,
+             fallback_persistence: Optional[pulumi.Input[str]] = None,
+             fast_udp_json: Optional[pulumi.Input[str]] = None,
+             irules: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             load_balancing_mode: Optional[pulumi.Input[str]] = None,
+             monitor: Optional[pulumi.Input['FastUdpAppMonitorArgs']] = None,
+             persistence_profile: Optional[pulumi.Input[str]] = None,
+             persistence_type: Optional[pulumi.Input[str]] = None,
+             pool_members: Optional[pulumi.Input[Sequence[pulumi.Input['FastUdpAppPoolMemberArgs']]]] = None,
+             security_log_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             slow_ramp_time: Optional[pulumi.Input[int]] = None,
+             snat_pool_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             tenant: Optional[pulumi.Input[str]] = None,
+             virtual_server: Optional[pulumi.Input['FastUdpAppVirtualServerArgs']] = None,
+             vlans_alloweds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             vlans_rejecteds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if enable_fastl4 is None and 'enableFastl4' in kwargs:
+            enable_fastl4 = kwargs['enableFastl4']
+        if existing_monitor is None and 'existingMonitor' in kwargs:
+            existing_monitor = kwargs['existingMonitor']
+        if existing_pool is None and 'existingPool' in kwargs:
+            existing_pool = kwargs['existingPool']
+        if existing_profile is None and 'existingProfile' in kwargs:
+            existing_profile = kwargs['existingProfile']
+        if existing_snat_pool is None and 'existingSnatPool' in kwargs:
+            existing_snat_pool = kwargs['existingSnatPool']
+        if fallback_persistence is None and 'fallbackPersistence' in kwargs:
+            fallback_persistence = kwargs['fallbackPersistence']
+        if fast_udp_json is None and 'fastUdpJson' in kwargs:
+            fast_udp_json = kwargs['fastUdpJson']
+        if load_balancing_mode is None and 'loadBalancingMode' in kwargs:
+            load_balancing_mode = kwargs['loadBalancingMode']
+        if persistence_profile is None and 'persistenceProfile' in kwargs:
+            persistence_profile = kwargs['persistenceProfile']
+        if persistence_type is None and 'persistenceType' in kwargs:
+            persistence_type = kwargs['persistenceType']
+        if pool_members is None and 'poolMembers' in kwargs:
+            pool_members = kwargs['poolMembers']
+        if security_log_profiles is None and 'securityLogProfiles' in kwargs:
+            security_log_profiles = kwargs['securityLogProfiles']
+        if slow_ramp_time is None and 'slowRampTime' in kwargs:
+            slow_ramp_time = kwargs['slowRampTime']
+        if snat_pool_addresses is None and 'snatPoolAddresses' in kwargs:
+            snat_pool_addresses = kwargs['snatPoolAddresses']
+        if virtual_server is None and 'virtualServer' in kwargs:
+            virtual_server = kwargs['virtualServer']
+        if vlans_alloweds is None and 'vlansAlloweds' in kwargs:
+            vlans_alloweds = kwargs['vlansAlloweds']
+        if vlans_rejecteds is None and 'vlansRejecteds' in kwargs:
+            vlans_rejecteds = kwargs['vlansRejecteds']
+
         if application is not None:
-            pulumi.set(__self__, "application", application)
+            _setter("application", application)
         if enable_fastl4 is not None:
-            pulumi.set(__self__, "enable_fastl4", enable_fastl4)
+            _setter("enable_fastl4", enable_fastl4)
         if existing_monitor is not None:
-            pulumi.set(__self__, "existing_monitor", existing_monitor)
+            _setter("existing_monitor", existing_monitor)
         if existing_pool is not None:
-            pulumi.set(__self__, "existing_pool", existing_pool)
+            _setter("existing_pool", existing_pool)
         if existing_profile is not None:
-            pulumi.set(__self__, "existing_profile", existing_profile)
+            _setter("existing_profile", existing_profile)
         if existing_snat_pool is not None:
-            pulumi.set(__self__, "existing_snat_pool", existing_snat_pool)
+            _setter("existing_snat_pool", existing_snat_pool)
         if fallback_persistence is not None:
-            pulumi.set(__self__, "fallback_persistence", fallback_persistence)
+            _setter("fallback_persistence", fallback_persistence)
         if fast_udp_json is not None:
-            pulumi.set(__self__, "fast_udp_json", fast_udp_json)
+            _setter("fast_udp_json", fast_udp_json)
         if irules is not None:
-            pulumi.set(__self__, "irules", irules)
+            _setter("irules", irules)
         if load_balancing_mode is not None:
-            pulumi.set(__self__, "load_balancing_mode", load_balancing_mode)
+            _setter("load_balancing_mode", load_balancing_mode)
         if monitor is not None:
-            pulumi.set(__self__, "monitor", monitor)
+            _setter("monitor", monitor)
         if persistence_profile is not None:
-            pulumi.set(__self__, "persistence_profile", persistence_profile)
+            _setter("persistence_profile", persistence_profile)
         if persistence_type is not None:
-            pulumi.set(__self__, "persistence_type", persistence_type)
+            _setter("persistence_type", persistence_type)
         if pool_members is not None:
-            pulumi.set(__self__, "pool_members", pool_members)
+            _setter("pool_members", pool_members)
         if security_log_profiles is not None:
-            pulumi.set(__self__, "security_log_profiles", security_log_profiles)
+            _setter("security_log_profiles", security_log_profiles)
         if slow_ramp_time is not None:
-            pulumi.set(__self__, "slow_ramp_time", slow_ramp_time)
+            _setter("slow_ramp_time", slow_ramp_time)
         if snat_pool_addresses is not None:
-            pulumi.set(__self__, "snat_pool_addresses", snat_pool_addresses)
+            _setter("snat_pool_addresses", snat_pool_addresses)
         if tenant is not None:
-            pulumi.set(__self__, "tenant", tenant)
+            _setter("tenant", tenant)
         if virtual_server is not None:
-            pulumi.set(__self__, "virtual_server", virtual_server)
+            _setter("virtual_server", virtual_server)
         if vlans_alloweds is not None:
-            pulumi.set(__self__, "vlans_alloweds", vlans_alloweds)
+            _setter("vlans_alloweds", vlans_alloweds)
         if vlans_rejecteds is not None:
-            pulumi.set(__self__, "vlans_rejecteds", vlans_rejecteds)
+            _setter("vlans_rejecteds", vlans_rejecteds)
 
     @property
     @pulumi.getter
@@ -819,6 +989,10 @@ class FastUdpApp(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FastUdpAppArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -864,6 +1038,11 @@ class FastUdpApp(pulumi.CustomResource):
             __props__.__dict__["fallback_persistence"] = fallback_persistence
             __props__.__dict__["irules"] = irules
             __props__.__dict__["load_balancing_mode"] = load_balancing_mode
+            if monitor is not None and not isinstance(monitor, FastUdpAppMonitorArgs):
+                monitor = monitor or {}
+                def _setter(key, value):
+                    monitor[key] = value
+                FastUdpAppMonitorArgs._configure(_setter, **monitor)
             __props__.__dict__["monitor"] = monitor
             __props__.__dict__["persistence_profile"] = persistence_profile
             __props__.__dict__["persistence_type"] = persistence_type
@@ -874,6 +1053,11 @@ class FastUdpApp(pulumi.CustomResource):
             if tenant is None and not opts.urn:
                 raise TypeError("Missing required property 'tenant'")
             __props__.__dict__["tenant"] = tenant
+            if virtual_server is not None and not isinstance(virtual_server, FastUdpAppVirtualServerArgs):
+                virtual_server = virtual_server or {}
+                def _setter(key, value):
+                    virtual_server[key] = value
+                FastUdpAppVirtualServerArgs._configure(_setter, **virtual_server)
             __props__.__dict__["virtual_server"] = virtual_server
             __props__.__dict__["vlans_alloweds"] = vlans_alloweds
             __props__.__dict__["vlans_rejecteds"] = vlans_rejecteds

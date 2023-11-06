@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['VirtualAddressArgs', 'VirtualAddress']
@@ -33,21 +33,58 @@ class VirtualAddressArgs:
         :param pulumi.Input[str] icmp_echo: Specifies how the system sends responses to ICMP echo requests on a per-virtual address basis.
         :param pulumi.Input[str] traffic_group: Specify the partition and traffic group
         """
-        pulumi.set(__self__, "name", name)
+        VirtualAddressArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            advertize_route=advertize_route,
+            arp=arp,
+            auto_delete=auto_delete,
+            conn_limit=conn_limit,
+            enabled=enabled,
+            icmp_echo=icmp_echo,
+            traffic_group=traffic_group,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             advertize_route: Optional[pulumi.Input[str]] = None,
+             arp: Optional[pulumi.Input[bool]] = None,
+             auto_delete: Optional[pulumi.Input[bool]] = None,
+             conn_limit: Optional[pulumi.Input[int]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             icmp_echo: Optional[pulumi.Input[str]] = None,
+             traffic_group: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if advertize_route is None and 'advertizeRoute' in kwargs:
+            advertize_route = kwargs['advertizeRoute']
+        if auto_delete is None and 'autoDelete' in kwargs:
+            auto_delete = kwargs['autoDelete']
+        if conn_limit is None and 'connLimit' in kwargs:
+            conn_limit = kwargs['connLimit']
+        if icmp_echo is None and 'icmpEcho' in kwargs:
+            icmp_echo = kwargs['icmpEcho']
+        if traffic_group is None and 'trafficGroup' in kwargs:
+            traffic_group = kwargs['trafficGroup']
+
+        _setter("name", name)
         if advertize_route is not None:
-            pulumi.set(__self__, "advertize_route", advertize_route)
+            _setter("advertize_route", advertize_route)
         if arp is not None:
-            pulumi.set(__self__, "arp", arp)
+            _setter("arp", arp)
         if auto_delete is not None:
-            pulumi.set(__self__, "auto_delete", auto_delete)
+            _setter("auto_delete", auto_delete)
         if conn_limit is not None:
-            pulumi.set(__self__, "conn_limit", conn_limit)
+            _setter("conn_limit", conn_limit)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if icmp_echo is not None:
-            pulumi.set(__self__, "icmp_echo", icmp_echo)
+            _setter("icmp_echo", icmp_echo)
         if traffic_group is not None:
-            pulumi.set(__self__, "traffic_group", traffic_group)
+            _setter("traffic_group", traffic_group)
 
     @property
     @pulumi.getter
@@ -168,22 +205,57 @@ class _VirtualAddressState:
         :param pulumi.Input[str] name: Name of the virtual address
         :param pulumi.Input[str] traffic_group: Specify the partition and traffic group
         """
+        _VirtualAddressState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            advertize_route=advertize_route,
+            arp=arp,
+            auto_delete=auto_delete,
+            conn_limit=conn_limit,
+            enabled=enabled,
+            icmp_echo=icmp_echo,
+            name=name,
+            traffic_group=traffic_group,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             advertize_route: Optional[pulumi.Input[str]] = None,
+             arp: Optional[pulumi.Input[bool]] = None,
+             auto_delete: Optional[pulumi.Input[bool]] = None,
+             conn_limit: Optional[pulumi.Input[int]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             icmp_echo: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             traffic_group: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if advertize_route is None and 'advertizeRoute' in kwargs:
+            advertize_route = kwargs['advertizeRoute']
+        if auto_delete is None and 'autoDelete' in kwargs:
+            auto_delete = kwargs['autoDelete']
+        if conn_limit is None and 'connLimit' in kwargs:
+            conn_limit = kwargs['connLimit']
+        if icmp_echo is None and 'icmpEcho' in kwargs:
+            icmp_echo = kwargs['icmpEcho']
+        if traffic_group is None and 'trafficGroup' in kwargs:
+            traffic_group = kwargs['trafficGroup']
+
         if advertize_route is not None:
-            pulumi.set(__self__, "advertize_route", advertize_route)
+            _setter("advertize_route", advertize_route)
         if arp is not None:
-            pulumi.set(__self__, "arp", arp)
+            _setter("arp", arp)
         if auto_delete is not None:
-            pulumi.set(__self__, "auto_delete", auto_delete)
+            _setter("auto_delete", auto_delete)
         if conn_limit is not None:
-            pulumi.set(__self__, "conn_limit", conn_limit)
+            _setter("conn_limit", conn_limit)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if icmp_echo is not None:
-            pulumi.set(__self__, "icmp_echo", icmp_echo)
+            _setter("icmp_echo", icmp_echo)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if traffic_group is not None:
-            pulumi.set(__self__, "traffic_group", traffic_group)
+            _setter("traffic_group", traffic_group)
 
     @property
     @pulumi.getter(name="advertizeRoute")
@@ -355,6 +427,10 @@ class VirtualAddress(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VirtualAddressArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

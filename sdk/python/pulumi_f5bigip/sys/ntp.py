@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['NtpArgs', 'Ntp']
@@ -23,10 +23,29 @@ class NtpArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] servers: Specifies the time servers that the system uses to update the system time.
         :param pulumi.Input[str] timezone: Specifies the time zone that you want to use for the system time.
         """
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "servers", servers)
+        NtpArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            servers=servers,
+            timezone=timezone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             timezone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if servers is None:
+            raise TypeError("Missing 'servers' argument")
+
+        _setter("description", description)
+        _setter("servers", servers)
         if timezone is not None:
-            pulumi.set(__self__, "timezone", timezone)
+            _setter("timezone", timezone)
 
     @property
     @pulumi.getter
@@ -77,12 +96,27 @@ class _NtpState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] servers: Specifies the time servers that the system uses to update the system time.
         :param pulumi.Input[str] timezone: Specifies the time zone that you want to use for the system time.
         """
+        _NtpState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            servers=servers,
+            timezone=timezone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             servers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             timezone: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if servers is not None:
-            pulumi.set(__self__, "servers", servers)
+            _setter("servers", servers)
         if timezone is not None:
-            pulumi.set(__self__, "timezone", timezone)
+            _setter("timezone", timezone)
 
     @property
     @pulumi.getter
@@ -182,6 +216,10 @@ class Ntp(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NtpArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

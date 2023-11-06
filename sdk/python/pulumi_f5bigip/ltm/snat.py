@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -41,26 +41,63 @@ class SnatArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans: Specifies the available VLANs or tunnels and those for which the SNAT is enabled or disabled.
         :param pulumi.Input[bool] vlansdisabled: Specifies the VLANs or tunnels for which the SNAT is enabled or disabled. The default is `true`, vlandisabled on VLANS specified by `vlans`,if set to `false` vlanEnabled set on VLANS specified by `vlans` .
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "origins", origins)
+        SnatArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            origins=origins,
+            autolasthop=autolasthop,
+            full_path=full_path,
+            mirror=mirror,
+            partition=partition,
+            snatpool=snatpool,
+            sourceport=sourceport,
+            translation=translation,
+            vlans=vlans,
+            vlansdisabled=vlansdisabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             origins: Optional[pulumi.Input[Sequence[pulumi.Input['SnatOriginArgs']]]] = None,
+             autolasthop: Optional[pulumi.Input[str]] = None,
+             full_path: Optional[pulumi.Input[str]] = None,
+             mirror: Optional[pulumi.Input[str]] = None,
+             partition: Optional[pulumi.Input[str]] = None,
+             snatpool: Optional[pulumi.Input[str]] = None,
+             sourceport: Optional[pulumi.Input[str]] = None,
+             translation: Optional[pulumi.Input[str]] = None,
+             vlans: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             vlansdisabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if origins is None:
+            raise TypeError("Missing 'origins' argument")
+        if full_path is None and 'fullPath' in kwargs:
+            full_path = kwargs['fullPath']
+
+        _setter("name", name)
+        _setter("origins", origins)
         if autolasthop is not None:
-            pulumi.set(__self__, "autolasthop", autolasthop)
+            _setter("autolasthop", autolasthop)
         if full_path is not None:
-            pulumi.set(__self__, "full_path", full_path)
+            _setter("full_path", full_path)
         if mirror is not None:
-            pulumi.set(__self__, "mirror", mirror)
+            _setter("mirror", mirror)
         if partition is not None:
-            pulumi.set(__self__, "partition", partition)
+            _setter("partition", partition)
         if snatpool is not None:
-            pulumi.set(__self__, "snatpool", snatpool)
+            _setter("snatpool", snatpool)
         if sourceport is not None:
-            pulumi.set(__self__, "sourceport", sourceport)
+            _setter("sourceport", sourceport)
         if translation is not None:
-            pulumi.set(__self__, "translation", translation)
+            _setter("translation", translation)
         if vlans is not None:
-            pulumi.set(__self__, "vlans", vlans)
+            _setter("vlans", vlans)
         if vlansdisabled is not None:
-            pulumi.set(__self__, "vlansdisabled", vlansdisabled)
+            _setter("vlansdisabled", vlansdisabled)
 
     @property
     @pulumi.getter
@@ -223,28 +260,61 @@ class _SnatState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans: Specifies the available VLANs or tunnels and those for which the SNAT is enabled or disabled.
         :param pulumi.Input[bool] vlansdisabled: Specifies the VLANs or tunnels for which the SNAT is enabled or disabled. The default is `true`, vlandisabled on VLANS specified by `vlans`,if set to `false` vlanEnabled set on VLANS specified by `vlans` .
         """
+        _SnatState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            autolasthop=autolasthop,
+            full_path=full_path,
+            mirror=mirror,
+            name=name,
+            origins=origins,
+            partition=partition,
+            snatpool=snatpool,
+            sourceport=sourceport,
+            translation=translation,
+            vlans=vlans,
+            vlansdisabled=vlansdisabled,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             autolasthop: Optional[pulumi.Input[str]] = None,
+             full_path: Optional[pulumi.Input[str]] = None,
+             mirror: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             origins: Optional[pulumi.Input[Sequence[pulumi.Input['SnatOriginArgs']]]] = None,
+             partition: Optional[pulumi.Input[str]] = None,
+             snatpool: Optional[pulumi.Input[str]] = None,
+             sourceport: Optional[pulumi.Input[str]] = None,
+             translation: Optional[pulumi.Input[str]] = None,
+             vlans: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             vlansdisabled: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if full_path is None and 'fullPath' in kwargs:
+            full_path = kwargs['fullPath']
+
         if autolasthop is not None:
-            pulumi.set(__self__, "autolasthop", autolasthop)
+            _setter("autolasthop", autolasthop)
         if full_path is not None:
-            pulumi.set(__self__, "full_path", full_path)
+            _setter("full_path", full_path)
         if mirror is not None:
-            pulumi.set(__self__, "mirror", mirror)
+            _setter("mirror", mirror)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if origins is not None:
-            pulumi.set(__self__, "origins", origins)
+            _setter("origins", origins)
         if partition is not None:
-            pulumi.set(__self__, "partition", partition)
+            _setter("partition", partition)
         if snatpool is not None:
-            pulumi.set(__self__, "snatpool", snatpool)
+            _setter("snatpool", snatpool)
         if sourceport is not None:
-            pulumi.set(__self__, "sourceport", sourceport)
+            _setter("sourceport", sourceport)
         if translation is not None:
-            pulumi.set(__self__, "translation", translation)
+            _setter("translation", translation)
         if vlans is not None:
-            pulumi.set(__self__, "vlans", vlans)
+            _setter("vlans", vlans)
         if vlansdisabled is not None:
-            pulumi.set(__self__, "vlansdisabled", vlansdisabled)
+            _setter("vlansdisabled", vlansdisabled)
 
     @property
     @pulumi.getter
@@ -470,6 +540,10 @@ class Snat(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            SnatArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

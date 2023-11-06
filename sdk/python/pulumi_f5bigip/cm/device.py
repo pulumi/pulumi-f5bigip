@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['DeviceArgs', 'Device']
@@ -25,12 +25,39 @@ class DeviceArgs:
         :param pulumi.Input[str] mirror_ip: IP address used for state mirroring
         :param pulumi.Input[str] mirror_secondary_ip: Secondary IP address used for state mirroring
         """
-        pulumi.set(__self__, "configsync_ip", configsync_ip)
-        pulumi.set(__self__, "name", name)
+        DeviceArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configsync_ip=configsync_ip,
+            name=name,
+            mirror_ip=mirror_ip,
+            mirror_secondary_ip=mirror_secondary_ip,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configsync_ip: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             mirror_ip: Optional[pulumi.Input[str]] = None,
+             mirror_secondary_ip: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if configsync_ip is None and 'configsyncIp' in kwargs:
+            configsync_ip = kwargs['configsyncIp']
+        if configsync_ip is None:
+            raise TypeError("Missing 'configsync_ip' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if mirror_ip is None and 'mirrorIp' in kwargs:
+            mirror_ip = kwargs['mirrorIp']
+        if mirror_secondary_ip is None and 'mirrorSecondaryIp' in kwargs:
+            mirror_secondary_ip = kwargs['mirrorSecondaryIp']
+
+        _setter("configsync_ip", configsync_ip)
+        _setter("name", name)
         if mirror_ip is not None:
-            pulumi.set(__self__, "mirror_ip", mirror_ip)
+            _setter("mirror_ip", mirror_ip)
         if mirror_secondary_ip is not None:
-            pulumi.set(__self__, "mirror_secondary_ip", mirror_secondary_ip)
+            _setter("mirror_secondary_ip", mirror_secondary_ip)
 
     @property
     @pulumi.getter(name="configsyncIp")
@@ -95,14 +122,37 @@ class _DeviceState:
         :param pulumi.Input[str] mirror_secondary_ip: Secondary IP address used for state mirroring
         :param pulumi.Input[str] name: Address of the Device which needs to be Deviceensed
         """
+        _DeviceState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            configsync_ip=configsync_ip,
+            mirror_ip=mirror_ip,
+            mirror_secondary_ip=mirror_secondary_ip,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             configsync_ip: Optional[pulumi.Input[str]] = None,
+             mirror_ip: Optional[pulumi.Input[str]] = None,
+             mirror_secondary_ip: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if configsync_ip is None and 'configsyncIp' in kwargs:
+            configsync_ip = kwargs['configsyncIp']
+        if mirror_ip is None and 'mirrorIp' in kwargs:
+            mirror_ip = kwargs['mirrorIp']
+        if mirror_secondary_ip is None and 'mirrorSecondaryIp' in kwargs:
+            mirror_secondary_ip = kwargs['mirrorSecondaryIp']
+
         if configsync_ip is not None:
-            pulumi.set(__self__, "configsync_ip", configsync_ip)
+            _setter("configsync_ip", configsync_ip)
         if mirror_ip is not None:
-            pulumi.set(__self__, "mirror_ip", mirror_ip)
+            _setter("mirror_ip", mirror_ip)
         if mirror_secondary_ip is not None:
-            pulumi.set(__self__, "mirror_secondary_ip", mirror_secondary_ip)
+            _setter("mirror_secondary_ip", mirror_secondary_ip)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="configsyncIp")
@@ -220,6 +270,10 @@ class Device(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            DeviceArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

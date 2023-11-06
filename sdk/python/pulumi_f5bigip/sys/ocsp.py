@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['OcspArgs', 'Ocsp']
@@ -51,39 +51,114 @@ class OcspArgs:
         :param pulumi.Input[str] strict_resp_cert_check: Specifies whether the responder's certificate is checked for an OCSP signing extension. The default value is `enabled`.
         :param pulumi.Input[str] trusted_responders: Specifies the certificates used for validating the OCSP response.
         """
-        pulumi.set(__self__, "name", name)
+        OcspArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            cache_error_timeout=cache_error_timeout,
+            cache_timeout=cache_timeout,
+            clock_skew=clock_skew,
+            concurrent_connections_limit=concurrent_connections_limit,
+            connection_timeout=connection_timeout,
+            dns_resolver=dns_resolver,
+            passphrase=passphrase,
+            proxy_server_pool=proxy_server_pool,
+            responder_url=responder_url,
+            route_domain=route_domain,
+            sign_hash=sign_hash,
+            signer_cert=signer_cert,
+            signer_key=signer_key,
+            status_age=status_age,
+            strict_resp_cert_check=strict_resp_cert_check,
+            trusted_responders=trusted_responders,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             cache_error_timeout: Optional[pulumi.Input[int]] = None,
+             cache_timeout: Optional[pulumi.Input[str]] = None,
+             clock_skew: Optional[pulumi.Input[int]] = None,
+             concurrent_connections_limit: Optional[pulumi.Input[int]] = None,
+             connection_timeout: Optional[pulumi.Input[int]] = None,
+             dns_resolver: Optional[pulumi.Input[str]] = None,
+             passphrase: Optional[pulumi.Input[str]] = None,
+             proxy_server_pool: Optional[pulumi.Input[str]] = None,
+             responder_url: Optional[pulumi.Input[str]] = None,
+             route_domain: Optional[pulumi.Input[str]] = None,
+             sign_hash: Optional[pulumi.Input[str]] = None,
+             signer_cert: Optional[pulumi.Input[str]] = None,
+             signer_key: Optional[pulumi.Input[str]] = None,
+             status_age: Optional[pulumi.Input[int]] = None,
+             strict_resp_cert_check: Optional[pulumi.Input[str]] = None,
+             trusted_responders: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if cache_error_timeout is None and 'cacheErrorTimeout' in kwargs:
+            cache_error_timeout = kwargs['cacheErrorTimeout']
+        if cache_timeout is None and 'cacheTimeout' in kwargs:
+            cache_timeout = kwargs['cacheTimeout']
+        if clock_skew is None and 'clockSkew' in kwargs:
+            clock_skew = kwargs['clockSkew']
+        if concurrent_connections_limit is None and 'concurrentConnectionsLimit' in kwargs:
+            concurrent_connections_limit = kwargs['concurrentConnectionsLimit']
+        if connection_timeout is None and 'connectionTimeout' in kwargs:
+            connection_timeout = kwargs['connectionTimeout']
+        if dns_resolver is None and 'dnsResolver' in kwargs:
+            dns_resolver = kwargs['dnsResolver']
+        if proxy_server_pool is None and 'proxyServerPool' in kwargs:
+            proxy_server_pool = kwargs['proxyServerPool']
+        if responder_url is None and 'responderUrl' in kwargs:
+            responder_url = kwargs['responderUrl']
+        if route_domain is None and 'routeDomain' in kwargs:
+            route_domain = kwargs['routeDomain']
+        if sign_hash is None and 'signHash' in kwargs:
+            sign_hash = kwargs['signHash']
+        if signer_cert is None and 'signerCert' in kwargs:
+            signer_cert = kwargs['signerCert']
+        if signer_key is None and 'signerKey' in kwargs:
+            signer_key = kwargs['signerKey']
+        if status_age is None and 'statusAge' in kwargs:
+            status_age = kwargs['statusAge']
+        if strict_resp_cert_check is None and 'strictRespCertCheck' in kwargs:
+            strict_resp_cert_check = kwargs['strictRespCertCheck']
+        if trusted_responders is None and 'trustedResponders' in kwargs:
+            trusted_responders = kwargs['trustedResponders']
+
+        _setter("name", name)
         if cache_error_timeout is not None:
-            pulumi.set(__self__, "cache_error_timeout", cache_error_timeout)
+            _setter("cache_error_timeout", cache_error_timeout)
         if cache_timeout is not None:
-            pulumi.set(__self__, "cache_timeout", cache_timeout)
+            _setter("cache_timeout", cache_timeout)
         if clock_skew is not None:
-            pulumi.set(__self__, "clock_skew", clock_skew)
+            _setter("clock_skew", clock_skew)
         if concurrent_connections_limit is not None:
-            pulumi.set(__self__, "concurrent_connections_limit", concurrent_connections_limit)
+            _setter("concurrent_connections_limit", concurrent_connections_limit)
         if connection_timeout is not None:
-            pulumi.set(__self__, "connection_timeout", connection_timeout)
+            _setter("connection_timeout", connection_timeout)
         if dns_resolver is not None:
-            pulumi.set(__self__, "dns_resolver", dns_resolver)
+            _setter("dns_resolver", dns_resolver)
         if passphrase is not None:
-            pulumi.set(__self__, "passphrase", passphrase)
+            _setter("passphrase", passphrase)
         if proxy_server_pool is not None:
-            pulumi.set(__self__, "proxy_server_pool", proxy_server_pool)
+            _setter("proxy_server_pool", proxy_server_pool)
         if responder_url is not None:
-            pulumi.set(__self__, "responder_url", responder_url)
+            _setter("responder_url", responder_url)
         if route_domain is not None:
-            pulumi.set(__self__, "route_domain", route_domain)
+            _setter("route_domain", route_domain)
         if sign_hash is not None:
-            pulumi.set(__self__, "sign_hash", sign_hash)
+            _setter("sign_hash", sign_hash)
         if signer_cert is not None:
-            pulumi.set(__self__, "signer_cert", signer_cert)
+            _setter("signer_cert", signer_cert)
         if signer_key is not None:
-            pulumi.set(__self__, "signer_key", signer_key)
+            _setter("signer_key", signer_key)
         if status_age is not None:
-            pulumi.set(__self__, "status_age", status_age)
+            _setter("status_age", status_age)
         if strict_resp_cert_check is not None:
-            pulumi.set(__self__, "strict_resp_cert_check", strict_resp_cert_check)
+            _setter("strict_resp_cert_check", strict_resp_cert_check)
         if trusted_responders is not None:
-            pulumi.set(__self__, "trusted_responders", trusted_responders)
+            _setter("trusted_responders", trusted_responders)
 
     @property
     @pulumi.getter
@@ -330,40 +405,113 @@ class _OcspState:
         :param pulumi.Input[str] strict_resp_cert_check: Specifies whether the responder's certificate is checked for an OCSP signing extension. The default value is `enabled`.
         :param pulumi.Input[str] trusted_responders: Specifies the certificates used for validating the OCSP response.
         """
+        _OcspState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cache_error_timeout=cache_error_timeout,
+            cache_timeout=cache_timeout,
+            clock_skew=clock_skew,
+            concurrent_connections_limit=concurrent_connections_limit,
+            connection_timeout=connection_timeout,
+            dns_resolver=dns_resolver,
+            name=name,
+            passphrase=passphrase,
+            proxy_server_pool=proxy_server_pool,
+            responder_url=responder_url,
+            route_domain=route_domain,
+            sign_hash=sign_hash,
+            signer_cert=signer_cert,
+            signer_key=signer_key,
+            status_age=status_age,
+            strict_resp_cert_check=strict_resp_cert_check,
+            trusted_responders=trusted_responders,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cache_error_timeout: Optional[pulumi.Input[int]] = None,
+             cache_timeout: Optional[pulumi.Input[str]] = None,
+             clock_skew: Optional[pulumi.Input[int]] = None,
+             concurrent_connections_limit: Optional[pulumi.Input[int]] = None,
+             connection_timeout: Optional[pulumi.Input[int]] = None,
+             dns_resolver: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             passphrase: Optional[pulumi.Input[str]] = None,
+             proxy_server_pool: Optional[pulumi.Input[str]] = None,
+             responder_url: Optional[pulumi.Input[str]] = None,
+             route_domain: Optional[pulumi.Input[str]] = None,
+             sign_hash: Optional[pulumi.Input[str]] = None,
+             signer_cert: Optional[pulumi.Input[str]] = None,
+             signer_key: Optional[pulumi.Input[str]] = None,
+             status_age: Optional[pulumi.Input[int]] = None,
+             strict_resp_cert_check: Optional[pulumi.Input[str]] = None,
+             trusted_responders: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cache_error_timeout is None and 'cacheErrorTimeout' in kwargs:
+            cache_error_timeout = kwargs['cacheErrorTimeout']
+        if cache_timeout is None and 'cacheTimeout' in kwargs:
+            cache_timeout = kwargs['cacheTimeout']
+        if clock_skew is None and 'clockSkew' in kwargs:
+            clock_skew = kwargs['clockSkew']
+        if concurrent_connections_limit is None and 'concurrentConnectionsLimit' in kwargs:
+            concurrent_connections_limit = kwargs['concurrentConnectionsLimit']
+        if connection_timeout is None and 'connectionTimeout' in kwargs:
+            connection_timeout = kwargs['connectionTimeout']
+        if dns_resolver is None and 'dnsResolver' in kwargs:
+            dns_resolver = kwargs['dnsResolver']
+        if proxy_server_pool is None and 'proxyServerPool' in kwargs:
+            proxy_server_pool = kwargs['proxyServerPool']
+        if responder_url is None and 'responderUrl' in kwargs:
+            responder_url = kwargs['responderUrl']
+        if route_domain is None and 'routeDomain' in kwargs:
+            route_domain = kwargs['routeDomain']
+        if sign_hash is None and 'signHash' in kwargs:
+            sign_hash = kwargs['signHash']
+        if signer_cert is None and 'signerCert' in kwargs:
+            signer_cert = kwargs['signerCert']
+        if signer_key is None and 'signerKey' in kwargs:
+            signer_key = kwargs['signerKey']
+        if status_age is None and 'statusAge' in kwargs:
+            status_age = kwargs['statusAge']
+        if strict_resp_cert_check is None and 'strictRespCertCheck' in kwargs:
+            strict_resp_cert_check = kwargs['strictRespCertCheck']
+        if trusted_responders is None and 'trustedResponders' in kwargs:
+            trusted_responders = kwargs['trustedResponders']
+
         if cache_error_timeout is not None:
-            pulumi.set(__self__, "cache_error_timeout", cache_error_timeout)
+            _setter("cache_error_timeout", cache_error_timeout)
         if cache_timeout is not None:
-            pulumi.set(__self__, "cache_timeout", cache_timeout)
+            _setter("cache_timeout", cache_timeout)
         if clock_skew is not None:
-            pulumi.set(__self__, "clock_skew", clock_skew)
+            _setter("clock_skew", clock_skew)
         if concurrent_connections_limit is not None:
-            pulumi.set(__self__, "concurrent_connections_limit", concurrent_connections_limit)
+            _setter("concurrent_connections_limit", concurrent_connections_limit)
         if connection_timeout is not None:
-            pulumi.set(__self__, "connection_timeout", connection_timeout)
+            _setter("connection_timeout", connection_timeout)
         if dns_resolver is not None:
-            pulumi.set(__self__, "dns_resolver", dns_resolver)
+            _setter("dns_resolver", dns_resolver)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if passphrase is not None:
-            pulumi.set(__self__, "passphrase", passphrase)
+            _setter("passphrase", passphrase)
         if proxy_server_pool is not None:
-            pulumi.set(__self__, "proxy_server_pool", proxy_server_pool)
+            _setter("proxy_server_pool", proxy_server_pool)
         if responder_url is not None:
-            pulumi.set(__self__, "responder_url", responder_url)
+            _setter("responder_url", responder_url)
         if route_domain is not None:
-            pulumi.set(__self__, "route_domain", route_domain)
+            _setter("route_domain", route_domain)
         if sign_hash is not None:
-            pulumi.set(__self__, "sign_hash", sign_hash)
+            _setter("sign_hash", sign_hash)
         if signer_cert is not None:
-            pulumi.set(__self__, "signer_cert", signer_cert)
+            _setter("signer_cert", signer_cert)
         if signer_key is not None:
-            pulumi.set(__self__, "signer_key", signer_key)
+            _setter("signer_key", signer_key)
         if status_age is not None:
-            pulumi.set(__self__, "status_age", status_age)
+            _setter("status_age", status_age)
         if strict_resp_cert_check is not None:
-            pulumi.set(__self__, "strict_resp_cert_check", strict_resp_cert_check)
+            _setter("strict_resp_cert_check", strict_resp_cert_check)
         if trusted_responders is not None:
-            pulumi.set(__self__, "trusted_responders", trusted_responders)
+            _setter("trusted_responders", trusted_responders)
 
     @property
     @pulumi.getter(name="cacheErrorTimeout")
@@ -663,6 +811,10 @@ class Ocsp(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            OcspArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

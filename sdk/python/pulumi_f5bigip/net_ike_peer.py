@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['NetIkePeerArgs', 'NetIkePeer']
@@ -85,72 +85,205 @@ class NetIkePeerArgs:
         :param pulumi.Input[str] verify_cert: Specifies whether to verify the certificate chain of the remote peer based on the trusted certificates in ca-cert-file
         :param pulumi.Input[Sequence[pulumi.Input[str]]] versions: Specifies which version of IKE to be used
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "remote_address", remote_address)
+        NetIkePeerArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            remote_address=remote_address,
+            app_service=app_service,
+            ca_cert_file=ca_cert_file,
+            crl_file=crl_file,
+            description=description,
+            dpd_delay=dpd_delay,
+            generate_policy=generate_policy,
+            lifetime=lifetime,
+            mode=mode,
+            my_cert_file=my_cert_file,
+            my_cert_key_file=my_cert_key_file,
+            my_cert_key_passphrase=my_cert_key_passphrase,
+            my_id_type=my_id_type,
+            my_id_value=my_id_value,
+            nat_traversal=nat_traversal,
+            passive=passive,
+            peers_cert_file=peers_cert_file,
+            peers_cert_type=peers_cert_type,
+            peers_id_type=peers_id_type,
+            peers_id_value=peers_id_value,
+            phase1_auth_method=phase1_auth_method,
+            phase1_encrypt_algorithm=phase1_encrypt_algorithm,
+            phase1_hash_algorithm=phase1_hash_algorithm,
+            phase1_perfect_forward_secrecy=phase1_perfect_forward_secrecy,
+            preshared_key=preshared_key,
+            preshared_key_encrypted=preshared_key_encrypted,
+            prf=prf,
+            proxy_support=proxy_support,
+            replay_window_size=replay_window_size,
+            state=state,
+            traffic_selectors=traffic_selectors,
+            verify_cert=verify_cert,
+            versions=versions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             remote_address: Optional[pulumi.Input[str]] = None,
+             app_service: Optional[pulumi.Input[str]] = None,
+             ca_cert_file: Optional[pulumi.Input[str]] = None,
+             crl_file: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             dpd_delay: Optional[pulumi.Input[int]] = None,
+             generate_policy: Optional[pulumi.Input[str]] = None,
+             lifetime: Optional[pulumi.Input[int]] = None,
+             mode: Optional[pulumi.Input[str]] = None,
+             my_cert_file: Optional[pulumi.Input[str]] = None,
+             my_cert_key_file: Optional[pulumi.Input[str]] = None,
+             my_cert_key_passphrase: Optional[pulumi.Input[str]] = None,
+             my_id_type: Optional[pulumi.Input[str]] = None,
+             my_id_value: Optional[pulumi.Input[str]] = None,
+             nat_traversal: Optional[pulumi.Input[str]] = None,
+             passive: Optional[pulumi.Input[str]] = None,
+             peers_cert_file: Optional[pulumi.Input[str]] = None,
+             peers_cert_type: Optional[pulumi.Input[str]] = None,
+             peers_id_type: Optional[pulumi.Input[str]] = None,
+             peers_id_value: Optional[pulumi.Input[str]] = None,
+             phase1_auth_method: Optional[pulumi.Input[str]] = None,
+             phase1_encrypt_algorithm: Optional[pulumi.Input[str]] = None,
+             phase1_hash_algorithm: Optional[pulumi.Input[str]] = None,
+             phase1_perfect_forward_secrecy: Optional[pulumi.Input[str]] = None,
+             preshared_key: Optional[pulumi.Input[str]] = None,
+             preshared_key_encrypted: Optional[pulumi.Input[str]] = None,
+             prf: Optional[pulumi.Input[str]] = None,
+             proxy_support: Optional[pulumi.Input[str]] = None,
+             replay_window_size: Optional[pulumi.Input[int]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             traffic_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             verify_cert: Optional[pulumi.Input[str]] = None,
+             versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if remote_address is None and 'remoteAddress' in kwargs:
+            remote_address = kwargs['remoteAddress']
+        if remote_address is None:
+            raise TypeError("Missing 'remote_address' argument")
+        if app_service is None and 'appService' in kwargs:
+            app_service = kwargs['appService']
+        if ca_cert_file is None and 'caCertFile' in kwargs:
+            ca_cert_file = kwargs['caCertFile']
+        if crl_file is None and 'crlFile' in kwargs:
+            crl_file = kwargs['crlFile']
+        if dpd_delay is None and 'dpdDelay' in kwargs:
+            dpd_delay = kwargs['dpdDelay']
+        if generate_policy is None and 'generatePolicy' in kwargs:
+            generate_policy = kwargs['generatePolicy']
+        if my_cert_file is None and 'myCertFile' in kwargs:
+            my_cert_file = kwargs['myCertFile']
+        if my_cert_key_file is None and 'myCertKeyFile' in kwargs:
+            my_cert_key_file = kwargs['myCertKeyFile']
+        if my_cert_key_passphrase is None and 'myCertKeyPassphrase' in kwargs:
+            my_cert_key_passphrase = kwargs['myCertKeyPassphrase']
+        if my_id_type is None and 'myIdType' in kwargs:
+            my_id_type = kwargs['myIdType']
+        if my_id_value is None and 'myIdValue' in kwargs:
+            my_id_value = kwargs['myIdValue']
+        if nat_traversal is None and 'natTraversal' in kwargs:
+            nat_traversal = kwargs['natTraversal']
+        if peers_cert_file is None and 'peersCertFile' in kwargs:
+            peers_cert_file = kwargs['peersCertFile']
+        if peers_cert_type is None and 'peersCertType' in kwargs:
+            peers_cert_type = kwargs['peersCertType']
+        if peers_id_type is None and 'peersIdType' in kwargs:
+            peers_id_type = kwargs['peersIdType']
+        if peers_id_value is None and 'peersIdValue' in kwargs:
+            peers_id_value = kwargs['peersIdValue']
+        if phase1_auth_method is None and 'phase1AuthMethod' in kwargs:
+            phase1_auth_method = kwargs['phase1AuthMethod']
+        if phase1_encrypt_algorithm is None and 'phase1EncryptAlgorithm' in kwargs:
+            phase1_encrypt_algorithm = kwargs['phase1EncryptAlgorithm']
+        if phase1_hash_algorithm is None and 'phase1HashAlgorithm' in kwargs:
+            phase1_hash_algorithm = kwargs['phase1HashAlgorithm']
+        if phase1_perfect_forward_secrecy is None and 'phase1PerfectForwardSecrecy' in kwargs:
+            phase1_perfect_forward_secrecy = kwargs['phase1PerfectForwardSecrecy']
+        if preshared_key is None and 'presharedKey' in kwargs:
+            preshared_key = kwargs['presharedKey']
+        if preshared_key_encrypted is None and 'presharedKeyEncrypted' in kwargs:
+            preshared_key_encrypted = kwargs['presharedKeyEncrypted']
+        if proxy_support is None and 'proxySupport' in kwargs:
+            proxy_support = kwargs['proxySupport']
+        if replay_window_size is None and 'replayWindowSize' in kwargs:
+            replay_window_size = kwargs['replayWindowSize']
+        if traffic_selectors is None and 'trafficSelectors' in kwargs:
+            traffic_selectors = kwargs['trafficSelectors']
+        if verify_cert is None and 'verifyCert' in kwargs:
+            verify_cert = kwargs['verifyCert']
+
+        _setter("name", name)
+        _setter("remote_address", remote_address)
         if app_service is not None:
-            pulumi.set(__self__, "app_service", app_service)
+            _setter("app_service", app_service)
         if ca_cert_file is not None:
-            pulumi.set(__self__, "ca_cert_file", ca_cert_file)
+            _setter("ca_cert_file", ca_cert_file)
         if crl_file is not None:
-            pulumi.set(__self__, "crl_file", crl_file)
+            _setter("crl_file", crl_file)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if dpd_delay is not None:
-            pulumi.set(__self__, "dpd_delay", dpd_delay)
+            _setter("dpd_delay", dpd_delay)
         if generate_policy is not None:
-            pulumi.set(__self__, "generate_policy", generate_policy)
+            _setter("generate_policy", generate_policy)
         if lifetime is not None:
-            pulumi.set(__self__, "lifetime", lifetime)
+            _setter("lifetime", lifetime)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if my_cert_file is not None:
-            pulumi.set(__self__, "my_cert_file", my_cert_file)
+            _setter("my_cert_file", my_cert_file)
         if my_cert_key_file is not None:
-            pulumi.set(__self__, "my_cert_key_file", my_cert_key_file)
+            _setter("my_cert_key_file", my_cert_key_file)
         if my_cert_key_passphrase is not None:
-            pulumi.set(__self__, "my_cert_key_passphrase", my_cert_key_passphrase)
+            _setter("my_cert_key_passphrase", my_cert_key_passphrase)
         if my_id_type is not None:
-            pulumi.set(__self__, "my_id_type", my_id_type)
+            _setter("my_id_type", my_id_type)
         if my_id_value is not None:
-            pulumi.set(__self__, "my_id_value", my_id_value)
+            _setter("my_id_value", my_id_value)
         if nat_traversal is not None:
-            pulumi.set(__self__, "nat_traversal", nat_traversal)
+            _setter("nat_traversal", nat_traversal)
         if passive is not None:
-            pulumi.set(__self__, "passive", passive)
+            _setter("passive", passive)
         if peers_cert_file is not None:
-            pulumi.set(__self__, "peers_cert_file", peers_cert_file)
+            _setter("peers_cert_file", peers_cert_file)
         if peers_cert_type is not None:
-            pulumi.set(__self__, "peers_cert_type", peers_cert_type)
+            _setter("peers_cert_type", peers_cert_type)
         if peers_id_type is not None:
-            pulumi.set(__self__, "peers_id_type", peers_id_type)
+            _setter("peers_id_type", peers_id_type)
         if peers_id_value is not None:
-            pulumi.set(__self__, "peers_id_value", peers_id_value)
+            _setter("peers_id_value", peers_id_value)
         if phase1_auth_method is not None:
-            pulumi.set(__self__, "phase1_auth_method", phase1_auth_method)
+            _setter("phase1_auth_method", phase1_auth_method)
         if phase1_encrypt_algorithm is not None:
-            pulumi.set(__self__, "phase1_encrypt_algorithm", phase1_encrypt_algorithm)
+            _setter("phase1_encrypt_algorithm", phase1_encrypt_algorithm)
         if phase1_hash_algorithm is not None:
-            pulumi.set(__self__, "phase1_hash_algorithm", phase1_hash_algorithm)
+            _setter("phase1_hash_algorithm", phase1_hash_algorithm)
         if phase1_perfect_forward_secrecy is not None:
-            pulumi.set(__self__, "phase1_perfect_forward_secrecy", phase1_perfect_forward_secrecy)
+            _setter("phase1_perfect_forward_secrecy", phase1_perfect_forward_secrecy)
         if preshared_key is not None:
-            pulumi.set(__self__, "preshared_key", preshared_key)
+            _setter("preshared_key", preshared_key)
         if preshared_key_encrypted is not None:
-            pulumi.set(__self__, "preshared_key_encrypted", preshared_key_encrypted)
+            _setter("preshared_key_encrypted", preshared_key_encrypted)
         if prf is not None:
-            pulumi.set(__self__, "prf", prf)
+            _setter("prf", prf)
         if proxy_support is not None:
-            pulumi.set(__self__, "proxy_support", proxy_support)
+            _setter("proxy_support", proxy_support)
         if replay_window_size is not None:
-            pulumi.set(__self__, "replay_window_size", replay_window_size)
+            _setter("replay_window_size", replay_window_size)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if traffic_selectors is not None:
-            pulumi.set(__self__, "traffic_selectors", traffic_selectors)
+            _setter("traffic_selectors", traffic_selectors)
         if verify_cert is not None:
-            pulumi.set(__self__, "verify_cert", verify_cert)
+            _setter("verify_cert", verify_cert)
         if versions is not None:
-            pulumi.set(__self__, "versions", versions)
+            _setter("versions", versions)
 
     @property
     @pulumi.getter
@@ -635,74 +768,203 @@ class _NetIkePeerState:
         :param pulumi.Input[str] verify_cert: Specifies whether to verify the certificate chain of the remote peer based on the trusted certificates in ca-cert-file
         :param pulumi.Input[Sequence[pulumi.Input[str]]] versions: Specifies which version of IKE to be used
         """
+        _NetIkePeerState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            app_service=app_service,
+            ca_cert_file=ca_cert_file,
+            crl_file=crl_file,
+            description=description,
+            dpd_delay=dpd_delay,
+            generate_policy=generate_policy,
+            lifetime=lifetime,
+            mode=mode,
+            my_cert_file=my_cert_file,
+            my_cert_key_file=my_cert_key_file,
+            my_cert_key_passphrase=my_cert_key_passphrase,
+            my_id_type=my_id_type,
+            my_id_value=my_id_value,
+            name=name,
+            nat_traversal=nat_traversal,
+            passive=passive,
+            peers_cert_file=peers_cert_file,
+            peers_cert_type=peers_cert_type,
+            peers_id_type=peers_id_type,
+            peers_id_value=peers_id_value,
+            phase1_auth_method=phase1_auth_method,
+            phase1_encrypt_algorithm=phase1_encrypt_algorithm,
+            phase1_hash_algorithm=phase1_hash_algorithm,
+            phase1_perfect_forward_secrecy=phase1_perfect_forward_secrecy,
+            preshared_key=preshared_key,
+            preshared_key_encrypted=preshared_key_encrypted,
+            prf=prf,
+            proxy_support=proxy_support,
+            remote_address=remote_address,
+            replay_window_size=replay_window_size,
+            state=state,
+            traffic_selectors=traffic_selectors,
+            verify_cert=verify_cert,
+            versions=versions,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             app_service: Optional[pulumi.Input[str]] = None,
+             ca_cert_file: Optional[pulumi.Input[str]] = None,
+             crl_file: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             dpd_delay: Optional[pulumi.Input[int]] = None,
+             generate_policy: Optional[pulumi.Input[str]] = None,
+             lifetime: Optional[pulumi.Input[int]] = None,
+             mode: Optional[pulumi.Input[str]] = None,
+             my_cert_file: Optional[pulumi.Input[str]] = None,
+             my_cert_key_file: Optional[pulumi.Input[str]] = None,
+             my_cert_key_passphrase: Optional[pulumi.Input[str]] = None,
+             my_id_type: Optional[pulumi.Input[str]] = None,
+             my_id_value: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             nat_traversal: Optional[pulumi.Input[str]] = None,
+             passive: Optional[pulumi.Input[str]] = None,
+             peers_cert_file: Optional[pulumi.Input[str]] = None,
+             peers_cert_type: Optional[pulumi.Input[str]] = None,
+             peers_id_type: Optional[pulumi.Input[str]] = None,
+             peers_id_value: Optional[pulumi.Input[str]] = None,
+             phase1_auth_method: Optional[pulumi.Input[str]] = None,
+             phase1_encrypt_algorithm: Optional[pulumi.Input[str]] = None,
+             phase1_hash_algorithm: Optional[pulumi.Input[str]] = None,
+             phase1_perfect_forward_secrecy: Optional[pulumi.Input[str]] = None,
+             preshared_key: Optional[pulumi.Input[str]] = None,
+             preshared_key_encrypted: Optional[pulumi.Input[str]] = None,
+             prf: Optional[pulumi.Input[str]] = None,
+             proxy_support: Optional[pulumi.Input[str]] = None,
+             remote_address: Optional[pulumi.Input[str]] = None,
+             replay_window_size: Optional[pulumi.Input[int]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             traffic_selectors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             verify_cert: Optional[pulumi.Input[str]] = None,
+             versions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if app_service is None and 'appService' in kwargs:
+            app_service = kwargs['appService']
+        if ca_cert_file is None and 'caCertFile' in kwargs:
+            ca_cert_file = kwargs['caCertFile']
+        if crl_file is None and 'crlFile' in kwargs:
+            crl_file = kwargs['crlFile']
+        if dpd_delay is None and 'dpdDelay' in kwargs:
+            dpd_delay = kwargs['dpdDelay']
+        if generate_policy is None and 'generatePolicy' in kwargs:
+            generate_policy = kwargs['generatePolicy']
+        if my_cert_file is None and 'myCertFile' in kwargs:
+            my_cert_file = kwargs['myCertFile']
+        if my_cert_key_file is None and 'myCertKeyFile' in kwargs:
+            my_cert_key_file = kwargs['myCertKeyFile']
+        if my_cert_key_passphrase is None and 'myCertKeyPassphrase' in kwargs:
+            my_cert_key_passphrase = kwargs['myCertKeyPassphrase']
+        if my_id_type is None and 'myIdType' in kwargs:
+            my_id_type = kwargs['myIdType']
+        if my_id_value is None and 'myIdValue' in kwargs:
+            my_id_value = kwargs['myIdValue']
+        if nat_traversal is None and 'natTraversal' in kwargs:
+            nat_traversal = kwargs['natTraversal']
+        if peers_cert_file is None and 'peersCertFile' in kwargs:
+            peers_cert_file = kwargs['peersCertFile']
+        if peers_cert_type is None and 'peersCertType' in kwargs:
+            peers_cert_type = kwargs['peersCertType']
+        if peers_id_type is None and 'peersIdType' in kwargs:
+            peers_id_type = kwargs['peersIdType']
+        if peers_id_value is None and 'peersIdValue' in kwargs:
+            peers_id_value = kwargs['peersIdValue']
+        if phase1_auth_method is None and 'phase1AuthMethod' in kwargs:
+            phase1_auth_method = kwargs['phase1AuthMethod']
+        if phase1_encrypt_algorithm is None and 'phase1EncryptAlgorithm' in kwargs:
+            phase1_encrypt_algorithm = kwargs['phase1EncryptAlgorithm']
+        if phase1_hash_algorithm is None and 'phase1HashAlgorithm' in kwargs:
+            phase1_hash_algorithm = kwargs['phase1HashAlgorithm']
+        if phase1_perfect_forward_secrecy is None and 'phase1PerfectForwardSecrecy' in kwargs:
+            phase1_perfect_forward_secrecy = kwargs['phase1PerfectForwardSecrecy']
+        if preshared_key is None and 'presharedKey' in kwargs:
+            preshared_key = kwargs['presharedKey']
+        if preshared_key_encrypted is None and 'presharedKeyEncrypted' in kwargs:
+            preshared_key_encrypted = kwargs['presharedKeyEncrypted']
+        if proxy_support is None and 'proxySupport' in kwargs:
+            proxy_support = kwargs['proxySupport']
+        if remote_address is None and 'remoteAddress' in kwargs:
+            remote_address = kwargs['remoteAddress']
+        if replay_window_size is None and 'replayWindowSize' in kwargs:
+            replay_window_size = kwargs['replayWindowSize']
+        if traffic_selectors is None and 'trafficSelectors' in kwargs:
+            traffic_selectors = kwargs['trafficSelectors']
+        if verify_cert is None and 'verifyCert' in kwargs:
+            verify_cert = kwargs['verifyCert']
+
         if app_service is not None:
-            pulumi.set(__self__, "app_service", app_service)
+            _setter("app_service", app_service)
         if ca_cert_file is not None:
-            pulumi.set(__self__, "ca_cert_file", ca_cert_file)
+            _setter("ca_cert_file", ca_cert_file)
         if crl_file is not None:
-            pulumi.set(__self__, "crl_file", crl_file)
+            _setter("crl_file", crl_file)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if dpd_delay is not None:
-            pulumi.set(__self__, "dpd_delay", dpd_delay)
+            _setter("dpd_delay", dpd_delay)
         if generate_policy is not None:
-            pulumi.set(__self__, "generate_policy", generate_policy)
+            _setter("generate_policy", generate_policy)
         if lifetime is not None:
-            pulumi.set(__self__, "lifetime", lifetime)
+            _setter("lifetime", lifetime)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if my_cert_file is not None:
-            pulumi.set(__self__, "my_cert_file", my_cert_file)
+            _setter("my_cert_file", my_cert_file)
         if my_cert_key_file is not None:
-            pulumi.set(__self__, "my_cert_key_file", my_cert_key_file)
+            _setter("my_cert_key_file", my_cert_key_file)
         if my_cert_key_passphrase is not None:
-            pulumi.set(__self__, "my_cert_key_passphrase", my_cert_key_passphrase)
+            _setter("my_cert_key_passphrase", my_cert_key_passphrase)
         if my_id_type is not None:
-            pulumi.set(__self__, "my_id_type", my_id_type)
+            _setter("my_id_type", my_id_type)
         if my_id_value is not None:
-            pulumi.set(__self__, "my_id_value", my_id_value)
+            _setter("my_id_value", my_id_value)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if nat_traversal is not None:
-            pulumi.set(__self__, "nat_traversal", nat_traversal)
+            _setter("nat_traversal", nat_traversal)
         if passive is not None:
-            pulumi.set(__self__, "passive", passive)
+            _setter("passive", passive)
         if peers_cert_file is not None:
-            pulumi.set(__self__, "peers_cert_file", peers_cert_file)
+            _setter("peers_cert_file", peers_cert_file)
         if peers_cert_type is not None:
-            pulumi.set(__self__, "peers_cert_type", peers_cert_type)
+            _setter("peers_cert_type", peers_cert_type)
         if peers_id_type is not None:
-            pulumi.set(__self__, "peers_id_type", peers_id_type)
+            _setter("peers_id_type", peers_id_type)
         if peers_id_value is not None:
-            pulumi.set(__self__, "peers_id_value", peers_id_value)
+            _setter("peers_id_value", peers_id_value)
         if phase1_auth_method is not None:
-            pulumi.set(__self__, "phase1_auth_method", phase1_auth_method)
+            _setter("phase1_auth_method", phase1_auth_method)
         if phase1_encrypt_algorithm is not None:
-            pulumi.set(__self__, "phase1_encrypt_algorithm", phase1_encrypt_algorithm)
+            _setter("phase1_encrypt_algorithm", phase1_encrypt_algorithm)
         if phase1_hash_algorithm is not None:
-            pulumi.set(__self__, "phase1_hash_algorithm", phase1_hash_algorithm)
+            _setter("phase1_hash_algorithm", phase1_hash_algorithm)
         if phase1_perfect_forward_secrecy is not None:
-            pulumi.set(__self__, "phase1_perfect_forward_secrecy", phase1_perfect_forward_secrecy)
+            _setter("phase1_perfect_forward_secrecy", phase1_perfect_forward_secrecy)
         if preshared_key is not None:
-            pulumi.set(__self__, "preshared_key", preshared_key)
+            _setter("preshared_key", preshared_key)
         if preshared_key_encrypted is not None:
-            pulumi.set(__self__, "preshared_key_encrypted", preshared_key_encrypted)
+            _setter("preshared_key_encrypted", preshared_key_encrypted)
         if prf is not None:
-            pulumi.set(__self__, "prf", prf)
+            _setter("prf", prf)
         if proxy_support is not None:
-            pulumi.set(__self__, "proxy_support", proxy_support)
+            _setter("proxy_support", proxy_support)
         if remote_address is not None:
-            pulumi.set(__self__, "remote_address", remote_address)
+            _setter("remote_address", remote_address)
         if replay_window_size is not None:
-            pulumi.set(__self__, "replay_window_size", replay_window_size)
+            _setter("replay_window_size", replay_window_size)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if traffic_selectors is not None:
-            pulumi.set(__self__, "traffic_selectors", traffic_selectors)
+            _setter("traffic_selectors", traffic_selectors)
         if verify_cert is not None:
-            pulumi.set(__self__, "verify_cert", verify_cert)
+            _setter("verify_cert", verify_cert)
         if versions is not None:
-            pulumi.set(__self__, "versions", versions)
+            _setter("versions", versions)
 
     @property
     @pulumi.getter(name="appService")
@@ -1212,6 +1474,10 @@ class NetIkePeer(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            NetIkePeerArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['CipherGroupArgs', 'CipherGroup']
@@ -27,15 +27,36 @@ class CipherGroupArgs:
         :param pulumi.Input[str] ordering: Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] requires: Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
         """
-        pulumi.set(__self__, "name", name)
+        CipherGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            allows=allows,
+            description=description,
+            ordering=ordering,
+            requires=requires,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             allows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             ordering: Optional[pulumi.Input[str]] = None,
+             requires: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+
+        _setter("name", name)
         if allows is not None:
-            pulumi.set(__self__, "allows", allows)
+            _setter("allows", allows)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if ordering is not None:
-            pulumi.set(__self__, "ordering", ordering)
+            _setter("ordering", ordering)
         if requires is not None:
-            pulumi.set(__self__, "requires", requires)
+            _setter("requires", requires)
 
     @property
     @pulumi.getter
@@ -114,16 +135,35 @@ class _CipherGroupState:
         :param pulumi.Input[str] ordering: Controls the order of the Cipher String list in the Cipher Audit section. Options are Default, Speed, Strength, FIPS, and Hardware. The rules are processed in the order listed.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] requires: Specifies the configuration of the restrict groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
         """
+        _CipherGroupState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allows=allows,
+            description=description,
+            name=name,
+            ordering=ordering,
+            requires=requires,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allows: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             ordering: Optional[pulumi.Input[str]] = None,
+             requires: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+
         if allows is not None:
-            pulumi.set(__self__, "allows", allows)
+            _setter("allows", allows)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if ordering is not None:
-            pulumi.set(__self__, "ordering", ordering)
+            _setter("ordering", ordering)
         if requires is not None:
-            pulumi.set(__self__, "requires", requires)
+            _setter("requires", requires)
 
     @property
     @pulumi.getter
@@ -253,6 +293,10 @@ class CipherGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CipherGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

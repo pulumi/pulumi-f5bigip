@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['CipherRuleArgs', 'CipherRule']
@@ -27,14 +27,41 @@ class CipherRuleArgs:
         :param pulumi.Input[str] dh_groups: Specifies the DH Groups algorithms, separated by colons (:).
         :param pulumi.Input[str] signature_algorithms: Specifies the Signature Algorithms, separated by colons (:).
         """
-        pulumi.set(__self__, "cipher", cipher)
-        pulumi.set(__self__, "name", name)
+        CipherRuleArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cipher=cipher,
+            name=name,
+            description=description,
+            dh_groups=dh_groups,
+            signature_algorithms=signature_algorithms,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cipher: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             dh_groups: Optional[pulumi.Input[str]] = None,
+             signature_algorithms: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cipher is None:
+            raise TypeError("Missing 'cipher' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if dh_groups is None and 'dhGroups' in kwargs:
+            dh_groups = kwargs['dhGroups']
+        if signature_algorithms is None and 'signatureAlgorithms' in kwargs:
+            signature_algorithms = kwargs['signatureAlgorithms']
+
+        _setter("cipher", cipher)
+        _setter("name", name)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if dh_groups is not None:
-            pulumi.set(__self__, "dh_groups", dh_groups)
+            _setter("dh_groups", dh_groups)
         if signature_algorithms is not None:
-            pulumi.set(__self__, "signature_algorithms", signature_algorithms)
+            _setter("signature_algorithms", signature_algorithms)
 
     @property
     @pulumi.getter
@@ -113,16 +140,39 @@ class _CipherRuleState:
         :param pulumi.Input[str] name: Name of the Cipher Rule. Name should be in pattern `partition` + `cipher_rule_name`
         :param pulumi.Input[str] signature_algorithms: Specifies the Signature Algorithms, separated by colons (:).
         """
+        _CipherRuleState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cipher=cipher,
+            description=description,
+            dh_groups=dh_groups,
+            name=name,
+            signature_algorithms=signature_algorithms,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cipher: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             dh_groups: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             signature_algorithms: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if dh_groups is None and 'dhGroups' in kwargs:
+            dh_groups = kwargs['dhGroups']
+        if signature_algorithms is None and 'signatureAlgorithms' in kwargs:
+            signature_algorithms = kwargs['signatureAlgorithms']
+
         if cipher is not None:
-            pulumi.set(__self__, "cipher", cipher)
+            _setter("cipher", cipher)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if dh_groups is not None:
-            pulumi.set(__self__, "dh_groups", dh_groups)
+            _setter("dh_groups", dh_groups)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if signature_algorithms is not None:
-            pulumi.set(__self__, "signature_algorithms", signature_algorithms)
+            _setter("signature_algorithms", signature_algorithms)
 
     @property
     @pulumi.getter
@@ -252,6 +302,10 @@ class CipherRule(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CipherRuleArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

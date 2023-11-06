@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['ProfileFtpArgs', 'ProfileFtp']
@@ -51,37 +51,102 @@ class ProfileFtpArgs:
                system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
         :param pulumi.Input[str] translate_extended: Specifies, when selected (enabled), that the system uses ensures compatibility between IP version 4 and IP version 6 clients and servers when using the FTP protocol. The default is selected (enabled).
         """
-        pulumi.set(__self__, "name", name)
+        ProfileFtpArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            allow_active_mode=allow_active_mode,
+            allow_ftps=allow_ftps,
+            app_service=app_service,
+            defaults_from=defaults_from,
+            description=description,
+            enforce_tlssession_reuse=enforce_tlssession_reuse,
+            ftps_mode=ftps_mode,
+            inherit_parent_profile=inherit_parent_profile,
+            inherit_vlan_list=inherit_vlan_list,
+            log_profile=log_profile,
+            log_publisher=log_publisher,
+            partition=partition,
+            port=port,
+            security=security,
+            translate_extended=translate_extended,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             allow_active_mode: Optional[pulumi.Input[str]] = None,
+             allow_ftps: Optional[pulumi.Input[str]] = None,
+             app_service: Optional[pulumi.Input[str]] = None,
+             defaults_from: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             enforce_tlssession_reuse: Optional[pulumi.Input[str]] = None,
+             ftps_mode: Optional[pulumi.Input[str]] = None,
+             inherit_parent_profile: Optional[pulumi.Input[str]] = None,
+             inherit_vlan_list: Optional[pulumi.Input[str]] = None,
+             log_profile: Optional[pulumi.Input[str]] = None,
+             log_publisher: Optional[pulumi.Input[str]] = None,
+             partition: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             security: Optional[pulumi.Input[str]] = None,
+             translate_extended: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if allow_active_mode is None and 'allowActiveMode' in kwargs:
+            allow_active_mode = kwargs['allowActiveMode']
+        if allow_ftps is None and 'allowFtps' in kwargs:
+            allow_ftps = kwargs['allowFtps']
+        if app_service is None and 'appService' in kwargs:
+            app_service = kwargs['appService']
+        if defaults_from is None and 'defaultsFrom' in kwargs:
+            defaults_from = kwargs['defaultsFrom']
+        if enforce_tlssession_reuse is None and 'enforceTlssessionReuse' in kwargs:
+            enforce_tlssession_reuse = kwargs['enforceTlssessionReuse']
+        if ftps_mode is None and 'ftpsMode' in kwargs:
+            ftps_mode = kwargs['ftpsMode']
+        if inherit_parent_profile is None and 'inheritParentProfile' in kwargs:
+            inherit_parent_profile = kwargs['inheritParentProfile']
+        if inherit_vlan_list is None and 'inheritVlanList' in kwargs:
+            inherit_vlan_list = kwargs['inheritVlanList']
+        if log_profile is None and 'logProfile' in kwargs:
+            log_profile = kwargs['logProfile']
+        if log_publisher is None and 'logPublisher' in kwargs:
+            log_publisher = kwargs['logPublisher']
+        if translate_extended is None and 'translateExtended' in kwargs:
+            translate_extended = kwargs['translateExtended']
+
+        _setter("name", name)
         if allow_active_mode is not None:
-            pulumi.set(__self__, "allow_active_mode", allow_active_mode)
+            _setter("allow_active_mode", allow_active_mode)
         if allow_ftps is not None:
-            pulumi.set(__self__, "allow_ftps", allow_ftps)
+            _setter("allow_ftps", allow_ftps)
         if app_service is not None:
-            pulumi.set(__self__, "app_service", app_service)
+            _setter("app_service", app_service)
         if defaults_from is not None:
-            pulumi.set(__self__, "defaults_from", defaults_from)
+            _setter("defaults_from", defaults_from)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enforce_tlssession_reuse is not None:
-            pulumi.set(__self__, "enforce_tlssession_reuse", enforce_tlssession_reuse)
+            _setter("enforce_tlssession_reuse", enforce_tlssession_reuse)
         if ftps_mode is not None:
-            pulumi.set(__self__, "ftps_mode", ftps_mode)
+            _setter("ftps_mode", ftps_mode)
         if inherit_parent_profile is not None:
-            pulumi.set(__self__, "inherit_parent_profile", inherit_parent_profile)
+            _setter("inherit_parent_profile", inherit_parent_profile)
         if inherit_vlan_list is not None:
-            pulumi.set(__self__, "inherit_vlan_list", inherit_vlan_list)
+            _setter("inherit_vlan_list", inherit_vlan_list)
         if log_profile is not None:
-            pulumi.set(__self__, "log_profile", log_profile)
+            _setter("log_profile", log_profile)
         if log_publisher is not None:
-            pulumi.set(__self__, "log_publisher", log_publisher)
+            _setter("log_publisher", log_publisher)
         if partition is not None:
-            pulumi.set(__self__, "partition", partition)
+            _setter("partition", partition)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if security is not None:
-            pulumi.set(__self__, "security", security)
+            _setter("security", security)
         if translate_extended is not None:
-            pulumi.set(__self__, "translate_extended", translate_extended)
+            _setter("translate_extended", translate_extended)
 
     @property
     @pulumi.getter
@@ -318,38 +383,101 @@ class _ProfileFtpState:
                system is licensed for the BIG-IP Application Security Manager. The default value is disabled.
         :param pulumi.Input[str] translate_extended: Specifies, when selected (enabled), that the system uses ensures compatibility between IP version 4 and IP version 6 clients and servers when using the FTP protocol. The default is selected (enabled).
         """
+        _ProfileFtpState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_active_mode=allow_active_mode,
+            allow_ftps=allow_ftps,
+            app_service=app_service,
+            defaults_from=defaults_from,
+            description=description,
+            enforce_tlssession_reuse=enforce_tlssession_reuse,
+            ftps_mode=ftps_mode,
+            inherit_parent_profile=inherit_parent_profile,
+            inherit_vlan_list=inherit_vlan_list,
+            log_profile=log_profile,
+            log_publisher=log_publisher,
+            name=name,
+            partition=partition,
+            port=port,
+            security=security,
+            translate_extended=translate_extended,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_active_mode: Optional[pulumi.Input[str]] = None,
+             allow_ftps: Optional[pulumi.Input[str]] = None,
+             app_service: Optional[pulumi.Input[str]] = None,
+             defaults_from: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             enforce_tlssession_reuse: Optional[pulumi.Input[str]] = None,
+             ftps_mode: Optional[pulumi.Input[str]] = None,
+             inherit_parent_profile: Optional[pulumi.Input[str]] = None,
+             inherit_vlan_list: Optional[pulumi.Input[str]] = None,
+             log_profile: Optional[pulumi.Input[str]] = None,
+             log_publisher: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             partition: Optional[pulumi.Input[str]] = None,
+             port: Optional[pulumi.Input[int]] = None,
+             security: Optional[pulumi.Input[str]] = None,
+             translate_extended: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if allow_active_mode is None and 'allowActiveMode' in kwargs:
+            allow_active_mode = kwargs['allowActiveMode']
+        if allow_ftps is None and 'allowFtps' in kwargs:
+            allow_ftps = kwargs['allowFtps']
+        if app_service is None and 'appService' in kwargs:
+            app_service = kwargs['appService']
+        if defaults_from is None and 'defaultsFrom' in kwargs:
+            defaults_from = kwargs['defaultsFrom']
+        if enforce_tlssession_reuse is None and 'enforceTlssessionReuse' in kwargs:
+            enforce_tlssession_reuse = kwargs['enforceTlssessionReuse']
+        if ftps_mode is None and 'ftpsMode' in kwargs:
+            ftps_mode = kwargs['ftpsMode']
+        if inherit_parent_profile is None and 'inheritParentProfile' in kwargs:
+            inherit_parent_profile = kwargs['inheritParentProfile']
+        if inherit_vlan_list is None and 'inheritVlanList' in kwargs:
+            inherit_vlan_list = kwargs['inheritVlanList']
+        if log_profile is None and 'logProfile' in kwargs:
+            log_profile = kwargs['logProfile']
+        if log_publisher is None and 'logPublisher' in kwargs:
+            log_publisher = kwargs['logPublisher']
+        if translate_extended is None and 'translateExtended' in kwargs:
+            translate_extended = kwargs['translateExtended']
+
         if allow_active_mode is not None:
-            pulumi.set(__self__, "allow_active_mode", allow_active_mode)
+            _setter("allow_active_mode", allow_active_mode)
         if allow_ftps is not None:
-            pulumi.set(__self__, "allow_ftps", allow_ftps)
+            _setter("allow_ftps", allow_ftps)
         if app_service is not None:
-            pulumi.set(__self__, "app_service", app_service)
+            _setter("app_service", app_service)
         if defaults_from is not None:
-            pulumi.set(__self__, "defaults_from", defaults_from)
+            _setter("defaults_from", defaults_from)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enforce_tlssession_reuse is not None:
-            pulumi.set(__self__, "enforce_tlssession_reuse", enforce_tlssession_reuse)
+            _setter("enforce_tlssession_reuse", enforce_tlssession_reuse)
         if ftps_mode is not None:
-            pulumi.set(__self__, "ftps_mode", ftps_mode)
+            _setter("ftps_mode", ftps_mode)
         if inherit_parent_profile is not None:
-            pulumi.set(__self__, "inherit_parent_profile", inherit_parent_profile)
+            _setter("inherit_parent_profile", inherit_parent_profile)
         if inherit_vlan_list is not None:
-            pulumi.set(__self__, "inherit_vlan_list", inherit_vlan_list)
+            _setter("inherit_vlan_list", inherit_vlan_list)
         if log_profile is not None:
-            pulumi.set(__self__, "log_profile", log_profile)
+            _setter("log_profile", log_profile)
         if log_publisher is not None:
-            pulumi.set(__self__, "log_publisher", log_publisher)
+            _setter("log_publisher", log_publisher)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if partition is not None:
-            pulumi.set(__self__, "partition", partition)
+            _setter("partition", partition)
         if port is not None:
-            pulumi.set(__self__, "port", port)
+            _setter("port", port)
         if security is not None:
-            pulumi.set(__self__, "security", security)
+            _setter("security", security)
         if translate_extended is not None:
-            pulumi.set(__self__, "translate_extended", translate_extended)
+            _setter("translate_extended", translate_extended)
 
     @property
     @pulumi.getter(name="allowActiveMode")
@@ -703,6 +831,10 @@ class ProfileFtp(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProfileFtpArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

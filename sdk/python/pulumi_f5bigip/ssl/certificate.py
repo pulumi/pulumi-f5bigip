@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['CertificateArgs', 'Certificate']
@@ -31,18 +31,51 @@ class CertificateArgs:
         :param pulumi.Input[str] ocsp: Specifies the OCSP responder.
         :param pulumi.Input[str] partition: Partition of ssl certificate
         """
-        pulumi.set(__self__, "content", content)
-        pulumi.set(__self__, "name", name)
+        CertificateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            name=name,
+            full_path=full_path,
+            issuer_cert=issuer_cert,
+            monitoring_type=monitoring_type,
+            ocsp=ocsp,
+            partition=partition,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             full_path: Optional[pulumi.Input[str]] = None,
+             issuer_cert: Optional[pulumi.Input[str]] = None,
+             monitoring_type: Optional[pulumi.Input[str]] = None,
+             ocsp: Optional[pulumi.Input[str]] = None,
+             partition: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if full_path is None and 'fullPath' in kwargs:
+            full_path = kwargs['fullPath']
+        if issuer_cert is None and 'issuerCert' in kwargs:
+            issuer_cert = kwargs['issuerCert']
+        if monitoring_type is None and 'monitoringType' in kwargs:
+            monitoring_type = kwargs['monitoringType']
+
+        _setter("content", content)
+        _setter("name", name)
         if full_path is not None:
-            pulumi.set(__self__, "full_path", full_path)
+            _setter("full_path", full_path)
         if issuer_cert is not None:
-            pulumi.set(__self__, "issuer_cert", issuer_cert)
+            _setter("issuer_cert", issuer_cert)
         if monitoring_type is not None:
-            pulumi.set(__self__, "monitoring_type", monitoring_type)
+            _setter("monitoring_type", monitoring_type)
         if ocsp is not None:
-            pulumi.set(__self__, "ocsp", ocsp)
+            _setter("ocsp", ocsp)
         if partition is not None:
-            pulumi.set(__self__, "partition", partition)
+            _setter("partition", partition)
 
     @property
     @pulumi.getter
@@ -149,20 +182,49 @@ class _CertificateState:
         :param pulumi.Input[str] ocsp: Specifies the OCSP responder.
         :param pulumi.Input[str] partition: Partition of ssl certificate
         """
+        _CertificateState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            full_path=full_path,
+            issuer_cert=issuer_cert,
+            monitoring_type=monitoring_type,
+            name=name,
+            ocsp=ocsp,
+            partition=partition,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: Optional[pulumi.Input[str]] = None,
+             full_path: Optional[pulumi.Input[str]] = None,
+             issuer_cert: Optional[pulumi.Input[str]] = None,
+             monitoring_type: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             ocsp: Optional[pulumi.Input[str]] = None,
+             partition: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if full_path is None and 'fullPath' in kwargs:
+            full_path = kwargs['fullPath']
+        if issuer_cert is None and 'issuerCert' in kwargs:
+            issuer_cert = kwargs['issuerCert']
+        if monitoring_type is None and 'monitoringType' in kwargs:
+            monitoring_type = kwargs['monitoringType']
+
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
         if full_path is not None:
-            pulumi.set(__self__, "full_path", full_path)
+            _setter("full_path", full_path)
         if issuer_cert is not None:
-            pulumi.set(__self__, "issuer_cert", issuer_cert)
+            _setter("issuer_cert", issuer_cert)
         if monitoring_type is not None:
-            pulumi.set(__self__, "monitoring_type", monitoring_type)
+            _setter("monitoring_type", monitoring_type)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if ocsp is not None:
-            pulumi.set(__self__, "ocsp", ocsp)
+            _setter("ocsp", ocsp)
         if partition is not None:
-            pulumi.set(__self__, "partition", partition)
+            _setter("partition", partition)
 
     @property
     @pulumi.getter
@@ -320,6 +382,10 @@ class Certificate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CertificateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

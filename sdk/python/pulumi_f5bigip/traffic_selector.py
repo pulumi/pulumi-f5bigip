@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['TrafficSelectorArgs', 'TrafficSelector']
@@ -38,23 +38,70 @@ class TrafficSelectorArgs:
                When creating a new traffic selector, if this parameter is not specified, the default is `last`
         :param pulumi.Input[int] source_port: Specifies the IP port used by the application. The default value is `All Ports (0)`.
         """
-        pulumi.set(__self__, "destination_address", destination_address)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "source_address", source_address)
+        TrafficSelectorArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            destination_address=destination_address,
+            name=name,
+            source_address=source_address,
+            description=description,
+            destination_port=destination_port,
+            direction=direction,
+            ip_protocol=ip_protocol,
+            ipsec_policy=ipsec_policy,
+            order=order,
+            source_port=source_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             destination_address: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             source_address: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             destination_port: Optional[pulumi.Input[int]] = None,
+             direction: Optional[pulumi.Input[str]] = None,
+             ip_protocol: Optional[pulumi.Input[int]] = None,
+             ipsec_policy: Optional[pulumi.Input[str]] = None,
+             order: Optional[pulumi.Input[int]] = None,
+             source_port: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if destination_address is None and 'destinationAddress' in kwargs:
+            destination_address = kwargs['destinationAddress']
+        if destination_address is None:
+            raise TypeError("Missing 'destination_address' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if source_address is None and 'sourceAddress' in kwargs:
+            source_address = kwargs['sourceAddress']
+        if source_address is None:
+            raise TypeError("Missing 'source_address' argument")
+        if destination_port is None and 'destinationPort' in kwargs:
+            destination_port = kwargs['destinationPort']
+        if ip_protocol is None and 'ipProtocol' in kwargs:
+            ip_protocol = kwargs['ipProtocol']
+        if ipsec_policy is None and 'ipsecPolicy' in kwargs:
+            ipsec_policy = kwargs['ipsecPolicy']
+        if source_port is None and 'sourcePort' in kwargs:
+            source_port = kwargs['sourcePort']
+
+        _setter("destination_address", destination_address)
+        _setter("name", name)
+        _setter("source_address", source_address)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if destination_port is not None:
-            pulumi.set(__self__, "destination_port", destination_port)
+            _setter("destination_port", destination_port)
         if direction is not None:
-            pulumi.set(__self__, "direction", direction)
+            _setter("direction", direction)
         if ip_protocol is not None:
-            pulumi.set(__self__, "ip_protocol", ip_protocol)
+            _setter("ip_protocol", ip_protocol)
         if ipsec_policy is not None:
-            pulumi.set(__self__, "ipsec_policy", ipsec_policy)
+            _setter("ipsec_policy", ipsec_policy)
         if order is not None:
-            pulumi.set(__self__, "order", order)
+            _setter("order", order)
         if source_port is not None:
-            pulumi.set(__self__, "source_port", source_port)
+            _setter("source_port", source_port)
 
     @property
     @pulumi.getter(name="destinationAddress")
@@ -205,26 +252,67 @@ class _TrafficSelectorState:
         :param pulumi.Input[str] source_address: Specifies the host or network IP address from which the application traffic originates.When creating a new traffic selector, this parameter is required.
         :param pulumi.Input[int] source_port: Specifies the IP port used by the application. The default value is `All Ports (0)`.
         """
+        _TrafficSelectorState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            destination_address=destination_address,
+            destination_port=destination_port,
+            direction=direction,
+            ip_protocol=ip_protocol,
+            ipsec_policy=ipsec_policy,
+            name=name,
+            order=order,
+            source_address=source_address,
+            source_port=source_port,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             destination_address: Optional[pulumi.Input[str]] = None,
+             destination_port: Optional[pulumi.Input[int]] = None,
+             direction: Optional[pulumi.Input[str]] = None,
+             ip_protocol: Optional[pulumi.Input[int]] = None,
+             ipsec_policy: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             order: Optional[pulumi.Input[int]] = None,
+             source_address: Optional[pulumi.Input[str]] = None,
+             source_port: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if destination_address is None and 'destinationAddress' in kwargs:
+            destination_address = kwargs['destinationAddress']
+        if destination_port is None and 'destinationPort' in kwargs:
+            destination_port = kwargs['destinationPort']
+        if ip_protocol is None and 'ipProtocol' in kwargs:
+            ip_protocol = kwargs['ipProtocol']
+        if ipsec_policy is None and 'ipsecPolicy' in kwargs:
+            ipsec_policy = kwargs['ipsecPolicy']
+        if source_address is None and 'sourceAddress' in kwargs:
+            source_address = kwargs['sourceAddress']
+        if source_port is None and 'sourcePort' in kwargs:
+            source_port = kwargs['sourcePort']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if destination_address is not None:
-            pulumi.set(__self__, "destination_address", destination_address)
+            _setter("destination_address", destination_address)
         if destination_port is not None:
-            pulumi.set(__self__, "destination_port", destination_port)
+            _setter("destination_port", destination_port)
         if direction is not None:
-            pulumi.set(__self__, "direction", direction)
+            _setter("direction", direction)
         if ip_protocol is not None:
-            pulumi.set(__self__, "ip_protocol", ip_protocol)
+            _setter("ip_protocol", ip_protocol)
         if ipsec_policy is not None:
-            pulumi.set(__self__, "ipsec_policy", ipsec_policy)
+            _setter("ipsec_policy", ipsec_policy)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if order is not None:
-            pulumi.set(__self__, "order", order)
+            _setter("order", order)
         if source_address is not None:
-            pulumi.set(__self__, "source_address", source_address)
+            _setter("source_address", source_address)
         if source_port is not None:
-            pulumi.set(__self__, "source_port", source_port)
+            _setter("source_port", source_port)
 
     @property
     @pulumi.getter
@@ -428,6 +516,10 @@ class TrafficSelector(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TrafficSelectorArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

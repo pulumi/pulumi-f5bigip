@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PoolArgs', 'Pool']
@@ -37,25 +37,70 @@ class PoolArgs:
         :param pulumi.Input[str] service_down_action: Specifies how the system should respond when the target pool member becomes unavailable. The default is `None`, Possible values: `[none, reset, reselect, drop]`.
         :param pulumi.Input[int] slow_ramp_time: Specifies the duration during which the system sends less traffic to a newly-enabled pool member.
         """
-        pulumi.set(__self__, "name", name)
+        PoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            allow_nat=allow_nat,
+            allow_snat=allow_snat,
+            description=description,
+            load_balancing_mode=load_balancing_mode,
+            minimum_active_members=minimum_active_members,
+            monitors=monitors,
+            reselect_tries=reselect_tries,
+            service_down_action=service_down_action,
+            slow_ramp_time=slow_ramp_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             allow_nat: Optional[pulumi.Input[str]] = None,
+             allow_snat: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             load_balancing_mode: Optional[pulumi.Input[str]] = None,
+             minimum_active_members: Optional[pulumi.Input[int]] = None,
+             monitors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             reselect_tries: Optional[pulumi.Input[int]] = None,
+             service_down_action: Optional[pulumi.Input[str]] = None,
+             slow_ramp_time: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if allow_nat is None and 'allowNat' in kwargs:
+            allow_nat = kwargs['allowNat']
+        if allow_snat is None and 'allowSnat' in kwargs:
+            allow_snat = kwargs['allowSnat']
+        if load_balancing_mode is None and 'loadBalancingMode' in kwargs:
+            load_balancing_mode = kwargs['loadBalancingMode']
+        if minimum_active_members is None and 'minimumActiveMembers' in kwargs:
+            minimum_active_members = kwargs['minimumActiveMembers']
+        if reselect_tries is None and 'reselectTries' in kwargs:
+            reselect_tries = kwargs['reselectTries']
+        if service_down_action is None and 'serviceDownAction' in kwargs:
+            service_down_action = kwargs['serviceDownAction']
+        if slow_ramp_time is None and 'slowRampTime' in kwargs:
+            slow_ramp_time = kwargs['slowRampTime']
+
+        _setter("name", name)
         if allow_nat is not None:
-            pulumi.set(__self__, "allow_nat", allow_nat)
+            _setter("allow_nat", allow_nat)
         if allow_snat is not None:
-            pulumi.set(__self__, "allow_snat", allow_snat)
+            _setter("allow_snat", allow_snat)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if load_balancing_mode is not None:
-            pulumi.set(__self__, "load_balancing_mode", load_balancing_mode)
+            _setter("load_balancing_mode", load_balancing_mode)
         if minimum_active_members is not None:
-            pulumi.set(__self__, "minimum_active_members", minimum_active_members)
+            _setter("minimum_active_members", minimum_active_members)
         if monitors is not None:
-            pulumi.set(__self__, "monitors", monitors)
+            _setter("monitors", monitors)
         if reselect_tries is not None:
-            pulumi.set(__self__, "reselect_tries", reselect_tries)
+            _setter("reselect_tries", reselect_tries)
         if service_down_action is not None:
-            pulumi.set(__self__, "service_down_action", service_down_action)
+            _setter("service_down_action", service_down_action)
         if slow_ramp_time is not None:
-            pulumi.set(__self__, "slow_ramp_time", slow_ramp_time)
+            _setter("slow_ramp_time", slow_ramp_time)
 
     @property
     @pulumi.getter
@@ -204,26 +249,69 @@ class _PoolState:
         :param pulumi.Input[str] service_down_action: Specifies how the system should respond when the target pool member becomes unavailable. The default is `None`, Possible values: `[none, reset, reselect, drop]`.
         :param pulumi.Input[int] slow_ramp_time: Specifies the duration during which the system sends less traffic to a newly-enabled pool member.
         """
+        _PoolState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_nat=allow_nat,
+            allow_snat=allow_snat,
+            description=description,
+            load_balancing_mode=load_balancing_mode,
+            minimum_active_members=minimum_active_members,
+            monitors=monitors,
+            name=name,
+            reselect_tries=reselect_tries,
+            service_down_action=service_down_action,
+            slow_ramp_time=slow_ramp_time,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_nat: Optional[pulumi.Input[str]] = None,
+             allow_snat: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             load_balancing_mode: Optional[pulumi.Input[str]] = None,
+             minimum_active_members: Optional[pulumi.Input[int]] = None,
+             monitors: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             reselect_tries: Optional[pulumi.Input[int]] = None,
+             service_down_action: Optional[pulumi.Input[str]] = None,
+             slow_ramp_time: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if allow_nat is None and 'allowNat' in kwargs:
+            allow_nat = kwargs['allowNat']
+        if allow_snat is None and 'allowSnat' in kwargs:
+            allow_snat = kwargs['allowSnat']
+        if load_balancing_mode is None and 'loadBalancingMode' in kwargs:
+            load_balancing_mode = kwargs['loadBalancingMode']
+        if minimum_active_members is None and 'minimumActiveMembers' in kwargs:
+            minimum_active_members = kwargs['minimumActiveMembers']
+        if reselect_tries is None and 'reselectTries' in kwargs:
+            reselect_tries = kwargs['reselectTries']
+        if service_down_action is None and 'serviceDownAction' in kwargs:
+            service_down_action = kwargs['serviceDownAction']
+        if slow_ramp_time is None and 'slowRampTime' in kwargs:
+            slow_ramp_time = kwargs['slowRampTime']
+
         if allow_nat is not None:
-            pulumi.set(__self__, "allow_nat", allow_nat)
+            _setter("allow_nat", allow_nat)
         if allow_snat is not None:
-            pulumi.set(__self__, "allow_snat", allow_snat)
+            _setter("allow_snat", allow_snat)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if load_balancing_mode is not None:
-            pulumi.set(__self__, "load_balancing_mode", load_balancing_mode)
+            _setter("load_balancing_mode", load_balancing_mode)
         if minimum_active_members is not None:
-            pulumi.set(__self__, "minimum_active_members", minimum_active_members)
+            _setter("minimum_active_members", minimum_active_members)
         if monitors is not None:
-            pulumi.set(__self__, "monitors", monitors)
+            _setter("monitors", monitors)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if reselect_tries is not None:
-            pulumi.set(__self__, "reselect_tries", reselect_tries)
+            _setter("reselect_tries", reselect_tries)
         if service_down_action is not None:
-            pulumi.set(__self__, "service_down_action", service_down_action)
+            _setter("service_down_action", service_down_action)
         if slow_ramp_time is not None:
-            pulumi.set(__self__, "slow_ramp_time", slow_ramp_time)
+            _setter("slow_ramp_time", slow_ramp_time)
 
     @property
     @pulumi.getter(name="allowNat")
@@ -435,6 +523,10 @@ class Pool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

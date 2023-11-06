@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PoolAttachmentArgs', 'PoolAttachment']
@@ -37,24 +37,67 @@ class PoolAttachmentArgs:
         :param pulumi.Input[int] ratio: "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
         :param pulumi.Input[str] state: Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forced_offline`).
         """
-        pulumi.set(__self__, "node", node)
-        pulumi.set(__self__, "pool", pool)
+        PoolAttachmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            node=node,
+            pool=pool,
+            connection_limit=connection_limit,
+            connection_rate_limit=connection_rate_limit,
+            dynamic_ratio=dynamic_ratio,
+            fqdn_autopopulate=fqdn_autopopulate,
+            monitor=monitor,
+            priority_group=priority_group,
+            ratio=ratio,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             node: Optional[pulumi.Input[str]] = None,
+             pool: Optional[pulumi.Input[str]] = None,
+             connection_limit: Optional[pulumi.Input[int]] = None,
+             connection_rate_limit: Optional[pulumi.Input[str]] = None,
+             dynamic_ratio: Optional[pulumi.Input[int]] = None,
+             fqdn_autopopulate: Optional[pulumi.Input[str]] = None,
+             monitor: Optional[pulumi.Input[str]] = None,
+             priority_group: Optional[pulumi.Input[int]] = None,
+             ratio: Optional[pulumi.Input[int]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if node is None:
+            raise TypeError("Missing 'node' argument")
+        if pool is None:
+            raise TypeError("Missing 'pool' argument")
+        if connection_limit is None and 'connectionLimit' in kwargs:
+            connection_limit = kwargs['connectionLimit']
+        if connection_rate_limit is None and 'connectionRateLimit' in kwargs:
+            connection_rate_limit = kwargs['connectionRateLimit']
+        if dynamic_ratio is None and 'dynamicRatio' in kwargs:
+            dynamic_ratio = kwargs['dynamicRatio']
+        if fqdn_autopopulate is None and 'fqdnAutopopulate' in kwargs:
+            fqdn_autopopulate = kwargs['fqdnAutopopulate']
+        if priority_group is None and 'priorityGroup' in kwargs:
+            priority_group = kwargs['priorityGroup']
+
+        _setter("node", node)
+        _setter("pool", pool)
         if connection_limit is not None:
-            pulumi.set(__self__, "connection_limit", connection_limit)
+            _setter("connection_limit", connection_limit)
         if connection_rate_limit is not None:
-            pulumi.set(__self__, "connection_rate_limit", connection_rate_limit)
+            _setter("connection_rate_limit", connection_rate_limit)
         if dynamic_ratio is not None:
-            pulumi.set(__self__, "dynamic_ratio", dynamic_ratio)
+            _setter("dynamic_ratio", dynamic_ratio)
         if fqdn_autopopulate is not None:
-            pulumi.set(__self__, "fqdn_autopopulate", fqdn_autopopulate)
+            _setter("fqdn_autopopulate", fqdn_autopopulate)
         if monitor is not None:
-            pulumi.set(__self__, "monitor", monitor)
+            _setter("monitor", monitor)
         if priority_group is not None:
-            pulumi.set(__self__, "priority_group", priority_group)
+            _setter("priority_group", priority_group)
         if ratio is not None:
-            pulumi.set(__self__, "ratio", ratio)
+            _setter("ratio", ratio)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter
@@ -203,26 +246,65 @@ class _PoolAttachmentState:
         :param pulumi.Input[int] ratio: "Specifies the ratio weight to assign to the pool member. Valid values range from 1 through 65535. The default is 1, which means that each pool member has an equal ratio proportion.".
         :param pulumi.Input[str] state: Specifies the state the pool member should be in,value can be `enabled` (or) `disabled` (or) `forced_offline`).
         """
+        _PoolAttachmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            connection_limit=connection_limit,
+            connection_rate_limit=connection_rate_limit,
+            dynamic_ratio=dynamic_ratio,
+            fqdn_autopopulate=fqdn_autopopulate,
+            monitor=monitor,
+            node=node,
+            pool=pool,
+            priority_group=priority_group,
+            ratio=ratio,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             connection_limit: Optional[pulumi.Input[int]] = None,
+             connection_rate_limit: Optional[pulumi.Input[str]] = None,
+             dynamic_ratio: Optional[pulumi.Input[int]] = None,
+             fqdn_autopopulate: Optional[pulumi.Input[str]] = None,
+             monitor: Optional[pulumi.Input[str]] = None,
+             node: Optional[pulumi.Input[str]] = None,
+             pool: Optional[pulumi.Input[str]] = None,
+             priority_group: Optional[pulumi.Input[int]] = None,
+             ratio: Optional[pulumi.Input[int]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if connection_limit is None and 'connectionLimit' in kwargs:
+            connection_limit = kwargs['connectionLimit']
+        if connection_rate_limit is None and 'connectionRateLimit' in kwargs:
+            connection_rate_limit = kwargs['connectionRateLimit']
+        if dynamic_ratio is None and 'dynamicRatio' in kwargs:
+            dynamic_ratio = kwargs['dynamicRatio']
+        if fqdn_autopopulate is None and 'fqdnAutopopulate' in kwargs:
+            fqdn_autopopulate = kwargs['fqdnAutopopulate']
+        if priority_group is None and 'priorityGroup' in kwargs:
+            priority_group = kwargs['priorityGroup']
+
         if connection_limit is not None:
-            pulumi.set(__self__, "connection_limit", connection_limit)
+            _setter("connection_limit", connection_limit)
         if connection_rate_limit is not None:
-            pulumi.set(__self__, "connection_rate_limit", connection_rate_limit)
+            _setter("connection_rate_limit", connection_rate_limit)
         if dynamic_ratio is not None:
-            pulumi.set(__self__, "dynamic_ratio", dynamic_ratio)
+            _setter("dynamic_ratio", dynamic_ratio)
         if fqdn_autopopulate is not None:
-            pulumi.set(__self__, "fqdn_autopopulate", fqdn_autopopulate)
+            _setter("fqdn_autopopulate", fqdn_autopopulate)
         if monitor is not None:
-            pulumi.set(__self__, "monitor", monitor)
+            _setter("monitor", monitor)
         if node is not None:
-            pulumi.set(__self__, "node", node)
+            _setter("node", node)
         if pool is not None:
-            pulumi.set(__self__, "pool", pool)
+            _setter("pool", pool)
         if priority_group is not None:
-            pulumi.set(__self__, "priority_group", priority_group)
+            _setter("priority_group", priority_group)
         if ratio is not None:
-            pulumi.set(__self__, "ratio", ratio)
+            _setter("ratio", ratio)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
 
     @property
     @pulumi.getter(name="connectionLimit")
@@ -524,6 +606,10 @@ class PoolAttachment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PoolAttachmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

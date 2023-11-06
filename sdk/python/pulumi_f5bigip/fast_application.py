@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['FastApplicationArgs', 'FastApplication']
@@ -21,9 +21,26 @@ class FastApplicationArgs:
         :param pulumi.Input[str] fast_json: Path/Filename of Declarative FAST JSON which is a json file used with builtin ```file``` function
         :param pulumi.Input[str] template: Name of installed FAST template used to create FAST application. This parameter is required when creating new resource.
         """
-        pulumi.set(__self__, "fast_json", fast_json)
+        FastApplicationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            fast_json=fast_json,
+            template=template,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             fast_json: Optional[pulumi.Input[str]] = None,
+             template: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if fast_json is None and 'fastJson' in kwargs:
+            fast_json = kwargs['fastJson']
+        if fast_json is None:
+            raise TypeError("Missing 'fast_json' argument")
+
+        _setter("fast_json", fast_json)
         if template is not None:
-            pulumi.set(__self__, "template", template)
+            _setter("template", template)
 
     @property
     @pulumi.getter(name="fastJson")
@@ -68,14 +85,33 @@ class _FastApplicationState:
         :param pulumi.Input[str] template: Name of installed FAST template used to create FAST application. This parameter is required when creating new resource.
         :param pulumi.Input[str] tenant: A FAST tenant name on which you want to manage application.
         """
+        _FastApplicationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            application=application,
+            fast_json=fast_json,
+            template=template,
+            tenant=tenant,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             application: Optional[pulumi.Input[str]] = None,
+             fast_json: Optional[pulumi.Input[str]] = None,
+             template: Optional[pulumi.Input[str]] = None,
+             tenant: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if fast_json is None and 'fastJson' in kwargs:
+            fast_json = kwargs['fastJson']
+
         if application is not None:
-            pulumi.set(__self__, "application", application)
+            _setter("application", application)
         if fast_json is not None:
-            pulumi.set(__self__, "fast_json", fast_json)
+            _setter("fast_json", fast_json)
         if template is not None:
-            pulumi.set(__self__, "template", template)
+            _setter("template", template)
         if tenant is not None:
-            pulumi.set(__self__, "tenant", tenant)
+            _setter("tenant", tenant)
 
     @property
     @pulumi.getter
@@ -187,6 +223,10 @@ class FastApplication(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            FastApplicationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

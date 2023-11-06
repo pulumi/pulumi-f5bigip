@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['CommandArgs', 'Command']
@@ -22,11 +22,30 @@ class CommandArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] command_results: The resulting output from the `commands` executed
         """
-        pulumi.set(__self__, "commands", commands)
+        CommandArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            commands=commands,
+            command_results=command_results,
+            when=when,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             commands: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             command_results: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             when: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if commands is None:
+            raise TypeError("Missing 'commands' argument")
+        if command_results is None and 'commandResults' in kwargs:
+            command_results = kwargs['commandResults']
+
+        _setter("commands", commands)
         if command_results is not None:
-            pulumi.set(__self__, "command_results", command_results)
+            _setter("command_results", command_results)
         if when is not None:
-            pulumi.set(__self__, "when", when)
+            _setter("when", when)
 
     @property
     @pulumi.getter
@@ -73,12 +92,29 @@ class _CommandState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] command_results: The resulting output from the `commands` executed
         :param pulumi.Input[Sequence[pulumi.Input[str]]] commands: The commands to send to the remote BIG-IP device over the configured provider. The resulting output from the command is returned and added to `command_result`
         """
+        _CommandState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            command_results=command_results,
+            commands=commands,
+            when=when,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             command_results: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             commands: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             when: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if command_results is None and 'commandResults' in kwargs:
+            command_results = kwargs['commandResults']
+
         if command_results is not None:
-            pulumi.set(__self__, "command_results", command_results)
+            _setter("command_results", command_results)
         if commands is not None:
-            pulumi.set(__self__, "commands", commands)
+            _setter("commands", commands)
         if when is not None:
-            pulumi.set(__self__, "when", when)
+            _setter("when", when)
 
     @property
     @pulumi.getter(name="commandResults")
@@ -176,6 +212,10 @@ class Command(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CommandArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

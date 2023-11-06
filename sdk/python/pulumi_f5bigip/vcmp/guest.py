@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['GuestArgs', 'Guest']
@@ -43,31 +43,88 @@ class GuestArgs:
         :param pulumi.Input[str] state: Specifies the state of the vCMP guest on the system. options : [`configured`,`provisioned`,`deployed`].
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans: Specifies the list of VLANs the vCMP guest uses to communicate with other guests, the host, and with the external network. The naming format must be the combination of the partition + name. For example /Common/my-vlan
         """
-        pulumi.set(__self__, "name", name)
+        GuestArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            allowed_slots=allowed_slots,
+            cores_per_slot=cores_per_slot,
+            delete_virtual_disk=delete_virtual_disk,
+            initial_hotfix=initial_hotfix,
+            initial_image=initial_image,
+            mgmt_address=mgmt_address,
+            mgmt_network=mgmt_network,
+            mgmt_route=mgmt_route,
+            min_number_of_slots=min_number_of_slots,
+            number_of_slots=number_of_slots,
+            state=state,
+            vlans=vlans,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[pulumi.Input[str]] = None,
+             allowed_slots: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             cores_per_slot: Optional[pulumi.Input[int]] = None,
+             delete_virtual_disk: Optional[pulumi.Input[bool]] = None,
+             initial_hotfix: Optional[pulumi.Input[str]] = None,
+             initial_image: Optional[pulumi.Input[str]] = None,
+             mgmt_address: Optional[pulumi.Input[str]] = None,
+             mgmt_network: Optional[pulumi.Input[str]] = None,
+             mgmt_route: Optional[pulumi.Input[str]] = None,
+             min_number_of_slots: Optional[pulumi.Input[int]] = None,
+             number_of_slots: Optional[pulumi.Input[int]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             vlans: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if allowed_slots is None and 'allowedSlots' in kwargs:
+            allowed_slots = kwargs['allowedSlots']
+        if cores_per_slot is None and 'coresPerSlot' in kwargs:
+            cores_per_slot = kwargs['coresPerSlot']
+        if delete_virtual_disk is None and 'deleteVirtualDisk' in kwargs:
+            delete_virtual_disk = kwargs['deleteVirtualDisk']
+        if initial_hotfix is None and 'initialHotfix' in kwargs:
+            initial_hotfix = kwargs['initialHotfix']
+        if initial_image is None and 'initialImage' in kwargs:
+            initial_image = kwargs['initialImage']
+        if mgmt_address is None and 'mgmtAddress' in kwargs:
+            mgmt_address = kwargs['mgmtAddress']
+        if mgmt_network is None and 'mgmtNetwork' in kwargs:
+            mgmt_network = kwargs['mgmtNetwork']
+        if mgmt_route is None and 'mgmtRoute' in kwargs:
+            mgmt_route = kwargs['mgmtRoute']
+        if min_number_of_slots is None and 'minNumberOfSlots' in kwargs:
+            min_number_of_slots = kwargs['minNumberOfSlots']
+        if number_of_slots is None and 'numberOfSlots' in kwargs:
+            number_of_slots = kwargs['numberOfSlots']
+
+        _setter("name", name)
         if allowed_slots is not None:
-            pulumi.set(__self__, "allowed_slots", allowed_slots)
+            _setter("allowed_slots", allowed_slots)
         if cores_per_slot is not None:
-            pulumi.set(__self__, "cores_per_slot", cores_per_slot)
+            _setter("cores_per_slot", cores_per_slot)
         if delete_virtual_disk is not None:
-            pulumi.set(__self__, "delete_virtual_disk", delete_virtual_disk)
+            _setter("delete_virtual_disk", delete_virtual_disk)
         if initial_hotfix is not None:
-            pulumi.set(__self__, "initial_hotfix", initial_hotfix)
+            _setter("initial_hotfix", initial_hotfix)
         if initial_image is not None:
-            pulumi.set(__self__, "initial_image", initial_image)
+            _setter("initial_image", initial_image)
         if mgmt_address is not None:
-            pulumi.set(__self__, "mgmt_address", mgmt_address)
+            _setter("mgmt_address", mgmt_address)
         if mgmt_network is not None:
-            pulumi.set(__self__, "mgmt_network", mgmt_network)
+            _setter("mgmt_network", mgmt_network)
         if mgmt_route is not None:
-            pulumi.set(__self__, "mgmt_route", mgmt_route)
+            _setter("mgmt_route", mgmt_route)
         if min_number_of_slots is not None:
-            pulumi.set(__self__, "min_number_of_slots", min_number_of_slots)
+            _setter("min_number_of_slots", min_number_of_slots)
         if number_of_slots is not None:
-            pulumi.set(__self__, "number_of_slots", number_of_slots)
+            _setter("number_of_slots", number_of_slots)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if vlans is not None:
-            pulumi.set(__self__, "vlans", vlans)
+            _setter("vlans", vlans)
 
     @property
     @pulumi.getter
@@ -262,36 +319,99 @@ class _GuestState:
         :param pulumi.Input[str] virtual_disk: Virtual disk associated with vCMP guest.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vlans: Specifies the list of VLANs the vCMP guest uses to communicate with other guests, the host, and with the external network. The naming format must be the combination of the partition + name. For example /Common/my-vlan
         """
+        _GuestState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_slots=allowed_slots,
+            cores_per_slot=cores_per_slot,
+            delete_virtual_disk=delete_virtual_disk,
+            full_path=full_path,
+            initial_hotfix=initial_hotfix,
+            initial_image=initial_image,
+            mgmt_address=mgmt_address,
+            mgmt_network=mgmt_network,
+            mgmt_route=mgmt_route,
+            min_number_of_slots=min_number_of_slots,
+            name=name,
+            number_of_slots=number_of_slots,
+            state=state,
+            virtual_disk=virtual_disk,
+            vlans=vlans,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_slots: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             cores_per_slot: Optional[pulumi.Input[int]] = None,
+             delete_virtual_disk: Optional[pulumi.Input[bool]] = None,
+             full_path: Optional[pulumi.Input[str]] = None,
+             initial_hotfix: Optional[pulumi.Input[str]] = None,
+             initial_image: Optional[pulumi.Input[str]] = None,
+             mgmt_address: Optional[pulumi.Input[str]] = None,
+             mgmt_network: Optional[pulumi.Input[str]] = None,
+             mgmt_route: Optional[pulumi.Input[str]] = None,
+             min_number_of_slots: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             number_of_slots: Optional[pulumi.Input[int]] = None,
+             state: Optional[pulumi.Input[str]] = None,
+             virtual_disk: Optional[pulumi.Input[str]] = None,
+             vlans: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if allowed_slots is None and 'allowedSlots' in kwargs:
+            allowed_slots = kwargs['allowedSlots']
+        if cores_per_slot is None and 'coresPerSlot' in kwargs:
+            cores_per_slot = kwargs['coresPerSlot']
+        if delete_virtual_disk is None and 'deleteVirtualDisk' in kwargs:
+            delete_virtual_disk = kwargs['deleteVirtualDisk']
+        if full_path is None and 'fullPath' in kwargs:
+            full_path = kwargs['fullPath']
+        if initial_hotfix is None and 'initialHotfix' in kwargs:
+            initial_hotfix = kwargs['initialHotfix']
+        if initial_image is None and 'initialImage' in kwargs:
+            initial_image = kwargs['initialImage']
+        if mgmt_address is None and 'mgmtAddress' in kwargs:
+            mgmt_address = kwargs['mgmtAddress']
+        if mgmt_network is None and 'mgmtNetwork' in kwargs:
+            mgmt_network = kwargs['mgmtNetwork']
+        if mgmt_route is None and 'mgmtRoute' in kwargs:
+            mgmt_route = kwargs['mgmtRoute']
+        if min_number_of_slots is None and 'minNumberOfSlots' in kwargs:
+            min_number_of_slots = kwargs['minNumberOfSlots']
+        if number_of_slots is None and 'numberOfSlots' in kwargs:
+            number_of_slots = kwargs['numberOfSlots']
+        if virtual_disk is None and 'virtualDisk' in kwargs:
+            virtual_disk = kwargs['virtualDisk']
+
         if allowed_slots is not None:
-            pulumi.set(__self__, "allowed_slots", allowed_slots)
+            _setter("allowed_slots", allowed_slots)
         if cores_per_slot is not None:
-            pulumi.set(__self__, "cores_per_slot", cores_per_slot)
+            _setter("cores_per_slot", cores_per_slot)
         if delete_virtual_disk is not None:
-            pulumi.set(__self__, "delete_virtual_disk", delete_virtual_disk)
+            _setter("delete_virtual_disk", delete_virtual_disk)
         if full_path is not None:
-            pulumi.set(__self__, "full_path", full_path)
+            _setter("full_path", full_path)
         if initial_hotfix is not None:
-            pulumi.set(__self__, "initial_hotfix", initial_hotfix)
+            _setter("initial_hotfix", initial_hotfix)
         if initial_image is not None:
-            pulumi.set(__self__, "initial_image", initial_image)
+            _setter("initial_image", initial_image)
         if mgmt_address is not None:
-            pulumi.set(__self__, "mgmt_address", mgmt_address)
+            _setter("mgmt_address", mgmt_address)
         if mgmt_network is not None:
-            pulumi.set(__self__, "mgmt_network", mgmt_network)
+            _setter("mgmt_network", mgmt_network)
         if mgmt_route is not None:
-            pulumi.set(__self__, "mgmt_route", mgmt_route)
+            _setter("mgmt_route", mgmt_route)
         if min_number_of_slots is not None:
-            pulumi.set(__self__, "min_number_of_slots", min_number_of_slots)
+            _setter("min_number_of_slots", min_number_of_slots)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if number_of_slots is not None:
-            pulumi.set(__self__, "number_of_slots", number_of_slots)
+            _setter("number_of_slots", number_of_slots)
         if state is not None:
-            pulumi.set(__self__, "state", state)
+            _setter("state", state)
         if virtual_disk is not None:
-            pulumi.set(__self__, "virtual_disk", virtual_disk)
+            _setter("virtual_disk", virtual_disk)
         if vlans is not None:
-            pulumi.set(__self__, "vlans", vlans)
+            _setter("vlans", vlans)
 
     @property
     @pulumi.getter(name="allowedSlots")
@@ -571,6 +691,10 @@ class Guest(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GuestArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
