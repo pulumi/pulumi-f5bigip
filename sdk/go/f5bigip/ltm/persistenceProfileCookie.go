@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Configures a cookie persistence profile
@@ -349,12 +348,6 @@ func (i *PersistenceProfileCookie) ToPersistenceProfileCookieOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(PersistenceProfileCookieOutput)
 }
 
-func (i *PersistenceProfileCookie) ToOutput(ctx context.Context) pulumix.Output[*PersistenceProfileCookie] {
-	return pulumix.Output[*PersistenceProfileCookie]{
-		OutputState: i.ToPersistenceProfileCookieOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PersistenceProfileCookieArrayInput is an input type that accepts PersistenceProfileCookieArray and PersistenceProfileCookieArrayOutput values.
 // You can construct a concrete instance of `PersistenceProfileCookieArrayInput` via:
 //
@@ -378,12 +371,6 @@ func (i PersistenceProfileCookieArray) ToPersistenceProfileCookieArrayOutput() P
 
 func (i PersistenceProfileCookieArray) ToPersistenceProfileCookieArrayOutputWithContext(ctx context.Context) PersistenceProfileCookieArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PersistenceProfileCookieArrayOutput)
-}
-
-func (i PersistenceProfileCookieArray) ToOutput(ctx context.Context) pulumix.Output[[]*PersistenceProfileCookie] {
-	return pulumix.Output[[]*PersistenceProfileCookie]{
-		OutputState: i.ToPersistenceProfileCookieArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PersistenceProfileCookieMapInput is an input type that accepts PersistenceProfileCookieMap and PersistenceProfileCookieMapOutput values.
@@ -411,12 +398,6 @@ func (i PersistenceProfileCookieMap) ToPersistenceProfileCookieMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(PersistenceProfileCookieMapOutput)
 }
 
-func (i PersistenceProfileCookieMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PersistenceProfileCookie] {
-	return pulumix.Output[map[string]*PersistenceProfileCookie]{
-		OutputState: i.ToPersistenceProfileCookieMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PersistenceProfileCookieOutput struct{ *pulumi.OutputState }
 
 func (PersistenceProfileCookieOutput) ElementType() reflect.Type {
@@ -429,12 +410,6 @@ func (o PersistenceProfileCookieOutput) ToPersistenceProfileCookieOutput() Persi
 
 func (o PersistenceProfileCookieOutput) ToPersistenceProfileCookieOutputWithContext(ctx context.Context) PersistenceProfileCookieOutput {
 	return o
-}
-
-func (o PersistenceProfileCookieOutput) ToOutput(ctx context.Context) pulumix.Output[*PersistenceProfileCookie] {
-	return pulumix.Output[*PersistenceProfileCookie]{
-		OutputState: o.OutputState,
-	}
 }
 
 // To enable _ disable always sending cookies
@@ -541,12 +516,6 @@ func (o PersistenceProfileCookieArrayOutput) ToPersistenceProfileCookieArrayOutp
 	return o
 }
 
-func (o PersistenceProfileCookieArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PersistenceProfileCookie] {
-	return pulumix.Output[[]*PersistenceProfileCookie]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PersistenceProfileCookieArrayOutput) Index(i pulumi.IntInput) PersistenceProfileCookieOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PersistenceProfileCookie {
 		return vs[0].([]*PersistenceProfileCookie)[vs[1].(int)]
@@ -565,12 +534,6 @@ func (o PersistenceProfileCookieMapOutput) ToPersistenceProfileCookieMapOutput()
 
 func (o PersistenceProfileCookieMapOutput) ToPersistenceProfileCookieMapOutputWithContext(ctx context.Context) PersistenceProfileCookieMapOutput {
 	return o
-}
-
-func (o PersistenceProfileCookieMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PersistenceProfileCookie] {
-	return pulumix.Output[map[string]*PersistenceProfileCookie]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PersistenceProfileCookieMapOutput) MapIndex(k pulumi.StringInput) PersistenceProfileCookieOutput {

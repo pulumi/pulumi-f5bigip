@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source (`ltm.IRule`) to get the ltm irule details available on BIG-IP
@@ -113,12 +112,6 @@ func (o GetIruleResultOutput) ToGetIruleResultOutput() GetIruleResultOutput {
 
 func (o GetIruleResultOutput) ToGetIruleResultOutputWithContext(ctx context.Context) GetIruleResultOutput {
 	return o
-}
-
-func (o GetIruleResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetIruleResult] {
-	return pulumix.Output[GetIruleResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

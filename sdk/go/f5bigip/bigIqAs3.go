@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `BigIqAs3` provides details about bigiq as3 resource
@@ -354,12 +353,6 @@ func (i *BigIqAs3) ToBigIqAs3OutputWithContext(ctx context.Context) BigIqAs3Outp
 	return pulumi.ToOutputWithContext(ctx, i).(BigIqAs3Output)
 }
 
-func (i *BigIqAs3) ToOutput(ctx context.Context) pulumix.Output[*BigIqAs3] {
-	return pulumix.Output[*BigIqAs3]{
-		OutputState: i.ToBigIqAs3OutputWithContext(ctx).OutputState,
-	}
-}
-
 // BigIqAs3ArrayInput is an input type that accepts BigIqAs3Array and BigIqAs3ArrayOutput values.
 // You can construct a concrete instance of `BigIqAs3ArrayInput` via:
 //
@@ -383,12 +376,6 @@ func (i BigIqAs3Array) ToBigIqAs3ArrayOutput() BigIqAs3ArrayOutput {
 
 func (i BigIqAs3Array) ToBigIqAs3ArrayOutputWithContext(ctx context.Context) BigIqAs3ArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BigIqAs3ArrayOutput)
-}
-
-func (i BigIqAs3Array) ToOutput(ctx context.Context) pulumix.Output[[]*BigIqAs3] {
-	return pulumix.Output[[]*BigIqAs3]{
-		OutputState: i.ToBigIqAs3ArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // BigIqAs3MapInput is an input type that accepts BigIqAs3Map and BigIqAs3MapOutput values.
@@ -416,12 +403,6 @@ func (i BigIqAs3Map) ToBigIqAs3MapOutputWithContext(ctx context.Context) BigIqAs
 	return pulumi.ToOutputWithContext(ctx, i).(BigIqAs3MapOutput)
 }
 
-func (i BigIqAs3Map) ToOutput(ctx context.Context) pulumix.Output[map[string]*BigIqAs3] {
-	return pulumix.Output[map[string]*BigIqAs3]{
-		OutputState: i.ToBigIqAs3MapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BigIqAs3Output struct{ *pulumi.OutputState }
 
 func (BigIqAs3Output) ElementType() reflect.Type {
@@ -434,12 +415,6 @@ func (o BigIqAs3Output) ToBigIqAs3Output() BigIqAs3Output {
 
 func (o BigIqAs3Output) ToBigIqAs3OutputWithContext(ctx context.Context) BigIqAs3Output {
 	return o
-}
-
-func (o BigIqAs3Output) ToOutput(ctx context.Context) pulumix.Output[*BigIqAs3] {
-	return pulumix.Output[*BigIqAs3]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Path/Filename of Declarative AS3 JSON which is a json file used with builtin ```file``` function
@@ -524,12 +499,6 @@ func (o BigIqAs3ArrayOutput) ToBigIqAs3ArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o BigIqAs3ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BigIqAs3] {
-	return pulumix.Output[[]*BigIqAs3]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BigIqAs3ArrayOutput) Index(i pulumi.IntInput) BigIqAs3Output {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BigIqAs3 {
 		return vs[0].([]*BigIqAs3)[vs[1].(int)]
@@ -548,12 +517,6 @@ func (o BigIqAs3MapOutput) ToBigIqAs3MapOutput() BigIqAs3MapOutput {
 
 func (o BigIqAs3MapOutput) ToBigIqAs3MapOutputWithContext(ctx context.Context) BigIqAs3MapOutput {
 	return o
-}
-
-func (o BigIqAs3MapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BigIqAs3] {
-	return pulumix.Output[map[string]*BigIqAs3]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BigIqAs3MapOutput) MapIndex(k pulumi.StringInput) BigIqAs3Output {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ltm.SnatPool` Collections of SNAT translation addresses
@@ -146,12 +145,6 @@ func (i *SnatPool) ToSnatPoolOutputWithContext(ctx context.Context) SnatPoolOutp
 	return pulumi.ToOutputWithContext(ctx, i).(SnatPoolOutput)
 }
 
-func (i *SnatPool) ToOutput(ctx context.Context) pulumix.Output[*SnatPool] {
-	return pulumix.Output[*SnatPool]{
-		OutputState: i.ToSnatPoolOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SnatPoolArrayInput is an input type that accepts SnatPoolArray and SnatPoolArrayOutput values.
 // You can construct a concrete instance of `SnatPoolArrayInput` via:
 //
@@ -175,12 +168,6 @@ func (i SnatPoolArray) ToSnatPoolArrayOutput() SnatPoolArrayOutput {
 
 func (i SnatPoolArray) ToSnatPoolArrayOutputWithContext(ctx context.Context) SnatPoolArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SnatPoolArrayOutput)
-}
-
-func (i SnatPoolArray) ToOutput(ctx context.Context) pulumix.Output[[]*SnatPool] {
-	return pulumix.Output[[]*SnatPool]{
-		OutputState: i.ToSnatPoolArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SnatPoolMapInput is an input type that accepts SnatPoolMap and SnatPoolMapOutput values.
@@ -208,12 +195,6 @@ func (i SnatPoolMap) ToSnatPoolMapOutputWithContext(ctx context.Context) SnatPoo
 	return pulumi.ToOutputWithContext(ctx, i).(SnatPoolMapOutput)
 }
 
-func (i SnatPoolMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SnatPool] {
-	return pulumix.Output[map[string]*SnatPool]{
-		OutputState: i.ToSnatPoolMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SnatPoolOutput struct{ *pulumi.OutputState }
 
 func (SnatPoolOutput) ElementType() reflect.Type {
@@ -226,12 +207,6 @@ func (o SnatPoolOutput) ToSnatPoolOutput() SnatPoolOutput {
 
 func (o SnatPoolOutput) ToSnatPoolOutputWithContext(ctx context.Context) SnatPoolOutput {
 	return o
-}
-
-func (o SnatPoolOutput) ToOutput(ctx context.Context) pulumix.Output[*SnatPool] {
-	return pulumix.Output[*SnatPool]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a translation address to add to or delete from a SNAT pool (at least one address is required)
@@ -258,12 +233,6 @@ func (o SnatPoolArrayOutput) ToSnatPoolArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o SnatPoolArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SnatPool] {
-	return pulumix.Output[[]*SnatPool]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SnatPoolArrayOutput) Index(i pulumi.IntInput) SnatPoolOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SnatPool {
 		return vs[0].([]*SnatPool)[vs[1].(int)]
@@ -282,12 +251,6 @@ func (o SnatPoolMapOutput) ToSnatPoolMapOutput() SnatPoolMapOutput {
 
 func (o SnatPoolMapOutput) ToSnatPoolMapOutputWithContext(ctx context.Context) SnatPoolMapOutput {
 	return o
-}
-
-func (o SnatPoolMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SnatPool] {
-	return pulumix.Output[map[string]*SnatPool]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SnatPoolMapOutput) MapIndex(k pulumi.StringInput) SnatPoolOutput {

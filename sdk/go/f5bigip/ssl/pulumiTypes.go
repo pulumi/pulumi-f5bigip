@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i GetWafEntityParameterUrlArgs) ToGetWafEntityParameterUrlOutput() GetWafE
 
 func (i GetWafEntityParameterUrlArgs) ToGetWafEntityParameterUrlOutputWithContext(ctx context.Context) GetWafEntityParameterUrlOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GetWafEntityParameterUrlOutput)
-}
-
-func (i GetWafEntityParameterUrlArgs) ToOutput(ctx context.Context) pulumix.Output[GetWafEntityParameterUrl] {
-	return pulumix.Output[GetWafEntityParameterUrl]{
-		OutputState: i.ToGetWafEntityParameterUrlOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i GetWafEntityParameterUrlArgs) ToGetWafEntityParameterUrlPtrOutput() GetWafEntityParameterUrlPtrOutput {
@@ -98,12 +91,6 @@ func (i *getWafEntityParameterUrlPtrType) ToGetWafEntityParameterUrlPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(GetWafEntityParameterUrlPtrOutput)
 }
 
-func (i *getWafEntityParameterUrlPtrType) ToOutput(ctx context.Context) pulumix.Output[*GetWafEntityParameterUrl] {
-	return pulumix.Output[*GetWafEntityParameterUrl]{
-		OutputState: i.ToGetWafEntityParameterUrlPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetWafEntityParameterUrlOutput struct{ *pulumi.OutputState }
 
 func (GetWafEntityParameterUrlOutput) ElementType() reflect.Type {
@@ -126,12 +113,6 @@ func (o GetWafEntityParameterUrlOutput) ToGetWafEntityParameterUrlPtrOutputWithC
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetWafEntityParameterUrl) *GetWafEntityParameterUrl {
 		return &v
 	}).(GetWafEntityParameterUrlPtrOutput)
-}
-
-func (o GetWafEntityParameterUrlOutput) ToOutput(ctx context.Context) pulumix.Output[GetWafEntityParameterUrl] {
-	return pulumix.Output[GetWafEntityParameterUrl]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetWafEntityParameterUrlOutput) Method() pulumi.StringOutput {
@@ -162,12 +143,6 @@ func (o GetWafEntityParameterUrlPtrOutput) ToGetWafEntityParameterUrlPtrOutput()
 
 func (o GetWafEntityParameterUrlPtrOutput) ToGetWafEntityParameterUrlPtrOutputWithContext(ctx context.Context) GetWafEntityParameterUrlPtrOutput {
 	return o
-}
-
-func (o GetWafEntityParameterUrlPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GetWafEntityParameterUrl] {
-	return pulumix.Output[*GetWafEntityParameterUrl]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetWafEntityParameterUrlPtrOutput) Elem() GetWafEntityParameterUrlOutput {
@@ -253,12 +228,6 @@ func (i GetWafEntityUrlMethodOverrideArgs) ToGetWafEntityUrlMethodOverrideOutput
 	return pulumi.ToOutputWithContext(ctx, i).(GetWafEntityUrlMethodOverrideOutput)
 }
 
-func (i GetWafEntityUrlMethodOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[GetWafEntityUrlMethodOverride] {
-	return pulumix.Output[GetWafEntityUrlMethodOverride]{
-		OutputState: i.ToGetWafEntityUrlMethodOverrideOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetWafEntityUrlMethodOverrideArrayInput is an input type that accepts GetWafEntityUrlMethodOverrideArray and GetWafEntityUrlMethodOverrideArrayOutput values.
 // You can construct a concrete instance of `GetWafEntityUrlMethodOverrideArrayInput` via:
 //
@@ -284,12 +253,6 @@ func (i GetWafEntityUrlMethodOverrideArray) ToGetWafEntityUrlMethodOverrideArray
 	return pulumi.ToOutputWithContext(ctx, i).(GetWafEntityUrlMethodOverrideArrayOutput)
 }
 
-func (i GetWafEntityUrlMethodOverrideArray) ToOutput(ctx context.Context) pulumix.Output[[]GetWafEntityUrlMethodOverride] {
-	return pulumix.Output[[]GetWafEntityUrlMethodOverride]{
-		OutputState: i.ToGetWafEntityUrlMethodOverrideArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetWafEntityUrlMethodOverrideOutput struct{ *pulumi.OutputState }
 
 func (GetWafEntityUrlMethodOverrideOutput) ElementType() reflect.Type {
@@ -302,12 +265,6 @@ func (o GetWafEntityUrlMethodOverrideOutput) ToGetWafEntityUrlMethodOverrideOutp
 
 func (o GetWafEntityUrlMethodOverrideOutput) ToGetWafEntityUrlMethodOverrideOutputWithContext(ctx context.Context) GetWafEntityUrlMethodOverrideOutput {
 	return o
-}
-
-func (o GetWafEntityUrlMethodOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[GetWafEntityUrlMethodOverride] {
-	return pulumix.Output[GetWafEntityUrlMethodOverride]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies that the system allows or disallows a method for this URL
@@ -332,12 +289,6 @@ func (o GetWafEntityUrlMethodOverrideArrayOutput) ToGetWafEntityUrlMethodOverrid
 
 func (o GetWafEntityUrlMethodOverrideArrayOutput) ToGetWafEntityUrlMethodOverrideArrayOutputWithContext(ctx context.Context) GetWafEntityUrlMethodOverrideArrayOutput {
 	return o
-}
-
-func (o GetWafEntityUrlMethodOverrideArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetWafEntityUrlMethodOverride] {
-	return pulumix.Output[[]GetWafEntityUrlMethodOverride]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetWafEntityUrlMethodOverrideArrayOutput) Index(i pulumi.IntInput) GetWafEntityUrlMethodOverrideOutput {

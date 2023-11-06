@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `sys.Ntp` resource is helpful when configuring NTP server on the BIG-IP.
@@ -154,12 +153,6 @@ func (i *Ntp) ToNtpOutputWithContext(ctx context.Context) NtpOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NtpOutput)
 }
 
-func (i *Ntp) ToOutput(ctx context.Context) pulumix.Output[*Ntp] {
-	return pulumix.Output[*Ntp]{
-		OutputState: i.ToNtpOutputWithContext(ctx).OutputState,
-	}
-}
-
 // NtpArrayInput is an input type that accepts NtpArray and NtpArrayOutput values.
 // You can construct a concrete instance of `NtpArrayInput` via:
 //
@@ -183,12 +176,6 @@ func (i NtpArray) ToNtpArrayOutput() NtpArrayOutput {
 
 func (i NtpArray) ToNtpArrayOutputWithContext(ctx context.Context) NtpArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NtpArrayOutput)
-}
-
-func (i NtpArray) ToOutput(ctx context.Context) pulumix.Output[[]*Ntp] {
-	return pulumix.Output[[]*Ntp]{
-		OutputState: i.ToNtpArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NtpMapInput is an input type that accepts NtpMap and NtpMapOutput values.
@@ -216,12 +203,6 @@ func (i NtpMap) ToNtpMapOutputWithContext(ctx context.Context) NtpMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NtpMapOutput)
 }
 
-func (i NtpMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Ntp] {
-	return pulumix.Output[map[string]*Ntp]{
-		OutputState: i.ToNtpMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type NtpOutput struct{ *pulumi.OutputState }
 
 func (NtpOutput) ElementType() reflect.Type {
@@ -234,12 +215,6 @@ func (o NtpOutput) ToNtpOutput() NtpOutput {
 
 func (o NtpOutput) ToNtpOutputWithContext(ctx context.Context) NtpOutput {
 	return o
-}
-
-func (o NtpOutput) ToOutput(ctx context.Context) pulumix.Output[*Ntp] {
-	return pulumix.Output[*Ntp]{
-		OutputState: o.OutputState,
-	}
 }
 
 // User defined description.
@@ -271,12 +246,6 @@ func (o NtpArrayOutput) ToNtpArrayOutputWithContext(ctx context.Context) NtpArra
 	return o
 }
 
-func (o NtpArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Ntp] {
-	return pulumix.Output[[]*Ntp]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o NtpArrayOutput) Index(i pulumi.IntInput) NtpOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Ntp {
 		return vs[0].([]*Ntp)[vs[1].(int)]
@@ -295,12 +264,6 @@ func (o NtpMapOutput) ToNtpMapOutput() NtpMapOutput {
 
 func (o NtpMapOutput) ToNtpMapOutputWithContext(ctx context.Context) NtpMapOutput {
 	return o
-}
-
-func (o NtpMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Ntp] {
-	return pulumix.Output[map[string]*Ntp]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o NtpMapOutput) MapIndex(k pulumi.StringInput) NtpOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source (`ssl.getWafPbSuggestions`) to export PB suggestions from an existing WAF policy.
@@ -118,12 +117,6 @@ func (o GetWafPbSuggestionsResultOutput) ToGetWafPbSuggestionsResultOutput() Get
 
 func (o GetWafPbSuggestionsResultOutput) ToGetWafPbSuggestionsResultOutputWithContext(ctx context.Context) GetWafPbSuggestionsResultOutput {
 	return o
-}
-
-func (o GetWafPbSuggestionsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetWafPbSuggestionsResult] {
-	return pulumix.Output[GetWafPbSuggestionsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

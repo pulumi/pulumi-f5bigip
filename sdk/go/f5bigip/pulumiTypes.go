@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i EventServiceDiscoveryNodeArgs) ToEventServiceDiscoveryNodeOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(EventServiceDiscoveryNodeOutput)
 }
 
-func (i EventServiceDiscoveryNodeArgs) ToOutput(ctx context.Context) pulumix.Output[EventServiceDiscoveryNode] {
-	return pulumix.Output[EventServiceDiscoveryNode]{
-		OutputState: i.ToEventServiceDiscoveryNodeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // EventServiceDiscoveryNodeArrayInput is an input type that accepts EventServiceDiscoveryNodeArray and EventServiceDiscoveryNodeArrayOutput values.
 // You can construct a concrete instance of `EventServiceDiscoveryNodeArrayInput` via:
 //
@@ -80,12 +73,6 @@ func (i EventServiceDiscoveryNodeArray) ToEventServiceDiscoveryNodeArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(EventServiceDiscoveryNodeArrayOutput)
 }
 
-func (i EventServiceDiscoveryNodeArray) ToOutput(ctx context.Context) pulumix.Output[[]EventServiceDiscoveryNode] {
-	return pulumix.Output[[]EventServiceDiscoveryNode]{
-		OutputState: i.ToEventServiceDiscoveryNodeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type EventServiceDiscoveryNodeOutput struct{ *pulumi.OutputState }
 
 func (EventServiceDiscoveryNodeOutput) ElementType() reflect.Type {
@@ -98,12 +85,6 @@ func (o EventServiceDiscoveryNodeOutput) ToEventServiceDiscoveryNodeOutput() Eve
 
 func (o EventServiceDiscoveryNodeOutput) ToEventServiceDiscoveryNodeOutputWithContext(ctx context.Context) EventServiceDiscoveryNodeOutput {
 	return o
-}
-
-func (o EventServiceDiscoveryNodeOutput) ToOutput(ctx context.Context) pulumix.Output[EventServiceDiscoveryNode] {
-	return pulumix.Output[EventServiceDiscoveryNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventServiceDiscoveryNodeOutput) Id() pulumi.StringPtrOutput {
@@ -130,12 +111,6 @@ func (o EventServiceDiscoveryNodeArrayOutput) ToEventServiceDiscoveryNodeArrayOu
 
 func (o EventServiceDiscoveryNodeArrayOutput) ToEventServiceDiscoveryNodeArrayOutputWithContext(ctx context.Context) EventServiceDiscoveryNodeArrayOutput {
 	return o
-}
-
-func (o EventServiceDiscoveryNodeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]EventServiceDiscoveryNode] {
-	return pulumix.Output[[]EventServiceDiscoveryNode]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o EventServiceDiscoveryNodeArrayOutput) Index(i pulumi.IntInput) EventServiceDiscoveryNodeOutput {
@@ -197,12 +172,6 @@ func (i FastHttpAppMonitorArgs) ToFastHttpAppMonitorOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(FastHttpAppMonitorOutput)
 }
 
-func (i FastHttpAppMonitorArgs) ToOutput(ctx context.Context) pulumix.Output[FastHttpAppMonitor] {
-	return pulumix.Output[FastHttpAppMonitor]{
-		OutputState: i.ToFastHttpAppMonitorOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FastHttpAppMonitorArgs) ToFastHttpAppMonitorPtrOutput() FastHttpAppMonitorPtrOutput {
 	return i.ToFastHttpAppMonitorPtrOutputWithContext(context.Background())
 }
@@ -244,12 +213,6 @@ func (i *fastHttpAppMonitorPtrType) ToFastHttpAppMonitorPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(FastHttpAppMonitorPtrOutput)
 }
 
-func (i *fastHttpAppMonitorPtrType) ToOutput(ctx context.Context) pulumix.Output[*FastHttpAppMonitor] {
-	return pulumix.Output[*FastHttpAppMonitor]{
-		OutputState: i.ToFastHttpAppMonitorPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FastHttpAppMonitorOutput struct{ *pulumi.OutputState }
 
 func (FastHttpAppMonitorOutput) ElementType() reflect.Type {
@@ -272,12 +235,6 @@ func (o FastHttpAppMonitorOutput) ToFastHttpAppMonitorPtrOutputWithContext(ctx c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FastHttpAppMonitor) *FastHttpAppMonitor {
 		return &v
 	}).(FastHttpAppMonitorPtrOutput)
-}
-
-func (o FastHttpAppMonitorOutput) ToOutput(ctx context.Context) pulumix.Output[FastHttpAppMonitor] {
-	return pulumix.Output[FastHttpAppMonitor]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
@@ -322,12 +279,6 @@ func (o FastHttpAppMonitorPtrOutput) ToFastHttpAppMonitorPtrOutput() FastHttpApp
 
 func (o FastHttpAppMonitorPtrOutput) ToFastHttpAppMonitorPtrOutputWithContext(ctx context.Context) FastHttpAppMonitorPtrOutput {
 	return o
-}
-
-func (o FastHttpAppMonitorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FastHttpAppMonitor] {
-	return pulumix.Output[*FastHttpAppMonitor]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FastHttpAppMonitorPtrOutput) Elem() FastHttpAppMonitorOutput {
@@ -449,12 +400,6 @@ func (i FastHttpAppPoolMemberArgs) ToFastHttpAppPoolMemberOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(FastHttpAppPoolMemberOutput)
 }
 
-func (i FastHttpAppPoolMemberArgs) ToOutput(ctx context.Context) pulumix.Output[FastHttpAppPoolMember] {
-	return pulumix.Output[FastHttpAppPoolMember]{
-		OutputState: i.ToFastHttpAppPoolMemberOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FastHttpAppPoolMemberArrayInput is an input type that accepts FastHttpAppPoolMemberArray and FastHttpAppPoolMemberArrayOutput values.
 // You can construct a concrete instance of `FastHttpAppPoolMemberArrayInput` via:
 //
@@ -480,12 +425,6 @@ func (i FastHttpAppPoolMemberArray) ToFastHttpAppPoolMemberArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(FastHttpAppPoolMemberArrayOutput)
 }
 
-func (i FastHttpAppPoolMemberArray) ToOutput(ctx context.Context) pulumix.Output[[]FastHttpAppPoolMember] {
-	return pulumix.Output[[]FastHttpAppPoolMember]{
-		OutputState: i.ToFastHttpAppPoolMemberArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FastHttpAppPoolMemberOutput struct{ *pulumi.OutputState }
 
 func (FastHttpAppPoolMemberOutput) ElementType() reflect.Type {
@@ -498,12 +437,6 @@ func (o FastHttpAppPoolMemberOutput) ToFastHttpAppPoolMemberOutput() FastHttpApp
 
 func (o FastHttpAppPoolMemberOutput) ToFastHttpAppPoolMemberOutputWithContext(ctx context.Context) FastHttpAppPoolMemberOutput {
 	return o
-}
-
-func (o FastHttpAppPoolMemberOutput) ToOutput(ctx context.Context) pulumix.Output[FastHttpAppPoolMember] {
-	return pulumix.Output[FastHttpAppPoolMember]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of server address to be used for FAST-Generated Pool.
@@ -543,12 +476,6 @@ func (o FastHttpAppPoolMemberArrayOutput) ToFastHttpAppPoolMemberArrayOutput() F
 
 func (o FastHttpAppPoolMemberArrayOutput) ToFastHttpAppPoolMemberArrayOutputWithContext(ctx context.Context) FastHttpAppPoolMemberArrayOutput {
 	return o
-}
-
-func (o FastHttpAppPoolMemberArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FastHttpAppPoolMember] {
-	return pulumix.Output[[]FastHttpAppPoolMember]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FastHttpAppPoolMemberArrayOutput) Index(i pulumi.IntInput) FastHttpAppPoolMemberOutput {
@@ -594,12 +521,6 @@ func (i FastHttpAppVirtualServerArgs) ToFastHttpAppVirtualServerOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(FastHttpAppVirtualServerOutput)
 }
 
-func (i FastHttpAppVirtualServerArgs) ToOutput(ctx context.Context) pulumix.Output[FastHttpAppVirtualServer] {
-	return pulumix.Output[FastHttpAppVirtualServer]{
-		OutputState: i.ToFastHttpAppVirtualServerOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FastHttpAppVirtualServerArgs) ToFastHttpAppVirtualServerPtrOutput() FastHttpAppVirtualServerPtrOutput {
 	return i.ToFastHttpAppVirtualServerPtrOutputWithContext(context.Background())
 }
@@ -641,12 +562,6 @@ func (i *fastHttpAppVirtualServerPtrType) ToFastHttpAppVirtualServerPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(FastHttpAppVirtualServerPtrOutput)
 }
 
-func (i *fastHttpAppVirtualServerPtrType) ToOutput(ctx context.Context) pulumix.Output[*FastHttpAppVirtualServer] {
-	return pulumix.Output[*FastHttpAppVirtualServer]{
-		OutputState: i.ToFastHttpAppVirtualServerPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FastHttpAppVirtualServerOutput struct{ *pulumi.OutputState }
 
 func (FastHttpAppVirtualServerOutput) ElementType() reflect.Type {
@@ -671,12 +586,6 @@ func (o FastHttpAppVirtualServerOutput) ToFastHttpAppVirtualServerPtrOutputWithC
 	}).(FastHttpAppVirtualServerPtrOutput)
 }
 
-func (o FastHttpAppVirtualServerOutput) ToOutput(ctx context.Context) pulumix.Output[FastHttpAppVirtualServer] {
-	return pulumix.Output[FastHttpAppVirtualServer]{
-		OutputState: o.OutputState,
-	}
-}
-
 // IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
 func (o FastHttpAppVirtualServerOutput) Ip() pulumi.StringOutput {
 	return o.ApplyT(func(v FastHttpAppVirtualServer) string { return v.Ip }).(pulumi.StringOutput)
@@ -699,12 +608,6 @@ func (o FastHttpAppVirtualServerPtrOutput) ToFastHttpAppVirtualServerPtrOutput()
 
 func (o FastHttpAppVirtualServerPtrOutput) ToFastHttpAppVirtualServerPtrOutputWithContext(ctx context.Context) FastHttpAppVirtualServerPtrOutput {
 	return o
-}
-
-func (o FastHttpAppVirtualServerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FastHttpAppVirtualServer] {
-	return pulumix.Output[*FastHttpAppVirtualServer]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FastHttpAppVirtualServerPtrOutput) Elem() FastHttpAppVirtualServerOutput {
@@ -770,12 +673,6 @@ func (i FastHttpAppWafSecurityPolicyArgs) ToFastHttpAppWafSecurityPolicyOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(FastHttpAppWafSecurityPolicyOutput)
 }
 
-func (i FastHttpAppWafSecurityPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[FastHttpAppWafSecurityPolicy] {
-	return pulumix.Output[FastHttpAppWafSecurityPolicy]{
-		OutputState: i.ToFastHttpAppWafSecurityPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FastHttpAppWafSecurityPolicyArgs) ToFastHttpAppWafSecurityPolicyPtrOutput() FastHttpAppWafSecurityPolicyPtrOutput {
 	return i.ToFastHttpAppWafSecurityPolicyPtrOutputWithContext(context.Background())
 }
@@ -817,12 +714,6 @@ func (i *fastHttpAppWafSecurityPolicyPtrType) ToFastHttpAppWafSecurityPolicyPtrO
 	return pulumi.ToOutputWithContext(ctx, i).(FastHttpAppWafSecurityPolicyPtrOutput)
 }
 
-func (i *fastHttpAppWafSecurityPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*FastHttpAppWafSecurityPolicy] {
-	return pulumix.Output[*FastHttpAppWafSecurityPolicy]{
-		OutputState: i.ToFastHttpAppWafSecurityPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FastHttpAppWafSecurityPolicyOutput struct{ *pulumi.OutputState }
 
 func (FastHttpAppWafSecurityPolicyOutput) ElementType() reflect.Type {
@@ -847,12 +738,6 @@ func (o FastHttpAppWafSecurityPolicyOutput) ToFastHttpAppWafSecurityPolicyPtrOut
 	}).(FastHttpAppWafSecurityPolicyPtrOutput)
 }
 
-func (o FastHttpAppWafSecurityPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[FastHttpAppWafSecurityPolicy] {
-	return pulumix.Output[FastHttpAppWafSecurityPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Setting `true` will enable FAST to create WAF Security Policy.
 func (o FastHttpAppWafSecurityPolicyOutput) Enable() pulumi.BoolOutput {
 	return o.ApplyT(func(v FastHttpAppWafSecurityPolicy) bool { return v.Enable }).(pulumi.BoolOutput)
@@ -870,12 +755,6 @@ func (o FastHttpAppWafSecurityPolicyPtrOutput) ToFastHttpAppWafSecurityPolicyPtr
 
 func (o FastHttpAppWafSecurityPolicyPtrOutput) ToFastHttpAppWafSecurityPolicyPtrOutputWithContext(ctx context.Context) FastHttpAppWafSecurityPolicyPtrOutput {
 	return o
-}
-
-func (o FastHttpAppWafSecurityPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FastHttpAppWafSecurityPolicy] {
-	return pulumix.Output[*FastHttpAppWafSecurityPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FastHttpAppWafSecurityPolicyPtrOutput) Elem() FastHttpAppWafSecurityPolicyOutput {
@@ -951,12 +830,6 @@ func (i FastHttpsAppMonitorArgs) ToFastHttpsAppMonitorOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(FastHttpsAppMonitorOutput)
 }
 
-func (i FastHttpsAppMonitorArgs) ToOutput(ctx context.Context) pulumix.Output[FastHttpsAppMonitor] {
-	return pulumix.Output[FastHttpsAppMonitor]{
-		OutputState: i.ToFastHttpsAppMonitorOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FastHttpsAppMonitorArgs) ToFastHttpsAppMonitorPtrOutput() FastHttpsAppMonitorPtrOutput {
 	return i.ToFastHttpsAppMonitorPtrOutputWithContext(context.Background())
 }
@@ -998,12 +871,6 @@ func (i *fastHttpsAppMonitorPtrType) ToFastHttpsAppMonitorPtrOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(FastHttpsAppMonitorPtrOutput)
 }
 
-func (i *fastHttpsAppMonitorPtrType) ToOutput(ctx context.Context) pulumix.Output[*FastHttpsAppMonitor] {
-	return pulumix.Output[*FastHttpsAppMonitor]{
-		OutputState: i.ToFastHttpsAppMonitorPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FastHttpsAppMonitorOutput struct{ *pulumi.OutputState }
 
 func (FastHttpsAppMonitorOutput) ElementType() reflect.Type {
@@ -1026,12 +893,6 @@ func (o FastHttpsAppMonitorOutput) ToFastHttpsAppMonitorPtrOutputWithContext(ctx
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FastHttpsAppMonitor) *FastHttpsAppMonitor {
 		return &v
 	}).(FastHttpsAppMonitorPtrOutput)
-}
-
-func (o FastHttpsAppMonitorOutput) ToOutput(ctx context.Context) pulumix.Output[FastHttpsAppMonitor] {
-	return pulumix.Output[FastHttpsAppMonitor]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
@@ -1076,12 +937,6 @@ func (o FastHttpsAppMonitorPtrOutput) ToFastHttpsAppMonitorPtrOutput() FastHttps
 
 func (o FastHttpsAppMonitorPtrOutput) ToFastHttpsAppMonitorPtrOutputWithContext(ctx context.Context) FastHttpsAppMonitorPtrOutput {
 	return o
-}
-
-func (o FastHttpsAppMonitorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FastHttpsAppMonitor] {
-	return pulumix.Output[*FastHttpsAppMonitor]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FastHttpsAppMonitorPtrOutput) Elem() FastHttpsAppMonitorOutput {
@@ -1203,12 +1058,6 @@ func (i FastHttpsAppPoolMemberArgs) ToFastHttpsAppPoolMemberOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(FastHttpsAppPoolMemberOutput)
 }
 
-func (i FastHttpsAppPoolMemberArgs) ToOutput(ctx context.Context) pulumix.Output[FastHttpsAppPoolMember] {
-	return pulumix.Output[FastHttpsAppPoolMember]{
-		OutputState: i.ToFastHttpsAppPoolMemberOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FastHttpsAppPoolMemberArrayInput is an input type that accepts FastHttpsAppPoolMemberArray and FastHttpsAppPoolMemberArrayOutput values.
 // You can construct a concrete instance of `FastHttpsAppPoolMemberArrayInput` via:
 //
@@ -1234,12 +1083,6 @@ func (i FastHttpsAppPoolMemberArray) ToFastHttpsAppPoolMemberArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(FastHttpsAppPoolMemberArrayOutput)
 }
 
-func (i FastHttpsAppPoolMemberArray) ToOutput(ctx context.Context) pulumix.Output[[]FastHttpsAppPoolMember] {
-	return pulumix.Output[[]FastHttpsAppPoolMember]{
-		OutputState: i.ToFastHttpsAppPoolMemberArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FastHttpsAppPoolMemberOutput struct{ *pulumi.OutputState }
 
 func (FastHttpsAppPoolMemberOutput) ElementType() reflect.Type {
@@ -1252,12 +1095,6 @@ func (o FastHttpsAppPoolMemberOutput) ToFastHttpsAppPoolMemberOutput() FastHttps
 
 func (o FastHttpsAppPoolMemberOutput) ToFastHttpsAppPoolMemberOutputWithContext(ctx context.Context) FastHttpsAppPoolMemberOutput {
 	return o
-}
-
-func (o FastHttpsAppPoolMemberOutput) ToOutput(ctx context.Context) pulumix.Output[FastHttpsAppPoolMember] {
-	return pulumix.Output[FastHttpsAppPoolMember]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of server address to be used for FAST-Generated Pool.
@@ -1297,12 +1134,6 @@ func (o FastHttpsAppPoolMemberArrayOutput) ToFastHttpsAppPoolMemberArrayOutput()
 
 func (o FastHttpsAppPoolMemberArrayOutput) ToFastHttpsAppPoolMemberArrayOutputWithContext(ctx context.Context) FastHttpsAppPoolMemberArrayOutput {
 	return o
-}
-
-func (o FastHttpsAppPoolMemberArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FastHttpsAppPoolMember] {
-	return pulumix.Output[[]FastHttpsAppPoolMember]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FastHttpsAppPoolMemberArrayOutput) Index(i pulumi.IntInput) FastHttpsAppPoolMemberOutput {
@@ -1348,12 +1179,6 @@ func (i FastHttpsAppTlsClientProfileArgs) ToFastHttpsAppTlsClientProfileOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(FastHttpsAppTlsClientProfileOutput)
 }
 
-func (i FastHttpsAppTlsClientProfileArgs) ToOutput(ctx context.Context) pulumix.Output[FastHttpsAppTlsClientProfile] {
-	return pulumix.Output[FastHttpsAppTlsClientProfile]{
-		OutputState: i.ToFastHttpsAppTlsClientProfileOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FastHttpsAppTlsClientProfileArgs) ToFastHttpsAppTlsClientProfilePtrOutput() FastHttpsAppTlsClientProfilePtrOutput {
 	return i.ToFastHttpsAppTlsClientProfilePtrOutputWithContext(context.Background())
 }
@@ -1395,12 +1220,6 @@ func (i *fastHttpsAppTlsClientProfilePtrType) ToFastHttpsAppTlsClientProfilePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(FastHttpsAppTlsClientProfilePtrOutput)
 }
 
-func (i *fastHttpsAppTlsClientProfilePtrType) ToOutput(ctx context.Context) pulumix.Output[*FastHttpsAppTlsClientProfile] {
-	return pulumix.Output[*FastHttpsAppTlsClientProfile]{
-		OutputState: i.ToFastHttpsAppTlsClientProfilePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FastHttpsAppTlsClientProfileOutput struct{ *pulumi.OutputState }
 
 func (FastHttpsAppTlsClientProfileOutput) ElementType() reflect.Type {
@@ -1425,12 +1244,6 @@ func (o FastHttpsAppTlsClientProfileOutput) ToFastHttpsAppTlsClientProfilePtrOut
 	}).(FastHttpsAppTlsClientProfilePtrOutput)
 }
 
-func (o FastHttpsAppTlsClientProfileOutput) ToOutput(ctx context.Context) pulumix.Output[FastHttpsAppTlsClientProfile] {
-	return pulumix.Output[FastHttpsAppTlsClientProfile]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
 func (o FastHttpsAppTlsClientProfileOutput) TlsCertName() pulumi.StringOutput {
 	return o.ApplyT(func(v FastHttpsAppTlsClientProfile) string { return v.TlsCertName }).(pulumi.StringOutput)
@@ -1453,12 +1266,6 @@ func (o FastHttpsAppTlsClientProfilePtrOutput) ToFastHttpsAppTlsClientProfilePtr
 
 func (o FastHttpsAppTlsClientProfilePtrOutput) ToFastHttpsAppTlsClientProfilePtrOutputWithContext(ctx context.Context) FastHttpsAppTlsClientProfilePtrOutput {
 	return o
-}
-
-func (o FastHttpsAppTlsClientProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FastHttpsAppTlsClientProfile] {
-	return pulumix.Output[*FastHttpsAppTlsClientProfile]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FastHttpsAppTlsClientProfilePtrOutput) Elem() FastHttpsAppTlsClientProfileOutput {
@@ -1528,12 +1335,6 @@ func (i FastHttpsAppTlsServerProfileArgs) ToFastHttpsAppTlsServerProfileOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(FastHttpsAppTlsServerProfileOutput)
 }
 
-func (i FastHttpsAppTlsServerProfileArgs) ToOutput(ctx context.Context) pulumix.Output[FastHttpsAppTlsServerProfile] {
-	return pulumix.Output[FastHttpsAppTlsServerProfile]{
-		OutputState: i.ToFastHttpsAppTlsServerProfileOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FastHttpsAppTlsServerProfileArgs) ToFastHttpsAppTlsServerProfilePtrOutput() FastHttpsAppTlsServerProfilePtrOutput {
 	return i.ToFastHttpsAppTlsServerProfilePtrOutputWithContext(context.Background())
 }
@@ -1575,12 +1376,6 @@ func (i *fastHttpsAppTlsServerProfilePtrType) ToFastHttpsAppTlsServerProfilePtrO
 	return pulumi.ToOutputWithContext(ctx, i).(FastHttpsAppTlsServerProfilePtrOutput)
 }
 
-func (i *fastHttpsAppTlsServerProfilePtrType) ToOutput(ctx context.Context) pulumix.Output[*FastHttpsAppTlsServerProfile] {
-	return pulumix.Output[*FastHttpsAppTlsServerProfile]{
-		OutputState: i.ToFastHttpsAppTlsServerProfilePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FastHttpsAppTlsServerProfileOutput struct{ *pulumi.OutputState }
 
 func (FastHttpsAppTlsServerProfileOutput) ElementType() reflect.Type {
@@ -1605,12 +1400,6 @@ func (o FastHttpsAppTlsServerProfileOutput) ToFastHttpsAppTlsServerProfilePtrOut
 	}).(FastHttpsAppTlsServerProfilePtrOutput)
 }
 
-func (o FastHttpsAppTlsServerProfileOutput) ToOutput(ctx context.Context) pulumix.Output[FastHttpsAppTlsServerProfile] {
-	return pulumix.Output[FastHttpsAppTlsServerProfile]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Name of existing BIG-IP SSL certificate to be used for FAST-Generated TLS Server Profile.
 func (o FastHttpsAppTlsServerProfileOutput) TlsCertName() pulumi.StringOutput {
 	return o.ApplyT(func(v FastHttpsAppTlsServerProfile) string { return v.TlsCertName }).(pulumi.StringOutput)
@@ -1633,12 +1422,6 @@ func (o FastHttpsAppTlsServerProfilePtrOutput) ToFastHttpsAppTlsServerProfilePtr
 
 func (o FastHttpsAppTlsServerProfilePtrOutput) ToFastHttpsAppTlsServerProfilePtrOutputWithContext(ctx context.Context) FastHttpsAppTlsServerProfilePtrOutput {
 	return o
-}
-
-func (o FastHttpsAppTlsServerProfilePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FastHttpsAppTlsServerProfile] {
-	return pulumix.Output[*FastHttpsAppTlsServerProfile]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FastHttpsAppTlsServerProfilePtrOutput) Elem() FastHttpsAppTlsServerProfileOutput {
@@ -1708,12 +1491,6 @@ func (i FastHttpsAppVirtualServerArgs) ToFastHttpsAppVirtualServerOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(FastHttpsAppVirtualServerOutput)
 }
 
-func (i FastHttpsAppVirtualServerArgs) ToOutput(ctx context.Context) pulumix.Output[FastHttpsAppVirtualServer] {
-	return pulumix.Output[FastHttpsAppVirtualServer]{
-		OutputState: i.ToFastHttpsAppVirtualServerOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FastHttpsAppVirtualServerArgs) ToFastHttpsAppVirtualServerPtrOutput() FastHttpsAppVirtualServerPtrOutput {
 	return i.ToFastHttpsAppVirtualServerPtrOutputWithContext(context.Background())
 }
@@ -1755,12 +1532,6 @@ func (i *fastHttpsAppVirtualServerPtrType) ToFastHttpsAppVirtualServerPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(FastHttpsAppVirtualServerPtrOutput)
 }
 
-func (i *fastHttpsAppVirtualServerPtrType) ToOutput(ctx context.Context) pulumix.Output[*FastHttpsAppVirtualServer] {
-	return pulumix.Output[*FastHttpsAppVirtualServer]{
-		OutputState: i.ToFastHttpsAppVirtualServerPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FastHttpsAppVirtualServerOutput struct{ *pulumi.OutputState }
 
 func (FastHttpsAppVirtualServerOutput) ElementType() reflect.Type {
@@ -1785,12 +1556,6 @@ func (o FastHttpsAppVirtualServerOutput) ToFastHttpsAppVirtualServerPtrOutputWit
 	}).(FastHttpsAppVirtualServerPtrOutput)
 }
 
-func (o FastHttpsAppVirtualServerOutput) ToOutput(ctx context.Context) pulumix.Output[FastHttpsAppVirtualServer] {
-	return pulumix.Output[FastHttpsAppVirtualServer]{
-		OutputState: o.OutputState,
-	}
-}
-
 // IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
 func (o FastHttpsAppVirtualServerOutput) Ip() pulumi.StringOutput {
 	return o.ApplyT(func(v FastHttpsAppVirtualServer) string { return v.Ip }).(pulumi.StringOutput)
@@ -1813,12 +1578,6 @@ func (o FastHttpsAppVirtualServerPtrOutput) ToFastHttpsAppVirtualServerPtrOutput
 
 func (o FastHttpsAppVirtualServerPtrOutput) ToFastHttpsAppVirtualServerPtrOutputWithContext(ctx context.Context) FastHttpsAppVirtualServerPtrOutput {
 	return o
-}
-
-func (o FastHttpsAppVirtualServerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FastHttpsAppVirtualServer] {
-	return pulumix.Output[*FastHttpsAppVirtualServer]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FastHttpsAppVirtualServerPtrOutput) Elem() FastHttpsAppVirtualServerOutput {
@@ -1884,12 +1643,6 @@ func (i FastHttpsAppWafSecurityPolicyArgs) ToFastHttpsAppWafSecurityPolicyOutput
 	return pulumi.ToOutputWithContext(ctx, i).(FastHttpsAppWafSecurityPolicyOutput)
 }
 
-func (i FastHttpsAppWafSecurityPolicyArgs) ToOutput(ctx context.Context) pulumix.Output[FastHttpsAppWafSecurityPolicy] {
-	return pulumix.Output[FastHttpsAppWafSecurityPolicy]{
-		OutputState: i.ToFastHttpsAppWafSecurityPolicyOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FastHttpsAppWafSecurityPolicyArgs) ToFastHttpsAppWafSecurityPolicyPtrOutput() FastHttpsAppWafSecurityPolicyPtrOutput {
 	return i.ToFastHttpsAppWafSecurityPolicyPtrOutputWithContext(context.Background())
 }
@@ -1931,12 +1684,6 @@ func (i *fastHttpsAppWafSecurityPolicyPtrType) ToFastHttpsAppWafSecurityPolicyPt
 	return pulumi.ToOutputWithContext(ctx, i).(FastHttpsAppWafSecurityPolicyPtrOutput)
 }
 
-func (i *fastHttpsAppWafSecurityPolicyPtrType) ToOutput(ctx context.Context) pulumix.Output[*FastHttpsAppWafSecurityPolicy] {
-	return pulumix.Output[*FastHttpsAppWafSecurityPolicy]{
-		OutputState: i.ToFastHttpsAppWafSecurityPolicyPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FastHttpsAppWafSecurityPolicyOutput struct{ *pulumi.OutputState }
 
 func (FastHttpsAppWafSecurityPolicyOutput) ElementType() reflect.Type {
@@ -1961,12 +1708,6 @@ func (o FastHttpsAppWafSecurityPolicyOutput) ToFastHttpsAppWafSecurityPolicyPtrO
 	}).(FastHttpsAppWafSecurityPolicyPtrOutput)
 }
 
-func (o FastHttpsAppWafSecurityPolicyOutput) ToOutput(ctx context.Context) pulumix.Output[FastHttpsAppWafSecurityPolicy] {
-	return pulumix.Output[FastHttpsAppWafSecurityPolicy]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Setting `true` will enable FAST to create WAF Security Policy.
 func (o FastHttpsAppWafSecurityPolicyOutput) Enable() pulumi.BoolOutput {
 	return o.ApplyT(func(v FastHttpsAppWafSecurityPolicy) bool { return v.Enable }).(pulumi.BoolOutput)
@@ -1984,12 +1725,6 @@ func (o FastHttpsAppWafSecurityPolicyPtrOutput) ToFastHttpsAppWafSecurityPolicyP
 
 func (o FastHttpsAppWafSecurityPolicyPtrOutput) ToFastHttpsAppWafSecurityPolicyPtrOutputWithContext(ctx context.Context) FastHttpsAppWafSecurityPolicyPtrOutput {
 	return o
-}
-
-func (o FastHttpsAppWafSecurityPolicyPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FastHttpsAppWafSecurityPolicy] {
-	return pulumix.Output[*FastHttpsAppWafSecurityPolicy]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FastHttpsAppWafSecurityPolicyPtrOutput) Elem() FastHttpsAppWafSecurityPolicyOutput {
@@ -2045,12 +1780,6 @@ func (i FastTcpAppMonitorArgs) ToFastTcpAppMonitorOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(FastTcpAppMonitorOutput)
 }
 
-func (i FastTcpAppMonitorArgs) ToOutput(ctx context.Context) pulumix.Output[FastTcpAppMonitor] {
-	return pulumix.Output[FastTcpAppMonitor]{
-		OutputState: i.ToFastTcpAppMonitorOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FastTcpAppMonitorArgs) ToFastTcpAppMonitorPtrOutput() FastTcpAppMonitorPtrOutput {
 	return i.ToFastTcpAppMonitorPtrOutputWithContext(context.Background())
 }
@@ -2092,12 +1821,6 @@ func (i *fastTcpAppMonitorPtrType) ToFastTcpAppMonitorPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(FastTcpAppMonitorPtrOutput)
 }
 
-func (i *fastTcpAppMonitorPtrType) ToOutput(ctx context.Context) pulumix.Output[*FastTcpAppMonitor] {
-	return pulumix.Output[*FastTcpAppMonitor]{
-		OutputState: i.ToFastTcpAppMonitorPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FastTcpAppMonitorOutput struct{ *pulumi.OutputState }
 
 func (FastTcpAppMonitorOutput) ElementType() reflect.Type {
@@ -2122,12 +1845,6 @@ func (o FastTcpAppMonitorOutput) ToFastTcpAppMonitorPtrOutputWithContext(ctx con
 	}).(FastTcpAppMonitorPtrOutput)
 }
 
-func (o FastTcpAppMonitorOutput) ToOutput(ctx context.Context) pulumix.Output[FastTcpAppMonitor] {
-	return pulumix.Output[FastTcpAppMonitor]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Set the time between health checks,in seconds for FAST-Generated Pool Monitor.
 func (o FastTcpAppMonitorOutput) Interval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FastTcpAppMonitor) *int { return v.Interval }).(pulumi.IntPtrOutput)
@@ -2145,12 +1862,6 @@ func (o FastTcpAppMonitorPtrOutput) ToFastTcpAppMonitorPtrOutput() FastTcpAppMon
 
 func (o FastTcpAppMonitorPtrOutput) ToFastTcpAppMonitorPtrOutputWithContext(ctx context.Context) FastTcpAppMonitorPtrOutput {
 	return o
-}
-
-func (o FastTcpAppMonitorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FastTcpAppMonitor] {
-	return pulumix.Output[*FastTcpAppMonitor]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FastTcpAppMonitorPtrOutput) Elem() FastTcpAppMonitorOutput {
@@ -2222,12 +1933,6 @@ func (i FastTcpAppPoolMemberArgs) ToFastTcpAppPoolMemberOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(FastTcpAppPoolMemberOutput)
 }
 
-func (i FastTcpAppPoolMemberArgs) ToOutput(ctx context.Context) pulumix.Output[FastTcpAppPoolMember] {
-	return pulumix.Output[FastTcpAppPoolMember]{
-		OutputState: i.ToFastTcpAppPoolMemberOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FastTcpAppPoolMemberArrayInput is an input type that accepts FastTcpAppPoolMemberArray and FastTcpAppPoolMemberArrayOutput values.
 // You can construct a concrete instance of `FastTcpAppPoolMemberArrayInput` via:
 //
@@ -2253,12 +1958,6 @@ func (i FastTcpAppPoolMemberArray) ToFastTcpAppPoolMemberArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(FastTcpAppPoolMemberArrayOutput)
 }
 
-func (i FastTcpAppPoolMemberArray) ToOutput(ctx context.Context) pulumix.Output[[]FastTcpAppPoolMember] {
-	return pulumix.Output[[]FastTcpAppPoolMember]{
-		OutputState: i.ToFastTcpAppPoolMemberArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FastTcpAppPoolMemberOutput struct{ *pulumi.OutputState }
 
 func (FastTcpAppPoolMemberOutput) ElementType() reflect.Type {
@@ -2271,12 +1970,6 @@ func (o FastTcpAppPoolMemberOutput) ToFastTcpAppPoolMemberOutput() FastTcpAppPoo
 
 func (o FastTcpAppPoolMemberOutput) ToFastTcpAppPoolMemberOutputWithContext(ctx context.Context) FastTcpAppPoolMemberOutput {
 	return o
-}
-
-func (o FastTcpAppPoolMemberOutput) ToOutput(ctx context.Context) pulumix.Output[FastTcpAppPoolMember] {
-	return pulumix.Output[FastTcpAppPoolMember]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of server address to be used for FAST-Generated Pool.
@@ -2316,12 +2009,6 @@ func (o FastTcpAppPoolMemberArrayOutput) ToFastTcpAppPoolMemberArrayOutput() Fas
 
 func (o FastTcpAppPoolMemberArrayOutput) ToFastTcpAppPoolMemberArrayOutputWithContext(ctx context.Context) FastTcpAppPoolMemberArrayOutput {
 	return o
-}
-
-func (o FastTcpAppPoolMemberArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FastTcpAppPoolMember] {
-	return pulumix.Output[[]FastTcpAppPoolMember]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FastTcpAppPoolMemberArrayOutput) Index(i pulumi.IntInput) FastTcpAppPoolMemberOutput {
@@ -2367,12 +2054,6 @@ func (i FastTcpAppVirtualServerArgs) ToFastTcpAppVirtualServerOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(FastTcpAppVirtualServerOutput)
 }
 
-func (i FastTcpAppVirtualServerArgs) ToOutput(ctx context.Context) pulumix.Output[FastTcpAppVirtualServer] {
-	return pulumix.Output[FastTcpAppVirtualServer]{
-		OutputState: i.ToFastTcpAppVirtualServerOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FastTcpAppVirtualServerArgs) ToFastTcpAppVirtualServerPtrOutput() FastTcpAppVirtualServerPtrOutput {
 	return i.ToFastTcpAppVirtualServerPtrOutputWithContext(context.Background())
 }
@@ -2414,12 +2095,6 @@ func (i *fastTcpAppVirtualServerPtrType) ToFastTcpAppVirtualServerPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(FastTcpAppVirtualServerPtrOutput)
 }
 
-func (i *fastTcpAppVirtualServerPtrType) ToOutput(ctx context.Context) pulumix.Output[*FastTcpAppVirtualServer] {
-	return pulumix.Output[*FastTcpAppVirtualServer]{
-		OutputState: i.ToFastTcpAppVirtualServerPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FastTcpAppVirtualServerOutput struct{ *pulumi.OutputState }
 
 func (FastTcpAppVirtualServerOutput) ElementType() reflect.Type {
@@ -2444,12 +2119,6 @@ func (o FastTcpAppVirtualServerOutput) ToFastTcpAppVirtualServerPtrOutputWithCon
 	}).(FastTcpAppVirtualServerPtrOutput)
 }
 
-func (o FastTcpAppVirtualServerOutput) ToOutput(ctx context.Context) pulumix.Output[FastTcpAppVirtualServer] {
-	return pulumix.Output[FastTcpAppVirtualServer]{
-		OutputState: o.OutputState,
-	}
-}
-
 // IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
 func (o FastTcpAppVirtualServerOutput) Ip() pulumi.StringOutput {
 	return o.ApplyT(func(v FastTcpAppVirtualServer) string { return v.Ip }).(pulumi.StringOutput)
@@ -2472,12 +2141,6 @@ func (o FastTcpAppVirtualServerPtrOutput) ToFastTcpAppVirtualServerPtrOutput() F
 
 func (o FastTcpAppVirtualServerPtrOutput) ToFastTcpAppVirtualServerPtrOutputWithContext(ctx context.Context) FastTcpAppVirtualServerPtrOutput {
 	return o
-}
-
-func (o FastTcpAppVirtualServerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FastTcpAppVirtualServer] {
-	return pulumix.Output[*FastTcpAppVirtualServer]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FastTcpAppVirtualServerPtrOutput) Elem() FastTcpAppVirtualServerOutput {
@@ -2551,12 +2214,6 @@ func (i FastUdpAppMonitorArgs) ToFastUdpAppMonitorOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(FastUdpAppMonitorOutput)
 }
 
-func (i FastUdpAppMonitorArgs) ToOutput(ctx context.Context) pulumix.Output[FastUdpAppMonitor] {
-	return pulumix.Output[FastUdpAppMonitor]{
-		OutputState: i.ToFastUdpAppMonitorOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FastUdpAppMonitorArgs) ToFastUdpAppMonitorPtrOutput() FastUdpAppMonitorPtrOutput {
 	return i.ToFastUdpAppMonitorPtrOutputWithContext(context.Background())
 }
@@ -2598,12 +2255,6 @@ func (i *fastUdpAppMonitorPtrType) ToFastUdpAppMonitorPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(FastUdpAppMonitorPtrOutput)
 }
 
-func (i *fastUdpAppMonitorPtrType) ToOutput(ctx context.Context) pulumix.Output[*FastUdpAppMonitor] {
-	return pulumix.Output[*FastUdpAppMonitor]{
-		OutputState: i.ToFastUdpAppMonitorPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FastUdpAppMonitorOutput struct{ *pulumi.OutputState }
 
 func (FastUdpAppMonitorOutput) ElementType() reflect.Type {
@@ -2626,12 +2277,6 @@ func (o FastUdpAppMonitorOutput) ToFastUdpAppMonitorPtrOutputWithContext(ctx con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v FastUdpAppMonitor) *FastUdpAppMonitor {
 		return &v
 	}).(FastUdpAppMonitorPtrOutput)
-}
-
-func (o FastUdpAppMonitorOutput) ToOutput(ctx context.Context) pulumix.Output[FastUdpAppMonitor] {
-	return pulumix.Output[FastUdpAppMonitor]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The presence of this optional string is required in the response, if specified it confirms availability.
@@ -2661,12 +2306,6 @@ func (o FastUdpAppMonitorPtrOutput) ToFastUdpAppMonitorPtrOutput() FastUdpAppMon
 
 func (o FastUdpAppMonitorPtrOutput) ToFastUdpAppMonitorPtrOutputWithContext(ctx context.Context) FastUdpAppMonitorPtrOutput {
 	return o
-}
-
-func (o FastUdpAppMonitorPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FastUdpAppMonitor] {
-	return pulumix.Output[*FastUdpAppMonitor]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FastUdpAppMonitorPtrOutput) Elem() FastUdpAppMonitorOutput {
@@ -2758,12 +2397,6 @@ func (i FastUdpAppPoolMemberArgs) ToFastUdpAppPoolMemberOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(FastUdpAppPoolMemberOutput)
 }
 
-func (i FastUdpAppPoolMemberArgs) ToOutput(ctx context.Context) pulumix.Output[FastUdpAppPoolMember] {
-	return pulumix.Output[FastUdpAppPoolMember]{
-		OutputState: i.ToFastUdpAppPoolMemberOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FastUdpAppPoolMemberArrayInput is an input type that accepts FastUdpAppPoolMemberArray and FastUdpAppPoolMemberArrayOutput values.
 // You can construct a concrete instance of `FastUdpAppPoolMemberArrayInput` via:
 //
@@ -2789,12 +2422,6 @@ func (i FastUdpAppPoolMemberArray) ToFastUdpAppPoolMemberArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(FastUdpAppPoolMemberArrayOutput)
 }
 
-func (i FastUdpAppPoolMemberArray) ToOutput(ctx context.Context) pulumix.Output[[]FastUdpAppPoolMember] {
-	return pulumix.Output[[]FastUdpAppPoolMember]{
-		OutputState: i.ToFastUdpAppPoolMemberArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FastUdpAppPoolMemberOutput struct{ *pulumi.OutputState }
 
 func (FastUdpAppPoolMemberOutput) ElementType() reflect.Type {
@@ -2807,12 +2434,6 @@ func (o FastUdpAppPoolMemberOutput) ToFastUdpAppPoolMemberOutput() FastUdpAppPoo
 
 func (o FastUdpAppPoolMemberOutput) ToFastUdpAppPoolMemberOutputWithContext(ctx context.Context) FastUdpAppPoolMemberOutput {
 	return o
-}
-
-func (o FastUdpAppPoolMemberOutput) ToOutput(ctx context.Context) pulumix.Output[FastUdpAppPoolMember] {
-	return pulumix.Output[FastUdpAppPoolMember]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of server address to be used for FAST-Generated Pool.
@@ -2852,12 +2473,6 @@ func (o FastUdpAppPoolMemberArrayOutput) ToFastUdpAppPoolMemberArrayOutput() Fas
 
 func (o FastUdpAppPoolMemberArrayOutput) ToFastUdpAppPoolMemberArrayOutputWithContext(ctx context.Context) FastUdpAppPoolMemberArrayOutput {
 	return o
-}
-
-func (o FastUdpAppPoolMemberArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]FastUdpAppPoolMember] {
-	return pulumix.Output[[]FastUdpAppPoolMember]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FastUdpAppPoolMemberArrayOutput) Index(i pulumi.IntInput) FastUdpAppPoolMemberOutput {
@@ -2903,12 +2518,6 @@ func (i FastUdpAppVirtualServerArgs) ToFastUdpAppVirtualServerOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(FastUdpAppVirtualServerOutput)
 }
 
-func (i FastUdpAppVirtualServerArgs) ToOutput(ctx context.Context) pulumix.Output[FastUdpAppVirtualServer] {
-	return pulumix.Output[FastUdpAppVirtualServer]{
-		OutputState: i.ToFastUdpAppVirtualServerOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i FastUdpAppVirtualServerArgs) ToFastUdpAppVirtualServerPtrOutput() FastUdpAppVirtualServerPtrOutput {
 	return i.ToFastUdpAppVirtualServerPtrOutputWithContext(context.Background())
 }
@@ -2950,12 +2559,6 @@ func (i *fastUdpAppVirtualServerPtrType) ToFastUdpAppVirtualServerPtrOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(FastUdpAppVirtualServerPtrOutput)
 }
 
-func (i *fastUdpAppVirtualServerPtrType) ToOutput(ctx context.Context) pulumix.Output[*FastUdpAppVirtualServer] {
-	return pulumix.Output[*FastUdpAppVirtualServer]{
-		OutputState: i.ToFastUdpAppVirtualServerPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FastUdpAppVirtualServerOutput struct{ *pulumi.OutputState }
 
 func (FastUdpAppVirtualServerOutput) ElementType() reflect.Type {
@@ -2980,12 +2583,6 @@ func (o FastUdpAppVirtualServerOutput) ToFastUdpAppVirtualServerPtrOutputWithCon
 	}).(FastUdpAppVirtualServerPtrOutput)
 }
 
-func (o FastUdpAppVirtualServerOutput) ToOutput(ctx context.Context) pulumix.Output[FastUdpAppVirtualServer] {
-	return pulumix.Output[FastUdpAppVirtualServer]{
-		OutputState: o.OutputState,
-	}
-}
-
 // IP4/IPv6 address to be used for virtual server ex: `10.1.1.1`
 func (o FastUdpAppVirtualServerOutput) Ip() pulumi.StringOutput {
 	return o.ApplyT(func(v FastUdpAppVirtualServer) string { return v.Ip }).(pulumi.StringOutput)
@@ -3008,12 +2605,6 @@ func (o FastUdpAppVirtualServerPtrOutput) ToFastUdpAppVirtualServerPtrOutput() F
 
 func (o FastUdpAppVirtualServerPtrOutput) ToFastUdpAppVirtualServerPtrOutputWithContext(ctx context.Context) FastUdpAppVirtualServerPtrOutput {
 	return o
-}
-
-func (o FastUdpAppVirtualServerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*FastUdpAppVirtualServer] {
-	return pulumix.Output[*FastUdpAppVirtualServer]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FastUdpAppVirtualServerPtrOutput) Elem() FastUdpAppVirtualServerOutput {
@@ -3091,12 +2682,6 @@ func (i WafPolicyFileTypeArgs) ToWafPolicyFileTypeOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(WafPolicyFileTypeOutput)
 }
 
-func (i WafPolicyFileTypeArgs) ToOutput(ctx context.Context) pulumix.Output[WafPolicyFileType] {
-	return pulumix.Output[WafPolicyFileType]{
-		OutputState: i.ToWafPolicyFileTypeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WafPolicyFileTypeArrayInput is an input type that accepts WafPolicyFileTypeArray and WafPolicyFileTypeArrayOutput values.
 // You can construct a concrete instance of `WafPolicyFileTypeArrayInput` via:
 //
@@ -3122,12 +2707,6 @@ func (i WafPolicyFileTypeArray) ToWafPolicyFileTypeArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(WafPolicyFileTypeArrayOutput)
 }
 
-func (i WafPolicyFileTypeArray) ToOutput(ctx context.Context) pulumix.Output[[]WafPolicyFileType] {
-	return pulumix.Output[[]WafPolicyFileType]{
-		OutputState: i.ToWafPolicyFileTypeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WafPolicyFileTypeOutput struct{ *pulumi.OutputState }
 
 func (WafPolicyFileTypeOutput) ElementType() reflect.Type {
@@ -3140,12 +2719,6 @@ func (o WafPolicyFileTypeOutput) ToWafPolicyFileTypeOutput() WafPolicyFileTypeOu
 
 func (o WafPolicyFileTypeOutput) ToWafPolicyFileTypeOutputWithContext(ctx context.Context) WafPolicyFileTypeOutput {
 	return o
-}
-
-func (o WafPolicyFileTypeOutput) ToOutput(ctx context.Context) pulumix.Output[WafPolicyFileType] {
-	return pulumix.Output[WafPolicyFileType]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Determines whether the file type is allowed or disallowed. In either of these cases the VIOL_FILETYPE violation is issued (if enabled) for an incoming request-
@@ -3177,12 +2750,6 @@ func (o WafPolicyFileTypeArrayOutput) ToWafPolicyFileTypeArrayOutput() WafPolicy
 
 func (o WafPolicyFileTypeArrayOutput) ToWafPolicyFileTypeArrayOutputWithContext(ctx context.Context) WafPolicyFileTypeArrayOutput {
 	return o
-}
-
-func (o WafPolicyFileTypeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WafPolicyFileType] {
-	return pulumix.Output[[]WafPolicyFileType]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WafPolicyFileTypeArrayOutput) Index(i pulumi.IntInput) WafPolicyFileTypeOutput {
@@ -3236,12 +2803,6 @@ func (i WafPolicyGraphqlProfileArgs) ToWafPolicyGraphqlProfileOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(WafPolicyGraphqlProfileOutput)
 }
 
-func (i WafPolicyGraphqlProfileArgs) ToOutput(ctx context.Context) pulumix.Output[WafPolicyGraphqlProfile] {
-	return pulumix.Output[WafPolicyGraphqlProfile]{
-		OutputState: i.ToWafPolicyGraphqlProfileOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WafPolicyGraphqlProfileArrayInput is an input type that accepts WafPolicyGraphqlProfileArray and WafPolicyGraphqlProfileArrayOutput values.
 // You can construct a concrete instance of `WafPolicyGraphqlProfileArrayInput` via:
 //
@@ -3267,12 +2828,6 @@ func (i WafPolicyGraphqlProfileArray) ToWafPolicyGraphqlProfileArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(WafPolicyGraphqlProfileArrayOutput)
 }
 
-func (i WafPolicyGraphqlProfileArray) ToOutput(ctx context.Context) pulumix.Output[[]WafPolicyGraphqlProfile] {
-	return pulumix.Output[[]WafPolicyGraphqlProfile]{
-		OutputState: i.ToWafPolicyGraphqlProfileArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WafPolicyGraphqlProfileOutput struct{ *pulumi.OutputState }
 
 func (WafPolicyGraphqlProfileOutput) ElementType() reflect.Type {
@@ -3285,12 +2840,6 @@ func (o WafPolicyGraphqlProfileOutput) ToWafPolicyGraphqlProfileOutput() WafPoli
 
 func (o WafPolicyGraphqlProfileOutput) ToWafPolicyGraphqlProfileOutputWithContext(ctx context.Context) WafPolicyGraphqlProfileOutput {
 	return o
-}
-
-func (o WafPolicyGraphqlProfileOutput) ToOutput(ctx context.Context) pulumix.Output[WafPolicyGraphqlProfile] {
-	return pulumix.Output[WafPolicyGraphqlProfile]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies when checked (enabled) that you want attack signatures and threat campaigns to be detected on this GraphQL profile and possibly override the security policy settings of an attack signature or threat campaign specifically for this GraphQL profile. After you enable this setting, the system displays a list of attack signatures and and threat campaigns. The default is enabled.
@@ -3325,12 +2874,6 @@ func (o WafPolicyGraphqlProfileArrayOutput) ToWafPolicyGraphqlProfileArrayOutput
 
 func (o WafPolicyGraphqlProfileArrayOutput) ToWafPolicyGraphqlProfileArrayOutputWithContext(ctx context.Context) WafPolicyGraphqlProfileArrayOutput {
 	return o
-}
-
-func (o WafPolicyGraphqlProfileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WafPolicyGraphqlProfile] {
-	return pulumix.Output[[]WafPolicyGraphqlProfile]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WafPolicyGraphqlProfileArrayOutput) Index(i pulumi.IntInput) WafPolicyGraphqlProfileOutput {
@@ -3394,12 +2937,6 @@ func (i WafPolicyGraphqlProfileDefenseAttributeArgs) ToWafPolicyGraphqlProfileDe
 	return pulumi.ToOutputWithContext(ctx, i).(WafPolicyGraphqlProfileDefenseAttributeOutput)
 }
 
-func (i WafPolicyGraphqlProfileDefenseAttributeArgs) ToOutput(ctx context.Context) pulumix.Output[WafPolicyGraphqlProfileDefenseAttribute] {
-	return pulumix.Output[WafPolicyGraphqlProfileDefenseAttribute]{
-		OutputState: i.ToWafPolicyGraphqlProfileDefenseAttributeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WafPolicyGraphqlProfileDefenseAttributeArrayInput is an input type that accepts WafPolicyGraphqlProfileDefenseAttributeArray and WafPolicyGraphqlProfileDefenseAttributeArrayOutput values.
 // You can construct a concrete instance of `WafPolicyGraphqlProfileDefenseAttributeArrayInput` via:
 //
@@ -3425,12 +2962,6 @@ func (i WafPolicyGraphqlProfileDefenseAttributeArray) ToWafPolicyGraphqlProfileD
 	return pulumi.ToOutputWithContext(ctx, i).(WafPolicyGraphqlProfileDefenseAttributeArrayOutput)
 }
 
-func (i WafPolicyGraphqlProfileDefenseAttributeArray) ToOutput(ctx context.Context) pulumix.Output[[]WafPolicyGraphqlProfileDefenseAttribute] {
-	return pulumix.Output[[]WafPolicyGraphqlProfileDefenseAttribute]{
-		OutputState: i.ToWafPolicyGraphqlProfileDefenseAttributeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WafPolicyGraphqlProfileDefenseAttributeOutput struct{ *pulumi.OutputState }
 
 func (WafPolicyGraphqlProfileDefenseAttributeOutput) ElementType() reflect.Type {
@@ -3443,12 +2974,6 @@ func (o WafPolicyGraphqlProfileDefenseAttributeOutput) ToWafPolicyGraphqlProfile
 
 func (o WafPolicyGraphqlProfileDefenseAttributeOutput) ToWafPolicyGraphqlProfileDefenseAttributeOutputWithContext(ctx context.Context) WafPolicyGraphqlProfileDefenseAttributeOutput {
 	return o
-}
-
-func (o WafPolicyGraphqlProfileDefenseAttributeOutput) ToOutput(ctx context.Context) pulumix.Output[WafPolicyGraphqlProfileDefenseAttribute] {
-	return pulumix.Output[WafPolicyGraphqlProfileDefenseAttribute]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Introspection queries can also be enforced to prevent attackers from using them to
@@ -3496,12 +3021,6 @@ func (o WafPolicyGraphqlProfileDefenseAttributeArrayOutput) ToWafPolicyGraphqlPr
 	return o
 }
 
-func (o WafPolicyGraphqlProfileDefenseAttributeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WafPolicyGraphqlProfileDefenseAttribute] {
-	return pulumix.Output[[]WafPolicyGraphqlProfileDefenseAttribute]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WafPolicyGraphqlProfileDefenseAttributeArrayOutput) Index(i pulumi.IntInput) WafPolicyGraphqlProfileDefenseAttributeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WafPolicyGraphqlProfileDefenseAttribute {
 		return vs[0].([]WafPolicyGraphqlProfileDefenseAttribute)[vs[1].(int)]
@@ -3541,12 +3060,6 @@ func (i WafPolicyHostNameArgs) ToWafPolicyHostNameOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(WafPolicyHostNameOutput)
 }
 
-func (i WafPolicyHostNameArgs) ToOutput(ctx context.Context) pulumix.Output[WafPolicyHostName] {
-	return pulumix.Output[WafPolicyHostName]{
-		OutputState: i.ToWafPolicyHostNameOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WafPolicyHostNameArrayInput is an input type that accepts WafPolicyHostNameArray and WafPolicyHostNameArrayOutput values.
 // You can construct a concrete instance of `WafPolicyHostNameArrayInput` via:
 //
@@ -3572,12 +3085,6 @@ func (i WafPolicyHostNameArray) ToWafPolicyHostNameArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(WafPolicyHostNameArrayOutput)
 }
 
-func (i WafPolicyHostNameArray) ToOutput(ctx context.Context) pulumix.Output[[]WafPolicyHostName] {
-	return pulumix.Output[[]WafPolicyHostName]{
-		OutputState: i.ToWafPolicyHostNameArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WafPolicyHostNameOutput struct{ *pulumi.OutputState }
 
 func (WafPolicyHostNameOutput) ElementType() reflect.Type {
@@ -3590,12 +3097,6 @@ func (o WafPolicyHostNameOutput) ToWafPolicyHostNameOutput() WafPolicyHostNameOu
 
 func (o WafPolicyHostNameOutput) ToWafPolicyHostNameOutputWithContext(ctx context.Context) WafPolicyHostNameOutput {
 	return o
-}
-
-func (o WafPolicyHostNameOutput) ToOutput(ctx context.Context) pulumix.Output[WafPolicyHostName] {
-	return pulumix.Output[WafPolicyHostName]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The unique user-given name of the policy. Policy names cannot contain spaces or special characters. Allowed characters are a-z, A-Z, 0-9, dot, dash (-), colon (:) and underscore (_).
@@ -3615,12 +3116,6 @@ func (o WafPolicyHostNameArrayOutput) ToWafPolicyHostNameArrayOutput() WafPolicy
 
 func (o WafPolicyHostNameArrayOutput) ToWafPolicyHostNameArrayOutputWithContext(ctx context.Context) WafPolicyHostNameArrayOutput {
 	return o
-}
-
-func (o WafPolicyHostNameArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WafPolicyHostName] {
-	return pulumix.Output[[]WafPolicyHostName]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WafPolicyHostNameArrayOutput) Index(i pulumi.IntInput) WafPolicyHostNameOutput {
@@ -3686,12 +3181,6 @@ func (i WafPolicyIpExceptionArgs) ToWafPolicyIpExceptionOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(WafPolicyIpExceptionOutput)
 }
 
-func (i WafPolicyIpExceptionArgs) ToOutput(ctx context.Context) pulumix.Output[WafPolicyIpException] {
-	return pulumix.Output[WafPolicyIpException]{
-		OutputState: i.ToWafPolicyIpExceptionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WafPolicyIpExceptionArrayInput is an input type that accepts WafPolicyIpExceptionArray and WafPolicyIpExceptionArrayOutput values.
 // You can construct a concrete instance of `WafPolicyIpExceptionArrayInput` via:
 //
@@ -3717,12 +3206,6 @@ func (i WafPolicyIpExceptionArray) ToWafPolicyIpExceptionArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(WafPolicyIpExceptionArrayOutput)
 }
 
-func (i WafPolicyIpExceptionArray) ToOutput(ctx context.Context) pulumix.Output[[]WafPolicyIpException] {
-	return pulumix.Output[[]WafPolicyIpException]{
-		OutputState: i.ToWafPolicyIpExceptionArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WafPolicyIpExceptionOutput struct{ *pulumi.OutputState }
 
 func (WafPolicyIpExceptionOutput) ElementType() reflect.Type {
@@ -3735,12 +3218,6 @@ func (o WafPolicyIpExceptionOutput) ToWafPolicyIpExceptionOutput() WafPolicyIpEx
 
 func (o WafPolicyIpExceptionOutput) ToWafPolicyIpExceptionOutputWithContext(ctx context.Context) WafPolicyIpExceptionOutput {
 	return o
-}
-
-func (o WafPolicyIpExceptionOutput) ToOutput(ctx context.Context) pulumix.Output[WafPolicyIpException] {
-	return pulumix.Output[WafPolicyIpException]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies how the system responds to blocking requests sent from this IP address. Possible options [`always`, `never`, `policy-default`].
@@ -3792,12 +3269,6 @@ func (o WafPolicyIpExceptionArrayOutput) ToWafPolicyIpExceptionArrayOutputWithCo
 	return o
 }
 
-func (o WafPolicyIpExceptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WafPolicyIpException] {
-	return pulumix.Output[[]WafPolicyIpException]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o WafPolicyIpExceptionArrayOutput) Index(i pulumi.IntInput) WafPolicyIpExceptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WafPolicyIpException {
 		return vs[0].([]WafPolicyIpException)[vs[1].(int)]
@@ -3837,12 +3308,6 @@ func (i WafPolicyPolicyBuilderArgs) ToWafPolicyPolicyBuilderOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(WafPolicyPolicyBuilderOutput)
 }
 
-func (i WafPolicyPolicyBuilderArgs) ToOutput(ctx context.Context) pulumix.Output[WafPolicyPolicyBuilder] {
-	return pulumix.Output[WafPolicyPolicyBuilder]{
-		OutputState: i.ToWafPolicyPolicyBuilderOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WafPolicyPolicyBuilderArrayInput is an input type that accepts WafPolicyPolicyBuilderArray and WafPolicyPolicyBuilderArrayOutput values.
 // You can construct a concrete instance of `WafPolicyPolicyBuilderArrayInput` via:
 //
@@ -3868,12 +3333,6 @@ func (i WafPolicyPolicyBuilderArray) ToWafPolicyPolicyBuilderArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(WafPolicyPolicyBuilderArrayOutput)
 }
 
-func (i WafPolicyPolicyBuilderArray) ToOutput(ctx context.Context) pulumix.Output[[]WafPolicyPolicyBuilder] {
-	return pulumix.Output[[]WafPolicyPolicyBuilder]{
-		OutputState: i.ToWafPolicyPolicyBuilderArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WafPolicyPolicyBuilderOutput struct{ *pulumi.OutputState }
 
 func (WafPolicyPolicyBuilderOutput) ElementType() reflect.Type {
@@ -3886,12 +3345,6 @@ func (o WafPolicyPolicyBuilderOutput) ToWafPolicyPolicyBuilderOutput() WafPolicy
 
 func (o WafPolicyPolicyBuilderOutput) ToWafPolicyPolicyBuilderOutputWithContext(ctx context.Context) WafPolicyPolicyBuilderOutput {
 	return o
-}
-
-func (o WafPolicyPolicyBuilderOutput) ToOutput(ctx context.Context) pulumix.Output[WafPolicyPolicyBuilder] {
-	return pulumix.Output[WafPolicyPolicyBuilder]{
-		OutputState: o.OutputState,
-	}
 }
 
 // learning mode setting for policy-builder, possible options: [`automatic`,`disabled`, `manual`]
@@ -3911,12 +3364,6 @@ func (o WafPolicyPolicyBuilderArrayOutput) ToWafPolicyPolicyBuilderArrayOutput()
 
 func (o WafPolicyPolicyBuilderArrayOutput) ToWafPolicyPolicyBuilderArrayOutputWithContext(ctx context.Context) WafPolicyPolicyBuilderArrayOutput {
 	return o
-}
-
-func (o WafPolicyPolicyBuilderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WafPolicyPolicyBuilder] {
-	return pulumix.Output[[]WafPolicyPolicyBuilder]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WafPolicyPolicyBuilderArrayOutput) Index(i pulumi.IntInput) WafPolicyPolicyBuilderOutput {
@@ -3958,12 +3405,6 @@ func (i WafPolicySignaturesSettingArgs) ToWafPolicySignaturesSettingOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(WafPolicySignaturesSettingOutput)
 }
 
-func (i WafPolicySignaturesSettingArgs) ToOutput(ctx context.Context) pulumix.Output[WafPolicySignaturesSetting] {
-	return pulumix.Output[WafPolicySignaturesSetting]{
-		OutputState: i.ToWafPolicySignaturesSettingOutputWithContext(ctx).OutputState,
-	}
-}
-
 // WafPolicySignaturesSettingArrayInput is an input type that accepts WafPolicySignaturesSettingArray and WafPolicySignaturesSettingArrayOutput values.
 // You can construct a concrete instance of `WafPolicySignaturesSettingArrayInput` via:
 //
@@ -3989,12 +3430,6 @@ func (i WafPolicySignaturesSettingArray) ToWafPolicySignaturesSettingArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(WafPolicySignaturesSettingArrayOutput)
 }
 
-func (i WafPolicySignaturesSettingArray) ToOutput(ctx context.Context) pulumix.Output[[]WafPolicySignaturesSetting] {
-	return pulumix.Output[[]WafPolicySignaturesSetting]{
-		OutputState: i.ToWafPolicySignaturesSettingArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type WafPolicySignaturesSettingOutput struct{ *pulumi.OutputState }
 
 func (WafPolicySignaturesSettingOutput) ElementType() reflect.Type {
@@ -4007,12 +3442,6 @@ func (o WafPolicySignaturesSettingOutput) ToWafPolicySignaturesSettingOutput() W
 
 func (o WafPolicySignaturesSettingOutput) ToWafPolicySignaturesSettingOutputWithContext(ctx context.Context) WafPolicySignaturesSettingOutput {
 	return o
-}
-
-func (o WafPolicySignaturesSettingOutput) ToOutput(ctx context.Context) pulumix.Output[WafPolicySignaturesSetting] {
-	return pulumix.Output[WafPolicySignaturesSetting]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WafPolicySignaturesSettingOutput) PlacesignaturesInStaging() pulumi.BoolPtrOutput {
@@ -4035,12 +3464,6 @@ func (o WafPolicySignaturesSettingArrayOutput) ToWafPolicySignaturesSettingArray
 
 func (o WafPolicySignaturesSettingArrayOutput) ToWafPolicySignaturesSettingArrayOutputWithContext(ctx context.Context) WafPolicySignaturesSettingArrayOutput {
 	return o
-}
-
-func (o WafPolicySignaturesSettingArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]WafPolicySignaturesSetting] {
-	return pulumix.Output[[]WafPolicySignaturesSetting]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o WafPolicySignaturesSettingArrayOutput) Index(i pulumi.IntInput) WafPolicySignaturesSettingOutput {

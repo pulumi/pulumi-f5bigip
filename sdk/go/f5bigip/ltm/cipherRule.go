@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ltm.CipherRule` Manages F5 BIG-IP LTM cipher rule using iControl REST.
@@ -173,12 +172,6 @@ func (i *CipherRule) ToCipherRuleOutputWithContext(ctx context.Context) CipherRu
 	return pulumi.ToOutputWithContext(ctx, i).(CipherRuleOutput)
 }
 
-func (i *CipherRule) ToOutput(ctx context.Context) pulumix.Output[*CipherRule] {
-	return pulumix.Output[*CipherRule]{
-		OutputState: i.ToCipherRuleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CipherRuleArrayInput is an input type that accepts CipherRuleArray and CipherRuleArrayOutput values.
 // You can construct a concrete instance of `CipherRuleArrayInput` via:
 //
@@ -202,12 +195,6 @@ func (i CipherRuleArray) ToCipherRuleArrayOutput() CipherRuleArrayOutput {
 
 func (i CipherRuleArray) ToCipherRuleArrayOutputWithContext(ctx context.Context) CipherRuleArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CipherRuleArrayOutput)
-}
-
-func (i CipherRuleArray) ToOutput(ctx context.Context) pulumix.Output[[]*CipherRule] {
-	return pulumix.Output[[]*CipherRule]{
-		OutputState: i.ToCipherRuleArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CipherRuleMapInput is an input type that accepts CipherRuleMap and CipherRuleMapOutput values.
@@ -235,12 +222,6 @@ func (i CipherRuleMap) ToCipherRuleMapOutputWithContext(ctx context.Context) Cip
 	return pulumi.ToOutputWithContext(ctx, i).(CipherRuleMapOutput)
 }
 
-func (i CipherRuleMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CipherRule] {
-	return pulumix.Output[map[string]*CipherRule]{
-		OutputState: i.ToCipherRuleMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CipherRuleOutput struct{ *pulumi.OutputState }
 
 func (CipherRuleOutput) ElementType() reflect.Type {
@@ -253,12 +234,6 @@ func (o CipherRuleOutput) ToCipherRuleOutput() CipherRuleOutput {
 
 func (o CipherRuleOutput) ToCipherRuleOutputWithContext(ctx context.Context) CipherRuleOutput {
 	return o
-}
-
-func (o CipherRuleOutput) ToOutput(ctx context.Context) pulumix.Output[*CipherRule] {
-	return pulumix.Output[*CipherRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies one or more Cipher Suites used,this is a colon (:) separated string of cipher suites. example, `TLS13-AES128-GCM-SHA256:TLS13-AES256-GCM-SHA384`.
@@ -300,12 +275,6 @@ func (o CipherRuleArrayOutput) ToCipherRuleArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o CipherRuleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CipherRule] {
-	return pulumix.Output[[]*CipherRule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CipherRuleArrayOutput) Index(i pulumi.IntInput) CipherRuleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CipherRule {
 		return vs[0].([]*CipherRule)[vs[1].(int)]
@@ -324,12 +293,6 @@ func (o CipherRuleMapOutput) ToCipherRuleMapOutput() CipherRuleMapOutput {
 
 func (o CipherRuleMapOutput) ToCipherRuleMapOutputWithContext(ctx context.Context) CipherRuleMapOutput {
 	return o
-}
-
-func (o CipherRuleMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CipherRule] {
-	return pulumix.Output[map[string]*CipherRule]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CipherRuleMapOutput) MapIndex(k pulumi.StringInput) CipherRuleOutput {

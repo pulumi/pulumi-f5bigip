@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `sys.SnmpTraps` provides details bout how to enable snmpTraps resource on BIG-IP
@@ -256,12 +255,6 @@ func (i *SnmpTraps) ToSnmpTrapsOutputWithContext(ctx context.Context) SnmpTrapsO
 	return pulumi.ToOutputWithContext(ctx, i).(SnmpTrapsOutput)
 }
 
-func (i *SnmpTraps) ToOutput(ctx context.Context) pulumix.Output[*SnmpTraps] {
-	return pulumix.Output[*SnmpTraps]{
-		OutputState: i.ToSnmpTrapsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SnmpTrapsArrayInput is an input type that accepts SnmpTrapsArray and SnmpTrapsArrayOutput values.
 // You can construct a concrete instance of `SnmpTrapsArrayInput` via:
 //
@@ -285,12 +278,6 @@ func (i SnmpTrapsArray) ToSnmpTrapsArrayOutput() SnmpTrapsArrayOutput {
 
 func (i SnmpTrapsArray) ToSnmpTrapsArrayOutputWithContext(ctx context.Context) SnmpTrapsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SnmpTrapsArrayOutput)
-}
-
-func (i SnmpTrapsArray) ToOutput(ctx context.Context) pulumix.Output[[]*SnmpTraps] {
-	return pulumix.Output[[]*SnmpTraps]{
-		OutputState: i.ToSnmpTrapsArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SnmpTrapsMapInput is an input type that accepts SnmpTrapsMap and SnmpTrapsMapOutput values.
@@ -318,12 +305,6 @@ func (i SnmpTrapsMap) ToSnmpTrapsMapOutputWithContext(ctx context.Context) SnmpT
 	return pulumi.ToOutputWithContext(ctx, i).(SnmpTrapsMapOutput)
 }
 
-func (i SnmpTrapsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SnmpTraps] {
-	return pulumix.Output[map[string]*SnmpTraps]{
-		OutputState: i.ToSnmpTrapsMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SnmpTrapsOutput struct{ *pulumi.OutputState }
 
 func (SnmpTrapsOutput) ElementType() reflect.Type {
@@ -336,12 +317,6 @@ func (o SnmpTrapsOutput) ToSnmpTrapsOutput() SnmpTrapsOutput {
 
 func (o SnmpTrapsOutput) ToSnmpTrapsOutputWithContext(ctx context.Context) SnmpTrapsOutput {
 	return o
-}
-
-func (o SnmpTrapsOutput) ToOutput(ctx context.Context) pulumix.Output[*SnmpTraps] {
-	return pulumix.Output[*SnmpTraps]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Encrypted password
@@ -428,12 +403,6 @@ func (o SnmpTrapsArrayOutput) ToSnmpTrapsArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o SnmpTrapsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SnmpTraps] {
-	return pulumix.Output[[]*SnmpTraps]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SnmpTrapsArrayOutput) Index(i pulumi.IntInput) SnmpTrapsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SnmpTraps {
 		return vs[0].([]*SnmpTraps)[vs[1].(int)]
@@ -452,12 +421,6 @@ func (o SnmpTrapsMapOutput) ToSnmpTrapsMapOutput() SnmpTrapsMapOutput {
 
 func (o SnmpTrapsMapOutput) ToSnmpTrapsMapOutputWithContext(ctx context.Context) SnmpTrapsMapOutput {
 	return o
-}
-
-func (o SnmpTrapsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SnmpTraps] {
-	return pulumix.Output[map[string]*SnmpTraps]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SnmpTrapsMapOutput) MapIndex(k pulumi.StringInput) SnmpTrapsOutput {
