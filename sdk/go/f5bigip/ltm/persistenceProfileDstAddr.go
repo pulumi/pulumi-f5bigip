@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Configures a cookie persistence profile
@@ -262,12 +261,6 @@ func (i *PersistenceProfileDstAddr) ToPersistenceProfileDstAddrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(PersistenceProfileDstAddrOutput)
 }
 
-func (i *PersistenceProfileDstAddr) ToOutput(ctx context.Context) pulumix.Output[*PersistenceProfileDstAddr] {
-	return pulumix.Output[*PersistenceProfileDstAddr]{
-		OutputState: i.ToPersistenceProfileDstAddrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // PersistenceProfileDstAddrArrayInput is an input type that accepts PersistenceProfileDstAddrArray and PersistenceProfileDstAddrArrayOutput values.
 // You can construct a concrete instance of `PersistenceProfileDstAddrArrayInput` via:
 //
@@ -291,12 +284,6 @@ func (i PersistenceProfileDstAddrArray) ToPersistenceProfileDstAddrArrayOutput()
 
 func (i PersistenceProfileDstAddrArray) ToPersistenceProfileDstAddrArrayOutputWithContext(ctx context.Context) PersistenceProfileDstAddrArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PersistenceProfileDstAddrArrayOutput)
-}
-
-func (i PersistenceProfileDstAddrArray) ToOutput(ctx context.Context) pulumix.Output[[]*PersistenceProfileDstAddr] {
-	return pulumix.Output[[]*PersistenceProfileDstAddr]{
-		OutputState: i.ToPersistenceProfileDstAddrArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PersistenceProfileDstAddrMapInput is an input type that accepts PersistenceProfileDstAddrMap and PersistenceProfileDstAddrMapOutput values.
@@ -324,12 +311,6 @@ func (i PersistenceProfileDstAddrMap) ToPersistenceProfileDstAddrMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(PersistenceProfileDstAddrMapOutput)
 }
 
-func (i PersistenceProfileDstAddrMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PersistenceProfileDstAddr] {
-	return pulumix.Output[map[string]*PersistenceProfileDstAddr]{
-		OutputState: i.ToPersistenceProfileDstAddrMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type PersistenceProfileDstAddrOutput struct{ *pulumi.OutputState }
 
 func (PersistenceProfileDstAddrOutput) ElementType() reflect.Type {
@@ -342,12 +323,6 @@ func (o PersistenceProfileDstAddrOutput) ToPersistenceProfileDstAddrOutput() Per
 
 func (o PersistenceProfileDstAddrOutput) ToPersistenceProfileDstAddrOutputWithContext(ctx context.Context) PersistenceProfileDstAddrOutput {
 	return o
-}
-
-func (o PersistenceProfileDstAddrOutput) ToOutput(ctx context.Context) pulumix.Output[*PersistenceProfileDstAddr] {
-	return pulumix.Output[*PersistenceProfileDstAddr]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PersistenceProfileDstAddrOutput) AppService() pulumi.StringOutput {
@@ -420,12 +395,6 @@ func (o PersistenceProfileDstAddrArrayOutput) ToPersistenceProfileDstAddrArrayOu
 	return o
 }
 
-func (o PersistenceProfileDstAddrArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PersistenceProfileDstAddr] {
-	return pulumix.Output[[]*PersistenceProfileDstAddr]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o PersistenceProfileDstAddrArrayOutput) Index(i pulumi.IntInput) PersistenceProfileDstAddrOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PersistenceProfileDstAddr {
 		return vs[0].([]*PersistenceProfileDstAddr)[vs[1].(int)]
@@ -444,12 +413,6 @@ func (o PersistenceProfileDstAddrMapOutput) ToPersistenceProfileDstAddrMapOutput
 
 func (o PersistenceProfileDstAddrMapOutput) ToPersistenceProfileDstAddrMapOutputWithContext(ctx context.Context) PersistenceProfileDstAddrMapOutput {
 	return o
-}
-
-func (o PersistenceProfileDstAddrMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PersistenceProfileDstAddr] {
-	return pulumix.Output[map[string]*PersistenceProfileDstAddr]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o PersistenceProfileDstAddrMapOutput) MapIndex(k pulumi.StringInput) PersistenceProfileDstAddrOutput {

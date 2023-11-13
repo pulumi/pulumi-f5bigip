@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source (`WafPolicy`) to get the details of exist WAF policy BIG-IP.
@@ -104,12 +103,6 @@ func (o GetWafPolicyResultOutput) ToGetWafPolicyResultOutput() GetWafPolicyResul
 
 func (o GetWafPolicyResultOutput) ToGetWafPolicyResultOutputWithContext(ctx context.Context) GetWafPolicyResultOutput {
 	return o
-}
-
-func (o GetWafPolicyResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetWafPolicyResult] {
-	return pulumix.Output[GetWafPolicyResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

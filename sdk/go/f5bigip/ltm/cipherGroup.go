@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ltm.CipherGroup` Manages F5 BIG-IP LTM cipher group using iControl REST.
@@ -174,12 +173,6 @@ func (i *CipherGroup) ToCipherGroupOutputWithContext(ctx context.Context) Cipher
 	return pulumi.ToOutputWithContext(ctx, i).(CipherGroupOutput)
 }
 
-func (i *CipherGroup) ToOutput(ctx context.Context) pulumix.Output[*CipherGroup] {
-	return pulumix.Output[*CipherGroup]{
-		OutputState: i.ToCipherGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CipherGroupArrayInput is an input type that accepts CipherGroupArray and CipherGroupArrayOutput values.
 // You can construct a concrete instance of `CipherGroupArrayInput` via:
 //
@@ -203,12 +196,6 @@ func (i CipherGroupArray) ToCipherGroupArrayOutput() CipherGroupArrayOutput {
 
 func (i CipherGroupArray) ToCipherGroupArrayOutputWithContext(ctx context.Context) CipherGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CipherGroupArrayOutput)
-}
-
-func (i CipherGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*CipherGroup] {
-	return pulumix.Output[[]*CipherGroup]{
-		OutputState: i.ToCipherGroupArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CipherGroupMapInput is an input type that accepts CipherGroupMap and CipherGroupMapOutput values.
@@ -236,12 +223,6 @@ func (i CipherGroupMap) ToCipherGroupMapOutputWithContext(ctx context.Context) C
 	return pulumi.ToOutputWithContext(ctx, i).(CipherGroupMapOutput)
 }
 
-func (i CipherGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CipherGroup] {
-	return pulumix.Output[map[string]*CipherGroup]{
-		OutputState: i.ToCipherGroupMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CipherGroupOutput struct{ *pulumi.OutputState }
 
 func (CipherGroupOutput) ElementType() reflect.Type {
@@ -254,12 +235,6 @@ func (o CipherGroupOutput) ToCipherGroupOutput() CipherGroupOutput {
 
 func (o CipherGroupOutput) ToCipherGroupOutputWithContext(ctx context.Context) CipherGroupOutput {
 	return o
-}
-
-func (o CipherGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*CipherGroup] {
-	return pulumix.Output[*CipherGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the configuration of the allowed groups of ciphers. You can select a cipher rule from the Available Cipher Rules list.
@@ -301,12 +276,6 @@ func (o CipherGroupArrayOutput) ToCipherGroupArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o CipherGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CipherGroup] {
-	return pulumix.Output[[]*CipherGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CipherGroupArrayOutput) Index(i pulumi.IntInput) CipherGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CipherGroup {
 		return vs[0].([]*CipherGroup)[vs[1].(int)]
@@ -325,12 +294,6 @@ func (o CipherGroupMapOutput) ToCipherGroupMapOutput() CipherGroupMapOutput {
 
 func (o CipherGroupMapOutput) ToCipherGroupMapOutputWithContext(ctx context.Context) CipherGroupMapOutput {
 	return o
-}
-
-func (o CipherGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CipherGroup] {
-	return pulumix.Output[map[string]*CipherGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CipherGroupMapOutput) MapIndex(k pulumi.StringInput) CipherGroupOutput {

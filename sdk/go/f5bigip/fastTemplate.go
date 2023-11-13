@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `FastTemplate` This resource will import and create FAST template sets on BIG-IP LTM.
@@ -125,12 +124,6 @@ func (i *FastTemplate) ToFastTemplateOutputWithContext(ctx context.Context) Fast
 	return pulumi.ToOutputWithContext(ctx, i).(FastTemplateOutput)
 }
 
-func (i *FastTemplate) ToOutput(ctx context.Context) pulumix.Output[*FastTemplate] {
-	return pulumix.Output[*FastTemplate]{
-		OutputState: i.ToFastTemplateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FastTemplateArrayInput is an input type that accepts FastTemplateArray and FastTemplateArrayOutput values.
 // You can construct a concrete instance of `FastTemplateArrayInput` via:
 //
@@ -154,12 +147,6 @@ func (i FastTemplateArray) ToFastTemplateArrayOutput() FastTemplateArrayOutput {
 
 func (i FastTemplateArray) ToFastTemplateArrayOutputWithContext(ctx context.Context) FastTemplateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FastTemplateArrayOutput)
-}
-
-func (i FastTemplateArray) ToOutput(ctx context.Context) pulumix.Output[[]*FastTemplate] {
-	return pulumix.Output[[]*FastTemplate]{
-		OutputState: i.ToFastTemplateArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FastTemplateMapInput is an input type that accepts FastTemplateMap and FastTemplateMapOutput values.
@@ -187,12 +174,6 @@ func (i FastTemplateMap) ToFastTemplateMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(FastTemplateMapOutput)
 }
 
-func (i FastTemplateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FastTemplate] {
-	return pulumix.Output[map[string]*FastTemplate]{
-		OutputState: i.ToFastTemplateMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FastTemplateOutput struct{ *pulumi.OutputState }
 
 func (FastTemplateOutput) ElementType() reflect.Type {
@@ -205,12 +186,6 @@ func (o FastTemplateOutput) ToFastTemplateOutput() FastTemplateOutput {
 
 func (o FastTemplateOutput) ToFastTemplateOutputWithContext(ctx context.Context) FastTemplateOutput {
 	return o
-}
-
-func (o FastTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[*FastTemplate] {
-	return pulumix.Output[*FastTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // MD5 hash of the zip archive file containing FAST template
@@ -242,12 +217,6 @@ func (o FastTemplateArrayOutput) ToFastTemplateArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o FastTemplateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FastTemplate] {
-	return pulumix.Output[[]*FastTemplate]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FastTemplateArrayOutput) Index(i pulumi.IntInput) FastTemplateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FastTemplate {
 		return vs[0].([]*FastTemplate)[vs[1].(int)]
@@ -266,12 +235,6 @@ func (o FastTemplateMapOutput) ToFastTemplateMapOutput() FastTemplateMapOutput {
 
 func (o FastTemplateMapOutput) ToFastTemplateMapOutputWithContext(ctx context.Context) FastTemplateMapOutput {
 	return o
-}
-
-func (o FastTemplateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FastTemplate] {
-	return pulumix.Output[map[string]*FastTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FastTemplateMapOutput) MapIndex(k pulumi.StringInput) FastTemplateOutput {

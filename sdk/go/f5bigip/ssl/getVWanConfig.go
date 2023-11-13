@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source (`ssl.getVWanConfig`) to get the vWAN site config from Azure VWAN Site
@@ -133,12 +132,6 @@ func (o GetVWanConfigResultOutput) ToGetVWanConfigResultOutput() GetVWanConfigRe
 
 func (o GetVWanConfigResultOutput) ToGetVWanConfigResultOutputWithContext(ctx context.Context) GetVWanConfigResultOutput {
 	return o
-}
-
-func (o GetVWanConfigResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetVWanConfigResult] {
-	return pulumix.Output[GetVWanConfigResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetVWanConfigResultOutput) AzureVwanName() pulumi.StringOutput {

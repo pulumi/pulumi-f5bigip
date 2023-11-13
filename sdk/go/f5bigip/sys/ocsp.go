@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `sys.Ocsp` Manages F5 BIG-IP OCSP responder using iControl REST.
@@ -298,12 +297,6 @@ func (i *Ocsp) ToOcspOutputWithContext(ctx context.Context) OcspOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OcspOutput)
 }
 
-func (i *Ocsp) ToOutput(ctx context.Context) pulumix.Output[*Ocsp] {
-	return pulumix.Output[*Ocsp]{
-		OutputState: i.ToOcspOutputWithContext(ctx).OutputState,
-	}
-}
-
 // OcspArrayInput is an input type that accepts OcspArray and OcspArrayOutput values.
 // You can construct a concrete instance of `OcspArrayInput` via:
 //
@@ -327,12 +320,6 @@ func (i OcspArray) ToOcspArrayOutput() OcspArrayOutput {
 
 func (i OcspArray) ToOcspArrayOutputWithContext(ctx context.Context) OcspArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OcspArrayOutput)
-}
-
-func (i OcspArray) ToOutput(ctx context.Context) pulumix.Output[[]*Ocsp] {
-	return pulumix.Output[[]*Ocsp]{
-		OutputState: i.ToOcspArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // OcspMapInput is an input type that accepts OcspMap and OcspMapOutput values.
@@ -360,12 +347,6 @@ func (i OcspMap) ToOcspMapOutputWithContext(ctx context.Context) OcspMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OcspMapOutput)
 }
 
-func (i OcspMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Ocsp] {
-	return pulumix.Output[map[string]*Ocsp]{
-		OutputState: i.ToOcspMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type OcspOutput struct{ *pulumi.OutputState }
 
 func (OcspOutput) ElementType() reflect.Type {
@@ -378,12 +359,6 @@ func (o OcspOutput) ToOcspOutput() OcspOutput {
 
 func (o OcspOutput) ToOcspOutputWithContext(ctx context.Context) OcspOutput {
 	return o
-}
-
-func (o OcspOutput) ToOutput(ctx context.Context) pulumix.Output[*Ocsp] {
-	return pulumix.Output[*Ocsp]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the lifetime of an error response in the cache, in seconds. This value must be greater than connection_timeout. The default value is `3600`.
@@ -485,12 +460,6 @@ func (o OcspArrayOutput) ToOcspArrayOutputWithContext(ctx context.Context) OcspA
 	return o
 }
 
-func (o OcspArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Ocsp] {
-	return pulumix.Output[[]*Ocsp]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o OcspArrayOutput) Index(i pulumi.IntInput) OcspOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Ocsp {
 		return vs[0].([]*Ocsp)[vs[1].(int)]
@@ -509,12 +478,6 @@ func (o OcspMapOutput) ToOcspMapOutput() OcspMapOutput {
 
 func (o OcspMapOutput) ToOcspMapOutputWithContext(ctx context.Context) OcspMapOutput {
 	return o
-}
-
-func (o OcspMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Ocsp] {
-	return pulumix.Output[map[string]*Ocsp]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o OcspMapOutput) MapIndex(k pulumi.StringInput) OcspOutput {
