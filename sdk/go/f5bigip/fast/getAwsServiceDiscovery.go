@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source (`fast.getAwsServiceDiscovery`) to get the AWS Service discovery config to be used for `http`/`https` app deployment in FAST.
@@ -164,12 +163,6 @@ func (o GetAwsServiceDiscoveryResultOutput) ToGetAwsServiceDiscoveryResultOutput
 
 func (o GetAwsServiceDiscoveryResultOutput) ToGetAwsServiceDiscoveryResultOutputWithContext(ctx context.Context) GetAwsServiceDiscoveryResultOutput {
 	return o
-}
-
-func (o GetAwsServiceDiscoveryResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAwsServiceDiscoveryResult] {
-	return pulumix.Output[GetAwsServiceDiscoveryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetAwsServiceDiscoveryResultOutput) AddressRealm() pulumi.StringPtrOutput {

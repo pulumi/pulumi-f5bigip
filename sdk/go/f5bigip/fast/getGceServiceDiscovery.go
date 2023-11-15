@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source (`fast.getGceServiceDiscovery`) to get the GCE Service discovery config to be used for `http`/`https` app deployment in FAST.
@@ -155,12 +154,6 @@ func (o GetGceServiceDiscoveryResultOutput) ToGetGceServiceDiscoveryResultOutput
 
 func (o GetGceServiceDiscoveryResultOutput) ToGetGceServiceDiscoveryResultOutputWithContext(ctx context.Context) GetGceServiceDiscoveryResultOutput {
 	return o
-}
-
-func (o GetGceServiceDiscoveryResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetGceServiceDiscoveryResult] {
-	return pulumix.Output[GetGceServiceDiscoveryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetGceServiceDiscoveryResultOutput) AddressRealm() pulumi.StringPtrOutput {

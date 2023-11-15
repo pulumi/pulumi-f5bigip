@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `net.SelfIp` Manages a selfip configuration
@@ -293,12 +292,6 @@ func (i *SelfIp) ToSelfIpOutputWithContext(ctx context.Context) SelfIpOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SelfIpOutput)
 }
 
-func (i *SelfIp) ToOutput(ctx context.Context) pulumix.Output[*SelfIp] {
-	return pulumix.Output[*SelfIp]{
-		OutputState: i.ToSelfIpOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SelfIpArrayInput is an input type that accepts SelfIpArray and SelfIpArrayOutput values.
 // You can construct a concrete instance of `SelfIpArrayInput` via:
 //
@@ -322,12 +315,6 @@ func (i SelfIpArray) ToSelfIpArrayOutput() SelfIpArrayOutput {
 
 func (i SelfIpArray) ToSelfIpArrayOutputWithContext(ctx context.Context) SelfIpArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SelfIpArrayOutput)
-}
-
-func (i SelfIpArray) ToOutput(ctx context.Context) pulumix.Output[[]*SelfIp] {
-	return pulumix.Output[[]*SelfIp]{
-		OutputState: i.ToSelfIpArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SelfIpMapInput is an input type that accepts SelfIpMap and SelfIpMapOutput values.
@@ -355,12 +342,6 @@ func (i SelfIpMap) ToSelfIpMapOutputWithContext(ctx context.Context) SelfIpMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(SelfIpMapOutput)
 }
 
-func (i SelfIpMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SelfIp] {
-	return pulumix.Output[map[string]*SelfIp]{
-		OutputState: i.ToSelfIpMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SelfIpOutput struct{ *pulumi.OutputState }
 
 func (SelfIpOutput) ElementType() reflect.Type {
@@ -373,12 +354,6 @@ func (o SelfIpOutput) ToSelfIpOutput() SelfIpOutput {
 
 func (o SelfIpOutput) ToSelfIpOutputWithContext(ctx context.Context) SelfIpOutput {
 	return o
-}
-
-func (o SelfIpOutput) ToOutput(ctx context.Context) pulumix.Output[*SelfIp] {
-	return pulumix.Output[*SelfIp]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Self IP's address and netmask. The IP address could also contain the route domain, e.g. `10.12.13.14%4/24`.
@@ -420,12 +395,6 @@ func (o SelfIpArrayOutput) ToSelfIpArrayOutputWithContext(ctx context.Context) S
 	return o
 }
 
-func (o SelfIpArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SelfIp] {
-	return pulumix.Output[[]*SelfIp]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SelfIpArrayOutput) Index(i pulumi.IntInput) SelfIpOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SelfIp {
 		return vs[0].([]*SelfIp)[vs[1].(int)]
@@ -444,12 +413,6 @@ func (o SelfIpMapOutput) ToSelfIpMapOutput() SelfIpMapOutput {
 
 func (o SelfIpMapOutput) ToSelfIpMapOutputWithContext(ctx context.Context) SelfIpMapOutput {
 	return o
-}
-
-func (o SelfIpMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SelfIp] {
-	return pulumix.Output[map[string]*SelfIp]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SelfIpMapOutput) MapIndex(k pulumi.StringInput) SelfIpOutput {

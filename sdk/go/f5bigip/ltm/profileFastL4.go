@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `ltm.ProfileFastL4` Configures a custom LTM fastL4 profile for use by health checks.
@@ -287,12 +286,6 @@ func (i *ProfileFastL4) ToProfileFastL4OutputWithContext(ctx context.Context) Pr
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileFastL4Output)
 }
 
-func (i *ProfileFastL4) ToOutput(ctx context.Context) pulumix.Output[*ProfileFastL4] {
-	return pulumix.Output[*ProfileFastL4]{
-		OutputState: i.ToProfileFastL4OutputWithContext(ctx).OutputState,
-	}
-}
-
 // ProfileFastL4ArrayInput is an input type that accepts ProfileFastL4Array and ProfileFastL4ArrayOutput values.
 // You can construct a concrete instance of `ProfileFastL4ArrayInput` via:
 //
@@ -316,12 +309,6 @@ func (i ProfileFastL4Array) ToProfileFastL4ArrayOutput() ProfileFastL4ArrayOutpu
 
 func (i ProfileFastL4Array) ToProfileFastL4ArrayOutputWithContext(ctx context.Context) ProfileFastL4ArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileFastL4ArrayOutput)
-}
-
-func (i ProfileFastL4Array) ToOutput(ctx context.Context) pulumix.Output[[]*ProfileFastL4] {
-	return pulumix.Output[[]*ProfileFastL4]{
-		OutputState: i.ToProfileFastL4ArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ProfileFastL4MapInput is an input type that accepts ProfileFastL4Map and ProfileFastL4MapOutput values.
@@ -349,12 +336,6 @@ func (i ProfileFastL4Map) ToProfileFastL4MapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(ProfileFastL4MapOutput)
 }
 
-func (i ProfileFastL4Map) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProfileFastL4] {
-	return pulumix.Output[map[string]*ProfileFastL4]{
-		OutputState: i.ToProfileFastL4MapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ProfileFastL4Output struct{ *pulumi.OutputState }
 
 func (ProfileFastL4Output) ElementType() reflect.Type {
@@ -367,12 +348,6 @@ func (o ProfileFastL4Output) ToProfileFastL4Output() ProfileFastL4Output {
 
 func (o ProfileFastL4Output) ToProfileFastL4OutputWithContext(ctx context.Context) ProfileFastL4Output {
 	return o
-}
-
-func (o ProfileFastL4Output) ToOutput(ctx context.Context) pulumix.Output[*ProfileFastL4] {
-	return pulumix.Output[*ProfileFastL4]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies late binding client timeout in seconds. This setting specifies the number of seconds allowed for a client to transmit enough data to select a server when late binding is enabled. If it expires timeout-recovery mode will dictate what action to take.
@@ -464,12 +439,6 @@ func (o ProfileFastL4ArrayOutput) ToProfileFastL4ArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o ProfileFastL4ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ProfileFastL4] {
-	return pulumix.Output[[]*ProfileFastL4]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProfileFastL4ArrayOutput) Index(i pulumi.IntInput) ProfileFastL4Output {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProfileFastL4 {
 		return vs[0].([]*ProfileFastL4)[vs[1].(int)]
@@ -488,12 +457,6 @@ func (o ProfileFastL4MapOutput) ToProfileFastL4MapOutput() ProfileFastL4MapOutpu
 
 func (o ProfileFastL4MapOutput) ToProfileFastL4MapOutputWithContext(ctx context.Context) ProfileFastL4MapOutput {
 	return o
-}
-
-func (o ProfileFastL4MapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProfileFastL4] {
-	return pulumix.Output[map[string]*ProfileFastL4]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProfileFastL4MapOutput) MapIndex(k pulumi.StringInput) ProfileFastL4Output {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source (`ltm.Monitor`) to get the ltm monitor details available on BIG-IP
@@ -128,12 +127,6 @@ func (o LookupMonitorResultOutput) ToLookupMonitorResultOutput() LookupMonitorRe
 
 func (o LookupMonitorResultOutput) ToLookupMonitorResultOutputWithContext(ctx context.Context) LookupMonitorResultOutput {
 	return o
-}
-
-func (o LookupMonitorResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupMonitorResult] {
-	return pulumix.Output[LookupMonitorResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Displays whether adaptive response time monitoring is enabled for this monitor.

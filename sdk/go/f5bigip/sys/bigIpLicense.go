@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type BigIpLicense struct {
@@ -113,12 +112,6 @@ func (i *BigIpLicense) ToBigIpLicenseOutputWithContext(ctx context.Context) BigI
 	return pulumi.ToOutputWithContext(ctx, i).(BigIpLicenseOutput)
 }
 
-func (i *BigIpLicense) ToOutput(ctx context.Context) pulumix.Output[*BigIpLicense] {
-	return pulumix.Output[*BigIpLicense]{
-		OutputState: i.ToBigIpLicenseOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BigIpLicenseArrayInput is an input type that accepts BigIpLicenseArray and BigIpLicenseArrayOutput values.
 // You can construct a concrete instance of `BigIpLicenseArrayInput` via:
 //
@@ -142,12 +135,6 @@ func (i BigIpLicenseArray) ToBigIpLicenseArrayOutput() BigIpLicenseArrayOutput {
 
 func (i BigIpLicenseArray) ToBigIpLicenseArrayOutputWithContext(ctx context.Context) BigIpLicenseArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BigIpLicenseArrayOutput)
-}
-
-func (i BigIpLicenseArray) ToOutput(ctx context.Context) pulumix.Output[[]*BigIpLicense] {
-	return pulumix.Output[[]*BigIpLicense]{
-		OutputState: i.ToBigIpLicenseArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // BigIpLicenseMapInput is an input type that accepts BigIpLicenseMap and BigIpLicenseMapOutput values.
@@ -175,12 +162,6 @@ func (i BigIpLicenseMap) ToBigIpLicenseMapOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(BigIpLicenseMapOutput)
 }
 
-func (i BigIpLicenseMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BigIpLicense] {
-	return pulumix.Output[map[string]*BigIpLicense]{
-		OutputState: i.ToBigIpLicenseMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BigIpLicenseOutput struct{ *pulumi.OutputState }
 
 func (BigIpLicenseOutput) ElementType() reflect.Type {
@@ -193,12 +174,6 @@ func (o BigIpLicenseOutput) ToBigIpLicenseOutput() BigIpLicenseOutput {
 
 func (o BigIpLicenseOutput) ToBigIpLicenseOutputWithContext(ctx context.Context) BigIpLicenseOutput {
 	return o
-}
-
-func (o BigIpLicenseOutput) ToOutput(ctx context.Context) pulumix.Output[*BigIpLicense] {
-	return pulumix.Output[*BigIpLicense]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Tmsh command to execute tmsh commands like install
@@ -225,12 +200,6 @@ func (o BigIpLicenseArrayOutput) ToBigIpLicenseArrayOutputWithContext(ctx contex
 	return o
 }
 
-func (o BigIpLicenseArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BigIpLicense] {
-	return pulumix.Output[[]*BigIpLicense]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BigIpLicenseArrayOutput) Index(i pulumi.IntInput) BigIpLicenseOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BigIpLicense {
 		return vs[0].([]*BigIpLicense)[vs[1].(int)]
@@ -249,12 +218,6 @@ func (o BigIpLicenseMapOutput) ToBigIpLicenseMapOutput() BigIpLicenseMapOutput {
 
 func (o BigIpLicenseMapOutput) ToBigIpLicenseMapOutputWithContext(ctx context.Context) BigIpLicenseMapOutput {
 	return o
-}
-
-func (o BigIpLicenseMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BigIpLicense] {
-	return pulumix.Output[map[string]*BigIpLicense]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BigIpLicenseMapOutput) MapIndex(k pulumi.StringInput) BigIpLicenseOutput {

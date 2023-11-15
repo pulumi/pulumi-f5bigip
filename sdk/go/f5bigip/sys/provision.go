@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `sys.Provision` Manage BIG-IP module provisioning. This resource will only provision at the standard levels of Dedicated, Nominal, and Minimum.
@@ -291,12 +290,6 @@ func (i *Provision) ToProvisionOutputWithContext(ctx context.Context) ProvisionO
 	return pulumi.ToOutputWithContext(ctx, i).(ProvisionOutput)
 }
 
-func (i *Provision) ToOutput(ctx context.Context) pulumix.Output[*Provision] {
-	return pulumix.Output[*Provision]{
-		OutputState: i.ToProvisionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ProvisionArrayInput is an input type that accepts ProvisionArray and ProvisionArrayOutput values.
 // You can construct a concrete instance of `ProvisionArrayInput` via:
 //
@@ -320,12 +313,6 @@ func (i ProvisionArray) ToProvisionArrayOutput() ProvisionArrayOutput {
 
 func (i ProvisionArray) ToProvisionArrayOutputWithContext(ctx context.Context) ProvisionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProvisionArrayOutput)
-}
-
-func (i ProvisionArray) ToOutput(ctx context.Context) pulumix.Output[[]*Provision] {
-	return pulumix.Output[[]*Provision]{
-		OutputState: i.ToProvisionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ProvisionMapInput is an input type that accepts ProvisionMap and ProvisionMapOutput values.
@@ -353,12 +340,6 @@ func (i ProvisionMap) ToProvisionMapOutputWithContext(ctx context.Context) Provi
 	return pulumi.ToOutputWithContext(ctx, i).(ProvisionMapOutput)
 }
 
-func (i ProvisionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Provision] {
-	return pulumix.Output[map[string]*Provision]{
-		OutputState: i.ToProvisionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ProvisionOutput struct{ *pulumi.OutputState }
 
 func (ProvisionOutput) ElementType() reflect.Type {
@@ -371,12 +352,6 @@ func (o ProvisionOutput) ToProvisionOutput() ProvisionOutput {
 
 func (o ProvisionOutput) ToProvisionOutputWithContext(ctx context.Context) ProvisionOutput {
 	return o
-}
-
-func (o ProvisionOutput) ToOutput(ctx context.Context) pulumix.Output[*Provision] {
-	return pulumix.Output[*Provision]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Use this option only when the level option is set to custom.F5 Networks recommends that you do not modify this option. The default value is none
@@ -445,12 +420,6 @@ func (o ProvisionArrayOutput) ToProvisionArrayOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o ProvisionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Provision] {
-	return pulumix.Output[[]*Provision]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProvisionArrayOutput) Index(i pulumi.IntInput) ProvisionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Provision {
 		return vs[0].([]*Provision)[vs[1].(int)]
@@ -469,12 +438,6 @@ func (o ProvisionMapOutput) ToProvisionMapOutput() ProvisionMapOutput {
 
 func (o ProvisionMapOutput) ToProvisionMapOutputWithContext(ctx context.Context) ProvisionMapOutput {
 	return o
-}
-
-func (o ProvisionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Provision] {
-	return pulumix.Output[map[string]*Provision]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProvisionMapOutput) MapIndex(k pulumi.StringInput) ProvisionOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `CommonLicenseManageBigIq` This Resource is used for BIGIP/Provider License Management from BIGIQ
@@ -370,12 +369,6 @@ func (i *CommonLicenseManageBigIq) ToCommonLicenseManageBigIqOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(CommonLicenseManageBigIqOutput)
 }
 
-func (i *CommonLicenseManageBigIq) ToOutput(ctx context.Context) pulumix.Output[*CommonLicenseManageBigIq] {
-	return pulumix.Output[*CommonLicenseManageBigIq]{
-		OutputState: i.ToCommonLicenseManageBigIqOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CommonLicenseManageBigIqArrayInput is an input type that accepts CommonLicenseManageBigIqArray and CommonLicenseManageBigIqArrayOutput values.
 // You can construct a concrete instance of `CommonLicenseManageBigIqArrayInput` via:
 //
@@ -399,12 +392,6 @@ func (i CommonLicenseManageBigIqArray) ToCommonLicenseManageBigIqArrayOutput() C
 
 func (i CommonLicenseManageBigIqArray) ToCommonLicenseManageBigIqArrayOutputWithContext(ctx context.Context) CommonLicenseManageBigIqArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CommonLicenseManageBigIqArrayOutput)
-}
-
-func (i CommonLicenseManageBigIqArray) ToOutput(ctx context.Context) pulumix.Output[[]*CommonLicenseManageBigIq] {
-	return pulumix.Output[[]*CommonLicenseManageBigIq]{
-		OutputState: i.ToCommonLicenseManageBigIqArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CommonLicenseManageBigIqMapInput is an input type that accepts CommonLicenseManageBigIqMap and CommonLicenseManageBigIqMapOutput values.
@@ -432,12 +419,6 @@ func (i CommonLicenseManageBigIqMap) ToCommonLicenseManageBigIqMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(CommonLicenseManageBigIqMapOutput)
 }
 
-func (i CommonLicenseManageBigIqMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CommonLicenseManageBigIq] {
-	return pulumix.Output[map[string]*CommonLicenseManageBigIq]{
-		OutputState: i.ToCommonLicenseManageBigIqMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CommonLicenseManageBigIqOutput struct{ *pulumi.OutputState }
 
 func (CommonLicenseManageBigIqOutput) ElementType() reflect.Type {
@@ -450,12 +431,6 @@ func (o CommonLicenseManageBigIqOutput) ToCommonLicenseManageBigIqOutput() Commo
 
 func (o CommonLicenseManageBigIqOutput) ToCommonLicenseManageBigIqOutputWithContext(ctx context.Context) CommonLicenseManageBigIqOutput {
 	return o
-}
-
-func (o CommonLicenseManageBigIqOutput) ToOutput(ctx context.Context) pulumix.Output[*CommonLicenseManageBigIq] {
-	return pulumix.Output[*CommonLicenseManageBigIq]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The type of assignment, which is determined by whether the BIG-IP is unreachable, unmanaged, or managed by BIG-IQ. Possible values: “UNREACHABLE”, “UNMANAGED”, or “MANAGED”.
@@ -552,12 +527,6 @@ func (o CommonLicenseManageBigIqArrayOutput) ToCommonLicenseManageBigIqArrayOutp
 	return o
 }
 
-func (o CommonLicenseManageBigIqArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CommonLicenseManageBigIq] {
-	return pulumix.Output[[]*CommonLicenseManageBigIq]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CommonLicenseManageBigIqArrayOutput) Index(i pulumi.IntInput) CommonLicenseManageBigIqOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CommonLicenseManageBigIq {
 		return vs[0].([]*CommonLicenseManageBigIq)[vs[1].(int)]
@@ -576,12 +545,6 @@ func (o CommonLicenseManageBigIqMapOutput) ToCommonLicenseManageBigIqMapOutput()
 
 func (o CommonLicenseManageBigIqMapOutput) ToCommonLicenseManageBigIqMapOutputWithContext(ctx context.Context) CommonLicenseManageBigIqMapOutput {
 	return o
-}
-
-func (o CommonLicenseManageBigIqMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CommonLicenseManageBigIq] {
-	return pulumix.Output[map[string]*CommonLicenseManageBigIq]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CommonLicenseManageBigIqMapOutput) MapIndex(k pulumi.StringInput) CommonLicenseManageBigIqOutput {

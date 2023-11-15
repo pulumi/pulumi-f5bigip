@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `FastTcpApp` This resource will create and manage FAST TCP applications on BIG-IP from provided JSON declaration.
@@ -268,12 +267,6 @@ func (i *FastTcpApp) ToFastTcpAppOutputWithContext(ctx context.Context) FastTcpA
 	return pulumi.ToOutputWithContext(ctx, i).(FastTcpAppOutput)
 }
 
-func (i *FastTcpApp) ToOutput(ctx context.Context) pulumix.Output[*FastTcpApp] {
-	return pulumix.Output[*FastTcpApp]{
-		OutputState: i.ToFastTcpAppOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FastTcpAppArrayInput is an input type that accepts FastTcpAppArray and FastTcpAppArrayOutput values.
 // You can construct a concrete instance of `FastTcpAppArrayInput` via:
 //
@@ -297,12 +290,6 @@ func (i FastTcpAppArray) ToFastTcpAppArrayOutput() FastTcpAppArrayOutput {
 
 func (i FastTcpAppArray) ToFastTcpAppArrayOutputWithContext(ctx context.Context) FastTcpAppArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FastTcpAppArrayOutput)
-}
-
-func (i FastTcpAppArray) ToOutput(ctx context.Context) pulumix.Output[[]*FastTcpApp] {
-	return pulumix.Output[[]*FastTcpApp]{
-		OutputState: i.ToFastTcpAppArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FastTcpAppMapInput is an input type that accepts FastTcpAppMap and FastTcpAppMapOutput values.
@@ -330,12 +317,6 @@ func (i FastTcpAppMap) ToFastTcpAppMapOutputWithContext(ctx context.Context) Fas
 	return pulumi.ToOutputWithContext(ctx, i).(FastTcpAppMapOutput)
 }
 
-func (i FastTcpAppMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FastTcpApp] {
-	return pulumix.Output[map[string]*FastTcpApp]{
-		OutputState: i.ToFastTcpAppMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FastTcpAppOutput struct{ *pulumi.OutputState }
 
 func (FastTcpAppOutput) ElementType() reflect.Type {
@@ -348,12 +329,6 @@ func (o FastTcpAppOutput) ToFastTcpAppOutput() FastTcpAppOutput {
 
 func (o FastTcpAppOutput) ToFastTcpAppOutputWithContext(ctx context.Context) FastTcpAppOutput {
 	return o
-}
-
-func (o FastTcpAppOutput) ToOutput(ctx context.Context) pulumix.Output[*FastTcpApp] {
-	return pulumix.Output[*FastTcpApp]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the FAST TCP application.
@@ -433,12 +408,6 @@ func (o FastTcpAppArrayOutput) ToFastTcpAppArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o FastTcpAppArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FastTcpApp] {
-	return pulumix.Output[[]*FastTcpApp]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FastTcpAppArrayOutput) Index(i pulumi.IntInput) FastTcpAppOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FastTcpApp {
 		return vs[0].([]*FastTcpApp)[vs[1].(int)]
@@ -457,12 +426,6 @@ func (o FastTcpAppMapOutput) ToFastTcpAppMapOutput() FastTcpAppMapOutput {
 
 func (o FastTcpAppMapOutput) ToFastTcpAppMapOutputWithContext(ctx context.Context) FastTcpAppMapOutput {
 	return o
-}
-
-func (o FastTcpAppMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FastTcpApp] {
-	return pulumix.Output[map[string]*FastTcpApp]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FastTcpAppMapOutput) MapIndex(k pulumi.StringInput) FastTcpAppOutput {
