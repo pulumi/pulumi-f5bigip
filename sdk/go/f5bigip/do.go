@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type Do struct {
@@ -206,12 +205,6 @@ func (i *Do) ToDoOutputWithContext(ctx context.Context) DoOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DoOutput)
 }
 
-func (i *Do) ToOutput(ctx context.Context) pulumix.Output[*Do] {
-	return pulumix.Output[*Do]{
-		OutputState: i.ToDoOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DoArrayInput is an input type that accepts DoArray and DoArrayOutput values.
 // You can construct a concrete instance of `DoArrayInput` via:
 //
@@ -235,12 +228,6 @@ func (i DoArray) ToDoArrayOutput() DoArrayOutput {
 
 func (i DoArray) ToDoArrayOutputWithContext(ctx context.Context) DoArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DoArrayOutput)
-}
-
-func (i DoArray) ToOutput(ctx context.Context) pulumix.Output[[]*Do] {
-	return pulumix.Output[[]*Do]{
-		OutputState: i.ToDoArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DoMapInput is an input type that accepts DoMap and DoMapOutput values.
@@ -268,12 +255,6 @@ func (i DoMap) ToDoMapOutputWithContext(ctx context.Context) DoMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DoMapOutput)
 }
 
-func (i DoMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Do] {
-	return pulumix.Output[map[string]*Do]{
-		OutputState: i.ToDoMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DoOutput struct{ *pulumi.OutputState }
 
 func (DoOutput) ElementType() reflect.Type {
@@ -286,12 +267,6 @@ func (o DoOutput) ToDoOutput() DoOutput {
 
 func (o DoOutput) ToDoOutputWithContext(ctx context.Context) DoOutput {
 	return o
-}
-
-func (o DoOutput) ToOutput(ctx context.Context) pulumix.Output[*Do] {
-	return pulumix.Output[*Do]{
-		OutputState: o.OutputState,
-	}
 }
 
 // IP Address of BIGIP Host to be used for this resource,this is optional parameter.
@@ -353,12 +328,6 @@ func (o DoArrayOutput) ToDoArrayOutputWithContext(ctx context.Context) DoArrayOu
 	return o
 }
 
-func (o DoArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Do] {
-	return pulumix.Output[[]*Do]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DoArrayOutput) Index(i pulumi.IntInput) DoOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Do {
 		return vs[0].([]*Do)[vs[1].(int)]
@@ -377,12 +346,6 @@ func (o DoMapOutput) ToDoMapOutput() DoMapOutput {
 
 func (o DoMapOutput) ToDoMapOutputWithContext(ctx context.Context) DoMapOutput {
 	return o
-}
-
-func (o DoMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Do] {
-	return pulumix.Output[map[string]*Do]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DoMapOutput) MapIndex(k pulumi.StringInput) DoOutput {

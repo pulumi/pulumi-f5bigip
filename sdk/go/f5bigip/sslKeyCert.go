@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `SslKeyCert` This resource will import SSL certificate and key on BIG-IP LTM.
@@ -266,12 +265,6 @@ func (i *SslKeyCert) ToSslKeyCertOutputWithContext(ctx context.Context) SslKeyCe
 	return pulumi.ToOutputWithContext(ctx, i).(SslKeyCertOutput)
 }
 
-func (i *SslKeyCert) ToOutput(ctx context.Context) pulumix.Output[*SslKeyCert] {
-	return pulumix.Output[*SslKeyCert]{
-		OutputState: i.ToSslKeyCertOutputWithContext(ctx).OutputState,
-	}
-}
-
 // SslKeyCertArrayInput is an input type that accepts SslKeyCertArray and SslKeyCertArrayOutput values.
 // You can construct a concrete instance of `SslKeyCertArrayInput` via:
 //
@@ -295,12 +288,6 @@ func (i SslKeyCertArray) ToSslKeyCertArrayOutput() SslKeyCertArrayOutput {
 
 func (i SslKeyCertArray) ToSslKeyCertArrayOutputWithContext(ctx context.Context) SslKeyCertArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SslKeyCertArrayOutput)
-}
-
-func (i SslKeyCertArray) ToOutput(ctx context.Context) pulumix.Output[[]*SslKeyCert] {
-	return pulumix.Output[[]*SslKeyCert]{
-		OutputState: i.ToSslKeyCertArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SslKeyCertMapInput is an input type that accepts SslKeyCertMap and SslKeyCertMapOutput values.
@@ -328,12 +315,6 @@ func (i SslKeyCertMap) ToSslKeyCertMapOutputWithContext(ctx context.Context) Ssl
 	return pulumi.ToOutputWithContext(ctx, i).(SslKeyCertMapOutput)
 }
 
-func (i SslKeyCertMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*SslKeyCert] {
-	return pulumix.Output[map[string]*SslKeyCert]{
-		OutputState: i.ToSslKeyCertMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type SslKeyCertOutput struct{ *pulumi.OutputState }
 
 func (SslKeyCertOutput) ElementType() reflect.Type {
@@ -346,12 +327,6 @@ func (o SslKeyCertOutput) ToSslKeyCertOutput() SslKeyCertOutput {
 
 func (o SslKeyCertOutput) ToSslKeyCertOutputWithContext(ctx context.Context) SslKeyCertOutput {
 	return o
-}
-
-func (o SslKeyCertOutput) ToOutput(ctx context.Context) pulumix.Output[*SslKeyCert] {
-	return pulumix.Output[*SslKeyCert]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The content of the cert.
@@ -423,12 +398,6 @@ func (o SslKeyCertArrayOutput) ToSslKeyCertArrayOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o SslKeyCertArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*SslKeyCert] {
-	return pulumix.Output[[]*SslKeyCert]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o SslKeyCertArrayOutput) Index(i pulumi.IntInput) SslKeyCertOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SslKeyCert {
 		return vs[0].([]*SslKeyCert)[vs[1].(int)]
@@ -447,12 +416,6 @@ func (o SslKeyCertMapOutput) ToSslKeyCertMapOutput() SslKeyCertMapOutput {
 
 func (o SslKeyCertMapOutput) ToSslKeyCertMapOutputWithContext(ctx context.Context) SslKeyCertMapOutput {
 	return o
-}
-
-func (o SslKeyCertMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*SslKeyCert] {
-	return pulumix.Output[map[string]*SslKeyCert]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o SslKeyCertMapOutput) MapIndex(k pulumi.StringInput) SslKeyCertOutput {

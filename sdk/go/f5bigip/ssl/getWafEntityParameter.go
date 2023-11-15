@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 func GetWafEntityParameter(ctx *pulumi.Context, args *GetWafEntityParameterArgs, opts ...pulumi.InvokeOption) (*GetWafEntityParameterResult, error) {
@@ -135,12 +134,6 @@ func (o GetWafEntityParameterResultOutput) ToGetWafEntityParameterResultOutput()
 
 func (o GetWafEntityParameterResultOutput) ToGetWafEntityParameterResultOutputWithContext(ctx context.Context) GetWafEntityParameterResultOutput {
 	return o
-}
-
-func (o GetWafEntityParameterResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetWafEntityParameterResult] {
-	return pulumix.Output[GetWafEntityParameterResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetWafEntityParameterResultOutput) AllowEmptyType() pulumi.BoolPtrOutput {

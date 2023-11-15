@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -51,12 +50,6 @@ func (i VlanInterfaceArgs) ToVlanInterfaceOutputWithContext(ctx context.Context)
 	return pulumi.ToOutputWithContext(ctx, i).(VlanInterfaceOutput)
 }
 
-func (i VlanInterfaceArgs) ToOutput(ctx context.Context) pulumix.Output[VlanInterface] {
-	return pulumix.Output[VlanInterface]{
-		OutputState: i.ToVlanInterfaceOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VlanInterfaceArrayInput is an input type that accepts VlanInterfaceArray and VlanInterfaceArrayOutput values.
 // You can construct a concrete instance of `VlanInterfaceArrayInput` via:
 //
@@ -82,12 +75,6 @@ func (i VlanInterfaceArray) ToVlanInterfaceArrayOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(VlanInterfaceArrayOutput)
 }
 
-func (i VlanInterfaceArray) ToOutput(ctx context.Context) pulumix.Output[[]VlanInterface] {
-	return pulumix.Output[[]VlanInterface]{
-		OutputState: i.ToVlanInterfaceArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VlanInterfaceOutput struct{ *pulumi.OutputState }
 
 func (VlanInterfaceOutput) ElementType() reflect.Type {
@@ -100,12 +87,6 @@ func (o VlanInterfaceOutput) ToVlanInterfaceOutput() VlanInterfaceOutput {
 
 func (o VlanInterfaceOutput) ToVlanInterfaceOutputWithContext(ctx context.Context) VlanInterfaceOutput {
 	return o
-}
-
-func (o VlanInterfaceOutput) ToOutput(ctx context.Context) pulumix.Output[VlanInterface] {
-	return pulumix.Output[VlanInterface]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of tagged interfaces or trunks associated with this VLAN. Note that you can associate tagged interfaces or trunks with any number of VLANs.
@@ -130,12 +111,6 @@ func (o VlanInterfaceArrayOutput) ToVlanInterfaceArrayOutput() VlanInterfaceArra
 
 func (o VlanInterfaceArrayOutput) ToVlanInterfaceArrayOutputWithContext(ctx context.Context) VlanInterfaceArrayOutput {
 	return o
-}
-
-func (o VlanInterfaceArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]VlanInterface] {
-	return pulumix.Output[[]VlanInterface]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VlanInterfaceArrayOutput) Index(i pulumi.IntInput) VlanInterfaceOutput {

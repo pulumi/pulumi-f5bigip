@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `FastHttpApp` This resource will create and manage FAST HTTP applications on BIG-IP
@@ -375,12 +374,6 @@ func (i *FastHttpApp) ToFastHttpAppOutputWithContext(ctx context.Context) FastHt
 	return pulumi.ToOutputWithContext(ctx, i).(FastHttpAppOutput)
 }
 
-func (i *FastHttpApp) ToOutput(ctx context.Context) pulumix.Output[*FastHttpApp] {
-	return pulumix.Output[*FastHttpApp]{
-		OutputState: i.ToFastHttpAppOutputWithContext(ctx).OutputState,
-	}
-}
-
 // FastHttpAppArrayInput is an input type that accepts FastHttpAppArray and FastHttpAppArrayOutput values.
 // You can construct a concrete instance of `FastHttpAppArrayInput` via:
 //
@@ -404,12 +397,6 @@ func (i FastHttpAppArray) ToFastHttpAppArrayOutput() FastHttpAppArrayOutput {
 
 func (i FastHttpAppArray) ToFastHttpAppArrayOutputWithContext(ctx context.Context) FastHttpAppArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FastHttpAppArrayOutput)
-}
-
-func (i FastHttpAppArray) ToOutput(ctx context.Context) pulumix.Output[[]*FastHttpApp] {
-	return pulumix.Output[[]*FastHttpApp]{
-		OutputState: i.ToFastHttpAppArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // FastHttpAppMapInput is an input type that accepts FastHttpAppMap and FastHttpAppMapOutput values.
@@ -437,12 +424,6 @@ func (i FastHttpAppMap) ToFastHttpAppMapOutputWithContext(ctx context.Context) F
 	return pulumi.ToOutputWithContext(ctx, i).(FastHttpAppMapOutput)
 }
 
-func (i FastHttpAppMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*FastHttpApp] {
-	return pulumix.Output[map[string]*FastHttpApp]{
-		OutputState: i.ToFastHttpAppMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type FastHttpAppOutput struct{ *pulumi.OutputState }
 
 func (FastHttpAppOutput) ElementType() reflect.Type {
@@ -455,12 +436,6 @@ func (o FastHttpAppOutput) ToFastHttpAppOutput() FastHttpAppOutput {
 
 func (o FastHttpAppOutput) ToFastHttpAppOutputWithContext(ctx context.Context) FastHttpAppOutput {
 	return o
-}
-
-func (o FastHttpAppOutput) ToOutput(ctx context.Context) pulumix.Output[*FastHttpApp] {
-	return pulumix.Output[*FastHttpApp]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the FAST HTTPS application.
@@ -566,12 +541,6 @@ func (o FastHttpAppArrayOutput) ToFastHttpAppArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o FastHttpAppArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*FastHttpApp] {
-	return pulumix.Output[[]*FastHttpApp]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o FastHttpAppArrayOutput) Index(i pulumi.IntInput) FastHttpAppOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FastHttpApp {
 		return vs[0].([]*FastHttpApp)[vs[1].(int)]
@@ -590,12 +559,6 @@ func (o FastHttpAppMapOutput) ToFastHttpAppMapOutput() FastHttpAppMapOutput {
 
 func (o FastHttpAppMapOutput) ToFastHttpAppMapOutputWithContext(ctx context.Context) FastHttpAppMapOutput {
 	return o
-}
-
-func (o FastHttpAppMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*FastHttpApp] {
-	return pulumix.Output[map[string]*FastHttpApp]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o FastHttpAppMapOutput) MapIndex(k pulumi.StringInput) FastHttpAppOutput {

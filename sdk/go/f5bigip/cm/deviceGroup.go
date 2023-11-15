@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-f5bigip/sdk/v3/go/f5bigip/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // `cm.DeviceGroup` A device group is a collection of BIG-IP devices that are configured to securely synchronize their BIG-IP configuration data, and fail over when needed.
@@ -224,12 +223,6 @@ func (i *DeviceGroup) ToDeviceGroupOutputWithContext(ctx context.Context) Device
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceGroupOutput)
 }
 
-func (i *DeviceGroup) ToOutput(ctx context.Context) pulumix.Output[*DeviceGroup] {
-	return pulumix.Output[*DeviceGroup]{
-		OutputState: i.ToDeviceGroupOutputWithContext(ctx).OutputState,
-	}
-}
-
 // DeviceGroupArrayInput is an input type that accepts DeviceGroupArray and DeviceGroupArrayOutput values.
 // You can construct a concrete instance of `DeviceGroupArrayInput` via:
 //
@@ -253,12 +246,6 @@ func (i DeviceGroupArray) ToDeviceGroupArrayOutput() DeviceGroupArrayOutput {
 
 func (i DeviceGroupArray) ToDeviceGroupArrayOutputWithContext(ctx context.Context) DeviceGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceGroupArrayOutput)
-}
-
-func (i DeviceGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*DeviceGroup] {
-	return pulumix.Output[[]*DeviceGroup]{
-		OutputState: i.ToDeviceGroupArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DeviceGroupMapInput is an input type that accepts DeviceGroupMap and DeviceGroupMapOutput values.
@@ -286,12 +273,6 @@ func (i DeviceGroupMap) ToDeviceGroupMapOutputWithContext(ctx context.Context) D
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceGroupMapOutput)
 }
 
-func (i DeviceGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*DeviceGroup] {
-	return pulumix.Output[map[string]*DeviceGroup]{
-		OutputState: i.ToDeviceGroupMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type DeviceGroupOutput struct{ *pulumi.OutputState }
 
 func (DeviceGroupOutput) ElementType() reflect.Type {
@@ -304,12 +285,6 @@ func (o DeviceGroupOutput) ToDeviceGroupOutput() DeviceGroupOutput {
 
 func (o DeviceGroupOutput) ToDeviceGroupOutputWithContext(ctx context.Context) DeviceGroupOutput {
 	return o
-}
-
-func (o DeviceGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*DeviceGroup] {
-	return pulumix.Output[*DeviceGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies if the device-group will automatically sync configuration data to its members
@@ -376,12 +351,6 @@ func (o DeviceGroupArrayOutput) ToDeviceGroupArrayOutputWithContext(ctx context.
 	return o
 }
 
-func (o DeviceGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*DeviceGroup] {
-	return pulumix.Output[[]*DeviceGroup]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o DeviceGroupArrayOutput) Index(i pulumi.IntInput) DeviceGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DeviceGroup {
 		return vs[0].([]*DeviceGroup)[vs[1].(int)]
@@ -400,12 +369,6 @@ func (o DeviceGroupMapOutput) ToDeviceGroupMapOutput() DeviceGroupMapOutput {
 
 func (o DeviceGroupMapOutput) ToDeviceGroupMapOutputWithContext(ctx context.Context) DeviceGroupMapOutput {
 	return o
-}
-
-func (o DeviceGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*DeviceGroup] {
-	return pulumix.Output[map[string]*DeviceGroup]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o DeviceGroupMapOutput) MapIndex(k pulumi.StringInput) DeviceGroupOutput {
